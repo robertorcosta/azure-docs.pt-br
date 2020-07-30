@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 236153612f6056e90cb9b5af128f49ed550e3fe9
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2ef2cc86b3e12149977fa819a7e54ee9a1c0d7ac
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080866"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423976"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade de todo o locatário para o Centro de Segurança do Azure
 Este artigo explica como gerenciar a postura de segurança de sua organização em escala aplicando políticas de segurança a todas as assinaturas do Azure vinculadas ao seu locatário de Azure Active Directory.
@@ -26,7 +26,7 @@ Este artigo explica como gerenciar a postura de segurança de sua organização 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="management-groups"></a>Grupos de gerenciamento
-Os grupos de gerenciamento do Azure fornecem a capacidade de gerenciar com eficiência o acesso, as políticas e os relatórios sobre grupos de assinaturas, bem como gerenciar com eficácia toda a propriedade do Azure executando ações no grupo de gerenciamento raiz. Cada locatário Azure AD recebe um único grupo de gerenciamento de nível superior chamado grupo de gerenciamento “raiz”. Esse grupo de gerenciamento raiz é compilado na hierarquia para que todos os grupos de gerenciamento e assinaturas sejam dobrados nele. Esse grupo permite que políticas globais e atribuições de RBAC sejam aplicados no nível de diretório. 
+Os grupos de gerenciamento do Azure fornecem a capacidade de gerenciar com eficiência o acesso, as políticas e os relatórios sobre grupos de assinaturas, bem como gerenciar com eficácia toda a propriedade do Azure executando ações no grupo de gerenciamento raiz. Cada locatário Azure AD recebe um único grupo de gerenciamento de nível superior chamado grupo de gerenciamento “raiz”. Esse grupo de gerenciamento raiz é compilado na hierarquia para que todos os grupos de gerenciamento e assinaturas sejam dobrados nele. Esse grupo permite que políticas globais e atribuições de função do Azure sejam aplicadas no nível do diretório. 
 
 O grupo de gerenciamento raiz é criado automaticamente quando você faz qualquer uma das seguintes ações: 
 1. Opta por usar os grupos de gerenciamento do Azure navegando para **Grupos de Gerenciamento** no [Portal do Azure](https://portal.azure.com).
@@ -193,4 +193,3 @@ Neste artigo, você aprendeu como ganhar visibilidade a nível locatário para C
 
 > [!div class="nextstepaction"]
 > [Gerencie e responda a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md)
-

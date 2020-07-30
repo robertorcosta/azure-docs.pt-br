@@ -3,12 +3,12 @@ title: Criptografia de dados de backup usando chaves gerenciadas pelo cliente
 description: Saiba como o backup do Azure permite que você criptografe seus dados de backup usando chaves gerenciadas pelo cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: c26466582cbe5a10610f6766160c2b0bc51a4828
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1586a40d115a591c474c3bc8c1fed5448eb90bcd
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091089"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387992"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Criptografia de dados de backup usando chaves gerenciadas pelo cliente
 
@@ -92,7 +92,7 @@ Agora você precisa permitir que o cofre dos serviços de recuperação acesse o
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Habilitar a proteção de exclusão e limpeza reversível no Azure Key Vault
 
-Você precisa **habilitar a exclusão reversível e limpar a proteção** no Azure Key Vault que armazena sua chave de criptografia. Você pode fazer isso na interface do usuário do Azure Key Vault, conforme mostrado abaixo. (Como alternativa, essas propriedades podem ser definidas ao criar o Key Vault). Leia mais sobre essas propriedades de Key Vault [aqui](../key-vault/general/overview-soft-delete.md).
+Você precisa **habilitar a exclusão reversível e limpar a proteção** no Azure Key Vault que armazena sua chave de criptografia. Você pode fazer isso na interface do usuário do Azure Key Vault, conforme mostrado abaixo. (Como alternativa, essas propriedades podem ser definidas ao criar o Key Vault). Leia mais sobre essas propriedades de Key Vault [aqui](../key-vault/general/soft-delete-overview.md).
 
 ![Habilitar exclusão reversível e proteção de limpeza](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 

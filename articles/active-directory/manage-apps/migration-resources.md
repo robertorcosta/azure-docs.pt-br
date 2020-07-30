@@ -11,17 +11,16 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fe21b6509080e88c63d9c02c8116f3882fb64dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 327e59d3fee6f23d2635b846e9fb5ab422e0139e
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763101"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429027"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Recursos para migrar aplicativos para o Azure Active Directory
 
-Recursos para ajudá-lo a migrar o acesso e a autenticação de aplicativos para o Azure AD (Azure Active Directory). Responda a esta pequena pesquisa (https://aka.ms/AppsMigrationFeedback) para fornecer feedback sobre sua experiência de migração de aplicativos para o Azure AD (incluindo bloqueadores para migração, necessidade de ferramentas / orientação ou motivos para manter seu IDP local). 
+Recursos para ajudá-lo a migrar o acesso e a autenticação de aplicativos para o Azure AD (Azure Active Directory).
 
 | Recurso  | Descrição  |
 |:-----------|:-------------|

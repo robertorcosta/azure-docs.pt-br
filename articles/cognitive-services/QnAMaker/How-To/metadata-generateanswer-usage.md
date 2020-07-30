@@ -8,12 +8,13 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 863143cb2ec1085bf03b070c225f2be5e8e4393d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 7120f95b8b61fc08759f4d15061ec530849dfc05
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126169"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406513"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API e os metadados do GenerateAnswer
 
@@ -268,7 +269,7 @@ Você pode pesquisar os KB publicados, usando `isTest=false` ou na KB de teste u
 
 |Código|Explicação|
 |:--|--|
-|2xx|Êxito|
+|2xx|Sucesso|
 |400|Os parâmetros da solicitação estão incorretos, o que significa que os parâmetros necessários estão ausentes, errados ou são muitos grandes|
 |400|O corpo da solicitação está incorreto, o que significa que o JSON está ausente, errado ou é muito grande|
 |401|Chave inválida|

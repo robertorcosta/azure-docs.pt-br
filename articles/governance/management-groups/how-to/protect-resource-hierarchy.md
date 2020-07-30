@@ -3,12 +3,12 @@ title: Como proteger sua hierarquia de recursos – Governança do Azure
 description: Saiba como proteger sua hierarquia de recursos com configurações de hierarquia que incluem a definição do grupo de gerenciamento padrão.
 ms.date: 05/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2f8d3d7ff85552fe18a49137450aefe91d0d02c9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: cdaad59d136e89c595a6a42a9760c73523a977c0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366765"
+ms.locfileid: "87422820"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Como proteger a hierarquia de recursos
 
@@ -29,7 +29,7 @@ Essas operações só permitem que um usuário leia e atualize as configuraçõe
 
 Por padrão, uma nova assinatura adicionada dentro de um locatário é adicionada como um membro do grupo de gerenciamento raiz. Se atribuições de política, controle de acesso baseado em função (RBAC) e outros constructos de governança forem atribuídos ao grupo de gerenciamento raiz, eles afetarão imediatamente essas novas assinaturas. Por esse motivo, muitas organizações não aplicam esses constructos no grupo de gerenciamento raiz, embora esse seja o local recomendado para atribuí-los. Em outros casos, um conjunto mais restritivo de controles é o mais indicado para novas assinaturas, mas não deve ser atribuído a todas as assinaturas. Essa configuração dá suporte a ambos os casos de uso.
 
-Quando é permitido que o grupo de gerenciamento padrão para novas assinaturas seja definido, os constructos de governança de toda a organização podem ser aplicados no grupo de gerenciamento raiz e um grupo de gerenciamento separado com atribuições de política ou atribuições RBAC mais adequadas a uma nova assinatura pode ser definido.
+Ao permitir que o grupo de gerenciamento padrão para novas assinaturas seja definido, as construções de governança de toda a organização podem ser aplicadas no grupo de gerenciamento raiz e um grupo de gerenciamento separado com atribuições de política ou atribuições de função do Azure mais adequadas para uma nova assinatura pode ser definido.
 
 Para definir essa configuração, o ponto de extremidade da API REST de [Configurações de Hierarquia](/rest/api/resources/hierarchysettings) é chamado. Para fazer isso, use os seguintes URI da API REST e formato de corpo. Substitua `{rootMgID}` pela ID do grupo de gerenciamento raiz e `{defaultGroupID}` pela ID do grupo de gerenciamento para se tornar o grupo de gerenciamento padrão:
 

@@ -1,19 +1,18 @@
 ---
 title: Backups consistentes com o aplicativo de VMs Linux
 description: Criar backups consistentes com o aplicativo para máquinas virtuais do Linux no Azure. Este artigo explica como configurar a estrutura de script para fazer backup de VMs Linux implantadas no Azure. Este artigo também inclui informações de solução de problemas.
-ms.reviewer: anuragm
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 8d578df45235b3bef314245e4eb7a0976c4d48d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1ebf1b4148c43b07c0fddee67970abe8381e4c30
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054857"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407091"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup consistente com o aplicativo de VMs Linux do Azure
 
-Ao fazer instantâneos de backup de suas VMs, consistência com o aplicativo significa que seus aplicativos são inicializados quando as VMs são inicializadas após serem restauradas. Como você pode imaginar, a consistência com o aplicativo é extremamente importante. Para garantir que suas VMs Linux sejam consistentes, você pode usar a estrutura de pré-script e pós-script do Linux para fazer backups consistentes com aplicativos. A estrutura de pré-script e pós-script é compatível com máquinas virtuais do Linux implantadas pelo Azure Resource Manager. Scripts para consistência com aplicativos não dão suporte a máquinas virtuais implantadas pelo Service Manager ou a máquinas virtuais do Windows.
+Ao fazer instantâneos de backup de suas VMs, consistência com o aplicativo significa que seus aplicativos são inicializados quando as VMs são inicializadas após serem restauradas. Como você pode imaginar, a consistência com o aplicativo é extremamente importante. Para garantir que suas VMs Linux sejam consistentes, você pode usar a estrutura de pré-script e pós-script do Linux para fazer backups consistentes com aplicativos. A estrutura de pré-script e pós-script é compatível com máquinas virtuais do Linux implantadas pelo Azure Resource Manager. Scripts para consistência de aplicativos não oferecem suporte a máquinas virtuais implantadas Service Manager ou máquinas virtuais do Windows.
 
 ## <a name="how-the-framework-works"></a>Como funciona a estrutura
 
@@ -53,19 +52,19 @@ Pré-scripts invocam APIs nativas do aplicativo, que fecham as E/Ss para novas s
 
     - **postScriptParams**: forneça os parâmetros opcionais que precisam ser passados para o pós-script. Todos os parâmetros devem estar entre aspas. Se usar vários parâmetros, separe-os com uma vírgula.
 
-    - **preScriptNoOfRetries**: defina o número de vezes que o pré-script deve ser repetido caso haja qualquer erro antes do encerramento. Zero significa apenas uma tentativa e nenhuma repetição se houver uma falha.
+    - **preScriptNoOfRetries**: defina o número de vezes que o pré-script deve ser repetido se houver algum erro antes de encerrar. Zero significa apenas uma tentativa e nenhuma repetição se houver uma falha.
 
-    - **postScriptNoOfRetries**: defina o número de vezes que o pós-script deve ser repetido caso haja qualquer erro antes do encerramento. Zero significa apenas uma tentativa e nenhuma repetição se houver uma falha.
+    - **postScriptNoOfRetries**: defina o número de vezes que o pós-script deve ser repetido se houver algum erro antes de encerrar. Zero significa apenas uma tentativa e nenhuma repetição se houver uma falha.
 
     - **timeoutInSeconds**: Especifique os tempos limite individuais para o pré-script e o pós-script (o valor máximo pode ser 1800).
 
-    - **continueBackupOnFailure**: defina esse valor como **true** se você quiser que o Backup do Azure passe por fallback para um backup consistente com falha/ consistente com o sistema de arquivos, se o pré-script ou pós-script falhar. Definir isso como **false** causará a falha do backup no caso de falha do script (exceto quando você tiver uma VM de disco único que passa por fallback par a um backup consistente com a falha independentemente dessa configuração).
+    - **continueBackupOnFailure**: defina esse valor como **true** se você quiser que o Backup do Azure passe por fallback para um backup consistente com falha/ consistente com o sistema de arquivos, se o pré-script ou pós-script falhar. Definir isso como **false** falhará no backup se houver uma falha de script (exceto quando você tiver uma VM de disco único que retorne ao backup consistente com falha, independentemente dessa configuração). Quando o valor de **continueBackupOnFailure** for definido como false, se o backup falhar, a operação de backup será tentada novamente com base em uma lógica de repetição no serviço (para o número estipulado de tentativas).
 
     - **fsFreezeEnabled**: especifique se Linux fsfreeze deve ser chamado durante a obtenção do instantâneo da VM para garantir a consistência do sistema de arquivos. Recomendamos manter essa configuração como **true**, a menos que seu aplicativo tenha dependência na desabilitação do fsfreeze.
 
     - **ScriptsExecutionPollTimeSeconds**: defina a hora em que a extensão deve ser suspensa entre cada sondagem para a execução do script. Por exemplo, se o valor for 2, a extensão verificará se a execução do script anterior/posterior foi concluída a cada 2 segundos. O valor mínimo e máximo que pode levar é 1 e 5, respectivamente. O valor deve ser estritamente um inteiro.
 
-6. A estrutura de script está configurada. Se o backup da VM já estiver configurado, o próximo backup invocará os scripts e disparará o backup consistente com o aplicativo. Se o backup da VM não estiver configurado, configure-o usando [Fazer backup de máquinas virtuais do Azure em cofres dos Serviços de Recuperação.](./backup-azure-vms-first-look-arm.md)
+6. A estrutura de script está configurada. Se o backup da VM já estiver configurado, o próximo backup invocará os scripts e disparará o backup consistente com o aplicativo. Se o backup da VM não estiver configurado, configure-o usando [fazer backup de máquinas virtuais do Azure para cofres dos serviços de recuperação.](./backup-azure-vms-first-look-arm.md)
 
 ## <a name="troubleshooting"></a>Solução de problemas
 

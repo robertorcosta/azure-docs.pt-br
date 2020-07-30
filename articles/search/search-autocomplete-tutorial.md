@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 004f1ea55bcda68485d8b11ed472b6cab2ca7545
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 2de282da56a40c92eacde84ac913be0ceacf9e2b
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562491"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87413010"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Adicionar preenchimento automático e sugestões aos aplicativos cliente
 
@@ -176,7 +177,7 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 
 A função Suggest utiliza dois parâmetros que determinam se os destaques de ocorrências são retornados ou se correspondência difusa é usada em conjunto com o termo de pesquisa de entrada. O método cria um [objeto sugiraparameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), que é passado para a API de sugestão. O resultado, em seguida, é convertido em JSON para que ele possa ser exibido no cliente.
 
-## <a name="autocomplete"></a>Preenchimento Automático
+## <a name="autocomplete"></a>Preenchimento automático
 
 Até agora, o código UX de pesquisa foi centralizado em sugestões. O próximo bloco de código mostra o preenchimento automático, usando a função de preenchimento automático da interface do usuário do XDSoft jQuery, passando uma solicitação para preenchimento automático de Pesquisa Cognitiva do Azure. Assim como nas sugestões, em um aplicativo C#, o código que dá suporte à interação do usuário vai em **index. cshtml**.
 

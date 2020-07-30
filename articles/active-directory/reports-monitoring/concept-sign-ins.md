@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2910933e2c57a8bc80a220726462b02915c4a8eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81daa7696c645c1353cdd5e6d3cbca90ac4f03da
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80246510"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87388111"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
@@ -63,7 +63,7 @@ O relatório de entradas de usuário fornece respostas para as seguintes pergunt
 
 No menu [portal do Azure](https://portal.azure.com) , selecione **Azure Active Directory**ou pesquise e selecione **Azure Active Directory** em qualquer página.
 
-![Selecionar Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+![Selecione Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
 
 Em **monitoramento**, selecione **entradas** para abrir o relatório de [entradas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
 
@@ -184,7 +184,7 @@ O **local** -o local do qual a conexão foi iniciada:
 
 - **Êxito**: uma ou mais políticas de acesso condicional aplicadas ao usuário e ao aplicativo (mas não necessariamente às outras condições) durante a entrada. 
 
-- **Falha**: uma ou mais políticas de acesso condicional aplicadas e não foram satisfeitas durante a entrada.
+- **Falha**: a entrada satisfez a condição de usuário e aplicativo de pelo menos uma política de acesso condicional e os controles de concessão não são atendidos ou definidos para bloquear o acesso.
 
 
 
@@ -236,7 +236,7 @@ Ao clicar em um item, você verá mais detalhes sobre a operação de entrada:
 - ID do aplicativo
 - Aplicativo
 - Cliente
-- Local
+- Location
 - Endereço IP
 - Data
 - MFA obrigatório

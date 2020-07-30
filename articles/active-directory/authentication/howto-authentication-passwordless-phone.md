@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5dbf26bc636107576af15a0217eb16302f63f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5022dfc5811f3db59774a46a7034ff14c4dcf4a8
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601625"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428020"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilitar a entrada sem senha com o aplicativo Microsoft Authenticator (versão prévia)
 
@@ -45,7 +45,7 @@ Os recursos de registro para métodos de autenticação com senha contam com o r
 
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Habilitar métodos de autenticação de entrada por telefone sem senha
 
-1. Entre no [Portal do Azure](https://portal.azure.com)
+1. Entre no [portal do Azure](https://portal.azure.com) com uma conta de **administrador global** .
 1. Pesquise *Azure Active Directory* e selecione-o. Selecionar **Security**  >  **métodos**  >  **de autenticação de segurança política de método de autenticação (versão prévia)**
 1. Em **entrada no telefone sem senha**, escolha as seguintes opções
    1. **Habilitar** -Sim ou não

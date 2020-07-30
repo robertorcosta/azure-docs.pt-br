@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: f592e265cafc3e56dc0616e6eeb748c851084c32
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: fb23893f176a2b51e5917ea5bbcb0e52faa64bf3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317868"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423432"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -218,6 +218,8 @@ myenv = Environment.from_conda_specification(name = 'myenv',
                                              file_path = 'path-to-conda-specification-file'
 myenv.register(workspace=ws)
 ```
+
+Para obter uma discussão completa sobre como usar e personalizar ambientes Python com Azure Machine Learning, consulte [criar & usar ambientes de software no Azure Machine Learning](how-to-use-environments.md)
 
 ### <a name="2-define-scoring-code"></a><a id="script"></a>2. definir código de Pontuação
 
@@ -636,7 +638,7 @@ Consulte [implantar no serviço kubernetes do Azure](how-to-deploy-azure-kuberne
 ### <a name="ab-testing-controlled-rollout"></a>Teste A/B (distribuição controlada)
 Para obter mais informações, consulte [distribuição controlada de modelos de ml](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) para obter mais informações.
 
-## <a name="consume-web-services"></a>Consumir serviços Web
+## <a name="inference-using-web-services"></a>Inferência usando serviços Web
 
 Cada serviço Web implantado fornece um ponto de extremidade REST, para que você possa criar aplicativos cliente em qualquer linguagem de programação.
 Se você habilitou a autenticação baseada em chave para seu serviço, precisará fornecer uma chave de serviço como um token no cabeçalho da solicitação.

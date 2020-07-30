@@ -3,12 +3,12 @@ title: Suporte para avaliação de servidor físico nas migrações para Azure
 description: Saiba mais sobre o suporte para avaliação de servidor físico com a avaliação de servidor de migrações para Azure
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 3391a29b2297d192aad0d499f688105db9af528b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 97da09fa88cc3e69965237cb5b4326b8b59739bd
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304319"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423772"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matriz de suporte para avaliação do servidor físico 
 
@@ -34,7 +34,7 @@ Para avaliar servidores físicos, você cria um projeto de migrações para Azur
 | **Suporte**                | **Detalhes**               
 | :-------------------       | :------------------- |
 | **Implantação de servidor físico**       | O servidor físico pode ser autônomo ou implantado em um cluster. |
-| **Permissões**           | **Windows:** Use uma conta de domínio para computadores ingressados no domínio e uma conta local para computadores que ingressaram no domínio. A conta de usuário deve ser adicionada a estes grupos: Usuários de Gerenciamento Remoto, Usuários do Monitor de Desempenho e Usuários do Log de Desempenho. <br/><br/> **Linux:** Você precisa de uma conta raiz nos servidores Linux que deseja descobrir. |
+| **Permissões**           | **Windows:** Use uma conta de domínio para computadores ingressados no domínio e uma conta local para computadores que não são ingressados no domínio. A conta de usuário deve ser adicionada a estes grupos: Usuários de Gerenciamento Remoto, Usuários do Monitor de Desempenho e Usuários do Log de Desempenho. <br/><br/> **Linux:** Você precisa de uma conta raiz nos servidores Linux que deseja descobrir. |
 | **Sistema operacional** | Todos os sistemas operacionais, exceto o Windows Server 2003 e o SUSE Linux, podem ser avaliados quanto à migração. |
 
 

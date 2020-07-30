@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80a75664b977c7f37808de7ca68b332363886a4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d14023065005977334a9f399a61acfde3b6ba9f3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742974"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87413146"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Atribuir uma função personalizada do Azure AD no PIM (Privileged Identity Management)
 
@@ -34,7 +34,7 @@ Este artigo informa como usar o PIM (Privileged Identity Management) para criar 
 > [!NOTE]
 > As funções personalizadas do Azure AD não são integradas às funções de diretório internas durante a versão prévia. Depois que a funcionalidade estiver em disponibilidade geral, o gerenciamento de função ocorrerá na experiência de funções internas. Se você vir a seguinte faixa, essas funções deverão ser gerenciadas [na experiência de funções internas](pim-how-to-activate-role.md) e este artigo não se aplicará:
 >
-> [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
+> [![Selecione Azure AD > Privileged Identity Management.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## <a name="assign-a-role"></a>Atribuir uma função
 

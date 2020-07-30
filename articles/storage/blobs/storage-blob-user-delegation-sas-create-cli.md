@@ -10,12 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: d6fdf25087ec376ec1bc9173aae16f357795372e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: edfdbef2dd0cbfe264ae6a52741413ca28d70864
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130912"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424453"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Criar uma SAS de delegação de usuário para um contêiner ou BLOB com o CLI do Azure
 
@@ -129,7 +129,7 @@ az storage account revoke-delegation-keys \
 ```
 
 > [!IMPORTANT]
-> Tanto a chave de delegação do usuário quanto as atribuições de função do RBAC são armazenadas em cache pelo armazenamento do Azure, portanto, pode haver um atraso entre quando você inicia o processo de revogação e quando uma SAS de delegação de usuário existente se torna inválida.
+> Tanto a chave de delegação do usuário quanto as atribuições de função do Azure são armazenadas em cache pelo armazenamento do Azure, portanto, pode haver um atraso entre quando você inicia o processo de revogação e quando uma SAS de delegação de usuário existente se torna inválida.
 
 ## <a name="next-steps"></a>Próximas etapas
 

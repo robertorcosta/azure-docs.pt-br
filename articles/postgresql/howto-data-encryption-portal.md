@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/13/2020
-ms.openlocfilehash: 00fd6ff9d79a59421a13d02ad4bafcf3f0a964fa
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1cff2b56e529e0f52b23f225f7eb492300447ea1
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119660"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387924"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-portal"></a>Criptografia de dados para um servidor único para PostgreSQL para Azure usando o portal do Azure
 
@@ -22,13 +22,13 @@ Saiba como usar o portal do Azure para configurar e gerenciar a criptografia de 
 * É necessário ter uma assinatura do Azure e ser um administrador nessa assinatura.
 * No Azure Key Vault, crie um cofre de chaves e a chave para usar para uma chave gerenciada pelo cliente.
 * O cofre de chaves deve ter as seguintes propriedades para usar como uma chave gerenciada pelo cliente:
-  * [Exclusão reversível](../key-vault/general/overview-soft-delete.md)
+  * [Exclusão reversível](../key-vault/general/soft-delete-overview.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -test -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [Limpar protegido](../key-vault/general/overview-soft-delete.md#purge-protection)
+  * [Limpar protegido](../key-vault/general/soft-delete-overview.md#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true

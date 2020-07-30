@@ -1,5 +1,5 @@
 ---
-title: Operações dos provedores de recursos do Azure
+title: Operações do provedor de recursos do Azure
 description: Lista as operações para os provedores de recursos do Azure.
 services: active-directory
 ms.service: role-based-access-control
@@ -8,20 +8,20 @@ ms.workload: identity
 author: rolyon
 ms.author: rolyon
 ms.date: 07/16/2020
-ms.openlocfilehash: 0fc2039805b155535eeac1d653fc9ecb9e576d5d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d28f852ad4159472b7fcb3289a322db54be8af1e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496937"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387380"
 ---
-# <a name="azure-resource-providers-operations"></a>Operações dos provedores de recursos do Azure
+# <a name="azure-resource-provider-operations"></a>Operações do provedor de recursos do Azure
 
 Esta seção lista as operações para provedores de recursos do Azure, que são usadas em funções internas. Você pode usar essas operações em suas próprias [funções personalizadas do Azure](custom-roles.md) para fornecer controle de acesso granular aos recursos no Azure. As operações do provedor de recursos estão sempre em evolução. Para obter as operações mais recentes, use [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) ou [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 
 Clique no nome do provedor de recursos na tabela a seguir para ver a lista de operações.
 
-## <a name="all"></a>Tudo
+## <a name="all"></a>Todos
 
 | Geral |
 | --- |
@@ -6607,7 +6607,7 @@ Serviço do Azure: [DevOps do Azure](https://docs.microsoft.com/azure/devops/)
 > | Microsoft.VisualStudio/Project/Delete | Exclui o Projeto |
 > | Microsoft.VisualStudio/Project/Read | Lê o Projeto |
 
-## <a name="migrate"></a>Migrações
+## <a name="migrate"></a>Migrar
 
 ### <a name="microsoftmigrate"></a>Microsoft.Migrate
 

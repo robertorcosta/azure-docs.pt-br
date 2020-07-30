@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 558dd152aa1c6638155ad4215dc16f08d33d2e2f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f6de05e0ad5e4294b801a8b349663d92db448de6
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080532"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424283"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Atualizações automáticas de imagem do sistema operacional do conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -50,7 +50,7 @@ No momento, há suporte apenas determinadas imagens de plataforma do sistema ope
 
 Atualmente, há suporte para as seguintes SKUs de plataforma (e mais são adicionadas periodicamente):
 
-| Publisher               | Oferta de sistema operacional      |  Sku               |
+| Publicador               | Oferta de sistema operacional      |  Sku               |
 |-------------------------|---------------|--------------------|
 | Canônico               | UbuntuServer  | 16.04-LTS          |
 | Canônico               | UbuntuServer  | 18.04-LTS          |
@@ -293,7 +293,7 @@ az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScale
 
 Você pode usar modelos para implantar um conjunto de dimensionamento com atualizações de sistema operacional automáticas para imagens compatíveis, tais como [Ubuntu 16.04-LTS](https://github.com/Azure/vm-scale-sets/blob/master/preview/upgrade/autoupdate.json).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Azure." /></a>
 
 ## <a name="next-steps"></a>Próximas etapas
 Para ver mais exemplos sobre como usar atualizações automáticas do sistema operacional com conjuntos de dimensionamento, examine o [repositório do GitHub](https://github.com/Azure/vm-scale-sets/tree/master/preview/upgrade).

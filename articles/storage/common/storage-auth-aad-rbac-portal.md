@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 160833817150332b240ec17b2b700fbcb7a4456b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 28cb140293d449876cc05e3e5f9e59a04b8396e0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370641"
+ms.locfileid: "87423689"
 ---
 # <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Use o portal do Azure para atribuir uma função de RBAC para acesso aos dados de blob e de fila
 
@@ -66,7 +66,7 @@ O procedimento mostrado aqui atribui uma função com escopo a um contêiner, ma
 
     ![Captura de tela que mostra como atribuir uma função do RBAC](media/storage-auth-aad-rbac-portal/add-rbac-role.png)
 
-1. Clique em **Salvar**. A identidade à qual você atribuiu a função aparece listada sob essa função. Por exemplo, a imagem a seguir mostra que o usuário adicionado agora tem permissões de leitura para os dados no contêiner nomeado *sample-container*.
+1. Clique em **Save** (Salvar). A identidade à qual você atribuiu a função aparece listada sob essa função. Por exemplo, a imagem a seguir mostra que o usuário adicionado agora tem permissões de leitura para os dados no contêiner nomeado *sample-container*.
 
     ![Captura de tela mostrando a lista de usuários atribuídos a uma função](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
 
@@ -99,7 +99,7 @@ A atribuição da função **leitor** é necessária apenas para usuários que p
 
 - Para obter mais informações sobre as funções RBAC para recursos de armazenamento, consulte [autenticar o acesso a BLOBs e filas do Azure usando o Azure Active Directory](storage-auth-aad.md). 
 - Para saber mais sobre o RBAC, confira [o que é o Azure RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md).
-- Para saber como atribuir e gerenciar atribuições de função do RBAC com Azure PowerShell, CLI do Azure ou API REST, consulte estes artigos:
+- Para saber como atribuir e gerenciar atribuições de função do Azure com Azure PowerShell, CLI do Azure ou a API REST, consulte estes artigos:
     - [Gerenciar o controle de acesso baseado em função (RBAC) com o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
     - [Gerenciar o controle de acesso baseado em função (RBAC) com a CLI do Azure](../../role-based-access-control/role-assignments-cli.md)
     - [Gerenciar o controle de acesso baseado em função (RBAC) com a API REST](../../role-based-access-control/role-assignments-rest.md)

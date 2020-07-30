@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 0b3b0d686ae10f9b376c977bf165eccddda32239
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 738e6507a1642a1ab76938eeaf3294668bcea964
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744523"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422276"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Exibição e pesquisa da atividade de entrada recente da página Minhas entradas (versão prévia)
 
@@ -73,3 +73,5 @@ Depois de ver sua atividade de entrada recente, você pode:
 - Exibir ou gerenciar as [organizações](my-account-portal-organizations-page.md).
 
 - Exibir como a organização [usa os dados relacionados à privacidade](my-account-portal-privacy-page.md).
+
+- Alterar [as configurações do portal da minha conta](my-account-portal-settings.md)

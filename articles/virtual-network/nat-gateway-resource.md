@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
 ms.author: allensu
-ms.openlocfilehash: 0b025b3e017c8a7702b411e9d91cbdf22f915aba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 983a3e04921bb3d8e804430948013a1b51802727
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549627"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424061"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Criar redes virtuais com recursos de gateway de NAT
 
@@ -28,7 +28,7 @@ Recursos de gateway da NAT são parte da [NAT de Rede Virtual](nat-overview.md) 
 
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="NAT de Rede Virtual para saída à Internet">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="NAT de Rede Virtual para saída à Internet">
 </p>
 
 *Figura: NAT de Rede Virtual para saída à Internet*
@@ -54,7 +54,7 @@ O recurso é projetado para ser simples, conforme você pode ver no exemplo a se
 O diagrama a seguir mostra as referências graváveis entre os diferentes recursos do Azure Resource Manager.  A seta indica a direção da referência, partindo no local em que ela é gravável. Revisão 
 
 <p align="center">
-  <img src="media/nat-overview/flow-map.svg" width="256" title="Modelo de objeto da NAT de Rede Virtual">
+  <img src="media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="Modelo de objeto da NAT de Rede Virtual">
 </p>
 
 *Figura: Modelo de objeto da NAT de Rede Virtual*
@@ -119,7 +119,7 @@ O gateway da NAT é compatível com:
 Ao desenvolver uma nova implantação, comece com SKUs padrão.
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="NAT de Rede Virtual para saída à Internet">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network." width="256" title="NAT de Rede Virtual para saída à Internet">
 </p>
 
 *Figura: NAT de Rede Virtual para saída à Internet*
@@ -129,7 +129,7 @@ O cenário de somente saída pela Internet fornecido pelo gateway da NAT pode se
 #### <a name="nat-and-vm-with-instance-level-public-ip"></a>NAT e VM com IP público no nível da instância
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction2.svg" width="300" title="NAT e VM da Rede Virtual com IP público no nível da instância">
+  <img src="media/nat-overview/flow-direction2.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP." width="300" title="NAT e VM da Rede Virtual com IP público no nível da instância">
 </p>
 
 *Figura: NAT e VM da Rede Virtual com IP público no nível da instância*
@@ -144,7 +144,7 @@ A VM usará o gateway da NAT para saída.  A entrada originada não é afetada.
 #### <a name="nat-and-vm-with-public-load-balancer"></a>NAT e VM com Load Balancer público
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction3.svg" width="350" title="NAT e VM da Rede Virtual com Load Balancer público">
+  <img src="media/nat-overview/flow-direction3.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with a public load balancer." width="350" title="NAT e VM da Rede Virtual com Load Balancer público">
 </p>
 
 *Figura: NAT e VM da Rede Virtual com Load Balancer público*
@@ -159,7 +159,7 @@ Qualquer configuração de saída de uma regra para balanceamento de carga ou re
 #### <a name="nat-and-vm-with-instance-level-public-ip-and-public-load-balancer"></a>NAT e VM com Load Balancer público e IP público no nível da instância
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction4.svg" width="425" title="NAT e VM com IP da Rede Virtual com Load Balancer público e IP público no nível da instância">
+  <img src="media/nat-overview/flow-direction4.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP and a public load balancer." width="425" title="NAT e VM com IP da Rede Virtual com Load Balancer público e IP público no nível da instância">
 </p>
 
 *Figura: NAT e VM com IP da Rede Virtual com Load Balancer público e IP público no nível da instância*
@@ -182,7 +182,7 @@ Gateways da NAT têm precedência sobre cenários de saída da sub-rede. O IP p�
 #### <a name="zone-isolation-with-zonal-stacks"></a>Isolamento de zona com pilhas zonais
 
 <p align="center">
-  <img src="media/nat-overview/az-directions.svg" width="425" title="NAT da Rede Virtual com isolamento de zona criando várias "zonal stacks"">
+  <img src="media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="425" title="NAT da Rede Virtual com isolamento de zona criando várias "zonal stacks"">
 </p>
 
 *Figura: NAT da Rede Virtual com isolamento de zona criando várias "pilhas zonais"*
@@ -210,7 +210,7 @@ Se o cenário exigir pontos de extremidade de entrada, você terá duas opções
 #### <a name="cross-zone-outbound-scenarios-not-supported"></a>Cenários de saída entre zonas sem suporte
 
 <p align="center">
-  <img src="media/nat-overview/az-directions2.svg" width="425" title="NAT da Rede Virtual não compatível com a sub-rede com abrangência de zona">
+  <img src="media/nat-overview/az-directions2.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet, with the connections between to of the gateways and their subnets broken." width="425" title="NAT da Rede Virtual não compatível com a sub-rede com abrangência de zona">
 </p>
 
 *Figura: NAT da Rede Virtual não compatível com a sub-rede com abrangência de zona*
@@ -268,7 +268,7 @@ A SNAT fornecida pela NAT é diferente do [Load Balancer](../load-balancer/load-
 A NAT fornece portas de SNAT sob demanda para novos fluxos de tráfego de saída. Todas as portas de SNAT disponíveis no inventário são usadas por qualquer máquina virtual em sub-redes configuradas com NAT. 
 
 <p align="center">
-  <img src="media/nat-overview/lb-vnnat-chart.svg" width="550" title="NAT de Rede Virtual/SNAT de saída sob demanda">
+  <img src="media/nat-overview/lb-vnnat-chart.svg" alt="Figure depicts inventory of all available SNAT ports used by any virtual machine on subnets configured with N A T." width="550" title="NAT de Rede Virtual/SNAT de saída sob demanda">
 </p>
 
 *Figura: NAT de Rede Virtual/SNAT de saída sob demanda*
@@ -276,7 +276,7 @@ A NAT fornece portas de SNAT sob demanda para novos fluxos de tráfego de saída
 Qualquer configuração de IP de uma máquina virtual pode criar fluxos de saída sob demanda conforme necessário.  Antes da alocação, não é necessário um planejamento por instância que inclua sobreprovisionamento por instância para o pior cenário.  
 
 <p align="center">
-  <img src="media/nat-overview/exhaustion-threshold.svg" width="550" title="Diferenças em cenários de esgotamento">
+  <img src="media/nat-overview/exhaustion-threshold.svg" alt="Figure depicts inventory of all available SNAT ports used by any virtual machine on subnets configured with N A T with exhaustion threshold." width="550" title="Diferenças em cenários de esgotamento">
 </p>
 
 *Figura: Diferenças em cenários de esgotamento*

@@ -9,12 +9,13 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metan
-ms.openlocfilehash: bc7ab46113e1b819fc71a9f6e8a18400f8acfbef
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: fbe54b3bd6e0fc8c42b4dfc7401be74ae65ce6cd
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75946238"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406921"
 ---
 # <a name="how-to-launch-the-immersive-reader-with-html-content"></a>Como iniciar o leitor de imersão com conteúdo HTML
 
@@ -22,7 +23,7 @@ Este artigo demonstra como iniciar o leitor de imersão com conteúdo HTML.
 
 ## <a name="prepare-the-html-content"></a>Preparar o conteúdo HTML
 
-Coloque o conteúdo que você deseja renderizar no leitor de imersão dentro de um elemento de contêiner. Certifique-se de que o elemento contêiner tenha `id`um exclusivo. O leitor de imersão fornece suporte para elementos HTML básicos, consulte a [referência](./reference.md#html-support) para obter mais informações.
+Coloque o conteúdo que você deseja renderizar no leitor de imersão dentro de um elemento de contêiner. Certifique-se de que o elemento contêiner tenha um exclusivo `id` . O leitor de imersão fornece suporte para elementos HTML básicos, consulte a [referência](./reference.md#html-support) para obter mais informações.
 
 ```html
 <div id='immersive-reader-content'>
@@ -48,7 +49,7 @@ const htmlContent = document.getElementById('immersive-reader-content').innerHTM
 
 ## <a name="launch-the-immersive-reader-with-your-html-content"></a>Inicie o leitor de imersão com seu conteúdo HTML
 
-Ao chamar `ImmersiveReader.launchAsync`, defina a propriedade da `mimeType` parte como `text/html` para habilitar o processamento de HTML.
+Ao chamar `ImmersiveReader.launchAsync` , defina a propriedade da parte `mimeType` como `text/html` para habilitar o processamento de HTML.
 
 ```javascript
 const data = {

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/13/2020
-ms.openlocfilehash: 69458a7a3f2555a301c1266addfe7c49cb111ef6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 532a2ce429899d3674a8f6d8308188e9b1f737b1
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317749"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407941"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Criar seus ativos técnicos da Máquina Virtual do Azure
 
@@ -282,4 +282,4 @@ Se você encontrou dificuldades para criar seu novo VHD baseado no Azure, consul
 
 Caso contrário:
 
-* [Certificar sua imagem de VM](get-sas-uri.md) explica como testar e enviar uma imagem de VM para a certificação do Azure Marketplace, incluindo onde obter a *Ferramenta de teste de certificação para o Azure Certified* e como usá-la para certificar a imagem da VM.
+* A [VM (máquina virtual) de teste implantada a partir do VHD](azure-vm-image-certification.md) explica como testar e enviar uma imagem de VM para a certificação do Azure Marketplace, incluindo onde obter a ferramenta *de teste de certificação para a ferramenta certificada do Azure* e como usá-la para certificar a imagem da VM.

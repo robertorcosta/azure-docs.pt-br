@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 12/04/2018
-ms.openlocfilehash: 6a8770cfaf5acedcf3549d92f1365948acda8bc7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: a23330bb00fb06a3ed9d3dfe28666e8f27dae4fa
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344638"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405034"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Criar serviços globalmente disponíveis usando o banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -58,7 +58,13 @@ Se ocorrer uma interrupção na região B, o processo de replicação entre o ba
 > Para a recuperação de desastre, recomendamos a configuração com implantação de aplicativo limitada a duas regiões. Isso ocorre porque a maioria das regiões geográficas do Azure tem somente duas regiões. Essa configuração não protege o aplicativo contra uma falha catastrófica simultânea nas duas regiões. Caso ocorra essa falha improvável, você poderá recuperar seus bancos de dados em uma terceira região usando a [operação de restauração geográfica](disaster-recovery-guidance.md#recover-using-geo-restore).
 >
 
- Depois que a interrupção é atenuada, o banco de dados secundário é sincronizado novamente de forma automática com o primário. Durante a sincronização, o desempenho do primário pode ser afetado. O impacto específico depende da quantidade de dados que o novo primário adquiriu desde o failover. O seguinte diagrama ilustra uma interrupção na região secundária:
+ Depois que a interrupção é atenuada, o banco de dados secundário é sincronizado novamente de forma automática com o primário. Durante a sincronização, o desempenho do primário pode ser afetado. O impacto específico depende da quantidade de dados que o novo primário adquiriu desde o failover. 
+
+> [!NOTE]
+> Depois que a interrupção for atenuada, o Gerenciador de tráfego começará a rotear as conexões para o aplicativo na região A como um ponto de extremidade de prioridade mais alta. Se você pretende manter o primário na região B por um tempo, altere a tabela de prioridade no perfil do Trafic Manager de acordo. 
+>
+ 
+ O seguinte diagrama ilustra uma interrupção na região secundária:
 
 ![Cenário 1. Configuração após uma interrupção na região secundária.](./media/designing-cloud-solutions-for-disaster-recovery/scenario1-c.png)
 
