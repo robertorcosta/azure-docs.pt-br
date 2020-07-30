@@ -11,12 +11,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: c0cc21471789a175ee2483e3969bc6e47f6322ea
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 0021c71642d74914dc78968d7be2b33a4a50cab9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196680"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084911"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>Use o PowerShell para configurar a replicação geográfica ativa de um banco de dados em pool no Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
@@ -62,6 +62,6 @@ Este script usa os comandos a seguir. Cada comando na tabela redireciona para a 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/).
 
 Outros exemplos de script do PowerShell para Banco de Dados SQL podem ser encontrados nos [scripts do PowerShell para Banco de Dados SQL do Azure](../powershell-script-content-guide.md).

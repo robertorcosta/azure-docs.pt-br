@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Unir dados de sensor com os dados de previsão do tempo usando o Azure Notebooks (Python) | Microsoft Azure Mapas'
 description: Este tutorial mostra como unir dados de sensor aos dados de previsão do tempo do Serviço de Clima dos Microsoft Azure Mapas usando o Azure Notebooks (Python).
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/29/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, tracking-python
-ms.openlocfilehash: 41d52eff2dc2d9fc1e4c956c893a2f14c91d9f92
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 5a262c95328fef772c9158082f554de9f7ac5f81
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560368"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133224"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutorial: Unir dados de sensor com os dados de previsão do tempo usando o Azure Notebooks (Python)
 
@@ -35,7 +35,7 @@ Neste tutorial, você irá:
 
 Para concluir este tutorial, primeiro você precisará:
 
-1. Criar uma assinatura da conta dos Azure Mapas no tipo de preço S0 seguindo as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps).
+1. Criar uma assinatura da conta dos Azure Mapas no tipo de preço S0 seguindo as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-azure-maps-account).
 2. Obter a chave de assinatura primária da sua conta seguindo as instruções em [Obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
 

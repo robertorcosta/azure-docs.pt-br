@@ -4,15 +4,15 @@ description: Explica por que a assinatura do Azure for Students está desabilita
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/12/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: fb091efd9888930f7e834d840d3cab047949dbf1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7f1c1aa8729640acdb0d3e468c46d049a0d82a4d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202991"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283870"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>Por que minha assinatura do Azure for Students está desabilitada e como posso reativá-la?
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 1857d3ee8b607d91b6fdd13b4499518d06fb9913
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 6263e18ae541dd60dcd3455a00cdf58e371485f0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834536"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023544"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Criar seu primeiro Azure data factory usando o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ O pipeline deste tutorial tem uma atividade: **Atividade do Hive no HDInsight**.
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Leia o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de **pré-requisito** .
-* Siga as instruções do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para instalar a última versão do Azure PowerShell no computador.
+* Siga as instruções do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/) para instalar a última versão do Azure PowerShell no computador.
 * (opcional) Este artigo não cobre todos os cmdlets de Data Factory. Consulte [Referência de cmdlet de Data Factory](/powershell/module/az.datafactory) para obter uma documentação abrangente sobre os cmdlets de Data Factory.
 
 ## <a name="create-data-factory"></a>Criar um data factory

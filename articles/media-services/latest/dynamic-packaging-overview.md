@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 06/11/2020
 ms.author: juliako
-ms.openlocfilehash: 20389c8298f4e970c4b3ba93d96f811fdc905003
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: f019ebd59b2d0b9d6bae8a5dc4904f1bcae0e6c1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791598"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090103"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Empacotamento dinâmico nos Serviços de Mídia v3
 
@@ -28,7 +28,7 @@ Os Serviços de Mídia do Microsoft Azure servem para codificar vários formatos
 Nos Serviços de Mídia, um [ponto de extremidade de streaming](streaming-endpoint-concept.md) (origem) representa um serviço de origem e empacotamento dinâmico (just-in-time) que pode enviar conteúdo ativo e sob demanda diretamente para um aplicativo de player do cliente. Ele usa um dos protocolos de streaming de mídia comuns mencionados na seção a seguir. O *empacotamento dinâmico* é um recurso que vem por padrão em todos os pontos de extremidade de streaming (Standard ou Premium).
 
 > [!NOTE]
-> Você pode usar o [portal do Azure](https://portal.azure.com/) para gerenciar [eventos ao vivo](live-events-outputs-concept.md) v3, exibir [ativos](assets-concept.md) v3 e obter informações sobre como acessar APIs. Para todas as outras tarefas de gerenciamento (por exemplo, transformações e trabalhos), use a [API REST](https://docs.microsoft.com/rest/api/media/), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) compatíveis.
+> Você pode usar o [portal do Azure](https://portal.azure.com/) para gerenciar [eventos ao vivo](live-events-outputs-concept.md) v3, exibir [ativos](assets-concept.md) v3 e obter informações sobre como acessar APIs. Para todas as outras tarefas de gerenciamento (por exemplo, transformações e trabalhos), use a [API REST](/rest/api/media/), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) compatíveis.
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Preparar os arquivos de origem para entrega
 
@@ -126,7 +126,7 @@ Para obter informações sobre transmissão ao vivo nos Serviços de Mídia v3, 
 O empacotamento dinâmico é compatível com arquivos MP4 que contêm vídeo codificado com [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC ou AVC1) ou [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 ou hvc1).
 
 > [!NOTE]
-> As resoluções de até 4K e taxa de quadros de até 60 quadros por segundo foram testadas com o *empacotamento dinâmico*. O [Codificador Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) dá suporte à codificação para H.265 por meio das APIs v2 herdadas.
+> As resoluções de até 4K e taxa de quadros de até 60 quadros por segundo foram testadas com o *empacotamento dinâmico*. O [Codificador Premium](../previous/media-services-encode-asset.md#media-encoder-premium-workflow) dá suporte à codificação para H.265 por meio das APIs v2 herdadas.
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Codecs de áudio suportados por embalagem dinâmica
 
