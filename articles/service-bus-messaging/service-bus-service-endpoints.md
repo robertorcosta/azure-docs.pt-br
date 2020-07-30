@@ -4,14 +4,14 @@ description: Este artigo fornece informações sobre como adicionar um ponto de 
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 48d7f1783f197804e12a8c2d20a0c46b6efd2160
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4518f7faedb44631c76c6d8b42ff9cca0dc3e08c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071316"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422939"
 ---
-# <a name="configure-virtual-network-service-endpoints-for-azure-service-bus"></a>Configurar pontos de extremidade de serviço de rede virtual para o barramento de serviço do Azure
+# <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Permitir acesso ao namespace do barramento de serviço do Azure de redes virtuais específicas
 
 A integração do barramento de serviço com [pontos de extremidade de serviço de rede virtual (VNet)][vnet-sep] permite o acesso seguro a recursos de mensagens de cargas de trabalho, como máquinas virtuais associadas a redes virtuais, com o caminho de tráfego de rede protegido em ambas as extremidades.
 
@@ -58,11 +58,20 @@ A regra da rede virtual é uma associação do namespace de Barramento de Servi�
 Esta seção mostra como usar portal do Azure para adicionar um ponto de extremidade de serviço de rede virtual. Para limitar o acesso, você precisa integrar o ponto de extremidade de serviço de rede virtual para este namespace de hubs de eventos.
 
 1. Navegue até o **namespace do Barramento de Serviço** no [portal do Azure](https://portal.azure.com).
-2. No menu à esquerda, selecione a opção **Rede**. Por padrão, a opção **Todas as redes** está selecionada. Seu namespace aceita conexões de qualquer endereço IP. Essa configuração padrão é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
+2. No menu à esquerda, selecione a opção **rede** em **configurações**.  
 
-    ![Firewall – opção "Todas as redes" selecionada](./media/service-endpoints/firewall-all-networks-selected.png)
-1. Selecione a opção **redes selecionadas** na parte superior da página.
-2. Na seção **rede virtual** da página, selecione **+ Adicionar rede virtual existente**. 
+    > [!NOTE]
+    > Você vê a guia **rede** somente para namespaces **Premium** .  
+    
+    Por padrão, a opção **redes selecionadas** é selecionada. Se você não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nessa página, o namespace poderá ser acessado pela Internet pública (usando a chave de acesso).
+
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Página de rede-padrão" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
+    
+    Se você selecionar a opção **todas as redes** , o namespace do barramento de serviço aceitará conexões de qualquer endereço IP. Essa configuração padrão é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
+
+    ![Firewall – opção "Todas as redes" selecionada](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+2. Para restringir o acesso a redes virtuais específicas, selecione a opção **redes selecionadas** se ela ainda não estiver selecionada.
+1. Na seção **rede virtual** da página, selecione **+ Adicionar rede virtual existente**. 
 
     ![adicionar rede virtual existente](./media/service-endpoints/add-vnet-menu.png)
 3. Selecione a rede virtual na lista de redes virtuais e, em seguida, escolha a **sub-rede**. Você precisa habilitar o ponto de extremidade de serviço antes de adicionar a rede virtual à lista. Se o ponto de extremidade de serviço não estiver habilitado, o portal solicitará que você o habilite.
@@ -78,6 +87,9 @@ Esta seção mostra como usar portal do Azure para adicionar um ponto de extremi
 6. Selecione **Salvar** na barra de ferramentas para salvar as configurações. Aguarde alguns minutos para que a confirmação seja exibida nas notificações do Portal. O botão **salvar** deve ser desabilitado. 
 
     ![Salvar rede](./media/service-endpoints/save-vnet.png)
+
+    > [!NOTE]
+    > Para obter instruções sobre como permitir o acesso de intervalos ou endereços IP específicos, consulte [permitir o acesso de intervalos ou endereços IP específicos](service-bus-ip-filtering.md).
 
 ## <a name="use-resource-manager-template"></a>Usar modelo do Resource Manager
 O modelo do Resource Manager a seguir permite incluir uma regra da rede virtual em um namespace de Barramento de Serviço existente.

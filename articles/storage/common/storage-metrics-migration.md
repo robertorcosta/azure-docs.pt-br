@@ -1,119 +1,117 @@
 ---
-title: Migração de métricas de Armazenamento do Azure | Microsoft Docs
-description: Saiba como migrar métricas antigas para novas métricas gerenciadas pelo Azure Monitor.
+title: Mover de métricas de Análise de Armazenamento para Azure Monitor métricas | Microsoft Docs
+description: Saiba como fazer a transição de métricas de Análise de Armazenamento (métricas clássicas) para métricas no Azure Monitor.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/30/2018
+ms.date: 07/28/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 10768ca4c6fbe4afc322fa9a7045c7cc4fe6f175
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: a1f977cef614a52853407c0d0665399f1a249c53
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681313"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422055"
 ---
-# <a name="azure-storage-metrics-migration"></a>Migração de métricas de Armazenamento do Azure
+# <a name="transition-to-metrics-in-azure-monitor"></a>Transição para métricas no Azure Monitor
 
-Alinhado com a estratégia de unificar a experiência do Azure Monitor, o Armazenamento do Microsoft Azure integra métricas à plataforma do Azure Monitor. No futuro, o serviço das métricas antigas terminará com uma notificação antecipada com base no Azure Policy. Se você depender de métricas de armazenamento antigas, precisará migrar antes da data de término do serviço para manter as informações da métrica.
+O armazenamento do Azure agora integra as métricas à plataforma Azure Monitor. Este artigo ajuda você a fazer a transição.
 
-Este artigo mostra como migrar das métricas antigas para as novas métricas.
+## <a name="steps-to-complete-the-transition"></a>Etapas para concluir a transição
 
-## <a name="understand-old-metrics-that-are-managed-by-azure-storage"></a>Reconhecer as métricas antigas gerenciadas pelo Armazenamento do Microsoft Azure
+Para fazer a transição para as métricas no Azure Monitor, recomendamos a seguinte abordagem.
 
-O Armazenamento do Microsoft Azure coleta valores de métrica antigas, agrega e armazena-os nas tabelas $Metric dentro da mesma conta de armazenamento. Você pode usar o portal do Azure para configurar um gráfico de monitoramento. Também é possível usar os SDKs de Armazenamento do Microsoft Azure para ler os dados das tabelas $Metric com base no esquema. Para obter mais informações, consulte [Análise de Armazenamento](./storage-analytics.md).
+1. Saiba mais sobre algumas das [principais diferenças](#key-differences-between-classic-metrics-and-metrics-in-azure-monitor) entre métricas clássicas e métricas em Azure monitor. 
 
-As métricas antigas fornecem métricas de capacidade apenas no Azure Storage Blob. Métricas antigas fornecem métricas de transação em armazenamento de Blobs, armazenamento de Tabelas, Arquivos do Azure e armazenamento de Filas.
+2. Compile uma lista de métricas clássicas que você usa atualmente.
 
-Métricas antigas são projetadas em um esquema simples. O design resulta em valor de métrica zero quando você não tem os padrões de tráfego que ativam a métrica. Por exemplo, o valor **ServerTimeoutError** é definido como 0 em tabelas $Metric, mesmo quando você não recebe nenhum erro de tempo limite do servidor do tráfego dinâmico para uma conta de armazenamento.
+3. Identifique [quais métricas no Azure monitor](#metrics-mapping-between-old-metrics-and-new-metrics) fornecem os mesmos dados que as métricas que você usa no momento. 
+   
+4. Crie [gráficos](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/2-viewing-blob-metrics-in-azure-portal) ou [painéis](https://docs.microsoft.com/learn/modules/gather-metrics-blob-storage/4-using-dashboards-in-the-azure-portal) para exibir dados de métrica.
 
-## <a name="understand-new-metrics-managed-by-azure-monitor"></a>Entender as nova métricas gerenciadas pelo Azure Monitor
+   > [!NOTE]
+   > As métricas em Azure Monitor são habilitadas por padrão, portanto, não há nada que você precise fazer para começar a capturar as métricas. No entanto, você deve criar gráficos ou painéis para exibir essas métricas. 
+ 
+5. Se você tiver criado regras de alerta baseadas em métricas de armazenamento clássicas, [crie regras de alerta](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview) baseadas em métricas no Azure monitor. 
 
-Para novas métricas de armazenamento, o Armazenamento do Microsoft Azure emite os dados de métrica para o back-end do Azure Monitor. O Azure Monitor fornece uma experiência de monitoramento unificada, incluindo dados do portal, bem como ingestão de dados. Para obter mais detalhes, você pode consultar este [artigo](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+6. Depois de ver todas as métricas em Azure Monitor, você pode desativar o registro em log clássico. 
 
-As novas métricas fornecem as métricas de capacidade e métricas de transação no Blob, Tabela, Arquivo e Fila.
+<a id="key-differences-between-classic-metrics-and-metrics-in-azure-monitor"></a>
 
-Multidimensão é um dos recursos que o Azure Monitor fornece. O Armazenamento do Azure adota o design ao definir o novo esquema de métrica. Para dimensões com suporte em métricas, você pode localizar os detalhes em [Métricas de Armazenamento do Microsoft Azure no Azure Monitor](./storage-metrics-in-azure-monitor.md). O design multidimensional fornece economia em largura de banda de ingestão e a capacidade de armazenar métricas. Consequentemente, se o tráfego não ativou métricas relacionadas, os dados relacionados de métrica não serão gerados. Por exemplo, se o tráfego não disparou nenhum erro de tempo limite do servidor, o Azure Monitor não retornará nenhum dado quando você consultar o valor da métrica **Transações** com dimensão **ResponseType** igual a **ServerTimeoutError**.
+## <a name="classic-metrics-vs-metrics-in-azure-monitor"></a>Métricas clássicas versus métricas no Azure Monitor
 
-## <a name="metrics-mapping-between-old-metrics-and-new-metrics"></a>Mapeamento de métricas entre métricas antigas e novas métricas
+Esta seção descreve algumas das principais diferenças entre essas duas plataformas de métricas.
 
-Se você lê dados da métrica programaticamente, você precisa adotar o novo esquema de métricas em seus programas. Para reconhecer melhor as alterações, você pode consultar o mapeamento listado na tabela a seguir:
+A principal diferença é a forma como as métricas são gerenciadas. As métricas clássicas são gerenciadas pelo armazenamento do Azure, enquanto as métricas no Azure Monitor são gerenciadas pelo Azure Monitor. Com as métricas clássicas, o armazenamento do Azure coleta valores de métrica, agrega-os e os armazena em tabelas que estão localizadas na conta de armazenamento. Com as métricas no Azure Monitor, o armazenamento do Azure envia dados de métrica para o back-end de Azure Monitor. O Azure Monitor fornece uma experiência de monitoramento unificada que inclui dados do portal do Azure, bem como dados que são ingeridos. 
+
+No que diz respeito ao suporte a métricas, as métricas clássicas fornecem métricas de **capacidade** apenas para o armazenamento de BLOBs do Azure. As métricas no Azure Monitor fornecem métricas de capacidade para BLOB, tabela, arquivo, fila e armazenamento Premium. As métricas clássicas fornecem métricas de **transação** em BLOB, tabela, arquivo do Azure e armazenamento de fila. As métricas no Azure Monitor adicionar armazenamento Premium a essa lista.
+
+Se a atividade em sua conta não disparar uma métrica, as métricas clássicas mostrarão um valor igual a zero (0) para essa métrica. As métricas no Azure Monitor irão omitir os dados inteiramente, o que leva a relatórios mais limpos. Por exemplo, com métricas clássicas, se nenhum erro de tempo limite do servidor for relatado, o `ServerTimeoutError` valor na tabela de métricas será definido como 0. Azure Monitor não retorna nenhum dado quando você consulta o valor da métrica `Transactions` com a dimensão `ResponseType` igual a `ServerTimeoutError` . 
+
+Para saber mais sobre as métricas em Azure Monitor, consulte [métricas em Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+
+<a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
+
+## <a name="map-classic-metrics-to-metrics-in-azure-monitor"></a>Mapear métricas clássicas para métricas no Azure Monitor
+
+ Use essas tabelas para identificar quais métricas no Azure Monitor fornecem os mesmos dados que as métricas que você usa no momento. 
 
 **Métricas de capacidade**
 
-| Métrica antiga | Nova métrica |
+| Métrica clássica | Métrica no Azure Monitor |
 | ------------------- | ----------------- |
-| **Capacidade**            | **BlobCapacity** com a dimensão **BlobType** igual a **BlockBlob** ou **PageBlob** |
-| **ObjectCount**        | **BlobCount** com a dimensão **BlobType** igual a **BlockBlob** ou **PageBlob** |
-| **ContainerCount**      | **ContainerCount** |
+| `Capacity`            | `BlobCapacity`com a dimensão `BlobType` igual a `BlockBlob` ou`PageBlob` |
+| `ObjectCount`        | `BlobCount`com a dimensão `BlobType` igual a `BlockBlob` ou`PageBlob` |
+| `ContainerCount`      | `ContainerCount` |
 
-As métricas a seguir são novas ofertas que as métricas antigas não dão suporte:
-* **TableCapacity**
-* **TableCount**
-* **TableEntityCount**
-* **QueueCapacity**
-* **QueueCount**
-* **QueueMessageCount**
-* **FileCapacity**
-* **FileCount**
-* **FileShareCount**
-* **UsedCapacity**
+> [!NOTE]
+> Há também várias novas métricas de capacidade que não estavam disponíveis como métricas clássicas. Para exibir a lista completa, consulte [métricas](../common/monitor-storage-reference.md#metrics).
 
 **Métricas de transação**
 
-| Métrica antiga | Nova métrica |
+| Métrica clássica | Métrica no Azure Monitor |
 | ------------------- | ----------------- |
-| **AnonymousAuthorizationError** | Transações com dimensão **ResponseType** igual a **AuthorizationError** e dimensão de **Autenticação** igual a **Anônimo** |
-| **AnonymousClientOtherError** | Transações com dimensão **ResponseType** igual a **ClientOtherError** e dimensões de **Autenticação** igual a **Anônimo** |
-| **AnonymousClientTimeoutError** | Transações com dimensão **ResponseType** igual a **ClientTimeoutError** e dimensões de **Autenticação** igual a **Anônimo** |
-| **AnonymousNetworkError** | Transações com dimensão **ResponseType** igual a **NetworkError** e dimensões de **Autenticação** igual a **Anônimo** |
-| **AnonymousServerOtherError** | Transações com dimensão **ResponseType** igual a **ServerOtherError** e dimensões de **Autenticação** igual a **Anônimo** |
-| **AnonymousServerTimeoutError** | Transações com dimensão **ResponseType** igual a **ServerTimeoutError** e dimensões de **Autenticação** igual a **Anônimo** |
-| **AnonymousSuccess** | Transações com dimensão **ResponseType** igual a **Sucesso** e dimensões de **Autenticação** igual a **Anônimo** |
-| **AnonymousThrottlingError** | Transações com dimensão **ResponseType** igual a **ClientThrottlingError** ou **ServerBusyError** e dimensão de**Autenticação** igual a **Anônimo** |
-| **AuthorizationError** | Transações com a dimensão **ResponseType** igual a **AuthorizationError** |
-| **Disponibilidade** | **Disponibilidade** |
-| **AverageE2ELatency** | **SuccessE2ELatency** |
-| **AverageServerLatency** | **SuccessServerLatency** |
-| **ClientOtherError** | Transações com a dimensão **ResponseType** igual a **ClientOtherError** |
-| **ClientTimeoutError** | Transações com a dimensão **ResponseType** igual a **ClientTimeoutError** |
-| **NetworkError** | Transações com a dimensão **ResponseType** igual a **NetworkError** |
-| **PercentAuthorizationError** | Transações com a dimensão **ResponseType** igual a **AuthorizationError** |
-| **PercentClientOtherError** | Transações com a dimensão **ResponseType** igual a **ClientOtherError** |
-| **PercentNetworkError** | Transações com a dimensão **ResponseType** igual a **NetworkError** |
-| **PercentServerOtherError** | Transações com a dimensão **ResponseType** igual a **ServerOtherError** |
-| **PercentSuccess** | Transações com a dimensão **ResponseType** igual a **Success** |
-| **PercentThrottlingError** | Transações com a dimensão **ResponseType** igual a **ClientThrottlingError** ou **ServerBusyError** |
-| **PercentTimeoutError** | Transações com a dimensão **ResponseType** igual a **ServerTimeoutError** ou **ResponseType** igual a **ClientTimeoutError** |
-| **SASAuthorizationError** | Transações com dimensão **ResponseType** igual a **AuthorizationError** e dimensão de **Autenticação** igual a **SAS** |
-| **SASClientOtherError** | Transações com dimensão **ResponseType** igual a **ClientOtherError** e dimensões de **Autenticação** igual a **SAS** |
-| **SASClientTimeoutError** | Transações com dimensão **ResponseType** igual a **ClientTimeoutError** e dimensões de **Autenticação** igual a **SAS** |
-| **SASNetworkError** | Transações com dimensão **ResponseType** igual a **NetworkError** e dimensões de **Autenticação** igual a **SAS** |
-| **SASServerOtherError** | Transações com dimensão **ResponseType** igual a **ServerOtherError** e dimensões de **Autenticação** igual a **SAS** |
-| **SASServerTimeoutError** | Transações com dimensão **ResponseType** igual a **ServerTimeoutError** e dimensões de **Autenticação** igual a **SAS** |
-| **SASSuccess** | Transações com dimensão **ResponseType** igual a **Sucesso** e dimensões de **Autenticação** igual a **SAS** |
-| **SASThrottlingError** | Transações com dimensão **ResponseType** igual a **ClientThrottlingError** ou **ServerBusyError** e dimensão de**Autenticação** igual a **SAS** |
-| **ServerOtherError** | Transações com a dimensão **ResponseType** igual a **ServerOtherError** |
-| **ServerTimeoutError** | Transações com a dimensão **ResponseType** igual a **ServerTimeoutError** |
-| **Êxito** | Transações com a dimensão **ResponseType** igual a **Success** |
-| **ThrottlingError** | **Transações** com a dimensão **ResponseType** igual a **ClientThrottlingError** ou **ServerBusyError**|
-| **TotalBillableRequests** | **Transações** |
-| **TotalEgress** | **Saída** |
-| **TotalIngress** | **Entrada** |
-| **TotalRequests** | **Transações** |
-
-## <a name="faq"></a>Perguntas frequentes
-
-### <a name="how-should-i-migrate-existing-alert-rules"></a>Como posso migrar o regras de alerta existentes?
-
-Se você criou regras de alerta clássicas com base em métricas de armazenamento antigas, será necessário criar novas regras de alerta com base no novo esquema de métrica.
-
-### <a name="is-new-metric-data-stored-in-the-same-storage-account-by-default"></a>Os novos dados de métrica são armazenados na mesma conta de armazenamento por padrão?
-
-Não. Para arquivar os dados de métrica em uma conta de armazenamento, use a [API de configuração de diagnóstico do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate).
+| `AnonymousAuthorizationError` | Transações com dimensão `ResponseType` igual a `AuthorizationError` e dimensão `Authentication` igual a`Anonymous` |
+| `AnonymousClientOtherError` | Transações com dimensão `ResponseType` igual a `ClientOtherError` e dimensão `Authentication` igual a`Anonymous` |
+| `AnonymousClientTimeoutError` | Transações com dimensão `ResponseType` igual a `ClientTimeoutError` e dimensão `Authentication` igual a`Anonymous` |
+| `AnonymousNetworkError` | Transações com dimensão `ResponseType` igual a `NetworkError` e dimensão `Authentication` igual a`Anonymous` |
+| `AnonymousServerOtherError` | Transações com dimensão `ResponseType` igual a `ServerOtherError` e dimensão `Authentication` igual a`Anonymous` |
+| `AnonymousServerTimeoutError` | Transações com dimensão `ResponseType` igual a `ServerTimeoutError` e dimensão `Authentication` igual a`Anonymous` |
+| `AnonymousSuccess` | Transações com dimensão `ResponseType` igual a `Success` e dimensão `Authentication` igual a`Anonymous` |
+| `AnonymousThrottlingError` | Transações com dimensão `ResponseType` igual a `ClientThrottlingError` ou `ServerBusyError` e dimensão `Authentication` igual a`Anonymous` |
+| `AuthorizationError` | Transações com a dimensão `ResponseType` igual a`AuthorizationError` |
+| `Availability` | `Availability` |
+| `AverageE2ELatency` | `SuccessE2ELatency` |
+| `AverageServerLatency` | `SuccessServerLatency` |
+| `ClientOtherError` | Transações com a dimensão `ResponseType` igual a`ClientOtherError` |
+| `ClientTimeoutError` | Transações com a dimensão `ResponseType` igual a`ClientTimeoutError` |
+| `NetworkError` | Transações com a dimensão `ResponseType` igual a`NetworkError` |
+| `PercentAuthorizationError` | Transações com a dimensão `ResponseType` igual a`AuthorizationError` |
+| `PercentClientOtherError` | Transações com a dimensão `ResponseType` igual a`ClientOtherError` |
+| `PercentNetworkError` | Transações com a dimensão `ResponseType` igual a`NetworkError` |
+| `PercentServerOtherError` | Transações com a dimensão `ResponseType` igual a`ServerOtherError` |
+| `PercentSuccess` | Transações com a dimensão `ResponseType` igual a`Success` |
+| `PercentThrottlingError` | Transações com a dimensão `ResponseType` igual a `ClientThrottlingError` ou`ServerBusyError` |
+| `PercentTimeoutError` | Transações com a dimensão `ResponseType` igual `ServerTimeoutError` ou `ResponseType` igual a`ClientTimeoutError` |
+| `SASAuthorizationError` | Transações com dimensão `ResponseType` igual a `AuthorizationError` e dimensão `Authentication` igual a`SAS` |
+| `SASClientOtherError` | Transações com dimensão `ResponseType` igual a `ClientOtherError` e dimensão `Authentication` igual a`SAS` |
+| `SASClientTimeoutError` | Transações com dimensão `ResponseType` igual a `ClientTimeoutError` e dimensão `Authentication` igual a`SAS` |
+| `SASNetworkError` | Transações com dimensão `ResponseType` igual a `NetworkError` e dimensão `Authentication` igual a`SAS` |
+| `SASServerOtherError` | Transações com dimensão `ResponseType` igual a `ServerOtherError` e dimensão `Authentication` igual a`SAS` |
+| `SASServerTimeoutError` | Transações com dimensão `ResponseType` igual a `ServerTimeoutError` e dimensão `Authentication` igual a`SAS` |
+| `SASSuccess` | Transações com dimensão `ResponseType` igual a `Success` e dimensão `Authentication` igual a`SAS` |
+| `SASThrottlingError` | Transações com dimensão `ResponseType` igual a `ClientThrottlingError` ou `ServerBusyError` e dimensão `Authentication` igual a`SAS` |
+| `ServerOtherError` | Transações com a dimensão `ResponseType` igual a`ServerOtherError` |
+| `ServerTimeoutError` | Transações com a dimensão `ResponseType` igual a`ServerTimeoutError` |
+| `Success` | Transações com a dimensão `ResponseType` igual a`Success` |
+| `ThrottlingError` | `Transactions`com a dimensão `ResponseType` igual a `ClientThrottlingError` ou`ServerBusyError`|
+| `TotalBillableRequests` | `Transactions` |
+| `TotalEgress` | `Egress` |
+| `TotalIngress` | `Ingress` |
+| `TotalRequests` | `Transactions` |
 
 ## <a name="next-steps"></a>Próximas etapas
 

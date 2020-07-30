@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 029883ea1ac85bdd1ea256caaa711d6537c06a76
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8aa9fa1701f41c6fd1adacc264b811e0d9849ab5
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287888"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408111"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Benefícios do marketplace comercial
 
@@ -106,9 +106,15 @@ Os editores de [Lista e Avaliação](determine-your-listing-type.md) podem aceit
 A Microsoft se reserva o direito de revogar e encerrar os benefícios de Recompensas do Marketplace para os editores que: 
 
 * Envolva atividades ilegais usando a listagem do Marketplace.
+* Receba uma compra conhecida ou acreditada como fraudulenta.
 * Estão listadas no Marketplace comercial. 
 * Use sua oferta para mostrar marketing ou outro conteúdo que viole as leis de direitos autorais ou marcas comerciais.
 * Viole as políticas do programa de [patrocínio do Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), incluindo, mas não se limitando a, usando o financiamento de patrocínio do Azure para suas próprias operações internas ou mineração de Bitcoin.
+
+A Microsoft se reserva o direito de revogar e encerrar recompensas do Marketplace quando:
+
+* O cliente que faz a compra foi feito de forma acidental e deseja cancelar a compra. 
+* O cliente cancela antes de usar o produto do parceiro.
 
 ### <a name="offer-availability"></a>Disponibilidade da oferta
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 07/07/2020
-ms.openlocfilehash: 193781e078f12dec553d98c15699c7e665966a87
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8546e5fde51ddc8a29a852a2c5dbcd25fffad287
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326607"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405238"
 ---
 # <a name="create-a-managed-service-offer"></a>Criar uma oferta de serviço gerenciado
 
@@ -194,6 +194,9 @@ Em seguida, insira uma **Descrição** que forneça uma explicação mais detalh
 Atualmente, há apenas um modelo de preços que pode ser usado para a oferta de serviço gerenciado: **Traga sua própria licença (BYOL)** . Isso significa que você cobrará de seus clientes diretamente os custos relacionados a essa oferta, e a Microsoft não cobrará nenhum valor por você.
 
 A seção **Visibilidade do plano** permite que você indique se esse plano deve ser [Particular](../../marketplace/private-offers.md). Se você deixar a caixa **Este é um plano particular** desmarcada, seu plano não será restrito a clientes específicos (ou a um determinado número de clientes).
+
+> [!NOTE]
+> Não há suporte para planos privados com assinaturas estabelecidas por meio de um revendedor do programa CSP (provedor de soluções na nuvem).
 
 Para disponibilizar esse plano somente para clientes específicos, selecione **Sim**. Ao fazer isso, você precisará identificar os clientes fornecendo suas IDs de assinatura. Eles podem ser inseridos um por um (para até 10 assinaturas) ou carregando um arquivo. csv (para um máximo de 10.000 assinaturas em todos os planos). Inclua suas próprias assinaturas aqui para que você possa testar e validar a oferta.
 

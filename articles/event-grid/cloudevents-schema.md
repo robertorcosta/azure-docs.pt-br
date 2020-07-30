@@ -3,12 +3,13 @@ title: Usar a Grade de Eventos do Azure com eventos no esquema CloudEvents
 description: Descreve como usar o esquema de CloudEvents para eventos na Grade de Eventos do Azure. O serviço é compatível com eventos na implementação JSON do CloudEvents.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 0bcd14356c4d52bb8a5b270966097d47dfc92c3c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 0064fcc8da2a2aee8b4e413e697d2d8219fd09cc
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113948"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419879"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Usar o esquema CloudEvents v1.0 com a Grade de Eventos
 Além do seu [esquema de evento padrão](event-schema.md), a Grade de Eventos do Azure oferece suporte nativo a eventos na [implementação JSON do CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e [ligação ao protocolo HTTP](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para descrever dados de eventos.

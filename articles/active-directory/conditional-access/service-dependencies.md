@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00b23a845002f5a92128917d81fdadf5a647d798
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 578f1e97c8a53604edca7b803933139362a763a7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253181"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419726"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>O que são dependências de serviço no Azure Active Directory acesso condicional? 
 
@@ -27,7 +27,7 @@ Quando você acessa um site ou serviço diretamente, o impacto de uma política 
 > [!TIP]
 > Usar o aplicativo [office 365 (versão prévia)](concept-conditional-access-cloud-apps.md#office-365-preview) direcionará todos os aplicativos do Office para evitar problemas com dependências de serviço na pilha do Office.
 
-## <a name="policy-enforcement"></a>Imposição de política 
+## <a name="policy-enforcement"></a>Aplicação de políticas 
 
 Se você tiver uma dependência de serviço configurada, a política poderá ser aplicada usando a aplicação de ligação antecipada ou de associação tardia. 
 
@@ -51,6 +51,7 @@ A tabela abaixo lista as dependências de serviço adicionais, onde os aplicativ
 |                     | SharePoint                                  | Associação antecipada |
 | Microsoft Teams     | Exchange                                    | Associação antecipada |
 |                     | Planejador MS                                  | Associação tardia  |
+|                     | Microsoft Stream                            | Associação tardia  |
 |                     | SharePoint                                  | Associação antecipada |
 |                     | Skype for Business Online                   | Associação antecipada |
 | Portal do Office       | Exchange                                    | Associação tardia  |

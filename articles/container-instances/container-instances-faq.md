@@ -4,12 +4,12 @@ description: Respostas para perguntas frequentes relacionadas ao serviço de ins
 author: dkkapur
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 21643ccfb6bb256e29114435ccb39a009d1b8dae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95190496df4037a973207e14292911225094782e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806594"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421273"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Perguntas frequentes sobre as instâncias de contêiner do Azure
 
@@ -89,7 +89,7 @@ Atualmente, o dimensionamento não está disponível para contêineres ou grupos
 
 ### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>Quais recursos estão disponíveis para instâncias em execução em uma VNet personalizada?
 
-Você pode [implantar grupos de contêineres em uma rede virtual do Azure](container-instances-vnet.md) de sua escolha e delegar IPS privados aos grupos de contêineres para rotear o tráfego na VNet entre os recursos do Azure. A implantação de um grupo de contêineres em uma rede virtual está disponível atualmente para cargas de trabalho de produção em um subconjunto de regiões do Azure.
+Você pode [implantar grupos de contêineres em uma rede virtual do Azure](container-instances-vnet.md) de sua escolha e delegar IPS privados aos grupos de contêineres para rotear o tráfego na VNet entre os recursos do Azure. Para cenários de rede e limitações com instâncias de contêiner do Azure, consulte [cenários e recursos de rede virtual](container-instances-virtual-network-concepts.md).
 
 ## <a name="pricing"></a>Preços
 

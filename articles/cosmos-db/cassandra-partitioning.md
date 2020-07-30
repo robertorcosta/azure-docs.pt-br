@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 5f159ffcea0aa88f354ae503be96a5c571c10adb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26df3c49e44dd79d87a1e0a982ceb8133f425447
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806825"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423313"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Particionamento no Azure Cosmos DB API do Cassandra
 
@@ -31,7 +31,7 @@ O Apache Cassandra recomenda um limite de 100 MB no tamanho de dados que podem s
 
 Em Azure Cosmos DB, cada partição física consiste em um conjunto de réplicas, também conhecido como conjuntos de réplicas, com pelo menos 4 réplicas por partição. Isso é diferente do Apache Cassandra, em que é possível definir um fator de replicação de 1. No entanto, isso leva à baixa disponibilidade se o único nó com os dados ficar inativo. Em API do Cassandra sempre há um fator de replicação de 4 (quorum de 3). Azure Cosmos DB gerencia automaticamente conjuntos de réplicas, enquanto eles precisam ser mantidos usando várias ferramentas no Apache Cassandra. 
 
-O Apache Cassandra tem um conceito de tokens, que são hashes de chaves de partição. Os tokens são baseados em um hash de byte murmur3 64, com valores variando de-2 ^ 63 a-2 ^ 63-1. Esse intervalo é conhecido como "token ring" no Apache Cassandra. O token ring é distribuído em intervalos de token, e esses intervalos são divididos entre os nós presentes em um cluster nativo do Apache Cassandra. O particionamento para Azure Cosmos DB é implementado de forma semelhante, exceto pelo fato de que ele usa um algoritmo de hash diferente e tem um anel de token maior. 
+O Apache Cassandra tem um conceito de tokens, que são hashes de chaves de partição. Os tokens são baseados em um hash de byte murmur3 64, com valores variando de-2 ^ 63 a-2 ^ 63-1. Esse intervalo é conhecido como "token ring" no Apache Cassandra. O token ring é distribuído em intervalos de token, e esses intervalos são divididos entre os nós presentes em um cluster nativo do Apache Cassandra. O particionamento para Azure Cosmos DB é implementado de forma semelhante, exceto pelo fato de que ele usa um algoritmo de hash diferente e tem um anel de token interno maior. No entanto, externamente, expõemos o mesmo intervalo de token que o Apache Cassandra, ou seja,-2 ^ 63 a-2 ^ 63-1.
 
 
 ## <a name="primary-key"></a>Chave primária

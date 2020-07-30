@@ -3,12 +3,12 @@ title: Padrões de rede para o Azure Service Fabric
 description: Descreve os padrões de rede comuns do Service Fabric e como criar um cluster usando os recursos de rede do Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 0c3664d1890fd318aa1bff508a51cb227bdcc01d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 20bd5e931307725016c3e2ad69dae91214b2caab
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258533"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421460"
 ---
 # <a name="service-fabric-networking-patterns"></a>Padrões de rede do Service Fabric
 Você pode integrar seu cluster do Azure Service Fabric a outros recursos de rede do Azure. Neste artigo, mostramos como criar clusters que usam os seguintes recursos:
@@ -99,6 +99,8 @@ Nos exemplos neste artigo, usamos o template.json do Service Fabric. Você pode 
                 "defaultValue": "10.0.0.0/24"
             },*/
     ```
+
+   Você também pode comentar o parâmetro com o nome "virtualNetworkName" para que ele não solicite que você insira o nome da rede virtual duas vezes na folha implantação de cluster no portal do Azure.
 
 2. Comente `nicPrefixOverride` atributo do `Microsoft.Compute/virtualMachineScaleSets`, porque você está usando a sub-rede existente e você desabilitou essa variável na etapa 1.
 

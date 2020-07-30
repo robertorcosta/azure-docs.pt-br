@@ -2,13 +2,13 @@
 title: Implantar instância de contêiner habilitada para GPU
 description: Saiba como implantar instâncias de contêiner do Azure para executar aplicativos de contêiner de uso intensivo de computação usando recursos de GPU.
 ms.topic: article
-ms.date: 07/02/2020
-ms.openlocfilehash: 3ddeb7da2667b774724fe05227cefeec5227101a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/22/2020
+ms.openlocfilehash: 19240560baa0cebdb6777d7b63d8c91832b12e1a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076868"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387075"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implantar instâncias de contêiner que usam recursos GPU
 
@@ -33,9 +33,6 @@ O suporte será adicionado para regiões adicionais ao longo do tempo.
 
 ## <a name="about-gpu-resources"></a>Sobre os recursos de GPU
 
-> [!IMPORTANT]
-> Os recursos de GPU estão disponíveis somente mediante solicitação. Para solicitar acesso aos recursos de GPU, envie uma [solicitação de suporte do Azure][azure-support].
-
 ### <a name="count-and-sku"></a>Contagem e SKU
 
 Para usar GPUs em uma instância de contêiner, especifique um *recurso GPU* com as seguintes informações:
@@ -52,6 +49,9 @@ Para usar GPUs em uma instância de contêiner, especifique um *recurso GPU* com
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
 Ao implantar recursos de GPU, defina os recursos de CPU e memória apropriados para a carga de trabalho, até os valores máximos mostrados na tabela anterior. Esses valores são atualmente maiores do que os recursos de CPU e memória disponíveis em grupos de contêineres sem recursos de GPU.  
+
+> [!IMPORTANT]
+> [Os limites de assinatura](container-instances-quotas.md) padrão (cotas) para recursos de GPU diferem por SKU. Os limites de CPU padrão para os SKUs P100 e V100 são inicialmente definidos como 0. Para solicitar um aumento em uma região disponível, envie uma [solicitação de suporte do Azure][azure-support].
 
 ### <a name="things-to-know"></a>Observações importantes
 

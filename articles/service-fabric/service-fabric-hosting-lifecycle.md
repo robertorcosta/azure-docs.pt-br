@@ -5,12 +5,12 @@ author: tugup
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: tugup
-ms.openlocfilehash: b106061805ea5485893df292c40974d3ee9bcadb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a39aecf16d1c3303c0a590b389ba2aa69d4472f2
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258822"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405119"
 ---
 # <a name="azure-service-fabric-hosting-lifecycle"></a>Ciclo de vida de hospedagem Service Fabric do Azure
 Este artigo fornece uma visão geral dos eventos que ocorrem quando um aplicativo é ativado em um nó e várias configurações de cluster usadas para controlar o comportamento.
@@ -83,7 +83,7 @@ Service Fabric sempre usa um retirada linear quando encontra um erro durante o d
 
 * Se o CodePackage continuar falhando e fizer o logoff, o ServiceType será desabilitado. Mas se a configuração de ativações for tal que ela tenha uma reinicialização rápida, o CodePackage poderá chegar algumas vezes antes de poder ver o desativação do ServiceType. Por exemplo: Suponha que seu CodePackage apareça, registra o ServiceType com Service Fabric e, em seguida, falha. Nesse caso, uma vez que a hospedagem recebe um registro de tipo, o período de **ServiceTypeDisableGraceInterval** é cancelado. E isso pode ser repetido até que o CodePackage faça o backup de um valor maior que **ServiceTypeDisableGraceInterval** e, depois, o ServiceType será desabilitado no nó. Portanto, pode ser um pouco antes de o ServiceType estar desabilitado no nó.
 
-* No caso de ativações, quando Service Fabric sistema precisa posicionar uma réplica em um nó, a RA (ReconfigurationAgent) solicita que o subsistema de hospedagem ative o aplicativo e repete a solicitação de ativação a cada 15 segundos (**RAPMessageRetryInterval**). Para Service Fabric sistema saber que o ServiceType foi desabilitado, a operação de ativação na hospedagem precisa residir por um período mais longo do que o intervalo de repetição e **ServiceTypeDisableGraceInterval**. Por exemplo: Deixe que o cluster tenha as configurações **ActivationMaxFailureCount** definidas como 5 e **ActivationRetryBackoffInterval** definidas como 1 s. Isso significa que a operação de ativação será exibida após (0 + 1 + 2 + 3 + 4) = 10 s (primeira repetição é imediata) e, depois disso, a hospedagem será repetida. Nesse caso, a operação de ativação será concluída e não tentará novamente após 15 segundos. Isso aconteceu porque Service Fabric esgotou todas as repetições dentro de 15 segundos. Assim, todas as tentativas do ReconfigurationAgent criarão uma nova operação de ativação no subsistema de hospedagem e o padrão continuará repetindo e o ServiceType nunca será desabilitado no nó. Como o ServiceType não será desabilitado no componente do sistema do node it (Failovermanager), não moverá a réplica para um nó diferente.
+* No caso de ativações, quando Service Fabric sistema precisa posicionar uma réplica em um nó, a RA (ReconfigurationAgent) solicita que o subsistema de hospedagem ative o aplicativo e repete a solicitação de ativação a cada 15 segundos (**RAPMessageRetryInterval**). Para Service Fabric sistema saber que o ServiceType foi desabilitado, a operação de ativação na hospedagem precisa residir por um período mais longo do que o intervalo de repetição e **ServiceTypeDisableGraceInterval**. Por exemplo: Deixe que o cluster tenha as configurações **ActivationMaxFailureCount** definidas como 5 e **ActivationRetryBackoffInterval** definidas como 1 s. Isso significa que a operação de ativação será exibida após (0 + 1 + 2 + 3 + 4) = 10 s (primeira repetição é imediata) e, depois disso, a hospedagem será repetida. Nesse caso, a operação de ativação será concluída e não tentará novamente após 15 segundos. Isso aconteceu porque Service Fabric esgotou todas as repetições dentro de 15 segundos. Assim, todas as tentativas do ReconfigurationAgent criarão uma nova operação de ativação no subsistema de hospedagem e o padrão continuará repetindo e o ServiceType nunca será desabilitado no nó. Como o ServiceType não será desabilitado no nó, a FM (Failovermanager) do componente do sistema da it não moverá a réplica para um nó diferente.
 > 
 
 ## <a name="deactivation"></a>Desativação

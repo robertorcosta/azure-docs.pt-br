@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 75e3f7fc98072957f571937a1627247cdc4a9e7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ee138ac41557554ae4b8fde8c9178336fd8d5db
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374433"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387771"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planejar uma implantação de logon único
 
@@ -32,7 +32,7 @@ Muitas organizações contam com aplicativos SaaS (software como serviço), como
 
 O Azure Marketplace tem mais de 3000 aplicativos com conexões de SSO previamente integradas, facilitando sua integração em seu locatário.
 
-## <a name="licensing"></a>Licenças
+## <a name="licensing"></a>Licenciamento
 
 - **Licenciamento do Azure ad** -o SSO para aplicativos SaaS previamente integrados é gratuito. No entanto, o número de objetos em seu diretório e os recursos que você deseja implantar podem exigir licenças adicionais. Para obter uma lista completa dos requisitos de licença, consulte [preços de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 - **Licenciamento de aplicativos** – você precisará das licenças apropriadas para seus aplicativos SaaS atenderem às suas necessidades de negócios. Trabalhe com o proprietário do aplicativo para determinar se os usuários atribuídos ao aplicativo têm as licenças apropriadas para suas funções no aplicativo. Se o Azure AD gerenciar o provisionamento automático com base em funções, as funções atribuídas no Azure AD deverão ser alinhadas com o número de licenças de Propriedade do aplicativo. O número inadequado de licenças pertencentes ao aplicativo pode levar a erros durante o provisionamento/atualização de um usuário.
@@ -55,7 +55,7 @@ Há duas maneiras principais de permitir que seus usuários façam logon único 
 ### <a name="considerations-for-federation-based-sso"></a>Considerações para SSO baseado em Federação
 
 - **Usando o OpenID Connect e o OAuth** – se o aplicativo ao qual você está se conectando oferecer suporte a ele, use o método OIDC/OAuth 2,0 para habilitar o SSO para esse aplicativo. Esse método requer menos configuração e permite uma experiência de usuário mais rica. Para obter mais informações, consulte [OAuth 2,0](../develop/v2-oauth2-auth-code-flow.md), [OpenID connect 1,0](../develop/v2-protocols-oidc.md)e [Azure Active Directory guia do desenvolvedor](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-- **Configurações de ponto de extremidade para SSO baseado em SAML** – se você usar SAML, os desenvolvedores precisarão de informações específicas antes de configurar o aplicativo. Para obter mais informações, consulte [Editar a configuração básica do SAML](configure-single-sign-on-non-gallery-applications.md).
+- **Configurações de ponto de extremidade para SSO baseado em SAML** – se você usar SAML, os desenvolvedores precisarão de informações específicas antes de configurar o aplicativo. Para obter mais informações, consulte [Configurar logon único baseado em SAML](configure-saml-single-sign-on.md).
 - **Gerenciamento de certificados para SSO baseado em SAML** – quando você HABILITA o SSO Federado para seu aplicativo, o Azure ad cria um certificado que é, por padrão, válido por três anos. Você pode personalizar a data de validade para esse certificado, se necessário. Verifique se você tem processos em vigor para renovar certificados antes de sua expiração. Para saber mais, confira [AD do Azure gerenciando certificados](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs).
 
 ### <a name="considerations-for-password-based-sso"></a>Considerações para SSO baseado em senha

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 4c374e62c0807269d1457bfe46d3df4260acd45c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2f38daea40f89e73422ca8115f2425758be81a4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510457"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87413095"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Parte um: habilitar a autenticação de AD DS para seus compartilhamentos de arquivos do Azure 
 
@@ -53,7 +53,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 #Import AzFilesHybrid module
 Import-Module -Name AzFilesHybrid
 
-#Login with an Azure AD credential that has either storage account owner or contributer RBAC assignment
+#Login with an Azure AD credential that has either storage account owner or contributer Azure role assignment
 Connect-AzAccount
 
 #Define parameters
@@ -85,7 +85,7 @@ Se você já executou o `Join-AzStorageAccountForAuth` script acima com êxito, 
 
 ### <a name="checking-environment"></a>Verificando o ambiente
 
-Primeiro, você deve verificar o estado do seu ambiente. Especificamente, você deve verificar se [Active Directory o PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps) está instalado e se o Shell está sendo executado com privilégios de administrador. Em seguida, verifique se o [módulo AZ. Storage 2,0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) está instalado e instale-o se não estiver. Depois de concluir essas verificações, verifique sua AD DS para ver se há uma [conta de computador](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (padrão) ou [conta de logon de serviço](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) que já foi criada com SPN/UPN como "CIFS/Your-Storage-Account-Name-aqui. File. Core. Windows. net". Se a conta não existir, crie uma conforme descrito na seção a seguir.
+Primeiro, você deve verificar o estado do seu ambiente. Especificamente, você deve verificar se [Active Directory o PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/?view=win10-ps) está instalado e se o Shell está sendo executado com privilégios de administrador. Em seguida, verifique se o [módulo Az.Storage 2.0](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) está instalado e instale-o se não estiver. Depois de concluir essas verificações, verifique sua AD DS para ver se há uma [conta de computador](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (padrão) ou [conta de logon de serviço](https://docs.microsoft.com/windows/win32/ad/about-service-logon-accounts) que já foi criada com SPN/UPN como "CIFS/Your-Storage-Account-Name-aqui. File. Core. Windows. net". Se a conta não existir, crie uma conforme descrito na seção a seguir.
 
 ### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Criando uma identidade que representa a conta de armazenamento em seu AD manualmente
 

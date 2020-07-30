@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 80ad9475eb9b3724e09fb450787adfa079896bed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 40f688d6acd1714999210e67567d25faa14c5d6e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075313"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384847"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Enviar dados de log para o Azure Monitor com a API do Coletor de Dados HTTP (visualização pública)
 Este artigo mostra como usar a API do Coletor de Dados HTTP para enviar dados de log para o Azure Monitor a partir de um cliente API REST.  O artigo descreve como formatar dados coletados pelo script ou aplicativo, incluí-los em uma solicitação e ter essa solicitação autorizada pelo Azure Monitor.  Os exemplos são fornecidos para PowerShell, C# e Python.
@@ -210,7 +210,7 @@ Nas próximas seções, você encontrará exemplos de como enviar dados para a A
 Para cada exemplo, realize essas etapas para definir as variáveis para o cabeçalho de autorização:
 
 1. No portal do Azure, localize seu espaço de trabalho do Log Analytics.
-2. Selecione **Configurações Avançadas** e, em seguida, **Fontes Conectadas**.
+2. Selecione **Gerenciamento de agentes**.
 2. À direita da **ID do Workspace**, selecione o ícone de cópia e cole a ID como o valor da variável **Customer ID**.
 3. À direita da **Chave Primária**, selecione o ícone de cópia e cole a ID como o valor da variável **Shared Key**.
 

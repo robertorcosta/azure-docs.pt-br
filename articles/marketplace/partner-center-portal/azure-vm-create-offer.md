@@ -1,18 +1,18 @@
 ---
 title: Criar uma oferta de máquina virtual no Azure Marketplace
-description: Saiba como criar uma oferta de máquina virtual no Azure Marketplace com o plano necessário.
+description: Saiba como publicar uma oferta de máquina virtual no Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
-author: iqshahmicrosoft
-ms.author: iqshah
-ms.date: 07/17/2020
-ms.openlocfilehash: 8da76650f9cc3da0ff8f79a9d3df7a00cdd01a24
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.topic: how-to
+author: emuench
+ms.author: mingshen
+ms.date: 07/28/2020
+ms.openlocfilehash: 9db6fbe002492c0db6e9e0e5e0a23ca1946759a5
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324685"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386428"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Criar uma oferta de máquina virtual no Azure Marketplace
 
@@ -352,7 +352,7 @@ Nesta seção, você configurará os detalhes da listagem do plano. Esse painel 
 
 #### <a name="plan-name"></a>Nome do plano
 
-Esse campo é preenchido com o nome que você deu ao seu plano quando o criou. Esse nome aparece no Azure Marketplace como o título deste plano. Ele é limitado a 100 caracteres.
+Esse campo é preenchido automaticamente com o nome que você atribuiu ao seu plano quando o criou. Esse nome aparece no Azure Marketplace como o título deste plano. Ele é limitado a 100 caracteres.
 
 #### <a name="plan-summary"></a>Resumo do plano
 
@@ -368,7 +368,7 @@ Selecione **Salvar rascunho** para continuar.
 
 Neste painel, você configura:
 
-- Mercados em que esse plano está disponível.
+- Mercados em que esse plano está disponível. Cada plano deve estar disponível em pelo menos um [mercado](../marketplace-geo-availability-currencies.md).
 - O preço por hora.
 - Se deseja tornar o plano visível para todos ou apenas para clientes específicos (um público-alvo privado).
 

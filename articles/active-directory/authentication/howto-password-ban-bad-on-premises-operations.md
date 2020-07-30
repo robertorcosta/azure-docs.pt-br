@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ee0f3d89d48b23db48e3bf4b78203b09fbcbdbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e4797c3e089e0ae9d15cc604e9f93605978b36c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652628"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419760"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>Habilitar o local Azure Active Directory proteção por senha
 
-Os usuários geralmente criam senhas que usam palavras locais comuns, como uma escola, uma equipe esportiva ou uma pessoa famosa. Essas senhas são fáceis de adivinhar e fracas contra ataques baseados em dicionário. Para impor senhas fortes em sua organização, a proteção de senha do Azure Active Directory (Azure AD) fornece uma lista de senhas excluídas global e personalizada. Uma solicitação de alteração de senha falhará se houver uma correspondência nessa lista de senhas banidas.
+Os usuários geralmente criam senhas que usam palavras locais comuns, como uma escola, uma equipe esportiva ou uma pessoa famosa. Essas senhas são fáceis de serem adivinhadas e fracas contra os ataques baseados em dicionário. Para impor senhas fortes em sua organização, a proteção de senha do Azure Active Directory (Azure AD) fornece uma lista de senhas excluídas global e personalizada. Uma solicitação de alteração de senha falhará se houver uma correspondência nessa lista de senhas banidas.
 
 Para proteger seu ambiente de Active Directory Domain Services (AD DS) local, você pode instalar e configurar a proteção de senha do Azure AD para trabalhar com seu DC local. Este artigo mostra como habilitar a proteção de senha do Azure AD para seu ambiente local.
 
@@ -40,7 +40,7 @@ Este artigo mostra como habilitar a proteção de senha do Azure AD para seu amb
 1. É recomendável definir inicialmente o **modo** como *auditoria*. Depois que estiver familiarizado com o recurso e o impacto sobre os usuários em sua organização, você poderá alternar o **modo** para *imposto*. Para obter mais informações, consulte a seção a seguir sobre [modos de operação](#modes-of-operation).
 1. Quando estiver pronto, selecione **Salvar**.
 
-    [![](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png "Enable on-premises password protection under Authentication Methods in the Azure portal")](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
+    [![Habilitar a proteção de senha local em métodos de autenticação no portal do Azure](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords-cropped.png)](media/howto-password-ban-bad-on-premises-operations/enable-configure-custom-banned-passwords.png#lightbox)
 
 ## <a name="modes-of-operation"></a>Modos de operação
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41329f2f5500db35ee76c9880bdbef984413004b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f603623e2b47a8ac1a8530880e10c919f63b66c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057896"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423602"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Criar usuários em massa no Azure Active Directory
 
@@ -60,7 +60,7 @@ As linhas em um modelo CSV baixado são as seguintes:
 
 1. Abra o arquivo CSV e adicione uma linha para cada usuário que você deseja criar. Os únicos valores necessários são **Nome**, **Nome UPN**, **Senha inicial** e **Bloquear entrada (Sim/Não)** . Em seguida, salve o arquivo.
 
-   [![](media/users-bulk-add/add-csv-file.png "The CSV file contains names and IDs of the users to create")](media/users-bulk-add/add-csv-file.png#lightbox)
+   [![O arquivo CSV contém os nomes e as IDs dos usuários a serem criados](media/users-bulk-add/add-csv-file.png)](media/users-bulk-add/add-csv-file.png#lightbox)
 
 1. Na página **Criar usuários em massa**, em Carregar seu arquivo CSV, procure o arquivo. Quando você seleciona o arquivo e clica em **Enviar**, a validação do arquivo CSV é iniciada.
 1. Após a validação do conteúdo do arquivo, você verá a mensagem **Arquivo carregado com êxito**. Se houver erros, você precisará corrigi-los antes de enviar o trabalho.
@@ -73,7 +73,7 @@ Se houver erros, você poderá baixar e exibir o arquivo de resultados na págin
 
 É possível ver o status de todas as suas solicitações em massa pendentes na página **Resultados da operação em massa**.
 
-   [![](media/users-bulk-add/bulk-center.png "Check create status in the Bulk Operations Results page")](media/users-bulk-add/bulk-center.png#lightbox)
+   [![Verificar o status de criação na página de Resultados das Operações em Massa](media/users-bulk-add/bulk-center.png)](media/users-bulk-add/bulk-center.png#lightbox)
 
 Em seguida, você pode verificar para ver se os usuários criados existem na organização do Azure AD no portal do Azure ou usando o PowerShell.
 

@@ -4,31 +4,41 @@ description: Saiba como usar consultas SQL para consultar dados de Azure Cosmos 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 07/24/2020
 ms.author: tisande
-ms.openlocfilehash: 1d24261edea843fa928ad00e3ce7babcb84acd3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d292b7cfcda73cb4cd6ac2535c7e27fc675e1030
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74873328"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87308178"
 ---
 # <a name="getting-started-with-sql-queries"></a>Guia de Introdução a consultas SQL
 
-Azure Cosmos DB contas da API do SQL dão suporte à consulta de itens usando linguagem SQL (SQL) como uma linguagem de consulta JSON. As metas de design da linguagem de consulta Azure Cosmos DB são:
+Em Azure Cosmos DB contas da API do SQL, há duas maneiras de ler os dados:
 
-* Suporte ao SQL, uma das linguagens de consulta mais conhecidas e populares, em vez de inventar uma nova linguagem de consulta. O SQL fornece um modelo de programação formal para consultas avançadas sobre itens JSON.  
+**Leituras de ponto** – você pode fazer uma pesquisa de chave/valor em uma única *ID de item* e chave de partição. A combinação de *ID de item* e chave de partição é a chave e o próprio item é o valor. Para um documento de 1 KB, as leituras pontuais normalmente custam 1 [unidade de solicitação](request-units.md) com uma latência inferior a 10 ms. As leituras de ponto retornam um único item.
 
-* Use o modelo de programação do JavaScript como base para a linguagem de consulta. O sistema de tipos, a avaliação de expressão e a invocação de função do JavaScript são as raízes da API do SQL. Essas raízes fornecem um modelo de programação natural para recursos como projeções relacionais, navegação hierárquica em itens JSON, autojunções, consultas espaciais e invocação de UDFs (funções definidas pelo usuário) escritas inteiramente em JavaScript.
+**Consultas SQL** – você pode consultar dados escrevendo consultas usando o linguagem SQL (SQL) como uma linguagem de consulta JSON. As consultas sempre custam pelo menos 2,3 unidades de solicitação e, em geral, terão uma latência maior e mais variável do que as leituras de ponto. As consultas podem retornar muitos itens.
+
+A maioria das cargas de trabalho de leitura pesada no Azure Cosmos DB usar uma combinação de leituras de ponto e consultas SQL. Se você só precisa ler um único item, as leituras de ponto são mais baratas e mais rápidas do que as consultas. As leituras de ponto não precisam usar o mecanismo de consulta para acessar dados e podem ler os dados diretamente. É claro que não é possível que todas as cargas de trabalho leiam dados exclusivamente usando leituras pontuais, de modo que o suporte ao SQL como linguagem de consulta e [indexação independente de esquema](index-overview.md) fornece uma maneira mais flexível de acessar seus dados.
+
+Aqui estão alguns exemplos de como fazer leituras de ponto com cada SDK:
+
+- [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync?view=azure-dotnet)
+- [Java SDK](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmoscontainer.readitem?view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
+- [SDK do Node.js](https://docs.microsoft.com/javascript/api/@azure/cosmos/item?view=azure-node-latest#read-requestoptions-)
+- [SDK do Python](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.containerproxy?view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
+
+O restante deste documento mostra como começar a escrever consultas SQL no Azure Cosmos DB. As consultas SQL podem ser executadas por meio do SDK ou do portal do Azure.
 
 ## <a name="upload-sample-data"></a>Carregar dados de exemplo
 
-Na sua API do SQL Cosmos DB conta, crie um contêiner chamado `Families` . Crie dois itens JSON simples no contêiner. Você pode executar a maioria das consultas de exemplo no Azure Cosmos DB documentos de consulta usando esse conjunto de dados.
+Na sua API do SQL Cosmos DB conta, crie um contêiner chamado `Families` . Crie dois itens JSON simples no contêiner. Você pode executar a maioria das consultas de exemplo na documentação de consulta do Azure Cosmos DB usando esse conjunto de dados.
 
 ### <a name="create-json-items"></a>Criar itens JSON
 
 O código a seguir cria dois itens JSON simples sobre famílias. Os itens JSON simples para as famílias Andersen e Barros incluem pais, filhos e seus animais de estimação, endereço e informações de registro. O primeiro item tem cadeias de caracteres, números, Boolianos, matrizes e propriedades aninhadas.
-
 
 ```json
 {
@@ -72,7 +82,7 @@ O segundo item usa `givenName` e `familyName` em vez de `firstName` e `lastName`
             { "givenName": "Shadow" }
         ]
       },
-      { 
+      {
         "familyName": "Miller",
          "givenName": "Lisa",
          "gender": "female",
@@ -88,7 +98,7 @@ O segundo item usa `givenName` e `familyName` em vez de `firstName` e `lastName`
 
 Experimente algumas consultas em relação aos dados JSON para entender alguns dos principais aspectos da linguagem de consulta SQL do Azure Cosmos DB.
 
-A consulta a seguir retorna os itens nos quais o `id` campo corresponde `AndersenFamily` . Como é uma `SELECT *` consulta, a saída da consulta é o item JSON completo. Para obter mais informações sobre a sintaxe SELECT, consulte [Select Statement](sql-query-select.md). 
+A consulta a seguir retorna os itens nos quais o `id` campo corresponde `AndersenFamily` . Como é uma `SELECT *` consulta, a saída da consulta é o item JSON completo. Para obter mais informações sobre a sintaxe SELECT, consulte [Select Statement](sql-query-select.md).
 
 ```sql
     SELECT *
@@ -96,7 +106,7 @@ A consulta a seguir retorna os itens nos quais o `id` campo corresponde `Anderse
     WHERE f.id = "AndersenFamily"
 ```
 
-Os resultados da consulta são: 
+Os resultados da consulta são:
 
 ```json
     [{

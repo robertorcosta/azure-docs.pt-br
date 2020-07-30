@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 9891cdb59c757035afd17339b052d5587ac99b0c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 80671a40b5933a89962fa07b267d7e99e475657f
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74109967"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406683"
 ---
 # <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Como: selecionar um dispositivo de entrada de áudio com o SDK de fala
 
@@ -175,7 +176,7 @@ Uma identificação do dispositivo de exemplo é `{0.0.1.00000000}.{5f23ab69-618
 
 ## <a name="audio-device-ids-on-uwp"></a>Identificações do dispositivo de áudio no UWP
 
-No Plataforma Universal do Windows (UWP), os dispositivos de entrada de áudio podem ser obtidos `Id()` usando a propriedade do [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) objeto correspondente.
+No Plataforma Universal do Windows (UWP), os dispositivos de entrada de áudio podem ser obtidos usando a `Id()` Propriedade do [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) objeto correspondente.
 
 Os seguintes exemplos de código mostram como fazer isso em C++ e em C#:
 
@@ -365,7 +366,7 @@ Por exemplo, o UID do microfone interno é `BuiltInMicrophoneDevice`.
 
 ## <a name="audio-device-ids-on-ios"></a>Identificações do dispositivo de áudio no iOS
 
-Não há suporte para a seleção de dispositivos de áudio no SDK de Fala do iOS. No entanto, os aplicativos que usam o SDK podem influenciar [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) o roteamento de áudio por meio da estrutura.
+Não há suporte para a seleção de dispositivos de áudio no SDK de Fala do iOS. No entanto, os aplicativos que usam o SDK podem influenciar o roteamento de áudio por meio da [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) estrutura.
 
 Por exemplo, a instrução
 
@@ -383,7 +384,7 @@ Em JavaScript, o método [MediaDevices.enumerateDevices()](https://developer.moz
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Explorar nossas amostras no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar nossos exemplos no GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Confira também
 

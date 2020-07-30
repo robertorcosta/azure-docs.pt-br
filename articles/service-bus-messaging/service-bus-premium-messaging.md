@@ -2,13 +2,13 @@
 title: Camadas Premium e Standard do barramento de serviço do Azure
 description: Este artigo descreve as camadas Standard e Premium do barramento de serviço do Azure. Compara essas camadas e fornece diferenças técnicas.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: eb2d3dda18eb08809a5c8f1020490acdb1e9a21c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: 82f8dbce7c48cb6efea67de4297239915e46eac8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337421"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386343"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Camadas de sistema de mensagens Premium e Standard do Barramento de Serviço
 
@@ -24,7 +24,7 @@ Algumas diferenças de alto nível são destacadas na tabela a seguir.
 | Desempenho previsível |Latência variável |
 | Preço fixo |Preço pré-pago variável |
 | Capacidade de escalar a carga de trabalho verticalmente |N/D |
-| Até 1 MB de tamanho de mensagem |Até 256 KB de tamanho de mensagem |
+| Tamanho da mensagem de até 1 MB. Esse limite pode ser gerado no futuro. Para obter atualizações importantes mais recentes para o serviço, consulte o [blog do sistema de mensagens no Azure](https://techcommunity.microsoft.com/t5/messaging-on-azure/bg-p/MessagingonAzureBlog). |Até 256 KB de tamanho de mensagem |
 
 O **Sistema de Mensagens Premium do Barramento de Serviço** fornece isolamento de recursos no nível de CPU e memória, de modo que a carga de trabalho do cliente seja executada isoladamente. Esse contêiner de recursos é chamado de *unidade de mensagens*. Cada namespace premium é alocado para pelo menos uma unidade do sistema de mensagens. Você pode comprar 1, 2, 4 ou 8 unidades de mensagens para cada namespace Premium do barramento de serviço. Uma única carga de trabalho ou entidade pode abranger várias unidades de mensagens e o número de unidades de mensagens pode ser alterado às. O resultado é um desempenho previsível e repetível para sua solução baseada no Barramento de Serviço.
 
@@ -36,11 +36,11 @@ As seções a seguir discutem algumas diferenças entre as camadas dos sistemas 
 
 ### <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
-Não há suporte para filas e tópicos particionados no Sistema de Mensagens Premium. Para saber mais sobre o particionamento, confira as [Filas e tópicos particionados](service-bus-partitioning.md).
+Não há suporte para filas e tópicos particionados em mensagens Premium. Para saber mais sobre o particionamento, confira as [Filas e tópicos particionados](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>Entidades expressas
 
-Como o sistema de mensagens Premium é executado em um ambiente de tempo de execução totalmente isolado, não há suporte para as entidades expressas em namespaces Premium. Para saber mais sobre o recurso expresso, consulte a propriedade [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
+Como as mensagens Premium são executadas em um ambiente de tempo de execução isolado, não há suporte para entidades expressas em namespaces Premium. Para saber mais sobre o recurso expresso, consulte a propriedade [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
 
 Se você tiver código em execução no sistema de mensagens padrão e deseja portá-lo para a camada Premium, verifique se a propriedade [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) está definida como **false** (o valor padrão).
 
@@ -51,7 +51,7 @@ Em geral, qualquer operação em uma entidade pode causar o uso de CPU e memóri
 - Operações de tempo de execução (enviar e receber mensagens)
 - Monitoramento de operações e alertas
 
-No entanto, o uso adicional de CPU e memória não tem preços. Para a camada de mensagens Premium, há um único preço para a unidade de mensagem.
+No entanto, o uso adicional de CPU e memória também não é cobrado. Para a camada de mensagens Premium, há um único preço para a unidade de mensagem.
 
 O uso de CPU e memória é acompanhado e exibido para você pelos seguintes motivos: 
 

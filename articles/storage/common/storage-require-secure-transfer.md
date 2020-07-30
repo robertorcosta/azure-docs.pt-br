@@ -10,12 +10,12 @@ ms.date: 04/21/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 125f4188ed3f12f366c619af9efe3aa203987c19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 668b8d714c4d6c146d9b279d9e6a49599c04775c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81870527"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423500"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Exigir transferência segura para garantir conexões seguras
 
@@ -51,7 +51,7 @@ Você pode ativar a propriedade **transferência segura necessária** ao criar u
 
 ## <a name="require-secure-transfer-from-code"></a>Exigir transferência segura do código
 
-Para exigir transferência segura de forma programática, defina a propriedade _supportsHttpsTrafficOnly_ na conta de armazenamento. Você pode definir essa propriedade usando a API REST do provedor de recursos de armazenamento, bibliotecas de cliente ou ferramentas:
+Para exigir transferência segura de forma programática, defina a propriedade _enableHttpsTrafficOnly_ como _true_ na conta de armazenamento. Você pode definir essa propriedade usando a API REST do provedor de recursos de armazenamento, bibliotecas de cliente ou ferramentas:
 
 * [REST API](/rest/api/storagerp/storageaccounts)
 * [PowerShell](/powershell/module/az.storage/set-azstorageaccount)

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 71176c87ee805eb4a634dd6c2f344922fc13c4f3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 8396ffa958e41e12e9258766483310baef0cabbe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132710"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421426"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Solucionar problemas de conectividade de rede de VM do Azure para Azure
 
@@ -18,12 +18,12 @@ Este artigo descreve os problemas comuns relacionados à conectividade de rede q
 
 Para replicação de recuperação de Site para o trabalho, conectividade de saída para intervalos específicos de IP ou URLs é necessária da VM. Se a VM estiver atrás de um firewall ou usa regras de grupo de segurança de rede (NSG) para controlar a conectividade de saída, você poderá enfrentar um desses problemas.
 
-| URL | Detalhes |
-|---|---|
-| `*.blob.core.windows.net` | Necessário para que os dados possam ser gravados para a conta de armazenamento de cache da região de origem da VM. Se você souber todas as contas de armazenamento em cache para suas VMs, poderá usar uma lista de permissões para as URLs de conta de armazenamento específicas. Por exemplo, `cache1.blob.core.windows.net` e `cache2.blob.core.windows.net` em vez de `*.blob.core.windows.net` . |
-| `login.microsoftonline.com` | Necessário para autorização e autenticação para as URLs do serviço de recuperação de Site. |
-| `*.hypervrecoverymanager.windowsazure.com` | Necessário para que a comunicação de serviço de recuperação de Site possa ocorrer da VM. Você pode usar o _IP site Recovery_ correspondente se o proxy de firewall oferecer suporte a IPS. |
-| `*.servicebus.windows.net` | Necessário para que os dados de monitoramento e diagnóstico de recuperação de Site possam ser gravados da VM. Você pode usar o _IP de monitoramento de site Recovery_ correspondente se o proxy de firewall oferecer suporte a IPS. |
+| **Nome**                  | **Comercial**                               | **Governamental**                                 | **Descrição** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Necessário para que os dados possam ser gravados para a conta de armazenamento de cache da região de origem da VM. Se você souber todas as contas de armazenamento em cache para suas VMs, poderá usar uma lista de permissões para as URLs de conta de armazenamento específicas. Por exemplo, `cache1.blob.core.windows.net` e `cache2.blob.core.windows.net` em vez de `*.blob.core.windows.net` . |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Necessário para autorização e autenticação para as URLs do serviço de recuperação de Site. |
+| Replicação               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Necessário para que a comunicação de serviço de recuperação de Site possa ocorrer da VM. Você pode usar o _IP site Recovery_ correspondente se o proxy de firewall oferecer suporte a IPS. |
+| Barramento de Serviço               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Necessário para que os dados de monitoramento e diagnóstico de recuperação de Site possam ser gravados da VM. Você pode usar o _IP de monitoramento de site Recovery_ correspondente se o proxy de firewall oferecer suporte a IPS. |
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Conectividade de saída para intervalos de IP ou URLs de recuperação de Site (código de erro 151037 ou 151072)
 
@@ -141,7 +141,7 @@ As configurações de proxy personalizadas são inválidas e o agente do serviç
 > [!NOTE]
 > Azure Site Recovery agente do serviço de mobilidade dá suporte apenas a **proxies não autenticados**.
 
-### <a name="fix-the-problem"></a>Corrija o problema
+### <a name="fix-the-problem"></a>Corrigir o problema
 
 Para permitir [as URLs necessárias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou os [intervalos de IP necessários](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), siga as etapas no [documento diretrizes de rede](./azure-to-azure-about-networking.md).
 

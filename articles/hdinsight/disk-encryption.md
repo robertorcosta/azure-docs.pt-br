@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 732709dbcb5ebe54025a963379128f1a1e74183e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8bb9dc5aa6ebbd4ef7fb1b9550670a3c6298333
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81536294"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387839"
 ---
 # <a name="customer-managed-key-disk-encryption"></a>Criptografia de disco de chave gerenciada pelo cliente
 
@@ -30,7 +30,7 @@ O disco de recursos e os discos gerenciados em cada nó do cluster são criptogr
 
 Se o Firewall do cofre de chaves estiver habilitado no cofre de chaves em que a chave de criptografia de disco estiver armazenada, os endereços IP do provedor de recursos regionais do HDInsight para a região em que o cluster será implantado deverão ser adicionados à configuração do firewall do cofre de chaves. Isso é necessário porque o HDInsight não é um serviço de cofre de chaves do Azure confiável.
 
-Você pode usar o portal do Azure ou a CLI do Azure para gorar as chaves com segurança no cofre de chaves. Quando uma tecla gira, o cluster HDInsight começa a usar a nova chave em minutos. Habilite os recursos de proteção de chave de [exclusão reversível](../key-vault/general/overview-soft-delete.md) para proteger contra cenários de ransomware e exclusão acidental. Não há suporte para cofres de chaves sem esse recurso de proteção.
+Você pode usar o portal do Azure ou a CLI do Azure para gorar as chaves com segurança no cofre de chaves. Quando uma tecla gira, o cluster HDInsight começa a usar a nova chave em minutos. Habilite os recursos de proteção de chave de [exclusão reversível](../key-vault/general/soft-delete-overview.md) para proteger contra cenários de ransomware e exclusão acidental. Não há suporte para cofres de chaves sem esse recurso de proteção.
 
 |Tipo de cluster |Disco do sistema operacional (disco gerenciado) |Disco de dados (disco gerenciado) |Disco de dados temporário (SSD local) |
 |---|---|---|---|
@@ -96,7 +96,7 @@ O HDInsight é compatível apenas com o Azure Key Vault. Se você tiver seu pró
 
 1. Selecione **Adicionar**.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
     ![Salvar política de acesso de Azure Key Vault](./media/disk-encryption/add-key-vault-access-policy-save.png)
 
@@ -124,7 +124,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 --assign-identity MyMSI
 ```
 
-### <a name="using-azure-resource-manager-templates"></a>Usando modelos do Gerenciador de Recursos do Azure
+### <a name="using-azure-resource-manager-templates"></a>Usar modelos do Azure Resource Manager
 
 O exemplo a seguir mostra como usar um modelo de Azure Resource Manager para criar um novo cluster de Apache Spark com a criptografia de disco habilitada. Para obter mais informações, consulte [o que são modelos de ARM?](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bd6157f2775b2496e489cfbf03b35f49fb6f5442
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 0231070e73c5b38562e8d110d80a2fba3c28724d
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124707"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385476"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Linha de base de segurança do Azure para Máquinas Virtuais do Linux
 
@@ -232,7 +232,7 @@ Além disso, habilite Azure Monitor para acesso aos seus logs de auditoria e de 
 
 * [Exibir e recuperar eventos do log de atividades do Azure](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [Visão geral de Application Insights](../../azure-monitor/app/app-insights-overview.md)
+* [Visão geral do Application Insights](../../azure-monitor/app/app-insights-overview.md)
 
 **Monitoramento da central de segurança do Azure**: não disponível
 
@@ -1096,7 +1096,7 @@ Se você estiver usando o Azure Disk Encryption, poderá restaurar a VM do Azure
 
 * [Exclusão reversível para VMs](../../backup/soft-delete-virtual-machines.md)
 
-* [Visão geral de exclusão reversível do Azure Key Vault](../../key-vault/general/overview-soft-delete.md)
+* [Visão geral de exclusão reversível do Azure Key Vault](../../key-vault/general/soft-delete-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

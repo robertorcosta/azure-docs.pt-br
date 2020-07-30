@@ -2,18 +2,18 @@
 title: Proteger novamente as VMs do Azure para a região primária com Azure Site Recovery | Microsoft Docs
 description: Descreve como proteger novamente as VMs do Azure após o failover, a região secundária para a primária, usando Azure Site Recovery.
 services: site-recovery
-author: rajani-janaki-ram
-manager: gauravd
+author: Rajeswari-Mamilla
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: rajanaki
-ms.openlocfilehash: 9883065993f35054338079c8b9647a8420574414
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: ramamill
+ms.openlocfilehash: da740909cedb8e2bb78f5f70e062481395a5c181
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82738058"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422072"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Proteger novamente VMs do Azure que sofreram failover para a região primária
 
@@ -95,10 +95,6 @@ As seguintes condições determinam a quantidade de dados replicada:
 |A região de origem tem uma VM com disco Premium de 1 TB.<br/>Somente 20 GB de dados são usados e o restante do disco está vazio.<br/>O tipo de disco é Premium com taxa de transferência de 200 MBps.<br/>Os dados iniciais no disco imediatamente após o failover foram 15 GB. Houve uma alteração de dados de 5 GB após o failover. O total de dados preenchidos é, portanto, 20 GB| Tempo aproximado: 30-45 minutos.<br/>Como os dados populados no disco são inferiores a 10% do tamanho do disco, executamos uma replicação inicial completa.<br/>A velocidade de transferência é aproximadamente 16% da taxa de transferência ou 32MBps. Portanto, o tempo de transferência para aplicar alterações de 20 GB com 20 GB/32 MBps, aproximadamente 11 minutos.<br/>Um tempo de sobrecarga é necessário para Site Recovery a escala automática, aproximadamente 20-30 minutos |
 
 Quando a VM é protegida novamente após o failback para a região primária (ou seja, se a VM for protegida novamente da região primária para a região de DR), a VM de destino e as NICs associadas serão excluídas.
-
-Quando a VM é protegida novamente da região de DR para a região primária, não excluímos a VM primária aluna e as NICs associadas.
-
-Quando a VM é protegida novamente após o failback para a região primária (ou seja, se a VM for protegida novamente da região primária para a região de DR), a VM de destino e as NICs associadas serão excluídas. 
 
 Quando a VM é protegida novamente da região de DR para a região primária, não excluímos a VM primária aluna e as NICs associadas.
 

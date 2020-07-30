@@ -4,19 +4,19 @@ description: Esta página descreve alguns limites comuns de recursos de DTU para
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: references_regions
+ms.custom: seo-lt-2019 sqldbrb=1 references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
-ms.date: 04/17/2020
-ms.openlocfilehash: 4377be82dfdb66ab7186d4472c8b1f5453b47809
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/28/2020
+ms.openlocfilehash: 0fd875b2c02f5d61663339ac523fd6733732ad01
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325110"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420984"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Recursos limites para pools elásticos usando o modelo de compra de DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,9 +38,11 @@ Para pools elásticos do banco de dados SQL do Azure, as tabelas a seguir mostra
 > [!IMPORTANT]
 > Para obter diretrizes e considerações sobre o dimensionamento, consulte [dimensionar um pool elástico](elastic-pool-scale.md)
 
+Os limites de recursos de bancos de dados individuais em pools elásticos geralmente são os mesmos dos bancos de dados individuais fora dos pools com base em DTUs e na camada de serviço. Por exemplo, máximo de trabalhos simultâneos para um banco de dados S2 é 120. Assim, o máximo de trabalhos simultâneos para um banco de dados em um pool padrão também será 120 se o máximo de DTUs por banco de dados no pool for 50 DTUs (o que é equivalente a S2).
+ 
+Os recursos fornecidos para um pool elástico podem exceder os recursos fornecidos a um banco de dados individual fora de um pool elástico para o mesmo número de DTUs. Isso significa que é possível que a utilização de eDTU de um pool elástico seja menor do que a soma da utilização de DTU entre bancos de dados dentro do pool, dependendo dos padrões de carga de trabalho. Por exemplo, em um caso extremo com apenas um banco de dados em um pool elástico em que a utilização de DTU do banco de dados é de 100%, é possível que a utilização do eDTU do pool seja 50% para determinados padrões de carga de trabalho. Isso pode ocorrer mesmo que nenhum DTU máximo explícito por banco de dados tenha sido definido. Nesse caso, o consumo de DTU de banco de dados em pool é limitado da mesma forma que o consumo de DTU de um único banco de dados com o objetivo de serviço correspondente.
+
 > [!NOTE]
-> Os limites de recursos de bancos de dados individuais em pools elásticos geralmente são os mesmos dos bancos de dados individuais fora dos pools com base em DTUs e na camada de serviço. Por exemplo, máximo de trabalhos simultâneos para um banco de dados S2 é 120. Assim, o máximo de trabalhos simultâneos para um banco de dados em um pool padrão também será 120 se o máximo de DTUs por banco de dados no pool for 50 DTUs (o que é equivalente a S2).
->
 > O limite de recursos de armazenamento por pool em cada uma das tabelas a seguir não inclui o tempdb e o armazenamento de log.
 
 ### <a name="basic-elastic-pool-limits"></a>Limites de pool elástico Básico

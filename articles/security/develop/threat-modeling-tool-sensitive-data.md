@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: ab22e9843ca133274361838eeb49abbe326588dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 72d223e0a2052c8e33c12ad5c540f5f32f540a4d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79502238"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420576"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Estrutura de segurança: Dados confidenciais | Atenuações 
 | Produto/Serviço | Artigo |
@@ -172,7 +173,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase do SDL**               | Build |  
 | **Tecnologias aplicáveis** | SQL Azure, OnPrem |
 | **Atributos**              | Versão do SQL - V12, Versão do SQL - MsSQL2016 |
-| **Referências**              | [Máscara de Dados Dinâmicos](https://msdn.microsoft.com/library/mt130841) |
+| **Referências**              | [Mascaramento de dados dinâmicos](https://msdn.microsoft.com/library/mt130841) |
 | **Etapas** | A finalidade do mascaramento de dados dinâmicos é limitar a exposição de dados confidenciais, impedindo que os usuários que não devem ter acesso a esses dados os visualizem. O mascaramento de dados dinâmicos não pretende impedir que usuários de banco de dados se conectem diretamente ao banco de dados e executem consultas abrangentes que exponham dados confidenciais. Ele é complementar aos outros recursos de segurança do SQL Server (auditoria, criptografia, segurança no nível da linha, etc.). É extremamente recomendável usar o mascaramento de dados dinâmicos junto com outros recursos para melhor proteger ainda mais os dados confidenciais presentes no banco de dados. Observe que esse recurso tem suporte apenas a partir do SQL Server 2016 e do Banco de Dados SQL do Azure. |
 
 ## <a name="ensure-that-passwords-are-stored-in-salted-hash-format"></a><a id="salted-hash"></a>Garantir que as senhas sejam armazenadas em um formato hash salgado

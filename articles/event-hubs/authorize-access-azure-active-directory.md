@@ -3,12 +3,12 @@ title: Autorizar o acesso com o Azure Active Directory
 description: Este artigo fornece informações sobre como autorizar o acesso aos recursos de hubs de eventos usando Azure Active Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: cb55a716498bc50dff72c0d98943de407a367d4a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: c6d1be2825ea716c72d70cd38babbb2d95083198
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371491"
+ms.locfileid: "87413384"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizar o acesso aos recursos de hubs de eventos usando Azure Active Directory
 Os hubs de eventos do Azure dão suporte ao uso de Azure Active Directory (AD do Azure) para autorizar solicitações para recursos de hubs de eventos. Com o Azure AD, você pode usar o RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança, que pode ser um usuário ou uma entidade de serviço de aplicativo. Para saber mais sobre funções e atribuições de função, confira [noções básicas sobre as diferentes funções](../role-based-access-control/overview.md).
@@ -49,7 +49,7 @@ A lista a seguir descreve os níveis nos quais você pode fazer o escopo de aces
 - **Assinatura**: a atribuição de função se aplica a todos os recursos de hubs de eventos em todos os grupos de recursos na assinatura.
 
 > [!NOTE]
-> - Tenha em mente que as atribuições de função do RBAC podem levar até cinco minutos para serem propagadas. 
+> - Tenha em mente que as atribuições de função do Azure podem levar até cinco minutos para serem propagadas. 
 > - Esse conteúdo se aplica a hubs de eventos e hubs de eventos para Apache Kafka. Para obter mais informações sobre os hubs de eventos para suporte a Kafka, consulte [hubs de eventos para Kafka-segurança e autenticação](event-hubs-for-kafka-ecosystem-overview.md#security-and-authentication).
 
 

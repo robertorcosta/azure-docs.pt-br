@@ -1,6 +1,6 @@
 ---
-title: Como configurar o logon único com senha para aplicativos do Azure AD | Microsoft Docs
-description: Como configurar o SSO (logon único) com senha para seus aplicativos empresariais do Azure AD na plataforma Microsoft Identity (Azure AD)
+title: Como configurar o logon único baseado em senha para aplicativos do Azure AD
+description: Como configurar o SSO (logon único) baseado em senha para seus aplicativos do Azure AD na plataforma Microsoft Identity (Azure AD)
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -8,60 +8,56 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/10/2019
+ms.date: 07/29/2020
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 043adc309c3480865eb9aa7a7bff8d35e85bc78a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3f9f96c6429d4925c60a56cd450a9c2ee7dde24
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763492"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419947"
 ---
-# <a name="configure-password-single-sign-on"></a>Configurar o logon único com senha
+# <a name="configure-password-based-single-sign-on"></a>Configurar logon único baseado em senha
 
-Quando você [adiciona um aplicativo de galeria](add-gallery-app.md) ou um [aplicativo Web que não é da Galeria](add-non-gallery-app.md) a seus aplicativos empresariais do Azure AD, uma das opções de logon único disponíveis para você é [logon único baseado em senha](what-is-single-sign-on.md#password-based-sso). Essa opção está disponível para qualquer Web com uma página de entrada HTML. O SSO baseado em senha, também conhecido como armazenamento de senha em cofre, permite que você gerencie o acesso de usuários e senhas para aplicativos Web que não dão suporte a federação de identidades. Também é útil para cenários em que vários usuários precisam compartilhar uma única conta, como as contas de aplicativo de mídia social da sua organização. 
+Na [série de guias de início rápido](view-applications-portal.md) sobre o gerenciamento de aplicativos, você aprendeu a usar o Azure ad como o IDP (provedor de identidade) para um aplicativo. No guia de início rápido, você configura o SSO baseado em SAML. Além do SAML, há uma opção para o SSO baseado em senha. Este artigo apresenta mais detalhes sobre a opção baseada em senha para logon único. 
+
+Essa opção está disponível para qualquer site com uma página de entrada HTML. O SSO baseado em senha, também conhecido como armazenamento de senha em cofre, permite que você gerencie o acesso de usuários e senhas para aplicativos Web que não dão suporte a federação de identidades. Também é útil para cenários em que vários usuários precisam compartilhar uma única conta, como as contas de aplicativo de mídia social da sua organização. 
 
 O SSO baseado em senha é uma ótima maneira de começar a integrar aplicativos ao Azure AD rapidamente e permite que você:
 
--   Habilitar o **logon único para os usuários** armazenando de forma segura e reproduzindo os nomes de usuário e senhas do aplicativo integrado ao Azure AD
+- Habilite o logon único para seus usuários armazenando e reproduzindo com segurança nomes de usuário e senhas para o aplicativo que você integrou ao Azure AD
 
--   **Dar suporte a aplicativos que exigem vários campos de entrada**, para aplicativos que exigem mais do que apenas os campos de nome de usuário e senha para entrar
+- Dar suporte a aplicativos que exigem vários campos de entrada, para aplicativos que exigem mais do que apenas os campos de nome de usuário e senha para entrar
 
--   **Personalizar os rótulos** dos campos de entrada de nome de usuário e senha que seus usuários veem no [Painel de Acesso do Aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) quando digitam suas credenciais
+- Personalizar os rótulos dos campos de entrada de nome de usuário e senha que seus usuários veem no [Painel de Acesso do Aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) quando digitam suas credenciais
 
--   Permitir que os **usuários** forneçam seus próprios nomes de usuário e senhas para as contas de aplicativos existentes que eles estiverem digitando manualmente no [Painel de Acesso do Aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+- Permita que os usuários forneçam seus próprios nomes de usuário e senhas para as contas de aplicativos existentes que estão digitando manualmente.
 
--   Permitir que um **membro do grupo de negócios** especifique os nomes de usuário e senhas atribuídos a um usuário usando o recurso de [Autoatendimento de Acesso ao Aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
+- Permitir que um membro do grupo de negócios especifique os nomes de usuário e senhas atribuídos a um usuário usando o recurso de [Autoatendimento de Acesso ao Aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
 
--   Permitir que um **administrador** especifique um nome de usuário e uma senha a serem usados por indivíduos ou grupos ao entrar no aplicativo usando o recurso atualizar credenciais 
+-   Permitir que um administrador especifique um nome de usuário e uma senha a serem usados por indivíduos ou grupos ao entrar no aplicativo usando o recurso atualizar credenciais 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, confira [Adicionar um aplicativo da galeria](add-gallery-app.md) ou [Adicionar um aplicativo inexistente na galeria](add-non-gallery-app.md).
+Usar o Azure AD como seu provedor de identidade e configurar o SSO (logon único) pode ser simples ou complexo dependendo do aplicativo que está sendo usado. Alguns aplicativos podem ser configurados com apenas algumas ações. Outros exigem configuração detalhada. Para aumentar rapidamente, percorra a [série de guias de início rápido](view-applications-portal.md) sobre o gerenciamento de aplicativos. Se o aplicativo que você está adicionando for simples, provavelmente você não precisará ler este artigo. Se o aplicativo que você está adicionando requer configuração personalizada e você precisa usar o SSO baseado em senha, este artigo é para você.
 
-## <a name="open-the-app-and-select-password-single-sign-on"></a>Abra o aplicativo e selecione logon único com senha
+> [!IMPORTANT] 
+> Há alguns cenários em que a opção de **logon único** não estará na navegação de um aplicativo em **aplicativos empresariais**. 
+>
+> Se o aplicativo tiver sido registrado usando **registros de aplicativo** , o recurso de logon único será configurado para usar o OIDC OAuth por padrão. Nesse caso, a opção de **logon único** não aparecerá na navegação em **aplicativos empresariais**. Ao usar **registros de aplicativo** para adicionar seu aplicativo personalizado, você configura opções no arquivo de manifesto. Para saber mais sobre o arquivo de manifesto, consulte [Azure Active Directory manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Para saber mais sobre os padrões de SSO, consulte [autenticação e autorização usando a plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+>
+> Outros cenários em que o **logon único** ficará ausente da navegação incluem quando um aplicativo é hospedado em outro locatário ou se sua conta não tem as permissões necessárias (administrador global, administrador de aplicativos de nuvem, administrador de aplicativos ou proprietário da entidade de serviço). As permissões também podem causar um cenário em que você pode abrir o **logon único** , mas não poderá salvar. Para saber mais sobre as funções administrativas do Azure AD, consulte ( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
-1. Entre no [portal do Azure](https://portal.azure.com) como administrador do aplicativo em nuvem ou um administrador de aplicativo para seu locatário do Azure AD.
 
-2. Navegue até **Azure Active Directory**  >  **aplicativos empresariais**. Uma amostra aleatória dos aplicativos em seu locatário do Azure AD é exibida. 
+## <a name="basic-configuration"></a>Configuração básica
 
-3. No menu **Tipo de Aplicativo**, selecione **Todos os aplicativos** e, em seguida, **Aplicar**.
+Na [série de início rápido](view-applications-portal.md), você aprendeu a adicionar um aplicativo ao seu locatário para que o Azure ad saiba que ele está sendo usado como o IDP (provedor de identidade) para o aplicativo. Alguns aplicativos já estão pré-configurados e aparecem na galeria do Azure AD. Outros aplicativos não estão na galeria e você precisa criar um aplicativo genérico e configurá-lo manualmente. Dependendo do aplicativo, a opção SSO baseado em senha pode não estar disponível. Se você não vir a lista de opções baseadas em senha na página logon único do aplicativo, ela não estará disponível.
 
-4. Insira o nome do aplicativo na caixa de pesquisa e, em seguida, selecione o aplicativo nos resultados.
+A página de configuração para o SSO baseado em senha é simples. Ele inclui apenas a URL da página de logon que o aplicativo usa. Essa cadeia de caracteres deve ser a página que inclui o campo de entrada nome de usuário.
 
-5. Na seção **Gerenciar**, selecione **Logon único**. 
-
-6. Selecione **baseado em senha**.
-
-7. Insira a URL da página de entrada baseada na Web do aplicativo. Essa cadeia de caracteres deve ser a página que inclui o campo de entrada nome de usuário.
-
-   ![Logon único baseado em senha](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
-
-8. Selecione **Salvar**. O Azure AD tenta analisar a página de entrada para obter uma entrada de nome de usuário e uma entrada de senha. Se a tentativa for bem-sucedida, você terminará. 
+Depois de inserir a URL, selecione **salvar**. O Azure AD analisa o HTML da página de entrada para campos de entradas de nome de usuário e senha. Se a tentativa for bem-sucedida, você terminará.
  
-> [!NOTE]
-> A próxima etapa é [atribuir usuários ou grupos ao aplicativo](methods-for-assigning-users-and-groups.md). Depois de atribuir usuários e grupos, você pode fornecer credenciais a serem usadas em nome de um usuário quando eles entrarem no aplicativo. Selecione **usuários e grupos**, marque a caixa de seleção da linha do usuário ou do grupo e clique em **Atualizar credenciais**. Em seguida, insira o nome de usuário e a senha a serem usados em nome do grupo de usuários ou grupos. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
+A próxima etapa é [atribuir usuários ou grupos ao aplicativo](methods-for-assigning-users-and-groups.md). Depois de atribuir usuários e grupos, você pode fornecer credenciais a serem usadas em nome de um usuário quando eles fizerem logon no aplicativo. Selecione **usuários e grupos**, marque a caixa de seleção da linha do usuário ou do grupo e, em seguida, selecione **Atualizar credenciais**. Em seguida, insira o nome de usuário e a senha a serem usados em nome do grupo de usuários ou grupos. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
  
 
 ## <a name="manual-configuration"></a>Configuração manual
@@ -86,11 +82,6 @@ Se a tentativa de análise do Azure AD falhar, você poderá configurar o logon 
 7. Na página de **logon configurar** do Azure AD, selecione **OK, eu consegui entrar no aplicativo com êxito**.
 
 8. Selecione **OK**.
-
-Após a captura da página de entrada, você pode atribuir usuários e grupos e pode configurar políticas de credenciais como [aplicativos de SSO de senha](what-is-single-sign-on.md)regular.
-
-> [!NOTE]
-> Você pode carregar um logotipo de bloco para o aplicativo usando o botão **Carregar Logotipo** na guia **Configurar** do aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

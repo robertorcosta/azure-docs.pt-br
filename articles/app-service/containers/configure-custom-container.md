@@ -3,12 +3,12 @@ title: Configurar um contêiner personalizado do Linux
 description: Saiba como configurar um contêiner personalizado do Linux no serviço Azure App. Este artigo mostra as tarefas de configuração mais comuns.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: df766c289ac9ece4c1dc1fbdc65d49ae1306a592
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a3e360270ac388d0f8434a9184d39d602c98e9e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008584"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422769"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurar um contêiner personalizado do Linux para o serviço Azure App
 
@@ -155,10 +155,6 @@ As listas a seguir mostram opções de configuração com e sem suporte Docker C
 
 > [!NOTE]
 > Quaisquer outras opções não explicitamente chamadas são ignoradas na visualização pública.
-
-## <a name="configure-vnet-integration"></a>Configurar integração VNet
-
-Usar um contêiner personalizado com integração VNet pode exigir configuração de contêiner adicional. Consulte [Integrar seu aplicativo a uma Rede Virtual do Azure](../web-sites-integrate-with-vnet.md).
 
 [!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 

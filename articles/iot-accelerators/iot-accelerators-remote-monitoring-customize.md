@@ -8,12 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: eb3d5fea68b5b1b6e648943cb3dbaab5857e9e07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 412254f47a2700f77003f7db661f0ade214a1e23
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68608011"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423194"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalizar o acelerador da solução de Monitoramento Remoto
 
@@ -283,7 +284,7 @@ As etapas a seguir descrevem como duplicar um painel existente, modificá-lo e u
 
 Agora você substituiu o painel de **alertas** original por uma cópia chamada **CustAlerts**. Esta cópia é igual à original. Agora você pode modificar a cópia. Por exemplo, para alterar a ordenação das colunas no painel **alertas**:
 
-1. Abra o arquivo `src/components/pages/dashboard/panels/cust_alerts/alertsPanel.js` .
+1. Abra o arquivo `src/components/pages/dashboard/panels/cust_alerts/alertsPanel.js`.
 
 1. Modifique as definições de coluna conforme mostrado no seguinte snippet de código:
 
@@ -337,7 +338,7 @@ O gráfico de telemetria agora mostra os cinco minutos de dados de telemetria:
 
 A página **Painel** exibe KPIs no painel **Analytics**. Esses KPIs são calculados no arquivo `src/components/pages/dashboard/dashboard.js`. Os KPIs são renderizados pelo arquivo `src/components/pages/dashboard/panels/analytics/analyticsPanel.js`. As etapas a seguir descrevem como calcular e processar um novo valor de KPI na página **Painel**. O exemplo mostrado é para adicionar uma nova alteração percentual ao KPI de alarmes de aviso:
 
-1. Abra o arquivo `src/components/pages/dashboard/dashboard.js` . Modifique o objeto **initialState** para incluir uma propriedade **warningAlertsChange** da seguinte forma:
+1. Abra o arquivo `src/components/pages/dashboard/dashboard.js`. Modifique o objeto **initialState** para incluir uma propriedade **warningAlertsChange** da seguinte forma:
 
     ```javascript
     const initialState = {

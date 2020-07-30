@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: 234217b6571307db04941cc0b9989d3438cde1b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bb213776d41c07238fcaba1ccdd4e06f5d5bbb5f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090171"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420882"
 ---
 # <a name="train-wide--deep-recommender"></a>Treinar amplo & Recomendador profundo
 Este artigo descreve como usar o módulo de recomendação **& Deep Wide de treinamento** no Azure Machine Learning designer (versão prévia) para treinar um modelo de recomendações. Esse módulo baseia-se em amplo & aprendizado profundo, que é proposto pelo Google.
@@ -105,7 +105,7 @@ Por exemplo, um conjunto típico de recursos de item pode ser assim:
 
     Esse hiperparâmetro determina o tamanho da etapa em cada etapa de treinamento ao mover para uma função de perda mínima. Uma taxa de aprendizagem muito grande pode fazer com que o aprendizado passe pelo mínimo, enquanto uma taxa de aprendizagem muito pequena pode causar um problema de convergência.
 
-7.  **Dimensão de recurso cruzada**: digite a dimensão de IDs de usuário cruzado e o recurso IDs de item. 
+7.  **Dimensão de recurso cruzada**: digite a dimensão inserindo as IDs de usuário desejadas e os recursos de ID de item. 
 
     O recomendador amplo & profundo executa a transformação entre produtos por padrão por ID de usuário e recursos de ID de item. O resultado será transformado em hash de acordo com esse número para garantir a dimensão.
 

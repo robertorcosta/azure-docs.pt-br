@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
-ms.openlocfilehash: 5075ae57df6a7306f0c860690931c846e52c2a89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31fde1b80a1646a92688a0fcc1fa221cf01ba0a9
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78926893"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418858"
 ---
 # <a name="compare-active-directory-to-azure-active-directory"></a>Comparar Active Directory com Azure Active Directory
 
@@ -42,13 +42,13 @@ A maioria dos administradores de ti está familiarizada com os conceitos de Acti
 | Serviços de camada intermediária/daemon|Os serviços em execução em ambientes locais normalmente usam contas de serviço do AD ou contas de serviço gerenciado de grupo (gMSA) para serem executados. Esses aplicativos herdarão as permissões da conta de serviço.| O Azure AD fornece [identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) para executar outras cargas de trabalho na nuvem. O ciclo de vida dessas identidades é gerenciado pelo Azure AD e está vinculado ao provedor de recursos não pode ser usado para outras finalidades para obter acesso ao Backdoor.|
 | **Dispositivos**|||
 | Dispositivos móveis|Active Directory não oferece suporte nativo a dispositivos móveis sem soluções de terceiros.| A solução de gerenciamento de dispositivo móvel da Microsoft, Microsoft Intune, é integrada ao Azure AD. Microsoft Intune fornece informações de estado do dispositivo ao sistema de identidade para avaliar durante a autenticação. |
-| Áreas de trabalho do Windows|Active Directory fornece a capacidade de ingressar no domínio em dispositivos Windows para gerenciá-los usando Política de Grupo, System Center Configuration Manager ou outras soluções de terceiros.|Os dispositivos Windows podem ser [ingressados no Azure ad](https://docs.microsoft.com/azure/active-directory/devices/). O acesso condicional pode verificar se um dispositivo é ingressado no Azure AD como parte do processo de autenticação. Os dispositivos Windows também podem ser gerenciados com [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune). Nesse caso, o acesso condicional irá considerar se um dispositivo é uma reclamação (por exemplo, patches de segurança atualizados e assinaturas de vírus) antes de permitir o acesso aos aplicativos.|
+| Áreas de trabalho do Windows|Active Directory fornece a capacidade de ingressar no domínio em dispositivos Windows para gerenciá-los usando Política de Grupo, System Center Configuration Manager ou outras soluções de terceiros.|Os dispositivos Windows podem ser [ingressados no Azure ad](https://docs.microsoft.com/azure/active-directory/devices/). O acesso condicional pode verificar se um dispositivo é ingressado no Azure AD como parte do processo de autenticação. Os dispositivos Windows também podem ser gerenciados com [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune). Nesse caso, o acesso condicional, considerará se um dispositivo está em conformidade (por exemplo, patches de segurança atualizados e assinaturas de vírus) antes de permitir o acesso aos aplicativos.|
 | Servidores Windows| O Active Directory fornece recursos de gerenciamento robustos para servidores Windows locais usando Política de Grupo ou outras soluções de gerenciamento.| As máquinas virtuais do Windows Server no Azure podem ser gerenciadas com [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/). [Identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) podem ser usadas quando as VMs precisam acessar os recursos ou o diretório do sistema de identidade.|
 | Cargas de trabalho do Linux/Unix|O Active Directory não oferece suporte nativo a não-Windows sem soluções de terceiros, embora os computadores Linux possam ser configurados para autenticar com Active Directory como um realm do Kerberos.|As VMs Linux/Unix podem usar [identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/index) para acessar o sistema de identidade ou os recursos. Algumas organizações, migram essas cargas de trabalho para tecnologias de contêiner de nuvem, que também podem usar identidades gerenciadas.|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [O que é o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
+- [O que é o Active Directory do Azure?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
 - [Comparar o Active Directory Domain Services autogerenciado, o Azure Active Directory e o Azure Active Directory Domain Services gerenciado](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions)
 - [Perguntas frequentes sobre o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-faq)
 - [O que há de novo no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/whats-new)

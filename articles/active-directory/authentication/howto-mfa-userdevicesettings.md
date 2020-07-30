@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9861e8e8be39781ad1b256b9939df3ab03e74be6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 49c389170e9d586a2001009226c6542d4d152f7f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027522"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418212"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Gerenciar configurações de usuário para a autenticação multifator do Azure
 
@@ -47,7 +47,7 @@ Para excluir as senhas de aplicativo de um usuário, conclua as seguintes etapas
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. No lado esquerdo, selecione **Azure Active Directory**  >  **usuários**  >  **todos os usuários**.
-1. Selecione **Autenticação Multifator**. Role para a direita para ver esta opção de menu. Selecione a captura de tela de exemplo abaixo para ver toda a janela do portal do Azure e a localização do menu: [![](media/howto-mfa-userstates/selectmfa-cropped.png "Selecionar a Autenticação Multifator na janela Usuários no Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+1. Selecione **Autenticação Multifator**. Role para a direita para ver esta opção de menu. Selecione a captura de tela de exemplo abaixo para ver a janela portal do Azure completa e o local do menu: [ ![ selecione autenticação multifator na janela usuários no Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida é exibida à direita.
 1. Selecione **gerenciar configurações de usuário**e marque a caixa **excluir todas as senhas de aplicativo existentes geradas pelos usuários selecionados**, conforme mostrado no exemplo a seguir: ![ excluir todas as senhas de aplicativo existentes](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 1. Selecione **salvar**e **fechar**.
