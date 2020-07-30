@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 309016821eb13ef6332ba248a11593fec8da9f75
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 6d16e663626a1b19271b7d37b39202a0a9b605b9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267555"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126118"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Adicionar ou alterar administradores de assinatura do Azure
 
@@ -22,7 +22,7 @@ Para gerenciar o acesso aos recursos do Azure, você deve ter a função de admi
 
 Este artigo descreve como adicionar ou alterar a função de administrador para um usuário usando RBAC no escopo da assinatura.
 
-A Microsoft recomenda que você gerencie o acesso aos recursos usando o RBAC. No entanto, se você está usando o modelo de implantação clássico e gerenciando os recursos clássicos com o [Módulo do PowerShell para Gerenciamento de Serviços do Azure](https://docs.microsoft.com/powershell/module/servicemanagement/azure), precisa usar um administrador clássico.
+A Microsoft recomenda que você gerencie o acesso aos recursos usando o RBAC. No entanto, se você está usando o modelo de implantação clássico e gerenciando os recursos clássicos com o [Módulo do PowerShell para Gerenciamento de Serviços do Azure](/powershell/module/servicemanagement/azure.service), precisa usar um administrador clássico.
 
 > [!TIP]
 > Se você usar apenas o portal do Azure para gerenciar os recursos clássicos, não precisará usar o administrador clássico.
@@ -69,7 +69,7 @@ Se você não tiver certeza de quem é o administrador da conta de uma assinatur
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [O que é o RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md)
+* [O que é o RBAC do Azure (controle de acesso baseado em função do Azure)?](../../role-based-access-control/overview.md)
 * [Entender as diferentes funções no Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Permissões da função de administrador no Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)

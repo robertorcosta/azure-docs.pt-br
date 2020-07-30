@@ -9,24 +9,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 05/19/2020
+ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 0eaa4a828716f1a52161726e768acc817d1fde17
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-javascript
+ms.openlocfilehash: 02652243b3c25c0a02e325c8b7b1d7e7c226abcd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134168"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311935"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Início Rápido: Conectar usuários e obter um token de acesso em um SPA JavaScript usando o fluxo de código de autenticação
-
-> [!IMPORTANT]
-> Esse recurso está atualmente na visualização. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspectos desse recurso podem ser alterados antes da GA (disponibilidade geral).
 
 Neste início rápido, você aprenderá a executar um exemplo de código que demonstra como um SPA (aplicativo de página única) JavaScript pode conectar usuários de contas pessoais, contas corporativas e de estudante usando o fluxo de código de autorização. O exemplo de código também demonstra como obter um token de acesso para chamar uma API Web, nesse caso, a API do Microsoft Graph. Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 
 Este início rápido usa o MSAL.js 2.0 com o fluxo de código de autorização. Para ver um início rápido semelhante que usa o MSAL.js 1.0 com o fluxo implícito, confira [Início rápido: Conectar usuários em aplicativos de página única JavaScript](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript).
+
+[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

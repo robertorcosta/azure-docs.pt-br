@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/07/2017
-ms.openlocfilehash: 62b02de5d1c08f6047052d71e3be420cceb1c5c0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f6bfb3a244874f6160d34c174b6d10b9a03ca437
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80054642"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024105"
 ---
 # <a name="create-a-log-analytics-workspace-with-powershell"></a>Criar um espaço de trabalho do Log Analytics com o PowerShell
 
@@ -39,5 +39,5 @@ Esse script usa os comandos a seguir para criar um novo espaço de trabalho do L
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/).
 

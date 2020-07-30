@@ -3,16 +3,16 @@ title: Criar fluxos de trabalho automáticos com base em agendamento
 description: Tutorial – Criar um fluxo de trabalho automático com base em agendamento e recorrente usando Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: 5d4990fd806aed75d9b5e5ddd3e9a615631d9d65
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 41f7b1309a9c7fa9a5f2abb3e2e59f08ef31382d
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82146517"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124843"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Tutorial: Criar fluxos de trabalho automatizados, recorrentes e com base em agendamento usando Aplicativos Lógicos do Azure
 
@@ -36,18 +36,16 @@ Quando terminar, o aplicativo lógico ficará parecido com este fluxo de trabalh
 
 * Uma assinatura do Azure. Caso você não tenha uma assinatura, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 
-* Uma conta de email de qualquer provedor de email compatível com os Aplicativos Lógicos, como o Outlook do Office 365, o Outlook.com ou o Gmail. Para outros provedores, [revise a lista de conectores aqui](https://docs.microsoft.com/connectors/). Este início rápido usa uma conta do Office 365 Outlook. Se você usar uma conta de email diferente, as etapas gerais serão as mesmas, mas a interface do usuário será ligeiramente diferente.
+* Uma conta de email de qualquer provedor de email compatível com os Aplicativos Lógicos, como o Outlook do Office 365, o Outlook.com ou o Gmail. Para outros provedores, [revise a lista de conectores aqui](/connectors/). Este início rápido usa uma conta do Office 365 Outlook. Se você usar uma conta de email diferente, as etapas gerais serão as mesmas, mas a interface do usuário será ligeiramente diferente.
 
   > [!IMPORTANT]
-  > Se você quiser usar o conector do Gmail, somente as contas comerciais do G Suite poderão usar esse conector sem restrição nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação com o conector do Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Se você quiser usar o conector do Gmail, somente as contas comerciais do G Suite poderão usar esse conector sem restrição nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação com o conector do Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* Para obter o tempo de viagem de uma rota, você precisará de uma chave de acesso para a API do Bing Mapas. Para obter essa chave, siga as etapas para saber [como obter uma chave do Bing Mapas](https://docs.microsoft.com/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
-
-## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
-
-Entre no [portal do Azure](https://portal.azure.com) com suas credenciais da conta do Azure.
+* Para obter o tempo de viagem de uma rota, você precisará de uma chave de acesso para a API do Bing Mapas. Para obter essa chave, siga as etapas para saber [como obter uma chave do Bing Mapas](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
 
 ## <a name="create-your-logic-app"></a>Criar seu aplicativo lógico
+
+1. Entre no [portal do Azure](https://portal.azure.com) com suas credenciais da conta do Azure.
 
 1. No menu principal do Azure, selecione **Criar um recurso** > **Integração** > **Aplicativo Lógico**.
 
@@ -144,7 +142,7 @@ Agora que você tem um gatilho, adicione uma [ação](../logic-apps/logic-apps-o
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Nome da conexão** | Sim | BingMapsConnection | Forneça um nome para a conexão. Este exemplo usa “BingMapsConnection”. |
-   | **Chave de API** | Sim | <*your-Bing-Maps-key*> | Insira a chave do Bing Mapas que você recebeu anteriormente. Se você não tiver uma chave do Bing Mapas, saiba [como obter uma chave](https://msdn.microsoft.com/library/ff428642.aspx). |
+   | **Chave de API** | Sim | <*your-Bing-Maps-key*> | Insira a chave do Bing Mapas que você recebeu anteriormente. Se você não tiver uma chave do Bing Mapas, saiba [como obter uma chave](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key). |
    |||||
 
 1. Renomeie a ação com esta descrição:`Get route and travel time with traffic`
@@ -170,7 +168,7 @@ Agora que você tem um gatilho, adicione uma [ação](../logic-apps/logic-apps-o
    | **Modo de navegação** | Não | Automóvel | O modo de viagem da rota. Selecione o modo “Condução”. |
    ||||
 
-   Para saber mais sobre esses parâmetros, consulte [Calcular uma rota](https://docs.microsoft.com/bingmaps/rest-services/routes/calculate-a-route).
+   Para saber mais sobre esses parâmetros, consulte [Calcular uma rota](/bingmaps/rest-services/routes/calculate-a-route).
 
 1. Salve seu aplicativo lógico.
 

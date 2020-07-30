@@ -7,13 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/19/2020
+ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 8124afef1aa12dbf3ec51e10597cb1567fc85551
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 2b3d4993406f150b2983d4d820f7d070b5de1e96
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80289888"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375004"
 ---
 Use este guia de início rápido para começar a pesquisar notícias com a biblioteca de clientes da Pesquisa de Vídeo do Bing para o Java. Embora a Pesquisa de Vídeo do Bing tenha uma API REST compatível com a maioria das linguagens de programação, a biblioteca de clientes é uma forma fácil de integrar o serviço aos seus aplicativos. O código-fonte desse exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch) com anotações e recursos adicionais.
 
