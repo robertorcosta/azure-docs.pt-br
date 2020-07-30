@@ -2,18 +2,19 @@
 title: 'Criar um espaço de desenvolvimento do Kubernetes: Visual Studio Code e Java'
 services: azure-dev-spaces
 author: stepro
+ms.custom: devx-track-java
 ms.author: stephpr
 ms.date: 09/26/2018
 ms.topic: tutorial
 description: Este tutorial mostra como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente um aplicativo Java no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 5616e92d64854d145c30aa3fd32bf61d65ca4221
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: e68b417365c1a68a159ea555e9261fe5418b828e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224308"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323614"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Criar um espaço de desenvolvimento do Kubernetes: Visual Studio Code e Java com o Azure Dev Spaces
 

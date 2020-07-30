@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c881068fa97361176e4bef2bc156ea213a79c54
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 14b7e269fffaf1be4fff0b2f112a5844fd73cdbf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73159001"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034317"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hpe-saas"></a>Tutorial: Integração do Active Directory do Azure ao HPE SaaS
 
@@ -111,7 +111,7 @@ Para configurar o logon único do Azure AD com o HPE SaaS, execute as seguintes 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<subdomain>.saas.hpe.com`
 
     > [!NOTE]
-    > O valor do Identificador não é real. Atualize esse valor com o Identificador real. Contate a [equipe de suporte ao cliente do HPE SaaS](https://saas.hpe.com/en-us/contact) para obter esse valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > O valor do Identificador não é real. Atualize esse valor com o Identificador real. Contate a [equipe de suporte ao cliente do HPE SaaS](https://www.sas.com/en_us/contact.html) para obter esse valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -129,7 +129,7 @@ Para configurar o logon único do Azure AD com o HPE SaaS, execute as seguintes 
 
 ### <a name="configure-hpe-saas-single-sign-on"></a>Configurar o logon único do HPE SaaS
 
-Para configurar o logon único no lado do **HPE SaaS**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do HPE SaaS](https://saas.hpe.com/en-us/contact). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **HPE SaaS**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do HPE SaaS](https://www.sas.com/en_us/contact.html). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -184,7 +184,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ### <a name="create-hpe-saas-test-user"></a>Criar um usuário de teste do HPE SaaS
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no HPE SaaS. Trabalhe com a [equipe de suporte do HPE SaaS](https://saas.hpe.com/en-us/contact) para adicionar os usuários à plataforma HPE SaaS. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no HPE SaaS. Trabalhe com a [equipe de suporte do HPE SaaS](https://www.sas.com/en_us/contact.html) para adicionar os usuários à plataforma HPE SaaS. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7372f3f54e1b4d728ea065c2ada5a5b42c5f748b
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: c5cb2f7acb3f1432c2eadd769021c27ba41e9887
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987891"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87031925"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-curl"></a>Início Rápido: Analisar uma imagem remota usando o cURL e a API REST da Pesquisa Visual Computacional
 
@@ -39,13 +39,12 @@ Para criar e executar o exemplo, siga estas etapas:
     1. Substitua o valor de `<subscriptionKey>` pela sua chave de assinatura.
     1. Substitua a primeira parte da URL de solicitação (`westcentralus`) pelo texto em sua URL de ponto de extremidade.
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-    1. Outra opção é alterar o parâmetro de idioma da URL da solicitação (`language=en`) para usar outro idioma com suporte.
     1. Outra opção é alterar a URL da imagem no corpo da solicitação (`http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\`) para uma URL de uma imagem diferente a ser analisada.
 1. Abra una janela de prompt de comando.
 1. Cole o comando do editor de texto na janela do prompt de comando e, em seguida, execute-o.
 
 ```bash
-curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
+curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.0/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
 ```
 
 ## <a name="examine-the-response"></a>Examinar a resposta

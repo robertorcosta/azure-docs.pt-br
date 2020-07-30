@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b73b8769b5f7360ba4ad778600b1000b8b3f7bc7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2ca1e794449f41a7ab0c9b129105f2324401b3c1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72377228"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034180"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshworks"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Freshworks
 
@@ -39,6 +39,9 @@ Para começar, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 * Uma assinatura do Freshworks com SSO (logon único) habilitado.
+
+> [!NOTE]
+> Essa integração também está disponível para uso do ambiente de Nuvem do Governo dos EUA do Azure AD. Encontre esse aplicativo na Galeria de Aplicativos de Nuvem do Governo dos EUA do Azure AD e configure-o da mesma forma que na nuvem pública.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 

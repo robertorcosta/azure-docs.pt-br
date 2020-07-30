@@ -2,19 +2,21 @@
 title: Cotas de serviço e disponibilidade de região
 description: Cotas, limites e disponibilidade de região do serviço das Instâncias de Contêiner do Azure.
 ms.topic: article
-ms.date: 03/01/2019
-ms.openlocfilehash: b3e7f2f67d806bd2fca74f58d446b0de9a4b8f44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/22/2020
+ms.openlocfilehash: eaaa8e0b2d72aaea546a1bc351da40932c1deb14
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77117893"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384814"
 ---
 # <a name="quotas-and-limits-for-azure-container-instances"></a>Cotas e limites para Instâncias de Contêiner do Azure
 
 Todos os serviços do Azure incluem certos limites padrão e cotas de recursos. Este artigo fornece detalhes sobre as cotas padrão e os limites para Instâncias de Contêiner do Azure.
 
 A disponibilidade de recursos de computação, memória e armazenamento para instâncias de contêiner do Azure varia de acordo com a região e o sistema operacional. Para obter detalhes, consulte [disponibilidade de recursos para instâncias de contêiner do Azure](container-instances-region-availability.md).
+
+Use a API de [uso da lista](/rest/api/container-instances/location/listusage) para examinar o uso da cota atual em uma região para uma assinatura.
 
 ## <a name="service-quotas-and-limits"></a>Cotas e limites de serviço
 

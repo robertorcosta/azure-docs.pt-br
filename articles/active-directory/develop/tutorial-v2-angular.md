@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7cd2d5d8728e2a0539d5f106ab39c563e6e7c382
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.custom: aaddev, identityplatformtop40, devx-track-javascript
+ms.openlocfilehash: eefc8f1e9dcf6744e276d3cd911f325a8759fa30
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231685"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129110"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo de página única Angular
 
@@ -31,7 +31,7 @@ Este tutorial demonstra como um aplicativo SPA (aplicativo de página única) An
 
 ## <a name="how-the-sample-app-works"></a>Como o aplicativo de exemplo funciona
 
-![Diagrama que mostra como funciona o aplicativo de exemplo gerado neste tutorial](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
+![Diagrama que mostra como funciona o aplicativo de exemplo gerado neste tutorial](./media/tutorial-v2-angular/diagram-auth-flow-spa-angular.svg)
 
 ### <a name="more-information"></a>Mais informações
 
@@ -148,7 +148,7 @@ Adicione o seguinte código a `AppComponent` para conectar um usuário:
 ```javascript
 export class AppComponent implements OnInit {
     constructor(private broadcastService: BroadcastService, private authService: MsalService) { }
-    
+
     ngOnInit() { }
 
     login() {

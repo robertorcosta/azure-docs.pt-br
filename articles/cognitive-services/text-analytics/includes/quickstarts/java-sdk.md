@@ -6,15 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/17/2020
+ms.date: 07/27/2020
+ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: a4db7c59bd43a541a350d78511c6749a914bec79
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 6e8e00d7f9f529010cf99ae5a180c1ecb0a74177
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735516"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374864"
 ---
 <a name="HOLTop"></a>
 
@@ -22,7 +23,7 @@ ms.locfileid: "84735516"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
+* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (Java Development Kit) com a versão 8 ou superior
 * Após ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Crie um recurso de Análise de Texto"  target="_blank">criar um recurso de Análise de Texto <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter sua chave e seu ponto de extremidade.  Após a implantação, clique em **Ir para o recurso**.
     * Você precisará da chave e do ponto de extremidade do recurso que você criar para conectar seu aplicativo à API de Análise de Texto. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
@@ -39,7 +40,7 @@ Crie um projeto Maven no IDE ou no ambiente de desenvolvimento de sua preferênc
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>1.0.0</version>
+        <version>5.0.0</version>
     </dependency>
 </dependencies>
 ```

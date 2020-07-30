@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: fa9fbf3bac55ca0b26c3644b7f6818fa96088612
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5e4c50b4b66d164ba2e89cfc537d9dd8593c4f57
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "69639388"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092024"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – Node.js
 
@@ -35,8 +35,8 @@ Ao final do tutorial, você poderá transmitir um vídeo por streaming.
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Instale o [Node.js](https://nodejs.org/en/download/)
-- [Crie uma conta de Serviços de Mídia](create-account-cli-how-to.md).<br/>Lembre-se dos valores que você usou para o nome do grupo de recursos e o nome da conta de Serviços de Mídia.
-- Siga as etapas em [Acessar API de Serviços de Mídia com a CLI do Azure](access-api-cli-how-to.md) e salve as credenciais. Você precisará usá-las para acessar a API.
+- [Crie uma conta de Serviços de Mídia](./create-account-howto.md).<br/>Lembre-se dos valores que você usou para o nome do grupo de recursos e o nome da conta de Serviços de Mídia.
+- Siga as etapas em [Acessar API de Serviços de Mídia com a CLI do Azure](./access-api-howto.md) e salve as credenciais. Você precisará usá-las para acessar a API.
 
 ## <a name="download-and-configure-the-sample"></a>Baixar e configurar o exemplo
 
@@ -48,7 +48,7 @@ Clone um repositório do GitHub que contém o exemplo de streaming de Node.js em
 
 O exemplo está localizado na pasta [StreamFilesSample](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/master/AMSv3Samples/StreamFilesSample).
 
-Abra [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L25) em você baixou o projeto. Substitua os `endpoint config` valores pelas credenciais que você obteve de [acesso às APIs](access-api-cli-how-to.md).
+Abra [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L25) em você baixou o projeto. Substitua os `endpoint config` valores pelas credenciais que você obteve de [acesso às APIs](./access-api-howto.md).
 
 O exemplo executa as ações a seguir:
 
@@ -101,7 +101,7 @@ az group delete --name amsResourceGroup
 
 ## <a name="see-also"></a>Confira também
 
-[Códigos de erro de trabalho](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+[Códigos de erro de trabalho](/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="next-steps"></a>Próximas etapas
 

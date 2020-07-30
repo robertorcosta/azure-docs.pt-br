@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: caf8b1899cad95ade6297e78e8f2cf35939ef189
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a08e00b2debce970bdbd385b785806c8636e5946
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77661627"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318412"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Criar painéis de KPI personalizados usando o Azure Application Insights
 
@@ -31,7 +31,7 @@ Você pode criar vários painéis no portal do Azure que incluam dados de visual
 
 Para concluir este tutorial:
 
-- Implante um aplicativo .NET para Azure e [habilite o SDK do Application Insights](../../azure-monitor/app/asp-net.md).
+- Implante um aplicativo .NET para Azure e [habilite o SDK do Application Insights](../app/asp-net.md).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
@@ -127,4 +127,5 @@ Como o Logs (Analytics) do Azure Applications Insights é um serviço separado, 
 Agora que você aprendeu a criar painéis personalizados, dê uma olhada no restante da documentação do Application Insights, incluindo um estudo de caso.
 
 > [!div class="nextstepaction"]
-> [Diagnóstico profundo](../../azure-monitor/app/devops.md)
+> [Diagnóstico profundo](../app/devops.md)
+
