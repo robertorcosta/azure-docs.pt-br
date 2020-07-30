@@ -3,12 +3,12 @@ title: 'Início Rápido: Implantar um aplicativo usando o portal do LUIS'
 description: Este início rápido mostra como implantar um aplicativo criando um recurso de ponto de extremidade de previsão, atribuindo o recurso, treinando e publicando o aplicativo.
 ms.topic: quickstart
 ms.date: 05/06/2020
-ms.openlocfilehash: 743c2fe311eeeabad5a3e957319be3a6e372e74f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3d12fa2956f962fe7a05b9639c1d32a7069635f9
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653237"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336354"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Início Rápido: Implantar um aplicativo no portal do LUIS
 
@@ -19,7 +19,7 @@ Neste início rápido, você aprenderá a implantar um aplicativo. Crie um recur
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Obtenha uma [assinatura do Azure](https://azure.microsoft.com/free).
-* Conclua o [início rápido do portal anterior](get-started-portal-build-app.md) ou [baixe e importe o aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
+* Conclua o [início rápido do portal anterior](get-started-portal-build-app.md) ou [baixe e importe o aplicativo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/portal-build-app.json).
 * Se você tiver aplicativos anteriores à autenticação de recursos do Azure, [migre para um recurso do Azure](luis-migration-authoring.md). Algumas páginas do portal parecem diferentes quando a autenticação de email está em vigor.
 
 <a name="create-the-endpoint-resource"></a>

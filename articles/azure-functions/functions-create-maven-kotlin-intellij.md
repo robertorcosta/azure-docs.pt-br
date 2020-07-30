@@ -6,12 +6,12 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
-ms.openlocfilehash: 2eb1a016e04a4150a76112c68683926810f5c66d
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: fa834e3ac4946c4f617e857342f850445eebfd30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674547"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055446"
 ---
 # <a name="quickstart-create-your-first-http-triggered-function-with-kotlin-and-intellij"></a>Início Rápido: Criar sua primeira função disparada por HTTP com Kotlin e IntelliJ
 
@@ -26,7 +26,7 @@ Para desenvolver uma função com Kotlin e IntelliJ, instale o seguinte software
 - JDK ([Java Developer Kit](https://aka.ms/azure-jdks)), versão 8
 - [Apache Maven](https://maven.apache.org), versão 3.0 ou superior
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), versões Community ou Ultimate com Maven
-- [CLI do Azure](https://docs.microsoft.com/cli/azure)
+- [CLI do Azure](/cli/azure)
 - [Versão 2.x](functions-run-local.md#v2) do Azure Functions Core Tools. Ele fornece um ambiente de desenvolvimento local para escrever, executar e depurar o Azure Functions.
 
 > [!IMPORTANT]
@@ -45,7 +45,7 @@ Para desenvolver uma função com Kotlin e IntelliJ, instale o seguinte software
 1. Selecione **OK** e, em seguida, selecione **Avançar**.
 1. Insira os detalhes do projeto atual e selecione **Concluir**.
 
-Maven cria os arquivos de projeto em uma nova pasta com o mesmo nome que o valor _ArtifactId_. O código gerado no projeto é uma função [Disparada por HTTP](/azure/azure-functions/functions-bindings-http-webhook) simples que ecoa o corpo da solicitação HTTP que está sendo disparada.
+Maven cria os arquivos de projeto em uma nova pasta com o mesmo nome que o valor _ArtifactId_. O código gerado no projeto é uma função [Disparada por HTTP](./functions-bindings-http-webhook.md) simples que ecoa o corpo da solicitação HTTP que está sendo disparada.
 
 ## <a name="run-functions-locally-in-the-ide"></a>Executar funções localmente no IDE
 

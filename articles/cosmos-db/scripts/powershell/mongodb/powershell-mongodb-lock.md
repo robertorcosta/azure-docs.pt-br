@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 06/12/2020
-ms.openlocfilehash: b9a457536754539aa8e736953913590a71b5a32c
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 3e4a64b989c11f168468936cf25d5bbd4f6c9b15
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126928"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039881"
 ---
 # <a name="create-a-resource-lock-for-azure-cosmos-mongodb-api-database-and-collection-using-azure-powershell"></a>Criar um bloqueio de recurso para um banco de dados e uma coleção da API do MongoDB para o Azure Cosmos usando o Azure PowerShell
 
@@ -21,7 +21,7 @@ ms.locfileid: "85126928"
 [!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
 
 > [!IMPORTANT]
-> Os bloqueios de recursos não funcionam para as alterações feitas por usuários que se conectam usando qualquer SDK do MongoDB, o Mongoshell, qualquer ferramenta ou o portal do Azure, a menos que a conta do Cosmos DB seja bloqueada primeiro com a propriedade `disableKeyBasedMetadataWriteAccess` habilitada. Para saber mais sobre como habilitar essa propriedade, confira [Como impedir alterações por meio dos SDKs](../../../role-based-access-control.md#preventing-changes-from-cosmos-sdk).
+> Os bloqueios de recursos não funcionam para as alterações feitas por usuários que se conectam usando qualquer SDK do MongoDB, o Mongoshell, qualquer ferramenta ou o portal do Azure, a menos que a conta do Cosmos DB seja bloqueada primeiro com a propriedade `disableKeyBasedMetadataWriteAccess` habilitada. Para saber mais sobre como habilitar essa propriedade, confira [Como impedir alterações por meio dos SDKs](../../../role-based-access-control.md#prevent-sdk-changes).
 
 ## <a name="sample-script"></a>Exemplo de script
 

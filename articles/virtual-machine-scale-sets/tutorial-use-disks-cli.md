@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: e50f025ebd22cbe231dcd01e277a76b0f8e9b56d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 1aa87d72bf2b73b1fa616d7ff7535dac4da9b7fd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198263"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029613"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Criar e usar discos com conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Conjuntos de dimensionamento de máquinas virtuais usam discos para armazenar o sistema operacional da instância de VM, aplicativos e dados. Ao criar e gerenciar um conjunto de dimensionamento, é importante escolher um tamanho e uma configuração de disco apropriados para a carga de trabalho esperada. Este tutorial aborda como criar e gerenciar os discos de VM. Neste tutorial, você aprenderá a:
@@ -43,12 +43,12 @@ Quando um conjunto de dimensionamento é criado ou dimensionado, dois discos sã
 ### <a name="temporary-disk-sizes"></a>Tamanhos do disco temporário
 | Type | Tamanhos comuns | Tamanho máximo do disco temporário (GiB) |
 |----|----|----|
-| [Propósito geral](../virtual-machines/linux/sizes-general.md) | Série A, B e D | 1600 |
-| [Computação otimizada](../virtual-machines/linux/sizes-compute.md) | Série F | 576 |
-| [Memória otimizada](../virtual-machines/linux/sizes-memory.md) | Série D, E, G e M | 6144 |
-| [Armazenamento otimizado](../virtual-machines/linux/sizes-storage.md) | Série L | 5630 |
-| [GPU](../virtual-machines/linux/sizes-gpu.md) | Série N | 1440 |
-| [Alto desempenho](../virtual-machines/linux/sizes-hpc.md) | Série A e H | 2000 |
+| [Propósito geral](../virtual-machines/sizes-general.md) | Série A, B e D | 1600 |
+| [Computação otimizada](../virtual-machines/sizes-compute.md) | Série F | 576 |
+| [Memória otimizada](../virtual-machines/sizes-memory.md) | Série D, E, G e M | 6144 |
+| [Armazenamento otimizado](../virtual-machines/sizes-storage.md) | Série L | 5630 |
+| [GPU](../virtual-machines/sizes-gpu.md) | Série N | 1440 |
+| [Alto desempenho](../virtual-machines/sizes-hpc.md) | Série A e H | 2000 |
 
 
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
@@ -112,7 +112,7 @@ az vmss disk attach \
 ## <a name="prepare-the-data-disks"></a>Preparar os discos de dados
 Os discos que são criados e anexados às suas instâncias de VM do conjunto de dimensionamento são discos brutos. Antes que você possa usá-los com seus dados e aplicativos, os discos devem ser preparados. Para preparar os discos, crie uma partição, crie um sistema de arquivos e monte-os.
 
-Para automatizar o processo em várias instâncias de VM em um conjunto de dimensionamento, você pode usar a Extensão de Script Personalizado do Azure. Esta extensão pode executar scripts localmente em cada instância de VM, como preparar discos de dados anexados. Para obter mais informações, consulte a [Visão geral da Extensão de Script Personalizado](../virtual-machines/linux/extensions-customscript.md).
+Para automatizar o processo em várias instâncias de VM em um conjunto de dimensionamento, você pode usar a Extensão de Script Personalizado do Azure. Esta extensão pode executar scripts localmente em cada instância de VM, como preparar discos de dados anexados. Para obter mais informações, consulte a [Visão geral da Extensão de Script Personalizado](../virtual-machines/extensions/custom-script-linux.md).
 
 O exemplo a seguir executa um script de um repositório GitHub de exemplo em cada instância de VM com [az vmss extension set](/cli/azure/vmss/extension), que prepara todos os discos de dados brutos anexados:
 

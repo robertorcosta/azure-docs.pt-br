@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: travisw
-ms.openlocfilehash: c6985cefe9b0a7aefd0441d426808ef9fd1e8217
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 017b5161235093a0ae35a14310824a16b43a71f0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80241815"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102447"
 ---
-Caso prefira começar a usar agora, exiba ou baixe todos os <a href="https://aka.ms/speech/github-java">Exemplos do SDK de Fala do Java</a> no GitHub. Caso contrário, vamos começar.
+Veja ou baixe todas as <a href="https://aka.ms/speech/github-java">Amostras em Java do SDK de Fala</a> no GitHub. 

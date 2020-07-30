@@ -4,12 +4,12 @@ description: Neste início rápido, saiba como configurar o monitoramento do sit
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: b47f3ce1ebed12d14dffd68e87dd013bb86218ea
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: eb6c0a8319257949cee8f35be6cdfac22f1fe5d4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801630"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323427"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Início Rápido: Iniciar o monitoramento do seu site com o Application Insights do Azure Monitor
 
@@ -30,7 +30,7 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 1. Selecione **Criar um recurso** > **Ferramentas de Gerenciamento** > **Application Insights**.
 
    > [!NOTE]
-   >Se esta for a primeira vez que você cria um recurso do Application Insights, confira [Criar um recurso do Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+   >Se esta for a primeira vez que você cria um recurso do Application Insights, confira [Criar um recurso do Application Insights](./create-new-resource.md).
 1. Quando a caixa de configuração for exibida, use a seguinte tabela para preencher os campos de entrada:
 
     | Configurações        | Valor           | Descrição  |
@@ -105,15 +105,15 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
    ![Grafo de análise de solicitações de usuário durante um período de tempo](./media/website-monitoring/analytics-query.png)
 
-1. Volte para a página **Visão geral**. Sob o cabeçalho **Investigar**, selecione **Navegador** e escolha **Desempenho**.  Métricas relacionadas ao desempenho do site serão exibidas. Há uma exibição correspondente para a análise de falhas e exceções em seu site. Você pode selecionar **Amostras** para acessar os [detalhes da transação de ponta a ponta](../../azure-monitor/app/transaction-diagnostics.md).
+1. Volte para a página **Visão geral**. Sob o cabeçalho **Investigar**, selecione **Navegador** e escolha **Desempenho**.  Métricas relacionadas ao desempenho do site serão exibidas. Há uma exibição correspondente para a análise de falhas e exceções em seu site. Você pode selecionar **Amostras** para acessar os [detalhes da transação de ponta a ponta](./transaction-diagnostics.md).
 
    ![Grafo de métricas do servidor](./media/website-monitoring/browser-performance.png)
 
-1. No menu principal do Application Insights, sob o cabeçalho **Uso**, selecione [**Usuários**](../../azure-monitor/app/usage-segmentation.md) para começar a explorar as [ferramentas de análise de comportamento do usuário](../../azure-monitor/app/usage-overview.md). Como estamos testando em um só computador, veremos dados de apenas um usuário. Para um site ativo, a distribuição de usuários poderá ser semelhante a esta:
+1. No menu principal do Application Insights, sob o cabeçalho **Uso**, selecione [**Usuários**](./usage-segmentation.md) para começar a explorar as [ferramentas de análise de comportamento do usuário](./usage-overview.md). Como estamos testando em um só computador, veremos dados de apenas um usuário. Para um site ativo, a distribuição de usuários poderá ser semelhante a esta:
 
      ![Gráfico de usuário](./media/website-monitoring/usage-users.png)
 
-1. Para um site mais complexo com várias páginas, use a ferramenta [**Fluxos dos Usuários**](../../azure-monitor/app/usage-flows.md) para acompanhar o caminho que os visitantes percorrem nas várias partes do site.
+1. Para um site mais complexo com várias páginas, use a ferramenta [**Fluxos dos Usuários**](./usage-flows.md) para acompanhar o caminho que os visitantes percorrem nas várias partes do site.
 
    ![Visualização de Fluxos dos Usuários](./media/website-monitoring/user-flows.png)
 
@@ -132,4 +132,5 @@ Se planejar continuar trabalhando em outros inícios rápidos ou tutoriais, não
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Localizar e diagnosticar problemas de desempenho](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)
+> [Localizar e diagnosticar problemas de desempenho](../log-query/log-query-overview.md)
+
