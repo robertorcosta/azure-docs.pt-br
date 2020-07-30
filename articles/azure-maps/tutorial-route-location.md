@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Localizar a rota para uma localização | Microsoft Azure Mapas'
 description: Este tutorial mostra como renderizar a rota para uma localização (ponto de interesse) em um mapa usando o Serviço de Roteiros do Microsoft Azure Mapas.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
-ms.openlocfilehash: 98c36176ecd2996e5f735c52017162a076ef4bde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: d6a526e23be47c9e05de0c9064bdb4095a49d132
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333769"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287417"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Tutorial: Rotear para um ponto de interesse usando os Mapas do Azure
 
@@ -27,7 +27,7 @@ Este tutorial mostra como usar sua conta dos Mapas do Azure e o SDK do Serviço 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de continuar, siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps); você precisará ter uma assinatura com o tipo de preço S1. Siga as etapas em [Obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária da sua conta. Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](how-to-manage-authentication.md).
+Antes de continuar, siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-azure-maps-account); você precisará ter uma assinatura com o tipo de preço S1. Siga as etapas em [Obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária da sua conta. Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](how-to-manage-authentication.md).
 
 <a id="getcoordinates"></a>
 

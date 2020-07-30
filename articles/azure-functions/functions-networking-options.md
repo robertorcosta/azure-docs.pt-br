@@ -1,16 +1,14 @@
 ---
 title: Opções de rede do Azure Functions
 description: Uma visão geral de todas as opções de rede disponíveis no Azure Functions.
-author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
-ms.author: alkarche
-ms.openlocfilehash: 5a88570805a9fc23904bfe82f91813b3460d0b10
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 60258ef4aa3bbbbab69acd4f5106c774caa6f46f
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045942"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385935"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede do Azure Functions
 

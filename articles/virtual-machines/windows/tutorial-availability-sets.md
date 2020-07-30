@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d269b95e5e6fb8491afd4c2f9729cbb047cf3419
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7fe1c01542df2fcc38982fe2a30f9e94c712eacb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100440"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065261"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e implantar máquinas virtuais altamente disponíveis com o Azure PowerShell
 
@@ -47,7 +47,7 @@ Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior di
 
 O hardware em um local é dividido em vários domínios de atualização e domínios de falha. Um **domínios de atualização** é um grupo de VMs e hardware físico subjacente que podem ser reinicializados simultaneamente. As VMs no mesmo **domínio de falha** compartilham armazenamentos comuns, bem como um comutador de rede e fonte de energia comuns.  
 
-É possível criar um conjunto de disponibilidade usando [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset). Neste exemplo, o número de domínios de atualização e de falha é *2* e o conjunto de disponibilidade é chamado *myAvailabilitySet*.
+É possível criar um conjunto de disponibilidade usando [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). Neste exemplo, o número de domínios de atualização e de falha é *2* e o conjunto de disponibilidade é chamado *myAvailabilitySet*.
 
 Crie um grupos de recursos.
 
@@ -57,7 +57,7 @@ New-AzResourceGroup `
    -Location EastUS
 ```
 
-Crie um conjunto de disponibilidade gerenciado usando [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset) com o parâmetro `-sku aligned`.
+Crie um conjunto de disponibilidade gerenciado usando [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) com o parâmetro `-sku aligned`.
 
 ```azurepowershell-interactive
 New-AzAvailabilitySet `
@@ -73,15 +73,15 @@ New-AzAvailabilitySet `
 As VMs devem ser criadas dentro do conjunto de disponibilidade para assegurar a distribuição correta pelo hardware. Não é possível adicionar uma VM existente a um conjunto de disponibilidade após sua criação. 
 
 
-Ao criar uma VM com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm), você usa o parâmetro `-AvailabilitySetName` para especificar o nome do conjunto de disponibilidade.
+Ao criar uma VM com [New-AzVM](/powershell/module/az.compute/new-azvm), você usa o parâmetro `-AvailabilitySetName` para especificar o nome do conjunto de disponibilidade.
 
-Primeiro, defina o nome de usuário e a senha de um administrador para a VM com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Primeiro, defina o nome de usuário e a senha de um administrador para a VM com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Agora crie duas VMs com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) no conjunto de disponibilidade.
+Agora crie duas VMs com [New-AzVM](/powershell/module/az.compute/new-azvm) no conjunto de disponibilidade.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -107,7 +107,7 @@ Se você analisar o conjunto de disponibilidade no portal acessando **Grupos de 
 
 ## <a name="check-for-available-vm-sizes"></a>Conferir os tamanhos de VM disponíveis 
 
-Quando cria uma VM dentro de um conjunto de disponibilidade, você precisa saber quais tamanhos de VM estão disponíveis no hardware. Use o comando [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) para obter todos os tamanhos de máquinas virtuais disponíveis que você pode implantar no conjunto de disponibilidade.
+Quando cria uma VM dentro de um conjunto de disponibilidade, você precisa saber quais tamanhos de VM estão disponíveis no hardware. Use o comando [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize) para obter todos os tamanhos de máquinas virtuais disponíveis que você pode implantar no conjunto de disponibilidade.
 
 ```azurepowershell-interactive
 Get-AzVMSize `
@@ -136,5 +136,3 @@ Avance para o próximo tutorial para saber mais sobre conjuntos de disponibilida
 
 > [!div class="nextstepaction"]
 > [Criar um conjunto de dimensionamento da VM](tutorial-create-vmss.md)
-
-

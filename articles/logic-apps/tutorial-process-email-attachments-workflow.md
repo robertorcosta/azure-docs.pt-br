@@ -3,16 +3,16 @@ title: Automatizar tarefas com vários serviços do Azure
 description: Tutorial – Criar fluxos de trabalho automatizados para processar emails com Aplicativos Lógicos do Azure, Armazenamento do Azure e o Azure Functions
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/27/2020
-ms.openlocfilehash: 332be9cb0f31119e7d2f2d9fe2d3dc1f73e6d3ab
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 925759b63d1225c720ad439f15b82632a4921cbb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82146719"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132323"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: Automatizar tarefas para processar emails usando os Aplicativos Lógicos do Azure, o Azure Functions e o Armazenamento do Azure
 
@@ -38,22 +38,20 @@ Quando terminar, o aplicativo lógico ficará parecido com este fluxo de trabalh
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-* Uma conta de email de qualquer provedor de email compatível com os Aplicativos Lógicos, como o Outlook do Office 365, o Outlook.com ou o Gmail. Para outros provedores, [revise a lista de conectores aqui](https://docs.microsoft.com/connectors/).
+* Uma conta de email de qualquer provedor de email compatível com os Aplicativos Lógicos, como o Outlook do Office 365, o Outlook.com ou o Gmail. Para outros provedores, [revise a lista de conectores aqui](/connectors/).
 
   Esso aplicativo lógico usa uma conta do Outlook do Office 365. Se você usar uma conta de email diferente, as etapas gerais serão as mesmas, mas a interface do usuário poderá parecer um pouco diferente.
 
   > [!IMPORTANT]
-  > Se você quiser usar o conector do Gmail, somente as contas comerciais do G Suite poderão usar esse conector sem restrição nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação com o conector do Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Se você quiser usar o conector do Gmail, somente as contas comerciais do G Suite poderão usar esse conector sem restrição nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação com o conector do Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Baixe e instale o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/) gratuito. Essa ferramenta ajuda a verificar se o contêiner de armazenamento está configurado corretamente.
-
-## <a name="sign-in-to-azure-portal"></a>Entre no portal do Azure
-
-Entre no [portal do Azure](https://portal.azure.com) com suas credenciais da conta do Azure.
 
 ## <a name="set-up-storage-to-save-attachments"></a>Configurar armazenamento para salvar anexos
 
 Você pode salvar emails recebidos e anexos como blobs em um [contêiner de armazenamento do Azure](../storage/common/storage-introduction.md).
+
+1. Entre no [portal do Azure](https://portal.azure.com) com suas credenciais da conta do Azure.
 
 1. Antes de criar um contêiner de armazenamento, [crie uma conta de armazenamento](../storage/common/storage-account-create.md) com estas configurações na guia **Informações Básicas** do portal do Azure:
 
@@ -65,7 +63,7 @@ Você pode salvar emails recebidos e anexos como blobs em um [contêiner de arma
    | **Localidade** | <*Azure-region*> | A região na qual armazenar informações sobre sua conta de armazenamento. Este exemplo usa "Oeste dos EUA". |
    | **Desempenho** | Standard | Essa configuração especifica os tipos de dados com suporte e a mídia para armazenar dados. Confira os [Tipos de contas de armazenamento](../storage/common/storage-introduction.md#types-of-storage-accounts). |
    | **Tipo de conta** | Propósito geral | O [tipo de conta de armazenamento](../storage/common/storage-introduction.md#types-of-storage-accounts) |
-   | **Replicação** | Armazenamento com redundância local (LRS) | Essa configuração especifica como os dados são copiados, armazenados, gerenciados e sincronizados. Veja [LRS (armazenamento com redundância local): Redundância de dados de baixo custo para o Armazenamento do Azure](../storage/common/storage-redundancy-lrs.md). |
+   | **Replicação** | Armazenamento com redundância local (LRS) | Essa configuração especifica como os dados são copiados, armazenados, gerenciados e sincronizados. Veja [LRS (armazenamento com redundância local): Redundância de dados de baixo custo para o Armazenamento do Azure](../storage/common/storage-redundancy.md). |
    | **Camada de acesso (padrão)** | Mantenha a configuração atual. |
    ||||
 
@@ -76,7 +74,7 @@ Você pode salvar emails recebidos e anexos como blobs em um [contêiner de arma
    | **Transferência segura é necessária** | Desabilitado | Essa configuração especifica a segurança necessária para solicitações de conexões. Confira [Requer transferência segura](../storage/common/storage-require-secure-transfer.md). |
    ||||
 
-   Para criar sua conta de armazenamento, você também pode usar o [Azure PowerShell](../storage/common/storage-quickstart-create-storage-account-powershell.md) ou a [CLI do Azure](../storage/common/storage-quickstart-create-storage-account-cli.md).
+   Para criar sua conta de armazenamento, você também pode usar o [Azure PowerShell](../storage/common/storage-account-create.md?tabs=powershell) ou a [CLI do Azure](../storage/common/storage-account-create.md?tabs=azure-cli).
 
 1. Quando terminar, selecione **Review + create**.
 
@@ -88,7 +86,7 @@ Você pode salvar emails recebidos e anexos como blobs em um [contêiner de arma
 
       ![Copie e salve a chave e o nome da conta de armazenamento](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   Para obter a chave de acesso da conta de armazenamento, você também pode usar o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list).
+   Para obter a chave de acesso da conta de armazenamento, você também pode usar o [Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey) ou a [CLI do Azure](/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list).
 
 1. Crie um contêiner de armazenamento de blobs para os anexos de email.
 
@@ -104,7 +102,7 @@ Você pode salvar emails recebidos e anexos como blobs em um [contêiner de arma
 
       ![Contêiner de armazenamento concluído](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   Para criar um contêiner de armazenamento, você também pode usar o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create).
+   Para criar um contêiner de armazenamento, você também pode usar o [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) ou a [CLI do Azure](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create).
 
 Em seguida, conecte o Gerenciador de Armazenamento à conta de armazenamento.
 
@@ -261,7 +259,7 @@ Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app
 
 1. No designer na caixa de pesquisa, insira `when new email arrives` como seu filtro. Selecione esse gatilho para seu provedor de email: **Quando um novo email é recebido – <*seu provedor-de-email*>**
 
-   Por exemplo: 
+   Por exemplo:
 
    ![Selecione esse gatilho para o provedor de email: "Quando um novo email é recebido"](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
