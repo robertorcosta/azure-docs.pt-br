@@ -3,12 +3,12 @@ title: Configurar relatórios de Backup do Azure
 description: Configurar e exibir relatórios para o Backup do Azure usando o Log Analytics e as pastas de trabalho do Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 5d1c7d628a61e550aa9dc4a5265ae16c5ed5336a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 248fcdc8d57ca2408ada01db4ecf3b8ee7712e4d
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513618"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87388026"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 
@@ -70,28 +70,63 @@ Selecione este link para abrir a pasta de trabalho de relatório de Backup.
 
 O relatório contém várias guias:
 
-- **Resumo**: use essa guia para obter uma visão geral de alto nível da sua propriedade de backups. Obtenha uma visão rápida do número total de itens de backup, do armazenamento em nuvem total consumido, do número de instâncias protegidas e da taxa de sucesso do trabalho por tipo de carga de trabalho. Para obter informações mais detalhadas sobre um tipo de artefato de backup específico, acesse as respectivas guias.
+##### <a name="summary"></a>Resumo
+Use esta guia para obter uma visão geral de alto nível do seu espaço de backup. Obtenha uma visão rápida do número total de itens de backup, do armazenamento em nuvem total consumido, do número de instâncias protegidas e da taxa de sucesso do trabalho por tipo de carga de trabalho. Para obter informações mais detalhadas sobre um tipo de artefato de backup específico, acesse as respectivas guias.
 
    ![Guia Resumo](./media/backup-azure-configure-backup-reports/summary.png)
 
-- **Itens de Backup**: use essa guia para ver informações e tendências sobre o armazenamento em nuvem consumido em um nível de item de Backup. Por exemplo, se você usar o SQL em um backup de VM do Azure, poderá ver o armazenamento em nuvem consumido para cada Banco de Dados SQL que está sendo copiado em backup. Você também pode optar por ver os dados de itens de backup de um status de proteção específico. Por exemplo, a seleção do bloco **Proteção Interrompida** na parte superior da guia filtra todos os widgets abaixo para mostrar os dados somente dos itens de backup no estado Proteção Interrompida.
+##### <a name="backup-items"></a>Itens de Backup
+Use essa guia para ver informações e tendências sobre o armazenamento em nuvem consumidos em um nível de item de backup. Por exemplo, se você usar o SQL em um backup de VM do Azure, poderá ver o armazenamento em nuvem consumido para cada Banco de Dados SQL que está sendo copiado em backup. Você também pode optar por ver os dados de itens de backup de um status de proteção específico. Por exemplo, a seleção do bloco **Proteção Interrompida** na parte superior da guia filtra todos os widgets abaixo para mostrar os dados somente dos itens de backup no estado Proteção Interrompida.
 
    ![Guia Itens de Backup](./media/backup-azure-configure-backup-reports/backup-items.png)
 
-- **Uso**: use essa guia para ver os principais parâmetros de cobrança dos backups. As informações mostradas nessa guia estão em um nível de entidade de cobrança (contêiner protegido). Por exemplo, no caso de um servidor DPM cujo backup está sendo feito no Azure, você pode ver a tendência das instâncias protegidas e o armazenamento em nuvem consumido do servidor DPM. Da mesma forma, se você usar o SQL ou o SAP HANA no Backup do Azure, essa guia fornecerá informações relacionadas ao uso no nível da máquina virtual na qual esses bancos de dados estão contidos.
+##### <a name="usage"></a>Uso
+Use essa guia para exibir os principais parâmetros de cobrança para seus backups. As informações mostradas nessa guia estão em um nível de entidade de cobrança (contêiner protegido). Por exemplo, no caso de um servidor DPM cujo backup está sendo feito no Azure, você pode ver a tendência das instâncias protegidas e o armazenamento em nuvem consumido do servidor DPM. Da mesma forma, se você usar o SQL ou o SAP HANA no Backup do Azure, essa guia fornecerá informações relacionadas ao uso no nível da máquina virtual na qual esses bancos de dados estão contidos.
 
    ![Guia Uso](./media/backup-azure-configure-backup-reports/usage.png)
 
 > [!NOTE]
 > Para cargas de trabalho do DPM, os usuários podem ver uma pequena diferença (da ordem de 20 MB por servidor DPM) entre os valores de uso mostrados nos relatórios em comparação com o valor de uso agregado, conforme mostrado na guia Visão geral do cofre dos Serviços de Recuperação. Essa diferença é contabilizada pelo fato de que cada servidor DPM que está sendo registrado para backup tem uma fonte de dados de 'metadados' associada que não está sendo exibida como um artefato para relatórios.
 
-- **Trabalhos**: use essa guia para ver as tendências de execução longa nos trabalhos, como o número de trabalhos com falha por dia e as principais causas de falha do trabalho. Veja essas informações em um nível de agregação e de item de Backup. Selecione um item de Backup específico em uma grade para ver informações detalhadas sobre cada trabalho disparado nesse item de Backup no intervalo de tempo selecionado.
+##### <a name="jobs"></a>Trabalhos
+Use essa guia para exibir tendências de longa execução em trabalhos, como o número de trabalhos com falha por dia e as principais causas de falha do trabalho. Veja essas informações em um nível de agregação e de item de Backup. Selecione um item de Backup específico em uma grade para ver informações detalhadas sobre cada trabalho disparado nesse item de Backup no intervalo de tempo selecionado.
 
    ![Guia Trabalhos](./media/backup-azure-configure-backup-reports/jobs.png)
 
-- **Políticas**: use essa guia para ver informações sobre todas as políticas ativas, como o número de itens associados e o armazenamento em nuvem total consumido por itens de backup em determinada política. Selecione uma política específica para ver informações sobre cada um dos itens de backup associados.
+##### <a name="policies"></a>Políticas
+Use essa guia para exibir informações sobre todas as suas políticas ativas, como o número de itens associados e o armazenamento em nuvem total consumido por itens de backup em uma determinada política. Selecione uma política específica para ver informações sobre cada um dos itens de backup associados.
 
    ![Guia Políticas](./media/backup-azure-configure-backup-reports/policies.png)
+
+##### <a name="optimize"></a>Otimizar
+Use essa guia para obter visibilidade de possíveis oportunidades de otimização de custos para seus backups. Veja a seguir os cenários para os quais a guia otimizar atualmente fornece informações:
+
+###### <a name="inactive-resources"></a>Recursos inativos
+Usando essa exibição, você pode identificar os itens de backup que não tiveram um backup bem-sucedido por uma duração significativa de tempo. Isso pode significar que o computador subjacente que está sendo submetido a backup não existe mais (e, portanto, resulta em backups com falha), ou há algum problema com o computador que está impedindo que os backups sejam feitos de forma confiável. 
+
+Para exibir recursos inativos, navegue até a guia **otimizar** e clique no bloco **recursos inativos** . Clicar nesse bloco exibe uma grade que contém detalhes de todos os recursos inativos existentes no escopo selecionado. Por padrão, a grade mostra os itens que não têm um ponto de recuperação nos últimos 7 dias. Para localizar recursos inativos para um intervalo de tempo diferente, você pode ajustar o filtro de **intervalo de tempo** na parte superior da guia.
+
+Depois de identificar um recurso inativo, você pode investigar o problema ainda mais navegando até o painel do item de backup ou a folha de recursos do Azure para esse recurso (sempre que aplicável). Dependendo do seu cenário, você pode optar por interromper o backup do computador (se ele não existir mais), economizando assim o custo da instância protegida, ou você pode corrigir problemas no computador para garantir que os backups sejam feitos de forma confiável.
+
+![Otimizar recursos inativos de guia](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
+
+###### <a name="backup-items-with-a-large-retention-duration"></a>Itens de backup com uma duração de retenção grande
+Usando essa exibição, você pode identificar os itens que têm backups retidos por uma duração maior do que o exigido pela sua organização. 
+
+Clicar no bloco **otimizações de política** seguido pelo bloco **otimizações de retenção** exibe uma grade que contém todos os itens de backup para os quais a retenção do RP (ponto de retenção) diário, semanal, mensal ou anual é maior do que um valor especificado. Por padrão, a grade exibe todos os itens de backup no escopo selecionado. Você pode usar os filtros para a retenção de RP diária, semanal, mensal e anual para filtrar a grade mais detalhadamente e identificar os itens para os quais a retenção pode ser reduzida para economizar em custos de armazenamento de backup.
+
+Observe que para cargas de trabalho de banco de dados como SQL e SAP HANA, os períodos de retenção mostrados na grade correspondem aos períodos de retenção dos pontos de backup completos e não aos pontos de backup diferenciais. O mesmo se aplica aos filtros de retenção também.  
+
+![Otimizar otimizações de retenção de guia](./media/backup-azure-configure-backup-reports/optimize-retention.png)
+
+###### <a name="databases-configured-for-daily-full-backup"></a>Bancos de dados configurados para backup completo diário
+Usando essa exibição, você pode identificar cargas de trabalho de banco de dados que foram configuradas para backup completo diário. Geralmente, o uso do backup diferencial diário, juntamente com o backup completo semanal, é mais econômico. 
+
+Clicar no bloco **otimizações de política** seguido pelo bloco **otimizações de agendamento de backup** exibe uma grade que contém todos os bancos de dados com uma política de backup completo diário. Você pode optar por navegar até um item de backup específico e modificar a política para usar o backup diferencial diário com o backup completo semanal.
+
+Observe que o filtro de **tipo de gerenciamento de backup** na parte superior da guia deve ter os itens **SQL na VM do Azure** e **SAP Hana na VM do Azure** selecionada, para que a grade seja capaz de exibir cargas de trabalho de banco de dados conforme o esperado.
+
+![Otimizar otimizações de agendamento de backup de guia](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
 
 ## <a name="export-to-excel"></a>Exportar para o Excel
 

@@ -9,12 +9,13 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metan
-ms.openlocfilehash: e652aa29b1c1935fcc4887dbe13ef9b683a8bd05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 70173e1904ce9d7a159532c8962932765060e4d9
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75946161"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406938"
 ---
 # <a name="how-to-cache-the-authentication-token"></a>Como armazenar em cache o token de autenticação
 
@@ -22,7 +23,7 @@ Este artigo demonstra como armazenar em cache o token de autenticação a fim de
 
 ## <a name="using-aspnet"></a>Usando ASP.NET
 
-Importe o pacote NuGet **Microsoft. IdentityModel. clients. ActiveDirectory** , que é usado para adquirir um token. Em seguida, use o código a seguir para `AuthenticationResult`adquirir um, usando os valores de autenticação que você obteve ao [criar o recurso de leitura de imersão](./how-to-create-immersive-reader.md).
+Importe o pacote NuGet **Microsoft. IdentityModel. clients. ActiveDirectory** , que é usado para adquirir um token. Em seguida, use o código a seguir para adquirir um `AuthenticationResult` , usando os valores de autenticação que você obteve ao [criar o recurso de leitura de imersão](./how-to-create-immersive-reader.md).
 
 ```csharp
 private async Task<AuthenticationResult> GetTokenAsync()
@@ -36,7 +37,7 @@ private async Task<AuthenticationResult> GetTokenAsync()
 
 O `AuthenticationResult` objeto tem uma `AccessToken` propriedade que é o token real que será usado ao iniciar o leitor de imersão usando o SDK. Ele também tem uma `ExpiresOn` propriedade que indica quando o token expirará. Antes de iniciar o leitor de imersão, você pode verificar se o token expirou e adquirir um novo token somente se ele tiver expirado.
 
-## <a name="using-nodejs"></a>Usando o Node. JS
+## <a name="using-nodejs"></a>Usando Node.JS
 
 Adicione o pacote [**Request**](https://www.npmjs.com/package/request) NPM ao seu projeto. Use o código a seguir para adquirir um token, usando os valores de autenticação que você obteve ao [criar o recurso de leitor de imersão](./how-to-create-immersive-reader.md).
 

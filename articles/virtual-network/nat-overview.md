@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2020
 ms.author: allensu
-ms.openlocfilehash: 80e2ba8df9c81d2a34f63b2f1bc943ee5d731bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93ce3b02ef8963a33e485b6560516e1d2b9c1ef5
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549509"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424010"
 ---
 # <a name="what-is-virtual-network-nat"></a>O que é NAT de Rede Virtual?
 
@@ -32,7 +32,7 @@ A NAT de Rede Virtual (conversão de endereços de rede) simplifica a conectivid
 -->
 
 <p align="center">
-  <img src="./media/nat-overview/flow-map.svg" width="256" title="NAT de Rede Virtual">
+  <img src="./media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="NAT de Rede Virtual">
 </p>
 
 
@@ -74,7 +74,7 @@ A NAT e os recursos de SKU Standard compatíveis reconhecem a direção em que o
 ![Virtual Network NAT flow direction](./media/nat-overview/flow-direction4.svg)
 -->
 <p align="center">
-  <img src="./media/nat-overview/flow-direction4.svg" width="512" title="Direção do fluxo da NAT de Rede Virtual">
+  <img src="./media/nat-overview/flow-direction4.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP and a public load balancer." width="512" title="Direção do fluxo da NAT de Rede Virtual">
 </p>
 
 *Figura: Direção do fluxo da NAT de Rede Virtual*
@@ -103,7 +103,7 @@ A NAT é regional por padrão. Ao criar cenários de [zonas de disponibilidade](
 -->
 
 <p align="center">
-  <img src="./media/nat-overview/az-directions.svg" width="512" title="NAT de Rede Virtual com zonas de disponibilidade">
+  <img src="./media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="512" title="NAT de Rede Virtual com zonas de disponibilidade">
 </p>
 
 *Figura: NAT de Rede Virtual com zonas de disponibilidade*

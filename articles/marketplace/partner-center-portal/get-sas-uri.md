@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 07/14/2020
-ms.openlocfilehash: f3589fb9ae176e04f727f516cca7c18c87dad9e0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 07/29/2020
+ms.openlocfilehash: 3c5c86f89882654e44f924ce0a19d4d71713144d
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317494"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431690"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtenha o URI de assinatura de acesso compartilhado para suas imagens VM
 
@@ -31,17 +31,15 @@ Ao gerar URIs de SAS para seus VHDs, siga estes requisitos:
 
 Há duas ferramentas comuns usadas para criar um endereço de SAS (URL):
 
-* **Microsoft Storage Explorer** – Ferramenta gráfica disponível para Windows, macOS e Linux.
+* **Microsoft Gerenciador de armazenamento** – ferramenta gráfica disponível no portal do Azure.
 * **CLI do Microsoft Azure** – Recomendado para ambientes de integração contínua ou automatizada e sistemas operacionais não Windows.
 
 ### <a name="use-microsoft-storage-explorer"></a>Usar o Gerenciador de Armazenamento do Microsoft Azure
 
-1. Baixe e instale o [Gerenciador de Armazenamento do Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/).
-2. Abra o Explorer e, no menu à esquerda, selecione **Adicionar conta**. A caixa de diálogo **Conectar-se ao Armazenamento do Microsoft Azure** aparece.
-3. Selecione **Adicionar uma Conta do Azure** e **Entrar**. Conclua as etapas necessárias para entrar em sua conta do Azure.
-4. No painel **Explorer** à esquerda, navegue até as **Contas de Armazenamento** e expanda esse nó.
-5. Clique com o botão direito do mouse no VHD e selecione **Obter Assinatura de Acesso de Compartilhado**.
-6. A caixa de diálogo **Assinatura de Acesso Compartilhado** aparece. Preencha os seguintes campos:
+1. Vá para sua conta de armazenamento no portal do Azure.
+2. No painel do Explorer à esquerda, abra a ferramenta **Gerenciador de armazenamento** (versão prévia).
+3. Clique com o botão direito do mouse no VHD e selecione **obter assinatura de acesso compartilhado**.
+4. A caixa de diálogo **Assinatura de Acesso Compartilhado** aparece. Preencha os seguintes campos:
 
     * **Hora de início** – Data de início de permissão para acesso ao VHD. Forneça uma data que é um dia antes da data atual.
     * **Hora de expiração** – Data de expiração de permissão para acesso ao VHD. Forneça uma data de pelo menos três semanas após a data atual.
@@ -50,20 +48,11 @@ Há duas ferramentas comuns usadas para criar um endereço de SAS (URL):
 
         :::image type="content" source="media/create-sas-uri-storage-explorer.png" alt-text="Ilustra a caixa de diálogo Assinatura de Acesso Compartilhado":::.
 
-7. Para criar o URI de SAS associado a este VHD, selecione **Criar**. A caixa de diálogo é atualizada e mostra detalhes sobre a operação.
-8. Copie o **URI** e salve-o em um arquivo de texto em um local seguro.
+5. Para criar o URI de SAS associado a este VHD, selecione **Criar**. A caixa de diálogo é atualizada e mostra detalhes sobre a operação.
+6. Copie o **URI** e salve-o em um arquivo de texto em um local seguro.
 
     :::image type="content" source="media/create-sas-uri-shared-access-signature-details.png" alt-text="Ilustra a caixa de detalhes Assinatura de Acesso Compartilhado":::
-
-    Esse URI de SAS é gerado para o acesso de nível de contêiner. Para torná-lo específico, edite o arquivo de texto para adicionar o nome do VHD (próxima etapa).
-
-9. Insira seu nome de VHD após a cadeia de caracteres vhds no URI de SAS (incluir uma barra /). O URI de SAS final deve ficar assim:
-
-    `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>` Por exemplo, se o nome do VDH fosse `TestRGVM2.vhd`, o URI de SAS resultante seria:
-
-    `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
-
-10. Repita essas etapas para cada VHD nos planos que você vai publicar.
+7. Repita essas etapas para cada VHD nos planos que você vai publicar.
 
 ### <a name="using-azure-cli"></a>Usando a CLI do Azure
 

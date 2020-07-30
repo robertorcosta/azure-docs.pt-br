@@ -4,12 +4,12 @@ description: Aprenda sobre a rede no AKS (Serviço de Kubernetes do Azure), incl
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d0e2c193e626b2d82fc57ef0699a2558ec3a9629
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: dacb14664b21412df1b1d48c023017378cf364c9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244643"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387754"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicativos no Serviço de Kubernetes do Azure (AKS)
 
@@ -105,7 +105,7 @@ Existem as seguintes diferenças de comportamento entre kubenet e CNI do Azure:
 | Expor serviços Kubernetess usando um serviço de balanceador de carga, um gateway de aplicativo ou um controlador de entrada | Com suporte | Com suporte |
 | Zonas privadas e DNS do Azure padrão                                                          | Com suporte | Com suporte |
 
-Em relação ao DNS, com o kubenet e o DNS CNI plug-ins do Azure são oferecidos pelo CoreDNS, um daemon definido em execução no AKS. Para obter mais informações sobre o CoreDNS no kubernetes, consulte [Personalizando o serviço DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). O CoreDNS é configurado por padrão para encaminhar domínios desconhecidos para os servidores DNS do nó, em outras palavras, para a funcionalidade DNS da rede virtual do Azure em que o cluster AKS é implantado. Portanto, as zonas DNS e privadas do Azure funcionarão para o pods em execução no AKS.
+Em relação ao DNS, com o kubenet e o DNS CNI plug-ins do Azure são oferecidos pelo CoreDNS, uma implantação em execução no AKS com seu próprio dimensionador automaticamente. Para obter mais informações sobre o CoreDNS no kubernetes, consulte [Personalizando o serviço DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). O CoreDNS é configurado por padrão para encaminhar domínios desconhecidos para os servidores DNS do nó, em outras palavras, para a funcionalidade DNS da rede virtual do Azure em que o cluster AKS é implantado. Portanto, as zonas DNS e privadas do Azure funcionarão para o pods em execução no AKS.
 
 ### <a name="support-scope-between-network-models"></a>Escopo de suporte entre modelos de rede
 
@@ -135,7 +135,7 @@ Outro recurso comum do Ingress é o encerramento de SSL / TLS. Em grandes aplica
 
 Você também pode configurar o controlador de entrada para preservar o IP de origem do cliente em solicitações para contêineres no cluster AKS. Quando a solicitação de um cliente é roteada para um contêiner no cluster AKS por meio do controlador de entrada, o IP de origem dessa solicitação não estará disponível para o contêiner de destino. Quando você habilita a *preservação de IP de origem do cliente*, o IP de origem do cliente está disponível no cabeçalho da solicitação em *X-forwardd-for*. Se você estiver usando a preservação de IP de origem do cliente em seu controlador de entrada, não poderá usar passagem TLS. A preservação de IP de origem do cliente e a passagem de TLS podem ser usadas com outros serviços, como o tipo de *balanceador de carga* .
 
-## <a name="network-security-groups"></a>Grupos de Segurança de Rede
+## <a name="network-security-groups"></a>Grupos de segurança de rede
 
 Um grupo de segurança de rede filtra o tráfego para VMs, como os nós do AKS. À medida que você cria Serviços, como um LoadBalancer, a plataforma do Azure configura automaticamente as regras do grupo de segurança de rede necessárias. Não configure manualmente as regras do grupo de segurança de rede para filtrar o tráfego de pods em um cluster do AKS. Defina as portas e o encaminhamento necessários como parte dos manifestos do Kubernetes Service e permita que a plataforma do Azure crie ou atualize as regras apropriadas. Você também pode usar as políticas de rede, conforme discutido na próxima seção, para aplicar automaticamente as regras de filtro de tráfego a pods.
 

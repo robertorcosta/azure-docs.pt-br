@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 2434c5b80fedb7fd5ae61357cadf5d23f9b00934
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 6571f4351fb3410d1c10079a41b7041eb85ee5e3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127172"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423755"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizar o acesso a dados de BLOB e de fila com identidades gerenciadas para recursos do Azure
 
@@ -87,7 +87,7 @@ O `az ad sp create-for-rbac` comando retorna uma lista de propriedades de entida
 ```
 
 > [!IMPORTANT]
-> As atribuições de função do RBAC podem levar alguns minutos para serem propagadas.
+> As atribuições de função do Azure podem levar alguns minutos para serem propagadas.
 
 #### <a name="set-environment-variables"></a>Definir variáveis de ambiente
 

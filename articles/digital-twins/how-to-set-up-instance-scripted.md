@@ -1,18 +1,18 @@
 ---
 title: Configurar uma instância e uma autenticação (com script)
 titleSuffix: Azure Digital Twins
-description: Consulte como configurar uma instância do serviço gêmeos do Azure digital, incluindo a autenticação adequada. Versão com script.
+description: Consulte como configurar uma instância do serviço de gêmeos digital do Azure, executando um script de implantação automatizada
 author: baanders
 ms.author: baanders
-ms.date: 7/22/2020
+ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 522096b921faf34130f0c37f727d89c7bf95c530
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 076bde9e2760a862822d80d63197e2c15a678d35
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337901"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407399"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (com script)
 
@@ -20,9 +20,12 @@ ms.locfileid: "87337901"
 
 Este artigo aborda as etapas para **Configurar uma nova instância de gêmeos digital do Azure**, incluindo a criação da instância e a configuração da autenticação. Depois de concluir este artigo, você terá uma instância do gêmeos digital do Azure pronta para começar a programar.
 
-Esta versão deste artigo conclui essas etapas executando um exemplo de [ **script de implantação automatizado** ](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) que simplifica o processo. Para exibir as etapas manuais que o script executa nos bastidores, consulte a versão manual deste artigo: [*como: configurar uma instância e autenticação (manual)*](how-to-set-up-instance-manual.md).
+Esta versão deste artigo conclui essas etapas executando um exemplo de [ **script de implantação automatizado** ](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) que simplifica o processo. 
+* Para exibir as etapas manuais da CLI em que o script é executado nos bastidores, consulte a versão da CLI deste artigo: [*como: configurar uma instância e autenticação (CLI)*](how-to-set-up-instance-cli.md).
+* Para exibir as etapas manuais de acordo com o portal do Azure, consulte a versão do portal deste artigo: [*como configurar uma instância e autenticação (Portal)*](how-to-set-up-instance-portal.md).
 
-[!INCLUDE [digital-twins-setup-starter.md](../../includes/digital-twins-setup-starter.md)]
+[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+[!INCLUDE [digital-twins-setup-role-cli.md](../../includes/digital-twins-setup-role-cli.md)]
 
 ## <a name="run-the-deployment-script"></a>Executar o script de implantação
 
@@ -41,7 +44,7 @@ Aqui estão as etapas para executar o script de implantação no Cloud Shell.
  
 2. Depois de entrar, procure a barra de ícones da janela de Cloud Shell. Selecione o ícone "carregar/baixar arquivos" e escolha "carregar".
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell-upload.png" alt-text="Janela Cloud Shell mostrando a seleção da opção carregar":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela Cloud Shell mostrando a seleção da opção carregar":::
 
     Navegue até o arquivo de _**deploy.ps1**_ em seu computador e pressione "abrir". Isso carregará o arquivo para Cloud Shell para que você possa executá-lo na janela Cloud Shell.
 
@@ -57,21 +60,38 @@ O script criará uma instância de gêmeos digital do Azure, atribuirá ao usuá
 
 Aqui está um trecho do log de saída do script:
 
-:::image type="content" source="media/how-to-set-up-instance/deployment-script-output.png" alt-text="Janela Cloud Shell mostrando o log de entrada e saída por meio da execução do script de implantação" lightbox="media/how-to-set-up-instance/deployment-script-output.png":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Janela Cloud Shell mostrando o log de entrada e saída por meio da execução do script de implantação" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
 
 Se o script for concluído com êxito, a impressão final dirá `Deployment completed successfully` . Caso contrário, resolva a mensagem de erro e execute o script novamente. Ele ignorará as etapas que você já concluiu e começará a solicitar a entrada novamente no ponto em que você parou.
 
-Após a conclusão do script, agora você terá uma instância do gêmeos digital do Azure pronta para começar e as permissões configuradas para gerenciá-lo.
+Após a conclusão do script, agora você tem uma instância do gêmeos digital do Azure pronta para ir com permissões para gerenciá-la e configurou permissões para um aplicativo cliente acessá-la.
+
+> [!NOTE]
+> O script atribui atualmente a função de gerenciamento necessária no Azure digital gêmeos (*proprietário do gêmeos digital do Azure (versão prévia)*) para o mesmo usuário que executa o script de Cloud Shell. Se você precisar atribuir essa função a outra pessoa que gerenciará a instância, poderá fazer isso agora por meio do portal do Azure ([instruções](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) ou da CLI ([instruções](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 ## <a name="collect-important-values"></a>Coletar valores importantes
 
-Há dois valores importantes do registro do aplicativo que serão necessários mais tarde para [autenticar um aplicativo cliente em relação às APIs do gêmeos digital do Azure](how-to-authenticate-client.md). 
+Há vários valores importantes dos recursos configurados pelo script que talvez sejam necessários à medida que você continuar trabalhando com sua instância de gêmeos digital do Azure. Nesta seção, você usará o [portal do Azure](https://portal.azure.com) para coletar esses valores. Você deve salvá-los em um local seguro ou retornar a esta seção para encontrá-los mais tarde quando precisar deles.
+
+Se outros usuários estiverem programando em relação à instância, você também deverá compartilhar esses valores com eles.
+
+### <a name="collect-instance-values"></a>Coletar valores de instância
+
+Na [portal do Azure](https://portal.azure.com), localize sua instância do gêmeos digital do Azure pesquisando o nome da sua instância na barra de pesquisa do Portal.
+
+A seleção será aberta na página *visão geral* da instância. Anote seu *nome*, *grupo de recursos*e *nome do host*. Talvez você precise deles mais tarde para identificar e conectar-se à sua instância do.
+
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Realçando os valores importantes da página de visão geral da instância":::
+
+### <a name="collect-app-registration-values"></a>Coletar valores de registro do aplicativo 
+
+Há dois valores importantes do registro do aplicativo que serão necessários mais tarde para [gravar o código de autenticação do aplicativo cliente para as APIs do gêmeos digital do Azure](how-to-authenticate-client.md). 
 
 Para encontrá-los, siga [este link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) para navegar até a página Visão geral do registro de aplicativo do Azure AD na portal do Azure. Esta página mostra todos os registros de aplicativo que foram criados em sua assinatura.
 
 Você deve ver o registro do aplicativo que acabou de criar nesta lista. Selecione-o para abrir seus detalhes:
 
-:::image type="content" source="media/how-to-set-up-instance/app-important-values.png" alt-text="Exibição do portal dos valores importantes para o registro do aplicativo":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Exibição do portal dos valores importantes para o registro do aplicativo":::
 
 Anote a ID do *aplicativo (cliente)* e a *ID do diretório (locatário)* mostradas **na página.** Se você não for a pessoa que vai escrever código para aplicativos cliente, você precisará compartilhar esses valores com a pessoa que será.
 
@@ -86,6 +106,9 @@ Para verificar se a instância foi criada, vá para a [página gêmeos digital d
 ### <a name="verify-user-role-assignment"></a>Verificar atribuição de função de usuário
 
 [!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
+
+> [!NOTE]
+> Lembre-se de que o script atribui atualmente essa função necessária ao mesmo usuário que executa o script de Cloud Shell. Se você precisar atribuir essa função a outra pessoa que gerenciará a instância, poderá fazer isso agora por meio do portal do Azure ([instruções](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) ou da CLI ([instruções](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 ### <a name="verify-app-registration"></a>Verificar registro do aplicativo
 

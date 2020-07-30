@@ -10,26 +10,23 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 02/24/2020
-ms.openlocfilehash: d92882014f66234be8a8b1d7063dae866ec6f230
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/29/2020
+ms.openlocfilehash: 968fe5a0f4999c25486189384186c23d1fcd5509
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84031467"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87430244"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiar uma cópia transacionalmente consistente de um banco de dados no banco de dados SQL do Azure
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-O banco de dados SQL do Azure fornece vários métodos para criar uma cópia transacionalmente consistente de um [banco de dados](single-database-overview.md) existente no mesmo servidor ou em um servidor diferente. Você pode copiar um banco de dados usando o portal do Azure, o PowerShell ou o T-SQL.
+O banco de dados SQL do Azure fornece vários métodos para criar uma cópia de um [banco de dados](single-database-overview.md) existente no mesmo servidor ou em um servidor diferente. Você pode copiar um banco de dados usando portal do Azure, PowerShell, CLI do Azure ou T-SQL.
 
 ## <a name="overview"></a>Visão geral
 
-Uma cópia do banco de dados é um instantâneo do banco de dados de origem no momento da solicitação de cópia. Você pode selecionar o mesmo servidor ou um servidor diferente. Além disso, você pode optar por manter sua camada de serviço e o tamanho da computação ou usar um tamanho de computação diferente dentro da mesma camada de serviço (edição). Após a conclusão da cópia, a cópia se tornará um banco de dados independente e totalmente funcional. Neste ponto, é possível atualizar ou fazer o downgrade para qualquer edição. Os logons, os usuários e as permissões podem ser gerenciados independentemente. A cópia é criada usando a tecnologia de replicação geográfica e, após a conclusão da propagação, o link de replicação geográfica é encerrado automaticamente. Todos os requisitos para usar a replicação geográfica se aplicam à operação de cópia do banco de dados. Consulte [visão geral da replicação geográfica ativa](active-geo-replication-overview.md) para obter detalhes.
-
-> [!NOTE]
-> [Backups de banco de dados automatizados](automated-backups-overview.md) são usados quando você cria uma cópia de banco de dados.
+Uma cópia de banco de dados é um instantâneo transacionalmente consistente do banco de dados de origem a partir de um ponto no tempo depois que a solicitação de cópia é iniciada. Você pode selecionar o mesmo servidor ou um servidor diferente para a cópia. Além disso, você pode optar por manter a camada de serviço e o tamanho de computação do banco de dados de origem, ou usar um tamanho de computação diferente dentro da mesma camada de serviço ou em outra. Após a conclusão da cópia, a cópia se tornará um banco de dados independente e totalmente funcional. Os logons, os usuários e as permissões no banco de dados copiado são gerenciados independentemente do banco de dados de origem. A cópia é criada usando a tecnologia de replicação geográfica. Depois que a propagação de réplica for concluída, o link de replicação geográfica será encerrado automaticamente. Todos os requisitos para usar a replicação geográfica se aplicam à operação de cópia do banco de dados. Consulte [visão geral da replicação geográfica ativa](active-geo-replication-overview.md) para obter detalhes.
 
 ## <a name="logins-in-the-database-copy"></a>Logons na cópia do banco de dados
 
@@ -120,6 +117,9 @@ Você pode usar as etapas na seção [copiar um banco de dados SQL para um servi
 > [!NOTE]
 > O [portal do Azure](https://portal.azure.com), o PowerShell e o CLI do Azure não dão suporte à cópia de banco de dados para uma assinatura diferente.
 
+> [!TIP]
+> A cópia de banco de dados usando o T-SQL dá suporte à cópia de um banco de dados de uma assinatura em um locatário do Azure diferente.
+
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorar o andamento da operação de cópia
 
 Monitore o processo de cópia consultando as exibições [Sys. databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [Sys. dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database)e [Sys. dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) . Enquanto a cópia estiver em andamento, a coluna **state_desc** da exibição sys.databases para o novo banco de dados é definida como **COPYING**.
@@ -171,7 +171,7 @@ Para saber mais sobre como gerenciar usuários e logons ao copiar um banco de da
 
 Os erros a seguir podem ser encontrados durante a cópia de um banco de dados no Banco de Dados SQL do Azure. Para saber mais, confira [Copiar um Banco de Dados SQL do Azure](database-copy.md).
 
-| Código do erro | Severity | Descrição |
+| Código do erro | Severidade | Descrição |
 | ---:| ---:|:--- |
 | 40635 |16 |O cliente com endereço IP “%.&#x2a;ls” está desabilitado temporariamente. |
 | 40637 |16 |A criação da cópia do banco de dados está desabilitada no momento. |

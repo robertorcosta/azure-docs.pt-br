@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: has-adal-ref
-ms.openlocfilehash: 569e8d769d56acbb4c7fb4258952ec19e44b58e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: has-adal-ref, devx-track-javascript
+ms.openlocfilehash: 6e29388595a53923e4899b319b94c87bae5cf941
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82607819"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424198"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Estrutura de segurança: autenticação | Atenuações
 
@@ -159,7 +159,7 @@ ms.locfileid: "82607819"
 | **Fase do SDL**               | Build |
 | **Tecnologias aplicáveis** | OnPrem, SQL Azure |
 | **Atributos**              | Versão do SQL - MSSQL2012, Versão do SQL - V12 |
-| **Referências**              | [Melhores práticas de segurança com bancos de dados independentes](https://msdn.microsoft.com/library/ff929055.aspx) |
+| **Referências**              | [Práticas recomendadas de segurança com bancos de dados independentes](https://msdn.microsoft.com/library/ff929055.aspx) |
 | **Etapas** | A ausência de uma política de senha imposta pode aumentar a probabilidade de que uma credencial fraca seja estabelecida em um banco de dados independente. Aproveite a Autenticação do Windows. |
 
 ## <a name="use-per-device-authentication-credentials-using-sas-tokens"></a><a id="authn-sas-tokens"></a>Use credenciais de autenticação por dispositivo usando tokens SaS

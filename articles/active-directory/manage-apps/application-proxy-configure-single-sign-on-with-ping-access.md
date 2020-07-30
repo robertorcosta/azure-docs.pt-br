@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f644203b494e5baf087241e2a4fe669b7db07b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 512aed93906968b14f7c6a13e08f74bbeb2f5f31
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85077892"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431079"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para logon único com Proxy de Aplicativo e PingAccess
 
@@ -105,7 +105,7 @@ Agora, atribua um usuário para teste de aplicativo e escolha logon único basea
    ![Mostra a lista de usuários e grupos](./media/application-proxy-configure-single-sign-on-with-ping-access/users-and-groups.png)
 
 1. Selecione um usuário para teste de aplicativo e selecione **selecionar**. Verifique se essa conta de teste tem acesso ao aplicativo local.
-1. Selecione **atribuir**.
+1. Selecione **Atribuir**.
 1. Na barra lateral do aplicativo, selecione **logon único**  >  **com base em cabeçalho**.
 
    > [!TIP]
@@ -113,7 +113,7 @@ Agora, atribua um usuário para teste de aplicativo e escolha logon único basea
 
    ![Mostra a tela de logon baseada em cabeçalho e PingAccess](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Em seguida, verifique se a URL de redirecionamento está definida para a URL externa:
 
@@ -121,6 +121,11 @@ Em seguida, verifique se a URL de redirecionamento está definida para a URL ext
 1. Selecione seu aplicativo.
 1. Selecione o link ao lado de **redirecionar URIs**, mostrando o número de URIs de redirecionamento configurados para clientes Web e públicos. A página ** \<application name> -autenticação** é exibida.
 1. Verifique se a URL externa que você atribuiu ao seu aplicativo anteriormente está na lista de **URIs de redirecionamento** . Se não estiver, adicione a URL externa agora, usando um tipo de URI de redirecionamento de **Web**e selecione **salvar**.
+
+Além da URL externa, um ponto de extremidade de autorização de Azure Active Directory na URL externa deve ser adicionado à lista de URIs de redirecionamento.
+
+`https://*.msappproxy.net/pa/oidc/cb`
+`https://*.msappproxy.net/`
 
 Por fim, configure seu aplicativo local para que os usuários tenham acesso de leitura e outros aplicativos tenham acesso de leitura/gravação:
 
@@ -168,7 +173,7 @@ Para coletar essas informações:
 1. Selecione seu aplicativo.
 1. Na barra lateral da página **registros de aplicativo** para seu aplicativo, selecione **manifesto**. O código JSON do manifesto para o registro do seu aplicativo é exibido.
 1. Pesquise o `acceptMappedClaims` campo e altere o valor para `True` .
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="use-of-optional-claims-optional"></a>Uso de declarações opcionais (opcional)
 
@@ -229,5 +234,5 @@ Quando você concluir todas essas etapas, seu aplicativo deverá estar em execu�
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Configurar o PingAccess para o Azure AD para proteger aplicativos publicados usando Microsoft Azure AD proxy de aplicativo](https://support.pingidentity.com/s/document-item?bundleId=pingaccess-52&topicId=agents/azure/pa_c_PAAzureSolutionOverview.html)
-- [Logon único para aplicativos no Azure Active Directory](what-is-single-sign-on.md)
+- [Logon único em aplicativos no Azure Active Directory](what-is-single-sign-on.md)
 - [Solucionar problemas e mensagens de erro do Application Proxy](application-proxy-troubleshoot.md)

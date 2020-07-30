@@ -3,12 +3,12 @@ title: Criar uma especificação de modelo com modelos vinculados
 description: Saiba como criar uma especificação de modelo com modelos vinculados.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: c2648cb8a71be709406f314d02a226ed097be6f0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b952baa465092fef19ad2feb11a43328a6177d1c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095635"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387856"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutorial: criar uma especificação de modelo com modelos vinculados (visualização)
 
@@ -33,7 +33,7 @@ O modelo vinculado é chamado **delinkedTemplate.jsem**e é armazenado em uma su
 - `/artifacts/linkedTemplate.json`
 - `artifacts/linkedTemplate.json`
 
-Se houver outro linkedTemplate2.jsem que é chamado de linkedTemplate.jse linkedTemplate2.jsno é armazenado na mesma subpasta artefatos, o relativePath especificado em linkedTemplate.jsno é **linkedTemplate2.jsem**.
+A `relativePath` propriedade é sempre relativa ao arquivo de modelo em que `relativePath` é declarado, portanto, se houver outro linkedTemplate2.jsem que é chamado de linkedTemplate.jse linkedTemplate2.jsno é armazenado na mesma subpasta de artefatos, o RelativePath especificado em linkedTemplate.jsem é apenas `linkedTemplate2.json` .
 
 1. Crie o modelo principal com o JSON a seguir. Salve o modelo principal como **azuredeploy.jsem** seu computador local. Este tutorial pressupõe que você salvou em um caminho **c:\Templates\linkedTS\azuredeploy.js** , mas pode usar qualquer caminho.
 

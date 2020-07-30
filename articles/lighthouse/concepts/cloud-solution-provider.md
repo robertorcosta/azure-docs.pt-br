@@ -1,14 +1,14 @@
 ---
 title: Considerações sobre o programa Provedor de Soluções na Nuvem
 description: Para parceiros CSP, o gerenciamento de recursos delegados do Azure ajuda a melhorar a segurança e o controle oferecendo permissões granulares.
-ms.date: 07/06/2020
+ms.date: 07/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8dd40c5c4f7131554dcc3249777de9f0d92c35bb
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 0ae7ef0b78f2f37708c6b442a9591fcbcce25646
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131503"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429456"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse e o programa Provedor de Soluções na Nuvem
 
@@ -32,6 +32,9 @@ Usando o Azure Lighthouse, você pode atribuir diferentes grupos a diferentes cl
 A integração de uma assinatura que você criou por meio do programa CSP segue as etapas descritas em integrar [uma assinatura ao Lighthouse do Azure](../how-to/onboard-customer.md). Qualquer usuário que tenha a função Agente Administrador em seu locatário poderá realizar essa integração.
 
 ![Gerenciamento de locatários usando AOBO e gerenciamento de recursos delegados do Azure](../media/csp-2.jpg)
+
+> [!TIP]
+> [Ofertas de serviço gerenciado](managed-services-offers.md) com planos privados não têm suporte com assinaturas estabelecidas por meio de um revendedor do programa CSP (provedor de soluções na nuvem). Você pode integrar essas assinaturas ao Azure Lighthouse [usando modelos de Azure Resource Manager](../how-to/onboard-customer.md).
 
 > [!NOTE]
 > A [página **meus clientes** no portal do Azure](../how-to/view-manage-customers.md) agora inclui uma seção **provedor de soluções na nuvem (versão prévia)** , que exibe informações de cobrança e recursos para clientes do CSP que [assinaram o MCA (contrato de cliente da Microsoft)](/partner-center/confirm-customer-agreement) e estão [no plano do Azure](/partner-center/azure-plan-get-started). Para saber mais, confira [Introdução à conta de cobrança do Contrato de Parceiro da Microsoft](../../cost-management-billing/understand/mpa-overview.md).

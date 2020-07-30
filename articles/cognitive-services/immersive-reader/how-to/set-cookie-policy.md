@@ -10,12 +10,13 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: pasta
-ms.openlocfilehash: eb31fa271496b0eeedf4a2b845ab05e5f241e167
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 6bc55416c335f370151e54d2b09ccf00bd799fdb
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041975"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406887"
 ---
 # <a name="how-to-set-the-cookie-policy-for-the-immersive-reader"></a>Como definir a política de cookie para o leitor de imersão
 
@@ -46,7 +47,7 @@ ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 ## <a name="next-steps"></a>Próximas etapas
 
 * Confira o [Início rápido do Node.js](../quickstarts/client-libraries.md?pivots=programming-language-nodejs) para ver o que mais você pode fazer com o SDK de Leitura Avançada usando Node.js
-* Veja o [tutorial do Android](../tutorial-android.md) para ver o que mais você pode fazer com o SDK do leitor de imersão usando Java ou Kotlin para Android
-* Veja o [tutorial do IOS](../tutorial-ios.md) para ver o que mais você pode fazer com o SDK do leitor de imersão usando o Swift para IOS
+* Veja o [tutorial do Android](../tutorial-android.md) para saber o que mais você pode fazer com o SDK de Leitura Avançada usando o Java ou o Kotlin para Android
+* Veja o [tutorial do iOS](../tutorial-ios.md) para saber o que mais você pode fazer com o SDK de Leitura Avançada usando o Swift para iOS
 * Confira o [tutorial do Python](../tutorial-python.md) para ver o que mais você pode fazer com o SDK de Leitura Avançada usando Python
 * Explore o [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk) e a [Referência de SDK da Leitura Avançada](../reference.md)

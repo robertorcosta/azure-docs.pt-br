@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 892ace66c4994f4c2e263d529d69e505ed9c1c1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 20d1dfea251fdfd0bd6e8432d1ea0c7af7284cb5
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068028"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428174"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do gateway de aplicativo
 
@@ -55,7 +55,7 @@ Os NSGs (grupos de segurança de rede) têm suporte no gateway de aplicativo. Ma
   - Não remova as regras de saída padrão.
   - Não crie outras regras de saída que neguem qualquer conectividade de saída.
 
-- O tráfego da marca **AzureLoadBalancer** deve ser permitido.
+- O tráfego da marca **AzureLoadBalancer** com a sub-rede de destino como **qualquer** deve ser permitido.
 
 #### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Permitir o acesso do gateway de aplicativo a alguns IPs de origem
 
@@ -74,7 +74,7 @@ Para este cenário, use NSGs na sub-rede do gateway de aplicativo. Coloque as se
 
 - **v1**
 
-   Para a SKU v1, as rotas definidas pelo usuário (UDRs) têm suporte na sub-rede do gateway de aplicativo, desde que elas não alterem a comunicação de solicitação/resposta de ponta a ponta. Por exemplo, você pode configurar um UDR na sub-rede do gateway de aplicativo para apontar para um dispositivo de firewall para inspeção de pacotes. Mas você deve certificar-se de que o pacote pode atingir o destino pretendido após a inspeção. A falha em fazer isso pode resultar em comportamento incorreto de investigação de integridade ou roteamento de tráfego. Isso inclui rotas aprendidas ou rotas 0.0.0.0/0 padrão que são propagadas pelo Azure ExpressRoute ou gateways de VPN na rede virtual.
+   Para a SKU v1, as rotas definidas pelo usuário (UDRs) têm suporte na sub-rede do gateway de aplicativo, desde que elas não alterem a comunicação de solicitação/resposta de ponta a ponta. Por exemplo, você pode configurar um UDR na sub-rede do gateway de aplicativo para apontar para um dispositivo de firewall para inspeção de pacotes. Mas você deve certificar-se de que o pacote pode atingir o destino pretendido após a inspeção. A falha em fazer isso pode resultar em comportamento incorreto de investigação de integridade ou roteamento de tráfego. Isso inclui rotas aprendidas ou rotas 0.0.0.0/0 padrão que são propagadas pelo Azure ExpressRoute ou gateways de VPN na rede virtual. Qualquer cenário no qual 0.0.0.0/0 precisa ser redirecionado localmente (túnel forçado) não tem suporte para v1.
 
 - **v2**
 
@@ -279,7 +279,7 @@ Para obter mais informações sobre o redirecionamento, consulte:
 - [Redirecionar o tráfego para um site externo usando o PowerShell](redirect-external-site-powershell.md)
 - [Redirecionar o tráfego para um site externo usando a CLI](redirect-external-site-cli.md)
 
-### <a name="rewrite-http-headers-and-url"></a>Reescrever cabeçalhos e URL HTTP
+### <a name="rewrite-http-headers-and-url"></a>Reescrever cabeçalhos HTTP e URL
 
 Usando regras de reescrita, você pode adicionar, remover ou atualizar os cabeçalhos de solicitação e resposta HTTP (S), bem como o caminho da URL e os parâmetros da cadeia de caracteres de consulta, pois os pacotes de solicitação e resposta são movidos entre o cliente e os pools de back-end por meio do gateway de aplicativo.
 

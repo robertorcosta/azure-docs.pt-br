@@ -7,12 +7,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: dbe64bdcbff5592d271c773eff1d5c99c585fcd7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 03b9cce0d8e4666630aa6568597e08d1f13386ff
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248009"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422803"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral dos clusters do Service Fabric no Azure
 Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Um computador ou VM que faz parte de um cluster é chamado de nó de cluster. Os clusters podem ser dimensionados para milhares de nós. Se você adiciona novos nós ao cluster, o Service Fabric reequilibra as réplicas de partição de serviço e instâncias entre o número aumentado de nós. O desempenho geral do aplicativo é melhorado e a contenção para o acesso à memória é reduzida. Se os nós no cluster não estiverem sendo usados com eficiência, você poderá diminuir o número de nós no cluster. O Service Fabric redistribui novamente as réplicas de partição e instâncias entre o número reduzido de nós, para fazer melhor uso do hardware em cada nó.
@@ -22,7 +22,7 @@ O tipo de nó define o tamanho, o número e as propriedades de um conjunto de n�
 ## <a name="cluster-components-and-resources"></a>Recursos e componentes do cluster
 O cluster do Service Fabric no Azure é um recurso do Azure que usa e interage com outros recursos do Azure:
 * Placas de rede virtual e de VMs
-* conjuntos de escala de máquina virtual
+* conjuntos de dimensionamento de máquinas virtuais
 * redes virtuais
 * balanceadores de carga
 * contas de armazenamento
@@ -77,7 +77,7 @@ O Service Fabric também dá suporte ao controle de acesso para limitar o acesso
 
 Para saber mais, confira o item sobre o [Controle de Acesso Baseado em Função (RBAC) do Service Fabric](service-fabric-cluster-security.md#role-based-access-control-rbac).
 
-### <a name="network-security-groups"></a>Grupos de Segurança de Rede 
+### <a name="network-security-groups"></a>Grupos de segurança de rede 
 Grupos de segurança de rede (NSGs) controlam o tráfego de entrada e de saída de uma sub-rede, VM ou NIC específica.  Por padrão, quando várias VMs são colocadas na mesma rede virtual, elas podem se comunicar entre si por meio de qualquer porta.  Se quiser restringir a comunicação entre as máquinas, é possível definir os NSGs para segmentar a rede ou isolar as VMs umas das outras.  Se tiver vários tipos de nó em um cluster, é possível aplicar os NSGs a sub-redes para impedir que as máquinas que pertencem a diferentes tipos de nó se comuniquem entre si.  
 
 Para saber mais, confira o artigo sobre os [Grupos de segurança](../virtual-network/security-overview.md)
@@ -105,6 +105,7 @@ Para saber mais, leia [Upgrade de clusters](service-fabric-cluster-upgrade.md).
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
 | Linux Ubuntu 16.04 | 6.0 |
+| Linux Ubuntu 18, 4 | 7.1 |
 
 Para obter informações adicionais, consulte [versões de cluster com suporte no Azure](./service-fabric-versions.md#supported-operating-systems)
 

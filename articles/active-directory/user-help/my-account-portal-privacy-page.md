@@ -11,26 +11,28 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 0e74ea4a3204efb35fa6113504356e87c85aa0dd
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ec050f3dfd2537f8cffde353772d61c32cb9d676
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742108"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422345"
 ---
 # <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Exibir como a organização usa os dados relacionados à privacidade
 
-Você pode visualizar como sua empresa usa seus dados na página **Privacidade** do portal **Minha Conta**.
+Você pode exibir como sua organização usa seus dados na página **configurações & privacidade** do portal **minha conta** .
 
 ## <a name="view-your-privacy-related-info"></a>Exibir suas informações de privacidade
 
 1. Entre em sua conta corporativa ou de estudante e vá para a página https://myaccount.microsoft.com/.
 
-2. Selecione **Privacidade** no painel de navegação à esquerda ou selecione o link **Examinar privacidade** no bloco **Privacidade**.
+2. Selecione **configurações & privacidade** no painel de navegação esquerdo ou selecione o link **exibir configurações e privacidade** no bloco **configurações & de privacidade** .
 
-    ![Página Minha Conta, com links para informações de privacidade em destaque](media/my-account-portal/my-account-portal-privacy.png)
+    ![Página minha conta, mostrando configurações realçadas & link de privacidade](media/my-account-portal/my-account-portal-privacy.png)
 
-3. Examine as informações, inclusive:
+3. Selecione **privacidade**, conforme mostrado na captura de tela de exemplo a seguir, em seguida, examine as informações, incluindo:
+
+    ![Configurações & página privacidade, mostrando a opção de guia de privacidade realçada](media/my-account-portal/my-account-portal-privacy-tab.png)
 
     - **Serviços.** Uma lista de serviços online com os quais você está conectado usando sua conta corporativa ou de estudante.
 
@@ -47,5 +49,7 @@ Depois de visualizar como a organização usa os dados, você pode:
 - Visualizar ou gerenciar as [organizações](my-account-portal-organizations-page.md).
 
 - Visualizar sua [atividade de entrada](my-account-portal-sign-ins-page.md).
+
+- Alterar [as configurações do portal da minha conta](my-account-portal-settings.md)
 
 - Você também pode visualizar suas preferências de contato relacionadas ao Microsoft Office e informações de privacidade [na página Portal do Office, segurança e privacidade](https://portal.office.com/account/#security).

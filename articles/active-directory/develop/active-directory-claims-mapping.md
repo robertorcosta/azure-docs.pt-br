@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2019
+ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 00f9e4c1ebd162883f62280e753b6e0c4c13a21d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 29dc03d663d590c13a1948411ed597388750c1d7
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027165"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428012"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como fazer: personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
 
@@ -436,6 +436,9 @@ Políticas de mapeamento de declarações podem ser atribuídas somente a objeto
 
 No Azure AD, muitos cenários são possíveis quando você pode personalizar as declarações emitidas em tokens para entidades de serviço específicas. Nesta seção, percorremos alguns cenários comuns que podem ajudá-lo a entender como usar o tipo de política de mapeamento de declarações.
 
+> [!NOTE]
+> Ao criar uma política de mapeamento de declarações, você também pode emitir uma declaração de um atributo de extensão de esquema de diretório em tokens. Use *ExtensionId* para o atributo de extensão em vez de *ID* no `ClaimsSchema` elemento.  Para obter mais informações sobre atributos de extensão, consulte [usando atributos de extensão de esquema de diretório](active-directory-schema-extensions.md).
+
 #### <a name="prerequisites"></a>Pré-requisitos
 
 Nos exemplos a seguir, você cria, atualiza, vincula e exclui políticas de entidades de serviço. Se você é um novo usuário do Azure AD, recomendamos que [aprenda como obter um locatário do Azure AD](quickstart-create-new-tenant.md) antes de prosseguir com estes exemplos.
@@ -527,4 +530,5 @@ Neste exemplo, você cria uma política que emite uma declaração personalizada
 
 ## <a name="see-also"></a>Confira também
 
-Para saber como personalizar as declarações emitidas no token SAML por meio do portal do Azure, confira [Como personalizar declarações emitidas no token SAML para aplicativos empresariais](active-directory-saml-claims-customization.md)
+- Para saber como personalizar as declarações emitidas no token SAML por meio do portal do Azure, confira [Como personalizar declarações emitidas no token SAML para aplicativos empresariais](active-directory-saml-claims-customization.md)
+- Para saber mais sobre atributos de extensão, consulte [usando atributos de extensão de esquema de diretório em declarações](active-directory-schema-extensions.md).

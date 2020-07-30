@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6238e89b3941668f831f3128bb0e723a4097e48
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 88270d51bf50b2b175d9d8761685a8a2a8ae19b1
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027505"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428255"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adicionar um conector de API a um fluxo de usuário
 
@@ -42,9 +42,16 @@ Para usar um [conector de API](api-connectors-overview.md), primeiro crie o cone
 8. Selecione as declarações que você deseja enviar para a API.
 9. Selecione as declarações que você planeja receber da API.
 
-   ![Definir declarações do conector de API](./media/self-service-sign-up-add-api-connector/api-connector-claims.png)
+   <!-- ![Set API connector claims](./media/self-service-sign-up-add-api-connector/api-connector-claims.png) -->
 
 10. Clique em **Salvar**.
+
+### <a name="selection-of-claims-to-send-and-claims-to-receive"></a>Seleção de ' claims to send ' e ' claims to Receive '
+> [!IMPORTANT]
+> Você pode ver todas as declarações selecionadas por padrão, conforme ilustrado abaixo. Todos os conectores de API serão atualizados para se comportarem dessa forma. Sua API receberá todas as declarações disponíveis e poderá enviar de volta qualquer declaração com suporte sem configurá-las na definição do conector de API. 
+
+![Definir declarações do conector de API](./media/self-service-sign-up-add-api-connector/api-connector-claims-new.png)
+
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Habilitar o conector de API em um fluxo de usuário
 
@@ -193,7 +200,7 @@ Content-type: application/json
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | String  | Sim      | A versão da API.                                                    |
 | ação      | String  | Sim      | O valor precisa ser `ValidationError`.                                           |
-| status      | Inteiro | Sim      | Deve ser `400` um valor para uma resposta do ValidationError.                        |
+| status      | Integer | Sim      | Deve ser `400` um valor para uma resposta do ValidationError.                        |
 | userMessage | String  | Sim      | Mensagem a ser exibida ao usuário.                                            |
 | code        | Cadeia de caracteres  | Não       | Código do erro. Pode ser usado para fins de depuração. Não são exibidos para o usuário. |
 

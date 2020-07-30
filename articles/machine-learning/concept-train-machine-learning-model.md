@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: tracking-python
-ms.openlocfilehash: da437f830a452a57ea1290b3d85a3faa92895bcd
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b35f971d90f8cd74e2f5a60e34864d8e55a743c4
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147043"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431914"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Treinar modelos com Azure Machine Learning
 
@@ -92,9 +92,31 @@ Os pipelines de machine learning podem usar os métodos de treinamento mencionad
 * [Exemplos: Pipeline com machine learning automatizado](https://aka.ms/pl-automl)
 * [Exemplos: Pipeline com avaliadores](https://aka.ms/pl-estimator)
 
+### <a name="understand-what-happens-when-you-submit-a-training-job"></a>Entender o que acontece quando você envia um trabalho de treinamento
+
+O ciclo de vida de treinamento do Azure consiste em:
+
+1. Compactando os arquivos na pasta do projeto, ignorando aqueles especificados em _. amlignore_ ou _. gitignore_
+1. Escalar verticalmente seu cluster de cálculo 
+1. Criando ou baixando o dockerfile para o nó de computação 
+    1. O sistema calcula um hash de: 
+        - A imagem base 
+        - Etapas personalizadas do Docker (consulte [implantar um modelo usando uma imagem de base do Docker personalizada](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
+        - A definição de Conda YAML (consulte [criar & usar ambientes de software em Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+    1. O sistema usa esse hash como a chave em uma pesquisa do ACR (registro de contêiner do Azure) do espaço de trabalho
+    1. Se não for encontrado, ele procurará uma correspondência no ACR global
+    1. Se não for encontrado, o sistema criará uma nova imagem (que será armazenada em cache e registrada com o ACR do espaço de trabalho)
+1. Baixando seu arquivo de projeto compactado para armazenamento temporário no nó de computação
+1. Descompactando o arquivo de projeto
+1. O nó de computação em execução`python <entry script> <arguments>`
+1. Salvando logs, arquivos de modelo e outros arquivos gravados na `./outputs` conta de armazenamento associada ao espaço de trabalho
+1. Ampliando a computação, incluindo a remoção de armazenamento temporário 
+
+Se você optar por treinar em seu computador local ("configurar como execução local"), não será necessário usar o Docker. Você pode usar o Docker localmente se escolher (consulte a seção [Configurar pipeline de ml](https://docs.microsoft.com/azure/machine-learning/how-to-debug-pipelines#configure-ml-pipeline ) para obter um exemplo).
+
 ## <a name="r-sdk"></a>SDK do R
 
-O SDK do R permite que você use a linguagem R com o Azure Machine Learning. o SDK usa o pacote reticulate para se associar ao SDK do Python do Azure Machine Learning. Isso permite que você acesse os principais objetos e métodos implementados no SDK do Python de qualquer ambiente do R.
+O SDK do R permite que você use a linguagem R com o Azure Machine Learning. o SDK usa o pacote reticulate para se associar ao SDK do Python do Azure Machine Learning. Isso lhe dá acesso aos principais objetos e métodos implementados no SDK do Python de qualquer ambiente do R.
 
 Para obter mais informações, consulte os seguintes artigos:
 
@@ -103,7 +125,7 @@ Para obter mais informações, consulte os seguintes artigos:
 
 ## <a name="azure-machine-learning-designer"></a>Azure Machine Learning Designer
 
-O designer permite treinar modelos usando uma interface do tipo “arrastar e soltar” em seu navegador da Web.
+O designer permite treinar modelos usando uma interface de arrastar e soltar em seu navegador da Web.
 
 + [O que é o designer?](concept-designer.md)
 + [Tutorial: prever o preço do automóvel](tutorial-designer-automobile-price-train-score.md)

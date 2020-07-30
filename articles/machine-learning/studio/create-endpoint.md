@@ -1,6 +1,5 @@
 ---
-title: Criar pontos de extremidade de serviço Web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clássico): criar pontos de extremidade de serviço Web-Azure'
 description: Crie pontos de extremidade de serviço Web no Azure Machine Learning Studio (clássico). Cada ponto de extremidade no serviço Web é tratado, limitado e gerenciado de forma independente.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: e465d739c485009f68d6d5c5ecbb0850d73a6e60
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31c426ffa85d4eb78a8420d56cce93132b4b7539
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696415"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432858"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>Criar pontos de extremidade para serviços Web Azure Machine Learning Studio (clássico) implantados
+
+**aplica-se a:** ![ Sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ sem](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+
 
 > [!NOTE]
 > Este tópico descreve as técnicas aplicáveis a um Serviço Web do Machine Learning **Clássico**.
@@ -34,7 +36,7 @@ Você pode adicionar um ponto de extremidade a um serviço Web usando o portal d
 
 1. Em Machine Learning Studio (clássico), na coluna de navegação à esquerda, clique em serviços Web.
 2. Na parte inferior do painel do serviço Web, clique em **Gerenciar pontos de extremidade**. O portal de Serviços Web do Azure Machine Learning abre a página de pontos de extremidade do serviço Web.
-3. Clique em **Novo**.
+3. Clique em **Nova**.
 4. Digite um nome e uma descrição para o novo ponto de extremidade. Os nomes dos pontos de extremidade devem ter 24 caracteres ou menos e devem ser compostos de letras minúsculas ou números. Selecione o nível de log e se os dados de exemplo estão habilitados. Para obter mais informações sobre registro em log, consulte [habilitar o log para serviços web Machine Learning](web-services-logging.md).
 
 ## <a name="scale-a-web-service-by-adding-additional-endpoints"></a><a id="scaling"></a> Dimensionar um serviço Web adicionando mais pontos de extremidade

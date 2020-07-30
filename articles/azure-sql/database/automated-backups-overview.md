@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 07/20/2020
-ms.openlocfilehash: 0eea1b696d8eae8606c0b6009f248a215d12db57
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ed3f23b13920a9c3220a030059fdc8471f350d28
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515097"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428223"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados – banco de dados SQL do Azure & SQL Instância Gerenciada
 
@@ -162,6 +162,9 @@ Adicione um filtro para o **Nome do serviço**e, em seguida, selecione **banco d
 
 ![Análise de custo de armazenamento de backup](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
 
+  >[!NOTE]
+  > Os medidores só são visíveis para os contadores que estão em uso no momento. Se um contador não estiver disponível, é provável que a categoria não esteja sendo usada no momento. Por exemplo, os contadores de instância gerenciada não estarão presentes para os clientes que não têm uma instância gerenciada implantada. Da mesma forma, os contadores de armazenamento não estarão visíveis para os recursos que não estão consumindo armazenamento. 
+
 ## <a name="encrypted-backups"></a>Backups criptografados
 
 Quando o banco de dados é criptografado com TDE, os backups são criptografados automaticamente em repouso, incluindo os backups de LTR. Todos os novos bancos de dados no Azure SQL são configurados com TDE habilitado por padrão. Para obter mais informações sobre o TDE, consulte [Transparent Data Encryption com o banco de dados sql & sql instância gerenciada](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
@@ -200,7 +203,7 @@ Alterações na retenção de backup PITR para banco de dados SQL são feitas na
 
 ![Alterar a retenção de PITR, nível de servidor](./media/automated-backups-overview/configure-backup-retention-sqldb.png)
 
-#### <a name="sql-managed-instance"></a>[Instância Gerenciada de SQL](#tab/managed-instance)
+#### <a name="sql-managed-instance"></a>[Instância Gerenciada do SQL](#tab/managed-instance)
 
 As alterações na retenção de backup PITR para o SQL Instância Gerenciada são feitas em um nível de banco de dados individual. Para alterar a retenção de backup de PITR para um banco de dados de instância no portal do Azure, vá para a folha de visão geral do banco de dados individual. Em seguida, selecione **Configurar retenção de backup** na parte superior da tela:
 
@@ -224,7 +227,7 @@ Para alterar a retenção de backup do PITR para bancos de dados SQL do Azure at
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
 
-#### <a name="sql-managed-instance"></a>[Instância Gerenciada de SQL](#tab/managed-instance)
+#### <a name="sql-managed-instance"></a>[Instância Gerenciada do SQL](#tab/managed-instance)
 
 Para alterar a retenção de backup do PITR de um banco de dados ativo do SQL Instância Gerenciada **individual** , use o seguinte exemplo do PowerShell.
 

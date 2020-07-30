@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 361e8c63dc036443e527d1027fe3fd0cca784d9a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 864225238c10ab2fda96e95448790201cc8a16ae
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747200"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422990"
 ---
 # <a name="use-your-phone-number-as-a-user-name-preview"></a>Uso do número de telefone como um nome de usuário (versão prévia)
 
@@ -52,11 +52,11 @@ Se você já estiver usando um número de telefone com uma organização, e a op
 
 1. Quando a entrada através de SMS estiver disponível, será exibida uma barra perguntando se você deseja habilitar o número de telefone para entrada através de SMS:
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-banner.png "Banner to enable SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
+    [![Faixa para habilitar a entrada SMS para um número de telefone.](media/sms-sign-in-explainer/sms-sign-in-banner.png)](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
 
 1. Além disso, um botão **Habilitar** será exibido se você selecionar o cursor no bloco do método de telefone:
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-phone-method.png "Banner to enable SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-phone-method.png#lightbox)
+    [![Faixa para habilitar a entrada SMS para um número de telefone.](media/sms-sign-in-explainer/sms-sign-in-phone-method.png)](media/sms-sign-in-explainer/sms-sign-in-phone-method.png#lightbox)
 
 1. Para habilitar o método, selecione **Habilitar**. Será solicitado que você confirme a ação:
 
@@ -68,7 +68,7 @@ Se você já estiver usando um número de telefone com uma organização, e a op
 
 1. Para excluir o número de telefone, selecione o botão para excluir no bloco do método de telefone para entrada através de SMS.
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-delete-method.png "Banner to delete SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-delete-method.png#lightbox)
+    [![Faixa para excluir a entrada do SMS para um número de telefone.](media/sms-sign-in-explainer/sms-sign-in-delete-method.png)](media/sms-sign-in-explainer/sms-sign-in-delete-method.png#lightbox)
 
 2. Quando a solicitação para confirmar a ação for exibida, selecione **OK**.
 

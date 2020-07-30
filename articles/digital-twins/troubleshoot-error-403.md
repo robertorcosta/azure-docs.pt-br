@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: 95372d69f58249afc946f12ec74696507429e5c6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a971291dd423894e4d04158abe873a7222f9802c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125270"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405546"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Falha na solicitação de serviço. Status: 403 (proibido)
 
@@ -57,7 +57,7 @@ Se você for um proprietário na assinatura, poderá executar esse comando por c
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-Para obter mais detalhes sobre esse requisito de função e o processo de atribuição, consulte a [seção *configurar permissões de acesso do usuário* ](how-to-set-up-instance-manual.md#set-up-your-users-access-permissions) de *como: configurar uma instância e autenticação (manual)*.
+Para obter mais detalhes sobre esse requisito de função e o processo de atribuição, consulte a [seção *configurar permissões de acesso do usuário* ](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) de *como: configurar uma instância e autenticação (CLI ou Portal)*.
 
 Se você já tiver essa atribuição de função e ainda encontrar o problema 403, vá para a próxima solução.
 
@@ -75,12 +75,12 @@ Primeiro, verifique se as configurações de permissões do gêmeos digital do A
 
 #### <a name="fix-issues"></a>Corrigir problemas
 
-Se qualquer um deles aparecer de forma diferente do descrito, siga as instruções sobre como configurar um registro de aplicativo na [seção *configurar permissões de acesso para aplicativos cliente* ](how-to-set-up-instance-manual.md#set-up-access-permissions-for-client-applications) de *como: configurar uma instância e autenticação (manual)*.
+Se qualquer um deles for exibido de maneira diferente do descrito, siga as instruções sobre como configurar um registro de aplicativo na [seção *configurar permissões de acesso para aplicativos cliente* ](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications) de *como: configurar uma instância e autenticação (CLI ou Portal)*.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Leia as etapas de configuração para criar e autenticar uma nova instância de gêmeos digital do Azure:
-* [*Como: configurar uma instância e autenticação (manual)*](how-to-set-up-instance-manual.md)
+* [*Como: configurar uma instância e autenticação (CLI)*](how-to-set-up-instance-cli.md)
 
 Leia mais sobre segurança e permissões no Azure digital gêmeos:
 * [*Conceitos: segurança para soluções de gêmeos digitais do Azure*](concepts-security.md)

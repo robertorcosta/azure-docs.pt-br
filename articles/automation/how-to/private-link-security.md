@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: a7ff659eb6fc204208c84146a2fc33c8278f7154
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c81d9774dccf8c02d2eab7b1ebbb69e6671869e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207279"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423789"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Usar o link privado do Azure para conectar redes com segurança à automação do Azure (versão prévia)
 
@@ -132,15 +132,15 @@ Se o consumidor de serviço tiver permissões RBAC no recurso de automação, el
 
 ## <a name="set-public-network-access-flags"></a>Definir sinalizadores de acesso à rede pública
 
-Você pode configurar uma conta de automação para negar todas as configurações públicas e permitir somente conexões por meio de pontos de extremidade privados para aprimorar ainda mais a segurança da rede. Se você quiser restringir o acesso à conta de automação somente dentro da VNet e não permitir o acesso da Internet pública, poderá definir `publicNetworkAccess` a propriedade como `$true` .
+Você pode configurar uma conta de automação para negar todas as configurações públicas e permitir somente conexões por meio de pontos de extremidade privados para aprimorar ainda mais a segurança da rede. Se você quiser restringir o acesso à conta de automação somente dentro da VNet e não permitir o acesso da Internet pública, poderá definir `publicNetworkAccess` a propriedade como `$false` .
 
-Quando a configuração **negar acesso à rede pública** é definida como `true` , somente as conexões por meio de pontos de extremidade privados são permitidas e todas as conexões por meio de pontos de extremidade públicos são negadas com uma mensagem de erro.
+Quando a configuração de **acesso à rede pública** é definida como `$false` , somente as conexões por meio de pontos de extremidade privados são permitidas e todas as conexões por meio de pontos de extremidade públicos são negadas com uma mensagem de erro UNATHORIZED e status HTTP de 401. 
 
 O script do PowerShell a seguir mostra como `Get` e `Set` a propriedade de acesso à **rede pública** no nível da conta de automação:
 
 ```powershell
 $account = Get-AzResource -ResourceType Microsoft.Automation/automationAccounts -ResourceGroupName "<resourceGroupName>" -Name "<automationAccountName>" -ApiVersion "2020-01-13-preview"
-$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $true
+$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $false
 $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 ```
 

@@ -5,15 +5,15 @@ services: virtual-machines
 ms.subservice: sizes
 author: ayshakeen
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: 6e7411f30ac0ef03ecd621f4cf6db5cd9350201b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d8ac2a8317343b1bc172eefa17c6eb0074c5c21f
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678538"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432632"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos expansíveis da máquina virtual da série B
 
@@ -90,20 +90,23 @@ Linha de base: 270%
 
 Para um D16s_v3 que tem 16 vCPUs e 64 GiB de memória, a taxa horária é $0.936 por hora (mensalmente $673.92) e para B16ms com 16 vCPUs e 64 GiB de memória a taxa é $0.794 por hora (mensalmente $547.86). <b>Isso resulta em uma economia de 15%!</b>
 
-## <a name="q--a"></a>Perguntas e respostas
+## <a name="q--a"></a>Perguntas e Respostas
+
+### <a name="q-what-happens-if-the-credits-run-out"></a>P: o que acontece se os créditos esgotarem?
+**R**: quando os créditos são esgotados, a VM retorna ao desempenho da linha de base.
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>P: como obter 135% da linha de base de desempenho de uma VM?
 
 **R**: os 135% são compartilhados entre as 8 vCPUs que compõem o tamanho da VM. Por exemplo, se seu aplicativo utiliza 4 dos 8 núcleos trabalhando em processamento de lotes e cada uma das 4 vCPUs estão sendo executadas a 30% da utilização, o desempenho total da CPU da VM será de 120%.  Isso significa que a VM estaria criando créditos de tempo com base no delta de 15% da sua linha de base de desempenho.  Mas isso também significa que quando você tem créditos disponíveis, a mesma VM pode usar 100% de todas as 8 vCPUs, o que daria à VM um desempenho máximo de CPU de 800%.
 
 
-### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>P: como posso monitorar meu saldo e consumo?
+### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>P: como posso monitorar meu saldo de crédito e consumo?
 
 **R**: apresentaremos duas novas métricas nas próximas semanas. A métrica **Credit** permitirá ver quantos créditos a sua VM acumulou e a métrica**ConsumedCredit** mostrará quantos créditos de CPU sua VM consumiu do banco.    Você poderá exibir essas métricas no painel de métricas no portal ou programaticamente pelas APIs do Azure Monitor.
 
 Para saber mais sobre como acessar os dados de métrica do Azure, confira [Visão geral das métricas no Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
-### <a name="q-how-are-credits-accumulated"></a>P: como os créditos são acumulados?
+### <a name="q-how-are-credits-accumulated-and-consumed"></a>P: como os créditos são acumulados e consumidos?
 
 **R**: as taxas de consumo e acumulação da VM estão definidas de modo que uma VM em execução na sua linha de base de desempenho não terá acúmulo ou consumo de créditos.  Uma VM terá um aumento de créditos sempre que estiver em execução abaixo da linha de base de desempenho e terá uma redução nos créditos sempre que a VM estiver usando a CPU acima da sua linha de base de desempenho.
 
@@ -135,7 +138,7 @@ por exemplo, na instância acima, sua linha de base é de 20% e se você usar 10
 
 **R: o** B1ls só dá suporte a imagens do Linux e, se você implantar qualquer outra imagem do sistema operacional, talvez não obtenha a melhor experiência do cliente.
 
-## <a name="other-sizes"></a>Outros tamanhos
+## <a name="other-sizes-and-information"></a>Outros tamanhos e informações
 
 - [Propósito geral](sizes-general.md)
 - [Computação otimizada](sizes-compute.md)
@@ -143,6 +146,10 @@ por exemplo, na instância acima, sua linha de base é de 20% e se você usar 10
 - [Armazenamento otimizado](sizes-storage.md)
 - [GPU otimizada](sizes-gpu.md)
 - [Computação de alto desempenho](sizes-hpc.md)
+
+Calculadora de preços: [calculadora de preços](https://azure.microsoft.com/pricing/calculator/)
+
+Mais informações sobre tipos de discos: [tipos de disco](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
 
 ## <a name="next-steps"></a>Próximas etapas
 

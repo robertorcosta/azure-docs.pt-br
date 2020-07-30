@@ -5,14 +5,14 @@ author: spelluru
 ms.author: spelluru
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: 4516405472abf733c8ef06fb5ee5855f8e97d396
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef469eb74c3dd7d82dec908dba8c53136df206e4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340436"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423415"
 ---
-# <a name="integrate-azure-service-bus-with-azure-private-link"></a>Integrar Barramento de Serviço do Azure com o Link Privado do Azure
+# <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Permitir acesso aos namespaces do barramento de serviço do Azure por meio de pontos de extremidade privados
 
 O Serviço de Link Privado do Azure permite acessar os Serviços do Azure (por exemplo, o Barramento de Serviço do Azure, o Armazenamento do Azure e o Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um **ponto de extremidade privado** da sua rede virtual.
 
@@ -46,7 +46,7 @@ Para integrar um namespace do Barramento de Serviço com o Link Privado do Azure
 
 - Um namespace do barramento de serviço.
 - Uma rede virtual do Azure.
-- Uma sub-rede na rede virtual.
+- Uma sub-rede na rede virtual. Você pode usar a sub-rede **padrão** . 
 - Permissões de proprietário ou colaborador para o namespace e a rede virtual do Barramento de Serviço.
 
 Seu ponto de extremidade privado e a rede virtual devem estar na mesma região. Quando você selecionar uma região para o ponto de extremidade privado usando o portal, ele filtrará automaticamente apenas as redes virtuais que estiverem nessa região. O namespace do Barramento de Serviço pode estar em uma região diferente. Além disso, seu ponto de extremidade privado usa um endereço IP privado em sua rede virtual.
@@ -58,8 +58,19 @@ Se você já tem um namespace, crie um ponto de extremidade privado seguindo est
 1. Entre no [portal do Azure](https://portal.azure.com). 
 2. Na barra de pesquisa, digite **Barramento de Serviço**.
 3. Selecione o **namespace** na lista à qual você deseja adicionar um ponto de extremidade privado.
-4. Selecione a guia **Rede** em **Configurações**.
-5. Selecione a guia **Conexões de ponto de extremidade privado**, na parte superior da página.
+2. No menu à esquerda, selecione a opção **rede** em **configurações**. 
+
+    > [!NOTE]
+    > Você vê a guia **rede** somente para namespaces **Premium** .  
+    
+    Por padrão, a opção **redes selecionadas** é selecionada. Se você não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nessa página, o namespace poderá ser acessado pela Internet pública (usando a chave de acesso).
+
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Página de rede-padrão" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
+    
+    Se você selecionar a opção **todas as redes** , o namespace do barramento de serviço aceitará conexões de qualquer endereço IP (usando a tecla de acesso). Essa configuração padrão é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
+
+    ![Firewall – opção "Todas as redes" selecionada](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+5. Para permitir o acesso ao namespace por meio de pontos de extremidade privados, selecione a guia **conexões de ponto final privado** na parte superior da página
 6. Selecione o botão **+ Ponto de Extremidade Privado**, na parte superior da página.
 
     ![Botão Adicionar ponto de extremidade privado](./media/private-link-service/private-link-service-3.png)

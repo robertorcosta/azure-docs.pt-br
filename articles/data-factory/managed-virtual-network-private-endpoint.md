@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/26/2020
-ms.openlocfilehash: f6868e3a77cbc4b262180b47ed3b387840062969
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/15/2020
+ms.openlocfilehash: a4594ca1a992f158522eccb4ffa6e846a1f4f605
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095631"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406275"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory rede virtual gerenciada (versão prévia)
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo explicará a rede virtual gerenciada e os pontos de extremidade privados gerenciados em Azure Data Factory.
 
@@ -63,7 +63,7 @@ O ponto de extremidade privado usa um endereço IP privado na rede virtual geren
 
 Uma conexão de ponto de extremidade privado é criada em um estado "pendente" quando você cria um ponto de extremidade privado gerenciado no Azure Data Factory. Um fluxo de trabalho de aprovação é iniciado. O proprietário do recurso de link privado é responsável por aprovar ou rejeitar a conexão.
 
-![Gerenciar ponto de extremidade privado](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png)
+![Gerenciar o ponto de extremidade privado](./media/tutorial-copy-data-portal-private/manage-private-endpoint.png)
 
 Se o proprietário aprova a conexão, o link privado é estabelecido. Caso contrário, o link privado não será estabelecido. Em ambos os casos, o Ponto de extremidade privado gerenciado será atualizado com o status da conexão.
 
@@ -82,6 +82,7 @@ As fontes de dados a seguir têm suporte para se conectar por meio do link priva
 - SQL Data Warehouse do Azure
 - SQL CosmosDB do Azure
 - Cofre de Chave do Azure
+- Link Privado do Azure
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicações de saída por meio do ponto de extremidade público da rede virtual gerenciada por ADF
 - Somente a porta 443 é aberta para comunicações de saída.
