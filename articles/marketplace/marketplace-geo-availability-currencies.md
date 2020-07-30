@@ -3,16 +3,16 @@ title: Disponibilidade geográfica e suporte para moedas para o marketplace come
 description: A disponibilidade geográfica e o suporte de moeda para transações no marketplace comercial
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 01/29/2020
-ms.openlocfilehash: 57d1564c155a553571499a47a5c1d83c80c074b3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7041221b015465e9db2d67d8dd7760d644c34f0c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120000"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387431"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilidade geográfica e suporte para moedas para o marketplace comercial
 
@@ -43,9 +43,9 @@ As ofertas do marketplace comercial podem ser adquiridas em 141 regiões geográ
 | Brasil                              | BR        | BRL\*        |
 | Brunei                              | BN        | USD          |
 | Bulgária                            | BG        | EUR          |
+| Cabo Verde                          | CV        | USD          |
 | Camarões                            | CM        | USD          |
 | Canada                              | CA        | CAD          |
-| Cabo Verde                          | CV        | USD          |
 | Ilhas Cayman                      | KY        | USD          |
 | Chile                               | CL        | USD          |
 | China\**                            | CN        | N/D          |
@@ -110,8 +110,8 @@ As ofertas do marketplace comercial podem ser adquiridas em 141 regiões geográ
 | Namíbia                             | NA        | USD          |
 | Nepal                               | NP        | USD          |
 | Países Baixos                         | NL        | EUR          |
-| Nicarágua                           | NI        | USD          |
 | Nova Zelândia                         | NZ        | NZD          |
+| Nicarágua                           | NI        | USD          |
 | Nigéria                             | NG        | USD          |
 | Noruega                              | Não        | NOK          |
 | Omã                                | OM        | USD          |
@@ -148,15 +148,15 @@ As ofertas do marketplace comercial podem ser adquiridas em 141 regiões geográ
 | Tunísia                             | TN        | USD          |
 | Turquia                              | TR        | USD          |
 | Turcomenistão                        | TM        | USD          |
-| Cidade do Vaticano (Santa Sé)             | VA        | EUR          |
-| Ilhas Virgens dos Estados Unidos | VI        | USD          |
 | Uganda                              | UG        | USD          |
 | Ucrânia                             | UA        | USD          |
 | Emirados Árabes Unidos                | AE        | USD          |
 | United Kingdom                      | GB        | GBP          |
 | Estados Unidos                       | EUA        | USD          |
+| EUA Virgens Americanas                 | VI        | USD          |
 | Uruguai                             | UY        | USD          |
 | Uzbequistão                          | UZ        | USD          |
+| Cidade do Vaticano (Santa Sé)             | VA        | EUR          |
 | Venezuela                           | VE        | USD          |
 | Vietnã                             | VN        | USD          |
 | Iêmen                               | YE        | USD          |

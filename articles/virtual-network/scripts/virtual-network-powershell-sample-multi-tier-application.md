@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: 32140429d96d73100c4bd5a2ae274e508a15b7a8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 773a7d6b12cc515a7525808068080f46d9f79799
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74091316"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068705"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>Criar uma rede de exemplo do script de aplicativos de várias camadas
 
@@ -65,6 +65,6 @@ Este script usa os comandos a seguir para criar um grupo de recursos, uma rede v
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/).
 
 Amostras de script PowerShell de rede virtual adicionais podem ser encontradas em [Amostras de PowerShell de rede virtual](../powershell-samples.md).

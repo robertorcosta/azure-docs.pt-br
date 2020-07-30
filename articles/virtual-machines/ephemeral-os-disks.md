@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 0058c250c2d1d29061ac7a4130dffedbcf62a249
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4fabaed28ca186f3ca091107e51ed3900168ba41
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293925"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387720"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Discos do sistema operacional efêmero para VMs do Azure
 
@@ -35,7 +35,7 @@ Principais diferenças entre discos do sistema operacional persistentes e efême
 |                             | Disco do so persistente                          | Disco do SO Efêmero                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | **Limite de tamanho para o disco do sistema operacional**      | 2 TiB                                                                                        | Tamanho do cache para o tamanho da VM ou 2TiB, o que for menor. Para o **tamanho do cache em GIB**, consulte [DS](sizes-general.md), [es](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md)e [GS](sizes-previous-gen.md#gs-series)              |
-| **Tamanhos de VM com suporte**          | Todos                                                                                          | Tamanhos de VM que dão suporte ao armazenamento Premium, como DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, LSv2, M                                               |
+| **Tamanhos de VM com suporte**          | Todos                                                                                          | Tamanhos de VM que dão suporte ao armazenamento Premium, como DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
 | **Suporte a tipo de disco**           | Disco do sistema operacional gerenciado e não gerenciado                                                                | Somente disco do sistema operacional gerenciado                                                               |
 | **Suporte de regiões**              | Todas as regiões                                                                                  | Todas as regiões                              |
 | **Persistência de dados**            | Os dados do disco do sistema operacional gravados no disco do sistema operacional são armazenados no armazenamento do Azure                                  | Os dados gravados no disco do sistema operacional são armazenados no armazenamento da VM local e não são persistidos no armazenamento do Azure. |

@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 73c2f221d2ac0b3ceb76e3db0fdc6379a6dd330a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6069c51b27d7f8f11155a72613c04566d1c7b64d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80060876"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006085"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Excluir contêineres com base no prefixo de nome de contêiner
 
@@ -48,6 +48,6 @@ Esse script usa os comandos a seguir para excluir contêineres com base no prefi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/).
 
 Amostras adicionais de script do PowerShell de armazenamento podem ser encontradas em [Amostras do PowerShell para Armazenamento de Blobs do Azure](../blobs/storage-samples-blobs-powershell.md).

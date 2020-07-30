@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f2a0560163f9806053f49944cbec0db2b1a9de8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ed7900373c5d8897fd360c708434d96e5dfbc73d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67105470"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034369"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Tutorial: integração do Azure Active Directory ao Clear Review
 
@@ -41,6 +41,9 @@ Para configurar a integração do Azure AD com o Clear Review, você precisará 
 
 * Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/)
 * Uma assinatura do Clear Review habilitada para logon único
+
+> [!NOTE]
+> Essa integração também está disponível para uso do ambiente de Nuvem do Governo dos EUA do Azure AD. Encontre esse aplicativo na Galeria de Aplicativos de Nuvem do Governo dos EUA do Azure AD e configure-o da mesma forma que na nuvem pública.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -242,5 +245,5 @@ Ao clicar no bloco do Clear Review no Painel de Acesso, você deverá ser conect
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

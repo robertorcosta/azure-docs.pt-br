@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: eb00234fb7522c763dbaa910bee99cf327bebaf1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 80fcebec76788ca9ec754b35c57f9965f38c2c0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77597891"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037092"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Estender servidores de arquivos do Windows com a Sincronização de Arquivos do Azure
 
@@ -259,9 +259,8 @@ A interface do usuário do Registro do Servidor deverá ser aberta automaticamen
 
    ![Uma captura de tela da interface do usuário de Registro do Servidor](media/storage-sync-files-extend-servers/signin.png)
 
-   | | |
-   | ----- | ----- |
    | Valor | Descrição |
+   | ----- | ----- |
    | **Assinatura do Azure** | A assinatura que contém o Serviço de Sincronização de Armazenamento para este tutorial. |
    | **Grupo de recursos** | O grupo de recursos que contém o Serviço de Sincronização de Armazenamento. Use _afsresgroup101918_ para este tutorial. |
    | **Serviço de Sincronização de Armazenamento** | O nome do Serviço de Sincronização de Armazenamento. Use _afssyncservice02_ para este tutorial. |
@@ -301,9 +300,8 @@ Um ponto de extremidade de servidor representa uma localização específica em 
 
 1. No painel **Adicionar ponto de extremidade de servidor**, insira as seguintes informações para criar um ponto de extremidade de servidor:
 
-   | | |
-   | ----- | ----- |
    | Valor | Descrição |
+   | ----- | ----- |
    | **Servidor registrado** | O nome do servidor criado. Use *afsvm101918* para este tutorial. |
    | **Caminho** | O caminho do Windows Server para a unidade criada. Use *f:\filestosync* neste tutorial. |
    | **Disposição em camadas de nuvem** | Deixe desabilitada para este tutorial. |
