@@ -2,17 +2,18 @@
 title: Exemplos do Armazenamento do Azure | Microsoft Docs
 description: Exiba, baixe e execute exemplos de código e aplicativos para o Armazenamento do Azure. Descubra exemplos de introdução a blobs, filas, tabelas e arquivos usando as bibliotecas do cliente de armazenamento do Java.
 author: mhopkins-msft
+ms.custom: devx-track-java
 ms.author: mhopkins
 ms.date: 02/13/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 26fe0538548e13933e112e83bae6e6131f2a030d
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: b0e0588810fcac239a3647f9b750dd036341ab9f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594632"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322220"
 ---
 # <a name="azure-storage-samples-using-v12-java-client-libraries"></a>Exemplos de Armazenamento do Azure usando bibliotecas de cliente Java v12
 

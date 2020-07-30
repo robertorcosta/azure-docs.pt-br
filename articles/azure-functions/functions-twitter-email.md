@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: aa4087f3eafcd217eedc707697d093155b13b9e6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a7cdeb7bfde7396026b782382b34228c309b37d7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116301"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088136"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra aos Aplicativos Lógicos do Azure
 
@@ -38,7 +38,7 @@ Neste tutorial, você aprenderá como:
 + Uma conta do [Outlook.com](https://outlook.com/) (para enviar notificações).
 
 > [!NOTE]
-> Se você quiser usar o conector do Gmail, somente as contas comerciais do G Suite poderão usar esse conector sem restrições nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar o conector do Gmail somente com serviços e aplicativos específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação no conector do Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+> Se você quiser usar o conector do Gmail, somente as contas comerciais do G Suite poderão usar esse conector sem restrições nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar o conector do Gmail somente com serviços e aplicativos específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação no conector do Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
 + Este artigo usa como ponto de partida os recursos criados em [Criar sua primeira função no portal do Azure](functions-create-first-azure-function.md).
 Se você ainda não fez isso, conclua estas etapas agora para criar seu aplicativo de função.
@@ -304,4 +304,3 @@ Vá para o próximo tutorial para aprender a criar uma API sem servidor para sua
 > [Criar uma API sem servidor usando o Azure Functions](functions-create-serverless-api.md)
 
 Para saber mais sobre os Aplicativos Lógicos, consulte [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md).
-

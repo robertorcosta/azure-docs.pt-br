@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 6e344908fff54a06f1885774c88b509096c26e08
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 3c7185e07190895dfcc97555c6603049ed41c18c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783139"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322492"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Localizar e diagnosticar problemas de desempenho com o Azure Application Insights
 
@@ -32,8 +32,8 @@ Para concluir este tutorial:
 - Instale o [Visual Studio 2019](https://www.visualstudio.com/downloads/) com as cargas de trabalho a seguir:
     - Desenvolvimento Web e ASP.NET
     - Desenvolvimento do Azure
-- Implante um aplicativo .NET para Azure e [habilite o SDK do Application Insights](../../azure-monitor/app/asp-net.md).
-- [Habilitar o Application Insights Profiler](../../azure-monitor/app/profiler.md#installation) para seu aplicativo.
+- Implante um aplicativo .NET para Azure e [habilite o SDK do Application Insights](../app/asp-net.md).
+- [Habilitar o Application Insights Profiler](../app/profiler.md#installation) para seu aplicativo.
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
@@ -56,12 +56,12 @@ O Application Insights coleta detalhes de desempenho para as diferentes operaç�
 
 4.  O painel de desempenho à direita mostra a distribuição de durações para diferentes solicitações da operação selecionada.  Reduza a janela para iniciar em torno do 95º percentil. O cartão de insights “Três dependências principais” pode informar rapidamente que as dependências externas provavelmente estão contribuindo para as transações lentas.  Clique no botão com o número de amostras para ver uma lista dos exemplos. Em seguida, é possível selecionar qualquer amostra para ver os detalhes da transação.
 
-5.  Você pode ver rapidamente que a chamada para a Tabela Fabrikamaccount do Azure está contribuindo principalmente para a duração total da transação. Também é possível ver que uma exceção causou a falha. É possível clicar em qualquer item na lista para ver seus detalhes no lado direito. [Saiba mais sobre a experiência de diagnóstico de transação](../../azure-monitor/app/transaction-diagnostics.md)
+5.  Você pode ver rapidamente que a chamada para a Tabela Fabrikamaccount do Azure está contribuindo principalmente para a duração total da transação. Também é possível ver que uma exceção causou a falha. É possível clicar em qualquer item na lista para ver seus detalhes no lado direito. [Saiba mais sobre a experiência de diagnóstico de transação](../app/transaction-diagnostics.md)
 
     ![Detalhes de ponta a ponta da operação](media/tutorial-performance/4-end-to-end.png)
     
 
-6.  O [**Criador de perfil**](../../azure-monitor/app/profiler-overview.md) ajuda a ir além com o diagnóstico de nível de código, mostrando o código real que executou a operação e o tempo necessário para cada etapa. Algumas operações podem não ter um rastreamento, já que o criador de perfil é executado periodicamente.  Ao longo do tempo, mais operações devem ter rastreamentos.  Para iniciar o criador de perfil para a operação, clique em **Rastreamentos do criador de perfil**.
+6.  O [**Criador de perfil**](../app/profiler-overview.md) ajuda a ir além com o diagnóstico de nível de código, mostrando o código real que executou a operação e o tempo necessário para cada etapa. Algumas operações podem não ter um rastreamento, já que o criador de perfil é executado periodicamente.  Ao longo do tempo, mais operações devem ter rastreamentos.  Para iniciar o criador de perfil para a operação, clique em **Rastreamentos do criador de perfil**.
 5.  O rastreamento mostra os eventos individuais para cada operação para que você possa diagnosticar a causa raiz para a duração da operação geral.  Clique em um dos exemplos principais, que têm a duração mais longa.
 6.  Clique em **Afunilamento** para realçar o caminho específico de eventos que mais contribuem para a duração total da operação.  Neste exemplo, você pode ver que a chamada mais lenta é a do método *FabrikamFiberAzureStorage.GetStorageTableData*. A parte que usa a maior parte do tempo é o método *CloudTable.CreateIfNotExist*. Se esta linha de código for executada sempre que a função for chamada, serão consumidos recursos de CPU e de chamada de rede desnecessários. A melhor maneira de corrigir seu código é colocar essa linha em algum método de inicialização que seja executado somente uma vez.
 
@@ -112,4 +112,5 @@ Como os dados coletados para o desempenho do servidor, o Application Insights di
 Agora que você aprendeu a identificar exceções de tempo de execução, avance para o próximo tutorial para aprender a criar alertas em resposta a falhas.
 
 > [!div class="nextstepaction"]
-> [Alerta sobre a integridade do aplicativo](../../azure-monitor/learn/tutorial-alert.md)
+> [Alerta sobre a integridade do aplicativo](./tutorial-alert.md)
+
