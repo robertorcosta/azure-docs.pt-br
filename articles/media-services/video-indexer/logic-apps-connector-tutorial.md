@@ -1,19 +1,19 @@
 ---
 title: Tutorial dos conectores do Video Indexer com o Aplicativo Lógico e o Power Automate.
 description: Este tutorial mostra como aproveitar novas experiências e oportunidades de monetização dos conectores do Video Indexer com o Aplicativo Lógico e o Power Automate.
-author: anikaz
+author: anzaman
 manager: johndeu
-ms.author: anzaman
+ms.author: alzam
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 05/01/2020
-ms.openlocfilehash: 932f52aa694c13fd3696d82872135304a4e41bdc
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 5f29e616c0643914ca28921eee481105a5feb0c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801120"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047099"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Tutorial: usar o Video Indexer com o Aplicativo Lógico e o Power Automate
 
@@ -64,7 +64,7 @@ Em seguida, vá para a ação "Criar URI de SAS por caminho" e selecione Lista d
 
 ![URI do SAS pelo caminho](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
-Informe [a Localização e a ID de sua conta](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis#location) para obter o token da conta do Video Indexer.
+Informe [a Localização e a ID de sua conta](./video-indexer-use-apis.md#account-id) para obter o token da conta do Video Indexer.
 
 ![Obter token de acesso da conta](./media/logic-apps-connector-tutorial/account-access-token.png)
 
@@ -90,7 +90,7 @@ Para configurar esse fluxo, você precisará fornecer sua chave de API do Video 
 
 Para o gatilho, você verá um campo URL HTTP POST. A URL não será gerada até que você salve o fluxo. No entanto, você precisará dela em algum momento. Voltaremos a isso mais tarde. 
 
-Informe [a Localização e a ID de sua conta](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis#location) para obter o token da conta do Video Indexer.  
+Informe [a Localização e a ID de sua conta](./video-indexer-use-apis.md#account-id) para obter o token da conta do Video Indexer.  
 
 Vá para a ação "Obter Índice de Vídeo" e preencha os parâmetros necessários. Para a ID de Vídeo, insira a seguinte expressão: triggerOutputs()['queries']['id'] 
 

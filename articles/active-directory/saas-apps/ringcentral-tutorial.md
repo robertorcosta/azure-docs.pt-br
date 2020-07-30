@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 33548df0b8eb73d28dfe6348f057266cca4c0290
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 15dc4ee8a5c1021587bb5c37e634070a76b3f05d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86168534"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058240"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Tutorial: Integrar o RingCentral ao Azure Active Directory
 
@@ -38,6 +38,9 @@ Para começar, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 * Assinatura habilitada para SSO (logon único) do RingCentral.
+
+> [!NOTE]
+> Essa integração também está disponível para uso do ambiente de Nuvem do Governo dos EUA do Azure AD. Encontre esse aplicativo na Galeria de Aplicativos de Nuvem do Governo dos EUA do Azure AD e configure-o da mesma forma que na nuvem pública.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -91,14 +94,18 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 1. Se você não tiver o **arquivo de metadados do Provedor de Serviços**, insira os valores para os seguintes campos:
 
     a. Na caixa de texto **Identificador**, digite uma URL:
-
-    - `https://sso.ringcentral.com`
-    - `https://ssoeuro.ringcentral.com`
+  
+    | Identificador |
+    |--|
+    |  `https://sso.ringcentral.com` |
+    | `https://ssoeuro.ringcentral.com` |
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL:
 
-    - `https://sso.ringcentral.com/sp/ACS.saml2`
-    - `https://ssoeuro.ringcentral.com/sp/ACS.saml2`
+    | URL de resposta |
+    |--|
+    | `https://sso.ringcentral.com/sp/ACS.saml2` |
+    | `https://ssoeuro.ringcentral.com/sp/ACS.saml2` |
 
 1. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique no botão copiar para copiar **URL de metadados de federação de aplicativos** e salve-a no computador.
 
@@ -198,6 +205,6 @@ Ao selecionar o bloco do RingCentral no Painel de Acesso, você deverá ser cone
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimente o RingCentral com o Azure AD](https://aad.portal.azure.com/)

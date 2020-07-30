@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4cea4fa293083298858a775eff01b9acf17d6c7c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f894d4f29ce8729ff88faa72b0d6c470fd6f87c9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81458600"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088675"
 ---
 # <a name="create-a-vm-with-nginx"></a>Criar uma máquina virtual com o NGINX
 
@@ -62,14 +62,14 @@ Este script usa os comandos a seguir para criar um grupo de recursos, uma máqui
 
 | Comando | Observações |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Cria as máquinas virtuais. Este comando também especifica a imagem de máquina virtual a ser usada e as credenciais administrativas.  |
-| [az vm open-port](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Cria uma regra de grupo de segurança de rede para permitir o tráfego de entrada. Neste exemplo, a porta 80 está aberta para tráfego HTTP. |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Adiciona e executa uma extensão da máquina virtual a uma VM. Neste exemplo, a extensão de script personalizado é usada para instalar o NGINX.|
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az vm create](/cli/azure/vm) | Cria as máquinas virtuais. Este comando também especifica a imagem de máquina virtual a ser usada e as credenciais administrativas.  |
+| [az vm open-port](/cli/azure/network/nsg/rule) | Cria uma regra de grupo de segurança de rede para permitir o tráfego de entrada. Neste exemplo, a porta 80 está aberta para tráfego HTTP. |
+| [azure vm extension set](/cli/azure/vm/extension) | Adiciona e executa uma extensão da máquina virtual a uma VM. Neste exemplo, a extensão de script personalizado é usada para instalar o NGINX.|
+| [az group delete](/cli/azure/vm/extension) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
 Os exemplos de script da CLI de máquina virtual adicionais podem ser encontrados na [documentação da VM Linux do Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

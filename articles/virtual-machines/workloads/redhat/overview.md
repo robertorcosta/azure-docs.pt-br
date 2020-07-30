@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 718447e1dbf597af4349eab0be78a2bb544dec90
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7394cb50010bddddf8f8eff4b4f04eaf4d3231b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78970168"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052114"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Cargas de trabalho do Red Hat no Azure
 
@@ -45,7 +45,7 @@ O Azure também oferece imagens do Red Hat Gold (`rhel-byos`). Essas imagens pod
 
 ### <a name="generation-2-images"></a>Imagens da Geração 2
 
-As VMs (máquinas virtuais) da Geração 2 fornecem alguns recursos mais recentes em comparação com as VMs da Geração 1. Para obter mais informações, confira a documentação da [Geração 2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2). A principal diferença da perspectiva de imagens do RHEL é que as VMs da Geração 2 usam uma UEFI em vez da interface de firmware do BIOS. Elas também usam uma GPT (tabela de partição GUID) em vez de um MBR (registro mestre de inicialização) no tempo de inicialização. O uso de uma GPT permite, entre outras coisas, tamanhos de disco do sistema operacional maiores que 2 TB. Além disso, as [VMs da série Mv2](../../mv2-series.md) são executadas apenas nas imagens da Geração 2.
+As VMs (máquinas virtuais) da Geração 2 fornecem alguns recursos mais recentes em comparação com as VMs da Geração 1. Para obter mais informações, confira a documentação da [Geração 2](../../linux/generation-2.md). A principal diferença da perspectiva de imagens do RHEL é que as VMs da Geração 2 usam uma UEFI em vez da interface de firmware do BIOS. Elas também usam uma GPT (tabela de partição GUID) em vez de um MBR (registro mestre de inicialização) no tempo de inicialização. O uso de uma GPT permite, entre outras coisas, tamanhos de disco do sistema operacional maiores que 2 TB. Além disso, as [VMs da série Mv2](../../mv2-series.md) são executadas apenas nas imagens da Geração 2.
 
 As imagens do RHEL da Geração 2 estão disponíveis no Azure Marketplace. Procure "gen2" no SKU da imagem na lista de todas as imagens exibidas quando você usa a CLI do Azure. Acesse a guia **Avançado** no processo de implantação da VM para implantar uma VM da Geração 2.
 

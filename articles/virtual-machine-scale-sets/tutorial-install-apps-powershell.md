@@ -9,12 +9,12 @@ ms.subservice: powershell
 ms.date: 11/08/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 999a869ec30316a330413f309e1e7431d92fac9f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: e783f7f0a9be413679e509e4d6124d50bb811821
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195936"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059286"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>Tutorial: instalar aplicativos em conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell
 
@@ -35,7 +35,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="what-is-the-azure-custom-script-extension"></a>O que é a Extensão de Script Personalizado do Azure?
 A extensão de script personalizado baixa e executa scripts em VMs do Azure. Essa extensão é útil para a configuração de implantação de postagem, instalação de software ou qualquer outra configuração/tarefa de gerenciamento. Os scripts podem ser baixados do armazenamento do Azure ou do GitHub, ou fornecidos ao Portal do Azure no tempo de execução da extensão.
 
-A extensão de Script Personalizado se integra com os modelos do Azure Resource Manager. Ele também pode ser usado com a CLI do Azure, o Azure PowerShell, o portal do Azure ou com a API REST. Para obter mais informações, consulte a [Visão geral da Extensão de Script Personalizado](../virtual-machines/windows/extensions-customscript.md).
+A extensão de Script Personalizado se integra com os modelos do Azure Resource Manager. Ele também pode ser usado com a CLI do Azure, o Azure PowerShell, o portal do Azure ou com a API REST. Para obter mais informações, consulte a [Visão geral da Extensão de Script Personalizado](../virtual-machines/extensions/custom-script-windows.md).
 
 Para ver a Extensão de Script Personalizado em ação, crie um conjunto de dimensionamento que instala o servidor Web IIS e gera o nome do host da instância de VM do conjunto de dimensionamento. A definição de Extensão de Script Personalizado baixa um script de exemplo do GitHub, instala os pacotes necessários e grava o nome de host da instância de VM em uma página HTML básica.
 

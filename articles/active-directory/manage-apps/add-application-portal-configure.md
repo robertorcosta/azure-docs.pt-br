@@ -10,13 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8418a45c9eba596339999c2bddf937a516d3e2d9
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: eb4a150a1680dd4101249458894ded652cde15a0
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223339"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87338037"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Configurar propriedades para um aplicativo em seu locatário do Azure AD (Azure Active Directory)
 
@@ -41,15 +40,15 @@ Depois de concluir a adição de um aplicativo ao locatário do Azure AD, a pág
 Para editar as propriedades do aplicativo:
 
 1. No portal do Azure AD, selecione **Aplicativos empresariais**. Em seguida, encontre e selecione o aplicativo que você deseja configurar.
-1. Na seção **Gerenciar**, selecione **Propriedades** para abrir o painel **Propriedades** para edição.
+2. Na seção **Gerenciar**, selecione **Propriedades** para abrir o painel **Propriedades** para edição.
 
     ![Captura de tela da tela Propriedades que mostra as propriedades editáveis do aplicativo.](media/add-application-portal/edit-properties.png)
 
-1. Reserve um tempo para entender as opções disponíveis para configurar:
+3. Reserve um tempo para entender as opções disponíveis para configurar:
     - **Habilitado para que os usuários entrem?** determina se os usuários atribuídos ao aplicativo podem entrar nele.
     - **Atribuição do usuário obrigatória?** determina se os usuários não atribuídos ao aplicativo podem entrar nele.
     - **Visível para os usuários?** determina se os usuários atribuídos a um aplicativo podem vê-lo no [Painel de Acesso](https://myapps.microsoft.com) e no inicializador de aplicativos do Office 365. (Confira o menu do Waffle no canto superior esquerdo de um site do Office 365 ou Microsoft 365.)
-1. Use as tabelas a seguir para ajudar você a escolher as melhores opções para suas necessidades.
+4. Use as tabelas a seguir para ajudar você a escolher as melhores opções para suas necessidades.
 
    - Comportamento de usuários *atribuídos*:
 
@@ -86,10 +85,10 @@ Para editar as propriedades do aplicativo:
 Para usar um logotipo personalizado:
 
 1. Crie um logotipo de 215 x 215 pixels e salve-o no formato PNG.
-1. No portal do Azure AD, selecione **Aplicativos empresariais**. Em seguida, encontre e selecione o aplicativo que você deseja configurar.
-1. Na seção **Gerenciar**, selecione **Propriedades** para abrir o painel **Propriedades** para edição. 
-1. Selecione o ícone para carregar o logotipo.
-1. Quando terminar, selecione **Salvar**.
+2. No portal do Azure AD, selecione **Aplicativos empresariais**. Em seguida, encontre e selecione o aplicativo que você deseja configurar.
+3. Na seção **Gerenciar**, selecione **Propriedades** para abrir o painel **Propriedades** para edição. 
+4. Selecione o ícone para carregar o logotipo.
+5. Quando terminar, selecione **Salvar**.
 
     ![Captura de tela da tela Propriedades mostrando como alterar o logotipo.](media/add-application-portal/change-logo.png)
 

@@ -13,18 +13,18 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: d99af6965e4d2e73ed302530d76126e0e6e8a3ef
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a1adf167bb23b3d66f6dcbd07794145f7c817105
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505917"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322152"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Início Rápido: Coletar dados de um computador Linux em um ambiente híbrido com o Azure Monitor
 
-O [Azure Monitor](../overview.md) pode coletar dados diretamente dos computadores Linux físicos ou virtuais em seu ambiente em um único workspace do Log Analytics para correlação e análise detalhadas. A instalação do [agente do Log Analytics](../platform/log-analytics-agent.md) permite que o Azure Monitor colete dados de um datacenter ou de outro ambiente de nuvem. Este guia de início rápido mostra como configurar e coletar dados do servidor Linux com algumas etapas simples. Para saber mais sobre VMs Linux do Azure, confira [Coletar dados sobre máquinas virtuais do Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
+O [Azure Monitor](../overview.md) pode coletar dados diretamente dos computadores Linux físicos ou virtuais em seu ambiente em um único workspace do Log Analytics para correlação e análise detalhadas. A instalação do [agente do Log Analytics](../platform/log-analytics-agent.md) permite que o Azure Monitor colete dados de um datacenter ou de outro ambiente de nuvem. Este guia de início rápido mostra como configurar e coletar dados do servidor Linux com algumas etapas simples. Para saber mais sobre VMs Linux do Azure, confira [Coletar dados sobre máquinas virtuais do Azure](./quick-collect-azurevm.md).  
 
-Para entender a configuração com suporte, confira os tópicos [Suporte para sistemas operacionais Windows](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) e [Configuração de firewall de rede](../../azure-monitor/platform/log-analytics-agent.md#network-requirements).
+Para entender a configuração com suporte, confira os tópicos [Suporte para sistemas operacionais Windows](../platform/log-analytics-agent.md#supported-linux-operating-systems) e [Configuração de firewall de rede](../platform/log-analytics-agent.md#network-requirements).
  
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -169,3 +169,4 @@ Para saber como exibir e analisar os dados, continue lendo o tutorial.
 
 > [!div class="nextstepaction"]
 > [Exibir ou analisar dados no Log Analytics](../log-query/get-started-portal.md)
+

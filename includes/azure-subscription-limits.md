@@ -1,7 +1,19 @@
 ---
- Título: incluir arquivo Descrição: incluir autor do arquivo: rothja MS. Service: Azure-Resource-Manager MS. tópico: include MS. Date: 05/18/2018 MS. autor: jroth MS. Custom: include File
+title: arquivo de inclusão
+description: incluir arquivo
+author: rothja
+ms.service: azure-resource-manager
+ms.topic: include
+ms.date: 05/18/2018
+ms.author: jroth
+ms.custom: include file
+ms.openlocfilehash: db822722b12921ab98b3e5cae67e28f4ca7ede04
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298718"
 ---
-
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
 | vCPUs por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md)<sup>1</sup> |20 |10.000 |
@@ -14,7 +26,7 @@
 | [Grupos de afinidade](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por assinatura |256 |256 |
 | Comprimento do nome da assinatura (caracteres) | 64 | 64 |
 
-<sup>1</sup> Instâncias pequenas extras contam como um vCPU em direção ao limite de vCPU, apesar de usar um núcleo de CPU parcial.
+<sup>1</sup>Instâncias muito pequenas contam como um vCPU para o limite de vCPU, apesar de usarem um núcleo de CPU parcial.
 
 <sup>2</sup>O limite da conta de armazenamento inclui contas de armazenamento Standard e Premium. 
 

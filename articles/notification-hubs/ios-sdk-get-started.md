@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: bf6477fed1840daa326f411862a7304018f39e3c
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 94e930c996710c2b25d4114c7cfcb17129c5177d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85252195"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022422"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Tutorial: Enviar notificações por push para aplicativos iOS usando Hubs de Notificação do Microsoft Azure
 
@@ -185,7 +185,7 @@ A segunda opção tem vários benefícios em comparação ao uso de certificados
 
    Esse é o valor do token que será usado mais tarde para configurar os Hubs de Notificação.
 
-No final dessas etapas, você deveria ter as seguintes informações para uso posterior em [Configurar o hub de notificação com informações do APNS](notification-hubs-ios-push-notifications-swift-apps-get-started.md#configure-your-notification-hub-with-apns-information):
+No final dessas etapas, você deveria ter as seguintes informações para uso posterior em [Configurar o hub de notificação com informações do APNS](#configure-the-notification-hub-with-apns-information):
 
 - A**ID da Equipe** (confira a etapa 1)
 - A**ID do Pacote** (confira a etapa 1)
@@ -264,7 +264,7 @@ Nesta seção, você cria um hub de notificação e configura a autenticação c
 
 ## <a name="configure-the-notification-hub-with-apns-information"></a>Configurar o hub de notificação com informações do APNS
 
-Em **Notification Services**, selecione **Apple (APNS)** e siga as etapas apropriadas com base na abordagem que você selecionou antes na seção [Criar um certificado para os Hubs de Notificação](notification-hubs-ios-push-notifications-swift-apps-get-started.md#creating-a-certificate-for-notification-hubs) .
+Em **Notification Services**, selecione **Apple (APNS)** e siga as etapas apropriadas com base na abordagem que você selecionou antes na seção [Criar um certificado para os Hubs de Notificação](#create-a-certificate-for-notification-hubs) .
 
 > [!NOTE]
 > Use **Produção** no **Modo de Aplicativo** somente caso queira enviar notificações por push aos usuários que tenham comprado seu aplicativo da loja.
@@ -306,4 +306,4 @@ Agora você configurou seu hub de notificações com o APNS. Você também tem a
 
 Neste tutorial, você criou um hub de notificação no Azure e o configurou de modo a permitir que as notificações sejam enviadas ao seu aplicativo por meio do APNS (Apple Push Notification Service). Em seguida, criaremos um aplicativo iOS de exemplo e integraremos o SDK dos Hubs de Notificação do Azure para que ele possa receber notificações por push enviadas por meio do portal do Azure. Avance para o seguinte tutorial com base no idioma de sua escolha:
 
-- [Tutorial: Integrar com um aplicativo iOS usando o Swift](notification-hubs-ios-push-notifications-swift-apps-get-started.md)
+- [Tutorial: Integrar com um aplicativo iOS usando o Swift]()

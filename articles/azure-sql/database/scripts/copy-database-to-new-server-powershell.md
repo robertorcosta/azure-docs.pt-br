@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: ae2a4ce3c8c1b3760dc83d01def9694b1d20fea0
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: cf6e29ccc5e12969031f4c99f86d7356e7bbfadf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196945"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063329"
 ---
 # <a name="use-powershell-to-copy-a-database-to-a-new-server"></a>Usar o PowerShell para copiar um banco de dados para um novo servidor
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
@@ -57,6 +57,6 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/).
 
 Outros exemplos de script do PowerShell para Banco de Dados SQL podem ser encontrados nos [scripts do PowerShell para Banco de Dados SQL do Azure](../powershell-script-content-guide.md).
