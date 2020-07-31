@@ -42,8 +42,10 @@
           href: how-to-use-cli.md
         - name: Configurar uma instância e uma autenticação (com script)
           href: how-to-set-up-instance-scripted.md
-        - name: Configurar uma instância e uma autenticação (manual)
-          href: how-to-set-up-instance-manual.md
+        - name: Configurar uma instância e uma autenticação (CLI)
+          href: how-to-set-up-instance-cli.md
+        - name: Configurar uma instância e uma autenticação (portal)
+          href: how-to-set-up-instance-portal.md
         - name: Escrever código de autenticação do aplicativo
           href: how-to-authenticate-client.md
     - name: Modelos de design

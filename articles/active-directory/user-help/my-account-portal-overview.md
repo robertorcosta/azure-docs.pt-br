@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 04/20/2020
+ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: 878fbb81e05db058aa015f8b4a7eae42e8cfea2e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: da00d77138eb3ff737c26d7fa52ab0bb56ec6ae4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742200"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422396"
 ---
 # <a name="what-is-the-my-account-portal"></a>O que é o portal Minha Conta?
 
@@ -33,7 +33,7 @@ Acesse o portal **Minha Conta** (https://myaccount.microsoft.com), da versão at
 ![Página de visão geral do portal Minha Conta](media/my-account-portal/my-account-portal-overview.png)
 
 >[!Important]
->Este artigo destina-se a usuários que estão tentando acessar o portal Minha Conta para atualizar suas informações de segurança, informações do dispositivo, senha, organizações conectadas, privacidade ou informações de entrada anteriores. Caso seja um administrador que está em busca de informações sobre como ativar a autenticação e outros recursos do Azure AD (Azure Active Directory) para seus funcionários ou outros usuários, confira a [Documentação do Azure AD para administradores](https://docs.microsoft.com/azure/active-directory/).
+>Este artigo destina-se a usuários que estão tentando acessar o portal Minha Conta para atualizar as informações de segurança, informações do dispositivo, senha, organizações conectadas, configurações de idioma, privacidade ou informações de entrada anteriores. Caso seja um administrador que está em busca de informações sobre como ativar a autenticação e outros recursos do Azure AD (Azure Active Directory) para seus funcionários ou outros usuários, confira a [Documentação do Azure AD para administradores](https://docs.microsoft.com/azure/active-directory/).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -46,6 +46,8 @@ Acesse o portal **Minha Conta** (https://myaccount.microsoft.com), da versão at
 - Exibir sua [atividade de entrada](my-account-portal-sign-ins-page.md)
 
 - Exibir como a organização [usa os dados relacionados à privacidade](my-account-portal-privacy-page.md)
+
+- Alterar as [configurações do portal Minha Conta](my-account-portal-settings.md)
 
 ## <a name="related-microsoft-office-content"></a>Conteúdo relacionado ao Microsoft Office
 

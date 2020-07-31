@@ -42,6 +42,8 @@
   items:
     - name: Usar o Reconhecimento de Formulários com o Cognitive Search
       href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
+    - name: Usar o Reconhecimento de Formulários com o AI Builder
+      href: tutorial-ai-builder.md
 - name: Guias de instruções
   items:
     - name: Criar um conjunto de dados de treinamento

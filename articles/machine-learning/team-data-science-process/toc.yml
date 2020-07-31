@@ -95,7 +95,7 @@
               href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
             - name: Aprenda a usar o Servidor R no HDInsight
               href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
-        - name: Workspace do Azure Machine Learning
+        - name: Workspace do Machine Learning Studio (clássico)
           href: /azure/machine-learning/studio/create-workspace?context=azure/machine-learning/team-data-science-process/context/ml-context
     - name: Analisar as necessidades de negócios
       items:
@@ -192,8 +192,6 @@
       href: deploy-models-in-production.md
 - name: Relacionados
   items:
-    - name: Azure Machine Learning
-      href: ../
     - name: Serviços Cognitivos
       href: 'https://docs.microsoft.com/azure/cognitive-services/'
     - name: Detecção de anomalias

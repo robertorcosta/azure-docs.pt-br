@@ -68,7 +68,9 @@
       href: my-account-portal-privacy-page.md
     - name: Exibir sua atividade de entrada recente
       href: my-account-portal-sign-ins-page.md
-- name: Ajuda das informações de segurança
+    - name: Alterar as configurações do portal
+      href: my-account-portal-settings.md
+- name: Ajuda de informações de segurança
   items:
     - name: Adicionar informações de segurança durante a entrada
       href: security-info-setup-signin.md
