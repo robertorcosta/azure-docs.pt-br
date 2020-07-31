@@ -1,6 +1,6 @@
 ---
-title: Pool de hosts da Área de Trabalho Virtual do Windows no Azure Marketplace – Azure
-description: Como criar um pool de hosts da Área de Trabalho Virtual do Windows usando o Azure Marketplace.
+title: Pool de host da Área de Trabalho Virtual do Windows (clássica) no Azure Marketplace – Azure
+description: Como criar um pool de host da Área de Trabalho Virtual do Windows (clássica) usando o Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b4472baa51bb0b8806c7ad617c0fc1001c800ff0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3f0db05459b8e81764915c5dffb373e7f19edbc4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256842"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291303"
 ---
-# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Criar um pool de host usando o Azure Marketplace
+# <a name="tutorial-create-a-host-pool-in-windows-virtual-desktop-classic"></a>Tutorial: Criar um pool de host na Área de Trabalho Virtual do Windows (clássica)
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../create-host-pools-azure-marketplace.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager, confira [este artigo](../create-host-pools-azure-marketplace.md).
 
 Neste tutorial, você aprenderá como criar um pool de hosts em um locatário de Área de Trabalho Virtual do Windows usando uma oferta do Microsoft Azure Marketplace.
 
