@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 075837d0c382f5bc6f436a63dfe227c17f0a57a3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f3eacbe6f93388756ce26324babeb2ca38bd09a5
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128651"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87438892"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Acesso e opções de identidade para o Serviço de Kubernetes do Azure (AKS)
 
@@ -74,8 +74,6 @@ A segurança dos clusters AKS pode ser aprimorada com a integração do Microsof
 Com os clusters AKS integrados ao Microsoft Azure Active Directory, você pode conceder a usuários ou grupos o acesso a recursos dentro do Kubernetes dentro de um namespace ou através do cluster. Para obter um `kubectl` contexto de configuração, um usuário pode executar [az aks get-credentials][az-aks-get-credentials] comando. Quando um usuário interage com o cluster AKS com `kubectl` , ele é solicitado a entrar com suas credenciais do Azure AD. Essa abordagem fornece uma única fonte para o gerenciamento de contas de usuário e as credenciais de senha. O usuário só pode acessar os recursos, conforme definido pelo administrador do cluster.
 
 A autenticação do Azure AD é fornecida aos clusters do AKS com OpenID Connect. O OpenID Connect é uma camada de identidade compilada sobre o protocolo OAuth 2.0. Para obter mais informações sobre o OpenID Connect, consulte a [documentação do Open ID Connect][openid-connect]. De dentro do cluster kubernetes, a [autenticação de token de webhook][webhook-token-docs] é usada para verificar tokens de autenticação. A autenticação de token do Webhook é configurada e gerenciada como parte do cluster AKS.
-
-No cluster do Kubernetes, a autenticação de token do Webhook é usada para verificar os tokens de autenticação. A autenticação de token do Webhook é configurada e gerenciada como parte do cluster AKS.
 
 ### <a name="webhook-and-api-server"></a>Webhook e servidor de API
 

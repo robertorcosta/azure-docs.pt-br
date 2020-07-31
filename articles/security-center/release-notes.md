@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2020
 ms.author: memildin
-ms.openlocfilehash: 17b54eb747e3ddd3b381659031171bc795b61f54
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: bf503cf90df7b08e5a957416d66eae2f1a599bed
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430469"
+ms.locfileid: "87438953"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -32,11 +32,11 @@ Esta página é atualizada regularmente, então visite-a com frequência. Se voc
 ## <a name="july-2020"></a>Julho de 2020
 
 As atualizações em julho incluem:
-- [A avaliação de vulnerabilidade para máquinas virtuais agora está disponível para imagens que não são do Marketplace](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)automaticamente        
+- [A avaliação de vulnerabilidade para máquinas virtuais agora está disponível para imagens que não são do Marketplace](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)
 - [Proteção contra ameaças para o armazenamento do Azure expandida para incluir arquivos e Azure Data Lake Storage Gen2 do Azure (versão prévia)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
 - [Oito novas recomendações para habilitar os recursos de proteção contra ameaças](#eight-new-recommendations-to-enable-threat-protection-features)
 - [Melhorias de segurança do contêiner-verificação mais rápida e documentação atualizada](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
-- [Nova recomendação para atualizar suas regras de controles de aplicativo adaptáveis](#new-recommendation-to-update-your-adaptive-application-controls-rules)
+- [Controles de aplicativo adaptáveis atualizados com uma nova recomendação e suporte para curingas em regras de caminho](#adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules)
 - [Seis políticas para o SQL Advanced Data Security preteridas](#six-policies-for-sql-advanced-data-security-deprecated)
 
 
@@ -115,11 +115,16 @@ Saiba mais sobre a segurança de contêiner da central de segurança nos seguint
 
 
 
-### <a name="new-recommendation-to-update-your-adaptive-application-controls-rules"></a>Nova recomendação para atualizar suas regras de controles de aplicativo adaptáveis
+### <a name="adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules"></a>Controles de aplicativo adaptáveis atualizados com uma nova recomendação e suporte para curingas em regras de caminho
 
-O recurso de controles de aplicativo adaptáveis monitora continuamente a atividade de computadores em grupos configurados. A partir dessa atualização, você será notificado sobre o comportamento potencialmente legítimo que não era permitido anteriormente e que pode causar alertas falsos positivos.
+O recurso de controles de aplicativo adaptáveis recebeu duas atualizações significativas:
 
-A nova recomendação, **as regras de permissão daList em sua política de controle de aplicativo adaptável devem ser atualizadas**, solicita que você adicione novas regras à política existente para reduzir o número de falsos positivos em alertas de violação de controles de aplicativo adaptáveis.
+- Uma nova recomendação identifica o comportamento potencialmente legítimo que não era permitido anteriormente. A nova recomendação, **as regras de permissão daList em sua política de controle de aplicativo adaptável devem ser atualizadas**, solicita que você adicione novas regras à política existente para reduzir o número de falsos positivos em alertas de violação de controles de aplicativo adaptáveis.
+
+- Agora, as regras de caminho dão suporte a curingas. A partir dessa atualização, você pode configurar as regras de caminho permitidas usando curingas. Há dois cenários com suporte:
+
+    - Usando um curinga no final de um caminho para permitir todos os executáveis dentro desta pasta e subpastas
+    - Usando um caractere curinga no meio de um caminho para habilitar um nome executável conhecido com um nome de pasta de alteração (por exemplo, pastas de usuário pessoais com um executável conhecido, nomes de pastas gerados automaticamente, etc.). 
 
 [Saiba mais sobre controles de aplicativo adaptáveis](security-center-adaptive-application.md).
 

@@ -3,16 +3,16 @@ title: Visão Geral do exemplo de blueprint do PBMM Federal do Canadá
 description: Visão geral da amostra de blueprint do PBMM Federal do Canadá. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos do PBMM Federal do Canadá.
 ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: fcaf4a844db10f4a87b205d08cfe3a86a6182957
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: a33cba28459b1d01e816babbfc65c1b662bd2718
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005672"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419675"
 ---
 # <a name="overview-of-the-canada-federal-pbmm-blueprint-sample"></a>Visão geral da amostra de blueprint do PBMM Federal do Canadá
 
-A amostra de blueprint do PBMM (protegido B, de integridade média e disponibilidade média) Federal do Canadá fornece um conjunto de trilhos de controle de governança usando o [Azure Policy](../../../policy/overview.md) que ajudam a atestar o [PBMM Federal do Canadá](https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html#toc4). 
+A amostra de blueprint do PBMM (protegido B, de integridade média e disponibilidade média) Federal do Canadá fornece um conjunto de trilhos de controle de governança usando o [Azure Policy](../../../policy/overview.md) que ajudam a atestar o [PBMM Federal do Canadá](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html). 
 
 ## <a name="blueprint-sample"></a>Amostra de blueprint
 

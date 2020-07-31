@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: de7ead8acd059d957673b2f063dd3d330cf473f5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9aa0ca41f63da94e2dedaffe65ea518b8adff0dc
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525493"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439476"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Visão geral de imagens de Red Hat Enterprise Linux
 
@@ -99,6 +99,9 @@ Para imagens RHEL 7. x, há alguns tipos de imagens diferentes. A tabela a segui
 |RedHat | RHEL | RHEL-SAP-HANA | Valores concatenados da versão secundária do RHEL e a data de publicação (por exemplo, 7.3.2018051421) | Essas imagens estão desatualizadas porque os aplicativos SAP e SAP HANA repositórios foram combinados nos repositórios SAP. Essas imagens são RHEL for SAP HANA imagens. Eles têm o direito de acessar repositórios SAP HANA e repositórios de RHEL base.
 
 ## <a name="rhel-8-image-types"></a>Tipos de imagem RHEL 8
+
+>[!NOTE]
+> O Red Hat recomenda o uso de GruBBy para configurar parâmetros de linha de comando do kernel no RHEL 8 +. Mais detalhes estão disponíveis [aqui](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel).
 
 Os detalhes dos tipos de imagem RHEL 8 estão abaixo.
 

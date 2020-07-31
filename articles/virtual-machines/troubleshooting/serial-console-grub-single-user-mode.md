@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: alsin
-ms.openlocfilehash: 3b074bb1d439a6d20ac476f4e10b6a26b7107be8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5341cc62a7d02c3072df90becf893dec18427ac2
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284703"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439536"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usar o console serial para acessar o GRUB e o modo de usuário único
 O carregador de inicialização global unificado (GRUB) é provavelmente a primeira coisa que você vê ao inicializar uma VM (máquina virtual). Como ele é exibido antes do sistema operacional ser iniciado, o GRUB não é acessível via SSH. No GRUB, você pode modificar a configuração de inicialização para inicializar no modo de usuário único, entre outras coisas.
 
 O modo de usuário único é um ambiente mínimo com funcionalidade mínima. Pode ser útil para investigar problemas de inicialização, problemas do sistema de arquivos ou problemas de rede. Menos serviços podem ser executados em segundo plano e, dependendo do runlevel, um sistema de arquivos pode nem mesmo ser montado automaticamente.
 
-O modo de usuário único também é útil em situações em que sua VM pode ser configurada para aceitar somente chaves SSH para entrada. Nesse caso, você poderá usar o modo de usuário único para criar uma conta com autenticação de senha. 
+O modo de usuário único também é útil em situações em que sua VM pode ser configurada para aceitar somente chaves SSH para entrada. Nesse caso, você poderá usar o modo de usuário único para criar uma conta com autenticação de senha.
 
 > [!NOTE]
 > O serviço de console serial permite que apenas usuários com nível de *colaborador* ou permissões mais altas acessem o console serial de uma VM.
@@ -66,6 +66,9 @@ O RHEL vem com o GRUB habilitado pronto para uso. Para entrar no GRUB, reinicial
 
 **Para RHEL 8**
 
+>[!NOTE]
+> O Red Hat recomenda o uso de GruBBy para configurar parâmetros de linha de comando do kernel no RHEL 8 +. No momento, não é possível atualizar o tempo limite do grub e os parâmetros do terminal usando GruBBy. Para modificar a atualização do argumento GRUB_CMDLINE_LINUX para todas as entradas de inicialização, execute `grubby --update-kernel=ALL --args="console=ttyS0,115200 console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"` . Mais detalhes estão disponíveis [aqui](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel).
+
 ```
 GRUB_TIMEOUT=5
 GRUB_TERMINAL="serial console"
@@ -90,8 +93,7 @@ O usuário raiz está desabilitado por padrão. O modo de usuário único no RHE
 1. Mude para raiz.
 1. Habilite a senha para o usuário raiz fazendo o seguinte:
     * Execute `passwd root` (defina uma senha raiz forte).
-1. Verifique se o usuário raiz pode entrar somente via ttyS0 fazendo o seguinte:  
-    a. Execute `edit /etc/ssh/sshd_config` e verifique se PermitRootLogIn está definido como `no` .  
+1. Verifique se o usuário raiz pode entrar somente via ttyS0 fazendo o seguinte: a. Execute `edit /etc/ssh/sshd_config` e verifique se PermitRootLogIn está definido como `no` .
     b. Execute `edit /etc/securetty file` para permitir a entrada somente via ttyS0.
 
 Agora, se o sistema for inicializado no modo de usuário único, você poderá entrar com a senha raiz.
@@ -106,7 +108,7 @@ Se você configurou o acesso de GRUB e raiz usando as instruções anteriores, v
 1. Localize a linha de kernel. No Azure, ele começa com *linux16*.
 1. Pressione Ctrl + E para ir para o final da linha.
 1. No final da linha, adicione *Systemed. Unit = resgate. Target*.
-    
+
     Esta ação o inicia no modo de usuário único. Se você quiser usar o modo de emergência, adicione *Systemed. Unit = emergência. Target* ao final da linha (em vez de *systemd. Unit = resgate. Target*).
 
 1. Pressione CTRL + X para sair e reinicializar com as configurações aplicadas.
@@ -130,11 +132,11 @@ Se você não tiver habilitado o usuário raiz seguindo as instruções anterior
     Essa ação interrompe o processo de inicialização antes de o controle ser passado de `initramfs` para `systemd` , conforme descrito na [documentação do Red Hat](https://aka.ms/rhel7rootpassword).
 1. Pressione CTRL + X para sair e reinicializar com as configurações aplicadas.
 
-   Após a reinicialização, você será colocado no modo de emergência com um sistema de arquivos somente leitura. 
-   
+   Após a reinicialização, você será colocado no modo de emergência com um sistema de arquivos somente leitura.
+
 1. No Shell, digite `mount -o remount,rw /sysroot` para remontar o sistema de arquivos raiz com permissões de leitura/gravação.
 1. Depois de inicializar o modo de usuário único, digite `chroot /sysroot` para alternar para o `sysroot` com Jail Break.
-1. Agora você está na raiz. Você pode redefinir sua senha raiz digitando `passwd` e, em seguida, usar as instruções anteriores para entrar no modo de usuário único. 
+1. Agora você está na raiz. Você pode redefinir sua senha raiz digitando `passwd` e, em seguida, usar as instruções anteriores para entrar no modo de usuário único.
 1. Depois de terminar, digite `reboot -f` para reinicializar.
 
 ![Imagem animada mostrando uma interface de linha de comando. O usuário seleciona um servidor, localiza o final da linha de kernel e insere os comandos especificados.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)

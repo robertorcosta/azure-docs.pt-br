@@ -45,6 +45,9 @@
       items:
         - name: Segurança
           items:
+            - name: Controles de segurança do Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
             - name: Linha de base de segurança
               href: security-baseline.md
         - name: Níveis e limites de Registros de contêiner

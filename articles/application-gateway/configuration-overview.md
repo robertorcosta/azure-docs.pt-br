@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 07/30/2020
 ms.author: absha
-ms.openlocfilehash: 20d1dfea251fdfd0bd6e8432d1ea0c7af7284cb5
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 9315884db30c053d86c889ff3b45aaea17d48b17
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428174"
+ms.locfileid: "87438919"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do gateway de aplicativo
 
@@ -50,7 +50,7 @@ Os NSGs (grupos de segurança de rede) têm suporte no gateway de aplicativo. Ma
 
 - Você precisa permitir o tráfego de entrada na Internet nas portas TCP 65503-65534 para a SKU do Gateway de Aplicativo v1 e as portas TCP 65200-65535 para a SKU V2 com a sub-rede de destino como **Qualquer** e a origem como a marca de serviço **GatewayManager**. Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Entidades externas, incluindo os clientes desses gateways, não podem se comunicar nesses pontos de extremidade.
 
-- A conectividade de internet de saída não pode ser bloqueada. As regras de saída padrão no NSG permitem a conectividade com a Internet. É recomendável que você:
+- A conectividade de Internet de saída não pode ser bloqueada. As regras de saída padrão no NSG permitem a conectividade com a Internet. É recomendável que você:
 
   - Não remova as regras de saída padrão.
   - Não crie outras regras de saída que neguem qualquer conectividade de saída.
@@ -65,7 +65,7 @@ Para este cenário, use NSGs na sub-rede do gateway de aplicativo. Coloque as se
 2. Permitir solicitações de entrada da origem como **uma** marca de serviço do **gatewaymanager** e destino como portas de destino e como 65503-65534 para a SKU do gateway de aplicativo v1 e portas 65200-65535 para SKU v2 para [comunicação de status de integridade de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados apropriados em vigor, as entidades externas não podem iniciar alterações nesses pontos de extremidade.
 3. Permitir investigações de Azure Load Balancer de entrada (marca*AzureLoadBalancer* ) e tráfego de rede virtual de entrada (marca*VirtualNetwork* ) no [grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Bloquear todos os outros tráfegos de entrada usando uma regra negar-tudo.
-5. Permitir tráfego de saída para a internet para todos os destinos.
+5. Permitir o tráfego de saída para a Internet para todos os destinos.
 
 #### <a name="user-defined-routes-supported-on-the-application-gateway-subnet"></a>As rotas definidas pelo usuário são suportadas na sub-rede do Gateway de Aplicativo
 
@@ -122,11 +122,19 @@ Para este cenário, use NSGs na sub-rede do gateway de aplicativo. Coloque as se
 
 ## <a name="front-end-ip"></a>IP de front-end
 
-Você pode configurar o gateway de aplicativo para ter um endereço IP público, um endereço IP privado ou ambos. Um IP público é necessário quando você hospeda um back-end que os clientes devem acessar pela Internet por meio de um VIP (IP virtual) voltado para a Internet. 
+Você pode configurar o gateway de aplicativo para ter um endereço IP público, um endereço IP privado ou ambos. Um IP público é necessário quando você hospeda um back-end que os clientes devem acessar pela Internet por meio de um VIP (IP virtual) voltado para a Internet.
+
+> [!NOTE]
+> O Gateway de Aplicativo v2 atualmente não dá suporte apenas ao modo de IP privado. Ele dá suporte às seguintes combinações:
+>* IP privado e IP público
+>* Somente IP público
+>
+> Para obter mais informações, consulte perguntas frequentes [sobre o gateway de aplicativo](application-gateway-faq.md#how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address).
+
 
 Um IP público não é necessário para um ponto de extremidade interno que não esteja exposto à Internet. Isso é conhecido como ponto de extremidade ILB ( *balanceador de carga interno* ) ou IP de front-end privado. Um ILB de gateway de aplicativo é útil para aplicativos de linha de negócios internos que não são expostos à Internet. Ele também é útil para serviços e camadas em um aplicativo de várias camadas dentro de um limite de segurança que não é exposto à Internet, mas que exigem distribuição de carga Round Robin, adesão de sessão ou terminação de TLS.
 
-Apenas 1 endereço IP público ou um endereço IP privado tem suporte. Você escolhe o IP de front-end ao criar o gateway de aplicativo.
+Há suporte para apenas um endereço IP público ou um endereço IP privado. Você escolhe o IP de front-end ao criar o gateway de aplicativo.
 
 - Para um IP público, você pode criar um novo endereço IP público ou usar um IP público existente no mesmo local que o gateway de aplicativo. Para obter mais informações, consulte [endereço IP público estático vs. dinâmico](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
 
@@ -284,7 +292,7 @@ Para obter mais informações sobre o redirecionamento, consulte:
 Usando regras de reescrita, você pode adicionar, remover ou atualizar os cabeçalhos de solicitação e resposta HTTP (S), bem como o caminho da URL e os parâmetros da cadeia de caracteres de consulta, pois os pacotes de solicitação e resposta são movidos entre o cliente e os pools de back-end por meio do gateway de aplicativo.
 
 Os cabeçalhos e os parâmetros de URL podem ser definidos para valores estáticos ou para outros cabeçalhos e variáveis de servidor. Isso ajuda com casos de uso importantes, como extração de endereços IP do cliente, remoção de informações confidenciais sobre o back-end, adição de mais segurança e assim por diante.
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
  - [Reescrever cabeçalhos HTTP e visão geral da URL](rewrite-http-headers-url.md)
  - [Configurar a regravação do cabeçalho HTTP](rewrite-http-headers-portal.md)

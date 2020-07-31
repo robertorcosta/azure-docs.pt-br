@@ -3,12 +3,12 @@ title: Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de 
 description: Descreve como fazer backup de VMs do Azure em um cofre dos Serviços de Recuperação no Backup do Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: c4fbafc63ce063159d0524ddf26bb936c53328df
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b9d57449e56fb50bfbfddb627a1d6bb379710da4
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373826"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439708"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação
 
@@ -88,7 +88,7 @@ Configure uma política de backup para o cofre.
      ![Painel "Selecionar máquinas virtuais"](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
     >[!NOTE]
-    > Todas as VMs na mesma região e assinatura que o do cofre estão disponíveis para configurar o backup. Ao configurar o backup, você pode navegar até o nome da máquina virtual e seu grupo de recursos, mesmo que não tenha a permissão necessária nessas VMs.  
+    > Todas as VMs na mesma região e assinatura que o do cofre estão disponíveis para configurar o backup. Ao configurar o backup, você pode navegar até o nome da máquina virtual e seu grupo de recursos, mesmo que não tenha a permissão necessária nessas VMs. Se sua VM estiver no estado de exclusão reversível, ela não será visível nessa lista. Se você precisar proteger novamente a VM, precisará aguardar até que o período de exclusão reversível expire ou restaurar a VM da lista de exclusão reversível. Para obter mais informações, consulte [o artigo exclusão reversível para VMs](soft-delete-virtual-machines.md#soft-delete-for-vms-using-azure-portal).
 
 1. Em **Backup**, escolha **Habilitar backup**. Isso implantará a política no cofre e nas VMs e instalará a extensão de backup no agente da VM em execução na VM do Azure.
 
@@ -150,7 +150,7 @@ O status do trabalho pode variar dependendo dos seguintes cenários:
 Concluído | Em andamento | Em andamento
 Concluído | Ignorado | Concluído
 Concluído | Concluído | Concluído
-Concluído | Falhou | Concluído com aviso
+Concluído | Com falha | Concluído com aviso
 Com falha | Falhou | Falhou
 
 Agora, com esse recurso, dois backups podem ser executados em paralelo para a mesma VM, porém, em qualquer fase (instantâneo, transferir dados para o cofre), apenas uma subtarefa pode estar em execução. Assim, em cenários em que um trabalho de backup em andamento resultou no backup do dia seguinte para falhar, ele será evitado com essa funcionalidade de desacoplamento. Os backups de dias subsequentes podem ter o instantâneo concluído, enquanto a **transferência de dados para o cofre** é ignorada se o trabalho de backup de um dia anterior estiver em estado de andamento.

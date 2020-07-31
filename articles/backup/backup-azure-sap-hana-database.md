@@ -3,12 +3,12 @@ title: Fazer backup de um banco de dados SAP HANA no Azure com o Backup do Azure
 description: Neste artigo, saiba como fazer backup de um banco de dados SAP HANA em máquinas virtuais do Azure com o serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 273ba40feee01c2dd2bfe68d1660a5c94f254062
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2f42b119c361eaddcb84dda738b50c8accc84f9c
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513822"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439738"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer backup de bancos de dados do SAP HANA em VMs do Azure
 
@@ -25,7 +25,7 @@ Neste artigo, você aprenderá a:
 > * Executar um trabalho de backup sob demanda
 
 >[!NOTE]
->[Introdução](./tutorial-backup-sap-hana-db.md) à versão prévia de backup do SAP HANA para RHEL (7.4, 7.6, 7.7 ou 8.1). Para outras consultas, escreva-nos em [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>A partir de 1º de agosto de 2020, o backup de SAP HANA para RHEL (7,4, 7,6, 7,7 & 8,1) está disponível para o público geral.
 
 >[!NOTE]
 >**A exclusão temporária para o SQL Server na VM do Azure e a exclusão temporária para SAP HANA nas cargas de trabalho de VM do Azure** já estão disponíveis na versão prévia.<br>
@@ -67,7 +67,7 @@ Se você usar o NSG (grupo de segurança de rede), use a tag de serviço *AzureB
 
 1. Clique em **Adicionar** para salvar a regra de segurança de saída recém-criada.
 
-De maneira semelhante, é possível criar regras de segurança de saída de NSG para o Armazenamento do Azure e o Azure AD.
+De maneira semelhante, é possível criar regras de segurança de saída de NSG para o Armazenamento do Azure e o Azure AD. Para obter mais informações sobre marcas de serviço, consulte [Este artigo](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
 
 #### <a name="azure-firewall-tags"></a>Marcas do Firewall do Azure
 

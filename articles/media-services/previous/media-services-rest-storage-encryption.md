@@ -14,20 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 0e477b95f43c091bf17ec54d2fef9f971d5f6986
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 761a508543af79f3a242bfa2133e22a00b0ca689
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000153"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439616"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Criptografia do seu conteúdo com criptografia de armazenamento 
 
 > [!NOTE]
 > Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > não há novos recursos ou funcionalidades sendo adicionados aos serviços de mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
->   
-
-Recomendamos que você criptografe seu conteúdo localmente usando a criptografia AES de 256 bits e, em seguida, o carregue no Armazenamento do Microsoft Azure no qual ele está armazenado e criptografado em repouso.
+>
 
 Este artigo fornece uma visão geral da criptografia de armazenamento do AMS e mostra como carregar o conteúdo de armazenamento criptografado:
 
@@ -49,7 +47,7 @@ Ao acessar entidades nos serviços de mídia, você deve definir valores e campo
 |Opção de criptografia|Descrição|Serviços de Mídia v2|Serviços de Mídia v3|
 |---|---|---|---|
 |Criptografia do Armazenamento dos Serviços de Mídia|Criptografia AES-256, chave gerenciada pelos Serviços de Mídia|Com suporte<sup>(1)</sup>|Sem suporte<sup>(2)</sup>|
-|[Criptografia do Serviço de Armazenamento para dados em repouso](../../storage/common/storage-service-encryption.md)|Criptografia do servidor oferecida pelo Armazenamento do Microsoft Azure, chave gerenciada pelo Azure ou pelo cliente|Suportado|Suportado|
+|[Criptografia do Serviço de Armazenamento para dados em repouso](../../storage/common/storage-service-encryption.md)|Criptografia do servidor oferecida pelo Armazenamento do Microsoft Azure, chave gerenciada pelo Azure ou pelo cliente|Com suporte|Com suporte|
 |[Criptografia do cliente de armazenamento](../../storage/common/storage-client-side-encryption.md)|Criptografia do cliente oferecida pelo armazenamento do Azure, chave gerenciada pelo cliente no Key Vault|Sem suporte|Sem suporte|
 
 <sup>1</sup> Enquanto os Serviços de Mídia deem suporte para tratamento de conteúdo sem qualquer forma de criptografia/limpo, não é recomendável fazer isso.

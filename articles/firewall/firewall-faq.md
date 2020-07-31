@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: bd849a413d718ba5a25839c50c63ec2ad39be440
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3f2b844163abce0946dc5df29c3121691e83035b
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128090"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439217"
 ---
 # <a name="azure-firewall-faq"></a>Perguntas frequentes do Firewall do Azure
 
@@ -168,7 +168,9 @@ A capacidade inicial da taxa de transferência do Firewall do Azure é de 2,5 a 
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Quanto tempo leva para o Firewall do Azure escalar horizontalmente?
 
-A escala do Firewall do Azure aumenta gradualmente quando a taxa de transferência média ou o consumo de CPU está em 60%. O aumento de escala horizontal leva de cinco a sete minutos. Ao testar o desempenho, certifique-se de testar por pelo menos 10 a 15 minutos e inicie novas conexões para aproveitar os nós de firewall recém-criados.
+A escala do Firewall do Azure aumenta gradualmente quando a taxa de transferência média ou o consumo de CPU está em 60%. Uma taxa de transferência máxima de implantação padrão é de aproximadamente 2,5 a 3 Gbps e começa a escalar horizontalmente quando atinge 60% desse número. O aumento de escala horizontal leva de cinco a sete minutos. 
+
+Ao testar o desempenho, certifique-se de testar por pelo menos 10 a 15 minutos e inicie novas conexões para aproveitar os nós de firewall recém-criados.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>O Firewall do Azure permite acesso ao Active Directory por padrão?
 
