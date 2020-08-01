@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 0bcc67e80861df2827237298444175c3abdb6602
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3195c27351ba6110c784ddd8a10ea9ddfb0d903a
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084034"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447347"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na nuvem pública do Azure
 
@@ -76,7 +76,7 @@ O RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de 
 
 - **leitor** pode exibir os recursos existentes do Azure.
 
-![Controle de acesso baseado em função do Azure](./media/isolation-choices/azure-isolation-fig3.png)
+![Controle de acesso baseado em função do Azure (RBAC do Azure)](./media/isolation-choices/azure-isolation-fig3.png)
 
 As demais funções RBAC no Azure permitem o gerenciamento de recursos específicos do Azure. Por exemplo, a função Colaborador de Máquina Virtual permite que o usuário crie e gerencie máquinas virtuais. Ela não concede acesso à Rede Virtual ou à sub-rede do Azure com a qual a máquina virtual se conecta.
 

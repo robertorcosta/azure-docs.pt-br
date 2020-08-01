@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres do VMware/físico no Az
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidor físico para o Azure usando Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: c7eebfee771a9c65901bd89336e49c026a944a65
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 56c86993e4e98764bc7e3ce04180f9e870cc612d
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528852"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87458018"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -29,7 +29,7 @@ Recuperação de desastre de servidores físicos | Replicação de servidores f�
 
 ## <a name="on-premises-virtualization-servers"></a>Servidores de virtualização locais
 
-**Servidor** | **Requirements** | **Detalhes**
+**Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
 vCenter Server | Versão 7,0, 6,7, 6,5, 6,0 ou 5,5 | Recomendamos que você use um servidor vCenter em sua implantação de recuperação de desastre.
 Hosts vSphere | Versão 7,0, 6,7, 6,5, 6,0 ou 5,5 | Recomendamos que os hosts vSphere e os servidores vCenter estejam localizados na mesma rede que o servidor de processo. Por padrão, o servidor de processo é executado no servidor de configuração. [Saiba mais](vmware-physical-azure-config-process-server-overview.md).
@@ -42,7 +42,7 @@ O servidor de configuração é um computador local que executa componentes do S
 - Para VMs VMware, você define o servidor de configuração baixando um modelo OVF para criar uma VM VMware.
 - Para servidores físicos, você configura manualmente o computador do servidor de configuração.
 
-**Componente** | **Requirements**
+**Componente** | **Requisitos**
 --- |---
 Núcleos de CPU | 8
 RAM | 16 GB
@@ -91,7 +91,7 @@ Linux: CentOS | 5,2 a 5,11</b><br/> 6,1 a 6,10</b><br/> 7,0 a 7,8<br/> <br/> 8,0
 Ubuntu | Ubuntu 14, 4 LTS Server [(examinar as versões de kernel com suporte)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16, 4 LTS Server [(examinar as versões de kernel com suporte)](#ubuntu-kernel-versions) </br> Ubuntu 18, 4 LTS Server [(examinar as versões de kernel com suporte)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8 (inclui suporte para todos os 7. *x*, 8. *x* versões) [(examinar as versões de kernel com suporte)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(examine as versões de kernel com suporte)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(examine as versões de kernel com suporte)](#suse-linux-enterprise-server-15-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4<br/> Não há suporte para a atualização de máquinas replicadas do SUSE Linux Enterprise Server 11 SP3 para o SP4. Para atualizar, desabilite a replicação e habilite novamente após a atualização.
-Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) [7,8](https://support.microsoft.com/help/4573888/), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/), [8,2](https://support.microsoft.com/help/4573888/) <br/><br/> Executando o kernel compatível com Red Hat ou o Unbreakable Enterprise Kernel Release 3, 4 e 5 (UEK3, UEK4 e UEK5)
+Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [8,0](https://support.microsoft.com/help/4573888/), [8,2](https://support.microsoft.com/help/4573888/)  <br/> Executando o kernel compatível com Red Hat ou o Unbreakable Enterprise Kernel Release 3, 4 e 5 (UEK3, UEK4 e UEK5)<br/><br/>[8.1](https://support.microsoft.com/help/4573888/)<br/>Em execução em todos os kernels UEK e RedHat kernel <= 3.10.0-1062. * têm suporte. O suporte para o restante dos kernels do RedHat estará disponível em 9,36, esperado pelo final de agosto.
 
 > [!Note]
 > Para cada uma das versões do Windows, Azure Site Recovery dá suporte apenas a compilações de [LTSC (canal de manutenção em longo prazo)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) .  Versões de [canal semianuais](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) atualmente não têm suporte no momento.
@@ -153,8 +153,8 @@ Sistemas de arquivos | ext3, ext4, XFS, BTRFS (condições aplicáveis de acordo
 Provisionamento LVM (gerenciamento de volume lógico)| Provisão espessa-Sim <br></br> Provisionamento dinâmico-não
 Gerenciador de volumes | -O LVM tem suporte.<br/> -/boot no LVM tem suporte do [pacote cumulativo de atualizações 31](https://support.microsoft.com/help/4478871/) (versão 9,20 do serviço de mobilidade) em diante. Ele não tem suporte em versões anteriores do serviço de mobilidade.<br/> -Não há suporte para vários discos de sistema operacional.
 Dispositivos de armazenamento paravirtualizados | Não há suporte para dispositivos exportados por drivers paravirtualizados.
-Dispositivos de E/S de bloqueio de várias filas | Sem suporte.
-Servidores físicos com o controlador de armazenamento CCISS da HP | Sem suporte.
+Dispositivos de E/S de bloqueio de várias filas | Não há suporte.
+Servidores físicos com o controlador de armazenamento CCISS da HP | Não há suporte.
 Convenção de nomenclatura de ponto de montagem/dispositivo | O nome do dispositivo ou o nome do ponto de montagem deve ser exclusivo.<br/> Verifique se não há dois dispositivos/pontos de montagem com nomes que diferenciam maiúsculas de minúsculas. Por exemplo, não há suporte para nomear dispositivos para a mesma VM que *Device1* e *Device1* .
 Diretórios | Se você estiver executando uma versão do serviço de mobilidade anterior à versão 9,20 (lançada no [pacote cumulativo de atualizações 31](https://support.microsoft.com/help/4478871/)), essas restrições se aplicarão:<br/><br/> -Esses diretórios (se configurados como partições/sistemas de arquivos separados) devem estar no mesmo disco do sistema operacional no servidor de origem:/(raiz),/boot,/usr,/usr/local,/var,/etc.</br> -O diretório/boot deve estar em uma partição de disco e não ser um volume LVM.<br/><br/> Da versão 9,20 em diante, essas restrições não se aplicam. 
 Diretório de inicialização | -Discos de inicialização não deve estar no formato de partição GPT. Essa é uma limitação da arquitetura do Azure. Os discos GPT têm suporte como discos de dados.<br/><br/> Não há suporte para vários discos de inicialização em uma VM<br/><br/> -/boot em um volume LVM em mais de um disco não tem suporte.<br/> -Um computador sem um disco de inicialização não pode ser replicado.
@@ -167,7 +167,7 @@ BTRFS | O BTRFS tem suporte do [pacote cumulativo de atualizações 34](https://
 **Ação** | **Detalhes**
 --- | ---
 Redimensionar o disco na VM replicada | Com suporte na VM de origem antes do failover, diretamente nas propriedades da VM. Não é necessário desabilitar/reabilitar a replicação.<br/><br/> Se você alterar a VM de origem após o failover, as alterações não serão capturadas.<br/><br/> Se você alterar o tamanho do disco na VM do Azure após o failover, ao fazer failback, Site Recovery criará uma nova VM com as atualizações.
-Adicionar disco na VM replicada | Sem suporte.<br/> Desabilite a replicação da VM, adicione o disco e, em seguida, habilite novamente a replicação.
+Adicionar disco na VM replicada | Não há suporte.<br/> Desabilite a replicação da VM, adicione o disco e, em seguida, habilite novamente a replicação.
 
 ## <a name="network"></a>Rede
 
@@ -190,43 +190,43 @@ Acesso de link privado ao serviço de Site Recovery | Sim. [Saiba mais](hybrid-h
 
 **Componente** | **Com suporte**
 --- | ---
-Azure ExpressRoute | Sim
-ILB | Sim
-ELB | Sim
-Gerenciador de Tráfego do Azure | Sim
-NIC múltipla | Sim
-Endereço IP Reservado | Sim
-IPv4 | Sim
-Manter endereço IP de origem | Sim
-Pontos de extremidade de serviço de rede virtual do Azure<br/> | Sim
+Azure ExpressRoute | Yes
+ILB | Yes
+ELB | Yes
+Gerenciador de Tráfego do Azure | Yes
+NIC múltipla | Yes
+Endereço IP Reservado | Yes
+IPv4 | Yes
+Manter endereço IP de origem | Yes
+Pontos de extremidade de serviço de rede virtual do Azure<br/> | Yes
 Redes aceleradas | Não
 
 ## <a name="storage"></a>Armazenamento
 **Componente** | **Com suporte**
 --- | ---
 Dados dinâmicos | O disco do sistema operacional deve ser um disco básico. <br/><br/>Os discos de Dados podem ser discos dinâmicos
-Configuração de disco do Docker | Não
+Configuração de disco do Docker | No
 NFS do host | Sim para VMware<br/><br/> Não para servidores físicos
-Host SAN iSCSI/FC) | Sim
+Host SAN iSCSI/FC) | Yes
 Host vSAN | Sim para VMware<br/><br/> N/D para servidores físicos
 MPIO (Múltiplos caminhos) do host | Sim, testado com Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 Volumes de host Virtual (VVols) | Sim para VMware<br/><br/> N/D para servidores físicos
-VMDK do convidado/servidor | Sim
-Disco de cluster compartilhado do convidado/servidor | Não
-Disco criptografado do convidado/servidor | Não
-NFS do convidado/servidor | Não
+VMDK do convidado/servidor | Yes
+Disco de cluster compartilhado do convidado/servidor | No
+Disco criptografado do convidado/servidor | No
+NFS do convidado/servidor | No
 ISCSI de convidado/servidor | Para migração-Sim<br/>Para recuperação de desastre-não, o iSCSI fará o failback como um disco anexado à VM
-SMB 3.0 do convidado/servidor | Não
-RDM do convidado/servidor | Sim<br/><br/> N/D para servidores físicos
+SMB 3.0 do convidado/servidor | No
+RDM do convidado/servidor | Yes<br/><br/> N/D para servidores físicos
 Disco do convidado/servidor > 1 TB | Sim, o disco deve ter mais de 1024 MB<br/><br/>Até 8.192 GB ao replicar para discos gerenciados (versão 9,26 em diante)<br></br> Até 4.095 GB ao replicar para contas de armazenamento
-Disco do convidado/servidor com tamanho de setor lógico e físico de 4.000 cada | Não
-Disco de convidado/servidor com tamanho de setor físico de 512 bytes e lógicos de 4K | Não
-Volume do convidado/servidor com discos distribuídos >4 TB | Sim
+Disco do convidado/servidor com tamanho de setor lógico e físico de 4.000 cada | No
+Disco de convidado/servidor com tamanho de setor físico de 512 bytes e lógicos de 4K | No
+Volume do convidado/servidor com discos distribuídos >4 TB | Yes
 Gerenciamento de volumes lógicos (LVM)| Provisionamento espesso-Sim <br></br> Provisionamento dinâmico-não
-Convidado/servidor - espaços de armazenamento | Não
-Adicionar/remover disco a quente por convidado/servidor | Não
-Convidado/servidor - excluir disco | Sim
-MPIO (Múltiplos caminhos) de convidado/servidor | Não
+Convidado/servidor - espaços de armazenamento | No
+Adicionar/remover disco a quente por convidado/servidor | No
+Convidado/servidor - excluir disco | Yes
+MPIO (Múltiplos caminhos) de convidado/servidor | No
 Partições do convidado/servidor GPT | Há suporte para cinco partições do [pacote cumulativo de atualizações 37](https://support.microsoft.com/help/4508614/) (versão 9,25 do serviço de mobilidade) em diante. Quatro eram suportados anteriormente.
 ReFS | O sistema de arquivos resiliente tem suporte com o serviço de mobilidade versão 9,23 ou superior
 Inicialização de EFI/servidor do convidado/UEFI | -Há suporte para todos os [SOS de UEFI do Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-images-in-azure-marketplace) com site Recovery o agente de mobilidade versão 9,30 em diante. <br/> -Não há suporte para o tipo de inicialização UEFI segura. [Saiba mais.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
@@ -235,26 +235,26 @@ Inicialização de EFI/servidor do convidado/UEFI | -Há suporte para todos os [
 
 |**Tipo de replicação**   |**Com suporte**  |
 |---------|---------|
-|Transferências de dados descarregadas (ODX)    |       Não  |
-|Propagação offline        |   Não      |
-| Azure Data Box | Não
+|Transferências de dados descarregadas (ODX)    |       No  |
+|Propagação offline        |   No      |
+| Azure Data Box | No
 
 ## <a name="azure-storage"></a>Armazenamento do Azure
 
 **Componente** | **Com suporte**
 --- | ---
-Armazenamento com redundância local | Sim
-Armazenamento com redundância geográfica | Sim
-Armazenamento com redundância geográfica com acesso de leitura | Sim
-Armazenamento frio | Não
-Armazenamento quente| Não
-Blobs de bloco | Não
-Criptografia em repouso (SSE)| Sim
+Armazenamento com redundância local | Yes
+Armazenamento com redundância geográfica | Yes
+Armazenamento com redundância geográfica com acesso de leitura | Yes
+Armazenamento frio | No
+Armazenamento quente| No
+Blobs de bloco | No
+Criptografia em repouso (SSE)| Yes
 Criptografia em repouso (CMK)| Sim (por meio do PowerShell AZ 3.3.0 Module em diante)
 Criptografia dupla em repouso | Sim (por meio do PowerShell AZ 3.3.0 Module em diante). Saiba mais sobre as regiões com suporte para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md).
-Armazenamento Premium | Sim
-Opção de transferência segura | Sim
-Serviço de importação/exportação | Não
+Armazenamento Premium | Yes
+Opção de transferência segura | Yes
+Serviço de importação/exportação | No
 Firewalls do armazenamento do Azure para VNets | Sim.<br/> Configurado na conta de armazenamento de armazenamento/cache de destino (usada para armazenar dados de replicação).
 Contas de armazenamento v2 de uso geral (camadas quentes e frias) | Sim (os custos de transações são consideravelmente mais altos para v2 em comparação com v1)
 
@@ -262,16 +262,16 @@ Contas de armazenamento v2 de uso geral (camadas quentes e frias) | Sim (os cust
 
 **Recurso** | **Com suporte**
 --- | ---
-Conjuntos de disponibilidade | Sim
-Zonas de disponibilidade | Não
-HUB | Sim
-Discos gerenciados | Sim
+Conjuntos de disponibilidade | Yes
+Zonas de disponibilidade | No
+HUB | Yes
+Discos gerenciados | Yes
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM do Azure
 
 As VMs locais replicadas para o Azure devem atender aos requisitos de VM do Azure resumidos nesta tabela. Quando Site Recovery executar uma verificação de pré-requisitos para replicação, a verificação falhará se alguns dos requisitos não forem atendidos.
 
-**Componente** | **Requirements** | **Detalhes**
+**Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
 Sistema operacional convidado | Verificar [sistemas operacionais com suporte](#replicated-machines) para computadores replicados. | A verificação falha se não tiver suporte.
 Arquitetura do sistema operacional convidado | 64 bits. | A verificação falha se não tiver suporte.
@@ -280,9 +280,9 @@ Contagem do disco do sistema operacional | 1 | A verificação falha se não tiv
 Contagem de disco de dados | 64 ou menos. | A verificação falha se não tiver suporte.
 Tamanho do disco de dados | Até 8.192 GB ao replicar para o disco gerenciado (versão 9,26 em diante)<br></br>Até 4.095 GB ao replicar para a conta de armazenamento| A verificação falha se não tiver suporte.
 Adaptadores de rede | Há suporte para vários adaptadores. |
-VHD compartilhado | Sem suporte. | A verificação falha se não tiver suporte.
-Disco FC | Sem suporte. | A verificação falha se não tiver suporte.
-BitLocker | Sem suporte. | O BitLocker precisa ser desabilitado antes de habilitar a replicação em um computador. |
+VHD compartilhado | Não há suporte. | A verificação falha se não tiver suporte.
+Disco FC | Não há suporte. | A verificação falha se não tiver suporte.
+BitLocker | Não há suporte. | O BitLocker precisa ser desabilitado antes de habilitar a replicação em um computador. |
 Nome da VM | De 1 a 63 caracteres.<br/><br/> Restrito a letras, números e hifens.<br/><br/> O nome do computador precisa começar e terminar com uma letra ou um número. |  Atualize o valor nas propriedades do computador no Site Recovery.
 
 ## <a name="resource-group-limits"></a>Limites de grupo de recursos
@@ -319,10 +319,10 @@ Variação máxima de dados por dia com suporte de um Servidor de Processo | 2 T
 
 **Ação** | **Com suporte**
 --- | ---
-Mover cofre entre grupos de recursos | Não
-Mover o cofre dentro e entre assinaturas | Não
-Mover armazenamento, rede, VMs do Azure entre grupos de recursos | Não
-Mova armazenamento, rede, VMs do Azure dentro e entre assinaturas. | Não
+Mover cofre entre grupos de recursos | No
+Mover o cofre dentro e entre assinaturas | No
+Mover armazenamento, rede, VMs do Azure entre grupos de recursos | No
+Mova armazenamento, rede, VMs do Azure dentro e entre assinaturas. | No
 
 
 ## <a name="obtain-latest-components"></a>Obter os componentes mais recentes

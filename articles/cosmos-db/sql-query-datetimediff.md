@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: db037668cec736bc3060b1cd3bb9651ee860a39b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b90b45072128252e8abc22d3422c84c813808119
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261650"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446374"
 ---
 # <a name="datetimediff-azure-cosmos-db"></a>DateTimeDiff (Azure Cosmos DB)
 
@@ -21,7 +21,7 @@ Retorna a contagem (como um valor inteiro assinado) dos limites de DateTimePart 
 ## <a name="syntax"></a>Sintaxe
   
 ```sql
-DateTimeAdd (<DateTimePart> , <StartDate> , <EndDate>)
+DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 ```
 
 ## <a name="arguments"></a>Argumentos
@@ -32,7 +32,7 @@ DateTimeAdd (<DateTimePart> , <StartDate> , <EndDate>)
 | DateTimePart | abreviações        |
 | ------------ | -------------------- |
 | Ano         | "Year", "yyyy", "AA" |
-| Mês        | "month", "mm", "m"   |
+| Month        | "month", "mm", "m"   |
 | Dia          | "Day", "dd", "d"     |
 | Hora         | "hora", "HH"         |
 | Minuto       | "minuto", "mi", "n"  |

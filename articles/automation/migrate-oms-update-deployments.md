@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9bd6a7ff943b5f3750ce8aaeada32010b88272c2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 9c8238e6e0b52a625c76f79fa0dd5a91dd640fb8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745617"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447849"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migrar implantações de atualização de logs do Azure Monitor para o portal do Azure
 
@@ -19,7 +19,7 @@ O portal do OMS (Operations Management Suite) está sendo [preterido](../azure-m
 ## <a name="key-information"></a>Principais informações
 
 * As implantações existentes continuarão funcionando. Após recriar a implantação no Azure, será possível excluir a implantação antiga.
-* Todos os recursos existentes que estavam disponíveis no OMS também estão no Azure. Para saber mais sobre o Gerenciamento de Atualizações, consulte [Visão geral do Gerenciamento de Atualizações](automation-update-management.md).
+* Todos os recursos existentes que estavam disponíveis no OMS também estão no Azure. Para saber mais sobre o Gerenciamento de Atualizações, consulte [Visão geral do Gerenciamento de Atualizações](update-management/update-mgmt-overview.md).
 
 ## <a name="access-the-azure-portal"></a>Acesse o portal do Azure
 
@@ -74,4 +74,4 @@ Para usar essa pesquisa salva existente, siga estas etapas:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o Gerenciamento de Atualizações na Automação do Azure, consulte [Visão geral do Gerenciamento de Atualizações](automation-update-management.md).
+Para saber mais sobre o Gerenciamento de Atualizações na Automação do Azure, consulte [Visão geral do Gerenciamento de Atualizações](update-management/update-mgmt-overview.md).

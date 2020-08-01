@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 38ddfad179a8ef459b5c10f84619a836193ee092
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7dae16140c376bc9288fec5b8744ac6cd14051e5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781643"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445621"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o provisionamento
 
@@ -162,7 +162,7 @@ O trabalho de provisionamento sai da quarentena depois que todos os erros invál
 
 ### <a name="how-long-provisioning-takes"></a>Quanto tempo demora o provisionamento
 
-O desempenho depende se o seu trabalho de provisionamento está executando um ciclo de provisionamento inicial ou incremental. Para mais informações sobre a duração do provisionamento e como monitorar o status do serviço de provisionamento, consulte [Verificar o status do provisionamento de usuário](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md).
+O desempenho depende se o seu trabalho de provisionamento está executando um ciclo de provisionamento inicial ou incremental. Para mais informações sobre a duração do provisionamento e como monitorar o status do serviço de provisionamento, consulte [Verificar o status do provisionamento de usuário](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 ### <a name="how-to-tell-if-users-are-being-provisioned-properly"></a>Como posso saber se os usuários estão sendo provisionados corretamente
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 192fd0fe73a34ca4d6ffc49badeac7ca8a080793
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ca96f817407aaef808fa10fbedec7af7b5912dc8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185578"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447933"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Visão geral do Controle de Alterações e Inventário
 
@@ -203,7 +203,7 @@ Uma funcionalidade crucial de Controle de Alterações e Inventário é alertar 
 
 - Para habilitar o recurso de uma conta de Automação, confira [Habilitar Controle de Alterações e Inventário de uma conta de Automação](automation-enable-changes-from-auto-acct.md).
 
-- Para habilitar o recurso navegando na portal do Azure, consulte [habilitar controle de alterações e inventário do portal do Azure](automation-onboard-solutions-from-browse.md).
+- Para habilitar o recurso navegando na portal do Azure, consulte [habilitar controle de alterações e inventário do portal do Azure](automation-enable-changes-from-browse.md).
 
 - Para habilitar o recurso de um runbook, confira [Habilitar Controle de Alterações e Inventário de um runbook](automation-enable-changes-from-runbook.md).
 

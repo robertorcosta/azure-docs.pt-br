@@ -10,12 +10,12 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: a8b5f14147ee748f5d32d794f51d5437eeddfb51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e5cad25c80661f9e707f545929e6ffcb00a1e42
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261181"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447852"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões compatíveis com o workspace do Log Analytics vinculado
 
@@ -78,11 +78,11 @@ Com os recursos removidos, siga as etapas abaixo para desvincular sua conta de A
 
 Como alternativa, desvincule o workspace da sua conta da Automação no workspace.
 
-1. No workspace, selecione **Conta de Automação** em **Recursos relacionados**. 
+1. No workspace, selecione **Conta de Automação** em **Recursos relacionados**.
 2. Na página Conta de Automação, selecione **Desvincular conta**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre o Gerenciamento de Atualizações, veja [Visão geral do recurso Gerenciamento de Atualizações](../automation-update-management.md).
+* Para saber mais sobre o Gerenciamento de Atualizações, veja [Visão geral do recurso Gerenciamento de Atualizações](../update-management/update-mgmt-overview.md).
 * Para obter informações sobre os recursos Controle de Alterações e Inventário, veja [Visão geral do recurso Controle de Alterações e Inventário](../change-tracking.md).
 * Saiba mais sobre o recurso Iniciar/Parar VMs fora do horário comercial em [Visão geral do recurso Iniciar/Parar VMs fora do horário comercial](../automation-solution-vm-management.md).

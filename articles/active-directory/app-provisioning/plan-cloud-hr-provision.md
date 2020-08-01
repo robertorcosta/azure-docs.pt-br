@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 09ecaf327b2030a77f8a91d99f291cebb0281235
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dd108e8c2877c7fe459819bf01b0e5b206cd9c0
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781592"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445567"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planejar o aplicativo de RH de nuvem para Azure Active Directory provisionamento de usuário
 
@@ -257,7 +257,7 @@ Por padrão, o aplicativo do conector de provisionamento mapeia o status do perf
 
 Quando você inicia o processo dos emissores-periões, reúna os seguintes requisitos.
 
-| Processar | Requisitos |
+| Processo | Requisitos |
 | - | - |
 | **Entradas** | De uma perspectiva do ciclo de vida da identidade, como lidar com recontratações? As recontratações mantêm suas IDs de funcionário antigas? |
 | | Você processa contratações no futuro e cria Active Directory contas com antecedência? Essas contas são criadas em um estado habilitado ou desabilitado? |
@@ -276,7 +276,7 @@ Cada aplicativo de RH na nuvem é fornecido com o aplicativo de RH de nuvem padr
 
 Ao iniciar o processo de Complementos-movimentadores-periões, reúna os seguintes requisitos.
 
-| Processar | Requisitos |
+| Processo | Requisitos |
 | - | - |
 | **Entradas** | O processo de criação de conta Active Directory manual, automatizado ou parcialmente automatizado? |
 | | Você planeja propagar atributos personalizados do aplicativo de RH de nuvem para Active Directory? |
@@ -404,7 +404,6 @@ Para solucionar quaisquer problemas que possam ser reativados durante o provisio
 
 - [Problema na configuração do provisionamento do usuário para um aplicativo de galeria do Azure AD](application-provisioning-config-problem.md)
 - [Sincronizar um atributo do seu Active Directory local com o Azure AD para provisionamento para um aplicativo](user-provisioning-sync-attributes-for-mapping.md)
-- [O provisionamento do usuário para um aplicativo da Galeria do Azure AD está levando horas ou mais](application-provisioning-when-will-provisioning-finish.md)
 - [Problema para salvar as credenciais de administrador ao configurar o provisionamento do usuário para um aplicativo de galeria do Azure Active Directory](application-provisioning-config-problem-storage-limit.md)
 - [Nenhum usuário está sendo provisionado para um aplicativo de galeria do Azure AD](application-provisioning-config-problem-no-users-provisioned.md)
 - [O conjunto errado de usuários está sendo provisionado para um aplicativo da Galeria do Azure AD](application-provisioning-config-problem-wrong-users-provisioned.md)

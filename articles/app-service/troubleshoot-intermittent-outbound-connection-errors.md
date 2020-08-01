@@ -4,15 +4,15 @@ description: Solucionar problemas de erros de conexão intermitente e problemas 
 author: v-miegge
 manager: barbkess
 ms.topic: troubleshooting
-ms.date: 03/24/2020
+ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations
-ms.openlocfilehash: 704c6b026ab656ce52b34e5ac70ba7e2087ccbcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e1f2108c5607917c77330f362952f960e57e03a
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252433"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447910"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Solucionando problemas de erros de conexão de saída intermitente no serviço Azure App
 
@@ -37,6 +37,8 @@ Uma grande causa desses sintomas é que a instância do aplicativo não é capaz
 Quando aplicativos ou funções abrem rapidamente uma nova conexão, eles podem esgotar rapidamente a cota alocada das portas 128. Eles são bloqueados até que uma nova porta SNAT fique disponível, seja por meio da alocação dinâmica de portas SNAT adicionais ou pela reutilização de uma porta SNAT recuperada. Aplicativos ou funções que são bloqueadas devido a essa incapacidade de criar novas conexões começarão a apresentar um ou mais dos problemas descritos na seção **sintomas** deste artigo.
 
 ## <a name="avoiding-the-problem"></a>Evitando o problema
+
+Se o destino for um serviço do Azure que dá suporte a pontos de extremidade de serviço, você poderá evitar problemas de esgotamento de porta SNAT usando a [integração VNet regional](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) e pontos de extremidade de serviço ou pontos de extremidade privados. Quando você usa a integração VNet regional e coloca pontos de extremidade de serviço na sub-rede de integração, o tráfego de saída do aplicativo para esses serviços não terá restrições de porta SNAT de saída. Da mesma forma, se você usar a integração VNet regional e pontos de extremidade privados, não terá nenhum problema de porta SNAT de saída para esse destino. 
 
 Evitar o problema de porta SNAT significa evitar a criação de novas conexões repetidamente para o mesmo host e porta.
 
@@ -122,7 +124,7 @@ Para outros ambientes, examine os documentos específicos do provedor ou do driv
 
 Evitar os limites de TCP de saída é mais fácil de resolver, pois os limites são definidos pelo tamanho do seu operador. Você pode ver os limites em [área restrita limite de VM entre VMs-conexões TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Nome do limite|Descrição|Pequeno (a1)|Média (a2)|Grande (a3)|Camada isolada (ASE)|
+|Nome do limite|Description|Pequeno (a1)|Média (a2)|Grande (a3)|Camada isolada (ASE)|
 |---|---|---|---|---|---|
 |conexões|Número de conexões em toda a VM|1920|3968|8064|16.000|
 
@@ -154,7 +156,7 @@ As conexões TCP e SNAT não estão diretamente relacionadas. Um detector de uso
 * O limite de conexões TCP ocorre no nível de instância de trabalho. O balanceamento de carga de saída de rede do Azure não usa a métrica de conexões TCP para limitação de porta SNAT.
 * Os limites de conexões TCP são descritos em [área restrita áreas limites numéricos de VM-conexões TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Nome do limite|Descrição|Pequeno (a1)|Média (a2)|Grande (a3)|Camada isolada (ASE)|
+|Nome do limite|Description|Pequeno (a1)|Média (a2)|Grande (a3)|Camada isolada (ASE)|
 |---|---|---|---|---|---|
 |conexões|Número de conexões em toda a VM|1920|3968|8064|16.000|
 

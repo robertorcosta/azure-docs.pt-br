@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 043c30af6d28e61a532c8030dabdc17b73303e7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b139441adb02f5fb33ae8c4a70aaa9b423f0d0e
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360122"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447096"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: habilitando o write-back do dispositivo
 > [!NOTE]
@@ -61,7 +61,7 @@ Instale o Azure AD Connect usando configurações expressas ou personalizadas. A
 
     a. **Forneça credenciais de administrador de empresa**: se as credenciais de administrador corporativo são fornecidas para a floresta em que os dispositivos precisam ser gravados, o Azure AD Connect irá preparar a floresta automaticamente durante a configuração do Write-back de dispositivo.
 
-    b. **Baixe o script do PowerShell**: o Azure AD Connect gera automaticamente um script do PowerShell que pode preparar o active directory para write-back do dispositivo. As credenciais de administrador corporativo não podem ser fornecidas no Azure AD Connect, recomenda-se realizar o download do script do PowerShell. Forneça o script PowerShell baixado **CreateDeviceContainer.psq** para o administrador da empresa da floresta onde os dispositivos serão gravados de volta.
+    b. **Baixe o script do PowerShell**: o Azure AD Connect gera automaticamente um script do PowerShell que pode preparar o active directory para write-back do dispositivo. As credenciais de administrador corporativo não podem ser fornecidas no Azure AD Connect, recomenda-se realizar o download do script do PowerShell. Forneça o **CreateDeviceContainer.ps1** de script do PowerShell baixado para o administrador corporativo da floresta em que os dispositivos serão gravados.
     ![Preparar a floresta do Active Directory](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     As seguintes operações são executadas para preparar a floresta do active directory:

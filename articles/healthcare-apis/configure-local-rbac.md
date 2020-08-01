@@ -1,5 +1,5 @@
 ---
-title: Configurar o RBAC (controle de acesso baseado em função) local para a API do Azure para FHIR
+title: Configurar o controle de acesso baseado em função local (RBAC local) para a API do Azure para FHIR
 description: Este artigo descreve como configurar a API do Azure para FHIR para usar um locatário externo do Azure AD para o plano de dados
 author: hansenms
 ms.service: healthcare-apis
@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: mihansen
-ms.openlocfilehash: 8aa454e272e0dbf4c69941c35a63ee036c16f78f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 11e7d31385140206070e3b415224ccca725d110f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422565"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446906"
 ---
 # <a name="configure-local-rbac-for-fhir"></a>Configurar o RBAC local para FHIR 
 

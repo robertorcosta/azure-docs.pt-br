@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: 091a5d33e49e2abe811bf3cc250d04d69506165d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dfbe1e7fdfca6f9959218f47d903301cb4b6d899
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011627"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448384"
 ---
 # <a name="media-services-v2-vs-v3"></a>Serviços de mídia v2 versus v3
 
@@ -83,7 +83,8 @@ A API de v3 tem as seguintes falhas de recurso em relação a API v2. Fechar as 
     * Inserindo uma faixa de áudio silenciosa quando a entrada não tem áudio
     * Inserindo uma faixa de vídeo quando a entrada não tem vídeo
 * Atualmente, os Eventos ao Vivo com transcodificação não dão suporte à inserção em curso de imagem fixa e à inserção de marcador de anúncio por meio da chamada à API. 
- 
+* Consulte o `https://github.com/Azure-Samples/media-services-v2-dotnet-core-restsharp-sample.git` código de exemplo para obter práticas recomendadas e padrões relacionados ao uso da API REST V2 no. SDK do NetCore.
+
 ## <a name="asset-specific-changes"></a>Alterações específicas do ativo
 
 ### <a name="map-v3-asset-properties-to-v2"></a>Mapear Propriedades de ativos V3 para v2
@@ -107,10 +108,10 @@ A tabela a seguir mostra como as propriedades do [ativo](/rest/api/media/assets/
 
 Para proteger os Ativos em repouso, os ativos devem ser criptografados pela criptografia do armazenamento. A tabela a seguir mostra como a criptografia do armazenamento funciona nos Serviços de Mídia:
 
-|Opção de criptografia|Descrição|Serviços de Mídia v2|Serviços de Mídia v3|
+|Opção de criptografia|Description|Serviços de Mídia v2|Serviços de Mídia v3|
 |---|---|---|---|
 |Criptografia do Armazenamento dos Serviços de Mídia|Criptografia AES-256, chave gerenciada pelos serviços de mídia.|Com suporte<sup>(1)</sup>|Sem suporte<sup>(2)</sup>|
-|[Criptografia do Serviço de Armazenamento para dados em repouso](../../storage/common/storage-service-encryption.md)|Criptografia do lado do servidor oferecida pelo armazenamento do Azure, chave gerenciada pelo Azure ou por cliente.|Suportado|Suportado|
+|[Criptografia do Serviço de Armazenamento para dados em repouso](../../storage/common/storage-service-encryption.md)|Criptografia do lado do servidor oferecida pelo armazenamento do Azure, chave gerenciada pelo Azure ou por cliente.|Com suporte|Com suporte|
 |[Criptografia do cliente de armazenamento](../../storage/common/storage-client-side-encryption.md)|Criptografia do lado do cliente oferecida pelo armazenamento do Azure, chave gerenciada por cliente no Key Vault.|Sem suporte|Sem suporte|
 
 <sup>1</sup> enquanto os serviços de mídia dão suporte ao tratamento de conteúdo em claro/sem qualquer forma de criptografia, fazer isso não é recomendado.

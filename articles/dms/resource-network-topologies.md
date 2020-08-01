@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 31dfae60b1967e221e294195f66bb7fe59a15e64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69926671730e41845cd28df3108ec86b24a57075
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84187515"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448528"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Topologias de rede para Azure SQL Instância Gerenciada migrações usando o serviço de migração de banco de dados do Azure
 
@@ -39,7 +39,7 @@ Use essa topologia se o Azure SQL Instância Gerenciada estiver conectado à sua
 Use essa topologia de rede se o ambiente exigir um ou mais dos seguintes cenários:
 
 - O SQL Instância Gerenciada é isolado da conectividade local, mas sua instância do serviço de migração de banco de dados do Azure está conectada à rede local.
-- Se as políticas de RBAC (controle de acesso baseado em função) estiverem em vigor e você precisar limitar os usuários a acessarem a mesma assinatura que está hospedando o SQL Instância Gerenciada.
+- Se as políticas do controle de acesso baseado em função (RBAC do Azure) do Azure estiverem em vigor e você precisar limitar os usuários a acessarem a mesma assinatura que está hospedando o SQL Instância Gerenciada.
 - As redes virtuais usadas para o SQL Instância Gerenciada e o serviço de migração de banco de dados do Azure estão em assinaturas diferentes.
 
 ![Topologia de rede da Instância Gerenciada isolada da rede local](media/resource-network-topologies/mi-isolated-workload.png)
@@ -64,7 +64,7 @@ Use essa topologia se o SQL Server de origem estiver hospedado em uma VM do Azur
 Use essa topologia de rede se o ambiente exigir um ou mais dos seguintes cenários:
 
 - O SQL Instância Gerenciada é provisionado em uma rede virtual isolada.
-- Se as políticas de RBAC (controle de acesso baseado em função) estiverem em vigor e você precisar limitar os usuários a acessarem a mesma assinatura que está hospedando o SQL Instância Gerenciada.
+- Se as políticas do controle de acesso baseado em função (RBAC do Azure) do Azure estiverem em vigor e você precisar limitar os usuários a acessarem a mesma assinatura que está hospedando o SQL Instância Gerenciada.
 - As redes virtuais usadas para o SQL Instância Gerenciada e o serviço de migração de banco de dados do Azure estão em assinaturas diferentes.
 
 ![Topologia de rede para migrações de nuvem para nuvem com uma VNet isolada](media/resource-network-topologies/cloud-to-cloud-isolated.png)
@@ -84,13 +84,13 @@ Use essa topologia de rede se o ambiente exigir um ou mais dos seguintes cenári
 | **NOME**                  | **Porto**                                              | **PROTOCOLO** | **ORIGINAL** | **DESTINO**           | **ACTION** | **Motivo para a regra**                                                                                                                                                                              |
 |---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | gerenciamento                | 443,9354                                              | TCP          | Qualquer        | Qualquer                       | Allow      | Comunicação do plano de gerenciamento através do barramento de serviço e do armazenamento de BLOBs do Azure. <br/>(Se o emparelhamento da Microsoft é habilitado, você talvez não precise essa regra.)                                                             |
-| Diagnósticos               | 12000                                                 | TCP          | Qualquer        | Qualquer                       | Allow      | DMS usa a regra para coletar informações de diagnóstico para fins de solução de problemas.                                                                                                                      |
+| Diagnóstico               | 12000                                                 | TCP          | Qualquer        | Qualquer                       | Allow      | DMS usa a regra para coletar informações de diagnóstico para fins de solução de problemas.                                                                                                                      |
 | Servidor de origem SQL         | 1433 (ou porta TCP IP que o SQL Server está escutando) | TCP          | Qualquer        | Espaço de endereço local | Allow      | Conectividade de origem do SQL Server do DMS <br/>(Se você tiver conectividade site a site, talvez não seja necessário usar essa regra.)                                                                                       |
 | Instância nomeada do SQL Server | 1434                                                  | UDP          | Qualquer        | Espaço de endereço local | Allow      | Conectividade de origem de instância nomeada do SQL Server do DMS <br/>(Se você tiver conectividade site a site, talvez não seja necessário usar essa regra.)                                                                        |
 | Compartilhamento SMB                 | 445                                                   | TCP          | Qualquer        | Espaço de endereço local | Allow      | Compartilhamento de rede SMB para que o DMS armazene arquivos de backup de banco de dados para migrações para o MI do Banco de Dados SQL do Azure e os SQL Servers na VM do Azure <br/>(Se você tiver conectividade site a site, talvez não seja necessária essa regra). |
 | DMS_subnet                | Qualquer                                                   | Qualquer          | Qualquer        | DMS_Subnet                | Allow      |                                                                                                                                                                                                  |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [Migrar SQL Server para o SQL Instância Gerenciada](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance)
 - [Visão geral dos pré-requisitos para usar o serviço de migração de banco de dados do Azure](https://docs.microsoft.com/azure/dms/pre-reqs)

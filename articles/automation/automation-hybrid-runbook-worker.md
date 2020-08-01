@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 69680fbb442b4e636b72f480ed21f36924362a13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4d29979e28140b728478d405db934cb41783f4b0
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024819"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448084"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Visão geral do Hybrid Runbook Worker
 
@@ -90,13 +90,13 @@ A Hybrid Runbook Worker de automação do Azure pode ser usada no Azure governam
 
 ## <a name="update-management-on-hybrid-runbook-worker"></a>Gerenciamento de Atualizações no Hybrid Runbook Worker
 
-Quando a [Gerenciamento de atualizações](automation-update-management.md) de automação do Azure estiver habilitada, qualquer computador conectado ao seu espaço de trabalho do log Analytics será configurado automaticamente como um Hybrid runbook Worker. Cada trabalho pode oferecer suporte a runbooks direcionados ao gerenciamento de atualizações.
+Quando a [Gerenciamento de atualizações](update-management/update-mgmt-overview.md) de automação do Azure estiver habilitada, qualquer computador conectado ao seu espaço de trabalho do log Analytics será configurado automaticamente como um Hybrid runbook Worker. Cada trabalho pode oferecer suporte a runbooks direcionados ao gerenciamento de atualizações.
 
 Uma máquina configurada dessa maneira não está registrada em nenhum grupo de Hybrid Runbook Worker já definido em sua conta de automação. Você pode adicionar o computador a um grupo de Hybrid Runbook Worker, mas deve usar a mesma conta para Gerenciamento de Atualizações e a associação de grupo de Hybrid Runbook Worker. Esta funcionalidade foi adicionada à versão 7.2.12024.0 do Hybrid Runbook Worker.
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Endereços de Gerenciamento de Atualizações para Hybrid Runbook Worker
 
-Além dos endereços e portas padrão necessários para o Hybrid Runbook Worker, Gerenciamento de Atualizações tem requisitos de configuração de rede adicionais descritos na seção [planejamento de rede](automation-update-management.md#ports) .
+Além dos endereços e portas padrão necessários para o Hybrid Runbook Worker, Gerenciamento de Atualizações tem requisitos de configuração de rede adicionais descritos na seção [planejamento de rede](update-management/update-mgmt-overview.md#ports) .
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>State Configuration da Automação do Azure em um Hybrid Runbook Worker
 

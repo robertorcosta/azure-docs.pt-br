@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72acf60bd9bc5baeba37d8ccffa79fe597954f16
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 04f97dc7296dd2ca9e9f869373cbf82838aa79f5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230376"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445327"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de lançamento de versões
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -47,6 +47,20 @@ Nem todas as versões do Azure AD Connect serão disponibilizadas para atualiza�
 >Se você tiver habilitado Azure AD Connect para sincronização, começará automaticamente a receber notificações de Integridade que avisam sobre substituições futuras quando estiver executando uma das versões mais antigas.
 >
 >Consulte [este artigo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) para saber mais sobre como atualizar o Azure AD Connect para a versão mais recente.
+
+## <a name="15450"></a>1.5.45.0
+
+### <a name="release-status"></a>Status de liberação
+07/29/2020: liberado para download
+
+### <a name="functional-changes"></a>Alterações funcionais
+Este é um lançamento de correção de bug. Não há nenhuma alteração funcional nesta versão.
+
+### <a name="fixed-issues"></a>Problemas corrigidos
+
+- Corrigido um problema em que o administrador não pode habilitar "logon único contínuo" se a conta de computador do AZUREADSSOACC já estiver presente no "Active Directory".
+- Correção de um problema que causou um erro de preparo durante a importação Delta da API v2 para um objeto conflitante que foi reparado por meio do portal de integridade.
+- Corrigido um problema na configuração de importação/exportação na qual a regra personalizada desabilitada foi importada como habilitada.
 
 ## <a name="15420"></a>1.5.42.0
 

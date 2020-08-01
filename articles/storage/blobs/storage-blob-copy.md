@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: f4e6e2f2732d1c90e8fe669788d82692c8016fd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce0c16d43e6de9bada5d747949e370eb83f85826
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463443"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446856"
 ---
 # <a name="copy-a-blob-with-net"></a>Copiar um blob com o .NET
 
@@ -23,7 +23,7 @@ Este artigo demonstra como copiar um blob com uma conta de armazenamento do Azur
 
 Quando você copia um blob dentro da mesma conta de armazenamento, é uma operação síncrona. Quando você copia entre contas, é uma operação assíncrona. Os métodos [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) e [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) retornam um valor de ID de cópia que é usado para verificar o status ou anular a operação de cópia.
 
-O blob de origem para uma operação de cópia pode ser um blob de blocos, um blob de acréscimo, um blob de páginas ou um instantâneo. Se o blob de destino já existir, ele deverá ser do mesmo tipo do blob de origem. Qualquer blob de destino existente será substituído. 
+O blob de origem para uma operação de cópia pode ser um blob de blocos, um blob de acréscimo, um blob de páginas ou um instantâneo. Se o blob de destino já existir, ele deverá ser do mesmo tipo do blob de origem. Um blob de destino existente será substituído.
 
 O blob de destino não pode ser modificado enquanto uma operação de cópia está em andamento. Um blob de destino pode ter apenas uma operação pendente de blob de cópia. Em outras palavras, um BLOB não pode ser o destino para várias operações de cópia pendentes.
 
@@ -35,18 +35,18 @@ Para todos os tipos de BLOB, você pode verificar a propriedade [CopyState. stat
 
 Uma operação de cópia pode ter qualquer uma das seguintes formas:
 
-  - É possível copiar um blob de origem em um blob de destino com outro nome. O blob de destino pode ser um blob existente do mesmo tipo de BLOB (bloco, acrescentar ou página) ou pode ser um novo BLOB criado pela operação de cópia.
-  - Você pode copiar um blob de origem para um blob de destino com o mesmo nome, substituindo efetivamente o blob de destino. Essa operação de cópia remove todos os blocos não confirmados e substitui os metadados do blob de destino.
-  - Você pode copiar um arquivo de origem no serviço de arquivo do Azure para um blob de destino. O blob de destino pode ser um blob de blocos existente ou pode ser um novo BLOB de blocos criado pela operação de cópia. Não há suporte para a cópia de arquivos para BLOBs de páginas ou BLOBs de acréscimo.
-  - Você pode copiar um instantâneo sobre seu blob de base. Promovendo um instantâneo para a posição do blob de base, você pode restaurar uma versão anterior de um blob.
-  - Você pode copiar um instantâneo para um blob de destino com um nome diferente. O blob de destino resultante é um blob gravável e não um instantâneo.
+- É possível copiar um blob de origem em um blob de destino com outro nome. O blob de destino pode ser um blob existente do mesmo tipo de BLOB (bloco, acrescentar ou página) ou pode ser um novo BLOB criado pela operação de cópia.
+- Você pode copiar um blob de origem para um blob de destino com o mesmo nome, substituindo efetivamente o blob de destino. Essa operação de cópia remove todos os blocos não confirmados e substitui os metadados do blob de destino.
+- Você pode copiar um arquivo de origem no serviço de arquivo do Azure para um blob de destino. O blob de destino pode ser um blob de blocos existente ou pode ser um novo BLOB de blocos criado pela operação de cópia. Não há suporte para a cópia de arquivos para BLOBs de páginas ou BLOBs de acréscimo.
+- Você pode copiar um instantâneo sobre seu blob de base. Promovendo um instantâneo para a posição do blob de base, você pode restaurar uma versão anterior de um blob.
+- Você pode copiar um instantâneo para um blob de destino com um nome diferente. O blob de destino resultante é um blob gravável e não um instantâneo.
 
 ## <a name="copy-a-blob"></a>Copiar um blob
 
 Para copiar um blob, chame um dos seguintes métodos:
 
- - [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
- - [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet)
+- [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
+- [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet)
 
 O exemplo de código a seguir obtém uma referência a um blob criado anteriormente e o copia para um novo BLOB no mesmo contêiner:
 

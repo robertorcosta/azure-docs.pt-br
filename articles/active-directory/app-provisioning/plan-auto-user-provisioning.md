@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: dd5248996661be6d4ace81afd7ab942ab70eb4ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cecea24fe002ee64d54052635a6d7dec982aeee2
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781626"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445646"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planejar uma implantação de provisionamento do usuário automática
 
@@ -256,7 +256,7 @@ Escolha as etapas que se alinham aos seus requisitos de solução.
 
 Quando o serviço de provisionamento do Azure AD é executado pela primeira vez, o ciclo inicial em relação ao sistema de origem e aos sistemas de destino cria um instantâneo de todos os objetos de usuário para cada sistema de destino.
 
-Ao habilitar o provisionamento automático para um aplicativo, o ciclo inicial pode levar de 20 minutos a várias horas. A duração depende do tamanho do diretório do Azure AD e do número de usuários no escopo para provisionamento. Veja [como melhorar o desempenho de provisionamento](../app-provisioning/application-provisioning-when-will-provisioning-finish.md).
+Ao habilitar o provisionamento automático para um aplicativo, o ciclo inicial pode levar de 20 minutos a várias horas. A duração depende do tamanho do diretório do Azure AD e do número de usuários no escopo para provisionamento.
 
 O serviço de provisionamento armazena o estado de ambos os sistemas após o ciclo inicial, melhorando o desempenho de ciclos incrementais subsequentes.
 
@@ -299,8 +299,6 @@ Consulte os links a seguir para solucionar quaisquer problemas que possam ser re
 * [Problema na configuração do provisionamento do usuário para um aplicativo de galeria do Azure AD](../app-provisioning/application-provisioning-config-problem.md)
 
 * [Sincronizar um atributo do seu Active Directory local com o Azure AD para provisionamento para um aplicativo](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
-
-* [O provisionamento do usuário para um aplicativo da Galeria do Azure AD está levando horas ou mais](../app-provisioning/application-provisioning-when-will-provisioning-finish.md)
 
 * [Problema para salvar as credenciais de administrador ao configurar o provisionamento do usuário para um aplicativo de galeria do Azure Active Directory](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
 

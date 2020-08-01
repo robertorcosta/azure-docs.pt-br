@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: eb5eb18351f6411a8049e962deed35e5d8f181d9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 62b60afb7dc4adb70a0963984ee7848ab056e823
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185238"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447827"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerenciar runbooks na Automação do Azure
 
@@ -226,7 +226,7 @@ Para usar um script personalizado:
 
 1. Crie uma conta da Automação e obtenha uma [Função de colaborador](automation-role-based-access-control.md).
 2. [Vincule a conta ao workspace do Azure](../security-center/security-center-enable-data-collection.md).
-3. Habilite o [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [Gerenciamento de Atualizações](automation-update-management.md) ou outro recurso da Automação. 
+3. Habilite o [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [Gerenciamento de Atualizações](update-management/update-mgmt-overview.md) ou outro recurso da Automação. 
 4. Se estiver em um computador Linux, você precisa de altas permissões. Faça logon para [desativar as verificações de assinatura](automation-linux-hrw-install.md#turn-off-signature-validation).
 
 ## <a name="test-a-runbook"></a>Testar um runbook

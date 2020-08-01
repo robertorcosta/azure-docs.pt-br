@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 3b86c249630f7bfa5c2d319577c66d750b0f6268
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 948ada46085d83c8cf453cdde23cb407ea2dd2d8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045915"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447713"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Linha de base de segurança do Azure para automação
 
@@ -220,7 +220,7 @@ Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a u
 
 * [Regiões compatíveis com o workspace do Log Analytics vinculado](./how-to/region-mappings.md)
 
-* [Logs de Gerenciamento de Atualizações de consulta](./automation-update-management-query-logs.md)
+* [Logs de Gerenciamento de Atualizações de consulta](./update-management/update-mgmt-query-logs.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -646,9 +646,9 @@ Ao usar Hybrid runbook Workers, os discos virtuais nas máquinas virtuais são c
 
 Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais do Azure, use o Azure Gerenciamento de Atualizações para gerenciar atualizações e patches para suas máquinas virtuais. Gerenciamento de Atualizações se baseia no repositório de atualização configurado localmente para corrigir os sistemas Windows com suporte. Ferramentas como System Center Updates Publisher (Updates Publisher) permitem que você publique atualizações personalizadas no Windows Server Update Services (WSUS). Esse cenário permite que Gerenciamento de Atualizações patch de máquinas que usam Configuration Manager como seu repositório de atualizações com software de terceiros.
 
-* [Gerenciamento de Atualizações no Azure](./automation-update-management.md)
+* [Gerenciamento de Atualizações no Azure](./update-management/update-mgmt-overview.md)
 
-* [Gerenciar atualizações e patches para as VMs do Azure](./automation-tutorial-update-management.md)
+* [Gerenciar atualizações e patches para suas VMs](./update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -660,9 +660,9 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais do Azure, poderá usar o Azure Gerenciamento de Atualizações para gerenciar atualizações e patches para suas máquinas virtuais. Gerenciamento de Atualizações se baseia no repositório de atualização configurado localmente para corrigir os sistemas Windows com suporte. Ferramentas como System Center Updates Publisher (Updates Publisher) permitem que você publique atualizações personalizadas no Windows Server Update Services (WSUS). Esse cenário permite que Gerenciamento de Atualizações os computadores de patch que usam Configuration Manager como seu repositório de atualizações com software de terceiros.
 
-* [Solução Gerenciamento de Atualizações no Azure](./automation-update-management.md)
+* [Solução Gerenciamento de Atualizações no Azure](./update-management/update-mgmt-overview.md)
 
-* [Gerenciar atualizações e patches para as VMs do Azure](./automation-tutorial-update-management.md)
+* [Gerenciar atualizações e patches para as VMs do Azure](./update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

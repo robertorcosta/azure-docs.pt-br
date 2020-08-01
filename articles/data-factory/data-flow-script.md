@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/02/2020
-ms.openlocfilehash: 27de2d3926a1f03cbd9169216e8f68c8ca81f2a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/29/2020
+ms.openlocfilehash: d28cd7a7edd5d6405761bf21ee87ec39dc9ec9cb
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84298594"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448537"
 ---
 # <a name="data-flow-script-dfs"></a>Script de fluxo de dados (DFS)
 
@@ -195,13 +195,21 @@ Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
 ```
 
 ### <a name="count-number-of-updates-upserts-inserts-deletes"></a>Número de contagem de atualizações, upserts, inserções, exclusões
-Ao usar uma transformação ALTER Row, talvez você queira contar o número de atualizações, upserts, inserções, que resultam de suas políticas de alteração de linha. Adicione uma transformação Agregação após a alteração da linha e cole esse script de fluxo de dados na definição de agregação para essas contagens:
+Ao usar uma transformação ALTER Row, talvez você queira contar o número de atualizações, upserts, inserções, que resultam de suas políticas de alteração de linha. Adicione uma transformação Agregação após a alteração de linha e cole esse script de fluxo de dados na definição de agregação para essas contagens.
 
 ```
 aggregate(updates = countIf(isUpdate(), 1),
         inserts = countIf(isInsert(), 1),
         upserts = countIf(isUpsert(), 1),
         deletes = countIf(isDelete(),1)) ~> RowCount
+```
+
+### <a name="distinct-row-using-all-columns"></a>Linha distinta usando todas as colunas
+Esse trecho de código adicionará uma nova transformação agregada ao fluxo de dados que usará todas as colunas de entrada, gerará um hash que é usado para o agrupamento para eliminar duplicatas e, em seguida, fornecerá a primeira ocorrência de cada duplicata como saída. Você não precisa nomear explicitamente as colunas, elas serão geradas automaticamente de seu fluxo de dados de entrada.
+
+```
+aggregate(groupBy(mycols = sha2(256,columns())),
+    each(match(true()), $$ = first($$))) ~> DistinctRows
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

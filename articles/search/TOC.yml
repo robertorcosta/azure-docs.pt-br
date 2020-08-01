@@ -110,6 +110,11 @@
           href: knowledge-store-projection-overview.md
         - name: Enriquecimento adicional
           href: cognitive-search-incremental-indexing-conceptual.md
+    - name: Segurança
+      items:
+        - name: Controles de segurança do Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
 - name: Guias de instruções
   items:
     - name: Criar índices e constructos
@@ -513,5 +518,5 @@
       href: search-faq-frequently-asked-questions.md
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/search/'
-    - name: vídeos
+    - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

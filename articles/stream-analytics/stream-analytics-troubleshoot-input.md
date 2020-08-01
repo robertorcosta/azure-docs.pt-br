@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3cac20e33ff865058ce41799ae8841a05716edc9
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f4f79a28dbe8a49e608ca6fae1781a1e19646619
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045069"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448885"
 ---
 # <a name="troubleshoot-input-connections"></a>Solucionar problemas de conexões de entrada
 
@@ -160,6 +160,10 @@ UNION
 SELECT foo FROM DataTwo
 
 ```
+
+## <a name="readers-per-partition-exceeds-iot-hub-limit"></a>Os leitores por partição excedem o limite do Hub IoT
+
+Stream Analytics trabalhos usam o [ponto de extremidade compatível com o Hub de eventos](../iot-hub/iot-hub-devguide-messages-read-builtin.md) interno do Hub IOT para se conectar e ler eventos do Hub IOT. Se sua leitura por partição exceder os limites do Hub IoT, você poderá usar as [soluções para o Hub de eventos](#readers-per-partition-exceeds-event-hubs-limit) para resolvê-lo. Você pode criar um grupo de consumidores para o ponto de extremidade interno por meio da sessão de ponto de extremidade do portal do Hub IoT ou por meio do [SDK do Hub IOT](https://docs.microsoft.com/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup).
 
 ## <a name="get-help"></a>Obter ajuda
 

@@ -10,36 +10,36 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: c3f9f96c6429d4925c60a56cd450a9c2ee7dde24
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 1193e6f9ed637f6bd28b2fef6488b2d4902ec67b
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419947"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87459378"
 ---
 # <a name="configure-password-based-single-sign-on"></a>Configurar logon único baseado em senha
 
-Na [série de guias de início rápido](view-applications-portal.md) sobre o gerenciamento de aplicativos, você aprendeu a usar o Azure ad como o IDP (provedor de identidade) para um aplicativo. No guia de início rápido, você configura o SSO baseado em SAML. Além do SAML, há uma opção para o SSO baseado em senha. Este artigo apresenta mais detalhes sobre a opção baseada em senha para logon único. 
+Na [série de guias de início rápido](view-applications-portal.md) sobre o gerenciamento de aplicativos, você aprendeu a usar o Azure ad como o IDP (provedor de identidade) para um aplicativo. No guia de início rápido, você configura o SSO baseado em SAML. Outra opção é o SSO baseado em senha. Este artigo apresenta mais detalhes sobre a opção de SSO baseado em senha. 
 
-Essa opção está disponível para qualquer site com uma página de entrada HTML. O SSO baseado em senha, também conhecido como armazenamento de senha em cofre, permite que você gerencie o acesso de usuários e senhas para aplicativos Web que não dão suporte a federação de identidades. Também é útil para cenários em que vários usuários precisam compartilhar uma única conta, como as contas de aplicativo de mídia social da sua organização. 
+Essa opção está disponível para qualquer site com uma página de entrada HTML. O SSO baseado em senha também é conhecido como compartimentação de senha. O SSO baseado em senha permite que você gerencie o acesso do usuário e as senhas para aplicativos Web que não dão suporte à Federação de identidade. Também é útil quando vários usuários precisam compartilhar uma única conta, como as contas de aplicativo de mídia social da sua organização.
 
 O SSO baseado em senha é uma ótima maneira de começar a integrar aplicativos ao Azure AD rapidamente e permite que você:
 
-- Habilite o logon único para seus usuários armazenando e reproduzindo com segurança nomes de usuário e senhas para o aplicativo que você integrou ao Azure AD
+- Habilite o logon único para seus usuários armazenando e reproduzindo com segurança nomes de usuário e senhas
 
 - Dar suporte a aplicativos que exigem vários campos de entrada, para aplicativos que exigem mais do que apenas os campos de nome de usuário e senha para entrar
 
-- Personalizar os rótulos dos campos de entrada de nome de usuário e senha que seus usuários veem no [Painel de Acesso do Aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) quando digitam suas credenciais
+- Personalize os rótulos dos campos de nome de usuário e senha que os usuários veem no [painel de acesso do aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) quando inserem suas credenciais
 
 - Permita que os usuários forneçam seus próprios nomes de usuário e senhas para as contas de aplicativos existentes que estão digitando manualmente.
 
 - Permitir que um membro do grupo de negócios especifique os nomes de usuário e senhas atribuídos a um usuário usando o recurso de [Autoatendimento de Acesso ao Aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
 
--   Permitir que um administrador especifique um nome de usuário e uma senha a serem usados por indivíduos ou grupos ao entrar no aplicativo usando o recurso atualizar credenciais 
+-   Permitir que um administrador especifique um nome de usuário e uma senha a serem usados por indivíduos ou grupos ao entrar no aplicativo com o recurso atualizar credenciais 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Usar o Azure AD como seu provedor de identidade e configurar o SSO (logon único) pode ser simples ou complexo dependendo do aplicativo que está sendo usado. Alguns aplicativos podem ser configurados com apenas algumas ações. Outros exigem configuração detalhada. Para aumentar rapidamente, percorra a [série de guias de início rápido](view-applications-portal.md) sobre o gerenciamento de aplicativos. Se o aplicativo que você está adicionando for simples, provavelmente você não precisará ler este artigo. Se o aplicativo que você está adicionando requer configuração personalizada e você precisa usar o SSO baseado em senha, este artigo é para você.
+Usar o Azure AD como seu IdP (provedor de identidade) e configurar o SSO (logon único) pode ser simples ou complexo, dependendo do aplicativo que está sendo usado. Alguns aplicativos podem ser configurados com apenas algumas ações. Outros exigem configuração detalhada. Para aumentar rapidamente, percorra a [série de guias de início rápido](view-applications-portal.md) sobre o gerenciamento de aplicativos. Se o aplicativo que você está adicionando for simples, provavelmente você não precisará ler este artigo. Se o aplicativo que você está adicionando requer configuração personalizada e você precisa usar o SSO baseado em senha, este artigo é para você.
 
 > [!IMPORTANT] 
 > Há alguns cenários em que a opção de **logon único** não estará na navegação de um aplicativo em **aplicativos empresariais**. 
@@ -51,13 +51,13 @@ Usar o Azure AD como seu provedor de identidade e configurar o SSO (logon único
 
 ## <a name="basic-configuration"></a>Configuração básica
 
-Na [série de início rápido](view-applications-portal.md), você aprendeu a adicionar um aplicativo ao seu locatário para que o Azure ad saiba que ele está sendo usado como o IDP (provedor de identidade) para o aplicativo. Alguns aplicativos já estão pré-configurados e aparecem na galeria do Azure AD. Outros aplicativos não estão na galeria e você precisa criar um aplicativo genérico e configurá-lo manualmente. Dependendo do aplicativo, a opção SSO baseado em senha pode não estar disponível. Se você não vir a lista de opções baseadas em senha na página logon único do aplicativo, ela não estará disponível.
+Na [série de início rápido](view-applications-portal.md), você aprendeu a adicionar um aplicativo ao seu locatário, o que permite que o Azure ad saiba que ele está sendo usado como o IDP (provedor de identidade) para o aplicativo. Alguns aplicativos já estão pré-configurados e aparecem na galeria do Azure AD. Outros aplicativos não estão na galeria e você precisa criar um aplicativo genérico e configurá-lo manualmente. Dependendo do aplicativo, a opção SSO baseado em senha pode não estar disponível. Se você não vir a lista de opções baseadas em senha na página logon único do aplicativo, ela não estará disponível.
 
 A página de configuração para o SSO baseado em senha é simples. Ele inclui apenas a URL da página de logon que o aplicativo usa. Essa cadeia de caracteres deve ser a página que inclui o campo de entrada nome de usuário.
 
 Depois de inserir a URL, selecione **salvar**. O Azure AD analisa o HTML da página de entrada para campos de entradas de nome de usuário e senha. Se a tentativa for bem-sucedida, você terminará.
  
-A próxima etapa é [atribuir usuários ou grupos ao aplicativo](methods-for-assigning-users-and-groups.md). Depois de atribuir usuários e grupos, você pode fornecer credenciais a serem usadas em nome de um usuário quando eles fizerem logon no aplicativo. Selecione **usuários e grupos**, marque a caixa de seleção da linha do usuário ou do grupo e, em seguida, selecione **Atualizar credenciais**. Em seguida, insira o nome de usuário e a senha a serem usados em nome do grupo de usuários ou grupos. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
+A próxima etapa é [atribuir usuários ou grupos ao aplicativo](methods-for-assigning-users-and-groups.md). Depois de atribuir usuários e grupos, você pode fornecer credenciais a serem usadas para um usuário quando eles entrarem no aplicativo. Selecione **usuários e grupos**, marque a caixa de seleção da linha do usuário ou do grupo e, em seguida, selecione **Atualizar credenciais**. Por fim, insira o nome de usuário e a senha a serem usados para os usuários ou grupos. Se você não fizer isso, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
  
 
 ## <a name="manual-configuration"></a>Configuração manual

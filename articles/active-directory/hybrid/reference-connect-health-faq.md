@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0c6484f46731e0ff2d16d00cb0038202511d193
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 427a09f3855d44af0206ebf1fd6183099da75f19
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80331071"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446982"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas frequentes do Azure AD Connect Health
 Este artigo inclui respostas para FAQs (perguntas frequentes) sobre o Azure AD (Azure Active Directory) Connect Health. Essas perguntas frequentes abordam perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
@@ -68,10 +68,10 @@ Não há suporte para o Azure AD Connect Health na nuvem da Alemanha, exceto par
 
 | Funções | Recursos | Há suporte na nuvem da Alemanha |
 | ------ | --------------- | --- |
-| Connect Health para sincronização | Monitoramento/insights/alertas/análise | Não |
-|  | Relatório de erros de sincronização | Sim |
-| Connect Health para ADFS | Monitoramento/insights/alertas/análise | Não |
-| Connect Health para ADDS | Monitoramento/insights/alertas/análise | Não |
+| Connect Health para sincronização | Monitoramento/insights/alertas/análise | No |
+|  | Relatório de erros de sincronização | Yes |
+| Connect Health para ADFS | Monitoramento/insights/alertas/análise | No |
+| Connect Health para ADDS | Monitoramento/insights/alertas/análise | No |
 
 Para garantir a conectividade do agente do Connect Health para sincronização, configure o [requisito de instalação](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) corretamente.
 
@@ -135,7 +135,7 @@ O agente de integridade não conseguirá registrar devido a motivos possíveis:
 
 * O agente não pode se comunicar com os pontos de extremidade necessários porque um firewall está bloqueando o tráfego. Isso é especialmente comum em servidores proxy de aplicativo Web. Cerifique de ter permitido a comunicação de saída para as portas e os pontos de extremidade necessários. Consulte a [seção requisitos](how-to-connect-health-agent-install.md#requirements) para obter detalhes.
 * A comunicação de saída está sujeita a uma inspeção de TLS pela camada de rede. Isso faz com que o certificado usado pelo agente seja substituído por entidade/servidor de inspeção e ocorre falha nas etapas necessárias para concluir o registro do agente.
-* O usuário não tem acesso para executar o registro do agente. Por padrão, os administradores globais têm acesso. Você pode usar [controle de acesso com base em função](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) para delegar acesso a outros usuários.
+* O usuário não tem acesso para executar o registro do agente. Por padrão, os administradores globais têm acesso. Você pode usar o [controle de acesso baseado em função do Azure (RBAC do Azure)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) para delegar acesso a outros usuários.
 
 **P: Estou recebendo um alerta de que "Serviço de Integridade dados não estão atualizados". Como fazer solucionar o problema?**
 

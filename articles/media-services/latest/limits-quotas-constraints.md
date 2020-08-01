@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: juliako
-ms.openlocfilehash: e358742635d9ed939bbc62bb0d54e8169382e7de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c2845cd0fad8375db67d1aa86333f144222dc0aa
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043487"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446327"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Cotas e limites dos serviços de mídia do Azure
@@ -28,21 +28,21 @@ Este artigo lista alguns dos limites de Serviços de Mídia do Microsoft Azure m
 
 ## <a name="account-limits"></a>Limites de conta
 
-| Recurso | Limite padrão | 
-| --- | --- | 
+| Recurso | Limite padrão |
+| --- | --- |
 | [Contas de serviços de mídia](media-services-account-concept.md) em uma única assinatura | 25 (fixo) |
 
 ## <a name="asset-limits"></a>Limites de ativo
 
-| Recurso | Limite padrão | 
-| --- | --- | 
+| Recurso | Limite padrão |
+| --- | --- |
 | [Ativos](assets-concept.md) por conta de serviços de mídia | 1\.000.000|
 
 ## <a name="storage-limits"></a>Limites de armazenamento
 
 | Recurso | Limite padrão | 
 | --- | --- | 
-| Tamanho do arquivo| Em alguns cenários, há um limite no tamanho máximo de arquivo com suporte para o processamento nos Serviços de Mídia. <sup>uma</sup> |
+| Tamanho do arquivo| Em alguns cenários, há um limite no tamanho máximo de arquivo com suporte para o processamento nos Serviços de Mídia. <sup>(1)</sup> |
 | [Contas de armazenamento](storage-account-concept.md) | 100<sup>(2)</sup> (fixo) |
 
 <sup>1</sup> O tamanho máximo com suporte para um único blob atualmente é de até 5 TB no Azure Blob Storage. Limites adicionais se aplicam aos serviços de mídia com base nos tamanhos de VM que são usados pelo serviço. O limite de tamanho se aplica aos arquivos que você carrega e também aos arquivos que são gerados como resultado do processamento de serviços de mídia (codificação ou análise). Se o arquivo de origem for maior que 260 GB, o trabalho provavelmente falhará. 
@@ -86,9 +86,10 @@ Qualquer registro de Trabalho em sua conta com mais de 90 dias será excluído a
 
 ## <a name="packaging--delivery-limits"></a>Limites de entrega de & de empacotamento
 
-| Recurso | Limite padrão | 
-| --- | --- | 
+| Recurso | Limite padrão |
+| --- | --- |
 | [Pontos de extremidade de streaming](streaming-endpoint-concept.md) (interrompidos ou em execução) por conta de serviços de mídia|2 |
+| Unidades de streaming Premium | 10 |
 | [Filtros de Manifesto Dinâmico](filters-dynamic-manifest-overview.md)|100|
 | [Políticas de streaming](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | [Localizadores de streaming](streaming-locators-concept.md) exclusivos associados a um ativo ao mesmo tempo | 100<sup>(7)</sup> (fixo) |

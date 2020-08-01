@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 2e787bb494c1e919a235b762b4d8c5250c8cda61
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6a49497cbe71dddb8ab6e76be9b3679dd62b0cee
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321608"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449029"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar o acesso a um espaço de trabalho do Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -369,7 +369,7 @@ Eles também podem ser encontrados na lista de [operações do provedor de recur
 
 ### <a name="q-what-are-some-common-gotchas-when-using-azure-rbac"></a>Q. Quais são algumas armadilhas comuns ao usar o RBAC do Azure?
 
-Aqui estão algumas coisas que você deve conhecer enquanto usa controles de acesso com base em função do Azure:
+Aqui estão algumas coisas que você deve conhecer enquanto usa o controle de acesso baseado em função do Azure (RBAC do Azure):
 
 - Quando você cria um recurso no Azure, digamos um espaço de trabalho, você não é diretamente o proprietário do espaço de trabalho. Sua função é herdada da função de escopo mais alta na qual você está autorizado nessa assinatura. Como exemplo, se você for um administrador de rede e tiver as permissões para criar um espaço de trabalho Machine Learning, a função de administrador de rede será atribuída a esse espaço de trabalho e não à função proprietário.
 - Quando há duas atribuições de função para o mesmo usuário do AAD com seções conflitantes de ações/não ações, suas operações listadas em ações de uma função podem não ter efeito se elas também estiverem listadas como ações em outra função. Para saber mais sobre como o Azure analisa as atribuições de função, leia [como o RBAC do Azure determina se um usuário tem acesso a um recurso](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)

@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 03/20/2019
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ace8d170a5ba48c00775c3b376df8bb70a337d5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31388f27eddcef2c75d4ad4d2030655b35f6aa1c
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76897043"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446959"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: histórico de lançamento de versão
 A equipe do Active Directory do Azure atualiza regularmente o Azure AD Connect Health com novos recursos e funcionalidades. Este artigo lista as versões e os recursos que foram lançados.  
@@ -109,7 +109,7 @@ O Azure Active Directory Connect Health para sincronização é integrado com a 
   1. Hotfix para o gerenciamento de memória do agente e alertas relacionados especificamente para a versão 3.0.244.0
 
 
-## <a name="may-2018"></a>Mai 2018
+## <a name="may-2018"></a>Maio de 2018
 **Atualização do agente:**
 * Agente do Azure AD Connect Health para AD DS (versão 3.0.244.0)
   1. Melhoria da privacidade do agente  
@@ -217,7 +217,7 @@ O Azure Active Directory Connect Health para sincronização é integrado com a 
 ## <a name="november-2015"></a>Novembro de 2015
 **Novos recursos:**
 
-* Suporte ao [Controle de Acesso Baseado em Função](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
+* Suporte para [controle de acesso baseado em função do Azure (RBAC do Azure)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
 
 **Novos recursos de visualização:**
 
@@ -253,4 +253,3 @@ O Azure Active Directory Connect Health para sincronização é integrado com a 
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Monitorar a infraestrutura de identidade local e os serviços de sincronização na nuvem](whatis-hybrid-identity-health.md).
-

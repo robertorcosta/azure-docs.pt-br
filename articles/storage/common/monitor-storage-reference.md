@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: fa8838dd5eca03d9dd85e424f0163eb9ca8ed5e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 28a127b4debeacd2562867008bc594897558d50d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077848"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446845"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Referência de dados de monitoramento do Azure Storage
 
@@ -87,7 +87,7 @@ As métricas de transação são emitidas, do Armazenamento do Azure para o Azur
 
 O Armazenamento do Azure fornece as seguintes métricas de transação no Azure Monitor.
 
-| Métrica | Descrição |
+| Métrica | Description |
 | ------------------- | ----------------- |
 | Transactions | O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensões aplicáveis: ResponseType, GeoType, ApiName e autenticação ([definição](#metrics-dimensions))<br/> Exemplo de valor: 1024 |
 | Entrada | A quantidade de dados de entrada. Esse número inclui a entrada de um cliente externo no Armazenamento do Azure, bem como a entrada no Azure. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensões aplicáveis: GeoType, ApiName e autenticação ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 1024 |
@@ -104,7 +104,7 @@ O Armazenamento do Azure oferece suporte às seguintes dimensões para métricas
 
 | Nome da dimensão | Descrição |
 | ------------------- | ----------------- |
-| **BlobType** | O tipo de blob somente para métricas de Blob. Os valores com suporte são **BlockBlob**, **PageBlob** e **Azure Data Lake Storage**. Acrescentar Blob está incluído no BlockBlob. |
+| **BlobType** | O tipo de blob somente para métricas de Blob. Os valores com suporte são **BlockBlob**, **PageBlob** e **Azure Data Lake Storage**. Os blobs de acréscimo estão incluídos no **BlockBlob**. |
 | **BlobTier** | O Armazenamento do Azure oferece diferentes camadas de acesso que permitem armazenar dados de objeto Blob da maneira mais econômica. Confira mais informações em [Camada de blob de armazenamento do Microsoft Azure](../blobs/storage-blob-storage-tiers.md). Os valores com suporte incluem: <br/> <li>**Frequente**: Camada frequente</li> <li>**Esporádico**: Camada esporádica</li> <li>**Arquivar**: Camada de arquivo</li> <li>**Premium**: Camada Premium para blob de blocos</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tipos de camada para o Blob de páginas premium</li> <li>**Standard**: Tipo de camada para o Blob de páginas padrão</li> <li>**Sem camadas**: Tipo de camada de conta de armazenamento v1 de uso geral</li> |
 | **GeoType** | Transação de cluster primário ou secundário. Os valores disponíveis incluem **Primário** e **Secundário**. Aplica-se ao acesso de leitura ao armazenamento com redundância geográfica (RA-GRS) ao ler objetos de um locatário secundário. |
 | **ResponseType** | Tipo de resposta da transação. Os valores disponíveis incluem: <br/><br/> <li>**ServerOtherError**: Todos os outros erros do lado do servidor, exceto aqueles descritos </li> <li>**ServerBusyError**: Solicitação autenticada que retornou um código de status HTTP 503. </li> <li>**ServerTimeoutError**: Solicitação autenticada de tempo limite que retornou um código de status HTTP 500. O tempo limite foi ultrapassado devido a um erro no servidor. </li> <li>**AuthorizationError**: Solicitação autenticada que falhou devido a um acesso não autorizado de dados ou a uma falha de autorização. </li> <li>**NetworkError**: Solicitação autenticada que falhou devido a erros de rede. Geralmente ocorre quando um cliente fecha prematuramente uma conexão antes da expiração do tempo limite. </li><li>**ClientAccountBandwidthThrottlingError**: A solicitação é limitada na largura de banda por exceder os [limites de escalabilidade da conta de armazenamento](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError**: A solicitação é limitada na taxa de solicitação por exceder os [limites de escalabilidade da conta de armazenamento](scalability-targets-standard-account.md).<li>**ClientThrottlingError**: Outro erro de limitação do cliente. ClientAccountBandwidthThrottlingError e ClientAccountRequestThrottlingError são excluídos.</li> <li>**ClientTimeoutError**: Solicitação autenticada de tempo limite que retornou um código de status HTTP 500. Se o tempo limite de rede do cliente ou o tempo limite da solicitação for definido como um valor menor do que o esperado pelo serviço de armazenamento, ele é considerado um tempo limite esperado. Caso contrário, ele será relatado como um ServerTimeoutError. </li> <li>**ClientOtherError**: Todos os outros erros do lado do cliente, exceto aqueles descritos. </li> <li>**Êxito**: Solicitação bem-sucedida</li> <li> **SuccessWithThrottling**: Solicitação bem-sucedida quando um cliente SMB é limitado na primeira tentativa, mas é bem-sucedido após novas tentativas.</li> |

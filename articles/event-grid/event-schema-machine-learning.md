@@ -3,12 +3,12 @@ title: Azure Machine Learning como fonte da grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos de Workspace do Machine Learning com a grade de eventos do Azure
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: e256dbcef8c4e4a1354455843e4466d666c7d7b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb8cd76829622962b642580bbda7f2a655604c2f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090664"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87458035"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning como uma fonte de grade de eventos
 
@@ -186,7 +186,7 @@ Esta seção mostra um exemplo de como os dados seriam para cada evento.
 
 Um evento tem os seguintes dados de nível superior:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 | -------- | ---- | ----------- |
 | topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
 | subject | string | Caminho definido pelo publicador para o assunto do evento. |
@@ -257,11 +257,11 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 ## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
 | Título | Descrição |
 | ----- | ----- |
-| [Consumir Azure Machine Learning eventos](../machine-learning/concept-event-grid-integration.md) | Visão geral da integração de Azure Machine Learning com a grade de eventos. |
+| [Consumir Azure Machine Learning eventos](../machine-learning/how-to-use-event-grid.md) | Visão geral da integração de Azure Machine Learning com a grade de eventos. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para ver uma introdução à Grade de Eventos do Azure, confira [O que é uma Grade de eventos?](overview.md)
 * Para obter mais informações sobre como criar uma assinatura da grade de eventos do Azure, consulte [esquema de assinatura da grade de eventos](subscription-creation-schema.md)
-* Para obter uma introdução ao uso da grade de eventos do Azure com o Azure Machine Learning, consulte [consumir Azure Machine Learning eventos](/azure/machine-learning/concept-event-grid-integration)
-* Para obter um exemplo de como usar a grade de eventos do Azure com Azure Machine Learning, consulte [criar fluxos de trabalho de aprendizado de máquina direcionados a eventos](/azure/machine-learning/how-to-use-event-grid)
+* Para obter uma introdução ao uso da grade de eventos do Azure com o Azure Machine Learning, consulte [consumir Azure Machine Learning eventos](../machine-learning/how-to-use-event-grid.md)
+* Para obter um exemplo de como usar a grade de eventos do Azure com Azure Machine Learning, consulte [criar fluxos de trabalho de aprendizado de máquina direcionados a eventos](../machine-learning/how-to-use-event-grid.md)

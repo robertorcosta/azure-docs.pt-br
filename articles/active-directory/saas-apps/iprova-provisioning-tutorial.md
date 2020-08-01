@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: b914292e03078021c02d777505543a537b50260f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16cba1896a9e9e4038091769fb78ca0c0469710e
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367607"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448832"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Tutorial: configurar o iProva para o provisionamento automático de usuário
 
@@ -114,7 +114,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Salvar).
+7. Clique em **Salvar**.
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para iProva**.
 
@@ -123,34 +123,33 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
    |Atributo|Type|
    |---|---|
    |ativo|Boolean|
-   |displayName|String|
-   |título|String|
+   |displayName|Cadeia de caracteres|
+   |título|Cadeia de caracteres|
    |emails[type eq "work"].value|String|
-   |preferredLanguage|String|
-   |userName|String|
+   |preferredLanguage|Cadeia de caracteres|
+   |userName|Cadeia de caracteres|
    |addresses[type eq "work"].country|String|
-   |addresses[type eq "work"].locality|String|
-   |addresses[type eq "work"].postalCode|String|
-   |addresses[type eq "work"].formatted|String|
-   |addresses[type eq "work"].region|String|
-   |addresses[type eq "work"].streetAddress|String|
-   |endereços [tipo EQ "other"]. formatado|String|
-   |name.givenName|String|
-   |name.familyName|String|
-   |name.formatted|String|
-   |phoneNumbers[type eq "fax"].value|String|
-   |phoneNumbers[type eq "mobile"].value|String|
-   |phoneNumbers[type eq "work"].value|String|
-   |externalId|String|
-   |funções [EQ principal "true"]. display|String|
-   |funções [EQ principal "true"]. Type|String|
-   |funções [EQ principal "true"]. valor|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
+   |addresses[type eq "work"].locality|Cadeia de caracteres|
+   |addresses[type eq "work"].postalCode|Cadeia de caracteres|
+   |addresses[type eq "work"].formatted|Cadeia de caracteres|
+   |addresses[type eq "work"].region|Cadeia de caracteres|
+   |addresses[type eq "work"].streetAddress|Cadeia de caracteres|
+   |endereços [tipo EQ "other"]. formatado|Cadeia de caracteres|
+   |name.givenName|Cadeia de caracteres|
+   |name.familyName|Cadeia de caracteres|
+   |name.formatted|Cadeia de caracteres|
+   |phoneNumbers[type eq "fax"].value|Cadeia de caracteres|
+   |phoneNumbers[type eq "mobile"].value|Cadeia de caracteres|
+   |phoneNumbers[type eq "work"].value|Cadeia de caracteres|
+   |externalId|Cadeia de caracteres|
+   |funções [EQ principal "true"]. display|Cadeia de caracteres|
+   |funções [EQ principal "true"]. Type|Cadeia de caracteres|
+   |funções [EQ principal "true"]. valor|Cadeia de caracteres|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|Cadeia de caracteres|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|Cadeia de caracteres|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|Cadeia de caracteres|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|Cadeia de caracteres|
 
 
 10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para iProva**.

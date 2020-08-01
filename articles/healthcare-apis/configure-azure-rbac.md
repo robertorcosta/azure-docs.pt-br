@@ -1,5 +1,5 @@
 ---
-title: Configurar o RBAC (controle de acesso baseado em função) do Azure para a API do Azure para FHIR
+title: Configurar o controle de acesso baseado em função do Azure (RBAC do Azure) para a API do Azure para FHIR
 description: Este artigo descreve como configurar o RBAC do Azure para a API do Azure para o plano de dados do FHIR
 author: hansenms
 ms.service: healthcare-apis
@@ -7,16 +7,16 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: mihansen
-ms.openlocfilehash: 3fbbfd931efb0e570bc96639bc6b7943fddc0237
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a3cdb5a640e09c0095db79f5e3a43b455a1a5705
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417668"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447160"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>Configurar o RBAC do Azure para FHIR 
 
-Neste artigo, você aprenderá a usar o [RBAC (controle de acesso baseado em função) do Azure](https://docs.microsoft.com/azure/role-based-access-control/) para atribuir acesso à API do Azure para o plano de dados FHIR. O RBAC do Azure é o método preferencial para atribuir acesso ao plano de dados quando os usuários do plano de dados são gerenciados no locatário Azure Active Directory associado à sua assinatura do Azure. Se você estiver usando um locatário de Azure Active Directory externo, consulte a [referência de atribuição de RBAC local](configure-local-rbac.md).
+Neste artigo, você aprenderá a usar o [Azure RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/role-based-access-control/) para atribuir acesso à API do Azure para o plano de dados FHIR. O RBAC do Azure é o método preferencial para atribuir acesso ao plano de dados quando os usuários do plano de dados são gerenciados no locatário Azure Active Directory associado à sua assinatura do Azure. Se você estiver usando um locatário de Azure Active Directory externo, consulte a [referência de atribuição de RBAC local](configure-local-rbac.md).
 
 ## <a name="confirm-azure-rbac-mode"></a>Confirmar modo de RBAC do Azure
 
