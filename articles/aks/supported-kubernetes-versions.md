@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: fc50934b4c301b4eea509ecc22e00c62ca091d75
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 273c41a523de8b2776982e5229c5a8b618b82c19
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056553"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475185"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões do Kubernetes com suporte no AKS (Serviço de Kubernetes do Azure)
 
@@ -91,6 +91,14 @@ New Supported Version List
 1.17.*9*, 1.17.*8*, 1.16.*11*, 1.16.*10*
 ```
 
+### <a name="supported-kubectl-versions"></a>Versões com suporte `kubectl`
+
+Você pode usar uma versão secundária mais antiga ou mais nova de `kubectl` em relação à sua versão do *Kube-apiserver* , que é consistente com a [política de suporte do kubernetes para kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
+
+Por exemplo, se seu *Kube-apiserver* estiver em *1,17*, você poderá usar as versões *1,16* a *1,18* de `kubectl` com esse *Kube-apiserver*.
+
+Para instalar ou atualizar sua versão do `kubectl` , execute `az aks install-cli` .
+
 ## <a name="release-and-deprecation-process"></a>Processo de liberação e de reprovação
 
 Você pode fazer referência a versões e substituições futuras da versão no calendário de versões do [AKs kubernetes](#aks-kubernetes-release-calendar).
@@ -120,7 +128,6 @@ Para descobrir quais versões estão disponíveis atualmente para sua assinatura
 ```azurecli-interactive
 az aks get-versions --location eastus --output table
 ```
-
 
 ## <a name="aks-kubernetes-release-calendar"></a>Calendário de versão do AKS kubernetes
 

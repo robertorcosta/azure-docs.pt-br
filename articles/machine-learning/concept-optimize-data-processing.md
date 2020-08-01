@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: b0badd92a3156f76f99bf1f48fca2093a2bca2f5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f95c4256f4a0a3fdf410efecf9c22d578d1963a2
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012630"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461792"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Otimizar o processamento de dados com Azure Machine Learning
 
@@ -51,7 +51,7 @@ Para várias CPUs virtuais, vCPU, tenha em mente que você deseja que uma parti�
 
 Se não for possível adicionar mais RAM ao seu computador, você poderá aplicar as seguintes técnicas para ajudar a minimizar as cargas de trabalho de CPU e otimizar os tempos de processamento. Essas recomendações pertencem a sistemas únicos e distribuídos.
 
-Técnica | Descrição
+Técnica | Description
 ----|----
 Compactação | Use uma representação diferente para seus dados, de forma que use menos memória e não afete significativamente os resultados do seu cálculo.<br><br>*Exemplo:* Em vez de armazenar entradas como uma cadeia de caracteres com cerca de 10 bytes ou mais por entrada, armazene-as como um booliano, true ou false, que você pode armazenar em 1 byte.
 Agrupamento | Carregar dados na memória em subconjuntos (partes), processar os dados de um subconjunto no tempo ou vários subconjuntos em paralelo. Esse método funciona melhor se você precisa processar todos os dados, mas não precisa carregar todos os dados na memória de uma só vez. <br><br>*Exemplo:* Em vez de processar os dados de um ano inteiro de uma vez, carregue e processe os dados de um mês por vez.
@@ -82,4 +82,4 @@ Você pode criar `Dask` clusters no cluster de computação do Azure ml com o pa
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Opções de ingestão de dados com Azure Machine Learning](concept-data-ingestion.md).
-* [Ingestão de dados com Azure data Factory](how-to-data-ingest-adf.md).
+* [Criar e registrar conjuntos de](how-to-create-register-datasets.md)os.

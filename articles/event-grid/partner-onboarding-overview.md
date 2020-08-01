@@ -3,12 +3,12 @@ title: Integração como um parceiro de Grade de Eventos do Azure
 description: Integração como um tipo de tópico de parceiro de grade de eventos do Azure. Entenda o modelo de recurso e o fluxo de publicação para tópicos de parceiros.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8003e3e6a28b0e6a05d553be01c171029e244d74
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bf4534849ae29d89524a877ca410d25c74637c94
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116107"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461248"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner"></a>Integração como um parceiro de Grade de Eventos do Azure
 
@@ -155,8 +155,8 @@ Após o lançamento no ponto de extremidade partnerNamespace, você receberá um
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
   * [Modelo de ARM](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)
   * [Esquema de modelo ARM](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
-  * [APIs REST](https://docs.microsoft.com/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
-  * [Extensão da CLI](https://docs.microsoft.com/cli/azure/ext/eventgrid/?view=azure-cli-latest)
+  * [APIs REST](/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
+  * [Extensão da CLI](/cli/azure/ext/eventgrid/?view=azure-cli-latest)
 
 ### <a name="sdks"></a>SDKs
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)

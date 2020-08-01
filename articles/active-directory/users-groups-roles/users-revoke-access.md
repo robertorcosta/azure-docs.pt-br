@@ -1,5 +1,5 @@
 ---
-title: Revogar o acesso do usuário para emergência no Azure Active Directory | Microsoft Docs
+title: Revogar o acesso do usuário em uma emergência no Azure Active Directory | Microsoft Docs
 description: Adicionar usuários em massa no centro de administração do Azure AD no Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -10,15 +10,15 @@ author: curtand
 ms.author: curtand
 manager: daveba
 ms.reviewer: krbain
-ms.date: 06/26/2020
+ms.date: 07/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5ca5f7c6032a69286da72d8ef3640f64038eb3a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fbb2ad8e6d37190d0473f3f9f4af7738edd3b27f
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027181"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475202"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Revogar o acesso do usuário no Azure Active Directory
 

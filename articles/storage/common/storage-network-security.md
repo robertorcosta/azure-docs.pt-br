@@ -9,12 +9,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 61c2b2b8bce676bd7032eb65fcf48b5ad07092ad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d45b792c655820b771ba956721e9169750c39fbd
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070654"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475406"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 
@@ -120,7 +120,7 @@ Você pode configurar as contas de armazenamento para permitir o acesso somente 
 
 Habilitar um [Ponto de extremidade de serviço](/azure/virtual-network/virtual-network-service-endpoints-overview) do Armazenamento do Microsoft Azure dentro da VNet. O ponto de extremidade de serviço roteia o tráfego da VNet por meio de um caminho ideal para o serviço de Armazenamento do Azure. As identidades da rede virtual e da sub-rede também são transmitidas com cada solicitação. Em seguida, os administradores podem configurar as regras de rede para a conta de armazenamento que as solicitações sejam recebidas de sub-redes específicas em uma VNet. Os clientes com o acesso concedido por meio dessas regras de rede devem continuar a atender aos requisitos de autorização da conta de armazenamento para acessar os dados.
 
-Cada conta de armazenamento pode dar suporte a até 100 regras da rede virtual que podem ser combinadas com [regras de rede IP](#grant-access-from-an-internet-ip-range).
+Cada conta de armazenamento dá suporte a até 200 regras de rede virtual, que podem ser combinadas com [regras de rede IP](#grant-access-from-an-internet-ip-range).
 
 ### <a name="available-virtual-network-regions"></a>Regiões de rede virtual disponíveis
 

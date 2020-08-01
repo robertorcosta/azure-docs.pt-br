@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 70a4d6f01271c5026463ac0dc946fb1b2991de09
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2de46f050d17049848024d70f43bd23621b43b13
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323818"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461027"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java do Azure Cosmos DB para a API do SQL: Notas sobre a versão e recursos
 > [!div class="op_single_selector"]
@@ -256,19 +256,11 @@ Este é o SDK v2 do Java de sincronização do Azure Cosmos DB original para API
 * SDK DO GA
 
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e desativação
-A Microsoft fornecerá uma notificação pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte.
 
-Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SDK atual. Portanto, recomendamos que você atualize sempre que possível para a versão do SDK mais recente.
-
-Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será rejeitada pelo serviço.
+A Microsoft fornecerá uma notificação pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte. Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SDK atual. Portanto, recomendamos que você atualize sempre que possível para a versão do SDK mais recente.
 
 > [!WARNING]
-> Todas as versões **1.x** do SDK do SQL para Java serão desativados no dia **30 de maior de 2020**.
-> 
->
-
-> [!WARNING]
-> Todas as versões do SDK do SQL para Java anteriores à versão **1.0.0** foram desativadas em **29 de fevereiro de 2016**.
+> Todas as versões **1.x** do SDK do SQL para Java serão desativados no dia **30 de maior de 2020**. Todas as versões do SDK do SQL para Java anteriores à versão **1.0.0** foram desativadas em **29 de fevereiro de 2016**.
 > 
 > 
 

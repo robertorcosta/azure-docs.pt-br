@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 6b9cf3f76afecb1e6f7ad00a18eb7290b8decb5f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 06c4ecd92368487af3110e84391ec721700a95aa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056063"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461163"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Gatilho do armazenamento de BLOBs do Azure para Azure Functions
 
@@ -203,7 +203,7 @@ Em [bibliotecas de classe C#](functions-dotnet-class-library.md), use os seguint
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobTriggerAttribute.cs)
 
-  O construtor do atributo usa uma cadeia de caracteres de caminho que indica o contêiner para inspecionar e, opcionalmente, um [padrão de nome de blob](#blob-name-patterns). Este é um exemplo:
+  O construtor do atributo usa uma cadeia de caracteres de caminho que indica o contêiner para inspecionar e, opcionalmente, um [padrão de nome de blob](#blob-name-patterns). Veja um exemplo:
 
   ```csharp
   [FunctionName("ResizeImage")]
@@ -331,7 +331,7 @@ O exemplo a seguir gatilha apenas em blobs no `input` contêiner que iniciam com
 "path": "input/original-{name}",
 ```
 
-Se o nome do blob for *original-Blob1.txt*, o valor da `name` variável no código da função é `Blob1`.
+Se o nome do blob for *original-Blob1.txt*, o valor da `name` variável no código da função é `Blob1.txt`.
 
 ### <a name="filter-on-file-type"></a>Filtre por tipo de arquivo
 

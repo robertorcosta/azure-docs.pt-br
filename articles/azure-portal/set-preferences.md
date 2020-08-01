@@ -5,22 +5,23 @@ services: azure-portal
 keywords: configurações, tempo limite, idioma, regional
 author: mgblythe
 ms.author: mblythe
-ms.date: 12/19/2019
+ms.date: 07/30/2020
 ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: d4c675ab18a7a9231229ce0c7de9a7450dc1baa8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8ce638bf61c69fb732d94d537218aabaeaa9a7c
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763951"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461911"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Definir suas preferências do portal do Azure
 
 Você pode alterar as configurações padrão do portal do Azure para atender às suas próprias preferências. Cada uma das configurações listadas abaixo pode ser alterada:
 
 * [Tempo limite da sessão inativa](#change-the-idle-duration-for-inactive-sign-out)
+* [Assinatura padrão](#choose-your-default-subscription)
 * [Exibição padrão](#choose-your-default-view)
 * [Modo de menu do portal](#choose-a-portal-menu-mode)
 * [Tema de cor e de alto contraste](#choose-a-theme)
@@ -55,9 +56,21 @@ Se o administrador tiver habilitado uma política de tempo limite de inatividade
 > Se você for um administrador e quiser impor uma configuração de tempo limite inativo para todos os usuários da portal do Azure, consulte [definir o tempo limite de inatividade no nível do diretório para os usuários do portal do Azure](admin-timeout.md)
 >
 
+### <a name="choose-your-default-subscription"></a>Escolha sua assinatura padrão
+
+Você pode alterar a assinatura que é aberta por padrão ao entrar no portal do Azure. Isso será útil se você tiver uma assinatura primária com a qual você trabalha, mas usar outras pessoas ocasionalmente. 
+
+:::image type="content" source="media/set-preferences/filter-subscription-default-view.png" alt-text="Filtrar lista de recursos por assinatura.":::
+
+1. Selecione o ícone de filtro de assinatura e diretório na navegação superior.
+1. Selecione as assinaturas desejadas como assinaturas padrão ao iniciar o Portal. 
+
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Selecione as assinaturas desejadas como assinaturas padrão ao iniciar o Portal."::: 
+
+
 ### <a name="choose-your-default-view"></a>Escolha o modo de exibição padrão 
 
-Você pode alterar a página que é aberta por padrão quando sua entrada no portal do Azure.
+Você pode alterar a página que é aberta por padrão ao entrar no portal do Azure.
 
    ![Captura de tela mostrando configurações de portal do Azure com exibição padrão realçada](./media/set-preferences/default-view.png)
 

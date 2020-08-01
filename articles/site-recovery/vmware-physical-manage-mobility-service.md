@@ -7,17 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 9be758c286e072b0fbefc5f8b20b7accc4e6741b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff77d6cad60b459b1fe6a4f83641c7aebe204dfa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79256959"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460092"
 ---
 # <a name="manage-the-mobility-agent"></a>Gerenciar o agente Mobilidade 
 
 Você configura o agente de mobilidade no servidor quando usa Azure Site Recovery para recuperação de desastre de VMs VMware e servidores físicos para o Azure. O agente de mobilidade coordena as comunicações entre o computador protegido, o servidor de configuração/servidor de processo de expansão e gerencia a replicação de dados. Este artigo resume as tarefas comuns para gerenciar o agente de mobilidade após sua implantação.
 
+>[!TIP]
+>Para baixar o instalador para um sistema operacional/distribuição Linux específico, consulte as diretrizes [aqui](vmware-physical-mobility-service-overview.md#locate-installer-files). Para atualizar automaticamente do portal, não é necessário baixar o instalador. O [ASR busca automaticamente o instalador do servidor de configuração e atualiza o agente](#update-mobility-service-from-azure-portal).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -33,7 +35,7 @@ Você configura o agente de mobilidade no servidor quando usa Azure Site Recover
 
      ![Lista de VMs de itens replicados](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
-5. O trabalho Atualizar o Serviço de Mobilidade é iniciado para cada um dos computadores selecionados.
+5. O trabalho Atualizar o Serviço de Mobilidade é iniciado para cada um dos computadores selecionados. O agente de mobilidade é atualizado para a versão do servidor de configuração. Por exemplo, se o servidor de configuração estiver na versão 9,33, o agente de mobilidade em uma VM protegida também será atualizado para a versão 9,33.
 
 ## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Atualizar o serviço de mobilidade por meio do script do PowerShell no Windows Server
 

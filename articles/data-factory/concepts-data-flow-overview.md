@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: e8efb43ac0711bac1324ac2c9e3b59373ce59419
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 850879675d4554329f24c86f2ac28660b303084c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84635111"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475559"
 ---
 # <a name="what-are-mapping-data-flows"></a>O que são os fluxos de dados de mapeamento?
 
@@ -93,41 +93,9 @@ A primeira guia em cada painel de configuração de transformação contém as c
 
 #### <a name="optimize"></a>Otimizar
 
-A guia **otimizar** contém configurações para configurar esquemas de particionamento.
+A guia **otimizar** contém configurações para configurar esquemas de particionamento. Para saber mais sobre como otimizar seus fluxos de dados, consulte o [Guia de desempenho do fluxo de dados de mapeamento](concepts-data-flow-performance.md).
 
-![Otimizar](media/data-flow/optimize1.png "Otimizar")
-
-A configuração padrão é **usar particionamento atual**, o que instrui Azure data Factory a usar o esquema de particionamento nativo para fluxos de dados em execução no Spark. Na maioria dos cenários, recomendamos essa configuração.
-
-Há instâncias em que você talvez queira ajustar o particionamento. Por exemplo, se você quiser gerar suas transformações em um único arquivo no Lake, selecione **partição única** em uma transformação coletor.
-
-Outro caso em que você talvez queira controlar os esquemas de particionamento é otimizar o desempenho. Ajustar o particionamento fornece controle sobre a distribuição de seus dados em nós de computação e otimizações de localidade de dados que podem ter efeitos positivos e negativos no desempenho geral do fluxo de dados. Para obter mais informações, consulte o [Guia de desempenho do fluxo de dados](concepts-data-flow-performance.md).
-
-Para alterar o particionamento em qualquer transformação, selecione a guia **otimizar** e selecione o botão de opção **definir particionamento** . Você verá uma série de opções de particionamento. O melhor método de particionamento difere com base em seus volumes de dados, chaves candidatas, valores nulos e cardinalidade. 
-
-Uma prática recomendada é começar com o particionamento padrão e, em seguida, tentar diferentes opções de particionamento. Você pode testar usando execuções de depuração de pipeline e exibir o tempo de execução e o uso de partição em cada Agrupamento de transformação na exibição monitoramento. Para obter mais informações, consulte [monitorando fluxos de dados](concepts-data-flow-monitoring.md).
-
-As seguintes opções de particionamento estão disponíveis.
-
-##### <a name="round-robin"></a>Round Robin 
-
-Round Robin é uma partição simples que distribui automaticamente os dados igualmente entre as partições. Use Round Robin quando não tiver bons candidatos importantes para implementar uma estratégia sólida de particionamento inteligente. É possível definir o número de partições físicas.
-
-##### <a name="hash"></a>Hash
-
-Azure Data Factory produz um hash de colunas para produzir partições uniformes, de modo que as linhas com valores semelhantes se enquadram na mesma partição. Ao usar a opção de hash, teste a possível distorção de partição. É possível definir o número de partições físicas.
-
-##### <a name="dynamic-range"></a>Intervalo dinâmico
-
-O intervalo dinâmico usa intervalos dinâmicos do Spark com base nas colunas ou expressões que você fornecer. É possível definir o número de partições físicas. 
-
-##### <a name="fixed-range"></a>Intervalo fixo
-
-Crie uma expressão que forneça um intervalo fixo para valores em suas colunas de dados particionados. Para evitar a distorção de partição, você deve ter uma boa compreensão dos seus dados antes de usar essa opção. Os valores inseridos para a expressão são usados como parte de uma função de partição. É possível definir o número de partições físicas.
-
-##### <a name="key"></a>Chave
-
-Se você tiver uma boa compreensão da cardinalidade de seus dados, o particionamento de chave poderá ser uma boa estratégia. O particionamento de chave cria partições para cada valor exclusivo em sua coluna. Você não pode definir o número de partições porque o número é baseado em valores exclusivos nos dados.
+![Otimizar](media/data-flow/optimize.png "Otimizar")
 
 #### <a name="inspect"></a>Inspecionar
 

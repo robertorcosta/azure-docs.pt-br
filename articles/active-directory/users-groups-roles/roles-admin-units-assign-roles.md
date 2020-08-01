@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 07/10/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d0a1f2551338207a71b6c547d9c2cd57fea777
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 918675b111b7b1b85669692b63fed683ea2831f8
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284380"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475627"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Atribuir funções com escopo a uma unidade administrativa
 
@@ -46,7 +46,7 @@ Vá para **Azure Active Directory > Unidades administrativas** no portal. Seleci
 
 ![Selecionar uma unidade administrativa para alterar o escopo da função](./media/roles-admin-units-assign-roles/select-role-to-scope.png)
 
-Selecione a função a ser atribuída e, em seguida, selecione **Adicionar atribuições**. Isso fará com que o slide Abra um painel à direita, onde você pode selecionar um ou mais usuários a serem atribuídos à função.
+Selecione a função a ser atribuída e, em seguida, selecione **Adicionar atribuições**. Um painel é aberto à direita onde você pode selecionar um ou mais usuários a serem atribuídos à função.
 
 ![Selecione a função para o escopo e, em seguida, selecione Adicionar atribuições](./media/roles-admin-units-assign-roles/select-add-assignment.png)
 
@@ -104,4 +104,5 @@ Request body
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Perguntas frequentes e solução de problemas de unidades administrativas](roles-admin-units-faq-troubleshoot.md)
+- [Usar grupos de nuvem para gerenciar atribuições de função](roles-groups-concept.md)
+- [Solucionando problemas de funções atribuídas a grupos de nuvem](roles-groups-faq-troubleshooting.md)

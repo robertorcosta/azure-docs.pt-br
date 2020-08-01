@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16203ab972f6117cec41e43ee5dd89cda7e95ede
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c4b9ae0ed682d6b34099c8eff941f1d0b6cabad
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025687"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461758"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planejar sua implementação de junção do Azure Active Directory híbrido
 
@@ -122,6 +122,9 @@ Um ambiente gerenciado pode ser implantado por meio da [PHS (Sincronização de 
 
 Esses cenários não exigem que você configure um servidor de federação para autenticação.
 
+> [!NOTE]
+> A [autenticação de nuvem usando a distribuição em etapas](/hybrid/how-to-connect-staged-rollout) só tem suporte iniciando a atualização do Windows 10 1903
+
 ### <a name="federated-environment"></a>Ambiente federado
 
 Um ambiente federado deve ter um provedor de identidade que dá suporte aos requisitos a seguir. Se você tem um ambiente federado usando o AD FS (Serviços de Federação do Active Directory), os requisitos abaixo já são compatíveis.
@@ -159,7 +162,7 @@ Com base no cenário que corresponde à sua infraestrutura de identidade, consul
 
 A tabela a seguir fornece detalhes sobre o suporte a esses UPNs do AD local no ingresso no Azure AD Híbrido do Windows 10
 
-| Tipo de UPN do AD local | Tipo de domínio | Versão do Windows 10 | Descrição |
+| Tipo de UPN do AD local | Tipo de domínio | Versão do Windows 10 | Description |
 | ----- | ----- | ----- | ----- |
 | Roteável | Federado | Da versão 1703 | Disponível para o público geral |
 | Não roteável | Federado | Da versão 1803 | Disponível para o público geral |

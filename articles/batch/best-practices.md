@@ -1,14 +1,14 @@
 ---
 title: Práticas recomendadas
 description: Conheça as melhores práticas e dicas úteis para desenvolver sua solução de Lote do Azure.
-ms.date: 07/14/2020
+ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 32610f54cc41bd5d7feb965b9a82903acc23c33c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 535deebd0ba683d9387408ad081d165a504c91d1
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497770"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474896"
 ---
 # <a name="azure-batch-best-practices"></a>Melhores práticas do Lote do Azure
 
@@ -56,6 +56,10 @@ As falhas de alocação de pool podem ocorrer a qualquer momento durante a prime
 É possível que os pools do Lote tenham eventos de tempo de inatividade no Azure. Tenha isso em mente ao planejar e desenvolver seu cenário ou fluxo de trabalho para o Lote.
 
 No caso de um nó falhar, o Lote tentará recuperar automaticamente esses nós de computação em seu nome. Isso pode disparar o reagendamento de qualquer tarefa em execução no nó recuperado. Consulte [Criação de repetições](#design-for-retries-and-re-execution) para saber mais sobre as tarefas interrompidas.
+
+### <a name="third-party-images"></a>Imagens de terceiros
+
+Os pools podem ser criados usando imagens de terceiros publicadas no Azure Marketplace. Com as contas do lote do modo de assinatura do usuário, você pode ver o erro "falha na alocação devido à verificação da qualificação de compra do Marketplace" ao criar um pool com determinadas imagens de terceiros. Para resolver esse erro, aceite os termos definidos pelo editor da imagem. Você pode fazer isso usando o [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms?view=azurermps-6.13.0) ou [CLI do Azure](https://docs.microsoft.com/cli/azure/vm/image/terms?view=azure-cli-latest).
 
 ### <a name="azure-region-dependency"></a>Dependência da região do Azure
 

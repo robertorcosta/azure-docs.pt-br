@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 23e98c40420a5f1ed9b048d5530eacfe5eedfb32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74887e6ee4656091aa647b481bc406dcc23b9c12
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413970"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460075"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral da Camada de Nuvem
 A camada de nuvem é um recurso opcional da Sincronização de Arquivos do Azure em que arquivos acessados frequentemente são armazenados em cache localmente no servidor, enquanto todos os outros arquivos são organizados em camadas para Arquivos do Azure com base nas configurações de política. Quando um arquivo está disposto em camadas, o filtro do sistema de arquivos da Sincronização de Arquivos do Azure (StorageSync.sys) substitui o arquivo localmente por um ponteiro ou ponto de nova análise. O ponto de nova análise representa uma URL para o arquivo nos Arquivos do Azure. Um arquivo em camadas tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definidos em NTFS, de modo que aplicativos de terceiros podem identificar com segurança os arquivos dispostos em camadas.
@@ -40,16 +40,19 @@ A disposição em camadas da nuvem não depende do recurso NTFS para controlar o
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Qual é o tamanho mínimo do arquivo de um arquivo para uma camada?
 
-Para o Agent versões 9 e mais recentes, o tamanho mínimo do arquivo para um arquivo para camada é baseado no tamanho do cluster do sistema de arquivos. A tabela a seguir ilustra os tamanhos mínimos de arquivo que podem ser em camadas, com base no tamanho do cluster de volume:
+Para o Agent versões 9 e mais recentes, o tamanho mínimo do arquivo para um arquivo para camada é baseado no tamanho do cluster do sistema de arquivos. O tamanho mínimo de arquivo qualificado para a camada de nuvem é calculado por 2x o tamanho do cluster e, no mínimo, 8 KB. A tabela a seguir ilustra os tamanhos mínimos de arquivo que podem ser em camadas, com base no tamanho do cluster de volume:
 
 |Tamanho do cluster de volume (bytes) |Arquivos desse tamanho ou maiores podem ser em camadas  |
 |----------------------------|---------|
-|4 KB (4096)                 | 8 KB    |
+|4 KB ou menor (4096)      | 8 KB    |
 |8 KB (8192)                 | 16 KB   |
 |16 KB (16384)               | 32 KB   |
-|32 KB (32768) e maiores    | 64 KB   |
+|32 KB (32768)               | 64 KB   |
+|64 KB (65536)               | 128 KB  |
 
-Todos os sistemas de arquivos usados pelo Windows organizam seu disco rígido com base no tamanho do cluster (também conhecido como tamanho da unidade de alocação). O tamanho do cluster representa a menor quantidade de espaço em disco que pode ser usada para manter um arquivo. Quando os tamanhos de arquivo não chegam a um múltiplo par do tamanho do cluster, o espaço adicional deve ser usado para manter o arquivo (até o próximo múltiplo do tamanho do cluster).
+Com o Windows Server 2019 e o agente Sincronização de Arquivos do Azure versão 12 e mais recente, tamanhos de cluster de até 2 MB também têm suporte e camadas nesses tamanhos de cluster maiores funciona da mesma maneira. Versões mais antigas do sistema operacional ou agente dão suporte a tamanhos de cluster de até 64 KB.
+
+Todos os sistemas de arquivos usados pelo Windows, organizam o disco rígido com base no tamanho do cluster (também conhecido como tamanho da unidade de alocação). O tamanho do cluster representa a menor quantidade de espaço em disco que pode ser usada para manter um arquivo. Quando os tamanhos de arquivo não chegam a um múltiplo par do tamanho do cluster, o espaço adicional deve ser usado para manter o arquivo até o próximo múltiplo do tamanho do cluster.
 
 Sincronização de Arquivos do Azure tem suporte em volumes NTFS com o Windows Server 2012 R2 e mais recente. A tabela a seguir descreve os tamanhos de cluster padrão quando você cria um novo volume NTFS. 
 
@@ -62,7 +65,9 @@ Sincronização de Arquivos do Azure tem suporte em volumes NTFS com o Windows S
 |128TB – 256 TB | 64 KB         |
 |> 256 TB       | Sem suporte |
 
-É possível que, durante a criação do volume, você tenha formatado manualmente o volume com um tamanho de cluster (unidade de alocação) diferente. Se o seu volume se originar de uma versão mais antiga do Windows, os tamanhos de cluster padrão também poderão ser diferentes. [Este artigo tem mais detalhes sobre os tamanhos de cluster padrão.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat)
+É possível que, durante a criação do volume, você tenha formatado manualmente o volume com um tamanho de cluster diferente. Se o seu volume se originar de uma versão mais antiga do Windows, os tamanhos de cluster padrão também poderão ser diferentes. [Este artigo tem mais detalhes sobre os tamanhos de cluster padrão.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Mesmo que você escolha um tamanho de cluster menor que 4 KB, um limite de 8 KB como o menor tamanho de arquivo que pode ser em camadas, ainda se aplica. (Mesmo que o tamanho do cluster tecnicamente 2x corresponda a menos de 8 KB.)
+
+O motivo para o mínimo absoluto é encontrado na maneira como o NTFS armazena arquivos extremamente pequenos-1 KB a 4 KB de arquivos de tamanho. Dependendo de outros parâmetros do volume, é possível que arquivos pequenos não sejam armazenados em um cluster no disco. Talvez seja mais eficiente armazenar esses arquivos diretamente na tabela de arquivos mestre do volume ou no "registro de MFT". O ponto de nova análise em camadas de nuvem sempre é armazenado em disco e ocupa exatamente um cluster. A hierarquização desses arquivos pequenos poderia acabar sem economia de espaço. Os casos extremos poderiam até acabar usando mais espaço com a camada de nuvem habilitada. Para proteger contra isso, o menor tamanho de um arquivo que a camada de nuvem irá criará, é de 8 KB em um tamanho de cluster de 4 KB ou menor.
 
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>Como a política de disposição em camadas do espaço livre no volume funciona?
@@ -95,7 +100,7 @@ Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
 
 Lembre-se de que a política de espaço livre do volume sempre tem precedência e quando não há espaço livre suficiente no volume para reter o máximo de dias de arquivos, conforme descrito pela política de data, Sincronização de Arquivos do Azure continuará a colocar os arquivos frios em camadas até que a porcentagem de espaço livre do volume seja atendida.
 
-Por exemplo, digamos que você tenha uma política de camada com base em data de 60 dias e uma política de espaço livre no volume de 20%. Se, depois de aplicar a política de data, houver menos de 20% de espaço livre no volume, a política de espaço livre no volume será ativada e substituirá a política de data. Isso resultará em mais arquivos em camadas, de modo que a quantidade de dados mantidos no servidor poderá ser reduzida de 60 dias para 45 dias. Por outro lado, essa política forçará a colocação em camadas de arquivos fora do intervalo de tempo, mesmo que não tenha atingido o limite de espaço livre e, portanto, um arquivo com 61 dias será colocado em camadas mesmo que o volume esteja vazio.
+Por exemplo, digamos que você tenha uma política de camada com base em data de 60 dias e uma política de espaço livre no volume de 20%. Se, após a aplicação da política de data, houver menos de 20% de espaço livre no volume, a política de espaço livre do volume será ativada e substituirá a política de data. Isso resultará em mais arquivos em camadas, de modo que a quantidade de dados mantidos no servidor poderá ser reduzida de 60 dias para 45 dias. Por outro lado, essa política forçará a colocação em camadas de arquivos fora do intervalo de tempo, mesmo que não tenha atingido o limite de espaço livre e, portanto, um arquivo com 61 dias será colocado em camadas mesmo que o volume esteja vazio.
 
 <a id="volume-free-space-guidelines"></a>
 ### <a name="how-do-i-determine-the-appropriate-amount-of-volume-free-space"></a>Como determino a quantidade apropriada de espaço livre no volume?
@@ -120,7 +125,7 @@ Há várias maneiras de verificar se um arquivo foi colocado em camadas no compa
         
         | Carta de atributo | Atributo | Definição |
         |:----------------:|-----------|------------|
-        | Um | Archive | Indica que o arquivo deve ter o backup feito pelo software de backup. Esse atributo é sempre definido independentemente de o arquivo estar em camadas ou totalmente armazenado no disco. |
+        | A | Archive | Indica que o arquivo deve ter o backup feito pelo software de backup. Esse atributo é sempre definido independentemente de o arquivo estar em camadas ou totalmente armazenado no disco. |
         | P | Arquivos esparsos | Indica que o arquivo é um arquivo esparso. Um arquivo esparso é um tipo especializado de arquivo que o NTFS oferece para uso eficiente quando o arquivo no fluxo do disco está basicamente vazio. A Sincronização de Arquivos do Azure usa arquivos esparsos, porque um arquivo é totalmente em camadas ou parcialmente cancelado. Em um arquivo totalmente em camadas, o fluxo de arquivos é armazenado na nuvem. Em um arquivo que sofreu recall parcial, essa parte do arquivo já está no disco. Se o recall de um arquivo é feito totalmente em disco, a Sincronização de Arquivos do Azure o converte de um arquivo esparso em um arquivo regular. Esse atributo só é definido no Windows Server 2016 e mais antigo.|
         | M | Recall no acesso a dados | Indica que os dados do arquivo não estão totalmente presentes no armazenamento local. A leitura do arquivo fará com que pelo menos um conteúdo do arquivo seja obtido de um compartilhamento de arquivos do Azure ao qual o ponto de extremidade do servidor está conectado. Esse atributo só é definido no Windows Server 2019. |
         | L | Ponto de nova análise | Indica que o arquivo tem um ponto de nova análise. Um ponto de nova análise é um ponteiro especial para ser usado por um filtro do sistema de arquivos. A Sincronização de Arquivos do Azure usa pontos de nova análise a fim de definir, para o filtro do sistema de arquivos da Sincronização de Arquivos do Azure (StorageSync.sys), o local na nuvem em que o arquivo está armazenado. Isso dá suporte a acesso contínuo. Os usuários não precisarão saber que a Sincronização de Arquivos do Azure está sendo usada ou como obter acesso ao arquivo em seu compartilhamento de arquivos do Azure. Quando o recall de um arquivo é totalmente feito, a Sincronização de Arquivos do Azure remove o ponto de nova análise do arquivo. |

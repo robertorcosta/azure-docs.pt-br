@@ -6,171 +6,277 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 07/06/2020
-ms.openlocfilehash: 9f420b37bd44a46d4149e89cf5876d8e8b712581
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/27/2020
+ms.openlocfilehash: 55483b93b770687703b381366d48edbc7d48f26e
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114373"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475277"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de desempenho e ajuste de fluxos de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Os fluxos de dados de mapeamento no Azure Data Factory fornecem uma interface sem código para projetar, implantar e orquestrar transformações de dados em escala. Se você não conhecer bem os fluxos de dados de mapeamento, consulte a [Visão geral do fluxo de dados de mapeamento](concepts-data-flow-overview.md).
+O mapeamento de fluxos de dados no Azure Data Factory fornece uma interface sem código para projetar e executar transformações de dados em escala. Se você não conhecer bem os fluxos de dados de mapeamento, consulte a [Visão geral do fluxo de dados de mapeamento](concepts-data-flow-overview.md). Este artigo destaca várias maneiras de ajustar e otimizar seus fluxos de dados para que eles atendam aos benchmarks de desempenho.
 
-Ao projetar e testar fluxos de dados do UX do Azure Data Factory, ligue o modo de depuração para executar os fluxos de dados em tempo real sem esperar o aquecimento de um cluster. Para saber mais, consulte [Modo de depuração](concepts-data-flow-debug-mode.md).
+Assista ao vídeo abaixo para ver alguns intervalos de exemplo transformando dados com fluxos de dados.
 
-Este vídeo mostra alguns exemplos de tempo de transformação de dados com os fluxos de dados:
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rNxM]
+
+## <a name="testing-data-flow-logic"></a>Testando a lógica do fluxo de dados
+
+Ao projetar e testar fluxos de dados da UX do ADF, o modo de depuração permite que você teste interativamente em um cluster Spark ativo. Isso permite que você visualize dados e execute seus fluxos de dados sem esperar que um cluster fique quente. Para saber mais, consulte [Modo de depuração](concepts-data-flow-debug-mode.md).
 
 ## <a name="monitoring-data-flow-performance"></a>Monitoramento de desempenho do fluxo de dados
 
-Ao criar fluxos de dados de mapeamento, você testar a unidade de cada transformação clicando na guia de visualização de dados no painel de configuração. Depois de verificar sua lógica, teste o fluxo de dados de ponta a ponta como uma atividade em um pipeline. Adicione uma atividade Executar Fluxo de Dados e use o botão Depurar para testar o desempenho do fluxo de dados. Para abrir o plano de execução e o perfil de desempenho de seu fluxo de dados, clique no ícone de óculos em “ações” na guia de saída do pipeline.
+Depois de verificar a lógica de transformação usando o modo de depuração, execute seu fluxo de dados de ponta a ponta como uma atividade em um pipeline. Os fluxos de dados são operados em um pipeline usando a [atividade executar fluxo de dados](control-flow-execute-data-flow-activity.md). A atividade de fluxo de dados tem uma experiência de monitoramento exclusiva em comparação com outras atividades Azure Data Factory que exibe um plano de execução detalhado e um perfil de desempenho da lógica de transformação. Para exibir informações detalhadas de monitoramento de um fluxo de dados, clique no ícone de óculos na saída de execução da atividade de um pipeline. Para saber mais, consulte [Monitoramento de fluxos de dados de mapeamento](concepts-data-flow-monitoring.md).
 
-![Monitor do Fluxo de Dados](media/data-flow/mon002.png "Monitor de Fluxo de Dados 2")
+![Monitor do Fluxo de Dados](media/data-flow/monitoring-details.png "Monitor de Fluxo de Dados 2")
 
- Você pode usar essas informações para estimar o desempenho do fluxo de dados comparando com fontes de dados de tamanhos diferentes. Para saber mais, consulte [Monitoramento de fluxos de dados de mapeamento](concepts-data-flow-monitoring.md).
+Ao monitorar o desempenho do fluxo de dados, há quatro possíveis afunilamentos a serem verificados:
 
-![Monitoramento de fluxo de dados](media/data-flow/mon003.png "Monitor de Fluxo de Dados 3")
+* Hora de início do cluster
+* Lendo de uma fonte
+* Hora da transformação
+* Gravando em um coletor 
 
- Para execuções de depuração de pipeline, é necessário cerca de um minuto de tempo de configuração de cluster em seus cálculos de desempenho geral para um cluster aquecido. Se você estiver inicializando o Azure Integration Runtime padrão, o tempo de rotação poderá levar cerca de 4 minutos.
+![Monitoramento de fluxo de dados](media/data-flow/monitoring-performance.png "Monitor de Fluxo de Dados 3")
 
-## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Aumentar o tamanho da computação no Azure Integration Runtime
+O tempo de inicialização do cluster é o tempo necessário para criar um cluster Apache Spark. Esse valor está localizado no canto superior direito da tela de monitoramento. Os fluxos de dados são executados em um modelo just-in-time em que cada trabalho usa um cluster isolado. Esse tempo de inicialização geralmente leva 3-5 minutos. Para trabalhos sequenciais, isso pode ser reduzido ao habilitar um valor de vida útil. Para obter mais informações, consulte [otimizando o Azure Integration Runtime](#ir).
 
-Um Integration Runtime com mais núcleos aumenta o número de nós nos ambientes de computação do Spark e fornece mais capacidade de processamento para ler, gravar e transformar seus dados. Os Fluxos de Dados do Azure Data Factory utilizam o Spark para o mecanismo de computação. O ambiente Spark funciona muito bem em recursos com otimização de memória.
+Os fluxos de dados utilizam um otimizador Spark que reordena e executa sua lógica de negócios em ' estágios ' para realizar o mais rápido possível. Para cada coletor no qual o fluxo de dados grava, a saída de monitoramento lista a duração de cada estágio de transformação, junto com o tempo necessário para gravar dados no coletor. A hora maior é provavelmente o afunilamento do fluxo de dados. Se o estágio de transformação que usa o maior contiver uma origem, talvez você queira examinar ainda mais a otimização do tempo de leitura. Se uma transformação estiver demorando muito tempo, talvez seja necessário reparticionar ou aumentar o tamanho do tempo de execução de integração. Se o tempo de processamento do coletor for grande, talvez seja necessário escalar verticalmente seu banco de dados ou verificar se você não está gerando uma saída para um único arquivo.
 
-É recomendável usar **memória otimizada** para a maioria das cargas de trabalho de produção. Você poderá armazenar mais dados na memória e minimizar os erros de memória insuficiente. A memória otimizada tem um ponto de preço mais alto por núcleo do que a computação otimizada, mas provavelmente resultará em velocidades de transformação mais rápidas e em pipelines mais bem-sucedidos. Se você tiver erros de memória insuficiente ao executar seus fluxos de dados, mude para uma configuração do Azure IR otimizada para memória.
+Depois de identificar o afunilamento do fluxo de dados, use as estratégias de otimização abaixo para melhorar o desempenho.
 
-A **computação otimizada** pode ser suficiente para depuração e visualização de dados de um número limitado de linhas de dados. A computação otimizada provavelmente não será executada também com cargas de trabalho de produção.
+## <a name="optimize-tab"></a>Otimizar guia
 
-![Novo IR](media/data-flow/ir-new.png "Novo IR")
+A guia **otimizar** contém configurações para configurar o esquema de particionamento do cluster Spark. Essa guia existe em todas as transformações de fluxo de dados e especifica se você deseja reparticionar os dados **após** a conclusão da transformação. Ajustar o particionamento fornece controle sobre a distribuição de seus dados em nós de computação e otimizações de localidade de dados que podem ter efeitos positivos e negativos no desempenho geral do fluxo de dados.
+
+![Otimizar](media/data-flow/optimize.png "Otimizar")
+
+Por padrão, o *uso do particionamento atual* é selecionado, o que instrui Azure data Factory manter o particionamento de saída atual da transformação. À medida que os dados de reparticionamento levam tempo, é recomendável *usar o particionamento atual* na maioria dos cenários. Os cenários em que você talvez queira reparticionar seus dados incluem após agregações e junções que distorcem significativamente seus dados ou ao usar o particionamento de origem em um banco de dados SQL.
+
+Para alterar o particionamento em qualquer transformação, selecione a guia **otimizar** e selecione o botão de opção **definir particionamento** . Você verá uma série de opções de particionamento. O melhor método de particionamento difere com base em seus volumes de dados, chaves candidatas, valores nulos e cardinalidade. 
+
+> [!IMPORTANT]
+> A partição única combina todos os dados distribuídos em uma única partição. Essa é uma operação muito lenta que também afeta significativamente todas as transformações e gravações de downstream. A Azure Data Factory é altamente recomendável em relação ao uso dessa opção, a menos que haja um motivo de negócios explícito para fazer isso.
+
+As seguintes opções de particionamento estão disponíveis em todas as transformações:
+
+### <a name="round-robin"></a>Round Robin 
+
+Round Robin distribui dados igualmente entre partições. Use Round Robin quando não tiver bons candidatos importantes para implementar uma estratégia sólida de particionamento inteligente. É possível definir o número de partições físicas.
+
+### <a name="hash"></a>Hash
+
+Azure Data Factory produz um hash de colunas para produzir partições uniformes, de modo que as linhas com valores semelhantes se enquadram na mesma partição. Ao usar a opção de hash, teste a possível distorção de partição. É possível definir o número de partições físicas.
+
+### <a name="dynamic-range"></a>Intervalo dinâmico
+
+O intervalo dinâmico usa intervalos dinâmicos do Spark com base nas colunas ou expressões que você fornecer. É possível definir o número de partições físicas. 
+
+### <a name="fixed-range"></a>Intervalo fixo
+
+Crie uma expressão que forneça um intervalo fixo para valores em suas colunas de dados particionados. Para evitar a distorção de partição, você deve ter uma boa compreensão dos seus dados antes de usar essa opção. Os valores inseridos para a expressão são usados como parte de uma função de partição. É possível definir o número de partições físicas.
+
+### <a name="key"></a>Chave
+
+Se você tiver uma boa compreensão da cardinalidade de seus dados, o particionamento de chave poderá ser uma boa estratégia. O particionamento de chave cria partições para cada valor exclusivo em sua coluna. Você não pode definir o número de partições porque o número é baseado em valores exclusivos nos dados.
+
+> [!TIP]
+> Configurar manualmente o esquema de particionamento reembaralha os dados e pode deslocar os benefícios do otimizador do Spark. Uma prática recomendada é não definir manualmente o particionamento, a menos que você precise.
+
+## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a>Otimizando o Azure Integration Runtime
+
+Os fluxos de dados são executados em clusters Spark que são girados em tempo de execução. A configuração do cluster usado é definida no IR (Integration Runtime) da atividade. Há três considerações de desempenho a serem feitas ao definir seu tempo de execução de integração: tipo de cluster, tamanho do cluster e vida útil.
 
 Para saber mais sobre como criar um Integration Runtime, consulte [Integration Runtime no Azure Data Factory](concepts-integration-runtime.md).
 
-### <a name="increase-the-size-of-your-debug-cluster"></a>Aumentar o tamanho do cluster de depuração
+### <a name="cluster-type"></a>Tipo de cluster
 
-Por padrão, a ativação da depuração usará Azure IR padrão criado automaticamente para cada data factory. Esse Azure IR padrão é configurado para oito núcleos, quatro para um nó de driver e quatro para um nó de trabalho, usando propriedades de computação geral. Ao testar com dados maiores, você pode aumentar o tamanho do cluster de depuração criando um Azure IR com configurações maiores e escolher esse novo Azure IR quando você ativar a depuração. Isso instruirá o Azure Data Factory a usar esse Azure IR para versão preliminar de dados e depuração de pipeline com fluxos de dados.
+Há três opções disponíveis para o tipo de cluster Spark rotacionado: uso geral, otimizado para memória e otimizado para computação.
 
-### <a name="decrease-cluster-compute-start-up-time-with-ttl"></a>Diminuir o tempo de inicialização de computação do cluster com TTL
+Os clusters de **uso geral** são a seleção padrão e serão ideais para a maioria das cargas de trabalho de fluxo de dados. Eles tendem a ser o melhor equilíbrio entre desempenho e custo.
 
-Há uma propriedade no Azure IR em Propriedades de Fluxo de Dados que permitirá preparar um pool de recursos de computação de cluster para seu alocador. Com esse pool, você pode enviar sequencialmente atividades de fluxo de dados para execução. Depois que o pool for estabelecido, cada trabalho subsequente levará de 1 a 2 minutos até que o cluster do Spark sob demanda execute seu trabalho. A configuração inicial do pool de recursos levará cerca de 4 minutos. Especifique a quantidade de tempo que você deseja manter o pool de recursos na configuração de vida útil (TTL).
+Se o fluxo de dados tiver muitas junções e pesquisas, talvez você queira usar um cluster com **otimização de memória** . Os clusters com otimização de memória podem armazenar mais dados na memória e minimizar quaisquer erros de memória insuficiente que você possa obter. A memória otimizada tem o ponto de preço mais alto por núcleo, mas também tendem a resultar em pipelines mais bem-sucedidos. Se você tiver erros de memória insuficiente ao executar fluxos de dados, mude para uma configuração de Azure IR com otimização de memória. 
 
-## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse-synapse"></a>Otimização para o Banco de Dados SQL do Azure e o Azure SQL Data Warehouse Synapse
+A **computação otimizada** não é ideal para fluxos de trabalho ETL e não é recomendada pela equipe de Azure data Factory para a maioria das cargas de trabalho de produção. Para transformações de dados mais simples e sem memória, como filtragem de dados ou adição de colunas derivadas, clusters com otimização de computação podem ser usados a um preço mais barato por núcleo.
 
-### <a name="partitioning-on-source"></a>Particionamento na origem
+### <a name="cluster-size"></a>Tamanho do cluster
 
-1. Vá para a guia **Otimizar** e selecione **Definir particionamento**
-1. Selecione **Origem**.
-1. Em **Número de partições**, defina o número máximo de conexões com o Banco de Dados SQL do Azure. Você pode tentar uma configuração mais alta para obter conexões paralelas com seu banco de dados. No entanto, alguns casos podem resultar em um desempenho melhor com um número limitado de conexões.
-1. Selecione se deseja particionar por uma coluna de tabela ou uma consulta específica.
-1. Se você selecionou **Coluna**, escolha a coluna de partição.
-1. Se você selecionou **Consulta**, insira uma consulta que corresponda ao esquema de particionamento da tabela de banco de dados. Essa consulta permite que o mecanismo de banco de dados de origem aproveite a eliminação de partição. As tabelas do banco de dados de origem não precisam ser particionadas. Se sua fonte não estiver particionada, o Azure Data Factory usará o particionamento de dados no ambiente de transformação do Spark com base na chave que selecionada na transformação de origem.
+Os fluxos de dados distribuem o processamento de dados em nós diferentes em um cluster do Spark para executar operações em paralelo. Um cluster Spark com mais núcleos aumenta o número de nós no ambiente de computação. Mais nós aumentam a potência de processamento do fluxo de dados. O aumento do tamanho do cluster geralmente é uma maneira fácil de reduzir o tempo de processamento.
 
-![Bloco de origem](media/data-flow/sourcepart3.png "Bloco de origem")
+O tamanho do cluster padrão é de quatro nós de driver e quatro nós de trabalho.  Conforme você processa mais dados, são recomendados clusters maiores. Abaixo estão as opções de dimensionamento possíveis:
+
+| Núcleos de trabalho | Núcleos de driver | Total de núcleos | Observações |
+| ------------ | ------------ | ----------- | ----- |
+| 4 | 4 | 8 | Não disponível para computação otimizada |
+| 8 | 8 | 16 | |
+| 16 | 16 | 32 | |
+| 32 | 16 | 48 | |
+| 64 | 16 | 80 | |
+| 128 | 16 | 144 | |
+| 256 | 16 | 272 | |
+
+Os fluxos de dados são cobrados no VCORE-h, o que significa que o tamanho do cluster e o fator de tempo de execução para isso. À medida que você escalar verticalmente, o custo do cluster por minuto aumentará, mas o tempo total será reduzido.
+
+> [!TIP]
+> Há um teto em quanto o tamanho de um cluster afeta o desempenho de um fluxo de dados. Dependendo do tamanho dos dados, há um ponto em que aumentar o tamanho de um cluster deixará de melhorar o desempenho. Por exemplo, se você tiver mais nós do que partições de dados, adicionar nós adicionais não ajudará. Uma prática recomendada é começar pequena e escalar verticalmente para atender às suas necessidades de desempenho. 
+
+### <a name="time-to-live"></a>Vida útil
+
+Por padrão, cada atividade de fluxo de dados gira um novo cluster com base na configuração de IR. O tempo de inicialização do cluster leva alguns minutos e o processamento de dados não pode ser iniciado até ser concluído. Se seus pipelines contiverem vários fluxos de dados **sequenciais** , você poderá habilitar um valor TTL (vida útil). Especificar um valor de vida útil mantém um cluster ativo por um determinado período de tempo após sua execução ser concluída. Se um novo trabalho começar a usar o IR durante o tempo de vida útil, ele reutilizará o cluster existente e a hora de início será em segundos, em vez de minutos. Após a conclusão do segundo trabalho, o cluster permanecerá ativo novamente durante o tempo de vida útil.
+
+Somente um trabalho pode ser executado em um único cluster por vez. Se houver um cluster disponível, mas dois fluxos de dados forem iniciados, apenas um usará o cluster ao vivo. O segundo trabalho criará seu próprio cluster isolado.
+
+Se a maioria dos fluxos de dados for executada em paralelo, não é recomendável habilitar o TTL. 
 
 > [!NOTE]
-> Um bom guia para escolher o número de partições para sua fonte é usar o número de núcleos que você definiu para o Azure Integration Runtime e multiplicar esse número por cinco. Por exemplo, se você estiver transformando uma série de arquivos em suas pastas do ADLS e for utilizar um Azure IR de 32 núcleos, o número de partições que você terá como objetivo será 32 x 5 = 160 partições.
+> A vida útil não está disponível ao usar o tempo de execução de integração de resolução automática
 
-### <a name="source-batch-size-input-and-isolation-level"></a>Tamanho do lote de origem, entrada e nível de isolamento
+## <a name="optimizing-sources"></a>Otimizando fontes
 
-Em **Opções de origem** na transformação de origem, as seguintes configurações podem afetar o desempenho:
+Para cada fonte, exceto o banco de dados SQL do Azure, é recomendável que você continue a **usar o particionamento atual** como o valor selecionado. Ao ler de todos os outros sistemas de origem, os fluxos de dados particionam automaticamente os dados uniformemente com base no tamanho dos dados. Uma nova partição é criada para aproximadamente a cada 128 MB de dados. À medida que o tamanho dos dados aumenta, aumenta o número de partições.
 
-* O tamanho do lote instrui o Azure Data Factory a armazenar dados em conjuntos na memória do Spark em vez de linha por linha. O tamanho do lote é uma configuração opcional e você pode ficar sem recursos nos nós de computação se eles não forem dimensionados corretamente. Se não for definida, essa propriedade usará os padrões do lote do cache do Spark.
-* A definição de uma consulta pode permitir filtragem de linhas na origem antes que elas cheguem ao Fluxo de Dados para processamento. Isso pode acelerar a aquisição inicial de dados. Se você usar uma consulta, poderá adicionar dicas de consulta opcionais para seu Banco de Dados SQL do Azure, como READ UNCOMMITTED (leitura não confirmada).
-* A leitura não confirmada fornecerá resultados de consulta mais rápidos na transformação de origem
+Qualquer particionamento personalizado acontece *depois* que o Spark lê os dados e afeta negativamente o desempenho do fluxo de dados. Como os dados são particionados uniformemente na leitura, isso não é recomendado. 
 
-![Origem](media/data-flow/source4.png "Fonte")
+> [!NOTE]
+> As velocidades de leitura podem ser limitadas pela taxa de transferência do sistema de origem.
 
-### <a name="sink-batch-size"></a>Tamanho do lote do coletor
+### <a name="azure-sql-database-sources"></a>Fontes do banco de dados SQL do Azure
 
-Para evitar que seus fluxos de dados sejam processados linha a linha, defina **Tamanho do lote** na guia Configurações para o Banco de Dados SQL do Azure e coletores DW do SQL do Azure. Se o tamanho do lote for definido, o ADF processará gravações de banco de dados em lotes com base no tamanho informado. Se não for definida, essa propriedade usará os padrões do lote do cache do Spark.
+O banco de dados SQL do Azure tem uma opção de particionamento exclusiva chamada particionamento de ' origem '. Habilitar o particionamento de origem pode melhorar seus tempos de leitura do banco de BD SQL do Azure habilitando conexões paralelas no sistema de origem. Especifique o número de partições e como particionar seus dados. Use uma coluna de partição com alta cardinalidade. Você também pode inserir uma consulta que corresponda ao esquema de particionamento da tabela de origem.
 
-![Coletor](media/data-flow/sink4.png "Coletor")
+> [!TIP]
+> Para o particionamento de origem, a e/s do SQL Server é o afunilamento. Adicionar muitas partições pode saturar o banco de dados de origem. Geralmente, quatro ou cinco partições são ideais ao usar essa opção.
 
-### <a name="partitioning-on-sink"></a>Particionamento no coletor
+![Particionamento de origem](media/data-flow/sourcepart3.png "Particionamento de origem")
 
-Mesmo que você não tenha seus dados particionados nas suas tabelas de destino, recomendamos ter dados particionados na transformação do coletor. Os dados particionados geralmente tornam o carregamento muito mais rápido ao forçar todas as conexões a usarem um único nó/partição. Vá para a guia Otimizar do seu coletor e selecione o particionamento *Round Robin* para selecionar o número ideal de partições a serem gravadas no coletor.
+#### <a name="isolation-level"></a>Nível de isolamento
 
-### <a name="disable-indexes-on-write"></a>Desabilitar índices na gravação
+O nível de isolamento da leitura em um sistema de origem do SQL do Azure tem um impacto no desempenho. Escolher ' ler não confirmado ' fornecerá o desempenho mais rápido e evitará qualquer bloqueio de banco de dados. Para saber mais sobre os níveis de isolamento do SQL, consulte [noções básicas sobre níveis de isolamento](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15).
 
-Em seu pipeline, adicione uma [atividade de procedimento armazenado](transform-data-using-stored-procedure.md) antes da atividade de Fluxo de Dados que desabilita os índices nas tabelas de destino gravadas do coletor. Após a atividade de Fluxo de Dados, adicione outra atividade de procedimento armazenado que habilite esses índices. Ou utilize os scripts de pré-processamento e pós-processamento em um coletor de banco de dados.
+#### <a name="read-using-query"></a>Ler usando consulta
 
-### <a name="increase-the-size-of-your-azure-sql-db-and-dw"></a>Aumentar o tamanho do seu Banco de Dados SQL do Azure e do DW
+Você pode ler no banco de dados SQL do Azure usando uma tabela ou uma consulta SQL. Se você estiver executando uma consulta SQL, a consulta deverá ser concluída antes que a transformação possa ser iniciada. As consultas SQL podem ser úteis para enviar por push operações que podem ser executadas mais rapidamente e reduzir a quantidade de dados lidos de um SQL Server como instruções SELECT, WHERE e JOIN. Ao enviar operações por push, você perde a capacidade de controlar a linhagem e o desempenho das transformações antes que os dados cheguem ao fluxo de dados.
+
+### <a name="azure-synapse-analytics-sources"></a>Fontes do Azure Synapse Analytics
+
+Ao usar o Azure Synapse Analytics, uma configuração chamada **habilitar preparo** existe nas opções de origem. Isso permite que o ADF leia do Synapse usando o [polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15), o que melhora muito o desempenho de leitura. Habilitar o polybase exige que você especifique um armazenamento de BLOBs do Azure ou Azure Data Lake Storage local de preparo de Gen2 nas configurações de atividade de fluxo de dados.
+
+![Habilitar preparo](media/data-flow/enable-staging.png "Habilitar preparo")
+
+### <a name="file-based-sources"></a>Fontes baseadas em arquivo
+
+Embora os fluxos de dados ofereçam suporte a uma variedade de tipos de arquivo, o Azure Data Factory recomenda o uso do formato Spark-Native parquet para tempos de leitura e gravação ideais.
+
+Se você estiver executando o mesmo fluxo de dados em um conjunto de arquivos, recomendamos a leitura de uma pasta, o uso de caminhos curinga ou a leitura de uma lista de arquivos. Uma execução de atividade de fluxo de dados único pode processar todos os arquivos no lote. Mais informações sobre como definir essas configurações podem ser encontradas na documentação do conector, como [armazenamento de BLOBs do Azure](connector-azure-blob-storage.md#source-transformation).
+
+Se possível, evite usar a atividade for-each para executar fluxos de dados em um conjunto de arquivos. Isso fará com que cada iteração do para-cada para criar seu próprio cluster Spark, que geralmente não é necessário e pode ser caro. 
+
+## <a name="optimizing-sinks"></a>Otimizando coletores
+
+Quando os fluxos de dados gravam em coletores, qualquer particionamento personalizado ocorrerá imediatamente antes da gravação. Como a origem, na maioria dos casos, é recomendável que você continue a **usar o particionamento atual** como a opção de partição selecionada. Os dados particionados serão gravados significativamente mais rapidamente do que os dados não particionados, até mesmo o destino não é particionado. Abaixo estão as considerações individuais para vários tipos de coletor. 
+
+### <a name="azure-sql-database-sinks"></a>Coletores do banco de dados SQL do Azure
+
+Com o banco de dados SQL do Azure, o particionamento padrão deve funcionar na maioria dos casos. Há uma chance de que seu coletor possa ter muitas partições para o seu banco de dados SQL lidar. Se você estiver executando isso, reduza o número de partições emitidas por seu coletor de banco de dados SQL.
+
+#### <a name="disabling-indexes-using-a-sql-script"></a>Desabilitando índices usando um script SQL
+
+A desabilitação de índices antes de uma carga em um banco de dados SQL pode melhorar muito o desempenho da gravação na tabela. Execute o comando abaixo antes de gravar no coletor SQL.
+
+`ALTER INDEX ALL ON dbo.[Table Name] DISABLE`
+
+Após a conclusão da gravação, recompile os índices usando o seguinte comando:
+
+`ALTER INDEX ALL ON dbo.[Table Name] REBUILD`
+
+Ambos podem ser feitos nativamente usando scripts Pre e post-SQL dentro de um banco de dados SQL do Azure ou coletor Synapse no mapeamento de fluxos.
+
+![Desabilitar índices](media/data-flow/disable-indexes-sql.png "Desabilitar índices")
+
+> [!WARNING]
+> Ao desabilitar índices, o fluxo de dados está efetivamente assumindo o controle de um banco e as consultas são improvável de serem bem sucedidos no momento. Como resultado, muitos trabalhos de ETL são disparados no meio da noite para evitar esse conflito. Para obter mais informações, saiba mais sobre as [restrições de desabilitar índices](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15)
+
+#### <a name="scaling-up-your-database"></a>Escalar verticalmente seu banco de dados
 
 Agende um redimensionamento do Banco de Dados SQL do Azure e do DW da origem e do coletor antes de executar o pipeline para aumentar a taxa de transferência e minimizar a limitação do Azure depois de atingir os limites de DTU. Depois que a execução do pipeline for concluída, redimensione os bancos de dados de volta à sua taxa de execução normal.
 
-* A tabela de origem do Banco de Dados SQL com 887.000 linhas e 74 colunas para uma tabela do Banco de Dados SQL com uma única transformação de coluna derivada leva cerca de 3 minutos de ponta a ponta, usando Azure IRs de depuração de 80 núcleos otimizados para memória.
+### <a name="azure-synapse-analytics-sinks"></a>Coletores do Azure Synapse Analytics
 
-### <a name="azure-synapse-sql-dw-only-use-staging-to-load-data-in-bulk-via-polybase"></a>[Somente DW do SQL do Azure Synapse] Usar preparo para carregar dados em massa por meio do Polybase
+Ao gravar no Azure Synapse Analytics, verifique se **habilitar preparo** está definido como true. Isso permite que o ADF grave usando o [polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) , que carrega efetivamente os dados em massa. Você precisará fazer referência a um Azure Data Lake Storage Gen2 ou conta de armazenamento de BLOBs do Azure para preparo dos dados ao usar o polybase.
 
-Para evitar inserir linha por linha em seu DW, verifique **Habilitar preparo** nas configurações de Coletor para que o Azure Data Factory possa usar [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide). O PolyBase permite que o Azure Data Factory carregue os dados em massa.
-* Ao executar a atividade de fluxo de dados de um pipeline, você precisará selecionar um blob ou local de armazenamento ADLS Gen2 para preparar seus dados durante o carregamento em massa.
+Além do polybase, as mesmas práticas recomendadas se aplicam ao Azure Synapse Analytics como banco de dados SQL do Azure.
 
-* A origem de arquivo de 421 Mb com 74 colunas para uma tabela de Synapse e uma única transformação de coluna derivada leva cerca de 4 minutos de ponta a ponta usando Azure IRs de depuração de 80 núcleos otimizados para memória.
+### <a name="file-based-sinks"></a>Coletores baseados em arquivo 
 
-## <a name="optimizing-for-files"></a>Otimizar para arquivos
+Embora os fluxos de dados ofereçam suporte a uma variedade de tipos de arquivo, o Azure Data Factory recomenda o uso do formato Spark-Native parquet para tempos de leitura e gravação ideais.
 
-Em cada transformação, você pode definir o esquema de particionamento que deseja que data factory use na guia Otimizar. É uma prática recomendada testar primeiro os coletores baseados em arquivo, mantendo o particionamento e as otimizações padrão. Deixar o particionamento para "particionamento atual" no coletor para um destino de arquivo permitirá que o Spark defina um particionamento padrão apropriado para suas cargas de trabalho. O particionamento padrão usa 128Mb por partição.
+Se os dados forem distribuídos uniformemente, **use o particionamento atual** será a opção de particionamento mais rápida para gravar arquivos.
 
-* Para arquivos menores, escolher menos partições pode, às vezes, ser melhor e mais rápido do que pedir que o Spark particione seus arquivos pequenos.
-* Se você não tiver informações suficientes sobre seus dados de origem, escolha o particionamento *Round Robin* e defina o número de partições.
-* Se seus dados tiverem colunas que podem ser boas chaves de hash, escolha *particionamento Hash*.
+#### <a name="file-name-options"></a>Opções de nome de arquivo
 
-* A origem do arquivo com o coletor de arquivos de 421 Mb com 74 colunas e uma única transformação de coluna derivada leva cerca de 2 minutos de ponta a ponta usando Azure IRs de depuração de 80 núcleos otimizados para memória.
+Ao gravar arquivos, você tem uma opção de opções de nomenclatura que cada um tem um impacto no desempenho.
 
-Durante a depuração na versão prévia de dados e na depuração de pipeline, os tamanhos de limite e amostragem para conjuntos de dados de origem baseados em arquivo se aplicam apenas ao número de linhas retornadas, e não ao número de linhas lidas. Isso pode afetar o desempenho das suas execuções de depuração e causar falha no fluxo.
-* Os clusters de depuração são por padrão pequenos clusters de nó único e recomendamos o uso de arquivos pequenos de exemplo para depuração. Vá para Configurações de depuração e aponte para um pequeno subconjunto de dados usando um arquivo temporário.
+![Opções de coletor](media/data-flow/file-sink-settings.png "opções de coletor")
 
-    ![Configurações de depuração](media/data-flow/debugsettings3.png "Configurações de depuração")
+A seleção da opção **padrão** gravará o mais rápido. Cada partição será igual a um arquivo com o nome padrão do Spark. Isso será útil se você estiver apenas lendo a partir da pasta de dados.
 
-### <a name="file-naming-options"></a>Opções de nomenclatura de arquivo
+Definir um **padrão** de nomenclatura renomeará cada arquivo de partição para um nome mais amigável. Essa operação ocorre após a gravação e é um pouco mais lenta do que escolher o padrão. Por partição permite que você nomeie cada partição individual manualmente.
 
-A maneira mais comum de gravar dados transformados em fluxos de dados de mapeamento é gravar armazenamento de arquivos do ADLS ou blobs. No seu coletor, você deve selecionar um conjunto de dados que aponte para um contêiner ou pasta, não um arquivo nomeado. Como o fluxo de dados de mapeamento usa o Spark para execução, sua saída é dividida em vários arquivos com base no esquema de particionamento.
+Se uma coluna corresponder ao modo como você deseja gerar os dados, você poderá selecionar **como dados na coluna**. Isso reembaralha os dados e pode afetar o desempenho se as colunas não forem distribuídas uniformemente.
 
-Um esquema de particionamento comum é escolher _Saída para um único arquivo_, que mescla todos os arquivos PART de saída em um único arquivo em seu coletor. Essa operação requer que a saída seja reduzida para uma única partição em um único nó de cluster. Você poderá ficar sem recursos de nó de cluster se estiver combinando muitos arquivos de origem grandes em um único arquivo de saída.
+**A saída para um único arquivo** combina todos os dados em uma única partição. Isso leva a longos tempos de gravação, especialmente para grandes conjuntos de altos. A equipe de Azure Data Factory altamente recomenda **não** escolher essa opção, a menos que haja um motivo de negócios explícito para fazer isso.
 
-Para evitar esgotar os recursos do nó de computação, mantenha o esquema padrão otimizado no fluxo de dados e adicione uma atividade de cópia em seu pipeline que mescle todos os arquivos PART da pasta de saída em um novo arquivo único. Essa técnica separa a ação de transformação da mesclagem de arquivos e obtém o mesmo resultado que a configuração _Saída para um único arquivo_.
+### <a name="cosmosdb-sinks"></a>Coletores CosmosDB
 
-### <a name="looping-through-file-lists"></a>Loop nas listas de arquivos
+Ao gravar em CosmosDB, alterar a taxa de transferência e o tamanho do lote durante a execução do fluxo de dados pode melhorar o desempenho. Essas alterações só entram em vigor durante a execução da atividade de fluxo de dados e retornarão às configurações da coleção original após a conclusão. 
 
-Um fluxo de dados de mapeamento será executado melhor quando a transformação de origem iterar em vários arquivos em vez de executar um loop por meio de atividade “For Each”. Recomendamos usar caracteres curinga ou listas de arquivos em sua transformação de origem. O processo de Fluxo de Dados será executado mais rapidamente, permitindo que o loop ocorra dentro do cluster do Spark. Para saber mais, consulte [Usar caractere curinga na transformação de origem](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
+**Tamanho do lote:** Calcule o tamanho da linha aproximada dos seus dados e certifique-se de que tamanho da linha * tamanho do lote seja menor que 2 milhões. Se for, aumente o tamanho do lote para obter uma melhor taxa de transferência
 
-Por exemplo, se você tiver uma lista de arquivos de dados de julho de 2019 que deseja processar em uma pasta no armazenamento de blobs, você pode usar o caractere curinga abaixo na sua transformação de origem.
+**Taxa de transferência:** Defina uma configuração de taxa de transferência mais alta aqui para permitir que os documentos sejam gravados mais rapidamente no CosmosDB. Tenha em mente os custos de RU maiores com base em uma configuração de alta taxa de transferência.
 
-```DateFiles/*_201907*.txt```
+**Orçamento de taxa de transferência de gravação:** Use um valor que seja menor do que o total de RUs por minuto. Se você tiver um fluxo de dados com um número alto de partições do Spark, a definição de uma taxa de transferência de orçamento permitirá mais saldo entre essas partições.
 
-Ao usra o curinga, seu pipeline conterá apenas uma atividade de Fluxo de Dados. Isso terá um desempenho melhor do que uma pesquisa no armazenamento de blob que, em seguida, itera em todos os arquivos correspondentes usando um ForEach com uma atividade Executar Fluxo de Dados interna.
 
-O pipeline For Each em modo paralelo gera vários clusters ao criar clusters de trabalho para cada atividade de fluxo de dados executada. Isso pode causar a limitação de serviço do Azure com um grande número de execuções simultâneas. No entanto, o uso de Executar Fluxo de Dados dentro de um For Each com conjunto Sequencial no pipeline evitará a limitação e o esgotamento de recursos. Isso forçará o Data Factory a executar cada um de seus arquivos em um fluxo de dados sequencialmente.
+## <a name="optimizing-transformations"></a>Otimizando transformações
 
-Se você usar For Each um com um fluxo de dados em sequência, recomendamos a configuração TTL no Azure Integration Runtime. Isso ocorre porque cada arquivo incorrerá em um tempo de inicialização de cluster completo de 4 minutos dentro do iterador.
+### <a name="optimizing-joins-exists-and-lookups"></a>Otimizando junções, existentes e pesquisas
 
-### <a name="optimizing-for-cosmosdb"></a>Otimização para CosmosDB
+#### <a name="broadcasting"></a>Difundindo
 
-Definir as propriedades de taxa de transferência e de lote em coletores CosmosDB só entrará em vigor durante a execução desse fluxo de dados de uma atividade de fluxo de dados de pipeline. As configurações originais da coleção serão respeitadas pelo CosmosDB após a execução do fluxo de dados.
+Em junções, pesquisas e transformações existentes, se um ou ambos os fluxos de dados forem pequenos o suficiente para caber na memória do nó de trabalho, você poderá otimizar o desempenho habilitando a **transmissão**. A difusão é quando você envia quadros de dados pequenos para todos os nós no cluster. Isso permite que o mecanismo do Spark execute uma junção sem embaralhando os dados no fluxo grande. Por padrão, o mecanismo do Spark decidirá automaticamente se deseja ou não difundir um lado de uma junção. Se você estiver familiarizado com seus dados de entrada e souber que um fluxo será significativamente menor do que o outro, poderá selecionar a difusão **fixa** . A difusão fixa força o Spark a transmitir o fluxo selecionado. 
 
-* Tamanho do lote: Calcule o tamanho aproximado de linhas dos dados e verifique se o tamanho do lote de rowSize * é menor que 2 milhões. Se for, aumente o tamanho do lote para obter uma melhor taxa de transferência
-* Taxa de transferência: Defina uma configuração de taxa de transferência mais alta para permitir que os documentos sejam gravados mais rapidamente no CosmosDB. Tenha em mente o aumento de custos de RU com base em uma configuração de taxa de transferência alta.
-*   Orçamento de taxa de transferência de gravação: Use um valor que seja menor do que o total de RUs por minuto. Se você tiver um fluxo de dados com um número alto de partições do Spark, definir uma taxa de transferência de orçamento permitirá mais equilíbrio entre essas partições.
+Se o tamanho dos dados transmitidos for muito grande para o nó do Spark, você poderá receber um erro de memória insuficiente. Para evitar erros de memória insuficiente, use clusters com **otimização de memória** . Se você tiver tempos limite de difusão durante execuções de fluxo de dados, poderá desativar a otimização de difusão. No entanto, fará com que os fluxos de dados fiquem mais lentos.
 
-## <a name="join-and-lookup-performance"></a>Desempenho de junção e pesquisa
+![Otimização da transformação de junção](media/data-flow/joinoptimize.png "Otimização de junção")
 
-O gerenciamento do desempenho de junções em seu fluxo de dados é uma operação muito comum que você executará durante todo o ciclo de vida de suas transformações de dados. No Azure Data Factory, os fluxos de dados não exigem que os dados sejam classificados antes de junções, pois essas operações são executadas como junções de hash no Spark. No entanto, você pode se beneficiar do desempenho aprimorado com a otimização de junção de “transmissão” que se aplica às transformações Joins, Exists e Lookup.
+#### <a name="cross-joins"></a>Junções cruzadas
 
-Isso evitará ordens aleatórias instantâneas efetuando o pushdown do conteúdo de cada lado da relação de junção no nó do Spark. Isso funciona bem para tabelas menores usadas para pesquisas de referência. Tabelas maiores, que podem não se ajustar à memória do nó, não são boas candidatas para a otimização da transmissão.
+Se você usar valores literais em suas condições de junção ou tiver várias correspondências em ambos os lados de uma junção, o Spark executará a junção como uma junção cruzada. Uma junção cruzada é um produto cartesiano completo que filtra os valores associados. Isso é significativamente mais lento do que outros tipos de junção. Verifique se você tem referências de coluna em ambos os lados de suas condições de junção para evitar o impacto no desempenho.
 
-A configuração recomendada para fluxos de dados com muitas operações de junção é manter a otimização definida como "auto" para "difusão" e usar uma configuração de Azure Integration Runtime com ***otimização de memória*** . Se ocorrerem erros de memória insuficiente ou de tempos limite de transmissão durante execuções de fluxo de dados, você poderá desativar a otimização de transmissão. No entanto, fará com que os fluxos de dados fiquem mais lentos. Você também tem a opção de instruir o fluxo de dados para efetuar pushdown somente do lado esquerdo ou direito da junção, ou ambos.
+#### <a name="sorting-before-joins"></a>Classificação antes de junções
 
-![Configurações de transmissão](media/data-flow/newbroad.png "Configurações de transmissão")
+Ao contrário da junção de mesclagem em ferramentas como o SSIS, a transformação de junção não é uma operação de junção de mesclagem obrigatória. As chaves de junção não exigem classificação antes da transformação. A equipe de Azure Data Factory não recomenda usar transformações de classificação no mapeamento de fluxos de dados.
 
-Outra otimização de junção é criar junções de forma a evitar a tendência do Spark de implementar junções cruzadas. Por exemplo, quando você inclui valores literais em suas condições de junção, o Spark pode interpretar isso como um requisito para executar um produto cartesiano completo primeiro, e depois filtrar os valores associados. Mas se você tiver certeza de que tem valores de coluna em ambos os lados da sua condição de junção, poderá evitar esse produto cartesiano induzido pelo Spark e melhorar o desempenho de suas junções e fluxos de dados.
+### <a name="repartitioning-skewed-data"></a>Reparticionando dados distorcidos
+
+Determinadas transformações, como junções e agregações, reembaralham suas partições de dados e, ocasionalmente, podem levar a dados distorcidos. Dados distorcidos significa que os dados não são distribuídos uniformemente entre as partições. Dados intensamente distorcidos podem levar a transformações de downstream mais lentas e gravações de coletor. Você pode verificar a distorção de seus dados em qualquer ponto em um fluxo de dados executado clicando na transformação na exibição monitoramento.
+
+![Distorção e curtose](media/data-flow/skewness-kurtosis.png "Distorção e curtose")
+
+A exibição de monitoramento mostrará como os dados são distribuídos em cada partição junto com duas métricas, distorção e curtose. A **distorção** é uma medida de quão assimétrico os dados são e pode ter um valor positivo, zero, negativo ou indefinido. Distorção negativa significa que a cauda esquerda é maior do que a direita. A **curtose** é a medida que indica se os dados são pesados ou leves. Valores de curtose alta não são desejáveis. Os intervalos ideais de distorção ficam entre-3 e 3 e os intervalos de curto-intervalo são inferiores a 10. Uma maneira fácil de interpretar esses números é examinar o gráfico de partição e ver se 1 barra é significativamente maior do que o restante.
+
+Se os dados não forem particionados uniformemente após uma transformação, você poderá usar a [guia otimizar](#optimize-tab) para reparticionar. Os dados do embaralhando levam tempo e podem não melhorar o desempenho do fluxo de dados.
+
+> [!TIP]
+> Se você reparticionar seus dados, mas tiver transformações downstream que reembaralham seus dados, use o particionamento de hash em uma coluna usada como chave de junção.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Consulte outros artigos sobre Fluxo de Dados relacionados ao desempenho:
 
-- [Guia Otimizar Fluxo de Dados](concepts-data-flow-overview.md#optimize)
 - [Atividade de Fluxo de Dados](control-flow-execute-data-flow-activity.md)
 - [Monitorar o desempenho de Fluxo de Dados](concepts-data-flow-monitoring.md)

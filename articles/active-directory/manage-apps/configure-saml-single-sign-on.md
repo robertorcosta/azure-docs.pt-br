@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 1abde88b653ae0f0ef3651b161e806047e143078
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 82b10525fe4d8b9db88300b61ae2da6630030dfd
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418773"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461180"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Configurar o logon único baseado em SAML
 
@@ -25,7 +25,7 @@ Na [série de guias de início rápido](view-applications-portal.md) sobre o ger
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Usar o Azure AD como seu provedor de identidade e configurar o SSO (logon único) pode ser simples ou complexo dependendo do aplicativo que está sendo usado. Alguns aplicativos podem ser configurados com apenas algumas ações. Outros exigem configuração detalhada. Para aumentar rapidamente, percorra a [série de guias de início rápido](view-applications-portal.md) sobre o gerenciamento de aplicativos. Se o aplicativo que você está adicionando for simples, provavelmente você não precisará ler este artigo. Se o aplicativo que você está adicionando exigir configuração personalizada para SSO baseado em SAML, este artigo será para você.
+Usar o Azure AD como seu IdP (provedor de identidade) e configurar o SSO (logon único) pode ser simples ou complexo, dependendo do aplicativo que está sendo usado. Alguns aplicativos podem ser configurados com apenas algumas ações. Outros exigem configuração detalhada. Para aumentar rapidamente, percorra a [série de guias de início rápido](view-applications-portal.md) sobre o gerenciamento de aplicativos. Se o aplicativo que você está adicionando for simples, provavelmente você não precisará ler este artigo. Se o aplicativo que você está adicionando exigir configuração personalizada para SSO baseado em SAML, este artigo será para você.
 
 Na [série de início rápido](view-applications-portal.md), há um artigo sobre como configurar o logon único. Nele, você aprende a acessar a página de configuração do SAML para um aplicativo. A página de configuração do SAML inclui cinco seções. Essas seções são discutidas detalhadamente neste artigo.
 

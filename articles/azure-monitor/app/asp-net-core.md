@@ -3,12 +3,12 @@ title: Aplicativo Azure insights para aplicativos ASP.NET Core | Microsoft Docs
 description: Monitorar aplicativos web ASP.NET Core de disponibilidade, desempenho e uso.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 770cc3f34487f837631a98c6f652d8746ae2c2df
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1a9bc3e46e108c50b36e0318e0f9a51a94e83573
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321387"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475508"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicativos ASP.NET Core
 
@@ -201,7 +201,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Lista completa de configurações em`ApplicationInsightsServiceOptions`
 
-|Configuração | Descrição | Padrão
+|Setting | Descrição | Padrão
 |---------------|-------|-------
 |EnablePerformanceCounterCollectionModule  | Habilitar/desabilitar`PerformanceCounterCollectionModule` | true
 |EnableRequestTrackingTelemetryModule   | Habilitar/desabilitar`RequestTrackingTelemetryModule` | true
@@ -455,7 +455,9 @@ Esse SDK requer `HttpContext` e, portanto, não funciona em nenhum aplicativo n�
 
 ## <a name="open-source-sdk"></a>SDK do código-fonte aberto
 
-[Leia e colabore para o código](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
+* [Leia e colabore para o código](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
+
+Para obter as atualizações mais recentes e as correções de bugs, [consulte as notas de versão](./release-notes.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

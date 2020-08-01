@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 6f53d5ec2d73c9edbb7e24c24107b2a6d6deb167
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 46ff6fb26cf568474b24d941e4a174b425bf5207
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684684"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474352"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorar uma conta de armazenamento no portal do Azure
 
@@ -141,7 +141,7 @@ Você pode instruir o Armazenamento do Azure a salvar logs de diagnóstico para 
     ![Configure os logs no portal do Azure.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. Clique em **Save** (Salvar).
 
-Os logs de diagnóstico são salvos em um contêiner de blob denominado *$logs* em sua conta de armazenamento. Você pode exibir os dados de log usando um gerenciador de armazenamento como o [Gerenciador de Armazenamento da Microsoft](https://storageexplorer.com) ou de forma programática, usando a biblioteca de cliente de armazenamento ou o PowerShell.
+Os logs de diagnóstico são salvos em um contêiner de blob denominado *$logs* em sua conta de armazenamento. Você pode exibir os dados de log usando um Gerenciador de armazenamento como o [Gerenciador de armazenamento do Microsoft Azure](https://storageexplorer.com)ou programaticamente usando a biblioteca de cliente de armazenamento ou o PowerShell.
 
 Para obter informações sobre como acessar o contêiner $logs, consulte [Log de análise de armazenamento](storage-analytics-logging.md).
 

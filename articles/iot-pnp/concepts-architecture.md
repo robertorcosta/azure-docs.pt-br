@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: f2d9407d9c7172839027e2650486695244f67889
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: f656de0bb2e5244e137ae21a6d7af88f3430b12c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352090"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475678"
 ---
-# <a name="iot-plug-and-play-preview-architecture"></a>Arquitetura de visualização de Plug and Play de IoT
+# <a name="iot-plug-and-play-preview-architecture"></a>Arquitetura da versão prévia do IoT Plug and Play
 
 O IoT Plug and Play Preview permite que os integradores de solução integrem dispositivos inteligentes a suas soluções sem nenhuma configuração manual. No núcleo do Plug and Play IoT, é um _modelo_ de dispositivo que descreve os recursos de um dispositivo para um aplicativo habilitado para IOT plug and Play. Esse modelo é estruturado como um conjunto de interfaces que definem:
 
@@ -79,5 +79,5 @@ A solução de back-end pode usar as informações das definições de interface
 Agora que você tem uma visão geral da arquitetura de uma solução de Plug and Play de IoT, as próximas etapas são para saber mais sobre:
 
 - [O repositório de modelos](./concepts-model-repository.md)
-- [Processo de descoberta de modelo](./concepts-model-discovery.md)
+- [Integração do modelo de entrelaçamento digital](./concepts-model-discovery.md)
 - [Desenvolvendo para Plug and Play de IoT](./concepts-developer-guide.md)

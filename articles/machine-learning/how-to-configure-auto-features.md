@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: b01d6c36b31ef4f03522d03ca327439cfa31be8d
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 1c26164ed7a2b7c335d3977e143fcef28c8955db
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373735"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475799"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Personalização no Machine Learning automatizado
 
@@ -45,7 +45,7 @@ Para os experimentos que você configura com o SDK do Python, você pode habilit
 
 A tabela a seguir mostra as configurações aceitas para `featurization` na [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig):
 
-|Configuração do personalização | Descrição|
+|Configuração do personalização | Description|
 ------------- | ------------- |
 |`"featurization": 'auto'`| Especifica que, como parte do pré-processamento, [as etapas de guardrails e personalização de dados](#featurization) são feitas automaticamente. Essa é a configuração padrão.|
 |`"featurization": 'off'`| Especifica que as etapas do personalização não devem ser feitas automaticamente.|
@@ -60,11 +60,11 @@ A tabela a seguir resume as técnicas que são aplicadas automaticamente aos seu
 > [!NOTE]
 > Se você planeja exportar seus modelos AutoML para um [modelo ONNX](concept-onnx.md), somente as opções de personalização indicadas com um asterisco ("*") têm suporte no formato ONNX. Saiba mais sobre [conversão de modelos para ONNX](concept-automated-ml.md#use-with-onnx).
 
-|Etapas de personalização &nbsp;| Descrição |
+|Etapas de personalização &nbsp;| Description |
 | ------------- | ------------- |
 |**Descartar alta cardinalidade ou nenhum recurso de variação*** |Descartar esses recursos de conjuntos de treinamento e validação. Aplica-se a recursos com todos os valores ausentes, com o mesmo valor em todas as linhas ou com alta cardinalidade (por exemplo, hashes, IDs ou GUIDs).|
 |**Imputar valores ausentes*** |Para recursos numéricos, imputar com a média de valores na coluna.<br/><br/>Para recursos categóricos, imputar com o valor mais frequente.|
-|**Gerar recursos adicionais*** |Para recursos DateTime: Ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.<br/><br/>Para recursos de texto: a frequência de termos com base em unigrams, bigrams e trigrams. Saiba mais sobre [como isso é feito com o Bert.](#bert-integration)|
+|**Gerar recursos adicionais*** |Para recursos DateTime: Ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.<br><br> *Para tarefas de previsão,* esses recursos de DateTime adicionais são criados: ano ISO, semestre, mês como cadeia de caracteres, semana, dia da semana como cadeia de caracteres, dia do trimestre, dia do ano, AM/PM (0 se a hora for anterior ao meio-dia (12 PM), 1 caso), AM/PM como cadeia de caracteres, hora do dia (12HR)<br/><br/>Para recursos de texto: a frequência de termos com base em unigrams, bigrams e trigrams. Saiba mais sobre [como isso é feito com o Bert.](#bert-integration)|
 |**Transformar e codificar***|Transforme recursos numéricos que têm poucos valores exclusivos em recursos categóricos.<br/><br/>A codificação One-Hot é usada para recursos categóricos de baixa cardinalidade. A codificação um-Hot-hash é usada para recursos categóricos de alta cardinalidade.|
 |**Inserções de palavras**|Um texto featurizer converte vetores de tokens de texto em vetores de sentença usando um modelo pretreinado. O vetor de incorporação de cada palavra em um documento é agregado com o restante para produzir um vetor de recursos de documento.|
 |**Codificações de destino**|Para recursos categóricos, essa etapa mapeia cada categoria com um valor de destino médio para problemas de regressão e para a probabilidade de classe de cada classe para problemas de classificação. O peso baseado em frequência e a validação cruzada de k-fold são aplicados para reduzir o superajuste do mapeamento e ruído causados por categorias de dados esparsas.|
@@ -163,9 +163,11 @@ text_transformations_used
 
 3. Na etapa de limpeza do recurso, AutoML compara BERT com a linha de base (conjunto de palavras recursos + incorporações de palavras treinadas) em uma amostra dos dados e determina se o BERT daria melhorias de precisão. Se ele determinar que o BERT tem um desempenho melhor do que a linha de base, o AutoML usará BERT para Text personalização como a estratégia de personalização ideal e continuará com destacar os dados inteiros. Nesse caso, você verá o "PretrainedTextDNNTransformer" no modelo final.
 
+BERT geralmente é executado por mais tempo do que a maioria das outras featurizers. Ele pode ser o acelerador, fornecendo mais computação em seu cluster. O AutoML distribuirá o treinamento do BERT em vários nós se eles estiverem disponíveis (até um máximo de 8 nós). Isso pode ser feito definindo [max_concurrent_iterations](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) como maior que 1. Para obter um melhor desempenho, é recomendável usar SKUs com recursos RDMA (como "STANDARD_NC24r" ou "STANDARD_NC24rs_V3")
+
 O AutoML atualmente dá suporte a idiomas 100 e, dependendo do idioma do conjunto de um, o AutoML escolhe o modelo de BERT apropriado. Para dados em alemão, usamos o modelo alemão BERT. Para o inglês, usamos o modelo BERT em inglês. Para todas as outras linguagens, usamos o modelo BERT multilíngue.
 
-No código a seguir, o modelo alemão BERT é disparado, uma vez que a linguagem do conjunto de dado é especificada como ' deu ', o código de idioma de três letras para o alemão de acordo com a [classificação ISO](https://iso639-3.sil.org/code/hbs):
+No código a seguir, o modelo alemão BERT é disparado, uma vez que a linguagem do conjunto de dado é especificada como ' deu ', o código de idioma de três letras para o alemão de acordo com a [classificação ISO](https://iso639-3.sil.org/code/deu):
 
 ```python
 from azureml.automl.core.featurization import FeaturizationConfig

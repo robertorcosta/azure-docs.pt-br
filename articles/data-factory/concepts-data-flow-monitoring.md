@@ -1,19 +1,19 @@
 ---
-title: Monitoramento visual do fluxo de dados de mapeamento
-description: Como monitorar visualmente os Fluxo de Dados do Azure Data Factory
+title: Monitoramento de fluxos de dados de mapeamento
+description: Como monitorar visualmente o mapeamento de fluxos de dados no Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/03/2020
-ms.openlocfilehash: 1126f73b4d2e51e952a7cf971363020242838c34
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ad5fb077596b6cc444c1c4df81af32cbcfa7c1db
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958882"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475542"
 ---
 # <a name="monitor-data-flows"></a>Monitorar Fluxo de Dados
 
@@ -27,7 +27,7 @@ Ao executar o pipeline, você poderá monitorar o pipeline e todas as atividades
 
 Você verá as estatísticas nesse nível, incluindo os tempos de execução e o status. A ID de execução no nível de atividade é diferente da ID de execução no nível de pipeline. A ID de Execução no nível anterior é para o pipeline. Selecionar o ícone de óculos permite examinar os detalhes da sua execução de fluxo de dados.
 
-![Monitoramento de fluxo de dados](media/data-flow/mon002.png "Monitoramento de fluxo de dados")
+![Monitoramento de fluxo de dados](media/data-flow/monitoring-details.png "Monitoramento de fluxo de dados")
 
 Quando estiver na exibição de monitoramento de nós de gráfico, você verá uma versão simplificada do grafo que não pode ser editada do fluxo de dados.
 

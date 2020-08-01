@@ -5,20 +5,20 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.date: 07/20/2020
-ms.author: amsriva
+ms.author: surmb
 ms.topic: conceptual
-ms.openlocfilehash: 23f76f18256ecadcbef59a498292222ea358008f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 53f6f37454de886934a483b40daad24204958baf
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290990"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474318"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hospedagem de vários sites do Gateway de Aplicativo
 
-A hospedagem de vários sites permite que você configure mais de um aplicativo Web na mesma porta de um gateway de aplicativo. Ele permite que você configure uma topologia mais eficiente para suas implantações adicionando até mais de 100 sites a um gateway de aplicativo. Cada site pode ser direcionado para seu próprio pool de back-end. Por exemplo, três domínios, contoso.com, fabrikam.com e adatum.com, apontam para o endereço IP do gateway de aplicativo. Você criaria três ouvintes multissite e configuraria cada ouvinte para as respectivas configurações de porta e protocolo. 
+A hospedagem de vários sites permite que você configure mais de um aplicativo Web na mesma porta de um gateway de aplicativo. Permite que você configure a topologia mais eficiente para suas implantações adicionando até mais de 100 sites a um gateway de aplicativo. Cada site pode ser direcionado para seu próprio pool de back-end. Por exemplo, três domínios, contoso.com, fabrikam.com e adatum.com, apontam para o endereço IP do gateway de aplicativo. Você criaria três ouvintes com vários sites e configuraria cada ouvinte para as respectivas configurações de porta e protocolo. 
 
-Você também pode definir nomes de host curinga em um ouvinte multissite e até 5 nomes de host por ouvinte. Para saber mais, confira [nomes de host curinga no ouvinte](#wildcard-host-names-in-listener-preview).
+Você também pode definir nomes do host curinga em um ouvinte com vários sites e até cinco nomes do host por ouvinte. Para saber mais, confira [nomes de host curinga no ouvinte](#wildcard-host-names-in-listener-preview).
 
 :::image type="content" source="./media/multiple-site-overview/multisite.png" alt-text="Gateway de aplicativo multissite":::
 
@@ -42,6 +42,7 @@ Usando um caractere curinga no nome do host, você pode corresponder a vários n
 
 >[!NOTE]
 >No momento, esse recurso está disponível apenas por meio de [Azure PowerShell](tutorial-multiple-sites-powershell.md) e [CLI do Azure](tutorial-multiple-sites-cli.md). O suporte ao portal estará disponível em breve.
+> Observe que, como o suporte ao portal não está totalmente disponível, se você estiver usando apenas o parâmetro nomes de host, o ouvinte aparecerá como um ouvinte básico no portal e a coluna nome do host do modo de exibição lista de ouvintes não mostrará os nomes de host configurados. Para qualquer alteração em um ouvinte curinga, certifique-se de usar Azure PowerShell ou CLI até que ele tenha suporte no Portal.
 
 No [Azure PowerShell](tutorial-multiple-sites-powershell.md), você deve usar `-HostNames` em vez de `-HostName` . Com os nomes de host, você pode mencionar até 5 nome de host como valores separados por vírgulas e usar caracteres curinga. Por exemplo, `-HostNames "*.contoso.com,*.fabrikam.com"`
 

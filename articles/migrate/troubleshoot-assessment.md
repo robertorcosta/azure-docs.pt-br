@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: b47c6c7d2137737021766f239fdb6ab1c64bd12f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f9598ad508e3760bf1bad04f8694838465e4961f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422854"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460976"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Solucionar problemas de visualização de avaliação/dependência
 
@@ -66,6 +66,9 @@ No caso de VMs do VMware e do Hyper-V, a avaliação do servidor marca as VMs do
 
 Essa lacuna pode ser resolvida habilitando a [descoberta de aplicativos](./how-to-discover-applications.md) nas VMs VMware. A avaliação do servidor usa o sistema operacional detectado da VM usando as credenciais de convidado fornecidas. Esses dados do sistema operacional identificam as informações corretas do so no caso de VMs Windows e Linux.
 
+## <a name="operating-system-version-not-available"></a>Versão do sistema operacional não disponível
+
+Para servidores físicos, as informações de versão secundária do sistema operacional devem estar disponíveis. Se não estiver disponível, entre em contato com Suporte da Microsoft. Para máquinas VMware, a avaliação do servidor usa as informações do sistema operacional especificadas para a VM no vCenter Server. No entanto, vCenter Server não fornece a versão secundária para sistemas operacionais. Para descobrir a versão secundária, você precisa configurar a [descoberta de aplicativos](./how-to-discover-applications.md). Para VMs do Hyper-V, não há suporte para a descoberta de versão secundária do sistema operacional. 
 
 ## <a name="azure-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>SKUs do Azure maiores do que localmente em uma avaliação de VM do Azure
 

@@ -7,12 +7,12 @@ ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/10/2019
-ms.openlocfilehash: 54524b0528f94ca9386c2d0d45ba4393c965fa88
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 39b4a3bc5e5f70a5699f4fd84ec86dc61cf21483
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128804"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475253"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Saiba como solucionar falhas de tempo de execução do U-SQL devido a alterações no tempo de execução
 
@@ -46,11 +46,6 @@ release_YYYYMMDD_adl_buildno [_modifier]
 
 Por exemplo, release_20190318_adl_3394512_2 significa a segunda versão do Build 3394512 da versão de tempo de execução de 18 2019 de março e release_20190318_adl_3394512_private significa uma compilação particular da mesma versão. Observação: a data está relacionada a quando o último check-in foi realizado para essa versão e não necessariamente a data de lançamento oficial.
 
-A seguir estão as versões de tempo de execução disponíveis no momento.
-
-- release_20190318_adl_3394512
-- release_20190318_adl_5832669 o padrão atual
-- release_20190703_adl_4713356
 
 ## <a name="troubleshooting-u-sql-runtime-version-issues"></a>Solucionando problemas de versão do tempo de execução do U-SQL
 
@@ -60,7 +55,7 @@ Há dois possíveis problemas de versão de tempo de execução que você pode e
 
 2. Você esteve usando um tempo de execução não padrão de forma explícita ou implícita quando foi fixado em sua conta e esse tempo de execução foi removido após algum tempo. Se você encontrar tempos de execução ausentes, atualize seus scripts para executar com o tempo de execução padrão atual. Se você precisar de mais tempo, entre em contato com Suporte da Microsoft
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - [Visão geral da Análise Azure Data Lake](data-lake-analytics-overview.md)
 - [Gerenciar Azure Data Lake Analytics usando portal do Azure](data-lake-analytics-manage-use-portal.md)

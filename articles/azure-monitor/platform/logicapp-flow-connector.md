@@ -7,15 +7,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 6048b5f0a3702e95cef9175933041fe36f2f07bb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2ef7095d186902425adb5065c470325be1283023
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081552"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475729"
 ---
-# <a name="azure-monitor-logs-connector-for-logic-apps-and-flow"></a>Conector de logs de Azure Monitor para aplicativos lógicos e fluxo
-Os [aplicativos lógicos do Azure](../../logic-apps/index.yml) e a [automatização de energia](https://ms.flow.microsoft.com) permitem que você crie fluxos de trabalho automatizados usando centenas de ações para uma variedade de serviços. O conector de logs de Azure Monitor permite que você crie fluxos de trabalho que recuperam dados de um espaço de Log Analytics ou de um aplicativo Application Insights no Azure Monitor. Este artigo descreve as ações incluídas com o conector e fornece uma explicação para criar um fluxo de trabalho usando esses dados.
+# <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Conector de logs de Azure Monitor para aplicativos lógicos e automatização de energia
+Os [aplicativos lógicos do Azure](../../logic-apps/index.yml) e a [automatização de energia](https://flow.microsoft.com) permitem que você crie fluxos de trabalho automatizados usando centenas de ações para uma variedade de serviços. O conector de logs de Azure Monitor permite que você crie fluxos de trabalho que recuperam dados de um espaço de Log Analytics ou de um aplicativo Application Insights no Azure Monitor. Este artigo descreve as ações incluídas com o conector e fornece uma explicação para criar um fluxo de trabalho usando esses dados.
 
 Por exemplo, você pode criar um aplicativo lógico para usar Azure Monitor dados de log em uma notificação por email do Office 365, criar um bug no Azure DevOps ou postar uma mensagem de margem de atraso.  Você pode disparar um fluxo de trabalho com um agendamento simples ou a partir de alguma ação em um serviço conectado, por exemplo, quando um email ou tweet é recebido. 
 
@@ -126,4 +126,4 @@ Quando o aplicativo lógico for concluído, verifique o email do destinatário q
 
 - Saiba mais sobre [consultas de log no Azure Monitor](../log-query/log-query-overview.md).
 - Saiba mais sobre os [aplicativos lógicos](../../logic-apps/index.yml)
-- Saiba mais sobre o [Microsoft Flow](https://ms.flow.microsoft.com).
+- Saiba mais sobre a [automatização de energia](https://flow.microsoft.com).

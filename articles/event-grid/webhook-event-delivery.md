@@ -3,19 +3,19 @@ title: Entrega de eventos do WebHook
 description: Este artigo descreve a entrega de eventos do webhook e a validação do ponto de extremidade ao usar webhooks.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b616c82092ad896da82d0f98f37e3c45f3ba1014
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e9a52d0cb3e4e880d91e1b748d97ef3041298930
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118946"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461231"
 ---
 # <a name="webhook-event-delivery"></a>Entrega de eventos do webhook
 Webhooks são uma dentre várias maneiras de receber eventos da Grade de Eventos do Azure. Quando um novo evento estiver pronto, o serviço da Grade de Eventos do Azure POSTs uma solicitação HTTP para o ponto de extremidade configurado com o evento o corpo da solicitação.
 
 Como muitos outros serviços que dão suporte a webhooks, a Grade de Eventos do Azure exige que você comprovar a "propriedade" de seu ponto de extremidade do Webhook antes de começar a entrega de eventos para esse ponto de extremidade. Esse requisito impede que um usuário mal-intencionado inunde seu ponto de extremidade com eventos. Quando você usa qualquer um dos três serviços do Azure listado abaixo, a infraestrutura do Azure trata automaticamente essa validação:
 
-- Aplicativos Lógicos do Azure com [Conector da Grade de Eventos](https://docs.microsoft.com/connectors/azureeventgrid/)
+- Aplicativos Lógicos do Azure com [Conector da Grade de Eventos](/connectors/azureeventgrid/)
 - Automação do Azure por meio de [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
 - Azure Functions com [Gatilho de Grade de Eventos](../azure-functions/functions-bindings-event-grid.md)
 

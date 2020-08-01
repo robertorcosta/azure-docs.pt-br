@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e8486241d4de0025603b22b591f4a8f62901bd7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1875c9147f62619d8961096adb6a0f3986496b41
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203649"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87459434"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico RESTful em uma política personalizada do Azure Active Directory B2C
 
@@ -114,16 +114,16 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ServiceUrl | Sim | A URL do ponto de extremidade da API REST. |
-| AuthenticationType | Sim | O tipo de autenticação que está sendo executada pelo provedor de declarações RESTful. Valores possíveis: `None`, `Basic`, `Bearer` ou `ClientCertificate`. O valor `None` indica que a API REST não é anônima. O valor `Basic` indica que a API REST está protegida com a autenticação Básica HTTP. Somente usuários verificados, incluindo Azure AD B2C, podem acessar a API. O `ClientCertificate` valor (recomendado) indica que a API REST restringe o acesso usando a autenticação de certificado do cliente. Somente os serviços que têm os certificados apropriados, por exemplo Azure AD B2C, podem acessar sua API. O `Bearer` valor indica que a API REST restringe o acesso usando o token de portador OAuth2 do cliente. |
-| AllowInsecureAuthInProduction| Não| Indica se o `AuthenticationType` pode ser definido como `none` no ambiente de produção ( `DeploymentMode` de [TrustFrameworkPolicy](trustframeworkpolicy.md) é definido como `Production` , ou não especificado). Valores possíveis: true ou false (padrão). |
-| SendClaimsIn | Não | Especifica como as declarações de entrada são enviadas para o provedor de declarações RESTful. Valores possíveis: `Body` (padrão), `Form`, `Header` ou `QueryString`. O valor `Body` é a declaração de entrada enviada no corpo da solicitação no formato JSON. O valor `Form` é a declaração de entrada enviada no corpo da solicitação em um formato de valor de chave separado de e comercial '&'. O valor `Header` é a declaração de entrada enviada no cabeçalho da solicitação. O valor `QueryString` é a declaração de entrada enviada na cadeia de caracteres de consulta da solicitação. Os verbos HTTP invocados por cada um são os seguintes:<br /><ul><li>`Body`: Postar</li><li>`Form`: Postar</li><li>`Header`: Obter</li><li>`QueryString`: Obter</li></ul> |
+| ServiceUrl | Yes | A URL do ponto de extremidade da API REST. |
+| AuthenticationType | Yes | O tipo de autenticação que está sendo executada pelo provedor de declarações RESTful. Valores possíveis: `None`, `Basic`, `Bearer` ou `ClientCertificate`. O `None` valor indica que a API REST é anônima. O valor `Basic` indica que a API REST está protegida com a autenticação Básica HTTP. Somente usuários verificados, incluindo Azure AD B2C, podem acessar a API. O `ClientCertificate` valor (recomendado) indica que a API REST restringe o acesso usando a autenticação de certificado do cliente. Somente os serviços que têm os certificados apropriados, por exemplo Azure AD B2C, podem acessar sua API. O `Bearer` valor indica que a API REST restringe o acesso usando o token de portador OAuth2 do cliente. |
+| AllowInsecureAuthInProduction| No| Indica se o `AuthenticationType` pode ser definido como `none` no ambiente de produção ( `DeploymentMode` de [TrustFrameworkPolicy](trustframeworkpolicy.md) é definido como `Production` , ou não especificado). Valores possíveis: true ou false (padrão). |
+| SendClaimsIn | No | Especifica como as declarações de entrada são enviadas para o provedor de declarações RESTful. Valores possíveis: `Body` (padrão), `Form`, `Header` ou `QueryString`. O valor `Body` é a declaração de entrada enviada no corpo da solicitação no formato JSON. O valor `Form` é a declaração de entrada enviada no corpo da solicitação em um formato de valor de chave separado de e comercial '&'. O valor `Header` é a declaração de entrada enviada no cabeçalho da solicitação. O valor `QueryString` é a declaração de entrada enviada na cadeia de caracteres de consulta da solicitação. Os verbos HTTP invocados por cada um são os seguintes:<br /><ul><li>`Body`: Postar</li><li>`Form`: Postar</li><li>`Header`: Obter</li><li>`QueryString`: Obter</li></ul> |
 | ClaimsFormat | Não | Não usado no momento, pode ser ignorado. |
-| ClaimUsedForRequestPayload| Não | Nome de uma declaração de cadeia de caracteres que contém a carga a ser enviada para a API REST. |
-| DebugMode | Não | Executa o perfil técnico no modo de depuração. Valores possíveis: `true` ou `false` (padrão). No modo de depuração, a API REST pode retornar mais informações. Consulte a seção [retornando mensagem de erro](#returning-validation-error-message) . |
-| IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` ou `false`   (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true` . |
-| ResolveJsonPathsInJsonTokens  | Não | Indica se o perfil técnico resolve caminhos JSON. Valores possíveis: `true` ou `false` (padrão). Use esses metadados para ler dados de um elemento JSON aninhado. Em um [OutputClaim](technicalprofiles.md#outputclaims), defina o `PartnerClaimType` como o elemento de caminho JSON que você deseja gerar. Por exemplo: `firstName.localized` , ou `data.0.to.0.email` .|
-| UseClaimAsBearerToken| Não| O nome da declaração que contém o token de portador.|
+| ClaimUsedForRequestPayload| No | Nome de uma declaração de cadeia de caracteres que contém a carga a ser enviada para a API REST. |
+| DebugMode | No | Executa o perfil técnico no modo de depuração. Valores possíveis: `true` ou `false` (padrão). No modo de depuração, a API REST pode retornar mais informações. Consulte a seção [retornando mensagem de erro](#returning-validation-error-message) . |
+| IncludeClaimResolvingInClaimsHandling  | No | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` ou `false`   (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true` . |
+| ResolveJsonPathsInJsonTokens  | No | Indica se o perfil técnico resolve caminhos JSON. Valores possíveis: `true` ou `false` (padrão). Use esses metadados para ler dados de um elemento JSON aninhado. Em um [OutputClaim](technicalprofiles.md#outputclaims), defina o `PartnerClaimType` como o elemento de caminho JSON que você deseja gerar. Por exemplo: `firstName.localized` , ou `data.0.to.0.email` .|
+| UseClaimAsBearerToken| No| O nome da declaração que contém o token de portador.|
 
 ## <a name="error-handling"></a>Tratamento de erros
 
@@ -131,12 +131,12 @@ Os metadados a seguir podem ser usados para configurar as mensagens de erro exib
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| DefaultUserMessageIfRequestFailed | Não | Uma mensagem de erro personalizada padrão para todas as exceções da API REST.|
-| UserMessageIfCircuitOpen | Não | Mensagem de erro quando a API REST não está acessível. Se não for especificado, o DefaultUserMessageIfRequestFailed será retornado. |
-| UserMessageIfDnsResolutionFailed | Não | Mensagem de erro para a exceção de resolução de DNS. Se não for especificado, o DefaultUserMessageIfRequestFailed será retornado. | 
-| UserMessageIfRequestTimeout | Não | Mensagem de erro quando a conexão atingir o tempo limite. Se não for especificado, o DefaultUserMessageIfRequestFailed será retornado. | 
+| DefaultUserMessageIfRequestFailed | No | Uma mensagem de erro personalizada padrão para todas as exceções da API REST.|
+| UserMessageIfCircuitOpen | No | Mensagem de erro quando a API REST não está acessível. Se não for especificado, o DefaultUserMessageIfRequestFailed será retornado. |
+| UserMessageIfDnsResolutionFailed | No | Mensagem de erro para a exceção de resolução de DNS. Se não for especificado, o DefaultUserMessageIfRequestFailed será retornado. | 
+| UserMessageIfRequestTimeout | No | Mensagem de erro quando a conexão atingir o tempo limite. Se não for especificado, o DefaultUserMessageIfRequestFailed será retornado. | 
 
-## <a name="cryptographic-keys"></a>Chaves de criptografia
+## <a name="cryptographic-keys"></a>Chaves criptográficas
 
 Se o tipo de autenticação for definido como `None`, o elemento **CryptographicKeys** não será usado.
 
@@ -156,8 +156,8 @@ Se o tipo de autenticação for definido como `Basic`, o elemento **Cryptographi
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| BasicAuthenticationUsername | Sim | O nome de usuário usado para autenticar. |
-| BasicAuthenticationPassword | Sim | A senha usada para autenticar. |
+| BasicAuthenticationUsername | Yes | O nome de usuário usado para autenticar. |
+| BasicAuthenticationPassword | Yes | A senha usada para autenticar. |
 
 O exemplo a seguir mostra um perfil técnico com a autenticação Básica:
 
@@ -181,7 +181,7 @@ Se o tipo de autenticação for definido como `ClientCertificate`, o elemento **
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ClientCertificate | Sim | O certificado X509 (conjunto de chaves RSA) a ser usado para autenticar. |
+| ClientCertificate | Yes | O certificado X509 (conjunto de chaves RSA) a ser usado para autenticar. |
 
 ```xml
 <TechnicalProfile Id="REST-API-SignUp">
@@ -202,7 +202,7 @@ Se o tipo de autenticação for definido como `Bearer`, o elemento **Cryptograph
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| BearerAuthenticationToken | Não | O token de portador OAuth 2,0. |
+| BearerAuthenticationToken | No | O token de portador OAuth 2,0. |
 
 ```xml
 <TechnicalProfile Id="REST-API-SignUp">
@@ -237,13 +237,13 @@ A API REST talvez precise retornar uma mensagem de erro, como "O usuário não f
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| version | Sim | Sua versão da API REST. Por exemplo: 1.0.1 |
-| status | Sim | Deve ser 409 |
-| code | Não | Um código de erro do provedor de ponto de extremidade RESTful, que é exibido quando `DebugMode` está habilitado. |
-| requestId | Não | Um identificador de solicitação do provedor de ponto de extremidade RESTful, que é exibido quando `DebugMode` está habilitado. |
-| userMessage | Sim | Uma mensagem de erro que é mostrada ao usuário. |
-| developerMessage | Não | A descrição detalhada do problema e como corrigi-lo, o que é exibido quando `DebugMode` está habilitado. |
-| moreInfo | Não | Um URI que aponta para informações adicionais, que são exibidas quando `DebugMode` está habilitado. |
+| version | Yes | Sua versão da API REST. Por exemplo: 1.0.1 |
+| status | Yes | Deve ser 409 |
+| code | No | Um código de erro do provedor de ponto de extremidade RESTful, que é exibido quando `DebugMode` está habilitado. |
+| requestId | No | Um identificador de solicitação do provedor de ponto de extremidade RESTful, que é exibido quando `DebugMode` está habilitado. |
+| userMessage | Yes | Uma mensagem de erro que é mostrada ao usuário. |
+| developerMessage | No | A descrição detalhada do problema e como corrigi-lo, o que é exibido quando `DebugMode` está habilitado. |
+| moreInfo | No | Um URI que aponta para informações adicionais, que são exibidas quando `DebugMode` está habilitado. |
 
 
 O exemplo a seguir mostra uma classe C# que retorna uma mensagem de erro:

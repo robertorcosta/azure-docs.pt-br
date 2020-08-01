@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 137cbec270b40042503fc7687c9deb39b0df1aa4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b4a3e8c71757417240af2719c317bbbd49cef9fc
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243283"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475763"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Assinaturas no Gerenciamento de API do Azure
 
@@ -41,7 +41,7 @@ As assinaturas podem ser associadas a vários escopos: produto, todas as APIs ou
 
 ### <a name="subscriptions-for-a-product"></a>Assinaturas para um produto
 
-Tradicionalmente, as assinaturas no Gerenciamento de API sempre foram associadas a um único escopo do [produto da API](api-management-terminology.md). Os desenvolvedores podem encontrar a lista de produtos no Portal do Desenvolvedor. Dessa forma, eles podem enviar solicitações de assinatura para os produtos que desejam usar. Depois que uma solicitação de assinatura é aprovada, seja automaticamente ou por editores de API, o desenvolvedor pode usar as chaves nela para acessar todas as APIs do produto. No momento, o portal do desenvolvedor mostra apenas as assinaturas de escopo do produto na seção perfil do usuário. 
+Tradicionalmente, as assinaturas no Gerenciamento de API sempre foram associadas a um único escopo do [produto da API](api-management-terminology.md). Os desenvolvedores podem encontrar a lista de produtos no Portal do Desenvolvedor. Dessa forma, eles podem enviar solicitações de assinatura para os produtos que desejam usar. Após a solicitação de assinatura ser aprovada, automaticamente ou pelos editores de API, o desenvolvedor poderá usar as chaves contidas na assinatura para acessar todas as APIs no produto. No momento, o portal do desenvolvedor mostra apenas as assinaturas de escopo do produto na seção perfil do usuário. 
 
 ![Assinaturas de produto](./media/api-management-subscriptions/product-subscription.png)
 

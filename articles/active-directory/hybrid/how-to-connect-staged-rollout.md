@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f547aa900c1b8dbea27eceff7ac7ebc86a83e33
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d582db4bd7ef99d86602f49bc9046aadb8c3e8f0
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019821"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460602"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação de nuvem usando a distribuição em etapas (versão prévia)
 
@@ -50,6 +50,8 @@ Para obter uma visão geral do recurso, veja este vídeo chamado “Azure Active
 -   Para usar o recurso de distribuição em etapas, você precisará ser um administrador global em seu locatário.
 
 -   Para habilitar o *SSO contínuo* em uma floresta específica do Active Directory, você precisa ser um administrador de domínio.
+
+-  Se você estiver implantando o Azure AD híbrido ou o ingresso no Azure AD, deverá atualizar para a atualização do Windows 10 1903.
 
 
 ## <a name="supported-scenarios"></a>Cenários com suporte

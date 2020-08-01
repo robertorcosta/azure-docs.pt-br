@@ -1,80 +1,145 @@
 ---
-title: Implementar descoberta de modelo de visualização de IoT Plug and Play | Microsoft Docs
-description: Como desenvolvedor de soluções, saiba como você pode implementar a descoberta de modelo de Plug and Play de IoT em sua solução.
-author: Philmea
-ms.author: philmea
-ms.date: 12/26/2019
+title: Usar modelos de Plug and Play de IoT em uma solução | Microsoft Docs
+description: Como um construtor de soluções, saiba como você pode usar os modelos de Plug and Play de IoT em sua solução de IoT.
+author: arunmannengal
+ms.author: arunmann
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-manager: philmea
-ms.openlocfilehash: 74eb38269a3c7fbdc6d95554a8a8cef14eb0b787
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cdd6f63c9e5e717a533b88702b2886387fe3e39
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81770471"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475236"
 ---
-# <a name="implement-iot-plug-and-play-preview-model-discovery-in-an-iot-solution"></a>Implementar a descoberta do modelo de visualização de IoT Plug and Play em uma solução de IoT
+# <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Usar modelos de Plug and Play de IoT em uma solução de IoT
 
-Este artigo descreve como, como um desenvolvedor de soluções, você pode implementar a descoberta de modelo do IoT Plug and Play preview em uma solução de IoT.  A descoberta de modelo de Plug and Play IoT é como os dispositivos de IoT Plug and Play identificam seus modelos e interfaces de recursos com suporte e como uma solução de IoT recupera esses modelos e interfaces de recursos.
+Este artigo descreve como, em uma solução de IoT, você pode identificar a ID do modelo de um dispositivo de Plug and Play de IoT e, em seguida, recuperar sua definição de modelo.
 
-Há duas categorias amplas de solução de IoT: soluções criadas especificamente que funcionam com um conjunto conhecido de dispositivos IoT Plug and Play e soluções controladas por modelos que funcionam com qualquer dispositivo IoT Plug and Play.
+Há duas categorias amplas de uma solução de IoT:
 
-Este artigo de conceito descreve como implementar a descoberta de modelo em ambos os tipos de solução.
+- Uma *solução criada por finalidade* funciona com um conjunto conhecido de modelos para os dispositivos IOT plug and Play que se conectarão à solução. Você usa esses modelos ao desenvolver a solução.
 
-## <a name="model-discovery"></a>Descoberta de modelos
+- Uma solução *controlada por modelos* pode funcionar com o modelo de qualquer dispositivo de plug and Play de IOT. A criação de uma solução orientada por modelos é mais complexa, mas o benefício é que sua solução funciona com qualquer dispositivo que possa ser adicionado no futuro. Uma solução IoT controlada por modelos recupera um modelo e usa-o para determinar a telemetria, as propriedades e os comandos que o dispositivo implementa.
 
-Quando um dispositivo de Plug and Play IoT se conecta pela primeira vez ao Hub IoT, ele envia uma mensagem de telemetria de informações de modelo. Essa mensagem inclui as IDs das interfaces que o dispositivo implementa. Para que sua solução funcione com o dispositivo, ela deve resolver essas IDs e recuperar as definições de cada interface.
+Para usar um modelo de Plug and Play IoT, uma solução de IoT:
 
-Aqui estão as etapas que um dispositivo IoT Plug and Play pega quando usa o DPS (serviço de provisionamento de dispositivos) para se conectar a um Hub:
+1. Identifica a ID do modelo implementada pelo dispositivo IoT Plug and Play conectado à solução.
 
-1. Quando o dispositivo é ativado, ele se conecta ao ponto de extremidade global do DPS e se autentica usando um dos métodos permitidos.
-1. Em seguida, o DPS autentica o dispositivo e pesquisa a regra que informa a qual Hub IoT atribuir o dispositivo. O DPS registra o dispositivo com esse Hub.
-1. O DPS retorna uma cadeia de conexão do Hub IoT para o dispositivo.
-1. Em seguida, o dispositivo envia uma mensagem de telemetria de descoberta para o Hub IoT. A mensagem de telemetria de descoberta contém as IDs das interfaces que o dispositivo implementa.
-1. O dispositivo de Plug and Play de IoT agora está pronto para trabalhar com uma solução que usa o Hub IoT.
+1. Usa a ID do modelo para recuperar a definição do modelo do dispositivo conectado de um repositório de modelos ou de um repositório personalizado.
 
-Se o dispositivo se conectar diretamente ao Hub IoT, ele se conectará usando uma cadeia de conexão que é inserida no código do dispositivo. Em seguida, o dispositivo envia uma mensagem de telemetria de descoberta para o Hub IoT.
+## <a name="identify-model-id"></a>Identificar ID do modelo
 
-Consulte a interface [ModelInformation](concepts-common-interfaces.md) para saber mais sobre a mensagem de telemetria de informações do modelo.
+Quando um dispositivo de Plug and Play IoT se conecta ao Hub IoT, ele registra a ID do modelo que ele implementa com o Hub IoT.
 
-### <a name="purpose-built-iot-solutions"></a>Soluções de IoT criadas por finalidade
+O Hub IoT notifica a solução com a ID do modelo do dispositivo como parte do fluxo de conexão do dispositivo.
 
-Uma solução de IoT criada por finalidade funciona com um conjunto conhecido de interfaces e modelos de recursos de dispositivo de Plug and Play de IoT.
+Uma solução pode obter a ID do modelo do dispositivo IoT Plug and Play usando um dos três métodos a seguir:
 
-Você terá o modelo de funcionalidade e as interfaces para os dispositivos que se conectarão à sua solução antecipadamente. Use as seguintes etapas para preparar sua solução:
+### <a name="get-device-twin-api"></a>Obter API de dispositivo
 
-1. Armazene os arquivos JSON de interface em um [repositório de modelo](./howto-manage-models.md) onde sua solução possa lê-los.
-1. Grave a lógica em sua solução de IoT com base nos modelos de funcionalidade e na interface esperados do IoT Plug and Play.
-1. Assine as notificações do Hub IoT que sua solução usa.
+A solução pode usar a API de [obtenção de dispositivo](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin) para recuperar a ID de modelo do dispositivo de plug and Play de IOT.
 
-Ao receber uma notificação para uma nova conexão de dispositivo, siga estas etapas:
+No trecho de resposta do dispositivo de dispositivos a seguir, `modelId` contém a ID do modelo de um dispositivo de plug and Play IOT:
 
-1. Leia a mensagem de telemetria de descoberta para recuperar as IDs do modelo de funcionalidade e interfaces implementadas pelo dispositivo.
-1. Compare a ID do modelo de capacidade com as IDs dos modelos de recursos que você armazenou antes do tempo.
-1. Agora você sabe que tipo de dispositivo se conectou. Use a lógica que você escreveu anteriormente para permitir que os usuários interajam com o dispositivo adequadamente.
+```json
+{
+    "deviceId": "sample-device",
+    "etag": "AAAAAAAAAAc=",
+    "deviceEtag": "NTk0ODUyODgx",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00Z",
+    "connectionState": "Disconnected",
+    "lastActivityTime": "2020-07-17T06:12:26.8402249Z",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",
+    "x509Thumbprint": {
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "modelId": "dtmi:com:example:TemperatureController;1",
+    "version": 15,
+    "properties": {...}
+    }
+}
+```
 
-### <a name="model-driven-solutions"></a>Soluções controladas por modelos
+### <a name="get-digital-twin-api"></a>Obter a API de entrelaça digital
 
-Uma solução de IoT controlada por modelos pode funcionar com qualquer dispositivo de Plug and Play de IoT. Criar uma solução de IoT controlada por modelo é mais complexo, mas o benefício é que sua solução funciona com qualquer dispositivo adicionado no futuro.
+A solução pode usar a API de [obtenção digital](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin/getdigitaltwin) para recuperar a ID do modelo implementado pelo dispositivo de plug and Play de IOT.
 
-Para criar uma solução de IoT controlada por modelos, você precisa criar lógica em relação aos primitivos de interface de Plug and Play de IoT: telemetria, propriedades e comandos. A lógica da sua solução de IoT representa um dispositivo combinando vários recursos de telemetria, propriedade e comando.
+No seguinte trecho de resposta digital de FileUp, `$metadata.$model` contém a ID do modelo de um dispositivo de plug and Play IOT:
 
-Sua solução também deve assinar notificações do Hub IoT que ele usa.
+```json
+{
+    "$dtId": "sample-device",
+    "$metadata": {
+        "$model": "dtmi:com:example:TemperatureController;1",
+        "serialNumber": {
+            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+        }
+    }
+}
+```
 
-Quando sua solução receber uma notificação para uma nova conexão de dispositivo, siga estas etapas:
+### <a name="digital-twin-change-event-notification"></a>Notificação de evento de alteração de troca digital
 
-1. Leia a mensagem de telemetria de descoberta para recuperar as IDs do modelo de funcionalidade e interfaces implementadas pelo dispositivo.
-1. Para cada ID, leia o arquivo JSON completo para localizar os recursos do dispositivo.
-1. Verifique se cada interface está presente em todos os caches que você criou para armazenar os arquivos JSON recuperados anteriormente por sua solução.
-1. Em seguida, verifique se uma interface com essa ID está presente no repositório de modelo público. Para obter mais informações, consulte [repositório de modelos públicos](howto-manage-models.md).
-1. Se a interface não estiver presente no repositório de modelos públicos, tente procurá-la em qualquer repositório de modelo da empresa conhecido pela sua solução. Você precisa de uma cadeia de conexão para acessar um repositório de modelos da empresa. Para obter mais informações, consulte [repositório de modelos da empresa](howto-manage-models.md).
-1. Se você não encontrar todas as interfaces no repositório de modelo público ou em um repositório de modelo da empresa, poderá verificar se o dispositivo pode fornecer a definição de interface. Um dispositivo pode implementar a interface [ModelDefinition](concepts-common-interfaces.md) padrão para publicar informações sobre como recuperar arquivos de interface com um comando.
-1. Se você tiver encontrado arquivos JSON para cada interface implementada pelo dispositivo, poderá enumerar os recursos do dispositivo. Use a lógica que você escreveu anteriormente para permitir que os usuários interajam com o dispositivo.
-1. A qualquer momento, você pode chamar a API digital gêmeos para recuperar a ID do modelo de funcionalidade e as IDs de interface para o dispositivo.
+Uma conexão de dispositivo resulta em uma notificação de [evento de alteração de troca digital](concepts-digital-twin.md#digital-twin-change-events) . Uma solução precisa assinar essa notificação de evento. Para saber como habilitar o roteamento para eventos de computação digital, consulte [usar o roteamento de mensagens do Hub IOT para enviar mensagens do dispositivo para a nuvem a diferentes pontos de extremidade](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events).
+
+A solução pode usar o evento mostrado no trecho a seguir para saber mais sobre o dispositivo IoT Plug and Play que está se conectando e obter sua ID de modelo:
+
+```json
+iothub-connection-device-id:sample-device
+iothub-enqueuedtime:7/22/2020 8:02:27 PM
+iothub-message-source:digitalTwinChangeEvents
+correlation-id:100f322dc2c5
+content-type:application/json-patch+json
+content-encoding:utf-8
+[
+  {
+    "op": "replace",
+    "path": "/$metadata/$model",
+    "value": "dtmi:com:example:TemperatureController;1"
+  }
+]
+```
+
+## <a name="retrieve-a-model-definition"></a>Recuperar uma definição de modelo
+
+Uma solução usa a ID de modelo identificada acima para recuperar a definição de modelo correspondente.
+
+Uma solução pode obter a definição do modelo usando uma das seguintes opções:
+
+### <a name="model-repository"></a>Repositório de modelos
+
+As soluções podem usar o [repositório](concepts-model-repository.md) de modelos para recuperar modelos. Os criadores de dispositivos ou os criadores de solução devem carregar seus modelos no repositório com antecedência para que a solução possa recuperá-los.
+
+Depois de identificar a ID do modelo para uma nova conexão de dispositivo, siga estas etapas:
+
+1. Recupere a definição do modelo usando a ID do modelo do repositório de modelos. Para obter mais informações, consulte [obter modelos](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
+
+1. Usando a definição de modelo do dispositivo conectado, você pode enumerar os recursos do dispositivo.
+
+1. Usando os recursos enumerados do dispositivo, você pode permitir que os usuários [interajam com o dispositivo](quickstart-service-node.md).
+
+### <a name="custom-store"></a>Repositório personalizado
+
+As soluções podem armazenar essas definições de modelo em um sistema de arquivos local, em um repositório de arquivos público ou usar uma implementação personalizada.
+
+Depois de identificar a ID do modelo para uma nova conexão de dispositivo, siga estas etapas:
+
+1. Recupere a definição do modelo usando a ID do modelo do seu repositório personalizado.
+
+1. Usando a definição de modelo do dispositivo conectado, você pode enumerar os recursos do dispositivo. 
+
+1. Usando os recursos enumerados do dispositivo, você pode permitir que os usuários [interajam com o dispositivo](quickstart-service-node.md).  
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu sobre a descoberta de modelos de uma solução de IoT, saiba mais sobre a [plataforma IOT do Azure](overview-iot-plug-and-play.md) para aproveitar outros recursos para sua solução.
+Agora que você aprendeu a integrar os modelos de IoT Plug and Play em uma solução de IoT, algumas próximas etapas sugeridas são:
+
+- [Interagir com um dispositivo da sua solução](quickstart-service-node.md)
+- [API REST de monodigital de IoT](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [Gerenciador de IoT do Azure](howto-use-iot-explorer.md)
