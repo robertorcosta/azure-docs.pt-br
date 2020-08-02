@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ef8c4754afc921eaeb68a84fbd8147f336a4940c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 2cd42d8d4ba1ecabc1b87942536e2ef9a9017b22
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87370267"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501943"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Linha de base de segurança do Azure para Synapse Analytics
 
@@ -584,7 +584,7 @@ Além disso, você pode configurar uma política de DDM (máscara de dados dinâ
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
 
-**Orientação**: Use o RBAC (controle de acesso baseado em função) do Azure para gerenciar o acesso aos bancos de dados SQL do Azure em seu pool SQL do Synapse.
+**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para gerenciar o acesso aos bancos de dados SQL do Azure em seu pool SQL do Synapse.
 
 A autorização é controlada pelas associações de função e permissões no nível do objeto do banco de dados da conta de usuário. Como uma prática recomendada, você deve conceder aos usuários os privilégios mínimos necessários.
 
@@ -1014,7 +1014,7 @@ Examine previamente qualquer conteúdo que esteja sendo carregado em recursos n�
 
 **Diretrizes**: os instantâneos do pool do SQL Synapse são automaticamente feitos durante o dia criando pontos de restauração que estão disponíveis por sete dias. Esse período de retenção não pode ser alterado. O pool SQL dá suporte a um RPO (objetivo de ponto de recuperação) de oito horas. É possível restaurar seu data warehouse na região primária com base em qualquer um dos instantâneos tirados nos últimos sete dias. Observe que você também pode disparar instantâneos manualmente, se necessário.
 
-* [Backup e restauração no pool do SQL Synapse do Azure](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Backup e restauração no pool do SQL Synapse do Azure](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

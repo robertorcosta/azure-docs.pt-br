@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9f538b02e81d885e22a6417d7c1f139c22635b0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 670a38b48ee89930078078dc4a8ac1a2876648e2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262473"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503728"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Dimensionar Azure Cosmos DB taxa de transferência usando Azure Functions gatilho de timer
 
 O desempenho de uma conta do Azure cosmos é baseado na quantidade de produtividade provisionada expressa em unidades de solicitação por segundo (RU/s). O provisionamento é de uma granularidade de segundo e é cobrado com base na mais alta RU/s por hora. Esse modelo de capacidade provisionada permite que o serviço forneça uma taxa de transferência previsível e consistente, além de garantia de baixa latência e alta disponibilidade. A maioria das cargas de trabalho de produção esses recursos. No entanto, em ambientes de desenvolvimento e teste em que Azure Cosmos DB é usado somente durante o horário de trabalho, você pode escalar verticalmente a taxa de transferência na manhã e reduzir a velocidade da noite após o horário de trabalho.
 
-Você pode definir a taxa de transferência por meio de [modelos de Azure Resource Manager](resource-manager-samples.md), [CLI do Azure](cli-samples.md)e [PowerShell](powershell-samples-sql.md), para contas de API de núcleo (SQL) ou usando os SDKs de Azure Cosmos DB específicos à linguagem. O benefício de usar modelos do Resource Manager, CLI do Azure ou PowerShell é que eles dão suporte a todas as APIs de modelo de Azure Cosmos DB.
+Você pode definir a taxa de transferência por meio de [modelos de Azure Resource Manager](resource-manager-samples.md), [CLI do Azure](cli-samples.md)e [PowerShell](powershell-samples.md), para contas de API de núcleo (SQL) ou usando os SDKs de Azure Cosmos DB específicos à linguagem. O benefício de usar modelos do Resource Manager, CLI do Azure ou PowerShell é que eles dão suporte a todas as APIs de modelo de Azure Cosmos DB.
 
 ## <a name="throughput-scheduler-sample-project"></a>Projeto de exemplo do Agendador de produtividade
 

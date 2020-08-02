@@ -3,12 +3,12 @@ title: Proteger o Azure Functions
 description: Saiba mais sobre como tornar o código de função em execução no modo seguro do Azure contra ataques comuns.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: bdb012c3f379b1e0314364f79ccc4aa49eba4bd3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0c5036681aace103ea69d1e9cc73e96dc30821f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079682"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502674"
 ---
 # <a name="securing-azure-functions"></a>Proteger o Azure Functions
 
@@ -83,7 +83,7 @@ Assim como ocorre com qualquer aplicativo ou serviço, a meta é executar seu ap
 
 #### <a name="user-management-permissions"></a>Permissões de gerenciamento do usuário
 
-O Functions dá suporte ao [RBAC (controle de acesso baseado em função) interno do Azure](../role-based-access-control/overview.md). As funções RBAC compatíveis com o Functions são [Colaborador](../role-based-access-control/built-in-roles.md#contributor), [Proprietário](../role-based-access-control/built-in-roles.md#owner) e [Leitor](../role-based-access-control/built-in-roles.md#owner). 
+O Functions dá suporte ao Azure [RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md)interno do Azure. As funções do Azure com suporte das funções são [colaborador](../role-based-access-control/built-in-roles.md#contributor), [proprietário](../role-based-access-control/built-in-roles.md#owner)e [leitor](../role-based-access-control/built-in-roles.md#owner). 
 
 As permissões são efetivas no nível do aplicativo de funções. A função de Colaborador é necessária para executar a maioria das tarefas de nível de aplicativo de função. Somente a função de Proprietário pode excluir um aplicativo de funções. 
 
@@ -207,4 +207,3 @@ Os serviços de gateway, como [Gateway de Aplicativo do Azure](../application-ga
 
 + [Linha de base de segurança do Azure para o Azure Functions](security-baseline.md)
 + [Diagnóstico do Azure Functions](functions-diagnostics.md)
-        

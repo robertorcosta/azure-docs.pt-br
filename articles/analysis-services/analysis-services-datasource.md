@@ -4,15 +4,15 @@ description: Descreve as fontes de fonte de dados e os conectores com suporte pa
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dc25c853a37de5c310d37e7ee64c6f762283cb0a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 72a1a37bf240355e6bc87cbfd62b0dc2d25ce68b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077432"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503592"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -80,7 +80,7 @@ As fontes de dados e conectores mostrados no Assistente Obter Dados ou de Import
 <a name="tab1400b">6</a> - Tabular 1400 e modelos superiores somente.  
 <a name="sqlim">7</a> - Quando especificado como uma fonte de dados do *provedor* em modelos tabulares nos níveis de compatibilidade 1200 e superiores, especifique o Driver do Microsoft OLE DB para SQL Server MSOLEDBSQL (recomendado), SQL Server Native Client 11.0 ou Provedor de Dados .NET Framework para SQL Server.  
 <a name="instgw">8</a> - Se MSOLEDBSQL for especificado como o provedor de dados, será necessário baixar e instalar o [Driver do Microsoft OLE DB para SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) no mesmo computador que o gateway de dados local.  
-<a name="oracle">9</a> - Para modelos tabulares de nível de compatibilidade 1200, ou como uma fonte de dados do *provedor* nos modelos tabulares de nível de compatibilidade 1400 e superiores, especifique o Provedor de Dados Oracle para .NET.  
+<a name="oracle">9</a> - Para modelos tabulares de nível de compatibilidade 1200, ou como uma fonte de dados do *provedor* nos modelos tabulares de nível de compatibilidade 1400 e superiores, especifique o Provedor de Dados Oracle para .NET. Se especificado como uma fonte de dados estruturada, certifique-se de [habilitar o provedor gerenciado Oracle](#enable-oracle-managed-provider).   
 <a name="teradata">10</a> - Para modelos tabulares de nível de compatibilidade 1200, ou como uma fonte de dados do *provedor* nos modelos tabulares de nível de compatibilidade 1400 e superiores, especifique o Provedor de Dados Teradata para .NET.  
 <a name="filesSP">11</a> - Arquivos no SharePoint local não são suportados.
 
@@ -123,6 +123,43 @@ Para fontes de dados de nuvem:
 Para modelos de tabela no nível de compatibilidade 1400 e superior usando o modo na memória, o banco de dados SQL do Azure, o Azure Synapse (anteriormente SQL Data Warehouse), o Dynamics 365 e a lista do SharePoint dão suporte a credenciais OAuth. O Azure Analysis Services gerencia a atualização de token para fontes de dados OAuth para evitar tempos limite para operações de atualização de execução de longa duração. Para gerar tokens válidos, defina as credenciais usando o SSMS.
 
 Não há suporte para o modo Direct Query com credenciais OAuth.
+
+## <a name="enable-oracle-managed-provider"></a>Habilitar o provedor gerenciado da Oracle
+
+Em alguns casos, as consultas DAX a uma fonte de dados Oracle podem retornar resultados inesperados. Isso pode ser devido ao provedor que está sendo usado para a conexão de fonte de dados.
+
+Conforme descrito na seção [noções básicas de provedores](#understanding-providers) , os modelos de tabela se conectam a fontes de dados como uma fonte de dados *estruturada* ou uma fonte de dados de *provedor* . Para modelos com uma fonte de dados Oracle especificada como uma fonte de dados de provedor, verifique se o provedor especificado é Oracle Provedor de Dados para .NET (Oracle. DataAccess. Client). 
+
+Se a fonte de dados Oracle for especificada como uma fonte de dados estruturada, habilite a propriedade de servidor **MDataEngine\UseManagedOracleProvider** . Definir essa propriedade garante que seu modelo se conecte à fonte de dados Oracle usando o provedor gerenciado do Oracle Provedor de Dados for .NET recomendado.
+ 
+Para habilitar o provedor gerenciado da Oracle:
+
+1. No SQL Server Management Studio, conecte-se ao servidor.
+2. Crie uma consulta XMLA com o script a seguir. Substitua **ServerName** pelo nome completo do servidor e, em seguida, execute a consulta.
+
+    ```xml
+    <Alter AllowCreate="true" ObjectExpansion="ObjectProperties" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+        <Object />
+        <ObjectDefinition>
+            <Server xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" 
+    xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" 
+    xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" 
+    xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500">
+                <ID>ServerName</ID>
+                <Name>ServerName</Name>
+                <ServerProperties>
+                    <ServerProperty>
+                        <Name>MDataEngine\UseManagedOracleProvider</Name>
+                        <Value>1</Value>
+                    </ServerProperty>
+                </ServerProperties>
+            </Server>
+        </ObjectDefinition>
+    </Alter>
+    ```
+
+3. Reinicie o servidor.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

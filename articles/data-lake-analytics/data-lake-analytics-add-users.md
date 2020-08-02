@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 09f866d7ed72e82770a7f3a0fe5da24bb864851f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 7f9af576640e6d269ff5a44d7b0e2a529c20c505
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126067"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502929"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Adicionar um usuário ao portal do Azure
 
@@ -33,7 +33,7 @@ Conceda "R-X" ou "RWX", conforme necessário, nas pastas que contêm dados de en
 1.  Localize sua conta do Azure Data Lake armazenamento Gen1.
 2.  Clique em **Usuários**.
 3. Clique em **Adicionar**.
-4.  Selecione uma função de RBAC do Azure para atribuir esse grupo.
+4.  Selecione uma função do Azure para atribuir esse grupo.
 5.  Atribua à função Leitor. Essa função tem o conjunto mínimo de permissões necessárias para procurar/gerenciar dados armazenados em ADLSGen1. Atribua a essa função se o grupo não for destinado a gerenciar os serviços do Azure.
 6.  Digite o nome do grupo.
 7.  Clique em **OK**.
@@ -54,4 +54,3 @@ O comando de exemplo para dar acesso ao usuário para enviar trabalhos, exibir n
 * [Visão geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Introdução ao Data Lake Analytics usando o portal do Azure](data-lake-analytics-get-started-portal.md)
 * [Gerenciar o Azure Data Lake Analytics usando o Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-

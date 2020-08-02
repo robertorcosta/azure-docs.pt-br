@@ -4,19 +4,19 @@ description: Saiba mais sobre como criar e configurar instâncias gerenciadas do
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
-ms.custom: ''
+ms.custom: devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 3f0eb2c1ecb26475b25cd5ca41c9c61d5e2b47a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8cc2930422bf644f217737d0f0ba585c243575ee
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695565"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502997"
 ---
 # <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Referência de API gerenciada para o Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -78,16 +78,16 @@ Para criar e configurar bancos de dados de instância após a criação da inst�
 > [!IMPORTANT]
 > Você não pode criar ou excluir uma instância gerenciada usando o Transact-SQL.
 
-| Comando | Descrição |
+| Comando | Description |
 | --- | --- |
 |[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Cria um novo banco de dados de instância no SQL Instância Gerenciada. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
-| [ALTERAR BANCO DE DADOS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifica um banco de dados de instância no SQL Instância Gerenciada.|
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifica um banco de dados de instância no SQL Instância Gerenciada.|
 
 ## <a name="rest-api-create-and-configure-managed-instances"></a>API REST: criar e configurar instâncias gerenciadas
 
 Para criar e configurar instâncias gerenciadas, use essas solicitações da API REST.
 
-| Comando | Descrição |
+| Comando | Description |
 | --- | --- |
 |[Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)|Cria ou atualiza uma instância gerenciada.|
 |[Managed Instances - Delete](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)|Exclui uma instância gerenciada.|

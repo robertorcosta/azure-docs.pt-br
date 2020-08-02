@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 721f9c623255b964e38da1c0f4b7bbf72d0c721d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6867d24d84f6dfb51b2ca7b86ec882102b96552b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075633"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504408"
 ---
-# <a name="windows-virtual-desktop-faq"></a>FAQ sobre área de trabalho virtual do Windows
+# <a name="windows-virtual-desktop-faq"></a>Perguntas frequentes da Área de Trabalho Virtual do Windows
 
 Este artigo responde às perguntas frequentes e explica as práticas recomendadas para a área de trabalho virtual do Windows.
 
@@ -46,7 +46,7 @@ Para restringir um administrador a gerenciar apenas sessões de usuário, como e
 
 ## <a name="does-windows-virtual-desktop-support-split-azure-active-directory-models"></a>O Windows Virtual Desktop dá suporte a modelos de Azure Active Directory divididos?
 
-Quando um usuário é atribuído a um grupo de aplicativos, o serviço faz uma simples atribuição de função RBAC (controle de acesso baseado em função) do Azure. Como resultado, o Azure Active Directory do usuário (AD) e o Azure AD do grupo de aplicativos devem estar no mesmo local. Todos os objetos de serviço, como pools de hosts, grupos de aplicativos e espaços de trabalho, também devem estar no mesmo Azure AD que o usuário.
+Quando um usuário é atribuído a um grupo de aplicativos, o serviço faz uma simples atribuição de função do Azure. Como resultado, o Azure Active Directory do usuário (AD) e o Azure AD do grupo de aplicativos devem estar no mesmo local. Todos os objetos de serviço, como pools de hosts, grupos de aplicativos e espaços de trabalho, também devem estar no mesmo Azure AD que o usuário.
 
 Você pode criar VMs (máquinas virtuais) em um Azure AD diferente, contanto que sincronize o Active Directory com o Azure AD do usuário na mesma rede virtual (VNET).
 

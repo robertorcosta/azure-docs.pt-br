@@ -7,12 +7,13 @@ ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
-ms.openlocfilehash: 1fc4c0497095c2ab4e1210ab71bc5597713499b7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 46ea77b26bb0c31a10cfac11c389ea5a21a8f4ac
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120459"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502521"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Como fazer backup de um servidor do Banco de Dados do Azure para MariaDB e restaurá-lo usando o PowerShell
 
@@ -77,7 +78,7 @@ O conjunto de parâmetros **PointInTimeRestore** do `Restore-AzMariaDbServer` cm
 | Configuração | Valor sugerido | Descrição  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  O grupo de recursos em que o servidor de origem existe.  |
-| Nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando de restauração. |
+| Name | mydemoserver-restored | O nome do novo servidor que é criado pelo comando de restauração. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | Selecione um ponto no tempo para restaurar. Essa data e hora devem estar dentro do período de retenção de backup do servidor de origem. Use o formato ISO8601 de data e hora. Por exemplo, você pode usar seu próprio fuso horário local, como **2020-03-13T05:59:00-08:00**. Você também pode usar o formato UTC Zulu, por exemplo, **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Use o modo point-in-time para restaurar. |
 
@@ -119,7 +120,7 @@ O conjunto de parâmetros **Georestore** do `Restore-AzMariaDbServer` cmdlet req
 | Configuração | Valor sugerido | Descrição  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | O nome do grupo de recursos ao qual o novo servidor pertence.|
-|Nome | mydemoserver-georestored | O nome do novo servidor. |
+|Name | mydemoserver-georestored | O nome do novo servidor. |
 |Location | eastus | A localização do novo servidor. |
 |UseGeoRestore | `<SwitchParameter>` | Use o modo geográfico para restaurar. |
 
