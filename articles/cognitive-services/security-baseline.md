@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1c5ce50a3736d6e96620e25cf084c5c66c456a5f
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: bde1ff4003ba69a4c5449996f4e18d646e6ecff6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85375104"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498337"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Linha de base de segurança do Azure para serviços cognitivas
 
@@ -28,7 +28,7 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteger os recursos do Azure em redes virtuais
 
-**Diretrizes**: os serviços cognitivas do Azure fornecem um modelo de segurança em camadas. Esse modelo permite que você proteja suas contas de serviços cognitivas para um subconjunto específico de redes. Quando as regras de rede são configuradas, somente os aplicativos que solicitam dados no conjunto especificado de redes podem acessar a conta. Você pode limitar o acesso a seus recursos com filtragem de solicitações, permitindo apenas solicitações originadas de endereços IP especificados, intervalos de IP ou de uma lista de sub-redes em redes virtuais do Azure.
+**Diretrizes**: os serviços cognitivas do Azure fornecem um modelo de segurança em camadas. Esse modelo permite que você assegure suas contas de Serviços Cognitivos a um subconjunto específico de redes. Quando as regras de rede são configuradas, somente os aplicativos que solicitam dados no conjunto especificado de redes podem acessar a conta. Você pode limitar o acesso a seus recursos com filtragem de solicitações, permitindo apenas solicitações originadas de endereços IP especificados, intervalos de IP ou de uma lista de sub-redes em redes virtuais do Azure.
 
 O suporte a rede virtual e ponto de extremidade de serviço para serviços cognitivas é limitado a um conjunto específico de regiões.
 
@@ -73,7 +73,7 @@ Observe também que você deve desabilitar a inspeção profunda de pacotes para
 **Orientação**: quando as máquinas virtuais são implantadas na mesma rede virtual que o contêiner de serviços cognitivas do Azure, defina e implemente configurações de segurança padrão para recursos de rede relacionados com Azure Policy. Use aliases de Azure Policy nos namespaces "Microsoft. Cognitivaservices" e "Microsoft. Network" para criar políticas personalizadas para auditar ou impor a configuração de rede do cache do Azure para instâncias Redis. Você também pode fazer uso de definições de política internas, como:
 - A Proteção contra DDoS Standard deve ser habilitada
 
-Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de Azure Resource Manager, RBAC (controle de acesso baseado em função) do Azure e políticas, em uma única definição de Blueprint. Aplique facilmente o blueprint a novas assinaturas e ambientes e ajuste o controle e o gerenciamento por meio do controle de versão.
+Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de Azure Resource Manager, controle de acesso baseado em função do Azure (RBAC do Azure) e políticas, em uma única definição de Blueprint. Aplique facilmente o blueprint a novas assinaturas e ambientes e ajuste o controle e o gerenciamento por meio do controle de versão.
 
 Se você estiver usando serviços cognitivas em um contêiner, poderá aumentar sua implantação de contêiner com uma solução de firewall de aplicativo Web de front-face que filtra o tráfego mal-intencionado e dá suporte à criptografia TLS de ponta a ponta, mantendo o ponto de extremidade do contêiner privado e seguro.
 

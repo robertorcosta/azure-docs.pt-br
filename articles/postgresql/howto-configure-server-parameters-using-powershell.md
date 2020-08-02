@@ -7,12 +7,13 @@ ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: c4c2e997df77a5dd854c3a1b266f390f1693afea
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2948e0b916eab75f0e0cf1d0ba1b5be1fcf188f4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117093"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87493441"
 ---
 # <a name="customize-azure-database-for-postgresql-server-parameters-using-powershell"></a>Personalizar os parâmetros de servidor do banco de dados do Azure para PostgreSQL usando o PowerShell
 

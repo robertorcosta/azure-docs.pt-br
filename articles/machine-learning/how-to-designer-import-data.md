@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 01/16/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 92568ceb9c7f0a428189647f259a3f84278eb612
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d977c8e13ce75eb276c8fdb11e9dd40e40a923ad
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326997"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495364"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importar dados para o designer de Azure Machine Learning (versão prévia)
 
@@ -32,7 +32,7 @@ Neste artigo, você aprenderá a importar seus próprios dados para o designer p
 
 ### <a name="register-a-dataset"></a>Registrar um conjunto de dados
 
-Você pode registrar conjuntos de dados existentes [programaticamente com o SDK](how-to-create-register-datasets.md#use-the-sdk) ou [visualmente no Azure Machine Learning Studio](how-to-create-register-datasets.md#use-the-ui).
+Você pode registrar conjuntos de dados existentes [programaticamente com o SDK](how-to-create-register-datasets.md#datasets-sdk) ou [visualmente no Azure Machine Learning Studio](how-to-create-register-datasets.md#datasets-ui).
 
 Além disso, é possível registrar o resultado de qualquer módulo do designer como um conjunto de dados.
 
@@ -59,7 +59,7 @@ Embora seja recomendável usar os conjuntos de dados para importar dados, també
 Para obter informações detalhadas sobre como usar o módulo Importar Dados, consulte a [página de referência Importar Dados](algorithm-module-reference/import-data.md).
 
 > [!NOTE]
-> Se o conjunto de dados tiver muitas colunas, você poderá encontrar o seguinte erro: "Falha na validação devido à limitação de tamanho". Para evitar isso, [registre o conjunto de dados na interface Conjuntos de dados](how-to-create-register-datasets.md#use-the-ui).
+> Se o conjunto de dados tiver muitas colunas, você poderá encontrar o seguinte erro: "Falha na validação devido à limitação de tamanho". Para evitar isso, [registre o conjunto de dados na interface Conjuntos de dados](how-to-create-register-datasets.md#datasets-ui).
 
 ## <a name="supported-sources"></a>Fontes compatíveis
 

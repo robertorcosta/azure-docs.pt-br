@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: c0426872c29fa126514f22a5f4fb57f19903c967
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 43942c20a353ff69383f3e721679e4c95ab9d230
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021657"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495936"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurar o endereçamento IP para conectar a um site local secundário após failover
 
@@ -63,11 +63,11 @@ Os gráficos a seguir ilustram as sub-redes antes e após o failover.
 
 **Antes do failover**
 
-![Antes do failover](./media/hyper-v-vmm-networking/network-design2.png)
+![Diagrama mostrando as sub-redes antes do failover.](./media/hyper-v-vmm-networking/network-design2.png)
 
 **Depois do failover**
 
-![Depois do failover](./media/hyper-v-vmm-networking/network-design3.png)
+![Diagrama mostrando as sub-redes após o failover.](./media/hyper-v-vmm-networking/network-design3.png)
 
 Após o failover, o Site Recovery aloca um endereço IP para cada interface de rede na máquina virtual. O endereço é alocado do pool de endereços IP estáticos na rede relevante, para cada instância de VM.
 
@@ -118,11 +118,11 @@ Neste exemplo, temos endereços IP diferentes em sites primários e secundários
 
 **Antes do failover**
 
-![Endereço IP diferente - antes do failover](./media/hyper-v-vmm-networking/network-design10.png)
+![Diagrama mostrando endereços IP diferentes antes do failover.](./media/hyper-v-vmm-networking/network-design10.png)
 
 **Depois do failover**
 
-![Endereço IP diferente - depois do failover](./media/hyper-v-vmm-networking/network-design11.png)
+![Diagrama mostrando endereços IP diferentes após o failover.](./media/hyper-v-vmm-networking/network-design11.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

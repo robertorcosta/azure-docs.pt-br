@@ -1,14 +1,14 @@
 ---
 title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
-ms.date: 07/24/2020
+ms.date: 07/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: 979891a3ebea8070c6882fff62ed4a7954041d3e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a6d5c7e06ed59ab76b15f4f8ae880408dc6f7835
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371029"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500871"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -33,9 +33,7 @@ O Azure Lighthouse permite maior flexibilidade para gerenciar recursos para vár
 
 Você pode executar tarefas de gerenciamento em recursos delegados diretamente no portal ou usando APIs e ferramentas de gerenciamento (como a CLI do Azure e o Azure PowerShell). Todas as APIs existentes podem ser usadas ao trabalhar com recursos delegados, desde que a funcionalidade seja compatível com o gerenciamento entre diferentes locatários e que o usuário tenha as permissões apropriadas.
 
-O [cmdlet Azure PowerShell Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) mostra o `tenantID` para cada assinatura, permitindo que você identifique se uma assinatura retornada pertence ao seu locatário do provedor de serviços ou a um locatário gerenciado do cliente.
-
-Da mesma forma, os comandos da CLI do Azure como [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) mostram os atributos **homeTenantId** e **managedByTenants**.
+CLI do Azure comandos, como a [lista de contas AZ](/cli/azure/account?view=azure-cli-latest#az-account-list) , mostram os atributos **homeTenantId** e **managedByTenants** para cada assinatura, permitindo que você identifique se uma assinatura retornada pertence ao seu locatário do provedor de serviços ou a um locatário gerenciado do cliente.
 
 > [!TIP]
 > Se você não vir esses valores ao usar a CLI do Azure, tente limpar o cache executando `az account clear` seguido por `az login --identity`.
@@ -70,7 +68,7 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 
 [Gerenciamento de custos do Azure + cobrança](../../cost-management-billing/index.yml):
 
-- Do locatário de gerenciamento, os parceiros CSP podem exibir, gerenciar e analisar os custos de consumo de imposto prévio (não inclusivo de compras) para clientes que estão sob o plano do Azure. O custo será baseado em taxas de varejo e no acesso RBAC (controle de acesso baseado em função) do Azure que o parceiro tem para a assinatura do cliente.
+- Do locatário de gerenciamento, os parceiros CSP podem exibir, gerenciar e analisar os custos de consumo de imposto prévio (não inclusivo de compras) para clientes que estão sob o plano do Azure. O custo será baseado em taxas de varejo e no acesso do Azure RBAC (controle de acesso baseado em função) que o parceiro tem para a assinatura do cliente.
 
 [AKS (Serviço de Kubernetes do Azure)](../../aks/index.yml):
 

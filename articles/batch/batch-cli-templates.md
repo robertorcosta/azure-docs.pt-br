@@ -3,13 +3,13 @@ title: Executar trabalhos de ponta a ponta usando modelos
 description: Somente com comandos CLI é possível criar um pool, carregar dados de entrada, criar trabalhos e tarefas associadas e baixar os dados de saída resultantes.
 ms.topic: how-to
 ms.date: 12/07/2018
-ms.custom: seodec18
-ms.openlocfilehash: 1029d2e156d219c88100a035f2ed4a51afa6ba36
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: e9b4930dee1b28bb4ec71690cbfcef88e0365b9e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83815988"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494920"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Usar modelos CLI do Azure de Lote e o arquivo de transferência
 

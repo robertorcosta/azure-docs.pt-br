@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c31053f62f768cc534e07a8ac8d692176cf52b1e
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 8acdf714f459ae604ccd7788b021aee3ee037935
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757589"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482576"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Azure Active Directory B2C
 
@@ -97,7 +97,7 @@ As propriedades a seguir são usadas para [gerenciar a compatibilidade do token]
 
 ## <a name="pass-through"></a>Passagem
 
-Quando a jornada de um usuário é iniciada, o Azure AD B2C recebe um token de acesso de um provedor de identidade. O Azure Active Directory B2C usa esse token para recuperar informações sobre o usuário. [Habilite uma declaração no seu fluxo de usuário](idp-pass-through-user-flow.md) ou [defina uma declaração em uma política personalizada](idp-pass-through-custom.md) para passar o token por meio para os aplicativos que você se registrar no Azure AD B2C. Seu aplicativo deve usar um fluxo de usuário [v2](user-flow-versions.md) para aproveitar a passagem do token como uma declaração.
+Quando a jornada de um usuário é iniciada, o Azure AD B2C recebe um token de acesso de um provedor de identidade. O Azure Active Directory B2C usa esse token para recuperar informações sobre o usuário. [Habilite uma declaração no seu fluxo de usuário](idp-pass-through-user-flow.md) ou [defina uma declaração em uma política personalizada](idp-pass-through-custom.md) para passar o token por meio para os aplicativos que você se registrar no Azure AD B2C. Seu aplicativo deve estar usando um [fluxo de usuário recomendado](user-flow-versions.md) para aproveitar a passagem do token como uma declaração.
 
 Atualmente, o Azure AD B2C é compatível somente com a passagem do token de acesso dos provedores de identidade do OAuth 2.0, que incluem o Facebook e o Google. Para todos os outros provedores de identidade, a declaração é retornada em branco.
 

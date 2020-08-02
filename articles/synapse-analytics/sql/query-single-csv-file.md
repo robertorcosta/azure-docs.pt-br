@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1d033a904087bf8ff32721372209820a64090502
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 63755616bb524226d3c40d32b9695f4b787860d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383878"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489700"
 ---
 # <a name="query-csv-files"></a>Consultar arquivos CSV
 
@@ -31,7 +31,7 @@ Todas essas variações serão abordadas abaixo.
 
 `OPENROWSET`a função permite que você leia o conteúdo do arquivo CSV fornecendo a URL para o arquivo.
 
-### <a name="reading-csv-file"></a>Lendo arquivo CSV
+### <a name="read-a-csv-file"></a>Ler um arquivo CSV
 
 A maneira mais fácil de ver o conteúdo do `CSV` arquivo é fornecer a URL do arquivo para `OPENROWSET` funcionar, especificar csv `FORMAT` e 2,0 `PARSER_VERSION` . Se o arquivo estiver publicamente disponível ou se sua identidade do Azure AD puder acessar esse arquivo, você poderá ver o conteúdo do arquivo usando a consulta como a mostrada no exemplo a seguir:
 
@@ -46,7 +46,7 @@ from openrowset(
 
 A opção `firstrow` é usada para ignorar a primeira linha no arquivo CSV que representa o cabeçalho nesse caso. Verifique se você pode acessar esse arquivo. Se o arquivo estiver protegido com chave SAS ou identidade personalizada, você precisará configurar a [credencial de nível de servidor para logon do SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
-### <a name="using-data-source"></a>Usando a fonte de dados
+### <a name="data-source-usage"></a>Uso da fonte de dados
 
 O exemplo anterior usa o caminho completo para o arquivo. Como alternativa, você pode criar uma fonte de dados externa com o local que aponta para a pasta raiz do armazenamento:
 
@@ -214,7 +214,7 @@ WHERE
 > [!NOTE]
 > Essa consulta retornaria os mesmos resultados se o parâmetro FIELDQUOTE fosse omitido, pois FIELDQUOTE tem como valor padrão as aspas duplas.
 
-## <a name="escaping-characters"></a>Caracteres de escape
+## <a name="escape-characters"></a>Caracteres de escape
 
 A consulta a seguir mostra como ler um arquivo com uma linha de cabeçalho, com uma nova linha de estilo UNIX, colunas delimitadas por vírgula e um caractere de escape usado pelo delimitador de campo (vírgula) dentro dos valores. Observe que o arquivo está em um local diferente, quando comparado a outros exemplos.
 
@@ -246,7 +246,7 @@ WHERE
 > [!NOTE]
 > Essa consulta falhará se o parâmetro ESCAPECHAR não for especificado, pois a vírgula em "Slov,enia" será tratada como delimitador de campo, em vez de parte do nome do país/região. Nesse caso, "Slov,enia" seria tratada como duas colunas. Ou seja, a linha específica teria uma coluna a mais que as outras linhas, e uma coluna a mais que o definido na cláusula WITH.
 
-### <a name="escaping-quoting-characters"></a>Escape de caracteres quoting
+### <a name="escape-quoting-characters"></a>Caracteres de aspas de escape
 
 A consulta a seguir mostra como ler um arquivo com uma linha de cabeçalho, com uma nova linha em estilo UNIX, colunas delimitadas por vírgula e um caractere de aspas duplas de escape dentro dos valores. Observe que o arquivo está em um local diferente, quando comparado a outros exemplos.
 
@@ -306,7 +306,7 @@ WHERE
     AND year = 2017
 ```
 
-## <a name="returning-subset-of-columns"></a>Retornar um subconjunto de colunas
+## <a name="return-a-subset-of-columns"></a>Retornar um subconjunto de colunas
 
 Até agora, você especificou um esquema de arquivo CSV usando a cláusula WITH e listando todas as colunas. Você só pode especificar as colunas que realmente precisa em sua consulta usando um número ordinal para cada coluna necessária. Colunas não relevantes também deverão ser omitidas.
 

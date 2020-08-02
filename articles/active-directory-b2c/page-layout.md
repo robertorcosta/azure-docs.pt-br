@@ -8,21 +8,29 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/26/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3d0cb06f84fdd96d099e05f55ba62c37cb1192c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4548b50e4168f260cb401c40dd4e61192cea1015
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78183968"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489530"
 ---
 # <a name="page-layout-versions"></a>Versões do layout da página
 
 Os pacotes de layout de página são atualizados periodicamente para incluir correções e aprimoramentos em seus elementos de página. O log de alterações a seguir especifica as alterações introduzidas em cada versão.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
+
+## <a name="210"></a>2.1.0
+
+- Página autodeclarada ( `selfasserted` )
+  - Correções de localização e acessibilidade.
+- Página do SSP unificado ( `unifiedssp` )
+  - Suporte adicionado para vários links de inscrição.
+  - Adicionado suporte para validação de entrada de usuário de acordo com as regras de predicado definidas na política.
 
 ## <a name="200"></a>2.0.0
 
@@ -40,6 +48,8 @@ Os pacotes de layout de página são atualizados periodicamente para incluir cor
   - Suporte para tradução do Chrome
 - Páginas unificadas e autodeclaradas
   - Os campos nome de usuário/email e senha agora usam o `form` elemento HTML para permitir que o Edge e o Internet Explorer (IE) salvem corretamente essas informações.
+- Página autodeclarada
+  - Foi adicionado um atraso de validação de entrada de usuário configurável para melhorar a experiência do usuário.
 
 ## <a name="110"></a>1.1.0
 

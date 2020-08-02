@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: dd1e387727b0a80781b1103ddfb40afcbce8fce8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 8083edaf647f52a07d55dddf21fe5751340783be
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386615"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496229"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consultar arquivos Parquet usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Neste artigo, você aprenderá a gravar uma consulta usando o SQL sob demanda (v
 
 `OPENROWSET`a função permite que você leia o conteúdo do arquivo parquet fornecendo a URL para o arquivo.
 
-### <a name="reading-parquet-file"></a>Lendo o arquivo parquet
+### <a name="read-parquet-file"></a>Ler arquivo parquet
 
 A maneira mais fácil de ver o conteúdo do `PARQUET` arquivo é fornecer a URL do arquivo para `OPENROWSET` funcionar e especificar parquet `FORMAT` . Se o arquivo estiver publicamente disponível ou se sua identidade do Azure AD puder acessar esse arquivo, você poderá ver o conteúdo do arquivo usando a consulta como a mostrada no exemplo a seguir:
 
@@ -37,7 +37,7 @@ from openrowset(
 
 Certifique-se de acessar esse arquivo. Se o arquivo estiver protegido com chave SAS ou identidade personalizada do Azure, será necessário configurar a [credencial de nível de servidor para logon do SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
-### <a name="using-data-source"></a>Usando a fonte de dados
+### <a name="data-source-usage"></a>Uso da fonte de dados
 
 O exemplo anterior usa o caminho completo para o arquivo. Como alternativa, você pode criar uma fonte de dados externa com o local que aponta para a pasta raiz do armazenamento e usar essa fonte de dados e o caminho relativo para o arquivo na `OPENROWSET` função:
 

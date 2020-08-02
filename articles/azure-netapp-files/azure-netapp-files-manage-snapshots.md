@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: caa73b5a86c5c245aefd18de9b60ec49616b3b84
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7d583172fe4021a2709a4d58b5488e9bc3898919
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281541"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497589"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerenciar instantâneos por meio do Azure NetApp Files
 
@@ -47,8 +47,22 @@ Você pode criar instantâneos de volume sob demanda.
 
 Você pode agendar para que os instantâneos de volume sejam feitos automaticamente usando políticas de instantâneo. Você também pode modificar uma política de instantâneo, conforme necessário, ou excluir uma política de instantâneo que não é mais necessária.  
 
-> [!IMPORTANT] 
-> O uso da funcionalidade de política de instantâneo requer a lista de permissões. Envie um email para anffeedback@microsoft.com com sua ID de assinatura para solicitar esse recurso.
+### <a name="register-the-feature"></a>Registrar o recurso
+
+1. O recurso de **política de instantâneo** está atualmente em visualização. Se esta for a primeira vez que você usa esse recurso, registre o recurso antes de usá-lo: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
+
+2. Verifique o status do registro do recurso: 
+
+    > [!NOTE]
+    > O **RegistrationState** pode estar no `Registering` estado por vários minutos antes da alteração para `Registered` . Aguarde até que o status seja **registrado** antes de continuar.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
 
 ### <a name="create-a-snapshot-policy"></a>Criar uma política de instantâneo 
 

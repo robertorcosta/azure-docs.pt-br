@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/29/2020
-ms.openlocfilehash: e8dadbad309a146500db342f55bee9339fde6172
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 07/30/2020
+ms.openlocfilehash: dba0fccaa3eb79ad297ce80462efea5b69a4a009
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430980"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497045"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Provisionar taxa de transferência de dimensionamento automático em um banco de dados ou contêiner no Azure Cosmos DB
 
@@ -244,11 +244,11 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 
 ## <a name="cassandra-api"></a>API Cassandra
 
-Azure Cosmos DB contas para API do Cassandra podem ser provisionadas para dimensionamento automático usando [comandos CQL](manage-scale-cassandra.md#use-autoscale), [CLI do Azure](cli-samples.md)ou [modelos Azure Resource Manager](resource-manager-samples.md).
+Azure Cosmos DB contas para API do Cassandra podem ser provisionadas para dimensionamento automático usando [comandos CQL](manage-scale-cassandra.md#use-autoscale), [CLI do Azure](cli-samples.md), [Azure PowerShell](powershell-samples.md) ou [modelos de Azure Resource Manager](resource-manager-samples.md).
 
 ## <a name="azure-cosmos-db-api-for-mongodb"></a>API do Azure Cosmos DB para MongoDB
 
-Contas de Azure Cosmos DB para a API do MongoDB podem ser provisionadas para dimensionamento automático usando [comandos de extensão do MongoDB](mongodb-custom-commands.md), [CLI do Azure](cli-samples.md)ou [modelos de Azure Resource Manager](resource-manager-samples.md).
+Contas de Azure Cosmos DB para API do MongoDB podem ser provisionadas para dimensionamento automático usando [comandos de extensão do MongoDB](mongodb-custom-commands.md), [CLI do Azure](cli-samples.md), [Azure PowerShell](powershell-samples.md) ou [modelos Azure Resource Manager](resource-manager-samples.md).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -257,6 +257,10 @@ Azure Resource Manager modelos podem ser usados para provisionar a taxa de trans
 ## <a name="azure-cli"></a>CLI do Azure
 
 CLI do Azure pode ser usado para provisionar a taxa de transferência de autoescala em um banco de dados ou recursos de nível de contêiner para todas as APIs de Azure Cosmos DB Para obter exemplos, consulte [exemplos de CLI do Azure para Azure Cosmos DB](cli-samples.md).
+
+## <a name="azure-powershell"></a>Azure PowerShell
+
+Azure PowerShell pode ser usado para provisionar a taxa de transferência de autoescala em um banco de dados ou recursos de nível de contêiner para todas as APIs de Azure Cosmos DB Para obter exemplos, consulte [exemplos de Azure PowerShell para Azure Cosmos DB](powershell-samples.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

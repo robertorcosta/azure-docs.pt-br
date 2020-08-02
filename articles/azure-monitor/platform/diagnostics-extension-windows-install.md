@@ -7,12 +7,13 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: a3e9a14edf9235baff2955c9f8419dc78e45755c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 4e38e9ee301d080110e8019e3fe407e7d5cdc026
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007972"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499187"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalar e configurar a extensão WAD (Diagnóstico do Azure para Windows)
 A [extensão de diagnóstico do Azure](diagnostics-extension-overview.md) é um agente no Azure Monitor que coleta dados de monitoramento do sistema operacional convidado e cargas de trabalho de máquinas virtuais do Azure e outros recursos de computação. Este artigo fornece detalhes sobre como instalar e configurar a extensão de diagnóstico do Windows e uma descrição de como os dados são armazenados na conta de armazenamento do Azure.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: b7ae2e3045b8f6e56b756ac1b2a4233ac8af9688
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: beda097733228dbb23ccb607747742d93d606933
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373446"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497606"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Criar um aplicativo de aprendizado de máquina com o Apache Spark MLlib e o Azure Synapse Analytics
 
@@ -148,7 +148,7 @@ plt.show()
 ![Diagrama de caixa](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-box-whisker.png)
 ![Gráfico de dispersão](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-scatter.png)
 
-## <a name="preparing-the-data"></a>Preparando os dados
+## <a name="prepare-the-data"></a>Preparar os dados
 
 Os dados em sua forma bruta geralmente não são adequados para passar diretamente para um modelo. Uma série de ações deve ser realizada nos dados para que cheguem a um estado onde possam ser utilizados no modelo.
 

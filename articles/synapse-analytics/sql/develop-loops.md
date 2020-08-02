@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ec15f87bdbf381b71faa7cefd986dd5e55e17a19
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9db7f2016de01edbedfa9e7d7254561fea957d2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964984"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495294"
 ---
 # <a name="use-t-sql-loops-in-synapse-sql"></a>Usar loops T-SQL no Synapse SQL
 Este artigo fornece dicas essenciais para o uso de loops T-SQL, a substituição de cursores e o desenvolvimento de soluções relacionadas com o pool do SQL no Synapse SQL.
@@ -26,7 +26,7 @@ Synapse SQL dá suporte ao loop [while](https://docs.microsoft.com/sql/t-sql/lan
 
 Os loops no pool do SQL são úteis para substituir cursores definidos no código SQL. Felizmente, quase todos os cursores que são escritos em código SQL são do tipo somente leitura de avanço rápido. Assim, os loops [WHILE] são uma ótima alternativa para substituir cursores.
 
-## <a name="replacing-cursors-in-sql-pool"></a>Substituindo cursores no pool SQL
+## <a name="replace-cursors-in-sql-pool"></a>Substituir cursores no pool SQL
 
 Antes de mergulharmos no, a seguinte pergunta deve ser considerada: "o cursor poderia ser reescrito para usar operações baseadas em conjunto?" Em muitos casos, a resposta é sim e geralmente é a melhor abordagem. Uma operação baseada em conjunto geralmente é executada mais rapidamente do que uma abordagem iterativa, linha por linha.
 

@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
 ms.custom: how-to, seodec18, tracking-python
-ms.openlocfilehash: ca7feacf5d631b4e85a0b3f4e7a039bbb79abe45
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: f30f2b45944281ed74da2026eb14e8938260b259
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460194"
+ms.locfileid: "87496093"
 ---
 # <a name="connect-to-azure-storage-services"></a>Conectar aos serviços de armazenamento do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -113,7 +113,7 @@ Você pode encontrar informações de chave de conta, token SAS e entidade de se
 
 ### <a name="permissions"></a>Permissões
 
-Para o contêiner de blob do Azure e Azure Data Lake armazenamento Gen 2, verifique se suas credenciais de autenticação têm acesso ao **leitor de dados de blob de armazenamento** . Saiba mais sobre o [leitor de dados de blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
+Para o contêiner de blob do Azure e o armazenamento Azure Data Lake Gen 2, verifique se suas credenciais de autenticação têm acesso ao **leitor de dados de blob de armazenamento** . Saiba mais sobre o [leitor de dados de blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
 
 <a name="python"></a>
 
@@ -176,7 +176,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 Para um armazenamento de dados de Azure Data Lake Storage Generation 2 (ADLS Gen 2), use [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registrar um armazenamento de dados de credenciais conectado a um armazenamento do Azure Data Lake Gen 2 com [permissões de entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). 
 
-Para utilizar sua entidade de serviço, você precisará [registrar seu aplicativo](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) e conceder à entidade de serviço acesso ao **Leitor de Dados do Blob de Armazenamento**. Saiba mais sobre [configuração de controle de acesso para ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+Para utilizar sua entidade de serviço, você precisa [registrar seu aplicativo](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) e conceder a entidade de serviço com acesso ao **leitor de dados de blob de armazenamento** . Saiba mais sobre [configuração de controle de acesso para ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
 O código a seguir cria e registra o armazenamento de dados `adlsgen2_datastore_name` no workspace `ws`. Esse armazenamento de dados acessa o sistema de arquivos `test` na conta de armazenamento `account_name` com as credenciais de entidade de serviço fornecidas.
 
@@ -202,7 +202,9 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 
 <a name="studio"></a>
 
+
 ## <a name="create-datastores-in-the-studio"></a>Criar repositórios de armazenamento no estúdio 
+
 
 Crie um novo repositório de armazenamento em algumas etapas com o Azure Machine Learning Studio.
 
@@ -212,14 +214,13 @@ Crie um novo repositório de armazenamento em algumas etapas com o Azure Machine
 1. Entre no [Estúdio do Azure Machine Learning](https://ml.azure.com/).
 1. Selecione **Armazenamentos de dados** no painel esquerdo em **Gerenciar**.
 1. Selecione **+ Novo armazenamento de dados**.
-1. Preencha o formulário de um novo armazenamento de dados. O formulário se atualiza de forma inteligente com base nas seleções de tipo de armazenamento e tipo de autenticação do Azure. Consulte a [seção acesso e permissões de armazenamento](#access-validation) para entender onde encontrar as credenciais de autenticação que você precisa preencher este formulário.
+1. Preencha o formulário de um novo armazenamento de dados. O formulário se atualiza de forma inteligente com base nas seleções de tipo de armazenamento e tipo de autenticação do Azure. Consulte a [seção acesso e permissões de armazenamento](#access-validation) para entender onde encontrar as credenciais de autenticação de que você precisa para preencher este formulário.
 
 O exemplo a seguir demonstra a aparência do formulário quando você cria um **repositório de armazenamento de BLOBs do Azure**: 
     
 ![Formulário de um novo armazenamento de dados](media/how-to-access-data/new-datastore-form.png)
 
 <a name="train"></a>
-
 ## <a name="use-data-in-your-datastores"></a>Usar dados em seus armazenamentos
 
 Depois de criar um datastore, [crie um conjunto](how-to-create-register-datasets.md) de dados do Azure Machine Learning para interagir com os seus dados. Os conjuntos de dados embalam seu dado em um objeto de consumo avaliado lentamente para tarefas de aprendizado de máquina, como treinamento. Eles também fornecem a capacidade de [baixar ou montar](how-to-train-with-datasets.md#mount-vs-download) arquivos de qualquer formato dos serviços de armazenamento do Azure, como o armazenamento de BLOBs do Azure e o ADLS Gen 2. Você também pode usá-los para carregar dados tabulares em um dataframe pandas ou Spark.

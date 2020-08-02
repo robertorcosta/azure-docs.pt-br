@@ -14,12 +14,12 @@ ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d1d7ad27c43a0f8b4bbb763a1eb933a63cec58e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80762511591d10bd2823101e2ff233fdd0f0eb00
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83115635"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495617"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Funções que você não pode gerenciar no Privileged Identity Management
 
@@ -33,7 +33,7 @@ Você não pode gerenciar as seguintes funções de administrador de assinatura 
 - Administrador de serviços
 - Coadministrador
 
-Para saber mais sobre as funções administrador de assinatura clássica, confira o artigo [Funções de administrador de assinatura clássica, funções RBAC do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+Para obter mais informações sobre as funções de administrador de assinatura clássica, consulte [funções de administrador de assinatura clássica, funções do Azure e funções de administrador do Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ## <a name="what-about-office-365-admin-roles"></a>E as funções de administrador do Office 365?
 

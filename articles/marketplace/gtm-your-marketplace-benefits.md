@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 8aa9fa1701f41c6fd1adacc264b811e0d9849ab5
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c2481ca9894a1af3b363db8d5043b7fcd4eefc3d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408111"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498014"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Benefícios do marketplace comercial
 
@@ -26,7 +26,7 @@ As Recompensas do Marketplace foram projetadas para dar suporte a você em seu e
 
 O programa cria um loop de comentários positivo: os benefícios em cada estágio de crescimento são projetados para você avançar para o próximo estágio, permitindo que seu negócio cresça com os clientes da Microsoft, com o campo da Microsoft e por meio do canal da Microsoft, utilizando o marketplace comercial como sua plataforma.
 
-Seus benefícios são diferenciados com base no seu tipo de oferta: [Lista, Avaliação ou Transação](determine-your-listing-type.md#choose-a-publishing-option).
+Seus benefícios são diferenciados com base no seu tipo de oferta: [Lista, Avaliação ou Transação](determine-your-listing-type.md#choose-a-call-to-action).
 
 Com base em sua qualificação, você será contatado por um membro da equipe de recompensas quando sua oferta ficar ativa.
 

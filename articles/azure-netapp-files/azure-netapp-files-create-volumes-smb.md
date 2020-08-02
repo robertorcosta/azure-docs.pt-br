@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 848a5779538f4754ef038a1e88be63c33177bc82
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 8764e85d957688375b27957cee9ac3b4bdf526bc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169980"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499935"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -163,8 +163,20 @@ Essa configuração é definida em **Conexões do Active Directory** em **Conta 
      * **Usuários da política de backup**  
         Você pode incluir outras contas que exigem privilégios elevados na conta de computador criada para uso com o Azure NetApp Files. As contas especificadas terão permissão para alterar as permissões de NTFS no nível do arquivo ou da pasta. Por exemplo, você pode especificar uma conta de serviço sem privilégios usada para migrar dados para um compartilhamento de arquivos SMB no Azure NetApp Files.  
 
-        > [!IMPORTANT] 
-        > O uso do recurso de usuário de política de backup requer a colocação na lista de permissões. Envie um email para anffeedback@microsoft.com com sua ID de assinatura para solicitar esse recurso. 
+        O recurso **usuários da política de backup** está atualmente em visualização. Se esta for a primeira vez que você usa esse recurso, registre o recurso antes de usá-lo: 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
+        ```
+
+        Verifique o status do registro do recurso: 
+
+        > [!NOTE]
+        > O **RegistrationState** pode estar no `Registering` estado por vários minutos antes da alteração para `Registered` . Aguarde até que o status seja **registrado** antes de continuar.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
+        ```
 
     * Credenciais, incluindo seu **nome de usuário** e sua **senha**
 

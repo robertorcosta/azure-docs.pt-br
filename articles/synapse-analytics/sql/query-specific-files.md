@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: bf62d57aab07f5b1f2839b9e6e45c42e6b1b2c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6beda409f03938f471f089bceebaa97c6d02ae7e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478409"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496212"
 ---
-# <a name="using-file-metadata-in-queries"></a>Como usar metadados de arquivo em consultas
+# <a name="use-file-metadata-in-queries"></a>Usar metadados de arquivo em consultas
 
 O serviço de consulta do SQL sob demanda pode abordar vários arquivos e pastas conforme descrito no artigo [Consultar pastas e arquivos múltiplos](query-folders-multiple-csv-files.md). Neste artigo, você aprenderá a usar informações de metadados sobre nomes de arquivos e pastas nas consultas.
 

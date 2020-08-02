@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 867babcf7160ce6e589197be0a3186e5a2156238
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4061d7a3d21b8c2db2bf161c422994cb2742b0b4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423568"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489870"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurar a autenticação para recursos e fluxos de trabalho do Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -67,7 +67,7 @@ A maioria dos exemplos na documentação e nos exemplos usa a autenticação int
 
 ## <a name="service-principal-authentication"></a>Autenticação de entidade de serviço
 
-Para usar a autenticação do SP (entidade de serviço), você deve primeiro criar o SP e conceder a ele acesso ao seu espaço de trabalho. Como mencionado anteriormente, o RBAC (controle de acesso baseado em função) do Azure é usado para controlar o acesso, portanto, você também deve decidir qual acesso conceder ao SP.
+Para usar a autenticação do SP (entidade de serviço), você deve primeiro criar o SP e conceder a ele acesso ao seu espaço de trabalho. Como mencionado anteriormente, o controle de acesso baseado em função do Azure (RBAC do Azure) é usado para controlar o acesso, portanto, você também deve decidir qual acesso conceder ao SP.
 
 > [!IMPORTANT]
 > Ao usar uma entidade de serviço, conceda a ela o __acesso mínimo necessário para a tarefa para a__ qual ela é usada. Por exemplo, você não concederá a um proprietário de entidade de serviço ou acesso de colaborador se tudo o que for usado para o estiver lendo o token de acesso para uma implantação da Web.

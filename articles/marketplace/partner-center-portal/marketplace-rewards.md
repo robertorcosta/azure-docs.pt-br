@@ -8,12 +8,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 2ae8e170e3f31090b6babfee23e4505f5b736655
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 25a164fc8709d7c9f6249336ece34bd8a5378f23
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319942"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496008"
 ---
 # <a name="marketplace-rewards"></a>O Marketplace Rewards
 
@@ -21,7 +21,7 @@ As recompensas do Marketplace dão suporte a você em seu estágio específico d
 
 O programa cria um loop de comentários positivo: os benefícios em cada estágio de crescimento ajudam você a progredir para o próximo estágio, permitindo que você aumente sua empresa para os clientes da Microsoft, com o campo da Microsoft e por meio do canal da Microsoft, aproveitando o Marketplace comercial como sua plataforma.
 
-Seus benefícios são diferenciados com base no fato de sua oferta ser [lista, avaliação ou transação](../determine-your-listing-type.md#choose-a-publishing-option).
+Seus benefícios são diferenciados com base no seu tipo de oferta: [Lista, Avaliação ou Transação](../determine-your-listing-type.md#choose-a-call-to-action).
 
 Com base em sua qualificação, você será contatado por um membro da equipe de recompensas quando sua oferta ficar ativa.
 

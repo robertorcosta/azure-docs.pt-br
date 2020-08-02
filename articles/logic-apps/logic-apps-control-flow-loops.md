@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 0ffcda4a33c43866c3b580a60c87c1ffca59bbc4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8a72dff055f2733a07b6da705b66da939ad29bae
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066336"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495600"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar loops que repetem ações de fluxo de trabalho ou processam matrizes nos Aplicativos Lógicos do Azure
 
@@ -24,7 +24,7 @@ Para repetir ações até que uma condição seja atendida ou um estado seja alt
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tem uma assinatura, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
+* Uma conta e uma assinatura do Azure. Se você não tem uma assinatura, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -32,11 +32,11 @@ Para repetir ações até que uma condição seja atendida ou um estado seja alt
 
 ## <a name="foreach-loop"></a>Loop "Foreach"
 
-Um loop "Foreach" repete uma ou mais ações em cada item da matriz e funciona somente em matrizes. As iterações em um loop "Foreach" são executadas em paralelo. No entanto, você pode executar uma iteração por vez configurando um [loop "Foreach" sequencial](#sequential-foreach-loop). 
+Um loop "Foreach" repete uma ou mais ações em cada item da matriz e funciona somente em matrizes. Aqui estão algumas considerações ao usar loops "Foreach":
 
-Aqui estão algumas considerações ao usar loops "Foreach":
+* Por padrão, as iterações em um loop "foreach" são executadas ao mesmo tempo ou em paralelo. Esse comportamento difere da [ativação de energia **para cada** loop](/power-automate/apply-to-each) em que as iterações são executadas uma de cada vez ou sequencialmente. No entanto, você pode [Configurar iterações de loop "foreach" sequenciais](#sequential-foreach-loop). Por exemplo, se você quiser pausar a próxima iteração em um loop "foreach" usando a [ação de atraso](../connectors/connectors-native-delay.md), será necessário definir o loop para ser executado em sequência.
 
-* Em loops aninhados, as iterações sempre são executadas sequencialmente, não em paralelo. Para executar operações em paralelo para itens em um loop aninhado, crie e [chame um aplicativo lógico filho](../logic-apps/logic-apps-http-endpoint.md).
+  A exceção ao comportamento padrão são loops aninhados em que as iterações sempre são executadas em sequência, não em paralelo. Para executar operações em paralelo para itens em um loop aninhado, crie e [chame um aplicativo lógico filho](../logic-apps/logic-apps-http-endpoint.md).
 
 * Para obter resultados previsíveis de operações em variáveis durante cada iteração do loop, execute esses loops sequencialmente. Por exemplo, quando um looping em execução simultânea termina, o incremento, a diminuição e o acréscimo às operações de variável retornam resultados previsíveis. No entanto, durante cada iteração no loop em execução simultânea, essas operações podem retornar resultados imprevisíveis. 
 
@@ -230,7 +230,7 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
       ![Configurar propriedades de email](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | Propriedade | Valor | Descrição |
+      | Property | Valor | DESCRIÇÃO |
       | -------- | ----- | ----------- | 
       | **Para** | *\<email-address\@domain>* | O endereço de email do destinatário. Para testes, use seu próprio endereço de email. | 
       | **Assunto** | O valor atual para "Limit" é **Limite** | Especifique o assunto do email. Para esse exemplo, certifique-se de incluir a variável **Limite**. | 

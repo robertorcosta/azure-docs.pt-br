@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 5b5de26afceb1127b42c937f1cb1005a660881d4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4dd6a40ed0fe0c4ec168300b3688fc3ba5cacbb9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87273415"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499136"
 ---
 # <a name="automate-saml-based-sso-app-configuration-with-microsoft-graph-api"></a>Automatizar a configuração do aplicativo SSO baseado em SAML com a API do Microsoft Graph
 
@@ -194,6 +194,8 @@ Use a resposta da chamada anterior para recuperar e salvar a ID de objeto do apl
 
 Neste exemplo, você definirá `saml` como o modo de logon único no [tipo de recurso servicePrincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-1.0). Outras propriedades de logon único do SAML que podem ser configuradas são: `notificationEmailAddresses``loginUrl` e `samlSingleSignOnSettings.relayState`
 
+Antes que essa consulta funcione, você precisa fornecer consentimento na guia **Modificar permissões** no Gerenciador de gráficos. Além disso, verifique se você está usando a ID de **entidade de segurança** obtida anteriormente.
+
 #### <a name="request"></a>Solicitação
 
 <!-- {
@@ -224,6 +226,8 @@ HTTP/1.1 204
 ### <a name="set-basic-saml-urls-such-as-identifier-reply-url-sign-on-url"></a>Defina as URLs básicas do SAML, como o identificador, a URL de resposta e a URL de logon
 
 Defina o identificador e URLs de resposta para a AWS no objeto do aplicativo.
+
+Verifique se você está usando a ID do **aplicativo** obtida anteriormente.
 
 #### <a name="request"></a>Solicitação
 

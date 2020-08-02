@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: e3acfb9552db9fa972b0a407e52cece014b45389
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ee23b2bc58f8c1f15a7e51b05dee954c1e584293
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024972"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489615"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o Gerenciamento de API do Azure com redes virtuais
 As redes virtuais do Azure (VNETs) permitem que você coloque qualquer um dos recursos do Azure em uma rede não roteável para a Internet com acesso controlado. Essas redes podem ser conectadas às redes locais usando várias tecnologias VPN. Para saber mais sobre Redes Virtuais do Azure comece com as informações aqui: [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -118,7 +118,7 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
 | * / 1433                     | Saída           | TCP                | VIRTUAL_NETWORK / SQL                 | **Acesso aos pontos de extremidade do SQL do Azure**                           | Interno e externo  |
 | * / 5671, 5672, 443          | Saída           | TCP                | VIRTUAL_NETWORK / EventHub            | Dependência para registrar em [log a política de Hub de Eventos](api-management-howto-log-event-hubs.md) e o agente de monitoramento | Interno e externo  |
 | * / 445                      | Saída           | TCP                | VIRTUAL_NETWORK / Armazenamento             | Dependência do Compartilhamento de Arquivos do Azure para [GIT](api-management-configuration-repository-git.md)                      | Interno e externo  |
-| */443                     | Saída           | TCP                | VIRTUAL_NETWORK/AzureCloud            | Extensão de integridade e monitoramento         | Interno e externo  |
+| */443, 12000                     | Saída           | TCP                | VIRTUAL_NETWORK/AzureCloud            | Extensão de integridade e monitoramento         | Interno e externo  |
 | */1886, 443                     | Saída           | TCP                | VIRTUAL_NETWORK/AzureMonitor         | Publicar [logs e métricas de diagnóstico](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md) e [Application insights](api-management-howto-app-insights.md)                   | Interno e externo  |
 | */25, 587, 25028                       | Saída           | TCP                | VIRTUAL_NETWORK/INTERNET            | Conectar a retransmissão SMTP para enviar emails                    | Interno e externo  |
 | * / 6381 - 6383              | Entrada e Saída | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Acessar o serviço Redis para políticas de [cache](api-management-caching-policies.md) entre computadores         | Interno e externo  |

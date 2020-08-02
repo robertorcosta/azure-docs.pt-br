@@ -2,13 +2,13 @@
 title: Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 description: Encontre respostas para algumas das perguntas mais comuns sobre o AKS (Serviço de Kubernetes do Azure).
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 4d93a4f3b58fc38710184f345fd467b2beb32b1a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/31/2020
+ms.openlocfilehash: 6d30bc1faa6a896233d09f9247fe8c56f82371fa
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057197"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87485619"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 
@@ -190,6 +190,10 @@ Embora o AKS tenha mecanismos de resiliência para tolerar uma configuração co
 ## <a name="can-i-use-custom-vm-extensions"></a>Posso usar extensões de VM personalizadas?
 
 Não. O AKS é um serviço gerenciado e não há suporte para o processamento dos recursos de IaaS. Para instalar componentes personalizados etc., aproveite as APIs e os mecanismos do Kubernetes. Por exemplo, aproveite os DaemonSets para instalar os componentes necessários.
+
+## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>O AKS armazena dados de clientes fora da região do cluster?
+
+Não. Todos os dados criados em um cluster AKS são mantidos na região do cluster.
 
 <!-- LINKS - internal -->
 

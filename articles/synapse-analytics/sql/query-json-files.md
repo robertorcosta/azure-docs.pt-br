@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8b95f6b6eca0f1464a7d09d2810aa66836d76f8f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04b2d7842222426010b76a1a7ed4c72ee74e3d87
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386632"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489717"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Consultar arquivos JSON usando o SQL sob demanda (versão prévia) no Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ Neste artigo, você aprenderá a escrever uma consulta usando o SQL sob demanda 
 - Arquivos JSON padrão em que vários documentos JSON são armazenados como uma matriz JSON.
 - Arquivos JSON delimitados por linha, onde os documentos JSON são separados por caractere de nova linha. As extensões comuns para esses tipos de arquivos são `jsonl` , `ldjson` e `ndjson` .
 
-## <a name="reading-json-documents"></a>Lendo documentos JSON
+## <a name="read-json-documents"></a>Ler documentos JSON
 
 A maneira mais fácil de ver o conteúdo do arquivo JSON é fornecer a URL do arquivo para `OPENROWSET` funcionar, especificar CSV `FORMAT` e definir valores `0x0b` para `fieldterminator` e `fieldquote` . Se você precisar ler arquivos JSON delimitados por linha, isso será suficiente. Se você tiver um arquivo JSON clássico, precisará definir valores `0x0b` para `rowterminator` . `OPENROWSET`a função analisará o JSON e retornará todos os documentos no seguinte formato:
 
@@ -60,7 +60,7 @@ from openrowset(
 
 Essa consulta retornará cada documento JSON como uma linha separada do conjunto de resultados. Verifique se você pode acessar esse arquivo. Se o arquivo estiver protegido com chave SAS ou identidade personalizada, você precisará configurar a [credencial no nível do servidor para logon do SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
 
-### <a name="using-data-source"></a>Usando a fonte de dados
+### <a name="data-source-usage"></a>Uso da fonte de dados
 
 O exemplo anterior usa o caminho completo para o arquivo. Como alternativa, você pode criar uma fonte de dados externa com o local que aponta para a pasta raiz do armazenamento e usar essa fonte de dados e o caminho relativo para o arquivo na `OPENROWSET` função:
 

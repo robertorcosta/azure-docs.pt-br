@@ -6,12 +6,13 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: c957e2ee1d1e596ca8e3525e0f4a9802c4039107
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: adb3104fe5874ab80134f267553b90a4b8823039
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206826"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497980"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Criar e gerenciar o link privado para o banco de dados do Azure para PostgreSQL-servidor único usando a CLI
 
@@ -171,11 +172,11 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
 
 4. Em **nova conexão**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | Tipo de servidor| Selecione **PostgreSQL**.|
     | Nome do servidor| Selecionar *mydemopostgresserver.privatelink.Postgres.Database.Azure.com* |
-    | Nome do usuário | Insira o nome de usuário como username@servername fornecido durante a criação do servidor PostgreSQL. |
+    | Nome de usuário | Insira o nome de usuário como username@servername fornecido durante a criação do servidor PostgreSQL. |
     |Senha |Insira uma senha fornecida durante a criação do servidor PostgreSQL. |
     |SSL|Selecione **obrigatório**.|
     ||

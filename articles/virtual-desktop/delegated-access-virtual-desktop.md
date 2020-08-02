@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2dc96f587a9e5db9d9810a4d1ab7d32c4ff49f7d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: df4d1b98eac782641fb36c614d2df9508c6131ad
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289858"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498660"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Acesso delegado na Área de Trabalho Virtual do Windows
 
@@ -40,7 +40,7 @@ O acesso delegado da área de trabalho virtual do Windows oferece suporte aos se
 
 Antes de começar, certifique-se de seguir as instruções em [Configurar o módulo do PowerShell](powershell-module.md) para configurar o módulo do PowerShell da área de trabalho virtual do Windows, caso ainda não tenha feito isso.
 
-A área de trabalho virtual do Windows usa o RBAC (controle de acesso baseado em função) do Azure ao publicar grupos de aplicativos para usuários ou grupos de usuários. A função de usuário de virtualização de desktop é atribuída ao usuário ou grupo de usuários e o escopo é o grupo de aplicativos. Essa função dá ao usuário acesso especial a dados no grupo de aplicativos.  
+A área de trabalho virtual do Windows usa o Azure RBAC (controle de acesso baseado em função) ao publicar grupos de aplicativos para usuários ou grupos de usuários. A função de usuário de virtualização de desktop é atribuída ao usuário ou grupo de usuários e o escopo é o grupo de aplicativos. Essa função dá ao usuário acesso especial a dados no grupo de aplicativos.  
 
 Execute o seguinte cmdlet para adicionar Azure Active Directory usuários a um grupo de aplicativos:
 

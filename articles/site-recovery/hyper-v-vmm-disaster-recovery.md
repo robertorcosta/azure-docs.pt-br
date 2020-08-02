@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 482a3808065bb2ec565bad7e760b9337b3db7007
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b2164f8927e5c3224f8b07c30d057f48fb7bbc32
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134001"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495957"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurar a recuperação de desastre de VMs do Hyper-V para um site local secundário
 
@@ -80,7 +80,7 @@ Instale o Provedor do Azure Site Recovery nos servidores VMM e descubra e regist
 4. Baixe o arquivo de instalação do Provedor do Azure Site Recovery.
 5. Baixe a chave do registro. Ela é necessária para instalar o provedor. A chave é válida por cinco dias após ser gerada.
 
-    ![Configurar origem](./media/hyper-v-vmm-disaster-recovery/source-settings.png)
+    ![Captura de tela das opções para baixar o provedor e a chave de registro.](./media/hyper-v-vmm-disaster-recovery/source-settings.png)
 
 6. Instale o provedor em cada servidor VMM. Você não precisa instalar nada explicitamente nos hosts do Hyper-V.
 
@@ -94,7 +94,7 @@ Instale o Provedor do Azure Site Recovery nos servidores VMM e descubra e regist
 4. Em **Instalação**, aceite ou modifique o local de instalação padrão e clique em **Instalar**.
 5. Quando a instalação for concluída, clique em **Registrar** para registrar o servidor no cofre.
 
-    ![Local de instalação](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
+    ![Captura da tela de instalação do provedor, incluindo o local de instalação.](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
 6. Em **Nome do cofre**, verifique o nome do cofre para o qual o servidor será registrado. Clique em **Próximo**.
 7. Em **Conexão de Proxy**, especifique como o provedor em execução no servidor VMM se conecta ao Azure.
    - Você pode especificar que o provedor deve se conectar diretamente à internet ou por meio de um proxy. Especifique as configurações de proxy conforme o necessário.
@@ -115,7 +115,7 @@ Selecione o servidor VMM e a nuvem de destino:
 1. Clique em **Preparar infraestrutura** > **Destino** e selecione o servidor VMM de destino.
 2. As nuvens do VMM que são sincronizados com o Site Recovery são exibidas. Selecione a nuvem de destino.
 
-   ![Destino](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
+   ![Captura de tela das seleções de nuvem e do servidor VMM de destino.](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
 
 
 ## <a name="set-up-a-replication-policy"></a>Configurar uma política de replicação
@@ -138,7 +138,7 @@ Antes de começar, verifique se todos os hosts que estão usando a política tê
 5. Selecione **Excluir VM de réplica** para especificar que a máquina virtual de réplica deverá ser excluída se você desabilitar a proteção para a VM de origem. Se você habilitar essa configuração, quando você desabilitar a proteção para a VM de origem, ela será removida do console de Recuperação de Site, as configurações de Recuperação de Site para o VMM serão removidas do console do VMM e a réplica será excluída.
 6. Em **Método de replicação inicial**, se você estiver replicando na rede, especifique se deseja iniciar a replicação inicial ou agendá-la. Para economizar largura de banda de rede, talvez você deseje agendá-la fora de seus horários mais ocupados. Em seguida, clique em **OK**.
 
-     ![Política de replicação](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
+     ![Captura de tela das opções de política de replicação.](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
      
 7. A nova política é associada automaticamente à nuvem do VMM. Em **Política de replicação**, clique em **OK**. 
 

@@ -7,19 +7,60 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 01/08/2019
-ms.openlocfilehash: b5e26ef72d4be38c021cbedbcaf1fa919d7276d1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/31/2020
+ms.openlocfilehash: eb533ef93f012e99d135c49725ef8add77b6f7ec
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511969"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87484191"
 ---
 # <a name="archived-release-notes"></a>Notas de versão arquivadas
 
 ## <a name="summary"></a>Resumo
 
 O Azure HDInsight é um dos serviços mais populares entre os clientes corporativos para análise de software livre Apache Hadoop e Apache Spark no Azure.
+
+## <a name="release-date-07132020"></a>Data de lançamento: 07/13/2020
+
+Esta versão se aplica tanto ao HDInsight 3.6 quanto ao 4.0. A versão do HDInsight é disponibilizada para todas as regiões durante vários dias. A data de lançamento mostrada aqui indica a data de lançamento da primeira região. Se você não vir as alterações abaixo, aguarde até que a liberação seja ativada em sua região em vários dias.
+
+### <a name="new-features"></a>Novos recursos
+#### <a name="support-for-customer-lockbox-for-microsoft-azure"></a>Suporte para Sistema de Proteção de Dados do Cliente para Microsoft Azure
+O Azure HDInsight agora dá suporte ao Azure Sistema de Proteção de Dados do Cliente. Ele fornece uma interface para os clientes revisarem e aprovarem ou rejeitarem solicitações de acesso a dados do cliente. Ele é usado quando o engenheiro da Microsoft precisa acessar os dados do cliente durante uma solicitação de suporte. Para obter mais informações, consulte [sistema de proteção de dados do cliente para Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview).
+
+#### <a name="service-endpoint-policies-for-storage"></a>Políticas de ponto de extremidade de serviço para armazenamento
+Agora, os clientes podem usar as políticas de ponto de extremidade de serviço (SEP) na sub-rede do cluster HDInsight. Saiba mais sobre a [política de ponto de extremidade de serviço do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
+
+### <a name="deprecation"></a>Reprovação
+#### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Substituição do Spark 2.1 e 2.2 no cluster do Spark do HDInsight 3.6
+A partir de julho de 1 2020, os clientes não podem criar novos clusters Spark com Spark 2,1 e 2,2 no HDInsight 3,6. Os clusters existentes serão executados como estão, sem o suporte da Microsoft. Considere a possibilidade de migrar para o Spark 2.3 no HDInsight 3.6 até 30 de junho de 2020 para evitar a interrupção potencial do sistema/suporte.
+ 
+#### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>Substituição do Spark 2.3 no cluster do Spark do HDInsight 4.0
+A partir de julho de 1 2020, os clientes não podem criar novos clusters Spark com o Spark 2,3 no HDInsight 4,0. Os clusters existentes serão executados como estão, sem o suporte da Microsoft. Considere a possibilidade de migrar para o Spark 2.4 no HDInsight 4.0 até 30 de junho de 2020 para evitar a interrupção potencial do sistema/suporte.
+ 
+#### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Substituição do Kafka 1.1 no cluster Kafka do HDInsight 4.0
+A partir de 1º de julho de 2020, os clientes não poderão criar clusters Kafka com Kafka 1.1 no HDInsight 4.0. Os clusters existentes serão executados como estão, sem o suporte da Microsoft. Considere a possibilidade de migrar para o Kafka 2.1 no HDInsight 4.0 até 30 de junho de 2020 para evitar a interrupção potencial do sistema/suporte.
+
+### <a name="behavior-changes"></a>Alterações de comportamento
+Nenhuma alteração de comportamento para a qual você precisa prestar atenção.
+
+### <a name="upcoming-changes"></a>Alterações futuras
+As alterações a seguir ocorrerão em versões futuras. 
+
+#### <a name="ability-to-select-different-zookeeper-sku-for-spark-hadoop-and-ml-services"></a>Capacidade de selecionar um SKU Zookeeper diferente para os serviços Spark, Hadoop e ML
+Atualmente, o HDInsight não dá suporte à alteração de SKU Zookeeper para tipos de cluster Spark, Hadoop e ML Services. Ele usa A2_v2 SKU/a2 para nós Zookeeper e os clientes não são cobrados por eles. Na próxima versão, os clientes poderão alterar Zookeeper SKU para os serviços Spark, Hadoop e ML, conforme necessário. Nós Zookeeper com SKU diferente de A2_v2/a2 serão cobrados. O SKU padrão ainda será A2_V2/a2 e sem encargos.
+
+### <a name="bug-fixes"></a>Correções de bug
+O HDInsight continua a fazer aprimoramentos de desempenho e confiabilidade do cluster. 
+#### <a name="fixed-hive-warehouse-connector-issue"></a>Correção do problema do conector de depósito do hive
+Houve um problema para a usabilidade do conector do depósito do hive na versão anterior. O problema foi corrigido. 
+
+#### <a name="fixed-zeppelin-notebook-truncates-leading-zeros-issue"></a>O notebook Zeppelin fixo trunca o problema de zeros à esquerda
+O Zeppelin estava truncando incorretamente os zeros à esquerda na saída da tabela para o formato da cadeia de caracteres. Corrigimos esse problema nesta versão.
+
+### <a name="component-version-change"></a>Alteração na versão do componente
+Nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para HDInsight 4,0 e HDInsight 3,6 neste [documento](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
 
 ## <a name="release-date-06112020"></a>Data de lançamento: 06/11/2020
 
@@ -1160,7 +1201,7 @@ Esta versão fornece Zeppelin 0.7.3 com nenhum patch additionalApache.
 
 Esta versão oferece ZooKeeper 3.4.6 e os seguintes patches de Apache:
 
--   [ZOOKEEPER-1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256): ClientPortBindTest está falhando em Mac OS X.
+-   [ZOOKEEPER-1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256): ClientPortBindTest está falhando no MacOS X.
 
 -   [ZOOKEEPER-1901](https://issues.apache.org/jira/browse/ZOOKEEPER-1901): \[ JDK8 \] classificar filhos para comparação em testes AsyncOps.
 
@@ -1240,7 +1281,7 @@ Esta seção aborda todos os Common Vulnerabilities and Exposures (CVE) que são
 | **Fornecedor:** Hortonworks |
 | **Versões afetadas:** todas s versões HDP 2.3/2.4/2.5 incluindo as versões do Ranger 0.5.x/0.6.0/0.6.1/0.6.2  |
 | **Usuários afetados:** todos os usuários da ferramenta do administrador de política do ranger. |
-| **Impacto:** o Ranger Apache é vulnerável a um script entre sites armazenados ao inserir as condições de política personalizada. Os usuários administradores podem armazenar um código de javascript arbitrário quando usuários normais entrarem e acessarem as políticas. |
+| **Impacto:** o Ranger Apache é vulnerável a um script entre sites armazenados ao inserir as condições de política personalizada. Os usuários administradores podem armazenar alguns códigos JavaScript arbitrários executados quando os usuários normais entram e acessam políticas de acesso. |
 | **Corrigir detalhes:** adicionada lógica para limpar a entrada do usuário.  |
 | **Ação Recomendada:** os usuários devem atualizar para HDP 2.5.4+ (com o Ranger Apache 0.6.3+) ou HDP 2.6+ (com o Ranger Apache 0.7.0+)  |
 
@@ -1282,7 +1323,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-98655              | [RANGER-2066](https://issues.apache.org/jira/browse/RANGER-2066)                                                                                                                                                                                                               | O acesso à família de colunas do HBase é autorizado por uma coluna marcada na família de colunas                                       |
 | BUG-99883              | [HIVE-19073](https://issues.apache.org/jira/browse/HIVE-19073), [HIVE-19145](https://issues.apache.org/jira/browse/HIVE-19145)                                                                                                                                                 | StatsOptimizer pode desconfigurar as colunas constante                                                                             |
 
-**Outros**
+**Outras**
 
 | **ID do Bug do Hortonworks** | **Apache JIRA**                                                                                                                        | **Resumo**                                                                                                                                |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1516,7 +1557,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-99672              | [ATLAS-2524](https://issues.apache.org/jira/browse/ATLAS-2524)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Hive hook com notificações V2 - incorretas de tratamento de operação “alterar exibição como”                                                              |
 | BUG-99809              | [HBASE-20375](https://issues.apache.org/jira/browse/HBASE-20375)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Remova o uso de getCurrentUserCredentials no módulo do hbase spark                                                                                  |
 
-**Suporte**
+**Capacidade de suporte**
 
 | **ID do Bug do Hortonworks** | **Apache JIRA**                                                  | **Resumo**                                                                                   |
 |------------------------|------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
@@ -1761,7 +1802,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
         curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'
       ```
         
-  - **Opção \#2: aplicar mudanças Javascript**
+  - **Opção \# 2: aplicar alterações de JavaScript**
         
       Etapas para atualizar o arquivo JS:
         

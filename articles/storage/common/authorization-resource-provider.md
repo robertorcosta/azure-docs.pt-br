@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d2e84cf06019c592a726564768f9b332ab5ed610
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5b171c5ff5bc848a0005fad5a2e0b6c0ca548724
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372290"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496066"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Usar o provedor de recursos de armazenamento do Azure para acessar recursos de gerenciamento
 
@@ -36,7 +36,7 @@ Cada assinatura do Azure tem um Azure Active Directory associado que gerencia us
 
 Ao atribuir uma função de RBAC a uma entidade de segurança, você também indica o escopo no qual as permissões concedidas pela função estão em vigor. Para operações de gerenciamento, você pode atribuir uma função no nível da assinatura, no grupo de recursos ou na conta de armazenamento. Você pode atribuir uma função de RBAC a uma entidade de segurança usando o [portal do Azure](https://portal.azure.com/), as [ferramentas de CLI do Azure](../../cli-install-nodejs.md), o [PowerShell](/powershell/azure/)ou a [API REST do provedor de recursos de armazenamento do Azure](/rest/api/storagerp).
 
-Para obter mais informações, consulte [o que é o Azure RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md) e [funções de administrador de assinatura clássica, funções de RBAC do Azure e funções de administrador do Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+Para obter mais informações, consulte [o que é o Azure RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md) e funções de [administrador de assinatura clássica, funções do Azure e funções de administrador do Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ### <a name="built-in-roles-for-management-operations"></a>Funções internas para operações de gerenciamento
 
@@ -44,7 +44,7 @@ O Azure fornece funções internas que concedem permissões para chamar operaç�
 
 Funções internas que concedem permissões para chamar operações de gerenciamento de armazenamento incluem as funções descritas na tabela a seguir:
 
-|    Função RBAC    |    Descrição    |    Inclui acesso a chaves de conta?    |
+|    Função RBAC    |    Description    |    Inclui acesso a chaves de conta?    |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **Proprietário** | Pode gerenciar todos os recursos de armazenamento e acesso aos recursos.  | Sim, fornece permissões para exibir e regenerar as chaves da conta de armazenamento. |
 | **Colaborador**  | Pode gerenciar todos os recursos de armazenamento, mas não pode gerenciar a atribuição de recursos. | Sim, fornece permissões para exibir e regenerar as chaves da conta de armazenamento. |

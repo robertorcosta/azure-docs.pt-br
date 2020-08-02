@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 4da024eb4eb3747b8e0d6b291ca5b00df12aaeab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 08a65ff8d276cd27c9f8fa07393600bc24e7b17f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367513"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500293"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Práticas recomendadas de configuração do Azure App
 
@@ -86,6 +86,10 @@ Solicitações excessivas para a configuração do aplicativo podem resultar na 
 ## <a name="importing-configuration-data-into-app-configuration"></a>Importando dados de configuração para configuração de aplicativo
 
 A configuração de aplicativo oferece a opção de [importar](https://aka.ms/azconfig-importexport1) em massa suas definições de configuração de seus arquivos de configuração atuais usando o portal do Azure ou a CLI. Você também pode usar as mesmas opções para exportar valores da configuração do aplicativo, por exemplo, entre os repositórios relacionados. Se você quiser configurar uma sincronização contínua com seu repositório GitHub, poderá usar nossa [ação do GitHub](https://aka.ms/azconfig-gha2) para que possa continuar usando as práticas de controle do código-fonte existentes e obter os benefícios da configuração do aplicativo.
+
+## <a name="multi-region-deployment-in-app-configuration"></a>Implantação em várias regiões na configuração do aplicativo
+
+A configuração do aplicativo é um serviço regional. Para aplicativos com configurações diferentes por região, armazenar essas configurações em uma instância pode criar um ponto único de falha. A implantação de instâncias de configuração de um aplicativo por região em várias regiões pode ser uma opção melhor. Ele pode ajudar com a recuperação de desastre regional, o desempenho e o silo de segurança. A configuração por região também melhora a latência e usa cotas de limitação separadas, pois a limitação é por instância. Para aplicar a mitigação de recuperação de desastres, você pode usar [vários repositórios de configuração](./concept-disaster-recovery.md). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

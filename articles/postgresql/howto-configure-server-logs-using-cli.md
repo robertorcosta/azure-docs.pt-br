@@ -7,19 +7,20 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 1346d1402b46088ce0bed015c723cf817d982317
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 50875d0575da7287269bee55004a2acfa5396cd5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118096"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87493543"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurar e acessar logs de servidor usando a CLI do Azure
 Você pode listar e baixar logs de erro do servidor PostgreSQL do Azure usando a interface de linha de comando (CLI do Azure). No entanto, não há suporte para acesso aos logs de transação. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para seguir este guia de instruções, você precisa:
-- [Servidor do Banco de Dados do Azure para PostgreSQL](quickstart-create-server-database-azure-cli.md)
+- [Banco de dados do Azure para servidor PostgreSQL](quickstart-create-server-database-azure-cli.md)
 - O utilitário de linha de comando da [CLI do Azure](/cli/azure/install-azure-cli) ou o Azure Cloud Shell no navegador
 
 ## <a name="configure-logging"></a>Configurar o registro em log

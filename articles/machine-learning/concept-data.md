@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 04/24/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 15cf4aa6adda26991e76ec8a5e7378766fe2a21f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6234e9efe4f6dd122a22ee834ef9c35269eea95f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84552636"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500973"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteger o acesso a dados no Azure Machine Learning
 
@@ -57,7 +57,7 @@ Azure Machine Learning armazenamentos de dados mantêm com segurança as informa
 Serviços de armazenamento baseados em nuvem com suporte no Azure que podem ser registrados como repositórios de armazenamento:
 
 + Contêiner de blob do Azure
-+ Compartilhamento de arquivos do Azure
++ Compartilhamento de Arquivo do Azure
 + Azure Data Lake
 + Azure Data Lake Gen2
 + Banco de Dados SQL do Azure
@@ -67,14 +67,17 @@ Serviços de armazenamento baseados em nuvem com suporte no Azure que podem ser 
 
 ## <a name="datasets"></a>Conjunto de dados
 
-Azure Machine Learning DataSets são referências que apontam para os dados em seu serviço de armazenamento. Eles não são cópias dos seus dados, portanto, nenhum custo de armazenamento extra é cobrado. Para interagir com os seus dados no armazenamento, [crie um conjunto](how-to-create-register-datasets.md) de dados para empacotar seus dados em um objeto consumível para tarefas de aprendizado de máquina. Registre o conjunto de dados em seu espaço de trabalho para compartilhá-lo e reutilizá-lo em experimentos diferentes sem complexidades de ingestão de dados.
+Azure Machine Learning DataSets são referências que apontam para os dados em seu serviço de armazenamento. Eles não são cópias dos seus dados, portanto, nenhum custo de armazenamento extra é incorrido e a integridade das fontes de dados originais não está em risco.
+
+ Para interagir com os seus dados no armazenamento, [crie um conjunto](how-to-create-register-datasets.md) de dados para empacotar seus dados em um objeto consumível para tarefas de aprendizado de máquina. Registre o conjunto de dados em seu espaço de trabalho para compartilhá-lo e reutilizá-lo em experimentos diferentes sem complexidades de ingestão de dados.
 
 Os conjuntos de valores podem ser criados a partir de arquivos locais, de URLs públicas, de conjuntos de de [Azure abertos](https://azure.microsoft.com/services/open-datasets/)ou de serviços de armazenamento do Azure por meio de armazenamentos. Para criar um conjunto de dados a partir de um dataframe do pandas na memória, grave-os em um arquivo local, como um parquet, e crie seu conjunto de dado a partir desse arquivo.  
 
 Damos suporte a dois tipos de conjuntos de valores: 
-+ Um [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representa dados em um formato tabular analisando o arquivo ou a lista de arquivos fornecida. Você pode carregar um TabularDataset em um dataframe do pandas ou Spark para manipulação e limpeza adicionais. Para obter uma lista completa dos formatos de dados dos quais você pode criar TabularDatasets, consulte a [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
-+ Um [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) faz referência a um ou vários arquivos em seus armazenamentos de dados ou URLs públicas. Você pode [baixar ou montar arquivos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenciados por filedatasets em seu destino de computação.
++ Um [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) faz referência a um ou vários arquivos em seus armazenamentos de dados ou URLs públicas. Se seus dados já estiverem limpos e prontos para uso em experimentos de treinamento, você poderá [baixar ou montar arquivos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenciados por filedatasets em seu destino de computação.
+
++ Um [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representa dados em um formato tabular analisando o arquivo ou a lista de arquivos fornecida. Você pode carregar um TabularDataset em um dataframe do pandas ou Spark para manipulação e limpeza adicionais. Para obter uma lista completa dos formatos de dados dos quais você pode criar TabularDatasets, consulte a [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
 Os recursos adicionais de conjuntos de documentos podem ser encontrados na seguinte documentação:
 

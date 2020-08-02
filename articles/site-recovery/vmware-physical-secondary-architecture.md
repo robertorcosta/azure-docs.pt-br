@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 9b16a0edc1549a1b4d8ef5ba53d8b795f6d74e07
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 7c884ce839523706e67e4278f43e237e1a2b0580
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418314"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496960"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Arquitetura para replicação do VMware/servidor físico para um site local secundário
 
@@ -42,7 +42,7 @@ Para que Site Recovery funcionem conforme o esperado, você precisa modificar a 
 
 Caso esteja usando um proxy de firewall baseado em URL para controlar a conectividade de saída, permita acesso a estas URLs:
 
-| **Nome**                  | **Comercial**                               | **Governamental**                                 | **Descrição** |
+| **Nome**                  | **Comercial**                               | **Governo**                                 | **Descrição** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Permite que os dados sejam gravados da VM para a conta de armazenamento de cache da região de origem. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para as URLs do serviço Site Recovery. |
@@ -55,9 +55,7 @@ Caso esteja usando um proxy de firewall baseado em URL para controlar a conectiv
 2. Após a replicação inicial, os agentes em cada computador enviam as alterações de replicação delta para o servidor de processo.
 3. O servidor de processo otimiza os dados e os transfere para o servidor de destino mestre no site secundário. O servidor de configuração gerencia o processo de replicação.
 
-**Figura 6: replicação do VMware para o VMware**
-
-![VMware para VMware](./media/site-recovery-components/vmware-to-vmware.png)
+![Diagrama mostrando a replicação de VMs VMware e servidores físicos para um datacenter secundário](./media/site-recovery-components/vmware-to-vmware.png)
 
 
 

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 347232d452b5d309da7cdb7c8fe34f0e41abde00
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 86223c35118c9c54be49fa830a264a0059ef3937
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025331"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494427"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory
 
@@ -95,6 +95,6 @@ Depois de associar uma assinatura a um diretório diferente, talvez seja necess�
 
 - Para criar um novo locatário do Azure AD, consulte [início rápido: criar um novo locatário no Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-- Para saber mais sobre como Microsoft Azure controla o acesso aos recursos, consulte [funções de administrador da assinatura clássica, funções do RBAC do Azure e funções de administrador do Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+- Para saber mais sobre como o Microsoft Azure controla o acesso a recursos, consulte funções de [administrador de assinatura clássica, funções do Azure e funções de administrador do Azure ad](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 - Para saber mais sobre como atribuir funções no Azure AD, consulte [atribuir funções de administrador e não administrador a usuários com Azure Active Directory](active-directory-users-assign-role-azure-portal.md).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 8adffcc6c7ae4af2e33587f75c83430473180203
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 388fb7e36a823d7f6e9ee1d58220d3a1008d8cec
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118385"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498031"
 ---
 # <a name="offer-listing-best-practices"></a>Práticas recomendadas de listagem de ofertas
 
@@ -31,7 +31,7 @@ As tabelas nesta seção fornecem sugestões para a criação de ofertas de mark
 
 As categorias e os setores para uma vitrine diferente serão aplicáveis a diferentes tipos de oferta.
 
-| Vitrine | Categorias <br>por vitrine | Categorias <br>por vitrine | Indústrias <br> para AppSource |
+| Vitrine | Categorias <br>por vitrine | Categorias <br>por vitrine | Setores <br> para AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
 | **Tipo de oferta**   |  **Azure Marketplace**  | **AppSource**  |
 | Aplicativo do Azure | X | |
@@ -56,89 +56,7 @@ Selecione categorias e subcategorias que melhor se alinhem com sua oferta e seu 
 * Até duas (2) categorias, incluindo uma categoria primária e uma secundária (opcional).
 * Até duas (2) subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for selecionada, sua oferta ainda poderá ser descoberta somente na categoria selecionada.
 
-| [**Azure Marketplace**](https://azuremarketplace.microsoft.com/marketplace/apps) (profissionais de ti e desenvolvedores)  | [**AppSource**](https://appsource.microsoft.com/marketplace/apps) (usuários empresariais)|
-| :------------------- |:----------------|
-|**Análise** | **Análise** |
-| &nbsp;&nbsp;Informações de dados | &nbsp;&nbsp;Análise avançada  |
-| &nbsp;&nbsp;Análise de dados |  &nbsp;&nbsp;Relatórios de & de visualização |
-| &nbsp;&nbsp;Big data | **IA + Machine Learning**  |
-| &nbsp;&nbsp;Análise preditiva | &nbsp;&nbsp;IA para negócios |
-| &nbsp;&nbsp;Análise em tempo real/streaming | &nbsp;&nbsp;Aplicativos de bot |
-| **IA + Machine Learning** | **Colaboração** |
-| &nbsp;&nbsp;Serviço de bot | &nbsp;&nbsp;Contatar & pessoas |
-| &nbsp;&nbsp;Serviços cognitivas | &nbsp;&nbsp;Gerenciamento de reuniões |
-| &nbsp;&nbsp;Serviço ML | &nbsp;&nbsp;Gerenciamento de & de design de site |
-| &nbsp;&nbsp;ML automatizado | &nbsp;&nbsp;Gerenciamento de projeto de & de tarefas |
-| &nbsp;&nbsp;Automação de processos de negócios/robótica | &nbsp;&nbsp;Videoconferência de voz & vídeo |
-| &nbsp;&nbsp;Rotulamento de dados | **Conformidade & legal** |
-| &nbsp;&nbsp;Preparação de dados | &nbsp;&nbsp;Auditoria de & de imposto |
-| &nbsp;&nbsp;Mineração de conhecimento | &nbsp;&nbsp;Judiciais |
-| &nbsp;&nbsp;Operações de ML | &nbsp;&nbsp;Dados, governança & privacidade |
-| **Blockchain**  | &nbsp;&nbsp;Segurança de & de integridade |
-| &nbsp;&nbsp;Aceleradores de aplicativos | **Customer Service**  |
-| &nbsp;&nbsp;Razão de nó único | &nbsp;&nbsp;Centro de contato |
-| &nbsp;&nbsp;Razão de vários nós | &nbsp;&nbsp;Face para o serviço facial |
-| &nbsp;&nbsp;Ferramentas | &nbsp;&nbsp;Serviço de funcionários de & de Back Office |
-| **Computação**  | &nbsp;&nbsp;Gerenciamento de casos de conhecimento & |
-| &nbsp;&nbsp;Infraestrutura do aplicativo | &nbsp;&nbsp;Engajamento de Omnichannel de & mídia social |
-| &nbsp;&nbsp;Sistemas operacionais | **Finanças** |
-| &nbsp;&nbsp;Armazenar | &nbsp;&nbsp;Contábil |
-| **Contêineres**  | &nbsp;&nbsp;Gerenciamento de ativos |
-| &nbsp;&nbsp;Introdução aos contêineres | &nbsp;&nbsp;Análise, consolidação & relatórios |
-| &nbsp;&nbsp;Aplicativos de contêiner | &nbsp;&nbsp;Coleções de & de crédito |
-| &nbsp;&nbsp;Imagens de contêiner | &nbsp;&nbsp;Conformidade & gerenciamento de riscos |
-| **Bancos de dados**  | **Geolocalização** |
-| &nbsp;&nbsp;Bancos de dados NoSQL | &nbsp;&nbsp;Los |
-| &nbsp;&nbsp;Bancos de dados relacionais | &nbsp;&nbsp;Clima de notícias & |
-| &nbsp;&nbsp;Bancos de dados de razão/Blockchain | **Human Resources** |
-| &nbsp;&nbsp;Data lagos | &nbsp;&nbsp;Aquisição de talento |
-| &nbsp;&nbsp;data warehouse | &nbsp;&nbsp;Gerenciamento de talentos |
-| **Ferramentas de Desenvolvedor**  | &nbsp;&nbsp;Operações de RH |
-| &nbsp;&nbsp;Ferramentas | &nbsp;&nbsp;Planejamento de força de obra & análise |
-| &nbsp;&nbsp;Deles | **Ferramentas de gerenciamento de & de ti** |
-| &nbsp;&nbsp;Serviço do desenvolvedor | &nbsp;&nbsp;Soluções de gerenciamento |
-| **DevOps**  | &nbsp;&nbsp;Business Applications |
-| **Integração**  | **Internet das Coisas** |
-| &nbsp;&nbsp;Mensagens | &nbsp;&nbsp;Operações de & de gerenciamento de ativos |
-| **Ferramentas de gerenciamento de & de ti**  | &nbsp;&nbsp;Produtos conectados |
-| &nbsp;&nbsp;Soluções de gerenciamento | &nbsp;&nbsp;Cadeia de suprimentos inteligente |
-| &nbsp;&nbsp;Business Applications | &nbsp;&nbsp;Manutenção preditiva |
-| **Identidade**  | &nbsp;&nbsp;Monitoramento remoto |
-| &nbsp;&nbsp;Gerenciamento de acesso | &nbsp;&nbsp;Segurança do & de segurança |
-| **Internet das Coisas**  | &nbsp;&nbsp;Recursos de & de infraestrutura inteligente |
-| &nbsp;&nbsp;Conectividade de IoT | &nbsp;&nbsp;Veículos & mobilidade |
-| &nbsp;&nbsp;Serviços do IoT Core | **Marketing** |
-| &nbsp;&nbsp;Módulos de IoT Edge | &nbsp;&nbsp;Anúncio |
-| &nbsp;&nbsp;Soluções de IoT | &nbsp;&nbsp;Analytics |
-| &nbsp;&nbsp;Visualização de & de análise de dados | &nbsp;&nbsp;Gerenciamento de campanha & automação |
-| **Mídia**  | &nbsp;&nbsp;Marketing por email |
-| &nbsp;&nbsp;Serviços de mídia | &nbsp;&nbsp;Eventos & gerenciamento de recursos |
-| &nbsp;&nbsp;Proteção de Conteúdo | &nbsp;&nbsp;Análise de & de pesquisa |
-| &nbsp;&nbsp;Streaming sob demanda & ao vivo | &nbsp;&nbsp;Mídia social |
-| **Monitorando & diagnóstico**  | **Cadeia de fornecedores de & de operações** |
-| **Migração**  | &nbsp;&nbsp;Gerenciamento de produção de & de ativos |
-| &nbsp;&nbsp;Migração de dados | &nbsp;&nbsp;Previsão de demanda |
-| **Realidade Misturada**  | &nbsp;&nbsp;Gerenciamento de informações & conectividade |
-| **Rede**  | &nbsp;&nbsp;Planejando, comprando & relatórios |
-| &nbsp;&nbsp;Gerenciadores de dispositivos | &nbsp;&nbsp;Gerenciamento de serviços de qualidade & |
-| &nbsp;&nbsp;Conectividade | &nbsp;&nbsp;Gerenciamento de pedidos de vendas & |
-| &nbsp;&nbsp;Firewalls | &nbsp;&nbsp;Gerenciamento do & warehouse de transporte |
-| &nbsp;&nbsp;Balanceadores de carga | **Produtividade** |
-| **Segurança**  | &nbsp;&nbsp;Gerenciamento de & de criação de conteúdo |
-| &nbsp;&nbsp;Gerenciamento de Identidades e Acesso | &nbsp;&nbsp;Gerenciamento de documentos |
-| &nbsp;&nbsp;Proteção contra ameaças | &nbsp;&nbsp;Gerenciamento de email |
-| &nbsp;&nbsp;Proteção de informações | &nbsp;&nbsp;Tradução de & de idioma |
-| **Storage**  | &nbsp;&nbsp;Referência de & de pesquisa |
-| &nbsp;&nbsp;Recuperação de & de backup | &nbsp;&nbsp;Gamificação |
-| &nbsp;&nbsp;Armazenamento híbrido corporativo | **Vendas** |
-| &nbsp;&nbsp;Compartilhamento de arquivos | &nbsp;&nbsp;Televendas |
-| &nbsp;&nbsp;Gerenciamento do ciclo de vida de dados | &nbsp;&nbsp;Configurar, preço, cotação (CPQ) |
-| **Web**  | &nbsp;&nbsp;Gerenciamento de contrato |
-| &nbsp;&nbsp;Blogs & CMSs | &nbsp;&nbsp;CRM |
-| &nbsp;&nbsp;Aplicativos Web iniciais | &nbsp;&nbsp;Comércio eletrônico |
-| &nbsp;&nbsp;Comércio eletrônico | &nbsp;&nbsp;Enriquecimento de dados de negócios  |
-| &nbsp;&nbsp;Estruturas de aplicativo Web | &nbsp;&nbsp;Habilitação de vendas  |
-| &nbsp;&nbsp;Aplicativos Web |  |
+[!INCLUDE [categories and subcategories](./includes/categories.md)]
 
 **IMPORTANTE: o SaaS oferece e Microsoft 365 suplementos**
 
@@ -167,7 +85,7 @@ A seleção do setor só se aplica a ofertas publicadas no AppSource e serviços
 >[!Note]
 >Para ofertas de serviços de consultoria no Azure Marketplace, não há nenhuma vertical do setor.
 
-| **Indústrias** |  **Verticais** |
+| **Setores** |  **Verticais** |
 | :------------------- | :----------------|
 | **Agricultura** | |
 | **Arquitetura & construção** | |
@@ -175,8 +93,8 @@ A seleção do setor só se aplica a ofertas publicadas no AppSource e serviços
 | **Distribuição** | Atacado <br> Envio de pacote de & de remessa |  
 | **Educação** | Ensino superior <br> Primário &do edu/K-12 <br> Bibliotecas & museus |
 | **Serviços Financeiros** | Mercados bancários & capital <br> Seguro | 
-| **Governamental** |  Inteligência de & de defesa <br> Governo civis <br> Segurança pública & justiça |
-| **Serviços de saúde** | Pagador de integridade <br> Provedor de integridade <br> Produtos farmacêuticos | 
+| **Governo** |  Inteligência de & de defesa <br> Governo civis <br> Segurança pública & justiça |
+| **Assistência médica** | Pagador de integridade <br> Provedor de integridade <br> Produtos farmacêuticos | 
 | **Hospedagem & viagem** | Viagem e Transporte <br> Hotéis & lazer <br> Serviços de restaurantes & Food | 
 | **Recursos de produção &** | Agrochemical de química & <br> Fabricação discreta <br> Energia | 
 | **Comunicações de & de mídia** | Entretenimento de mídia & <br> Telecomunicações | 
