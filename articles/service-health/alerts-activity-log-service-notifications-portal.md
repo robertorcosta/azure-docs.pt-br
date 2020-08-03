@@ -3,29 +3,29 @@ title: Receber alertas do log de atividades nas notificações de serviço do Az
 description: Seja notificado por SMS, email ou webhook quando um serviço do Azure for executado.
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: a8723698cddfb519687525820475517b93219a4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b90940c4532370e7742f736708625ddec283aab1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85566995"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499241"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications-using-the-azure-portal"></a>Criar alertas do log de atividades em notificações de serviço usando o portal do Azure
 ## <a name="overview"></a>Visão geral
 
 Este artigo mostra como usar o portal do Azure para configurar alertas do log de atividades para notificações de integridade do serviço usando o portal do Azure.  
 
-As notificações de integridade do serviço são armazenadas no [log de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md) , considerando o volume possivelmente grande de informações armazenadas no log de atividades, há uma interface do usuário separada para facilitar a exibição e a configuração de alertas sobre notificações de integridade do serviço. 
+As notificações de integridade do serviço são armazenadas no [log de atividades do Azure](../azure-monitor/platform/platform-logs-overview.md). Considerando o grande volume de informações armazenadas no log de atividades, há uma interface do usuário separada para facilitar a exibição e a configuração de alertas em notificações de integridade do serviço. 
 
 Você pode receber um alerta quando o Azure envia notificações de integridade do serviço para sua assinatura do Azure. Você pode configurar o alerta de acordo com:
 
-- A classe de notificação do serviço de integridade (Problemas de serviço, Manutenção planejada, Avisos de integridade).
+- A classe de notificação de integridade do serviço (problemas de serviço, manutenção planejada, comunicados de integridade, avisos de segurança).
 - A assinatura afetada.
 - Os serviços afetados.
 - As regiões afetadas.
 
 > [!NOTE]
-> As notificações de integridade do serviço não enviam um alerta sobre o recurso de eventos de integridade.
+> As notificações de integridade do serviço não enviam alertas para eventos do Resource Health.
 
 Também é possível configurar para quem o alerta deve ser enviado:
 
@@ -40,7 +40,7 @@ Para saber mais sobre como configurar alertas de notificação de integridade do
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
-## <a name="alert-and-new-action-group-using-azure-portal"></a>Alerta e novo grupo de ações usando o portal do Azure
+## <a name="create-service-health-alert-using-azure-portal"></a>Criar alerta de integridade do serviço usando portal do Azure
 1. No [portal](https://portal.azure.com), selecione **Integridade do Serviço**.
 
     ![O serviço “Integridade do Serviço”](media/alerts-activity-log-service-notifications/home-servicehealth.png)
@@ -49,54 +49,31 @@ Para saber mais sobre como configurar alertas de notificação de integridade do
 
     ![A guia “Alertas de integridade”](media/alerts-activity-log-service-notifications/alerts-blades-sh.png)
 
-1. Selecione **Criar alerta de integridade do serviço** e preencha os campos.
+1. Selecione **adicionar alerta de integridade do serviço** e preencha os campos.
 
     ![O comando “Criar alerta de integridade do serviço”](media/alerts-activity-log-service-notifications/service-health-alert.png)
 
-1. Selecione a **Assinatura**, os **Serviços** e as **Regiões** sobre os quais você deseja ser alertado.
+1. Selecione a **assinatura**, os **Serviços**e as **regiões** para as quais você deseja ser alertado.
 
-    ![A caixa de diálogo "Adicionar alerta do log de atividades"](media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png)
+    [![A caixa de diálogo "Adicionar alerta do log de atividades"](./media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png)](./media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png#lightbox)
 
-    > [!NOTE]
-    > Esta assinatura é usada para salvar o alerta do log de atividades. O recurso de alerta é implantado para essa assinatura e monitora os eventos no log de atividades para ele.
+> [!NOTE]
+>Esta assinatura é usada para salvar o alerta do log de atividades. O recurso de alerta é implantado para essa assinatura e monitora os eventos no log de atividades para ele.
 
-1. Escolha os **Tipos de evento** sobre os quais você deseja ser alertado: *Problema de serviço*, *Manutenção planejada* e *Consultorias de integridade* 
+5. Escolha os **tipos de eventos** para os quais você deseja ser alertado: *problema de serviço*, *manutenção planejada*, comunicados de *integridade*e *consultoria de segurança*.
 
-1. Defina os detalhes do alerta inserindo um **Nome de regra de alerta** e uma **Descrição**.
+6. Clique em **selecionar grupo de ações** para escolher um grupo de ações existente ou para criar um novo grupo de ações. Para obter mais informações sobre grupos de ações, consulte [criar e gerenciar grupos de ações no portal do Azure](../azure-monitor/platform/action-groups.md).
 
-1. Selecione o **Grupo de recursos** onde você deseja que o alerta seja salvo.
 
-1. Crie um grupo de ação selecionando **Novo grupo de ação**. Insira um nome na caixa **nome do grupo de ações** e insira um nome na caixa **nome curto** . O nome curto é referenciado nas notificações enviadas quando esse alerta é acionado.
+7. Defina os detalhes do alerta inserindo um **Nome de regra de alerta** e uma **Descrição**.
 
-    ![Criar um novo grupo de ações](media/alerts-activity-log-service-notifications/action-group-creation.png)
+8. Selecione o **Grupo de recursos** onde você deseja que o alerta seja salvo.
 
-1. Defina uma lista de destinatários fornecendo os seguintes itens do destinatário:
 
-    a. **Nome**: insira o nome do destinatário, o alias ou o identificador.
-
-    b. **Tipo de Ação**: selecione SMS, email, webhook, aplicativo do Azure e muito mais.
-
-    c. **Detalhes**: de acordo com o tipo de ação escolhido, insira um número de telefone, endereço de email, URI de webhook, etc.
-
-1. Selecione **OK** para criar o grupo de ação e, em seguida, **Criar regra de alerta** para concluir o alerta.
 
 Em alguns minutos, o alerta estará ativo e começará a disparar com base nas condições especificadas durante a criação.
 
 Saiba como [Configurar notificações de webhook para sistemas de gerenciamento de problemas existentes](service-health-alert-webhook-guide.md). Para saber mais sobre o esquema do webhook para alertas de log de atividades, veja [Webhooks para alertas do log de atividades do Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
-
->[!NOTE]
->O grupo de ações definido nessas etapas é reutilizável, como um grupo de ação existente, para todas as definições de alerta futuras.
->
-
-## <a name="alert-with-existing-action-group-using-azure-portal"></a>Alerta com o grupo de ações existente usando o portal do Azure
-
-1. Siga as etapas 1 a 6 na seção anterior para criar sua notificação de integridade do serviço. 
-
-1. Em **Definir grupo de ação**, clique no botão **Selecionar grupo de ação**. Selecione o grupo de ação apropriado.
-
-1. Selecione **Adicionar** para adicionar o grupo de ação e, em seguida, **Criar regra de alerta** para concluir o alerta.
-
-Em alguns minutos, o alerta estará ativo e começará a disparar com base nas condições especificadas durante a criação.
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -9,21 +9,21 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurecli
 ms.topic: article
 ms.date: 04/11/2020
-ms.openlocfilehash: e6a39a7967c061a90e75d717402cf63da15b06b3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 438595096e808646da990e1871cab07d1a795372
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087621"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499068"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Tutorial: migrar PostgreSQL para o BD do Azure para PostgreSQL online usando DMS por meio do CLI do Azure
 
 Você pode usar o Serviço de Migração de Banco de Dados do Azure para migrar os bancos de dados de uma instância local do PostgreSQL para o [Banco de Dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/) com um tempo de inatividade mínimo. Em outras palavras, a migração pode ser feita com o mínimo de tempo de inatividade para o aplicativo. Neste tutorial, você vai migrar o banco de dados de exemplo **DVD Rental** de uma instância local do PostgreSQL 9.6 para o Banco de Dados do Azure para PostgreSQL usando uma atividade de migração online no Serviço de Migração de Banco de Dados do Azure.
 
-Neste tutorial, você aprenderá como:
+Neste tutorial, você aprende a:
 > [!div class="checklist"]
 >
 > * Migrar o esquema de exemplo usando o utilitário pg_dump.
@@ -182,7 +182,7 @@ Para concluir todos os objetos de banco de dados, como procedimentos armazenados
        ```azurecli
        az extension list -otable
        ```
-       A seguinte saída deve ser exibida:
+       Você verá a seguinte saída:
 
        ```output
        ExtensionType    Name

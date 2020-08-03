@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: b65d9579686cdf53f1cac35ba47bc5850b45c8e2
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 50dbbe3a6a1af1e73cdf1ee7f5bd3a63cf2f6a50
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86204296"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498796"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Rastreamento e log de eventos para sua Azure Data Box e Azure Data Box Heavy ordem de importação
 
@@ -35,7 +35,7 @@ Este artigo descreve detalhadamente os vários mecanismos ou ferramentas dispon�
 
 ## <a name="set-up-access-control-on-the-order"></a>Configurar o controle de acesso na ordem
 
-Você pode controlar quem pode acessar seu pedido quando a ordem é criada pela primeira vez. Configure funções de RBAC (controle de acesso baseado em função) em vários escopos para controlar o acesso ao pedido de Data Box. Uma função RBAC determina o tipo de acesso – leitura-gravação, somente leitura e gravação para um subconjunto de operações.
+Você pode controlar quem pode acessar seu pedido quando a ordem é criada pela primeira vez. Configure as funções do Azure em vários escopos para controlar o acesso ao pedido de Data Box. Uma função do Azure determina o tipo de acesso – leitura-gravação, somente leitura e gravação de leitura para um subconjunto de operações.
 
 As duas funções que podem ser definidas para o serviço de Azure Data Box são:
 

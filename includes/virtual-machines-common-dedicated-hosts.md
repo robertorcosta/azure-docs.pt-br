@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 24e4554e2202c8b5452193e1b0f48cf6c8ada5dd
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 691293d0f7ecf5bb2ad83a3f292ad2c9b873e31e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133775"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386514"
 ---
 ## <a name="limitations"></a>Limitações
 
@@ -53,7 +53,7 @@ Se você atribuir um grupo de hosts a uma zona de disponibilidade, todas as VMs 
 
 Um host pode ser criado em um domínio de falha específico. Assim como a VM em um conjunto de dimensionamento ou conjunto de disponibilidade, os hosts em diferentes domínios de falha serão colocados em diferentes racks físicos na data center. Ao criar um grupo de hosts, é necessário especificar a contagem de domínios de falha. Ao criar hosts dentro do grupo de hosts, você atribui um domínio de falha para cada host. As VMs não exigem nenhuma atribuição de domínio de falha.
 
-Os domínios de falha não são os mesmos que a colocação. Ter o mesmo domínio de falha para dois hosts não significa que eles estão em proximidade entre si.
+Os domínios de falha não são iguais a colocalização. Ter o mesmo domínio de falha para dois hosts não significa que eles estão em proximidade entre si.
 
 Os domínios de falha são incluídos no escopo do grupo de hosts. Você não deve fazer nenhuma suposição sobre a antiafinidade entre dois grupos de hosts (a menos que eles estejam em zonas de disponibilidade diferentes).
 

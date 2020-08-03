@@ -5,13 +5,13 @@ author: jimzim
 ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 05/29/2020
-ms.openlocfilehash: 0c4c5ddfebe9e2b5b37a2c28ec4941f6c38668f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/31/2020
+ms.openlocfilehash: 93507bae3f817f92cfa427ceca10f651352a46bc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84219229"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497572"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Perguntas frequentes sobre o Azure Red Hat OpenShift
 
@@ -235,3 +235,7 @@ Para clusters 3,11, os dados não são criptografados no nível de etcd. Atualme
 Para clusters 4. x, o disco do Azure (Premium_LRS) é configurado como a classe de armazenamento padrão. Para provedores de armazenamento adicionais e para obter detalhes de configuração (incluindo o arquivo do Azure), consulte a documentação do Red Hat no [armazenamento persistente](https://docs.openshift.com/aro/4/storage/understanding-persistent-storage.html).
 
 Para clusters 3,11, duas classes de armazenamento são fornecidas por padrão: uma para o disco do Azure (Premium_LRS) e outra para o arquivo do Azure.
+
+## <a name="does-aro-store-any-customer-data-outside-of-the-clusters-region"></a>A toa armazena dados de clientes fora da região do cluster?
+
+Não. Todos os dados criados em um cluster de toa são mantidos na região do cluster.

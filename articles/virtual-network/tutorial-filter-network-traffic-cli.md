@@ -16,13 +16,13 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
-ms.custom: ''
-ms.openlocfilehash: b593630d6702f66b1b877c15688b9aea0e227fca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 9af6311165f50023cfca8f9253f77b4c84c25dd5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688221"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500922"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrar tráfego com um grupo de segurança de rede utilizando o CLI do Azure
 
@@ -33,7 +33,7 @@ ms.locfileid: "84688221"
 * Implantar VMs (máquinas virtuais) em uma sub-rede
 * Testar filtros de tráfego
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -232,7 +232,7 @@ curl myVmWeb
 
 Faça logoff da VM *myVmMgmt*. Para confirmar que você pode acessar o servidor da Web *myVmWeb* de fora do Azure, digite `curl <publicIpAddress>` de seu próprio computador. A conexão é realizada com sucesso, porque a porta 80 tem permissão de entrada da Internet para o grupo de segurança de aplicativo *myAsgWebServers* no qual o adaptador de rede conectado à VM *myVmWeb* está.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, use [az group delete](/cli/azure/group) para remover o grupo de recursos e todos os recursos que ele contém.
 

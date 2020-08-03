@@ -1,14 +1,14 @@
 ---
 title: Funções e permissões de RBAC
-description: Use o controle de acesso baseado nas função do Azure (RBAC) e o gerenciamento de identidades e acesso (IAM) para fornecer permissões refinadas a recursos em um registro de contêiner do Azure.
+description: Use o Azure RBAC (controle de acesso baseado em função) e o IAM (gerenciamento de identidade e acesso) para fornecer permissões refinadas aos recursos em um registro de contêiner do Azure.
 ms.topic: article
 ms.date: 12/02/2019
-ms.openlocfilehash: 3fb103ac4c4dac736b3c0fc99b2cf49f01e9e005
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bf6059698191c975b212bee7f45d21977478b49
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74893477"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497742"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Funções e permissões do Registro de Contêiner do Azure
 

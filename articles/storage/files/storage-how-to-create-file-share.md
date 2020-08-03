@@ -1,5 +1,5 @@
 ---
-title: Criar um compartilhamento de arquivos do Azure
+title: Criar um compartilhamento de arquivo do Azure
 titleSuffix: Azure Files
 description: Como criar um compartilhamento de arquivos do Azure usando o portal do Azure, o PowerShell ou o CLI do Azure.
 author: roygara
@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ba6f4bcaffbf9fa11c949853362485d524bec23a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: a642aa9735c4360c11d50cf475e5de63259c55df
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510009"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495702"
 ---
-# <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
+# <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivo do Azure
 Para criar um compartilhamento de arquivos do Azure, você precisa responder a três perguntas sobre como você irá usá-lo:
 
 - **Quais são os requisitos de desempenho para o compartilhamento de arquivos do Azure?**  

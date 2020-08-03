@@ -2,28 +2,34 @@
 title: Visão geral das especificações do modelo
 description: Descreve como criar especificações de modelo e compartilhá-las com outros usuários em sua organização.
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 07/31/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 47dcf44b35ad5c0b77dd0b88d683071a7f2f4ecb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 829aaa41bc60b3dcbf78ef6083457fff3b794914
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095633"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497793"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Especificações do modelo de Azure Resource Manager (versão prévia)
 
-Uma especificação de modelo é um novo tipo de recurso para armazenar um modelo de Azure Resource Manager (modelo ARM) no Azure para implantação posterior. Esse tipo de recurso permite que você compartilhe modelos do ARM com outros usuários em sua organização. Assim como qualquer outro recurso do Azure, você pode usar o RBAC (controle de acesso baseado em função) para compartilhar a especificação do modelo. os usuários só precisam de acesso de leitura à especificação do modelo para implantar seu modelo, para que você possa compartilhar o modelo sem permitir que outras pessoas o modifiquem.
+Uma especificação de modelo é um novo tipo de recurso para armazenar um modelo de Azure Resource Manager (modelo ARM) no Azure para implantação posterior. Esse tipo de recurso permite que você compartilhe modelos do ARM com outros usuários em sua organização. Assim como qualquer outro recurso do Azure, você pode usar o RBAC (controle de acesso baseado em função) para compartilhar a especificação do modelo.
 
 **Microsoft. Resources/templateSpecs** é o novo tipo de recurso para as especificações de modelo. Ele consiste em um modelo principal e qualquer número de modelos vinculados. O Azure armazena as especificações de modelo com segurança em grupos de recursos. As especificações de modelo dão suporte ao [controle de versão](#versioning).
 
 Para implantar a especificação do modelo, você usa ferramentas padrão do Azure como o PowerShell, CLI do Azure, portal do Azure, REST e outros SDKs e clientes com suporte. Você usa os mesmos comandos e passa os mesmos parâmetros para o modelo.
 
-O benefício de usar as especificações de modelo é que as equipes em sua organização não precisam recriar ou copiar modelos para cenários comuns. Você cria modelos canônicos e os compartilha. Os modelos incluídos em uma especificação de modelo devem ser verificados pelos administradores em sua organização para seguir os requisitos e as diretrizes da organização.
-
 > [!NOTE]
 > No momento, as especificações do modelo estão em versão prévia. Para usá-lo, você deve [se inscrever na lista de espera](https://aka.ms/templateSpecOnboarding).
+
+## <a name="why-use-template-specs"></a>Por que usar as especificações de modelo?
+
+Se, no momento, você tiver seus modelos em um repositório GitHub ou em uma conta de armazenamento, você terá vários desafios ao tentar compartilhar e usar os modelos. Para que um usuário o implante, o modelo deve ser local ou a URL para o modelo deve ser acessível publicamente. Para contornar essa limitação, você pode compartilhar cópias do modelo com usuários que precisam implantá-lo ou abrir o acesso ao repositório ou à conta de armazenamento. Quando os usuários possuem cópias locais de um modelo, essas cópias podem eventualmente divergir do modelo original. Ao tornar um repositório ou uma conta de armazenamento acessível publicamente, você pode permitir que usuários indesejados acessem o modelo.
+
+O benefício de usar as especificações de modelo é que você pode criar modelos canônicos e compartilhá-los com equipes em sua organização. As especificações de modelo são seguras porque estão disponíveis para Azure Resource Manager para implantação, mas não podem ser acessadas por usuários sem permissão de RBAC. Os usuários só precisam de acesso de leitura à especificação do modelo para implantar seu modelo, para que você possa compartilhar o modelo sem permitir que outras pessoas o modifiquem.
+
+Os modelos incluídos em uma especificação de modelo devem ser verificados pelos administradores em sua organização para seguir os requisitos e as diretrizes da organização.
 
 ## <a name="create-template-spec"></a>Criar especificação de modelo
 

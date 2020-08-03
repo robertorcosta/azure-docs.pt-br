@@ -42,6 +42,8 @@
       href: vpn-gateway-about-point-to-site-routing.md
     - name: Sobre os gateways com redundância de zona para as Zonas de Disponibilidade
       href: about-zone-redundant-vnet-gateways.md
+    - name: Controles de segurança interna
+      href: vpn-gateway-security-controls.md
     - name: Interoperabilidade da Conectividade de Back-end
       items:
         - name: Prefácio e Configuração de Teste
@@ -52,8 +54,6 @@
           href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
         - name: Análise do Plano de Dados
           href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
-    - name: Controles de segurança interna
-      href: vpn-gateway-security-controls.md
 - name: Guias de instruções
   items:
     - name: Criar e gerenciar um gateway de VPN
@@ -160,8 +160,8 @@
               href: vpn-gateway-howto-openvpn.md
             - name: Configurar clientes do OpenVPN
               href: vpn-gateway-howto-openvpn-clients.md
-        - name: Migrar de SSTP para o protocolo OpenVPN ou IKEv2
-          href: ikev2-openvpn-from-sstp.md
+            - name: Migrar de SSTP para o protocolo OpenVPN ou IKEv2
+              href: ikev2-openvpn-from-sstp.md
         - name: Fazer a transição para um certificado de gateway de autoridade de certificação pública para P2S
           href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: Configurar um túnel de dispositivo VPN Always On
@@ -170,12 +170,6 @@
           href: vpn-gateway-howto-always-on-user-tunnel.md
         - name: Anunciar rotas personalizadas para clientes P2S
           href: vpn-gateway-p2s-advertise-custom-routes.md
-    - name: Criar um gateway com redundância de zona
-      href: create-zone-redundant-vnet-gateway.md
-    - name: Configurar políticas de IPsec/IKE nas conexões
-      href: vpn-gateway-ipsecikepolicy-rm-powershell.md
-    - name: Configurar conexões ativas/ativas
-      href: vpn-gateway-activeactive-rm-powershell.md
     - name: 'Roteamento, BGP e emparelhamento de rede virtual'
       items:
         - name: Configurar o BGP para um gateway de VPN
@@ -218,6 +212,18 @@
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
     - name: Configurar capturas de pacote
       href: packet-capture.md
+    - name: Gateways com redundância de zona
+      items:
+        - name: Criar um gateway com redundância de zona
+          href: create-zone-redundant-vnet-gateway.md
+    - name: Configurar políticas de IPsec/IKE nas conexões
+      items:
+        - name: PowerShell
+          href: vpn-gateway-ipsecikepolicy-rm-powershell.md
+    - name: Configurar conexões ativas/ativas
+      items:
+        - name: PowerShell
+          href: vpn-gateway-activeactive-rm-powershell.md
     - name: Solucionar problemas
       href: vpn-gateway-troubleshoot.md
       items:

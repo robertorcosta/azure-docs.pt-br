@@ -7,17 +7,17 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: fbd11c279708cd828693baab3f9f6df91515bc48
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 703a6afdc12c8a9863ff0f480ec7a577ec31ef77
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133902"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495991"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Arquitetura – replicação do Hyper-V para um site secundário
 
 Este artigo descreve os componentes e processos envolvidos na replicação de VMs (máquinas virtuais) do Hyper-V locais em nuvens do System Center Virtual Machine Manager (VMM) para um site de VMM secundário usando o serviço [Azure Site Recovery](site-recovery-overview.md) no Portal do Azure.
-a
+um
 
 ## <a name="architectural-components"></a>Componentes de arquitetura
 
@@ -32,7 +32,7 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 
 **Arquitetura de local para local**
 
-![Local para o próprio local](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
+![Diagrama mostrando proteção de local para local.](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
 
 ## <a name="replication-process"></a>Processo de replicação
 

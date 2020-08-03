@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d1de40944b4ab15268cda576f477c08fc179f1df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a13a8b2eef9fa1bd9c7281ac6b7c7dba40105428
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255732"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497317"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Linha de base de segurança do Azure para Azure Data Box
 
@@ -216,7 +216,7 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Manter um inventário de contas administrativas
 
-**Diretrizes**: Mantenha um inventário das contas de usuário que têm acesso administrativo à sua Azure data box. Você pode usar o painel IAM (controle de acesso e identidade) no portal do Azure para sua assinatura para configurar o RBAC (controle de acesso baseado em função). As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory. você pode controlar quem pode acessar seu pedido quando a ordem é criada pela primeira vez. Configure funções de RBAC (controle de acesso baseado em função) em vários escopos para controlar o acesso ao pedido de Data Box. Uma função RBAC determina o tipo de acesso – leitura-gravação, somente leitura e gravação para um subconjunto de operações.
+**Diretrizes**: Mantenha um inventário das contas de usuário que têm acesso administrativo à sua Azure data box. Você pode usar o painel IAM (controle de acesso e identidade) no portal do Azure para sua assinatura para configurar o RBAC (controle de acesso baseado em função). As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory. você pode controlar quem pode acessar seu pedido quando a ordem é criada pela primeira vez. Configure as funções do Azure em vários escopos para controlar o acesso ao pedido de Data Box. Uma função do Azure determina o tipo de acesso – leitura-gravação, somente leitura e gravação de leitura para um subconjunto de operações.
 
 * [Entender as funções personalizadas](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 

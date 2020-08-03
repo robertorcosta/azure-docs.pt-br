@@ -3,12 +3,13 @@ title: Erros de registro do provedor de recursos
 description: Descreve como resolver erros de registro do provedor de recursos do Azure ao implantar recursos com o Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 02/15/2019
-ms.openlocfilehash: a9182be53cc91240a62ab201efc53d674f7cf427
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 19b3fa661f25f72e80b4ecc5b8423d1931ce5e5c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706521"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499918"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Solucione erros de registro do provedor de recursos
 

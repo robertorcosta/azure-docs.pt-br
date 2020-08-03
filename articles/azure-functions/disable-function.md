@@ -3,12 +3,13 @@ title: Como desabilitar funções no Azure Functions
 description: Saiba como desabilitar e habilitar funções no Azure Functions.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: ee701e8df8faddef9bbdb16e7a1048c4dc2e40a5
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 47fbd446937ea0cfd981cef2d5cdd4759f2583d4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848732"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497691"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Como desabilitar funções no Azure Functions
 

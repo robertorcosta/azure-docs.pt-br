@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 65778d0a6ba3bd5cdc719609ae4c2d18bf05aab9
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4b1b8a0cfa98d48d7cb92474c1572f17c79ffd0d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424402"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498945"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do VMware para o Azure
 
@@ -30,9 +30,7 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 **Servidores VMware** | VMs de VMware são hospedadas em servidores ESXi do vSphere locais. Recomendamos um servidor vCenter para gerenciar os hosts. | Durante a implantação do Site Recovery, você pode adicionar servidores VMware no cofre dos Serviços de Recuperação.
 **Computadores replicados** | O Serviço de Mobilidade é instalado em cada VM de VMware que você replicar. | É recomendável permitir a instalação automática do servidor em processo. Como alternativa, você pode instalar o serviço manualmente ou usar um método de implantação automatizado, como Configuration Manager.
 
-**Arquitetura do VMware para o Azure**
-
-![Componentes](./media/vmware-azure-architecture/arch-enhanced.png)
+![Diagrama mostrando as relações de arquitetura de replicação do VMware para o Azure.](./media/vmware-azure-architecture/arch-enhanced.png)
 
 ## <a name="set-up-outbound-network-connectivity"></a>Configurar a conectividade de rede de saída
 
@@ -45,7 +43,7 @@ Para que Site Recovery funcionem conforme o esperado, você precisa modificar a 
 
 Caso esteja usando um proxy de firewall baseado em URL para controlar a conectividade de saída, permita acesso a estas URLs:
 
-| **Nome**                  | **Comercial**                               | **Governamental**                                 | **Descrição** |
+| **Nome**                  | **Comercial**                               | **Governo**                                 | **Descrição** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Permite que os dados sejam gravados da VM para a conta de armazenamento de cache da região de origem. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para as URLs do serviço Site Recovery. |
@@ -71,9 +69,7 @@ Caso esteja usando um proxy de firewall baseado em URL para controlar a conectiv
     - O servidor de processo recebe dados de replicação, otimiza-os e criptografa-os e envia-os para o armazenamento do Azure pela porta 443 de saída.
 5. Os logs de dados de replicação primeiro se esterram em uma conta de armazenamento de cache no Azure. Esses logs são processados e os dados são armazenados em um disco gerenciado do Azure (chamado de disco de semente ASR). Os pontos de recuperação são criados neste disco.
 
-**Processo de replicação do VMware para o Azure**
-
-![Processo de replicação](./media/vmware-azure-architecture/v2a-architecture-henry.png)
+![Diagrama mostrando o processo de replicação do VMware para o Azure.](./media/vmware-azure-architecture/v2a-architecture-henry.png)
 
 ## <a name="resynchronization-process"></a>Processo de ressincronização
 
@@ -108,9 +104,8 @@ Depois que a replicação é configurada e você executou uma simulação de rec
     - Etapa 3: depois que as cargas de trabalho fizeram failback, você reabilitará a replicação para as VMs locais.
     
  
-**Failback de VMware do Azure**
 
-![Failback](./media/vmware-azure-architecture/enhanced-failback.png)
+![Diagrama mostrando o failback do VMware do Azure.](./media/vmware-azure-architecture/enhanced-failback.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas

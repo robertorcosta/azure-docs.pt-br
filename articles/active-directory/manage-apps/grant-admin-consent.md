@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c24023bdd3540785dec58ebeaa14d99ab659ab1
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 713b4ed2559e3cd16943af92e68818047e249ef4
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848371"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501007"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Conceder consentimento de administrador em todo o locatário para um aplicativo
 
@@ -31,9 +31,16 @@ Conceder consentimento de administrador em todo o locatário exige que você ent
 
 > [!IMPORTANT]
 > Quando um aplicativo recebe o consentimento do administrador em todo o locatário, todos os usuários poderão entrar no aplicativo, a menos que tenham sido configurados para exigir a atribuição de usuário. Para restringir quais usuários podem entrar em um aplicativo, exija a atribuição de usuário e, em seguida, atribua usuários ou grupos ao aplicativo. Para obter mais informações, confira [Métodos para atribuir usuários e grupos](methods-for-assigning-users-and-groups.md).
+>
+> A função de administrador global é necessária para fornecer consentimento de administrador para a API de Microsoft Graph.
+>
+
 
 > [!WARNING]
 > Conceder consentimento de administrador em todo o locatário a um aplicativo concederá o aplicativo e o acesso do Publicador do aplicativo aos dados da sua organização. Examine atentamente as permissões que o aplicativo está solicitando antes de conceder consentimento.
+>
+> A função de administrador global é necessária para fornecer consentimento de administrador para a API de Microsoft Graph.
+>
 
 ## <a name="grant-admin-consent-from-the-azure-portal"></a>Conceder consentimento de administrador do portal do Azure
 

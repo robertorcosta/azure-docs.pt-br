@@ -9,12 +9,13 @@ ms.devlang: csharp
 ms.topic: how-to
 ms.date: 02/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: da64f22981cc33772783093cfe75daa3eac5cef1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: dc816f54a690a4c72c44d70ecbf2cc0156ac84ed
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78672149"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498303"
 ---
 # <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Rotear eventos da Configuração de Aplicativos do Azure para um ponto de extremidade da Web com a CLI do Azure
 
@@ -22,7 +23,7 @@ Neste artigo, você aprende a configurar Azure App assinaturas de evento de conf
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura do Azure- [crie um gratuitamente](https://azure.microsoft.com/free/). Você também pode usar o Azure Cloud Shell.
+- Assinatura do Azure – [Crie uma gratuitamente](https://azure.microsoft.com/free/). Você também pode usar o Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

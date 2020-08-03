@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: 983bf848b3be2501b70ba1c0396207e514b7b8d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 359de25d2bdb57ad5c6386586f987942acc120ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024010"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500139"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>FAQ de hiperescala do banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,12 +45,12 @@ As camadas de serviço baseadas em vCore são diferenciadas com base na disponib
 | **Mais adequado para** |Tudo|Oferece opções equilibradas de computação e armazenamento orientadas ao orçamento.|A maioria das cargas de trabalho comerciais. Dimensionamento automático de tamanho de armazenamento de até 100 TB, dimensionamento rápido vertical e horizontal de computação, restauração rápida de banco de dados.|Aplicativos OLTP com alta taxa de transação e baixa latência de e/s. Oferece maior resiliência a falhas e failovers rápidos usando várias réplicas atualizadas de forma síncrona.|
 |  **Tipo de recurso** ||Banco de dados SQL/SQL Instância Gerenciada | Banco de dados individual | Banco de dados SQL/SQL Instância Gerenciada |
 | **Tamanho da computação**|Banco de dados SQL * | 1 a 80 vCores | 1 a 80 vCores * | 1 a 80 vCores |
-| **Tamanho da computação**|Instância Gerenciada do SQL | 8, 16, 24, 32, 40, 64, 80 vCores | N/D | 8, 16, 24, 32, 40, 64, 80 vCores |
+| **Tamanho da computação**|Instância Gerenciada de SQL | 8, 16, 24, 32, 40, 64, 80 vCores | N/D | 8, 16, 24, 32, 40, 64, 80 vCores |
 | **Tipo de armazenamento** | Tudo |Armazenamento remoto Premium (por instância) | Armazenamento desacoplado com cache SSD local (por instância) | Armazenamento SSD local super rápido (por instância) |
 | **Tamanho de armazenamento** | Banco de dados SQL *| 5 GB – 4 TB | Até 100 TB | 5 GB – 4 TB |
-| **Tamanho de armazenamento** | Instância Gerenciada do SQL  | 32 GB A 8 TB | N/D | 32 GB – 4 TB |
+| **Tamanho de armazenamento** | Instância Gerenciada de SQL  | 32 GB A 8 TB | N/D | 32 GB – 4 TB |
 | **IOPS** | Banco de dados individual | 500 IOPS por vCore com máximo de 7.000 IOPS | O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPS efetivo dependerá da carga de trabalho. | 5000 IOPS com 200.000 IOPS máximo|
-| **IOPS** | Instância Gerenciada do SQL | Depende do tamanho do arquivo | N/D | 1375 IOPS/vCore |
+| **IOPS** | Instância Gerenciada de SQL | Depende do tamanho do arquivo | N/D | 1375 IOPS/vCore |
 |**Disponibilidade**|Tudo|1 réplica, sem escala de leitura, sem cache local | Várias réplicas, até 4 expansão de leitura, cache local parcial | 3 réplicas, 1 expansão de leitura, HA com redundância de zona, armazenamento local completo |
 |**Backups**|Tudo|RA-GRS, 7-35 dias de retenção (7 dias por padrão)| RA-GRS, 7 dias de retenção, PITR (tempo constante de recuperação pontual) | RA-GRS, 7-35 dias de retenção (7 dias por padrão) |
 
@@ -331,7 +331,7 @@ Para a maioria dos problemas de desempenho, particularmente aqueles que não tê
 
 ### <a name="how-long-would-it-take-to-scale-up-and-down-a-compute-replica"></a>Quanto tempo levaria para escalar verticalmente uma réplica de computação
 
-O dimensionamento da computação para cima ou para baixo deve levar de 5-10 minutos, independentemente do tamanho dos dados.
+O dimensionamento da computação geralmente leva até 2 minutos, independentemente do tamanho dos dados.
 
 ### <a name="is-my-database-offline-while-the-scaling-updown-operation-is-in-progress"></a>Meu banco de dados está off-line enquanto a operação de aumento/redução está em andamento?
 

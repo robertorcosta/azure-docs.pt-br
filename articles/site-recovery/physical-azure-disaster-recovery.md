@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: c3d4a2120f86a03508b91d4b2dea52e629dc0f79
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1fdfe57c2995628855ea8e068c4f8eb2f2ac466a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130183"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500413"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar a recuperação de desastre de servidores físicos locais para o Azure
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de recuperação de desastre ao gerenciar e orquestrar a replicação, o failover e o failback de computadores locais e de VMs (máquinas virtuais) do Azure.
 
-Este tutorial mostra como configurar a recuperação de desastre de servidores Windows e Linux físicos locais para o Azure. Neste tutorial, você aprenderá como:
+Este tutorial mostra como configurar a recuperação de desastre de servidores Windows e Linux físicos locais para o Azure. Neste tutorial, você aprende a:
 
 > [!div class="checklist"]
 > * Configurar os pré-requisitos locais e do Azure
@@ -111,7 +111,7 @@ Defina o servidor de configuração, registre-o no cofre e descubra VMs.
 4. Baixe o arquivo de instalação Configuração Unificada da Recuperação de Site.
 5. Baixe a chave do registro do cofre. Você precisará dela quando executar a Configuração Unificada. A chave é válida por cinco dias após ser gerada.
 
-   ![Configurar origem](./media/physical-azure-disaster-recovery/source-environment.png)
+   ![Captura de tela mostrando as opções para baixar o arquivo de instalação e a chave de registro.](./media/physical-azure-disaster-recovery/source-environment.png)
 
 
 ### <a name="register-the-configuration-server-in-the-vault"></a>Registrar o servidor de configuração no cofre
@@ -136,7 +136,6 @@ Execute a Instalação Unificada como Administrador Local, para instalar o servi
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-Após a conclusão do registro, o servidor de configuração é exibido na página de **configurações**de  >  **servidores** no cofre.
 
 ## <a name="set-up-the-target-environment"></a>Configurar o ambiente de origem
 
@@ -146,7 +145,7 @@ Selecione e verifique os recursos de destino.
 2. Especifique o modelo de implantação de destino.
 3. A Recuperação de Site verifica se você tem uma ou mais contas de armazenamento e redes do Azure compatíveis.
 
-   ![Destino](./media/physical-azure-disaster-recovery/network-storage.png)
+   ![Captura de tela das opções para configurar o ambiente de destino.](./media/physical-azure-disaster-recovery/network-storage.png)
 
 
 ## <a name="create-a-replication-policy"></a>Criar uma política de replicação
@@ -157,7 +156,7 @@ Selecione e verifique os recursos de destino.
 4. Em **Retenção do ponto de recuperação**, especifique qual será a duração (em horas) da janela de retenção para cada ponto de recuperação. VMs replicadas podem ser recuperadas para qualquer ponto em uma janela. Há suporte para retenção de até 24 horas para máquinas replicadas para armazenamento premium e 72 horas para o armazenamento padrão.
 5. Em **Frequência do instantâneo consistente com o aplicativo**, especifique com que frequência (em minutos) os pontos de recuperação contendo instantâneos consistentes com aplicativos serão criados. Clique em **OK** para criar a política.
 
-    ![Política de replicação](./media/physical-azure-disaster-recovery/replication-policy.png)
+    ![Captura de tela das opções para criar uma política de replicação.](./media/physical-azure-disaster-recovery/replication-policy.png)
 
 
 A política é associada automaticamente ao servidor de configuração. Por padrão, uma política de correspondência é criada automaticamente para failback. Por exemplo, se a política de replicação for **rep-policy**, uma política de failback **rep-policy-failback** será criada. Essa política não é usada até você iniciar um failback do Azure.

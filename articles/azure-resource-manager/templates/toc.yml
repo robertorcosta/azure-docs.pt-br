@@ -10,7 +10,7 @@
       href: quickstart-create-templates-use-the-portal.md
     - name: Criar modelos - Visual Studio Code
       href: quickstart-create-templates-use-visual-studio-code.md
-    - name: Criar e implantar uma especificação de modelo
+    - name: Criar e implantar especificações de modelo
       href: quickstart-create-template-specs.md
     - name: Serviços do Azure
       items:
@@ -210,8 +210,10 @@
     - name: Especificações de Modelo
       items:
         - name: Criar com modelos vinculados
+          displayName: template specs
           href: template-specs-create-linked.md
         - name: Implantar como modelo vinculado
+          displayName: template specs
           href: template-specs-deploy-linked-template.md
     - name: Modelos avançados
       items:
@@ -279,7 +281,7 @@
           href: template-syntax.md
         - name: Escrever expressões de modelo
           href: template-expressions.md
-        - name: parâmetros
+        - name: Parâmetros
           href: template-parameters.md
         - name: Variáveis
           href: template-variables.md
@@ -315,7 +317,7 @@
             - name: Propriedades
               displayName: 'iteration,copy'
               href: copy-properties.md
-            - name: variáveis
+            - name: Variáveis
               displayName: 'iteration,copy'
               href: copy-variables.md
             - name: outputs
@@ -366,8 +368,8 @@
           href: deploy-to-management-group.md
         - name: Locatário
           href: deploy-to-tenant.md
-        - name: Grupo de recursos cruzado
-          href: cross-resource-group-deployment.md
+        - name: Implantações de escopo cruzado
+          href: cross-scope-deployment.md
     - name: Fornece parâmetros
       items:
         - name: Criar arquivo de parâmetros

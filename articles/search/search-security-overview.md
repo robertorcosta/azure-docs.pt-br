@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/30/2020
-ms.openlocfilehash: 9fe9a431d7bbc3b0d3b4b95d9883ed8b5a1f4704
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: b5e408eeac024f63eb8e7ce47039dc4c0a6aa5b5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475423"
+ms.locfileid: "87501484"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Segurança no Azure Pesquisa Cognitiva-visão geral
 
@@ -107,7 +107,7 @@ Como um usuário acessa um índice e outros objetos é determinado pelo tipo de 
 
 Se você precisar de controle granular por usuário sobre os resultados da pesquisa, poderá criar filtros de segurança em suas consultas, retornando documentos associados a uma determinada identidade de segurança. Em vez de funções predefinidas e atribuições de função, o controle de acesso baseado em identidade é implementado como um *filtro* que corta os resultados da pesquisa de documentos e conteúdo com base em identidades. A tabela a seguir descreve duas abordagens para cortar resultados da pesquisa com conteúdo não autorizado.
 
-| Abordagem | Description |
+| Abordagem | Descrição |
 |----------|-------------|
 |[Filtragem de segurança com base nos filtros de identidade](search-security-trimming-for-azure-search.md)  | Documenta o fluxo de trabalho básico para implementar o controle de acesso de identidade do usuário. Ele aborda a adição de identificadores de segurança a um índice e explica a filtragem em relação a esse campo para cortar resultados de conteúdo proibido. |
 |[Filtragem de segurança com base em Identidades do Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)  | Este artigo aprofunda o artigo anterior, fornecendo etapas para recuperar identidades do Azure Active Directory (AAD), um dos [serviços gratuitos](https://azure.microsoft.com/free/) na plataforma de nuvem do Azure. |
@@ -125,9 +125,11 @@ Por outro lado, os direitos de administrador sobre o conteúdo hospedado no serv
 
 O Azure Pesquisa Cognitiva foi certificado em conformidade com vários padrões globais, regionais e específicos do setor para a nuvem pública e o Azure governamental. Para obter a lista completa, baixe o [White Paper de **ofertas de conformidade Microsoft Azure** ](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) na página de relatórios oficiais de auditoria.
 
-Para fins de conformidade, você pode usar [Azure Policy](../governance/policy/overview.md) para ajudá-lo a implementar as práticas recomendadas de alta segurança do [benchmark de segurança do Azure](../security/benchmarks/introduction.md). O benchmark de segurança do Azure é uma coleção de recomendações de segurança, codificados em controles de segurança que são mapeados para as principais ações que você deve executar para reduzir as ameaças a serviços e dados. Atualmente, há 11 controles de segurança, incluindo [segurança de rede](../security/benchmarks/security-control-network-security.md), [registro em log e monitoramento](../security/benchmarks/security-control-logging-monitoring.md)e [proteção de dados](../security/benchmarks/security-control-data-protection.md) para citar alguns.
+Para fins de conformidade, você pode usar [Azure Policy](../governance/policy/overview.md) para implementar as práticas recomendadas de alta segurança do [benchmark de segurança do Azure](../security/benchmarks/introduction.md). O benchmark de segurança do Azure é uma coleção de recomendações de segurança, codificados em controles de segurança que são mapeados para as principais ações que você deve executar para reduzir as ameaças a serviços e dados. Atualmente, há 11 controles de segurança, incluindo [segurança de rede](../security/benchmarks/security-control-network-security.md), [registro em log e monitoramento](../security/benchmarks/security-control-logging-monitoring.md)e [proteção de dados](../security/benchmarks/security-control-data-protection.md) para citar alguns.
 
-Azure Policy é um recurso interno do Azure que ajuda a gerenciar a conformidade de vários padrões, incluindo os do benchmark de segurança do Azure. Para benchmarks conhecidos, o Azure Policy fornece definições internas para que você possa criar políticas com mais facilidade. Para o Azure Pesquisa Cognitiva, há atualmente uma definição interna para log de diagnóstico, o que significa que você pode atribuir uma política que identifica e corrige qualquer serviço de pesquisa que não esteja em conformidade com o controle de segurança de registro em log e monitoramento. Para obter mais informações, consulte [Azure Policy controles de conformidade regulatória para o pesquisa cognitiva do Azure](security-controls-policy.md).
+Azure Policy é um recurso interno do Azure que ajuda a gerenciar a conformidade de vários padrões, incluindo os do benchmark de segurança do Azure. Para benchmarks conhecidos, o Azure Policy fornece definições internas que fornecem critérios, bem como uma resposta acionável que resolve a não conformidade. 
+
+Para o Azure Pesquisa Cognitiva, há atualmente uma definição interna. É para o log de diagnóstico. Com esse interno, você pode atribuir uma política que identifica qualquer serviço de pesquisa que não tem o log de diagnóstico e, em seguida, ativa-o. Para obter mais informações, consulte [Azure Policy controles de conformidade regulatória para o pesquisa cognitiva do Azure](security-controls-policy.md).
 
 ## <a name="see-also"></a>Veja também
 

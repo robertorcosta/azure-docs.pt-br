@@ -3,12 +3,13 @@ title: Configurar pontos de extremidade privados para os tópicos ou domínios d
 description: Este artigo descreve como configurar pontos de extremidade privados para o domínio ou tópicos da grade de eventos do Azure.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: ace3f7f59e4f26388652d7bda1a5ee28800a414b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 7796c4160cbf40a241db901e31cc91edc361b00d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115328"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495277"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurar pontos de extremidade privados para os tópicos ou domínios da grade de eventos do Azure
 Você pode usar [pontos de extremidade privados](../private-link/private-endpoint-overview.md) para permitir a entrada de eventos diretamente de sua rede virtual para seus tópicos e domínios com segurança por meio de um [link privado](../private-link/private-link-overview.md) sem passar pela Internet pública. O ponto de extremidade privado usa um endereço IP do espaço de endereço de VNet para seu tópico ou domínio. Para obter mais informações conceituais, consulte [segurança de rede](network-security.md).
@@ -195,7 +196,7 @@ az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --nam
 #### <a name="sample-script"></a>Exemplo de script
 Aqui está um script de exemplo que cria os seguintes recursos do Azure:
 
-- Resource group
+- Grupo de recursos
 - Rede virtual
 - Sub-rede na rede virtual
 - Tópico da grade de eventos do Azure

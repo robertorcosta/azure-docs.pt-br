@@ -67,7 +67,9 @@
     - name: Exclusão reversível
       items:
         - name: Exclusão reversível do Azure Key Vault
-          href: overview-soft-delete.md
+          href: soft-delete-overview.md
+        - name: Exclusão reversível ativada por padrão
+          href: soft-delete-change.md
     - name: 'Autenticação, solicitações e respostas'
       href: authentication-requests-and-responses.md
     - name: Diretrizes de limitação do Azure Key Vault

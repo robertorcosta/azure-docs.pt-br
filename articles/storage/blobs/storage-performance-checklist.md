@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b94725d4d3eb9fd6f13a39d00486b4ab085b9ef9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4471994f7e691466449125a74cf3f7d46607be01
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80473937"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495124"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade do Armazenamento de Blobs
 
@@ -65,7 +65,7 @@ Para obter mais informações sobre metas de escalabilidade para o serviço Fila
 Se você estiver se aproximando do número máximo de contas de armazenamento permitidas para uma combinação de assinatura/região específica, avalie seu cenário e determine se alguma das condições a seguir se aplica:
 
 - Você está usando contas de armazenamento para armazenar discos não gerenciados e adicionar esses discos às suas VMs (máquinas virtuais)? Para este cenário, a Microsoft recomenda o uso de discos gerenciados. O Managed disks é dimensionado para você automaticamente e sem a necessidade de criar e gerenciar contas de armazenamento individuais. Para obter mais informações, consulte [introdução aos Managed disks do Azure](../../virtual-machines/windows/managed-disks-overview.md)
-- Você está usando uma conta de armazenamento por cliente, para fins de isolamento de dados? Para este cenário, a Microsoft recomenda usar um contêiner de BLOB para cada cliente, em vez de uma conta de armazenamento inteira. O armazenamento do Azure agora permite que você atribua funções RBAC (controle de acesso baseado em função) em uma base por contêiner. Para obter mais informações, confira [Conceder acesso ao blob do Azure e dados de fila com RBAC no portal do Azure](../common/storage-auth-aad-rbac-portal.md).
+- Você está usando uma conta de armazenamento por cliente, para fins de isolamento de dados? Para este cenário, a Microsoft recomenda usar um contêiner de BLOB para cada cliente, em vez de uma conta de armazenamento inteira. O armazenamento do Azure agora permite que você atribua funções do Azure por contêiner. Para obter mais informações, confira [Conceder acesso ao blob do Azure e dados de fila com RBAC no portal do Azure](../common/storage-auth-aad-rbac-portal.md).
 - Você está usando várias contas de armazenamento para fragmentar para aumentar a entrada, a saída, as operações de e/s por segundo (IOPS) ou a capacidade? Nesse cenário, a Microsoft recomenda que você use maiores limites para contas de armazenamento a fim de reduzir o número de contas de armazenamento necessárias para sua carga de trabalho, se possível. Entre em contato com o [Suporte do Azure](https://azure.microsoft.com/support/options/) para solicitar maiores limites para sua conta de armazenamento. Para obter mais informações, confira [Anunciar contas de armazenamento maiores e de maior escala](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
 ### <a name="capacity-and-transaction-targets"></a>Metas de capacidade e de transação
@@ -123,7 +123,7 @@ As restrições físicas da rede do aplicativo podem ter um impacto consideráve
 
 A largura de banda e a qualidade do link da rede desempenham funções importantes no desempenho do aplicativo, conforme descrito nas seções a seguir.
 
-#### <a name="throughput"></a>Produtividade
+#### <a name="throughput"></a>Taxa de transferência
 
 No caso da largura de banda, muitas vezes o problema está relacionado às funcionalidades do cliente. As instâncias maiores do Azure têm NICs com mais capacidade. Por isso, você deve usar uma instância maior ou mais VMs se precisar de limites de rede mais altos em um único computador. Se você estiver acessando o Armazenamento do Azure de um aplicativo local, a mesma regra se aplicará: compreender as funcionalidades de rede do dispositivo do cliente e a conectividade de rede com o local de armazenamento do Azure e aperfeiçoá-los conforme necessário ou criar seu aplicativo para trabalhar dentro de suas funcionalidades.
 
@@ -131,7 +131,7 @@ No caso da largura de banda, muitas vezes o problema está relacionado às funci
 
 Como acontece com qualquer uso de rede, tenha em mente que as condições de rede que resultam em erros e a perda do pacote desacelerarão a taxa de transferência efetiva.  Usar WireShark ou NetMon pode ajudar a identificar esse problema.  
 
-### <a name="location"></a>Local
+### <a name="location"></a>Location
 
 Em todos os ambientes, colocar o cliente próximo ao servidor proporciona o melhor desempenho. Para acessar o armazenamento do Azure com o mínimo de latência, o melhor local para o cliente é a região na qual o Azure se encontra. Por exemplo, se tiver um aplicativo Web do Azure que usa o Armazenamento do Azure, localize-os dentro de uma única região, como o Oeste dos EUA ou o Sudeste Asiático. Colocalizar recursos reduz a latência e o custo, pois o uso de largura de banda em uma única região é gratuito.  
 

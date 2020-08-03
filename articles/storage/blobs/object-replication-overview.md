@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: abec9811cd407c1fab91cfb60412aabdd969690d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 097b3c71b01a8ad0e930d7aa0d7be46a1e835e1a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036974"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495158"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replicação de objeto para blobs de blocos (versão prévia)
 
@@ -76,7 +77,7 @@ Durante a versão prévia, não há custos adicionais associados à replicação
 ### <a name="prerequisites-for-object-replication"></a>Pré-requisitos para replicação do objeto
 
 A replicação de objeto exige que os seguintes recursos de Armazenamento do Azure estejam habilitados: 
-- [Feed de alteração](storage-blob-change-feed.md)
+- [Feed de alterações](storage-blob-change-feed.md)
 - [Controle de versão](versioning-overview.md)
 
 Antes de configurar a replicação de objeto, habilite seus pré-requisitos. O feed de alterações deve ser habilitado na conta de origem, e o controle de versão do blob deve ser habilitado na conta de origem e de destino. Para saber mais sobre como habilitar esses recursos, confira estes artigos:
