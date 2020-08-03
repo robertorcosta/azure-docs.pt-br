@@ -7,16 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 940a24aedb8592d0e809bc79dc1c8977bc3abd38
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 33ba816227db4cf958fd30c9dac1a0745505c504
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448974"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513682"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Etapas rápidas: Criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure
 
-Com um par de chaves SSH (secure shell), você pode criar VMs (máquinas virtuais) no Azure que usam chaves SSH para autenticação, eliminando a necessidade de senhas para entrar. Este artigo mostra como gerar e usar rapidamente um par de arquivos de chaves SSH pública e privada para VMs Linux. É possível concluir essas etapas com o Azure Cloud Shell, um host do macOS ou Linux, o Subsistema do Windows para Linux e outras ferramentas compatíveis com OpenSSH. 
+Com um par de chaves SSH (Secure Shell), você pode criar VMs (máquinas virtuais) no Azure que usam chaves SSH para autenticação. Este artigo mostra como gerar e usar rapidamente um par de arquivos de chaves SSH pública e privada para VMs Linux. Você pode concluir essas etapas com o Azure Cloud Shell, um host macOS ou Linux. 
 
 > [!NOTE]
 > As VMs criadas usando chaves SSH são por padrão configuradas com senhas desabilitadas, o que aumenta muito a dificuldade de ataques de adivinhação de força bruta. 

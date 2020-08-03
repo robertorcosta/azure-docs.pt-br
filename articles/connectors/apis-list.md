@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 166909f1e048ac54184ef5eee2ecee3bfedcdb02
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0707d578f90f70318c2a01f324b50092d9962965
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284125"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513835"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores de Aplicativos Lógicos do Azure
 
@@ -66,7 +66,7 @@ Para aplicativos lógicos que precisam de acesso direto a recursos em uma rede v
 > [!NOTE]
 > Os aplicativos lógicos que são executados em um ISE e seus conectores, independentemente de onde esses conectores são executados, seguem um plano de preços fixo versus o plano de preços baseado em consumo. Para obter mais informações, consulte [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md) e [detalhes de preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-| Rotular | Exemplo | Descrição |
+| Label | Exemplo | Descrição |
 |-------|---------|-------------|
 | **CORE** | ![Conector do ISE de exemplo](./media/apis-list/example-core-connector.png) | Gatilhos e ações internos com esse rótulo são executados no mesmo ISE que seus aplicativos lógicos. |
 | **ISE** | ![Conector do ISE de exemplo](./media/apis-list/example-ise-connector.png) | Conectores gerenciados com esse rótulo são executados no mesmo ISE que seus aplicativos lógicos. Se você tiver um sistema local conectado a uma rede virtual do Azure, um ISE permitirá que seus aplicativos lógicos acessem diretamente esse sistema sem o [Gateway de dados local](../logic-apps/logic-apps-gateway-connection.md). Em vez disso, você pode usar o conector do **ISE** do sistema, se disponível, uma ação http ou um [conector personalizado](#custom). Para sistemas locais que não têm conectores do **ISE** , use o gateway de dados local. Para examinar os conectores do ISE disponíveis, consulte [conectores do ISE](#ise-connectors). |
@@ -79,7 +79,7 @@ Para aplicativos lógicos que precisam de acesso direto a recursos em uma rede v
 
 Os aplicativos lógicos fornecem gatilhos e ações internas para que você possa criar fluxos de trabalho baseados em agendamento, ajudar seus aplicativos lógicos a se comunicar com outros aplicativos e serviços, controlar o fluxo de trabalho por meio de seus aplicativos lógicos e gerenciar ou manipular dados.
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
 | [![Ícone da API ][schedule-icon]<br> **agenda**][schedule-doc] | -Executar um aplicativo lógico em uma recorrência especificada, variando de programação básica para avançada com o gatilho de [ **recorrência** ][schedule-recurrence-doc]. <br>-Executar um aplicativo lógico que precisa manipular dados em partes contínuas com o gatilho de [ **janela deslizante** ][schedule-sliding-window-doc]. <br>-Pause seu aplicativo lógico por uma duração especificada com a [ação de **atraso** ][schedule-delay-doc]. <br>-Pause seu aplicativo lógico até a data e a hora especificadas com a ação de [ **atraso até** ][schedule-delay-until-doc]. |
 | [![Ícone da API ][batch-icon]<br> **lote**][batch-doc] | - Processe mensagens em lotes com o gatilho **Mensagens em lote**. <br>- Chame aplicativos lógicos que possuem gatilhos de lote existentes com a ação **Enviar mensagens para lote**. |
@@ -94,7 +94,7 @@ Os aplicativos lógicos fornecem gatilhos e ações internas para que você poss
 
 Os aplicativos lógicos fornecem ações internas para executar seu próprio código no fluxo de trabalho do aplicativo lógico:
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
 | [![Ícone de API ][azure-functions-icon]<br> **Azure Functions**][azure-functions-doc] | Chame funções do Azure que executam snippets de códigos personalizados (C# ou Node.js) de seus aplicativos lógicos. |
 | [![Ícone da API ][inline-code-icon]<br> **código embutido**][inline-code-doc] | Adicione e execute trechos de código JavaScript de seus aplicativos lógicos. |
@@ -104,7 +104,7 @@ Os aplicativos lógicos fornecem ações internas para executar seu próprio có
 
 Os aplicativos lógicos fornecem ações internas para estruturar e controlar as ações no fluxo de trabalho do aplicativo lógico:
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
 | [![Condição de ícone interno ][condition-icon]<br> **Condition**][condition-doc] | Avalie uma condição e execute ações diferentes com base em se a condição é verdadeira ou falsa. |
 | [![Ícone interno ][for-each-icon]<br> **para cada**][for-each-doc] | Execute as mesmas ações em cada item em uma matriz. |
@@ -118,7 +118,7 @@ Os aplicativos lógicos fornecem ações internas para estruturar e controlar as
 
 Os aplicativos lógicos fornecem ações internas para trabalhar com saídas de dados e seus formatos:
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
 | [![][data-operations-icon]<br>**Operações de dados** de ícone interno][data-operations-doc] | Execute operações com dados: <p>- **Compor**: crie uma única saída de várias entradas com vários tipos. <br>- **Criar tabela CSV**: crie uma tabela CSV (separada por valores vírgula) de uma matriz com objetos JSON. <br>- **Criar tabela HTML**: crie uma tabela HTML de uma matriz com objetos JSON. <br>- **Matriz de filtro**: crie uma matriz de itens na outra matriz que atendem aos seus critérios. <br>- **Juntar-se**: crie uma cadeia de caracteres de todos os itens em uma matriz e separe esses itens com o delimitador especificado. <br>- **Analisar JSON**: Crie tokens amigáveis de propriedades e seus valores no conteúdo JSON para que você possa usar essas propriedades em seu fluxo de trabalho. <br>- **Selecionar**: crie uma matriz com objetos JSON transformando itens ou valores em outra matriz e mapeando esses itens para propriedades especificadas. |
 | ![Ícone Interno][date-time-icon]<br>**Data e hora** | Execute operações com carimbos de data/hora: <p>- **Adicionar horário**: adicionar número especificado de unidades a um carimbo de data/hora. <br>- **Converter fuso horário**: converter um carimbo de data/hora do fuso horário de origem para o fuso horário de destino. <br>- **Horário atual**: retornar o carimbo de data/hora atual como uma cadeia de caracteres. <br>- **Obter horário futuro**: retornar o carimbo de data/hora atual mais as unidades de tempo especificadas. <br>- **Obter horário passado**: retornar o carimbo de data/hora atual menos as unidades de tempo especificadas. <br>- **Subtrair de horário**: subtrair um número de unidades de tempo de um carimbo de data/hora. |
@@ -131,7 +131,7 @@ Os aplicativos lógicos fornecem ações internas para trabalhar com saídas de 
 
 Os aplicativos lógicos fornecem esses conectores padrão populares para automatizar tarefas, processos e fluxos de trabalho com esses serviços ou sistemas:
 
-| Nome | Descrição |
+| Name | Descrição |
 |------|-------------|
 | [![Ícone da API ][azure-service-bus-icon]<br> **barramento de serviço do Azure**][azure-service-bus-doc] | Gerencie mensagens assíncronas, sessões e assinaturas de tópico com o conector mais comumente usado em Aplicativos Lógicos. |
 | [![Ícone de API ][sql-server-icon]<br> **SQL Server**][sql-server-doc] | Conecte-se ao seu SQL Server local ou a um banco de dados SQL do Azure na nuvem para que você possa gerenciar registros, executar procedimentos armazenados ou executar consultas. |
@@ -153,11 +153,48 @@ Os aplicativos lógicos fornecem esses conectores padrão populares para automat
 
 Aqui estão alguns conectores padrão comumente usados que os aplicativos lógicos fornecem para acessar dados e recursos em sistemas locais. Antes de criar uma conexão com um sistema local, você deve primeiro [fazer o download, instalar e configurar um gateway de dados local][gateway-doc]. Esse gateway fornece um canal de comunicação seguro sem ter que configurar a infraestrutura de rede necessária.
 
-|___|___|___|___|___|
-|---|---|---|---|---|
-| [![Ícone da API ][biztalk-server-icon]<br> **BizTalk** <br> **Server**][biztalk-server-doc] | [![Ícone da API ][file-system-icon]<br> ** <br> sistema de arquivos**][file-system-doc] | [![Ícone da API ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc] | [![Ícone da API ][ibm-informix-icon]<br> **IBM** <br> **Informix**][ibm-informix-doc] | [![Ícone da API ][mysql-icon]<br> **MySQL**][mysql-doc] |
-| [![Ícone de API ][oracle-db-icon]<br> **Oracle DB**][oracle-db-doc] | [![Ícone da API ][postgre-sql-icon]<br> **PostgreSQL**][postgre-sql-doc] | [![Ícone da API ][sharepoint-server-icon]<br> **SharePoint <br> Server**][sharepoint-server-doc] | [![Ícone da API ][sql-server-icon]<br> **SQL <br> Server**][sql-server-doc] | [![Ícone da API ][teradata-icon]<br> **Teradata**][teradata-doc] |
-||||||
+:::row:::
+    :::column:::
+        [![Ícone da API ][biztalk-server-icon]<br> **BizTalk** <br> **Server**][biztalk-server-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][file-system-icon]<br> ** <br> sistema de arquivos**][file-system-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][ibm-informix-icon]<br> **IBM** <br> **Informix**][ibm-informix-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Ícone da API ][mysql-icon]<br> **MySQL**][mysql-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone de API ][oracle-db-icon]<br> **Oracle DB**][oracle-db-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][postgre-sql-icon]<br> **PostgreSQL**][postgre-sql-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][sharepoint-server-icon]<br> **SharePoint <br> Server**][sharepoint-server-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Ícone da API ][sql-server-icon]<br> **SQL <br> Server**][sql-server-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][teradata-icon]<br> **Teradata**][teradata-doc]
+    :::column-end:::
+    :::column:::
+        
+    :::column-end:::
+    :::column:::
+        
+    :::column-end:::
+:::row-end:::
 
 <a name="integration-account-connectors"></a>
 
@@ -165,12 +202,48 @@ Aqui estão alguns conectores padrão comumente usados que os aplicativos lógic
 
 Os aplicativos lógicos fornecem conectores padrão para a criação de Soluções B2B (entre empresas) com seus aplicativos lógicos quando você cria e paga por uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), que está disponível por meio do Enterprise Integration Pack (EIP) no Azure. Com essa conta, você pode criar e armazenar os artefatos B2B, como parceiros comerciais, contratos, mapas, esquemas, certificados e assim por diante. Para usar esses artefatos, associe seus aplicativos lógicos com sua conta de integração. Se você usa o BizTalk Server atualmente, esses conectores poderão parecer familiares.
 
-|___|___|___|___|
-|---|---|---|---|
-| [![Ícone da API ][as2-icon]<br> ** <br> decodificação de AS2**][as2-doc] | [![Ícone da API ][as2-icon]<br> ** <br> codificação AS2**][as2-doc] | [![Ícone da API ][edifact-icon]<br> ** <br> decodificação de EDIFACT**][edifact-decode-doc] | [![Ícone da API ][edifact-icon]<br> ** <br> codificação EDIFACT**][edifact-encode-doc] |
-| [![Ícone da API ][flat-file-decode-icon]<br> ** <br> decodificação de arquivo simples**][flat-file-decode-doc] | [![Ícone da API ][flat-file-encode-icon]<br> ** <br> codificação de arquivo simples**][flat-file-encode-doc] | [![Ícone da API ][integration-account-icon]<br> ** <br> conta de integração**][integration-account-doc] | [![Ícone da API ][liquid-icon]<br> **Liquid** <br> **transformações** do Liquid][json-liquid-transform-doc] |
-| [![Ícone da API ][x12-icon]<br> ** <br> decodificação de X12**][x12-decode-doc] | [![Ícone da API ][x12-icon]<br> ** <br> codificação X12**][x12-encode-doc] | [![Ícone da API ][xml-transform-icon]<br> **XML** <br> **transformações** XML][xml-transform-doc] | [![Ícone da API ][xml-validate-icon]<br> ** <br> validação de XML**][xml-validate-doc] |
-|||||
+:::row:::
+    :::column:::
+        [![Ícone da API ][as2-icon]<br> ** <br> decodificação de AS2**][as2-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][as2-icon]<br> ** <br> codificação AS2**][as2-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][edifact-icon]<br> ** <br> decodificação de EDIFACT**][edifact-decode-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][edifact-icon]<br> ** <br> codificação EDIFACT**][edifact-encode-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Ícone da API ][flat-file-decode-icon]<br> ** <br> decodificação de arquivo simples**][flat-file-decode-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][flat-file-encode-icon]<br> ** <br> codificação de arquivo simples**][flat-file-encode-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][integration-account-icon]<br> ** <br> conta de integração**][integration-account-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][liquid-icon]<br> **Liquid** <br> **transformações** do Liquid][json-liquid-transform-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Ícone da API ][x12-icon]<br> ** <br> decodificação de X12**][x12-decode-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][x12-icon]<br> ** <br> codificação X12**][x12-encode-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][xml-transform-icon]<br> **XML** <br> **transformações** XML][xml-transform-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][xml-validate-icon]<br> ** <br> validação de XML**][xml-validate-doc]
+    :::column-end:::
+:::row-end:::
 
 <a name="enterprise-connectors"></a>
 
@@ -178,10 +251,20 @@ Os aplicativos lógicos fornecem conectores padrão para a criação de Soluçõ
 
 Os aplicativos lógicos fornecem esses conectores empresariais para acessar sistemas empresariais, como SAP e IBM MQ:
 
-|___|___|___|
-|---|---|---|
-| [![Ícone da API ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc] | [![Ícone da API ][ibm-mq-icon]<br> **IBM MQ**][ibm-mq-doc] | [![Ícone da API ][sap-icon]<br> **SAP**][sap-connector-doc] |
-|||
+:::row:::
+    :::column:::
+        [![Ícone da API ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][ibm-mq-icon]<br> **IBM MQ**][ibm-mq-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][sap-icon]<br> **SAP**][sap-connector-doc]
+    :::column-end:::
+    :::column:::
+        
+    :::column-end:::
+:::row-end:::
 
 <a name="ise-connectors"></a>
 
@@ -189,14 +272,90 @@ Os aplicativos lógicos fornecem esses conectores empresariais para acessar sist
 
 Para aplicativos lógicos que você cria e executa em um [ambiente dedicado do serviço de integração (ISE)](#integration-service-environment), o designer do aplicativo lógico identifica gatilhos e ações internos executados no ISE usando o rótulo **principal** . Os conectores gerenciados que são executados em um ISE exibem o rótulo do **ISE** , enquanto os conectores executados no serviço de aplicativos lógicos multilocatários globais não exibem nenhum rótulo. Esta lista mostra os conectores que atualmente têm versões do ISE:
 
-|___|___|___|___|___|
-|---|---|---|---|---|
-| [![Ícone da API ][as2-icon]<br> **AS2**][as2-doc] | [![Ícone da API ][azure-automation-icon]<br> ** <br> automação do Azure**][azure-automation-doc] | [![Ícone da API ][azure-blob-storage-icon]<br> ** <br> armazenamento de BLOBs do Azure**][azure-blob-storage-doc] | [![Ícone da API ][azure-cosmos-db-icon]<br> **Azure Cosmos <br> DB**][azure-cosmos-db-doc] | [![Ícone da API ][azure-event-hubs-icon]<br> ** <br> hubs de eventos do Azure**][azure-event-hubs-doc] |
-| [![Ícone da API ][azure-event-grid-icon]<br> ** <br> grade de eventos do Azure**][azure-event-grid-doc] | [![Ícone da API ][azure-file-storage-icon]<br> ** <br> armazenamento de arquivos do Azure**][azure-file-storage-doc] | [![Ícone da API ][azure-key-vault-icon]<br> **Azure Key <br> Vault**][azure-key-vault-doc] | [![Ícone da API ][azure-monitor-logs-icon]<br> **Azure monitor <br> logs**][azure-monitor-logs-doc] | [![Ícone da API ][azure-service-bus-icon]<br> ** <br> barramento de serviço do Azure**][azure-service-bus-doc] |
-| [![Ícone da API ][azure-sql-data-warehouse-icon]<br> **Azure SQL Data <br> warehouse**][azure-sql-data-warehouse-doc] | [![Ícone da API ][azure-table-storage-icon]<br> ** <br> armazenamento de tabelas do Azure**][azure-table-storage-doc] | [![Ícone da API ][azure-queues-icon]<br> ** <br> filas do Azure**][azure-queues-doc] | [![Ícone de API ][edifact-icon]<br> **EDIFACT**][edifact-doc] | [![Ícone da API ][file-system-icon]<br> ** <br> sistema de arquivos**][file-system-doc] |
-| [![Ícone da API ][ftp-icon]<br> **FTP**][ftp-doc] | [![Ícone da API ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc] | [![Ícone da API ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc] | [![Ícone da API ][ibm-mq-icon]<br> **IBM MQ**][ibm-mq-doc] | [![Ícone da API ][sap-icon]<br> **SAP**][sap-connector-doc] |
-| [![Ícone ][sftp-ssh-icon]<br> **de API SFTP-SSH**][sftp-ssh-doc] | [![Ícone da API ][smtp-icon]<br> **SMTP**][smtp-doc] | [![Ícone da API ][sql-server-icon]<br> **SQL <br> Server**][sql-server-doc] | [![Ícone de API ][x12-icon]<br> **X12**][x12-doc] |
-||||||
+:::row:::
+    :::column:::
+        [![Ícone da API ][as2-icon]<br> **AS2**][as2-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][azure-automation-icon]<br> ** <br> automação do Azure**][azure-automation-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][azure-blob-storage-icon]<br> ** <br> armazenamento de BLOBs do Azure**][azure-blob-storage-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][azure-cosmos-db-icon]<br> **Azure Cosmos <br> DB**][azure-cosmos-db-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Ícone da API ][azure-event-hubs-icon]<br> ** <br> hubs de eventos do Azure**][azure-event-hubs-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][azure-event-grid-icon]<br> ** <br> grade de eventos do Azure**][azure-event-grid-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][azure-file-storage-icon]<br> ** <br> armazenamento de arquivos do Azure**][azure-file-storage-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][azure-key-vault-icon]<br> **Azure Key <br> Vault**][azure-key-vault-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Ícone da API ][azure-monitor-logs-icon]<br> **Azure monitor <br> logs**][azure-monitor-logs-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][azure-service-bus-icon]<br> ** <br> barramento de serviço do Azure**][azure-service-bus-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][azure-sql-data-warehouse-icon]<br> **Azure SQL Data <br> warehouse**][azure-sql-data-warehouse-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][azure-table-storage-icon]<br> ** <br> armazenamento de tabelas do Azure**][azure-table-storage-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Ícone da API ][azure-queues-icon]<br> ** <br> filas do Azure**][azure-queues-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone de API ][edifact-icon]<br> **EDIFACT**][edifact-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][file-system-icon]<br> ** <br> sistema de arquivos**][file-system-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][ftp-icon]<br> **FTP**][ftp-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Ícone da API ][ibm-3270-icon]<br> **IBM 3270**][ibm-3270-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][ibm-db2-icon]<br> **IBM DB2**][ibm-db2-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][ibm-mq-icon]<br> **IBM MQ**][ibm-mq-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][sap-icon]<br> **SAP**][sap-connector-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Ícone ][sftp-ssh-icon]<br> **de API SFTP-SSH**][sftp-ssh-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][smtp-icon]<br> **SMTP**][smtp-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone da API ][sql-server-icon]<br> **SQL <br> Server**][sql-server-doc]
+    :::column-end:::
+    :::column:::
+        [![Ícone de API ][x12-icon]<br> **X12**][x12-doc]
+    :::column-end:::
+:::row-end:::
 
 Para saber mais, consulte esses tópicos:
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 4dd6a40ed0fe0c4ec168300b3688fc3ba5cacbb9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bae5770baf8cfad7e5f28d5cc0499949912c1146
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499136"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513121"
 ---
 # <a name="automate-saml-based-sso-app-configuration-with-microsoft-graph-api"></a>Automatizar a configuração do aplicativo SSO baseado em SAML com a API do Microsoft Graph
 
@@ -113,6 +113,11 @@ Usando a ID de modelo que você recuperou para seu aplicativo na última etapa, 
 
 > [!NOTE] 
 > Você pode usar a API do applicationtemplate para instanciar [aplicativos que não são da Galeria](add-non-gallery-app.md). Use applicationTemplateId `8adf8e6e-67b2-4cf2-a259-e3dc5476c621` .
+
+> [!NOTE]
+> Aguarde algum tempo para o aplicativo ser provisionado em seu locatário do Azure AD. Não é instantâneo. Uma estratégia é fazer uma consulta GET no objeto Application/Service principal a cada 5-10 segundos até que a consulta seja bem-sucedida.
+
+
 #### <a name="request"></a>Solicitação
 
 <!-- {
@@ -345,6 +350,9 @@ Além das declarações básicas, configure as seguintes declarações para que 
 
 Para obter mais informações, consulte [Personalizar declarações emitidas no token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping).
 
+> [!NOTE]
+> Algumas chaves na política de mapeamento de declarações diferenciam maiúsculas de minúsculas (por exemplo, "Version"). Se você receber uma mensagem de erro como "a propriedade tem um valor inválido", ela poderá ser um problema que diferencia maiúsculas de minúsculas.
+
 #### <a name="request"></a>Solicitação
 
 <!-- {
@@ -455,7 +463,7 @@ O uso da API [applicationTemplate](https://docs.microsoft.com/graph/api/resource
 
 ### <a name="create-a-custom-signing-certificate"></a>Criar um certificado de autenticação personalizado
 
-Para testar, é possível usar o seguinte comando do PowerShell para obter um certificado autoassinado. Use a prática de segurança recomendada da sua empresa para criar um certificado de autenticação para produção.
+Para testar, é possível usar o seguinte comando do PowerShell para obter um certificado autoassinado. Em seguida, será necessário manipular e extrair os valores necessários manualmente usando outras ferramentas. Use a prática de segurança recomendada da sua empresa para criar um certificado de autenticação para produção.
 
 ```powershell
 Param(
@@ -482,6 +490,99 @@ Export-PfxCertificate -cert $path -FilePath $pfxFile -Password $pwdSecure
 Export-Certificate -cert $path -FilePath $cerFile
 ```
 
+Como alternativa, o seguinte aplicativo de console C# pode ser usado como uma prova de conceito para entender como os valores necessários podem ser obtidos. Observe que esse código é **apenas para aprendizado e referência** e não deve ser usado no estado em que se encontra em produção.
+
+```csharp
+using System;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+
+
+/* CONSOLE APP - PROOF OF CONCEPT CODE ONLY!!
+ * This code uses a self signed certificate and should not be used 
+ * in production. This code is for reference and learning ONLY.
+ */
+namespace Self_signed_cert
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Generate a guid to use as a password and then create the cert.
+            string password = Guid.NewGuid().ToString();
+            var selfsignedCert = buildSelfSignedServerCertificate(password);
+
+            // Print values so we can copy paste into the JSON fields.
+            // Print out the private key in base64 format.
+            Console.WriteLine("Private Key: {0}{1}", Convert.ToBase64String(selfsignedCert.Export(X509ContentType.Pfx, password)), Environment.NewLine);
+
+            // Print out the start date in ISO 8601 format.
+            DateTime startDate = DateTime.Parse(selfsignedCert.GetEffectiveDateString()).ToUniversalTime();
+            Console.WriteLine("For All startDateTime: " + startDate.ToString("o"));
+
+            // Print out the end date in ISO 8601 format.
+            DateTime endDate = DateTime.Parse(selfsignedCert.GetExpirationDateString()).ToUniversalTime();
+            Console.WriteLine("For All endDateTime: " + endDate.ToString("o"));
+
+            // Print the GUID used for keyId
+            string signAndPasswordGuid = Guid.NewGuid().ToString();
+            string verifyGuid = Guid.NewGuid().ToString();
+            Console.WriteLine("GUID to use for keyId for keyCredentials->Usage == Sign and passwordCredentials: " + signAndPasswordGuid);
+            Console.WriteLine("GUID to use for keyId for keyCredentials->Usage == Verify: " + verifyGuid);
+
+            // Print out the password.
+            Console.WriteLine("Password is: {0}", password);
+
+            // Print out a displayName to use as an example.
+            Console.WriteLine("displayName to use: CN=Example");
+            Console.WriteLine();
+
+            // Print out the public key.
+            Console.WriteLine("Public Key: {0}{1}", Convert.ToBase64String(selfsignedCert.Export(X509ContentType.Cert)), Environment.NewLine);
+            Console.WriteLine();
+
+            // Generate the customKeyIdentifier using hash of thumbprint.
+            Console.WriteLine("You can generate the customKeyIdentifier by getting the SHA256 hash of the certs thumprint.\nThe certs thumbprint is: {0}{1}", selfsignedCert.Thumbprint, Environment.NewLine);
+            Console.WriteLine("The hash of the thumbprint that we will use for customeKeyIdentifier is:");
+            string keyIdentifier = GetSha256FromThumbprint(selfsignedCert.Thumbprint);
+            Console.WriteLine(keyIdentifier);
+        }
+
+        // Generate a self-signed certificate.
+        private static X509Certificate2 buildSelfSignedServerCertificate(string password)
+        {
+            const string CertificateName = @"Microsoft Azure Federated SSO Certificate TEST";
+            DateTime certificateStartDate = DateTime.UtcNow;
+            DateTime certificateEndDate = certificateStartDate.AddYears(2).ToUniversalTime();
+
+            X500DistinguishedName distinguishedName = new X500DistinguishedName($"CN={CertificateName}");
+
+            using (RSA rsa = RSA.Create(2048))
+            {
+                var request = new CertificateRequest(distinguishedName, rsa, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+
+                request.CertificateExtensions.Add(
+                    new X509KeyUsageExtension(X509KeyUsageFlags.DataEncipherment | X509KeyUsageFlags.KeyEncipherment | X509KeyUsageFlags.DigitalSignature, false));
+
+                var certificate = request.CreateSelfSigned(new DateTimeOffset(certificateStartDate), new DateTimeOffset(certificateEndDate));
+                certificate.FriendlyName = CertificateName;
+
+                return new X509Certificate2(certificate.Export(X509ContentType.Pfx, password), password, X509KeyStorageFlags.Exportable);
+            }
+        }
+
+        // Generate hash from thumbprint.
+        public static string GetSha256FromThumbprint(string thumbprint)
+        {
+            var message = Encoding.ASCII.GetBytes(thumbprint);
+            SHA256Managed hashString = new SHA256Managed();
+            return Convert.ToBase64String(hashString.ComputeHash(message));
+        }
+    }
+}
+```
+
 ### <a name="add-a-custom-signing-key"></a>Adicionar uma chave de assinatura personalizada
 
 Adicione as seguintes informações à entidade de serviço:
@@ -492,18 +593,7 @@ Adicione as seguintes informações à entidade de serviço:
 
 Extraia a codificação Base64 da chave pública e privada do arquivo PFX. Para saber mais sobre as propriedades, leia [tipo de recurso keyCredential](https://docs.microsoft.com/graph/api/resources/keycredential?view=graph-rest-1.0).
 
-Certifique-se de que o keyId para a keyCredential usada para "assinar" corresponda à keyId de passwordCredential.
-
-É possível gerar o `customkeyIdentifier` obtendo o hash da impressão digital do certificado.
-
-```csharp
-  public string GetSha256FromThumbprint(string thumbprint)
-  {
-      var message = Encoding.ASCII.GetBytes(thumbprint);
-      SHA256Managed hashString = new SHA256Managed();
-      return Convert.ToBase64String(hashString.ComputeHash(message));
-  }
-```
+Certifique-se de que o keyId para a keyCredential usada para "assinar" corresponda à keyId de passwordCredential. É possível gerar o `customkeyIdentifier` obtendo o hash da impressão digital do certificado. Consulte o código de referência C# acima.
 
 #### <a name="request"></a>Solicitação
 
@@ -526,7 +616,7 @@ Content-type: servicePrincipals/json
             "endDateTime": "2021-04-22T22:10:13Z",
             "keyId": "4c266507-3e74-4b91-aeba-18a25b450f6e",
             "startDateTime": "2020-04-22T21:50:13Z",
-            "type": "AsymmetricX509Cert",
+            "type": "X509CertAndPassword",
             "usage": "Sign",
             "key":"MIIKIAIBAz.....HBgUrDgMCERE20nuTptI9MEFCh2Ih2jaaLZBZGeZBRFVNXeZmAAgIH0A==",
             "displayName": "CN=awsAPI"

@@ -1,17 +1,17 @@
 ---
 title: Funções e requisitos do Azure Data Share
 description: Saiba mais sobre as permissões necessárias para compartilhar e receber dados usando o compartilhamento de dados do Azure.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 07/10/2019
-ms.openlocfilehash: 229d4fd6647a8a1b756fedee2a864d00b9c7de62
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 84d1ba6ff343b5f3d1f88d7ae5c618601f416e2c
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110990"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513757"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Funções e requisitos do Azure Data Share 
 
@@ -62,7 +62,7 @@ Para criar uma atribuição de função para a identidade gerenciada do recurso 
 1. Selecione **Adicionar uma atribuição de função**.
 1. Em *função*, selecione a função na tabela atribuição de função acima (por exemplo, para conta de armazenamento, selecione *leitor de dados de blob de armazenamento*).
 1. Em *selecionar*, digite o nome do recurso de compartilhamento de dados do Azure.
-1. Clique em *Save* (Salvar).
+1. Clique em *Salvar*.
 
 Para fontes baseadas em SQL, além das etapas acima, um usuário do SQL precisa ser criado a partir de um provedor externo no banco de dados SQL com o mesmo nome que o recurso de compartilhamento do Azure data share. Esse usuário precisa receber a permissão *db_datareader* . Um script de exemplo junto com outros pré-requisitos para o compartilhamento baseado em SQL pode ser encontrado no tutorial [compartilhar seus dados](share-your-data.md) . 
 
@@ -80,7 +80,7 @@ Para criar uma atribuição de função para a identidade gerenciada do recurso 
 1. Selecione **Adicionar uma atribuição de função**.
 1. Em *função*, selecione a função na tabela atribuição de função acima (por exemplo, para conta de armazenamento, selecione *leitor de dados de blob de armazenamento*).
 1. Em *selecionar*, digite o nome do recurso de compartilhamento de dados do Azure.
-1. Clique em *Save* (Salvar).
+1. Clique em *Salvar*.
 
 Para destino baseado em SQL, além das etapas acima, um usuário do SQL precisa ser criado a partir de um provedor externo no banco de dados SQL com o mesmo nome que o recurso de compartilhamento do Azure data share. Esse usuário precisa receber a permissão *db_datareader, db_datawriter db_ddladmin* . Um script de exemplo junto com outros pré-requisitos para o compartilhamento baseado em SQL pode ser encontrado no tutorial [aceitar e receber dados](subscribe-to-data-share.md) . 
 
@@ -90,7 +90,13 @@ Para saber mais sobre como adicionar uma atribuição de função, consulte [est
 
 ## <a name="resource-provider-registration"></a>Registro do provedor de recursos 
 
-Para exibir o convite de compartilhamento de dados do Azure pela primeira vez em seu locatário do Azure, talvez seja necessário registrar manualmente o provedor de recursos Microsoft. DataShare em sua assinatura do Azure. Siga estas etapas para registrar o provedor de recursos Microsoft. DataShare em sua assinatura do Azure. Você precisa de acesso de *colaborador* à assinatura do Azure para registrar o provedor de recursos.
+Talvez seja necessário registrar manualmente o provedor de recursos Microsoft. DataShare em sua assinatura do Azure nos seguintes cenários: 
+
+* Exibir o convite de compartilhamento de dados do Azure pela primeira vez no seu locatário do Azure
+* Compartilhar dados de um armazenamento de dados do Azure em uma assinatura do Azure diferente do recurso de compartilhamento de dados do Azure
+* Receber dados em um armazenamento de dados do Azure em uma assinatura do Azure diferente do recurso de compartilhamento de dados do Azure
+
+Siga estas etapas para registrar o provedor de recursos Microsoft. DataShare em sua assinatura do Azure. Você precisa de acesso de *colaborador* à assinatura do Azure para registrar o provedor de recursos.
 
 1. No portal do Azure, navegue até **assinaturas**.
 1. Selecione a assinatura que você está usando para o compartilhamento de dados do Azure.

@@ -1,6 +1,6 @@
 ---
 title: Criar um volume do NFS para Azure NetApp Files | Microsoft Docs
-description: Descreve como criar um volume do NFS para Azure NetApp Files.
+description: Este artigo mostra como criar um volume do NFS no Azure NetApp Files. Saiba mais sobre as considerações, como qual versão usar e as práticas recomendadas.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 7f14ac279f14feb3f83490ab96965d4355bed125
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 2e1e6ad6625586e882551521111057a2a20f0fff
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169440"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513036"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para o Azure NetApp Files
 
@@ -42,7 +42,7 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
 * Usuário/grupo local e suporte LDAP para NFSv 4.1  
   Atualmente, o NFSv 4.1 dá suporte ao acesso raiz somente a volumes. Consulte [Configurar o domínio padrão do nfsv 4.1 para Azure NetApp files](azure-netapp-files-configure-nfsv41-domain.md). 
 
-## <a name="best-practice"></a>Prática recomendada
+## <a name="best-practice"></a>Melhor prática
 
 * Você deve garantir que está usando as instruções de montagem adequadas para o volume.  Confira [montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
 

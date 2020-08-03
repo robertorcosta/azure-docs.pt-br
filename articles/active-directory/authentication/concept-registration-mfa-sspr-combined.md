@@ -11,16 +11,19 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8ceb375eb9da853b4c89ffe278d3483f6a4fa72
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a3a06f01507ad5715d1e8a3f828ab008e1e8ce65
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050952"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87512968"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registro de informações de segurança combinado para Azure Active Directory visão geral
 
 Antes do registro combinado, os usuários registravam métodos de autenticação diferentes para a Autenticação Multifator do Microsoft Azure e a SSPR (redefinição de senha de autoatendimento) separadamente. As pessoas foram confundidas que métodos semelhantes eram usados para autenticação multifator e SSPR, mas tinham que se registrar para ambos os recursos. Agora, com o registro combinado, os usuários podem registrar uma vez e obter os benefícios da autenticação multifator e do SSPR.
+
+> [!NOTE]
+> A partir de 15 de agosto de 2020, todos os novos locatários do Azure AD serão habilitados automaticamente para o registro combinado.
 
 Este artigo descreve o que é o registro de segurança combinado. Para começar a usar o registro de segurança combinado, consulte o seguinte artigo:
 
@@ -48,18 +51,18 @@ Se você quiser forçar um idioma específico, poderá adicionar `?lng=<language
 
 O registro combinado dá suporte aos seguintes métodos e ações de autenticação:
 
-| Método | Registrar | Alterar | Excluir |
+| Método | Registre-se | Alterar | Excluir |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Sim (no máximo 5) | Não | Sim |
 | Outro aplicativo autenticador | Sim (no máximo 5) | Não | Sim |
-| Token de hardware | Não | Não | Sim |
-| Telefone | Sim | Sim | Sim |
-| Telefone alternativo | Sim | Sim | Sim |
-| Telefone comercial | Não | Não | Não |
-| Email | Sim | Sim | Sim |
+| Token de hardware | No | Não | Sim |
+| Telefone | Yes | Yes | Yes |
+| Telefone alternativo | Yes | Yes | Yes |
+| Telefone comercial | No | Não | Não |
+| Email | Yes | Yes | Yes |
 | Perguntas de segurança | Sim | Não | Sim |
 | Senhas de aplicativo | Sim | Não | Sim |
-| Chaves de segurança FIDO2<br />*Modo gerenciado somente da página [informações de segurança](https://mysignins.microsoft.com/security-info)*| Sim | Sim | Sim |
+| Chaves de segurança FIDO2<br />*Modo gerenciado somente da página [informações de segurança](https://mysignins.microsoft.com/security-info)*| Yes | Yes | Yes |
 
 > [!NOTE]
 > As senhas de aplicativo estão disponíveis somente para usuários que foram impostos para a autenticação multifator. As senhas de aplicativo não estão disponíveis para usuários que estão habilitados para autenticação multifator por meio de uma política de acesso condicional.

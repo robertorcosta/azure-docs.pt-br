@@ -1,6 +1,6 @@
 ---
 title: SDKs de Azure NetApp Files e ferramentas CLI | Microsoft Docs
-description: Lista os SDKs e as ferramentas de linha de comando (CLI) com suporte pelo Azure NetApp Files.
+description: 'Saiba mais sobre os SDKs com suporte para Azure NetApp Files e seus locais publicados no GitHub e sobre as ferramentas de linha de comando com suporte: CLI do Azure e PowerShell.'
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: b-juche
-ms.openlocfilehash: b0cb29d6db339a64a1d9b753acbfd2334364853a
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 54c85fb778d1794f9aeba2eba5ed459292636e35
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045460"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513614"
 ---
 # <a name="azure-netapp-files-sdks-and-cli-tools"></a>SDKs do Azure NetApp Files e ferramentas da CLI
 
@@ -29,7 +29,7 @@ Este artigo lista os SDKs e as ferramentas de linha de comando (CLI) com suporte
 
 A tabela a seguir lista os SDKs com suporte.  Você pode encontrar detalhes sobre os SDKs com suporte em seus locais publicados no GitHub.  
 
-|    Linguagem    |    Local publicado do SDK no GitHub    |
+|    Idioma    |    Local publicado do SDK no GitHub    |
 |------------------|--------------------------------------------------------------|
 |    .NET  |    [Azure/Azure-SDK-para-rede](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp)    |
 |    Python  |  [Azure/Azure-SDK-para-Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp)    |

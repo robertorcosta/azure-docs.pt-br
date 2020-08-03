@@ -7,19 +7,19 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 20cdc55b474034480392f9dfb05b20ad25df6939
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a7e42ddeb4abacd8707dda4cd558933b0d7a34f4
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037759"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513699"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>Exibir rotas efetivas do hub virtual
 
 Você pode exibir todas as rotas do seu hub de WAN virtual no portal do Azure. Este artigo orienta você pelas etapas para exibir rotas efetivas. Para obter mais informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> No portal do Azure, alguns desses recursos ainda podem estar sendo distribuídos e não disponíveis até a semana de agosto. 
+> No portal do Azure, alguns desses recursos ainda poderão ser distribuídos e não estarão disponíveis até a semana de 17 de agosto. 
 >
 
 ## <a name="select-connections-or-route-tables"></a><a name="routing"></a>Selecionar conexões ou tabelas de rotas
@@ -34,7 +34,7 @@ Você pode exibir todas as rotas do seu hub de WAN virtual no portal do Azure. E
    * Conexão ponto a site
    * Tabela de rotas
 
-   :::image type="content" source="./media/effective-routes-virtual-hub/routing.png" alt-text="Roteamento":::
+   :::image type="content" source="./media/effective-routes-virtual-hub/routing.png" alt-text="Roteiros":::
 
 ## <a name="view-output"></a><a name="output"></a>Exibir saída
 
@@ -52,11 +52,11 @@ Os valores na tabela de exemplo a seguir sugerem que a conexão do Hub virtual o
 
 Use a barra de rolagem na parte inferior da tabela para exibir o "caminho AS".
 
-| **Prefixo** |  **Tipo do próximo salto** | **Próximo salto** |  **Origem da rota** |**Caminho AS** |
+| **Prefix** |  **Tipo do próximo salto** | **Próximo salto** |  **Origem da rota** |**Caminho AS** |
 | ---        | ---                | ---          | ---               | ---         |
 | 10.2.0.0/24| VPN_S2S_Gateway |10.1.0.6, 10.1.0.7|/subscriptions/ `<sub id>` /ResourceGroups/ `<resource group name>` /Providers/Microsoft.Network/vpnGateways/vpngw| 20000|
 
-**Considere**
+**Considerações:**
 
 * Se você vir 0.0.0.0/0 na saída **obter rotas efetivas** , ele implica que a rota existe em uma das tabelas de rotas. No entanto, se essa rota foi configurada para Internet, um sinalizador adicional **"enableInternetSecurity": true** é necessário na conexão. A rota efetiva na NIC da VM não mostrará a rota se o sinalizador "enableInternetSecurity" na conexão for "false".
 
@@ -64,5 +64,5 @@ Use a barra de rolagem na parte inferior da tabela para exibir o "caminho AS".
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter mais informações sobre WAN virtual, consulte [visão geral da WAN virtual](virtual-wan-about.md).
+* Para saber mais sobre WAN Virtual, confira a [Visão geral de WAN Virtual](virtual-wan-about.md).
 * Para obter mais informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).

@@ -1,6 +1,6 @@
 ---
 title: Métricas do Azure NetApp Files | Microsoft Docs
-description: Descreve as métricas do Azure NetApp Files.
+description: Azure NetApp Files fornece métricas sobre armazenamento alocado, uso de armazenamento real, IOPS de volume e latência. Use essas métricas para entender o uso e o desempenho.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: b-juche
-ms.openlocfilehash: c8e3b616dee1ab4e6bb6e77c6a8bab5661d4e20b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e6ab90010d4379c1640f73a8deeba874e601daf
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79460425"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513801"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métricas do Azure NetApp Files
 

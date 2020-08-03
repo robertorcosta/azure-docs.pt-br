@@ -1,26 +1,26 @@
 ---
-title: 'Conceitos: mapeando modelos no conector IoT (visualização) recurso da API do Azure para FHIR'
-description: Aprenda a criar dois tipos de modelos de mapeamento no conector IoT. O modelo de mapeamento de dispositivo transforma os dados do dispositivo em um esquema normalizado. O modelo de mapeamento FHIR transforma uma mensagem normalizada em um recurso de observação baseado em FHIR.
+title: 'Conceitos: mapeando modelos no conector do Azure IoT para o recurso FHIR (versão prévia) da API do Azure para FHIR'
+description: Aprenda a criar dois tipos de modelos de mapeamento no conector IoT do Azure para FHIR (versão prévia). O modelo de mapeamento de dispositivo transforma os dados do dispositivo em um esquema normalizado. O modelo de mapeamento FHIR transforma uma mensagem normalizada em um recurso de observação baseado em FHIR.
 services: healthcare-apis
 author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 05/14/2020
+ms.date: 07/31/2020
 ms.author: punagpal
-ms.openlocfilehash: dadd14d4ca28f367eaa7fd07099514bf420af5af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cc8b7d46e1018974c6a88cef9e4f4a9f9a09caa7
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87096069"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513342"
 ---
-# <a name="iot-connector-preview-mapping-templates"></a>Modelos de mapeamento do conector IoT (visualização)
-Este artigo fornece detalhes sobre como configurar o conector IoT usando modelos de mapeamento.
+# <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Modelos de mapeamento do Azure IoT Connector para FHIR (visualização)
+Este artigo fornece detalhes sobre como configurar o conector do Azure IoT para FHIR * usando modelos de mapeamento.
 
-O conector IoT requer dois tipos de modelos de mapeamento baseados em JSON. O primeiro tipo, **mapeamento de dispositivo**, é responsável por mapear as cargas de dispositivo enviadas para o `devicedata` ponto de extremidade do hub de eventos do Azure. Ele extrai tipos, identificadores de dispositivo, data e hora de medição e o (s) valor (es) de medida. O segundo tipo, **mapeamento FHIR**, controla o mapeamento para o recurso FHIR. Ele permite a configuração do comprimento do período de observação, o tipo de dados FHIR usado para armazenar os valores e os códigos de terminologia. 
+O conector do Azure IoT para FHIR requer dois tipos de modelos de mapeamento baseados em JSON. O primeiro tipo, **mapeamento de dispositivo**, é responsável por mapear as cargas de dispositivo enviadas para o `devicedata` ponto de extremidade do hub de eventos do Azure. Ele extrai tipos, identificadores de dispositivo, data e hora de medição e o (s) valor (es) de medida. O segundo tipo, **mapeamento FHIR**, controla o mapeamento para o recurso FHIR. Ele permite a configuração do comprimento do período de observação, o tipo de dados FHIR usado para armazenar os valores e os códigos de terminologia. 
 
-Os modelos de mapeamento são compostos em um documento JSON com base em seu tipo. Esses documentos JSON são então adicionados ao conector IoT por meio do portal do Azure. O documento de mapeamento de dispositivo é adicionado por meio da página **Configurar mapeamento de dispositivo** e do documento de mapeamento FHIR por meio da página **Configurar mapeamento de FHIR** .
+Os modelos de mapeamento são compostos em um documento JSON com base em seu tipo. Esses documentos JSON são então adicionados ao conector IoT do Azure para FHIR por meio do portal do Azure. O documento de mapeamento de dispositivo é adicionado por meio da página **Configurar mapeamento de dispositivo** e do documento de mapeamento FHIR por meio da página **Configurar mapeamento de FHIR** .
 
 > [!NOTE]
 > Os modelos de mapeamento são armazenados em um armazenamento de BLOBs subjacente e carregados do blob por execução de computação. Depois de atualizado, eles devem entrar em vigor imediatamente. 
@@ -81,7 +81,7 @@ O JsonPathContentTemplate permite a correspondência e a extração de valores d
 ---
 **Taxa de coração**
 
-*Mensagem*
+*Message*
 ```json
 {
     "Body": {
@@ -115,7 +115,7 @@ O JsonPathContentTemplate permite a correspondência e a extração de valores d
 ---
 **Pressão sanguínea**
 
-*Mensagem*
+*Message*
 ```json
 {
     "Body": {
@@ -153,7 +153,7 @@ O JsonPathContentTemplate permite a correspondência e a extração de valores d
 
 **Projetar várias medições a partir de uma única mensagem**
 
-*Mensagem*
+*Message*
 ```json
 {
     "Body": {
@@ -208,7 +208,7 @@ O JsonPathContentTemplate permite a correspondência e a extração de valores d
 
 **Projetar várias medidas da matriz na mensagem**
 
-*Mensagem*
+*Message*
 ```json
 {
     "Body": [
@@ -261,7 +261,7 @@ A suposição ao usar esse modelo é que as mensagens que estão sendo avaliadas
 ---
 **Taxa de coração**
 
-*Mensagem*
+*Message*
 ```json
 {
     "Body": {
@@ -297,7 +297,7 @@ A suposição ao usar esse modelo é que as mensagens que estão sendo avaliadas
 ---
 **Pressão sanguínea**
 
-*Mensagem*
+*Message*
 ```json
 {
     "Body": {
@@ -562,10 +562,11 @@ Representa o tipo de dados [CodeableConcept](http://hl7.org/fhir/datatypes.html#
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira as perguntas frequentes sobre o conector IoT
+Confira as perguntas frequentes sobre o conector do Azure IoT para FHIR (versão prévia).
 
 >[!div class="nextstepaction"]
->[Perguntas frequentes do conector IoT](fhir-faq.md#iot-connector-preview)
+>[Azure IoT Connector para FHIR FAQs](fhir-faq.md#iot-connector-preview)
 
+* No portal do Azure, o conector do IoT do Azure para FHIR é conhecido como conector IoT (versão prévia).
 
 FHIR é uma marca registrada da HL7, usada com permissão da HL7.

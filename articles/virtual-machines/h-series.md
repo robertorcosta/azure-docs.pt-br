@@ -5,14 +5,15 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.author: jushiman
-ms.openlocfilehash: 34f89656fc56b27edafeff0e60874a00139266dd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/01/2020
+ms.author: amverma
+ms.reviewer: jushiman
+ms.openlocfilehash: 797a036b9cf2e77dfbcdf8dc7596179c4673e6a6
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87268944"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513733"
 ---
 # <a name="h-series"></a>Série H
 
@@ -98,4 +99,7 @@ O Azure Marketplace tem muitas distribuições do Linux que dão suporte à cone
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como as [ACUs (unidade de computação do Azure)](acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.
+- Saiba mais sobre como otimizar seus aplicativos HPC para o Azure e alguns exemplos em [cargas de trabalho do HPC](./workloads/hpc/overview.md).
+- Leia sobre os comunicados mais recentes e alguns exemplos e resultados do HPC nos [Blogs da comunidade de computação técnica do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Para uma exibição de arquitetura de nível superior da execução de cargas de trabalho do HPC, consulte [computação de alto desempenho (HPC) no Azure](/azure/architecture/topics/high-performance-computing/).
+- Saiba mais sobre como as [ACUs (unidade de computação do Azure)](acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.

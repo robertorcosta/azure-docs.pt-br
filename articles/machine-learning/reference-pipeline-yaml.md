@@ -9,14 +9,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: nilsp
 author: NilsPohlmann
-ms.date: 11/11/2019
+ms.date: 07/31/2020
 ms.custom: tracking-python
-ms.openlocfilehash: c53f6ff7fdcc861bc11fb54838f1e634fc944c6c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 4fc28ca533c6670263c8d559f4d6dd3e21671881
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205274"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513155"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definir pipelines de Machine Learning no YAML
 
@@ -26,17 +26,17 @@ A tabela a seguir lista o que é e não tem suporte atualmente ao definir um pip
 
 | Tipo de etapa | Com suporte? |
 | ----- | :-----: |
-| PythonScriptStep | Sim |
-| ParallelRunStep | Sim |
-| AdlaStep | Sim |
-| AzureBatchStep | Sim |
-| DatabricksStep | Sim |
-| DataTransferStep | Sim |
-| AutoMLStep | Não |
-| HyperDriveStep | Não |
-| ModuleStep | Sim |
-| MPIStep | Não |
-| EstimatorStep | Não |
+| PythonScriptStep | Yes |
+| ParallelRunStep | Yes |
+| AdlaStep | Yes |
+| AzureBatchStep | Yes |
+| DatabricksStep | Yes |
+| DataTransferStep | Yes |
+| AutoMLStep | No |
+| HyperDriveStep | No |
+| ModuleStep | Yes |
+| MPIStep | No |
+| EstimatorStep | No |
 
 ## <a name="pipeline-definition"></a>Definição de pipeline
 

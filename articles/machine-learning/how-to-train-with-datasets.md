@@ -9,15 +9,15 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 04/20/2020
+ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 47dec238474558869d6c8f7fc876e72bb5be6ff5
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: caaf1a2622d4642850d0d981e813ee438eb4eca8
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87457644"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513750"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Treine com conjuntos de os Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -191,17 +191,6 @@ y_train = load_data(y_train_path, True).reshape(-1)
 y_test = load_data(y_test, True).reshape(-1)
 ```
 
-## <a name="accessing-source-code-during-training"></a>Acessando o código-fonte durante o treinamento
-
-O Armazenamento de Blobs do Azure tem velocidades de taxa de transferência mais altas que um compartilhamento de arquivo do Azure e será dimensionado para um grande número de trabalhos iniciados em paralelo. Por esse motivo, recomendamos configurar suas execuções para usar o Armazenamento de Blobs na transferência de arquivos de código-fonte.
-
-O exemplo de código a seguir especifica na configuração de execução qual armazenamento de dados de blob usar em transferências de código-fonte.
-
-```python 
-# workspaceblobstore is the default blob storage
-run_config.source_directory_data_store = "workspaceblobstore" 
-```
-
 ## <a name="mount-vs-download"></a>Montagem vs download
 
 Há suporte para a montagem ou o download de arquivos de qualquer formato para conjuntos de dados criados a partir do armazenamento de BLOBs do Azure, arquivos do Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2 do Azure SQL e banco de dados do Azure para PostgreSQL. 
@@ -226,6 +215,38 @@ mount_context.start()
 import os
 print(os.listdir(mounted_path))
 print (mounted_path)
+```
+
+## <a name="access-datasets-in-your-script"></a>Acessar conjuntos de os em seu script
+
+Os conjuntos de itens registrados são acessíveis localmente e remotamente em clusters de computação, como a Azure Machine Learning computação. Para acessar seu conjunto de seus conjuntos de testes entre experimentos, use o código a seguir para acessar seu espaço de trabalho e o conjunto de código registrado por nome. Por padrão, o [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) método na `Dataset` classe retorna a versão mais recente do conjunto de informações registrado com o espaço de trabalho.
+
+```Python
+%%writefile $script_folder/train.py
+
+from azureml.core import Dataset, Run
+
+run = Run.get_context()
+workspace = run.experiment.workspace
+
+dataset_name = 'titanic_ds'
+
+# Get a dataset by name
+titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
+
+# Load a TabularDataset into pandas DataFrame
+df = titanic_ds.to_pandas_dataframe()
+```
+
+## <a name="accessing-source-code-during-training"></a>Acessando o código-fonte durante o treinamento
+
+O Armazenamento de Blobs do Azure tem velocidades de taxa de transferência mais altas que um compartilhamento de arquivo do Azure e será dimensionado para um grande número de trabalhos iniciados em paralelo. Por esse motivo, recomendamos configurar suas execuções para usar o Armazenamento de Blobs na transferência de arquivos de código-fonte.
+
+O exemplo de código a seguir especifica na configuração de execução qual armazenamento de dados de blob usar em transferências de código-fonte.
+
+```python 
+# workspaceblobstore is the default blob storage
+run_config.source_directory_data_store = "workspaceblobstore" 
 ```
 
 ## <a name="notebook-examples"></a>Exemplos de notebook
