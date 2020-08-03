@@ -7,20 +7,24 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 93043874db6076b26d0fefe447db7acd83547442
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e7ee90d75a2ff2b3552992c19f11cc86b6109ca
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725577"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486640"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consultar o grafo gêmeos do Azure digital
 
-Este artigo é aprofundado sobre como usar a [linguagem de repositório de consultas gêmeos do Azure digital](concepts-query-language.md) para consultar o [grafo de entrelaçamento](concepts-twins-graph.md) para obter informações. Você executa consultas no grafo usando as [**APIs de consulta**](how-to-use-apis-sdks.md)do gêmeos digital do Azure.
+Este artigo oferece exemplos e mais detalhes para usar a [linguagem de repositório de consultas do gêmeos digital do Azure](concepts-query-language.md) para consultar o [grafo de entrelaçamento](concepts-twins-graph.md) para obter informações. Você executa consultas no grafo usando as [**APIs de consulta**](how-to-use-apis-sdks.md)do gêmeos digital do Azure.
+
+[!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
+
+O restante deste artigo fornece exemplos de como usar essas operações.
 
 ## <a name="query-syntax"></a>Sintaxe de consulta
 
-Aqui estão algumas consultas de exemplo que ilustram a estrutura da linguagem de consulta e executam possíveis operações de consulta.
+Esta seção contém consultas de exemplo que ilustram a estrutura de linguagem de consulta e executam possíveis operações de consulta.
 
 Obter [gêmeos digital](concepts-twins-graph.md) por Propriedades (incluindo a ID e os metadados):
 ```sql
@@ -31,16 +35,101 @@ AND T.$dtId in ['123', '456']
 AND T.Temperature = 70
 ```
 
-Obter gêmeos digital por [modelo](concepts-models.md)
-```sql
-SELECT  * 
-FROM DigitalTwins T  
-WHERE IS_OF_MODEL(T , 'dtmi:com:contoso:Space;3')
-AND T.roomSize > 50
-```
-
 > [!TIP]
 > A ID de uma teledigital é consultada usando o campo de metadados `$dtId` .
+
+Você também pode obter gêmeos por suas propriedades de *marca* , conforme descrito em [Adicionar marcas ao gêmeos digital](how-to-use-tags.md):
+```sql
+select * from digitaltwins where is_defined(tags.red) 
+```
+
+### <a name="select-top-items"></a>Selecionar itens principais
+
+Você pode selecionar os vários itens "principais" em uma consulta usando a `Select TOP` cláusula.
+
+```sql
+SELECT TOP (5)
+FROM DIGITALTWINS
+WHERE property = 42
+```
+
+### <a name="query-by-model"></a>Consulta por modelo
+
+O `IS_OF_MODEL` operador pode ser usado para filtrar com base no [modelo](concepts-models.md)de entrelaçamento. Ele dá suporte à herança e tem várias opções de sobrecarga.
+
+O uso mais simples de `IS_OF_MODEL` usa apenas um `twinTypeName` parâmetro: `IS_OF_MODEL(twinTypeName)` .
+Aqui está um exemplo de consulta que passa um valor nesse parâmetro:
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
+```
+
+Para especificar uma coleção de entrelaçamento a ser pesquisada quando houver mais de uma (como quando um `JOIN` é usado), adicione o `twinCollection` parâmetro: `IS_OF_MODEL(twinCollection, twinTypeName)` .
+Aqui está um exemplo de consulta que adiciona um valor para esse parâmetro:
+
+```sql
+SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1')
+```
+
+Para fazer uma correspondência exata, adicione o `exact` parâmetro: `IS_OF_MODEL(twinTypeName, exact)` .
+Aqui está um exemplo de consulta que adiciona um valor para esse parâmetro:
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1', exact)
+```
+
+Você também pode passar todos os três argumentos juntos: `IS_OF_MODEL(twinCollection, twinTypeName, exact)` .
+Aqui está um exemplo de consulta que especifica um valor para todos os três parâmetros:
+
+```sql
+SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', exact)
+```
+
+### <a name="query-based-on-relationships"></a>Consulta baseada em relações
+
+Ao consultar com base em relações do gêmeos digital, o idioma do Azure digital gêmeos Repositório de Consultas tem uma sintaxe especial.
+
+As relações são retiradas no escopo de consulta na `FROM` cláusula. Uma distinção importante das linguagens do tipo SQL "clássico" é que cada expressão nessa `FROM` cláusula não é uma tabela; em vez disso, a `FROM` cláusula expressa uma passagem de relacionamento entre entidades e é escrita com uma versão do gêmeos digital do Azure do `JOIN` . 
+
+Lembre-se de que com os recursos do [modelo](concepts-models.md) de gêmeos digital do Azure, as relações não existem independentemente do gêmeos. Isso significa que a linguagem de Repositório de Consultas do Azure digital gêmeos `JOIN` é um pouco diferente do SQL geral `JOIN` , pois as relações aqui não podem ser consultadas de forma independente e devem estar vinculadas a um ".".
+Para incorporar essa diferença, a palavra-chave `RELATED` é usada na `JOIN` cláusula para fazer referência a um conjunto de relações de entrelaçar. 
+
+A seção a seguir fornece vários exemplos de como isso se parece.
+
+> [!TIP]
+> Conceitualmente, esse recurso imita a funcionalidade centrada no documento de CosmosDB, onde `JOIN` pode ser executado em objetos filho dentro de um documento. CosmosDB usa a `IN` palavra-chave para indicar que o deve `JOIN` ser iterado em elementos de matriz dentro do documento de contexto atual.
+
+#### <a name="relationship-based-query-examples"></a>Exemplos de consulta baseada em relação
+
+Para obter um conjunto de resultados que inclui relações, use uma única `FROM` instrução seguida por N `JOIN` instruções, em que as `JOIN` instruções expressam relações no resultado de uma `FROM` instrução ou anterior `JOIN` .
+
+Aqui está um exemplo de consulta baseada em relação. Esse trecho de código seleciona todas as gêmeos digitais com uma propriedade de *ID* de ' abc ' e todas as gêmeos digitais relacionadas a essas gêmeos digitais por meio de uma relação *Contains* . 
+
+```sql
+SELECT T, CT
+FROM DIGITALTWINS T
+JOIN CT RELATED T.contains
+WHERE T.$dtId = 'ABC' 
+```
+
+>[!NOTE] 
+> O desenvolvedor não precisa correlacionar isso `JOIN` com um valor de chave na `WHERE` cláusula (ou especificar um valor de chave embutido com a `JOIN` definição). Essa correlação é calculada automaticamente pelo sistema, pois as próprias propriedades de relação identificam a entidade de destino.
+
+#### <a name="query-the-properties-of-a-relationship"></a>Consultar as propriedades de uma relação
+
+Da mesma forma que o gêmeos digital tem propriedades descritas por meio de DTDL, as relações também podem ter propriedades. A linguagem Repositório de Consultas do Azure digital gêmeos permite a filtragem e a projeção de relações, atribuindo um alias à relação dentro da `JOIN` cláusula. 
+
+Como exemplo, considere uma relação *servicedBy* que tem uma propriedade *reportedCondition* . Na consulta abaixo, essa relação recebe um alias de ' R ' para referenciar sua propriedade.
+
+```sql
+SELECT T, SBT, R
+FROM DIGITALTWINS T
+JOIN SBT RELATED T.servicedBy R
+WHERE T.$dtId = 'ABC' 
+AND R.reportedCondition = 'clean'
+```
+
+No exemplo acima, observe como *reportedCondition* é uma propriedade da relação *servicedBy* em si (não de algumas propriedades digitais que têm uma relação de *servicedBy* ).
 
 ## <a name="run-queries-with-an-api-call"></a>Executar consultas com uma chamada à API
 
@@ -76,53 +165,7 @@ catch (RequestFailedException e)
 }
 ```
 
-## <a name="query-based-on-relationships"></a>Consulta baseada em relações
-
-Ao consultar com base em relações do gêmeos digital, o idioma do Azure digital gêmeos Repositório de Consultas tem uma sintaxe especial.
-
-As relações são retiradas no escopo de consulta na `FROM` cláusula. Uma distinção importante das linguagens do tipo SQL "clássico" é que cada expressão nessa `FROM` cláusula não é uma tabela; em vez disso, a `FROM` cláusula expressa uma passagem de relacionamento entre entidades e é escrita com uma versão do gêmeos digital do Azure do `JOIN` . 
-
-Lembre-se de que com os recursos do [modelo](concepts-models.md) de gêmeos digital do Azure, as relações não existem independentemente do gêmeos. Isso significa que a linguagem de Repositório de Consultas do Azure digital gêmeos `JOIN` é um pouco diferente do SQL geral `JOIN` , pois as relações aqui não podem ser consultadas de forma independente e devem estar vinculadas a um ".".
-Para incorporar essa diferença, a palavra-chave `RELATED` é usada na `JOIN` cláusula para fazer referência a um conjunto de relações de entrelaçar. 
-
-A seção a seguir fornece vários exemplos de como isso se parece.
-
-> [!TIP]
-> Conceitualmente, esse recurso imita a funcionalidade centrada no documento de CosmosDB, onde `JOIN` pode ser executado em objetos filho dentro de um documento. CosmosDB usa a `IN` palavra-chave para indicar que o deve `JOIN` ser iterado em elementos de matriz dentro do documento de contexto atual.
-
-### <a name="relationship-based-query-examples"></a>Exemplos de consulta baseada em relação
-
-Para obter um conjunto de resultados que inclui relações, use uma única `FROM` instrução seguida por N `JOIN` instruções, em que as `JOIN` instruções expressam relações no resultado de uma `FROM` instrução ou anterior `JOIN` .
-
-Aqui está um exemplo de consulta baseada em relação. Esse trecho de código seleciona todas as gêmeos digitais com uma propriedade de *ID* de ' abc ' e todas as gêmeos digitais relacionadas a essas gêmeos digitais por meio de uma relação *Contains* . 
-
-```sql
-SELECT T, CT
-FROM DIGITALTWINS T
-JOIN CT RELATED T.contains
-WHERE T.$dtId = 'ABC' 
-```
-
->[!NOTE] 
-> O desenvolvedor não precisa correlacionar isso `JOIN` com um valor de chave na `WHERE` cláusula (ou especificar um valor de chave embutido com a `JOIN` definição). Essa correlação é calculada automaticamente pelo sistema, pois as próprias propriedades de relação identificam a entidade de destino.
-
-### <a name="query-the-properties-of-a-relationship"></a>Consultar as propriedades de uma relação
-
-Da mesma forma que o gêmeos digital tem propriedades descritas por meio de DTDL, as relações também podem ter propriedades. A linguagem Repositório de Consultas do Azure digital gêmeos permite a filtragem e a projeção de relações, atribuindo um alias à relação dentro da `JOIN` cláusula. 
-
-Como exemplo, considere uma relação *servicedBy* que tem uma propriedade *reportedCondition* . Na consulta abaixo, essa relação recebe um alias de ' R ' para referenciar sua propriedade.
-
-```sql
-SELECT T, SBT, R
-FROM DIGITALTWINS T
-JOIN SBT RELATED T.servicedBy R
-WHERE T.$dtId = 'ABC' 
-AND R.reportedCondition = 'clean'
-```
-
-No exemplo acima, observe como *reportedCondition* é uma propriedade da relação *servicedBy* em si (não de algumas propriedades digitais que têm uma relação de *servicedBy* ).
-
-### <a name="query-limitations"></a>Limitações de consulta
+## <a name="query-limitations"></a>Limitações de consulta
 
 Pode haver um atraso de até 10 segundos antes que as alterações em sua instância sejam refletidas em consultas. Por exemplo, se você concluir uma operação como criar ou excluir gêmeos com a API DigitalTwins, o resultado poderá não ser refletido imediatamente nas solicitações de API de consulta. Aguardar um curto período de tempo deve ser suficiente para resolver.
 

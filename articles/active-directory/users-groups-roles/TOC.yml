@@ -175,6 +175,22 @@
               href: roles-custom-available-permissions.md
             - name: Delegar permissões de administrador de aplicativo
               href: roles-delegate-app-roles.md
+        - name: Usar grupos para gerenciar atribuições de função
+          items:
+            - name: Versão prévia de atribuição de função baseada em grupo
+              href: roles-groups-concept.md
+            - name: Criar um grupo ao qual funções podem ser atribuídas
+              href: roles-groups-create-eligible.md
+            - name: Atribuir funções a um grupo
+              href: roles-groups-assign-role.md
+            - name: Remover atribuições de função de um grupo
+              href: roles-groups-remove-assignment.md
+            - name: Exibir as atribuições de função de um grupo
+              href: roles-groups-view-assignments.md
+            - name: Tornar um grupo qualificado para uma função no PIM
+              href: roles-groups-pim-eligible.md
+            - name: Perguntas frequentes e solução de problemas
+              href: roles-groups-faq-troubleshooting.md
         - name: Funções com privilégios mínimos por tarefa
           href: roles-delegate-by-task.md
         - name: Funções do Microsoft 365
@@ -189,11 +205,11 @@
           items:
             - name: Visão geral das unidades administrativas
               href: directory-administrative-units.md
-            - name: Adicionar e gerenciar unidades administrativas
+            - name: Adicionar e gerenciar AUs
               href: roles-admin-units-manage.md
-            - name: Adicionar e gerenciar usuários em unidades administrativas
+            - name: Adicionar e gerenciar usuários em AUs
               href: roles-admin-units-add-manage-users.md
-            - name: Adicionar e gerenciar grupos em unidades administrativas
+            - name: Adicionar e gerenciar grupos em AUs
               href: roles-admin-units-add-manage-groups.md
             - name: Atribuir uma função com o escopo de unidade administrativa
               href: roles-admin-units-assign-roles.md

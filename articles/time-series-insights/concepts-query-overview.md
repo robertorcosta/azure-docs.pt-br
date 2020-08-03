@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: a4b969ecbc92df45021b4a9ec711960171d77d4e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: abc1f1de45fe846f9f50a6a7aa3dae2ed837b52b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495288"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486787"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Consultando dados de Azure Time Series Insights Gen2
 
@@ -37,7 +37,7 @@ Há suporte para as APIs principais a seguir.
 
 ## <a name="environment-apis"></a>APIs de ambiente
 
-* [Obter a API de ambientes](https://docs.microsoft.com/rest/api/time-series-insights/management/environments/get): retorna a lista de ambientes aos quais o chamador está autorizado a acessar.
+* [Obter a API de ambientes](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment): retorna a lista de ambientes aos quais o chamador está autorizado a acessar.
 * [Obter API de disponibilidade de ambientes](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/getavailability): retorna a distribuição da contagem de eventos sobre o carimbo de data/hora do evento `$ts` . Essa API ajuda a determinar se há algum evento no ambiente, retornando a contagem de eventos divididos em intervalos de tempo, se existir algum.
 * [Obter API do esquema de evento](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/geteventschema): retorna os metadados do esquema de evento para um determinado intervalo de pesquisa. Essa API ajuda a recuperar todos os metadados e as propriedades disponíveis no esquema para determinado período pesquisado.
 

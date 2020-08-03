@@ -244,43 +244,49 @@
     - name: Gerenciamento de atualizações
       items:
         - name: Visão geral
-          href: automation-update-management.md
+          href: update-management/update-mgmt-overview.md
         - name: Regiões compatíveis com o workspace do Log Analytics vinculado
           href: how-to/region-mappings.md
         - name: Habilitar
           items:
             - name: Habilitar o Gerenciamento de Atualizações usando o modelo do Azure Resource Manager
-              href: automation-update-management-deploy-template.md
+              href: update-management/update-mgmt-enable-template.md
             - name: Habilitar o Gerenciamento de Atualizações do portal do Azure
-              href: automation-onboard-solutions-from-browse.md
+              href: update-management/update-mgmt-enable-portal.md
             - name: Habilitar o Gerenciamento de Atualizações de uma VM do Azure
-              href: automation-onboard-solutions-from-vm.md
+              href: update-management/update-mgmt-enable-vm.md
             - name: Habilitar o Gerenciamento de Atualizações de uma conta de Automação
-              href: automation-onboard-solutions-from-automation-account.md
+              href: update-management/update-mgmt-enable-automation-account.md
             - name: Habilitar o Gerenciamento de Atualizações de um runbook
-              href: automation-onboard-solutions.md
-        - name: Gerenciar atualizações para as VMs do Azure
-          href: automation-tutorial-update-management.md
-        - name: Gerenciar atualizações de várias VMs
-          href: manage-update-multi.md
-        - name: Exibir as avaliações de atualização
-          href: automation-view-update-assessments.md
-        - name: Gerenciar pré-scripts e pós-scripts
-          href: pre-post-scripts.md
+              href: update-management/update-mgmt-enable-runbook.md
+        - name: Gerenciar as atualizações de suas VMs
+          items:
+            - name: Introdução
+              href: update-management/update-mgmt-manage-updates-for-vm.md
+            - name: Avaliar a conformidade
+              href: update-management/update-mgmt-view-update-assessments.md
+            - name: Implantar atualizações e status da revisão
+              href: update-management/update-mgmt-deploy-updates.md
+            - name: Usar pré-scripts e pós-scripts
+              href: update-management/update-mgmt-pre-post-scripts.md
+            - name: Configurar alertas
+              href: update-management/update-mgmt-configure-alerts.md
         - name: Integrar com o Configuration Manager
-          href: updatemgmt-mecmintegration.md
+          href: update-management/update-mgmt-mecmintegration.md
         - name: Configurar cliente Windows Update
-          href: automation-configure-windows-update.md
+          href: update-management/update-mgmt-configure-wuagent.md
         - name: Usar grupos dinâmicos
-          href: automation-update-management-groups.md
+          href: update-management/update-mgmt-groups.md
         - name: Consultar os logs do Gerenciamento de Atualizações
-          href: automation-update-management-query-logs.md
+          href: update-management/update-mgmt-query-logs.md
         - name: Trabalhar com as configurações de escopo
-          href: automation-scope-configurations-update-management.md
-        - name: Desvincular o workspace da conta de Automação
-          href: automation-unlink-workspace-update-management.md
-        - name: Remover VMs do Gerenciamento de Atualizações
-          href: automation-remove-vms-from-update-management.md
+          href: update-management/update-mgmt-scope-configuration.md
+        - name: Desabilitar
+          items:
+            - name: Remover Gerenciamento de Atualizações
+              href: update-management/update-mgmt-remove-feature.md
+            - name: Remover VMs do Gerenciamento de Atualizações
+              href: update-management/update-mgmt-remove-vms.md
         - name: Solucionar problemas
           items:
             - name: Solucionar problemas de implantação de recurso

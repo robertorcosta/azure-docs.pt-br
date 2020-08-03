@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 310527d8e98e474faa43f19406f037e1a3835756
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 62a2ffeea1d15a16c4ec4aa6a2b88c8e34763064
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040258"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480400"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Conceitos e recursos da floresta de recursos do Azure Active Directory Domain Services
 
@@ -23,10 +23,7 @@ O Azure Active Directory Domain Services (Azure AD DS) fornece uma experiência 
 
 Embora seja seguro e forneça benefícios de segurança adicionais, algumas organizações não podem sincronizar os hashes de senhas de usuário para o Azure AD ou o Azure AD DS. Os usuários em uma organização podem não saber senha deles porque usam apenas a autenticação de cartão inteligente. Essas limitações impedem que algumas organizações usem o Azure AD DS para realizar lift-and-shift em aplicativos clássicos locais para o Azure.
 
-Para atender a essas necessidades e restrições, você pode criar um domínio gerenciado que usa uma floresta de recursos. Este artigo conceitual explica o que são as florestas e como elas confiam em outros recursos para fornecer um método de autenticação seguro. No momento, as florestas de recursos do Azure AD DS estão em versão prévia.
-
-> [!IMPORTANT]
-> Atualmente, as florestas de recursos do Azure AD DS não dão suporte ao Azure HDInsight ou aos Arquivos do Azure. As florestas de usuário padrão do Azure AD DS dão suporte a esses dois serviços adicionais.
+Para atender a essas necessidades e restrições, você pode criar um domínio gerenciado que usa uma floresta de recursos. Este artigo conceitual explica o que são as florestas e como elas confiam em outros recursos para fornecer um método de autenticação seguro.
 
 ## <a name="what-are-forests"></a>O que são florestas?
 
@@ -36,7 +33,7 @@ Em um domínio gerenciado AD DS do Azure, a floresta contém apenas um domínio.
 
 Por padrão, um domínio gerenciado é criado como uma floresta de *usuário* . Esse tipo de floresta sincroniza todos os objetos do Azure AD, incluindo qualquer conta de usuário criada em um ambiente do AD DS local. As contas de usuário podem se autenticar diretamente no domínio gerenciado, como para entrar em uma VM ingressada no domínio. Uma floresta de usuário funciona quando os hashes de senha podem ser sincronizados e os usuários não estão usando métodos de conexão exclusivos, como a autenticação de cartão inteligente.
 
-Em uma floresta de *recursos* de domínio gerenciado, os usuários se autenticam em uma *relação de confiança* de floresta unidirecional de suas AD DS locais. Com essa abordagem, os objetos de usuário e os hashes de senha não são sincronizados com o domínio gerenciado. Os objetos de usuário e as credenciais existem somente no AD DS local. Essa abordagem permite que as empresas hospedem recursos e plataformas de aplicativo no Azure que dependem da autenticação clássica, tais como LDAPS, Kerberos ou NTLM, mas todas as preocupações ou problemas de autenticação são removidos. No momento, as florestas de recursos do Azure AD DS estão em versão prévia.
+Em uma floresta de *recursos* de domínio gerenciado, os usuários se autenticam em uma *relação de confiança* de floresta unidirecional de suas AD DS locais. Com essa abordagem, os objetos de usuário e os hashes de senha não são sincronizados com o domínio gerenciado. Os objetos de usuário e as credenciais existem somente no AD DS local. Essa abordagem permite que as empresas hospedem recursos e plataformas de aplicativo no Azure que dependem da autenticação clássica, tais como LDAPS, Kerberos ou NTLM, mas todas as preocupações ou problemas de autenticação são removidos.
 
 As florestas de recursos também fornecem a capacidade de realizar lift-and-shift nos seus aplicativos, um componente por vez. Muitos aplicativos locais herdados têm vários níveis, geralmente usando um servidor Web ou front-end e muitos componentes relacionados ao banco de dados. Esses níveis dificultam a realização de lift-and-shift do aplicativo inteiro para a nuvem em uma etapa. Com as florestas de recursos, você pode elevar o seu aplicativo na nuvem em uma abordagem em fases, que facilita mover o seu aplicativo para o Azure.
 
@@ -116,7 +113,7 @@ As relações de confiança fornecem esse mecanismo para validar solicitações 
 
 Para saber mais sobre relações de confiança, consulte [Como as relações de confiança da floresta funcionam no Azure AD DS?][concepts-trust]
 
-Para começar a criar um domínio gerenciado com uma floresta de recursos, consulte [criar e configurar um domínio gerenciado do Azure AD DS][tutorial-create-advanced]. Em seguida, você pode [Criar uma relação de confiança da floresta de saída para um domínio local (versão prévia)][create-forest-trust].
+Para começar a criar um domínio gerenciado com uma floresta de recursos, consulte [criar e configurar um domínio gerenciado do Azure AD DS][tutorial-create-advanced]. Em seguida, você pode [criar uma relação de confiança de floresta de saída para um domínio local][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

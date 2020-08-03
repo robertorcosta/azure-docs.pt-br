@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/04/2020
+ms.date: 07/30/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6bcf268ba45ee8fefa027263a25ff411344b4669
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 8c0b6ba4045e1e92d395752f106258d3c0709108
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116434"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486708"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário no Azure Active Directory B2C
 
@@ -188,7 +188,7 @@ Depois de configurar a identidade visual da empresa, habilite-a em seus fluxos d
 
 1. No menu à esquerda da portal do Azure, selecione **Azure ad B2C**.
 1. Em **Políticas**, selecione **Fluxos de usuários (políticas)** .
-1. Selecione o fluxo de usuário para o qual você deseja habilitar a identidade visual da empresa. A identidade visual da empresa **não tem suporte** para os tipos de fluxo de usuário *Sign in v1* e de *edição de perfil v1* .
+1. Selecione o fluxo de usuário para o qual você deseja habilitar a identidade visual da empresa. A identidade visual da empresa **não tem suporte** para a *entrada* padrão e os tipos de fluxo de usuário de *edição de perfil* padrão.
 1. Em **Personalizar**, selecione **layouts de página**e, em seguida, selecione o layout que você deseja marcar. Por exemplo, selecione **página de inscrição ou inscrição unificada**.
 1. Para a **versão de layout de página (visualização)**, escolha a versão **1.2.0** ou superior.
 1. Clique em **Salvar**.

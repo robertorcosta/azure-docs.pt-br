@@ -51,7 +51,7 @@
       href: concepts-digital-twin.md
     - name: Repositório de modelos
       href: concepts-model-repository.md
-    - name: Descoberta de modelos
+    - name: Usar modelos em uma solução
       href: concepts-model-discovery.md
     - name: Analisador de modelo
       href: concepts-model-parser.md

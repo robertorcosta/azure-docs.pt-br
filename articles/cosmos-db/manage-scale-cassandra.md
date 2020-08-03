@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: 447744f0436cb29e849a52694a02600183fd357a
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 26f635525afea289e2e791b802478040a7851eee
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432814"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486503"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Como escalar de forma elástica uma conta da API do Cassandra do Azure Cosmos DB
 
@@ -46,7 +46,7 @@ A vantagem desse método é que ele é uma maneira simples e completa de gerenci
 
 ## <a name="use-the-control-plane"></a><a id="use-control-plane"></a>Use o painel de controle
 
-A API do Azure Cosmos DB para Cassandra permite ajustar a taxa de transferência de forma programática usando nossos vários recursos de painel de controle. Consulte os artigos do [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples-cassandra.md) e [Azure CLI](cli-samples.md) para obter orientações e exemplos.
+A API do Azure Cosmos DB para Cassandra permite ajustar a taxa de transferência de forma programática usando nossos vários recursos de painel de controle. Consulte os artigos do [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples.md) e [Azure CLI](cli-samples.md) para obter orientações e exemplos.
 
 A vantagem desse método é que você pode automatizar a expansão ou redução dos recursos com base em um temporizador para considerar a atividade de pico ou períodos de baixa atividade. Dê uma olhada em nosso exemplo [aqui](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) para saber como fazer isso usando o Azure Functions e o PowerShell.
 

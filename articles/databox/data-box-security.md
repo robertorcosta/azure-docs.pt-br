@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 3ec5889d952e2836f1d112e38b8248f667cab586
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7b74c40ab504c08f5a19a1382c303530116c0fdf
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200409"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87483822"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Segurança e proteção de dados do Azure Data Box
 
@@ -68,7 +68,7 @@ O serviço do Data Box é protegido pelos seguintes recursos.
 
 - O acesso ao serviço do Data Box requer que a organização tenha uma assinatura do Azure que inclua o Data Box. Sua assinatura determina os recursos que você pode acessar no portal do Azure.
 - Como o serviço do Data Box está hospedado no Azure, ele é protegido pelos recursos de segurança do Azure. Para obter mais informações sobre os recursos de segurança fornecidos pelo Microsoft Azure, acesse a [Central de Confiabilidade do Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx).
-- O acesso ao pedido do Data Box pode ser controlado por meio do uso de funções RBAC (Controle de acesso baseado em função). Para saber mais, confira [Configurar controle de acesso para pedido do Data Box](data-box-logs.md#set-up-access-control-on-the-order)
+- O acesso ao pedido de Data Box pode ser controlado por meio do uso de funções do Azure. Para saber mais, confira [Configurar controle de acesso para pedido do Data Box](data-box-logs.md#set-up-access-control-on-the-order)
 - O serviço do Data Box armazena a senha de desbloqueio que é usada para desbloquear o dispositivo no serviço.
 - O serviço do Data Box armazena os detalhes do pedido e o status no serviço. Essas informações são excluídas quando o pedido é excluído.
 
@@ -81,7 +81,7 @@ O Azure Data Box reúne e exibe informações pessoais nas seguintes instâncias
 - **Detalhes do pedido** - após a ordem ser criada, o endereço de envio, email e as informações de contato dos usuários são armazenadas no portal do Azure. As informações salvas incluem:
 
   - Nome de contato
-  - Número de telefone
+  - Número do telefone
   - Email
   - Endereço
   - City

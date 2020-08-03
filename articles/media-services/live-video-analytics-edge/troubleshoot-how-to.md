@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 05/24/2020
-ms.openlocfilehash: ca41a403f789fd529ac65c21799d3d3e7f3becf6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bbd3cb88b017209adff58a646e274caf31ab425f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285451"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486435"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Solucionar problemas de análise de vídeo ao vivo no IoT Edge
 
@@ -18,7 +18,7 @@ Este artigo aborda as etapas de solução de problemas do LVA (análise de víde
 
 ## <a name="troubleshoot-deployment-issues"></a>Solucionar problemas de implantação
 
-### <a name="diagnostics"></a>Diagnósticos
+### <a name="diagnostics"></a>Diagnóstico
 
 Como parte de sua implantação de análise de vídeo ao vivo, você configura recursos do Azure, como o Hub IoT e dispositivos IoT Edge. Como uma primeira etapa para diagnosticar problemas, sempre verifique se o dispositivo de borda está configurado corretamente seguindo estas instruções:
 
@@ -234,7 +234,7 @@ A análise de vídeo ao vivo por meio do processador de extensão HTTP pode este
 
     ![Captura de tela que exibe o status de execução dos módulos no Hub IoT do Azure.](./media/troubleshoot-how-to/iot-hub.png)
 
-* Verifique se você está enviando eventos para o ponto de extremidade correto da URL. O contêiner external AI expõe uma URL e uma porta por meio da qual recebe e retorna os dados de solicitações POST. Essa URL é especificada como uma `endpoint: url` propriedade para o processador de extensão http. Como visto na [URL de topologia](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json), o ponto de extremidade é definido como o parâmetro de URL inferência. Certifique-se de que o valor padrão para o [parâmetro](http://yolov3/score) ou o valor passado seja preciso. Você pode testar para ver se ele está funcionando usando a URL do cliente (ondulação).  
+* Verifique se você está enviando eventos para o ponto de extremidade correto da URL. O contêiner external AI expõe uma URL e uma porta por meio da qual recebe e retorna os dados de solicitações POST. Essa URL é especificada como uma `endpoint: url` propriedade para o processador de extensão http. Como visto na [URL de topologia](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/httpExtension/topology.json), o ponto de extremidade é definido como o parâmetro de URL inferência. Certifique-se de que o valor padrão para o parâmetro ou o valor passado seja preciso. Você pode testar para ver se ele está funcionando usando a URL do cliente (ondulação).  
 
     Por exemplo, aqui está um contêiner Yolo v3 que está sendo executado no computador local com um endereço IP de 172.17.0.3. Use o Docker inspecionar para localizar o endereço IP.
 

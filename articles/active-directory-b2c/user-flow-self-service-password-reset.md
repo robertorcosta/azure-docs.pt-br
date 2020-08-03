@@ -7,22 +7,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/30/2018
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 465643d21d3059cd41948ff682d7464b00f749c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c9edaf3356ea4c1a521a89f2ec60a4b6ba1a5ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85383998"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481488"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Configure a redefinição de senha de autoatendimento para seus clientes
 
 Com o recurso de redefinição de senha de autoatendimento, seus clientes que tenham se registrado com contas locais poderão redefinir as respectivas senhas por conta própria. Isso reduz significativamente a sobrecarga da equipe de suporte, principalmente se milhões de clientes usarem seu aplicativo regularmente. Atualmente, usar um endereço de email verificado é o único método de recuperação com suporte.
 
 > [!NOTE]
-> Este artigo aplica-se à redefinição de senha por autoatendimento usada no contexto do fluxo de usuário de **Entrada** V1 que usa **Entrada na Conta Local** como o provedor de identidade. Se você precisar de fluxos de usuários de redefinição de senha totalmente personalizáveis invocados do seu aplicativo, consulte [este artigo](user-flow-overview.md).
+> Este artigo se aplica à redefinição de senha de autoatendimento usada no contexto do fluxo de usuário de **entrada** padrão, que usa a **entrada de conta local** como o provedor de identidade. Se você precisar de fluxos de usuários de redefinição de senha totalmente personalizáveis invocados do seu aplicativo, consulte [este artigo](user-flow-overview.md).
 >
 >
 
@@ -32,7 +32,7 @@ Por padrão, o diretório não tem a redefinição de senha de autoatendimento a
 2. Abra o **Azure Active Directory** (na barra de navegação à esquerda).
 3. Role para baixo na folha opções e selecione **redefinição de senha**.
 4. Configure a **Redefinição de senha de autoatendimento habilitada** como **Tudo**.
-5. Clique em **Salvar** na parte superior da página. Concluído!
+5. Clique em **Salvar** na parte superior da página. Pronto!
 
 Para testar, use o recurso "Executar agora" em qualquer fluxo de usuário de entrada que tenha contas locais como um provedor de identidade. Na página de entrada da conta local (na qual você insere um endereço de email e a senha ou um nome de usuário e a senha), clique em **Não consegue acessar sua conta?** para verificar a experiência do cliente.
 

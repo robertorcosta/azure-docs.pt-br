@@ -452,6 +452,8 @@
       displayName: security
     - name: Versões de fluxo do usuário
       href: user-flow-versions.md
+    - name: Versões de fluxo do usuário herdadas
+      href: user-flow-versions-legacy.md
 - name: Recursos
   items:
     - name: Roteiro do Azure

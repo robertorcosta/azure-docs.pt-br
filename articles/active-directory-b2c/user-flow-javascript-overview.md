@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 07/30/2020
 ms.custom: project-no-code, devx-track-javascript
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d85ffca8c72e7a247d5bbd1e593335fd7995b594
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 58ddca6bb7844288aae0370f035bc4dfa2dc942f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170150"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481658"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>JavaScript e versões de layout de página no Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ Nas **Propriedades**de fluxo do usuário, você pode habilitar o JavaScript. Hab
 
 ## <a name="select-a-page-layout-version"></a>Selecionar uma versão de layout de página
 
-Se você habilitar ou não o JavaScript nas propriedades do fluxo de usuário, poderá especificar uma versão de layout de página para suas páginas de fluxo de usuário. Abra o fluxo de usuário e selecione **layouts de página**. Em **nome do layout**, selecione uma página fluxo de usuário e escolha a **versão de layout da página**.
+Se você habilitar ou não o JavaScript nas propriedades do fluxo de usuário, poderá especificar uma versão de layout de página para suas páginas de fluxo de usuário. Abra o fluxo de usuário e selecione **layouts de página**. Em **nome do layout**, selecione uma página de fluxo de usuário e escolha a **versão de layout da página (visualização)**.
 
 Para obter informações sobre as diferentes versões de layout de página, consulte o [log de página versão de layout de alteração](page-layout.md).
 
