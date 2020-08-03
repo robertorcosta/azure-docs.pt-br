@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: e0d963d6491574bf630061749ba4d3538549fa34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16b9342f0374377349f338db7ce5c8389c77ea18
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85570114"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425206"
 ---
 Nesta etapa, você está avaliando Quantos compartilhamentos de arquivos do Azure são necessários. Uma única instância do Windows Server (ou cluster) pode sincronizar até 30 compartilhamentos de arquivos do Azure.
 
@@ -68,7 +68,7 @@ Em sua situação, é possível que um conjunto de pastas possa ser sincronizado
 
 :::row:::
     :::column:::
-        [![](media/storage-files-migration-namespace-mapping/namespace-mapping.png "An example of a mapping table. Download the file below to experience and use the content of this image.")](media/storage-files-migration-namespace-mapping/namespace-mapping-expanded.png#lightbox)
+        [![Um exemplo de uma tabela de mapeamento. Baixe o arquivo abaixo para experimentar e usar o conteúdo desta imagem.](media/storage-files-migration-namespace-mapping/namespace-mapping.png)](media/storage-files-migration-namespace-mapping/namespace-mapping-expanded.png#lightbox)
     :::column-end:::
     :::column:::
         Use uma combinação dos conceitos anteriores para ajudar a determinar quantos compartilhamentos de arquivos do Azure são necessários e quais partes dos dados existentes acabarão com o compartilhamento de arquivos do Azure.

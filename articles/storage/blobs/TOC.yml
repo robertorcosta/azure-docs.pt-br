@@ -262,7 +262,7 @@
           items:
             - name: Monitorar uma conta de armazenamento
               href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Migrar de métricas clássicas
+            - name: Transição de métricas clássicas
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Monitoramento (clássico)
               items:
@@ -685,7 +685,7 @@
           items:
             - name: Monitorar uma conta de armazenamento
               href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Migrar de métricas clássicas
+            - name: Transição de métricas clássicas
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Monitoramento (clássico)
               items:
