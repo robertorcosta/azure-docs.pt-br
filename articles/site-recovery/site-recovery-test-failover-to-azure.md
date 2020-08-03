@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4233df62de48dd7a7253c488b0cd69c38cd8d445
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699049"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503490"
 ---
 # <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Executar um failover de teste (análise de recuperação de desastre) no Azure 
 
@@ -25,7 +25,7 @@ Execute um failover de teste para validar sua estratégia de replicação e recu
 ## <a name="run-a-test-failover"></a>Execute um teste de failover
 Este procedimento descreve como executar um failover de teste para um plano de recuperação. Se você quiser executar um failover de teste para uma única VM, siga as etapas descritas [aqui](tutorial-dr-drill-azure.md#run-a-test-failover-for-a-single-vm)
 
-![Failover de Teste](./media/site-recovery-test-failover-to-azure/TestFailover.png)
+![Captura de tela da página failover de teste no portal do Azure.](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
 1. Em site Recovery no portal do Azure, clique em **planos de recuperação**  >  *recoveryplan_name*  >  **failover de teste**.
@@ -48,7 +48,7 @@ Este procedimento descreve como executar um failover de teste para um plano de r
 8. Em **Observações**, registre e salve todas as observações associadas ao failover de teste.
 
 
-![Failover de Teste](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
+![Captura de tela da guia trabalhos de failover de teste.](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
 
 Quando um failover de teste é disparado, ocorre o seguinte:
 

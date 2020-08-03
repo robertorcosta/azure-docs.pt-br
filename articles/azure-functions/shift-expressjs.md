@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: cshoe
-ms.openlocfilehash: d035ef4bc90410cbf0899c038047dd5e6a001f10
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 3e38fae84f63f4867befbc3695242dc62dc8dbe8
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/31/2020
-ms.locfileid: "87462299"
+ms.locfileid: "87502640"
 ---
 # <a name="shifting-from-expressjs-to-azure-functions"></a>Mudando de Express.js para Azure Functions
 
@@ -24,7 +24,7 @@ Ao migrar o código para uma arquitetura sem servidor, a refatoração Express.j
 
 - **Rota padrão**: por padrão, Azure Functions pontos de extremidade são expostos sob a `api` rota. As regras de roteamento são configuráveis por meio do [ `routePrefix` no _host.jsno_ arquivo](./functions-bindings-http-webhook-output.md#hostjson-settings).
 
-- **Configuração e convenções**: um aplicativo de funções usa o _function.jsno_ arquivo para definir verbos HTTP, definir políticas de segurança e pode configurar a [entrada e a saída](./functions-triggers-bindings.md)da função. Por padrão, o nome da pasta que contém os arquivos de função define o nome do ponto de extremidade, mas você pode alterar o nome por meio da Propriedade Route na [function.jsno](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) arquivo.
+- **Configuração e convenções**: um aplicativo de funções usa o _function.jsno_ arquivo para definir verbos HTTP, definir políticas de segurança e pode configurar a [entrada e a saída](./functions-triggers-bindings.md)da função. Por padrão, o nome da pasta que contém os arquivos de função define o nome do ponto de extremidade, mas você pode alterar o nome por meio da `route` Propriedade na [function.jsno](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) arquivo.
 
 > [!TIP]
 > Saiba mais por meio do [Refactor de tutorial interativo Node.js e APIs expressas para APIs sem servidor com Azure Functions](https://docs.microsoft.com/learn/modules/shift-nodejs-express-apis-serverless/).

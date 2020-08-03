@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 0ef3135f572b00176ff2a114fd02db82c7a05bca
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1d924e96cfc287060107f541e44980295eb24745
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258395"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494478"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Rastreamento e log de eventos para seus Azure Data Box e Azure Data Box Heavy ordens de exportação
 
@@ -34,7 +34,7 @@ A tabela a seguir mostra um resumo das etapas Data Box ordem de exportação e a
 
 ## <a name="set-up-access-control-on-the-order"></a>Configurar o controle de acesso na ordem
 
-Você pode controlar quem pode acessar seu pedido quando a ordem é criada pela primeira vez. Configure funções de RBAC (controle de acesso baseado em função) em vários escopos para controlar o acesso ao pedido de Data Box. Uma função RBAC determina o tipo de acesso – leitura-gravação, somente leitura e gravação para um subconjunto de operações.
+Você pode controlar quem pode acessar seu pedido quando a ordem é criada pela primeira vez. Configure as funções do Azure em vários escopos para controlar o acesso ao pedido de Data Box. Uma função do Azure determina o tipo de acesso – leitura-gravação, somente leitura e gravação de leitura para um subconjunto de operações.
 
 As duas funções que podem ser definidas para o serviço de Azure Data Box são:
 
@@ -122,14 +122,14 @@ Aqui está um exemplo de saída quando o *log de cópia* tem erros e alguns dos 
 </CopyLog>    
 ```
 
-Você tem as seguintes opções para exportar esses arquivos: 
+Você tem as seguintes opções para ajudar a exportar esses arquivos: 
 
-- Você pode transferir os arquivos que não puderam ser copiados pela rede. 
-- Se o tamanho dos dados for maior do que a capacidade utilizável do dispositivo, ocorrerá uma cópia parcial e todos os arquivos que não foram copiados serão listados nesse log. Você pode usar esse log como um XML de entrada para criar uma nova ordem de Data Box e, em seguida, copiar esses arquivos.
+- É possível transferir os arquivos que não puderam ser copiados pela rede. 
+- Se o tamanho dos dados for maior do que a capacidade utilizável do dispositivo, ocorrerá uma cópia parcial e todos os arquivos que não tiverem sido copiados serão listados nesse log. Você pode usar esse log como um XML de entrada para criar uma ordem de Data Box e copiar esses arquivos.
 
 ### <a name="verbose-log"></a>Log detalhado
 
-O *log detalhado* contém uma lista de todos os arquivos que foram exportados com êxito da conta de armazenamento do Azure. O log também contém o tamanho do arquivo e a computação da soma de verificação.
+O *log detalhado* contém uma lista de todos os arquivos que foram exportados com êxito da conta de Armazenamento do Azure. O log também contém o tamanho do arquivo e a computação da soma de verificação.
 
 O log detalhado tem as informações no seguinte formato:
 
@@ -306,7 +306,3 @@ BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [solucionar problemas em seu data box e data Box Heavy](data-box-troubleshoot.md).
-
-
-
-

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 7aad1eb10018445150fb5cf3ac01b97480da674b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: c043cfb6cf437ab55cc4a48ced716798738adbef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86226407"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507426"
 ---
 Se você encontrar problemas ao executar quaisquer operações em galerias de imagens compartilhadas, definições de imagem e versões de imagem, execute o comando com falha novamente no modo de depuração. O modo de depuração é ativado passando a `--debug` opção com a CLI e a `-Debug` opção com o PowerShell. Depois de localizar o erro, siga este documento para solucionar os erros.
 
@@ -76,7 +76,7 @@ Possíveis causas:
 
 *O usuário que está tentando criar uma VM ou um conjunto de dimensionamento de máquinas virtuais ou não tem acesso de leitura para a versão da imagem.*
 
-Entre em contato com o proprietário da assinatura e peça para ele conceder acesso de leitura para a versão da imagem ou os recursos pai (como a galeria de imagens compartilhadas ou a definição de imagem) por meio de RBAC ([Controle de Acesso Baseado em Função](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)). 
+Entre em contato com o proprietário da assinatura e peça para conceder acesso de leitura à versão da imagem ou aos recursos pai (como a Galeria de imagens compartilhada ou definição de imagem) por meio do [controle de acesso baseado em função do Azure (RBAC do Azure)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
 
 *A versão da imagem não foi encontrada.*
 
@@ -97,6 +97,3 @@ Use o sinalizador **--expand ReplicationStatus** para verificar se a replicaçã
 ## <a name="azure-limits-and-quotas"></a>Limites e cotas do Azure 
 
 [Limites e cotas do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) se aplicam a todos os recursos de versão de imagem, definição da imagem e galeria de imagens compartilhadas. Fique dentro dos limites para suas assinaturas. 
-
-
-

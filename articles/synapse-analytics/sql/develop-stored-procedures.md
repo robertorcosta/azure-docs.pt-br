@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0f88b994104ed8a2d80fb3b16f125f8a087cbe3c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2b106a28514179d9be43b3c56ea8030eaf7ba13f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958371"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494988"
 ---
 # <a name="use-stored-procedures-in-sql-pool"></a>Usar procedimentos armazenados no pool do SQL
 
@@ -27,7 +27,7 @@ O pool do SQL oferece suporte a muitos dos recursos do T-SQL que são usados no 
 
 No entanto, para manter a escala e o desempenho do pool do SQL, há também alguns recursos e funcionalidades que têm diferenças comportamentais e outras que não têm suporte.
 
-## <a name="introducing-stored-procedures"></a>Apresentação dos procedimentos armazenados
+## <a name="stored-procedures-in-sql-pool"></a>Procedimentos armazenados no pool do SQL
 
 Os procedimentos armazenados são uma ótima maneira de encapsular o código SQL, armazenando-o perto de seus dados no data warehouse. Os procedimentos armazenados ajudam os desenvolvedores a modularizarem suas soluções encapsulando o código em unidades gerenciáveis; facilitando a maior reutilização do código. Cada procedimento armazenado também pode aceitar parâmetros para torná-lo ainda mais flexível.
 

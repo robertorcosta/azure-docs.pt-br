@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9cb1ddceff30b247caf3ecd9ee3bc21d5addb519
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2b11f11ac8a0d4f3a0623c2903dfc9355e875d14
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089440"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501926"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Conceder permissões para identidade gerenciada do espaço de trabalho (versão prévia)
 
@@ -22,7 +22,7 @@ Este artigo ensina como conceder permissões para a identidade gerenciada no esp
 >[!NOTE]
 >Essa identidade gerenciada do workspace será referida como identidade gerenciada no restante deste documento.
 
-## <a name="grant-the-managed-identity--permissions-to-the-sql-pool"></a>Conceder as permissões de identidade gerenciadas para o pool do SQL
+## <a name="grant-managed-identity-permissions-to-the-sql-pool"></a>Conceder permissões de identidade gerenciadas para o pool do SQL
 
 A identidade gerenciada concede permissões aos pools do SQL no espaço de trabalho. Com as permissões concedidas, você pode orquestrar pipelines que executam atividades relacionadas ao pool do SQL. Ao criar um espaço de trabalho Synapse do Azure usando portal do Azure, você pode conceder as permissões de controle de identidade gerenciadas em pools SQL.
 

@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 427d936353b47e951f8faaf90483691bab856767
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 538cbfea2480573c190a1dd0ee0480e21aecefe2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510737"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502079"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Habilitar e criar compartilhamentos de arquivos grandes
 
@@ -53,7 +54,7 @@ A habilitação de grandes compartilhamentos de arquivos em uma conta é um proc
    |Modelo de implantação     |Gerenciador de Recursos         |
    |Desempenho     |Standard         |
    |Tipo de conta     |StorageV2 (uso geral v2)         |
-   |Camada de acesso     |Dinâmica         |
+   |Camada de acesso     |Frequente         |
 
 1. Selecione **avançado**e, em seguida, selecione o botão de opção **habilitado** à direita de **grandes compartilhamentos de arquivos**.
 1. Selecione **Revisar + Criar** para examinar as configurações da conta de armazenamento e criar a conta.

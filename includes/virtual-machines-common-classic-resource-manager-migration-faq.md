@@ -8,13 +8,21 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: d05386f1dfbab28d5fe42d02b8e9be0f257afafd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 014d1ea4575b17b1d4017c9519bee6c5ea66ceb5
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86527194"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87515337"
 ---
+## <a name="what-is-azure-service-manager-and-what-does-it-mean-by-classic"></a>O que é o Service Manager do Azure e o que isso significa por clássico?
+
+A palavra "clássico" na VM IaaS (clássica) refere-se a VMs gerenciadas pelo ASM (Service Manager do Azure). O ASM (Service Manager do Azure) é o antigo plano de controle do Azure responsável por criar, gerenciar, excluir VMs e executar outras operações de plano de controle. 
+
+## <a name="what-is-azure-resource-manager"></a>O que é o Azure Resource Manager?
+
+[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) é o plano de controle mais recente do Azure responsável por criar, gerenciar, excluir VMs e executar outras operações de plano de controle. 
+
 ## <a name="what-is-the-time-required-for-migration"></a>Qual é o tempo necessário para a migração?
 
 O planejamento e a execução da migração dependem muito da complexidade da arquitetura e pode levar alguns meses.  

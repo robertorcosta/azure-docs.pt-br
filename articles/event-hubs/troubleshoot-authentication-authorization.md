@@ -3,18 +3,18 @@ title: Solucionar problemas de autenticação e autorização-hubs de eventos do
 description: Este artigo fornece informações sobre como solucionar problemas de autenticação e autorização com os hubs de eventos do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 1c053f60c877cdd26655948c37ab81a5e4d61cf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6fca0c29c20e2bfe0c3ec64e3068b61bd5147bdb
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322417"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502096"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Solucionar problemas de autenticação e autorização-hubs de eventos do Azure
 O artigo [solucionar problemas de conectividade](troubleshooting-guide.md) fornece dicas para solucionar problemas de conectividade com os hubs de eventos do Azure. Este artigo fornece dicas e recomendações para solucionar problemas de autenticação e autorização com os hubs de eventos do Azure. 
 
 ## <a name="if-you-are-using-azure-active-directory"></a>Se você estiver usando Azure Active Directory
-Se você estiver usando o Azure Active Directory (Azure AD) para autenticar e autorizar com os hubs de eventos do Azure, confirme se a identidade que acessa o Hub de eventos é membro da **função RBAC (controle de acesso baseado em função)** correta no escopo direito do **recurso** (grupo de consumidores, Hub de eventos, namespace, grupo de recursos ou assinatura).
+Se você estiver usando Azure Active Directory (Azure AD) para autenticar e autorizar com os hubs de eventos do Azure, confirme se a identidade que acessa o Hub de eventos é membro da função certa do **Azure** no **escopo de recursos** correto (grupo de consumidores, Hub de eventos, namespace, grupo de recursos ou assinatura).
 
 ### <a name="rbac-roles"></a>Funções RBAC
 - O [proprietário dos dados dos hubs de eventos do Azure](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) para acesso completo aos recursos dos hubs de eventos.

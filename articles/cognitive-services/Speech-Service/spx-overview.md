@@ -10,14 +10,15 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: trbye
-ms.openlocfilehash: 3fb0b71cbb82b3b9acad1d1ce093baa86c700a51
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: ab019250e03feb9a776d628c06e792b884252260
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800329"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501807"
 ---
-# <a name="what-is-the-speech-cli"></a>O que é a CLI de fala?
+# <a name="what-is-the-speech-cli"></a>O que é a CLI de Fala?
 
 A CLI de fala é uma ferramenta de linha de comando para usar o serviço de fala sem escrever nenhum código. A CLI de fala requer configuração mínima e é fácil começar imediatamente a experimentar com os principais recursos do serviço de fala para ver se os casos de uso podem ser atendidos. Em alguns minutos, você pode executar fluxos de trabalho de teste simples, como reconhecimento de fala em lotes, de um diretório de arquivos ou de conversão de texto em uma coleção de cadeias de caracteres de um arquivo. Além dos fluxos de trabalho simples, a CLI de fala está pronta para produção e pode ser expandida para executar processos maiores usando `.bat` scripts de shell ou automatizados.
 

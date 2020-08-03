@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: 4e07334e859f2c1401547cc3f88988830b71c5e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b874cefc2521089da02b90b9241be93e80836d6e
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77193079"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507582"
 ---
 Este artigo descreve como migrar recursos de infra-estrutura como serviço (IaaS) dos modelos de implantação do Classic para o Resource Manager e detalha como conectar recursos dos dois modelos de implantação que coexistem na sua assinatura usando gateways de site a site de rede virtual. Você pode ler mais sobre [Azure Resource Manager recursos e benefícios](../articles/azure-resource-manager/management/overview.md). 
 
@@ -22,9 +22,9 @@ O Gerenciador de Recursos possibilita implantar aplicativos complexos por meio d
 
 Há suporte para quase todos os recursos do modelo de implantação clássica referentes a computação, rede e armazenamento no Azure Resource Manager. Para aproveitar os novos recursos no Azure Resource Manager, você pode migrar as implantações existentes do modelo de implantação clássico.
 
-## <a name="supported-resources-for-migration"></a>Recursos com suporte para migração
-Esses recursos de IaaS clássicos têm suporte durante a migração
+## <a name="supported-resources--configurations-for-migration"></a>Recursos com suporte & configurações para migração
 
+### <a name="supported-resources-for-migration"></a>Recursos com suporte para migração
 * Máquinas Virtuais
 * Conjuntos de Disponibilidade
 * Contas de Armazenamento
@@ -34,6 +34,13 @@ Esses recursos de IaaS clássicos têm suporte durante a migração
 * Grupos de segurança de rede
 * Tabelas de Rotas
 * IPs Reservados
+
+## <a name="supported-configurations-for-migration"></a>Configurações com suporte para migração
+Esses recursos de IaaS clássicos têm suporte durante a migração
+
+| Serviço | Configuração |
+| --- | --- |
+| Azure AD Domain Services | [Redes virtuais que contêm serviços do Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet) |
 
 ## <a name="supported-scopes-of-migration"></a>Escopos de migração com suporte
 Há quatro maneiras diferentes para concluir a migração de recursos de computação, rede e armazenamento.
@@ -75,7 +82,7 @@ Se a sua conta de armazenamento não tiver discos associados ou dados de Máquin
 
 As capturas de tela a seguir mostram como atualizar uma conta de armazenamento clássico para uma conta de armazenamento Azure Resource Manager usando portal do Azure:
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Navegue até sua conta de armazenamento.
+2. Navegue para sua conta de armazenamento.
 3. Na seção **configurações** , clique em **migrar para o ARM**.
 4. Clique em **validar** para determinar a viabilidade de migração.
 5. Se a validação for aprovada, clique em **preparar** para criar uma conta de armazenamento migrada.
@@ -129,5 +136,4 @@ Atualmente, não há suporte para as seguintes configurações.
 | Serviço de aplicativo do Azure |Redes virtuais que contêm ambientes do Serviço de Aplicativo |Não há suporte para esse recurso no momento. |
 | Azure HDInsight |Redes virtuais que contêm serviços do HDInsight |Não há suporte para esse recurso no momento. |
 | Serviços de Ciclo de Vida do Microsoft Dynamics |Redes virtuais que contêm máquinas virtuais gerenciadas pelos Serviços de Ciclo de Vida do Microsoft Dynamics |Não há suporte para esse recurso no momento. |
-| Azure AD Domain Services |Redes virtuais que contêm serviços do Azure AD Domain Services |Não há suporte para esse recurso no momento. |
 | Gerenciamento de API do Azure |Redes virtuais que contêm implantações do Gerenciamento de API do Azure |Não há suporte para esse recurso no momento. Para migrar a VNET IaaS, altere a VNET da implantação do Gerenciamento de API, que é uma operação sem tempo de inatividade. |

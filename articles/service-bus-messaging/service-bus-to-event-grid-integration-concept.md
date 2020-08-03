@@ -6,12 +6,13 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 009e6a1b98e72d9618dc8ed3437d7ea90ab4afac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0d9c9c061e31ac4d3eba8d31352253bb25b62a9b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340574"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503286"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Visão geral da integração do Barramento de Serviço com a Grade de Eventos
 
@@ -171,7 +172,7 @@ Daqui em diante, você poderá explorar as outras opções de instalação ou te
 
 * Obter [exemplos](service-bus-to-event-grid-integration-example.md) de Barramento de Serviço e da Grade de Eventos.
 * Saiba mais sobre a [grade de eventos](https://docs.microsoft.com/azure/event-grid/).
-* Saiba mais sobre o [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
+* Saiba mais sobre [Funções do Azure](https://docs.microsoft.com/azure/azure-functions/).
 * Saiba mais sobre o [Aplicativos Lógicos](https://docs.microsoft.com/azure/logic-apps/).
 * Saiba mais sobre o [Barramento de Serviço](https://docs.microsoft.com/azure/service-bus/).
 

@@ -4,12 +4,12 @@ description: Aprenda a controlar o acesso ao arquivo de configuração Kubernete
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 4d25babd13bb8ecdcd8c9eb60a976a05702fb9b6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5ed2f74d9de30b5fbdeaeb38316831db0777a0d6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255261"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501620"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Usar os controles de acesso baseado em função do Azure para definir o acesso ao arquivo de configuração do Kubernetes no AKS (Serviço de Kubernetes do Azure)
 
@@ -27,7 +27,7 @@ Este artigo também requer que você esteja executando o CLI do Azure versão 2.
 
 Quando você interage com um cluster do AKS usando a ferramenta `kubectl`, é usado um arquivo de configuração que define as informações de conexão do cluster. Esse arquivo de configuração normalmente é armazenado em *~/.Kube/config*. Vários clusters podem ser definidos neste arquivo *kubeconfig* . Você pode alternar entre clusters usando o comando [kubectl config use-context][kubectl-config-use-context].
 
-O comando [az aks get-credentials][az-aks-get-credentials] permite que você obtenha as credenciais de acesso para um cluster do AKS e mescle-os ao arquivo *kubeconfig*. Você pode usar RBACs (controles de acesso baseado em função) do Azure para controlar o acesso a essas credenciais. Essas funções de RBAC do Azure permitem que você defina quem pode recuperar o arquivo *kubeconfig* e, se alguém o fizer, quais permissões esse alguém terá dentro do cluster.
+O comando [az aks get-credentials][az-aks-get-credentials] permite que você obtenha as credenciais de acesso para um cluster do AKS e mescle-os ao arquivo *kubeconfig*. Você pode usar RBACs (controles de acesso baseado em função) do Azure para controlar o acesso a essas credenciais. Essas funções do Azure permitem definir quem pode recuperar o arquivo *kubeconfig* e quais permissões eles têm dentro do cluster.
 
 As duas funções internas são:
 

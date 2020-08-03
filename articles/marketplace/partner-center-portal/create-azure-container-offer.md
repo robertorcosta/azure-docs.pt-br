@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 103a5534c143e5edf87f70570eb941dfa72bd45b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8148163dc969920b473f12a7162c6f317d85b3c8
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317817"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503218"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Criar uma oferta de contêiner do Azure no Azure Marketplace
 
@@ -284,9 +284,7 @@ Essa guia permite que você escolha em quais nuvens o plano ficará disponível.
 
 Todos os planos para ofertas de contêiner do Azure são disponibilizados automaticamente no **Azure global**.  Seu plano pode ser usado por clientes em todas as regiões globais do Azure que usam o Marketplace comercial. Para obter mais informações, consulte [Disponibilidade geográfica e suporte a moeda](../marketplace-geo-availability-currencies.md).
 
-Selecione a opção [**Azure governamental**](../../azure-government/documentation-government-welcome.md) para que sua solução apareça aqui. Esta é uma nuvem de comunidade governamental com acesso controlado para clientes dos EUA Federal, S] (.. /Marketplace-geo-Availability-currencies.MD) em. Por ser o editor, você é responsável por eventuais controles de conformidade, medidas de segurança e melhores práticas dessa comunidade de nuvem. O Azure Governamental usa datacenters isolados fisicamente e redes (localizadas apenas nos EUA).
-
-Antes de [publicar](../../azure-government/documentation-government-manage-marketplace-partners.md) no Azure Governamental, teste e confirme sua solução dentro dessa área, pois os resultados podem ser diferentes. Para criar e testar sua solução, solicite uma conta de avaliação em [Avaliação do Microsoft Azure Governamental](https://azure.microsoft.com/global-infrastructure/government/request/).
+Selecione a opção [Azure governamental](../../azure-government/documentation-government-welcome.md) para que sua solução apareça aqui. Essa é uma nuvem de comunidade governamental com acesso controlado para clientes de agências federais, estaduais e locais ou tribais do governo dos EUA, bem como parceiros qualificados para atendê-las. Por ser o editor, você é responsável por eventuais controles de conformidade, medidas de segurança e melhores práticas dessa comunidade de nuvem. O Azure Governamental usa datacenters isolados fisicamente e redes (localizadas apenas nos EUA). Antes de [publicar](../../azure-government/documentation-government-manage-marketplace-partners.md) no Azure Governamental, teste e confirme sua solução dentro dessa área, pois os resultados podem ser diferentes. Para criar e testar sua solução, solicite uma conta de avaliação em [Avaliação do Microsoft Azure Governamental](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
 > Depois que o plano for publicado e disponível em uma região específica, você não poderá remover essa região.
