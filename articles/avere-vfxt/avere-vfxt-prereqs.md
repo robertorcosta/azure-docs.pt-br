@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 24c803bd94f56af551f3afa2cb7350219b4fa448
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 538f3f18e1c8889834b9ee6588b85c9094dfbebe
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124724"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496705"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparar para criar o Avere vFXT
 
@@ -32,7 +32,7 @@ Para criar uma nova assinatura do Azure no portal do Azure:
 
 Um usuário com permissões de proprietário para a assinatura deve criar o cluster do vFXT. A criação de cluster exige que um proprietário aceite os termos de serviço do software e autorize as alterações nos recursos de rede e de armazenamento.
 
-Há algumas soluções alternativas para permitir que um não proprietário crie um avere vFXT para o cluster do Azure. Esses cenários envolvem a restrição de recursos e a atribuição de funções de RBAC (controle de acesso baseado em função) adicionais ao criador. Em todos esses casos, um proprietário de assinatura também deve [aceitar os termos de software avere vFXT](#accept-software-terms) antes do tempo.
+Há algumas soluções alternativas para permitir que um não proprietário crie um avere vFXT para o cluster do Azure. Esses cenários envolvem a restrição de recursos e a atribuição de funções do Azure adicionais ao criador. Em todos esses casos, um proprietário de assinatura também deve [aceitar os termos de software avere vFXT](#accept-software-terms) antes do tempo.
 
 | Cenário | Restrições | Funções de acesso necessárias para criar o cluster avere vFXT |
 |----------|--------|-------|
@@ -49,7 +49,7 @@ Verifique se você tem cota suficiente para os seguintes componentes do Azure. S
 >
 > Verifique se a cota está habilitada para a região em que você pretende executar o fluxo de trabalho.
 
-|Componente do Azure|Cota|
+|Componente do Azure|Quota|
 |----------|-----------|
 |Máquinas virtuais|3 ou mais E32s_v3 (um por nó de cluster) |
 |Armazenamento SSD Premium|Espaço do sistema operacional de 200 GB, além de 1 a 4 TB de espaço do cache por nó |

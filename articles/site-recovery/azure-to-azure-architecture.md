@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: e5daf318088cb71b6a1819db71e3c597a9fa94db
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3cd64de05c44729f1aa714849e12fc8f69998334
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421443"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498609"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Azure para o Azure
 
@@ -34,7 +34,7 @@ Os componentes envolvidos na recuperação de desastre para VMs do Azure são re
 **Conta de armazenamento em cache** | Você precisa de uma conta de armazenamento em cache na rede de origem. Durante a replicação, as alterações na VM são armazenadas no cache antes de serem enviadas para o armazenamento de destino.  As contas de armazenamento em cache devem ser padrão.<br/><br/> O uso de um cache garante um impacto mínimo nos aplicativos de produção que são executados em uma VM.<br/><br/> [Saiba mais](azure-to-azure-support-matrix.md#cache-storage) sobre os requisitos de armazenamento em cache. 
 **Recursos de destino** | Os recursos de destino são usados durante a replicação e quando ocorre um failover. O Site Recovery pode configurar o recurso de destino por padrão, ou você pode criá-lo/personalizá-lo.<br/><br/> Na região de destino, verifique se você consegue criar VMs e se a sua assinatura tem recursos suficientes para dar suporte a tamanhos de VM que serão necessários na região de destino. 
 
-![Replicação de origem e de destino](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
+![Diagrama mostrando a replicação de origem e de destino.](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
 
 ## <a name="target-resources"></a>Recursos de destino
 
@@ -116,7 +116,7 @@ Quando você habilita a replicação para uma VM do Azure, ocorre o seguinte:
 4. O Site Recovery processa os dados no cache e envia-os para a conta de armazenamento de destino ou para os discos gerenciados de réplica.
 5. Depois que os dados são processados, os pontos de recuperação consistentes com falhas são gerados a cada cinco minutos. Os pontos de recuperação consistentes com aplicativo são gerados de acordo com a configuração especificada na política de replicação.
 
-![Habilitar o processo de replicação, etapa 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
+![Diagrama mostrando o processo de replicação, etapa 2.](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
 
 **Processo de replicação**
 
@@ -128,7 +128,7 @@ Quando você habilita a replicação para uma VM do Azure, ocorre o seguinte:
 
 Se o acesso de saída para as VMs for controlado com URLs, permita estas URLs.
 
-| **Nome**                  | **Comercial**                               | **Governamental**                                 | **Descrição** |
+| **Nome**                  | **Comercial**                               | **Governo**                                 | **Descrição** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | Permite que os dados sejam gravados da VM para a conta de armazenamento de cache da região de origem. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para as URLs do serviço Site Recovery. |
@@ -191,7 +191,7 @@ Se você habilitar a consistência de várias VMs, as máquinas virtuais no grup
 
 Quando você inicia um failover, as VMs são criadas no grupo de recursos de destino, na rede virtual de destino, na sub-rede de destino e no conjunto de disponibilidade de destino. Durante um failover, você pode usar qualquer ponto de recuperação.
 
-![Processo de failover](./media/concepts-azure-to-azure-architecture/failover-v2.png)
+![Diagrama mostrando o processo de failover com ambientes de origem e de destino.](./media/concepts-azure-to-azure-architecture/failover-v2.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b247b64d563bc2b12c5bffff6a460d77cb96207
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6bd09a24202b599c1f008e7b046ea5f93ff0323
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485479"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489785"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Habilitar e usar a autenticação multifator do Azure com aplicativos herdados usando senhas de aplicativo
 
@@ -88,6 +88,12 @@ Por padrão, os usuários não podem criar senhas de aplicativo. O recurso de se
 5. Na página **Configurações do Serviço**, selecione a opção **Permitir que usuários criem senhas de aplicativo para entrarem em aplicativos que não são navegadores**.
 
     ![Captura de tela do portal do Azure que mostra as configurações do serviço da autenticação multifator para permitir o usuário de senhas de aplicativo](media/concept-authentication-methods/app-password-authentication-method.png)
+    
+> [!NOTE]
+>
+> Quando você desabilita a capacidade de os usuários criarem senhas de aplicativo, as senhas de aplicativo existentes continuam funcionando. No entanto, os usuários não podem gerenciar nem excluir as senhas de aplicativo existentes depois de desabilitar essa capacidade.
+>
+> Quando você desabilita a capacidade de criar senhas de aplicativo, também é recomendável [criar uma política de acesso condicional para desabilitar o uso da autenticação herdada](../conditional-access/block-legacy-authentication.md). Essa abordagem impede que as senhas de aplicativo existentes funcionem e força o uso de métodos de autenticação modernos.
 
 ## <a name="create-an-app-password"></a>Criar uma senha de aplicativo
 

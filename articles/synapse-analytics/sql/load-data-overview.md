@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca1f535c7f2d949e1f71a06ba9efab2818ee0201
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 31e1eb952bb37f5864e296811ba6e61bb0e58320
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046782"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87490278"
 ---
-# <a name="designing-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Criando uma estratégia de carregamento de dados do polybase para o pool do SQL Synapse do Azure
+# <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Criar uma estratégia de carregamento de dados do polybase para o pool do SQL Synapse do Azure
 
 Os data warehouses SMP tradicionais usam um processo ETL (extração, transformação e carregamento) para carregar dados. O pool SQL do Azure é uma arquitetura MPP (processamento paralelo maciço) que aproveita a escalabilidade e a flexibilidade dos recursos de computação e armazenamento. O uso de um processo ELT (extração, carregamento e transformação) pode aproveitar o MPP e eliminar os recursos necessários para transformar os dados antes do carregamento.
 
@@ -25,7 +25,7 @@ Embora o pool do SQL dê suporte a muitos métodos de carregamento, incluindo op
 
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
-## <a name="what-is-elt"></a>O que é ELT?
+## <a name="extract-load-and-transform-elt"></a>Extração, carregamento e transformação (ELT)
 
 O ELT (extração, carregamento e transformação) é um processo pelo qual os dados são extraídos de um sistema de origem, carregados em um data warehouse e, em seguida, transformados.
 

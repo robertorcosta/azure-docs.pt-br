@@ -9,17 +9,17 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3a073c9539f2fb996ae59ef513525c217170f2e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 84cd5c2de0b1a6d0909a31071506d98627966775
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81428648"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500735"
 ---
 # <a name="t-sql-views-using-synapse-sql"></a>Exibições T-SQL usando Synapse SQL
 Neste artigo, você encontrará dicas para usar exibições T-SQL e desenvolver soluções com o Synapse SQL. 
 
-## <a name="why-use-views"></a>Por que usar exibições?
+## <a name="why-use-views"></a>Por que usar modos de exibição
 
 As exibições podem ser usadas em diversas maneiras diferentes de melhorar a qualidade de sua solução.  Este artigo destaca alguns exemplos de como enriquecer sua solução com exibições e inclui as limitações que precisam ser consideradas.
 

@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.date: 05/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 31a7048c263d7231fe827ad5a1c927c5cb3e2f6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6c23c034af40d7db2379f9d02357131a00482bd2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463545"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495736"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Criar uma conta do BlockBlobStorage
 
@@ -40,12 +41,12 @@ Este artigo de instruções requer o módulo Azure PowerShell AZ Version 1.2.0 o
 
 Você pode entrar no Azure e executar comandos da CLI do Azure de uma das duas formas a seguir:
 
-- Você pode executar comandos da CLI de dentro do portal do Azure, em Azure Cloud Shell.
+- Você pode executar comandos da CLI de dentro do portal do Azure, no Azure Cloud Shell.
 - Você pode instalar a CLI e executar comandos da CLI localmente.
 
 ### <a name="use-azure-cloud-shell"></a>Usar o Azure Cloud Shell
 
-O Azure Cloud Shell é um shell Bash gratuito que pode ser executado diretamente no portal do Azure. O CLI do Azure é pré-instalado e configurado para ser usado com sua conta. Clique no botão **Cloud Shell** no menu na seção superior direita da portal do Azure:
+O Azure Cloud Shell é um shell Bash gratuito que pode ser executado diretamente no portal do Azure. A CLI do Azure é pré-instalada e configurada para usar com sua conta. Clique no botão **Cloud Shell** no menu na seção superior direita da portal do Azure:
 
 [![Cloud Shell](../common/media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
@@ -129,7 +130,7 @@ Para criar uma conta do BlockBlobStorage no portal do Azure, siga estas etapas:
 
 9. Selecione **Criar**.
 
-## <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
+## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -209,4 +210,4 @@ Para criar uma conta de blob de blocos usando o CLI do Azure, você deve primeir
 
 - Para saber mais sobre as contas de armazenamento, confira [Visão geral da conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
-- Para obter mais informações sobre grupos de recursos, consulte [Azure Resource Manager visão geral](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+- Para saber mais sobre os grupos de recursos, confira [Visão geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).

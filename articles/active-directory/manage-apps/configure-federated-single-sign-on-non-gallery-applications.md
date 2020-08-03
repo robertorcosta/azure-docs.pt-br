@@ -15,19 +15,16 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28af2a51119cd8328f9fa29000ead1622ae5f5e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb4b9b3b93053756896dc60c61cdb15c7e521f5d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763543"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497232"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único federado para um aplicativo inexistente na galeria
 
-Para configurar o logon único para um aplicativo que não seja de galeria *sem escrever código*, você precisa ter uma assinatura ou o Azure AD Premium e o aplicativo devem ter suporte para SAML 2.0. Para obter mais informações sobre as versões do Azure AD, visite [Preços do Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
-
-## <a name="overview-of-steps-required"></a>Visão geral das etapas necessárias
-Abaixo está uma visão geral de alto nível das etapas necessárias para configurar logon único federado com SAML 2.0 para um aplicativo não de galeria (por exemplo, personalizado).
+Este artigo fornece uma visão geral de alto nível das etapas necessárias para configurar o logon único federado com o SAML 2,0 para um aplicativo de não galeria (por exemplo, personalizado).
 
 -   Configurar os valores de metadados do aplicativo no Azure AD (URL de Logon, Identificador, URL de Resposta)
 

@@ -4,14 +4,14 @@ description: Saiba mais sobre palavras-chave do SQL para Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: 069548b9b69ef6f7f6bde85ede830d97f3d312db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f00e757f9b51da850c49924f6ae49bf00c9c53d1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81261560"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496674"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Palavras-chave no Azure Cosmos DB
 
@@ -36,10 +36,7 @@ Você também pode usar a `BETWEEN` palavra-chave na `SELECT` cláusula, como no
 
 Na API do SQL, ao contrário do SQL ANSI, você pode expressar consultas de intervalo em Propriedades de tipos mistos. Por exemplo, `grade` pode ser um número como `5` em alguns itens e uma cadeia de caracteres como `grade4` em outros. Nesses casos, como no JavaScript, a comparação entre os dois tipos diferentes resulta em `Undefined` , portanto, o item é ignorado.
 
-> [!TIP]
-> Para tempos de execução de consulta mais rápidos, crie uma política de indexação que usa um tipo de índice de intervalo em quaisquer propriedades numéricas ou caminhos que a `BETWEEN` cláusula filtra.
-
-## <a name="distinct"></a>DISTINCT
+## <a name="distinct"></a>DISTINTO
 
 A `DISTINCT` palavra-chave elimina duplicatas na projeção da consulta.
 
@@ -76,7 +73,7 @@ Os resultados são:
 ]
 ```
 
-DISTINCT também pode ser usado na projeção dentro de uma subconsulta:
+`DISTINCT`também pode ser usado na projeção dentro de uma subconsulta:
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames

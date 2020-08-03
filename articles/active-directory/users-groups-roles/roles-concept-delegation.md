@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 556871b55de60ee592622f9f93c7b7123ba2ed32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c26951d5ab7552dc6c63288ce92cdb8134bd58ed
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731963"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498218"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegar administração no Azure Active Directory
 
@@ -38,7 +38,7 @@ Com o crescimento organizacional vem a complexidade. Uma resposta comum é a red
 
 No portal do Azure AD, é possível [exibir todos os membros de qualquer função](directory-manage-roles-portal.md), o que pode ajudá-lo a verificar rapidamente a implantação e as permissões delegadas.
 
-Se você estiver interessado em delegar acesso aos recursos do Azure, em vez de em acesso administrativo no Azure AD, confira [Atribuir uma função RBAC (controle de acesso baseado em função)](../../role-based-access-control/role-assignments-portal.md).
+Se você estiver interessado em delegar acesso a recursos do Azure em vez de acesso administrativo no Azure AD, consulte [atribuir uma função do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="delegation-planning"></a>Planejamento de delegação
 

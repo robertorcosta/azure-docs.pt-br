@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: dd6d3ef6f610dcbdc511297e459cc5856bebe033
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5f6fca572524d1b0254c777d0820d8781c9f7be8
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030038"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496620"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale"></a>Linha de base de segurança do Azure para o banco de dados do Azure para PostgreSQL-hiperescala
 
@@ -484,7 +484,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
 
-**Orientação**: Use o RBAC (controle de acesso baseado em função) do Azure para controlar o acesso ao plano de controle de hiperescala (Citus) (por exemplo, portal do Azure). O RBAC não afeta permissões de usuário no banco de dados.
+**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso ao plano de controle de hiperescala (Citus) (por exemplo, portal do Azure). O RBAC não afeta permissões de usuário no banco de dados.
 
 Para modificar privilégios de usuário no nível de banco de dados, use comandos PostgreSQL padrão, usando uma ferramenta como PgAdmin ou psql.
 

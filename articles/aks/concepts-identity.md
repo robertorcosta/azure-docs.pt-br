@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: f3eacbe6f93388756ce26324babeb2ca38bd09a5
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: f87e3f4add0cb5949036ec6caca2e361e2e88ea0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87438892"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498116"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Acesso e opções de identidade para o Serviço de Kubernetes do Azure (AKS)
 
@@ -119,7 +119,7 @@ Veja mais como usar o RBAC do Azure para proteger o acesso ao arquivo kubeconfig
 
 ### <a name="azure-rbac-for-kubernetes-authorization-preview"></a>Azure RBAC para autorização de kubernetes (versão prévia)
 
-Com a integração do RBAC do Azure, o AKS usará um servidor de webhook de autorização do kubernetes para permitir que você gerencie permissões e atribuições de recursos de cluster do K8s integrado do Azure AD usando a definição de função e as atribuições de função do RBAC do Azure.
+Com a integração do RBAC do Azure, o AKS usará um servidor de webhook de autorização do kubernetes para permitir que você gerencie permissões e atribuições de recursos de cluster do K8s integrado do Azure AD usando a definição de função e as atribuições de função do Azure.
 
 ![Azure RBAC para fluxo de autorização kubernetes](media/concepts-identity/azure-rbac-k8s-authz-flow.png)
 

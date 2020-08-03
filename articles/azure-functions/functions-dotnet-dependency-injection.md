@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 02cb862c5ec6f75d546aabcd6e8ac97a4de961a4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 05b845f3284ea95dd2be595c4d59767e45149306
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082946"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500457"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usar injeção de dependência no .NET do Azure Functions
 
@@ -121,7 +121,7 @@ Os aplicativos do Azure Functions oferecem os mesmos tempos de vida de serviço 
 - **Com escopo**: O tempo de vida do serviço com escopo corresponde a um tempo de vida de execução de função. Serviços com escopo são criados uma vez por execução. Solicitações posteriores para esse serviço durante a execução reutilizam a instância de serviço existente.
 - **Singleton**: O tempo de vida do serviço singleton corresponde ao tempo de vida do host e é reutilizado em execuções de função nessa instância. Os serviços de vida útil singleton são recomendados para conexões e clientes, por exemplo `DocumentClient` ou instâncias `HttpClient`.
 
-Veja ou baixe um [exemplo de tempos de vida de serviço diferentes](https://aka.ms/functions/di-sample) no GitHub.
+Veja ou baixe um [exemplo de tempos de vida de serviço diferentes](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes) no GitHub.
 
 ## <a name="logging-services"></a>Serviços de registro em log
 

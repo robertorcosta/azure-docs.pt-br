@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: 4f1f6c60ef2e0ccdd3e166e2272fe917ead3ed2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6266248b817485562c7ed2643b3dda5f32cecc53
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735040"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489666"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Conceitos de gerenciamento para contas de usuário, senhas e administração no Azure Active Directory Domain Services
 
@@ -70,7 +70,7 @@ No Azure AD DS, a floresta contém apenas um domínio. As florestas do AD DS loc
 
 Por padrão, um domínio gerenciado é criado como uma floresta de *usuário* . Esse tipo de floresta sincroniza todos os objetos do Azure AD, incluindo qualquer conta de usuário criada em um ambiente do AD DS local. As contas de usuário podem se autenticar diretamente no domínio gerenciado, como para entrar em uma VM ingressada no domínio. Uma floresta de usuário funciona quando os hashes de senha podem ser sincronizados e os usuários não estão usando métodos de conexão exclusivos, como a autenticação de cartão inteligente.
 
-Em uma floresta de *recursos* do Azure AD DS, os usuários se autenticam em uma *relação de confiança* da floresta unidirecional nos AD DS locais. Com essa abordagem, os objetos de usuário e os hashes de senha não são sincronizados com o Azure AD DS. Os objetos de usuário e as credenciais existem somente no AD DS local. Essa abordagem permite que as empresas hospedem recursos e plataformas de aplicativo no Azure que dependem da autenticação clássica, tais como LDAPS, Kerberos ou NTLM, mas todas as preocupações ou problemas de autenticação são removidos. No momento, as florestas de recursos do Azure AD DS estão em versão prévia.
+Em uma floresta de *recursos* do Azure AD DS, os usuários se autenticam em uma *relação de confiança* da floresta unidirecional nos AD DS locais. Com essa abordagem, os objetos de usuário e os hashes de senha não são sincronizados com o Azure AD DS. Os objetos de usuário e as credenciais existem somente no AD DS local. Essa abordagem permite que as empresas hospedem recursos e plataformas de aplicativo no Azure que dependem da autenticação clássica, tais como LDAPS, Kerberos ou NTLM, mas todas as preocupações ou problemas de autenticação são removidos.
 
 Para obter mais informações sobre tipos de floresta no Azure AD DS, consulte [o que são florestas de recursos?][concepts-forest] e [como as relações de confiança de floresta funcionam no AD DS do Azure?][concepts-trust]
 
@@ -81,7 +81,7 @@ No Azure AD DS, o desempenho e os recursos disponíveis são baseados na SKU. Vo
 | Nome do SKU   | Contagem máxima de objetos | Frequência de backup | Número máximo de relações de confiança de floresta de saída |
 |------------|----------------------|------------------|----|
 | Standard   | Ilimitado            | A cada 7 dias     | 0  |
-| Enterprise | Ilimitado            | A cada 3 dias     | 5  |
+| Empresarial | Ilimitado            | A cada 3 dias     | 5  |
 | Premium    | Ilimitado            | Diariamente            | 10 |
 
 Antes dessas SKUs do Azure AD DS, um modelo de cobrança baseado no número de objetos (contas de usuário e de computador) no domínio gerenciado foi usado. Não há mais preços variáveis com base no número de objetos no domínio gerenciado.
@@ -102,7 +102,7 @@ A frequência de backup determina com que frequência um instantâneo do domíni
 
 ### <a name="outbound-forest-trusts"></a>Relações de confiança de floresta de saída
 
-A seção anterior detalha a floresta de saída unidirecional de um domínio gerenciado para um ambiente de AD DS local (atualmente em visualização). A SKU determina o número máximo de relações de confiança de floresta que você pode criar para um domínio gerenciado. Examine os requisitos de negócios e aplicativos para determinar quantas relações de confiança você realmente precisa e escolha o SKU de AD DS do Azure apropriado. Novamente, se os requisitos de negócios mudarem e você precisar criar relações de confiança de floresta adicionais, poderá alternar para um SKU diferente.
+A seção anterior detalha a floresta de saída unidirecional de um domínio gerenciado para um ambiente de AD DS local. A SKU determina o número máximo de relações de confiança de floresta que você pode criar para um domínio gerenciado. Examine os requisitos de negócios e aplicativos para determinar quantas relações de confiança você realmente precisa e escolha o SKU de AD DS do Azure apropriado. Novamente, se os requisitos de negócios mudarem e você precisar criar relações de confiança de floresta adicionais, poderá alternar para um SKU diferente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

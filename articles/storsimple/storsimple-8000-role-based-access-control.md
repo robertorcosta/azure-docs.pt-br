@@ -1,6 +1,6 @@
 ---
 title: Usar o controle de acesso baseado em função para StorSimple | Microsoft Docs
-description: Descreve como usar o controle de acesso baseado em função do Azure (RBAC) no contexto do StorSimple.
+description: Descreve como usar o controle de acesso baseado em função do Azure (RBAC do Azure) no contexto do StorSimple.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: ec98060a09a1fad4f851689daff3f4b578c164f5
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 58332be22600620e7a3ff1f455f96fe0d786d846
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124095"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500037"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Controle de acesso baseado em função para StorSimple
 

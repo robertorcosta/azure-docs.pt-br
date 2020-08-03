@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bc0bcd4a978912dccc9f08802acbf2ec1151b3a1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a0d5b369e1c143b3df4157329bcf7d3a3f7142d7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170098"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489462"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integração do Trusona com o Azure Active Directory B2C
 
@@ -125,25 +125,26 @@ Nesse cenário, Trusona atua como um provedor de identidade para Azure AD B2C ha
 
 ### <a name="create-a-user-flow-policy"></a>Criar uma política de fluxo de usuário
 
-1. Agora você deve ver Trusona como um **novo provedor de identidade do OpenID Connect** listado em seus provedores de identidade do B2C.
+Agora você deve ver Trusona como um **novo provedor de identidade do OpenID Connect** listado em seus provedores de identidade do B2C.
 
-2. Selecione **fluxos de usuário (políticas)** no painel de navegação à esquerda.
+1. Em seu locatário do Azure AD B2C, em **políticas**, selecione **fluxos de usuário**.
 
-3. Selecione **Adicionar**  >  **novo fluxo de usuário**  >  **inscrever-se e entrar**.
+1. Selecione **novo fluxo de usuário**.
 
-### <a name="configure-the-policy"></a>Configurar a política
+1. Selecione **inscrever-se e entrar**, selecione uma versão e, em seguida, selecione **criar**.
 
-1. Nomeie sua política.
+1. Insira um **nome** para a política.
 
-2. Selecione seu provedor de **identidade Trusona**recém-criado.
+1. Na seção **provedores de identidade** , selecione seu provedor de **identidade Trusona**recém-criado.
 
-3. Como Trusona é inerentemente multifator, é melhor deixar a autenticação multifator desabilitada.
+   > [!NOTE]
+   > Como Trusona é inerentemente multifator, é melhor deixar a autenticação multifator desabilitada.
 
-4. Selecione **Criar**.
+1. Selecione **Criar**.
 
-5. Em **atributos de usuário e declarações**, escolha **Mostrar mais**. No formulário, selecione pelo menos um atributo que você especificou durante a configuração do seu provedor de identidade na seção anterior.
+1. Em **atributos de usuário e declarações**, escolha **Mostrar mais**. No formulário, selecione pelo menos um atributo que você especificou durante a configuração do seu provedor de identidade na seção anterior.
 
-6. Selecione **OK**.  
+1. Selecione **OK**.  
 
 ### <a name="test-the-policy"></a>Testar a política
 

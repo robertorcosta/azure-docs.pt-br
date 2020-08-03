@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c36df4745e276471e35addf4774470dbaaa9e150
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1099c4e4dd69a8dc8caee96ec5dda633ce8b9d12
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080702"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496195"
 ---
 # <a name="database-collation-support-for-synapse-sql"></a>Suporte a agrupamento de banco de dados para Synapse SQL
 
@@ -23,7 +23,7 @@ Você pode alterar o agrupamento de banco de dados padrão do portal do Azure ao
 
 Você pode especificar o agrupamento padrão do banco de dados do Synapse SQL sob demanda no momento da criação usando a instrução CREATE DATABASE.
 
-## <a name="changing-collation"></a>Alterando agrupamento
+## <a name="change-collation"></a>Alterar agrupamento
 Para alterar o agrupamento padrão do banco de dados do pool SQL, você atualiza simples para o campo agrupamento na experiência de provisionamento. Por exemplo, se você quisesse alterar o agrupamento padrão para diferenciar maiúsculas de minúsculas, bastaria renomear o agrupamento de SQL_Latin1_General_CP1_CI_AS para SQL_Latin1_General_CP1_CS_AS. 
 
 Para alterar o agrupamento padrão do banco de dados do SQL sob demanda, você pode usar a instrução ALTER DATABASE.
@@ -104,7 +104,7 @@ Além disso, o pool do SQL não oferece suporte aos seguintes tipos de agrupamen
 *    SQL_EBCDIC277_2_CP1_CS_AS
 *    UTF-8
 
-## <a name="checking-the-current-collation"></a>Verificando o agrupamento atual
+## <a name="check-the-current-collation"></a>Verificar o agrupamento atual
 Para verificar o agrupamento atual do banco de dados, você pode executar o seguinte trecho T-SQL:
 ```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;

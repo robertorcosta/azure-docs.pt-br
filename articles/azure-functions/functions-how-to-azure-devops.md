@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: 0e47078e9f7620e72524ccf91e942d4e15a6b5bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: tracking-python, devx-track-azurecli
+ms.openlocfilehash: 4f291fd7787b67b2717662c9aaa20e2a825f33b1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559117"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496824"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Entrega contínua usando o Azure DevOps
 
@@ -26,7 +26,7 @@ Você tem duas opções para definir seu pipeline:
 
 Para criar um pipeline baseado em YAML, primeiro crie seu aplicativo e, em seguida, implante o aplicativo.
 
-### <a name="build-your-app"></a>Criar seu aplicativo
+### <a name="build-your-app"></a>Compilar o aplicativo
 
 A forma como você cria seu aplicativo no Azure Pipelines depende da linguagem de programação do seu aplicativo. Cada idioma tem etapas de Build específicas que criam um artefato de implantação. Um artefato de implantação é usado para implantar seu aplicativo de funções no Azure.
 
@@ -216,7 +216,7 @@ steps:
 
 Os modelos no Azure DevOps são grupos predefinidos de tarefas que criam ou implantam um aplicativo.
 
-### <a name="build-your-app"></a>Criar seu aplicativo
+### <a name="build-your-app"></a>Compilar o aplicativo
 
 A forma como você cria seu aplicativo no Azure Pipelines depende da linguagem de programação do seu aplicativo. Cada idioma tem etapas de Build específicas que criam um artefato de implantação. Um artefato de implantação é usado para atualizar seu aplicativo de funções no Azure.
 

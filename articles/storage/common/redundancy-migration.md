@@ -10,12 +10,13 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5d047aa3c5c937e3b84b8fa672101bc801221067
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 50745c96f73f4e2d666a82746549ed361502e381
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82871371"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501382"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar como uma conta de armazenamento é replicada
 
@@ -23,8 +24,8 @@ A redundância do Armazenamento do Azure sempre armazena várias cópias dos seu
 
 O armazenamento do Azure oferece os seguintes tipos de replicação:
 
-- Armazenamento com redundância local (LRS)
-- Armazenamento com redundância de zona (ZRS)
+- LRS (armazenamento com redundância local)
+- ZRS (armazenamento com redundância de zona)
 - Armazenamento com redundância geográfica (GRS) ou armazenamento com redundância geográfica com acesso de leitura (RA-GRS)
 - Armazenamento com redundância de zona geográfica (GZRS) ou armazenamento com redundância de acesso de leitura (RA-GZRS)
 

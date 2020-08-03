@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a7709cf0522727257025b2dddc495b20fe8448
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0be99a673fe3d062e114f375891f3c821c118d76
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763747"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499493"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erro inesperado ao executar o consentimento para um aplicativo
 
@@ -38,6 +38,8 @@ Determinadas condições devem ser verdadeiras para que um usuário conceda as p
 Esse erro ocorre quando um usuário que não é um administrador de empresa tenta usar um aplicativo que está solicitando permissões, as quais somente um administrador pode conceder. Esse erro pode ser resolvido por um administrador concedendo acesso ao aplicativo em nome de sua organização.
 
 Esse erro também pode ocorrer quando um usuário é impedido de consentir em um aplicativo devido à Microsoft detectar que a solicitação de permissões é arriscada. Nesse caso, um evento de auditoria também será registrado com uma categoria de "ApplicationManagement", o tipo de atividade de "consentimento para o aplicativo" e o motivo do status de "aplicativo arriscado detectado".
+
+Outro cenário no qual esse erro pode ocorrer é quando a atribuição de usuário é necessária para o aplicativo, mas nenhum consentimento de administrador foi fornecido. Nesse caso, o administrador deve primeiro fornecer o consentimento do administrador.   
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Política impede concessão de permissões de erro
 * **AADSTS90093:** Um administrador do &lt;NomeExibiçãoLocatário&gt; definiu uma política que impede que você conceda ao &lt;nome do aplicativo&gt; as permissões solicitadas. Contate um administrador de &lt;Nome Exibiçãolocatário&gt; que pode conceder permissões para esse aplicativo em seu nome.

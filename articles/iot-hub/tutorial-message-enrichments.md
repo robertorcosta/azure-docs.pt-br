@@ -7,13 +7,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
-ms.custom: mqtt
-ms.openlocfilehash: 78aee7829e58feede3360f30f10260903713c52f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-azurecli
+ms.openlocfilehash: b3a049d76f880f590060a999ddda00e3706bac94
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81770073"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500207"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutorial: usar os aprimoramentos de mensagem do Hub IoT do Azure
 
@@ -77,7 +77,7 @@ Se você ainda não tiver feito isso, abra uma [janela de Cloud Shell](https://s
 
 Aqui estão os recursos criados pelo script. *Aprimorado* significa que o recurso é para mensagens com aprimoramentos. *Original* significa que o recurso é para mensagens que não são aprimoradas.
 
-| Nome | Valor |
+| Name | Valor |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | nome do contêiner | original  |
@@ -279,7 +279,7 @@ Neste ponto, os recursos estão todos configurados e o roteamento de mensagens �
 ## <a name="create-and-configure-by-using-a-resource-manager-template"></a>Criar e configurar usando um modelo do Resource Manager
 Você pode usar um modelo do Resource Manager para criar e configurar os recursos, o roteamento de mensagens e os aprimoramentos de mensagens.
 
-1. Entre no Portal do Azure. Selecione **+ criar um recurso** para exibir uma caixa de pesquisa. Insira a *implantação do modelo*e pesquise por ele. No painel de resultados, selecione **implantação de modelo (implantar usando o modelo personalizado)**.
+1. Entre no portal do Azure. Selecione **+ criar um recurso** para exibir uma caixa de pesquisa. Insira a *implantação do modelo*e pesquise por ele. No painel de resultados, selecione **implantação de modelo (implantar usando o modelo personalizado)**.
 
    ![Implantação de modelo no portal do Azure](./media/tutorial-message-enrichments/template-select-deployment.png)
 
@@ -297,7 +297,7 @@ Você pode usar um modelo do Resource Manager para criar e configurar os recurso
 
    Aqui estão os recursos criados carregando o modelo. **Aprimorado** significa que o recurso é para mensagens com aprimoramentos. **Original** significa que o recurso é para mensagens que não são aprimoradas. Esses são os mesmos valores usados no script de CLI do Azure.
 
-   | Nome | Valor |
+   | Name | Valor |
    |-----|-----|
    | resourceGroup | ContosoResourcesMsgEn |
    | nome do contêiner | original  |
@@ -310,7 +310,7 @@ Você pode usar um modelo do Resource Manager para criar e configurar os recurso
    | Nome da rota 1 | ContosoStorageRouteOriginal |
    | Nome da rota 2 | ContosoStorageRouteEnriched |
 
-1. Selecione **Salvar**. O painel **implantação personalizada** é exibido e mostra todos os parâmetros usados pelo modelo. O único campo que você precisa definir é **grupo de recursos**. Crie um novo ou selecione um na lista suspensa.
+1. Clique em **Salvar**. O painel **implantação personalizada** é exibido e mostra todos os parâmetros usados pelo modelo. O único campo que você precisa definir é **grupo de recursos**. Crie um novo ou selecione um na lista suspensa.
 
    Aqui está a metade superior do painel de **implantação personalizado** . Você pode ver onde você preenche o grupo de recursos.
 
@@ -356,7 +356,7 @@ Esse aplicativo envia uma nova mensagem de dispositivo para a nuvem ao Hub IoT a
 
 Depois que várias mensagens de armazenamento forem enviadas, exiba os dados.
 
-1. Selecione **Grupos de recursos**. Localize seu grupo de recursos, **ContosoResourcesMsgEn**, e selecione-o.
+1. Selecione **grupos de recursos**. Localize seu grupo de recursos, **ContosoResourcesMsgEn**, e selecione-o.
 
 2. Selecione sua conta de armazenamento, que é **contosostorage**. Em seguida, selecione **Gerenciador de armazenamento (versão prévia)** no painel esquerdo.
 
@@ -380,7 +380,7 @@ Esta é uma mensagem não enriqueceda. Observe que "meu Hub IoT", "devicelocatio
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover todos os recursos criados neste tutorial, exclua o grupo de recursos. Essa ação também exclui todos os recursos contidos no grupo. Nesse caso, ela remove o hub IoT, a conta de armazenamento e o próprio grupo de recursos.
 

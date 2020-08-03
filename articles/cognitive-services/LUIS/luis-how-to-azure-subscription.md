@@ -4,12 +4,13 @@ description: Ao usar o Reconhecimento vocal (LUIS) pela primeira vez, você não
 services: cognitive-services
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: dfe5c416adeb4ff850dfe8f28ae4c61c8bb0844f
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6bd8cc807a393d6c8027f5990b9897d93f2b78d2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144636"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496892"
 ---
 # <a name="create-luis-resources"></a>Criar recursos do LUIS
 
@@ -58,7 +59,7 @@ Regiões de publicação são diferentes de regiões de criação. Certifique-se
 
 Os limites de uso são baseados no tipo de preço.
 
-Se você exceder sua cota de transações por segundo (TPS), receberá um erro HTTP 429. Se você exceder sua cota de transação por mês (TPS), receberá um erro HTTP 403.
+Se exceder sua cota de transações por segundo (TPS), você receberá um erro HTTP 429. Se exceder sua cota de transações por mês (TSM), você receberá um erro HTTP 403.
 
 
 ### <a name="reset-authoring-key"></a>Redefinir a chave de criador
@@ -206,7 +207,7 @@ Você pode atribuir um recurso de criação para um único aplicativo ou para to
 
 1. Entre no portal do [LUIS](https://www.luis.ai).
 1. Na barra de navegação superior, à extrema direita, selecione sua conta de usuário e, em seguida, selecione **configurações**.
-1. Na página **configurações do usuário** , selecione **Adicionar recurso de criação** e, em seguida, selecione um recurso de criação existente. Selecione **Salvar**.
+1. Na página **configurações do usuário** , selecione **Adicionar recurso de criação** e, em seguida, selecione um recurso de criação existente. Clique em **Salvar**.
 
 ## <a name="assign-a-resource-to-an-app"></a>Atribuir um recurso a um aplicativo
 

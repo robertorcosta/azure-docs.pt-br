@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 6dfa162de02174ac4a1a8251457249bd5ea4d766
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: af387b063a3c07d8b6b6c544814565e2a5ebdd46
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87416325"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495719"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Hyper-V para o Azure
 
@@ -36,7 +36,7 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 
 **Arquitetura do Hyper-V para o Azure (sem VMM)**
 
-![Arquitetura](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
+![Diagrama mostrando o site do Hyper-V local para a arquitetura do Azure sem VMM.](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
 ## <a name="architectural-components---hyper-v-with-vmm"></a>Componentes de arquitetura – Hyper-V com VMM
@@ -53,7 +53,7 @@ A tabela e o gráfico a seguir fornecem uma visão geral dos componentes usados 
 
 **Arquitetura do Hyper-V para o Azure (com VMM)**
 
-![Componentes](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
+![Diagrama mostrando o site do Hyper-V local para a arquitetura do Azure com o VMM.](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
 
 ## <a name="set-up-outbound-network-connectivity"></a>Configurar a conectividade de rede de saída
 
@@ -66,7 +66,7 @@ Para que Site Recovery funcionem conforme o esperado, você precisa modificar a 
 
 Caso esteja usando um proxy de firewall baseado em URL para controlar a conectividade de saída, permita acesso a estas URLs:
 
-| **Nome**                  | **Comercial**                               | **Governamental**                                 | **Descrição** |
+| **Nome**                  | **Comercial**                               | **Governo**                                 | **Descrição** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Permite que os dados sejam gravados da VM para a conta de armazenamento de cache da região de origem. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para as URLs do serviço Site Recovery. |
@@ -76,7 +76,7 @@ Caso esteja usando um proxy de firewall baseado em URL para controlar a conectiv
 
 ## <a name="replication-process"></a>Processo de replicação
 
-![Replicação do Hyper-V para o Azure](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
+![Diagrama mostrando o processo de replicação do Hyper-V para o Azure](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
 
 **Processo de replicação e recuperação**
 
@@ -86,7 +86,7 @@ Caso esteja usando um proxy de firewall baseado em URL para controlar a conectiv
 1. Depois de habilitar a proteção para uma máquina virtual do Hyper-V, no portal do Azure ou no local, a opção **Habilitar proteção** é iniciada.
 2. O trabalho verifica se o computador está em conformidade com os pré-requisitos antes de invocar [CreateReplicationRelationship](/windows/win32/hyperv_v2/createreplicationrelationship-msvm-replicationservice) para configurar a replicação com as configurações definidas por você.
 3. O trabalho é iniciado com a replicação inicial, invocando o método [StartReplication](/windows/win32/hyperv_v2/startreplication-msvm-replicationservice), para inicializar uma replicação completa de VM e enviar os discos virtuais da VM no Azure.
-4. Você pode monitorar o trabalho na guia **trabalhos** .      ![ ](media/hyper-v-azure-architecture/image1.png) Lista ![ de trabalhos Habilitar busca detalhada de proteção](media/hyper-v-azure-architecture/image2.png)
+4. Você pode monitorar o trabalho na guia **trabalhos** .      ![Captura de tela da lista de trabalhos na guia trabalhos. ](media/hyper-v-azure-architecture/image1.png) ![Instantâneo da tela habilitar proteção com mais detalhes.](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Replicação de dados inicial
@@ -123,7 +123,7 @@ Caso esteja usando um proxy de firewall baseado em URL para controlar a conectiv
 2. Após a conclusão da ressincronização, a replicação delta normal deverá ser retomada.
 3. Se você não quiser aguardar a ressincronização fora do horário de trabalho, você poderá ressincronizar uma VM manualmente. Por exemplo, se ocorrer uma interrupção. Para fazer isso, no Portal do Azure, selecione a VM > **Ressincronizar**.
 
-    ![Ressincronização manual](./media/hyper-v-azure-architecture/image4-site.png)
+    ![Captura de tela mostrando a opção ressincronizar.](./media/hyper-v-azure-architecture/image4-site.png)
 
 
 ### <a name="retry-process"></a>Processo de tentar novamente

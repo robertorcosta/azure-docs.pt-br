@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: laevenso
-ms.openlocfilehash: 7349504b5a1ed5a67f3b34be2c4ff5dda29afbf3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 08835bda959fb4fe261e86e4d519ab85bd2a4625
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025295"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495141"
 ---
 # <a name="http-application-routing"></a>Roteamento de aplicativo HTTP
 
@@ -20,7 +20,7 @@ A solução de roteamento de aplicativos HTTP facilita o acesso a aplicativos im
 Quando o complemento é habilitado, ele cria uma zona DNS na assinatura. Para obter mais informações sobre o custo DNS, consulte [preços do DNS][dns-pricing].
 
 > [!CAUTION]
-> O complemento de roteamento de aplicativos HTTP foi projetado para permitir que você crie rapidamente um controlador de entrada e acesse seus aplicativos. Esse complemento não é recomendado para uso em produção. Para implementações de ingresso prontos para produção que incluam várias réplicas e suporte a TLS, consulte [Criar um controlador de ingresso HTTPS](./ingress-tls.md).
+> O complemento de roteamento de aplicativos HTTP foi projetado para permitir que você crie rapidamente um controlador de entrada e acesse seus aplicativos. Este complemento não está atualmente projetado para uso em um ambiente de produção e não é recomendado para uso em produção. Para implementações de ingresso prontos para produção que incluam várias réplicas e suporte a TLS, consulte [Criar um controlador de ingresso HTTPS](./ingress-tls.md).
 
 ## <a name="http-routing-solution-overview"></a>Visão geral da solução roteamento HTTP
 

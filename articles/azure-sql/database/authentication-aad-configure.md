@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 07/27/2020
-ms.openlocfilehash: 00efa3ea6fcd299dcdc51b3002d6b0459edf2ec4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f98e540a6764869f1d37edfbb0f00bf8d1cc2198
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281150"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499170"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurar e gerenciar a autenticação do Azure AD com o SQL do Azure
 
@@ -360,7 +360,7 @@ Como o SQL Instância Gerenciada dá suporte a entidades de segurança do Azure 
 No entanto, usar Azure Active Directory autenticação com o banco de dados SQL e o Azure Synapse requer o uso de usuários de banco de dados independente com base em uma identidade do Azure Um usuário de banco de dados independente não tem um logon no banco de dados mestre e é mapeado para uma identidade no Azure AD que está associada ao banco de dados. A identidade do AD do Azure pode ser uma conta de usuário individual ou um grupo. Para saber mais sobre usuários de bancos de dados independentes, veja [Usuários do bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
 > [!NOTE]
-> Os usuários do banco de dados (com exceção dos administradores) não podem ser criados usando o portal do Azure. As funções RBAC não são propagadas para o banco de dados no banco de dados SQL, o SQL Instância Gerenciada ou o Azure Synapse. As funções RBAC do Azure são usadas para gerenciar Recursos do Azure e não se aplicam às permissões de banco de dados. Por exemplo, a função **colaborador de SQL Server** não concede acesso para se conectar ao banco de dados no banco de dados SQL, o SQL instância gerenciada ou o Azure Synapse. A permissão de acesso deve ser concedida diretamente no banco de dados usando instruções Transact-SQL.
+> Os usuários do banco de dados (com exceção dos administradores) não podem ser criados usando o portal do Azure. As funções do Azure não são propagadas para o banco de dados no banco de dados SQL, o SQL Instância Gerenciada ou o Azure Synapse. As funções do Azure são usadas para gerenciar recursos do Azure e não se aplicam a permissões de banco de dados. Por exemplo, a função **colaborador de SQL Server** não concede acesso para se conectar ao banco de dados no banco de dados SQL, o SQL instância gerenciada ou o Azure Synapse. A permissão de acesso deve ser concedida diretamente no banco de dados usando instruções Transact-SQL.
 
 > [!WARNING]
 > Caracteres especiais, como dois-pontos `:` ou e comercial `&` , quando incluídos como nomes de usuário nas instruções T-SQL `CREATE LOGIN` e `CREATE USER` não têm suporte.
@@ -544,4 +544,3 @@ A orientação sobre solução de problemas com a autenticação do Azure AD pod
 [11]: ./media/authentication-aad-configure/active-directory-integrated.png
 [12]: ./media/authentication-aad-configure/12connect-using-pw-auth2.png
 [13]: ./media/authentication-aad-configure/13connect-to-db2.png
-

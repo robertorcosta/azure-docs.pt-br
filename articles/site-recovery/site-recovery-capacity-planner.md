@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a622179d1e83b41e906a9d276377f5c9474264b9
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: a5764e44db31755110ac99a3e8e8e0984cdf9604
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86129960"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87490567"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planejar a capacidade de recuperação de desastre de VM do Hyper-V 
 
@@ -47,7 +47,7 @@ Você pode executar a ferramenta em dois modos:
 
 2. Na caixa de listagem **Selecionar um tipo de planejador**, selecione **Planejador Rápido**.
 
-   ![Introdução](./media/site-recovery-capacity-planner/getting-started.png)
+   ![Captura de tela da opção Selecionar um tipo de planejador, com o planejador rápido selecionado.](./media/site-recovery-capacity-planner/getting-started.png)
 
 3. Na planilha **Planejador de Capacidade**, insira as informações necessárias. Preencha todos os campos circulados em vermelho na seguinte captura de tela:
 
@@ -61,7 +61,7 @@ Você pode executar a ferramenta em dois modos:
 
    e. Em **Número de horas em que a replicação inicial para o lote de máquinas virtuais deve ser concluída** e em **Número de máquinas virtuais por lote de replicação inicial**, insira as configurações usadas para calcular os requisitos iniciais de replicação. Quando o Site Recovery é implantado, o conjunto inteiro de dados inicial é carregado.
 
-   ![Entradas](./media/site-recovery-capacity-planner/inputs.png)
+   ![Captura de tela da planilha Planejador de Capacidade, mostrando as informações de entrada necessárias.](./media/site-recovery-capacity-planner/inputs.png)
 
 4. Depois que você inserir os valores para o ambiente de origem, a saída exibida incluirá:
 
@@ -77,7 +77,7 @@ Você pode executar a ferramenta em dois modos:
    * **Número de servidores em processo adicionais necessários**: mostra se servidores em processo adicionais são necessários, além do servidor em processo em execução no servidor de configuração, por padrão.
    * **100% armazenamento adicional na origem**: mostra se o armazenamento adicional é necessário no local de origem.
 
-      ![Saída](./media/site-recovery-capacity-planner/output.png)
+      ![Captura de tela da saída exibida com base na entrada fornecida.](./media/site-recovery-capacity-planner/output.png)
 
 ## <a name="run-the-detailed-planner"></a>Executar o Planejador Detalhado
 
@@ -85,7 +85,7 @@ Você pode executar a ferramenta em dois modos:
 
 2. Em **Selecionar um tipo de planejador**, selecione **Planejador Detalhado** na caixa de listagem.
 
-   ![Guia de introdução](./media/site-recovery-capacity-planner/getting-started-2.png)
+   ![Captura de tela da opção Selecionar um tipo de planejador, com o planejador detalhado selecionado.](./media/site-recovery-capacity-planner/getting-started-2.png)
 
 3. Na planilha **Qualificação de Carga de Trabalho**, insira as informações necessárias. Preencha todos os campos marcados.
 
@@ -101,11 +101,11 @@ Você pode executar a ferramenta em dois modos:
 
    f. Em **Utilização da capacidade do disco (%)**, especifique a utilização média.
 
-   (por exemplo, Em **Taxa de alteração de dados diária (%)**, especifique a taxa diária de alteração de dados de um servidor de origem.
+   g. Em **Taxa de alteração de dados diária (%)**, especifique a taxa diária de alteração de dados de um servidor de origem.
 
    h. Em **Mapeando o tamanho da VM do Azure**, insira o tamanho da VM do Azure que você deseja mapear. Se você não quiser fazer isso manualmente, selecione **Computar VMs IaaS**. Se você inserir uma configuração manual e selecionar **Computar VMs IaaS**, a configuração manual poderá ser substituída. O processo de computação identifica automaticamente a melhor correspondência no tamanho da VM do Azure.
 
-   ![Planilha de qualificação da carga de trabalho](./media/site-recovery-capacity-planner/workload-qualification.png)
+   ![Captura de tela da planilha de qualificação de carga de trabalho, mostrando as informações de entrada necessárias.](./media/site-recovery-capacity-planner/workload-qualification.png)
 
 4. Se você selecionar **VMs IaaS de Computação**, isso é o que essa opção faz:
 
@@ -117,12 +117,12 @@ Você pode executar a ferramenta em dois modos:
 
 As colunas AA a AE são saídas e fornecem informações de cada VM.
 
-![Colunas de saída AA para AE](./media/site-recovery-capacity-planner/workload-qualification-2.png)
+![Captura de tela mostrando as colunas de saída AA para AE.](./media/site-recovery-capacity-planner/workload-qualification-2.png)
 
 ### <a name="example"></a>Exemplo
 Como exemplo, para seis VMs com os valores mostrados na tabela, a ferramenta calcula e atribui a melhor correspondência de VM do Azure e os requisitos de armazenamento do Azure.
 
-![Atribuições da Qualificação de Carga de Trabalho](./media/site-recovery-capacity-planner/workload-qualification-3.png)
+![Captura de tela mostrando atribuições de qualificação de carga de trabalho](./media/site-recovery-capacity-planner/workload-qualification-3.png)
 
 * Na saída de exemplo, observe o seguinte:
 
@@ -144,7 +144,7 @@ Depois que todas as informações forem inseridas, selecione **Enviar dados para
 
 2. Se você desejar fazer alterações, será necessário modificar a planilha **Qualificação da Carga de Trabalho**. Em seguida, selecione **Enviar dados para a ferramenta de planejador** novamente.
 
-   ![Planejador de Capacidade](./media/site-recovery-capacity-planner/capacity-planner.png)
+   ![Captura de tela mostrando as entradas modificadas e as saídas resultantes na planilha Planejador de Capacidade.](./media/site-recovery-capacity-planner/capacity-planner.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba como executar](./hyper-v-deployment-planner-overview.md) a ferramenta de planejamento de capacidade.

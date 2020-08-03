@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85dd58398021ef61e425eb58797e818b233c491b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: ba7875caa6a1db7638bfeafcfea1efa7b2462152
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170115"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489508"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Configurar o itsme OpenID Connect (OIDC) com Azure Active Directory B2C
 
@@ -72,11 +72,11 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 > [!NOTE]
 > Se ainda não tiver um, você precisará [criar um locatário do Azure AD B2C](tutorial-create-tenant.md) que esteja vinculado à sua assinatura do Azure.
 
-1. Verifique se você está usando o diretório que contém Azure AD B2C locatário. Selecione o filtro **Diretório + assinatura** no menu superior e escolha o diretório que contém o locatário do Azure AD B2C.
+1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C. Selecione o filtro **Diretório + assinatura** no menu superior e escolha o diretório que contém o locatário do Azure AD B2C.
 
 2. Em **Serviços do Azure**, selecione **Azure ad B2C** (ou selecione **mais serviços** e use a caixa de pesquisa **todos os serviços** para procurar *Azure ad B2C*).
 
-3. Selecione **provedores de identidade**e, em seguida, selecione **novo provedor do OpenID Connect**.
+3. Selecione **Provedores de identidade** e **Novo provedor do OpenID Connect**.
 
 4. Preencha o formulário com as seguintes informações:
 
@@ -91,12 +91,12 @@ Please clarify step 1 in the description below - we don't have steps in this tut
    |Modo de resposta | Consulta |
    |Dica de domínio | *Você pode deixar isso em branco* |
    |UserID | sub |
-   |Nome de exibição | name |
+   |Nome de Exibição | name |
    |Nome | given_name |
    |Sobrenome | family_name |
    |Email | email|
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 ### <a name="configure-a-user-flow"></a>Configurar um fluxo de usuário
 
@@ -104,7 +104,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 2. Selecione **novo fluxo de usuário**.
 
-3. Escolha **inscrever-se e entrar**.
+3. Selecione **inscrever-se e entrar**, selecione uma versão e, em seguida, selecione **criar**.
 
 4. Insira um **Nome**.
 
@@ -131,7 +131,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
    a. Para fins de teste, selecione **autenticação**e, em **concessão implícita**, marque as caixas de seleção **tokens de acesso** e **tokens de ID** .  
 
-   b. Selecione **Salvar**.
+   b. Clique em **Salvar**.
 
 ## <a name="test-the-user-flow"></a>Testar o fluxo de usuário
 

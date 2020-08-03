@@ -8,12 +8,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
-ms.openlocfilehash: 725c319e4abb6cc65e1e6a900218393ace2d4d16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 8ba2478bbfb2a26951d682ab12cb5b98df73be97
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629572"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497963"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento de uso geral v2
 
@@ -27,7 +28,7 @@ A atualização para uma conta de armazenamento v2 de uso geral de suas contas d
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Navegue até sua conta de armazenamento.
+2. Navegue para sua conta de armazenamento.
 3. Na seção **Configurações**, clique em **Configuração**.
 4. Em **tipo de conta**, clique em **Atualizar**.
 5. Em **confirmar atualização**, digite o nome da sua conta.

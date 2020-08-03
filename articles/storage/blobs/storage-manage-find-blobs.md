@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 637bdb02cd9fc5296c74633bbfa381e62673a4bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b41609ec2b7cc9880fb22a76b9e3b40c315bc3c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355651"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499867"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Gerenciar e localizar dados no armazenamento de BLOBs do Azure com índice de BLOB (versão prévia)
 
@@ -63,7 +63,7 @@ Você pode aplicar várias marcas em seu blob para que sejam mais descritivas do
 > "Priority" = ' 01 ' 
 >
 
-Para modificar os atributos de marca de índice existentes, você deve primeiro recuperar os atributos de marca existentes, modificar os atributos de marca e substituir pela operação SetBlobTags. Para remover todas as marcas de índice do blob, chame a operação SetBlobTags sem atributos de marca especificados. Como as marcas de índice de blob são um subrecurso para o conteúdo de dados de BLOB, o SetBlobTags não modifica nenhum conteúdo subjacente e não altera a hora da última modificação do BLOB ou ETag (marca de entidade). Você pode criar ou modificar marcas de índice para todos os blobs de base atuais e versões anteriores; no entanto, as marcas em instantâneos ou BLOBs com exclusão reversível não podem ser modificadas. 
+Para modificar os atributos de marca de índice existentes, você deve primeiro recuperar os atributos de marca existentes, modificar os atributos de marca e substituir pela operação SetBlobTags. Para remover todas as marcas de índice do blob, chame a operação SetBlobTags sem atributos de marca especificados. Como as marcas de índice de blob são um subrecurso para o conteúdo de dados de BLOB, o SetBlobTags não modifica nenhum conteúdo subjacente e não altera a hora da última modificação do BLOB ou eTag (marca de entidade). Você pode criar ou modificar marcas de índice para todos os blobs de base atuais e versões anteriores; no entanto, as marcas em instantâneos ou BLOBs com exclusão reversível não podem ser modificadas. 
 
 Os seguintes limites se aplicam a marcas de índice de blob:
 - Cada blob pode ter até 10 marcas de índice de BLOB
@@ -103,7 +103,7 @@ A tabela abaixo mostra todos os operadores válidos para FindBlobsByTags:
 |     >      |  Maior que |  "Date" > ' 2018-06-18 ' |
 |     >=     |  Maior ou igual | "Priority" >= ' 5 ' | 
 |     <      |  Menor que    | "Idade" < ' 32 ' |
-|     <=     |  Inferior ou igual  | "Empresa" <= ' contoso ' |
+|     <=     |  Menor ou igual a  | "Empresa" <= ' contoso ' |
 |    AND     |  And lógico  | "Rank" >= ' 010 ' e "Rank" < ' 100 ' |
 | @container |  Escopo para um contêiner específico   | @container= ' videofiles ' e "status" = ' done ' |
 
@@ -124,11 +124,11 @@ A tabela abaixo mostra todos os operadores válidos para operações condicionai
 |  Operador  |  Descrição  | Exemplo |
 |------------|---------------|---------|
 |     =      |     Igual a     | "Status" = ' em andamento ' |
-|     <>     |   Diferente   | "Status"  <>  ' done '  | 
+|     <>     |   Diferente de   | "Status"  <>  ' done '  | 
 |     >      |  Maior que |  "Date" > ' 2018-06-18 ' |
 |     >=     |  Maior ou igual | "Priority" >= ' 5 ' | 
 |     <      |  Menor que    | "Idade" < ' 32 ' |
-|     <=     |  Inferior ou igual  | "Empresa" <= ' contoso ' |
+|     <=     |  Menor ou igual a  | "Empresa" <= ' contoso ' |
 |    AND     |  And lógico  | "Rank" >= ' 010 ' e "Rank" < ' 100 ' |
 |     OU     |  OR lógico   | "Status" = ' done ' ou "Priority" >= ' 05 ' |
 
@@ -293,6 +293,7 @@ Esta seção descreve os problemas e condições conhecidos na visualização p�
 -   Não há suporte para o failover de conta no momento. O índice de blob pode não ser atualizado corretamente após o failover.
 -   O gerenciamento do ciclo de vida só dá suporte a verificações de igualdade com correspondência de índice de BLOB.
 -   CopyBlob não copia marcas de índice de blob do blob de origem para o novo BLOB de destino. Você pode especificar as marcas que deseja aplicar ao blob de destino durante a operação de cópia. 
+- CopyBlob (cópia assíncrona) de outra conta de armazenamento com marcas aplicadas no blob de destino atualmente faz com que o mecanismo de índice de BLOB não retorne o blob e suas marcas no conjunto de filtros. É recomendável usar CopyBlob da URL (cópia de sincronização) no interim.
 -   As marcas são persistidas na criação do instantâneo; no entanto, a promoção de um instantâneo não tem suporte no momento e pode resultar em um conjunto de marcas vazio.
 
 ## <a name="faq"></a>Perguntas frequentes
@@ -308,5 +309,7 @@ Não, Azure Resource Manager marcas ajudam a organizar os recursos do plano de c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte um exemplo de como utilizar o índice de BLOB. Consulte [utilizar o índice de BLOB para gerenciar e localizar dados](storage-blob-index-how-to.md)
+Para obter um exemplo de como utilizar o índice de BLOB, consulte [utilizar o índice de BLOB para gerenciar e localizar dados](storage-blob-index-how-to.md).
+
+Saiba mais sobre o [Gerenciamento do ciclo de vida](storage-lifecycle-management-concepts.md) e defina uma regra com correspondência de índice de BLOB.
 

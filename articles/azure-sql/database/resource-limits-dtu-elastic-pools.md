@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 07/28/2020
-ms.openlocfilehash: 0fd875b2c02f5d61663339ac523fd6733732ad01
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 0dd15fe5d68a521293f279978c668bc88599115e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420984"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498286"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Recursos limites para pools elásticos usando o modelo de compra de DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ Para pools elásticos do banco de dados SQL do Azure, as tabelas a seguir mostra
 
 Os limites de recursos de bancos de dados individuais em pools elásticos geralmente são os mesmos dos bancos de dados individuais fora dos pools com base em DTUs e na camada de serviço. Por exemplo, máximo de trabalhos simultâneos para um banco de dados S2 é 120. Assim, o máximo de trabalhos simultâneos para um banco de dados em um pool padrão também será 120 se o máximo de DTUs por banco de dados no pool for 50 DTUs (o que é equivalente a S2).
  
-Os recursos fornecidos para um pool elástico podem exceder os recursos fornecidos a um banco de dados individual fora de um pool elástico para o mesmo número de DTUs. Isso significa que é possível que a utilização de eDTU de um pool elástico seja menor do que a soma da utilização de DTU entre bancos de dados dentro do pool, dependendo dos padrões de carga de trabalho. Por exemplo, em um caso extremo com apenas um banco de dados em um pool elástico em que a utilização de DTU do banco de dados é de 100%, é possível que a utilização do eDTU do pool seja 50% para determinados padrões de carga de trabalho. Isso pode ocorrer mesmo que nenhum DTU máximo explícito por banco de dados tenha sido definido. Nesse caso, o consumo de DTU de banco de dados em pool é limitado da mesma forma que o consumo de DTU de um único banco de dados com o objetivo de serviço correspondente.
+Para o mesmo número de DTUs, os recursos fornecidos para um pool elástico podem exceder os recursos fornecidos a um banco de dados individual fora de um pool elástico. Isso significa que é possível que a utilização de eDTU de um pool elástico seja menor do que a soma da utilização de DTU entre bancos de dados dentro do pool, dependendo dos padrões de carga de trabalho. Por exemplo, em um caso extremo com apenas um banco de dados em um pool elástico em que a utilização de DTU do banco de dados é de 100%, é possível que a utilização do eDTU do pool seja 50% para determinados padrões de carga de trabalho. Isso pode ocorrer mesmo que o DTU máximo por banco de dados permaneça no valor máximo com suporte para o tamanho de pool especificado.
 
 > [!NOTE]
 > O limite de recursos de armazenamento por pool em cada uma das tabelas a seguir não inclui o tempdb e o armazenamento de log.
@@ -55,8 +55,8 @@ Os recursos fornecidos para um pool elástico podem exceder os recursos fornecid
 | Número máximo de bancos de os por pool <sup>1</sup> | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Máximo de trabalhos simultâneos (solicitações) por pool <sup>2</sup> | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | Máximo de sessões simultâneas por pool <sup>2</sup> | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
-| Opções de mínimo de eDTUs por banco de dados | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
-| Opções de máximo de eDTUs por banco de dados | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
+| Mínimo de DTU por opções de banco de dados | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
+| Máximo de DTU por opções de banco de dados | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
 | Armazenamento máximo por banco de dados (GB) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
 ||||||||
 
@@ -74,8 +74,8 @@ Os recursos fornecidos para um pool elástico podem exceder os recursos fornecid
 | Número máximo de bancos de os por pool <sup>2</sup> | 100 | 200 | 500 | 500 | 500 | 500 |
 | Máximo de trabalhos simultâneos (solicitações) por pool <sup>3</sup> | 100 | 200 | 400 | 600 | 800 | 1600 |
 | Máximo de sessões simultâneas por pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Opções de mínimo de eDTUs por banco de dados | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
-| Opções de máximo de eDTUs por banco de dados | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
+| Mínimo de DTU por opções de banco de dados | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
+| Máximo de DTU por opções de banco de dados | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
 | Armazenamento máximo por banco de dados (GB) | 500 | 750 | 1024 | 1024 | 1024 | 1024 |
 ||||||||
 
@@ -95,8 +95,8 @@ Os recursos fornecidos para um pool elástico podem exceder os recursos fornecid
 | Número máximo de bancos de os por pool <sup>2</sup> | 500 | 500 | 500 | 500 | 500 |
 | Máximo de trabalhos simultâneos (solicitações) por pool <sup>3</sup> | 2400 | 3200 | 4000 | 5.000 | 6000 |
 | Máximo de sessões simultâneas por pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Opções de mínimo de eDTUs por banco de dados | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
-| Opções de máximo de eDTUs por banco de dados | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Mínimo de DTU por opções de banco de dados | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
+| Máximo de DTU por opções de banco de dados | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Armazenamento máximo por banco de dados (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 
@@ -137,8 +137,8 @@ Os recursos fornecidos para um pool elástico podem exceder os recursos fornecid
 | Número máximo de bancos de os por pool <sup>2</sup> | 100 | 100 | 100 | 100 | 100 |
 | Máximo de trabalhos simultâneos (solicitações) por pool <sup>3</sup> | 3200 | 4000 | 4800 | 5600 | 6400 |
 | Máximo de sessões simultâneas por pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Opções de mínimo de eDTUs por banco de dados | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
-| Opções de máximo de eDTUs por banco de dados | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
+| Mínimo de DTU por opções de banco de dados | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
+| Máximo de DTU por opções de banco de dados | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Armazenamento máximo por banco de dados (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 |||||||
 

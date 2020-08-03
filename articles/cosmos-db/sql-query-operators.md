@@ -4,14 +4,14 @@ description: Saiba mais sobre os operadores SQL, como igualdade, comparação e 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: 8ef41edb687a5df39243880c897d12e83c008ec9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd1652781d7eae8beb400c52137a8f16891e2b2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80063569"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498830"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operadores no Azure Cosmos DB
 
@@ -21,19 +21,27 @@ Este artigo fornece detalhes sobre os vários operadores com suporte pelo Azure 
 
 A tabela a seguir mostra o resultado de comparações de igualdade na API do SQL entre dois tipos JSON quaisquer.
 
-| **Parar** | **Indefinido** | **Nulo** | **Boolean** | **Número** | **Cadeia de caracteres** | **Objeto** | **Variedade** |
+| **Parar** | **Indefinido** | **Nulo** | **Booliano** | **Número** | **Cadeia de caracteres** | **Objeto** | **Matriz** |
 |---|---|---|---|---|---|---|---|
 | **Indefinido** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido |
 | **Nulo** | Indefinido | **Okey** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido |
-| **Boolean** | Indefinido | Indefinido | **Okey** | Indefinido | Indefinido | Indefinido | Indefinido |
+| **Booliano** | Indefinido | Indefinido | **Okey** | Indefinido | Indefinido | Indefinido | Indefinido |
 | **Número** | Indefinido | Indefinido | Indefinido | **Okey** | Indefinido | Indefinido | Indefinido |
 | **Cadeia de caracteres** | Indefinido | Indefinido | Indefinido | Indefinido | **Okey** | Indefinido | Indefinido |
 | **Objeto** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | **Okey** | Indefinido |
-| **Variedade** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | **Okey** |
+| **Matriz** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | **Okey** |
 
 Para operadores de comparação como `>` ,,, `>=` `!=` `<` e `<=` , a comparação entre os tipos ou entre dois objetos ou matrizes produz `Undefined` .  
 
 Se o resultado da expressão escalar for `Undefined` , o item não será incluído no resultado, porque `Undefined` não é igual a `true` .
+
+Por exemplo, a comparação da consulta a seguir entre um número e um valor de cadeia de caracteres produz `Undefined` . Portanto, o filtro não inclui nenhum resultado.
+
+```sql
+SELECT *
+FROM c
+WHERE 7 = 'a'
+```
 
 ## <a name="logical-and-or-and-not-operators"></a>Operadores lógicos (AND, OR e NOT)
 
@@ -43,39 +51,39 @@ Operadores lógicos funcionam em valores boolianos. As tabelas a seguir mostram 
 
 Retorna `true` quando uma das condições é `true` .
 
-|  | **True** | **For** | **Indefinido** |
+|  | **Verdadeiro** | **Falso** | **Indefinido** |
 | --- | --- | --- | --- |
-| **True** |verdadeiro |verdadeiro |verdadeiro |
-| **For** |verdadeiro |Falso |Indefinido |
-| **Indefinido** |verdadeiro |Indefinido |Indefinido |
+| **Verdadeiro** |Verdadeiro |True |True |
+| **Falso** |Verdadeiro |Falso |Indefinido |
+| **Indefinido** |Verdadeiro |Indefinido |Indefinido |
 
 **Operador AND**
 
 Retorna `true` quando ambas as expressões são `true` .
 
-|  | **True** | **For** | **Indefinido** |
+|  | **Verdadeiro** | **Falso** | **Indefinido** |
 | --- | --- | --- | --- |
-| **True** |verdadeiro |Falso |Indefinido |
-| **For** |Falso |Falso |Falso |
+| **Verdadeiro** |Verdadeiro |Falso |Indefinido |
+| **Falso** |Falso |Falso |Falso |
 | **Indefinido** |Indefinido |Falso |Indefinido |
 
 **Operador NOT**
 
 Reverte o valor de qualquer expressão booleana.
 
-|  | **VÁLIDO** |
+|  | **NOT** |
 | --- | --- |
-| **True** |Falso |
-| **For** |verdadeiro |
+| **Verdadeiro** |Falso |
+| **Falso** |Verdadeiro |
 | **Indefinido** |Indefinido |
 
 **Precedência de operador**
 
 Os operadores lógicos `OR` , `AND` e `NOT` têm o nível de precedência mostrado abaixo:
 
-| **Operador** | **Priority** |
+| **Operador** | **Prioridade** |
 | --- | --- |
-| **VÁLIDO** |1 |
+| **NOT** |1 |
 | **E** |2 |
 | **OR** |3 |
 
