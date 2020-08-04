@@ -3,17 +3,17 @@ title: Introdução ao Gerenciamento de Custos do Azure para parceiros
 description: Este artigo explica como os parceiros usam os recursos do Gerenciamento de Custos do Azure e como eles habilitam o acesso do Gerenciamento de Custos para os clientes.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 0b0b5eb8ec41eccf99c23b671cef42a9c1bc8859
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 25a64dd4d06c24b0f7e1f8433a1abf5f67fa6eba
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849858"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372137"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introdução ao Gerenciamento de Custos do Azure para parceiros
 
@@ -123,9 +123,9 @@ Independentemente da política, os administradores globais e os agentes de admin
 
 ### <a name="enable-the-policy-to-view-azure-usage-charges"></a>Habilitar a política para ver os preços de uso do Azure
 
-Os parceiros usam as informações a seguir para habilitar a política e ver os preços de uso do Azure dos respectivos clientes.
+Você precisa ser membro do grupo do **agente de administração** para ver e atualizar a política. Use as informações a seguir para habilitar a política e permitir que os clientes vejam os preços de uso do Azure.
 
-No portal do Azure, entre no locatário do parceiro e selecione **Gerenciamento de Custos + Cobrança**. Selecione a conta de cobrança relevante do Contrato de Parceiro da Microsoft e, em seguida, selecione **Clientes**. A lista de clientes está associada à conta de cobrança.
+No portal do Azure, entre no locatário do parceiro e selecione **Gerenciamento de Custos + Cobrança**. Selecione o escopo do orçamento relevante na área Escopo do Orçamento e escolha **Clientes**. A lista de clientes está associada à conta de cobrança.
 
 Na lista de clientes, selecione o cliente que deseja permitir para ver os custos.
 

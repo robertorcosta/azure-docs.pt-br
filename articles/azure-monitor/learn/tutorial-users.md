@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2017
 ms.custom: mvc
-ms.openlocfilehash: cc6c7fc94e940732ba180c83344eabf29597d849
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ce9bf6fe6d130cf8511db2b2351c0de01b753d81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77670348"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318395"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Usar o Azure Application Insights para entender como os clientes estão usando o seu aplicativo
 
@@ -36,9 +36,9 @@ Para concluir este tutorial:
     - Desenvolvimento Web e ASP.NET
     - Desenvolvimento do Azure
 - Baixe e instale o [Depurador de Instantâneo do Visual Studio](https://aka.ms/snapshotdebugger).
-- Implante um aplicativo .NET para Azure e [habilite o SDK do Application Insights](../../azure-monitor/app/asp-net.md). 
-- [Enviar telemetria do seu aplicativo](../../azure-monitor/app/usage-overview.md#send-telemetry-from-your-app) para adicionar exibições de página/eventos personalizadas
-- Enviar [contexto de usuário](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) para acompanhar o que um usuário faz ao longo do tempo e utilizar totalmente os recursos de uso.
+- Implante um aplicativo .NET para Azure e [habilite o SDK do Application Insights](../app/asp-net.md). 
+- [Enviar telemetria do seu aplicativo](../app/usage-overview.md#send-telemetry-from-your-app) para adicionar exibições de página/eventos personalizadas
+- Enviar [contexto de usuário](../app/usage-send-user-context.md) para acompanhar o que um usuário faz ao longo do tempo e utilizar totalmente os recursos de uso.
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
@@ -102,16 +102,16 @@ Enquanto os painéis anteriores são voltados para o que os usuários do seu apl
 
 1. Selecione **Funis** no menu e clique em **Novo**. 
 
-    ![](media/tutorial-users/funnelsnew.png)
+    ![Captura de tela mostrando como criar um funil.](media/tutorial-users/funnelsnew.png)
 
 2. Digite um **Nome de funil**.
 3. Crie um funil pelo menos duas etapas selecionando uma ação para cada etapa.  A lista de ações é criada com base em dados de uso coletados pelo Application Insights.
 
-    ![](media/tutorial-users/funnelsedit.png)
+    ![Captura de tela mostrando as etapas para criação de um funil.](media/tutorial-users/funnelsedit.png)
 
 4. Clique em **Salvar** para salvar o funil e exibir seus resultados.  A janela à direita do funil mostra os eventos mais comuns antes da primeira atividade e depois da última atividade para ajudá-lo a entender as tendências do usuário em torno de determinada sequência.
 
-    ![](media/tutorial-users/funnelsright.png)
+    ![Captura de tela mostrando os resultados do evento de um funil recém-criado.](media/tutorial-users/funnelsright.png)
 
 
 ## <a name="learn-which-customers-return"></a>Saiba quais clientes retornam
@@ -120,11 +120,11 @@ Enquanto os painéis anteriores são voltados para o que os usuários do seu apl
 1. Selecione **Retenção** no menu.
 2. Por padrão, as informações analisadas incluem usuários que executaram qualquer ação e então voltaram para realizar qualquer ação.  Você pode alterar esse filtro para qualquer inclusão, por exemplo, somente os usuários que retornaram após a conclusão de uma compra.
 
-    ![](media/tutorial-users/retentionquery.png)
+    ![Captura de tela mostrando como definir um filtro de retenção.](media/tutorial-users/retentionquery.png)
 
 3. Os usuários recorrentes que correspondem aos critérios são mostrados nos formatos de gráfico e tabela para diferentes durações de tempo.  O padrão comum é para uma queda gradual nos usuários recorrentes ao longo do tempo.  Uma queda repentina de um período para a próximo pode gerar uma preocupação. 
 
-    ![](media/tutorial-users/retentiongraph.png)
+    ![Captura de tela mostrando um grafo para usuários que correspondem ao conjunto de critérios para um filtro de retenção.](media/tutorial-users/retentiongraph.png)
 
 ## <a name="analyze-user-navigation"></a>Analisar a navegação do usuário
 Um **Fluxo de usuário** visualiza como os usuários navegam entre as páginas e recursos de seu aplicativo.  Isso ajuda a responder perguntas como a movimentação típica dos usuários de uma página específica, como eles costumam sair de seu aplicativo e se há alguma ação repetida regularmente.
@@ -133,15 +133,15 @@ Um **Fluxo de usuário** visualiza como os usuários navegam entre as páginas e
 2.  Clique em **Novo** para criar um novo fluxo de usuário e, em seguida, clique em **Editar** para editar seus detalhes.
 3.  Aumente o **Intervalo de tempo** para sete dias e, em seguida, selecione um evento inicial.  O fluxo rastreará as sessões do usuário que começam com esse evento.
 
-    ![](media/tutorial-users/flowsedit.png)
+    ![Captura de tela mostrando como criar um fluxo de usuário.](media/tutorial-users/flowsedit.png)
 
 4.  O fluxo de usuário é exibido e você pode ver os diferentes caminhos de usuário e suas contagens de sessão.  Linhas azuis indicam uma ação que o usuário executou depois da ação atual.  Uma linha vermelha indica o fim da sessão do usuário.
 
-    ![](media/tutorial-users/flows.png)
+    ![Captura de tela mostrando a exibição de caminhos de usuário e contagens de sessão para um fluxo de usuário.](media/tutorial-users/flows.png)
 
 5.  Para remover um evento do fluxo, clique no **x** no canto da ação e clique em **Criar Grafo**.  O grafo é redesenhado com todas as instâncias desse evento removidas.  Clique em **Editar** para ver se o evento agora foi adicionado aos **Eventos excluídos**.
 
-    ![](media/tutorial-users/flowsexclude.png)
+    ![Captura de tela mostrando a lista de eventos excluídos para um fluxo de usuário.](media/tutorial-users/flowsexclude.png)
 
 ## <a name="consolidate-usage-data"></a>Consolidar dados de uso
 **Pastas de trabalho** combinam visualizações de dados, consultas do Analytics e texto em documentos interativos.  Você pode usar pastas de trabalho para agrupar informações de uso comum, consolidar informações de um incidente específico ou relatar para sua equipe sobre o uso do aplicativo.
@@ -150,12 +150,12 @@ Um **Fluxo de usuário** visualiza como os usuários navegam entre as páginas e
 2.  Clique em **Novo** para criar uma nova pasta de trabalho.
 3.  Já é fornecida uma consulta que inclui todos os dados de uso no último dia, exibido como um gráfico de barras.  Você pode usar essa consulta, editá-la manualmente ou clicar em **Exemplos de consultas** para selecionar outras consultas úteis.
 
-    ![](media/tutorial-users/samplequeries.png)
+    ![Captura de tela mostrando uma lista de consultas de exemplo que você pode usar.](media/tutorial-users/samplequeries.png)
 
 4.  Clique em **Edição concluída**.
 5.  Clique em **Editar** no painel superior para editar o texto na parte superior da pasta de trabalho.  Isso é formatado usando markdown.
 
-    ![](media/tutorial-users/markdown.png)
+    ![Captura de tela mostrando como editar o texto na parte superior da pasta de trabalho.](media/tutorial-users/markdown.png)
 
 6.  Clique em **Adicionar usuários** para adicionar um grafo com informações do usuário.  Edite os detalhes do grafo se quiser e, em seguida, clique em **Concluir a edição** para salvar.
 
@@ -164,4 +164,5 @@ Um **Fluxo de usuário** visualiza como os usuários navegam entre as páginas e
 Agora que você aprendeu a analisar seus usuários, avance para o próximo tutorial para aprender a criar painéis personalizados que combinam essas informações a outros dados úteis sobre o seu aplicativo.
 
 > [!div class="nextstepaction"]
-> [Criar painéis personalizados](../../azure-monitor/learn/tutorial-app-dashboards.md)
+> [Criar painéis personalizados](./tutorial-app-dashboards.md)
+

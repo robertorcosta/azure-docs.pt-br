@@ -7,16 +7,16 @@ author: bwren
 ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
-ms.openlocfilehash: 2e63b2ca0ee7246009068e6a2875795a14aeddb3
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 91a4e2f6a770282e9d031c31fdf1af15f0cd00bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84695361"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067552"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Coletar dados de uma máquina virtual do Azure com o Azure Monitor
 
-O [Azure Monitor](../overview.md) pode coletar dados diretamente das máquinas virtuais do Azure em um workspace do Log Analytics para correlação e análise detalhadas. A instalação da extensão de VM do Log Analytics para [Windows](../../virtual-machines/extensions/oms-windows.md) e [Linux](../../virtual-machines/extensions/oms-linux.md) permite que o Azure Monitor colete dados de suas VMs do Azure. Este início rápido mostra como configurar e coletar dados de VMs Linux ou Windows do Azure usando a extensão de VM com algumas etapas simples.  
+O [Azure Monitor](../overview.md) pode coletar dados diretamente das máquinas virtuais do Azure em um workspace do Log Analytics para análise de detalhes e correlações. A instalação da extensão de VM do Log Analytics para [Windows](../../virtual-machines/extensions/oms-windows.md) e [Linux](../../virtual-machines/extensions/oms-linux.md) permite que o Azure Monitor colete dados de suas VMs do Azure. Este início rápido mostra como configurar e coletar dados de VMs Linux ou Windows do Azure usando a extensão de VM com algumas etapas simples.  
  
 Este guia de início rápido pressupõe que você tenha uma máquina virtual do Azure existente. Se não puder [criar uma VM Windows](../../virtual-machines/windows/quick-create-portal.md) nem [criar uma VM Linux](../../virtual-machines/linux/quick-create-cli.md), siga nossos guias de início rápido de VM.
 
@@ -141,4 +141,4 @@ Agora que você está coletando dados operacionais e de desempenho das máquinas
 Para saber como exibir e analisar os dados, continue lendo o tutorial.
 
 > [!div class="nextstepaction"]
-> [Exibir ou analisar dados no Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md)
+> [Exibir ou analisar dados no Log Analytics](../log-query/get-started-portal.md)

@@ -5,12 +5,12 @@ author: neilpeterson
 ms.date: 04/17/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: d36f8a9a8650b504da206e884d9be8e43e1becdb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 06e7d3f291d32cecdcbf4d1f22ff9976d8970109
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058139"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040521"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Início Rápido: Criar modelos do Azure Resource Manager usando o Visual Studio Code
 
@@ -102,7 +102,7 @@ Selecione `New` > `All Parameters` > Selecione um nome e um local para o arquivo
 
 Essa ação cria um novo arquivo de parâmetro e o mapeia com o modelo do qual ele foi criado. Você pode ver e modificar o mapeamento atual do arquivo de modelo/parâmetro na barra de status do Visual Studio Code enquanto o modelo está selecionado.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
+![Imagem mostrando o mapeamento de arquivo de modelo/parâmetro na barra de status do Visual Studio Code.](./media/quickstart-create-templates-use-visual-studio-code/16.png)
 
 Agora que o arquivo de parâmetro foi mapeado para o modelo, a extensão valida o modelo e o arquivo de parâmetro juntos. Para ver essa validação na prática, adicione um valor de dois caracteres ao parâmetro `storageAccountName` no arquivo de parâmetro e salve o arquivo.
 

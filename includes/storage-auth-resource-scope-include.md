@@ -6,22 +6,22 @@ ms.service: storage
 ms.topic: include
 ms.date: 07/16/2020
 ms.author: tamram
-ms.openlocfilehash: c222869df561a9a36ebd69eb9ae09fa688ba0086
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
-ms.translationtype: MT
+ms.openlocfilehash: 644d58c3d1c60611b0d22d2757da089313fa12b6
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519193"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423688"
 ---
-Antes de atribuir uma função de RBAC a uma entidade de segurança, determine o escopo de acesso que a entidade de segurança deve ter. As práticas recomendadas ditam que é sempre melhor conceder apenas o escopo mais estreito possível.
+Antes de atribuir uma função RBAC a uma entidade de segurança, determine o escopo do acesso que essa entidade de segurança deve ter. De acordo com as melhores práticas, sempre é melhor conceder o escopo mais estreito possível.
 
-A lista a seguir descreve os níveis nos quais você pode fazer o escopo de acesso a recursos de BLOB e fila do Azure, começando com o escopo mais estreito:
+A seguinte lista descreve os níveis de escopo de acesso que você pode definir para os recursos de blobs e de filas do Azure, começando pelo escopo mais estreito:
 
-- **Um contêiner individual.** Nesse escopo, uma atribuição de função se aplica a todos os BLOBs no contêiner, bem como propriedades e metadados do contêiner.
-- **Uma fila individual.** Nesse escopo, uma atribuição de função se aplica a mensagens na fila, bem como propriedades de fila e metadados.
-- **A conta de armazenamento.** Nesse escopo, uma atribuição de função se aplica a todos os contêineres e seus BLOBs, ou a todas as filas e suas mensagens.
-- **O grupo de recursos.** Nesse escopo, uma atribuição de função se aplica a todos os contêineres ou filas em todas as contas de armazenamento no grupo de recursos.
-- **A assinatura.** Nesse escopo, uma atribuição de função se aplica a todos os contêineres ou filas em todas as contas de armazenamento em todos os grupos de recursos na assinatura.
-- **Um grupo de gerenciamento.** Nesse escopo, uma atribuição de função se aplica a todos os contêineres ou filas em todas as contas de armazenamento em todos os grupos de recursos em todas as assinaturas no grupo de gerenciamento.
+- **Um contêiner individual.** Nesse escopo, uma atribuição de função se aplica a todos os blobs no contêiner, bem como às propriedades e aos metadados do contêiner.
+- **Uma fila individual.** Nesse escopo, uma atribuição de função se aplica às mensagens na fila, bem como às propriedades e aos metadados da fila.
+- **A conta de armazenamento.** Nesse escopo, uma atribuição de função se aplica a todos os contêineres e seus blobs ou a todas as filas e suas mensagens.
+- **O grupo de recursos.** Nesse escopo, uma atribuição de função se aplica a todos os contêineres ou filas em todas as contas de armazenamento do grupo de recursos.
+- **A assinatura.** Nesse escopo, uma atribuição de função se aplica a todos os contêineres ou filas em todas as contas de armazenamento de todos os grupos de recursos da assinatura.
+- **Um grupo de gerenciamento.** Nesse escopo, uma atribuição de função se aplica a todos os contêineres ou filas em todas as contas de armazenamento de todos os grupos de recursos em todas as assinaturas do grupo de gerenciamento.
 
-Para obter mais informações sobre atribuições de função RBAC e escopo, consulte [o que é o Azure RBAC (controle de acesso baseado em função)?](../articles/role-based-access-control/overview.md).
+Para saber mais sobre as atribuições de função do Azure e seu escopo, confira [O que é o RBAC (controle de acesso baseado em função) do Azure?](../articles/role-based-access-control/overview.md).

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: eb23f1e703c2e447c484ccb366914cb4b23c5bf7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f9d736098e42bf5ca07eca0cb952275c5e39c2a9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536532"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125183"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga para balancear a carga de VMs usando o portal do Azure
 
@@ -111,7 +111,7 @@ Crie uma investigação de integridade chamada **myHealthProbe** para monitorar 
     | Limite não íntegro | Insira **2** para o número de **Limite não íntegro** ou falhas de investigação consecutivas que devem ocorrer antes que uma VM seja considerada não íntegra.|
     | | |
 
-3. Selecione **OK**.
+3. Deixe o restante dos padrões e selecione **OK**.
 
 ### <a name="create-a-load-balancer-rule"></a>Criar uma regra de balanceador de carga
 
@@ -140,7 +140,7 @@ Nesta seção, você criará uma regra de balanceador de carga:
     | Porta de back-end | Insira **80**. |
     | Pool de back-end | Selecione **myBackendPool**.|
     | Investigação de integridade | Selecione **myHealthProbe**. |
-    | Criar regras de saída implícitas | Selecione **Sim** na barra superior. </br> Para obter mais informações e uma configuração de regra de saída avançada, confira: </br> [Conexões de saída no Azure](load-balancer-outbound-connections.md) </br> [Configurar regras de saída e de balanceamento de carga no Standard Load Balancer usando o portal do Azure](configure-load-balancer-outbound-portal.md)
+    | Criar regras de saída implícitas | Selecione **Não**.
 
 4. Deixe o restante dos padrões e selecione **OK**.
 
@@ -179,7 +179,7 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
    
 2. Em **Criar uma máquina virtual**, digite ou selecione os valores na guia **Informações Básicas**:
 
-    | Configuração | Valor                                          |
+    | Setting | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalhes do projeto** |  |
     | Subscription | Selecionar sua assinatura do Azure |
@@ -201,7 +201,7 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
   
 4. Na guia Rede, selecione ou insira:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     |-|-|
     | **Interface de rede** |  |
     | Rede virtual | **myVNet** |
@@ -220,7 +220,7 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
 
 6. Na guia **Gerenciamento**, selecione ou insira:
     
-    | Configuração | Valor |
+    | Setting | Valor |
     |-|-|
     | **Monitoring** |  |
     | Diagnóstico de inicialização | Selecione **Desativado** |
@@ -237,6 +237,49 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
     | Zona de disponibilidade | **2** |**3**|
     | Grupo de segurança de rede | Selecione o **myNSG** existente| Selecione o **myNSG** existente|
 
+## <a name="create-outbound-rule-configuration"></a>Criar configurações de regra de saída
+As regras de saída do balanceador de carga configuram o SNAT de saída para as VMs no pool de back-end. 
+
+Confira mais informações sobre conexões de saída em [Conexões de saída no Azure](load-balancer-outbound-connections.md).
+
+### <a name="create-outbound-rule"></a>Criar uma regra de saída
+
+1. Clique em **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e depois selecione **myLoadBalancer** na lista de recursos.
+
+2. Em **Configurações**, selecione **Regras de saída** e **Adicionar**.
+
+3. Use estes valores para configurar as regras de saída:
+
+    | Configuração | Valor |
+    | ------- | ----- |
+    | Nome | Insira **myOutboundRule**. |
+    | Endereço IP de front-end | Selecione **Criar novo**. </br> Em **Nome**, insira **LoadBalancerFrontEndOutbound**. </br> Selecione **Endereço IP** ou **Prefixo de IP**. </br> Selecione **Criar** em **Endereço IP público** ou em **Prefixo de IP público**. </br> Em Nome, insira **myPublicIPOutbound** ou **myPublicIPPrefixOutbound**. </br> Selecione **OK**. </br> Selecione **Adicionar**.|
+    | Tempo limite de ociosidade (minutos) | Mova o controle deslizante para **15 minutos**.|
+    | Redefinição de TCP | Selecione **Habilitado**.|
+    | Pool de back-end | Selecione **Criar novo**. </br> Digite **myBackendPoolOutbound** em **Nome**. </br> Selecione **Adicionar**. |
+    | Alocação de porta -> Alocação de porta | Selecione **Escolher manualmente o número de portas de saída** |
+    | Portas de saída-> Escolher por | Selecione **Portas por instância** |
+    | Portas de saída -> Portas por instância | Digite **10000**. |
+
+4. Selecione **Adicionar**.
+
+### <a name="add-virtual-machines-to-outbound-pool"></a>Adicionar máquinas virtuais a um pool de saída
+
+1. Clique em **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e depois selecione **myLoadBalancer** na lista de recursos.
+
+2. Em **Configurações**, selecione **Pools de back-end**.
+
+3. Selecione **myBackendPoolOutbound**.
+
+4. Em **Rede virtual**, selecione **myVNet**.
+
+5. Em **Máquinas virtuais**, selecione **+ Adicionar**.
+
+6. Marque as caixas ao lado de **myVM1**, **myVM2** e **myVM3**. 
+
+7. Selecione **Adicionar**.
+
+8. Clique em **Salvar**.
 
 # <a name="option-2-create-a-load-balancer-basic-sku"></a>[Opção 2: Criar um balanceador de carga (SKU Básico)](#tab/option-1-create-load-balancer-basic)
 
@@ -253,7 +296,7 @@ Quando você criar um balanceador de carga público, crie um endereço IP públi
 
 2. Na guia **Informações Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações: 
 
-    | Setting                 | Valor                                              |
+    | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
     | Resource group         | Selecione **Criar** e digite **myResourceGroupLB** na caixa de texto.|
@@ -411,7 +454,7 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
   
 4. Na guia Rede, selecione ou insira:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     |-|-|
     | **Interface de rede** |  |
     | Rede virtual | Selecione **myVNet** |
@@ -441,9 +484,10 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
     | Nome |  **myVM2** |**myVM3**|
     | Conjunto de disponibilidade| Selecione **myAvailabilitySet** | Selecione **myAvailabilitySet**|
     | Grupo de segurança de rede | Selecione o **myNSG** existente| Selecione o **myNSG** existente|
+
 ---
 
-### <a name="install-iis"></a>Instalar o IIS
+## <a name="install-iis"></a>Instalar o IIS
 
 1. Selecione **Todos os serviços** no menu à esquerda, **Todos os recursos** e na lista de recursos e **myVM1**, que está localizada no grupo de recursos **myResourceGroupLB**.
 

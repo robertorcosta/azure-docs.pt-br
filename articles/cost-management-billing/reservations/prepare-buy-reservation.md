@@ -4,15 +4,15 @@ description: Conheça pontos importantes para ajudar você a comprar uma reserva
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 05/04/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 609ca56419ed14f3cf4e449e9b906a75a4ff20ab
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 68bcf725a6043b8ab19717845fa8005de2f88e35
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807774"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287641"
 ---
 # <a name="buy-a-reservation"></a>Comprar uma reserva
 
@@ -34,9 +34,12 @@ Você pode definir o escopo de uma reserva como uma assinatura ou como grupos de
 
 Você tem três opções para definir o escopo de uma reserva, dependendo de suas necessidades:
 
-- **Escopo de grupo de recursos único**: aplica o desconto de reserva apenas aos recursos correspondentes no grupo de recursos selecionado.
-- **Escopo de assinatura única**: aplica o desconto de reserva apenas aos recursos correspondentes na assinatura selecionada.
-- **Escopo compartilhado**: aplica o desconto de reserva aos recursos correspondentes em assinaturas qualificadas que estão no contexto de cobrança. Para clientes do Contrato Enterprise, o contexto de cobrança é o registro. Para clientes do Contrato de Cliente da Microsoft, o escopo do orçamento é o perfil de cobrança. Para assinaturas individuais com tarifas pagas conforme o uso, o escopo do orçamento são todas as assinaturas qualificadas criadas pelo administrador da conta.
+- **Escopo de grupo de recursos único** – aplica o desconto da reserva apenas aos recursos correspondentes no grupo de recursos selecionado.
+- **Escopo de assinatura única** – aplica o desconto da reserva apenas aos recursos correspondentes na assinatura selecionada.
+- **Escopo compartilhado** — aplica o desconto de reserva aos recursos correspondentes em assinaturas qualificadas que estão no contexto de cobrança.
+    - Para clientes do Contrato Enterprise, o contexto de cobrança é o registro. O escopo compartilhado da reserva incluiria vários locatários do Active Directory em um registro.
+    - Para clientes do Contrato de Cliente da Microsoft, o escopo do orçamento é o perfil de cobrança.
+    - Para assinaturas individuais com tarifas pagas conforme o uso, o escopo do orçamento são todas as assinaturas qualificadas criadas pelo administrador da conta.
 
 Ao aplicar descontos de reserva ao seu uso, o Azure processa a reserva na seguinte ordem:
 

@@ -1,6 +1,6 @@
 ---
-title: Visão geral de máquinas virtuais do Windows | Microsoft Docs
-description: Visão geral do conteúdo da Ajuda para máquinas virtuais do Windows no portal do Azure
+title: Visão geral das Máquinas Virtuais do Windows | Microsoft Docs
+description: Visão geral do conteúdo da Ajuda para as Máquinas Virtuais do Windows no portal do Azure
 services: virtual-machines-windows
 author: sewatson
 manager: lwelicki
@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 15a89a03e07deb02a812e54c01e857f972681931
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0fa1ff016ed787725ffde10ade67040a09c7e238
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "64710785"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285910"
 ---
 # <a name="windows-virtual-machines-documentation"></a>Documentação sobre Máquinas Virtuais do Windows
 
@@ -23,9 +23,9 @@ As Máquinas Virtuais do Windows Azure fornecem infraestrutura sob demanda, de a
 
 Saiba como implantar um servidor Web IIS em uma Máquina Virtual executando o Windows Server 2016:
 
-- [Portal do Azure](/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-- [PowerShell do Azure](/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-- [CLI do Azure](/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [Portal do Azure](../../articles/virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [PowerShell do Azure](../../articles/virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- [CLI do Azure](../../articles/virtual-machines/windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="step-by-step-tutorials"></a>Tutoriais passo a passo
 

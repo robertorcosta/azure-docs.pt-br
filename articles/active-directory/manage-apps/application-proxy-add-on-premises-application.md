@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b225b6471dd59275b3963bc2de09607c97a21465
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: a7153200bc80f6e27a99123a1bba676d0188f607
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85373396"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87129025"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de Aplicativo no Azure Active Directory
 
@@ -47,7 +47,7 @@ Para usar o Proxy de Aplicativo, você precisa de um Windows Server que executa 
 Para alta disponibilidade no seu ambiente de produção, é recomendável ter mais de um servidor Windows. Para este tutorial, um servidor Windows é suficiente.
 
 > [!IMPORTANT]
-> Se você estiver instalando o conector no Windows Server 2019, deverá desabilitar o suporte do protocolo HTTP2 no componente WinHttp. Isso é desabilitado por padrão em versões anteriores de sistemas operacionais compatíveis. Adicionar a chave do Registro a seguir e reiniciar o servidor a desabilitará no Windows Server 2019. Observe que essa é uma chave do Registro em todo o computador.
+> Se você estiver instalando o conector no Windows Server 2019, deverá desabilitar o suporte do protocolo HTTP2 no componente WinHttp para que a Delegação restrita do Kerberos funcione de maneira apropriada. Isso é desabilitado por padrão em versões anteriores de sistemas operacionais compatíveis. Adicionar a chave do Registro a seguir e reiniciar o servidor a desabilitará no Windows Server 2019. Observe que essa é uma chave do Registro em todo o computador.
 >
 > ```
 > Windows Registry Editor Version 5.00
@@ -88,12 +88,12 @@ Para habilitar o TLS 1.2:
 
 1. Reinicie o servidor.
 
-> [!IMPORTANT]
-> Para fornecer a melhor criptografia da categoria para nossos clientes, o serviço do Proxy de Aplicativo limita o acesso somente a protocolos TLS 1.2. Essas alterações foram distribuídas gradualmente e estão entrando em vigor desde 31 de agosto de 2019. Certifique-se de que todas as suas combinações cliente-servidor e navegador-servidor estejam atualizadas para usar o TLS 1.2 para manter a conexão com o serviço do Proxy de Aplicativo. Elas incluem clientes que seus usuários estão usando para acessar aplicativos publicados pelo Proxy de Aplicativo. Confira Preparação para [TLS 1.2 no Office 365](https://support.microsoft.com/help/4057306/preparing-for-tls-1-2-in-office-365) para obter referências e recursos.
-
 ## <a name="prepare-your-on-premises-environment"></a>Preparar o ambiente local
 
 Primeiro, habilite a comunicação com os datacenters do Azure para preparar o ambiente para o Proxy de Aplicativo do Azure AD. Se houver um firewall no caminho, verifique se ele está aberto. Com o firewall aberto, o conector pode enviar solicitações HTTPS (TCP) para o Proxy de Aplicativo.
+
+> [!IMPORTANT]
+> Se você estiver instalando o conector para a nuvem do Azure Governamental, siga os [pré-requisitos](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) e as [etapas de instalação](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud). Isso requer a habilitação do acesso a um conjunto diferente de URLs e um parâmetro adicional para executar a instalação.
 
 ### <a name="open-ports"></a>Abrir portas
 
@@ -121,6 +121,7 @@ Se o firewall ou o proxy permitir a configuração de listas de permissões de D
 ## <a name="install-and-register-a-connector"></a>Instalar e registrar um conector
 
 Para usar o Proxy de Aplicativo, instale um conector em cada servidor Windows que estiver em uso com o serviço do Proxy de Aplicativo. O conector é um agente que gerencia a conexão de saída de servidores de aplicativos locais para o Proxy de Aplicativo no Azure AD. Você pode instalar um conector em servidores que também tenham outros agentes de autenticação instalados, como o Azure AD Connect.
+
 
 Para instalar o conector:
 

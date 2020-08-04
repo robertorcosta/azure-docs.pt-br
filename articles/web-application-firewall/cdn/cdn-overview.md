@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 03/18/2020
 ms.author: victorh
-ms.openlocfilehash: 28cf8d9fd60cc6fc158812aa0a1dff3a4b0dced1
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: d56c57a12995e0ea94c10f371bf09a3b3f9733ba
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754289"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87278617"
 ---
 # <a name="azure-web-application-firewall-on-azure-content-delivery-network"></a>Firewall do aplicativo Web do Azure na Rede de Distribuição de Conteúdo do Azure
 
@@ -45,7 +45,7 @@ Um aplicativo Web hospedado na CDN do Azure pode ter apenas uma política WAF as
 
 A política de WAF pode ser configurada para ser executada nos dois modos a seguir:
 
-- *Modo de detecção*: Quando executado no modo de detecção, o WAF não executa outras ações além de monitores e registra a solicitação e sua regra WAF correspondente nos logs do WAF. Você pode ativar o diagnóstico de log para o Front Door. Ao usar o portal, vá para a seção **Diagnóstico**.
+- *Modo de detecção*: Quando executado no modo de detecção, o WAF não executa outras ações além de monitores e registra a solicitação e sua regra WAF correspondente nos logs do WAF. Você pode ativar o diagnóstico de log para o CDN. Ao usar o portal, vá para a seção **Diagnóstico**.
 
 - *Modo de prevenção*: No modo de prevenção, o WAF executará a ação especificada se uma solicitação corresponder a uma regra. Se uma correspondência for encontrada, nenhuma regra adicional com uma prioridade mais baixa será avaliada. Qualquer solicitação correspondente também é registrada nos logs do WAF.
 

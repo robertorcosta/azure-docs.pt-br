@@ -1,6 +1,5 @@
 ---
-title: 'Tutorial 1: Prever risco de crédito'
-titleSuffix: ML Studio (classic) - Azure
+title: 'Tutorial do ML Studio (clássico): Prever risco de crédito – Azure'
 description: Um tutorial detalhado que mostra como criar uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning Studio (clássico). Este tutorial é a primeira parte de uma série com três partes.  Ele mostra como criar um workspace, carregar os dados e criar um experimento.
 keywords: risco de crédito, solução de análise preditiva, avaliação de riscos
 author: sdgilley
@@ -10,14 +9,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 2e2edd7930ba4555748791210ad303c54f93c347
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b8e2d0cd0d9aa567cfab9e2fef66ad6363e59d53
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086102"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324889"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutorial 1: Prever risco de crédito – Azure Machine Learning Studio (clássico)
+
+**APLICA-SE AO:** ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) 
+
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -175,7 +177,7 @@ A próxima etapa do tutorial é criar um experimento no Machine Learning Studio 
 
 ### <a name="prepare-the-data"></a>Preparar os dados
 
-Você pode exibir as primeiras 100 linhas de dados e algumas informações estatísticas de todo o conjunto de dados: Clique na porta de saída do conjunto de dados (o círculo pequeno na parte inferior) e selecione **Visualizar**.  
+É possível exibir as 100 primeiras linhas dos dados e algumas informações estatísticas de todo o conjunto de dados clicando na porta de saída do conjunto de dados (o círculo pequeno na parte inferior) e selecionando **Visualizar**.  
 
 Como o arquivo de dados não foi fornecido com títulos de coluna, o Studio (clássico) forneceu títulos genéricos (Col1, Col2 *etc.* ). Bons títulos de coluna não são essenciais para criar um modelo, mas facilitam o trabalho com os dados no teste. Além disso, quando você eventualmente publicar esse modelo em um serviço Web, os títulos ajudarão a identificar as colunas para o usuário do serviço.  
 
@@ -189,7 +191,7 @@ Para usar o módulo [Editar metadados][edit-metadata] é necessário especificar
 
 1. Clique e arraste o módulo [Editar metadados][edit-metadata] para a tela e solte-o abaixo do conjunto de dados que você adicionou anteriormente.
 
-1. Conecte o conjunto de dados ao módulo [Editar metadados][edit-metadata]: clique na porta de saída do conjunto de dados (o círculo pequeno na parte inferior do conjunto de dados), arraste para a porta de entrada de [Editar metadados][edit-metadata] (o círculo pequeno na parte superior do módulo) e, em seguida, solte o botão do mouse. O conjunto de dados e o módulo permanecem conectados mesmo se você mover um deles nas telas.
+1. Conecte o conjunto de dados ao módulo [Editar Metadados][edit-metadata]: clique na porta de saída do conjunto de dados (o círculo pequeno na parte inferior do conjunto de dados), arraste para a porta de entrada do [Editar Metadados][edit-metadata] (o círculo pequeno na parte superior do módulo) e, em seguida, solte o botão do mouse. O conjunto de dados e o módulo permanecem conectados mesmo se você mover um deles nas telas.
  
     O teste deve se parecer como o seguinte:  
 
@@ -224,7 +226,7 @@ Para usar o módulo [Editar metadados][edit-metadata] é necessário especificar
    ![Propriedades de Editar Metadados](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
 
    > [!TIP]
-   > Se quer verificar os títulos de coluna, execute o teste (clique em **EXECUTAR** abaixo da tela do teste). Quando a execução terminar (uma marca de seleção verde aparecerá em [Editar metadados][edit-metadata]), clique na porta de saída do módulo [Editar metadados][edit-metadata] e selecione **Visualizar**. Você pode exibir a saída de qualquer módulo da mesma maneira para exibir o progresso dos dados durante o teste.
+   > Se quer verificar os títulos de coluna, execute o teste (clique em **EXECUTAR** abaixo da tela do teste). Quando ele terminar a execução (uma marca de seleção verde aparecerá em [Editar Metadados][edit-metadata]), clique na porta de saída do módulo [Editar Metadados][edit-metadata] e selecione **Visualizar**. Você pode exibir a saída de qualquer módulo da mesma maneira para exibir o progresso dos dados durante o teste.
    > 
    > 
 
@@ -237,7 +239,7 @@ Para isso, use o módulo [Dividir Dados][split].
 
 1. Localize o módulo [Dividir Dados][split], arraste-o para a tela e conecte-o ao módulo [Editar metadados][edit-metadata].
 
-1. Por padrão, a taxa de divisão é 0,5 e o parâmetro **Divisão aleatória** é definido. Isso significa que uma metade aleatória dos dados sairá por uma porta do módulo [Dividir Dados][split] e a outra metade sairá por outra porta. É possível ajustar isso, bem como o parâmetro **Semente aleatória**, a fim de alterar a divisão entre dados de treinamento e teste. Neste exemplo, deixe no estado em que se encontra.
+1. Por padrão, a taxa de divisão é 0,5 e o parâmetro **Divisão aleatória** é definido. Isso significa que metade dos dados aleatórios sairá por uma porta do módulo [Dividir Dados][split] e a outra metade sairá por outra porta. É possível ajustar isso, bem como o parâmetro **Semente aleatória**, a fim de alterar a divisão entre dados de treinamento e teste. Neste exemplo, deixe no estado em que se encontra.
    
    > [!TIP]
    > A propriedade **Fração de linhas no primeiro conjunto de dados de saída** determina a quantidade de dados que saem através da porta de saída à *esquerda*. Por exemplo, se você definir a taxa em 0,7, então, 70% dos dados sairão pela porta esquerda e 30% pela porta direita.  
@@ -270,7 +272,7 @@ Você pode fazer essa replicação usando código em R:
 
     ![Script R no módulo Executar Script R](./media/tutorial-part1-credit-risk/execute-r-script.png)
 
-É necessário fazer essa mesma operação de replicação para cada saída do módulo [Dividir Dados][split], de forma que os dados de treinamento e teste tenham os mesmos ajustes de custo. A maneira mais fácil de fazer isso é duplicar o módulo [Executar Script R][execute-r-script] que você acabou de criar e conectá-lo à outra porta de saída do módulo [Dividir Dados][split].
+É necessário fazer essa mesma operação de replicação para cada saída do módulo [Dividir Dados][split] de forma que os dados de treinamento e teste tenham os mesmos ajustes de custo. A maneira mais fácil de fazer isso é duplicando o módulo [Executar Script R][execute-r-script] que você acabou de criar e conectando-o a outra porta de saída do módulo [Dividir Dados][split].
 
 1. Clique com o botão direito do mouse no módulo [Executar Script R][execute-r-script] e selecione **Copiar**.
 
@@ -311,6 +313,6 @@ Agora você está pronto para treinar e avaliar modelos para esses dados.
 > [Tutorial 2 – treinar e avaliar modelos](tutorial-part2-credit-risk-train.md)
 
 <!-- Module References -->
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
+[execute-r-script]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-r-script
+[edit-metadata]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/edit-metadata
+[split]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/split-data

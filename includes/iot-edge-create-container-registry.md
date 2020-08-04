@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 12/30/2019
 ms.author: kgremban
-ms.openlocfilehash: f63510771e4bd71a3ab6cf048bc5fb5296042a4d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f8cb734e8a57e3b0ee114ae20f454d0034e9cdc9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75564799"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387601"
 ---
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
 
@@ -25,17 +25,18 @@ Caso ainda não tenha um registro de contêiner, siga estas etapas para criar um
 
    | Campo | Valor |
    | ----- | ----- |
-   | Nome do registro | Forneça um nome exclusivo. |
    | Subscription | Selecione uma assinatura na lista suspensa. |
    | Resource group | É recomendável que você use o mesmo grupo de recursos para todos os recursos de teste que foram criados durante os tutoriais e guias de início rápido do IoT Edge. Por exemplo, **IoTEdgeResources**. |
+   | Nome do registro | Forneça um nome exclusivo. |
    | Location | Escolha um local perto de você. |
-   | Usuário administrador | Definido como **Habilitar**. |
    | SKU | Selecione **Basic**. |
 
 3. Selecione **Criar**.
 
 4. Depois que o registro de contêiner for criado, navegue até ele e, no painel esquerdo, selecione **Chaves de acesso** no menu localizado em **Configurações**.
 
-5. Copie os valores para **Servidor de logon**, **Nome de usuário** e **Senha** e salve-os em um local conveniente. É possível usar esses valores neste tutorial para fornecer acesso ao registro de contêiner.
+5. Clique para Habilitar que o usuário administrador veja o **Nome de usuário** e a **Senha** do seu registro de contêiner.
+
+6. Copie os valores para **Servidor de logon**, **Nome de usuário** e **Senha** e salve-os em um local conveniente. É possível usar esses valores neste tutorial para fornecer acesso ao registro de contêiner.
 
    ![Copie o servidor de logon, o nome de usuário e a senha para o registro de contêiner](./media/iot-edge-create-container-registry/registry-access-key.png)

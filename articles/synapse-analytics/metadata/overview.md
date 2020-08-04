@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: c41c3346d04dd1fc00a7ddb9e7fea66f619995e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c11a0ccb08f03775a07716e6c547d849cda347dd
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496036"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387329"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Metadados compartilhados do Azure Synapse Analytics
 
@@ -40,7 +40,7 @@ O modelo de metadados compartilhados dá suporte ao padrão de data warehouse mo
 
 A sincronização de objeto ocorre de maneira assíncrona. Os objetos terão um pequeno atraso de alguns segundos até que sejam exibidos no contexto de SQL. Depois de serem exibidos, eles poderão ser consultados, mas não atualizados nem alterados pelos mecanismos SQL que têm acesso a eles.
 
-## <a name="which-metadata-objects-are-shared"></a>Quais objetos de metadados são compartilhados
+## <a name="shared-metadata-objects"></a>Objetos de metadados compartilhados
 
 O Spark permite criar bancos de dados, tabelas externas, tabelas gerenciadas e exibições. Como as exibições do Spark exigem um mecanismo do Spark para processar a instrução SQL de definição do Spark e não podem ser processadas por um mecanismo SQL, somente os bancos de dados e as tabelas externas e gerenciadas independentes que usam o formato de armazenamento Parquet são compartilhados com o mecanismo SQL do workspace. As exibições do Spark são compartilhadas apenas entre as instâncias do Pool do Spark.
 

@@ -3,26 +3,25 @@ title: Trocas e reembolsos realizados via autoatendimento nas Reservas do Azure
 description: Saiba como você pode trocar ou reembolsar as Reservas do Azure.
 author: yashesvi
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 07/01/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 4a25bb13bfa5b2e4f13ddf437bcd9577f9602aed
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 3f41f26e6934e156ab38340a74e2c070b26cefb4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807682"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287646"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas e reembolsos realizados via autoatendimento nas Reservas do Azure
 
-As Reservas do Azure fornecem flexibilidade para ajudar a atender às suas necessidades em constante evolução. Você pode trocar uma reserva por outra do mesmo tipo, que é uma reserva de máquina virtual que pode ser trocada para comprar uma reserva para qualquer região ou tamanho de máquina virtual. Da mesma forma, uma reserva do Banco de Dados de PaaS do SQL pode ser trocada para comprar qualquer reserva para qualquer tipo ou região de Banco de Dados de PaaS do SQL. Você também pode reembolsar reservas, mas a soma total do compromisso de reserva cancelado não pode ultrapassar US$ 50.000 em uma janela de 12 meses ininterruptos. A capacidade reservada do Azure Databricks, a reserva da solução VMware da CloudSimple no Azure, a reserva do Azure Red Hat Open Shift, planos do Red Hat e planos do SUSE Linux não são elegíveis para reembolsos.
+As Reservas do Azure fornecem flexibilidade para ajudar a atender às suas necessidades em constante evolução. Você pode trocar uma reserva por outra do mesmo tipo. Por exemplo, você pode trocar uma reserva de máquina virtual para comprar outra reserva de qualquer outro tamanho ou região de VM. Da mesma forma, uma reserva do Banco de Dados de PaaS do SQL pode ser trocada para comprar outra reserva de qualquer tipo ou região do Banco de Dados de PaaS do SQL. Você também pode reembolsar reservas, mas a soma total de todos os compromissos de reserva cancelados em seu escopo do orçamento (como EA, Contrato de Cliente da Microsoft e Contrato de Parceiro da Microsoft) não pode ultrapassar US$ 50.000 em uma janela ininterrupta de 12 meses. A capacidade reservada do Azure Databricks, a reserva da solução VMware da CloudSimple no Azure, a reserva do Azure Red Hat Open Shift, planos do Red Hat e planos do SUSE Linux não são elegíveis para reembolsos.
 
 Os recursos de cancelamento e troca de autoatendimento não estão disponíveis para clientes do US Government Enterprise Agreement. Há suporte para outros tipos de assinatura do governo dos EUA, incluindo Pagamento Conforme o Uso e CSP (Provedor de Solução de Nuvem).
 
-Você precisa ter acesso de proprietário ao Pedido de Reserva para trocar ou reembolsar uma reserva existente. Você pode [Adicionar ou alterar os usuários que podem gerenciar uma reserva](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
-
 > [!NOTE]
-> Atualmente, a Microsoft não está cobrando valores de término antecipado para reembolsos de reserva. Poderemos cobrar valores para reembolsos feitos no futuro. No momento, não temos uma data para habilitar o valor.
+> - **Você precisa ter acesso de proprietário ao Pedido de Reserva para trocar ou reembolsar uma reserva existente**. Você pode [Adicionar ou alterar os usuários que podem gerenciar uma reserva](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
+> - Atualmente, a Microsoft não está cobrando valores de término antecipado para reembolsos de reserva. Poderemos cobrar valores para reembolsos feitos no futuro. No momento, não temos uma data para habilitar o valor.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>Como trocar ou reembolsar uma reserva existente
 
@@ -76,7 +75,8 @@ O Azure tem as políticas de cancelamento, troca e reembolso a seguir.
 **Políticas de reembolso**
 
 - No momento, não estamos cobrando um valor de término antecipado, mas no futuro poderá haver um valor de término antecipado de 12% para cancelamentos.
-- O total do compromisso cancelado não pode exceder USD 50.000 em uma janela de 12 meses consecutivos. Exemplo: para uma reserva de três anos de US$ 100 por mês reembolsada no 18° mês, o compromisso cancelado é de US$ 1.800. Após o reembolso, seu novo limite disponível para reembolso será de US$ 48.200. Em 365 dias a partir deste reembolso, o limite de US$ 48.200 será aumentado em 1.800 USD e seu novo pool será de USS 50.000. Qualquer outro cancelamento de reserva esvaziará o mesmo pool, e a mesma lógica de reabastecimento será aplicada.
+- O compromisso cancelado total não pode ultrapassar US$ 50.000 em uma janela ininterrupta de 12 meses para um perfil de cobrança ou registro único. Por exemplo, para uma reserva de três anos de US$ 100 por mês reembolsada no 18° mês, o compromisso cancelado é de US$ 1.800. Após o reembolso, seu novo limite disponível para reembolso será de US$ 48.200. Em 365 dias depois deste reembolso, o limite de US$ 48.200 será aumentado em US$ 1.800 e seu novo pool será de US$ 50.000. Qualquer outro cancelamento de reserva para o perfil de cobrança ou registro de EA esvaziará o mesmo pool, e a mesma lógica de reabastecimento será aplicada.
+- O Azure não processará nenhum reembolso que ultrapasse o limite de US$ 50.000 em uma janela de 12 meses para um perfil de cobrança ou registro de EA.
 - O cálculo dos reembolsos é baseado no valor mais baixo entre o preço de compra e o preço atual da reserva.
 - Somente os proprietários de pedidos de reserva podem processar um reembolso. [Saiba como adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 

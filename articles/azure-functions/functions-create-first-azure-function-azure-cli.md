@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 86be7ec73d8e19597062f3fa3777f3aa422082c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: acfe4695b94fe9337296d70ef4a2864794730ec4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506342"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081722"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Início Rápido: Criar uma função no Azure que responda a solicitações HTTP
 
@@ -111,6 +111,9 @@ Forneça os seguintes valores quando solicitado:
 Digite `Y` ou pressione Enter para confirmar.
 
 O Maven cria os arquivos de projeto em uma nova pasta com o nome _artifactId_, que, neste exemplo, é `fabrikam-functions`. 
+
+Para executar no Java 11 no Azure, é necessário modificar os valores no arquivo pom.xml. Para saber mais, confira [Versões Java](functions-reference-java.md#java-versions). 
+
 ::: zone-end  
 Navegue até a pasta do projeto:
 
@@ -157,6 +160,8 @@ As configurações dos recursos do Azure criados para hospedar seu aplicativo s�
 :::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
 Você pode alterar essas configurações para controlar como os recursos são criados no Azure, por exemplo, alterando `runtime.os` de `windows` para `linux` antes da implantação inicial. Para obter uma lista completa das configurações compatíveis com o plug-in do Maven, confira os [detalhes da configuração](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
+
+Se desejar executar seu aplicativo de funções no Java 11 em vez de no Java 8, você precisará atualizar manualmente o arquivo pom.xml com os valores do Java 11. Para saber mais, confira [Versões Java](functions-reference-java.md#java-versions). Ao executar no Java 11, verifique se  
 
 #### <a name="functiontestjava"></a>FunctionTest.java
 

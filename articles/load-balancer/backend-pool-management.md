@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: overview
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: f1718de6bc9a86f85cadf4531386e663d5a420d3
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 7fe7c1473579c62b110548a2c5e98f9bdfaf6bf9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273754"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131456"
 ---
 # <a name="backend-pool-management"></a>Gerenciamento de pools de back-end
 O pool de back-end é um componente crítico do balanceador de carga. O pool de back-end define o grupo de recursos que receberá o tráfego para determinada regra de balanceamento de carga.
@@ -255,10 +255,12 @@ Todo o gerenciamento de pools de back-end é feito diretamente no objeto de pool
 
   >[!IMPORTANT] 
   >Atualmente, este recurso está em versão prévia e tem as seguintes limitações:
-  >* Limite de 100 endereços IP adicionados
+  >* Somente Standard Load Balancer
+  >* Limite de 100 endereços IP no pool de backend
   >* Os recursos de back-end precisam estar na mesma rede virtual do balanceador de carga
   >* Atualmente, não há suporte para esse recurso no portal do Azure
-  >* Somente Standard Load Balancer
+  >* Atualmente, não há suporte para contêineres ACI neste recurso
+  >* Balanceadores de carga ou serviços administrados por balanceadores de carga não podem ser colocados no pool de backend do balanceador de carga
   
 ### <a name="powershell"></a>PowerShell
 Criar um pool de back-end:
@@ -271,8 +273,7 @@ $vnetName = "myVnet"
 $location = "eastus"
 $nicName = "myNic"
 
-$backendPool = 
-New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
+$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName  
 ```
 
 Atualizar o pool de back-end com um novo IP da rede virtual existente:
@@ -281,18 +282,17 @@ Atualizar o pool de back-end com um novo IP da rede virtual existente:
 $virtualNetwork = 
 Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
  
-$ip1 = 
-New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
+$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
  
 $backendPool.LoadBalancerBackendAddresses.Add($ip1) 
 
-Set-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool $backendPool  
+Set-AzLoadBalancerBackendAddressPool -InputObject $backendPool
 ```
 
 Recuperar as informações do pool de back-end para o balanceador de carga, a fim de confirmar se os endereços de back-end foram adicionados ao pool de back-end:
 
 ```azurepowershell-interactive
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool $backendPool  
+Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName 
 ```
 Crie um adaptador de rede e adicione-o ao pool de back-end. Defina o endereço IP com um dos endereços de back-end:
 

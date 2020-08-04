@@ -7,13 +7,13 @@ ms.author: banders
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/19/2020
-ms.openlocfilehash: 3a7e1e8670911d361b3c59aacc0973eac035fb70
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/27/2020
+ms.openlocfilehash: bf9a98d6484e7f78a80a4e3018afdec00df51337
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065713"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322016"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Exibir e baixar uso e encargos do Azure
 
@@ -21,7 +21,7 @@ Baixe um detalhamento diário do uso e dos encargos do Azure no portal do Azure.
 
 Caso tenha um MCA (Contrato de Cliente da Microsoft), você precisará ser proprietário, colaborador, leitor ou gerenciador de faturas de um perfil de cobrança para exibir o uso e os encargos do Azure.  Caso você tenha um MPA (Contrato de Parceiro da Microsoft), somente as funções Administrador Global e Agente Administrativo na organização do parceiro com a Microsoft poderão exibir e baixar o uso e os encargos do Azure. [Verifique o tipo de sua conta de cobrança no portal do Azure](#check-your-billing-account-type).
 
-Com base no tipo de assinatura que você usa, as opções para baixar o uso e os encargos variam. 
+Com base no tipo de assinatura que você usa, as opções para baixar o uso e os encargos variam.
 
 ## <a name="download-usage-from-the-azure-portal-csv"></a>Baixar o uso no portal do Azure (.csv)
 
@@ -34,7 +34,6 @@ Com base no tipo de assinatura que você usa, as opções para baixar o uso e os
 1. Selecione o **ícone de download** ou as reticências (`...`) à direita.  
   ![Captura de tela mostrando o local de download Uso + encargos](./media/download-azure-daily-usage/download-usage-others.png)  
 1. O painel Download se abre à direita. Selecione **Download** na seção **Detalhes de Uso**.  
-
 
 ## <a name="download-usage-for-ea-customers"></a>Faça o download uso para clientes do EA
 
@@ -54,10 +53,9 @@ Caso tenha um Contrato de Cliente da Microsoft, você poderá baixar o uso do m�
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Pesquise *Gerenciamento de Custos + Cobrança*.
 3. Selecione um perfil de cobrança. Dependendo de seu acesso, talvez você precise selecionar uma conta de cobrança primeiro.
-4. Na área **Visão Geral**, encontre os links de download abaixo dos encargos do mês atual.
-5. Selecione **Uso e encargos do Azure**.
-
-    ![Captura de tela que mostra o download em Visão Geral](./media/download-azure-daily-usage/open-usage01.png)
+4. Na área **Visão Geral**, encontre os links de download abaixo dos encargos recentes.
+5. Selecione **Baixar dados de uso e preços**.  
+    :::image type="content" source="./media/download-azure-daily-usage/open-usage01.png" alt-text="Captura de tela que mostra o download em Visão Geral" lightbox="./media/download-azure-daily-usage/open-usage01.png" :::
 
 ## <a name="check-your-billing-account-type"></a>Verificar o tipo de conta de cobrança
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]

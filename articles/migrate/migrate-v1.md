@@ -7,22 +7,22 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7c4a148d68de8c57ed9237c05ba11eaf6c5e81e3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2defb00827e6f3ccf49c336007198b7d9ac176f6
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103952"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87306104"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior das Migrações para Azure
 
-Este artigo fornece informações sobre como trabalhar com a versão anterior das Migrações para Azure.
+Este artigo fornece informações sobre como trabalhar com a versão anterior das Migrações para Azure. 
 
 
 Há duas versões do serviço de Migrações para Azure:
 
 - **Versão atual**: use esta versão para criar projetos de Migrações para Azure, descobrir computadores locais e orquestrar avaliações e migrações. [Saiba mais](whats-new.md) sobre as novidades desta versão.
-- **Versão anterior**: se você estava usando a versão anterior das Migrações para Azure (havia suporte apenas a avaliação de VMs do VMware locais), agora deve usar a versão atual. Se você ainda precisa usar projetos das Migrações para Azure criados na versão anterior, isto é o que você pode e não pode fazer:
+- **Versão anterior**: se você estava usando a versão anterior das Migrações para Azure (havia suporte apenas a avaliação de VMs do VMware locais), agora deve usar a versão atual. Os projetos de versões anteriores são chamados de projetos clássicos neste artigo. Se você ainda precisa usar projetos das Migrações para Azure criados na versão anterior, isto é o que você pode e não pode fazer:
     - Você não pode mais criar projetos de migração.
     - Recomendamos que você não execute novas descobertas.
     - Você ainda pode acessar os projetos existentes.
@@ -31,7 +31,7 @@ Há duas versões do serviço de Migrações para Azure:
 
 ## <a name="upgrade-between-versions"></a>Upgrade entre versões
 
-Não é possível fazer upgrade de projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um novo projeto das Migrações para Azure](how-to-add-tool-first-time.md) e adicionar ferramentas de avaliação e migração a ele.
+Não é possível fazer upgrade de projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um projeto das Migrações para Azure](create-manage-projects.md) e [adicionar ferramentas de avaliação e migração](how-to-add-tool-first-time.md) a ele. Use os tutoriais para entender como usar as ferramentas de avaliação e migração disponíveis. Se você tinha um workspace do Log Analytics anexado a um projeto clássico, poderá anexá-lo a um projeto da versão atual depois de excluir o projeto clássico.
 
 ## <a name="find-projects-from-previous-version"></a>Localizar projetos da versão anterior
 
@@ -39,7 +39,16 @@ Localize projetos da versão anterior da seguinte maneira:
 
 1. No portal do Azure > **Todos os serviços**, pesquise e selecione **Migrações para Azure**. 
 2. No painel Migrações para Azure, há uma notificação e um link para acessar projetos antigos das Migrações para Azure.
-3. Clique no link para abrir projetos v1.
+3. Clique no link para abrir projetos clássicos.
+
+## <a name="delete-projects-from-previous-version"></a>Excluir projetos da versão anterior
+
+Localize e exclua projetos da versão anterior da seguinte maneira:
+
+1. No portal do Azure > **Todos os serviços**, pesquise e selecione **Migrações para Azure**. 
+2. No painel Migrações para Azure, há uma notificação e um link para acessar projetos antigos das Migrações para Azure.
+3. Clique no link para abrir projetos clássicos.
+4. Selecione o projeto que você deseja excluir e exclua-o. 
 
 
 ## <a name="create-an-assessment"></a>Criar uma avaliação
@@ -118,7 +127,7 @@ Cliente do Windows 7, 8 e 10 | O Azure oferece suporte apenas [com a Assinatura 
 Windows 10 Pro Desktop | O Azure oferece suporte com [Direitos de Hospedagem multilocatário.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Condicionalmente pronta para o Azure
 Windows Vista, XP Professional | Sem suporte. O computador pode ser inicializado no Azure, mas não há suporte ao sistema operacional fornecido pelo Azure. | Condicionalmente pronto para o Azure, considere atualizar o sistema operacional antes de migrar para o Azure.
 Linux | O Azure endossa esses [sistemas operacionais Linux](../virtual-machines/linux/endorsed-distros.md). Outros sistemas operacionais podem ser inicializados no Azure, mas recomendamos atualizar o sistema operacional para uma versão endossada antes de migrar para o Azure. | Pronto para o Azure se a versão é aprovada.<br/><br/>Condicionalmente pronto se a versão não é aprovada.
-Outros sistemas operacionais<br/><br/> Por exemplo, Oracle Solaris, sistema operacional Apple Mac OS, FreeBSD, etc. | O Azure não endossa esses sistemas operacionais. O computador pode ser inicializado no Azure, mas não há suporte do sistema operacional fornecido pelo Azure. | Condicionalmente pronto para o Azure, é recomendável atualizar o sistema operacional antes de migrar para o Azure.  
+Outros sistemas operacionais<br/><br/> Por exemplo, Oracle Solaris, Apple macOS etc., FreeBSD etc. | O Azure não endossa esses sistemas operacionais. O computador pode ser inicializado no Azure, mas não há suporte do sistema operacional fornecido pelo Azure. | Condicionalmente pronto para o Azure, é recomendável atualizar o sistema operacional antes de migrar para o Azure.  
 Sistema operacional especificado como **Outros** no vCenter Server | As Migrações para Azure não podem identificar o sistema operacional neste caso. | Preparação desconhecida. Certifique-se de que o sistema operacional em execução dentro da VM tem suporte no Azure.
 Sistemas operacionais de 32 bits | O computador pode ser inicializado no Azure, mas o Azure pode não fornecer suporte completo. | Condicionalmente pronto para o Azure, considere atualizar o sistema operacional do computador de 32 bits para 64 bits antes de migrar para o Azure.
 
@@ -201,7 +210,7 @@ Para usar a visualização de dependência, associe um espaço de trabalho do Lo
 1. Para anexar um espaço de trabalho do Log Analytics a um projeto, em **Visão geral** > **Essentials**, clique em **Requer configuração**.
 2. Você pode criar um novo espaço de trabalho ou anexar um existente:
   - Para criar um novo espaço de trabalho, especifique um nome. O espaço de trabalho será criado em uma região na mesma [geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que o projeto de migração.
-  - Ao anexar um workspace, você pode escolher entre todos os workspaces disponíveis na mesma assinatura que o projeto de migração. Somente os espaços de trabalho que foram criados [em uma região do Mapa do Serviço com suporte](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites) são listados. Para anexar um espaço de trabalho, verifique se você tem acesso de 'Leitura' ao espaço de trabalho.
+  - Ao anexar um workspace, você pode escolher entre todos os workspaces disponíveis na mesma assinatura que o projeto de migração. Somente os espaços de trabalho que foram criados [em uma região do Mapa do Serviço com suporte](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions) são listados. Para anexar um espaço de trabalho, verifique se você tem acesso de 'Leitura' ao espaço de trabalho.
 
 > [!NOTE]
 > Não é possível alterar o espaço de trabalho associado a um projeto de migração.

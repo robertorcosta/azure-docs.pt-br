@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 9c07db575827254de833fc0b2390be823ebc4e57
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: aae1797f7f1a252a4f094ee9f1b079fb60ba72f3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206540"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131728"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Criar uma solução de ponta a ponta
 
@@ -26,6 +26,9 @@ Neste tutorial, você vai...
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### <a name="set-up-cloud-shell-session"></a>Configurar uma sessão do Cloud Shell
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
 
 [!INCLUDE [Azure Digital Twins tutorial: configure the sample project](../../includes/digital-twins-tutorial-sample-configure.md)]
@@ -90,7 +93,7 @@ A etapa seguinte é configurar um [aplicativo do Azure Functions](../azure-funct
 * *ProcessHubToDTEvents*: processa dados de entrada do Hub IoT e atualiza os Gêmeos Digitais do Azure adequadamente
 * *ProcessDTRoutedData*: processa dados dos gêmeos digitais e atualiza o gêmeos pai nos Gêmeos Digitais do Azure adequadamente
 
-Nesta seção, você publicará o aplicativo de funções pré-escrito e garantirá que ele possa acessar os Gêmeos Digitais do Azure atribuindo a ele uma identidade do AAD (Azure Active Directory). A conclusão dessas etapas permitirá que o restante do tutorial use as funções dentro do aplicativo de funções. 
+Nesta seção, você publicará o aplicativo de funções pré-escrito e garantirá que ele possa acessar os Gêmeos Digitais do Azure atribuindo a ele uma identidade do Azure AD (Azure Active Directory). A conclusão dessas etapas permitirá que o restante do tutorial use as funções dentro do aplicativo de funções. 
 
 ### <a name="publish-the-app"></a>Publicar o aplicativo
 
@@ -138,7 +141,7 @@ No painel *Publicar* que é aberto na janela principal do Visual Studio, verifiq
 
 ### <a name="assign-permissions-to-the-function-app"></a>Atribuir permissões ao aplicativo de funções
 
-Para permitir que o aplicativo de funções acesse os Gêmeos Digitais do Azure, a próxima etapa é definir uma configuração do aplicativo, atribuir ao aplicativo uma identidade do AAD gerenciada pelo sistema e conceder ao *proprietário* dessa identidade permissões na instância dos Gêmeos Digitais do Azure.
+Para permitir que o aplicativo de funções acesse os Gêmeos Digitais do Azure, a próxima etapa é definir uma configuração do aplicativo, atribuir ao aplicativo uma identidade do Azure AD gerenciada pelo sistema e conceder a essa identidade permissões de *proprietário* na instância dos Gêmeos Digitais do Azure.
 
 No Azure Cloud Shell, use o comando a seguir para definir uma configuração de aplicativo que seu aplicativo de funções usará para fazer referência à sua instância dos gêmeos digitais.
 
@@ -420,7 +423,7 @@ Usando o Azure Cloud Shell, exclua todos os recursos do Azure em um grupo de rec
 az group delete --name <your-resource-group>
 ```
 
-Em seguida, exclua o registro de aplicativo do AAD criado para o aplicativo cliente com este comando:
+Em seguida, exclua o registro de aplicativo do Azure AD criado para o aplicativo cliente com este comando:
 
 ```azurecli
 az ad app delete --id <your-application-ID>
@@ -433,7 +436,7 @@ Por fim, exclua a pasta de exemplo do projeto que você baixou do computador loc
 Neste tutorial, você criou um cenário de ponta a ponta que mostra os Gêmeos Digitais do Azure controlados por dados dinâmicos do dispositivo.
 
 Em seguida, comece a examinar a documentação de conceito para saber mais sobre os elementos com os quais você trabalhou no tutorial:
-* [Conceitos: modelos personalizados](concepts-models.md)
+* [*Conceitos: modelos personalizados*](concepts-models.md)
 
 Ou aprofunde-se com relação aos processos neste tutorial iniciando os artigos de instruções:
-* [Instruções: Usar a CLI dos Gêmeos Digitais do Azure](how-to-use-cli.md)
+* [*Como usar a CLI dos Gêmeos Digitais do Azure*](how-to-use-cli.md)

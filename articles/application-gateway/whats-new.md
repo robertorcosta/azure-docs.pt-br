@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 06/10/2020
 ms.author: victorh
-ms.openlocfilehash: a98a06dedf1d0ed9b92cc2028dfc208ff26df056
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6ea0b28f5e0f23e0f8bb30e8fe2b0f792bce0709
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517613"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287447"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Novidades no Gateway de Aplicativo do Azure?
 
@@ -27,7 +27,7 @@ O Gateway de Aplicativo do Azure é atualizado continuamente. Para se manter atu
 
 |Recurso  |Descrição  |Data de adição  |
 |---------|---------|---------|
-| Nomes do host curinga em ouvintes (versão prévia) | Agora você pode definir nomes do host curinga em um ouvinte multissite e até cinco nomes do host por ouvinte. Para saber mais, confira [Nomes do host curinga no ouvinte (versão prévia)](multiple-site-overview.md#wildcard-host-names-in-listener-preview) e [Hospedar vários sites em um Gateway de Aplicativo usando o portal do Azure](create-multiple-sites-portal.md) do guia passo a passo. | Julho de 2020 |
+| Nomes do host curinga em ouvintes (versão prévia) | Agora você pode definir nomes do host curinga em um ouvinte multissite e até cinco nomes do host por ouvinte. Para saber mais, confira [nomes do host curinga no ouvinte (versão prévia)](multiple-site-overview.md#wildcard-host-names-in-listener-preview) | Julho de 2020 |
 | Reescrita de URL (versão prévia) | Agora você pode reescrever o caminho da URL e os parâmetros da cadeia de consulta usando a reescrita de URL. Confira [Reescrever os cabeçalhos HTTP e a URL](rewrite-http-headers-url.md) para saber mais e [Reescrever a URL no Gateway de Aplicativo usando o portal do Azure](rewrite-url-portal.md) do guia passo a passo. | Julho de 2020 |
 | Porta personalizada para investigações de integridade | A SKU do Gateway de Aplicativo v2 agora oferece a capacidade de fornecer uma porta personalizada na configuração de investigação de integridade. Para obter mais informações, confira a [visão geral da investigação de integridade](application-gateway-probe-overview.md) | Julho de 2020 |
 | Complemento do AKS do AGIC (Controlador de Entrada do Gateway de Aplicativo) (Versão prévia) |O Controlador de Entrada do Gateway de Aplicativo agora pode ser implantado como um complemento do AKS nativo em uma linha por meio da CLI do Azure. Ser um complemento do AKS permite que o AGIC se torne um serviço totalmente gerenciado enquanto ainda está em execução no cluster do AKS do cliente. Para obter mais informações, confira [Diferenças no complemento do AGIC](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). |Junho de 2020 |

@@ -6,23 +6,23 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 05/28/2020
+ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 8aeb6b964ab38a68a6d8681a4e5c93e1650c6a69
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: db866da43310f5407ce4daae1cade2c7512b91ea
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171254"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369231"
 ---
 Use a biblioteca de clientes de previsão de LUIS (Reconhecimento vocal) para Python com o objetivo de:
 
 * Obter previsão por slot
 * Obter previsão por versão
 
-[Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [Pacote do runtime de previsão (PyPi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [ Exemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/LUIS)
+[Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [Pacote do runtime de previsão (PyPi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [ Exemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,8 +35,6 @@ Use a biblioteca de clientes de previsão de LUIS (Reconhecimento vocal) para Py
 ### <a name="get-your-language-understanding-luis-runtime-key"></a>Obtenha sua chave de runtime do LUIS (Reconhecimento vocal)
 
 Obtenha sua [chave de runtime](../luis-how-to-azure-subscription.md) criando um recurso de runtime do LUIS. Mantenha sua chave e o ponto de extremidade da chave para a próxima etapa.
-
-[!INCLUDE [Set up environment variables for prediction quickstart](sdk-prediction-environment-variables.md)]
 
 ### <a name="create-a-new-python-file"></a>Criar um arquivo Python
 
@@ -73,20 +71,16 @@ No diretório do projeto, abra o arquivo `prediction_quickstart.py` no IDE ou no
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-1. Crie variáveis para suas informações necessárias do LUIS:
-
-    Adicione variáveis para gerenciar sua chave de previsão extraída de uma variável de ambiente chamada `LUIS_RUNTIME_KEY`. Se você criou a variável de ambiente depois de iniciar o aplicativo, será necessário fechar e recarregar o editor, o IDE ou o shell em execução para acessar a variável. Os métodos serão criados posteriormente.
-
-    Crie uma variável para conter o nome do recurso `LUIS_RUNTIME_ENDPOINT`.
+1. Crie variáveis para as suas informações necessárias do LUIS: a chave de previsão e o ponto de extremidade.
 
     [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=AuthorizationVariables)]
 
-1. Crie uma variável para a ID do aplicativo como uma variável de ambiente chamada `LUIS_APP_ID`. Defina a variável de ambiente para o aplicativo de IoT público, **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Crie uma variável para definir o slot publicado `production`.
+1. Crie uma variável para a ID do aplicativo definida como o aplicativo de IoT público, **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Crie uma variável para definir o slot publicado `production`.
 
     [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=OtherVariables)]
 
 
-1. Crie um objeto de credenciais com sua chave e use-o com o ponto de extremidade para criar um objeto [LUISRuntimeClientConfiguration]https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.luisruntimeclientconfiguration?view=azure-python().
+1. Crie um objeto de credenciais com a sua chave e use-o com o ponto de extremidade para criar um objeto [LUISRuntimeClientConfiguration](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.luisruntimeclientconfiguration?view=azure-python).
 
     [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=Client)]
 

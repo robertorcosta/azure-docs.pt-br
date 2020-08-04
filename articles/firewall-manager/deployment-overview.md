@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/30/2020
+ms.date: 07/28/2020
 ms.author: victorh
-ms.openlocfilehash: 90f817ac3bbd475d8a84df44bc284f09fcd19ce3
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 748adbcc719df2cdcf734f308bd4b083e9ca6ec0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565807"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372358"
 ---
 # <a name="azure-firewall-manager-deployment-overview"></a>Visão geral da implantação do Gerenciador de Firewall do Azure
 
@@ -65,6 +65,13 @@ Há mais de uma forma de implantar o Gerenciador de Firewall do Azure, mas o pro
 > - Você não pode ter mais de um hub por WAN virtual por região. Mas você pode adicionar várias WANs virtuais na região para conseguir isso.
 > - Não é possível ter espaços IP sobrepostos para hubs em uma vWAN.
 > - As conexões de VNet do Hub devem estar na mesma região que o hub.
+
+## <a name="convert-virtual-networks"></a>Converter redes virtuais
+
+As seguintes informações se aplicarão se você converter uma rede virtual existente a uma rede virtual do hub:
+
+- Se a rede virtual tiver um Firewall do Azure existente, você selecionará uma Política de Firewall a ser associada ao firewall existente. O status de provisionamento do firewall será atualizado enquanto a política de firewall substituir as regras de firewall. Durante o estado de provisionamento, o firewall continua processando o tráfego e não tem nenhum tempo de inatividade. Você pode importar regras existentes para uma Política de Firewall usando o Gerenciador de Firewall ou o Azure PowerShell.
+- Se a rede virtual não tiver um Firewall do Azure associado, um firewall será implantado e a Política de Firewall será associada ao novo firewall.
 
 ## <a name="next-steps"></a>Próximas etapas
 

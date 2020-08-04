@@ -4,12 +4,12 @@ description: Saiba como preparar computadores locais para migração com as Migr
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: aec2e95b65be2e3c69b2d29111fa1cfdbd66674e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: b92a26732f59235dac4c03f4e648d36dadd6c4ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223611"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077979"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparar computadores locais para migração para Azure
 
@@ -127,6 +127,18 @@ Para outras versões, prepare os computadores conforme resumido na tabela.
 **Remover regra udev** | Remova as regras udev que reservam os nomes de interface em endereços MAC etc. | Remova manualmente para todas as versões, exceto aquelas informadas acima.
 **Atualizar adaptadores de rede** | Atualizar os adaptadores de rede para receber endereço IP baseado em DHCP.nst | Atualize manualmente para todas as versões, exceto aquelas informadas acima.
 **Habilitar ssh** | Verifique se o ssh está habilitado e se o serviço sshd foi definido para ser iniciado automaticamente na reinicialização.<br/><br/> Verifique se as solicitações de conexão ssh de entrada não estão bloqueadas pelo firewall do sistema operacional ou por regras programáveis.| Habilite manualmente para todas as versões, exceto aquelas informadas acima.
+
+A tabela a seguir resume as etapas executadas automaticamente para os sistemas operacionais listados acima.
+
+| Ação                                      | Migração de VMware baseada em\-agente | Migração de VMware sem agente | Hyper\-V   |
+|---------------------------------------------|-------------------------------|----------------------------|------------|
+| Instalar o Hyper\-V Linux Integration Services | Sim                           | Sim                        | Não é necessário |
+| Habilitar o registro em log do console serial do Azure         | Sim                           | Sim                        | Não         |
+| Atualizar arquivo do mapa do dispositivo                      | Sim                           | Não                         | Não         |
+| Atualizar entradas fstab                        | Sim                           | Sim                        | Não         |
+| Remover regra udev                            | Sim                           | Sim                        | Não         |
+| Atualizar adaptadores de rede                   | Sim                           | Sim                        | Não         |
+| Habilitar ssh                                  | Não                            | Não                         | Não         |
 
 Saiba mais sobre as etapas para [executar uma VM do Linux no Azure](../virtual-machines/linux/create-upload-generic.md) e obtenha instruções para algumas distribuições populares do Linux.
 

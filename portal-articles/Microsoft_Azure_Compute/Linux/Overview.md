@@ -1,6 +1,6 @@
 ---
-title: Visão geral de máquinas virtuais do Linux | Microsoft Docs
-description: Visão geral do conteúdo da Ajuda para máquinas virtuais do Linux no portal do Azure
+title: Visão geral das máquinas virtuais do Linux | Microsoft Docs
+description: Visão geral do conteúdo da Ajuda para as máquinas virtuais do Linux no portal do Azure
 services: virtual-machines-linux
 author: sewatson
 manager: lwelicki
@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: ff439083ca9c648ceec95b89b041bb5b60785c91
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bf465cb6d391188b4110cca6d72deba6932af0a6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77603015"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282391"
 ---
 # <a name="linux-virtual-machines-documentation"></a>Documentação sobre Máquinas Virtuais do Linux
 
@@ -23,9 +23,10 @@ As Máquinas Virtuais Linux do Azure fornecem infraestrutura sob demanda, de alt
 
 Saiba como implantar um servidor Web NGINX em uma Máquina Virtual executando o Ubuntu:
 
-- [Portal do Azure](/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [PowerShell do Azure](/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [CLI do Azure](/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [CLI do Azure](../../articles/virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Portal do Azure](../../articles//virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [PowerShell do Azure](../../articles//virtual-machines/quick-create-powershell.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
 
 ## <a name="step-by-step-tutorials"></a>Tutoriais passo a passo
 

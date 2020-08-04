@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 473e3d52b1757faebd60c14966b425e9390a2685
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6ff1f20314d79c507c696325d19c83e10ec4513f
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248604"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386564"
 ---
-# <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows? 
+# <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows?
 
 A Área de Trabalho Virtual do Windows é um serviço de virtualização de aplicativos e área de trabalho executado na nuvem.
 
@@ -78,7 +78,7 @@ A infraestrutura precisa dos seguintes itens para dar suporte à Área de Trabal
   * Azure AD Connect (para organizações híbridas)
   * Azure AD Domain Services (para organizações híbridas ou na nuvem)
 * Uma assinatura do Azure que contém uma rede virtual que contenha o Windows Server Active Directory ou que esteja conectada a ele
-  
+
 As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windows precisam ser:
 
 * [Ingressadas no domínio padrão](../active-directory-domain-services/active-directory-ds-comparison.md) ou [Ingressadas no AD híbridas](../active-directory/devices/hybrid-azuread-join-plan.md). As máquinas virtuais não podem ser ingressadas no Azure AD.
@@ -105,7 +105,7 @@ Os seguintes clientes da Área de Trabalho Remota são compatíveis com a Área 
 * [Web](connect-web.md)
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
-* [Android (versão prévia)](connect-android.md)
+* [Android](connect-android.md)
 
 > [!IMPORTANT]
 > A Área de Trabalho Virtual do Windows não dá suporte ao cliente de RADC (Conexões de RemoteApp e Área de Trabalho) nem ao cliente de Conexão de Área de Trabalho Remota (MSTSC).
@@ -128,7 +128,7 @@ A Área de Trabalho Virtual do Windows é compatível com as seguintes imagens d
 
 A Área de Trabalho Virtual do Windows não é compatível com imagens do sistema operacional x86 (32 bits), Windows 10 Enterprise N ou Windows 10 Enterprise KN. O Windows 7 também não dá suporte a nenhuma solução de perfil baseada em VHD ou VHDX hospedada no Armazenamento do Azure gerenciado devido a uma limitação de tamanho de setor.
 
-As opções de automação e implantação disponíveis dependem do sistema operacional e da versão escolhidos, conforme mostrado na tabela a seguir: 
+As opções de automação e implantação disponíveis dependem do sistema operacional e da versão escolhidos, conforme mostrado na tabela a seguir:
 
 |Sistema operacional|Galeria de Imagens do Azure|Implantação manual de VM|Integração de modelos do Azure Resource Manager|Provisionar pools de hosts no Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
@@ -143,9 +143,9 @@ As opções de automação e implantação disponíveis dependem do sistema oper
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se estiver usando a versão Fall 2019 da Área de Trabalho Virtual do Windows, comece com nosso tutorial em [Criar um locatário na Área de Trabalho Virtual do Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+Se estiver usando a Área de Trabalho Virtual do Windows (clássica), comece com nosso tutorial em [Criar um locatário na Área de Trabalho Virtual do Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 
-Se estiver usando a versão Spring 2020 da Área de Trabalho Virtual do Windows, você precisará criar um pool de host em vez disso. Vá para o tutorial a seguir para começar.
+Se estiver usando a Área de Trabalho Virtual do Windows com a integração ao Azure Resource Manager, você precisará criar um pool de host. Vá para o tutorial a seguir para começar.
 
 > [!div class="nextstepaction"]
 > [Criar um pool de host com o portal do Azure](create-host-pools-azure-marketplace.md)

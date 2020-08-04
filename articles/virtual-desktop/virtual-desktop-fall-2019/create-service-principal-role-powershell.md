@@ -1,6 +1,6 @@
 ---
-title: Atribuição de função de entidade de serviço da Área de Trabalho Virtual do Windows – Azure
-description: Como criar entidades de serviço e atribuir funções ao usar o PowerShell na Área de Trabalho Virtual do Windows.
+title: Atribuição de função de entidade de serviço da Área de Trabalho Virtual do Windows (clássica) – Azure
+description: Como criar entidades de serviço e atribuir funções ao usar o PowerShell na Área de Trabalho Virtual do Windows (clássica).
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ad78fe2ce66511cb75e23a28a30c44b173da9020
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 015d0e0208b83cff3db3995383ce93ed6362ee49
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117717"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87270083"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Criar entidades de serviço e atribuições de função usando o PowerShell
+# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell-in-windows-virtual-desktop-classic"></a>Tutorial: Criar entidades de serviço e atribuições de função com o PowerShell na Área de Trabalho Virtual do Windows (clássica)
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não dá suporte a objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
 
 As entidades de serviço são identidades que você pode criar no Azure Active Directory para atribuir funções e permissões para uma finalidade específica. Na Área de Trabalho Virtual do Windows, é possível criar uma entidade de serviço para:
 

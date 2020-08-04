@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 72a76fb513dc6eb008fcf1d1e19ffc33e713cfdc
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 6738f598275e91ce8a811c3ef6bcc6d5dc84e0bd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259245"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089491"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Início Rápido: Como criar seu primeiro aplicativo Web estático
 
@@ -67,8 +67,8 @@ Clique no botão **Criar repositório a partir do modelo**.
 Agora que o repositório foi criado, você pode criar um aplicativo Web estático no portal do Azure.
 
 - Navegue até o [portal do Azure](https://portal.azure.com)
-- Clique em **Criar um Recurso**.
-- Pesquise **Aplicativos Web Estáticos**
+- Clique em **Criar um Recurso**
+- Pesquise por **Aplicativos Web Estáticos**
 - Clique em **Aplicativos Web Estáticos (Versão Prévia)**
 - Clique em **Criar**
 
@@ -96,6 +96,9 @@ Depois de entrar com o GitHub, insira as informações do repositório.
 - Clique em **Avançar: Build >** para editar a configuração do build
 
 :::image type="content" source="media/getting-started/next-build-button.png" alt-text="Botão Próxima compilação":::
+
+> [!NOTE]
+>  Caso você não veja nenhum repositório, talvez seja necessário autorizar Aplicativos Web Estáticos do Azure no GitHub. Navegue até o repositório do GitHub e vá para **Configurações > Aplicativos > Aplicativos OAuth Autorizados**, selecione **Aplicativos Web Estáticos do Azure** e **Conceder**. Em repositórios corporativos, você precisa ser um proprietário da organização para conceder as permissões.
 
 ### <a name="build"></a>Build
 

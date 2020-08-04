@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 35590fd8aefb8b6a90adeef52fabe773663403c2
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: 2f25cab211d24facea7863c15b6d7671a9657ae9
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85510979"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290670"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Tutorial: Diagnosticar, reparar e confirmar alterações no conjunto de habilidades
 
@@ -73,7 +73,7 @@ Nesta seção, o Postman e uma coleção fornecida são usados para criar a font
 1. Em **Arquivos** > **Novo**, selecione a coleção a ser importada.
 1. Depois que a coleção for importada, expanda a lista de ações (...).
 1. Clique em **Editar**.
-1. Insira o nome de seu searchService (por exemplo, se o ponto de extremidade for https://mydemo.search.windows.net, o nome do serviço será "mydemo").
+1. Insira o nome de seu searchService (por exemplo, se o ponto de extremidade for `https://mydemo.search.windows.net`, o nome do serviço será "`mydemo`").
 1. Insira a apiKey com a chave primária ou secundária do serviço de pesquisa.
 1. Insira a storageConnectionString da página de chaves de sua conta de Armazenamento do Azure.
 1. Insira o ContainerName para o contêiner criado na conta de armazenamento.

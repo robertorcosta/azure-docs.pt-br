@@ -5,12 +5,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Este tutorial mostra como usar o Azure Dev Spaces e o Visual Studio Code para fazer o desenvolvimento em equipe em um aplicativo Node.js no Serviço de Kubernetes do Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: abcf4934af056d508ac136f80758597294d40b1a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aa168921f212f96f6e40ed062d2665e49202e86c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78251929"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013585"
 ---
 # <a name="team-development-using-nodejs-and-visual-studio-code-with-azure-dev-spaces"></a>Desenvolvimento em equipe usando o Node.js e o Visual Studio Code com o Azure Dev Spaces
 
@@ -31,7 +31,7 @@ O aplicativo de exemplo não é muito complexo no momento. Porém, no desenvolvi
 * Alguns desenvolvedores recorrem à simulação de muitas de suas dependências de serviço. Essa abordagem pode ajudar, mas o gerenciamento dessas simulações pode afetar rapidamente o custo de desenvolvimento. Além disso, essa abordagem faz com que seu ambiente de desenvolvimento seja muito diferente da produção, o que permite o surgimento de alguns bugs sutis.
 * Sendo assim, fazer qualquer tipo de teste de integração se torna difícil. Os testes de integração só podem ocorrer de maneira realista após a confirmação, o que significa que você verá problemas mais tarde no ciclo de desenvolvimento.
 
-    ![](media/common/microservices-challenges.png)
+    ![Uma imagem que mostra a complexidade do teste de integração ilustrando as relações entre um serviço de aplicativo e as dependências dele.](media/common/microservices-challenges.png)
 
 ### <a name="work-in-a-shared-dev-space"></a>Trabalhar em um espaço de desenvolvimento compartilhado
 Com o Azure Dev Spaces, você pode configurar um espaço de desenvolvimento *compartilhado* no Azure. Cada desenvolvedor pode se concentrar exatamente em sua parte do aplicativo e pode desenvolver iterativamente um *código de pré-confirmação* em um espaço que já contém todos os outros serviços e recursos de nuvem dos quais seus cenários dependem. As dependências estão sempre atualizadas, e os desenvolvedores trabalham de uma forma que reflete a produção.
@@ -91,7 +91,7 @@ Quando solicitado, selecione _dev_ como o **espaço de desenvolvimento pai**. Is
 
 Mantendo nossa hipótese inicial, usamos o nome _scott_ para o novo espaço para que colegas possam identificar quem está trabalhando nele. Mas ele pode ter o nome que você quiser e pode ter flexibilidade com relação ao significado, como _sprint4_ ou _demonstração_. Seja qual for o caso, _dev_ serve como a linha de base para todos os desenvolvedores que trabalham em uma parte do aplicativo:
 
-![](media/common/ci-cd-space-setup.png)
+![Um diagrama que mostra um espaço de desenvolvimento simples.](media/common/ci-cd-space-setup.png)
 
 Execute o comando `azds space list` para ver uma lista de todos os espaços no ambiente de desenvolvimento. A coluna _Selecionado_ indica qual espaço está selecionado no momento (verdadeiro/falso). Em seu caso, o espaço chamado _dev/scott_ foi selecionado automaticamente quando foi criado. Você pode selecionar outro espaço a qualquer momento com o comando `azds space select`.
 

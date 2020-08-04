@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e6257311473987ee053caeade6bfe14533353b73
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: f73d20c19e8fc26c553490772f5374e8a88a77b2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134440"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289295"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Failback de uma VM do Azure entre regiões do Azure
 
@@ -58,7 +58,7 @@ Depois que as VMs forem protegidas novamente, você poderá fazer failback para 
     ![VM nas regiões primária e secundária](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
 
 > [!NOTE]
-> Para computadores que executam a extensão do Site Recovery versão 9.28.x.x em diante, o [Pacote cumulativo de atualizações 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) do Site Recovery limpa computadores na região de recuperação de desastre secundária, após o failback ser concluído e as VMs serem protegidas novamente. Não é necessário excluir manualmente as VMs e NICs na região secundária. Se você desabilitar completamente a replicação após o failback, o Site Recovery limpará os discos na região de recuperação de desastre, além das VMs e NICs.
+> Para computadores que usam discos gerenciados e que executam a extensão do Site Recovery versão 9.28.x.x em diante, o [Pacote cumulativo de atualizações 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) do Site Recovery limpa computadores na região de recuperação de desastre secundária, após o failback ser concluído e as VMs serem protegidas novamente. Não é necessário excluir manualmente as VMs e NICs na região secundária. Observe que VMs com discos não gerenciados não são limpas. Se você desabilitar completamente a replicação após o failback, o Site Recovery limpará os discos na região de recuperação de desastre, além das VMs e NICs.
 
 ## <a name="next-steps"></a>Próximas etapas
 

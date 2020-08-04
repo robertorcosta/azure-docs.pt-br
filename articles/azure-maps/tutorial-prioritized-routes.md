@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Localizar várias rotas por modo de viagem | Microsoft Azure Mapas'
 description: Neste tutorial, você aprenderá a encontrar rotas para diferentes modos de viagem usando os Microsoft Azure Mapas.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
-ms.openlocfilehash: c7ed2421f468dfbb64c635683a7909b517105bc7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 0cb3c1eadae426cef59b7aad8821343c23e76d79
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333798"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289541"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutorial: Encontre rotas para diferentes modos de viagem usando os Mapas do Azure
 
@@ -27,7 +27,7 @@ Este tutorial mostra como usar a sua conta dos Azure Mapas e o serviço Roteiros
 > * Exibir várias rotas em seu mapa
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de continuar, siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-account-with-azure-maps) e selecione o tipo de preço S1. Siga as etapas em [Obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária da sua conta. Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](how-to-manage-authentication.md).
+Antes de continuar, siga as instruções em [Criar uma conta](quick-demo-map-app.md#create-an-azure-maps-account) e selecione o tipo de preço S1. Siga as etapas em [Obter chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obter a chave primária da sua conta. Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](how-to-manage-authentication.md).
 
 ## <a name="create-a-new-map"></a>Criar um novo mapa
 
@@ -206,7 +206,7 @@ A API de rotas também permite que os usuários planejem rotas no futuro usando 
 
 Todos os blocos de código a seguir devem ser adicionados **dentro do eventListener de carregamento do mapa** para garantir que eles sejam carregados após o carregamento total do mapa.
 
-1. Na função GetMap, adicione o código JavaScript a seguir.
+1. Na função GetMap, adicione isto ao código JavaScript.
 
     ```JavaScript
     // Use SubscriptionKeyCredential with a subscription key

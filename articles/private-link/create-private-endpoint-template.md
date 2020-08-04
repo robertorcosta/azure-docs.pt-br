@@ -1,6 +1,6 @@
 ---
 title: Criar um ponto de extremidade privado no Link Privado do Azure
-description: Neste início rápido, você usará um modelo do Azure Resource Manager para criar um ponto de extremidade privado.
+description: Neste guia de início rápido, você usará um modelo do ARM (Azure Resource Manager) para criar um ponto de extremidade privado.
 services: private-link
 author: mblanco77
 ms.service: private-link
@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: a60edde222a6200a0378cd8c9c4f4774da9c2e50
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 9fde76b86b290e1271f408cb7810e549dd9502a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817961"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071498"
 ---
-# <a name="quickstart-create-a-private-endpoint-by-using-an-azure-resource-manager-template"></a>Início Rápido: Criar um ponto de extremidade privado usando um modelo do Azure Resource Manager
+# <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>Início Rápido: Criar um ponto de extremidade privado usando um modelo do ARM
 
-Neste início rápido, você usará um modelo do Azure Resource Manager para criar um ponto de extremidade privado.
+Neste guia de início rápido, você usará um modelo do ARM (Azure Resource Manager) para criar um ponto de extremidade privado.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Também é possível concluir este início rápido usando o [portal do Azure](create-private-endpoint-portal.md), o [Azure PowerShell](create-private-endpoint-powershell.md) ou a [CLI do Azure](create-private-endpoint-cli.md).
 
-## <a name="prerequisite"></a>Pré-requisito
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisa de uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-private-endpoint"></a>Criar um ponto de extremidade privado
+## <a name="review-the-template"></a>Examinar o modelo
 
 Este modelo cria um ponto de extremidade privado para uma instância do Banco de Dados SQL do Azure.
 
-### <a name="review-the-template"></a>Examinar o modelo
-
-O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/).
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-private-endpoint-sql/).
 
 :::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json" range="001-295" highlight="131-156":::
 
@@ -50,9 +52,9 @@ Vários recursos do Azure são definidos no modelo:
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces): o adaptador de rede da máquina virtual.
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines): a máquina virtual usada para testar a conexão privada com o ponto de extremidade privado à instância do Banco de Dados SQL.
 
-### <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-the-template"></a>Implantar o modelo
 
-Veja como implantar o modelo do Azure Resource Manager no Azure:
+Veja como implantar o modelo do ARM no Azure:
 
 1. Para entrar no Azure e abrir o modelo, selecione **Implantar no Azure**. O modelo cria o ponto de extremidade privado, a instância do Banco de Dados SQL, a infraestrutura de rede e uma máquina virtual a ser validada.
 
@@ -66,7 +68,7 @@ Veja como implantar o modelo do Azure Resource Manager no Azure:
 ## <a name="validate-the-deployment"></a>Validar a implantação
 
 > [!NOTE]
-> O modelo do Azure Resource Manager gera um nome exclusivo para o recurso myVm<b>{uniqueid}</b> da máquina virtual e para o recurso sqlserver<b>{uniqueid}</b> do Banco de Dados SQL. Substitua o valor gerado por **{uniqueid}** .
+> O modelo do ARM gera um nome exclusivo para o recurso myVm<b>{uniqueid}</b> da máquina virtual e para o recurso sqlserver<b>{uniqueid}</b> do Banco de Dados SQL. Substitua o valor gerado por **{uniqueid}** .
 
 ### <a name="connect-to-a-vm-from-the-internet"></a>Conecte uma VM a partir da Internet
 

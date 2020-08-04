@@ -2,27 +2,27 @@
 title: incluir arquivo
 description: incluir arquivo
 services: azure data share
-author: jife
+author: jifems
 ms.service: azure data share
 ms.topic: include
-ms.date: 02/07/2020
+ms.date: 07/30/2020
 ms.author: jife
 ms.custom: include file
-ms.openlocfilehash: e1416b8b99c66daa4a27fa7f9bd7a20dfa9519e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 7c11ace5983ee906ebb12ebb2c60f4567f40e430
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77087433"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87515332"
 ---
-O compartilhamento de dados do Azure permite que as organizações compartilhem dados de forma simples e segura com seus clientes e parceiros.
+O Azure Data Share permite que as organizações compartilhem dados de modo simples e seguro com seus clientes e parceiros.
 
 | **Recurso** | **Limite** |
 | --- | --- |
-| Número máximo de recursos de compartilhamento de dados por assinatura do Azure |50 |
-| Número máximo de compartilhamentos enviados por recurso de compartilhamento de dados |100 |
-| Número máximo de compartilhamentos recebidos por recurso de compartilhamento de dados |100 |
-| Número máximo de convites por compartilhamento enviado |100 |
-| Número máximo de assinaturas de compartilhamento por compartilhamento enviado |100 |
-| Número máximo de conjuntos de valores por compartilhamento |100 |
-| Número máximo de agendas de instantâneo por compartilhamento |1 |
+| Número máximo de recursos do Data Share por assinatura do Azure |100 |
+| Número máximo de compartilhamentos enviados por recurso do Data Share |200 |
+| Número máximo de compartilhamentos recebidos por recurso do Data Share |100 |
+| Número máximo de convites por compartilhamento enviado |200 |
+| Número máximo de assinaturas de compartilhamento por compartilhamento enviado |200 |
+| Número máximo de conjuntos de dados por compartilhamento |200 |
+| Número máximo de agendamentos de instantâneo por compartilhamento |1 |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f93a25854bc8b93e9bd75ea71037f6363d143914
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 79d80a5b94a753b43715c1ccd8fc2059ff84cfca
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145716"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87338020"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Adicionar um aplicativo a seu locatário do Azure AD (Azure Active Directory)
 
@@ -53,7 +53,7 @@ Para adicionar um aplicativo ao locatário do Azure AD:
 6. Você pode procurar na galeria pelo aplicativo que deseja adicionar ou pode pesquisá-lo inserindo seu nome na caixa de pesquisa. Em seguida, selecione o aplicativo entre os resultados. No formulário, você pode editar o nome do aplicativo para atender às necessidades de sua organização. Neste exemplo, selecionamos o GitHub e alteramos o nome para **GitHub-test**.
     ![Mostra como adicionar um aplicativo da galeria](media/add-application-portal/create-application.png)
     >[!TIP]
-    >Se o aplicativo que você está procurando não estiver na galeria, você poderá clicar no link **Criar seu aplicativo**. A Microsoft já trabalhou com muitos desenvolvedores de aplicativos para configurá-los para funcionar com o Azure AD. Esses são os aplicativos que aparecem na galeria. Porém, se o aplicativo que você deseja adicionar não estiver listado, você poderá criar um aplicativo genérico e configurá-lo por conta própria ou com diretrizes do desenvolvedor que o criou.
+    >Se o aplicativo que você está procurando não estiver na galeria, clique no link **Criar seu aplicativo** e, em **O que você deseja fazer com o seu aplicativo?** , escolha **Integrar qualquer outro aplicativo que você não encontrar na galeria**. A Microsoft já trabalhou com muitos desenvolvedores de aplicativos para configurá-los para funcionar com o Azure AD. Esses são os aplicativos que aparecem na galeria. Porém, se o aplicativo que você deseja adicionar não estiver listado, você poderá criar um aplicativo genérico e configurá-lo por conta própria ou com diretrizes do desenvolvedor que o criou.
 7. Selecione **Criar**. Uma página de introdução é exibida com as opções para configurar o aplicativo para a organização.
 
 Você terminou de adicionar um aplicativo. O próximo guia de início rápido mostra como alterar o logotipo e editar outras propriedades do aplicativo.

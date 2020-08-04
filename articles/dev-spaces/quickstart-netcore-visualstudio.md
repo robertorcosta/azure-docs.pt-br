@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, cont�
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 909e4638b3b0919919320a09cbfa0e8d9ac92f2e
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 8279a32ece16209c1dd5bca13d08e22b283677ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995931"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006996"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Início Rápido: Depurar e iterar no Kubernetes: Visual Studio e .NET Core – Azure Dev Spaces
 
@@ -84,15 +84,15 @@ Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready 
 
 No eu projeto, selecione **Azure Dev Spaces** na lista suspensa de configurações de inicialização, conforme mostrado abaixo.
 
-![](media/get-started-netcore-visualstudio/LaunchSettings.png)
+![Captura de tela da interface do usuário do Visual Studio com a opção IIS Express destacada e selecionada e a opção Azure Dev Spaces destacada.](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
 Na caixa de diálogo do Azure Dev Spaces, selecione suas *Assinatura* e *Cluster Kubernetes do Azure*. Deixe *Espaço* definido como *Padrão* e habilite a caixa de seleção *Publicamente Acessível*. Clique em *OK*.
 
-![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
+![Captura de tela da caixa de diálogo Azure Dev Spaces.](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
 Esse processo implanta o serviço no espaço de desenvolvimento *padrão* com uma URL publicamente acessível. Se você escolher um cluster que não foi configurado para trabalhar com Azure Dev Spaces, verá uma mensagem perguntando se deseja configurá-lo. Clique em *OK*.
 
-![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
+![Captura de tela da caixa de diálogo Adicionar recurso do Azure Spaces.](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
 A URL pública do serviço em execução no espaço de desenvolvimento *padrão* é exibida na janela *Saída*:
 

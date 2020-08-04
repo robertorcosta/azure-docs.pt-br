@@ -1,42 +1,42 @@
 ---
-title: 'Início Rápido: Gerenciador do Azure Time Series Insights - Azure Time Series Insights | Microsoft Docs'
-description: Saiba como começar com o gerenciador do Azure Time Series Insights. Visualize grandes volumes de dados do IoT e faça um tour pelos principais recursos do seu ambiente.
+title: 'Início Rápido: Gerenciador do Azure Time Series Insights – Azure Time Series Insights | Microsoft Docs'
+description: Saiba como começar a usar o Gerenciador do Azure Time Series Insights. Visualize grandes volumes de dados do IoT e faça um tour pelos principais recursos do seu ambiente.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 04/13/2020
-ms.openlocfilehash: 5bc160076e6a06c7ddcc99d989eb6d9c7fb3fe0f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 06/30/2020
+ms.openlocfilehash: 2140cbbc43af7f80c0c5fc2d7cea85cb31bd7bfe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042281"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059358"
 ---
-# <a name="quickstart-explore-azure-time-series-insights"></a>Início Rápido: Explorar o Azure Time Series Insights
+# <a name="quickstart-explore-azure-time-series-insights-gen1"></a>Início Rápido: Explorar o Azure Time Series Insights Gen1
 
-Este guia de início rápido do gerenciador do Azure Time Series Insights ajuda você a começar a usar o Azure Time Series Insights Explorer em um ambiente de demonstração gratuito. Neste início rápido, você aprenderá a usar o navegador da Web para visualizar grandes volumes de dados de IoT e conhecerá os principais recursos atualmente em disponibilidade geral.
+Este guia de início rápido do Gerenciador do Azure Time Series Insights ajuda você a começar a usar o Azure Time Series Insights Explorer em um ambiente de demonstração gratuito. Neste início rápido, você aprenderá a usar o navegador da Web para visualizar grandes volumes de dados de IoT e conhecerá os principais recursos atualmente em disponibilidade geral.
 
 O Azure Time Series Insights é um serviço totalmente gerenciado de análise, armazenamento e visualização que facilita a exploração e análise de bilhões de eventos de IoT simultaneamente. Ele fornece uma exibição global dos dados, o que permite validar rapidamente sua solução de IoT e evitar um tempo de inatividade dispendioso de dispositivos críticos. O Azure Time Series Insights ajuda você a descobrir tendências ocultas, detectar anomalias e realizar análises de causa raiz quase em tempo real.
 
 Para obter flexibilidade adicional, adicione o Azure Time Series Insights a um aplicativo já existente por meio de suas poderosas [APIs REST](./concepts-query-overview.md) e [SDK do cliente](https://github.com/microsoft/tsiclient). Você pode usar as APIs para armazenar, consultar e consumir dados de série temporal em um aplicativo cliente de sua escolha. Você também pode usar o SDK do cliente para adicionar componentes de interface do usuário ao aplicativo atual.
 
-Este início rápido do gerenciador do Time Series Insights é um tour guiado de recursos que estão em disponibilidade geral.
+Este início rápido do Gerenciador do Azure Time Series Insights oferece um tour guiado de recursos.
 
 > [!IMPORTANT]
 > Criar uma [conta gratuita do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) se ainda não tiver criado uma.
 
 ## <a name="prepare-the-demo-environment"></a>Preparar o ambiente de demonstração
 
-1. No navegador, vá até a [demonstração de disponibilidade geral](https://insights.timeseries.azure.com/demo).
+1. No navegador, acesse a [Demonstração Gen1](https://insights.timeseries.azure.com/demo).
 
-1. Se solicitado, entre no gerenciador do Time Series Insights usando suas credenciais da conta do Azure.
+1. Se solicitado, entre no Gerenciador do Azure Time Series Insights usando suas credenciais da conta do Azure.
 
-1. A página de tour rápido do Time Series Insights será exibida. Escolha **Avançar** para iniciar o tour rápido.
+1. A página de tour rápido do Azure Time Series Insights será exibida. Escolha **Avançar** para iniciar o tour rápido.
 
    [![Início Rápido de boas-vindas – Selecione Avançar](media/quickstart/quickstart-welcome.png)](media/quickstart/quickstart-welcome.png#lightbox)
 
@@ -50,7 +50,7 @@ Este início rápido do gerenciador do Time Series Insights é um tour guiado de
 
    [![Selecionar um período](media/quickstart/quickstart-select-time.png)](media/quickstart/quickstart-select-time.png#lightbox)
 
-   O Time Series Insights exibe uma visualização de gráfico para o período especificado. Você pode realizar várias ações dentro do gráfico de linha. Por exemplo, você pode filtrar, fixar, classificar e empilhar.
+   O Azure Time Series Insights exibe uma visualização de gráfico para o período especificado. Você pode realizar várias ações dentro do gráfico de linha. Por exemplo, você pode filtrar, fixar, classificar e empilhar.
 
    Para retornar ao **Painel de seleção de tempo**, escolha a seta para baixo, conforme mostrado:
 
@@ -91,6 +91,4 @@ Agora que concluiu o tutorial, limpe os recursos que você criou:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você está pronto para criar seu próprio ambiente do Time Series Insights:
-> [!div class="nextstepaction"]
-> [Planejar o ambiente do Time Series Insights](time-series-insights-environment-planning.md)
+* Você está pronto para criar seu ambiente do Azure Time Series Insights. Leia [Planejar o ambiente do Azure Time Series Insights](time-series-insights-environment-planning.md).

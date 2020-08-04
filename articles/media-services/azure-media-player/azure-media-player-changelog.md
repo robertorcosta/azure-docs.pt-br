@@ -5,15 +5,127 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 04/20/2020
-ms.openlocfilehash: a1a55ceec2679034125ddd202402cabcbf71e17e
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.date: 07/27/2020
+ms.openlocfilehash: 113249f56c1f5f9c035ec2ff6ccb7309dd355763
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698316"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281337"
 ---
 # <a name="changelog"></a>Log de alteração #
+
+## <a name="235-official-update-june-1-2020"></a>2.3.5 (atualização oficial de 1° de junho de 2020)
+
+### <a name="bug-fixes-235"></a>Correções de bugs da versão 2.3.5
+
+- [Acessibilidade] O ouvinte da tecla Esc no painel de Opções está anexado ao documento
+- [Acessibilidade] Impedir que a interface do usuário do player desapareça se a barra de controle ou o menu de opções tiver o foco
+- A barra de controle mostra o horário incorreto no relógio de parede quando as Configurações de Exibição de Hora do Relógio estão habilitadas
+
+### <a name="changes-235"></a>Alterações na versão 2.3.5
+
+- Adicionada e documentada mensagem de erro para o código de erro 0x00400005
+
+## <a name="234-official-update-march-4-2020"></a>2.3.4 (atualização oficial de 4 de março de 2020)
+
+### <a name="bug-fixes-234"></a>Correções de bugs da versão 2.3.4
+
+- Não é possível definir PlayReady overrideLicenseAcquistionUrl
+- Não é possível reproduzir conteúdo com descontinuidades
+- [Acessibilidade] O valor do atributo de ID do alerta do leitor de tela deve ser exclusivo
+- [Acessibilidade] Ao navegar na caixa de diálogo das configurações de Legenda Oculta, o foco é retirado da caixa de diálogo
+
+### <a name="changes-234"></a>Alterações na versão 2.3.4
+
+- Registrar o tamanho do conteúdo após um download bem-sucedido para ajudar a analisar os erros de descriptografia 2.3.3 (atualização oficial de 12 de novembro de 2019)
+
+### <a name="features-234"></a>Recursos da versão 2.3.4
+
+- Adicionado suporte para exibir o horário no relógio de um vídeo como uma sobreposição e na barra de controle
+
+### <a name="bug-fixes-234"></a>Correções de bugs da versão 2.3.4
+
+- A opção de faixa de áudio funciona, mas gera o erro "O objeto não dá suporte à propriedade nem ao método 'habilitado'" no IE11 e no Windows 7
+- A alternância de faixas de áudio falha quando o buffer está totalmente carregado
+- A alternância de faixas de áudio falha quando o usuário pausa o vídeo e alterna entre as faixas de áudio muito rapidamente
+- [Acessibilidade] Dicas de ferramentas não definidas para o Controle de Vídeo no Player de Vídeo
+- Botões de volume ausentes no HTML5 dependendo de quando 'loadstart' é recebido
+- [Acessibilidade] Não há como definir o texto Alt para a imagem do pôster
+- [Acessibilidade] O foco do aplicativo é perdido após selecionar "Concluído" na caixa de diálogo de configurações de legendas
+- [Acessibilidade] Atributos ARIA incorretos são definidos para "vídeo" na "visualização de segmentos"
+
+### <a name="changes-234"></a>Alterações na versão 2.3.4
+
+- Removido o rótulo/faixa da legenda vazia ao reproduzir HLS no iOS e no MacOS Safari
+- Reduzido do número de 412s para legendas de IMSC1
+- Aviso de saída no console para 10 respostas de legenda IMSC1 consecutivas vazias para ajudar na depuração dinâmica
+
+## <a name="232-official-update-october-9-2019"></a>2.3.2 (atualização oficial de 9 de outubro de 2019)
+
+### <a name="features"></a>Recursos
+
+– Adicionado suporte de PlayReady para reprodução de DASH para O navegador Chromium Edge
+
+### <a name="bug-fixes-232"></a>Correções de bugs da versão 2.3.2
+
+- A velocidade de reprodução atual não é mostrada visualmente no menu velocidade de reprodução a menos que o usuário a defina manualmente
+- [Acessibilidade] O painel 'Configurações' não é sendo recolhido com o uso da tecla 'Esc'
+- [Acessibilidade] A tecla de atalho do AMP 'M' não funciona quando o Narrador está ligado
+
+### <a name="changes-232"></a>Alterações na versão 2.3.2
+
+- Para navegadores que não dão suporte ao codec de áudio E-AC3, as faixas de áudio do E-AC3 ficam ocultas no menu de faixa de áudio
+- Para navegadores que dão suporte ao codec de áudio E-AC3, uma faixa de áudio E-AC3 é selecionada por padrão
+- Para navegadores que não dão suporte à alternância de codecs de áudio, as faixas de áudio com um codec diferente da faixa selecionada ficam ocultas no menu faixa de áudio
+
+## <a name="231-official-update-august-12-2019"></a>2.3.1 (atualização oficial de 12 de agosto de 2019)
+
+### <a name="features-231"></a>Recursos da versão 2.3.1
+
+- Sinalizar um evento quando caixas de EMSG são recebidas na reprodução de DASH – Adicionado suporte para mostrar as faixas de áudio do EC-3 no menu de áudio em navegadores que dão suporte a EC-3 e permitem alternar a faixa de áudio do AAC para o EC3 e vice-versa, somente no navegador do Edge baseado em Chromimum
+
+### <a name="bug-fixes-231"></a>Correções de bugs da versão 2.3.1
+
+- O menu de faixa de áudio é corrompido após a remoção de faixas do EC-3
+- A hora atual pode ser maior do que a duração do vídeo
+- Definir a velocidade de reprodução via initialSpeed não funciona
+- Às vezes, após uma busca, o player parece travado
+- No Edge e no IE em uma tela touch, depois de ampliar uma página, pressionar ou passar o mouse sobre a barra de pesquisa não obtém o segmento correto do vídeo de maneira precisa
+- [Acessibilidade] O rótulo do Aria para Executar/Pausar não é descritivo para o erro do player de vídeo Mapear segmento dinâmico não encontrado para o flashSS para o erro do amp correto
+- [Acessibilidade] As funções do Aria usadas para Reproduzir/Pausar devem estar em conformidade com os valores válidos (.vjs-text-track-display)
+- [Acessibilidade] Determinadas funções do ARIA devem estar contidas por pais específicos
+- [Acessibilidade] Não há nenhuma dica de ferramenta definida para o botão reproduzir/pausar As legendas IMSC1 do player de vídeo pode desaparecer após a busca no buffer de áudio/vídeo atual
+
+### <a name="changes-231"></a>Alterações na versão 2.3.1
+
+- Após obter um segmentDecryptError e o player já estar no Live Edge, o player agora atualiza o manifesto em vez de tentar o próximo segmento
+- Adicionado mais registro em log para diagnóstico
+- Atualizada a documentação para incluir o suporte ao FairPlay para o iOS Safari
+- Adicionado um exemplo para o "srclang" da opção IMSC1
+- Adicionados preenchimento, textPadding, substituições de boxShadow para faixas de texto.
+- Adicionado um código de erro (0x0020025B) para diferenciar a falha de download devido à falta de Internet, em vez de apenas lançar 0x00200259
+
+## <a name="230-official-release-april-30-2019"></a>2.3.0 (lançamento oficial de 30 de abril de 2019)
+
+### <a name="features-230"></a>Recursos da versão 2.3.0
+
+- Adicionado para legendas do IMSC1 para DASH
+- Adicionado suporte para ativos somente de vídeo para DASH
+- Adicionada a API presentationTimeOffsetInSec
+
+### <a name="bug-fixes-230"></a>Correções de bugs da versão 2.3.0
+
+- O perfil de heurística LowLatency do AMP interfere nas funções de "ativar mudo" e "desativar mudo" na reprodução de vídeo do iOS em que alguns idiomas têm traduções erradas
+- Às vezes, o valor aria-valuenow do controle deslizante da barra de progresso fica incorreto
+- O valor da função de aria da exibição de faixa de texto está incorreto
+
+### <a name="changes-230"></a>Alterações na versão 2.3.0
+
+- Agora, os logs incluem o tamanho dos fragmentos de mídia baixados
+- Removido o suporte para IE 9 e IE 10
+- Atualizado o exemplo do CEA708 para mostrar legendas alinhadas à esquerda
+- Incluir MediaError.message em logs para falhas de reprodução
 
 ## <a name="224-official-update-february-22-2019"></a>2.2.4 (atualização oficial de 22 de fevereiro de 2019) ##
 
@@ -31,7 +143,7 @@ ms.locfileid: "83698316"
 
 ## <a name="223-official-update-january-9-2019"></a>2.2.3 (atualização oficial de 9 de janeiro de 2019) ##
 
-### <a name="features"></a>Recursos ###
+### <a name="features-223"></a>Recursos da versão 2.2.3 ###
 
 - [Recurso][HLS] Adição do menu de faixas de áudio para reprodução do HLS no Safari
 
@@ -72,7 +184,7 @@ ms.locfileid: "83698316"
 
 ### <a name="changes"></a>Alterações ###
 
-- [Alteração][Legenda ao vivo] Alteração do nome da API para legendas CEA de 608 para 708. Para obter mais informações, confira [Configurações de legendas do CEA-708](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
+- [Alteração][Legenda ao vivo] Alteração do nome da API para legendas CEA de 608 para 708. Para obter mais informações, confira [Configurações de legendas do CEA-708](/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
 
 ## <a name="220-official-release"></a>2.2.0 (versão oficial) ##
 

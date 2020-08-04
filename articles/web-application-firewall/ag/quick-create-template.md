@@ -1,39 +1,41 @@
 ---
-title: 'Início Rápido: Criar um WAF v2 do Azure no Gateway de Aplicativo – modelo do Resource Manager'
+title: 'Início Rápido: Criar um WAF v2 do Azure no Gateway de Aplicativo – modelo do Azure Resource Manager'
 titleSuffix: Azure Application Gateway
-description: Saiba como usar um modelo do Resource Manager para criar um Firewall do Aplicativo Web v2 no Gateway de Aplicativo do Azure.
+description: Saiba como usar um modelo do ARM (Azure Resource Manager) para criar um Firewall do Aplicativo Web v2 no Gateway de Aplicativo do Azure.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: quickstart
 ms.date: 04/02/2020
 ms.author: victorh
-ms.openlocfilehash: 6759071e73adfd3af4ac780da6db3a0e6e967ea1
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.openlocfilehash: 081bab0cd930d90ca0d359461e4a41b15ba4911b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81617983"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075506"
 ---
-# <a name="quickstart-create-an-azure-waf-v2-on-application-gateway---resource-manager-template"></a>Início Rápido: Criar um WAF v2 do Azure no Gateway de Aplicativo – modelo do Resource Manager
+# <a name="quickstart-create-an-azure-waf-v2-on-application-gateway-using-an-arm-template"></a>Início Rápido: Criar um WAF v2 do Azure no Gateway de Aplicativo usando um modelo do ARM
 
-Neste início rápido, você usará um modelo do Resource Manager para criar um Firewall do Aplicativo Web v2 do Azure no Gateway de Aplicativo.
+Neste início rápido, você usará um modelo do ARM (Azure Resource Manager) para criar um Firewall do Aplicativo Web v2 do Azure no Gateway de Aplicativo.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implantar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-wafv2%2Fazuredeploy.json)
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-web-application-firewall"></a>Criar um Firewall do Aplicativo Web
+## <a name="review-the-template"></a>Examinar o modelo
 
 Este modelo cria um Firewall do Aplicativo Web v2 simples no Gateway de Aplicativo do Azure. Isso inclui um endereço IP de front-end do IP público, configurações de HTTP, uma regra com um ouvinte básico na porta 80 e um pool de back-end. Uma política de WAF com uma regra personalizada é criada para bloquear o tráfego para o pool de back-end com base em um tipo de correspondência de endereço IP.
 
-### <a name="review-the-template"></a>Examinar o modelo
-
-O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/ag-docs-wafv2/azuredeploy.json)
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/ag-docs-wafv2/).
 
 :::code language="json" source="~/quickstart-templates/ag-docs-wafv2/azuredeploy.json" range="001-404" highlight="314-358":::
 
@@ -48,9 +50,9 @@ Vários recursos do Azure são definidos no modelo:
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces): dois para as máquinas virtuais
 - [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions): para configurar o IIS e as páginas da Web
 
-### <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-the-template"></a>Implantar o modelo
 
-Implantar o modelo do Resource Manager no Azure:
+Implantar o modelo ARM no Azure:
 
 1. Selecione **Implantar no Azure** para entrar no Azure e abrir o modelo. O modelo cria um gateway de aplicativo, a infraestrutura de rede e duas máquinas virtuais no pool de back-end que executa o IIS.
 
@@ -61,7 +63,7 @@ Implantar o modelo do Resource Manager no Azure:
 
 ## <a name="validate-the-deployment"></a>Validar a implantação
 
-Embora o IIS não seja necessário para criar o gateway de aplicativo, ele é instalado em servidores de back-end para verificar se o Azure criou um WAF v2 no gateway de aplicativo com êxito. 
+Embora o IIS não seja necessário para criar o gateway de aplicativo, ele é instalado em servidores de back-end para verificar se o Azure criou um WAF v2 no gateway de aplicativo com êxito.
 
 Use o IIS para testar o gateway de aplicativo:
 

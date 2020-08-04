@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 878c3aa766559e455ee4456d84b86dc486e43fa5
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 317cc5222b3444ae2ed242df694d317503c72a87
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610676"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290661"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação de desastre de VMs VMware locais para o Azure
 
@@ -84,7 +84,7 @@ Todos esses componentes são instalados juntos nos computadores locais únicos c
 ## <a name="import-the-template-in-vmware"></a>Importar o modelo para a VMware
 
 
-1. Entre no servidor VMware vCenter ou no host vSphere ESXi com o VMWare vSphere Client.
+1. Entre no VMware vCenter Server ou no host vSphere ESXi com o VMware vSphere Client.
 2. No menu **Arquivo**, selecione **Implantar Modelo de OVF** para iniciar o **Implante o assistente de modelo de OVF**.
 
      ![Modelo de OVF](./media/vmware-azure-tutorial/vcenter-wizard.png)
@@ -113,7 +113,7 @@ Se você deseja adicionar mais uma NIC ao servidor de configuração, adicione-o
 
 Depois que o servidor de configuração estiver definido, registre-o no cofre.
 
-1. No console do cliente VMWare vSphere Client, ative a VM.
+1. No console do cliente VMware vSphere, ative a VM.
 2. A VM será inicializada com uma experiência de instalação do Windows Server 2016. Aceite o contrato de licença e insira uma senha de administrador.
 3. Após a conclusão da instalação, entre na VM como administrador.
 4. Na primeira vez que você fizer logon, a Ferramenta de Configuração do Azure Site Recovery iniciará em alguns segundos.
@@ -169,6 +169,8 @@ Selecione e verifique os recursos de destino.
 
 - A política é associada automaticamente ao servidor de configuração.
 - Por padrão, uma política de correspondência é criada automaticamente para failback. Por exemplo, se a política de replicação for **rep-policy**, a política de failback será **rep-policy-failback**. Essa política não é usada até você iniciar um failback do Azure.
+
+Observação: No cenário do VMware para o Azure, o instantâneo consistente com falhas é obtido em um intervalo de cinco minutos.
 
 ## <a name="enable-replication"></a>Habilitar a replicação
 

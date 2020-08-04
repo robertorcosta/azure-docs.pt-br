@@ -1,5 +1,5 @@
 ---
-title: Acessar arquivos no armazenamento usando o SQL sob demanda (versão prévia) no SQL do Synapse
+title: Acessar arquivos em armazenamento no SQL sob demanda (versão prévia)
 description: Descreve a consulta de arquivos de armazenamento usando recursos de SQL sob demanda (versão prévia) no Synapse SQL.
 services: synapse-analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f786e92ca99c4c1700d00adf396ba1127b66ea7c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d7f990b059346c4c782ca923e663997317c4df16
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247091"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046872"
 ---
 # <a name="accessing-external-storage-in-synapse-sql-on-demand"></a>Como acessar o armazenamento externo no SQL do Synapse (sob demanda)
 
@@ -43,7 +43,7 @@ O usuário pode acessar o armazenamento usando as seguintes regras de acesso:
 - O usuário do Azure AD – OPENROWSET usará a identidade do chamador do Azure AD para acessar o Armazenamento do Azure ou acessar o armazenamento com acesso anônimo.
 - Usuário do SQL – OPENROWSET acessará o armazenamento com acesso anônimo.
 
-As entidades de segurança do SQL também podem usar OPENROWSET para consultar diretamente os arquivos protegidos com tokens SAS ou identidade gerenciada do workspace. Se um usuário do SQL executar essa função, um usuário avançado com a permissão ALTER ANY CREDENTIAL deverá criar uma credencial no escopo do servidor que corresponda à URL na função (usando o nome e o contêiner de armazenamento) e conceder a permissão REFERENCES para essa credencial ao chamador da função OPENROWSET:
+As entidades de segurança do SQL também podem usar OPENROWSET para consultar diretamente os arquivos protegidos com tokens SAS ou identidade gerenciada do workspace. Se um usuário do SQL executar essa função, um usuário avançado com a permissão `ALTER ANY CREDENTIAL` deverá criar uma credencial no escopo do servidor que corresponda à URL na função (usando o nome e o contêiner de armazenamento) e conceder a permissão REFERENCES para essa credencial ao chamador da função OPENROWSET:
 
 ```sql
 EXECUTE AS somepoweruser
@@ -87,8 +87,8 @@ DATABASE SCOPED CREDENTIAL especifica como acessar os arquivos na fonte de dados
 O chamador deve ter uma das seguintes permissões para executar a função OPENROWSET:
 
 - Uma das permissões para executar OPENROWSET:
-  - ADMINISTER BULK OPERATION permite que o logon execute a função OPENROWSET.
-  - ADMINISTER DATABASE BULK OPERATION permite que o usuário no escopo do banco de dados execute a função OPENROWSET.
+  - `ADMINISTER BULK OPERATIONS` permite que o logon execute a função OPENROWSET.
+  - `ADMINISTER DATABASE BULK OPERATIONS` permite que o usuário no escopo do banco de dados execute a função OPENROWSET.
 - REFERENCES DATABASE SCOPED CREDENTIAL para a credencial que é referenciada na EXTERNAL DATA SOURCE
 
 #### <a name="accessing-anonymous-data-sources"></a>Como acessar fontes de dados anônimas
@@ -151,13 +151,13 @@ A tabela a seguir lista as permissões necessárias para as operações listadas
 
 | Consulta | Permissões necessárias|
 | --- | --- |
-| OPENROWSET (BULK) sem datasource | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN` ou logon do SQL devem ter REFERENCES CREDENTIAL::\<URL> para armazenamento protegido por SAS |
-| OPENROWSET(BULK) com datasource sem credencial | `ADMINISTER BULK ADMIN` ou `ADMINISTER DATABASE BULK ADMIN`, |
-| OPENROWSET(BULK) com datasource com credencial | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN` ou `REFERENCES DATABASE SCOPED CREDENTIAL` |
+| OPENROWSET (BULK) sem datasource | `ADMINISTER BULK OPERATIONS`, `ADMINISTER DATABASE BULK OPERATIONS` ou logon do SQL devem ter REFERENCES CREDENTIAL::\<URL> para armazenamento protegido por SAS |
+| OPENROWSET(BULK) com datasource sem credencial | `ADMINISTER BULK OPERATIONS` ou `ADMINISTER DATABASE BULK OPERATIONS`, |
+| OPENROWSET(BULK) com datasource com credencial | `REFERENCES DATABASE SCOPED CREDENTIAL` e um de `ADMINISTER BULK OPERATIONS` ou `ADMINISTER DATABASE BULK OPERATIONS` |
 | CREATE EXTERNAL DATA SOURCE | `ALTER ANY EXTERNAL DATA SOURCE` e `REFERENCES DATABASE SCOPED CREDENTIAL` |
 | CREATE EXTERNAL TABLE | `CREATE TABLE`, `ALTER ANY SCHEMA`, `ALTER ANY EXTERNAL FILE FORMAT` e `ALTER ANY EXTERNAL DATA SOURCE` |
 | SELECT FROM EXTERNAL TABLE | `SELECT TABLE` e `REFERENCES DATABASE SCOPED CREDENTIAL` |
-| CETAS | Para criar tabela – `CREATE TABLE`, `ALTER ANY SCHEMA`, `ALTER ANY DATA SOURCE` e `ALTER ANY EXTERNAL FILE FORMAT`. Para ler dados: `ADMIN BULK OPERATIONS` ou `REFERENCES CREDENTIAL` ou `SELECT TABLE` para cada tabela/exibição/função na consulta + permissão para leitura e gravação no armazenamento |
+| CETAS | Para criar tabela – `CREATE TABLE`, `ALTER ANY SCHEMA`, `ALTER ANY DATA SOURCE` e `ALTER ANY EXTERNAL FILE FORMAT`. Para ler dados: `ADMINISTER BULK OPERATIONS` ou `REFERENCES CREDENTIAL` ou `SELECT TABLE` para cada tabela/exibição/função na consulta + permissão para leitura e gravação no armazenamento |
 
 ## <a name="next-steps"></a>Próximas etapas
 

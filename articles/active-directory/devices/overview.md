@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 03/26/2020
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c25d5ee7ed730747317ea52286174968eb0e2fd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8399f7101697af429b8c073c101dbfea203e98ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103697"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025584"
 ---
 # <a name="what-is-a-device-identity"></a>O que é uma identidade do dispositivo?
 
@@ -45,9 +45,9 @@ Há várias opções para colocar um dispositivo no Azure AD:
 - **Ingressado no Azure AD**
    - Os dispositivos que estão ingressados no Azure AD são de propriedade de uma organização e são conectados usando uma conta do Azure AD que pertence a essa organização. Elas existem somente na nuvem.
       - Windows 10 
-      - [Máquinas Virtuais do Windows Server 2019 em execução no Azure] (./howto-vm-sign-in-azure-ad-windows.md) (Não há suporte para o Server Core)
+      - [Máquinas Virtuais do Windows Server 2019 em execução no Azure](howto-vm-sign-in-azure-ad-windows.md) (não há suporte para Server Core)
 - **Ingressado no Azure AD híbrido**
-   - Os dispositivos que estão ingressados no Azure AD híbrido são de propriedade de uma organização e são conectados usando uma conta do Azure AD que pertence a essa organização. Eles existem na nuvem e localmente.
+   - Os dispositivos ingressados no Azure AD híbrido são de propriedade de uma organização e são conectados usando uma conta do Active Directory Domain Services que pertence a essa organização. Eles existem na nuvem e localmente.
       - no Windows 7, 8.1 ou 10
       - no Windows Server 2008 ou mais recente
 

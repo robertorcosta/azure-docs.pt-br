@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 02ebdfc0fe3fd39f29a64fdb49a3f0d37b007097
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dc4c348315dce59d5eaf58046c9a8d8f7f2e3725
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526955"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87313669"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorar uma máquina virtual do Linux no Azure
 
@@ -140,7 +140,7 @@ Para habilite o monitoramento da VM do Azure com o Azure Monitor para VMs:
     A lista selecione previamente o workspace e a localização padrão em que a VM está implantada na assinatura. 
 
     >[!NOTE]
-    >Para criar um workspace do Log Analytics para armazenar os dados de monitoramento da VM, confira [Criar um workspace do Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). Seu workspace do Log Analytics deve pertencer a uma das [regiões com suporte](../../azure-monitor/insights/vminsights-enable-overview.md#log-analytics).
+    >Para criar um workspace do Log Analytics para armazenar os dados de monitoramento da VM, confira [Criar um workspace do Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). O workspace deve pertencer a uma das [regiões com suporte](../../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
 
 Depois de habilitar o monitoramento, talvez você precise aguardar vários minutos antes de poder exibir as métricas de desempenho da VM.
 

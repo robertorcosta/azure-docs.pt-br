@@ -5,15 +5,15 @@ services: iot-central
 author: dominicbetts
 ms.service: iot-central
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 07/07/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 0381418f20e126f94060b9f495fe1fe8b54e713b
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: b32465091f82fec0aeae288ee9bfd5540bfe8b9d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85378522"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001985"
 ---
 ## <a name="create-a-device-template"></a>Crie um modelo de dispositivo
 
@@ -79,12 +79,11 @@ No aplicativo do Azure IoT Central, adicione um dispositivo real ao modelo de di
 
 1. Na página **Dispositivos**, selecione o modelo de dispositivo **Sensor ambiental**.
 
-    > [!TIP]
-    > Selecione o modelo a ser usado antes de selecionar **+ Novo**; caso contrário, você criará um dispositivo não associado.
-
 1. Selecione **+ Novo**.
 
-1. Verifique se a opção **Simulado** está **Desativada**. Em seguida, selecione **Criar**.
+1. Na caixa de diálogo **Criar um dispositivo**, verifique se o **Sensor Ambiental** é o tipo de modelo e se **Simular este dispositivo?** está definido como **Não**.
+
+1. Em seguida, selecione **Criar**.
 
 Clique no nome do dispositivo e, em seguida, selecione **Conectar**. Anote as informações de conexão do dispositivo na página **Conexão do Dispositivo**: **Escopo da ID**, **Identificação do Dispositivo** e **Chave primária**. Você precisará desses valores ao criar o código do dispositivo:
 

@@ -3,12 +3,12 @@ title: Avaliar servidores físicos para migração para o Azure com a avaliaçã
 description: Descreve como avaliar servidores físicos para a migração para o Azure usando a Avaliação de Servidor das Migrações para Azure.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 2c0662c6ccf66f09413891c99da789c50847277e
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 5b4d5241e4236d4c11f2e2a5a8feb7c73258cba0
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080767"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171382"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Avaliar servidores físicos com as Migrações para Azure: Avaliação de Servidor
 
@@ -179,13 +179,14 @@ Configure o dispositivo pela primeira vez.
 Agora, conecte-se do dispositivo aos servidores físicos a serem descobertos e inicie a descoberta.
 
 1. Em **Adicionar credenciais**, especifique as credenciais de conta que o dispositivo usará para descobriros servidores.  
-2. Especifique o **Sistema operacional**, um nome amigável para as credenciais, o nome de usuário e a senha. Clique em **Adicionar**.
+2. Entre usando seu nome de usuário e sua senha. Não há suporte para entrar com uma chave. Além disso, o usuário deve ser um logon raiz ou deve fazer parte do grupo de administradores local.
+3. Especifique o **Sistema operacional**, um nome amigável para as credenciais, o nome de usuário e a senha. Clique em **Adicionar**.
 Adicione várias credenciais para servidores Windows e Linux.
 4. Clique em **Adicionar servidor**e especifique detalhes do servidor – endereço FQDN/IP e nome amigável das credenciais (uma entrada por linha) para se conectar ao servidor.
-3. Clique em **Validar**. Após a validação, a lista de servidores que podem ser descobertos é mostrada.
+5. Clique em **Validar**. Após a validação, a lista de servidores que podem ser descobertos é mostrada.
     - Se a validação falhar para um servidor, examine o erro passando o ponteiro do mouse sobre o ícone na coluna **Status**. Corrija os problemas e valide novamente.
     - Para remover um servidor, selecione > **Excluir**.
-4. Após a validação, clique em **Salvar e iniciar descoberta** para iniciar o processo de descoberta.
+6. Após a validação, clique em **Salvar e iniciar descoberta** para iniciar o processo de descoberta.
 
 Isso iniciará a descoberta. São necessários cerca de 1,5 minutos por servidor para que os metadados dos servidores descobertos sejam exibidos no portal do Azure.
 

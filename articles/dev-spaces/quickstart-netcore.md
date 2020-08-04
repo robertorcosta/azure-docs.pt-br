@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Este início rápido mostra como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente um aplicativo .NET Core no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: b8ddf2e484b3d1525825f8df3b738091564b0a78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 104e812cc9e792ce71f263085ba1a3474cc2226b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512445"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002770"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Início Rápido: Depurar e iterar no Kubernetes: Visual Studio Code e o .NET Core – Azure Dev Spaces
 
@@ -155,7 +155,7 @@ ViewData["Message"] = "Your application description page in Azure while debuggin
 
 Salve o arquivo. Clique em *Depurar* e, em seguida, *Reiniciar Depuração* ou, na *barra de ferramentas Depurar*, clique no botão *Reiniciar Depuração*.
 
-![A barra de ferramentas Depurar é um pequeno painel no centro superior da página (logo abaixo do título da página). O botão Reiniciar exibe uma seta circular e está realçado. A imagem em foco do botão é "Reiniciar (Ctrl+Shift+F5)".](media/common/debug-action-refresh.png)
+![A barra de ferramentas Depurar é um pequeno painel no centro superior da página (logo abaixo do título da página). O botão Reiniciar exibe uma seta circular e está realçado. A imagem em foco do botão é "Reiniciar (Control+Shift+F5)".](media/common/debug-action-refresh.png)
 
 Abra o serviço em um navegador e observe a mensagem atualizada exibida.
 

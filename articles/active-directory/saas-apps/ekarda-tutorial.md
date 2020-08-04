@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3790da8674732c50d55a85c84367f0d2fe3e08f5
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: aacaec5ff632385a1f1686610370bb92eb63c349
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255606"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017543"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Ekarda
 
@@ -151,12 +151,12 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Clique em **Admin** -> **Minha Conta**.
 
-    ![Configuração do Ekarda](./media/ekarda-tutorial/ekarda.PNG)    
+    ![Configuração do Ekarda](./media/ekarda-tutorial/ekarda.png)    
 
 1. Na parte inferior da página, você encontrará a seção **CONFIGURAÇÕES DE SAML**, em que você configurará essa integração SAML.
 1. Na seguinte página, execute as seguintes etapas:
 
-    ![Configuração do Ekarda](./media/ekarda-tutorial/ekarda1.PNG)
+    ![Configuração do Ekarda](./media/ekarda-tutorial/ekarda1.png)
 
     a. Clique no link **Metadados do Provedor de Serviços** e salve-o como arquivo em seu computador.
 
@@ -186,15 +186,16 @@ Ao clicar no bloco do Ekarda no Painel de Acesso, você deverá ser conectado au
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimente o Ekarda com o Azure AD](https://aad.portal.azure.com/)
 
+- Use a [solução de eCard empresarial do Ekarda](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise) para provisionar qualquer número de pessoal para enviar eCards com o logo da sua empresa a clientes e colegas. Saiba mais sobre como provisionar o [Ekarda como uma solução de SSO](https://support.ekarda.com/#SSO-Implementation).
+
 - [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Como proteger o Ekarda com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

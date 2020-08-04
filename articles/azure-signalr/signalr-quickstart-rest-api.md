@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 70053fbc47a5ba85e7bb18ab762868973d014beb
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 707547cb39487111e2e9353de7e82c2409638324
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548124"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045009"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Início Rápido: Difundir mensagens em tempo real do aplicativo de console
 
@@ -126,7 +126,7 @@ Versão | Estado de API | Porta | Específicas
 
 A lista de APIs disponíveis para cada versão específica está disponível na lista a seguir.
 
-API | `1.0-preview` | `1.0`
+API | 1.0-preview | 1.0
 --- | --- | ---
 [Transmitir para todos](#broadcast) | **&#x2713;** | **&#x2713;**
 [Transmitir para um grupo](#broadcast-group) | **&#x2713;** | **&#x2713;**
@@ -242,7 +242,7 @@ Versão da API | Método HTTP da API | URL de Solicitação
 Código de status de resposta | Descrição
 ---|---
 `200` | Serviço em execução
-`503` | Serviço indisponível
+`5xx` | Erro de Serviço
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 

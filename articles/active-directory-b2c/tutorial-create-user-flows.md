@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/01/2019
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cc6673615c85b34975d6743da6da88ca841bcf35
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b13decc142328525376ca8b3a93c74b95c90dae6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005354"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481846"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Criar fluxos dos usuários no Azure Active Directory B2C
 
@@ -31,6 +31,9 @@ Neste artigo, você aprenderá como:
 Este tutorial mostra como criar alguns fluxos dos usuários recomendados usando o portal do Azure. Se você estiver procurando informações sobre como configurar um fluxo de ROPC (credenciais de senha de proprietário do recurso) em seu aplicativo, confira [Configurar o fluxo de credenciais de senha de proprietário do recurso no Azure AD B2C](configure-ropc.md).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+> [!IMPORTANT]
+> Alteramos a maneira como fazemos referência às versões de fluxo do usuário. Anteriormente, oferecíamos versões V1 (prontas para produção) e versões V1.1 e V2 (versão prévia). Agora, consolidamos os fluxos dos usuários nas versões **Recomendado** (versão prévia da próxima geração) e **Standard** (em disponibilidade geral). Todos os fluxos dos usuários da versão prévia herdada da V1.1 e da V2 serão preteridos até **1º de agosto de 2021**. Para obter detalhes, consulte as [Versões de fluxo de usuário no Azure AD B2C](user-flow-versions.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,15 +53,16 @@ O fluxo do usuário de inscrição e credenciais controla as experiências de in
 
     ![Página fluxos dos usuários no portal com o botão Novo fluxo de usuário realçado](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
-1. Na guia **Recomendado**, selecione o fluxo do usuário **Inscrever-se e entrar**.
+1. Na página **Criar um fluxo de usuário**, selecione o fluxo do usuário **Inscrever-se e entrar**.
 
-    ![Página Selecione um fluxo de usuário com o fluxo Inscrever-se e entrar realçado](./media/tutorial-create-user-flows/signup-signin-type.png)
+    ![Página Selecione um fluxo de usuário com o fluxo Inscrever-se e entrar realçado](./media/tutorial-create-user-flows/select-user-flow-type.png)
+
+1. Em **Selecionar uma versão**, selecione **Recomendado** e, em seguida, selecione **Criar**. ([Saiba mais](user-flow-versions.md) sobre as versões de fluxo de usuário.)
+
+    ![Página Criar fluxo de usuário no portal do Azure com as propriedades realçadas](./media/tutorial-create-user-flows/select-version.png)
 
 1. Insira um **Nome** para o fluxo de usuário. Por exemplo, *signupsignin1*.
 1. Para **Provedores de identidade**, selecione **Inscrição por email**.
-
-    ![Página Criar fluxo de usuário no portal do Azure com as propriedades realçadas](./media/tutorial-create-user-flows/signup-signin-properties.png)
-
 1. Para **Atributos e declarações do usuário**, escolha as declarações e atributos que deseja coletar e enviar do usuário durante a inscrição. Por exemplo, selecione **Mostrar mais** e, depois, escolha atributos e declarações de **País/região**, **Nome de exibição** e **Código postal**. Clique em **OK**.
 
     ![Página Seleção de atributos e declarações com três declarações selecionadas](./media/tutorial-create-user-flows/signup-signin-attributes.png)
@@ -83,11 +87,12 @@ O fluxo do usuário de inscrição e credenciais controla as experiências de in
 Se quiser permitir que os usuários editem seu perfil no aplicativo, use um fluxo do usuário de edição de perfil.
 
 1. No menu da página de visão geral do locatário do Azure AD B2C, selecione **Fluxos dos usuários** e, em seguida, selecione **Novo fluxo de usuário**.
-1. Selecione o fluxo do usuário **Edição de perfil** na guia **Recomendado**.
+1. Na página **Criar um fluxo de usuário**, selecione o fluxo do usuário **Edição de perfil**. 
+1. Em **Selecionar uma versão**, selecione **Recomendado** e, em seguida, selecione **Criar**.
 1. Insira um **Nome** para o fluxo de usuário. Por exemplo, *profileediting1*.
 1. Para **Provedores de identidade**, selecione **Conexão na Conta Local**.
-1. Para **Atributos do usuário**, escolha os atributos que deseja que o cliente seja capaz de editar no perfil dele. Por exemplo, selecione **Mostrar mais** e, em seguida, escolha os atributos e as declarações para **Nome de exibição** e **Cargo**. Clique em **OK**.
-1. Clique em **Criar** para adicionar o fluxo de usuário. Um prefixo *B2C_1* é acrescentado automaticamente ao nome.
+2. Para **Atributos do usuário**, escolha os atributos que deseja que o cliente seja capaz de editar no perfil dele. Por exemplo, selecione **Mostrar mais** e, em seguida, escolha os atributos e as declarações para **Nome de exibição** e **Cargo**. Clique em **OK**.
+3. Clique em **Criar** para adicionar o fluxo de usuário. Um prefixo *B2C_1* é acrescentado automaticamente ao nome.
 
 ### <a name="test-the-user-flow"></a>Testar o fluxo de usuário
 
@@ -101,12 +106,13 @@ Se quiser permitir que os usuários editem seu perfil no aplicativo, use um flux
 Para permitir que os usuários do seu aplicativo redefinam a senha, use um fluxo de usuário de redefinição de senha.
 
 1. No menu de visão geral do locatário do Azure AD B2C, selecione **Fluxos dos usuários** e, em seguida, selecione **Novo fluxo de usuário**.
-1. Selecione o fluxo do usuário **Redefinição de senha** na guia **Recomendado**.
+1. Na página **Criar um fluxo de usuário**, selecione o fluxo do usuário **Redefinição de senha**. 
+1. Em **Selecionar uma versão**, selecione **Recomendado** e, em seguida, selecione **Criar**.
 1. Insira um **Nome** para o fluxo de usuário. Por exemplo, *passwordreset1*.
 1. Em **Provedores de identidade**, habilite **Redefinir senha usando endereço de email**.
-1. Em Declarações do aplicativo, clique em **Mostrar mais** e escolha as declarações que você quer retornar nos tokens de autorização enviados de volta ao seu aplicativo. Por exemplo, selecione **ID de Objeto do Usuário**.
-1. Clique em **OK**.
-1. Clique em **Criar** para adicionar o fluxo de usuário. Um prefixo *B2C_1* é acrescentado automaticamente ao nome.
+2. Em Declarações do aplicativo, clique em **Mostrar mais** e escolha as declarações que você quer retornar nos tokens de autorização enviados de volta ao seu aplicativo. Por exemplo, selecione **ID de Objeto do Usuário**.
+3. Clique em **OK**.
+4. Clique em **Criar** para adicionar o fluxo de usuário. Um prefixo *B2C_1* é acrescentado automaticamente ao nome.
 
 ### <a name="test-the-user-flow"></a>Testar o fluxo de usuário
 

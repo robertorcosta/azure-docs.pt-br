@@ -5,23 +5,28 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/11/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 253eb23be03c1cc0f2abf4ad1fed734426dc287d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1df88e26284dc868267cbc79e27df6f0e25f1250
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77154674"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035053"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Tutorial: Proteger eventos de entrada do usuário com a Autenticação Multifator do Azure
 
 A MFA (autenticação multifator) é um processo em que um usuário é solicitado durante um evento de entrada para formas adicionais de identificação. Esse prompt pode ser o de inserir um código no celular ou fornecer uma digitalização de impressão digital. Quando você precisar de uma segunda forma de autenticação, a segurança será aprimorada, pois esse fator adicional não será algo fácil de ser obtido ou duplicado por um invasor.
 
 As políticas de Acesso Condicional e Autenticação Multifator do Azure oferecem a flexibilidade para habilitar a MFA para usuários durante eventos de entrada específicos.
+
+> [!IMPORTANT]
+> Este tutorial mostra a um administrador como habilitar a Autenticação Multifator do Azure.
+>
+> Se a sua equipe de TI não tiver habilitado a capacidade de usar a Autenticação Multifator do Azure ou se você tiver problemas durante a entrada, entre em contato com o suporte técnico para obter assistência adicional.
 
 Neste tutorial, você aprenderá a:
 
@@ -38,9 +43,9 @@ Para concluir este tutorial, você precisará dos seguintes recursos e privilég
     * Se necessário, [crie um gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Uma conta com privilégios de *administrador global*.
 * Um usuário que não seja administrador com uma senha que você conheça, como *testuser*. Você testa a experiência de Autenticação Multifator do Microsoft Azure usando essa conta neste tutorial.
-    * Se você precisar criar um usuário, confira [Início rápido: Adicionar novos usuários ao Azure Active Directory](../add-users-azure-active-directory.md).
+    * Se você precisar criar um usuário, confira [Início rápido: Adicionar novos usuários ao Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * Um grupo do qual o usuário não administrador seja membro, como *MFA-Test-Group*. Você habilita a Autenticação Multifator do Azure para este grupo neste tutorial.
-    * Se você precisar criar um grupo, confira como [Criar um grupo e adicionar membros no Azure Active Directory](../active-directory-groups-create-azure-portal.md).
+    * Se você precisar criar um grupo, confira como [Criar um grupo e adicionar membros no Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de Acesso Condicional
 

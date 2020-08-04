@@ -5,21 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 05/11/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 718a38f4744b6a1f9b4ebd0112be07b2556f1c39
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 18b2fb520ecab8b233be3c93ef614a2bce01a75e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116016"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87034989"
 ---
 # <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>Tutorial: Usar detecções de risco para entradas de usuário para disparar a Autenticação Multifator do Azure ou alterações de senha
 
-Para proteger seus usuários, você pode configurar políticas baseadas em risco no Azure AD (Azure Active Directory) que respondem automaticamente a comportamentos suspeitos. As políticas do Azure AD Identity Protection podem bloquear automaticamente uma tentativa de entrada ou exigir ação adicional, como exigir uma alteração de senha ou solicitar a Autenticação Multifator do Azure. Essas políticas funcionam com as políticas de Acesso Condicional do Azure AD existentes como uma camada extra de proteção para a organização. Talvez os usuários nunca disparem um comportamento suspeito em uma dessas políticas, mas sua organização estará protegida se for realizada uma tentativa de comprometer sua segurança.
+Para proteger seus usuários, você pode configurar políticas baseadas em risco no Azure AD (Azure Active Directory) que respondem automaticamente a comportamentos suspeitos. As políticas do Azure AD Identity Protection podem bloquear automaticamente uma tentativa de entrada ou exigir ação adicional, como exigir uma alteração de senha ou solicitar a Autenticação Multifator do Azure. Essas políticas funcionam com as políticas de Acesso Condicional do Azure AD existentes como uma camada extra de proteção para a sua organização. Talvez os usuários nunca disparem um comportamento suspeito em uma dessas políticas, mas sua organização estará protegida se for realizada uma tentativa de comprometer sua segurança.
+
+> [!IMPORTANT]
+> Este tutorial mostra a um administrador como habilitar a Autenticação Multifator do Azure baseada em risco.
+>
+> Se a sua equipe de TI não tiver habilitado a capacidade de usar a Autenticação Multifator do Azure ou se você tiver problemas durante a entrada, entre em contato com o suporte técnico para obter assistência adicional.
 
 Neste tutorial, você aprenderá como:
 

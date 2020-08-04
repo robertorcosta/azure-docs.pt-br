@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: cd2f88d78a967b46c1983e7eb96328c14d90a81a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 730109a096b352b6d179693293128b465e0be83f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343992"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063259"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Link Privado do Azure para o Banco de Dados SQL do Azure e o Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -146,7 +146,7 @@ O resultado mostra que um endereço IP está ativo, que corresponde ao endereço
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Verificar a conectividade usando o SSMS (SQL Server Management Studio)
 > [!NOTE]
-> Use o **FQDN (nome de domínio totalmente qualificado)** do servidor nas cadeias de conexão dos clientes. As tentativas de logon feitas diretamente no endereço IP deverão falhar. Esse comportamento ocorre por design, pois o ponto de extremidade privado roteia o tráfego para o gateway do SQL na região, e o FQDN precisa ser especificado para que os logons tenham êxito.
+> Use o **FQDN (nome de domínio totalmente qualificado)** do servidor nas cadeias de conexão dos clientes (`<server>.database.windows.net`). As tentativas de logon feitas diretamente no endereço IP ou usando o FQDN do link privado (`<server>.privatelink.database.windows.net`) deverão falhar. Esse comportamento ocorre por design, pois o ponto de extremidade privado roteia o tráfego para o gateway do SQL na região, e o FQDN correto precisa ser especificado para que os logons tenham êxito.
 
 Siga as etapas fornecidas aqui para usar o [SSMS para se conectar ao Banco de Dados SQL](connect-query-ssms.md). Depois de se conectar ao Banco de Dados SQL usando o SSMS, verifique se você está se conectando no endereço IP privado da VM do Azure executando a seguinte consulta:
 

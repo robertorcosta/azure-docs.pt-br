@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: memildin
-ms.openlocfilehash: 1f0a11616fe996f02d6464d23724156906176041
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 67017bdc98b997c728c4d5dcfab92e0804498060
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771148"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084000"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Início Rápido: Integrar suas máquinas virtuais do Azure Stack à Central de Segurança
 Após integrar sua assinatura do Azure, será possível permitir que a Central de Segurança proteja suas máquinas virtuais em execução no Azure Stack adicionando a extensão da máquina virtual **Gerenciamento de Configuração, de Atualização e do Azure Monitor** no marketplace do Azure Stack.
@@ -29,7 +29,7 @@ Este início rápido mostra como adicionar a extensão da máquina virtual **Ger
 ## <a name="prerequisites"></a>Pré-requisitos
 Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, pode se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-É necessário ter uma assinatura do Azure na camada Standard da Central de Segurança antes de iniciar este início rápido. Consulte [Integrar sua assinatura do Azure ao Centro de Segurança Standard](security-center-get-started.md) para obter instruções de atualização. É possível experimentar a camada Standard da Central de Segurança sem custo por 30 dias. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+É necessário ter uma assinatura do Azure no nível Standard da Central de Segurança antes de iniciar este início rápido. Consulte [Integrar sua assinatura do Azure ao Centro de Segurança Standard](security-center-get-started.md) para obter instruções de atualização. É possível experimentar a nível Standard da Central de Segurança sem custo por 30 dias. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="select-your-workspace-in-azure-security-center"></a>Selecionar seu workspace na Central de Segurança do Azure
 

@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: d9efafdbc3545bebb3b90b3f64c14f45d8be82e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 28f666fe295b2b49fb6795306e9fad489c867517
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496019"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387210"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabelas de metadados compartilhados do Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do
 
 Depois que um banco de dados for criado por um trabalho do Spark, você poderá criar tabelas nele com o Spark que usam Parquet como o formato de armazenamento. Essas tabelas ficarão imediatamente disponíveis para consulta por qualquer um dos pools do Spark do workspace do Azure Synapse. Elas também podem ser usadas em qualquer um dos trabalhos do Spark sujeitos a permissões.
 
-As tabelas criadas, gerenciadas e externas do Spark também são disponibilizadas como tabelas externas com o mesmo nome no banco de dados sincronizado correspondente no SQL sob demanda. [Como expor uma tabela do Spark no SQL](#exposing-a-spark-table-in-sql) fornece mais detalhes sobre a sincronização da tabela.
+As tabelas criadas, gerenciadas e externas do Spark também são disponibilizadas como tabelas externas com o mesmo nome no banco de dados sincronizado correspondente no SQL sob demanda. [Como expor uma tabela do Spark no SQL](#expose-a-spark-table-in-sql) fornece mais detalhes sobre a sincronização da tabela.
 
 Como as tabelas são sincronizadas com o SQL sob demanda de maneira assíncrona, haverá um atraso até que eles sejam exibidos.
 
@@ -34,9 +34,9 @@ Use o Spark para gerenciar bancos de dados criados pelo Spark. Por exemplo, excl
 
 Se você criar objetos em um banco de dados no SQL sob demanda ou tentar remover o banco de dados, a operação terá êxito, mas o banco de dados original do Spark não será alterado.
 
-## <a name="exposing-a-spark-table-in-sql"></a>Como expor uma tabela do Spark no SQL
+## <a name="expose-a-spark-table-in-sql"></a>Expor uma tabela do Spark no SQL
 
-### <a name="which-spark-tables-are-shared"></a>Quais tabelas do Spark são compartilhadas
+### <a name="shared-spark-tables"></a>Tabelas do Spark compartilhadas
 
 O Spark fornece dois tipos de tabelas que o Azure Synapse expõe no SQL automaticamente:
 
@@ -50,7 +50,7 @@ O Spark fornece dois tipos de tabelas que o Azure Synapse expõe no SQL automati
 
 No momento, o Azure Synapse compartilha apenas tabelas externas e gerenciadas do Spark que armazenam os dados no formato Parquet com os mecanismos SQL. As tabelas com suporte de outros formatos não são sincronizadas automaticamente. Você poderá conseguir sincronizar essas tabelas explicitamente como uma tabela externa no próprio Banco de Dados SQL se o mecanismo SQL der suporte ao formato subjacente da tabela.
 
-### <a name="how-are-spark-tables-shared"></a>Como as tabelas do Spark são compartilhadas
+### <a name="share-spark-tables"></a>Compartilhar tabelas do Spark
 
 As tabelas gerenciadas e externas do Spark compartilháveis que são expostas no mecanismo SQL como tabelas externas com as seguintes propriedades:
 
@@ -96,7 +96,7 @@ Para obter mais informações sobre como definir permissões nas pastas e nos ar
 
 ### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Criar uma tabela gerenciada com suporte do Parquet no Spark e consultá-la no SQL sob demanda
 
-Nesse cenário, você tem um banco de dados do Spark chamado `mytestdb`. Confira [Criar um banco de dados do Spark e se conectar a ele – SQL sob demanda](database.md#create--connect-to-spark-database---sql-on-demand).
+Nesse cenário, você tem um banco de dados do Spark chamado `mytestdb`. Confira [Criar um banco de dados do Spark e se conectar a ele com o SQL sob demanda](database.md#create-and-connect-to-spark-database-with-sql-on-demand).
 
 Crie uma tabela gerenciada do Spark com o SparkSQL executando o seguinte comando:
 
@@ -153,7 +153,7 @@ id | name | birthdate
 1 | Alice | 2010-01-01
 ```
 
-### <a name="creating-an-external-table-backed-by-parquet-in-spark-and-querying-it-from-sql-on-demand"></a>Como criar uma tabela externa com suporte do Parquet no Spark e consultá-la no SQL sob demanda
+### <a name="create-an-external-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Criar uma tabela externa com suporte do Parquet no Spark e consultá-la no SQL sob demanda
 
 Neste exemplo, crie uma tabela externa do Spark com base nos arquivos de dados do Parquet que foram criados no exemplo anterior para a tabela gerenciada.
 

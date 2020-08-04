@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/04/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5842d21f9fb35cd8fddc5521d630d597aedcc2ba
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 0ac13dc669ed20df58f05c672926b7bee55dbc90
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983142"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035019"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os usuários desbloqueiem sua conta ou redefinam senhas usando a redefinição de senha por autoatendimento do Microsoft Azure Active Directory
 
 A SSPR (redefinição de senha por autoatendimento) do Microsoft Azure AD (Active Directory) dá aos usuários a capacidade de alterar ou redefinir a senha, sem envolvimento do administrador ou do suporte técnico. Se a conta de um usuário estiver bloqueada ou se ele esquecer a senha, ele poderá seguir os avisos para desbloquear a si mesmo e voltar ao trabalho. Essa capacidade reduz as chamadas de suporte técnico e a perda de produtividade quando um usuário não consegue entrar no dispositivo ou em um aplicativo.
 
 > [!IMPORTANT]
-> Este guia de início rápido mostra a um administrador como habilitar a redefinição de senha por autoatendimento. Se você for um usuário final já registrado para redefinição de senha por autoatendimento e precisar voltar à sua conta, vá para https://aka.ms/sspr.
+> Este tutorial mostra a um administrador como habilitar a redefinição de senha por autoatendimento. Se você for um usuário final já registrado para redefinição de senha por autoatendimento e precisar voltar à sua conta, vá para https://aka.ms/sspr.
 >
 > Se sua equipe de TI não tiver habilitado a capacidade de redefinir sua própria senha, entre em contato com sua assistência técnica para obter mais assistência.
 
@@ -41,9 +41,9 @@ Para concluir este tutorial, você precisará dos seguintes recursos e privilég
     * Se necessário, [crie um gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Uma conta com privilégios de *Administrador Global*.
 * Um usuário que não seja administrador com uma senha que você conheça, como *testuser*. Você testa a experiência de SSPR do usuário final usando essa conta neste tutorial.
-    * Se você precisar criar um usuário, confira [Início rápido: Adicionar novos usuários ao Azure Active Directory](../add-users-azure-active-directory.md).
+    * Se você precisar criar um usuário, confira [Início rápido: Adicionar novos usuários ao Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * Um grupo do qual o usuário não administrador seja membro, como *SSPR-Test-Group*. Você habilita a SSPR para esse grupo neste tutorial.
-    * Se você precisar criar um grupo, confira como [Criar um grupo e adicionar membros no Azure Active Directory](../active-directory-groups-create-azure-portal.md).
+    * Se você precisar criar um grupo, confira como [Criar um grupo e adicionar membros no Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-self-service-password-reset"></a>Habilitar a redefinição de senha por autoatendimento
 
@@ -78,8 +78,8 @@ Quando os usuários precisam desbloquear a conta ou redefinir a senha, eles prec
     * *Código do aplicativo móvel*
     * *Email*
     * *Celular*
-    * *Telefone comercial*
-    * *Perguntas de segurança*
+
+    Os métodos de autenticação adicionais, como *Telefone comercial* ou *Perguntas de segurança*, podem ser habilitados, conforme necessário, para atender às suas necessidades de negócios.
 
 1. Para aplicar os métodos de autenticação, selecione **Salvar**.
 
@@ -95,7 +95,7 @@ Um administrador pode fornecer manualmente essas informações de contato ou os 
 
 ## <a name="configure-notifications-and-customizations"></a>Configurar notificações e personalizações
 
-Para manter os usuários informados sobre a atividade da conta, você pode configurar notificações por email a serem enviadas quando ocorrer um evento de SSPR. Essas notificações podem abranger contas de usuário e contas de administrador comuns. Para contas de administrador, essa notificação fornece uma camada adicional de reconhecimento quando uma senha de conta de administrador privilegiada é redefinida usando SSPR.
+Para manter os usuários informados sobre a atividade da conta, você pode configurar notificações por email a serem enviadas quando ocorrer um evento de SSPR. Essas notificações podem abranger contas de usuário e contas de administrador comuns. Para contas de administrador, essa notificação fornece uma camada adicional de reconhecimento quando uma senha de conta de administrador privilegiada é redefinida usando SSPR. Todos os administradores globais serão notificados quando a SSPR for usada em uma conta do administrador.
 
 1. Na página **Notificações** do menu no lado esquerdo, configure as seguintes opções:
 

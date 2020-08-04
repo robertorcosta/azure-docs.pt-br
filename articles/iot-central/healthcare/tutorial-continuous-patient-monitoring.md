@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 35ac39109bfcb4dc63b738c947d2ad8caf8ac0a6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 704c56745ad89e9ed2f79e8a863f1d0bc9845bf9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77021280"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001818"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Tutorial: Implantar e explorar um modelo de aplicativo de monitoramento contínuo de pacientes
 
@@ -85,7 +85,10 @@ Se clicar na guia **Modelos de dispositivo**, você verá que há dois tipos dif
 >[!div class="mx-imgBorder"] 
 >![Modelo do dispositivo Smart Vitals Patch](media/smart-vitals-device-template.png)
 
-Se você clicar na guia **Grupos de dispositivos**, verá também que esses modelos de dispositivos têm grupos de dispositivos criados automaticamente para eles.
+### <a name="device-groups"></a>Grupos de dispositivos 
+Os grupos de dispositivos permitem que você agrupe logicamente um conjunto de dispositivos para executar consultas em massa ou operações neles. 
+
+Se você clicar na guia de grupos de dispositivos, verá que criamos alguns grupos de dispositivos padrão para cada um dos modelos de dispositivo no aplicativo. Perceba que também criamos dois grupos de dispositivos de exemplo adicionais chamados "Provisionar dispositivos" e "Dispositivos com firmware desatualizado". Usaremos esses grupos de dispositivos de exemplo como entradas para executar alguns [Trabalhos](#jobs).
 
 ### <a name="rules"></a>Regras
 
@@ -100,6 +103,13 @@ Acessando a guia de regras, você verá três regras que existem no modelo de ap
 >[!div class="mx-imgBorder"] 
 >![Regra de temperatura alta da cinta](media/brace-temp-rule.png)
 
+### <a name="jobs"></a>Trabalhos
+
+Os trabalhos permitem que você execute operações em massa em um conjunto de dispositivos, usando [grupos de dispositivos](#device-groups) como a entrada. Propagamos o modelo de aplicativo com dois trabalhos de exemplo que um operador de solução pode precisar executar em algum ponto do ciclo de vida dos dispositivos:
+* **Atualizar firmware da cinta de joelho**: esse trabalho encontrará dispositivos no grupo de dispositivos "dispositivos com firmware desatualizado" e executará um comando para atualizar esses dispositivos para a versão de firmware mais recente da cinta de joelho. Este trabalho de exemplo pressupõe que os dispositivos tenham funcionalidades para receber um comando de "atualização" e buscar os arquivos de firmware diretamente da nuvem.  
+
+* **Provisionar novamente os dispositivos**: se você tiver um conjunto de dispositivos que foram retornados recentemente para o hospital e precisam ser provisionados novamente para o próximo conjunto de pacientes, poderá executar esse trabalho para atualizar em massa seus dispositivos de provisionamento. Nesse caso, estamos colocando todos os dispositivos de um grupo de dispositivos chamado "provisionar dispositivos" e estamos executando um comando para "provisioná-los novamente". 
+
 ### <a name="devices"></a>Dispositivos
 
 Clique na guia **Dispositivos** e, em seguida, selecione uma instância do **Smart Knee Brace**. Você verá que há três exibições para explorar informações sobre o dispositivo específico que você selecionou. Essas exibições são criadas e publicadas ao criar o modelo de dispositivo para seu dispositivo, o que significa que elas serão consistentes em todos os dispositivos que você conectar ou simular.
@@ -112,6 +122,10 @@ A guia **Comandos** permite que você execute comandos que foram modelados como 
 
 >[!div class="mx-imgBorder"] 
 >![Exibições da cinta de joelho](media/knee-brace-dashboard.png)
+
+### <a name="data-export"></a>Exportação de dados
+
+A exportação de dados permite que você exporte seus dados do dispositivo IoT Central continuamente para outros serviços do Azure, incluindo a [API do Azure para FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

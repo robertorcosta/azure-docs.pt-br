@@ -1,206 +1,227 @@
 ---
-title: Configurar materiais de renderização baseada em física no 3DSMax
-description: Explica como configurar materiais de renderização baseada em física no 3DSMax e exportá-los para o formato FBX.
+title: Configurar materiais de PBR no 3ds Max
+description: Explica como configurar materiais de renderização baseada fisicamente no 3ds e exportá-los para o formato FBX.
 author: muxanickms
 ms.author: misams
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: df4be8963c93199f9fad23ab3f709f691e1da768
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: ac0f4ee8f06982126d2ae30bed01716b287e8993
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857488"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078040"
 ---
-# <a name="tutorial-set-up-physically-based-rendering-materials-in-3d-studio-max"></a>Tutorial: Configurar materiais de renderização baseada em física no 3D Studio Max
+# <a name="tutorial-set-up-physically-based-rendering-materials-in-3ds-max"></a>Tutorial: Configurar materiais de renderização baseada fisicamente no 3ds Max
 
 ## <a name="overview"></a>Visão geral
 Neste tutorial, você aprenderá como:
 
 >[!div class="checklist"]
 >
-> * Atribuir materiais com iluminação avançada aos objetos na cena.
+> * Atribuir materiais com iluminação avançada aos objetos em uma cena.
 > * Processar a instanciação de objetos e materiais.
 > * Exportar uma cena para o formato FBX e selecionar opções importantes.
 
-A criação de [materiais PBR (renderização baseada em física)](../../overview/features/pbr-materials.md) no 3DSMax (3D Studio Max) é uma tarefa relativamente simples. Ela é semelhante em muitas maneiras à configuração de PBR em outros aplicativos de criação de conteúdo, como o Maya. Este tutorial é um guia para a instalação básica do sombreador de PBR e a exportação do FBX para projetos do Azure Remote Rendering.
+A criação de [materiais de PBR (renderização baseada fisicamente)](../../overview/features/pbr-materials.md) no 3ds Max é uma tarefa relativamente simples. Ela é semelhante em muitas maneiras à configuração de PBR em outros aplicativos de criação de conteúdo, como o Maya. Este tutorial é um guia para a instalação básica do sombreador de PBR e a exportação do FBX para projetos do Azure Remote Rendering.
 
 A cena de exemplo deste tutorial contém vários objetos de caixa poligonais. Diferentes materiais, como madeira, metal, metal pintado, plástico e borracha são atribuídos a eles. Em geral, cada material contém todas ou a maioria das seguintes texturas:
 
-* **Albedo**, que é o mapa de cores do material e também é chamado de **Difuso** ou **BaseColor**.
+* **Albedo**, que é o mapa de cores do material e também é chamado de **Difuso** e **BaseColor**.
 * **Metalicidade**, que determina se um material é metálico e quais partes dele são metálicas. 
 * **Aspereza**, que determina o nível de aspereza ou suavidade de uma superfície.
 Também afeta a nitidez ou o desfoque dos reflexos e dos realces em uma superfície.
-* **Normal**, que adiciona detalhes a uma superfície sem precisar adicionar mais polígonos. Exemplos de detalhes podem ser furos e entalhes em uma superfície metálica ou textura em madeira.
-* **Oclusão de Ambiente**, que é usada para adicionar um sombreamento suave e sombras de contato a um modelo. Trata-se de um mapa em escala de cinza que indica quais áreas de um modelo recebem iluminação total (branco) ou sombreamento total (preto).
+* **Normal**, que adiciona detalhes a uma superfície sem adicionar mais polígonos. Exemplos de detalhes são furos e entalhes em uma superfície metálica ou textura em madeira.
+* **Oclusão de Ambiente**, que é usada para adicionar um sombreamento suave e sombras de contato a um modelo. Trata-se de um mapa em escala de cinza que indica quais áreas do modelo recebem iluminação total (branco) ou sombreamento total (preto).
 
 ## <a name="prepare-the-scene"></a>Preparar a cena
-No **3D Studio Max**, o processo de configuração de um material PBR é descrito a seguir.
+No 3ds Max, o processo de configuração de um material de PBR é o descrito a seguir.
 
-Para começar, como você verá na cena de exemplo, criamos vários objetos de caixa, cada um representando um tipo de material diferente:
-
->[!TIP]
->Antes de você começar a criar ativos para o ARR, vale a pena observar que ele usa **metros** para medição.  
->Portanto, recomendamos definir as **Unidades do Sistema** da cena como **Metros**. Além disso, durante a exportação, recomendamos definir as Unidades como metros nas configurações de exportação do FBX.
-
-A imagem a seguir ilustra as etapas necessárias para definir as Unidades do Sistema como metros no 3D Studio Max. No menu principal, acesse **Personalizar** > **Configuração de Unidades** > **Configuração de Unidades do Sistema** e, no menu suspenso **Escala de Unidades do Sistema**, selecione **Metros**. 
-![unidades do sistema](media/3dsmax/system-units.jpg)
-
-Com as unidades do sistema definidas como metros, podemos começar a criar nossos modelos. Na cena de exemplo, criamos vários objetos de caixa, cada um representando um tipo de material diferente, por exemplo, metal, borracha, plástico etc. 
+Para começar, criaremos vários objetos de caixa, cada um representando um tipo diferente de material.
 
 >[!TIP]
->Ao criar ativos, é uma boa prática nomeá-los de maneira adequada durante o processo. Isso facilitará a localização deles posteriormente se a cena tiver muitos objetos
+>Antes de você começar a criar ativos para o Remote Rendering, vale a pena observar que ele usa metros para medição.  
+>
+>Portanto, é uma boa ideia definir as unidades do sistema da sua cena em metros. Também é recomendável definir as **Unidades** em metros nas configurações de exportação do FBX ao exportar uma cena.
 
-![rename-objects](media/3dsmax/rename-objects.jpg)
+A captura de tela a seguir ilustra as etapas necessárias para definir as unidades do sistema em metros no 3ds Max. 
+
+1. No menu principal, acesse **Personalizar** > **Configuração das Unidades** > **Configuração das Unidades do Sistema**. Em **Escala das Unidades do Sistema**, selecione **Metros**: ![Captura de tela que mostra como definir as unidades do sistema.](media/3dsmax/system-units.jpg)
+
+1. Agora, podemos começar a criar os modelos. Na cena de exemplo, criaremos vários objetos de caixa, cada um representando um tipo de material diferente. Por exemplo, metal, borracha e plástico. 
+
+   >[!TIP]
+   >Ao criar ativos, uma boa prática é nomeá-los adequadamente conforme o uso. Isso facilitará a localização deles posteriormente se a cena tiver muitos objetos.
+
+1. Renomeie os objetos, conforme mostrado na seguinte captura de tela: 
+
+   ![Captura de tela que mostra como renomear objetos.](media/3dsmax/rename-objects.jpg)
 
 ## <a name="assign-materials"></a>Atribuir materiais
 
-Com alguns objetos criados na cena, nesse caso, vários cubos, podemos iniciar a configuração de PBR:
+Agora que temos alguns objetos na cena, nesse caso, vários cubos, podemos iniciar a configuração de PBR:
 
-* Na barra de ferramentas principal, clique no ícone **Editor de Material**, conforme mostrado na imagem a seguir. Clique também em **M** no teclado para abrir o editor. O editor de material tem dois modos que podem ser selecionados no menu suspenso **Modos**: o modo **Editor de material compacto** e o modo **Material esquemático**. Como essa cena é relativamente simples, usaremos o **Modo compacto**.
+1. Na barra de ferramentas principal, selecione o ícone **Editor de Material**, conforme mostrado na captura de tela a seguir. Selecione também **M** no teclado para abrir o editor. O Editor de Material tem dois modos que você pode selecionar na lista **Modos**: **Editor de Material Compacto** e **Editor de Material Esquemático**. Como essa cena é relativamente simples, usaremos o modo compacto.
 
-* No editor de material, você verá várias esferas; essas esferas são nossos materiais. Atribuiremos um desses materiais a cada objeto (caixa) na cena. Para fazer essa atribuição, primeiro, selecione um dos objetos no visor principal. Com essa seleção feita, clique na primeira esfera na janela do editor de material. Depois de receber um objeto, o material selecionado será realçado conforme mostrado na próxima imagem.
+1. No Editor de Material, você verá várias esferas. Essas esferas são os materiais. Atribuiremos um desses materiais a cada objeto (cada caixa) na cena. Para atribuir os materiais, primeiro selecione um dos objetos no visor principal. Em seguida, selecione a primeira esfera no Editor de Material. Depois que recebe um objeto, o material selecionado é realçado conforme mostrado na imagem a seguir.
 
-* Clique no botão **Atribuir Material à Seleção**, conforme mostrado. O material selecionado agora foi atribuído ao objeto selecionado.
-![assign-material](media/3dsmax/assign-material.jpg)
+1. Selecione **Atribuir Material à Seleção**, conforme mostrado. O material agora é atribuído ao objeto selecionado.
 
-No Editor de Material, você pode escolher tipos de materiais com base em uma ampla seleção, dependendo do caso de uso. Normalmente, por padrão, o tipo de material é definido como **Padrão**. Esse material é um material básico que não é adequado para a configuração de PBR; portanto, precisaremos alterar o tipo de material para um material PBR. O material preferencial do **3DSMax** para os projetos do Azure Remote Rendering é o **Material Físico**.
+   ![Captura de tela que mostra como atribuir materiais.](media/3dsmax/assign-material.jpg)
 
-* No editor de material, clique na guia **Padrão** e, no navegador de material/mapa exibido, selecione **Material Físico**. Essa ação converterá o material **Padrão** atribuído em um **Material Físico** PBR.
-![physical-material](media/3dsmax/physical-material.jpg)
+    No Editor de Material, você pode escolher entre vários tipos de materiais, dependendo das suas necessidades. Normalmente, por padrão, o tipo de material é definido como **Padrão**. Esse é um material básico que não é adequado para a configuração de PBR. Portanto, precisamos alterar o tipo de material para um material de PBR. O Material Físico é o preferencial no 3ds Max para projetos do Azure Remote Rendering.
 
-* No editor de material, agora você verá as propriedades do material físico (veja abaixo), e podemos começar a atribuir texturas ao ativo.
-![textures-list](media/3dsmax/textures-list.jpg)
+1. No Editor de Material, selecione a guia **Padrão**. No **Navegador de Material/Mapa**, selecione **Material Físico**. Essa ação converte o material **Padrão** atribuído em um Material Físico de PBR.
 
-Como pode ser visto na imagem acima, há uma ampla variedade de mapas e texturas que podem ser adicionados ao material. Para nossos objetivos, no entanto, usaremos apenas cinco slots de textura no material.
+   ![Captura de tela que mostra como alterar o material.](media/3dsmax/physical-material.jpg)
+
+    No Editor de Material, agora é possível ver as propriedades do Material Físico, conforme mostrado na captura de tela a seguir. Agora você pode começar a atribuir texturas ao ativo.
+
+   ![Captura de tela que mostra a lista de texturas.](media/3dsmax/textures-list.jpg)
+
+Como você pode ver, há uma ampla variedade de mapas e texturas que podem ser adicionados ao material. Para este tutorial, usamos apenas cinco slots de textura no material.
 
 >[!TIP]
->É uma boa prática nomear os materiais de maneira adequada, conforme mostrado na imagem acima.
+>Uma boa prática é nomear os materiais de maneira adequada, conforme mostrado na captura de tela anterior.
 
-Agora podemos começar a considerar a possibilidade de atribuir texturas ao material. A maneira como você gera as texturas pode variar de acordo com a preferência ou, até mesmo, com o uso. Por exemplo, você pode estar satisfeito em usar texturas de revestimento que possam ser aplicadas a qualquer ativo ou exigir que partes específicas de um projeto/um ativo tenham o próprio conjunto personalizado de texturas. O ideal é usar texturas de revestimento genéricas obtidas online ou criá-las por conta própria em aplicativos como o **Photoshop**, o **Quixel Suite**, o **Substance Suite** etc. 
+A forma como você gera as texturas pode variar de acordo com a preferência ou o uso. Por exemplo, talvez você queira usar texturas de blocos que possam ser aplicadas a qualquer ativo. Ou talvez você precise que partes específicas de um projeto ou ativo tenham seus próprios conjuntos personalizados de texturas. Talvez você queira usar texturas de blocos genéricas que encontrou online. Você também pode criá-las em aplicativos como Photoshop, Quixel Suite e Substance Suite.
 
-No entanto, antes de começarmos a atribuir as texturas, precisaremos considerar as coordenadas de textura de ativos (UVW). Embora, ao aplicar qualquer textura a um modelo, seja uma melhor prática garantir que o modelo tenha sido desempacotado (as texturas não serão exibidas corretamente sem o desempacotamento UV adequado), isso é importante para nossos objetivos, caso pretendamos usar um mapa de **Oclusão de Ambiente** no modelo. Ao contrário do **Sombreador Stingray** do **Maya**, o **Material Físico** do **3DSMax** não tem um slot de ambiente dedicado de **Oclusão de Ambiente**. Portanto, aplicaremos o mapa AO a outro slot e, para permitir que ele seja usado separadamente das outras texturas (texturas de revestimento, por exemplo), atribuiremos a ele um canal de mapa UVW próprio. 
+Antes de começarmos a atribuir texturas, precisamos considerar as coordenadas de textura (UVW) do ativo. Uma prática recomendada ao aplicar qualquer textura a um modelo é garantir que o modelo esteja desencapsulado. (As texturas não serão exibidas corretamente sem o devido desencapsulamento de UV.) Isso é especialmente importante para nossos propósitos porque queremos usar um mapa de AO (Oclusão de Ambiente) em nosso modelo. Ao contrário do Sombreador Stingray no Maya, o Material Físico no 3ds Max não tem um slot de textura de AO dedicado. Portanto, aplicaremos o mapa de AO a outro slot. Para permitir que ele seja usado separadamente das outras texturas (texturas de blocos, por exemplo), atribuiremos a ele um canal de mapa de UVW próprio. 
 
-Vamos começar atribuindo um **modificador de Desempacotamento de UVW** ao modelo, conforme mostrado abaixo:
+Vamos começar atribuindo um modificador de desencapsulamento de UVW ao modelo, conforme mostrado na captura de tela a seguir. 
 
-* No editor de propriedades de objetos selecionados, clique na Lista de Modificadores e, no menu suspenso exibido, role a página para baixo e selecione Desempacotar UVW. Essa ação aplicará um modificador de Desempacotamento de UVW ao ativo.
-![unwrap-modifier](media/3dsmax/unwrap-modifier.jpg)
+- No editor de propriedades de objetos selecionado, escolha a lista de modificadores. Na lista suspensa exibida, role para baixo e selecione **Desencapsular UVW**. Essa ação aplica um modificador de desencapsulamento de UVW ao ativo.
+![Captura de tela que mostra como selecionar Desencapsular UVW.](media/3dsmax/unwrap-modifier.jpg)
 
-* O canal do mapa é definido como um. Ele está no canal um do mapa, no qual normalmente é feito o desempacotamento principal. Em nosso caso, o objeto foi desempacotado sem nenhuma coordenada de textura sobreposta (UV).
-![unwrapped-uvw](media/3dsmax/unwrapped-uvw.jpg)
+  O canal do mapa é definido como 1. Normalmente, você faz o desencapsulamento principal no canal 1 do mapa. Neste caso, o objeto foi desencapsulado sem nenhuma coordenada de textura sobreposta (UV).
+![Captura de tela que mostra coordenadas de textura desencapsuladas (UVW).](media/3dsmax/unwrapped-uvw.jpg)
 
 A próxima etapa será criar um segundo canal de mapa UV.
 
-* Feche o editor de UV se ele estiver aberto e, na seção do canal do menu **Editar UVs**, altere o número do canal para dois. O canal 2 do mapa é o canal esperado para mapas de Oclusão de Ambiente. 
+1. Feche o Editor de UV caso ele esteja aberto. Na seção **Canal** do menu **Editar UVs**, altere o número do canal para **2**. O canal 2 do mapa é o canal esperado para mapas AO. 
 
-* Na caixa de diálogo **Aviso de Alteração de Canal** exibido, você terá a opção de **Mover** o UV existente no canal 1 para o novo canal 2 ou **Abandonar** os UVs existentes, que criará um **Desempacotamento de UV** automaticamente. Apenas selecione **Abandonar** se pretender criar um **Desempacotamento de UV** para o mapa de oclusão de ambiente diferente dos UVs no canal 1 do mapa (por exemplo, se você quiser usar texturas de revestimento no canal 1). Para nossos objetivos, vamos **Mover** o UV do canal um para o canal 2, pois não precisamos editar o novo canal UV.
+1. Na caixa de diálogo **Aviso de Alteração de Canal**, você pode **Mover** o UV existente no canal 1 para o novo canal 2 ou **Abandonar** os UVs existentes, o que criará um desencapsulamento de UV automaticamente. Só selecione **Abandonar** se você pretende criar um desencapsulamento de UV para o mapa de AO diferente dos UVs no canal 1 do mapa. (Por exemplo, se você quiser usar texturas de blocos no canal 1.) Neste tutorial, moveremos os UVs do canal 1 para o canal 2, pois não precisamos editar o novo canal de UV.
 
->[!NOTE]
->Mesmo que você tenha copiado (**Movido**) o desempacotamento de UV do canal 1 do mapa para o canal 2 do mapa, você pode fazer as edições necessárias nos novos UVs do canal sem afetar o canal do mapa original.
+   >[!NOTE]
+   >Mesmo que você tenha copiado (movido) o desencapsulamento de UV do canal 1 do mapa para o canal 2, você pode fazer as edições necessárias nos novos UVs do canal sem afetar o canal do mapa original.
 
-![channel-change](media/3dsmax/channel-change.jpg)
+   ![Captura de tela que mostra o Aviso de Alteração de Canal.](media/3dsmax/channel-change.jpg)
 
-Com o canal do mapa criado, podemos voltar ao material físico no editor de material e começar a adicionar nossas texturas a ele. Primeiro, adicionaremos o mapa AO (**oclusão de ambiente**), pois há uma etapa adicional a ser realizada para permitir que ele funcione corretamente. Depois que o mapa AO for conectado ao material, precisaremos instruí-lo a usar o canal 2 do mapa.
+Agora que criamos o canal do mapa, podemos voltar ao Material Físico no Editor de Material e começar a adicionar nossas texturas a ele. Primeiro, adicionaremos o mapa de AO porque há outra etapa para permitir que ele funcione corretamente. Depois que o mapa de AO for conectado ao material, precisaremos configurá-lo para usar o canal 2 do mapa.
 
-* Conforme mencionado anteriormente, não há nenhum slot dedicado para mapas AO no **Material Físico do 3DSMax**. Em vez disso, nós aplicaremos o mapa AO ao slot de **Aspereza Difusa**.
+Conforme observado anteriormente, não há slot dedicado para mapas de AO no Material Físico do 3ds Max. Em vez disso, aplicaremos o mapa de AO ao slot de **Aspereza Difusa**.
 
-* Na lista **Mapas Genéricos** do material físico, clique no slot **Sem Mapa** de **Aspereza Difusa** e carregue o mapa AO.
+1. Na lista **Mapas Genéricos** do Material Físico,selecione o slot **Sem Mapa** ao lado de **Aspereza Difusa** e carregue o mapa de AO.
 
-* Nas propriedades de texturas de AO, você verá o canal do mapa definido como **1** por padrão. Altere esse valor para **2**. Essa ação conclui as etapas necessárias para adicionar o mapa de oclusão de ambiente.
+1. Nas propriedades de texturas de AO, o canal do mapa é definido como **1** por padrão. Altere esse valor para **2**. Essa ação conclui as etapas necessárias para adicionar o mapa de AO.
+
+   >[!IMPORTANT]
+   >Essa é uma etapa importante, especialmente se os UVs do canal 2 forem diferentes daqueles do canal 1, porque a AO não será mapeada corretamente se o canal incorreto for selecionado.
+
+   ![Captura de tela que mostra como atribuir um mapa de AO.](media/3dsmax/assign-ao-map.jpg)
+
+Agora, atribuiremos o mapa normal ao material de PBR. Essa ação difere um pouco do processo no Maya. O mapa normal não é aplicado diretamente ao slot do mapa de rugosidade. (Não há um slot de mapa normal no Material Físico do 3ds Max.) Em vez disso, você adiciona o mapa normal a um modificador de mapa normal, que é conectado ao slot de normal.
+
+1. Na seção **Mapas Especiais** das propriedades do Material Físico (no Editor de Material), selecione o slot **Sem Mapa** ao lado de **Mapa de Rugosidade**. 
+
+1. No **Navegador de Material/Mapa**, localize e selecione **Rugosidade Normal**. Essa ação adiciona um modificador de **Rugosidade Normal** ao material.
+
+1. No modificador de **Rugosidade Normal**, selecione **Sem Mapa** ao lado de **Normal**. Localize e carregue seu mapa normal.
+
+1. Verifique se o método está definido como **Tangente**. (Essa opção deve ser padrão.) Se necessário, alterne **Inverter Verde (Y)** .
+
+   ![Captura de tela que mostra como selecionar uma Rugosidade Normal.](media/3dsmax/normal-bump.jpg)
+   ![Captura de tela que mostra o carregamento do mapa normal.](media/3dsmax/load-normal-map.jpg)
+
+Com o mapa normal atribuído corretamente, podemos atribuindo as texturas restantes para concluir a configuração do Material Físico. Esse processo é simples. Não há configurações especiais a serem consideradas. A seguinte captura de tela mostra o conjunto completo de texturas atribuídas ao material: 
+
+![Captura de tela que mostra o conjunto completo de texturas atribuídas ao material.](media/3dsmax/all-textures.jpg)
+
+Agora que os materiais de PBR foram criados e configurados, vale a pena pensar em instanciar objetos na cena. Crie instâncias de objetos similares na cena, como porcas, pregos, parafusos e arruelas. Todos os objetos que são os mesmos podem gerar uma economia significativa em termos de tamanho do arquivo. As instâncias de um objeto mestre podem ter escala, rotação e transformações próprias, para que possam ser colocadas conforme necessário em sua cena. No 3ds Max, o processo de criação de instância é simples.
+
+1. No visor principal, selecione os objetos que você deseja exportar.
+
+1. Segure a tecla **Shift** e arraste os ativos para cima usando a ferramenta para transformar (mover). 
+
+1. Na caixa de diálogo **Opções de Clonagem**, defina **Objeto** como **Instância** e selecione **OK**:
+
+   ![Captura de tela da caixa de diálogo Opções de Clonagem.](media/3dsmax/instance-object.jpg)
+
+Essa ação cria uma instância do objeto que pode ser movida, girada ou dimensionada de maneira independente do pai dela e de outras instâncias desse pai.
 
 >[!IMPORTANT]
->Esta é uma etapa importante, especialmente se os UVs do canal 2 forem diferentes daqueles do canal 1, pois a AO não será mapeada corretamente com o canal incorreto selecionado.
-
-![assign-ao-map](media/3dsmax/assign-ao-map.jpg)
-
-Agora, lidaremos com a atribuição do mapa normal ao material PBR. Essa ação é um pouco diferente do **Maya**, pois o mapa normal não é aplicado diretamente ao slot do mapa de rugosidade (não há nenhum slot de mapa normal no **Material Físico do 3DSMax** desse tipo), mas, em vez disso, é adicionado a um modificador de mapa normal, que é conectado ao slot **normais**.
-
-* Na seção **Mapas Especiais** das propriedades do material físico (no editor de material), clique no slot **Sem Mapa** do **Mapa de Rugosidade**. 
-
-* No navegador de material/mapa, localize a opção **Rugosidade Normal** e clique nela. Essa ação adicionará um modificador de **Rugosidade Normal** ao material.
-
-* No modificador de **Rugosidade Normal**, clique em **Sem Mapa** de **Normal** e localize e carregue o mapa normal.
-
-* Verifique se o método está definido como **Tangente** (essa opção deve ser padrão) e, se necessário, alterne **Inverter Verde (Y)** .
-
-![normal-bump](media/3dsmax/normal-bump.jpg)
-![load-normal-map](media/3dsmax/load-normal-map.jpg)
-
-Com o mapa normal atribuído corretamente, podemos continuar atribuindo as texturas restantes para concluir a configuração do material físico. Esse processo é simples, sem configurações especiais a serem consideradas. A seguinte imagem mostra o conjunto completo de texturas atribuídas ao material: ![all-textures](media/3dsmax/all-textures.jpg)
-
-Com os materiais PBR criados e configurados, vale a pena pensar em instanciar objetos na cena. Instanciar objetos semelhantes em sua cena, como porcas, parafusos, arruelas e cavilhas, essencialmente, todos os objetos que são iguais, pode reduzir significativamente o tamanho do arquivo. As instâncias de um objeto mestre podem ter a própria escala, rotação e transformações para que possam ser colocadas conforme necessário em sua cena. No **3D Studio Max**, o processo de **instanciação** é simples.
-
-* No visor principal, selecione os objetos que deseja exportar.
-
-* Segure a tecla **SHIFT** e arraste os ativos para cima usando a ferramenta Transformar (mover) 
-
-* Na caixa de diálogo **Opções de Clone** aberta, defina **Objeto** como **Instância** e clique em **OK**. 
-![instance-object](media/3dsmax/instance-object.jpg)
-
-Esta ação criará uma instância do objeto que pode ser movida, girada ou dimensionada de maneira independente de seu pai e de outras instâncias desse pai.
-
->[!IMPORTANT]
->No entanto, todas as alterações feitas a uma instância no modo de subobjeto serão transmitidas para todas as instâncias do objeto; portanto, se você estiver trabalhando com os componentes de objetos instanciados (vértices, faces de polígono etc.), verifique se deseja que todas as alterações feitas afetem todas essas instâncias. Lembre-se de que qualquer objeto instanciado pode ser transformado em um objeto exclusivo a qualquer momento. 
+>As alterações feitas na instância enquanto você está no modo de subobjeto são transmitidas para todas as instâncias do objeto. Portanto, se você estiver trabalhando com componentes de um objeto instanciado, como vértices e faces de polígono, verifique se você deseja que as alterações feitas afetem todas as instâncias. Lembre-se de que qualquer objeto instanciado pode ser transformado em um objeto exclusivo a qualquer momento. 
 
 >[!TIP]
->A melhor prática referente à instanciação na cena é criá-los durante o processo, pois a substituição de **Cópias** por objetos instanciados posteriormente é extremamente difícil. 
+>Durante a criação de uma instância na sua cena, é uma boa ideia criar instâncias à medida que você avança. Substituir cópias por objetos em instâncias posteriormente é difícil. 
 
-Um aspecto final a ser levado em consideração para passarmos ao processo de exportação é como empacotar a cena/o ativo para compartilhamento. O ideal é que, se você passar o ativo para um membro do cliente ou da equipe, eles possam abrir e ver o ativo, pois ele deverá ser visto com o mínimo de confusão. Portanto, é importante manter os caminhos de textura dos ativos relativos ao arquivo de cena. Se os caminhos de textura para o ativo estiverem apontando para uma unidade local ou uma localização/um caminho absoluto, eles não serão carregados na cena se estiverem abertos em outro computador, mesmo que o arquivo **.max** esteja localizado na mesma pasta das texturas. Tornar os caminhos de textura relativos no 3D Studio Max resolve esse problema e é bem simples.
+Um aspecto final a ser considerado antes de passarmos ao processo de exportação é como empacotar a cena/o ativo para compartilhamento. O ideal é que, se você passar o ativo para clientes ou membros da equipe, eles possam abrir e ver o ativo, pois ele deverá ser visto com o mínimo de confusão. Portanto, é importante manter os caminhos de textura dos ativos relativos ao arquivo da cena. Se os caminhos de textura do seu ativo apontarem para uma unidade local ou uma localização/um caminho absoluto, eles não serão carregados na cena se estiverem abertos em outro computador, mesmo que o arquivo .max esteja na mesma pasta das texturas. Tornar os caminhos de textura relativos no 3ds Max resolve esse problema e é bem simples.
 
-* Na barra de ferramentas principal, acesse **Arquivo** > **Referência** > **Alternância de Acompanhamento de Ativos**. 
+1. Na barra de ferramentas principal, acesse **Arquivo** > **Referência** > **Alternância de Rastreamento de Ativos**. 
 
-* No navegador de acompanhamento de ativos aberto, você verá todas ou a maioria das texturas que aplicou aos materiais PBR listados na coluna **Mapas/Sombreadores**.
+1. Na janela de Rastreamento de Ativos, você verá todas ou a maioria das texturas que aplicou aos materiais de PBR listados na coluna **Mapas/Sombreadores**.
 
-* Ao lado delas na coluna **Caminho Completo**, você verá o caminho do arquivo para a localização das texturas, mais provavelmente, com a localização no computador local.
+1. Ao lado delas, na coluna **Caminho Completo**, você verá o caminho do local das texturas, mais provavelmente, o caminho de onde elas se encontram no computador local.
 
-* Por fim, você verá uma coluna chamada **Status**. Essa coluna indica se determinada textura foi localizada e foi ou não aplicada à cena e sinalizará essa textura com um destes termos: **OK**, **Encontrado** ou **Arquivo Ausente**. Os dois primeiros indicam que o arquivo foi encontrado e carregado, enquanto o último, obviamente, indica que o rastreador não conseguiu localizar um arquivo.
-![texture-paths](media/3dsmax/texture-paths.jpg)
+1. Por fim, você verá uma coluna chamada **Status**. Essa coluna indica se determinada textura foi localizada e aplicada à sua cena. Ela sinaliza a textura com um destes termos: **Ok**, **Encontrado** ou **Arquivo Ausente**. Os dois primeiros indicam que o arquivo foi encontrado e carregado. O último, obviamente, significa que o rastreador falhou ao localizar o arquivo.
+ 
+   ![Captura de tela que mostra a janela de Rastreamento de Ativos.](media/3dsmax/texture-paths.jpg)
 
-Você poderá observar que nem todas as texturas estão listadas no rastreador de ativos quando você o abre pela primeira vez. Não há motivo de preocupação, pois a execução do processo de localização de caminho uma ou duas vezes geralmente localiza todas as texturas da cena. O processo de localização de caminho é o seguinte: 
+Observe que nem todas as texturas estão listadas na janela de Rastreamento de Ativos quando você a abre pela primeira vez. Não precisa se preocupar com isso. A execução do processo de localização de caminho uma ou duas vezes geralmente localiza todas as texturas da cena. O processo de localização de caminho é o seguinte: 
 
-* Na janela do rastreador de ativos, selecione **SHIFT**+**clique** na textura superior na lista **Mapas/Sombreadores** e continue segurando a tecla SHIFT e clique na última textura da lista. Essa ação selecionará todas as texturas da lista. As texturas selecionadas agora serão realçadas em azul (confira a imagem acima).
+1. Na janela de Rastreamento de Ativos, pressione a tecla **Shift** e selecione a textura superior na lista **Mapas/Sombreadores**, continue segurando a tecla **Shift** e selecione a última textura da lista. Essa ação selecionará todas as texturas da lista. As texturas selecionadas são destacadas em azul. (Confira a seção anterior.)
 
-* Clique com o botão direito do mouse na seleção e, no menu pop-up aberto, selecione **Definir Caminho**.
+1. Clique com o botão direito na seleção e escolha **Definir Caminho**.
 
-* Na caixa **Especificar Caminho do Ativo** aberta, selecione o caminho local para as texturas mostradas e substitua-o pelo `.\` a seguir e clique em **OK**. 
+1. Na caixa **Especificar Caminho do Ativo**, selecione o caminho local para suas texturas e substitua-o por `.\`.  Selecione **OK**. 
 
-* Após um período (que varia dependendo de quantas texturas estão na cena e do tamanho da cena), o rastreador de ativos deverá se resolver conforme mostrado a seguir (veja a imagem).
-![resolve-textures](media/3dsmax/resolve-textures.jpg)
+    A janela de Rastreamento de Ativos será atualizada conforme mostrado na captura de tela a seguir. Essa atualização pode demorar um pouco, dependendo de quantas texturas há na cena e do tamanho dela.
+![Captura de tela que mostra a janela atualizada de Rastreamento de Ativos.](media/3dsmax/resolve-textures.jpg)
 
-Observe que a coluna **Caminho Completo** agora está em branco. Isso significa que a cena não está mais procurando encontrar as texturas relevantes em uma localização específica (absoluta), mas sempre as encontrará, desde que o arquivo max ou o arquivo FBX relacionado esteja localizado na mesma pasta das texturas. 
+Observe que a coluna **Caminho Completo** agora está em branco. Isso significa que a cena não está mais procurando as texturas relevantes em um local específico (absoluto). Ela sempre as encontrará desde que o arquivo .max ou o arquivo FBX relacionado esteja na mesma pasta que as texturas. 
 
 >[!NOTE]
->Às vezes, você pode precisar repetir esse processo algumas vezes para localizar e resolver todas as texturas e os caminhos. Não há motivo de preocupação. Basta repetir a etapa até todos os ativos relevantes serem contabilizados. Também pode acontecer de alguns arquivos não serem mais encontrados. Nesse caso, basta selecionar todos os ativos da lista e clicar em **Remover Caminhos Ausentes** (veja a imagem acima)
+>Talvez você precise repetir esse processo algumas vezes para localizar e resolver todas as texturas e os caminhos. Não precisa se preocupar com isso. Basta repetir o processo até que todos os ativos relevantes sejam contabilizados. Em alguns casos, não é possível encontrar alguns arquivos. Nesses casos, basta selecionar todos os ativos na lista e escolher **Remover Caminhos Ausentes**. (Confira a imagem anterior.)
 
 ## <a name="fbx-export"></a>Exportação do FBX
 
-Com o acompanhamento de ativos concluído, agora podemos passar para a exportação do FBX. Novamente, o processo é simples e pode ser feito de duas maneiras. 
+Agora que tornamos os caminhos de textura relativos, podemos passar para a exportação do FBX. Novamente, o processo é simples e pode ser feito de duas maneiras. 
 
 >[!TIP]
->É uma boa prática que, a menos que você queira exportar toda a cena, optar por exportar somente os ativos necessários. Em cenas com uso intensivo de recursos, a exportação poderá levar muito tempo e, portanto, faz sentido exportar apenas o que você precisa
+>A menos que você queira exportar toda a cena, é uma boa ideia selecionar a exportação apenas dos ativos de que você precisa. Em cenas com uso intensivo de recursos, a exportação pode levar muito tempo.
 >
->Se você usou modificadores como o **Turbosmooth** ou o **Open SubDiv**, recomendamos recolhê-los antes da exportação, pois eles podem causar problemas durante o processo. Sempre salve a cena antes de fazer isso. 
+>Se você usou modificadores como o Turbosmooth ou o Open SubDiv, recomendamos recolhê-los antes da exportação, porque eles podem causar problemas durante o processo. Lembre-se de salvar sua cena antes de recolhê-la. 
 
-* Na cena, selecione os ativos que deseja exportar e, na barra de ferramentas principal, acesse **Arquivo** > **Exportar** > **Exportar Selecionado**
+1. Na cena, selecione os ativos que você deseja exportar. Na barra de ferramentas principal, vá para **Arquivo** > **Exportar** > **Exportar Selecionados**.
 
-* Na caixa de diálogo **Selecionar o Arquivo a ser Exportado**, digite ou selecione o nome do arquivo de saída e, nas opções **Salvar como Tipo**, selecione **Autodesk (*.fbx)** . Essa ação abrirá o menu de exportação do FBX. 
+1. Na caixa de diálogo **Selecionar o Arquivo a ser Exportado**, digite ou selecione um nome de arquivo de saída. Na lista **Salvar como tipo**, selecione **Autodesk (*.fbx)** . Essa ação abre a janela de Exportação do FBX.
 
-* Lembre-se de que, se você criou instâncias na cena, é importante que a opção **Preservar Instâncias** esteja ativada nas configurações de exportação do FBX. 
-![fbx-export](media/3dsmax/fbx-export.jpg)
+  >[!IMPORTANT] 
+  >Se você criou instâncias na cena, é importante selecionar **Preservar Instâncias** nas configurações de exportação do FBX. 
 
-Lembre-se de que anteriormente foi mencionado que havia duas maneiras de exportar o arquivo. Se a intenção na exportação é que o FBX seja compartilhado junto com os arquivos de texturas em uma pasta/um diretório, as configurações mostradas na imagem abaixo devem ser aplicáveis e funcionar bem. Depois de selecionar as configurações, clique em **OK**.
-![fbx-settings](media/3dsmax/fbx-settings.jpg)
+  ![Captura de tela que mostra como exportar para FBX.](media/3dsmax/fbx-export.jpg)
 
-No entanto, se você preferir não compartilhar as pastas grandes/os diretórios de texturas junto com o FBX, opte por **Inserir** as texturas no FBX. Isso significa todo o ativo, as texturas incluídas, será adicionado a um só FBX. No entanto, lembre-se de que ele combina a exportação em um só ativo e que o arquivo FBX será consideravelmente maior como resultado disso.
+  Lembre-se de que há duas maneiras de exportar o arquivo. Se a intenção é compartilhar o FBX com seus arquivos de textura em uma pasta/diretório, as configurações mostradas na captura de tela a seguir devem funcionar bem. 
 
->[!IMPORTANT]
->Se o arquivo FBX resultante for maior que 2,4 GB, a versão mínima das configurações de exportação do FBX (veja acima) deverá ser 2016 ou mais recente. Como as versões mais recentes têm suporte a 64 bits e, portanto, dão suporte a arquivos maiores.
+   Se você preferir não compartilhar grandes pastas/diretórios de texturas com o FBX, opte por inserir as texturas no FBX. Se você inserir as texturas, todo os ativos, inclusive as texturas, serão adicionados a um único FBX. Isso combina a exportação em um único ativo, mas, como resultado, o arquivo FBX será consideravelmente maior.
 
-* Nas configurações de exportação do FBX, ative a opção **Inserir Mídia e clique em **OK** para fazer a exportação com as texturas incluídas. 
+   >[!IMPORTANT]
+   >Se o arquivo FBX resultante tiver mais de 2,4 GB, a versão mínima especificada nas configurações de exportação do FBX deverá ser a 2016 ou posterior. (Confira a seção anterior.) Versões mais recentes têm suporte a 64 bits e, portanto, dão suporte a arquivos maiores.
 
-Durante a exportação para o FBX com o uso do material físico, provavelmente, você verá o seguinte pop-up de aviso depois de clicar em 'OK' na caixa de diálogo Exportar: ![export-warnings](media/3dsmax/export-warnings.jpg)
+1. Se você quiser exportar a cena com texturas incluídas, na janela de Exportação do *FBX, selecione **Inserir Mídia**. 
 
-Esse aviso apenas informa ao usuário que os materiais exportados podem não ser compatíveis com outros pacotes de software. Como o material físico é compatível com o Azure Remote Rendering, não há nada com o que se preocupar. Basta clicar em **OK** para concluir o processo e fechar a janela.
+1. Selecione o restante das suas configurações e **OK**:
+
+    ![Captura de tela que mostra as configurações de exportação do FBX.](media/3dsmax/fbx-settings.jpg)
+
+
+   Ao exportar para FBX enquanto usa um Material Físico, você provavelmente verá o seguinte aviso depois de selecionar **OK** na janela de Exportação do FBX: 
+
+   ![Captura de tela que mostra o aviso de Falha na exportação do material.](media/3dsmax/export-warnings.jpg)
+
+   Esse aviso indica que os materiais exportados podem não ser compatíveis com outros pacotes de software. Como o Material Físico é compatível com o Azure Remote Rendering, não é preciso se preocupar com esse aviso. 
+
+1. Selecione **OK** para concluir o processo e fechar a janela.
 
 ## <a name="conclusion"></a>Conclusão
 
@@ -208,7 +229,7 @@ Em geral, esse tipo de material parece mais realista, pois se baseia na física 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora você sabe como configurar materiais com iluminação avançada para objetos em uma cena. Você também sabe como exportar os objetos para o formato FBX compatível com o Azure Remote Rendering. A próxima etapa será converter o arquivo FBX e visualizá-lo no Azure Remote Rendering.
+Agora você sabe como configurar materiais com iluminação avançada para objetos em uma cena. Você também sabe como exportar objetos para o formato FBX, que é compatível com o Azure Remote Rendering. A próxima etapa será converter o arquivo FBX e visualizá-lo no Azure Remote Rendering.
 
 >[!div class="nextstepaction"]
 >[Início Rápido: Converter um modelo para renderização](../../quickstarts\convert-model.md)

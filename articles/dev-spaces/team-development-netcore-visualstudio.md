@@ -9,12 +9,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: Este tutorial mostra como usar o Azure Dev Spaces e o Visual Studio para fazer o desenvolvimento em equipe em um aplicativo .NET Core no Serviço de Kubernetes do Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: c84c77fe7a425318700903427ff1c4aaa4e73a11
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5d917dc71ef02b5197ed8d20ec31c538a1af4c14
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82166029"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072969"
 ---
 # <a name="team-development-using-net-core-and-visual-studio-with-azure-dev-spaces"></a>Desenvolvimento em equipe usando .NET Core e Visual Studio com o Azure Dev Spaces
 
@@ -36,7 +36,7 @@ O aplicativo de exemplo não é complexo no momento. Porém, no desenvolvimento 
 * Alguns desenvolvedores recorrem à simulação de muitas de suas dependências de serviço. Essa abordagem pode ajudar, mas o gerenciamento dessas simulações pode afetar rapidamente o custo de desenvolvimento. Além disso, essa abordagem faz com que seu ambiente de desenvolvimento seja diferente da produção, o que pode causar alguns bugs sutis.
 * Sendo assim, fazer qualquer tipo de teste de integração se torna difícil. Os testes de integração só podem ocorrer de maneira realista após a confirmação, o que significa que você verá problemas mais tarde no ciclo de desenvolvimento.
 
-    ![](media/common/microservices-challenges.png)
+    ![Uma imagem que mostra a complexidade do teste de integração ilustrando as relações entre um serviço de aplicativo e as dependências dele.](media/common/microservices-challenges.png)
 
 ### <a name="work-in-a-shared-dev-space"></a>Trabalhar em um espaço de desenvolvimento compartilhado
 Com o Azure Dev Spaces, você pode configurar um espaço de desenvolvimento *compartilhado* no Azure. Cada desenvolvedor pode se concentrar exatamente em sua parte do aplicativo e pode desenvolver iterativamente um *código de pré-confirmação* em um espaço que já contém todos os outros serviços e recursos de nuvem dos quais seus cenários dependem. As dependências estão sempre atualizadas, e os desenvolvedores trabalham de uma forma que reflete a produção.
@@ -63,7 +63,7 @@ Primeiro, precisaremos implantar uma linha de base de nossos serviços. Essa imp
 1. Clique com o botão direito do mouse no **Gerenciador de Soluções** e selecione **Propriedades**.
 1. Selecione a guia **Depurar** à esquerda para mostrar as configurações do Azure Dev Spaces.
 1. Selecione **Alterar** para criar o espaço que será usado quando você usar F5 ou Ctrl+F5 no serviço.
-1. No menu suspenso Espaço, selecione **\<Criar Novo Espaço…\>** .
+1. No menu suspenso Espaço, selecione **\<Create New Space…\>** .
 1. Verifique se o espaço pai está definido como **\<none\>** e insira o nome do espaço **dev**. Clique em OK.
 1. Pressione Ctrl+F5 para executar _mywebapi_ sem o depurador anexado.
 1. Alterne para a janela do Visual Studio com o projeto _webfrontend_ e pressione Ctrl+F5 para executá-lo também.
@@ -88,17 +88,17 @@ Faça o seguinte para criar um novo espaço:
 2. Clique com o botão direito do mouse no **Gerenciador de Soluções** e selecione **Propriedades**.
 3. Selecione a guia **Depurar** à esquerda para mostrar as configurações do Azure Dev Spaces.
 4. A partir daqui, você pode alterar ou criar o cluster e/ou o espaço que será usado ao aplicar F5 ou Ctrl+F5. *Verifique se o Azure Dev Space criado anteriormente está selecionado*.
-5. No menu suspenso Espaço, selecione **\<Criar Novo Espaço…\>** .
+5. No menu suspenso Espaço, selecione **\<Create New Space…\>** .
 
-    ![](media/get-started-netcore-visualstudio/Settings.png)
+    ![Captura de tela mostrando a seleção "Criar Espaço" na lista suspensa Espaço na página de propriedades Depurar projeto do Gerenciador de Soluções do Visual Studio.](media/get-started-netcore-visualstudio/Settings.png)
 
 6. Na caixa de diálogo **Adicionar Espaço**, defina o espaço pai como **dev** e digite um nome para seu novo espaço. Você pode usar seu nome (por exemplo, “scott”) para o novo espaço para que seus colegas possam identificar em qual espaço você está trabalhando. Clique em **OK**.
 
-    ![](media/get-started-netcore-visualstudio/AddSpace.png)
+    ![Captura de tela mostrando a caixa de diálogo Adicionar Espaço para adicionar um novo espaço de desenvolvimento para desenvolvimento em equipe.](media/get-started-netcore-visualstudio/AddSpace.png)
 
 7. Agora você deve ver seu cluster AKS e o novo espaço selecionado na página de propriedades do projeto.
 
-    ![](media/get-started-netcore-visualstudio/Settings2.png)
+    ![Captura de tela mostrando o cluster AKS "MyAKS" e o Espaço "scott" selecionados na página de propriedades Depurar projeto do Gerenciador de Soluções do Visual Studio.](media/get-started-netcore-visualstudio/Settings2.png)
 
 ### <a name="update-code-for-mywebapi"></a>Atualizar o código para *mywebapi*
 
@@ -117,7 +117,7 @@ Faça o seguinte para criar um novo espaço:
 
 Aqui está um diagrama que ajudará você a entender como os diferentes espaços funcionam. O caminho roxo mostra uma solicitação por meio do espaço _dev_, que é o caminho padrão usado quando nenhum espaço é acrescentado à URL. O caminho rosa mostra uma solicitação por meio do espaço _dev/scott_.
 
-![](media/common/Space-Routing.png)
+![Um diagrama mostrando as diferenças nos nomes de caminho e no roteamento de solicitações por meio do espaço "dev/scott" recém-criado e do espaço de "desenvolvimento" padrão.](media/common/Space-Routing.png)
 
 Essa funcionalidade interna do Azure Dev Spaces permite que você teste o código de ponta a ponta em um ambiente compartilhado, sem a necessidade de cada desenvolvedor recriar a pilha completa de serviços em seus espaços. Esse roteamento exige que cabeçalhos de propagação sejam encaminhados em seu código de aplicativo, conforme ilustrado na etapa anterior deste guia.
 

@@ -5,19 +5,15 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: a456709fffd8b4bc0f1c7eb25281980daea2edb6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 29c386b7e12c24e712ee24e887b8e25609ffaeeb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537405"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124538"
 ---
 ### <a name="prepare-an-azure-digital-twins-instance"></a>Preparar uma instância dos Gêmeos Digitais do Azure
 
-Para concluir este tutorial, você precisará de uma **instância dos Gêmeos Digitais do Azure** sobre a qual programar. 
+Para concluir este tutorial, você precisará de uma **instância dos Gêmeos Digitais do Azure** sobre a qual programar. Se você já tiver uma instância dos Gêmeos Digitais do Azure configurada de algum trabalho anterior, poderá usar essa instância e pular direto para a próxima seção.
 
-Se você já tiver uma instância dos Gêmeos Digitais do Azure configurada de algum trabalho anterior, poderá usar essa instância e pular direto para a próxima seção.
-
-Caso contrário, execute as seguintes etapas para configurar sua instância:
-1. **Crie uma instância** usando as diretrizes encontradas em [*Como criar uma instância dos Gêmeos Digitais do Azure*](../articles/digital-twins/how-to-set-up-instance.md). 
-2. **Configurar um registro de aplicativo do Azure Active Directory para a sua instância** com a seção *Criar um registro de aplicativo* de [*Como autenticar um aplicativo cliente*](../articles/digital-twins/how-to-authenticate-client.md#create-an-app-registration).
+Caso contrário, **configure uma instância e uma autenticação** usando as instruções descritas em [*Como configurar uma instância e uma autenticação*](../articles/digital-twins/how-to-set-up-instance-scripted.md). As instruções também contêm etapas para confirmar se você concluiu cada etapa com êxito e está pronto para passar a usar sua nova instância.

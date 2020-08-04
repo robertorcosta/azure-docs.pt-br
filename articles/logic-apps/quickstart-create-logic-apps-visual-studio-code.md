@@ -1,18 +1,18 @@
 ---
-title: Automatizar tarefas com o Visual Studio Code
-description: Criar ou editar as definições JSON subjacentes de aplicativo lógico usando o VS Code (Visual Studio Code)
+title: Automatizar tarefas e fluxos de trabalho com o Visual Studio Code
+description: Criar ou editar as definições de fluxo de trabalho de aplicativo lógico usando o VS Code (Visual Studio Code)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, deli, logicappspm
+ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/25/2019
-ms.openlocfilehash: 3dccb596be2d97dd0f38d680537913a76ce09e93
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a2239d5ee70e90b9ee7c07b4dca78a45d2ce7ef9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82147056"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131473"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Início Rápido: Criar e gerenciar definições do fluxo de trabalho de aplicativos lógicos usando o Visual Studio Code
 
@@ -50,9 +50,9 @@ Antes de começar, verifique se você tem estes itens:
 
     Para obter mais informações, consulte [Marketplace de extensão](https://code.visualstudio.com/docs/editor/extension-gallery). Para contribuir com a versão de software livre dessa extensão, visite a [Extensão de Aplicativos Lógicos do Azure para Visual Studio Code no GitHub](https://github.com/Microsoft/vscode-azurelogicapps).
 
-<a name="sign-in-azure"></a>
+<a name="access-azure"></a>
 
-## <a name="sign-in-to-azure"></a>Entrar no Azure
+## <a name="access-azure-from-visual-studio"></a>Acessar o Azure no Visual Studio
 
 1. Abra o Visual Studio Code. Na barra de ferramentas Código do Visual Studio, selecione o ícone do Azure.
 
@@ -99,7 +99,7 @@ Antes de começar, verifique se você tem estes itens:
 
 ## <a name="create-new-logic-app"></a>Criar novo aplicativo lógico
 
-1. Caso ainda não tenha entrado na sua conta e assinatura do Azure de dentro do Visual Studio Code, siga as [etapas anteriores para entrar agora](#sign-in-azure).
+1. Caso ainda não tenha entrado na sua conta e assinatura do Azure de dentro do Visual Studio Code, siga as [etapas anteriores para entrar agora](#access-azure).
 
 1. No Visual Studio Code, em **Aplicativos Lógicos**, abra o menu de atalho de sua assinatura e selecione **Criar Aplicativo Lógico**.
 
@@ -133,7 +133,7 @@ Antes de começar, verifique se você tem estes itens:
    > Se quiser reutilizar essa definição de aplicativo lógico de exemplo, você precisará de uma conta institucional do Office 365, por exemplo, @fabrikam.com. Certifique-se de substituir o endereço de email fictício pelo seu próprio endereço de email. Para usar um conector de email diferente, como o Outlook.com ou o Gmail, substitua a ação `Send_an_email_action` por uma ação semelhante disponível de um [conector de email com suporte dos Aplicativos Lógicos do Azure](../connectors/apis-list.md).
    >
    > Se você quiser usar o conector do Gmail, somente as contas comerciais do G Suite poderão usar esse conector sem restrição nos aplicativos lógicos. 
-   > Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação com o conector do Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+   > Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação com o conector do Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). 
    > Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
    ```json
@@ -226,7 +226,7 @@ Para examinar seu aplicativo lógico no portal do Azure, siga estas etapas:
 
 No Visual Studio Code, se editar um aplicativo lógico publicado e salvar suas alterações, você *substituirá* seu aplicativo já implantado. Para evitar interromper seu aplicativo lógico em produção e minimizar interrupções, desative seu aplicativo lógico primeiro. Em seguida, você pode reativar o aplicativo lógico depois de confirmar que ele ainda funciona.
 
-1. Caso ainda não tenha entrado na sua conta e assinatura do Azure de dentro do Visual Studio Code, siga as [etapas anteriores para entrar agora](#sign-in-azure).
+1. Caso ainda não tenha entrado na sua conta e assinatura do Azure de dentro do Visual Studio Code, siga as [etapas anteriores para entrar agora](#access-azure).
 
 1. Na janela do Azure, em **Aplicativos Lógicos**, expanda sua assinatura do Azure para que possa exibir todos os aplicativos lógicos nela.
 
@@ -247,7 +247,7 @@ No Visual Studio Code, você pode abrir e editar a definição de fluxo de traba
 > [!IMPORTANT] 
 > Antes de editar um aplicativo lógico em execução ativa na produção, evite o risco de interromper o aplicativo lógico e minimize interrupções [desabilitando seu aplicativo lógico primeiro](#disable-enable-logic-app).
 
-1. Caso ainda não tenha entrado na sua conta e assinatura do Azure de dentro do Visual Studio Code, siga as [etapas anteriores para entrar agora](#sign-in-azure).
+1. Caso ainda não tenha entrado na sua conta e assinatura do Azure de dentro do Visual Studio Code, siga as [etapas anteriores para entrar agora](#access-azure).
 
 1. Na janela do Azure, em **Aplicativos Lógicos**, expanda sua assinatura do Azure e selecione o aplicativo lógico desejado.
 

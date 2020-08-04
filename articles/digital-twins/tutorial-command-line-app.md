@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d670ee0cb2396858d908ac13f70819efd57d7f63
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: ce3f775b7a72239fba7eb7c1538ec4f0831f1c74
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391818"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124539"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Explorar os Gêmeos Digitais do Azure com um aplicativo cliente de exemplo
 
-Este tutorial apresenta um aplicativo de exemplo que implementa um aplicativo cliente de linha de comando para interagir com uma instância dos Gêmeos Digitais do Azure. O aplicativo cliente é semelhante ao escrito no [Tutorial: Codificar um aplicativo cliente](tutorial-code.md).
+Este tutorial apresenta um aplicativo de exemplo que implementa um aplicativo cliente de linha de comando para interagir com uma instância dos Gêmeos Digitais do Azure. O aplicativo cliente é semelhante ao escrito no [*Tutorial: Codificar um aplicativo cliente*](tutorial-code.md).
 
 Você pode usar este exemplo para executar ações essenciais dos Gêmeos Digitais do Azure, como carregar modelos, criar e modificar gêmeos e criar relações. Você também pode examinar o código do exemplo para saber mais sobre as APIs dos Gêmeos Digitais do Azure, bem como praticar a implementação de seus próprios comandos modificando o projeto de exemplo como preferir.
 
@@ -78,7 +78,7 @@ Salve o arquivo antes de continuar.
 > Se quiser tentar criar seu próprio modelo, cole o código do modelo *Room* em um novo arquivo que você salvará com a extensão *.json* na pasta *AdtSampleApp\SampleClientApp\Models*. Em seguida, experimente adicionar propriedades e relações para representar o que você quiser. Você também pode examinar os outros modelos de exemplo nesta pasta para ter ideias.
 
 > [!TIP] 
-> Há uma [amostra de Validador DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) independente de linguagem que pode ser usada para verificar os documentos do modelo e ver se a DTDL é válida. Ela se baseia na biblioteca do analisador de DTDL, que é explicada mais detalhadamente em [Como: Analisar e validar modelos](how-to-use-parser.md).
+> Há uma [amostra de Validador DTDL](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) independente de linguagem que pode ser usada para verificar os documentos do modelo e ver se a DTDL é válida. Ela se baseia na biblioteca do analisador de DTDL, que é explicada mais detalhadamente em [*Como analisar e validar modelos*](how-to-use-parser.md).
 
 ### <a name="get-started-with-the-command-line-app"></a>Introdução ao aplicativo de linha de comando
 
@@ -129,7 +129,7 @@ CreateModels Room
 ```
 
 Como os modelos não podem ser substituídos, um erro de serviço será retornado.
-Para ver detalhes sobre como excluir modelos existentes, confira [Como: Gerenciar modelos personalizados](how-to-manage-model.md).
+Para obter detalhes sobre como excluir os modelos existentes, confira [*Como gerenciar modelos personalizados*](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
@@ -285,7 +285,7 @@ Um dos principais recursos dos Gêmeos Digitais do Azure é a capacidade de [con
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-O projeto neste tutorial forma a base para o próximo tutorial, [Tutorial: Conectar uma solução de ponta a ponta](tutorial-end-to-end.md). Caso planeje prosseguir para o próximo tutorial, você pode manter os recursos configurados aqui para continuar usando essa instância dos Gêmeos Digitais do Azure e o aplicativo de exemplo configurado.
+O projeto deste tutorial forma a base para o próximo tutorial, [*Tutorial: Conectar uma solução de ponta a ponta*](tutorial-end-to-end.md). Caso planeje prosseguir para o próximo tutorial, você pode manter os recursos configurados aqui para continuar usando essa instância dos Gêmeos Digitais do Azure e o aplicativo de exemplo configurado.
 * Nesse caso, você pode usar os comandos `DeleteAllTwins` e `DeleteAllModels` do aplicativo de exemplo para limpar os gêmeos e os modelos em sua instância, respectivamente. Isso lhe dará uma imagem fixa em branco para o próximo tutorial.
 
 Se você não precisa mais dos recursos criados neste tutorial, siga estas etapas para excluí-los.
@@ -316,10 +316,10 @@ Neste tutorial, você teve uma introdução aos Gêmeos Digitais do Azure, confi
 Continue para o próximo tutorial para usar o aplicativo de linha de comando de exemplo em combinação com outros serviços do Azure para concluir um cenário de ponta a ponta orientado por dados:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Conectar uma solução de ponta a ponta](tutorial-end-to-end.md)
+> [*Tutorial: Conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)
 
 Ou comece a examinar a documentação de conceito para saber mais sobre os elementos com os quais você trabalhou no tutorial:
-* [Conceitos: Modelos personalizados](concepts-models.md)
+* [*Conceitos: modelos personalizados*](concepts-models.md)
 
 Você também pode aprofundar-se com relação aos processos neste tutorial iniciando os artigos de instruções:
-* [Instruções: Usar a CLI dos Gêmeos Digitais do Azure](how-to-use-cli.md)
+* [*Como usar a CLI dos Gêmeos Digitais do Azure*](how-to-use-cli.md)

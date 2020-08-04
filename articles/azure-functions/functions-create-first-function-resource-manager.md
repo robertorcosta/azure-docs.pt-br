@@ -1,24 +1,28 @@
 ---
 title: Criar sua primeira função usando modelos do Azure Resource Manager
-description: Crie e implante no Azure uma função sem servidor simples disparada por HTTP usando um modelo de Azure Resource Manager.
+description: Crie e implante no Azure uma função sem servidor simples disparada por HTTP usando um modelo do ARM (Azure Resource Manager).
 ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
-ms.openlocfilehash: 403ff6407105574c78b8e600c37efbe61d2f8b79
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e409b3b64ac6bc39ba4cb58397506723a67a0de2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740193"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081705"
 ---
-# <a name="quickstart-create-and-deploy-azure-functions-resources-from-a-resource-manager-template"></a>Início Rápido: Criar e implantar recursos de Azure Functions de um modelo do Resource Manager
+# <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Início Rápido: Criar e implantar recursos do Azure Functions com base em um modelo do ARM
 
-Neste artigo, você usará um modelo do Azure Resource Manager para criar uma função que responde a solicitações HTTP. 
+Neste artigo, você usará um modelo do ARM (Azure Resource Manager) para criar uma função que responde a solicitações HTTP. 
 
 A realização deste início rápido gera um pequeno custo de alguns centavos de dólar ou menos em sua conta do Azure. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
+
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-app-create-dynamic%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,13 +52,11 @@ Escolha uma das seguintes guias, siga o link e conclua a seção para criar um a
 
 Depois de criar seu projeto localmente, você cria os recursos necessários para executar sua nova função no Azure. 
 
-## <a name="create-a-serverless-function-app-in-azure"></a>Criar um aplicativo de funções sem servidor no Azure
+## <a name="review-the-template"></a>Examinar o modelo
 
-### <a name="review-the-template"></a>Examinar o modelo
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-function-app-create-dynamic/).
 
-O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic).
-
-:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json" :::
+:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json" range="1-140" highlight="55-136":::
 
 Os seguintes quatro recursos do Azure são criados por este modelo:
 
@@ -63,7 +65,7 @@ Os seguintes quatro recursos do Azure são criados por este modelo:
 + [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): criar um aplicativo de funções.
 + [**microsoft.insights/components**](/azure/templates/microsoft.insights/components): criar uma instância do Application Insights para monitoramento.
 
-### <a name="deploy-the-template"></a>Implantar o modelo
+## <a name="deploy-the-template"></a>Implantar o modelo
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 ```azurecli-interactive

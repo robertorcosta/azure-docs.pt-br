@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: bfed93a4ed13878448d21b95d265e49bf0260742
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 522a13c6de87dd8074b76f95670baf79fc96d419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85798248"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075343"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Tutorial: Introdução às consultas no Log Analytics
 
@@ -189,7 +189,7 @@ Para salvar uma consulta:
    
    Para salvar uma consulta como uma função, forneça um **alias de função**, que é um nome curto que outras consultas podem usar para chamar essa consulta.
    
-1. Forneça uma **Categoria** para o **Gerenciador de consultas** a ser usada para a consulta.
+1. Se você estiver em um workspace do Log Analytics, forneça uma **Categoria** para o **Gerenciador de consultas** usar para a consulta. (As categorias não estão disponíveis para consultas do Application Insights)
    
 1. Clique em **Salvar**.
    
@@ -202,6 +202,10 @@ Para carregar uma consulta salva, selecione **Gerenciador de consultas** no cant
 
 ### <a name="export-and-share-queries"></a>Exportar e compartilhar consultas
 Para exportar uma consulta, selecione **Exportar** na barra superior e, em seguida, selecione **Exportar para CSV – todas as colunas**, **Exportar para CSV – colunas exibidas** ou **Exportar para o Power BI (consulta M)** na lista suspensa.
+
+O vídeo a seguir mostra como integrar o Log Analytics ao Excel.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Asme]
 
 Para compartilhar um link para uma consulta, selecione **Copiar link** na barra superior e, em seguida, selecione **Copiar link para consulta**, **Copiar texto da consulta** ou **Copiar resultados da consulta** para copiar para a área de transferência. Você pode enviar o link de consulta para outras pessoas que têm acesso ao mesmo workspace.
 

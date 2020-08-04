@@ -2,19 +2,19 @@
 title: Tutorial – Implantar o Cluster de vSphere no Azure
 description: Saiba como implantar um Cluster de vSphere no Azure usando a AVS (Solução VMWare no Azure)
 ms.topic: tutorial
-ms.date: 05/04/2020
-ms.openlocfilehash: fc753f43563650357cf43c102e94f0057b62a406
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.date: 07/15/2020
+ms.openlocfilehash: 4f3b33ea401c62124ae5f8a4c881d86d2f19b40c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873745"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079410"
 ---
 # <a name="tutorial-deploy-an-avs-private-cloud-in-azure"></a>Tutorial: Implantar uma nuvem privada da AVS no Azure
 
 A AVS (Solução VMware no Azure) permite implantar um cluster de vSphere no Azure. A implantação inicial mínima é de três hosts. Mais hosts podem ser adicionados, um de cada vez, até atingir um máximo de 16 hosts por cluster. 
 
-Como a AVS não permite que você gerencie sua nuvem privada com o vCenter local na inicialização, você precisará fazer a configuração adicional e a conexão com uma instância do vCenter local, a rede virtual, entre outros. Esses procedimentos e os pré-requisitos relacionados serão abordados nesta série de tutoriais.
+Como a AVS não permite que você gerencie sua nuvem privada com o vCenter local na inicialização, são necessárias uma configuração adicional de uma instância do vCenter local e uma conexão com ela, uma rede virtual e mais. Esses procedimentos e os pré-requisitos relacionados são abordados neste tutorial.
 
 Neste tutorial, você aprenderá como:
 
@@ -30,17 +30,15 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="register-the-resource-provider"></a>Registre o provedor de recursos
 
-Para usar a solução VMware no Azure, primeiro você precisa registrar o provedor de recursos. O exemplo a seguir registra o provedor de recursos com sua assinatura.
+Para usar a AVS, você precisa primeiro registrar o provedor de recursos com sua assinatura.
 
-```azurecli-interactive
+```
+azurecli-interactive
 az provider register -n Microsoft.AVS --subscription <your subscription ID>
 ```
 
 Para conhecer outras maneiras de registrar o provedor de recursos, confira [Provedores e tipos de recursos do Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 
-## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
-
-Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-private-cloud"></a>Criar uma nuvem privada
 
@@ -48,73 +46,73 @@ Você pode criar uma nuvem privada da AVS usando o [portal do Azure](#azure-port
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-No Portal do Azure, selecione **+ Criar um recurso**. Na caixa de texto **Pesquisar no Marketplace**, digite `Azure VMware Solution` e selecione **Solução VMware no Azure** na lista. Na janela **Solução VMware no Azure**, selecione **Criar**
+1. Entre no [portal do Azure](https://portal.azure.com).
 
-Na guia **Básico**, insira valores para os campos. A tabela a seguir mostra uma lista detalhada das propriedades.
+1. Selecione **Criar um recurso**. Na caixa de texto **Pesquisar no Marketplace**, digite `Azure VMware Solution` e selecione **Solução VMware no Azure** na lista. Na janela **Solução VMware no Azure**, selecione **Criar**
 
-| Campo   | Valor  |
-| ---| --- |
-| **Assinatura** | A assinatura que você planeja usar para a implantação.|
-| **Grupo de recursos** | O grupo de recursos com os recursos de sua nuvem privada. |
-| **Localidade** | Selecione uma localização, como **Leste dos EUA**.|
-| **Nome do recurso** | O nome de sua nuvem privada da AVS. |
-| **SKU** | Selecione o seguinte valor do SKU: AV36 |
-| **Hosts** | Este é o número de hosts a serem adicionados ao cluster da nuvem privada. O valor padrão é 3. Esse valor pode ser aumentado ou reduzido após a implantação.  |
-| **Senha de administrador do vCenter** | Insira uma senha de administrador da nuvem. |
-| **Senha do NSX-T Manager** | Insira uma senha de administrador do NSX-T. |
-| **Bloco de endereços** | Insira um bloco de endereços IP para a rede CIDR da nuvem privada. Um exemplo é 10.175.0.0/22. |
+1. Na guia **Básico**, insira valores para os campos. A tabela a seguir lista as propriedades dos campos.
 
-:::image type="content" source="./media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="criar uma nuvem privada" border="true":::
+   | Campo   | Valor  |
+   | ---| --- |
+   | **Assinatura** | A assinatura que você planeja usar para a implantação.|
+   | **Grupo de recursos** | O grupo de recursos com os recursos de sua nuvem privada. |
+   | **Localidade** | Selecione uma localização, como **Leste dos EUA**.|
+   | **Nome do recurso** | O nome de sua nuvem privada da AVS. |
+   | **SKU** | Selecione o seguinte valor do SKU: AV36 |
+   | **Hosts** | O número de hosts a serem adicionados ao cluster da nuvem privada. O valor padrão é 3, que pode ser aumentado ou reduzido após a implantação.  |
+   | **Senha de administrador do vCenter** | Insira uma senha de administrador da nuvem. |
+   | **Senha do NSX-T Manager** | Insira uma senha de administrador do NSX-T. |
+   | **Bloco de endereços** | Insira um bloco de endereços IP para a rede CIDR da nuvem privada, por exemplo, 10.175.0.0/22. |
 
-Quando terminar, selecione **Examinar + Criar**. Na tela a seguir, verifique as informações inseridas. Se todas estiverem corretas, selecione **Criar**.
+   :::image type="content" source="./media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="criar uma nuvem privada" border="true":::
 
-> [!NOTE]
-> Essa etapa leva aproximadamente duas horas. 
+1. Quando terminar, selecione **Examinar + Criar**. Na tela a seguir, verifique as informações inseridas. Se todas estiverem corretas, selecione **Criar**.
+
+   > [!NOTE]
+   > Essa etapa leva aproximadamente duas horas. 
+
+1. Verifique se a implantação foi bem-sucedida. Navegue até o grupo de recursos que você criou e selecione sua nuvem privada.  Você verá o status **Com êxito** quando a implantação for concluída. 
+
+   :::image type="content" source="./media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Validar a nuvem privada implantada" border="true":::
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Como alternativa, você pode usar o CLI do Azure para criar uma nuvem privada da AVS no Azure. Para fazer isso, você pode usar o Azure Cloud Shell. As etapas a seguir mostram como fazer isso.
+Em vez de usar o portal do Azure para criar uma nuvem privada da AVS, você pode usar a CLI do Azure usando o Azure Cloud Shell. É um shell de interativo gratuito com ferramentas comuns do Azure pré-instaladas e configuradas para usar com sua conta. 
 
 #### <a name="open-azure-cloud-shell"></a>Abrir o Azure Cloud Shell
 
-O Azure Cloud Shell é um shell interativo grátis que pode ser usado para executar as etapas neste artigo. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta.
-
-Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Você também pode iniciar o Cloud Shell em uma guia separada do navegador indo até https://shell.azure.com/bash. Selecione **Copiar** para copiar os blocos de código, cole o código no Cloud Shell e depois pressione **Enter** para executá-lo.
+Para abrir o Cloud Shell, selecione **Experimentar** no canto superior direito de um bloco de código. Você também pode iniciar o Cloud Shell em uma guia separada do navegador indo até [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole o código no Cloud Shell e depois pressione **Enter** para executá-lo.
 
 #### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
-```azurecli-interactive
+```
+azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
 #### <a name="create-a-private-cloud"></a>Criar uma nuvem privada
 
-Para criar uma nuvem privada da AVS, você precisa fornecer um nome do grupo de recursos, um nome para a nuvem privada, uma localização e o tamanho do cluster
+Forneça um nome do grupo de recursos, um nome para a nuvem privada, uma localização e o tamanho do cluster.
 
+| Propriedade  | Descrição  |
+| --------- | ------------ |
+| **-g** (Nome do Grupo de Recursos)     | O nome do grupo de recursos com os recursos de sua nuvem privada.        |
+| **-n** (Nome da Nuvem Privada)     | O nome de sua nuvem privada da AVS.        |
+| **--location**     | A localização usada para sua nuvem privada.         |
+| **--cluster-size**     | O tamanho do cluster. O valor mínimo é 3.         |
+| **--network-block**     | O bloco de rede de endereço IP do CIDR a ser usado para sua nuvem privada. O bloco de endereço não deve se sobrepor aos blocos de endereços usados em outras redes virtuais que estão em sua assinatura e redes locais.        |
+| **--sku** | O valor de SKU: AV36 |
 
-|Propriedade  |Descrição  |
-|---------|---------|
-|Nome do Grupo de Recursos     | O nome do grupo de recursos no qual você está implantando a nuvem privada.        |
-|Nome da Nuvem Privada     | O nome da nuvem privada.        |
-|Location     | A localização usada para a nuvem privada         |
-|Tamanho do cluster     | O tamanho do cluster. O valor mínimo é 3.         |
-|Bloco de rede     | O intervalo CIDR a ser usado para a nuvem privada. É recomendável que ele seja exclusivo para seu ambiente local, bem como para seu ambiente do Azure.        |
-
-```azurecli-interactive
-az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22
+```
+azurecli-interactive
+az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
 
-## <a name="verify-deployment-was-successful"></a>Verificar se a implantação foi bem-sucedida
+## <a name="delete-a-private-cloud-azure-portal"></a>Excluir uma nuvem privada (portal do Azure)
 
-Navegue até o grupo de recursos que foi criado e selecione sua nuvem privada. Quando a implantação for concluída, você verá a tela a seguir e o status de **Êxito**.
-
-:::image type="content" source="./media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Validar a nuvem privada implantada" border="true":::
-
-## <a name="delete-a-private-cloud"></a>Excluir uma nuvem privada
-
-Se tiver uma nuvem privada da AVS que você verificou que não é mais necessária, você poderá excluí-la. Quando você exclui uma nuvem privada, todos os clusters juntamente com todos os seus componentes são excluídos.
+Se tiver uma nuvem privada da AVS que não é mais necessária, você poderá excluí-la. Quando você exclui uma nuvem privada, todos os clusters, juntamente com todos os componentes deles, são excluídos.
 
 Para fazer isso, navegue até a nuvem privada no portal do Azure e selecione **Excluir**. Na página de confirmação, confirme o nome da nuvem privada e selecione **Sim**.
 

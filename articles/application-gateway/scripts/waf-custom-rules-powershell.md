@@ -6,14 +6,14 @@ ms.service: application-gateway
 ms.topic: sample
 ms.date: 6/7/2019
 ms.author: victorh
-ms.openlocfilehash: ffdde80598322222e2a8f000eee8be269becdd11
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4ffbab992732c39054818b9b4f21871687b05dcb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66743323"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083133"
 ---
-# <a name="create-waf-custom-rules-with-azure-powershell"></a>Criar regras personalizadas do WAF com o Azure PowerShell
+# <a name="create-web-application-firewall-waf-custom-rules-with-azure-powershell"></a>Criar funções personalizadas do WAF (Firewall do Aplicativo Web) com o Azure PowerShell
 
 Esse script cria um firewall do aplicativo Web do Gateway de Aplicativo que usa regras personalizadas. A regra personalizada bloqueia o tráfego se o cabeçalho da solicitação contém o *evilbot* User-Agent.
 
@@ -70,5 +70,5 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre as regras personalizadas do WAF, confira [Regras personalizadas para o firewall do aplicativo Web](../custom-waf-rules-overview.md)
-- Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
+- Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/).
 - Exemplos de script PowerShell de máquinas virtuais adicionais podem ser encontrados na [documentação de Gateway de Aplicativo do Azure](../powershell-samples.md).

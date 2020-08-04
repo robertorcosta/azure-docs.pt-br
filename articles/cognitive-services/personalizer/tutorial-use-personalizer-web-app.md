@@ -3,12 +3,12 @@ title: Usar aplicativo Web – Personalizador
 description: Personalize um aplicativo Web .NET em C# com um loop Personalizador para fornecer o conteúdo correto a um usuário com base em ações (com recursos) e recursos de contexto.
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: b8b5c005f7003f9b0d9ac228c5a5961c80c85599
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 6e3373ef8ace401ff40b3d48026fc46b96f1ad79
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133122"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446356"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutorial: Adicionar Personalizador a um aplicativo Web .NET
 
@@ -41,7 +41,7 @@ Neste tutorial, as ações são tipos de alimentos:
 * café
 * sopa
 
-Para ajudar o Personalizador a aprender com suas ações, envie as ações __ações com recursos_ e _recursos de contexto_ com cada solicitação à API de Classificação.
+Para ajudar o Personalizador a aprender com as suas ações, envie as _ações com recursos_ e os _recursos de contexto_ com cada solicitação à API de Classificação.
 
 Um **recurso** do modelo consiste em informações sobre a ação ou o contexto que pode ser agregado (agrupado) entre membros da sua base de usuários do aplicativo Web. Um recurso _não é_ específico individualmente (como uma ID de usuário) ou altamente específico (como uma hora exata do dia).
 

@@ -1,5 +1,5 @@
 ---
-title: Configurar regras de firewall de IP no Azure Synapse Analytics
+title: Configurar regras de firewall de IP
 description: Um artigo que ensina a configurar regras de firewall de IP no Azure Synapse Analytics
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 255714fcf69a8ed72cf1f306e5aafabd49a199ca
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: a06b4e6ced437cc83fadfad000fa682264264874
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194392"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052420"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Regras de firewall de IP do Azure Synapse Analytics (versão prévia)
 
@@ -49,4 +49,4 @@ Se você estiver usando a configuração de política de conexão de redireciona
 
 Criar um [Workspace do Azure Synapse](../quickstart-create-workspace.md)
 
-Criar um workspace do Azure Synapse com uma [VNet de workspace gerenciada](./synapse-workspace-managed-vnet.md)
+Criar um workspace do Azure Synapse com uma [Rede Virtual de workspace gerenciada](./synapse-workspace-managed-vnet.md)

@@ -1,6 +1,6 @@
 ---
-title: Atualizar para a camada Standard – Central de Segurança do Azure
-description: Este guia de início rápido mostra como atualizar para o tipo de preço Standard doa Central de Segurança para obter mais segurança.
+title: Atualizar para o nível Standard – Central de Segurança do Azure
+description: Este guia de início rápido mostrará como atualizar para o tipo de preço padrão da Central de Segurança para obter mais segurança.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 3f0d624605f617a8e5ab914c49c4c94a40ebdcc6
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: f16df87ca72b66003d8870dcd9d778616ea840d4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435793"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038538"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início Rápido: Integrar sua assinatura do Azure à Central de Segurança Standard
-A Central de Segurança do Azure fornece um gerenciamento de segurança unificado e proteção contra ameaças nas cargas de trabalho da sua nuvem híbrida. Enquanto a camada Gratuita oferece segurança limitada para somente os recursos do Azure, a camada Standard estende esses recursos para o local e outras nuvens. A Central de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controles de acesso e de aplicativo para bloquear atividades mal-intencionadas, detectar ameaças usando a análise e inteligência e responder rapidamente quando sob ataque. Você pode experimentar a Central de Segurança Standard sem nenhum custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+A Central de Segurança do Azure fornece um gerenciamento de segurança unificado e proteção contra ameaças nas cargas de trabalho da sua nuvem híbrida. Enquanto a Camada gratuita oferece segurança limitada para somente os recursos do Azure, o nível Standard estende esses recursos para o local e outras nuvens. A Central de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controles de acesso e de aplicativo para bloquear atividades mal-intencionadas, detectar ameaças usando a análise e inteligência e responder rapidamente quando sob ataque. Você pode experimentar a Central de Segurança Standard sem nenhum custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 Neste artigo, você atualizará para o nível Standard a fim de aumentar a segurança e instalará o agente do Log Analytics nas suas máquinas virtuais para monitorar as ameaças e as vulnerabilidades de segurança.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, pode se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Para fazer o upgrade de uma assinatura para a camada Standard, a você deve ser atribuída a função de Proprietário da assinatura, Colaborador da assinatura ou Administrador de segurança.
+Para atualizar uma assinatura para o nível Standard, a você deve ser atribuída a função de Proprietário da assinatura, Colaborador da assinatura ou Administrador de segurança.
 
 ## <a name="enable-your-azure-subscription"></a>Habilitar sua assinatura do Azure
 
@@ -49,8 +49,8 @@ Em poucos minutos após iniciar a Central de Segurança pela primeira vez, você
 
 Para aproveitar por completo a Central de Segurança, você precisará concluir as etapas abaixo para atualizar para o nível Standard e instalar o agente do Log Analytics.
 
-## <a name="upgrade-to-the-standard-tier"></a>Atualizar para a camada Standard
-Para os guias de início rápido e tutoriais da Central de Segurança, você deve atualizar para a camada Standard. Há uma avaliação gratuita da Central de Segurança Standard. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). 
+## <a name="upgrade-to-the-standard-pricing-tier"></a>Atualizar para o tipo de preço padrão
+Para os guias de início rápido e tutoriais da Central de Segurança, você deve atualizar para o nível Standard. Há uma avaliação gratuita da Central de Segurança Standard. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). 
 
 1. No menu principal da Central de Segurança, selecione **Introdução**.
  
@@ -84,11 +84,11 @@ Com essa nova percepção de suas VMs do Azure, a Central de Segurança pode for
   ![Recomendações][8]
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
-Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de início rápido. Se você planeja continuar a trabalhar com os tutoriais e os guias de início rápido subsequentes, continue executando a camada Standard e mantenha o provisionamento automático habilitado. Se você não planejar continuar ou quiser retornar para a camada Gratuita:
+Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de início rápido. Se planejar continuar a trabalhar com os tutoriais e os guias de início rápido subsequentes, continue executando o nível Standard e mantenha o provisionamento automático habilitado. Se você não planejar continuar ou quiser retornar para a camada Gratuita:
 
 1. Volte para o menu principal da Central de Segurança e selecione **Preços e configurações**.
 2. Clique na assinatura que você deseja alterar para a camada gratuita.
-3. Selecione **Tipo de preço** e selecione **Gratuito** para alterar a assinatura da camada Standard para a camada Gratuita.
+3. Selecione **Tipo de preço** e **Gratuito** para alterar a assinatura do nível Standard para a Camada gratuita.
 5. Clique em **Salvar**.
 
 Se quiser desabilitar o provisionamento automático:
@@ -107,6 +107,11 @@ Neste início rápido, você fez upgrade para o nível Standard e provisionou o 
 
 > [!div class="nextstepaction"]
 > [Início Rápido: Integrar computadores Windows à Central de Segurança do Azure](quick-onboard-windows-computer.md)
+
+Deseja otimizar e reduzir seus gastos com a nuvem?
+
+> [!div class="nextstepaction"]
+> [Comece a analisar os custos com o Gerenciamento de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png

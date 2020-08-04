@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Sintetizar fala, Objective-C – Serviço de Fala'
+title: 'Início Rápido: Sintetizar fala em Objective-C usando o SDK de Fala'
 titleSuffix: Azure Cognitive Services
 description: Saiba como sintetizar fala em Objective-C no iOS usando o SDK de Fala
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: yulili
-ms.openlocfilehash: 7a1cc2c45988e0c5a8c757e4d280b48dbbe56daa
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: fa1b62a987cb6c158c8d7f1fceb57bc47e5800eb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391376"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084833"
 ---
 # <a name="quickstart-synthesize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Início Rápido: Sintetizar fala em Objective-C no iOS usando o SDK de Fala
 

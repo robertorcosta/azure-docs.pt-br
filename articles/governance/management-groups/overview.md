@@ -3,12 +3,12 @@ title: Organizar seus recursos com grupos de gerenciamento – Governança do Az
 description: Saiba mais sobre os grupos de gerenciamento, o funcionamento de suas permissões e como usá-los.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: b3d031b68ee7dba9c80ee0c7e97898bb8b439a47
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 1856b2d6f8fafb18757d547d0117f584fb2abb24
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963675"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132918"
 ---
 # <a name="what-are-azure-management-groups"></a>O que são grupos de gerenciamento do Azure?
 
@@ -100,9 +100,9 @@ O gráfico a seguir mostra a lista de funções e as ações compatíveis nos gr
 \*: O Colaborador de MG e o Leitor de MG só permitem que os usuários executem essas ações no escopo do grupo de gerenciamento.  
 \*\*: Não são necessárias atribuições de função no grupo de gerenciamento raiz para mover uma assinatura ou um grupo de gerenciamento dele e para ele. Confira [Gerenciar seus recursos com grupos de gerenciamento](manage.md) para obter detalhes de como mover itens dentro da hierarquia.
 
-## <a name="custom-rbac-role-definition-and-assignment"></a>Atribuição e definição de função RBAC personalizada
+## <a name="azure-custom-role-definition-and-assignment"></a>Atribuição e definição de função personalizada do Azure
 
-Atualmente, o suporte à função RBAC personalizada para grupos de gerenciamento está em versão prévia com algumas [limitações](#limitations). Você pode definir o escopo do grupo de gerenciamento no escopo atribuível da definição de função. Essa função personalizada de RBAC estará disponível para atribuição nesse grupo de gerenciamento e qualquer grupo de gerenciamento, assinatura, grupo de recursos ou recurso sob ele. Essa função personalizada herdará a hierarquia como qualquer função interna.  
+O suporte à função personalizada do Azure para grupos de gerenciamento está em versão prévia com algumas [limitações](#limitations). Você pode definir o escopo do grupo de gerenciamento no escopo atribuível da definição de função. Essa função personalizada do Azure estará disponível para atribuição nesse grupo de gerenciamento e em qualquer grupo de gerenciamento, assinatura, grupo de recursos ou recurso abaixo dele. Essa função personalizada herdará a hierarquia como qualquer função interna.  
 
 ### <a name="example-definition"></a>Definição de exemplo
 

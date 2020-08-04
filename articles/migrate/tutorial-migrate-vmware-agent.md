@@ -4,12 +4,12 @@ description: Saiba como executar uma migração baseada em agente de VMs VMware 
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: ca06dc9d5de9853915e2aaa0d86c1a444dab415a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 707a74d0e993625d32c60f7120bf69055dc9e885
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119252"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290199"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMs VMware para o Azure (com base em agente)
 
@@ -177,7 +177,7 @@ Baixe o modelo da seguinte maneira:
 
     ![Descobrir VMs](./media/tutorial-migrate-vmware-agent/migrate-discover.png)
 
-3. Em **Descobrir computadores** > **Os computadores estão virtualizados?** , clique em **Sim, com o hipervisor do VMware vSphere**.
+3. Em **Descobrir computadores** > **As suas máquinas são virtualizadas?** , clique em **Sim, com o hipervisor do VMware vSphere**.
 4. Em **Como você deseja migrar?** , selecione **Usando a replicação baseada em agente**.
 5. Em **Região de destino**, selecione a região do Azure para a qual deseja migrar os computadores.
 6. Selecione **Confirme se a região de destino da migração é nome-da-região**.
@@ -195,7 +195,7 @@ Baixe o modelo da seguinte maneira:
 
 Depois de baixar o modelo OVF, você o importa para o VMware para criar o aplicativo de replicação em uma VM VMware que executa o Windows Server 2016.
 
-1. Entre no servidor VMware vCenter ou no host vSphere ESXi com o VMWare vSphere Client.
+1. Entre no VMware vCenter Server ou no host vSphere ESXi com o VMware vSphere Client.
 2. No menu **Arquivo**, selecione **Implantar Modelo de OVF** para iniciar o **Implante o assistente de modelo de OVF**. 
 3. Em **Selecionar origem**, insira o local do OVF baixado.
 4. Em **Revisar detalhes**, selecione **Avançar**.
@@ -209,7 +209,7 @@ Depois de baixar o modelo OVF, você o importa para o VMware para criar o aplica
 
 ### <a name="start-appliance-setup"></a>Iniciar configuração do dispositivo
 
-1. No console do cliente VMWare vSphere, ative a VM. A VM será inicializada com uma experiência de instalação do Windows Server 2016.
+1. No console do VMware vSphere Client, ative a VM. A VM será inicializada com uma experiência de instalação do Windows Server 2016.
 2. Aceite o contrato de licença e insira uma senha de administrador.
 3. Após a conclusão da instalação, entre na VM como administrador usando a senha de administrador. Na primeira vez que você entrar, a ferramenta de instalação do dispositivo de replicação (Ferramenta de Configuração do Azure Site Recovery) iniciará em alguns segundos.
 5. Insira um nome a ser usado para registrar o dispositivo com a Migração de Servidor. Em seguida, clique em **Próximo**.

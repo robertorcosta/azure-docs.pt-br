@@ -3,20 +3,23 @@ title: 'Início Rápido: biblioteca de clientes do Armazenamento de Blobs do Azu
 description: Crie, carregue e exclua blobs e contêineres no Node.js com a biblioteca de clientes do Armazenamento do Azure v10 para JavaScript
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/24/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: c2bf401713dc7ae3b060181f1df56d0915f68aed
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 01d9c2e2b822af607d7473206461b97dfa627c17
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78269494"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282017"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Início Rápido: Gerenciar blobs com o SDK do JavaScript v10 no Node.js
 
 Neste início rápido, você aprenderá a gerenciar blobs usando o Node.js. Os blobs são objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, mídia de streaming e dados de arquivos. Você carregará, baixará, listará e excluirá blobs, além de gerenciar contêineres.
+
+> [!NOTE]
+> Este guia de início rápido usa uma versão herdada da biblioteca de clientes do Armazenamento de Blobs do Azure. Para começar a usar a última versão, confira [Guia de Início Rápido: Gerenciar blobs com o SDK do JavaScript v12 no Node.js](storage-quickstart-blobs-nodejs.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

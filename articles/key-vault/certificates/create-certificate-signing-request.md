@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: ae2d6259bac6a2034edc98de9b0405f32f17fbc3
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 225fb1099c1a095a4ec5bced4acc010d7cec6835
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849489"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043882"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Criando e mesclando CSR no Key Vault
 
@@ -80,6 +80,23 @@ As etapas a seguir ajudarão você a criar um certificado de autoridades de cert
 9.  Depois que a solicitação for assinada pela autoridade de certificação, retorne o arquivo de certificado para **mesclar a solicitação assinada** na mesma tela de Operação de Certificado.
 
 Agora a solicitação de certificado foi mesclada com êxito.
+
+## <a name="adding-more-information-to-csr"></a>Adicionar mais informações ao CSR
+
+Se desejar adicionar mais informações ao criar o CSR, por exemplo – 
+    - País:
+    - Cidade/localidade:
+    - Estado/província:
+    - Organização:
+    - Unidade Organizacional: É possível adicionar todas essas informações ao criar um CSR definindo isso em subjectName.
+
+Exemplo
+    ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+    ```
+
+>[!Note]
+>Se você estiver solicitando um certificado DV com todos esses detalhes no CSR, a AC poderá rejeitar a solicitação, pois ela talvez não possa validar todas essas informações na solicitação. Se você estiver solicitando um certificado OV, seria mais apropriado adicionar todas essas informações no CSR.
+
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 

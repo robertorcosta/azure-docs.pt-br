@@ -123,6 +123,8 @@
               href: backup-azure-vms-encryption.md
             - name: Configurar backups consistentes com o aplicativo de VMs do Azure que executam o Linux
               href: backup-azure-linux-app-consistent.md
+            - name: Backup de disco seletivo
+              href: selective-disk-backup-restore.md
         - name: Restaurar
           items:
             - name: Sobre a restauração da VM do Azure

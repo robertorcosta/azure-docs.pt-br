@@ -5,16 +5,16 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 6edc6facc884fc6469b75b63216d6e5036321ea8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ad9eb95c9e3a21cd33a367cc864a4d791888afb9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86277924"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124537"
 ---
 ## <a name="configure-the-sample-project"></a>Configurar o projeto de exemplo
 
-A seguir, configure um aplicativo cliente de exemplo que vai interagir com sua instância dos Gêmeos Digitais do Azure. Se você ainda não tiver baixado o projeto de exemplo, obtenha-o agora na página de aterrissagem [Exemplos de Gêmeos Digitais do Azure](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples), selecionando o botão *Baixar ZIP* abaixo do título.
+A seguir, configure um aplicativo cliente de exemplo que vai interagir com sua instância dos Gêmeos Digitais do Azure. Caso ainda não tenha baixado o projeto de exemplo, obtenha-o agora mesmo na página de aterrissagem [*Amostras dos Gêmeos Digitais do Azure*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) selecionando o botão *Baixar ZIP* abaixo do título.
 
 Navegue até o arquivo baixado no computador e descompacte-o.
 

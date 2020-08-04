@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f6e70caaedf906142b19ba45f0eb4d818e2955e7
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 4e236be298f92506e40a7f5197b2abeb065e7eed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85051894"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013259"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Tutorial: Usar uma identidade gerenciada para conectar o Key Vault a um Aplicativo Web do Azure com o .NET
 
@@ -28,7 +28,7 @@ Para concluir este guia de início rápido:
 
 * Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * O [SDK do .NET Core 3.1 ou posterior](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview)
+* [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/)
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -51,7 +51,7 @@ Para criar um cofre de chaves, use o comando [az keyvault create](/cli/azure/key
 az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 ```
 
-Anote o `vaultUri` retornado, que estará no formato "https://<nome-do-seu-cofre-de-chaves>.vault.azure.net/". Ele será usado na etapa [Atualizar o código](#update-the-code).
+Anote o `vaultUri` retornado, que estará no formato "https://&lt;nome-do-seu-key-vault&gt;.vault.azure.net/". Ele será usado na etapa [Atualizar o código](#update-the-code).
 
 Agora você pode inserir um segredo em seu cofre de chaves com o comando [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set). Defina o nome do seu segredo como "MySecret" e o valor como "Sucesso!".
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 76b7a97a5be5e7952b0ac11d93bd68656ff8f1ec
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6c5484c421807f5657fe5fc460342d39d442bcda
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79454305"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048581"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Tutorial: Implantar HSMs em uma rede virtual existente usando a CLI
 
@@ -63,15 +63,7 @@ az feature show \
    --name AzureDedicatedHSM
 ```
 
-O comando a seguir verifica os recursos de rede necessários para o serviço HSM dedicado.
-
-```azurecli
-az feature show \
-   --namespace Microsoft.Network \
-   --name AllowBaremetalServers
-```
-
-Os dois comandos devem retornar um status "Registrado" (conforme mostrado abaixo). Se os comandos não retornarem "Registrado", você precisará se registrar nesse serviço. Entre em contato com seu representante da conta da Microsoft.
+Os comandos devem retornar um status "Registrado" (conforme mostrado abaixo). Se os comandos não retornarem "Registrado", você precisará se registrar nesse serviço entrando em contato com seu representante da conta Microsoft.
 
 ![status da assinatura](media/tutorial-deploy-hsm-cli/subscription-status.png)
 

@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aae292d97457ebe1d36a839b779b9233037ea60
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 28b04828bc778a2b9076c9ea1970ce80f231fbe3
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055198"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386003"
 ---
 # <a name="what-is-application-management"></a>O que é gerenciamento de aplicativos?
 
@@ -63,7 +63,7 @@ Há quatro tipos principais de aplicativos que você pode adicionar aos seus **A
 
 - **Aplicativos desenvolvidos de forma personalizada** – ao criar seus próprios aplicativos de linha de negócios, você pode integrá-los ao Azure AD para dar suporte ao logon único. Ao registrar seu aplicativo com o Azure AD, você tem controle sobre a política de autenticação para o aplicativo. Para saber mais, confira [Orientação para desenvolvedores](developer-guidance-for-integrating-applications.md).
 
-- **Aplicativos inexistentes na Galeria** – traga seus aplicativos! Suporte a logon único para outros aplicativos adicionando-os ao Azure AD. Há várias maneiras de integrar um aplicativo, e algumas delas estão listadas abaixo. Para saber mais, confira [Configurar o logon único para aplicativos inexistente na galeria](configure-single-sign-on-non-gallery-applications.md).
+- **Aplicativos inexistentes na Galeria** – traga seus aplicativos! Suporte a logon único para outros aplicativos adicionando-os ao Azure AD. Há várias maneiras de integrar um aplicativo, e algumas delas estão listadas abaixo. Para saber mais, confira [Configurar o logon único do SAML](configure-saml-single-sign-on.md).
 
 >[!TIP]
 >Você pode integrar o Azure AD a um aplicativo, mesmo que ele ainda não esteja pré-configurado e na galeria de aplicativos. Você pode **integrar o Azure AD a qualquer um** dos aplicativos a seguir
@@ -93,8 +93,6 @@ Para aplicativos voltados para Recursos Humanos ou outros aplicativos com um gra
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Exibir os aplicativos já configurados no locatário do Azure AD](view-applications-portal.md)
-- [Início Rápido: Adicionar um aplicativo de galeria ao locatário do Azure AD](add-application-portal.md)
-- [Adicionar um aplicativo da galeria à sua organização do Azure AD](add-gallery-app.md)
+- [Série de guias de início rápido sobre gerenciamento de aplicativo no Azure AD](view-applications-portal.md)
 - [Introdução à integração de aplicativos](plan-an-application-integration.md)
 - [Saiba como automatizar o provisionamento](../app-provisioning/user-provisioning.md)

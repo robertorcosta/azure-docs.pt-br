@@ -4,12 +4,12 @@ description: Saiba como invocar processos empresariais em seu aplicativo do Serv
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: mvc
-ms.openlocfilehash: a8b94d626916b00d75eea3fea0567fa33df3382c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 2b478ae75c8be978ea93a493b65dafdc7756c4b6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562297"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083235"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Tutorial: enviar emails e invocar outros processos empresariais no Serviço de Aplicativo
 
@@ -17,7 +17,7 @@ Neste tutorial, você aprenderá a integrar seu aplicativo do Serviço de Aplica
 
 - Enviar emails de confirmação de transação
 - Adicionar usuários grupos do Facebook
-- Conectar-se a sistemas de terceiros, como SAP, SalesForce etc.
+- Conectar-se a sistemas de terceiros, como SAP, Salesforce etc.
 - Trocar mensagens B2B padrão
 
 Neste tutorial, você envia emails com o Gmail de seu aplicativo do Serviço de Aplicativo usando os [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md). Há outras maneiras de enviar emails de um aplicativo Web, por exemplo, usando a configuração de SMTP fornecida pela estrutura da linguagem. No entanto, os Aplicativos Lógicos trazem muito mais recursos para seu aplicativo do Serviço de Aplicativo sem adicionar complexidade ao código. Os Aplicativos Lógicos fornecem uma interface de configuração simples para as integrações empresariais mais populares, as quais seu aplicativo pode chamar a qualquer momento com uma solicitação HTTP.
@@ -57,10 +57,10 @@ Implante um aplicativo com a estrutura de linguagem de sua escolha no Serviço d
 1. No [portal do Azure](https://portal.azure.com), crie um aplicativo lógico vazio seguindo as instruções em [Criar o aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app). Quando vir o **Designer de Aplicativos Lógicos**, volte para este tutorial.
 1. Na página inicial do Designer de Aplicativos Lógicos, selecione **Quando uma solicitação HTTP é recebida** em **Inicie com um gatilho comum**.
 
-    ![](./media/tutorial-send-email/receive-http-request.png)
+    ![Captura de tela que mostra a página inicial do Designer de Aplicativos Lógicos com Quando uma solicitação H T T P é recebida realçado.](./media/tutorial-send-email/receive-http-request.png)
 1. Na caixa de diálogo **Quando uma solicitação HTTP é recebida**, selecione **Use o conteúdo de amostra para gerar o esquema**.
 
-    ![](./media/tutorial-send-email/generate-schema-with-payload.png)
+    ![Captura de tela que mostra a caixa de diálogo Quando uma solicitação H T T P e a opção Usar o conteúdo de amostra para gerar o esquema selecionada. ](./media/tutorial-send-email/generate-schema-with-payload.png)
 
 1. Copie o JSON de exemplo a seguir na caixa de texto e selecione **Concluído**.
 
@@ -77,7 +77,7 @@ Implante um aplicativo com a estrutura de linguagem de sua escolha no Serviço d
 
     Agora, você pode ver a URL de seu gatilho de solicitação HTTP. Selecione o ícone de cópia para copiar a chave para uso posterior.
 
-    ![](./media/tutorial-send-email/http-request-url.png)
+    ![Captura de tela que realça o ícone de cópia para copiar a U R L do seu gatilho de solicitação H T T P.](./media/tutorial-send-email/http-request-url.png)
 
     Essa definição de solicitação HTTP é um gatilho para qualquer coisa que você queira fazer no aplicativo lógico, seja ele o Gmail ou qualquer outro. Posteriormente, você invocará essa URL em seu aplicativo do Serviço de Aplicativo. Para saber mais sobre o gatilho de solicitação, confira a [Referência de solicitação/resposta HTTP](../connectors/connectors-native-reqres.md).
 
@@ -87,18 +87,18 @@ Implante um aplicativo com a estrutura de linguagem de sua escolha no Serviço d
     > Você pode pesquisar outros tipos de integrações, como SendGrid, MailChimp, Office 365 e SalesForce. Para saber mais , confira a [Documentação dos Aplicativos Lógicos](https://docs.microsoft.com/azure/logic-apps/).
 1. Na caixa de diálogo **Gmail**, selecione **Entrar** e entre na conta do Gmail da qual deseja enviar o email.
 
-    ![](./media/tutorial-send-email/gmail-sign-in.png)
+    ![Captura de tela que mostra a caixa de diálogo do Gmail que você usa para entrar na conta do Gmail da qual você deseja enviar email.](./media/tutorial-send-email/gmail-sign-in.png)
 
 1. Depois de conectado, clique na caixa de texto **Para** e a caixa de diálogo de conteúdo dinâmico será aberta automaticamente.
 
 1. Ao lado da ação **Quando uma solicitação HTTP é recebida**, selecione **Ver mais**.
 
-    ![](./media/tutorial-send-email/expand-dynamic-content.png)
+    ![Captura de tela que mostra o botão Ver Mais ao lado da ação Quando uma solicitação H T T P é recebida.](./media/tutorial-send-email/expand-dynamic-content.png)
 
     Agora, você deve ver as três propriedades de seus dados JSON de exemplo usados anteriormente. Nesta etapa, você usa essas propriedades da solicitação HTTP para construir um email.
 1. Como você está selecionando o valor do campo **Para**, escolha **email**. Se quiser, desative a caixa de diálogo de conteúdo dinâmico clicando em **Adicionar conteúdo dinâmico**.
 
-    ![](./media/tutorial-send-email/hide-dynamic-content.png)
+    ![Captura de tela que mostra a opção de email e a opção Adicionar contenção dinâmica realçada.](./media/tutorial-send-email/hide-dynamic-content.png)
 
 1. Na lista suspensa **Adicionar novo parâmetro**, selecione **Assunto** e **Corpo**.
 
@@ -109,15 +109,15 @@ Implante um aplicativo com a estrutura de linguagem de sua escolha no Serviço d
     > [!TIP]
     > Se quiser editar o conteúdo HTML diretamente no corpo do email, selecione **Modo de exibição de código** na parte superior da janela do Designer de Aplicativos Lógicos. Lembre-se apenas de preservar o código de conteúdo dinâmico (por exemplo, `@{triggerBody()?['due']}`)
     >
-    > ![](./media/tutorial-send-email/edit-rich-html-email.png) 
+    > ![Captura de tela que mostra a exibição de código para ver o conteúdo HTML diretamente no corpo do email.](./media/tutorial-send-email/edit-rich-html-email.png) 
 
 1. Em seguida, adicione uma resposta HTTP assíncrona ao gatilho HTTP. Entre o gatilho HTTP e a ação do Gmail, clique no sinal **+** e selecione **Adicionar uma ramificação paralela**.
 
-    ![](./media/tutorial-send-email/add-http-response.png)
+    ![Captura de tela que mostra o sinal + e a opção Adicionar um branch paralelo realçada.](./media/tutorial-send-email/add-http-response.png)
 
 1. Na caixa de pesquisa, pesquise por **resposta** e, em seguida, selecione a ação **Resposta**.
 
-    ![](./media/tutorial-send-email/choose-response-action.png)
+    ![Captura de tela que mostra a barra de pesquisa e a ação Responder realçada.](./media/tutorial-send-email/choose-response-action.png)
 
     Por padrão, a ação de resposta envia um HTTP 200. Ele é bom o suficiente para este tutorial. Para saber mais , confira a [Referência de solicitação/resposta HTTP](../connectors/connectors-native-reqres.md).
 
@@ -127,7 +127,7 @@ Implante um aplicativo com a estrutura de linguagem de sua escolha no Serviço d
 
 Verifique se você copiou a URL do gatilho de solicitação HTTP anterior. Como ela contém informações confidenciais, é uma melhor prática não a colocar diretamente no código. Com o Serviço de Aplicativo, você pode fazer referência a ela como uma variável de ambiente, usando as configurações do aplicativo. 
 
-No [Cloud Shell](https://shell.azure.com), crie a configuração do aplicativo com o seguinte comando (substitua *\<app-name>* , *\<resource-group-name>* e *\<logic-app-url>* ):
+No [Cloud Shell](https://shell.azure.com), crie a configuração de aplicativo com o seguinte comando (substitua *\<app-name>* , *\<resource-group-name>* e *\<logic-app-url>* ):
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings LOGIC_APP_URL="<your-logic-app-url>"

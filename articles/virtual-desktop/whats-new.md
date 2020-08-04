@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
-ms.openlocfilehash: 7052e9203532320a7de5197e983d40cb0a34b50d
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 9be1053600ab89a7879a04a7c08a44ddf3bc862a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374773"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291242"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>O que há de novo na Área de Trabalho Virtual do Windows?
 
@@ -29,7 +29,7 @@ Este artigo é atualizado mensalmente. Volte a consultá-lo com frequência para
 
 ## <a name="june-2020"></a>Junho de 2020
 
-No mês passado, apresentamos a atualização da Área de Trabalho Virtual do Windows Spring 2020 em versão prévia. Essa atualização tem muitos recursos novos incríveis que adoraríamos apresentar. Aqui estão as novidades na atualização Spring 2020.
+No mês passado, introduzimos a Área de Trabalho Virtual do Windows com integração do Azure Resource Manager em versão prévia. Essa atualização tem muitos recursos novos incríveis que adoraríamos apresentar. Aqui estão as novidades dessa versão da Área de Trabalho Virtual do Windows.
 
 ### <a name="windows-virtual-desktop-is-now-integrated-with-azure-resource-manager-preview"></a>A Área de Trabalho Virtual do Windows agora está integrada ao Azure Resource Manager (versão prévia)
 
@@ -39,22 +39,22 @@ Isto é o que essa alteração faz para você:
 
 - A Área de Trabalho Virtual do Windows agora está integrada ao portal do Azure. Isso significa que você pode gerenciar tudo diretamente no portal, sem o PowerShell, aplicativos Web ou ferramentas de terceiros. Para começar, confira nosso tutorial em [Criar um pool de host com o portal do Azure](create-host-pools-azure-marketplace.md).
 
-- Antes da atualização Spring 2020, você só podia publicar RemoteApps e Desktops para usuários individuais. Com o Azure Resource Manager, agora você pode publicar recursos em grupos do Azure Active Directory.
+- Antes dessa atualização, você só podia publicar RemoteApps e Desktops para usuários individuais. Com o Azure Resource Manager, agora você pode publicar recursos em grupos do Azure Active Directory.
 
 - A versão anterior da Área de Trabalho Virtual do Windows tinha quatro funções de administrador internas que você podia atribuir a um locatário ou a um pool de host. Essas funções agora estão no [controle de acesso baseado em função](../role-based-access-control/overview.md) do Azure. Você pode aplicar essas funções a cada objeto do Azure Resource Manager da Área de Trabalho Virtual do Windows, o que lhe permite ter um modelo de delegação completo e avançado.
 
-- Na atualização Spring 2020, você não precisa mais executar o Azure Marketplace nem o modelo do GitHub repetidamente para expandir um pool de host. Para expandir um pool de host, basta acessá-lo no portal do Azure e selecionar **+ Adicionar** para implantar hosts de sessão adicionais.
+- Nessa atualização, você não precisa mais executar o Azure Marketplace nem o modelo do GitHub repetidamente para expandir um pool de host. Para expandir um pool de host, basta acessá-lo no portal do Azure e selecionar **+ Adicionar** para implantar hosts de sessão adicionais.
 
 - A implantação do pool de host agora está totalmente integrada à [Galeria de Imagens Compartilhadas do Azure](../virtual-machines/windows/shared-image-galleries.md). A Galeria de Imagens Compartilhadas é um serviço do Azure separado que armazena definições de imagem de VM (máquina virtual), incluindo o controle de versão de imagem. Você também pode usar a replicação global para copiar e enviar suas imagens para outras regiões do Azure para implantação local.
 
 - As funções de monitoramento que costumavam ser feitas por meio do PowerShell ou do aplicativo Web do Serviço de Diagnóstico agora foram movidas para Log Analytics no portal do Azure. Agora, você também tem duas opções para visualizar seus relatórios. Você pode executar consultas do Kusto e usar Pastas de Trabalho para criar relatórios visuais.
 
-- Não é mais necessário o consentimento completo do Azure Active Directory (Azure AD) para usar a Área de Trabalho Virtual do Windows. Na atualização Spring 2020, o locatário do Azure AD na sua assinatura do Azure autentica os usuários e fornece controles RBAC para seus administradores.
+- Não é mais necessário o consentimento completo do Azure Active Directory (Azure AD) para usar a Área de Trabalho Virtual do Windows. Nessa atualização, o locatário do Azure AD na sua assinatura do Azure autentica os usuários e fornece controles RBAC para seus administradores.
 
 
 ### <a name="powershell-support"></a>Suporte ao PowerShell
 
-Adicionamos novos cmdlets AzWvd ao módulo Azure PowerShell Az com a atualização Spring 2020. Esse novo módulo tem suporte no PowerShell Core, que é executado no .NET Core.
+Adicionamos novos cmdlets AzWvd ao módulo AZ do Azure PowerShell com essa atualização. Esse novo módulo tem suporte no PowerShell Core, que é executado no .NET Core.
 
 Para instalar o módulo, siga as instruções em [Configurar o módulo do PowerShell para a Área de Trabalho Virtual do Windows](powershell-module.md).
 

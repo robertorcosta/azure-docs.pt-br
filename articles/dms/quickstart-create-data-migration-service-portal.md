@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 01/08/2020
-ms.openlocfilehash: 7d27d67cfa46eb4554f6ca3d66df76e393b18da0
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 07/21/2020
+ms.openlocfilehash: 0dd150909a56aafdd2005f2d68a12d32a1e8fae4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84187534"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087774"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Início Rápido: Crie uma instância do Serviço de Migração de Banco de Dados do Azure usando o Portal do Azure
 
@@ -30,6 +30,9 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 Abra seu navegador da Web, navegue até o [portal do Microsoft Azure](https://portal.azure.com/) e insira suas credenciais para entrar no portal.
 
 A exibição padrão é o painel de serviço.
+
+> [!NOTE]
+> É possível criar até 10 instâncias de DMS por assinatura. Se você precisar de um número maior de instâncias, crie um tíquete de suporte.
 
 ## <a name="register-the-resource-provider"></a>Registre o provedor de recursos
 

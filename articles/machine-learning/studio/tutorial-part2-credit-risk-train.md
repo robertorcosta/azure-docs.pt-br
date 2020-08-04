@@ -1,6 +1,5 @@
 ---
-title: 'Tutorial 2: Treinar modelos de risco de crédito'
-titleSuffix: ML Studio (classic) - Azure
+title: 'Tutorial 2 do ML Studio (clássico): Treinar modelos de risco de crédito – Azure'
 description: Um tutorial detalhado que mostra como criar uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning Studio (clássico). Este tutorial é a segunda parte de uma série de tutoriais de três partes. Ele mostra como treinar e avaliar modelos.
 keywords: risco de crédito, solução de análise preditiva, avaliação de riscos
 author: sdgilley
@@ -10,16 +9,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 8feca17f10bb891f0ca5577b2363f95901da4a46
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c88a7e2a74d4ad7b9ee353b24c46e36d4365db5e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79217864"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324872"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Tutorial 2: treinar modelos de risco de crédito – Azure Machine Learning Studio (clássico)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**APLICA-SE AO:** ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico) 
+
 
 Neste tutorial, você analisará de maneira aprofundada o processo de desenvolvimento de uma solução de análise preditiva. Você desenvolverá um modelo simples no Machine Learning Studio (clássico).  Em seguida, você implantará o modelo como um serviço Web do Azure Machine Learning.  Esse modelo implantado pode fazer previsões usando novos dados. Este tutorial é a **segunda parte de uma série de tutoriais de três partes**.
 
@@ -65,14 +65,14 @@ Primeiro, configure o modelo de árvore de decisão aumentada.
 
 1. Localize o módulo [Árvore de Decisão Aumentada de Duas Classes][two-class-boosted-decision-tree] na paleta do módulo e arraste-o para a tela.
 
-1. Localize o módulo [Treinar Modelo][train-model], arraste-o para a tela e, em seguida, conecte a saída do módulo [Árvore de Decisão Aumentada de Duas Classes][two-class-boosted-decision-tree] à porta de entrada esquerda do módulo [Treinar Modelo][train-model].
+1. Localize o módulo [Modelo de Treinamento][train-model], arraste-o até a tela e depois conecte a saída do módulo [Árvore de Decisão Aumentada de Duas Classes][two-class-boosted-decision-tree] à porta de entrada esquerda do módulo [Modelo de Treinamento][train-model].
    
    O módulo [Árvore de Decisão Aumentada de Duas Classes][two-class-boosted-decision-tree] inicializa o modelo genérico e o [Treinar Modelo][train-model] usa os dados de treinamento para treinar o modelo. 
 
 1. Conecte a saída esquerda do módulo esquerdo [Executar Script R][execute-r-script] à porta de entrada direita do módulo [Treinar Modelo][train-model] (neste tutorial, você [usou os dados provenientes do lado esquerdo](#train) do módulo Dividir Dados para o treinamento).
    
    > [!TIP]
-   > Você não precisará de duas das entradas e uma das saídas do módulo [Executar Script R][execute-r-script] para este experimento, portanto, poderá deixá-las desanexadas. 
+   > Você não precisará de duas das entradas e uma das saídas do módulo [Executar Script R][execute-r-script] para este experimento e, portanto, poderá deixá-las desanexadas. 
    > 
    > 
 
@@ -183,7 +183,7 @@ Para verificar os resultados, clique na porta de saída do módulo [Modelo de Av
 
 O módulo [Modelo de Avaliação][evaluate-model] produz um par de curvas e métricas que lhe permitem comparar os resultados dos dois modelos pontuados. Você pode exibir os resultados como curvas ROC (Receiver Operator Characteristic), curvas de Precisão/Repetição, ou curvas de Elevação. Os dados adicionais exibidos incluem uma matriz de confusão, valores cumulativos para a área sob a curva (AUC) e outras métricas. Você pode alterar o valor de limite movendo o controle deslizante para esquerda ou direita e vendo como isso afeta o conjunto de métricas.  
 
-À direita do gráfico, clique em **Conjunto de dados pontuados** ou **Conjunto de dados pontuados para comparar** para destacar a curva associada e exibir as métricas associadas abaixo. Na legenda das curvas, "Conjunto de dados pontuados" corresponde à porta de entrada esquerda do módulo [Modelo de Avaliação][evaluate-model] – em nosso caso, esse é o modelo de árvore de decisão aumentada. O "Conjunto de dados pontuados para comparar" corresponde à porta de entrada direita - o modelo SVM em nosso caso. Ao clicar em um desses rótulos, a curva desse modelo será destacada e exibirá as métricas correspondentes, como demonstrado no gráfico a seguir.  
+À direita do gráfico, clique em **Conjunto de dados pontuados** ou **Conjunto de dados pontuados para comparar** para destacar a curva associada e exibir as métricas associadas abaixo. Na legenda das curvas, "Conjunto de dados pontuados" corresponde à porta de entrada esquerda do módulo [Modelo de Avaliação][evaluate-model] - em nosso caso, esse é o modelo de árvore de decisão aumentada. O "Conjunto de dados pontuados para comparar" corresponde à porta de entrada direita - o modelo SVM em nosso caso. Ao clicar em um desses rótulos, a curva desse modelo será destacada e exibirá as métricas correspondentes, como demonstrado no gráfico a seguir.  
 
 ![Curvas ROC dos modelos](./media/tutorial-part2-credit-risk-train/roc-curves.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao F5 | Microsoft Docs'
+title: 'Tutorial: Integração do logon único do Azure Active Directory ao F5 | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o F5.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fc56fe040528df5b4bd5e9217bd614c4a640c15
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 3e9a112f3f8cb7ba22201f4e5f05f21af30df039
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85608040"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018569"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao F5
+# <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>Tutorial: Integração do SSO (logon único) do Azure AD (Active Directory) ao F5
 
 Neste tutorial, você aprenderá a integrar o F5 ao Azure AD (Azure Active Directory). Ao integrar o F5 ao Azure AD, você poderá:
 

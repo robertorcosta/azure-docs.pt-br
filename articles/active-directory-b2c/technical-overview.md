@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 08c7a5b977534e6c2852f8095ce14c44bda71bf1
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 15b96a8bb5460064d6f50f81809f7e3850b30a4c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331527"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281915"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Visão geral técnica e de recursos do Azure Active Directory B2C
 
@@ -75,7 +75,7 @@ Você pode configurar o Azure AD B2C para permitir que os usuários entrem em se
 
 Com a federação do provedor de identidade externa, você pode oferecer aos consumidores a capacidade de entrar com suas contas sociais ou empresariais existentes, sem precisar criar uma conta apenas para seu aplicativo.
 
-Na página de inscrição ou de entrada, o Azure AD B2C apresenta uma lista de provedores de identidade externos que o usuário pode escolher para entrar. Depois de selecionar um dos provedores de identidade externos, o usuário é redirecionado para o site do provedor selecionado para concluir o processo de entrada. Depois que o usuário entrar com êxito, ele será retornado para o Azure AD B2C para autenticação da conta em seu aplicativo.
+Na página de inscrição ou de entrada, o Azure AD B2C apresenta uma lista de provedores de identidade externos que o usuário pode escolher para entrar. Depois de selecionar um dos provedores de identidade externos, o usuário é redirecionado para o site do provedor selecionado para concluir o processo de entrada. Depois de entrar com êxito, o usuário será levado de volta para o Azure AD B2C para autenticação da conta em seu aplicativo.
 
 ![Exemplo de entrada móvel com uma conta social (Facebook)](media/technical-overview/external-idp.png)
 

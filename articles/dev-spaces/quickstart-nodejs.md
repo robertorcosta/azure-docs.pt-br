@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Este início rápido mostra como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente um aplicativo Node.js no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 18171a2f8d13bfcf3df76b1453c39c59cab89d7c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 370d49b5287a4d5beafc8c2cc5d8f48c269715db
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80240193"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006937"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>Início Rápido: Depurar e iterar no Kubernetes com o Visual Studio Code e o Node.js no Kubernetes – Azure Dev Spaces
 
@@ -108,7 +108,7 @@ Selecione **Depurar** e, em seguida, **Parar Depuração** para interromper o de
 
 ## <a name="update-code"></a>Atualizar código
 
-Para implantar uma versão atualizada do serviço, atualize qualquer arquivo no projeto e execute **Iniciar Servidor** novamente. Por exemplo: 
+Para implantar uma versão atualizada do serviço, atualize qualquer arquivo no projeto e execute **Iniciar Servidor** novamente. Por exemplo:
 
 1. Se o aplicativo ainda estiver em execução, selecione **Depurar** e, em seguida, **Parar Depuração** para interrompê-lo.
 1. Atualize a [linha 13 em `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) para:
@@ -140,13 +140,13 @@ Selecione **Depurar** e, em seguida, **Parar Depuração** para interromper o de
 
 Altere o modo de depuração para **Anexar a um Servidor (AZDS)** e inicie o serviço:
 
-![](media/get-started-node/attach-nodejs.png)
+![Captura de tela da interface do usuário do VS Code com a opção Anexar ao Servidor (AZDS) selecionada.](media/get-started-node/attach-nodejs.png)
 
 Este comando compila e executa o serviço no Azure Dev Spaces. E também inicia um processo [nodemon](https://nodemon.io) no contêiner do seu serviço e anexa o VS Code a ele. O processo *nodemon* permite reinícios automáticos quando são feitas alterações no código-fonte, possibilitando o desenvolvimento de loop interno mais rápido, semelhante ao desenvolvimento em seu computador local.
 
 Depois que o serviço é iniciado, navegue até ele usando o navegador e interaja com ele.
 
-Enquanto o serviço está em execução, retorne ao VS Code e atualize a linha 13 em *server.js*. Por exemplo: 
+Enquanto o serviço está em execução, retorne ao VS Code e atualize a linha 13 em *server.js*. Por exemplo:
 ```javascript
     res.send('Hello from webfrontend in Azure while debugging!');
 ```

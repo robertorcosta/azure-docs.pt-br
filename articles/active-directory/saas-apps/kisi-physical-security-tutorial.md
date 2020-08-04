@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 556fd1f9fe4ba5753d882fa81c6d5a89051bcd91
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 65062b886000a9a0e19dec7d72bf27ab1e1790eb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85604957"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87016914"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kisi-physical-security"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Kisi Physical Security
 
@@ -46,7 +46,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 * O Kisi Physical Security dá suporte ao SSO iniciado por **SP e IDP**
 * O Kisi Physical Security dá suporte ao provisionamento de usuário **Just-In-Time**
 
-* Depois de configurar o Kisi Physical Security, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Depois de configurar o Kisi Physical Security, será possível impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-kisi-physical-security-from-the-gallery"></a>Adicionar o Kisi Physical Security por meio da galeria
 
@@ -85,9 +85,12 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP**, digite os valores dos seguintes campos:
 
-    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://identity.kms.kisi.io/saml/<DOMAIN>`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://api.kisi.io/saml/metadata`
 
-    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://identity.kms.kisi.io/saml/<DOMAIN>`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://api.kisi.io/saml/consume/<DOMAIN>`
+
+    > [!NOTE] 
+    > `DOMAIN` é um identificador alfanumérico em minúsculas atribuído à organização pela Kisi; **não** é o mesmo que o nome de domínio DNS da organização.*
 
 1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
@@ -101,7 +104,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     ![image](common/default-attributes.png)
 
 1. Além do indicado acima, o aplicativo Kisi Physical Security espera que mais alguns atributos sejam passados novamente na resposta SAML, os quais são mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
-    
+
     | Nome | Atributo de Origem|
     | ---------------| --------- |
     | Nome | user.givenname |
@@ -119,7 +122,7 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B.F
 1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
 1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome**, insira `B.Simon`.
    1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
@@ -150,7 +153,7 @@ Para configurar o logon único no lado do **Kisi Physical Security**, é necess�
 
 Nesta seção, um usuário chamado Brenda Fernandes será criado no Kisi Physical Security. O Kisi Physical Security dá suporte ao provisionamento de usuário Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no Kisi Physical Security, um será criado após a autenticação.
 
-## <a name="test-sso"></a>Testar o SSO 
+## <a name="test-sso"></a>Testar o SSO
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 

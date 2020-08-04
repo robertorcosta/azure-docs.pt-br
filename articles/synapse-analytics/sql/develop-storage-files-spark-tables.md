@@ -1,5 +1,5 @@
 ---
-title: Sincronizar definições de tabela externa do Apache Spark para o Azure Synapse no SQL sob demanda (versão prévia)
+title: Sincronizar o Apache Spark para definições de tabela externa no SQL sob demanda (versão prévia)
 description: Visão geral de como consultar tabelas do Spark usando o SQL sob demanda (versão prévia)
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: db6b2d95bf8f38495296885d14260b9900af1d51
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3e9f688a31d2847505e974ab6a1557aa6a7b2047
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247039"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046850"
 ---
 # <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-sql-on-demand-preview"></a>Sincronizar definições de tabela externa do Apache Spark para o Azure Synapse no SQL sob demanda (versão prévia)
 
@@ -22,7 +22,7 @@ O SQL sob demanda (versão prévia) pode sincronizar automaticamente metadados d
 
 Para cada tabela externa do Spark baseada em Parquet e localizada no Armazenamento do Azure, uma tabela externa é criada no banco de dados do SQL sob demanda. Assim, você pode desligar seus pools do Spark e ainda consultar tabelas externas do Spark no SQL sob demanda.
 
-Quando uma tabela é particionada no Spark, os arquivos do armazenamento são organizados por pastas. O SQL sob demanda utilizará metadados de partição e apenas terá como destino pastas e arquivos relevantes para a consulta.
+Quando uma tabela é particionada no Spark, os arquivos do armazenamento são organizados por pastas. O SQL sob demanda usará metadados de partição e apenas terá como destino pastas e arquivos relevantes para a consulta.
 
 A sincronização de metadados é configurada automaticamente para cada Pool do Spark provisionado no workspace do Azure Synapse. Você pode começar a consultar as tabelas externas do Spark instantaneamente.
 
@@ -35,14 +35,14 @@ SELECT * FROM [db].dbo.[spark_table]
 ```
 
 > [!NOTE]
-> Adicionar, remover ou alterar a coluna de tabela externa do Spark não refletirá na tabela externa no SQL sob demanda.
+> Adicionar, remover ou alterar os comandos de tabela externa do Spark para uma coluna não refletirá na tabela externa no SQL sob demanda.
 
 ## <a name="apache-spark-data-types-to-sql-data-types-mapping"></a>Mapeamento de tipos de dados do Apache Spark para tipos de dados SQL
 
 | Tipo de dados do Spark | Tipo de dados SQL               |
 | --------------- | --------------------------- |
 | ByteType        | SMALLINT                    |
-| ShortType       | SMALLINT                    |
+| Tipo curto       | SMALLINT                    |
 | IntegerType     | INT                         |
 | LongType        | BIGINT                      |
 | FloatType       | real                        |

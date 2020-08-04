@@ -6,12 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
-ms.openlocfilehash: b9300845f6bc62d8ed90c2dc87efb626efae05bb
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.custom: devx-track-java
+ms.openlocfilehash: 2b68c4857d3d688c42779be9b5f5fa6e43e0403e
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224903"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116901"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Tutorial: Usar uma identidade gerenciada para conectar o Key Vault a um aplicativo do Azure Spring Cloud
 
@@ -97,7 +98,7 @@ Este aplicativo terá acesso para obter segredos do Azure Key Vault. Usar o apli
     azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
     ```
     > [!Note] 
-    > É necessário adicionar a URL do Key Vault em `application.properties`, conforme mostrado acima. Caso contrário, a URL do Key Vault pode não ser capturada durante o runtime.
+    > É necessário adicionar a URL do cofre de chaves em `application.properties`, conforme mostrado acima. Caso contrário, a URL do Key Vault pode não ser capturada durante o runtime.
 
 3. Adicione o exemplo de código a src/main/java/com/example/demo/DemoApplication.java. Ele recupera a cadeia de conexão do Key Vault. 
 

@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 05a3fc7524b16033c48170b6cf0fa4e004c9eb9b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 45b535db9fccb41542ee74cb28845d49211e16ec
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257994"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281048"
 ---
 # <a name="what-is-azure-digital-twins"></a>O que são Gêmeos Digitais do Azure?
 
-Os **Gêmeos Digitais do Azure** são uma plataforma IoT que permite a criação de modelos digitais abrangentes para ambientes inteiros. Esses ambientes podem ser edifícios, fábricas, fazendas, redes de energia, ferrovias, estádios e muito mais – até mesmo cidades inteiras. Esses modelos digitais podem ser usados para obter insights que impulsionam melhores produtos, operações otimizadas, custos reduzidos e experiências de clientes inovadoras.
+Os **Gêmeos Digitais do Azure** são uma oferta de PaaS (plataforma como serviço) que permite a criação de modelos digitais abrangentes de ambientes inteiros. Esses ambientes podem ser edifícios, fábricas, fazendas, redes de energia, ferrovias, estádios e muito mais – até mesmo cidades inteiras. Esses modelos digitais podem ser usados para obter insights que impulsionam melhores produtos, operações otimizadas, custos reduzidos e experiências de clientes inovadoras.
 
 Aproveite o seu conhecimento de domínio sobre os Gêmeos Digitais do Azure para criar soluções conectadas e personalizadas que:
 * Modelem qualquer ambiente e deem vida aos Gêmeos Digitais de maneira escalonável e segura
@@ -44,7 +44,7 @@ A DTDL é usada para modelos de dados em todos os outros serviços de IoT do Azu
 
 Os modelos digitais dos Gêmeos Digitais do Azure são representações ao vivo e atualizadas do mundo real. Usando as relações dos modelos DTDL personalizados, você conectará os gêmeos a um **grafo ao vivo** que representa o seu ambiente.
 
-Você pode exibir uma visualização do seu grafo de Gêmeos Digitais do Azure com a ajuda de um aplicativo de exemplo, o [**Explorador dos Gêmeos Digitais do Azure**](https://github.com/Azure-Samples/digital-twins-explorer).
+Você pode exibir uma visualização do seu grafo de Gêmeos Digitais do Azure com a ajuda de um aplicativo de exemplo, o [**Explorador dos Gêmeos Digitais do Azure**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 Veja abaixo qual é a aparência da visualização de exemplo:
 
@@ -94,16 +94,16 @@ O diagrama a seguir mostra onde se situam os Gêmeos Digitais do Azure no contex
 
 > [!IMPORTANT]
 > No momento, os Gêmeos Digitais do Azure estão em versão prévia pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para saber mais, confira os [*Termos de uso complementares das versões prévias do Microsoft Azure*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Para ver uma lista de limitações dos Gêmeos Digitais do Azure durante a versão prévia pública, confira [Referência: limites de serviço da versão prévia pública](reference-service-limits.md).
+Para ver uma lista das limitações dos Gêmeos Digitais do Azure durante a versão prévia pública, confira [*Referência: limites de serviço da versão prévia pública*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Se você trabalhou com a versão prévia anterior dos Gêmeos Digitais do Azure, saiba o que mudou:
-* [Visão geral: Diferenças da versão anterior](overview-differences.md)
+* [*Visão geral: diferenças da versão anterior*](overview-differences.md)
 
 Ou aprofunde-se no trabalho com os Gêmeos Digitais do Azure por meio do primeiro tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Codificar um aplicativo cliente](tutorial-code.md)
+> [*Tutorial: Codificar um aplicativo cliente*](tutorial-code.md)

@@ -1,31 +1,31 @@
 ---
 title: 'Tutorial: Criar um ambiente – Azure Time Series Insights | Microsoft Docs'
-description: Saiba como criar um ambiente do Time Series Insights populado com os dados de dispositivos simulados.
+description: Saiba como criar um ambiente do Azure Time Series Insights populado com os dados de dispositivos simulados.
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 04/27/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 47cee660114ba0b19b952015b1fecff8c85d2c25
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9f74be239bee1d6da3dfdb516c4fc410669e338d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189208"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020644"
 ---
-# <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Tutorial: Criar um ambiente do Azure Time Series Insights
+# <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Tutorial: Criar um ambiente do Azure Time Series Insights Gen1
 
 Este tutorial orientará você pelo processo de criação de um ambiente do Azure Time Series Insights populado com os dados de dispositivos simulados. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 >
-> * Crie um ambiente do Time Series Insights.
+> * Criar um ambiente do Azure Time Series Insights.
 > * Criar uma solução de simulação de dispositivo que contém um hub IoT.
-> * Conectar o ambiente do Time Series Insights ao hub IoT.
-> * Executar uma simulação de dispositivo para transmitir dados para o ambiente do Time Series Insights.
+> * Conectar o ambiente do Azure Time Series Insights ao hub IoT.
+> * Executar uma simulação de dispositivo para transmitir dados para o ambiente do Azure Time Series Insights.
 > * Verificar os dados telemétricos simulados.
 
 > [!IMPORTANT]
@@ -37,13 +37,13 @@ Este tutorial orientará você pelo processo de criação de um ambiente do Azur
 
 ## <a name="review-video"></a>Ver um vídeo
 
-### <a name="learn-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-and-get-started-with-time-series-insights-br"></a>Saiba como usar um acelerador de solução de IoT do Azure para gerar dados e começar a usar o Time Series Insights. </br>
+### <a name="learn-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-and-get-started-with-azure-time-series-insights-br"></a>Saiba como usar um acelerador de solução de IoT do Azure para gerar dados e começar a usar o Azure Time Series Insights. </br>
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
 
 ## <a name="overview"></a>Visão geral
 
-O ambiente do Time Series Insights é o local em que os dados do dispositivo são coletados e armazenados. Uma vez armazenados, o [Gerenciador do Azure Time Series Insights](time-series-quickstart.md) e a [API de Consulta do Time Series Insights](/rest/api/time-series-insights/ga-query-api) poderão ser usados para consultar e analisar os dados.
+O ambiente do Azure Time Series Insights é o local em que os dados do dispositivo são coletados e armazenados. Uma vez armazenados, o [Gerenciador do Azure Time Series Insights](time-series-quickstart.md) e a [API de Consulta do Azure Time Series Insights](/rest/api/time-series-insights/ga-query-api) poderão ser usados para consultar e analisar os dados.
 
 O Hub IoT do Azure é a origem do evento usada por todos os dispositivos (simulados ou físicos) no tutorial para conectar e transmitir com segurança os dados à sua nuvem do Azure.
 
@@ -54,7 +54,7 @@ Este tutorial também usa um [acelerador de solução de IoT](https://www.azurei
 
 ## <a name="create-a-device-simulation"></a>Criar uma simulação de dispositivo
 
-Primeiramente, crie a solução de simulação de dispositivo que gera dados de teste para popular o ambiente do Time Series Insights.
+Primeiramente, crie a solução de simulação de dispositivo que gera dados de teste para popular o ambiente do Azure Time Series Insights.
 
 1. Em uma janela ou uma guia separada, acesse [azureiotsolutions.com](https://www.azureiotsolutions.com). Entre usando a mesma conta de assinatura do Azure e selecione o acelerador de **Simulação de Dispositivo**.
 
@@ -65,9 +65,9 @@ Primeiramente, crie a solução de simulação de dispositivo que gera dados de 
    Parâmetro|Descrição
    ---|---
    **Nome da implantação** | Esse valor exclusivo é usado para criar um grupo de recursos. Os recursos do Azure listados são criados e atribuídos ao grupo de recursos.
-   **Assinatura do Azure** | Especifique a mesma assinatura usada para criar o ambiente do Time Series Insights na seção anterior.
+   **Assinatura do Azure** | Especifique a mesma assinatura usada para criar o ambiente do Azure Time Series Insights na seção anterior.
    **Opções de implantação** | Selecione **Provisionar novo Hub IoT** de modo a criar um novo hub IoT específico para este tutorial.
-   **Localização do Azure** | Especifique a mesma região usada para criar o ambiente do Time Series Insights na seção anterior.
+   **Localização do Azure** | Especifique a mesma região usada para criar o ambiente do Azure Time Series Insights na seção anterior.
 
    Quando terminar, selecione **Criar** para provisionar os recursos do Azure da solução. Esse processo pode levar até 20 minutos para ser concluído.
 
@@ -86,42 +86,42 @@ Primeiramente, crie a solução de simulação de dispositivo que gera dados de 
 
 ## <a name="create-an-environment"></a>Criar um ambiente
 
-Em segundo lugar, crie um ambiente do Time Series Insights em sua assinatura do Azure.
+Em segundo lugar, crie um ambiente do Azure Time Series Insights em sua assinatura do Azure.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando sua conta da assinatura do Azure.
 1. Selecione **+ Criar um recurso** no canto superior esquerdo.
 1. Selecione a categoria **Internet das Coisas** e depois selecione **Time Series Insights**.
 
-   [![Selecione o recurso de ambiente Time Series Insights](media/tutorial-create-populate-tsi-environment/tsi-create-new-environment.png)](media/tutorial-create-populate-tsi-environment/tsi-create-new-environment.png#lightbox)
+   [![Selecione o recurso de ambiente do Azure Time Series Insights](media/tutorial-create-populate-tsi-environment/tsi-create-new-environment.png)](media/tutorial-create-populate-tsi-environment/tsi-create-new-environment.png#lightbox)
 
 1. Na página **Ambiente do Time Series Insights**, preencha os parâmetros necessários.
 
    Parâmetro|Descrição
    ---|---
-   **Nome do ambiente** | Escolha um nome exclusivo para o ambiente do Time Series Insights. Os nomes são usados pelo gerenciador do Time Series Insights e pelas [APIs de Consulta](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
-   **Assinatura** | As assinaturas são contêineres para recursos do Azure. Escolha uma assinatura para criar o ambiente do Time Series Insights.
-   **Grupo de recursos** | Um grupo de recursos é um contêiner para os recursos do Azure. Escolha um grupo de recursos existente ou crie um novo para o recurso de ambiente do Time Series Insights.
-   **Localidade** | Escolha uma região do data center para o seu ambiente do Time Series Insights. Para evitar latência adicional, crie o ambiente do Time Series Insights na mesma região que outros recursos de IoT.
+   **Nome do ambiente** | Escolha um nome exclusivo para o ambiente do Azure Time Series Insights. Os nomes são usados pelo Gerenciador do Azure Time Series Insights e pelas [APIs de Consulta](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
+   **Assinatura** | As assinaturas são contêineres para recursos do Azure. Escolha uma assinatura para criar o ambiente do Azure Time Series Insights.
+   **Grupo de recursos** | Um grupo de recursos é um contêiner para os recursos do Azure. Escolha um grupo de recursos existente ou crie um para o recurso de ambiente do Azure Time Series Insights.
+   **Localidade** | Escolha uma região do data center para o seu ambiente do Azure Time Series Insights. Para evitar latência adicional, crie o ambiente do Azure Time Series Insights na mesma região que outros recursos de IoT.
    **Camada** | Escolha a taxa de transferência necessária. Selecione **S1**.
    **Capacidade** | A capacidade é o multiplicador aplicado à taxa de entrada e à capacidade de armazenamento associada à SKU selecionada. Você pode alterar a capacidade após a criação. Selecione uma capacidade de **1**.
 
    Quando terminar, selecione **Avançar: Origem do evento** para prosseguir para a próxima etapa.
 
-   [![Criar um recurso do ambiente do Time Series Insights](media/tutorial-create-populate-tsi-environment/tsi-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/tsi-create-resource-tsi-params.png#lightbox)
+   [![Criar um recurso do ambiente do Azure Time Series Insights](media/tutorial-create-populate-tsi-environment/tsi-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/tsi-create-resource-tsi-params.png#lightbox)
 
-1. Agora, conecte o ambiente do Time Series Insights ao hub IoT criado pelo Acelerador de Solução. Defina **Selecionar um hub** como `Select existing`. Em seguida, escolha o hub IoT criado pelo Acelerador de Solução ao definir **Nome do Hub IoT**.
+1. Agora, conecte o ambiente do Azure Time Series Insights ao hub IoT criado pelo Acelerador de Solução. Defina **Selecionar um hub** como `Select existing`. Em seguida, escolha o hub IoT criado pelo Acelerador de Solução ao definir **Nome do Hub IoT**.
 
-   [![Conectar o ambiente do Time Series Insights ao hub IoT criado](media/tutorial-create-populate-tsi-environment/tsi-create-resource-iot-hub.png)](media/tutorial-create-populate-tsi-environment/tsi-create-resource-iot-hub.png#lightbox)
+   [![Conectar o ambiente do Azure Time Series Insights ao hub IoT criado](media/tutorial-create-populate-tsi-environment/tsi-create-resource-iot-hub.png)](media/tutorial-create-populate-tsi-environment/tsi-create-resource-iot-hub.png#lightbox)
 
    Por fim, selecione **Examinar + criar**.
 
 1. Verifique o painel **Notificações** para monitorar a conclusão da implantação.
 
-   [![Implantação do ambiente do Time Series Insights bem-sucedida](media/tutorial-create-populate-tsi-environment/create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/create-resource-tsi-deployment-succeeded.png#lightbox)
+   [![Implantação do ambiente do Azure Time Series Insights bem-sucedida](media/tutorial-create-populate-tsi-environment/create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/create-resource-tsi-deployment-succeeded.png#lightbox)
 
 ## <a name="run-device-simulation"></a>Executar simulação de dispositivo
 
-Agora que a implantação e a configuração inicial foram concluídas, popule o ambiente do Time Series Insights com dados de exemplo dos [dispositivos simulados criados pelo acelerador](#create-a-device-simulation).
+Agora que a implantação e a configuração inicial foram concluídas, popule o ambiente do Azure Time Series Insights com os dados de exemplo dos [dispositivos simulados criados pelo acelerador](#create-a-device-simulation).
 
 Com o hub IoT, um aplicativo Web do Serviço de Aplicativo do Azure foi gerado para criar e transmitir a telemetria do dispositivo simulado.
 
@@ -153,35 +153,35 @@ Com o hub IoT, um aplicativo Web do Serviço de Aplicativo do Azure foi gerado p
 
 ## <a name="verify-the-telemetry-data"></a>Verificar os dados telemétricos
 
-Nesta seção final, verifique se os dados telemétricos foram gerados e armazenados no ambiente do Time Series Insights. Para verificar os dados, use o explorer do Time Series Insights, que é usado para consultar e analisar dados telemétricos.
+Nesta seção final, verifique se os dados telemétricos foram gerados e armazenados no ambiente do Azure Time Series Insights. Para verificar os dados, use o Gerenciador do Azure Time Series Insights, que é usado para consultar e analisar dados telemétricos.
 
-1. Retorne à página **Visão geral** do grupo de recursos do ambiente do Time Series Insights. Selecione o ambiente do Time Series Insights.
+1. Retorne à página **Visão geral** do grupo de recursos do ambiente do Azure Time Series Insights. Selecione o ambiente do Azure Time Series Insights.
 
-   [![Ambiente e grupo de recursos do ambiente do Time Series Insights](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png#lightbox)
+   [![Ambiente e grupo de recursos do ambiente do Azure Time Series Insights](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png#lightbox)
 
-1. Na página **Visão geral** do ambiente do Time Series Insights, selecione **URL do Gerenciador do Time Series Insights** para abrir o Gerenciador do Time Series Insights.
+1. Na página **Visão geral** do ambiente do Azure Time Series Insights, selecione a **URL do Gerenciador do Time Series Insights** para abrir o Gerenciador do Azure Time Series Insights.
 
-   [![Gerenciador do Time Series Insights](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
+   [![Gerenciador do Azure Time Series Insights](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
 
-1. O Gerenciador do Time Series Insights é carregado e autenticado usando sua conta do portal do Azure. Inicialmente, a área do gráfico com a qual o ambiente do Time Series Insights estava populado juntamente com seus dados telemétricos simulados serão exibidos. Para filtrar um intervalo de tempo mais estreito, selecione a lista suspensa no canto superior esquerdo. Insira um intervalo de tempo grande o suficiente para abranger a duração da simulação de dispositivo. Em seguida, selecione a lupa de pesquisa.
+1. O Gerenciador do Azure Time Series Insights é carregado e autenticado usando sua conta do portal do Azure. Inicialmente, será exibida a área do gráfico com a qual o ambiente do Azure Time Series Insights estava populado juntamente com os dados telemétricos simulados. Para filtrar um intervalo de tempo mais estreito, selecione a lista suspensa no canto superior esquerdo. Insira um intervalo de tempo grande o suficiente para abranger a duração da simulação de dispositivo. Em seguida, selecione a lupa de pesquisa.
 
-   [![Filtro de intervalo de tempo do Gerenciador do Time Series Insights](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png#lightbox)
+   [![Filtro de intervalo de tempo do Gerenciador do Azure Time Series Insights](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png#lightbox)
 
-1. A restrição do intervalo de tempo permite que o gráfico amplie as intermitências distintas da transferência de dados para o hub IoT e o ambiente do Time Series Insights. Observe também o texto **Streaming concluído** no canto superior direito, que mostra o número total de eventos encontrados. Arraste também o controle deslizante **Tamanho do intervalo** para controlar a granularidade do gráfico.
+1. A restrição do intervalo de tempo permite que o gráfico amplie as intermitências distintas da transferência de dados para o hub IoT e o ambiente do Azure Time Series Insights. Observe também o texto **Streaming concluído** no canto superior direito, que mostra o número total de eventos encontrados. Arraste também o controle deslizante **Tamanho do intervalo** para controlar a granularidade do gráfico.
 
-   [![Exibição filtrada do intervalo de tempo do Gerenciador do Time Series Insights](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png#lightbox)
+   [![Exibição filtrada do intervalo de tempo do Gerenciador do Azure Time Series Insights](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png#lightbox)
 
 1. Por fim, clique também em uma região para filtrar um intervalo. Em seguida, clique com o botão direito do mouse e use **Explorar eventos** para mostrar os detalhes do evento na exibição **Eventos** de tabela.
 
-   [![Eventos e exibição filtrada do intervalo de tempo do Gerenciador do Time Series Insights](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png#lightbox)
+   [![Eventos e exibição filtrada do intervalo de tempo do Gerenciador do Azure Time Series Insights](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png#lightbox)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Este tutorial cria vários serviços que executam o Azure para dar suporte ao ambiente do Time Series Insights e à solução de simulação de dispositivo. Para removê-los, volte para o portal do Azure.
+Este tutorial cria vários serviços que executam o Azure para dar suporte ao ambiente do Azure Time Series Insights e à solução de simulação de dispositivo. Para removê-los, volte para o portal do Azure.
 
 No menu à esquerda no portal do Azure:
 
-1. Selecione o ícone **Grupos de recursos**. Em seguida, selecione o grupo de recursos criado para o ambiente do Time Series Insights. Na parte superior da página, selecione **Excluir grupo de recursos**, insira o nome do grupo de recursos e selecione **Excluir**.
+1. Selecione o ícone **Grupos de recursos**. Em seguida, selecione o grupo de recursos criado para o ambiente do Azure Time Series Insights. Na parte superior da página, selecione **Excluir grupo de recursos**, insira o nome do grupo de recursos e selecione **Excluir**.
 
 1. Selecione o ícone **Grupos de recursos**. Em seguida, selecione o grupo de recursos criado pelo acelerador de solução de simulação de dispositivo. Na parte superior da página, selecione **Excluir grupo de recursos**, insira o nome do grupo de recursos e selecione **Excluir**.
 
@@ -191,13 +191,13 @@ Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 >
-> * Crie um ambiente do Time Series Insights.
+> * Criar um ambiente do Azure Time Series Insights.
 > * Criar uma solução de simulação de dispositivo que contém um hub IoT.
-> * Conectar o ambiente do Time Series Insights ao hub IoT.
-> * Executar uma simulação de dispositivo para transmitir dados para o ambiente do Time Series Insights.
+> * Conectar o ambiente do Azure Time Series Insights ao hub IoT.
+> * Executar uma simulação de dispositivo para transmitir dados para o ambiente do Azure Time Series Insights.
 > * Verificar os dados telemétricos simulados.
 
-Agora que você sabe como criar seu próprio ambiente do Time Series Insights, saiba como criar um aplicativo Web que recebe dados de um ambiente do Time Series Insights:
+Agora que você sabe como criar o próprio ambiente do Azure Time Series Insights, saiba como criar um aplicativo Web que recebe dados de um ambiente do Azure Time Series Insights:
 
 > [!div class="nextstepaction"]
 > [Ler exemplos de visualização do SDK do cliente hospedado](https://tsiclientsample.azurewebsites.net/)

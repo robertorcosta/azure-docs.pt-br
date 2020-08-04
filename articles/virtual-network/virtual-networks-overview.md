@@ -1,6 +1,6 @@
 ---
 title: Rede Virtual do Azure | Microsoft Docs
-description: Saiba mais sobre os conceitos e recursos da Rede Virtual do Azure.
+description: Saiba mais sobre os conceitos e recursos da Rede Virtual do Azure, incluindo espaço de endereço, sub-redes, regiões e assinaturas.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 3fd958ba1ef4ec4b8a198bcd5da497dc191be73d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: db3eae5cd31fff0db465389ea4a09b1666453634
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040598"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386989"
 ---
 # <a name="what-is-azure-virtual-network"></a>O que é a Rede Virtual do Azure?
 
@@ -27,7 +27,7 @@ A Rede Virtual do Azure (VNet) é o bloco de construção fundamental de sua red
 ## <a name="vnet-concepts"></a>Conceitos de VNet
 
 - **Espaço de endereço:** Ao criar uma VNet, é necessário especificar um espaço de endereço IP privado personalizado usando endereços públicos e privados (RFC 1918). O Azure atribui um endereço IP particular aos recursos em uma rede virtual do espaço de endereço que você atribuiu. Por exemplo, se você implantar uma VM em uma VNet com o espaço de endereço 10.0.0.0/16, a VM receberá um IP privado como 10.0.0.4.
-- **Sub-redes:** As sub-redes permitem que você segmente a rede virtual em uma ou mais sub-redes e aloque uma parte do espaço de endereço da rede virtual a cada sub-rede. Em seguida, você pode implantar recursos do Azure em uma sub-rede específica. Assim como em uma rede tradicional, as sub-redes permitem que você divida o espaço de endereço da sua VNet em segmentos que são apropriados para a rede interna da organização. Isso também melhora a eficiência de alocação de endereço. É possível proteger os recursos dentro de sub-redes usando grupos de segurança de rede. Para saber, confira [Grupos de segurança](security-overview.md).
+- **Sub-redes:** As sub-redes permitem que você segmente a rede virtual em uma ou mais sub-redes e aloque uma parte do espaço de endereço da rede virtual a cada sub-rede. Em seguida, você pode implantar recursos do Azure em uma sub-rede específica. Assim como em uma rede tradicional, as sub-redes permitem que você divida o espaço de endereço da sua VNet em segmentos que são apropriados para a rede interna da organização. Isso também melhora a eficiência de alocação de endereço. É possível proteger os recursos dentro de sub-redes usando grupos de segurança de rede. Para saber mais, confira [Grupos de segurança de rede](security-overview.md).
 - **Regiões**: Uma VNet tem como escopo uma única região/localização; no entanto, é possível conectar várias redes virtuais de regiões diferentes usando o Emparelhamento de Rede Virtual.
 - **Assinatura:** A VNet está no escopo de uma assinatura. É possível implementar várias redes virtuais em cada [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) e [região](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) do Azure.
 
@@ -67,7 +67,7 @@ Você pode conectar suas redes e computadores locais a uma rede virtual usando q
 
 Filtre o tráfego de rede entre sub-redes usando uma ou as duas opções a seguir:
 
-- **Grupos de segurança:** grupos de segurança de rede e grupos de segurança de aplicativo podem conter várias regras de segurança de entrada e saída que permitem filtrar o tráfego para e através de recursos por endereço IP de origem e de destino, porta e protocolo. Para saber mais, confira [Grupos de segurança de rede](security-overview.md#network-security-groups) ou [Grupos de segurança de aplicativo](security-overview.md#application-security-groups).
+- **Grupos de segurança de rede:** grupos de segurança de rede e grupos de segurança de aplicativo podem conter várias regras de segurança de entrada e saída que permitem filtrar o tráfego para e através de recursos por endereço IP de origem e de destino, porta e protocolo. Para saber mais, confira [Grupos de segurança de rede](security-overview.md#network-security-groups) ou [Grupos de segurança de aplicativo](security-overview.md#application-security-groups).
 - **Soluções de virtualização de rede:** uma solução de virtualização de rede é uma VM que executa uma função de rede, como um firewall, otimização WAN ou outra função de rede. Para exibir uma lista de soluções de virtualização de rede disponíveis que você pode implantar em uma rede virtual, confira o [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
 ## <a name="route-network-traffic"></a>Rotear tráfego de rede

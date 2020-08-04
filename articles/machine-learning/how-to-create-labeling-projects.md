@@ -7,13 +7,13 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/09/2020
-ms.openlocfilehash: 8c0aabc3242bf9576de917ad63ce4f71bec9905e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/27/2020
+ms.openlocfilehash: 1ba293890f6a6fd165e03486d7da375f2ac53ab1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146542"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326419"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e exportar rótulos 
 
@@ -21,11 +21,11 @@ ms.locfileid: "86146542"
 
 A rotulagem de um grande volume de dados em projetos de Machine Learning costuma ser um problema. Os projetos que têm um componente de pesquisa visual computacional, como classificação de imagem ou detecção de objetos, geralmente exigem rótulos para milhares de imagens.
  
-O [Azure Machine Learning](https://ml.azure.com/) oferece um lugar central para criar, gerenciar e monitorar projetos de rotulagem (versão prévia pública). Use-o para coordenar dados, rótulos e membros da equipe, a fim de gerenciar tarefas de rotulagem com eficiência. O Machine Learning dá suporte à classificação de imagem, de vários rótulos ou multiclasse, e à identificação do objeto com caixas delimitadoras.
+A rotulagem de dados do [Azure Machine Learning](https://ml.azure.com/) oferece um lugar central para criar, gerenciar e monitorar projetos de rotulagem. Use-o para coordenar dados, rótulos e membros da equipe, a fim de gerenciar tarefas de rotulagem com eficiência. O Machine Learning dá suporte à classificação de imagem, de vários rótulos ou multiclasse, e à identificação do objeto com caixas delimitadoras.
 
-O Azure Machine Learning acompanha o progresso e mantém a fila de tarefas de rotulagem incompletas.
+A rotulagem de dados acompanha o progresso e mantém a fila de tarefas de rotulagem incompletas.
 
-Você pode iniciar e parar o projeto e monitorar o progresso do rótulo. Você pode exportar os dados rotulados no formato COCO ou como um conjunto de dados do Azure Machine Learning.
+É possível iniciar e parar o projeto e controlar o progresso do rótulo. É possível examinar os dados rotulados e exportá-los rotulados no formato COCO ou como um conjunto de dados do Azure Machine Learning.
 
 > [!Important]
 > Somente projetos de rotulagem de classificação de imagens e identificação de objetos são compatíveis no momento. Além disso, as imagens de dados devem estar disponíveis em um armazenamento de blobs do Azure. (Se você não tiver um armazenamento de dados existente, poderá carregar imagens durante a criação do projeto).
@@ -57,9 +57,9 @@ Para criar um projeto, selecione **Adicionar projeto**. Dê ao projeto um nome a
 
 :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Assistente de criação de projeto de rotulagem":::
 
-* Escolha **Classificação de Imagem Multiclasse** para os projetos quando só desejar aplicar uma *única classe* de um conjunto de classes a uma imagem.
-* Escolha **Classificação de Imagem de Vários Rótulos** para os projetos quando desejar aplicar *um ou mais* rótulos de um conjunto de classes a uma imagem. Por exemplo, uma foto de um cachorro pode ser rotulada com *cachorro* e *dia*.
-* Escolha **Identificação do Objeto (Caixa Delimitadora)** para os projetos quando desejar atribuir uma classe e uma caixa delimitadora a cada objeto dentro de uma imagem.
+* Escolha **Classificação de Imagem Multiclasse** para os projetos quando só desejar aplicar *um rótulo* de um conjunto de rótulos a uma imagem.
+* Escolha **Classificação de Imagem de Vários Rótulos** para os projetos quando desejar aplicar *um ou mais* rótulos de um conjunto de rótulos a uma imagem. Por exemplo, uma foto de um cachorro pode ser rotulada com *cachorro* e *dia*.
+* Escolha **Identificação do Objeto (Caixa Delimitadora)** para os projetos quando desejar atribuir um rótulo e uma caixa delimitadora a cada objeto dentro de uma imagem.
 
 Selecione **Avançar** quando estiver pronto para continuar.
 
@@ -148,6 +148,10 @@ Com relação às caixas delimitadoras, entre as perguntas importantes se inclue
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
+> [!IMPORTANT]
+> A rotulagem assistida do ML está em versão prévia pública.
+> A versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 A página **Rotulagem assistida por ML** permite que você dispare modelos de machine learning automáticos para acelerar a tarefa de rotulagem. No início do projeto de rotulagem, as imagens são embaralhadas em ordem aleatória para reduzir o desvio potencial. No entanto, qualquer desvio presente no conjunto de dados será refletido no modelo treinado. Por exemplo, se 80% das imagens forem de uma só classe, aproximadamente 80% dos dados usados para treinar o modelo serão dessa classe. Este treinamento não inclui o aprendizado ativo.
 
 Selecione *Habilitar a rotulagem assistida por ML* e especifique uma GPU para habilitar a rotulagem assistida, que consiste em duas fases:
@@ -183,14 +187,54 @@ Depois que o projeto de rotulagem for inicializado, alguns aspectos do projeto s
 > Essa página talvez não seja atualizada automaticamente. Portanto, após uma pausa, atualize manualmente a página para ver o status do projeto como **Criado**.
 
 ## <a name="run-and-monitor-the-project"></a>Executar e monitorar o projeto
+Depois que você inicializar o projeto, o Azure começará a executá-lo. Selecione o projeto na página principal **Rotulagem de Dados** para conferir os detalhes do projeto
 
-Depois que você inicializar o projeto, o Azure começará a executá-lo. Selecione o projeto na página principal **Rotulagem de Dados** para acessar os **Detalhes do projeto**. A guia **Painel** mostra o progresso da tarefa de rotulagem.
+Para pausar ou reiniciar o projeto, alterne o status **Em execução** no canto superior direito. Você só pode rotular dados quando o projeto está em execução.
+
+### <a name="dashboard"></a>Painel
+
+A guia **Painel** mostra o progresso da tarefa de rotulagem.
+
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Painel de rotulagem de dados":::
+
+O gráfico de progresso mostra quantos itens foram rotulados e quantos ainda não foram feitos.  Os itens pendentes podem estar:
+
+* Ainda não adicionados a uma tarefa
+* Incluídos em uma tarefa que é atribuída a um rotulador, mas ainda não concluídos 
+* Na fila de tarefas que ainda devem ser atribuídas
+
+A seção intermediária mostra a fila de tarefas que ainda devem ser atribuídas. Quando a rotulagem assistida do ML está desativada, esta seção mostra o número de tarefas manuais a serem atribuídas. Quando a rotulagem assistida ML estiver ativada, esta seção também mostrará:
+
+* Tarefas que contêm itens clusterizados na fila
+* Tarefas que contêm itens pré-rotulados na fila
+
+Além disso, quando a rotulagem assistida ML estiver habilitada, uma pequena barra de progresso mostrará quando a próxima execução de treinamento ocorrerá.  As seções de Experimentos fornecem links para cada uma das execuções de machine learning.
+
+* Treinamento – treina um modelo para prever os rótulos
+* Validação – determina se a previsão do modelo será usada para rotulagem prévia dos itens 
+* Inferência – execução de previsão para novos itens
+* Definição de recursos – itens de clusters (somente para projetos de classificação de imagens)
+
+No lado direito, há uma distribuição dos rótulos para as tarefas concluídas.  Lembre-se de que em alguns tipos de projeto, um item pode ter vários rótulos e, nesse caso, o número total de rótulos pode ser maior que o número total de itens.
+
+### <a name="data-tab"></a>Guia Dados
 
 Na guia **Dados**, você poderá ver o conjunto de dados e examinar os dados rotulados. Se você perceber que há dados rotulados incorretamente, selecione-os e escolha **Rejeitar**, o que removerá os rótulos e colocará os dados novamente na fila sem rótulo.
 
-Para pausar ou reiniciar o projeto, selecione o botão **Pausar**/**Iniciar**. Você só pode rotular dados quando o projeto está em execução.
+### <a name="details-tab"></a>Guia Detalhes
 
-Você pode rotular dados diretamente da página **Detalhes do projeto** selecionando **Rotular dados**.
+Veja detalhes do seu projeto.  Nessa guia, é possível:
+
+* Exibir detalhes do projeto e conjuntos de dados de entrada
+* Habilitar a atualização incremental
+* Exibir detalhes do contêiner de armazenamento usado para armazenar as saídas rotuladas no projeto
+* Adicionar rotuladores ao projeto
+* Editar as instruções que você fornece aos seus rótulos
+* Editar detalhes da rotulagem assistida de ML, incluindo habilitar/desabilitar
+
+### <a name="access-for-labelers"></a>Acesso a rotuladores
+
+Qualquer pessoa que tenha acesso ao seu workspace pode rotular dados em seu projeto.  Você também pode personalizar as permissões para seus rotuladores para que o possa acessar a rotulagem, mas não outras partes do workspace ou do seu projeto de rotulagem.  Para obter mais detalhes, confira [Gerenciar o acesso a um Workspace do Azure Machine Learning](how-to-assign-roles.md) e saiba como criar a [função personalizada de rotulador](how-to-assign-roles.md#labeler).
 
 ## <a name="add-new-label-class-to-a-project"></a>Adicionar uma nova classe de rótulo a um projeto
 
@@ -199,7 +243,7 @@ Durante o processo de rotulagem, você pode achar que rótulos adicionais são n
 Use estas etapas para adicionar um ou mais rótulos a um projeto:
 
 1. Selecione o projeto na página principal **Rotulagem de Dados**.
-1. Na parte superior da página, selecione **Pausar** para interromper os rotuladores de suas atividades.
+1. Na parte superior direita da página, alterne **Em execução** para **Em pausa** para interromper a atividade dos rotuladores.
 1. Selecione a guia **Detalhes**.
 1. Na lista à esquerda, selecione **Classes de rótulo**.
 1. No topo da lista, selecione **+ Adicionar rótulos** ![Adicionar um rótulo](media/how-to-create-labeling-projects/add-label.png)
@@ -208,7 +252,7 @@ Use estas etapas para adicionar um ou mais rótulos a um projeto:
     * Recomece, mantendo todos os rótulos existentes.  Escolha esta opção para marcar todos os dados como sem rótulo, mas mantenha os rótulos existentes como uma marca padrão para imagens que foram rotuladas anteriormente.
     * Continue, mantendo todos os rótulos existentes. Escolha esta opção para manter todos os dados já rotulados como estão, e comece a usar o novo rótulo para dados ainda não rotulados.
 1. Modifique a página de instruções conforme necessário para os novos rótulos.
-1. Depois de adicionar todos os novos rótulos, na parte superior da página, selecione **Iniciar** para reiniciar o projeto.  
+1. Depois de adicionar todos os novos rótulos, na parte superior direita da página, alterne **Em pausa** para **Em execução** para reiniciar o projeto.  
 
 ## <a name="export-the-labels"></a>Exportar os rótulos
 

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b62441a4b1307a232ad2f592f13253c0759b5431
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 64a33b12da0e9b90eaeb7039f65b2493a839a0c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564203"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054126"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Tutorial: Provisionar o Azure Data Box Gateway no VMware
 
@@ -93,7 +93,7 @@ Execute as etapas a seguir para provisionar um dispositivo virtual no seu hiperv
   
 3. Carregar o VMDK para o servidor ESXi. No painel Navegação, selecione **Armazenamento**.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
+   ![Captura de tela de uma página no site do servidor ESXi que mostra o painel Navegador com a opção de armazenamento selecionada.](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
 4. No painel direito, em **Repositórios de Dados**, selecione o repositório de dados no qual deseja carregar o VMDK. 
 

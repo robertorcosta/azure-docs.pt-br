@@ -1,18 +1,18 @@
 ---
-title: Automatizar fluxos de trabalho de tarefas no Visual Studio
-description: Criar, agendar e executar fluxos de trabalho recorrentes para integração empresarial usando os Aplicativos Lógicos do Azure e o Visual Studio
+title: Automatizar tarefas e fluxos de trabalho com o Visual Studio
+description: Criar, agendar e executar fluxos de trabalho automatizados para integração empresarial usando os Aplicativos Lógicos do Azure e o Visual Studio
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/08/2019
-ms.openlocfilehash: 4416c9f9d1c55a460cb983089706e984d90ba082
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+ms.openlocfilehash: cd46821b74803d62be0361346166ed78a5f53286
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520759"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132357"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Início Rápido: Criar tarefas automatizadas, processos e fluxos de trabalho com Aplicativos Lógicos do Azure – Visual Studio
 
@@ -51,9 +51,15 @@ Neste início rápido, você cria o mesmo aplicativo lógico com o Visual Studio
   
     Você pode baixar e instalar as Ferramentas dos Aplicativos Lógicos do Azure diretamente do Visual Studio Marketplace ou aprender como [instalar essa extensão de dentro do Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Reinicie o Visual Studio após concluir a instalação.
 
+  * Para usar assinaturas do Azure Government com o Visual Studio, confira estes tópicos para ver a configuração adicional:
+
+    * Visual Studio 2019: [Início Rápido: Conectar-se ao Azure Government com o Visual Studio](../azure-government/documentation-government-connect-vs.md)
+
+    * Visual Studio 2017: [Introdução à extensão de Seletor de Ambiente do Azure do Visual Studio](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), que você pode baixar e instalar do [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
+
 * Acesso à Web ao usar o Designer do Aplicativo Lógico incorporado
 
-  O designer precisa de uma conexão com a Internet para criar recursos no Azure e ler propriedades e dados dos conectores em seu aplicativo lógico. Por exemplo, para conexões do Dynamics CRM Online, o designer verifica sua instância do CRM para propriedades padrão e personalizadas.
+  O designer precisa de uma conexão com a Internet para criar recursos no Azure e ler propriedades e dados dos conectores em seu aplicativo lógico.
 
 * Uma conta de email que seja compatível com os Aplicativos Lógicos, como o Outlook do Office 365, o Outlook.com ou o Gmail. Para outros provedores, revise a [lista de conectores aqui](/connectors/). Este exemplo usa o Outlook do Office 365. Se você usar um provedor diferente, as etapas gerais são as mesmos, mas a interface do usuário pode ser ligeiramente diferente.
 

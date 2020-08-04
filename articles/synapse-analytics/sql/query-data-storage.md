@@ -1,5 +1,5 @@
 ---
-title: Visão geral – Consultar dados no armazenamento usando o SQL sob demanda (versão prévia)
+title: Consultar dados no armazenamento usando o SQL sob demanda (versão prévia)
 description: Este artigo descreve como consultar o armazenamento do Azure usando o recurso SQL sob demanda (versão prévia) no Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4f78928c26b595caafd6709a200297d62ce1c361
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7ef7a771442dba5c7f82196a13b77cb28b0d1ed8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259682"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386649"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Consultar arquivos de armazenamento usando recursos de SQL sob demanda (versão prévia) no Synapse SQL
 
@@ -54,7 +54,7 @@ Examine o artigo [Consultar arquivos Parquet](query-parquet-files.md) para obter
 
 ## <a name="query-csv-files"></a>Consultar arquivos CSV
 
-Para consultar dados de origem Parquet, use FORMAT = 'CSV'. Você pode especificar o esquema do arquivo CSV como parte da função `OPENROWSET` ao consultar arquivos CSV:
+Para consultar dados de origem CSV, use FORMAT = 'CSV'. Você pode especificar o esquema do arquivo CSV como parte da função `OPENROWSET` ao consultar arquivos CSV:
 
 ```sql
 SELECT * FROM
@@ -186,7 +186,7 @@ Por padrão, a função `OPENROWSET` corresponde ao nome e ao caminho do campo d
 - Se a propriedade não puder ser encontrada na column_name especificada, a função retornará um erro.
 - Se a propriedade não puder ser encontrada no column_path especificado, dependendo do [Modo de caminho](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE), a função retornará um erro quando estiver no modo estrito ou nulo quando estiver no modo lax.
 
-Para obter exemplos de consulta, examine a seção Elementos de acesso de colunas aninhadas no artigo [Consultar tipos aninhados de Parquet](query-parquet-nested-types.md#access-elements-from-nested-columns).
+Para obter exemplos de consulta, examine a seção Elementos de acesso de colunas aninhadas no artigo [Consultar tipos aninhados de Parquet](query-parquet-nested-types.md#read-properties-from-nested-object-columns).
 
 #### <a name="access-elements-from-repeated-columns"></a>Acessar elementos de colunas repetidas
 

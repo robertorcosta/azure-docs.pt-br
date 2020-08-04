@@ -1,25 +1,26 @@
 ---
-author: baanders
-ms.author: baanders
+author: dominicbetts
+ms.author: dominicbetts
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/15/2019
-ms.openlocfilehash: d88d166e001e71cabdabc3a3d344adc4da19aa8c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6cd983b6421fc821853aa22d4dc2c297f672d292
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75453685"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336881"
 ---
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se planejar continuar com os artigos adicionais de IoT Plug and Play, guarde e use novamente os recursos usados neste início rápido. Caso contrário, exclua os recursos criados neste início rápido a fim de evitar encargos adicionais.
+Se planejar continuar com os artigos adicionais de IoT Plug and Play, guarde e use novamente os recursos usados neste artigo. Caso contrário, exclua os recursos criados neste artigo para evitar encargos adicionais.
 
-Você pode excluir o hub e o dispositivo registrado ao mesmo tempo excluindo o grupo de recursos inteiro com o comando a seguir para a CLI do Azure. (No entanto, não use isso se esses recursos estiverem compartilhando um grupo de recursos com outros recursos que você tem para finalidades diferentes.)
+Você pode excluir o hub e o dispositivo registrado ao mesmo tempo excluindo o grupo de recursos inteiro com o comando da CLI do Azure a seguir. Não use esse comando se esses recursos estiverem compartilhando um grupo de recursos com outros recursos que você desejar manter.
 
 ```azurecli-interactive
 az group delete --name <YourResourceGroupName>
 ```
+
 Para excluir apenas o hub IoT, execute o seguinte comando usando a CLI do Azure:
 
 ```azurecli-interactive

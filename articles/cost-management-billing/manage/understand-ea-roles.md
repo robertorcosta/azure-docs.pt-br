@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 07/13/2020
 ms.author: banders
-ms.openlocfilehash: b8693ea09ccbb6f0a3f8dfe0846a9b1b256872b6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2cd786304180369fee39c7b362f27a44728f3ad8
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045137"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124333"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Gerenciando funções do Azure Enterprise
 
@@ -32,7 +32,7 @@ O primeiro administrador de registro que é configurado durante o provisionament
 
 Por exemplo, se o tipo de autenticação inicial for definido como Misto, o EA será adicionado como uma conta Microsoft e o contato de cobrança terá privilégios de administrador de EA somente leitura. Se o administrador de EA não aprovar a autorização da conta Microsoft para um contato de cobrança existente, o administrador de EA poderá excluir o usuário em questão e pedir ao cliente para adicionar o usuário novamente como um administrador somente leitura com uma conta corporativa ou de estudante definida apenas no nível de registro no Portal do EA.
 
-Essas funções são específicas para gerenciar os Contratos Enterprise do Azure e são complementares às funções internas que o Azure controla para acessar os recursos. Para obter mais informações, consulte [Funções internas dos recursos do Azure](../../role-based-access-control/built-in-roles.md).
+Essas funções são específicas para gerenciar os Contratos Enterprise do Azure e são complementares às funções internas que o Azure controla para acessar os recursos. Para obter mais informações, veja [Funções internas do Azure](../../role-based-access-control/built-in-roles.md).
 
 As seções a seguir descrevem as limitações e os recursos de cada função.
 
@@ -121,4 +121,4 @@ Você define a função de administrador da empresa e exibe as políticas de cob
 
 - [Gerenciar o acesso a informações de faturamento do Azure](manage-billing-access.md)
 - [Gerenciar acesso usando o RBAC e o Portal do Azure](../../role-based-access-control/role-assignments-portal.md)
-- [Funções internas para recursos do Azure](../../role-based-access-control/built-in-roles.md)
+- [Funções internas do Azure](../../role-based-access-control/built-in-roles.md)

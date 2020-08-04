@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 02/07/2019
 ms.author: mihansen
-ms.openlocfilehash: aca0d67326a5a0488d0108efa9acd0d01c7788cd
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 72e199e45047e1b425b2587c6b4028efb84060df
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "84819926"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087434"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>O que é a API do Azure para FHIR&reg;?
 
@@ -82,11 +82,31 @@ As funcionalidades de FHIR da Microsoft estão disponíveis em duas configuraç�
 
 Para casos de uso que exigem estender ou personalizar o servidor FHIR ou acesso aos serviços subjacentes, como o banco de dados, sem passar pelas APIs do FHIR, os desenvolvedores devem escolher o servidor FHIR de software livre para o Azure.   Para a implementação de uma API do FHIR pronta para produção e serviço de back-end em que os dados persistentes só devem ser acessados por meio da API do FHIR, os desenvolvedores devem escolher a API do Azure para FHIR
 
+## <a name="iot-connector-preview"></a>Conector IoT (versão prévia)
+
+O Conector IoT é um recurso opcional da API do Azure para FHIR que fornece a capacidade de ingerir dados de dispositivos IoMT (Internet das Coisas Médicas). A Internet das Coisas Médicas é uma categoria de dispositivos IoT que capturam e trocam dados de saúde e bem-estar com outros sistemas de TI de saúde pela rede. Alguns exemplos de dispositivos IoMT incluem dispositivos fitness e clínicos vestíveis, sensores de monitoramento, rastreadores de atividade, quiosques de atendimento ou até mesmo uma pílula inteligente. O recurso Conector IoT permite que você configure rapidamente um serviço para ingerir dados da IoMT na API do Azure para FHIR de maneira escalonável, segura e em conformidade.
+
+O Conector IoT pode aceitar mensagens baseadas em JSON enviadas por um dispositivo IoMT. Esses dados são transformados primeiramente em recursos adequados de [Observação baseada em FHIR](https://www.hl7.org/fhir/observation.html) e mantidos na API do Azure para FHIR. A lógica de transformação de dados é definida por meio de um par de modelos de mapeamento que você configura com base em seu esquema de mensagem e nos requisitos de FHIR. Os dados do dispositivo podem ser enviados por push diretamente para o Conector IoT ou usados de maneira direta em conjunto com outras soluções de IoT do Azure ([Hub IoT do Azure](https://docs.microsoft.com/azure/iot-hub/) e [Azure IoT Central](https://docs.microsoft.com/azure/iot-central/)). O Conector IoT fornece um pipeline de dados seguro e permite que as soluções de IoT do Azure gerenciem o provisionamento e a manutenção dos dispositivos físicos.
+
+### <a name="applications-of-iot-connector-preview"></a>Aplicações do Conector IoT (versão prévia)
+
+O uso de dispositivos IoMT está se expandindo rapidamente na área de saúde e o Conector IoT foi criado para preencher a lacuna de levar vários dispositivos de dados com segurança e conformidade para a API do Azure para FHIR. Colocar os dados de IoMT em um servidor FHIR habilita insights de dados holísticas e fluxos de trabalho clínicos inovadores. Alguns cenários comuns para o Conector IoT são:
+- **Monitoramento Remoto de Pacientes/Telessaúde:** o monitoramento remoto de pacientes fornece a capacidade de reunir dados de saúde do paciente fora do ambiente de saúde tradicional. As instituições de saúde podem usar o Conector IoT para levar os dados de saúde gerados por dispositivos remotos para a API do Azure para FHIR. Esses dados podem ser usados para acompanhar de perto o status de saúde dos pacientes, monitorar a adesão dos pacientes ao plano de tratamento e fornecer cuidados personalizados.
+- **Pesquisa e Ciências Naturais:** os testes clínicos estão adotando rapidamente dispositivos IoMT, como biossensores, dispositivos vestíveis e aplicativos móveis para capturar dados de testes. Esses testes podem utilizar o Conector IoT para transmitir dados do dispositivo para a API do Azure para FHIR de maneira segura, eficiente e eficaz. Estando na API do Azure para FHIR, os dados de testes podem ser usados para executar a análise em tempo real dos dados de testes.
+- **Análise Avançada:** os dispositivos IoMT podem fornecer grande volume e grande variedade de dados a uma velocidade alta, o que os torna uma ótima opção para fornecer dados de treinamento e teste para seus modelos de machine learning. O Conector IoT é criado de maneira inerente para trabalhar com uma grande variedade de frequência de dados, esquema de dados flexível e dimensionamento em nuvem com baixa latência. Esses atributos tornam o Conector IoT uma excelente opção para capturar dados de dispositivo para suas necessidades de análise avançada.
+- **Hospitais/clínicas inteligentes:** hoje, os hospitais e clínicas inteligentes estão configurando uma infraestrutura de ativos digitais interconectados. O Conector IoT pode ser usado para capturar e integrar dados desses componentes conectados. Insights acionáveis desse conjunto de dados permitem melhor atendimento ao paciente e eficiência operacional.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Para começar a trabalhar com a API do Azure para FHIR, siga o início rápido de 5 minutos para implantar a API do Azure para FHIR.
 
 >[!div class="nextstepaction"]
 >[Implantar a API do Azure para FHIR](fhir-paas-portal-quickstart.md)
+
+Para experimentar o recurso Conector IoT, confira o início rápido para implantar o Conector IoT usando o portal do Azure.
+
+>[!div class="nextstepaction"]
+>[Implantar Conector IoT](iot-fhir-portal-quickstart.md)
+
 
 FHIR é uma marca registrada da HL7, usada com permissão da HL7.

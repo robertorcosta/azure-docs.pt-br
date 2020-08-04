@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 478d9c0485125870f8d5ffb4132f46476b4bb4ef
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 924654dace53b326e3a29bb834f773122b0476ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80384357"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081110"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Linux
 
@@ -134,7 +134,7 @@ Na paleta de comandos do Visual Studio Code, pesquise e selecione **Azure IoT Ed
    | Fornecer um nome para a solução | Insira um nome descritivo para a solução ou aceite o padrão **EdgeSolution**. |
    | Selecionar modelo do módulo | Escolha **Módulo C#** . |
    | Fornecer um nome de módulo | Aceite o **SampleModule** padrão. |
-   | Fornecer o repositório de imagem do Docker para o módulo | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner é preenchida previamente o nome fornecido na última etapa. Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure. Você pode recuperar o servidor de logon da página Visão Geral do seu registro de contêiner no portal do Azure. <br><br> O repositório final de imagens tem a aparência de \<nome do Registro\>.azurecr.io/samplemodule. |
+   | Fornecer o repositório de imagem do Docker para o módulo | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner é preenchida previamente o nome fornecido na última etapa. Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure. Você pode recuperar o servidor de logon da página Visão Geral do seu registro de contêiner no portal do Azure. <br><br> O repositório de imagens final se parece com \<registry name\>.azurecr.io/samplemodule. |
 
    ![Fornecer o repositório de imagem do Docker](./media/tutorial-develop-for-linux/image-repository.png)
 
@@ -219,6 +219,12 @@ Forneça suas credenciais de registro de contêiner para o Docker para que ele p
    ```
 
    Talvez você receba um aviso de segurança recomendando usar `--password-stdin`. Embora essa prática seja recomendada para cenários de produção, ela não serve para este tutorial. Para saber mais, confira a referência de [logon do docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
+   
+3. Fazer logon no Registro de Contêiner do Azure
+
+   ```cmd/sh
+   az acr login -n <ACR registry name>
+   ```
 
 ### <a name="build-and-push"></a>Compilar e efetuar push
 
@@ -262,7 +268,7 @@ Agora o Visual Studio Code tem acesso ao seu registro de contêiner; portanto, c
 Se encontrar erros ao criar e enviar sua imagem de módulo por push, isso geralmente estará relacionado à configuração do Docker em seu computador de desenvolvimento. Use as seguintes verificações para examinar sua configuração:
 
 * Você executou o comando `docker login` usando as credenciais que copiou do seu registro de contêiner? Essas credenciais são diferentes daquelas que você usa para entrar no Azure.
-* Seu repositório de contêiner está correto? Ele tem seu nome de registro de contêiner correto e seu nome de módulo correto? Abra o arquivo **module.json** na pasta SampleModule a ser verificado. O valor do repositório deve ter a aparência de **\<nome do Registro\>.azurecr.io/samplemodule**.
+* Seu repositório de contêiner está correto? Ele tem seu nome de registro de contêiner correto e seu nome de módulo correto? Abra o arquivo **module.json** na pasta SampleModule a ser verificado. O valor do repositório deve ter a seguinte aparência: **\<registry name\>.azurecr.io/samplemodule**.
 * Se você usou um nome diferente de **SampleModule** para o seu módulo, esse nome está consistente em toda a solução?
 * Seu computador está executando o mesmo tipo de contêineres que você está criando? Este tutorial é para dispositivos IoT Edge do Linux; portanto, o Visual Studio Code deve informar **amd64** ou **arm32v7** na barra lateral e o Docker Desktop deve estar executando contêineres do Linux.  
 

@@ -7,12 +7,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Este tutorial mostra como usar o Azure Dev Spaces e o Visual Studio para depurar um aplicativo .NET Core de vários serviços no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: 7f95c21c2cf5b7adcdb34d7bbe2b1f8314c20333
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 073019a75f78263e9d300a82469b36268d032679
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75438397"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072938"
 ---
 # <a name="running-multiple-dependent-services-net-core-and-visual-studio-with-azure-dev-spaces"></a>Executar vários serviços dependentes: .NET Core e Visual Studio com o Azure Dev Spaces
 
@@ -21,7 +21,7 @@ Neste tutorial, você aprenderá a desenvolver aplicativos de vários serviços 
 ## <a name="call-another-container"></a>Chamar outro contêiner
 Nesta seção, você criará um segundo serviço, `mywebapi`, e fará com que ele seja chamado por `webfrontend`. Cada serviço será executado em contêineres separados. Em seguida, você fará a depuração em ambos os contêineres.
 
-![](media/common/multi-container.png)
+![O diagrama mostra o serviço webfrontend chamando (como indicado por uma seta) o serviço mywebapi.](media/common/multi-container.png)
 
 ### <a name="download-sample-code-for-mywebapi"></a>Baixar código de exemplo para *mywebapi*
 Por economizar tempo, vamos baixar o código de exemplo de um repositório do GitHub. Vá para https://github.com/Azure/dev-spaces e selecione **Clonar ou baixar** para baixar o repositório do GitHub. O código para essa seção está em `samples/dotnetcore/getting-started/mywebapi`.
@@ -34,7 +34,7 @@ Por economizar tempo, vamos baixar o código de exemplo de um repositório do Gi
 2. Quando `mywebapi` estiver pronto, abra seu navegador no endereço do localhost e acrescente `/api/values` à URL para invocar a API GET padrão para `ValuesController`. 
 3. Se todas as etapas foram bem-sucedidas, você deverá ver uma resposta do serviço `mywebapi` que se parece com isto.
 
-    ![](media/get-started-netcore-visualstudio/WebAPIResponse.png)
+    ![A página da Web mostra uma matriz json de duas cadeias de caracteres: "value1" e "value2".](media/get-started-netcore-visualstudio/WebAPIResponse.png)
 
 ### <a name="make-a-request-from-webfrontend-to-mywebapi"></a>Faça uma solicitação de *webfrontend* para *mywebapi*
 Vamos escrever código agora em `webfrontend`, que faz uma solicitação para `mywebapi`. Alterne para a janela do Visual Studio que tem o projeto `webfrontend`. No arquivo `HomeController.cs`, *substitua* o código pelo método Sobre com o seguinte código:

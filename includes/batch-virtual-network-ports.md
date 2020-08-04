@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.date: 06/16/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 1b21141a4b3f9ae92cdcf1d5a93a457012cb136a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 3e4bca058f554f60dfa5c237633d1fecf06dfea7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506575"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507569"
 ---
 ### <a name="general-requirements"></a>Requisitos gerais
 
@@ -45,41 +45,41 @@ Os requisitos da VNet adicionais diferem, dependendo do pool do Lote estar na co
 **Recursos de rede adicionais** - o lote aloca automaticamente os recursos de rede adicionais no grupo de recursos que contém a VNet.
 
 > [!IMPORTANT]
-> Para cada nó 100 de baixa prioridade ou dedicado, o lote aloca: um NSG (grupo de segurança de rede), um endereço IP público e um balanceador de carga. Esses recursos são limitados pelas [cotas de recursos](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) da assinatura. Para grandes pools, talvez seja necessário solicitar um aumento de cota para um ou mais desses recursos.
+> Para cada 100 nós dedicados ou de baixa prioridade, o Lote aloca: um NSG (grupo de segurança de rede), um endereço IP público e um balanceador de carga. Esses recursos são limitados pelas [cotas de recursos](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) da assinatura. Para pools grandes, talvez você precise solicitar um aumento de cota para um ou mais desses recursos.
 
-#### <a name="network-security-groups-batch-default"></a>Grupos de segurança de rede: lote padrão
+#### <a name="network-security-groups-batch-default"></a>Grupos de segurança de rede: Padrão do Lote
 
-A sub-rede deve permitir que a comunicação de entrada do serviço de lote seja capaz de agendar tarefas nos nós de computação e a comunicação de saída para se comunicar com o armazenamento do Azure ou outros recursos conforme a necessidade da sua carga de trabalho. Para pools na configuração de máquina virtual, o lote adiciona NSGs no nível das NICs (interfaces de rede) anexadas aos nós de computação. Esses NSGs são configurados com as seguintes regras adicionais:
+A sub-rede deve permitir a comunicação de entrada do serviço do Lote para conseguir agendar tarefas nos nós de computação e a comunicação de saída para se comunicar com o Armazenamento do Azure ou com outros recursos, conforme a necessidade da carga de trabalho. Para pools na configuração da Máquina Virtual, o Lote adiciona NSGs no nível das NICs (interfaces de rede) anexadas ao nós de computação. Esses NSGs são configurados com as seguintes regras adicionais:
 
-* O tráfego TCP de entrada nas portas 29876 e 29877 dos endereços IP do serviço de lote que correspondem à `BatchNodeManagement` marca de serviço.
-* Tráfego TCP de entrada na porta 22 (nós do Linux) ou na porta 3389 (nós do Windows) para permitir o acesso remoto. Para determinados tipos de tarefas de várias instâncias no Linux (como MPI), você também precisará permitir o tráfego da porta do SSH 22 para IPs na sub-rede que contém os nós de computação do lote. Isso pode ser bloqueado por regras de NSG no nível de sub-rede (veja abaixo).
-* Tráfego de saída em qualquer porta para a rede virtual. Isso pode ser alterado por regras de NSG no nível de sub-rede (veja abaixo).
-* Tráfego de saída em qualquer porta para a Internet. Isso pode ser alterado por regras de NSG no nível de sub-rede (veja abaixo).
+* Tráfego TCP de entrada nas portas 29876 e 29877 dos endereços IP do serviço de Lote que correspondem à marca de serviço `BatchNodeManagement`.
+* Tráfego TCP de entrada na porta 22 (nós do Linux) ou na porta 3389 (nós do Windows) para permitir o acesso remoto. Para determinados tipos de tarefas de várias instâncias no Linux (como a MPI), você também precisará permitir o tráfego na porta SSH 22 para IPs na sub-rede que contém os nós de computação do Lote. Isso pode ser bloqueado pelas regras de NSG no nível da sub-rede (veja abaixo).
+* Tráfego de saída em qualquer porta para a rede virtual. Isso pode ser corrigido pelas regras de NSG no nível da sub-rede (veja abaixo).
+* Tráfego de saída em qualquer porta para a Internet. Isso pode ser corrigido pelas regras de NSG no nível da sub-rede (veja abaixo).
 
 > [!IMPORTANT]
-> Tenha cuidado se você modificar ou adicionar regras de entrada ou saída em NSGs configuradas em lote. Se a comunicação com os nós de computação na sub-rede especificada for negada por um NSG, o serviço de lote definirá o estado dos nós de computação como **inutilizável**. Além disso, nenhum bloqueio de recurso deve ser aplicado a qualquer recurso criado pelo lote, pois isso pode impedir a limpeza de recursos como resultado de ações iniciadas pelo usuário, como a exclusão de um pool.
+> Tenha cuidado se você modificar ou adicionar regras de entrada ou de saída nos NSGs configurados pelo Lote. Se a comunicação com os nós de computação na sub-rede especificada for negada por um NSG, o serviço do Lote definirá o estado dos nós de computação como **inutilizável**. Além disso, nenhum bloqueio de recurso deve ser aplicado a recursos criados pelo Lote, uma vez que isso pode impedir a limpeza de recursos como resultado de ações iniciadas pelo usuário, como a exclusão de um pool.
 
-#### <a name="network-security-groups-specifying-subnet-level-rules"></a>Grupos de segurança de rede: especificando regras de nível de sub-rede
+#### <a name="network-security-groups-specifying-subnet-level-rules"></a>Grupos de segurança de rede: Especificar regras no nível da sub-rede
 
-Você não precisa especificar NSGs no nível de sub-rede da rede virtual, pois o lote configura seu próprio NSGs (veja acima). Se você tiver um NSG associado à sub-rede em que os nós de computação do lote são implantados ou se quiser aplicar regras NSG personalizadas para substituir os padrões aplicados, você deve configurar esse NSG com pelo menos as regras de segurança de entrada e saída mostradas nas tabelas a seguir.
+Não é necessário especificar NSGs no nível da sub-rede da rede virtual, pois o Lote configura os próprios NSGs (veja acima). Se tiver um NSG associado à sub-rede em que os nós de computação do Lote estão implantados ou se quiser aplicar regras de NSG personalizadas para substituir os padrões aplicados, você precisará configurar esse NSG com, pelo menos, as regras de segurança de entrada e saída, conforme mostrado nas tabelas a seguir.
 
-Configure o tráfego de entrada na porta 3389 (Windows) ou 22 (Linux) somente se você precisar permitir o acesso remoto aos nós de computação de fontes externas. Talvez seja necessário habilitar as regras da porta 22 no Linux se você precisar de suporte para tarefas de várias instâncias com determinados tempos de execução do MPI. Permitir o tráfego nessas portas não é estritamente necessário para que os nós de computação do pool sejam utilizáveis.
+Configure o tráfego de entrada na porta 3389 (Windows) ou 22 (Linux) somente se precisar permitir o acesso remoto aos nós de computação proveniente de fontes externas. Talvez seja necessário habilitar regras da porta 22 no Linux se você precisar de suporte para tarefas de várias instâncias com determinados runtimes do MPI. Permitir o tráfego nessas portas não é estritamente necessário para que os nós de computação do pool sejam utilizáveis.
 
 **Regras de segurança de entrada**
 
-| Endereços IP da fonte | Marca de serviço de origem | Portas de origem | Destination | Portas de destino | Protocolo | Ação |
+| Endereços IP da fonte | Marca de serviço de origem | Portas de origem | Destino | Portas de destino | Protocolo | Ação |
 | --- | --- | --- | --- | --- | --- | --- |
-| N/D | `BatchNodeManagement`[Marca de serviço](../articles/virtual-network/security-overview.md#service-tags) (se estiver usando a variante regional, na mesma região que a sua conta do lote) | * | Qualquer | 29876-29877 | TCP | Allow |
-| IPs de origem do usuário para acessar remotamente nós de computação e/ou sub-rede do nó de computação para tarefas de várias instâncias do Linux, se necessário. | N/D | * | Qualquer | 3389 (Windows), 22 (Linux) | TCP | Allow |
+| N/D | `BatchNodeManagement` [Marca de serviço](../articles/virtual-network/security-overview.md#service-tags) (se estiver usando a variante regional na mesma região em que sua conta do Lote) | * | Qualquer | 29876-29877 | TCP | Allow |
+| IPs de origem do usuário para acessar remotamente nós de computação e/ou a sub-rede do nó de computação para tarefas de várias instâncias de Linux, se necessário. | N/D | * | Qualquer | 3389 (Windows), 22 (Linux) | TCP | Allow |
 
 > [!WARNING]
-> Os endereços IP do serviço de lote podem mudar ao longo do tempo. Portanto, é altamente recomendável usar a `BatchNodeManagement` marca de serviço (ou variante regional) para regras NSG. Evite popular regras NSG com endereços IP de serviço de lote específicos.
+> Os endereços IP do serviço de lote podem mudar ao longo do tempo. Portanto, é altamente recomendável usar a marca de serviço `BatchNodeManagement` (ou a variante regional) para as regras de NSG. Evite popular as regras de NSG com endereços IP específicos do serviço do Lote.
 
-**Regras de segurança de saída**
+**Regras de segurança da saída**
 
-| Origem | Portas de origem | Destination | Marca de serviço de destino | Portas de destino | Protocolo | Ação |
+| Fonte | Portas de origem | Destino | Marca de serviço de destino | Portas de destino | Protocolo | Ação |
 | --- | --- | --- | --- | --- | --- | --- |
-| Qualquer | * | [Marca de serviço](../articles/virtual-network/security-overview.md#service-tags) | `Storage`(se estiver usando a variante regional, na mesma região que a sua conta do lote) | 443 | TCP | Allow |
+| Qualquer | * | [Marca do serviço](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (se estiver usando a variante regional na mesma região em que sua conta do Lote) | 443 | TCP | Allow |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Pools na configuração dos Serviços de Nuvem
 
@@ -89,25 +89,25 @@ Configure o tráfego de entrada na porta 3389 (Windows) ou 22 (Linux) somente se
 
 `/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork /virtualNetworks/{network}/subnets/{subnet}`
 
-**Permissões** - a `Microsoft Azure Batch` entidade de serviço deve ter a `Classic Virtual Machine Contributor` função RBAC (Controle de Acesso Baseado em Função) para a VNet especificada.
+**Permissões** – a entidade de serviço `Microsoft Azure Batch` deve ter a função do Azure `Classic Virtual Machine Contributor` para a VNet especificada.
 
 #### <a name="network-security-groups"></a>Grupos de segurança de rede
 
 A sub-rede deve permitir a comunicação de entrada a partir do serviço de Lote para conseguir agendar as tarefas nos nós de computação e a comunicação de saída para se comunicar com o Armazenamento do Azure ou outros recursos.
 
-Você não precisa especificar um NSG, porque o Lote configura comunicação de entrada apenas dos endereços IP de Lote para os nós do pool. No entanto, se a sub-rede especificada associou NSGs e/ou um firewall, configure as regras de segurança de entrada e saída conforme mostrado nas tabelas a seguir. Se a comunicação com os nós de computação na sub-rede especificada for negada por um NSG, o serviço de lote definirá o estado dos nós de computação como **inutilizável**.
+Você não precisa especificar um NSG, porque o Lote configura comunicação de entrada apenas dos endereços IP de Lote para os nós do pool. No entanto, se a sub-rede especificada associou NSGs e/ou um firewall, configure as regras de segurança de entrada e saída conforme mostrado nas tabelas a seguir. Se a comunicação com os nós de computação na sub-rede especificada for negada por um NSG, o serviço do Lote definirá o estado dos nós de computação como **inutilizável**.
 
-Configure o tráfego de entrada na porta 3389 para Windows se você precisar permitir o acesso RDP aos nós do pool. Isso não é necessário para que os nós do pool sejam utilizáveis.
+Configure o tráfego de entrada na porta 3389 para o Windows se precisar permitir o acesso RDP aos nós do pool. Isso não é necessário para que os nós do pool possam ser usados.
 
 **Regras de segurança de entrada**
 
-| Endereços IP da fonte | Portas de origem | Destination | Portas de destino | Protocolo | Ação |
+| Endereços IP da fonte | Portas de origem | Destino | Portas de destino | Protocolo | Ação |
 | --- | --- | --- | --- | --- | --- |
 Qualquer <br /><br />Embora isso exija efetivamente "permitir todos", o serviço do Lote aplica uma regra ACL no nível de cada nó que filtra todos os endereços IP que não são do serviço do Lote. | * | Qualquer | 10100, 20100, 30100 | TCP | Allow |
-| Opcional, para permitir o acesso RDP a nós de computação. | * | Qualquer | 3389 | TCP | Allow |
+| Opcional, para permitir o acesso RDP aos nós de computação. | * | Qualquer | 3389 | TCP | Allow |
 
-**Regras de segurança de saída**
+**Regras de segurança da saída**
 
-| Origem | Portas de origem | Destination | Portas de destino | Protocolo | Ação |
+| Fonte | Portas de origem | Destino | Portas de destino | Protocolo | Ação |
 | --- | --- | --- | --- | --- | --- |
 | Qualquer | * | Qualquer | 443  | Qualquer | Allow |

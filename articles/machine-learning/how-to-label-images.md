@@ -7,13 +7,13 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/09/2020
-ms.openlocfilehash: 90ef75c704459ca726480e6950ba748162c66b8e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/27/2020
+ms.openlocfilehash: a71b4096e791221057fdcc5d14351ceccab720fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147011"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307192"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Marcar imagens em um projeto de rotulagem 
 
@@ -37,11 +37,9 @@ Depois que o administrador de projeto [criar um projeto de rotulagem](https://do
 
 1. Selecione **Rotulagem de dados** no lado esquerdo para localizar o projeto.  
 
-1. Selecione o nome do projeto na lista.
-
 ## <a name="understand-the-labeling-task"></a>Entender a tarefa de rotulagem
 
-Depois de selecionar o projeto, na parte superior da página, selecione **Dados do rótulo**.
+Na tabela de projetos de rotulagem de dados, selecione o **link Rotular** para seu projeto.
 
 Você verá instruções específicas para seu projeto. Elas explicam o tipo de dados com o qual você está lidando, como deverá tomar decisões e outras informações relevantes. Depois de ler essas informações, na parte superior da página, selecione **Tarefas**.  Ou, na parte inferior da página, selecione **Iniciar rotulagem**.
 
@@ -65,6 +63,10 @@ O Azure habilitará o botão **Enviar** quando você tiver marcado todas as imag
 Depois que você enviar marcas para os dados à disposição, o Azure atualizará a página com um novo conjunto de imagens da fila de trabalho.
 
 ### <a name="assisted-machine-learning-preview"></a>Machine learning assistido (versão prévia) 
+
+> [!IMPORTANT]
+> O machine learning assistido está em versão prévia pública.
+> A versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Os algoritmos de machine learning poderão ser disparados. Se esses algoritmos estiverem habilitados no seu projeto, você poderá ver o seguinte:
 

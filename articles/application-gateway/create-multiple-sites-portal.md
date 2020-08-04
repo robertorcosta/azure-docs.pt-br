@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 07/26/2019
+ms.date: 07/20/2020
 ms.author: victorh
-ms.openlocfilehash: ca6be666a9b77532b4f1c61f6e3391c239e82c91
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0c5302f35665b034bffa343ee90fd4fd609f56e5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74075142"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290152"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutorial: Criar e configurar um gateway de aplicativo para hospedar vários sites web usando o portal do Azure.
 
@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá como:
 > * Criar regras de roteamento
 > * Criar um registro CNAME no seu domínio
 
-![Exemplo de roteamento de vários sites](./media/create-multiple-sites-portal/scenario.png)
+:::image type="content" source="./media/create-multiple-sites-portal/scenario.png" alt-text="Gateway de Aplicativo multissite":::
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -50,7 +50,7 @@ Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com)
    - **Grupo de recursos**: Selecione **myResourceGroupAG** para o grupo de recursos. Se ele não existir, selecione **Criar novo** para criá-lo.
    - **Nome do gateway de aplicativo**: Insira *myAppGateway* para o nome do gateway de aplicativo.
 
-     ![Criar gateway de aplicativo: Noções básicas](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png" alt-text="Criar Gateway de Aplicativo":::
 
 2.  Para que o Azure se comunique entre os recursos que você cria, ele precisa de uma rede virtual. Você pode criar uma nova rede virtual ou usar uma existente. Neste exemplo, você criará uma rede virtual ao mesmo tempo em que cria o gateway de aplicativo. As instâncias do Gateway de Aplicativo são criadas em sub-redes separadas. Crie duas sub-redes neste exemplo: uma para o gateway de aplicativo e outra para os servidores de back-end.
 
@@ -66,7 +66,7 @@ Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
     Selecione **OK** para fechar a janela **Criar rede virtual** e salvar as configurações de rede virtual.
 
-     ![Criar gateway de aplicativo: rede virtual](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png" alt-text="Criar VNet":::
     
 3. Na guia **Básico**, aceite os valores padrão para as outras configurações e selecione **Avançar: Front-ends**.
 
@@ -78,7 +78,7 @@ Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 2. Escolha **Criar novo** para o **Endereço IP público** e insira *myAGPublicIPAddress* para o nome do endereço IP público e, em seguida, selecione **OK**. 
 
-     ![Criar gateway de aplicativo: front-ends](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Criar VNet":::
 
 3. Selecione **Avançar: Back-ends**.
 
@@ -96,7 +96,7 @@ O pool de back-end é usado para encaminhar solicitações aos servidores back-e
 3. Na janela **Adicionar um pool de back-end**, selecione **Adicionar** para salvar a configuração do pool de back-end e retornar à guia **Back-ends**.
 4. Agora, adicione outro pool de back-end chamado *fabrikamPool*.
 
-     ![Criar gateway de aplicativo: back-ends](./media/create-multiple-sites-portal/backend-pools.png)
+    :::image type="content" source="./media/create-multiple-sites-portal/backend-pools.png" alt-text="Criar back-ends":::
 
 4. Na guia **Back-ends**, selecione **Avançar: Configuração**.
 
@@ -119,7 +119,7 @@ Na guia **Configuração**, você conectará os pools de front-end e de back-end
 
    Aceite os valores padrão para as outras configurações na guia **Ouvinte** e, em seguida, selecione a guia **Destinos de back-end** para configurar o restante da regra de roteamento.
 
-   ![Criar gateway de aplicativo: ouvinte](./media/create-multiple-sites-portal/routing-rule.png)
+   :::image type="content" source="./media/create-multiple-sites-portal/routing-rule.png" alt-text="Criar regra de roteamento":::
 
 4. Na guia **Destinos de back-end**, selecione **contosoPool** para o **Destino de back-end**.
 
@@ -128,7 +128,7 @@ Na guia **Configuração**, você conectará os pools de front-end e de back-end
 6. Na janela **Adicionar uma regra de roteamento**, selecione **Adicionar** para salvar a regra de roteamento e retornar para a guia **Configuração**.
 7. Selecione **Adicionar uma regra** e adicione uma regra, ouvinte, destino de back-end e configuração de HTTP semelhantes para a Fabrikam.
 
-     ![Criar gateway de aplicativo: regra de roteamento](./media/create-multiple-sites-portal/fabrikamRule.png)
+     :::image type="content" source="./media/create-multiple-sites-portal/fabrikam-rule.png" alt-text="Regra da Fabrikam":::
 
 7. Selecione **Avançar: Marcas** e, em seguida, **Avançar: Revisar + criar**.
 

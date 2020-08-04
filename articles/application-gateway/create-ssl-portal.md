@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 04/22/2019
+ms.date: 07/24/2020
 ms.author: victorh
-ms.openlocfilehash: 62f5375a0d468f5b137c4628c89c802d83dee102
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: baadd52a931a28e1502fe0da2286d541db9face4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82024484"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290116"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutorial: Configurar um gateway de aplicativo com o encerramento de TLS usando o portal do Azure
 
@@ -158,7 +158,7 @@ Na guia **Configuração**, você conectará o front-end e o pool de back-end qu
 
 5. Para a **Configuração de HTTP**, selecione **Criar novo** para criar uma configuração HTTP. A configuração HTTP determinará o comportamento da regra de roteamento. Na janela **Adicionar uma configuração de HTTP** que é aberta, insira *myHTTPSetting* para o **Nome da configuração de HTTP**. Aceite os valores padrão para as outras configurações na janela **Adicionar uma configuração de HTTP** e, em seguida, selecione **Adicionar** para retornar à janela **Adicionar uma regra de roteamento**. 
 
-   ![Criar gateway de aplicativo: Configuração de HTTP](./media/create-ssl-portal/application-gateway-create-httpsetting.png)
+   :::image type="content" source="./media/create-ssl-portal/application-gateway-create-httpsetting.png" alt-text="Criar Gateway de Aplicativo: configuração de HTTP":::
 
 6. Na janela **Adicionar uma regra de roteamento**, selecione **Adicionar** para salvar a regra de roteamento e retornar para a guia **Configuração**.
 
@@ -250,7 +250,7 @@ Neste exemplo, você instala IIS nas máquinas virtuais apenas para verificar se
 
     ![Registrar o endereço IP público do gateway de aplicativo](./media/create-ssl-portal/application-gateway-ag-address.png)
 
-2. Na barra de endereços do navegador, digite *https://\<endereço IP do gateway de aplicativo\>* .
+2. Na barra de endereços do navegador, digite *https://\<your application gateway ip address\>* .
 
    Se você usou um certificado autoassinado, para aceitar o aviso de segurança, selecione **Detalhes** (ou **Avançado** no Chrome) e, em seguida, acesse a página da Web:
 

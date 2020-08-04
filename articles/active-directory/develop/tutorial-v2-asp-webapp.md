@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4b9dac92f0cff213622f0087b281814251f06ffd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c0d8d2b009194b58c76dbd0a171f701f90df4086
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181606"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058284"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adicionar a entrada com a conta da Microsoft a um aplicativo Web ASP.NET
 
@@ -407,7 +407,7 @@ Para obter mais informações, veja [Permissões e consentimento no ponto de ext
 
 ### <a name="view-application-results"></a>Veja os resultados de aplicativo
 
-Depois de entrar, o usuário será redirecionado para a home page do seu site. A home page é a URL HTTPS especificada nas informações de registro de aplicativo no Portal de Registro de Aplicativo da Microsoft. A home page inclui uma mensagem de boas-vindas *"Olá, \<usuário>"* , um link para sair e um link para exibir as declarações do usuário. O link para as declarações do usuário é conectado ao controlador de Declarações criado anteriormente.
+Depois de entrar, o usuário será redirecionado para a home page do seu site. A home page é a URL HTTPS especificada nas informações de registro de aplicativo no Portal de Registro de Aplicativo da Microsoft. A home page inclui uma mensagem de boas-vindas *"Olá, \<user>"* , um link para sair e um link para ver as declarações do usuário. O link para as declarações do usuário é conectado ao controlador de Declarações criado anteriormente.
 
 ### <a name="view-the-users-claims"></a>Exibir as declarações do usuário
 
@@ -468,13 +468,13 @@ Essa opção é frequentemente usada para *aplicativos de linha de negócios*: S
 
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Opção 3: Usar um método personalizado para validar emissores
 
-É possível implementar um método personalizado para validar emissores usando o parâmetro **IssuerValidator**. Para obter mais informações sobre como usar esse parâmetro, confira [classe TokenValidationParameters](/previous-versions/visualstudio/dn464192(v=vs.114)).
+É possível implementar um método personalizado para validar emissores usando o parâmetro **IssuerValidator**. Para obter mais informações sobre como usar esse parâmetro, confira [classe TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como os aplicativos Web podem chamar APIs Web.
 
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart-guide"></a>Saiba como criar o aplicativo usado neste guia de início rápido
+### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Saiba como criar o aplicativo usado neste início rápido
 
 Saiba mais sobre os aplicativos Web chamando APIs Web com a plataforma de identidade da Microsoft:
 

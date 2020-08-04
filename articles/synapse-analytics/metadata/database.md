@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 42c6ad7f77d1b42c02f57f161874eadb75387dc2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 196577741ae1560232f8ae193aacd51a446431c8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496002"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385527"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Banco de dados compartilhado do Azure Synapse Analytics
 
@@ -34,7 +34,7 @@ Use o Spark para gerenciar bancos de dados criados pelo Spark. Por exemplo, excl
 
 Se você criar objetos em um banco de dados criado pelo Spark usando o SQL sob demanda ou tentar remover o banco de dados, a operação terá êxito. Porém, o banco de dados do Spark original não será alterado.
 
-## <a name="handling-of-name-conflicts"></a>Processamento de conflitos entre nomes
+## <a name="how-name-conflicts-are-handled"></a>Como os conflitos de nome são tratados
 
 Se o nome de um banco de dados do Spark estiver em conflito com o nome de um banco de dados existente do SQL sob demanda, um sufixo do SQL sob demanda será anexado ao banco de dados do Spark. O sufixo do SQL sob demanda é `_<workspace name>-ondemand-DefaultSparkConnector`.
 
@@ -57,9 +57,9 @@ Se uma entidade de segurança exigir a capacidade de criar ou remover objetos de
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="create--connect-to-spark-database---sql-on-demand"></a>Criar um banco de dados do Spark e se conectar a ele – SQL sob demanda
+### <a name="create-and-connect-to-spark-database-with-sql-on-demand"></a>Criar um banco de dados do Spark e se conectar a ele com o SQL sob demanda
 
-Primeiro, crie um banco de dados do Spark chamado `mytestdb` usando um cluster Spark que você já criou no workspace. Você pode fazer isso, por exemplo, usando um notebook C# Spark com a seguinte instrução .NET para Spark:
+Primeiro, crie um banco de dados do Spark chamado `mytestdb` usando um cluster Spark que você já criou no workspace. Você pode fazer isso, por exemplo, usando um notebook C# do Spark com a seguinte instrução .NET para Spark:
 
 ```csharp
 spark.Sql("CREATE DATABASE mytestdb")
