@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 34cfafadabd9a6328cbe85a5444211828df9db6d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 5fa591530e92682c582b5929240e74a5430fb559
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133710"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534984"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurar a recuperação de desastres para o SQL Server
 
@@ -47,6 +47,8 @@ SQL Server em uma VM IaaS do Azure ou no local.| Replicação com Azure Site Rec
 > * Você pode optar por usar Site Recovery para qualquer implantação no Azure, Hyper-V, VMware ou infraestrutura física. Siga as orientações no final deste artigo sobre [como ajudar a proteger um cluster SQL Server](#how-to-help-protect-a-sql-server-cluster) com site Recovery.
 > * Verifique se a taxa de alteração de dados observada na máquina está dentro dos [limites de site Recovery](vmware-physical-azure-support-matrix.md#churn-limits). A taxa de alteração é medida em bytes de gravação por segundo. Para computadores que executam o Windows, você pode exibir essa taxa de alteração selecionando a guia **desempenho** no Gerenciador de tarefas. Observe a velocidade de gravação de cada disco.
 > * O Site Recovery dá suporte à replicação de instâncias de cluster de failover no Espaços de Armazenamento Diretos. Para saber mais, consulte [como habilitar a replicação de espaços de armazenamento diretos](azure-to-azure-how-to-enable-replication-s2d-vms.md).
+> 
+> Ao migrar sua carga de trabalho do SQL para o Azure, é recomendável aplicar as [diretrizes de desempenho para SQL Server em máquinas virtuais do Azure](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices).
 
 ## <a name="disaster-recovery-of-an-application"></a>Recuperação de desastre de um aplicativo
 

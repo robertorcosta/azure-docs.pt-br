@@ -7,18 +7,18 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 40d372eb5569f3a4079acda3ab1e43b3e86cc113
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9807563c768b82c823ff754aaa679ddc917bf62d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999591"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535052"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>Parte quatro: montar um compartilhamento de arquivos de uma VM ingressada no domínio
 
 Antes de começar este artigo, certifique-se de concluir o artigo anterior, [configurar permissões de diretório e de nível de arquivo sobre SMB](storage-files-identity-ad-ds-configure-permissions.md).
 
-O processo descrito neste artigo verifica se o compartilhamento de arquivos e as permissões de acesso estão configurados corretamente e se você pode acessar um compartilhamento de arquivos do Azure de uma VM ingressada no domínio. A atribuição de função RBAC de nível de compartilhamento pode levar algum tempo para entrar em vigor. 
+O processo descrito neste artigo verifica se o compartilhamento de arquivos e as permissões de acesso estão configurados corretamente e se você pode acessar um compartilhamento de arquivos do Azure de uma VM ingressada no domínio. A atribuição de função do Azure de nível de compartilhamento pode levar algum tempo para entrar em vigor. 
 
 Entre no cliente usando as credenciais às quais você concedeu permissões, conforme mostrado na imagem a seguir.
 

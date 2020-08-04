@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: beda097733228dbb23ccb607747742d93d606933
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f31e238c705a4b03c400a38fa6eb5f42db7204b0
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497606"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535018"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Criar um aplicativo de aprendizado de máquina com o Apache Spark MLlib e o Azure Synapse Analytics
 
@@ -225,7 +225,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 Agora que há dois DataFrames, a próxima tarefa é criar a fórmula do modelo e executá-la no DataFrames de treinamento e depois validar em relação ao DataFrames de teste. Você deve fazer experiências com versões diferentes da fórmula do modelo para ver o impacto de diferentes combinações.
 
 > [!Note]
-> Para salvar o modelo, você precisará da função RBAC do Colaborador de Dados do Azure Storage Blob. Na conta de armazenamento, navegue até o Controle de Acesso (IAM) e selecione Adicionar atribuição de função. Atribua a função RBAC do Colaborador de Dados do Azure Storage Blob ao servidor do Banco de Dados SQL. Somente membros com o privilégio Proprietário podem executar essa etapa. Para várias funções internas do Azure, consulte este [guia](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+> Para salvar o modelo, você precisará da função do Azure de colaborador de dados de blob de armazenamento. Na conta de armazenamento, navegue até o Controle de Acesso (IAM) e selecione Adicionar atribuição de função. Atribua a função de colaborador de dados do armazenamento de BLOBs do Azure ao servidor do banco de dados SQL Somente membros com o privilégio Proprietário podem executar essa etapa. Para várias funções internas do Azure, consulte este [guia](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```python
 ## Create a new LR object for the model

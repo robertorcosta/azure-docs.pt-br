@@ -3,12 +3,12 @@ title: Como trabalhar com seus grupos de gerenciamento – Governança do Azure
 description: Saiba como visualizar, manter, atualizar e excluir sua hierarquia de grupos de gerenciamento.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: b60adbdf404f40739d6bcab7a0a3ceaf24c0b59f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5a0269935daedb3be478cc27d5ecaf87f3c97f7
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84259398"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535001"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerenciar seus recursos com grupos de gerenciamento
 
@@ -69,7 +69,7 @@ Para a exclusão de um grupo de gerenciamento, os seguintes requisitos deverão 
 
    - Para mover uma assinatura ou um grupo de gerenciamento para outro, confira [Mover grupos de gerenciamento e assinaturas na hierarquia](#moving-management-groups-and-subscriptions).
 
-1. Você precisa de permissões de gravação no grupo de gerenciamento ("Proprietário", ou "Colaborador" ou "Colaborador do Grupo de Gerenciamento"). Para ver quais permissões você tem, selecione o grupo de gerenciamento e, em seguida, selecione **IAM**. Para saber mais sobre as funções de RBAC, confira  
+1. Você precisa de permissões de gravação no grupo de gerenciamento ("Proprietário", ou "Colaborador" ou "Colaborador do Grupo de Gerenciamento"). Para ver quais permissões você tem, selecione o grupo de gerenciamento e, em seguida, selecione **IAM**. Para saber mais sobre as funções do Azure, consulte  
    [Gerenciar o acesso e as permissões com RBAC](../../role-based-access-control/overview.md).
 
 ### <a name="delete-in-the-portal"></a>Excluir no portal
@@ -113,7 +113,7 @@ az account management-group delete --name 'Contoso'
 
 ## <a name="view-management-groups"></a>Exibir grupos de gerenciamento
 
-Você pode exibir qualquer grupo de gerenciamento no qual você tem uma função de RBAC direta ou herdada.  
+Você pode exibir qualquer grupo de gerenciamento no qual tenha uma função direta ou herdada do Azure.  
 
 ### <a name="view-in-the-portal"></a>Exibir no portal
 
@@ -215,7 +215,7 @@ Se você estiver executando a ação de mover, precisará de:
 
 Se a função de proprietário na assinatura for herdada do grupo de gerenciamento atual, seus destinos de movimentação serão limitados. Você só pode mover a assinatura para outro grupo de gerenciamento no qual você tem a função de Proprietário. Você não pode movê-lo para um grupo de gerenciamento em que você é um colaborador, pois você perderia a propriedade da assinatura. Se você estiver diretamente atribuído à função de Proprietário da assinatura (não herdada do grupo de gerenciamento), poderá movê-la para qualquer grupo de gerenciamento no qual você seja um colaborador.
 
-Para ver quais permissões você tem no portal do Azure, selecione o grupo de gerenciamento e, em seguida, selecione **IAM**. Para saber mais sobre as funções de RBAC, consulte [Gerenciar acesso e permissões com RBAC](../../role-based-access-control/overview.md).
+Para ver quais permissões você tem no portal do Azure, selecione o grupo de gerenciamento e, em seguida, selecione **IAM**. Para saber mais sobre as funções do Azure, consulte [gerenciar acesso e permissões com o RBAC](../../role-based-access-control/overview.md).
 
 ## <a name="move-subscriptions"></a>Mover assinaturas 
 

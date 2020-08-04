@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: e2f38daea40f89e73422ca8115f2425758be81a4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 612584a71aa6be54d726ccdd74d9368ba9cddbc9
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413095"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535069"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Parte um: habilitar a autenticação de AD DS para seus compartilhamentos de arquivos do Azure 
 
@@ -30,7 +30,7 @@ Os cmdlets no módulo AzFilesHybrid do PowerShell fazem as modificações necess
 
 - [Baixar e descompactar o módulo AzFilesHybrid](https://github.com/Azure-Samples/azure-files-samples/releases) (módulo ga: v 0.2.0 +)
 - Instale e execute o módulo em um dispositivo que esteja ingressado no domínio no local AD DS com credenciais de AD DS que tenham permissões para criar uma conta de logon de serviço ou uma conta de computador no AD de destino.
--  Execute o script usando uma credencial de AD DS local que é sincronizada com o Azure AD. A credencial de AD DS local deve ter as permissões de proprietário da conta de armazenamento ou da função de RBAC do colaborador.
+-  Execute o script usando uma credencial de AD DS local que é sincronizada com o Azure AD. A credencial de AD DS local deve ter o proprietário da conta de armazenamento ou as permissões de função do Azure do colaborador.
 
 ### <a name="run-join-azstorageaccountforauth"></a>Executar Join-AzStorageAccountForAuth
 

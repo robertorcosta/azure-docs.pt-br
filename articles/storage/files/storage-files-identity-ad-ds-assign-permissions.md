@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 3335bfbed592c9e13d5be437e8013a89ae86e970
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16c8058da30821a53a20cf3ea6afdb0e4dbfcb77
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510626"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535086"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Parte dois: atribuir permissões de nível de compartilhamento a uma identidade
 
@@ -38,11 +38,11 @@ Há três funções internas do Azure para conceder permissões de nível de com
 
 Você pode usar o portal do Azure, Azure PowerShell ou CLI do Azure para atribuir as funções internas à identidade do Azure AD de um usuário para conceder permissões de nível de compartilhamento.
 
-## <a name="assign-an-rbac-role"></a>Atribuir uma função de RBAC
+## <a name="assign-an-azure-role"></a>Atribuir uma função do Azure
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para atribuir uma função de RBAC a uma identidade do Azure AD, usando o [portal do Azure](https://portal.azure.com), siga estas etapas:
+Para atribuir uma função do Azure a uma identidade do Azure AD, usando o [portal do Azure](https://portal.azure.com), siga estas etapas:
 
 1. No portal do Azure, vá para o compartilhamento de arquivos ou [crie um compartilhamento de arquivos](storage-how-to-create-file-share.md).
 1. Selecione **Controle de Acesso (IAM)** .
@@ -52,7 +52,7 @@ Para atribuir uma função de RBAC a uma identidade do Azure AD, usando o [porta
 
 ### <a name="powershell"></a>PowerShell
 
-O exemplo do PowerShell a seguir mostra como atribuir uma função de RBAC a uma identidade do Azure AD, com base no nome de entrada. Para obter mais informações sobre como atribuir funções do RBAC ao PowerShell, consulte [Gerenciar acesso usando o RBAC e o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+O exemplo do PowerShell a seguir mostra como atribuir uma função do Azure a uma identidade do Azure AD, com base no nome de entrada. Para obter mais informações sobre como atribuir funções do Azure com o PowerShell, consulte [gerenciar o acesso usando RBAC e Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Antes de executar o script de exemplo a seguir, substitua os valores de espaço reservado, incluindo colchetes, pelos valores.
 
@@ -67,7 +67,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 ### <a name="cli"></a>CLI
   
-O comando CLI 2,0 a seguir atribui uma função RBAC a uma identidade do Azure AD, com base no nome de entrada. Para obter mais informações sobre como atribuir funções RBAC com CLI do Azure, consulte [gerenciar o acesso usando RBAC e CLI do Azure](../../role-based-access-control/role-assignments-cli.md). 
+O comando da CLI 2,0 a seguir atribui uma função do Azure a uma identidade do Azure AD, com base no nome de entrada. Para obter mais informações sobre como atribuir funções do Azure com CLI do Azure, consulte [gerenciar o acesso usando RBAC e CLI do Azure](../../role-based-access-control/role-assignments-cli.md). 
 
 Antes de executar o script de exemplo a seguir, lembre-se de substituir os valores de espaço reservado, incluindo colchetes, pelos seus próprios valores.
 

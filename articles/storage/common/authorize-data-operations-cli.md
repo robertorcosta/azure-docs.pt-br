@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4f04671283a4888770e29606b6869c832b22e6a3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a656ccc56d198943c8631077466115eb6411a64a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499153"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534882"
 ---
 # <a name="authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Autorizar o acesso a dados de BLOB ou de fila com CLI do Azure
 
@@ -43,7 +43,7 @@ Para usar o `--auth-mode` parâmetro, certifique-se de ter instalado CLI do Azur
 
 Quando você entra no CLI do Azure com as credenciais do Azure AD, um token de acesso OAuth 2,0 é retornado. Esse token é usado automaticamente pelo CLI do Azure para autorizar operações de dados subsequentes no armazenamento de BLOBs ou filas. Para operações com suporte, você não precisa passar uma chave de conta ou token SAS com o comando.
 
-Você pode atribuir permissões a dados de BLOB e de fila a uma entidade de segurança do Azure AD por meio do RBAC (controle de acesso baseado em função). Para obter mais informações sobre as funções RBAC no armazenamento do Azure, consulte [gerenciar direitos de acesso aos dados do armazenamento do Azure com o RBAC](storage-auth-aad-rbac.md).
+Você pode atribuir permissões a dados de BLOB e de fila a uma entidade de segurança do Azure AD por meio do RBAC (controle de acesso baseado em função). Para obter mais informações sobre as funções do Azure no armazenamento do Azure, consulte [gerenciar direitos de acesso aos dados do armazenamento do Azure com o RBAC](storage-auth-aad-rbac.md).
 
 ### <a name="permissions-for-calling-data-operations"></a>Permissões para operações de dados de chamada
 
@@ -55,7 +55,7 @@ Para obter detalhes sobre as permissões necessárias para cada operação de ar
 
 O exemplo a seguir mostra como criar um contêiner a partir de CLI do Azure usando suas credenciais do Azure AD. Para criar o contêiner, você precisará fazer logon no CLI do Azure, e precisará de um grupo de recursos e uma conta de armazenamento. Para saber como criar esses recursos, consulte [início rápido: criar, baixar e listar BLOBs com CLI do Azure](../blobs/storage-quickstart-blobs-cli.md).
 
-1. Antes de criar o contêiner, atribua a função [Colaborador de Dados do Blob de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a si mesmo. Embora você seja o proprietário da conta, você precisa de permissões explícitas para executar operações de dados na conta de armazenamento. Para obter mais informações sobre como atribuir funções RBAC, consulte [conceder acesso ao blob do Azure e dados de fila com RBAC no portal do Azure](storage-auth-aad-rbac.md).
+1. Antes de criar o contêiner, atribua a função [Colaborador de Dados do Blob de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a si mesmo. Embora você seja o proprietário da conta, você precisa de permissões explícitas para executar operações de dados na conta de armazenamento. Para obter mais informações sobre como atribuir funções do Azure, consulte [conceder acesso ao blob do Azure e dados de fila com RBAC no portal do Azure](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > As atribuições de função do Azure podem levar alguns minutos para serem propagadas.
@@ -108,5 +108,5 @@ Você pode especificar parâmetros de autorização em variáveis de ambiente pa
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Use CLI do Azure para atribuir uma função de RBAC para acesso a dados de BLOB e de fila](storage-auth-aad-rbac-cli.md)
+- [Use CLI do Azure para atribuir uma função do Azure para acesso aos dados de BLOB e de fila](storage-auth-aad-rbac-cli.md)
 - [Autorizar o acesso a dados de BLOB e de fila com identidades gerenciadas para recursos do Azure](storage-auth-aad-msi.md)
