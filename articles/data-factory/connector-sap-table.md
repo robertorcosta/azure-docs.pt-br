@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/09/2020
-ms.openlocfilehash: d96b2b1f8465132549c59ac5555adf99e7758a3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/03/2020
+ms.openlocfilehash: a6eaa5519607d5d5e9a49851e1c55f9b60b554ea
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415227"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529714"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copiar dados de uma tabela SAP usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "81415227"
 Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de uma tabela SAP. Para obter mais informações, confira [Visão geral da atividade de cópia](copy-activity-overview.md).
 
 >[!TIP]
->Para saber mais sobre o suporte geral do ADF no cenário de integração de dados do SAP, confira o [white paper Integração de dados do SAP usando o Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) com introdução, comparação e diretrizes detalhadas.
+>Para aprender o suporte geral do ADF no cenário de integração de dados do SAP, consulte [integração de dados SAP usando Azure data Factory White Paper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) com introdução detalhada sobre cada conector SAP, análise e diretrizes.
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
@@ -47,6 +47,7 @@ Especificamente, esse conector de tabela SAP dá suporte a:
 - Copiar dados de uma tabela transparente do SAP, uma tabela em pool, uma tabela clusterizada e uma exibição.
 - Copiar dados usando a autenticação básica ou a SNC (comunicações de rede segura) se a SNC estiver configurada.
 - Conectando-se a um servidor de aplicativos SAP ou servidor de mensagens SAP.
+- Recuperando dados por meio da RFC padrão ou personalizada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -217,14 +218,15 @@ Para copiar dados de uma tabela SAP, há suporte para as seguintes propriedades:
 | :------------------------------- | :----------------------------------------------------------- | :------- |
 | `type`                             | A propriedade `type` precisa ser definida como `SapTableSource`.         | Sim      |
 | `rowCount`                         | O número de linhas a serem recuperadas.                              | Não       |
-| `rfcTableFields`                   | Os campos (colunas) a serem copiados da tabela SAP. Por exemplo, `column0, column1`. | Não       |
-| `rfcTableOptions`                  | As opções para filtrar as linhas em uma tabela SAP. Por exemplo, `COLUMN0 EQ 'SOMEVALUE'`. Consulte também a tabela do operador de consulta SAP mais adiante neste artigo. | Não       |
-| `customRfcReadTableFunctionModule` | Um módulo de função RFC personalizado que pode ser usado para ler dados de uma tabela SAP.<br>Você pode usar um módulo de função RFC personalizado para definir como os dados são recuperados do seu sistema SAP e retornados para Data Factory. O módulo de função personalizada deve ter uma interface implementada (importação, exportação, tabelas) semelhante a `/SAPDS/RFC_READ_TABLE2` , que é a interface padrão usada pelo data Factory. | Não       |
+| `rfcTableFields`                 | Os campos (colunas) a serem copiados da tabela SAP. Por exemplo, `column0, column1`. | Não       |
+| `rfcTableOptions`                | As opções para filtrar as linhas em uma tabela SAP. Por exemplo, `COLUMN0 EQ 'SOMEVALUE'`. Consulte também a tabela do operador de consulta SAP mais adiante neste artigo. | Não       |
+| `customRfcReadTableFunctionModule` | Um módulo de função RFC personalizado que pode ser usado para ler dados de uma tabela SAP.<br>Você pode usar um módulo de função RFC personalizado para definir como os dados são recuperados do seu sistema SAP e retornados para Data Factory. O módulo de função personalizada deve ter uma interface implementada (importação, exportação, tabelas) semelhante a `/SAPDS/RFC_READ_TABLE2` , que é a interface padrão usada pelo data Factory.<br>Data Factory | Não       |
 | `partitionOption`                  | O mecanismo de partição para ler de uma tabela SAP. As opções compatíveis incluem: <ul><li>`None`</li><li>`PartitionOnInt`(inteiro normal ou valores inteiros com preenchimento zero à esquerda, como `0000012345` )</li><li>`PartitionOnCalendarYear`(4 dígitos no formato "aaaa")</li><li>`PartitionOnCalendarMonth`(6 dígitos no formato "YYYYMM")</li><li>`PartitionOnCalendarDate`(8 dígitos no formato "aaaammdd")</li></ul> | Não       |
 | `partitionColumnName`              | O nome da coluna usada para particionar os dados.                | Não       |
 | `partitionUpperBound`              | O valor máximo da coluna especificada no `partitionColumnName` que será usado para continuar com o particionamento. | Não       |
 | `partitionLowerBound`              | O valor mínimo da coluna especificada no `partitionColumnName` que será usado para continuar com o particionamento. (Observação: `partitionLowerBound` não pode ser "0" quando a opção de partição é `PartitionOnInt` ) | Não       |
 | `maxPartitionsNumber`              | O número máximo de partições para dividir os dados.     | Não       |
+| `sapDataColumnDelimiter` | O caractere único que é usado como delimitador passado para SAP RFC para dividir os dados de saída. | Não |
 
 >[!TIP]
 >Se sua tabela SAP tiver um grande volume de dados, como vários bilhões de linhas, use `partitionOption` e `partitionSetting` para dividir os dados em partições menores. Nesse caso, os dados são lidos por partição e cada partição de dados é recuperada do servidor SAP por meio de uma única chamada RFC.<br/>

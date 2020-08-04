@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 61a281e5fa9e8d360b9b6e52cda9c54db49d93d0
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: b57a57f05853b9f8c291dc2ac352db7b1e679260
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406734"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534848"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
@@ -48,7 +48,7 @@ Você deve receber pelo menos uma função que conceda acesso para ler dados de 
 
 O armazenamento do Azure tem duas camadas de acesso: _Gerenciamento_ e _dados_. As assinaturas e as contas de armazenamento são acessadas por meio da camada de gerenciamento. Contêineres, BLOBs e outros recursos de dados são acessados por meio da camada de dados. Por exemplo, se você quiser obter uma lista de suas contas de armazenamento do Azure, envie uma solicitação para o ponto de extremidade de gerenciamento. Se você quiser uma lista de contêineres de BLOB em uma conta, envie uma solicitação para o ponto de extremidade de serviço apropriado.
 
-As funções RBAC podem conceder permissões para acesso à camada de dados ou gerenciamento. A função leitor, por exemplo, concede acesso somente leitura aos recursos da camada de gerenciamento.
+As funções do Azure podem conceder permissões para acesso à camada de dados ou gerenciamento. A função leitor, por exemplo, concede acesso somente leitura aos recursos da camada de gerenciamento.
 
 Estritamente falando, a função leitor não fornece nenhuma permissão de camada de dados e não é necessária para acessar a camada de dados.
 

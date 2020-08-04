@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: 97168c95893ffdea99180c997265f259176ed07f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8912ef907641367bda89d7c0e98f9da811c6e577
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530922"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534593"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Suporte do DPS (serviço de provisionamento de dispositivos) do Hub IoT do Azure para redes virtuais
 
@@ -59,7 +59,7 @@ Observe as seguintes limitações atuais para o DPS ao usar pontos de extremidad
 
 * Os pontos de extremidade privados não funcionarão com o DPS quando o recurso de DPS e o Hub vinculado estiverem em nuvens diferentes. Por exemplo, [Azure governamental e global Azure](../azure-government/documentation-government-welcome.md).
 
-* Atualmente, [as políticas de alocação personalizadas com Azure Functions](how-to-use-custom-allocation-policies.md) para o DPS não funcionarão em uma VNET e em pontos de extremidade privados. 
+* Atualmente, [as políticas de alocação personalizadas com Azure Functions](how-to-use-custom-allocation-policies.md) para o DPS não funcionarão quando a função do Azure for bloqueada para uma VNET e pontos de extremidade privados. 
 
 * O suporte a VNET do DPS atual é para entrada de dados somente no DPS. A saída de dados, que é o tráfego do DPS para o Hub IoT, usa um mecanismo de serviço a serviço interno em vez de uma VNET dedicada. O suporte para o bloqueio de saída completo baseado em VNET entre o DPS e o Hub IoT não está disponível no momento.
 
@@ -129,7 +129,7 @@ Você pode solicitar um ponto de extremidade privado para um recurso de DPS por 
     | :---- | :-----|
     | **ID do recurso ou alias** | Insira a ID de recurso para o recurso de DPS. |
     | **Sub-recurso de destino** | Insira **iotDps** |
-    | **Mensagem de solicitação** | Insira uma mensagem de solicitação para o proprietário do recurso de DPS.<br>Por exemplo: <br>`Please approve this new private endpoint`<br>`for IoT devices in site 23 to access this DPS instance`  |
+    | **Mensagem de solicitação** | Insira uma mensagem de solicitação para o proprietário do recurso de DPS.<br>Por exemplo, <br>`Please approve this new private endpoint`<br>`for IoT devices in site 23 to access this DPS instance`  |
 
     Clique em **Avançar: configuração** para configurar a VNET para o ponto de extremidade privado.
 

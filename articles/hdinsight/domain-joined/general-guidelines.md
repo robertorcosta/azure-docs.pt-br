@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 142fdf27fde100385140baacdeba9249b2e7989b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d97886232eecc369746e33df484cbfb9d40da72
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887888"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530258"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Informações gerais e diretrizes de segurança corporativa no Azure HDInsight
 
@@ -20,7 +20,7 @@ Ao implantar um cluster HDInsight seguro, há algumas práticas recomendadas que
 
 ## <a name="use-of-secure-cluster"></a>Uso do cluster seguro
 
-### <a name="recommended"></a>Recomendado
+### <a name="recommended"></a>Recomendadas
 
 * O cluster será usado por vários usuários ao mesmo tempo.
 * Os usuários têm diferentes níveis de acesso aos mesmos dados.
@@ -62,7 +62,7 @@ Ao implantar um cluster HDInsight seguro, há algumas práticas recomendadas que
 Quando o espaço de nome hierárquico não está habilitado:
 
 * Não há permissões herdadas.
-* Somente a permissão de sistema de arquivos que funciona é a função de RBAC de **dados de armazenamento xxxx** , a ser atribuída diretamente ao usuário no portal do Azure.
+* Somente a permissão FileSystem que funciona é **Storage Data xxxx** Azure role, a ser atribuída ao usuário diretamente no portal do Azure.
 
 ### <a name="default-hdfs-permissions"></a>Permissões de HDFS padrão
 

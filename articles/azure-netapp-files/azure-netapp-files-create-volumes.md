@@ -12,24 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 07/27/2020
 ms.author: b-juche
-ms.openlocfilehash: 2e1e6ad6625586e882551521111057a2a20f0fff
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: f176e8fceb4d3e2e07398e6cb878180c8fe2321b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513036"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533148"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para o Azure NetApp Files
 
-O Azure NetApp Files dá suporte a volumes NFS (NFSv3 e NFSv 4.1) e SMBv3. O consumo de capacidade de um volume conta contra a capacidade provisionada do pool desse volume. Este artigo mostra como criar um volume do NFS. Se você quiser criar um volume SMB, consulte [criar um volume SMB para Azure NetApp files](azure-netapp-files-create-volumes-smb.md). 
+O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFSv 4.1), SMBv3 ou protocolo duplo (NFSv3 e SMB). O consumo de capacidade de um volume conta contra a capacidade provisionada do pool desse volume. Este artigo mostra como criar um volume do NFS. 
 
 ## <a name="before-you-begin"></a>Antes de começar 
-Você deve já configurou um pool de capacidade.   
-[Configurar um pool de capacidade](azure-netapp-files-set-up-capacity-pool.md)   
-Uma sub-rede deve ser delegada ao Azure NetApp Files.  
-[Delegar uma sub-rede ao Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+* Você deve já configurou um pool de capacidade.  
+    Consulte [configurar um pool de capacidade](azure-netapp-files-set-up-capacity-pool.md).   
+* Uma sub-rede deve ser delegada ao Azure NetApp Files.  
+    Consulte [delegar uma sub-rede a Azure NetApp files](azure-netapp-files-delegate-subnet.md).
 
 ## <a name="considerations"></a>Considerações 
 
@@ -44,22 +44,19 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
 
 ## <a name="best-practice"></a>Melhor prática
 
-* Você deve garantir que está usando as instruções de montagem adequadas para o volume.  Confira [montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
+* Verifique se você está usando as instruções de montagem adequadas para o volume.  Confira [montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
 
 * O cliente NFS deve estar na mesma VNet ou VNet emparelhada que o volume Azure NetApp Files. Há suporte para a conexão de fora da VNet; no entanto, ele apresentará latência adicional e reduzirá o desempenho geral.
 
-* Você deve garantir que o cliente NFS esteja atualizado e executando as atualizações mais recentes para o sistema operacional.
+* Verifique se o cliente NFS está atualizado e executando as atualizações mais recentes para o sistema operacional.
 
 ## <a name="create-an-nfs-volume"></a>Criar um volume do NFS
 
-1.  Clique na folha **Volumes** da folha Pools de Capacidade. 
+1.  Clique na folha **Volumes** da folha Pools de Capacidade. Clique em **+ Adicionar volume** para criar um volume. 
 
-    ![Navegar até Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png)
+    ![Navegar até Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
 
-2.  Clique em **+ Adicionar volume** para criar um volume.  
-    A janela Criar um Volume é exibida.
-
-3.  Na janela Criar um Volume, clique em **Criar** e forneça informações para os seguintes campos:   
+2.  Na janela criar um volume, clique em **criar**e forneça informações para os seguintes campos na guia noções básicas:   
     * **Nome do volume**      
         Especifique o nome para o volume que você está criando.   
 
@@ -92,11 +89,11 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
 
     * Se você quiser aplicar uma política de instantâneo existente ao volume, clique em **Mostrar seção avançada** para expandi-la e selecione uma política de instantâneo no menu suspenso. 
 
-        Para obter informações sobre como criar uma política de instantâneo, consulte [gerenciar instantâneos](azure-netapp-files-manage-snapshots.md).
+        Para obter informações sobre como criar uma política de instantâneo, consulte [gerenciar políticas de instantâneo](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
 
         ![Mostrar seleção avançada](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
-4. Clique em **Protocolo** e, em seguida, conclua as seguintes ações:  
+3. Clique em **Protocolo** e, em seguida, conclua as seguintes ações:  
     * Selecione **NFS** como o tipo de protocolo para o volume.   
     * Especifique o **caminho do arquivo** que será usado para criar o caminho de exportação para o novo volume. O caminho de exportação é usado para montar e acessar o volume.
 
@@ -105,11 +102,16 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
         O caminho do arquivo deve ser exclusivo em cada assinatura e em cada região. 
 
     * Selecione a versão do NFS (**NFSv3** ou **NFSv4.1**) para o volume.  
+
+    * Se você estiver usando o NFSv 4.1, indique se deseja habilitar a criptografia **Kerberos** para o volume.  
+
+        Configurações adicionais serão necessárias se você usar o Kerberos com o NFSv 4.1. Siga as instruções em [Configurar criptografia Kerberos do nfsv 4.1](configure-kerberos-encryption.md).
+
     * Opcionalmente, [Configure a política de exportação para o volume do NFS](azure-netapp-files-configure-export-policy.md).
 
     ![Especificar o protocolo NFS](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
 
-5. Clique em **Examinar + Criar** para examinar os detalhes do volume.  Em seguida, clique em **criar** para criar o volume do NFS.
+4. Clique em **Examinar + Criar** para examinar os detalhes do volume.  Em seguida, clique em **criar** para criar o volume.
 
     O volume que você criou aparece na página Volumes. 
  
@@ -119,6 +121,7 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
 ## <a name="next-steps"></a>Próximas etapas  
 
 * [Configurar o domínio padrão do NFSv4.1 para o Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
+* [Configurar a criptografia Kerberos do NFSv 4.1](configure-kerberos-encryption.md)
 * [Montar ou desmontar um volume para máquinas virtuais do Windows ou do Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configurar a política de exportação para um volume do NFS](azure-netapp-files-configure-export-policy.md)
 * [Limites de recursos do Azure NetApp Files](azure-netapp-files-resource-limits.md)

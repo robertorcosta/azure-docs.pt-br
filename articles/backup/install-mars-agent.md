@@ -3,12 +3,12 @@ title: Instalar o agente de Serviços de Recuperação do Microsoft Azure (MARS)
 description: Saiba como instalar o agente de Serviços de Recuperação do Microsoft Azure (MARS) para fazer backup de computadores Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: b9842f6b07621301a0a8a32f5eb7fae5ece153bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 715153d445acbc372f8305ca39f5276bf8a39773
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079359"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533471"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instalar o agente MARS do backup do Azure
 
@@ -155,7 +155,7 @@ Se você já tiver instalado o agente em qualquer computador, certifique-se de e
 
     ![Adicionar credenciais do cofre usando o assistente para registrar servidor](./media/backup-configure-vault/register1.png)
 
-1. Na página **configuração de criptografia** , especifique uma senha que será usada para criptografar e descriptografar backups para o computador.
+1. Na página **configuração de criptografia** , especifique uma senha que será usada para criptografar e descriptografar backups para o computador. [Consulte aqui](backup-azure-file-folder-backup-faq.md#what-characters-are-allowed-for-the-passphrase) para obter mais informações sobre caracteres de senha permitidos.
 
     * Salve a frase secreta em um local seguro. Você precisa dele para restaurar um backup.
     * Se você perder ou esquecer a senha, a Microsoft não poderá ajudá-lo a recuperar os dados de backup.

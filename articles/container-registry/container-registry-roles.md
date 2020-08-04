@@ -1,14 +1,14 @@
 ---
-title: Funções e permissões de RBAC
+title: Funções e permissões do Azure
 description: Use o Azure RBAC (controle de acesso baseado em função) e o IAM (gerenciamento de identidade e acesso) para fornecer permissões refinadas aos recursos em um registro de contêiner do Azure.
 ms.topic: article
 ms.date: 12/02/2019
-ms.openlocfilehash: 0bf6059698191c975b212bee7f45d21977478b49
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 90546b96f081893d312e66aae04e2125c1c210e5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497742"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533301"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Funções e permissões do Registro de Contêiner do Azure
 
@@ -85,7 +85,7 @@ Para definir uma função personalizada, consulte [etapas para criar uma funçã
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre como atribuir funções RBAC para uma identidade do Azure usando o [portal do Azure](../role-based-access-control/role-assignments-portal.md), [CLI do Azure](../role-based-access-control/role-assignments-cli.md), ou outras ferramentas do Azure.
+* Saiba mais sobre como atribuir funções do Azure a uma identidade do Azure usando o [portal do Azure](../role-based-access-control/role-assignments-portal.md), o [CLI do Azure](../role-based-access-control/role-assignments-cli.md)ou outras ferramentas do Azure.
 
 * Saiba mais sobre [opções de autenticação](container-registry-authentication.md) para Registro de Contêiner do Azure.
 

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: 43839e19eb252c9fa7ab46605fd247f3a798d223
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.date: 07/30/2020
+ms.openlocfilehash: 48248b07b64278d5c8d4f297bf83df813aa486fe
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220279"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529493"
 ---
 # <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Copiar dados de e para floco de neve usando Azure Data Factory
 
@@ -49,7 +49,7 @@ As propriedades a seguir têm suporte para um serviço vinculado a floco de neve
 | Propriedade         | Descrição                                                  | Obrigatório |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | type             | A propriedade Type deve ser definida como **floco de neve**.              | Sim      |
-| connectionString | Configure o [nome completo da conta](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) (incluindo segmentos adicionais que identificam a região e a plataforma de nuvem), o nome de usuário, a senha, o banco de dados e o depósito. Especifique a cadeia de conexão JDBC para se conectar à instância de floco de neve. Você também pode colocar a senha em Azure Key Vault. Consulte os exemplos abaixo da tabela, bem como as credenciais de [armazenamento no artigo Azure Key Vault](store-credentials-in-key-vault.md) , para obter mais detalhes.| Sim      |
+| connectionString | Especifica as informações necessárias para se conectar à instância de floco de neve. Você pode optar por colocar a senha ou a cadeia de conexão inteira em Azure Key Vault. Consulte os exemplos abaixo da tabela, bem como as credenciais de [armazenamento no artigo Azure Key Vault](store-credentials-in-key-vault.md) , para obter mais detalhes.<br><br>Algumas configurações típicas:<br>- **Nome da conta:** O [nome da conta completa](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) da sua conta do floco de neve (incluindo segmentos adicionais que identificam a região e a plataforma de nuvem), por exemplo, xy12345. leste-US-2. Azure.<br/>- **Nome de usuário:** O nome de logon do usuário para a conexão.<br>- **Senha:** A senha do usuário.<br>- **Banco de dados:** O banco de dados padrão a ser usado uma vez conectado. Deve ser um banco de dados existente para o qual a função especificada tenha privilégios.<br>- **Depósito:** O depósito virtual a ser usado uma vez conectado. Deve ser um depósito existente para o qual a função especificada tenha privilégios.<br>- **Função:** A função de controle de acesso padrão a ser usada na sessão floco de neve. A função especificada deve ser uma função existente que já tenha sido atribuída ao usuário especificado. A função padrão é PUBLIC. | Sim      |
 | connectVia       | O [Integration Runtime](concepts-integration-runtime.md) que é usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou um tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usará o tempo de execução de integração do Azure padrão. | Não       |
 
 **Exemplo:**
@@ -60,7 +60,7 @@ As propriedades a seguir têm suporte para um serviço vinculado a floco de neve
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>"
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>&role=<myRole>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -78,7 +78,7 @@ As propriedades a seguir têm suporte para um serviço vinculado a floco de neve
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>",
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>&role=<myRole>",
             "password": {
                 "type": "AzureKeyVaultSecret",
                 "store": { 

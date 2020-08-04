@@ -12,12 +12,12 @@ ms.date: 7/27/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: bd641b57cfdd7f9481e17a90dbbd81d5e43f8ad2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9bd34831beea4ce20f7abffb2eaac70e08decfd5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311102"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529218"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plataforma de identidade da Microsoft e o fluxo de credenciais do cliente OAuth 2,0
 
@@ -53,7 +53,7 @@ Um caso de uso comum é usar uma ACL para executar testes para um aplicativo Web
 Esse tipo de autorização é comum para daemons e contas de serviço que precisam acessar dados pertencentes a usuários consumidores com contas pessoais da Microsoft. Para dados de propriedade de organizações, é recomendável que você obtenha a autorização necessária por meio de permissões de aplicativo.
 
 > [!NOTE]
-> Para habilitar esse padrão de autorização baseado em ACL, o Azure AD não exige que os aplicativos sejam autorizados a obter tokens para outro aplicativo. portanto, os tokens somente de aplicativo podem ser emitidos sem uma `rules` declaração. Os aplicativos que expõem APIs devem implementar verificações de permissão para aceitar tokens.
+> Para habilitar esse padrão de autorização baseado em ACL, o Azure AD não exige que os aplicativos sejam autorizados a obter tokens para outro aplicativo. portanto, os tokens somente de aplicativo podem ser emitidos sem uma `roles` declaração. Os aplicativos que expõem APIs devem implementar verificações de permissão para aceitar tokens.
 
 ### <a name="application-permissions"></a>Permissões de aplicativo
 

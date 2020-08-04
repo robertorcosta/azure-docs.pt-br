@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Aprenda a solucionar problemas comuns ao habilitar e usar o Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 7b97bab7182e382801a57bcf7dd6f325e665438b
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: cd242dc56e4a3215954fbe6703f47e29bd417ea8
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232484"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534389"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solução de problemas do Azure Dev Spaces
 
@@ -442,7 +442,7 @@ Uma solução alternativa temporária para esse problema é aumentar o valor de 
 
 Esse erro pode ocorrer se `azds.exe` não estiver instalado ou configurado corretamente.
 
-Para resolver este problema:
+Para corrigir esse problema:
 
 1. Verifique o local %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI for `azds.exe`. Se estiver lá, adicione o local à variável de ambiente PATH.
 2. Se `azds.exe` não estiver instalado, execute o seguinte comando:
@@ -498,9 +498,9 @@ Depois que o controlador for reinstalado, reimplante o pods.
 
 ### <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Permissões RBAC incorretas para chamar controlador e as APIs do Dev Spaces
 
-O usuário que acessa o controlador do Azure Dev Spaces deve ter acesso para ler o *kubeconfig* de administrador no cluster AKS. Por exemplo, essa permissão está disponível na [Função de Administrador de Cluster do Serviço de Kubernetes do Azure](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). O usuário que acessa o controlador do Azure Dev Spaces também deve ter função RBAC *Colaborador* ou *Proprietário* para o controlador. Mais detalhes sobre como atualizar as permissões de um usuário para um cluster AKS estão disponíveis [aqui](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
+O usuário que acessa o controlador do Azure Dev Spaces deve ter acesso para ler o *kubeconfig* de administrador no cluster AKS. Por exemplo, essa permissão está disponível na [Função de Administrador de Cluster do Serviço de Kubernetes do Azure](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). O usuário que acessa o controlador de Azure Dev Spaces também deve ter a função de *colaborador* ou *proprietário* do Azure para o controlador. Mais detalhes sobre como atualizar as permissões de um usuário para um cluster AKS estão disponíveis [aqui](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
 
-Para atualizar a função RBAC do usuário para o controlador:
+Para atualizar a função do Azure do usuário para o controlador:
 
 1. Entre no Portal do Azure em https://portal.azure.com.
 1. Navegue até o Grupo de Recursos que contém o controlador, que geralmente é o mesmo que o cluster AKS.
@@ -518,7 +518,7 @@ Para atualizar a função RBAC do usuário para o controlador:
 
 Você pode configurar um ponto de extremidade de URL público para seu serviço, especificando a opção `--enable-ingress` para o comando `azds prep` ou selecionando a caixa de seleção `Publicly Accessible` no Visual Studio. O nome DNS público é registrado automaticamente quando você executa o serviço no Dev Spaces. Se esse nome DNS não estiver registrado, você verá um erro *A página não pode ser exibida* ou *O site não pode ser alcançado* no navegador da Web durante a conexão com a URL pública.
 
-Para resolver este problema:
+Para corrigir esse problema:
 
 * Verifique o status de todas as URLs associadas aos seus serviços do Dev Spaces:
 
@@ -540,7 +540,7 @@ Para resolver este problema:
 * O contêiner ainda está em processo de ser compilado e implantado. Esse problema poderá ocorrer se você executar `azds up` ou iniciar o depurador e, em seguida, tentar acessar o contêiner antes dele ser implantado com êxito.
 * A configuração de porta não é uniforme em todo o _Dockerfile_, Helm Chart e em qualquer código de servidor que abra uma porta.
 
-Para resolver este problema:
+Para corrigir esse problema:
 
 1. Se o contêiner estiver sendo compilado/implantado, você poderá aguardar de 2 a 3 segundos e tentar acessar o serviço novamente. 
 1. Verifique a configuração das suas portas nos seguintes ativos:

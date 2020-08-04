@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 7761da75c16e2f89ae145bad3b04cc179f415751
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: cbce903bc7463cd917d48e341614afbe18536262
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127529"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531201"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gerenciar o Azure Data Lake Analytics usando o portal do Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -95,7 +95,7 @@ Você pode usar o **Assistente para Adicionar Usuário** para provisionar facilm
 
 Como outros serviços do Azure, você pode usar o RBAC (controle de acesso baseado em função) para controlar como os usuários interagem com o serviço.
 
-As funções padrão do RBAC têm os seguintes recursos:
+As funções padrão do Azure têm os seguintes recursos:
 * **Proprietário**: pode enviar, monitorar e cancelar trabalhos de qualquer usuário e configurar a conta.
 * **Colaborador**: pode enviar, monitorar e cancelar trabalhos de qualquer usuário e configurar a conta.
 * **Leitor**: pode monitorar trabalhos.

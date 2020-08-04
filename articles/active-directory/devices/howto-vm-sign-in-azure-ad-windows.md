@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3dcb3a74e9341981af7e6eddb4be7454aaf429b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2fcd1c3a9fd3e4be22e4057eb2cfc9a71d09d558
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419777"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529102"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Entrar na máquina virtual do Windows no Azure usando a autenticação Azure Active Directory (versão prévia)
 
@@ -144,7 +144,7 @@ O `provisioningState` de `Succeeded` é mostrado, depois que a extensão é inst
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configurar atribuições de função para a VM
 
-Agora que você criou a VM, precisará configurar a política RBAC do Azure para determinar quem pode fazer logon na VM. Duas funções RBAC são usadas para autorizar o logon na VM:
+Agora que você criou a VM, precisará configurar a política RBAC do Azure para determinar quem pode fazer logon na VM. Duas funções do Azure são usadas para autorizar o logon da VM:
 
 - **Logon de administrador da máquina virtual**: os usuários com essa função atribuída podem fazer logon em uma máquina virtual do Azure com privilégios de administrador.
 - **Logon de usuário da máquina virtual**: os usuários com essa função atribuído podem fazer logon uma máquina virtual do Azure com privilégios de usuários regulares.
@@ -208,7 +208,7 @@ Você pode impor políticas de acesso condicional, como a autenticação multifa
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Fazer logon usando as credenciais do Azure AD para uma VM do Windows
 
 > [!IMPORTANT]
-> A conexão remota com VMs Unidas ao Azure AD só é permitida a partir de computadores Windows 10 que estejam registrados no Azure AD (a compilação mínima necessária é 20H1) ou ingressado no Azure ad ou híbrido do AD LDS ingressado no **mesmo** diretório da VM. Além disso, para o RDP usando as credenciais do Azure AD, o usuário deve pertencer a uma das duas funções RBAC, logon de administrador de máquina virtual ou logon de usuário de máquina virtual. Se estiver usando um computador Windows 10 registrado no Azure AD, você deverá inserir as credenciais no formato AzureAD\UPN (por exemplo, AzureAD\john@contoso.com ). Neste momento, a bastiões do Azure não pode ser usada para fazer logon usando Azure Active Directory autenticação com a extensão AADLoginForWindows; somente o RDP direto tem suporte.
+> A conexão remota com VMs Unidas ao Azure AD só é permitida a partir de computadores Windows 10 que estejam registrados no Azure AD (a compilação mínima necessária é 20H1) ou ingressado no Azure ad ou híbrido do AD LDS ingressado no **mesmo** diretório da VM. Além disso, para o RDP usando as credenciais do Azure AD, o usuário deve pertencer a uma das duas funções do Azure, logon de administrador de máquina virtual ou logon de usuário de máquina virtual. Se estiver usando um computador Windows 10 registrado no Azure AD, você deverá inserir as credenciais no formato AzureAD\UPN (por exemplo, AzureAD\john@contoso.com ). Neste momento, a bastiões do Azure não pode ser usada para fazer logon usando Azure Active Directory autenticação com a extensão AADLoginForWindows; somente o RDP direto tem suporte.
 
 Para fazer logon em sua máquina virtual do Windows Server 2019 usando o Azure AD: 
 
@@ -315,13 +315,13 @@ Na visualização pública, a extensão AADLoginForWindows destina-se apenas a s
 
 ### <a name="troubleshoot-sign-in-issues"></a>Solucionar problemas de entrada
 
-Alguns erros comuns quando você tenta usar o RDP com as credenciais do Azure AD não incluem nenhuma função RBAC atribuída, cliente não autorizado ou método de entrada 2FA necessário. Use as informações a seguir para corrigir esses problemas.
+Alguns erros comuns ao tentar usar o RDP com as credenciais do Azure AD não incluem nenhuma função do Azure atribuída, cliente não autorizado ou método de entrada 2FA necessário. Use as informações a seguir para corrigir esses problemas.
 
 O estado do dispositivo e do SSO pode ser exibido executando `dsregcmd /status` . O objetivo é que o estado do dispositivo seja mostrado como `AzureAdJoined : YES` e `SSO State` para mostrar `AzureAdPrt : YES` .
 
 Além disso, a entrada RDP usando contas do Azure AD é capturada no Visualizador de eventos nos logs de eventos do AAD\Operational.
 
-#### <a name="rbac-role-not-assigned"></a>Função RBAC não atribuída
+#### <a name="azure-role-not-assigned"></a>Função do Azure não atribuída
 
 Se você vir a seguinte mensagem de erro ao iniciar uma conexão de área de trabalho remota para sua VM: 
 

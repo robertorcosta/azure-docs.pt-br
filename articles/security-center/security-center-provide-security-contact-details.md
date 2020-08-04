@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 661d3845365778f7ef23cdd05b81b98c3bf84259
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a2410a5ccaa10867e94b3a2ec10228a006fbe20
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519223"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534627"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Configurar notificações por email para alertas de segurança 
 
 Para garantir que as pessoas certas em sua organização sejam notificadas sobre alertas de segurança em seu ambiente, insira seus endereços de email na página de configurações de **notificações de email** .
 
-Ao configurar suas notificações, você pode configurar os emails a serem enviados a indivíduos específicos ou a qualquer pessoa com uma função RBAC específica para uma assinatura. 
+Ao configurar suas notificações, você pode configurar os emails a serem enviados a indivíduos específicos ou a qualquer pessoa com uma função específica do Azure para uma assinatura. 
 
 Para evitar o alerta fadiga, a central de segurança limita o volume de emails enviados. Para cada assinatura, a central de segurança envia:
 
@@ -41,7 +41,7 @@ Para evitar o alerta fadiga, a central de segurança limita o volume de emails e
 
 ## <a name="set-up-email-notifications-for-alerts"></a>Configurar notificações por email para alertas<a name="email"></a>
 
-Você pode enviar notificações por email para indivíduos ou para todos os usuários com funções RBAC específicas.
+Você pode enviar notificações por email para indivíduos ou para todos os usuários com funções específicas do Azure.
 
 1. Na área de **configurações & de preços** da central de segurança, na assinatura relevante e selecione **notificações por email**.
 

@@ -5,12 +5,12 @@ description: Conheça as práticas recomendadas de operador do cluster para usar
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 5b003c9f0c3b47779bd7da92fb64c57830911fae
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b8077a772d6fdc4b911fabdfa893a15dcd7615db
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077840"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530054"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para os recursos do agendador avançado no Serviço de Kubernetes do Azure (AKS)
 
@@ -71,8 +71,6 @@ Quando esse pod é implantado, como o uso de `kubectl apply -f gpu-toleration.ya
 
 Ao aplicar taints, trabalhe com seus desenvolvedores de aplicativos e proprietários para permitir que definam os tolerations necessários em suas implantações.
 
-Para obter mais informações sobre taints e tolerations, consulte [Aplicar taints e tolerations][k8s-taints-tolerations].
-
 Para obter mais informações sobre como usar vários pools de nós no AKS, consulte [criar e gerenciar vários pools de nós para um cluster no AKs][use-multiple-node-pools].
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportamento de e Tolerations no AKs
@@ -80,6 +78,7 @@ Para obter mais informações sobre como usar vários pools de nós no AKS, cons
 Quando você atualiza um pool de nós em AKS, os tolerationss seguem um padrão definido à medida que são aplicados a novos nós:
 
 - **Clusters padrão que usam conjuntos de dimensionamento de máquinas virtuais**
+  - Você pode fazer [um nodepool][taint-node-pool] da API do AKs, para que nós recentemente expandidos recebam o nó especificado da API.
   - Vamos supor que você tenha um cluster de dois nós- *Node1* e *NODE2*. Você atualiza o pool de nós.
   - Dois nós adicionais são criados, *Node3* e *Nó4*, e os são passados em respectivamente.
   - Os *Node1* e *NODE2* originais são excluídos.
@@ -198,3 +197,4 @@ Este artigo se concentra nos recursos avançados de agendador Kubernetes. Para o
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[taint-node-pool]: use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool

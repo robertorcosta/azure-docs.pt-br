@@ -3,12 +3,12 @@ title: Agente de Serviços de Recuperação do Microsoft Azure (MARS) – pergun
 description: Aborda perguntas comuns sobre como fazer backup de arquivos e pastas com o backup do Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: fb6290124aa9ee0335083c5a505c005a387c0cd7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a4560499c56e4dcdf41c2e5c7920b415ceab6c5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514060"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533573"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Agente de perguntas frequentes – Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -23,6 +23,10 @@ O agente MARS mais recente usado ao fazer backup de computadores com Windows Ser
 ### <a name="how-long-are-vault-credentials-valid"></a>Por quanto tempo as credenciais do cofre são válidas?
 
 As credenciais do cofre expiram após 10 dias. Se o arquivo de credenciais expirar, baixe o arquivo novamente no portal do Azure.
+
+### <a name="what-characters-are-allowed-for-the-passphrase"></a>Quais caracteres são permitidos para a frase secreta?
+
+A frase secreta deve usar caracteres do conjunto de caracteres ASCII, com valores ASCII menores ou iguais a 127.
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>De quais unidades posso fazer backup de arquivos e pastas?
 

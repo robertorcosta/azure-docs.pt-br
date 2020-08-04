@@ -6,12 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: c7051cca9029283b150eea0519aa7432d6a9c937
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 21742d2db6a7fde69568e5fd1e5eda98542faa47
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420474"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528661"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gerenciar permissões e segurança de funções
 
@@ -19,7 +19,7 @@ O RBAC (controle de acesso baseado em função) permite o gerenciamento de acess
 
 ## <a name="roles-in-automation-accounts"></a>Funções em Contas de Automação
 
-Na Automação do Azure, o acesso é concedido atribuindo a função apropriada de RBAC aos usuários, grupos e aplicativos no escopo da Conta de Automação. Veja a seguir as funções internas com suporte de uma Conta de Automação:
+Na automação do Azure, o acesso é concedido atribuindo a função apropriada do Azure a usuários, grupos e aplicativos no escopo da conta de automação. Veja a seguir as funções internas com suporte de uma Conta de Automação:
 
 | **Função** | **Descrição** |
 |:--- |:--- |
@@ -319,7 +319,7 @@ Você pode remover a permissão de acesso de um usuário que não está gerencia
 
 Você também pode configurar o acesso baseado em função para uma conta de Automação usando os seguintes [cmdlets do Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
-[Get-AzureRmRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) lista todas as funções RBAC disponíveis no Azure Active Directory. Você pode usar o cmdlet com o parâmetro `Name` para listar todas as ações que uma função específica pode executar.
+[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) lista todas as funções do Azure que estão disponíveis no Azure Active Directory. Você pode usar o cmdlet com o parâmetro `Name` para listar todas as ações que uma função específica pode executar.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'

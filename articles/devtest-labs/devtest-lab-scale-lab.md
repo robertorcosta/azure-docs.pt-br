@@ -3,12 +3,12 @@ title: Dimensionar limites e cotas em seu laboratório no Azure DevTest Labs | M
 description: Este artigo descreve como você pode dimensionar seu laboratório no Azure DevTest Labs. Exiba suas cotas e limites de uso e solicite um aumento.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: dacc699a6f4e7663d0f314acfc2212bd69d46d18
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2166eaab073e2abc24ca24494ae13eb876db1fcf
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287318"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533947"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Dimensionar cotas e limites no DevTest Labs
 Ao trabalhar em DevTest Labs, você observará que existem certos limites padrão a alguns recursos do Azure que podem afetar o serviço DevTest Labs. Esses limites são conhecidos como **cotas**.
@@ -20,7 +20,7 @@ Você pode usar cada recurso do Azure até atingir sua cota. Cada assinatura tem
 
 Por exemplo, cada assinatura tem uma cota padrão de 20 núcleos. Portanto, se você estiver criando VMs em seu laboratório com quatro núcleos cada, você poderá criar apenas cinco VMs.
 
-O item [Assinatura e Limites de Serviço do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) lista algumas das mais comuns cotas para recursos do Azure. Os recursos mais comumente usados em um laboratório e para os quais você pode encontrar cotas incluem núcleos de VM, endereços IP públicos, interface de rede, managed disks, atribuição de função RBAC e circuitos ExpressRoute.
+O item [Assinatura e Limites de Serviço do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) lista algumas das mais comuns cotas para recursos do Azure. Os recursos mais comumente usados em um laboratório e para os quais você pode encontrar cotas, incluem núcleos de VM, endereços IP públicos, interface de rede, Managed disks, atribuição de função do Azure e circuitos de ExpressRoute.
 
 ## <a name="view-your-usage-and-quotas"></a>Exibir seu uso e cotas
 Estas etapas mostram como visualizar as cotas atuais em sua assinatura para recursos específicos do Azure e ver o percentual de cada cota usada.

@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.openlocfilehash: 4bfd90be2a469c5ab94172769729095069f53cd7
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 4ad3800748330d5c3a6a32c6c0824bc72a05d0ef
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045647"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533080"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montar ou desmontar um volume para máquinas virtuais do Windows ou do Linux 
 
@@ -43,9 +43,12 @@ Você pode montar ou desmontar um volume para máquinas virtuais do Windows ou d
     a. Monte o volume em uma VM UNIX ou Linux primeiro.  
     b. Execute um `chmod 777` `chmod 775` comando ou no volume.  
     c. Monte o volume por meio do cliente NFS no Windows.
+    
+5. Se você quiser montar um volume Kerberos do NFS, consulte [Configurar a criptografia do nfsv 4.1](configure-kerberos-encryption.md) para obter detalhes adicionais. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Configurar o domínio padrão do NFSv4.1 para o Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [Perguntas frequentes sobre NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)
 * [Visão geral do Network File System](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview)
+* [Montar um volume Kerberos do NFS](configure-kerberos-encryption.md#kerberos_mount)

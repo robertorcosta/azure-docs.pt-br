@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: b-juche
-ms.openlocfilehash: 0398cc6a5336141f51dde26ed7cf4cce8c2c0bb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 639f1e09fdb5603965209e5b5ee6c224ad238b76
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75832574"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533114"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Níveis de serviço do Azure NetApp Files
 Os níveis de serviço são um atributo de um pool de capacidade. Os níveis de serviço são definidos e diferenciados pela taxa de transferência máxima permitida para um volume no pool de capacidade com base na cota atribuída ao volume.
@@ -56,7 +56,8 @@ No exemplo 2 acima, um volume de um pool de capacidade com a camada de armazenam
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira a [Página de preços do Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/) para ver o preço de diferentes níveis de serviço
-- Consulte o [modelo de custo para Azure NetApp files](azure-netapp-files-cost-model.md) para o cálculo do consumo de capacidade em um pool de capacidade 
+- [Página de preços do Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
+- [Modelo de custo para o Azure NetApp Files](azure-netapp-files-cost-model.md) 
 - [Configurar um pool de capacidade](azure-netapp-files-set-up-capacity-pool.md)
-- Consulte [contrato de nível de serviço (SLA) para Azure NetApp files](https://azure.microsoft.com/support/legal/sla/netapp/)
+- [Contrato de Nível de Serviço (SLA) para Azure NetApp Files](https://azure.microsoft.com/support/legal/sla/netapp/)
+- [Alterar dinamicamente o nível de serviço de um volume](dynamic-change-volume-service-level.md) 

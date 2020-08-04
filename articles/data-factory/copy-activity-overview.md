@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 08/03/2020
 ms.author: jingwang
-ms.openlocfilehash: a6092395929f4990010e2212f28a5962cfe1c7e7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 54597953aac6fabe419a9d1b62b16de7ca7bd1e0
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087826"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534338"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
 
@@ -253,9 +253,6 @@ Esse recurso tem suporte ao copiar dados de qualquer fonte nos armazenamentos de
 - [SQL Server](connector-sql-server.md)
 
 ![Criar tabelas de coletor](media/copy-activity-overview/create-sink-table.png)
-
-> [!NOTE]
-> Atualmente, não há suporte para a criação de tabela automática quando a [cópia preparada](copy-activity-performance-features.md#staged-copy) está habilitada.
 
 ## <a name="fault-tolerance"></a>Tolerância a falhas
 

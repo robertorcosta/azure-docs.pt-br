@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
-ms.openlocfilehash: fe9d4e5a981f9d626bb6086659593e1c3ce06469
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 96fb914b5dafe5eb818f2b491bbe2d856763bd02
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291142"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534729"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Versão prévia: faça logon em uma máquina virtual Linux no Azure usando Azure Active Directory autenticação
 
@@ -113,7 +113,7 @@ O *provisioningState* de *Succeeded* é mostrado depois que a extensão é insta
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configurar atribuições de função para a VM
 
-A política do Azure RBAC (controle de acesso baseado em função) determina quem pode fazer logon na VM. Duas funções RBAC são usadas para autorizar o logon na VM:
+A política do Azure RBAC (controle de acesso baseado em função) determina quem pode fazer logon na VM. Duas funções do Azure são usadas para autorizar o logon da VM:
 
 - **Logon de administrador da máquina virtual**: os usuários com essa função atribuída podem fazer logon em uma máquina virtual do Azure com privilégios de usuário de administrador do Windows ou raiz do Linux.
 - **Logon de usuário da máquina virtual**: os usuários com essa função atribuído podem fazer logon uma máquina virtual do Azure com privilégios de usuários regulares.
@@ -181,9 +181,9 @@ Por esta linha:
 
 ## <a name="troubleshoot-sign-in-issues"></a>Solucionar problemas de entrada
 
-Alguns erros comuns ao tentar usar SSH com as credenciais do Azure AD incluem a ausência de uma função RBAC atribuída e prompts repetidos para entrar. Use as seções a seguir para corrigir esses problemas.
+Alguns erros comuns quando você tenta usar SSH com as credenciais do Azure AD não incluem nenhuma função do Azure atribuída e solicitações repetidas para entrar. Use as seções a seguir para corrigir esses problemas.
 
-### <a name="access-denied-rbac-role-not-assigned"></a>Acesso negado: função RBAC não atribuída
+### <a name="access-denied-azure-role-not-assigned"></a>Acesso negado: função do Azure não atribuída
 
 Se o erro a seguir aparecer no prompt do SSH, verifique se você configurou políticas de RBAC para a VM que concedem ao usuário a função *Logon de Administrador da Máquina Virtual* ou *Logon de Usuário da Máquina Virtual*:
 

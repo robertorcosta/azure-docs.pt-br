@@ -3,16 +3,16 @@ title: Retransmissão do Azure-migrar para autorização de assinatura de acesso
 description: Descreve como migrar aplicativos de retransmissão do Azure usando Azure Active Directory serviço de controle de acesso para autorização de assinatura de acesso compartilhado.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 300a7eb5bb69db878b208be8c1e2b404717a6265
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b793173270b0ddf25f0e971dbb2fed97cb10a55
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314311"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532859"
 ---
 # <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Retransmissão do Azure-migrar do serviço de controle de acesso Azure Active Directory para autorização de assinatura de acesso compartilhado
 
-Historicamente, os aplicativos da Retransmissão do Azure podiam usar dois modelos de autorização diferentes: o modelo do token [SAS (Assinatura de Acesso Compartilhado)](../service-bus-messaging/service-bus-sas.md) fornecido diretamente pelo serviço de Retransmissão e um modelo federado no qual o gerenciamento de regras de autorização é feito internamente pelo ACS (Serviço de Controle de Acesso) do [Azure Active Directory](/azure/active-directory/) e os tokens obtidos do ACS são passados para a Retransmissão para autorização do acesso aos recursos desejados.
+Historicamente, os aplicativos da Retransmissão do Azure podiam usar dois modelos de autorização diferentes: o modelo do token [SAS (Assinatura de Acesso Compartilhado)](../service-bus-messaging/service-bus-sas.md) fornecido diretamente pelo serviço de Retransmissão e um modelo federado no qual o gerenciamento de regras de autorização é feito internamente pelo ACS (Serviço de Controle de Acesso) do [Azure Active Directory](../active-directory/index.yml) e os tokens obtidos do ACS são passados para a Retransmissão para autorização do acesso aos recursos desejados.
 
 O modelo de autorização do ACS foi substituído há tempos pela [autorização SAS](../service-bus-messaging/service-bus-authentication-and-authorization.md) como o modelo preferido e toda a documentação, diretrizes e exemplos usam exclusivamente SAS hoje em dia. Além disso, não é mais possível criar novos namespaces da Retransmissão emparelhados com o ACS.
 
@@ -56,5 +56,3 @@ Para saber mais sobre a autenticação da Retransmissão do Azure, confira os t�
 
 * [Autenticação e autorização da Retransmissão do Azure](relay-authentication-and-authorization.md)
 * [Autenticação do Barramento de Serviço com Assinaturas de Acesso Compartilhado](../service-bus-messaging/service-bus-sas.md)
-
-

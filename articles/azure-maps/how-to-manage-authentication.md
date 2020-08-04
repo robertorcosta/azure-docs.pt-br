@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 69dda537beda1d1bec4f019e1d5cadd16bdd5b39
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 870ecb8bda9f07c9270724002d381a4f58bc4d13
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126849"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531720"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gerenciar autenticação no Azure Mapas
 
@@ -45,18 +45,18 @@ A tabela a seguir descreve os cenários comuns de autenticação e autorização
 
 | Cenário                                                                                    | Autenticação | Autorização | Esforço de desenvolvimento | Esforço operacional |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
-| [Aplicativo de cliente não interativo/daemon confiável](./how-to-secure-daemon-app.md)        | Chave compartilhada     | N/D           | Médio             | Alto               |
-| [Aplicativo de cliente não interativo/daemon confiável](./how-to-secure-daemon-app.md)        | Azure AD       | Alto          | Baixo                | Médio             |
+| [Aplicativo de cliente não interativo/daemon confiável](./how-to-secure-daemon-app.md)        | Chave compartilhada     | N/D           | Médio             | Alta               |
+| [Aplicativo de cliente não interativo/daemon confiável](./how-to-secure-daemon-app.md)        | Azure AD       | Alta          | Baixo                | Médio             |
 | [Aplicativo de página única da Web com logon único interativo](./how-to-secure-spa-users.md) | Azure AD       | Alto          | Médio             | Médio             |
 | [Aplicativo de página única da Web com logon não interativo](./how-to-secure-spa-app.md)      | Azure AD       | Alto          | Médio             | Médio             |
-| [Aplicativo Web com logon único interativo](./how-to-secure-webapp-users.md)          | Azure AD       | Alto          | Alto               | Médio             |
+| [Aplicativo Web com logon único interativo](./how-to-secure-webapp-users.md)          | Azure AD       | Alta          | Alto               | Médio             |
 | [Dispositivo IoT/dispositivo restrito de entrada](./how-to-secure-device-code.md)                     | Azure AD       | Alto          | Médio             | Médio             |
 
 Os links na tabela levam você a informações de configuração detalhadas para cada cenário.
 
 ## <a name="view-role-definitions"></a>Exibir definições de função
 
-Para exibir as funções RBAC que estão disponíveis para mapas do Azure, vá para **controle de acesso (iam)**. Selecione **funções**e, em seguida, procure funções que começam com o *Azure Maps*. Essas funções do Azure Maps são as funções às quais você pode conceder acesso.
+Para exibir as funções do Azure que estão disponíveis para mapas do Azure, vá para **controle de acesso (iam)**. Selecione **funções**e, em seguida, procure funções que começam com o *Azure Maps*. Essas funções do Azure Maps são as funções às quais você pode conceder acesso.
 
 > [!div class="mx-imgBorder"]
 > ![Visualizar funções disponíveis](./media/how-to-manage-authentication/how-to-view-avail-roles.png)

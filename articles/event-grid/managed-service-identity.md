@@ -3,12 +3,12 @@ title: Entrega de eventos com identidade do serviço gerenciado
 description: Este artigo descreve como habilitar a identidade do serviço gerenciado para um tópico da grade de eventos do Azure. Use-o para encaminhar eventos para destinos com suporte.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: b437d519a076104b64fb2df5cba1cd61a865b1fc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7eaa3ddd43cc68a99ad7c2bab66630f30d4960c9
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499816"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534236"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de eventos com uma identidade gerenciada
 Este artigo descreve como habilitar uma [identidade de serviço gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para os tópicos ou domínios da grade de eventos do Azure. Use-o para encaminhar eventos para destinos com suporte, como filas e tópicos de Barramento de Serviço, hubs de eventos e contas de armazenamento.
@@ -63,20 +63,20 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 
 O comando para atualizar um domínio existente é semelhante (`az eventgrid domain update`).
 
-## <a name="supported-destinations-and-rbac-roles"></a>Destinos com suporte e funções de RBAC
+## <a name="supported-destinations-and-azure-roles"></a>Destinos com suporte e funções do Azure
 Depois de habilitar a identidade para seu tópico ou domínio da grade de eventos, o Azure cria automaticamente uma identidade no Azure Active Directory. Adicione essa identidade às funções apropriadas do Azure para que o tópico ou domínio possa encaminhar eventos para destinos com suporte. Por exemplo, adicione a identidade à função de **remetente de dados dos hubs de eventos do Azure** para um namespace de hubs de eventos do Azure para que o tópico da grade de eventos possa encaminhar eventos para os hubs de eventos nesse namespace. 
 
 Atualmente, a grade de eventos do Azure dá suporte a tópicos ou domínios configurados com uma identidade gerenciada atribuída pelo sistema para encaminhar eventos para os seguintes destinos. Esta tabela também fornece as funções em que a identidade deve estar para que o tópico possa encaminhar os eventos.
 
-| Destino | Função RBAC | 
+| Destino | Função do Azure | 
 | ----------- | --------- | 
 | Filas e tópicos do Barramento de Serviço | [Remetente de dados do Barramento de Serviço do Azure](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
 | Hubs de eventos do Azure | [Remetente de dados dos Hubs de Eventos do Azure](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
-| Armazenamento de Blobs do Azure | [Colaborador de dados de blob de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) |
-| Armazenamento de Filas do Azure |[Remetente da mensagem de dados da fila de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) | 
+| Armazenamento de Blobs do Azure | [Colaborador de dados de blob de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
+| Armazenamento de Filas do Azure |[Remetente da mensagem de dados da fila de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
 
-## <a name="add-an-identity-to-rbac-roles-on-destinations"></a>Adicionar uma identidade às funções RBAC nos destinos
-Esta seção descreve como adicionar a identidade para seu tópico ou domínio a uma função RBAC. 
+## <a name="add-an-identity-to-azure-roles-on-destinations"></a>Adicionar uma identidade às funções do Azure em destinos
+Esta seção descreve como adicionar a identidade do seu tópico ou domínio a uma função do Azure. 
 
 ### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 Você pode usar a portal do Azure para atribuir o tópico ou a identidade de domínio a uma função apropriada para que o tópico ou domínio possa encaminhar eventos para o destino. 
@@ -94,7 +94,7 @@ O exemplo a seguir adiciona uma identidade gerenciada para um tópico da grade d
 Para adicionar uma identidade a outras funções mencionadas na tabela, as etapas são semelhantes. 
 
 ### <a name="use-the-azure-cli"></a>Usar a CLI do Azure
-O exemplo nesta seção mostra como usar o CLI do Azure para adicionar uma identidade a uma função RBAC. Os comandos de amostra são para tópicos de grade de eventos. Os comandos para domínios de grade de eventos são semelhantes. 
+O exemplo nesta seção mostra como usar o CLI do Azure para adicionar uma identidade a uma função do Azure. Os comandos de amostra são para tópicos de grade de eventos. Os comandos para domínios de grade de eventos são semelhantes. 
 
 #### <a name="get-the-principal-id-for-the-topics-system-identity"></a>Obter a ID da entidade de segurança para a identidade do sistema do tópico 
 Primeiro, obtenha a ID da entidade de segurança da identidade gerenciada pelo sistema do tópico e atribua a identidade às funções apropriadas.

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 24a5e342c66d8154f4635acc957084d243fbd75e
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: ba66716abe80a1b12bc64b739f498a0a01d54fe3
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513070"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533165"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
-O Azure NetApp Files dá suporte a volumes NFS e SMBv3. O consumo de capacidade de um volume conta contra a capacidade provisionada do pool desse volume. Este artigo mostra como criar um volume SMBv3. Se você quiser criar um volume NFS, confira [Criar um volume NFS para Azure NetApp Files](azure-netapp-files-create-volumes.md). 
+O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFSv 4.1), SMBv3 ou protocolo duplo (NFSv3 e SMB). O consumo de capacidade de um volume conta contra a capacidade provisionada do pool desse volume. Este artigo mostra como criar um volume SMBv3.
 
 ## <a name="before-you-begin"></a>Antes de começar 
 Você deve já configurou um pool de capacidade.   
@@ -197,7 +197,7 @@ Essa configuração é definida em **Conexões do Active Directory** em **Conta 
 2. Clique em **+ Adicionar volume** para criar um volume.  
     A janela Criar um Volume é exibida.
 
-3. Na janela Criar um Volume, clique em **Criar** e forneça informações para os seguintes campos:   
+3. Na janela criar um volume, clique em **criar** e forneça informações para os seguintes campos na guia noções básicas:   
     * **Nome do volume**      
         Especifique o nome para o volume que você está criando.   
 
@@ -230,7 +230,7 @@ Essa configuração é definida em **Conexões do Active Directory** em **Conta 
 
     * Se você quiser aplicar uma política de instantâneo existente ao volume, clique em **Mostrar seção avançada** para expandi-la e selecione uma política de instantâneo no menu suspenso. 
 
-        Para obter informações sobre como criar uma política de instantâneo, consulte [gerenciar instantâneos](azure-netapp-files-manage-snapshots.md).
+        Para obter informações sobre como criar uma política de instantâneo, consulte [gerenciar políticas de instantâneo](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
 
         ![Mostrar seleção avançada](../media/azure-netapp-files/volume-create-advanced-selection.png)
 

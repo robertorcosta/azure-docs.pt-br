@@ -14,12 +14,12 @@ ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac3f9adbb3b83345fe14df39014c6119e97ba7f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6597c268a2a017280d00f73366562de61b4781e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886097"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529782"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implantar o Azure AD Privileged Identity Management (PIM)
 
@@ -100,7 +100,7 @@ A seção a seguir ajuda você a identificar todos os participantes envolvidos n
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Participantes: Privileged Identity Management para funções do Azure AD
 
-| Nome | Função | Ação |
+| Name | Função | Ação |
 | --- | --- | --- |
 | Nome e email | **Arquiteto de identidade ou de Administrador Global do Azure**<br/>Um representante da equipe de gerenciamento de identidade encarregado de definir como essa alteração está alinhada com a infraestrutura de gerenciamento de identidade principal em sua organização. | SO/R/I |
 | Nome e email | **Proprietário do serviço / gerente de linha**<br/>Um representante dos proprietários de TI de um serviço ou um grupo de serviços. Eles são fundamentais para tomar decisões e ajudar a distribuir Privileged Identity Management para sua equipe. | SO/R/I |
@@ -110,12 +110,12 @@ A seção a seguir ajuda você a identificar todos os participantes envolvidos n
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-resource-roles"></a>Participantes: Privileged Identity Management para funções de recurso do Azure
 
-| Nome | Função | Ação |
+| Name | Função | Ação |
 | --- | --- | --- |
 | Nome e email | **Proprietário da assinatura / recurso**<br/>Um representante dos proprietários de ti de cada assinatura ou recurso que você deseja implantar Privileged Identity Management | SO/R/I |
 | Nome e email | **Proprietário de segurança**<br/>Um representante da equipe de segurança que pode confirmar que o plano atende aos requisitos de segurança da organização. | SO/R |
 | Nome e email | **Suporte técnico / gerente de suporte de TI**<br/>Um representante da organização de suporte de TI que pode fornecer informações sobre a capacidade de suporte dessa mudança a partir da perspectiva da assistência técnica. | R/I |
-| Nome e email de usuários piloto | **Usuários da função RBAC**<br/>O grupo de usuários para o qual o gerenciamento de identidades com privilégios é implementado. Eles precisarão saber como ativar suas funções quando Privileged Identity Management for implementado. | I |
+| Nome e email de usuários piloto | **Usuários de função do Azure**<br/>O grupo de usuários para o qual o gerenciamento de identidades com privilégios é implementado. Eles precisarão saber como ativar suas funções quando Privileged Identity Management for implementado. | I |
 
 ### <a name="enable-privileged-identity-management"></a>Habilitar Privileged Identity Management
 
@@ -257,7 +257,7 @@ Antes de implementar sua solução de Privileged Identity Management, é uma pr�
 
 A tabela a seguir descreve cada configuração.
 
-| Setting | Descrição |
+| Configuração | Descrição |
 | --- | --- |
 | Função | Nome da função para a qual você está definindo as configurações. |
 | Exigir MFA | Se o usuário qualificado precisa executar a MFA antes de ativar a função.<br/><br/> : heavy_check_mark: a **Microsoft recomenda** que você aplique a MFA para todas as funções de administrador, especialmente se as funções tiverem usuários convidados. |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 066118622f19d7efac71ddd66ac1abe058008b55
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: cc39f8250ddc1b2fb1baaf073969f6aab5b1372c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126764"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531364"
 ---
 # <a name="secure-a-daemon-application"></a>Proteger um aplicativo daemon
 
@@ -109,7 +109,7 @@ Quando em execução em um ambiente não Azure, as identidades gerenciadas não 
 
 ### <a name="grant-role-based-access-for-the-daemon-application-to-azure-maps"></a>Conceder acesso baseado em função para o aplicativo daemon para mapas do Azure
 
-Conceda o RBAC ( *controle de acesso baseado em função* ) atribuindo a identidade gerenciada criada ou a entidade de serviço a uma ou mais definições de função de controle de acesso do Azure Maps. Para exibir as definições de função RBAC que estão disponíveis para mapas do Azure, vá para **controle de acesso (iam)**. Selecione **funções**e, em seguida, procure funções que começam com o *Azure Maps*. Essas funções do Azure Maps são as funções às quais você pode conceder acesso.
+Conceda o RBAC ( *controle de acesso baseado em função* ) atribuindo a identidade gerenciada criada ou a entidade de serviço a uma ou mais definições de função de controle de acesso do Azure Maps. Para exibir as definições de função do Azure que estão disponíveis para mapas do Azure, vá para **controle de acesso (iam)**. Selecione **funções**e, em seguida, procure funções que começam com o *Azure Maps*. Essas funções do Azure Maps são as funções às quais você pode conceder acesso.
 
 > [!div class="mx-imgBorder"]
 > ![Visualizar funções disponíveis](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
@@ -124,7 +124,7 @@ Conceda o RBAC ( *controle de acesso baseado em função* ) atribuindo a identid
     > [!div class="mx-imgBorder"]
     > ![Adicionar atribuição de função](./media/how-to-manage-authentication/add-role-assignment.png)
 
-3. Selecione uma definição de função interna do Azure Maps, como **leitor de dados do Azure Maps** ou **colaborador de dados do Azure Maps**. Em **atribuir acesso a**, selecione **usuário do Azure AD, grupo ou entidade de serviço** ou identidade gerenciada com identidade gerenciada atribuída ao sistema de **identidade gerenciada atribuída pelo usuário**  /  **System assigned Managed identity**. Selecione a entidade de segurança. Selecione **Salvar**.
+3. Selecione uma definição de função interna do Azure Maps, como **leitor de dados do Azure Maps** ou **colaborador de dados do Azure Maps**. Em **atribuir acesso a**, selecione **usuário do Azure AD, grupo ou entidade de serviço** ou identidade gerenciada com identidade gerenciada atribuída ao sistema de **identidade gerenciada atribuída pelo usuário**  /  **System assigned Managed identity**. Selecione a entidade de segurança. Em seguida, selecione **Salvar**.
 
     > [!div class="mx-imgBorder"]
     > ![Adicionar atribuição de função](./media/how-to-manage-authentication/how-to-add-role-assignment.png)

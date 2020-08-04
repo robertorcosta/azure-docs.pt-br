@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 07/29/2020
-ms.openlocfilehash: 968fe5a0f4999c25486189384186c23d1fcd5509
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 4189ea5fd0b2b52b5bf1e0614e4b43b9411df31d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430244"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530360"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiar uma cópia transacionalmente consistente de um banco de dados no banco de dados SQL do Azure
 
@@ -133,7 +133,7 @@ Monitore o processo de cópia consultando as exibições [Sys. databases](https:
 > [!IMPORTANT]
 > Se você precisar criar uma cópia com um objetivo de serviço substancialmente menor do que a origem, o banco de dados de destino pode não ter recursos suficientes para concluir o processo de propagação e isso pode fazer com que a operabilidade de cópia falhe. Nesse cenário, use uma solicitação de restauração geográfica para criar uma cópia em um servidor diferente e/ou em uma região diferente. Consulte [recuperar um banco de dados SQL do Azure usando backups de banco de dados](recovery-using-backups.md#geo-restore) para obter mais informações.
 
-## <a name="rbac-roles-to-manage-database-copy"></a>Funções de RBAC para gerenciar cópia de banco de dados
+## <a name="azure-roles-to-manage-database-copy"></a>Funções do Azure para gerenciar a cópia do banco de dados
 
 Para criar uma cópia de banco de dados, você precisará estar nas seguintes funções
 
@@ -155,7 +155,7 @@ Para gerenciar a cópia de banco de dados usando o portal do Azure, você també
 
    Microsoft. Resources/subscriptions/Resources/Read Microsoft. Resources/subscriptions/Resources/inscrições/Write Microsoft. Resources/Implantations/Read Microsoft. Resources/Implantations/Write Microsoft. Resources/Implantations/operationstatuses/Read
 
-Se você quiser ver as operações em implantações no grupo de recursos no portal, operações em vários provedores de recursos, incluindo operações SQL, você precisará dessas funções RBAC adicionais:
+Se você quiser ver as operações em implantações no grupo de recursos no portal, operações em vários provedores de recursos, incluindo operações SQL, você precisará dessas funções adicionais do Azure:
 
    Microsoft. Resources/subscriptions/resourcegroups/implantações/operações/ler Microsoft. Resources/subscriptions/resourcegroups/Implantations/operationstatuses/Read
 

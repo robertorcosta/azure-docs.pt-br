@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: 7e987c56c3a125a03e3a90540313ace1f8adf47a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6a6b0b15b8d2dc08f1581cb2ea0ea4c7e8036ca
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82086565"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529969"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Segurança no Azure Data Lake Storage Gen1
 
@@ -46,13 +46,13 @@ Depois que o Microsoft Azure Active Directory autentica um usuário para que ele
 
 Quatro funções básicas são definidas para o Azure Data Lake Storage Gen1 por padrão. As funções permitem operações diferentes em uma conta do Azure Data Lake Storage Gen1 usando o portal do Azure, os cmdlets do PowerShell e as APIs REST. As funções Proprietário e Colaborador podem realizar várias funções de administração na conta. Você pode atribuir a função Leitor para os usuários que só visualizam os dados de gerenciamento da conta.
 
-![Funções RBAC](./media/data-lake-store-security-overview/rbac-roles.png "Funções RBAC")
+![Funções do Azure](./media/data-lake-store-security-overview/rbac-roles.png "Funções do Azure")
 
 Observe que, embora as funções sejam atribuídas para gerenciamento de conta, algumas funções afetam o acesso aos dados. Você precisa usar ACLs para controlar o acesso a operações que um usuário pode executar no sistema de arquivos. A tabela a seguir mostra um resumo dos direitos de gerenciamento e dos direitos de acesso de dados para as funções padrão.
 
 | Funções | Direitos de gerenciamento | Direitos de acesso a dados | Explicação |
 | --- | --- | --- | --- |
-| Nenhuma função atribuída |Não |Controlado pela ACL |Os usuários não podem usar o portal do Azure ou os cmdlets do Azure PowerShell para percorrer o Azure Data Lake Storage Gen1. O usuário pode usar apenas as ferramentas de linha de comando. |
+| Nenhuma função atribuída |Nenhum |Controlado pela ACL |Os usuários não podem usar o portal do Azure ou os cmdlets do Azure PowerShell para percorrer o Azure Data Lake Storage Gen1. O usuário pode usar apenas as ferramentas de linha de comando. |
 | Proprietário |Todos |Todos |A função Proprietário é um superusuário. Essa função pode gerenciar tudo e tem acesso completo aos dados. |
 | Leitor |Somente leitura |Controlado pela ACL |A função Leitor pode ver tudo sobre o gerenciamento da conta, como qual usuário é atribuído a qual função. A função Leitor não pode fazer alterações. |
 | Colaborador |Tudo, exceto adicionar e remover as funções. |Controlado pela ACL |A função Colaborador pode gerenciar alguns aspectos de uma conta, como implantações e a criação e o gerenciamento de alertas. Um Colaborador não pode adicionar ou remover funções. |

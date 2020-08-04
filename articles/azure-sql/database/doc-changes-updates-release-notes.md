@@ -11,19 +11,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 4257b2fab5e0cca0cb016794673ed39ae4973895
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: af19b72846c78ef80ba170b6d6e0cec97fa2b96e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067408"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533352"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>O que há de novo no banco de dados SQL do Azure & SQL Instância Gerenciada?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Este artigo lista os recursos do banco de dados SQL do Azure e do Azure SQL Instância Gerenciada que estão atualmente em visualização pública. Para atualizações e aprimoramentos do banco de dados SQL e do SQL Instância Gerenciada, consulte [SQL database & sql instância gerenciada service updates](https://azure.microsoft.com/updates/?product=sql-database). Para encontrar atualizações e melhorias para outros serviços do Azure, confira [Atualizações de serviço](https://azure.microsoft.com/updates).
 
-## <a name="whats-new"></a>Quais são as novidades?
+## <a name="whats-new"></a>Novidades
 
 A documentação do banco de dados SQL do Azure e do Azure SQL Instância Gerenciada foi dividida em seções separadas. Também atualizamos como nos referimos a uma instância gerenciada da *instância gerenciada do banco de dados SQL do Azure* para o *Azure SQL instância gerenciada*.
 
@@ -137,7 +137,7 @@ Em determinadas circunstâncias, modificar, desabilitar ou habilitar um trabalho
 
 ### <a name="permissions-on-resource-group-not-applied-to-sql-managed-instance"></a>As permissões no grupo de recursos não são aplicadas ao SQL Instância Gerenciada
 
-Quando a função RBAC do colaborador do SQL Instância Gerenciada é aplicada a um grupo de recursos (RG), ela não é aplicada ao SQL Instância Gerenciada e não tem nenhum efeito.
+Quando a função do Azure do colaborador do SQL Instância Gerenciada é aplicada a um grupo de recursos (RG), ela não é aplicada ao SQL Instância Gerenciada e não tem nenhum efeito.
 
 **Solução alternativa**: Configure uma função de colaborador do SQL instância gerenciada para usuários no nível da assinatura.
 

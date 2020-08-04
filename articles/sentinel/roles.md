@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 95a966799b4cb66b74d998df9c58958b9b89ecdb
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b907fead145847d54b8b1de196586b65101b22ed
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374211"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533998"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões no Azure Sentinel
 
 O Azure Sentinel usa o [RBAC (controle de acesso baseado em função)](../role-based-access-control/role-assignments-portal.md) para fornecer [funções internas](../role-based-access-control/built-in-roles.md)   que podem ser atribuídas a usuários, grupos e serviços no Azure.
 
-Use o RBAC para criar e atribuir funções em sua equipe de operações de segurança para conceder acesso apropriado ao Azure Sentinel. As diferentes funções oferecem um controle refinado sobre o que os usuários do Azure Sentinel podem ver e fazer. As funções de RBAC podem ser atribuídas no espaço de trabalho do Azure Sentinel diretamente (veja a observação abaixo) ou em uma assinatura ou grupo de recursos ao qual o espaço de trabalho pertence, que o Azure Sentinel herdará.
+Use o RBAC para criar e atribuir funções em sua equipe de operações de segurança para conceder acesso apropriado ao Azure Sentinel. As diferentes funções oferecem um controle refinado sobre o que os usuários do Azure Sentinel podem ver e fazer. As funções do Azure podem ser atribuídas diretamente no espaço de trabalho do Azure Sentinel (veja a observação abaixo), ou em uma assinatura ou grupo de recursos ao qual o espaço de trabalho pertence, que o Azure Sentinel herdará.
 
 ## <a name="roles-for-working-in-azure-sentinel"></a>Funções para trabalhar no Azure Sentinel
 
@@ -64,7 +64,7 @@ Para uma comparação lado a lado, consulte a [tabela abaixo](#roles-and-allowed
 
 ### <a name="other-roles-you-might-see-assigned"></a>Outras funções que você pode ver atribuídas
 
-Ao atribuir funções RBAC específicas do Azure Sentinel, você pode entrar em outras funções do Azure e Log Analytics RBAC que podem ter sido atribuídas a usuários para outras finalidades. Você deve estar ciente de que essas funções concedem um conjunto mais amplo de permissões que inclui acesso ao seu espaço de trabalho do Azure Sentinel e a outros recursos:
+Ao atribuir funções do Azure específicas do Sentinela do Azure, você pode entrar em outras funções do Azure e Log Analytics Azure que podem ter sido atribuídas a usuários para outras finalidades. Você deve estar ciente de que essas funções concedem um conjunto mais amplo de permissões que inclui acesso ao seu espaço de trabalho do Azure Sentinel e a outros recursos:
 
 - **Funções do Azure:** [proprietário](../role-based-access-control/built-in-roles.md#owner), [colaborador](../role-based-access-control/built-in-roles.md#contributor)e [leitor](../role-based-access-control/built-in-roles.md#reader). As funções do Azure concedem acesso em todos os seus recursos do Azure, incluindo espaços de trabalho Log Analytics e recursos do Azure Sentinel.
 

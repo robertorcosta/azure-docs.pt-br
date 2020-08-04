@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
-ms.openlocfilehash: 4de585a965cfefa6399b0c0929a8f732d0712617
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0945f89e3c18ab20ece0b493a49ec9f7f31e4e13
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76939416"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529187"
 ---
 # <a name="azure-private-dns-faq"></a>Perguntas frequentes sobre o DNS privado do Azure
 
@@ -38,7 +38,7 @@ Sim. Você pode vincular uma zona DNS privada com milhares de redes virtuais. Pa
 
 ## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-linked-to-a-private-zone"></a>Uma rede virtual que pertence a uma assinatura diferente pode ser vinculada a uma zona privada?
 
-Sim. Você precisa ter permissão de operação de gravação nas redes virtuais e na zona DNS privado. A permissão de gravação pode ser concedida para várias funções do RBAC. Por exemplo, a função de RBAC de colaborador de rede clássica tem permissões de gravação para redes virtuais e a função de colaborador de zonas de DNS privado tem permissões de gravação nas zonas DNS privadas. Para obter mais informações sobre funções do RBAC, consulte [Controle de acesso baseado em função](../role-based-access-control/overview.md).
+Sim. Você precisa ter permissão de operação de gravação nas redes virtuais e na zona DNS privado. A permissão de gravação pode ser concedida a várias funções do Azure. Por exemplo, a função de colaborador de rede clássica do Azure tem permissões de gravação para redes virtuais e a função de colaborador de zonas de DNS privado tem permissões de gravação nas zonas DNS privadas. Para obter mais informações sobre as funções do Azure, consulte [controle de acesso baseado em função](../role-based-access-control/overview.md).
 
 ## <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-you-delete-the-virtual-machine"></a>Os registros DNS da máquina virtual automaticamente registrados em uma zona privada serão excluídos automaticamente quando você excluir a máquina virtual?
 

@@ -3,12 +3,12 @@ title: Visão geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos usados pelo serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: eab820c2a045c8602bfdbf77b5e2dba4cb2318af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 45e5634188b675198e0fc4c07a8a43964217f91a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514298"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532485"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes de backup do Azure
 
@@ -106,7 +106,7 @@ Fazer backup de discos com eliminação de duplicação | | | ![Parcialmente][ye
 
 - Uma política de backup é criada por cofre.
 - Uma política de backup pode ser criada para o backup das seguintes cargas de trabalho: VMs do Azure, SQL em VMs do Azure, SAP HANA em VMs do Azure e compartilhamentos de arquivos do Azure. A política para backup de arquivos e pastas usando o agente MARS é especificada no console do MARS.
-  - Compartilhamento de arquivos do Azure
+  - Compartilhamento de Arquivo do Azure
 - Uma política pode ser atribuída a muitos recursos. Uma política de backup de VM do Azure pode ser usada para proteger várias VMs do Azure.
 - Uma política consiste em dois componentes
   - Agenda: Ao fazer o backup
@@ -120,16 +120,15 @@ Fazer backup de discos com eliminação de duplicação | | | ![Parcialmente][ye
 - Quando um cofre é criado, um "DefaultPolicy" também é criado e pode ser usado para fazer backup de recursos.
 - Todas as alterações feitas no período de retenção de uma política de backup serão aplicadas retroativamente a todos os pontos de recuperação mais antigos além dos novos.
 
-### <a name="additional-reference"></a>Referência adicional 
+### <a name="additional-reference"></a>Referência adicional
 
--   Máquina de VM do Azure: como [criar](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) e [Modificar](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) políticas? 
--   SQL Server banco de dados no computador de VM do Azure: como [criar](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) e [Modificar](./manage-monitor-sql-database-backup.md#modify-policy) políticas? 
--   Compartilhamento de arquivos do Azure: como [criar](./backup-afs.md#discover-file-shares-and-configure-backup) e [Modificar](./manage-afs-backup.md#modify-policy) políticas? 
--   SAP HANA: como [criar](./backup-azure-sap-hana-database.md#create-a-backup-policy) e [Modificar](./sap-hana-db-manage.md#change-policy) políticas? 
--   MARS: como [criar](./backup-windows-with-mars-agent.md#create-a-backup-policy) e [Modificar](./backup-azure-manage-mars.md#modify-a-backup-policy) políticas? 
--   [Há alguma limitação no agendamento do backup com base no tipo de carga de trabalho?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
+- Máquina de VM do Azure: como [criar](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) e [Modificar](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) a política.
+- SQL Server banco de dados no computador de VM do Azure: como [criar](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) e [Modificar](./manage-monitor-sql-database-backup.md#modify-policy) a política.
+- Compartilhamento de arquivos do Azure: como [criar](./backup-afs.md) e [Modificar](./manage-afs-backup.md#modify-policy) a política.
+- SAP HANA: como [criar](./backup-azure-sap-hana-database.md#create-a-backup-policy) e [Modificar](./sap-hana-db-manage.md#change-policy) a política.
+- MARS: como [criar](./backup-windows-with-mars-agent.md#create-a-backup-policy) e [Modificar](./backup-azure-manage-mars.md#modify-a-backup-policy) a política.
+- [Há alguma limitação no agendamento do backup com base no tipo de carga de trabalho?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
 - [O que acontece com os pontos de recuperação existentes se eu alterar a política de retenção?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
-
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Arquitetura: backup de VM do Azure interno
 

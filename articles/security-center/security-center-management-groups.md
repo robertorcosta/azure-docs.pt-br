@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 2ef2cc86b3e12149977fa819a7e54ee9a1c0d7ac
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 43a6c10c8c73e8fb5189b6f085a6969c0d776593
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423976"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534899"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade de todo o locatário para o Centro de Segurança do Azure
 Este artigo explica como gerenciar a postura de segurança de sua organização em escala aplicando políticas de segurança a todas as assinaturas do Azure vinculadas ao seu locatário de Azure Active Directory.
@@ -60,10 +60,10 @@ Você organiza assinaturas em grupos de gerenciamento e aplica as políticas de 
 
 ## <a name="grant-tenant-level-visibility-and-the-ability-to-assign-policies"></a>Conceda visibilidade em nível de locatário e a capacidade de atribuir políticas
 
-Para obter visibilidade da postura de segurança de todas as inscrições registradas no locatário do Azure AD, é necessário atribuir uma função RBAC com permissões de leitura suficientes no grupo de gerenciamento raiz.
+Para obter visibilidade da postura de segurança de todas as assinaturas registradas no locatário do Azure AD, é necessário atribuir uma função do Azure com permissões de leitura suficientes no grupo de gerenciamento raiz.
 
 ### <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Elevar o acesso de um Administrador global no Azure Active Directory
-Um administrador de locatário do Azure Active Directory não tem acesso direto a assinaturas do Azure. No entanto, como administrador de diretório, eles têm o direito de se elevar a uma função que tenha acesso. Um administrador de locatário do Azure AD precisa se elevar para o administrador de acesso do usuário no nível do grupo de gerenciamento raiz para poder atribuir funções do RBAC. Para obter instruções e informações adicionais do PowerShell, consulte [Elevar o acesso de um administrador global no Active Directory do Azure](../role-based-access-control/elevate-access-global-admin.md). 
+Um administrador de locatário do Azure Active Directory não tem acesso direto a assinaturas do Azure. No entanto, como administrador de diretório, eles têm o direito de se elevar a uma função que tenha acesso. Um administrador de locatário do Azure AD precisa se elevar ao administrador de acesso do usuário no nível do grupo de gerenciamento raiz para que ele possa atribuir funções do Azure. Para obter instruções e informações adicionais do PowerShell, consulte [Elevar o acesso de um administrador global no Active Directory do Azure](../role-based-access-control/elevate-access-global-admin.md). 
 
 
 1. Entre no [portal do Azure](https://portal.azure.com) ou no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com).
@@ -87,11 +87,11 @@ Um administrador de locatário do Azure Active Directory não tem acesso direto 
 5. Execute as tarefas que você precisa fazer com o acesso elevado. Ao terminar, retorne a opção para **Não**.
 
 
-### <a name="assign-rbac-roles-to-users"></a>Designe funções RBAC aos usuários
-Para obter visibilidade de todas as assinaturas, os administradores de locatários precisam atribuir a função RBAC apropriada a todos os usuários que querem conceder visibilidade ampla aos locatários, incluindo eles próprios, no nível de grupo de gerenciamento raiz. As funções recomendadas para atribuir são **Admin de Segurança** ou **Leitor de Segurança**. Geralmente, a função Admin de Segurança é necessária para aplicar políticas no nível raiz, enquanto Leitor de Segurança será suficiente para fornecer visibilidade no nível dos locatários. Para obter mais informações sobre as permissões concedidas por essas funções, consulte a [descrição da função interna Admin de Segurança](../role-based-access-control/built-in-roles.md#security-admin) ou a [descrição da função interna Leitor de Segurança](../role-based-access-control/built-in-roles.md#security-reader).
+### <a name="assign-azure-roles-to-users"></a>Atribuir funções do Azure aos usuários
+Para obter visibilidade de todas as assinaturas, os administradores de locatários precisam atribuir a função apropriada do Azure a todos os usuários que desejarem conceder visibilidade em todo o locatário, incluindo-se, no nível do grupo de gerenciamento raiz. As funções recomendadas para atribuir são **Admin de Segurança** ou **Leitor de Segurança**. Geralmente, a função Admin de Segurança é necessária para aplicar políticas no nível raiz, enquanto Leitor de Segurança será suficiente para fornecer visibilidade no nível dos locatários. Para obter mais informações sobre as permissões concedidas por essas funções, consulte a [descrição da função interna Admin de Segurança](../role-based-access-control/built-in-roles.md#security-admin) ou a [descrição da função interna Leitor de Segurança](../role-based-access-control/built-in-roles.md#security-reader).
 
 
-#### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Atribua funções RBAC aos usuários por meio do portal do Azure: 
+#### <a name="assign-azure-roles-to-users-through-the-azure-portal"></a>Atribua funções do Azure aos usuários por meio do portal do Azure: 
 
 1. Entre no [portal do Azure](https://portal.azure.com). 
 1. Para exibir grupos de gerenciamento, selecione **Todos os serviços** no menu principal do Azure e, em seguida, selecione **Grupos de Gerenciamento**.
@@ -108,7 +108,7 @@ Para obter visibilidade de todas as assinaturas, os administradores de locatári
    ![Captura de tela da função Adicionar Leitor de Segurança](./media/security-center-management-groups/asc-security-reader.png)
 
 
-#### <a name="assign-rbac-roles-to-users-with-powershell"></a>Atribuir funções RBAC a usuários com PowerShell: 
+#### <a name="assign-azure-roles-to-users-with-powershell"></a>Atribuir funções do Azure a usuários com o PowerShell: 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -155,7 +155,7 @@ Após elevar o acesso, abra ou atualize a Central de Segurança do Azure para ve
     ![Screenshot lista de cobertura de assinatura](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Remover acesso elevado 
-Uma vez que as funções RBAC tenham sido designadas aos usuários, o administrador locatário deve se remover da função de administrador de acesso de usuário.
+Depois que as funções do Azure tiverem sido atribuídas aos usuários, o administrador de locatários deverá se remover da função de administrador de acesso do usuário.
 
 1. Entre no [portal do Azure](https://portal.azure.com) ou no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com).
 
@@ -183,7 +183,7 @@ Você consegue adicionar assinaturas a um grupo de gerenciamento que você criou
 4. Repita etapas 1 a 3 até você ter adicionado todas as assinaturas no escopo.
 
    > [!NOTE]
-   > Grupos de gerenciamento podem conter ambos assinaturas e grupos de gerenciamento criança. Quando você designa a um usuário uma função RBAC a um grupo de gerenciamento pai, o acesso é herdado pelas assinaturas de grupo de gerenciamento criança. Conjunto de políticas no grupo de gerenciamento pai são também herdadas pela criança. 
+   > Grupos de gerenciamento podem conter ambos assinaturas e grupos de gerenciamento criança. Quando você atribui um usuário a uma função do Azure ao grupo de gerenciamento pai, o acesso é herdado pelas assinaturas do grupo de gerenciamento filho. Conjunto de políticas no grupo de gerenciamento pai são também herdadas pela criança. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu como ganhar visibilidade a nível locatário para Centro de Segurança do Azure. Para saber mais sobre a Central de Segurança, confira estes artigos:

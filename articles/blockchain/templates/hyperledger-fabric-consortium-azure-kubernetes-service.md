@@ -4,12 +4,12 @@ description: Como implantar e configurar a rede do consórcio do Fabric do Micro
 ms.date: 07/27/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: fe06af9364ceb1d97588cac88335cb39c45f0e0f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4bc55090234a4ab33125ba43b8416de1eadb702f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286046"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533420"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>O consórcio de malha de hiperrazãos no serviço de kubernetes do Azure (AKS)
 
@@ -300,17 +300,17 @@ No cliente de organização par, emita o comando para definir os pares de âncor
 ./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
 ```
 
-`<anchorPeersList>`é uma lista separada por espaços de nós pares a serem definidos como um par âncora. Por exemplo:
+`<anchorPeersList>`é uma lista separada por espaços de nós pares a serem definidos como um par âncora. Por exemplo,
 
   - Defina `<anchorPeersList>` como "ponto1" se desejar definir somente o nó do ponto1 como um par âncora.
   - Defina `<anchorPeersList>` como "ponto1" "Ponto3" se você quiser definir o ponto1 e o nó Ponto3 como um par âncora.
 
-### <a name="chaincode-management-commands"></a>Comandos de gerenciamento do Chaincode
+## <a name="chaincode-management-commands"></a>Comandos de gerenciamento do Chaincode
 
 >[!NOTE]
 > Antes de começar com qualquer operação chaincode, verifique se a configuração inicial do aplicativo cliente está concluída.  
 
-**Definir as variáveis de ambiente específicas do chaincode abaixo**
+### <a name="set-the-below-chaincode-specific-environment-variables"></a>Definir as variáveis de ambiente específicas do chaincode abaixo
 
 ```bash
 # peer organization name where chaincode operation is to be performed
@@ -329,14 +329,6 @@ CC_PATH=<chaincodePath>
 # Channel on which chaincode is to be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  
 ```
-
-As operações de chaincode abaixo podem ser executadas:  
-
-- [Instalar o chaincode](#install-chaincode)  
-- [Criar instância de chaincode](#instantiate-chaincode)  
-- [Invocar chaincode](#invoke-chaincode)
-- [Chaincode de consulta](#query-chaincode)
-
 
 ### <a name="install-chaincode"></a>Instalar o chaincode  
 
@@ -358,13 +350,13 @@ Siga as etapas:
 No aplicativo de cliente de mesmo nível, execute o comando abaixo para criar uma instância de chaincode no canal.  
 
 ```bash
-./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -v $CC_VERSION -l $CC_LANG -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
 ```
+
 Passe o nome da função de instanciação e a lista de argumentos separados por espaço em `<instantiateFunc>` e, `<instantiateFuncArgs>` respectivamente. Por exemplo, em chaincode_example02. go chaincode, para instanciar o chaincode definido `<instantiateFunc>` como `init` e `<instantiateFuncArgs>` para "a" "2000" "b" "1000".
 
 > [!NOTE]
 > Execute o comando de uma vez em qualquer organização de mesmo nível no canal. Depois que a transação for enviada com êxito para o solicitante, o solicitante distribuirá essa transação para todas as organizações pares no canal. Portanto, o chaincode é instanciado em todos os nós de mesmo nível em todas as organizações pares no canal.  
-
 
 ### <a name="invoke-chaincode"></a>Invocar chaincode  
 

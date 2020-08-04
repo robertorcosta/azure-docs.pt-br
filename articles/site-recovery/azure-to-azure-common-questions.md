@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 52c7a4bfeddf808e5a714c7ad4ab164d65868940
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7bc8427a51a9931ca82155232569767f12a8e266
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201209"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534015"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas comuns: Recuperação de desastre do Azure para o Azure
 
@@ -70,6 +70,10 @@ Configure a recuperação de desastre [entre assinaturas](https://azure.microsof
 ### <a name="can-i-replicate-zone-pinned-azure-vms-to-another-region"></a>Posso replicar VMs do Azure fixadas em zonas para outra região?
 
 Sim, é possível [replicar VMs fixadas em zonas](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region) para outra região.
+
+### <a name="can-i-replicate-vms-in-a-region-that-has-zones-from-non-zone-to-zonal-configuration"></a>Posso replicar VMs em uma região que tem zonas de uma configuração de zona
+
+Não, isso não é suportado hoje. Como alternativa, você pode replicar a VM usando a ASR para uma configuração zonal em outra região e, em seguida, desabilitar a replicação. Em seguida, habilite novamente a replicação dessa região para a região original e escolha uma configuração zonal para failover.
 
 ### <a name="can-i-exclude-disks"></a>É possível excluir discos?
 

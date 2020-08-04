@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/27/2020
 ms.author: b-juche
-ms.openlocfilehash: f9552b82dc79e1edafb13fead5a07df3ecf1be3b
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 7c792ee9c56a044942bb2249a57f2615c72badee
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512951"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533131"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Perguntas frequentes sobre Azure NetApp Files
 
@@ -97,11 +97,15 @@ Você pode converter MB/s em IOPS usando a seguinte fórmula:
 
 ### <a name="how-do-i-change-the-service-level-of-a-volume"></a>Como fazer alterar o nível de serviço de um volume?
 
-No momento, não há suporte para a alteração do nível de serviço de um volume.
+Você pode alterar o nível de serviço de um volume existente movendo o volume para outro pool de capacidade que usa o [nível de serviço](azure-netapp-files-service-levels.md) desejado para o volume. Consulte [alterar dinamicamente o nível de serviço de um volume](dynamic-change-volume-service-level.md). 
 
 ### <a name="how-do-i-monitor-azure-netapp-files-performance"></a>Como fazer monitorar Azure NetApp Files desempenho?
 
 Azure NetApp Files fornece métricas de desempenho de volume. Você também pode usar Azure Monitor para monitorar as métricas de uso de Azure NetApp Files.  Consulte [métricas para Azure NetApp files](azure-netapp-files-metrics.md) para obter a lista de métricas de desempenho para Azure NetApp files.
+
+### <a name="whats-the-performance-impact-of-kerberos-on-nfsv41"></a>Qual é o impacto no desempenho do Kerberos no NFSv 4.1?
+
+Consulte [impacto no desempenho do Kerberos no nfsv 4.1](configure-kerberos-encryption.md#kerberos_performance) para obter informações sobre as opções de segurança do nfsv 4.1, os vetores de desempenho testados e o impacto esperado no desempenho. 
 
 ## <a name="nfs-faqs"></a>Perguntas frequentes sobre NFS
 
@@ -164,6 +168,15 @@ Yes, by default, Azure NetApp Files supports both AES-128 and AES-256 encryption
 
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
 --> 
+
+## <a name="dual-protocol-faqs"></a>Perguntas frequentes sobre protocolo duplo
+
+### <a name="i-tried-to-use-the-root-and-local-users-to-access-a-dual-protocol-volume-with-the-ntfs-security-style-on-a-unix-system-why-did-i-encounter-a-permission-denied-error"></a>Tentei usar a "raiz" e os usuários locais para acessar um volume de protocolo duplo com o estilo de segurança NTFS em um sistema UNIX. Por que encontrei um erro de "permissão negada"?   
+
+Um volume de protocolo duplo dá suporte aos protocolos NFS e SMB.  Quando você tenta acessar o volume montado no sistema UNIX, o sistema tenta mapear o usuário do UNIX que você usa para um usuário do Windows. Se nenhum mapeamento for encontrado, o erro "permissão negada" ocorrerá.  Essa situação se aplica também quando você usa o usuário ' raiz ' para o acesso.    
+
+Para evitar o problema de "permissão negada", verifique se o Windows Active Directory inclui `pcuser` antes de acessar o ponto de montagem. Se você adicionar `pcuser` depois de encontrar o problema de "permissão negada", Aguarde 24 horas para que a entrada do cache seja limpa antes de tentar acessar novamente.
+
 
 ## <a name="capacity-management-faqs"></a>Perguntas frequentes sobre gerenciamento de capacidade
 

@@ -1,19 +1,18 @@
 ---
 title: Gerenciar e monitorar backups de VM do Azure
 description: Saiba como gerenciar e monitorar backups de VM do Azure usando o serviço de backup do Azure.
-ms.reviewer: sogup
 ms.topic: conceptual
-ms.date: 09/18/2019
-ms.openlocfilehash: 4e3fb05b054ea682c315654e6df262e49d592597
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/02/2020
+ms.openlocfilehash: cbe0ccef9df27af032cf849b302f6a6211383fe8
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054754"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531942"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerenciar backups de VM do Azure com o serviço de backup do Azure
 
-Este artigo descreve como gerenciar VMs (máquinas virtuais) do Azure cujo backup é feito usando o serviço de [backup do Azure](backup-overview.md). O artigo também resume as informações de backup que você pode encontrar no painel do cofre.
+Este artigo descreve como gerenciar VMs (máquinas virtuais) do Azure cujo backup é feito com o [serviço de backup do Azure](backup-overview.md). O artigo também resume as informações de backup que você pode encontrar no painel do cofre.
 
 No portal do Azure, o painel do cofre dos serviços de recuperação fornece acesso a informações do cofre, incluindo:
 
@@ -31,24 +30,30 @@ Você pode gerenciar backups usando o painel e fazendo Drill down para VMs indiv
 Para exibir as VMs no painel do cofre:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
-2. No menu Hub, selecione **procurar**. Na lista de recursos, digite **Serviços de Recuperação**. Conforme você digita, a lista é filtrada com base em sua entrada. Selecione **cofres dos serviços de recuperação**.
+1. No menu esquerdo, selecione **Todos os serviços**.
 
-    ![Criar um cofre dos Serviços de Recuperação](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
+    ![Selecionar Todos os serviços](./media/backup-azure-manage-vms/select-all-services.png)
 
-3. Para facilitar o uso, clique com o botão direito do mouse no cofre e selecione **fixar no painel**.
-4. Abra o painel do cofre.
+1. Na caixa de diálogo **Todos os serviços**, insira *Serviços de Recuperação*. A lista de recurso filtra de acordo com sua entrada. Na lista de recursos, selecione **Cofres dos Serviços de Recuperação**.
+
+    ![Insira e escolha os cofres dos Serviços de Recuperação](./media/backup-azure-manage-vms/all-services.png)
+
+    A lista de cofres de Serviços de Recuperação na assinatura aparecerá.
+
+1. Para facilitar o uso, selecione o ícone de pino ao lado do nome do seu cofre e selecione **fixar no painel**.
+1. Abra o painel do cofre.
 
     ![Abra o painel de cofres e as configurações](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
-5. No bloco **itens de backup** , selecione **máquinas virtuais do Azure**.
+1. No bloco **itens de backup** , selecione **máquina virtual do Azure**.
 
-    ![Abrir o bloco itens de backup](./media/backup-azure-manage-vms/contoso-vault-1606.png)
+    ![Abrir o bloco itens de backup](./media/backup-azure-manage-vms/azure-virtual-machine.png)
 
-6. No painel **itens de backup** , você pode exibir a lista de VMs protegidas. Neste exemplo, o cofre protege uma máquina virtual: demobackup.  
+1. No painel **itens de backup** , você pode exibir a lista de VMs protegidas. Neste exemplo, o cofre protege uma máquina virtual: *myVMR1*.  
 
     ![Exibir o painel itens de backup](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-7. No painel do item do cofre, modifique as políticas de backup, execute um backup sob demanda, pare ou retome a proteção de VMs, exclua dados de backup, exiba pontos de restauração e execute uma restauração.
+1. No painel do item do cofre, você pode modificar políticas de backup, executar um backup sob demanda, parar ou retomar a proteção de VMs, excluir dados de backup, exibir pontos de restauração e executar uma restauração.
 
     ![O painel de itens de backup e o painel de configurações](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
@@ -59,18 +64,17 @@ Para exibir as VMs no painel do cofre:
 Para modificar uma política de backup existente:
 
 1. Entre no [portal do Azure](https://portal.azure.com/). Abra o painel do cofre.
-2. Em **gerenciar políticas de backup >**, selecione a política de backup para o tipo máquina virtual do Azure.
-3.  Clique em modificar e altere as configurações.
+2. Em **gerenciar políticas de backup >**, selecione a política de backup para o tipo **máquina virtual do Azure**.
+3. Selecione **Modificar** e altere as configurações.
 
-
-### <a name="switch-backup-policy"></a>Alternar política de backup 
+### <a name="switch-backup-policy"></a>Alternar política de backup
 
 Para gerenciar uma política de backup:
 
 1. Entre no [portal do Azure](https://portal.azure.com/). Abra o painel do cofre.
-2. No bloco **itens de backup** , selecione **máquinas virtuais do Azure**.
+2. No bloco **itens de backup** , selecione **máquina virtual do Azure**.
 
-    ![Abrir o bloco itens de backup](./media/backup-azure-manage-vms/contoso-vault-1606.png)
+    ![Abrir o bloco itens de backup](./media/backup-azure-manage-vms/azure-virtual-machine.png)
 
 3. No painel **itens de backup** , você pode exibir a lista de VMs protegidas e o status do último backup com o tempo dos pontos de restauração mais recentes.
 
@@ -113,7 +117,7 @@ Para acompanhar o progresso do trabalho, no painel do cofre, selecione o bloco *
 
 Há duas maneiras de interromper a proteção de uma VM:
 
-* **Interromper a proteção e manter os dados de backup**. Esta opção impedirá que todos os trabalhos de backup futuros protejam sua VM; no entanto, o serviço de backup do Azure manterá os pontos de recuperação que foram armazenados em backup.  Você precisará pagar para manter os pontos de recuperação no cofre (consulte [preços de backup do Azure](https://azure.microsoft.com/pricing/details/backup/) para obter detalhes). Você poderá restaurar a VM, se necessário. Se você decidir retomar a proteção da VM, poderá usar a opção *retomar backup* .
+* **Interromper a proteção e manter os dados de backup**. Esta opção impedirá que todos os trabalhos de backup futuros protejam sua VM. No entanto, o serviço de backup do Azure manterá os pontos de recuperação que foram armazenados em backup.  Você precisará pagar para manter os pontos de recuperação no cofre (consulte [preços de backup do Azure](https://azure.microsoft.com/pricing/details/backup/) para obter detalhes). Você poderá restaurar a VM, se necessário. Se você decidir retomar a proteção da VM, poderá usar a opção *retomar backup* .
 * **Interrompa a proteção e exclua os dados de backup**. Esta opção impedirá que todos os trabalhos de backup futuros protejam sua VM e exclua todos os pontos de recuperação. Você não poderá restaurar a VM nem usar a opção *retomar backup* .
 
 >[!NOTE]
@@ -162,11 +166,11 @@ Há duas maneiras de excluir os dados de backup de uma VM:
 
 * No painel do item do cofre, selecione parar backup e siga as instruções para [parar proteção e excluir dados de backup](#stop-protection-and-delete-backup-data) .
 
-  ![Selecionar Parar Backup](./media/backup-azure-manage-vms/stop-backup-buttom.png)
+  ![Selecionar Parar Backup](./media/backup-azure-manage-vms/stop-backup-button.png)
 
-* No painel do item do cofre, selecione excluir dados de backup. Essa opção será habilitada se você tiver optado por [interromper a proteção e manter a opção de dados de backup](#stop-protection-and-retain-backup-data) durante a proteção da VM de parada
+* No painel do item do cofre, selecione excluir dados de backup. Essa opção será habilitada se você tiver optado por [interromper a proteção e manter a opção de dados de backup](#stop-protection-and-retain-backup-data) durante a proteção da VM de parada.
 
-  ![Selecione Excluir backup](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+  ![Selecione Excluir backup](./media/backup-azure-manage-vms/delete-backup-button.png)
 
   * No [painel do item do cofre](#view-vms-on-the-dashboard), selecione **excluir dados de backup**.
   * Digite o nome do item de backup para confirmar que você deseja excluir os pontos de recuperação.
@@ -182,7 +186,7 @@ Para proteger seus dados, o backup do Azure inclui o recurso de exclusão revers
 
 ### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>Item de backup em que a fonte de dados primária não existe mais
 
-* Se as VMs do Azure configuradas para o backup do Azure forem excluídas ou movidas sem interromper a proteção, os trabalhos de backup agendados e os trabalhos de backup sob demanda (ad-hoc) falharão com o erro UserErrorVmNotFoundV2. A pré-verificação de backup será exibida como crítica somente para trabalhos de backup sob demanda com falha (trabalhos agendados com falha não são exibidos).
+* Se as VMs do Azure configuradas para o backup do Azure forem excluídas ou movidas sem interromper a proteção, os trabalhos de backup agendados e os trabalhos de backup sob demanda (ad-hoc) falharão com o erro UserErrorVmNotFoundV2. A pré-verificação de backup será exibida como crítica somente para trabalhos de backup sob demanda com falha (os trabalhos agendados com falha não são exibidos).
 * Esses itens de backup permanecem ativos no sistema que aderem à política de backup e retenção definida pelo usuário. Os dados de backup para essas VMs do Azure serão mantidos de acordo com a política de retenção. Os pontos de recuperação expirados (exceto o último ponto de recuperação) são limpos de acordo com o período de retenção definido na política de backup.
 * Os usuários são recomendados para excluir os itens de backup em que a fonte de dados primária não existe mais para evitar custos adicionais, se o item/dados de backup dos recursos de exclusão não for mais necessário, pois o último ponto de recuperação é mantido para sempre e o usuário é cobrado de acordo com o preço de backup aplicável.
 

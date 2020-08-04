@@ -10,12 +10,12 @@ ms.date: 04/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 9d4097e847417f56c9881a3e18237e97dfee465e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dcd1280dbe3a00a6a7cbdaaf59aa05326dfa8375
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501399"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534168"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usar o portal do Azure para acessar dados de BLOB ou de fila
 
@@ -29,7 +29,7 @@ Dependendo de como você deseja autorizar o acesso a dados de BLOB ou de fila no
 
 ### <a name="use-the-account-access-key"></a>Usar a chave de acesso da conta
 
-Para acessar dados de BLOB e de fila com a chave de acesso da conta, você deve ter uma função RBAC atribuída a você que inclui a ação RBAC **Microsoft. Storage/storageAccounts/listkeys/Action**. Essa função de RBAC pode ser uma função interna ou personalizada. Funções internas que dão suporte a **Microsoft. Storage/storageAccounts/listkeys/Action** incluem:
+Para acessar dados de BLOB e de fila com a chave de acesso da conta, você deve ter uma função do Azure atribuída a você que inclua a ação RBAC **Microsoft. Storage/storageAccounts/listkeys/Action**. Essa função do Azure pode ser uma função interna ou personalizada. Funções internas que dão suporte a **Microsoft. Storage/storageAccounts/listkeys/Action** incluem:
 
 - A função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager
 - A função [colaborador](../../role-based-access-control/built-in-roles.md#contributor) de Azure Resource Manager
@@ -47,7 +47,7 @@ Para acessar dados de BLOB ou de fila do portal do Azure usando sua conta do Azu
 - Você recebeu a função [leitor](../../role-based-access-control/built-in-roles.md#reader) de Azure Resource Manager, no mínimo, no escopo do nível da conta de armazenamento ou superior. A função **leitor** concede as permissões mais restritas, mas outra função de Azure Resource Manager que concede acesso aos recursos de gerenciamento da conta de armazenamento também é aceitável.
 - Você foi atribuído a uma função interna ou personalizada que fornece acesso aos dados de BLOB ou de fila.
 
-A atribuição de função de **leitor** ou outra atribuição de função de Azure Resource Manager é necessária para que o usuário possa exibir e navegar pelos recursos de gerenciamento de conta de armazenamento no portal do Azure. As funções RBAC que concedem acesso a dados de BLOB ou de fila não concedem acesso aos recursos de gerenciamento da conta de armazenamento. Para acessar dados de BLOB ou de fila no portal, o usuário precisa de permissões para navegar pelos recursos da conta de armazenamento. Para obter mais informações sobre esse requisito, consulte [atribuir a função leitor para acesso ao portal](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
+A atribuição de função de **leitor** ou outra atribuição de função de Azure Resource Manager é necessária para que o usuário possa exibir e navegar pelos recursos de gerenciamento de conta de armazenamento no portal do Azure. As funções do Azure que concedem acesso a dados de BLOB ou de fila não concedem acesso aos recursos de gerenciamento da conta de armazenamento. Para acessar dados de BLOB ou de fila no portal, o usuário precisa de permissões para navegar pelos recursos da conta de armazenamento. Para obter mais informações sobre esse requisito, consulte [atribuir a função leitor para acesso ao portal](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
 
 As funções internas que dão suporte ao acesso ao BLOB ou aos dados da fila incluem:
 
@@ -82,7 +82,7 @@ Se você estiver autenticando usando a chave de acesso da conta, verá a **chave
 
 ![Atualmente acessando dados de contêiner com a chave de conta](media/storage-access-blobs-queues-portal/auth-method-access-key.png)
 
-Para alternar para o usando a conta do Azure AD, clique no link realçado na imagem. Se você tiver as permissões apropriadas por meio das funções de RBAC atribuídas a você, poderá continuar. No entanto, se você não tem as permissões corretas, verá uma mensagem de erro semelhante à seguinte:
+Para alternar para o usando a conta do Azure AD, clique no link realçado na imagem. Se você tiver as permissões apropriadas por meio das funções do Azure atribuídas a você, poderá continuar. No entanto, se você não tem as permissões corretas, verá uma mensagem de erro semelhante à seguinte:
 
 ![Erro mostrado se a conta do Azure AD não dá suporte ao acesso](media/storage-access-blobs-queues-portal/auth-error-azure-ad.png)
 

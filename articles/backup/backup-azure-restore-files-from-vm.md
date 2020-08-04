@@ -4,12 +4,12 @@ description: Este artigo explica como recuperar arquivos e pastas de um ponto de
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2488bbded1b4d55f3c4cf21c63e9fcb90e9bfb4f
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: e12669609b21d23b775af27f95528c4b42e95e81
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475049"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533522"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -24,13 +24,13 @@ O Backup do Azure fornece a capacidade de restaurar [máquinas virtuais (VMs) do
 
 Para restaurar arquivos ou pastas no ponto de recuperação, vá para a máquina virtual e escolha o ponto de recuperação desejado.
 
-1. Faça logon no [portal do Azure](https://portal.Azure.com) e no painel esquerdo, clique em **Máquinas Virtuais**. Na lista de máquinas virtuais, selecione a máquina virtual para abrir o painel da máquina virtual.
+1. Entre no [portal do Azure](https://portal.Azure.com) e no painel esquerdo, selecione **máquinas virtuais**. Na lista de máquinas virtuais, selecione a máquina virtual para abrir o painel da máquina virtual.
 
-2. No menu da máquina virtual, clique em **Backup** para abrir o painel de Backup.
+2. No menu da máquina virtual, selecione **backup** para abrir o painel de backup.
 
     ![Abra o item de backup do cofre de Serviços de Recuperação](./media/backup-azure-restore-files-from-vm/open-vault-for-vm.png)
 
-3. No menu do painel de Backup, clique em **Recuperação de Arquivo**.
+3. No menu painel de backup, selecione **recuperação de arquivo**.
 
     ![Botão de recuperação de arquivo](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
@@ -40,7 +40,7 @@ Para restaurar arquivos ou pastas no ponto de recuperação, vá para a máquina
 
 4. No menu suspenso **Selecionar ponto de recuperação**, selecione o ponto de recuperação que contém os arquivos desejados. Por padrão, o ponto de recuperação mais recente já está selecionado.
 
-5. Para baixar o software utilizado para copiar arquivos do ponto de recuperação, clique em **Baixar executável** (para VMs do Windows Azure) ou **Baixar script** (para VMs do Linux Azure, um script Python é gerado).
+5. Para baixar o software usado para copiar arquivos do ponto de recuperação, selecione **baixar executável** (para VMs do Windows Azure) ou **baixar script** (para VMs do Linux Azure, um script Python é gerado).
 
     ![Senha gerada](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
@@ -50,7 +50,7 @@ Para restaurar arquivos ou pastas no ponto de recuperação, vá para a máquina
 
     Para executar o arquivo executável ou o script como um administrador, recomendamos salvar o arquivo baixado no seu computador.
 
-6. O arquivo executável ou o script é protegido por senha e requer uma senha. No menu **Recuperação de Arquivo**, clique no botão de cópia para carregar a senha na memória.
+6. O arquivo executável ou o script é protegido por senha e requer uma senha. No menu **recuperação de arquivo** , selecione o botão Copiar para carregar a senha na memória.
 
     ![Senha gerada](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
@@ -78,7 +78,7 @@ No Linux, os volumes do ponto de recuperação são montados para a pasta onde o
 
 ## <a name="closing-the-connection"></a>Encerrando a conexão
 
-Depois de identificar os arquivos e copiá-los para um local de armazenamento local, remova ou desmonte as unidades adicionais. Para desmontar as unidades no menu de **Recuperação de Arquivos** no Portal do Azure, clique em **Desmontar discos**.
+Depois de identificar os arquivos e copiá-los para um local de armazenamento local, remova ou desmonte as unidades adicionais. Para desmontar as unidades, no menu **recuperação de arquivos** na portal do Azure, selecione **desmontar discos**.
 
 ![Desmontar discos](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
@@ -146,7 +146,7 @@ Para listar os nomes de grupos de volumes:
 pvs -o +vguuid
 ```
 
-Esse comando listará todos os volumes físicos (incluindo aqueles presentes antes de executar o script), seus nomes de grupos de volumes correspondentes e os UUIDs (IDs de usuário) exclusivos do grupo de volumes. Uma saída de exemplo do comando é mostrada abaixo.
+Esse comando listará todos os volumes físicos (incluindo os presentes antes de executar o script), seus nomes de grupos de volumes correspondentes e os UUIDs (IDs de usuário) exclusivos do grupo de volumes. Uma saída de exemplo do comando é mostrada abaixo.
 
 ```bash
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
@@ -162,7 +162,7 @@ PV         VG        Fmt  Attr PSize   PFree    VG UUID
   /dev/sdd   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
 ```
 
-A 1ª coluna (VP) mostra o volume físico, as colunas subsequentes mostram o nome do grupo de volumes relevante, o formato, os atributos, o tamanho, o espaço livre e a ID exclusiva do grupo de volumes. A saída do comando mostra todos os volumes físicos. Consulte a saída do script e identifique os volumes relacionados ao backup. No exemplo acima, a saída do script teria mostrado/dev/sdf e/dev/sdd. Portanto, o grupo de volume datavg_db pertence ao script e o grupo de volume Appvg_new pertence ao computador. A ideia final é certificar-se de que um nome de grupo de volumes exclusivo deve ter uma ID exclusiva.
+A primeira coluna (VP) mostra o volume físico, as colunas subsequentes mostram o nome do grupo de volumes relevante, o formato, os atributos, o tamanho, o espaço livre e a ID exclusiva do grupo de volumes. A saída do comando mostra todos os volumes físicos. Consulte a saída do script e identifique os volumes relacionados ao backup. No exemplo acima, a saída do script teria mostrado/dev/sdf e/dev/sdd. Portanto, o grupo de volume *datavg_db* pertence ao script e o grupo de volume *Appvg_new* pertence ao computador. A ideia final é verificar se um nome de grupo de volumes exclusivo deve ter uma ID exclusiva.
 
 ###### <a name="duplicate-volume-groups"></a>Grupos de volumes duplicados
 
@@ -184,9 +184,9 @@ PV         VG        Fmt  Attr PSize   PFree    VG UUID
   /dev/sdm2  rootvg    lvm2 a--  194.57g  127.57g efohjX-KUGB-ETaH-4JKB-MieG-EGOc-XcfLCt
 ```
 
-A saída do script teria mostrado/dev/SDG,/dev/SDH,/dev/sdm2 como anexado. Assim, os nomes de VG correspondentes são Appvg_new e rootvg. Mas os mesmos nomes também estão presentes na lista VG do computador. Podemos verificar se 1 nome do VG tem dois UUIDs.
+A saída do script teria mostrado/dev/SDG,/dev/SDH,/dev/sdm2 como anexado. Assim, os nomes de VG correspondentes são Appvg_new e rootvg. Mas os mesmos nomes também estão presentes na lista VG do computador. Podemos verificar se um nome de VG tem dois UUIDs.
 
-Agora precisamos renomear os nomes de VG para volumes baseados em script, ou seja,/dev/SDG,/dev/SDH,/dev/sdm2. Para renomear o grupo de volumes, use o seguinte comando
+Agora, precisamos renomear os nomes de VG para volumes baseados em script, por exemplo:/dev/SDG,/dev/SDH,/dev/sdm2. Para renomear o grupo de volumes, use o seguinte comando
 
 ```bash
 vgimportclone -n rootvg_new /dev/sdm2
@@ -343,7 +343,7 @@ Como o processo de recuperação de arquivo anexa todos os discos do backup, qua
     - node.conn[0].timeo.noop_out_timeout = 5 para node.conn[0].timeo.noop_out_timeout = 30
 - Depois de fazer a alteração acima, execute o script novamente. Com essas alterações, a recuperação do arquivo provavelmente será bem-sucedida.
 - Cada vez que o usuário faz download de um script, o Backup do Azure inicia o processo de preparação do ponto de recuperação para download. Com discos grandes, esse processo levará um tempo considerável. Se houver picos de solicitações sucessivas, a preparação de destino entrará em uma espiral de download. Portanto, é recomendável baixar um script do Portal/PowerShell/CLI, aguardar de 20 a 30 minutos (um heurístico) e, em seguida, executá-lo. Neste momento, espera-se que o destino esteja pronto para a conexão do script.
-- Após a recuperação de arquivos, verifique se você retornou ao portal e clique em **Desmontar discos** para pontos de recuperação em que você não conseguiu montar volumes. Essencialmente, essa etapa limpará todos os processos/sessões existentes e aumentará a chance de recuperação.
+- Após a recuperação de arquivos, verifique se você retornou ao portal e selecione **desmontar discos** para pontos de recuperação em que você não conseguiu montar volumes. Essencialmente, essa etapa limpará todos os processos/sessões existentes e aumentará a chance de recuperação.
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
@@ -357,7 +357,7 @@ Se você tiver problemas durante a recuperação de arquivos de máquinas virtua
 | No computador em que o exe é executado: Os novos volumes não serão desmontados depois que o botão de desmontagem for clicado | O iniciador iSCSI no computador não está respondendo/atualizando sua conexão para o destino e manutenção do cache. |  Depois de clicar em **Desmontar**, aguarde alguns minutos. Se os novos volumes não estiverem desmontados, navegue por todos os volumes. Navegar por todos os volumes força o iniciador a atualizar a conexão, e o volume é desmontado com uma mensagem de erro de que o disco não está disponível.|
 | Saída de exe: O script é executado com êxito, mas a mensagem “Novos volumes anexados” não é exibida na saída do script |    Esse é um problema temporário    | Os volumes já terão sido anexados. Abra o Explorer para navegar. Se você estiver usando sempre o mesmo computador para todas as execuções de scripts, considere reiniciar o computador, e a lista deverá ser exibida nas execuções subsequentes do exe. |
 | Específico do Linux: não é possível exibir os volumes desejados | O SO da máquina onde o script é executado pode não reconhecer o sistema de arquivos subjacente da VM protegida | Verifique se o ponto de recuperação é consistente com a falha ou com o arquivo. Se for consistente com o arquivo, execute o script em outro computador cujo sistema operacional reconheça o sistema de arquivos da VM protegida. |
-| Específico para Windows: não é possível exibir os volumes desejados | Os discos podem ter sido anexados, mas os volumes não foram configurados | Na tela de gerenciamento de disco, identifique os discos adicionais relacionados ao ponto de recuperação. Se algum desses discos estiver no estado offline, tente deixá-los online clicando com o botão direito do mouse no disco e, em seguida, em **Online**.|
+| Específico para Windows: não é possível exibir os volumes desejados | Os discos podem ter sido anexados, mas os volumes não foram configurados | Na tela de gerenciamento de disco, identifique os discos adicionais relacionados ao ponto de recuperação. Se algum desses discos estiver em um estado offline, tente colocá-los online clicando com o botão direito do mouse no disco e selecione **online**.|
 
 ## <a name="security"></a>Segurança
 
@@ -383,7 +383,7 @@ O script gerado é assinado com o certificado oficial da Microsoft para o servi�
 
 Somente um administrador pode executar o script que deve ser executado no modo elevado. O script executa apenas um conjunto de etapas gerado previamente e não aceita a entrada de qualquer fonte externa.
 
-Para executar o script, é necessária uma senha que é mostrada apenas para o usuário autorizado no momento da geração de script no portal do Azure ou PowerShell/CLI. Isso é para garantir que o usuário autorizado que baixa o script também seja responsável por sua execução.
+Para executar o script, é necessária uma senha que é mostrada apenas para o usuário autorizado no momento da geração de script no portal do Azure ou PowerShell/CLI. Isso é para garantir que o usuário autorizado que baixa o script também seja responsável por executar o script.
 
 #### <a name="browse-files-and-folders"></a>Procurar arquivos e pastas
 

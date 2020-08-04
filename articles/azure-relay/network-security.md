@@ -3,12 +3,12 @@ title: Segurança de rede para retransmissão do Azure
 description: Este artigo descreve como configurar o acesso de pontos de extremidade privados
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: a1ade21df39890b7f1c31a81fca1fffafe2acaa0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf49eff29385b5b72639420416df87b9187845e8
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322162"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532978"
 ---
 # <a name="network-security-for-azure-relay"></a>Segurança de rede para retransmissão do Azure 
 Este artigo descreve como usar os seguintes recursos de segurança com a retransmissão do Azure: 
@@ -23,7 +23,7 @@ Este artigo descreve como usar os seguintes recursos de segurança com a retrans
 ## <a name="ip-firewall"></a>Firewall de IP 
 Por padrão, os namespaces de Retransmissão são acessíveis da Internet, desde que a solicitação acompanhe autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
-Esse recurso é útil em cenários nos quais a Retransmissão do Azure deve ser acessível apenas de determinados sites conhecidos. As regras de firewall permitem que você configure regras para aceitar o tráfego originado de endereços IPv4 específicos. Por exemplo, se você usa a Retransmissão com o [Azure ExpressRoute](/azure/expressroute/expressroute-faqs#supported-services), é possível criar uma **regra de firewall** para permitir o tráfego apenas de seus endereços IP da infraestrutura local. 
+Esse recurso é útil em cenários nos quais a Retransmissão do Azure deve ser acessível apenas de determinados sites conhecidos. As regras de firewall permitem que você configure regras para aceitar o tráfego originado de endereços IPv4 específicos. Por exemplo, se você usa a Retransmissão com o [Azure ExpressRoute](../expressroute/expressroute-faqs.md#supported-services), é possível criar uma **regra de firewall** para permitir o tráfego apenas de seus endereços IP da infraestrutura local. 
 
 As regras de firewall IP são aplicadas no nível do namespace de retransmissão. Portanto, as regras se aplicam a todas as conexões de clientes que usam qualquer protocolo com suporte. Qualquer tentativa de conexão de um endereço IP que não corresponda a uma regra de IP permitida no namespace de retransmissão é rejeitada como não autorizada. A resposta não menciona a regra IP. As regras de filtro IP são aplicadas na ordem e a primeira regra que corresponde ao endereço IP determina a ação de aceitar ou rejeitar.
 

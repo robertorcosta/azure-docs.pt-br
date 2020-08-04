@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 4bdcb2b4008f54ff0d84594e6f3b5a7b76944e65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/03/2020
+ms.openlocfilehash: 9088b36acead9f47e94949ee102d66a8aff2d226
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987007"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529595"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copiar dados do SAP ECC usando o Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "84987007"
 Este artigo descreve como usar a Atividade de Cópia no Azure Data Factory para copiar dados do SAP ECC (Enterprise Central Component). Para obter mais informações, confira [Visão geral da atividade de cópia](copy-activity-overview.md).
 
 >[!TIP]
->Para saber mais sobre o suporte geral do ADF no cenário de integração de dados do SAP, confira o [white paper Integração de dados do SAP usando o Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) com introdução, comparação e diretrizes detalhadas.
+>Para aprender o suporte geral do ADF no cenário de integração de dados do SAP, consulte [integração de dados SAP usando Azure data Factory White Paper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) com introdução detalhada sobre cada conector SAP, análise e diretrizes.
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
@@ -52,13 +52,11 @@ Especificamente, este conector do SAP ECC dá suporte à:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Geralmente, o SAP ECC expõe entidades por meio de serviços OData através do Gateway do SAP. Para usar esse conector do SAP ECC, é necessário:
+Para usar esse conector SAP ECC, você precisa expor as entidades de ECC do SAP por meio de serviços OData por meio do gateway SAP. Mais especificamente:
 
 - **Configurar o Gateway do SAP**. Para os servidores com versões do SAP NetWeaver posteriores a 7.4, o SAP Gateway já está instalado. Para obter as versões anteriores, você precisará instalar o SAP Gateway inserido ou o sistema de hub do SAP Gateway antes de expor os dados do SAP ECC por meio de serviços OData. Para configurar o SAP Gateway, confira o [guia de instalação](https://help.sap.com/saphelp_gateway20sp12/helpdata/en/c3/424a2657aa4cf58df949578a56ba80/frameset.htm).
 
 - **Ativar e configurar o serviço OData do SAP**. Ative o serviço OData por meio do TCODE SICF em poucos segundos. Configure também quais objetos precisam ser expostos. Para obter mais informações, confira as [diretrizes passo a passo](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
-
-## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -148,6 +146,7 @@ Há suporte para as seguintes propriedades na seção `source` da atividade de c
 |:--- |:--- |:--- |
 | `type` | A propriedade `type` da seção `source` da atividade de cópia precisa ser definida como `SapEccSource`. | Sim |
 | `query` | As opções de consulta OData para filtrar os dados. Por exemplo:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>o conector do SAP ECC copia os dados da URL combinada:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Para saber mais, confira as [Componentes da URL do OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
+| `sapDataColumnDelimiter` | O caractere único que é usado como delimitador passado para SAP RFC para dividir os dados de saída. | Não |
 | `httpRequestTimeout` | O tempo limite (o valor **TimeSpan**) para a solicitação HTTP para obter uma resposta. Esse valor é o tempo limite para obter uma resposta, não o tempo limite para ler os dados da resposta. Se não for especificado, o valor padrão será **00:30:00** (30 minutos). | Não |
 
 ### <a name="example"></a>Exemplo

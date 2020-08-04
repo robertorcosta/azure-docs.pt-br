@@ -4,12 +4,12 @@ description: Obter a exibição de página e contagens de sessão, dados de clie
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 063d648c68431dd84fd1aeb88b85bc68f2acbe62
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: e0545660cbca68d41bc24b7266496b7912d408bc
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475746"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531312"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas da Web
 
@@ -39,7 +39,8 @@ Instale por meio do NPM.
 npm i --save @microsoft/applicationinsights-web
 ```
 
-> *Observação:* as **digitações são incluídas neste pacote**, portanto, **não** é necessário instalar um pacote de digitações separado.
+> [!Note]
+> As **digitações são incluídas neste pacote**, portanto, **não** é necessário instalar um pacote de digitações separado.
     
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -103,7 +104,7 @@ Cada opção de configuração é mostrada acima em uma nova linha, se você nã
 
 As opções de configuração disponíveis são 
 
-| Nome | Tipo | Description
+| Nome | Tipo | Descrição
 |------|------|----------------
 | src | Cadeia de caracteres **[obrigatório]** | A URL completa para onde carregar o SDK. Esse valor é usado para o atributo "src" de um &lt; script/marca dinamicamente adicionado &gt; . Você pode usar o local da CDN pública ou sua própria hospedada de forma privada.
 | name | Cadeia de caracteres *[opcional]* | O nome global do SDK inicializado, por padrão, é appInsights. Portanto, ```window.appInsights``` será uma referência à instância inicializada. Observação: se você fornecer um valor de nome ou uma instância anterior parece ser atribuída (por meio do nome global appInsightsSDK), esse valor de nome também será definido no namespace global como ```window.appInsightsSDK=<name value>``` , isso é exigido pelo código de inicialização do SDK para garantir que ele esteja inicializando e atualizando o esqueleto de trecho e os métodos de proxy corretos.
@@ -114,7 +115,7 @@ As opções de configuração disponíveis são
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Enviando telemetria para o portal do Azure
 
-Por padrão, o SDK do JavaScript Application Insights coleta a um número de itens de telemetria que são úteis para determinar a integridade do seu aplicativo e a experiência do usuário subjacente. Elas incluem:
+Por padrão, o SDK do JavaScript Application Insights coleta a um número de itens de telemetria que são úteis para determinar a integridade do seu aplicativo e a experiência do usuário subjacente. Eles incluem:
 
 - **Exceções não capturadas** em seu aplicativo, incluindo informações sobre
     - Rastreamento de pilha

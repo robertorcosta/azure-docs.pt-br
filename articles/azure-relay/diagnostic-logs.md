@@ -3,12 +3,12 @@ title: Logs de diagnóstico para Conexões Híbridas
 description: Este artigo fornece uma visão geral de todos os logs de atividade e de diagnóstico que estão disponíveis para a Retransmissão do Azure.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: f79e4aa21fcb9e592f431e252981dc0e7c02817f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 980f2f7a737d3f2460c17a84c472cbf56f5eb90f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314899"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532995"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Habilitar logs de diagnóstico para conexões híbridas de Retransmissão do Azure
 Ao começar a usar as conexões híbridas de Retransmissão do Azure, convém monitorar como e quando seus ouvintes e remetentes são abertos e fechados e como suas conexões híbridas são criadas e as mensagens são enviadas. Este artigo fornece uma visão geral dos logs de atividade e de diagnóstico fornecidos pelo serviço de Retransmissão do Azure. 
@@ -46,7 +46,7 @@ Para habilitar logs de diagnóstico, realize as seguintes etapas:
         ![Configurações de diagnóstico de exemplo](./media/diagnostic-logs/sample-diagnostic-settings.png)
 1. Selecione **Salvar** na barra de ferramentas para salvar as configurações.
 
-As novas configurações terão efeito em aproximadamente dez minutos. Os logs aparecerão no destino de arquivamento configurado, no painel **Logs de diagnóstico**. Para obter mais informações sobre como definir configurações de diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+As novas configurações terão efeito em aproximadamente dez minutos. Os logs aparecerão no destino de arquivamento configurado, no painel **Logs de diagnóstico**. Para obter mais informações sobre como definir configurações de diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 
 ## <a name="schema-for-hybrid-connections-events"></a>Esquema para eventos de conexões híbridas

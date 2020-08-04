@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f29ed1ad7ba0215e9b4193fd56dd3a32f3e9a2
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 68d40e9dbc2c4da6b298f7245318c95de983edcc
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475968"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530139"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Usar grupos de nuvem para gerenciar atribuições de função no Azure Active Directory (versão prévia)
 
@@ -59,12 +59,13 @@ Os cenários a seguir não têm suporte no momento:
 ## <a name="known-issues"></a>Problemas conhecidos
 
 - Você não pode criar ou modificar um grupo dinâmico quando a função é atribuída por meio de um grupo.
-- A proteção de informações do Azure não reconhece a associação de função via grupo ainda. As atribuições de função diretas ainda funcionam. O portal da proteção de informações do Azure (o portal clássico) não reconhece a associação de função via grupo ainda. As atribuições de função diretas ainda funcionam. Você pode [migrar para a plataforma de rotulação de sensibilidade unificada](https://docs.microsoft.com/azure/information-protection/configure-policy-migrate-labels) e, em seguida, usar o centro de conformidade do Office 365 Security & para usar atribuições de grupo para gerenciar funções.
 - O recurso **habilitar a distribuição preparada para entrada de usuário gerenciado** não dá suporte à atribuição por meio de grupo.
 - *Somente clientes licenciados do Azure ad P2*: não atribua um grupo como ativo a uma função por meio do Azure AD e do Privileged Identity Management. Isso resultará em problemas em que os usuários não podem ver suas atribuições de função ativas no PIM, bem como a incapacidade de remover essa atribuição de PIM. As atribuições qualificadas não são afetadas neste cenário. Se você tentar fazer essa atribuição, poderá ver um comportamento inesperado, como:
   - A hora de término da atribuição de função pode ser exibida incorretamente.
   - No portal do PIM, **minhas funções** podem mostrar apenas uma atribuição de função, independentemente de quantos métodos são concedidos pela atribuição (por meio de um ou mais grupos e diretamente).
-- *Somente clientes licenciados do Azure ad P2* Mesmo após a exclusão do grupo, ele ainda mostra um membro qualificado da função na interface do usuário do PIM. Funcionalmente, não há problema; é apenas um problema de cache na portal do Azure.
+- *Somente clientes licenciados do Azure ad P2* Mesmo após a exclusão do grupo, ele ainda mostra um membro qualificado da função na interface do usuário do PIM. Funcionalmente, não há problema; é apenas um problema de cache na portal do Azure.  
+- O centro de administração do Exchange não reconhece a associação de função via grupo ainda, mas o cmdlet do PowerShell funcionará.
+- O portal da proteção de informações do Azure (o portal clássico) não reconhece a associação de função via grupo ainda. Você pode [migrar para a plataforma de rotulação de sensibilidade unificada](https://docs.microsoft.com/azure/information-protection/configure-policy-migrate-labels) e, em seguida, usar o centro de conformidade do Office 365 Security & para usar atribuições de grupo para gerenciar funções.
 
 Estamos corrigindo esses problemas.
 
@@ -74,5 +75,5 @@ O uso desse recurso exige que você tenha uma licença do Azure AD Premium P1 di
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar um grupo de funções atribuídas](roles-groups-create-eligible.md)
+- [Criar um grupo ao qual funções podem ser atribuídas](roles-groups-create-eligible.md)
 - [Atribuir uma função a um grupo de função atribuível](roles-groups-assign-role.md)

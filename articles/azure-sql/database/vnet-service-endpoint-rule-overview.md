@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: c1ac3c1e312704f8a0afa751d0efc6d0cef897f9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 65ec92aeca44a514467a642de1dab06f06c220e9
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371763"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533845"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Usar pontos de extremidade de serviço de rede virtual e regras para servidores no banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -104,7 +104,7 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impacto de usar pontos de extremidade de serviço de VNet com Armazenamento do Azure
 
-O Armazenamento do Azure implementou o mesmo recurso que permite que você limite a conectividade à sua conta de Armazenamento do Azure. Se você optar por usar esse recurso com uma conta de armazenamento do Azure que está sendo usada pelo banco de dados SQL do Azure, poderá encontrar problemas. Em seguida, há uma lista e uma discussão dos recursos do Banco de Dados SQL do Azure e do SQL Data Warehouse do Azure afetados por isso.
+O Armazenamento do Azure implementou o mesmo recurso que permite que você limite a conectividade à sua conta de Armazenamento do Azure. Se optar por usar esse recurso com uma conta de Armazenamento do Azure que está sendo usada pelo Banco de Dados SQL do Azure, você poderá encontrar problemas. Em seguida, há uma lista e uma discussão dos recursos do Banco de Dados SQL do Azure e do SQL Data Warehouse do Azure afetados por isso.
 
 ### <a name="azure-synapse-polybase"></a>Polybase do Azure Synapse
 
@@ -136,7 +136,7 @@ O PolyBase costuma ser usado para carregar dados no Azure Synapse Analytics de c
    > - Se você tiver uma conta de armazenamento de blobs ou de uso geral v1, será necessário **primeiro atualizar para v2** usando este [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Para problemas conhecidos com o Azure Data Lake Storage Gen2, confira este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
 
-1. Na conta de armazenamento, navegue até o **Controle de Acesso (IAM)** e selecione **Adicionar atribuição de função**. Atribua a função de RBAC de **colaborador de dados de blob de armazenamento** ao servidor que hospeda a análise de Synapse do Azure que você registrou com Azure Active Directory (AAD) como na #1 de etapa.
+1. Na conta de armazenamento, navegue até o **Controle de Acesso (IAM)** e selecione **Adicionar atribuição de função**. Atribua a função de **colaborador de dados de armazenamento de BLOBs** do Azure ao servidor que hospeda a análise de Synapse do Azure que você registrou com Azure Active Directory (AAD) como na etapa #1.
 
    > [!NOTE]
    > Somente membros com privilégio de proprietário na conta de armazenamento podem executar esta etapa. Para várias funções internas do Azure, consulte este [guia](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).

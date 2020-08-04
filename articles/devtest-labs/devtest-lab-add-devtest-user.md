@@ -3,19 +3,19 @@ title: Adicionar usuários e proprietários aos Azure DevTest Labs | Microsoft D
 description: Adicionar usuários e proprietários aos Azure DevTest Labs usando o portal do Azure ou o PowerShell
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b54e372a9b85b76737c0780be4bce9362765301b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 40173589c4798a8b00d940bca2a71f4d61f2c199
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87013451"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533318"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adicionar usuários e proprietários aos Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
 > 
 > 
 
-O acesso no Azure DevTest Labs é controlado pelo Azure [RBAC (controle de acesso baseado em função](../role-based-access-control/overview.md)do Azure). Com o RBAC, você pode separar as tarefas de sua equipe em *funções* , onde só concederá o acesso de que os usuários precisam para realizar seus trabalhos. Três dessas funções RBAC são *Proprietário*, *Usuário dos DevTest Labs* e *Colaborador*. Neste artigo, você aprenderá quais ações podem ser executadas em cada uma das três funções RBAC principais. A partir daí, você aprenderá como adicionar usuários a um laboratório - por meio do portal e por meio de um script do PowerShell, além de como adicionar usuários no nível de assinatura.
+O acesso no Azure DevTest Labs é controlado pelo Azure [RBAC (controle de acesso baseado em função](../role-based-access-control/overview.md)do Azure). Com o RBAC, você pode separar as tarefas de sua equipe em *funções* , onde só concederá o acesso de que os usuários precisam para realizar seus trabalhos. Três dessas funções do Azure são *proprietário*, *usuário do DevTest Labs*e *colaborador*. Neste artigo, você aprende quais ações podem ser executadas em cada uma das três funções principais do Azure. A partir daí, você aprenderá como adicionar usuários a um laboratório - por meio do portal e por meio de um script do PowerShell, além de como adicionar usuários no nível de assinatura.
 
 ## <a name="actions-that-can-be-performed-in-each-role"></a>Ações que podem ser executadas em cada função
 Há três funções principais às quais você pode atribuir um usuário:

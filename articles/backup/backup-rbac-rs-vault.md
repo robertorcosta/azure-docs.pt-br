@@ -4,12 +4,12 @@ description: Use o Controle de Acesso baseado em função para gerenciar o acess
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 4c5a0a43efe7bda5fdc4b60d13b97f61565809bd
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 408e25b865c6d244118e505121492ccf22d19b64
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445309"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533454"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Use o Controle de Acesso baseado em função para gerenciar pontos de recuperação de Backup do Azure
 
@@ -28,9 +28,9 @@ Se você estiver procurando definir suas próprias funções para obter ainda ma
 
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Mapeando funções internas de backup para ações de gerenciamento de backups
 
-A tabela a seguir captura as ações de gerenciamento de backups e a função RBAC mínima correspondente necessária para executar essa operação.
+A tabela a seguir captura as ações de gerenciamento de backup e a função mínima do Azure correspondente necessária para executar essa operação.
 
-| Operação de gerenciamento | Função RBAC mínima necessária | Escopo exigido |
+| Operação de gerenciamento | Função mínima do Azure necessária | Escopo exigido |
 | --- | --- | --- |
 | Criar cofre de Serviços de Recuperação | Colaborador de Backup | Grupo de recursos contendo o cofre |
 | Habilitar backup de VMs do Azure | Operador de Backup | Grupo de recursos contendo o cofre |
@@ -65,7 +65,7 @@ A tabela a seguir captura as ações de gerenciamento de backup e a função cor
 | Operação de gerenciamento | Função necessária | Recursos |
 | --- | --- | --- |
 | Habilitar o backup de compartilhamentos de arquivos do Azure | Colaborador de Backup |Cofre dos Serviços de Recuperação |
-| |Conta de Armazenamento | Recurso de conta de armazenamento do colaborador |
+| |Conta de armazenamento | Recurso de conta de armazenamento do colaborador |
 | Backup sob demanda de VM | Operador de Backup | Cofre dos Serviços de Recuperação |
 | Restaurar compartilhamento de arquivos | Operador de Backup | Cofre dos Serviços de Recuperação |
 | | Colaborador da Conta de Armazenamento | Recursos da conta de armazenamento em que os compartilhamentos de arquivos de origem e de destino são presentes |

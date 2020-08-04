@@ -4,12 +4,12 @@ description: O Lote dá suporte ao Azure AD para autenticação por meio do serv
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7daf26d7c52e07be999bb93edd6fe694f79d1be2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 19042b4bb0998d104792d7511ab2972299b4f58d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032452"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533505"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço do Lote no Active Directory
 
@@ -130,9 +130,9 @@ Para autenticar com uma entidade de serviço, é preciso atribuir uma função R
 1. Na lista suspensa **Função**, escolha a função *Colaborador* ou *Leitor* para o aplicativo. Para obter mais informações sobre essas funções, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../role-based-access-control/overview.md).
 1. No campo **Selecionar**, insira o nome de seu aplicativo. Escolha o aplicativo na lista e escolha **Salvar**.
 
-O aplicativo agora deverá ser exibido nas configurações de controle de acesso com uma função RBAC atribuída.
+Seu aplicativo agora deve aparecer em suas configurações de controle de acesso com uma função do Azure atribuída.
 
-![Atribuir uma função RBAC ao aplicativo](./media/batch-aad-auth/app-rbac-role.png)
+![Atribuir uma função do Azure ao seu aplicativo](./media/batch-aad-auth/app-rbac-role.png)
 
 ### <a name="assign-a-custom-role"></a>Atribuir uma função personalizada
 

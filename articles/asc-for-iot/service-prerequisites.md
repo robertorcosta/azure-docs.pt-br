@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/25/2019
 ms.author: mlottner
 ms.custom: references_regions
-ms.openlocfilehash: 19e4ea37aa10c90d15a2b7dcdf962c131c8e473d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ce903271accd3f63df7634dc5045932655ac2a7
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84193225"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531142"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>Pré-requisitos da central de segurança do Azure para IoT
 
@@ -30,7 +30,7 @@ Este artigo fornece uma explicação dos diferentes componentes da central de se
 ## <a name="minimum-requirements"></a>Requisitos mínimos
 
 - Camada padrão do Hub IoT
-  - Privilégios de nível de **proprietário** da função RBAC
+  - Privilégios de nível do **proprietário** da função do Azure
 - [Espaço de trabalho Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 - Central de segurança do Azure (recomendado)
   - O uso da central de segurança do Azure é uma recomendação, e não um requisito. Sem a central de segurança do Azure, você não poderá exibir os outros recursos do Azure no Hub IoT.
@@ -61,8 +61,8 @@ A central de segurança do Azure para IoT atualmente tem suporte para hubs IoT n
 - Europa Ocidental
 - Norte da Europa
 - Oeste do Japão
-- Leste do Japão
-- Sudeste da Austrália
+- Japan East
+- Australia Southeast
 - Leste da Austrália
 - Leste da Ásia
 - Sudeste Asiático
