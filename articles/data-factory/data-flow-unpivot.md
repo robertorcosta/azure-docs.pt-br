@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: b7a05f33c199ab46508fa2b9bc0ef576f888ef27
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e7c0a4cd6e44994c4b002fcc2e5fde441cf22283
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537707"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541644"
 ---
 # <a name="azure-data-factory-unpivot-transformation"></a>Azure Data Factory transformação não dinâmica
 
@@ -46,7 +46,7 @@ Por fim, escolha a agregação que você deseja usar para os valores dinâmicos 
 
 Por exemplo, dinamizar “Vendas” por “Região” simplesmente forneceria novos valores de coluna de cada valor de vendas. Por exemplo: "25", "50", "1000",... No entanto, se você definir um valor de prefixo de "vendas", então "vendas" será prefixado para os valores.
 
-<img src="media/data-flow/unpivot3.png" width="400">
+![Imagem mostrando as colunas PO, Vendor e fruta antes e depois de uma transformação unipivot usando a coluna fruta como a chave unipivot.](media/data-flow/unpivot3.png)
 
 Definir a Disposição de Colunas como “Normal” agrupará todas as colunas dinamizadas com seus valores agregados. Definir a disposição de colunas como “Lateral” alternará entre coluna e valor.
 

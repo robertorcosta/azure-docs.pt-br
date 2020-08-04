@@ -7,12 +7,12 @@ ms.topic: article
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 07/29/2020
-ms.openlocfilehash: 3c5c86f89882654e44f924ce0a19d4d71713144d
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 2bc129fc37347bd108ad62409490c5ce31b7728f
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431690"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87538924"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtenha o URI de assinatura de acesso compartilhado para suas imagens VM
 
@@ -31,10 +31,10 @@ Ao gerar URIs de SAS para seus VHDs, siga estes requisitos:
 
 Há duas ferramentas comuns usadas para criar um endereço de SAS (URL):
 
-* **Microsoft Gerenciador de armazenamento** – ferramenta gráfica disponível no portal do Azure.
+* **Gerenciador de armazenamento do Microsoft Azure** – ferramenta gráfica disponível no portal do Azure.
 * **CLI do Microsoft Azure** – Recomendado para ambientes de integração contínua ou automatizada e sistemas operacionais não Windows.
 
-### <a name="use-microsoft-storage-explorer"></a>Usar o Gerenciador de Armazenamento do Microsoft Azure
+### <a name="use-microsoft-azure-storage-explorer"></a>Usar Gerenciador de Armazenamento do Microsoft Azure
 
 1. Vá para sua conta de armazenamento no portal do Azure.
 2. No painel do Explorer à esquerda, abra a ferramenta **Gerenciador de armazenamento** (versão prévia).

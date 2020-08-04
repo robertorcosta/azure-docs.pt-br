@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 58be0315b272199e74f28654aae315a8c6c5f7b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85fb188028e0e61378b1e47c1fb7b88eaaa4d7a0
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558834"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541916"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicativo da área de trabalho que chama as APIs Web: Adquirir um token
 
@@ -213,7 +213,7 @@ Comentários:
 
 `WithPrompt()` é usado para controlar a interatividade com o usuário por meio da especificação de um prompt.
 
-<img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
+![Imagem mostrando os campos na estrutura do prompt. Esses valores constantes controlam a interatividade com o usuário definindo o tipo de prompt exibido pelo método WithPrompt ().](https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png)
 
 A classe define as constantes a seguir:
 

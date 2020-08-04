@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01ec7f8210df9e41b2620e639eddbc98d4bcb73d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 4eaf0ab6cc412b7f5a02f898682e90fdde9de3a1
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448675"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542354"
 ---
 # <a name="linkedin-account-connections-data-sharing-and-consent"></a>Consentimento e compartilhamento de dados de conexões de contas do LinkedIn
 
@@ -41,7 +41,7 @@ Você deve ser um administrador do Microsoft Azure Active Directory para gerenci
 1. Para habilitar ou desabilitar a integração, siga as etapas em [consentir a integração do LinkedIn para sua organização do Azure ad](linkedin-integration.md).
 2. Quando você anuncia a integração do LinkedIn em sua organização, aponte os usuários para as perguntas Frequentes sobre [informações do LinkedIn nos serviços e aplicativos da Microsoft](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381). O artigo fornece informações sobre onde as informações do LinkedIn são mostradas, [compartilhamento de dados e privacidade](https://support.microsoft.com/office/your-data-ae9c08a7-4d06-45b5-a065-320a97bc1400), [como conectar contas](https://support.microsoft.com/office/connect-your-linkedin-and-work-or-school-accounts-c7c245f2-fa56-4c9b-ba20-3fceb23c5772) e muito mais.
 
-Você deve anunciar a integração do LinkedIn aos seus usuários, fornecendo a eles todas as informações relacionadas ao compartilhamento de dados e privacidade relacionados à integração do LinkedIn. Para que os usuários que usam licenças sejam capazes de conectar contas no 
+Você deve anunciar a integração do LinkedIn aos seus usuários, fornecendo a eles todas as informações relacionadas ao [compartilhamento de dados e à privacidade com a integração do LinkedIn](https://support.microsoft.com/office/your-data-ae9c08a7-4d06-45b5-a065-320a97bc1400). 
 
 ## <a name="user-consent-for-data-access-in-microsoft-and-linkedin"></a>Consentimento do usuário para acesso a dados na Microsoft e no LinkedIn
 

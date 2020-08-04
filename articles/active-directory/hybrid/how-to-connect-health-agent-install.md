@@ -16,12 +16,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7267da7db91e153190e98b09e9a3c505837bd042
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: c709fca3fbddb6fc16699052c5f01d1255c79dd8
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446312"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542086"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do Agente do Azure AD Connect Health
 
@@ -154,6 +154,7 @@ Para que o recurso de Análise de Uso colete e analise dados, o agente do Azure 
 7. No painel **Ações**, clique em **Editar Propriedades do Serviço de Federação**.
 8. Na caixa de diálogo **Propriedades do Serviço de Federação**, clique na guia **Eventos**.
 9. Marque as caixas de seleção **Auditorias com êxito e Auditorias com falha** e clique em **OK**.
+10. O log detalhado pode ser habilitado por meio do PowerShell usando o comando: ```Set-AdfsProperties -LOGLevel Verbose``` .
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>Para habilitar a auditoria do AD FS no Windows Server 2016
 
@@ -383,7 +384,7 @@ Test-AzureADConnectHealthConnectivity -Role ADFS
 O parâmetro de função usa os seguintes valores:
 
 * ADFS
-* Sincronizar
+* Sincronização
 * ADICIONA
 
 > [!NOTE]

@@ -1,18 +1,18 @@
 ---
 title: Visão geral do recurso de Microsoft Threat Modeling Tool-Azure
-description: Conheça todos os recursos disponíveis no Threat Modeling Tool
+description: Saiba mais sobre todos os recursos disponíveis no Threat Modeling Tool, como a exibição de análise e os relatórios.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
-ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e405ea35dcaa33ac7c8227385e4aaff86d9244cb
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75552110"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539995"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Visão geral do recurso Threat Modeling Tool
 
@@ -39,7 +39,7 @@ A experiência é semelhante a de outros produtos da Microsoft. Vamos analisar o
 
 ![Itens de menu](./media/threat-modeling-tool-feature-overview/menuitems.png)
 
-| Rotular                               | Detalhes      |
+| Label                               | Detalhes      |
 | --------------------------------------- | ------------ |
 | **Arquivo** | <ul><li>Abrir, salvar e fechar arquivos</li><li>Entrar e sair das contas do OneDrive.</li><li>Compartilhar links (exibir e editar).</li><li>Exibir informações do arquivo.</li><li>Aplicar um novo modelo aos modelos já existentes.</li></ul> |
 | **Editar** | Desfazer e refazer ações, bem como copiar, colar e excluir. |
@@ -54,7 +54,7 @@ Os símbolos são atalhos para os menus de nível superior:
 | --------------------------------------- | ------------ |
 | **Abrir** | Abre um novo arquivo. |
 | **Salvar** | Salva o arquivo atual. |
-| **Design** | Abre o modo de exibição de **Design**, no qual é possível criar modelos. |
+| **Projetar** | Abre o modo de exibição de **Design**, no qual é possível criar modelos. |
 | **Analisar** | Mostra ameaças geradas e suas propriedades. |
 | **Adicionar diagrama** | Adiciona um novo diagrama (semelhante às novas guias no Excel). |
 | **Excluir Diagrama** | Exclui o diagrama atual. |
@@ -174,7 +174,7 @@ Depois de criar seu diagrama, selecione o símbolo de **Análise** (lupa) na bar
 
 Quando você seleciona uma ameaça, você pode usar três funções diferentes:
 
-| Recurso                               | Informações      |
+| Recurso                               | Informações do      |
 | --------------------------------------- | ------------ |
 | **Indicador de leitura** | <p>A ameaça é marcada como leitura, o que ajuda a acompanhar os itens que você leu.</p><p>![Indicador de lido/não lido](./media/threat-modeling-tool-feature-overview/readmode.png)</p> |
 | **Foco de interação** | <p>A interação no diagrama que pertence a uma ameaça é realçada.</p><p>![Foco de interação](./media/threat-modeling-tool-feature-overview/interactionfocus.png)</p> |

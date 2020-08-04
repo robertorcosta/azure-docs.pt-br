@@ -4,12 +4,12 @@ description: Saiba como criar e gerenciar vários pools de nós para um cluster 
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 400e595d51f08428b01337e63f6c6e8ba5836794
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d007ec18a982d5327aa2ea0871bbe88f64786fce
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133088"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542018"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerenciar vários pools de nós para um cluster no AKS (Serviço de Kubernetes do Azure)
 
@@ -489,6 +489,8 @@ Somente os pods que têm esse toleration aplicado podem ser agendados em nós em
 
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Especificar um seu, rótulo ou uma marca para um pool de nós
 
+### <a name="setting-nodepool-taints"></a>Configurando nodepools
+
 Ao criar um pool de nós, você pode adicionar os, rótulos ou marcas a esse pool de nós. Quando você adiciona um você, um rótulo ou uma marca, todos os nós dentro desse pool de nós também obtêm o seu não, o rótulo ou a marca.
 
 Para criar um pool de nós com um AKs, use [AZ nodepool Add][az-aks-nodepool-add]. Especifique o nome *taintnp* e use o `--node-taints` parâmetro para especificar *SKU = GPU: NoSchedule* para o seu
@@ -532,6 +534,8 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 As informações de seu kubernetes são visíveis no entanto para manipular regras de agendamento para nós.
 
+### <a name="setting-nodepool-labels"></a>Configurando rótulos de nodepool
+
 Você também pode adicionar rótulos a um pool de nós durante a criação do pool de nós. Os rótulos definidos no pool de nós são adicionados a cada nó no pool de nós. Esses [Rótulos são visíveis no kubernetes][kubernetes-labels] para manipular regras de agendamento para nós.
 
 Para criar um pool de nós com um rótulo, use [AZ AKs nodepool Add][az-aks-nodepool-add]. Especifique o nome *labelnp* e use o `--labels` parâmetro para especificar *Dept = it* e *costcenter = 9999* para rótulos.
@@ -574,7 +578,13 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
+### <a name="setting-nodepool-azure-tags"></a>Configurando marcas do Azure nodepool
+
 Você pode aplicar uma marca do Azure a pools de nós em seu cluster AKS. As marcas aplicadas a um pool de nós são aplicadas a cada nó dentro do pool de nós e são mantidas por meio de atualizações. As marcas também são aplicadas a novos nós adicionados a um pool de nós durante operações de expansão. A adição de uma marca pode ajudar com tarefas como rastreamento de política ou estimativa de custo.
+
+As marcas do Azure têm chaves que não diferenciam maiúsculas de minúsculas para operações, como ao recuperar uma marca pesquisando a chave. Nesse caso, uma marca com a chave fornecida será atualizada ou recuperada, independentemente de maiúsculas e minúsculas. Os valores de marca diferenciam maiúsculas de minúsculas.
+
+No AKS, se várias marcas forem definidas com chaves idênticas, mas com maiúsculas e minúsculas diferentes, a marca usada será a primeira em ordem alfabética. Por exemplo, `{"Key1": "val1", "kEy1": "val2", "key1": "val3"}` resulta em `Key1` e `val1` está sendo definido.
 
 Crie um pool de nós usando o [AKs AZ nodepool Add][az-aks-nodepool-add]. Especifique o nome *tagnodepool* e use o `--tag` parâmetro para especificar *Dept = it* e *costcenter = 9999* para marcas.
 

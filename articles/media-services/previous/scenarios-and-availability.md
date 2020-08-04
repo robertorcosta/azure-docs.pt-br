@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 0eec42c0703e7158b478b8297848dc2ee6735cb8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 81d1c86bc5130d616712d022efd4b111b8b939dd
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047555"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542371"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade de recursos dos Serviços de Mídia em datacenters
 
@@ -49,7 +49,7 @@ A imagem a seguir mostra alguns dos objetos mais usados ao desenvolver em relaç
 
 Clique na imagem para exibi-la em tamanho normal.  
 
-<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
+[![Diagrama mostrando alguns dos objetos mais comumente usados ao desenvolver em relação ao modelo de dados de objeto dos serviços de mídia do Azure.](./media/media-services-overview/media-services-overview-object-model-small.png)](./media/media-services-overview/media-services-overview-object-model.png#lightbox)
 
 Você pode exibir todo o modelo [aqui](https://media.windows.net/API/$metadata?api-version=2.15).  
 
@@ -111,7 +111,7 @@ Para obter informações sobre a disponibilidade nos datacenters, consulte a se�
 3. Visualize seu stream ao vivo.
 4. Entregue o conteúdo por meio de protocolos de streaming comuns (por exemplo, MPEG DASH, Smooth, HLS) diretamente aos seus clientes ou a uma CDN (Rede de Distribuição de Conteúdo) para uma distribuição posterior.
 
-    - ou -
+    -ou-
 
     Registre e armazene o conteúdo incluído para uma transmissão posterior (Vídeo sob Demanda).
 

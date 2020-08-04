@@ -5,12 +5,12 @@ description: Aprenda as práticas recomendadas do operador de cluster para rede 
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 560a832821f5e5ff2fbbc2d66252945951d69511
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc839fd69e3b574c47aa7bb712583dfc0b9c711d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82208050"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542697"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para conectividade de rede e segurança no Serviço de Kubernetes do Azure (AKS)
 
@@ -37,7 +37,9 @@ A Interface de Rede do Contêiner (CNI) é um protocolo de fornecedor que permit
 
 ![Diagrama que mostra dois nós com pontes conectando cada um a uma única VNet do Azure](media/operator-best-practices-network/advanced-networking-diagram.png)
 
-Na maioria das implantações de produção, você deve usar a rede do CNI do Azure. Esse modelo de rede permite a separação de controle e gerenciamento de recursos. De uma perspectiva de segurança, você geralmente deseja diferentes equipes para gerenciar e proteger esses recursos. A rede do CNI do Azure permite que você se conecte a recursos existentes do Azure, a recursos locais ou a outros serviços diretamente por meio de endereços IP atribuídos a cada pod.
+Para implantações de produção, kubenet e CNI do Azure são opções válidas.
+
+Um benefício notável da rede CNI do Azure para produção é que o modelo de rede permite a separação do controle e do gerenciamento de recursos. De uma perspectiva de segurança, você geralmente deseja diferentes equipes para gerenciar e proteger esses recursos. A rede do CNI do Azure permite que você se conecte a recursos existentes do Azure, a recursos locais ou a outros serviços diretamente por meio de endereços IP atribuídos a cada pod.
 
 Quando você usa a rede do CNI do Azure, o recurso de rede virtual fica em um grupo de recursos separado para o cluster do AKS. Delegar permissões para a entidade de serviço AKS para acessar e gerenciar esses recursos. A entidade de serviço usada pelo cluster do AKS deve ter pelo menos permissões de [Colaborador de Rede](../role-based-access-control/built-in-roles.md#network-contributor) na sub-rede na rede virtual. Se você quiser definir uma [função personalizada](../role-based-access-control/custom-roles.md) em vez de usar a função de Colaborador de Rede interna, as seguintes permissões serão necessárias:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`

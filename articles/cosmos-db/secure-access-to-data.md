@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 9c851a172fcfe89e6e7aa31c298a5b3d7931a528
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 3a9039470c32b89d398dd41e3df99e91c70d913c
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023577"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542629"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Proteger o acesso aos dados no Azure Cosmos DB
 
@@ -57,7 +57,7 @@ O processo de girar a chave mestra é simples.
 
 ### <a name="code-sample-to-use-a-master-key"></a>Exemplo de código para uso de uma chave mestra
 
-O exemplo de código a seguir ilustra como usar o ponto de extremidade e a chave mestra de uma conta do Cosmos DB para criar uma instância de um DocumentClient e criar um banco de dados.
+O exemplo de código a seguir ilustra como usar um ponto de extremidade de conta Cosmos DB e uma chave mestra para instanciar um DocumentClient e criar um banco de dados:
 
 ```csharp
 //Read the Azure Cosmos DB endpointUrl and authorization keys from config.
@@ -69,6 +69,10 @@ private static readonly string authorizationKey = ConfigurationManager.AppSettin
 
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
+
+O exemplo de código a seguir ilustra como usar o ponto de extremidade da conta do Azure Cosmos DB e a chave mestra para criar uma instância de um `CosmosClient` objeto:
+
+:::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
 
 ## <a name="resource-tokens"></a>Tokens de recurso<a id="resource-tokens"></a>
 
@@ -163,7 +167,7 @@ Para adicionar o acesso de leitor de conta do Azure Cosmos DB à sua conta de us
 4. Na **caixa atribuir acesso a**, selecione **usuário, grupo ou aplicativo do Azure ad**.
 5. Selecione o usuário, o grupo ou o aplicativo no diretório ao qual você deseja conceder acesso.  Você pode pesquisar o diretório por nome para exibição, endereço de email ou identificadores de objeto.
     O usuário, grupo ou aplicativo selecionado aparece na lista de membros selecionados.
-6. Clique em **Save** (Salvar).
+6. Clique em **Salvar**.
 
 A entidade agora poderá ler recursos do Azure Cosmos DB.
 

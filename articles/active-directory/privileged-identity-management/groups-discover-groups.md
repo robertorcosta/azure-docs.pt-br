@@ -1,6 +1,6 @@
 ---
-title: Descobrir grupos de funções atribuíveis para gerenciar no PIM – Azure AD | Microsoft Docs
-description: Saiba como descobrir grupos de função atribuíveis para gerenciar como grupos de acesso privilegiado no Privileged Identity Management (PIM).
+title: Identificar um grupo para gerenciar no Privileged Identity Management-Azure AD | Microsoft Docs
+description: Saiba como integrar grupos de funções de atribuição para gerenciar como grupos de acesso privilegiado no Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -11,39 +11,39 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2020
+ms.date: 08/03/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8b66a41f0f1aa48433dac77fca56d5e2877989a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 76f7b61b6fb065409a2fe4b2ed8f599f321cd1db
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505998"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542256"
 ---
-# <a name="discover-privileged-access-groups-preview-to-manage-in-privileged-identity-management"></a>Descobrir grupos de acesso privilegiado (versão prévia) para gerenciar no Privileged Identity Management
+# <a name="bring-a-privileged-access-groups-preview-into-privileged-identity-management"></a>Traga um grupo de acesso privilegiado (versão prévia) para Privileged Identity Management
 
-No Azure Active Directory (AD do Azure), você pode atribuir funções internas do Azure AD a grupos de nuvem para simplificar o gerenciamento de atribuições de função. Agora você pode usar o Privileged Identity Management (PIM) para atribuir a qualificação para associação ou propriedade desses grupos, para proteger as funções do Azure AD e para proteger o acesso. Antes de gerenciar um grupo de funções do Azure AD que possa ser atribuído como um grupo de acesso privilegiado no Privileged Identity Management, você deve descobri-lo e trazê-lo sob gerenciamento no PIM.
+No Azure Active Directory (AD do Azure), você pode atribuir funções internas do Azure AD a grupos de nuvem para simplificar a forma como você gerencia as atribuições de função. Para proteger as funções do Azure AD e proteger o acesso, agora você pode usar Privileged Identity Management (PIM) para gerenciar o acesso just-in-time para membros ou proprietários desses grupos. Para gerenciar um grupo de funções do Azure AD que pode ser atribuído como um grupo de acesso privilegiado no Privileged Identity Management, você deve colocá-lo sob gerenciamento no PIM.
 
-## <a name="discover-resources"></a>Descobrir recursos
+## <a name="identify-groups-to-manage"></a>Identificar grupos a serem gerenciados
+
+Você pode criar um grupo de função atribuível no Azure AD, conforme descrito em [criar um grupo de função-atribuível no Azure Active Directory](../users-groups-roles/roles-groups-create-eligible.md). Você é um proprietário do grupo para colocá-lo sob gerenciamento com Privileged Identity Management.
 
 1. [Entre no Azure ad](https://aad.portal.azure.com) com permissões de função de administrador de função privilegiada.
-1. Crie um grupo de funções que pode ser atribuído no Azure AD. Você deve ser um proprietário do grupo para descobrir e gerenciá-lo com Privileged Identity Management.
-1. Abra **Privileged Identity Management**.
-1. Selecione **acesso privilegiado (versão prévia)**.
+1. Selecione **grupos** e, em seguida, selecione o grupo de funções que você deseja gerenciar no PIM. Você pode pesquisar e filtrar a lista.
 
-    ![Comando Discover groups para a primeira experiência](./media/groups-discover-groups/groups-discover-groups.png)
+    ![localizar um grupo de funções que pode ser atribuído para gerenciar no PIM](./media/groups-discover-groups/groups-list-in-azure-ad.png)
 
-1. Selecione **descobrir grupos**.
-1. Pesquisar por nome de grupo.
-1. Selecione o grupo e selecione **gerenciar grupos** para trazê-lo para o gerenciamento do PIM.
+1. Abra o grupo e selecione **acesso privilegiado (versão prévia)**.
 
-    ![Descobrir grupos sem recursos listados para a primeira experiência](./media/groups-discover-groups/groups-bring-under-management.png)
+    ![Abrir a experiência de Privileged Identity Management](./media/groups-discover-groups/groups-discover-groups.png)
 
-    > [!NOTE]
-    > Depois que um grupo de acesso privilegiado é gerenciado, ele não pode ser retirado do gerenciamento. Isso impede que outro administrador de recursos remova Privileged Identity Management configurações.
+1. Comece a gerenciar atribuições no PIM.
 
-1. Se você vir uma mensagem para confirmar a integração do recurso selecionado para gerenciamento, selecione **Sim**.
+    ![Gerenciar atribuições no Privileged Identity Management](./media/groups-discover-groups/groups-bring-under-management.png)
+
+> [!NOTE]
+> Depois que um grupo de acesso privilegiado é gerenciado, ele não pode ser retirado do gerenciamento. Isso impede que outro administrador de recursos remova Privileged Identity Management configurações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

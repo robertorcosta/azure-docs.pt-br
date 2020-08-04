@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa83e295460cc847647e83c7e4e8a9d7ee91f6f4
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 9e3b0b8ab4a432254835e43bff4893aaee81b04e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165763"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541865"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planejar a implantação do dispositivo Azure Active Directory
 
@@ -105,21 +105,21 @@ dispositivos iOS e Android só podem ser registrados no AD do Azure. A tabela a 
 | Consideração | Azure AD registrado| Ingresso no Azure AD| Ingresso no Azure AD Híbrido |
 | - | - | - | - |
 | **Sistemas operacionais cliente**| | |  |
-| Dispositivos Windows 10| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
+| Dispositivos com Windows 10| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
 | Dispositivos de nível inferior do Windows (Windows 8.1 ou Windows 7)| | | ![marcar](./media/plan-device-deployment/check.png) |
 |**Opções de entrada**| | |  |
 | Credenciais locais do usuário final| ![marcar](./media/plan-device-deployment/check.png)| |  |
 | Senha| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
 | PIN do dispositivo| ![marcar](./media/plan-device-deployment/check.png)| |  |
 | Windows Hello| ![marcar](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello para Empresas| | ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
+| Windows Hello for Business| | ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
 | Chaves de segurança do FIDO 2,0| | ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
 | Microsoft Authenticator aplicativo (com senha)| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
 |**Principais funcionalidades**| | |  |
 | SSO para recursos de nuvem| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
 | Recursos de SSO a locais| | ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
-| Acesso Condicional <br> (Exigir que os dispositivos sejam marcados como em conformidade) <br> (Deve ser gerenciado pelo MDM)| ![marcar](./media/plan-device-deployment/check.png) | ![marcar](./media/plan-device-deployment/check.png)|![marcar](./media/plan-device-deployment/check.png) |
-Acesso Condicional <br>(Exigir dispositivos ingressados no Azure AD híbrido)| | | ![marcar](./media/plan-device-deployment/check.png)
+| Acesso condicional <br> (Exigir que os dispositivos sejam marcados como em conformidade) <br> (Deve ser gerenciado pelo MDM)| ![marcar](./media/plan-device-deployment/check.png) | ![marcar](./media/plan-device-deployment/check.png)|![marcar](./media/plan-device-deployment/check.png) |
+Acesso condicional <br>(Exigir dispositivos ingressados no Azure AD híbrido)| | | ![marcar](./media/plan-device-deployment/check.png)
 | Tela de logon de autoatendimento de redefinição de senha do Windows| | ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
 | Redefinição de PIN do Windows Hello| | ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
 | Roaming de estado empresarial entre dispositivos| | ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png) |
@@ -179,7 +179,7 @@ Escolha seu procedimento de implantação após [uma comparação](azureadjoin-p
 
 Você pode determinar que o ingresso no Azure AD é a melhor solução para um dispositivo e que o dispositivo pode já estar em Estados diferentes. Aqui estão as considerações de atualização.
 
-| Estado atual do dispositivo| Estado do dispositivo desejado| Instruções |
+| Estado atual do dispositivo| Estado do dispositivo desejado| Como fazer |
 | - | - | - |
 | Ingressado no domínio local| Ingresso no AD do Azure| Desassociar o dispositivo do domínio local antes de ingressar no Azure AD |
 | Ingresso híbrido no Azure AD| Ingresso no AD do Azure| Desassociar o dispositivo do domínio local e do Azure AD antes de ingressar no Azure AD |
@@ -213,7 +213,7 @@ Se a instalação da versão necessária do Azure AD Connect não for uma opçã
 
 Você pode determinar que o ingresso do Azure AD híbrido é a melhor solução para um dispositivo e que o dispositivo pode já estar em um estado diferente. Aqui estão as considerações de atualização.
 
-| Estado atual do dispositivo| Estado do dispositivo desejado| Instruções |
+| Estado atual do dispositivo| Estado do dispositivo desejado| Como fazer |
 | - | - | - |
 | Ingresso no domínio local| Ingresso híbrido no Azure AD| Usar o Azure AD Connect ou AD FS para ingressar no Azure |
 | Ingressado no grupo de trabalho local ou novo| Ingresso híbrido no Azure AD| Com suporte com o [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot). Caso contrário, o dispositivo precisa ser ingressado no domínio local antes da junção híbrida do Azure AD |
@@ -227,10 +227,6 @@ Depois de registrar ou ingressar seus dispositivos no Azure AD, use o [portal do
 * [Configurar suas configurações de dispositivo](device-management-azure-portal.md#configure-device-settings)
 * Você precisa ser um administrador local para gerenciar dispositivos Windows. O [Azure ad atualiza essa associação para dispositivos ingressados no Azure ad](assign-local-admin.md), adicionando-os automaticamente com a função de Gerenciador de dispositivos como administradores a todos os dispositivos ingressados.
 
-* [Localizar dispositivos](device-management-azure-portal.md#locate-devices)
-
-* [Executar tarefas de gerenciamento de identidade do dispositivo](device-management-azure-portal.md#device-identity-management-tasks)
-
 Certifique-se de manter o ambiente limpo [Gerenciando dispositivos obsoletos](manage-stale-devices.md)e concentre seus recursos no gerenciamento de dispositivos atuais.
 
 * [Examinar os logs de auditoria relacionados ao dispositivo](device-management-azure-portal.md#audit-logs)
@@ -241,7 +237,7 @@ Os administradores podem proteger e controlar ainda mais esses dispositivos regi
 
 Examine as plataformas com suporte e sem suporte para dispositivos integrados:
 
-| Ferramentas de gerenciamento de dispositivos| Azure AD registrado| Ingresso no Azure AD| Ingresso no Azure AD Híbrido|
+| Ferramentas de gerenciamento de dispositivo| Azure AD registrado| Ingresso no Azure AD| Ingresso no Azure AD Híbrido|
 | - | - | - | - |
 | [MDM (gerenciamento de dispositivo móvel)](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Exemplo: Microsoft Intune| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png)|  |
 | [Gerenciamento de co com Microsoft Intune e Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/comanage/overview) <br>(Windows 10 e posterior)| | ![marcar](./media/plan-device-deployment/check.png)| ![marcar](./media/plan-device-deployment/check.png)|  |

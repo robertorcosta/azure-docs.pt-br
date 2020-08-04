@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 15a623068c46109b95ce9a9300348d29f95610a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d71f6e71a7cd6033e570742a23016df0c25dd27
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254303"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542239"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o padrão de banco de dados por locatário com o banco de dados SQL do Azure
 
@@ -57,7 +57,7 @@ Escolha seus nomes agora e os escreva.
 
 1. Para abrir o modelo de implantação de bancp de dados por locatárioWingtip Tickets SaaS no portal do Azure, selecione **Implantar no Azure**.
 
-   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   [![Imagem mostrando um botão rotulado como "implantar no Azure".](https://azuredeploy.net/deploybutton.png)](https://aka.ms/deploywingtipdpt)
 
 1. Insira os valores dos parâmetros necessários no modelo.
 
@@ -104,7 +104,7 @@ Antes de executar os scripts, atualize os valores grupo de recursos e usuário n
 
 Esses valores são referenciados em quase todos os scripts.
 
-## <a name="run-the-application"></a>Execute o aplicativo
+## <a name="run-the-application"></a>Executar o aplicativo
 
 O aplicativo apresenta locais que organizam eventos. Os tipos de local são casas de shows, clubes de jazz e de esportes. No Wingtip Tickets, os locais estão registrados como locatários. Ser um locatário oferece ao local uma maneira fácil de listar eventos e vender ingressos para os clientes. Cada local obtém um site personalizado para listar seus eventos e vender ingressos.
 

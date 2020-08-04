@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 1e87eec4384887ebd82d5f70c0897add250f31fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6e4ed8514cd99d42790296a58296a73696989b69
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320792"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539128"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, revisar e implantar modelos de machine learning automatizado com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -229,7 +229,7 @@ O ML automatizado ajuda a implantar o modelo sem escrever códigos:
     Tipo de computação| Selecione o tipo de ponto de extremidade que você deseja implantar: *Serviço de Kubernetes do Azure (AKS)* ou *Instância de Contêiner do Azure (ACI)* .
     Nome da computação| *Aplica-se somente ao AKS:* selecione o nome do cluster AKS no qual você deseja fazer a implantação.
     Habilitar autenticação | Selecione para permitir a autenticação baseada em token ou em chave.
-    Usar ativos da implantação personalizada| Habilite esse recurso caso queira carregar seu próprio script de pontuação e o arquivo de ambiente. [Saiba mais sobre scripts de pontuação](how-to-deploy-and-where.md#script).
+    Usar ativos da implantação personalizada| Habilite esse recurso caso queira carregar seu próprio script de pontuação e o arquivo de ambiente. [Saiba mais sobre scripts de pontuação](how-to-deploy-and-where.md).
 
     >[!Important]
     > Os nomes de arquivo devem ter menos de 32 caracteres e devem começar e terminar com caracteres alfanuméricos. Eles podem conter traços, sublinhados, pontos e caracteres alfanuméricos nas partes do meio. Espaços não são permitidos.

@@ -7,16 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Kinect, Azure, recuperar, sensor, câmera, SDK, profundidade, RGB, imagens, cor, captura, resolução, buffer
-ms.openlocfilehash: 84e678993f94c17bf58fb134234afaee4139aad5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fed5c7340d287d9103ba35f0fd3d80c0fff6e3ec
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85276331"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87538907"
 ---
 # <a name="retrieve-azure-kinect-image-data"></a>Recuperar dados de imagem do Azure Kinect
 
-Esta página fornece detalhes sobre como recuperar imagens do Kinect do Azure. O artigo demonstra como capturar e acessar imagens coordenadas entre as câmeras de cor e profundidade do dispositivo. dispositivo. Para acessar imagens, você deve primeiro abrir e configurar o dispositivo e, em seguida, pode capturar imagens.
+Esta página fornece detalhes sobre como recuperar imagens do Kinect do Azure. O artigo demonstra como capturar e acessar imagens coordenadas entre a cor e a profundidade do dispositivo. Para acessar imagens, você deve primeiro abrir e configurar o dispositivo e, em seguida, pode capturar imagens.
 Antes de configurar e capturar uma imagem, você deve [encontrar e abrir o dispositivo](find-then-open-device.md).
 
 Você também pode consultar o [exemplo de streaming do SDK](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples/streaming) que demonstra como usar as funções neste artigo.

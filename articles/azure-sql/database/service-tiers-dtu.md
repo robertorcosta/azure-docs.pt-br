@@ -4,19 +4,19 @@ description: Saiba mais sobre as camadas de serviço no modelo de compra baseado
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: ''
+ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: b7354a921950daec5cc429fa07318213c8924264
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: fbf753436a259993f6869372ae3ba7272f2a181a
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382688"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541695"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Camadas de serviço no modelo de compra baseado em DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,11 +39,11 @@ Escolher uma camada de serviço depende principalmente da continuidade dos negó
 |**Carga de trabalho de destino**|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção|
 |**SLA de tempo de atividade**|99,99%|99,99%|99,99%|
 |**Retenção de backup máxima**|7 dias|35 dias|35 dias|
-|**CPU**|Baixa|Baixo, Médio, Alto|Médio, Alto|
+|**CPU**|Baixo|Baixo, Médio, Alto|Médio, Alto|
 |**Taxa de transferência de E/S (aproximada)** |1-5 IOPS por DTU| 1-5 IOPS por DTU | 25 IOPS por DTU|
 |**Latência de E/S (aproximada)**|5 ms (leitura), 10 ms (gravação)|5 ms (leitura), 10 ms (gravação)|2 ms (leitura/gravação)|
 |**Indexação ColumnStore** |N/D|S3 e acima|Com suporte|
-|**OLTP na memória**|N/D|N/D|Com suporte|
+|**OLTP na memória**|N/A|N/D|Com suporte|
 
 > [!IMPORTANT]
 > As camadas de serviço básico, Standard S0, S1 e S2 fornecem menos de um vCore (CPU).  Para cargas de trabalho com uso intensivo de CPU, é recomendável uma camada de serviço S3 ou superior. 
@@ -77,7 +77,7 @@ Os tamanhos da computação são expressos em termos de DTUs (unidades de transa
 | **Número máximo de bancos de dados por pool** | 500  | 500 | 100 |
 
 > [!IMPORTANT]
-> Mais de 1 TB de armazenamento na camada Premium está disponível atualmente em todas as regiões, exceto: Leste da China, Norte da China, Alemanha central, Alemanha nordeste, Oeste EUA Central, regiões de US DoD e central do governo dos EUA. Nessas regiões, o armazenamento máximo na camada Premium é limitado a 1 TB.  Para obter mais informações, confira [Limitações atuais de P11-P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+> Mais de 1 TB de armazenamento na camada Premium está disponível atualmente em todas as regiões, exceto: Leste da China, Norte da China, Alemanha Central e Alemanha nordeste. Nessas regiões, o armazenamento máximo na camada Premium é limitado a 1 TB.  Para obter mais informações, confira [Limitações atuais de P11-P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL do Azure](file-space-manage.md).
 

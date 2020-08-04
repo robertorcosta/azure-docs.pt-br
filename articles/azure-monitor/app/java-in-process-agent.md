@@ -3,12 +3,12 @@ title: Monitorar aplicativos Java em qualquer ambiente-Azure Monitor Application
 description: Monitoramento do desempenho de aplicativos para aplicativos Java em execução em qualquer ambiente, sem instrumentar o aplicativo. Rastreamento distribuído e mapa de aplicativos.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 3ca6e7050b1c7649298d2417f9f7f66ef8898816
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f35d661761f1bea4dbd6b691fb0667c6dad3e72e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87014330"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541848"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Azure Monitor de monitoramento de aplicativos com código Java Application Insights-visualização pública
 
@@ -126,7 +126,22 @@ Nossa meta no 3.0 + é permitir que você envie sua telemetria personalizada usa
 
 Damos suporte ao micrometer, à API OpenTelemetry e às estruturas de log populares. Application Insights Java 3,0 capturará automaticamente a telemetria e a correlacionará junto com toda a telemetria concolhida.
 
-Por esse motivo, não estamos planejando lançar um SDK com o Application Insights 3,0 no momento.
+### <a name="supported-custom-telemetry"></a>Telemetria personalizada com suporte
+
+A tabela a seguir representa os tipos de telemetria personalizados com suporte no momento que você pode habilitar para complementar o agente do Java 3,0. Para resumir, há suporte para métricas personalizadas por meio de micrometer, exceções e rastreamentos personalizados podem ser habilitados por meio de estruturas de log e qualquer tipo de telemetria personalizada tem suporte por meio do [SDK Application insights Java 2. x](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#sending-custom-telemetry-using-application-insights-java-sdk-2x). 
+
+
+|                 | Micrometer | Log4J, logback, JUL | SDK 2. x |
+|-----------------|------------|---------------------|---------|
+| Eventos personalizados   |            |                     |  Sim    |
+| Métricas personalizadas  |  Sim       |                     |  Sim    |
+| Dependências    |            |                     |  Sim    |
+| Exceções      |            |  Sim                |  Sim    |   
+| Visualizações de página      |            |                     |  Sim    |
+| Requests        |            |                     |  Sim    |
+| Rastreamentos          |            |  Sim                |  Sim    |
+
+Não estamos planejando lançar um SDK com o Application Insights 3,0 no momento.
 
 Application Insights Java 3,0 já está escutando a telemetria que é enviada para o Application Insights SDK 2. x do Java. Essa funcionalidade é uma parte importante da história de atualização para usuários existentes de 2. x e preenche uma lacuna importante em nosso suporte de telemetria personalizado até que a API OpenTelemetry seja GA.
 

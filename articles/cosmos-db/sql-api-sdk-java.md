@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 2de46f050d17049848024d70f43bd23621b43b13
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: b8cc0d44c654bd7047bac462ce98126fb4a27334
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461027"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541661"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java do Azure Cosmos DB para a API do SQL: Notas sobre a versão e recursos
 > [!div class="op_single_selector"]
@@ -260,11 +260,10 @@ Este é o SDK v2 do Java de sincronização do Azure Cosmos DB original para API
 A Microsoft fornecerá uma notificação pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte. Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SDK atual. Portanto, recomendamos que você atualize sempre que possível para a versão do SDK mais recente.
 
 > [!WARNING]
-> Todas as versões **1.x** do SDK do SQL para Java serão desativados no dia **30 de maior de 2020**. Todas as versões do SDK do SQL para Java anteriores à versão **1.0.0** foram desativadas em **29 de fevereiro de 2016**.
-> 
-> 
+> Depois de 30 de maio de 2020, o Azure Cosmos DB não fará mais correções de bug, adicionará novos recursos e dará suporte às versões 1. x do SDK do Java do Azure Cosmos DB para a API do SQL. Se você preferir não atualizar, as solicitações enviadas da versão 1. x do SDK continuarão a ser servidas pelo serviço de Azure Cosmos DB.
+>
+> Depois de 29 de fevereiro de 2016, a Azure Cosmos DB não fará mais correções de bugs, adicionará novos recursos e dará suporte às versões 0. x do SDK do Java do Azure Cosmos DB para a API do SQL. Se você preferir não atualizar, as solicitações enviadas da versão 0. x do SDK continuarão a ser servidas pelo serviço de Azure Cosmos DB.
 
-<br/>
 
 | Versão | Data de lançamento | Data de desativação |
 | --- | --- | --- |

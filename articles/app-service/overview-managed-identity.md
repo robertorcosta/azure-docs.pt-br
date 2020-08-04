@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: tracking-python
-ms.openlocfilehash: e97671e9722051674e3760f11e784ab3291283c7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f3ec80b5d71bbdbf0f1b89606859dcc734d037e5
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415033"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542205"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como usar identidades gerenciadas para o Serviço de Aplicativo e o Azure Functions
 
@@ -314,6 +314,9 @@ Há um protocolo REST simples para obter um token no Serviço de Aplicativo e no
 
 ### <a name="using-the-rest-protocol"></a>Usar o protocolo REST
 
+> [!NOTE]
+> Uma versão mais antiga desse protocolo, usando a versão de “01-09-2017” da API, usou o cabeçalho `secret` em vez de `X-IDENTITY-HEADER` e aceitou apenas a propriedade `clientid` para atribuição pelo usuário. Ele também retornou `expires_on` em um formato de carimbo de data/hora. MSI_ENDPOINT pode ser usado como um alias para IDENTITY_ENDPOINT e MSI_SECRET pode ser usado como um alias para IDENTITY_HEADER. Atualmente, esta versão do protocolo é necessária para planos de Hospedagem de consumo do Linux.
+
 Um aplicativo com uma identidade gerenciada tem duas variáveis de ambiente definidas:
 
 - IDENTITY_ENDPOINT: a URL para o serviço de token local.
@@ -324,7 +327,7 @@ O **IDENTITY_ENDPOINT** é uma URL local a partir da qual o aplicativo pode soli
 > | Nome do parâmetro    | No     | Descrição                                                                                                                                                                                                                                                                                                                                |
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | recurso          | Consulta  | O URI do recurso do Azure Active Directory do recurso para o qual um token deve ser obtido. Pode ser um dos [serviços do Azure que dão suporte à autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) ou a qualquer outro URI de recurso.    |
-> | api-version       | Consulta  | A versão da API do token a ser usada. Use a de “01-08-2019” ou posterior.                                                                                                                                                                                                                                                                 |
+> | api-version       | Consulta  | A versão da API do token a ser usada. Use "2019-08-01" ou posterior (a menos que use o consumo do Linux, que atualmente só oferece "2017-09-01"-consulte a observação acima).                                                                                                                                                                                                                                                                 |
 > | X-IDENTITY-HEADER | Cabeçalho | O valor da variável de ambiente IDENTITY_HEADER. Esse cabeçalho é usado para ajudar a reduzir os ataques de falsificação da solicitação do lado do servidor (SSRF).                                                                                                                                                                                                    |
 > | client_id         | Consulta  | (Opcional) A ID da identidade atribuída pelo usuário a ser usada. Não pode ser usada em uma solicitação que inclui `principal_id`, `mi_res_id`ou `object_id`. Se todos os parâmetros de ID (`client_id`, `principal_id`, `object_id`e `mi_res_id`) forem omitidos, será usada a identidade atribuída pelo sistema.                                             |
 > | principal_id      | Consulta  | (Opcional) A ID principal da identidade atribuída pelo usuário a ser usada. `object_id` é um alias que pode ser usado no lugar dela. Não pode ser usada em uma solicitação que inclui client_id, mi_res_id ou object_id. Se todos os parâmetros de ID (`client_id`, `principal_id`, `object_id`e `mi_res_id`) forem omitidos, será usada a identidade atribuída pelo sistema. |
@@ -345,9 +348,6 @@ Uma resposta bem-sucedida de 200 OK inclui um corpo JSON com as seguintes propri
 > | token_type    | Indica o valor do tipo de token. O único tipo com suporte do Azure Active Directory é FBearer. Para saber mais sobre os tokens de portador, consulte [Estrutura de Autorização do OAuth 2.0: Uso do Token de Portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 
 Essa resposta é igual à [resposta para a solicitação de token de acesso de serviço a serviço do Azure Active Directory](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
-
-> [!NOTE]
-> Uma versão mais antiga desse protocolo, usando a versão de “01-09-2017” da API, usou o cabeçalho `secret` em vez de `X-IDENTITY-HEADER` e aceitou apenas a propriedade `clientid` para atribuição pelo usuário. Ele também retornou `expires_on` em um formato de carimbo de data/hora. MSI_ENDPOINT pode ser usado como um alias para IDENTITY_ENDPOINT e MSI_SECRET pode ser usado como um alias para IDENTITY_HEADER.
 
 ### <a name="rest-protocol-examples"></a>Exemplos de protocolo REST
 

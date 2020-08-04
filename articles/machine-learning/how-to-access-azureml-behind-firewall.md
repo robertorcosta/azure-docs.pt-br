@@ -11,16 +11,19 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 63e2ba93ecdc1131be6bd291fe436b42a2a2d19c
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 27b625dfa31b366d95922e1dd0bad7fda6e86ed4
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407023"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87540063"
 ---
-# <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Usar o espaço de trabalho por trás do firewall do Azure para Azure Machine Learning
+# <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Usar o espaço de trabalho por trás de um firewall para Azure Machine Learning
 
 Neste artigo, saiba como configurar o Firewall do Azure para uso com um espaço de trabalho Azure Machine Learning.
+
+> [!IMPORTANT]
+> Embora as informações neste documento se baseiam no uso do firewall do Azure, você deve ser capaz de usá-lo com outros produtos de firewall. Se você tiver dúvidas sobre como permitir a comunicação por meio do firewall, consulte a documentação do firewall que você está usando.
 
 O Firewall do Azure pode ser usado para controlar o acesso ao seu espaço de trabalho do Azure Machine Learning e à Internet pública. Se não estiver configurado corretamente, o firewall poderá causar problemas ao usar seu espaço de trabalho. Há uma variedade de nomes de host que são usados pelo espaço de trabalho Azure Machine Learning, que são descritos neste artigo.
 
@@ -53,6 +56,7 @@ Os hosts nesta seção são de propriedade da Microsoft e fornecem os serviços 
 | **vault.azure.net** | Cofre de Chave do Azure |
 | **azurecr.io** | Registro de Contêiner do Azure |
 | **mcr.microsoft.com** | Registro de contêiner da Microsoft para imagens base do Docker |
+| **your-acr-server-name.azurecr.io** | Necessário somente se o registro de contêiner do Azure estiver por trás da rede virtual. Nessa configuração, um link privado é criado do ambiente da Microsoft para a instância do ACR em sua assinatura. Use o nome do servidor ACR para seu espaço de trabalho Azure Machine Learning. |
 
 ## <a name="python-hosts"></a>Hosts do Python
 

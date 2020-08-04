@@ -1,6 +1,6 @@
 ---
 title: Visão geral de segurança operacional do Azure | Microsoft Docs
-description: Este artigo fornece uma visão geral da segurança operacional do Azure.
+description: Saiba mais sobre a segurança operacional do Azure nesta visão geral. A segurança operacional refere-se aos serviços, controles e recursos de proteção de ativos.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 00a71fec9c0bfc1db45eee7129b7c2a8adaef0fa
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 50fb9c597a74a7aa08dfc3d8b7acd9b94760a9df
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674235"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542884"
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral de segurança operacional do Azure
 

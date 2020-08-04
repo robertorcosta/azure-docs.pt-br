@@ -1,6 +1,6 @@
 ---
 title: Autorização - Ferramenta de Modelagem de Ameaças da Microsoft - Azure | Microsoft Docs
-description: atenuações de ameaças expostas na ferramenta de modelagem de ameaças
+description: Saiba mais sobre a validação de entrada no Threat Modeling Tool. Veja informações de mitigação e exiba exemplos de código.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 8e597fb9208430b8da447768608c48edef049d83
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 5782c8b96534722a1e03ce619504e513a1c5e048
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653118"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539791"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Quadro de segurança: Validação de entrada | Atenuações 
 | Produto/Serviço | Artigo |

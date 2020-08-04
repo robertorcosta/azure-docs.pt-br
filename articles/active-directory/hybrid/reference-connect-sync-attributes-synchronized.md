@@ -16,12 +16,12 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab51030ad39e1360cabc7d63390af7c1654d2891
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1754456873e464e4bd624f47c5ea98e4fb88827
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82082111"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542222"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: atributos sincronizados com o Active Directory do Azure
 Este tópico lista os atributos que são sincronizados pela sincronização do Azure AD Connect.  
@@ -165,8 +165,8 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
-| título |X |X | | |
+| thumbnailphoto |X |X | |sincronizado apenas uma vez do Azure AD para o Exchange Online após o qual o Exchange Online se torna fonte de autoridade para esse atributo e quaisquer alterações posteriores não podem ser sincronizadas no local. Consulte ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) para obter mais informações.|
+| title |X |X | | |
 | unauthOrig |X |X |X | |
 | usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
 | userCertificate |X |X | | |
@@ -174,7 +174,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | userSMIMECertificates |X |X | | |
 | wWWHomePage |X |X | | |
 
-## <a name="sharepoint-online"></a>SharePoint Online
+## <a name="sharepoint-online"></a>SharePoint online
 | Nome do atributo | Usuário | Contact | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
@@ -247,8 +247,8 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | targetAddress |X |X | | |
 | telephoneAssistant |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
-| título |X |X | | |
+| thumbnailphoto |X |X | |sincronizado apenas uma vez do Azure AD para o Exchange Online após o qual o Exchange Online se torna fonte de autoridade para esse atributo e quaisquer alterações posteriores não podem ser sincronizadas no local. Consulte ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) para obter mais informações.|
+| title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
 | usageLocation |X | | |propriedade mecânica. O país/região do usuário
@@ -298,8 +298,8 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| thumbnailphoto |X |X | | |
-| título |X |X | | |
+| thumbnailphoto |X |X | |sincronizado apenas uma vez do Azure AD para o Exchange Online após o qual o Exchange Online se torna fonte de autoridade para esse atributo e quaisquer alterações posteriores não podem ser sincronizadas no local. Consulte ([KB](https://support.microsoft.com/help/3062745/user-photos-aren-t-synced-from-the-on-premises-environment-to-exchange)) para obter mais informações.|
+| title |X |X | | |
 | usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 | wWWHomePage |X |X | | |
@@ -365,7 +365,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
-| título |X |X | | |
+| title |X |X | | |
 | usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 

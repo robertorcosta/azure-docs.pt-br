@@ -1,14 +1,14 @@
 ---
 title: Diretrizes para solicitações limitadas
 description: Aprenda a agrupar, escalonar, paginar e consultar em paralelo para evitar que as solicitações sejam limitadas pelo Azure Resource Graph.
-ms.date: 05/20/2020
+ms.date: 08/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: dbcd438f1eda4edd30deef41542beeae6d746dc2
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 343d0c02e300431b63b908199931c20a50b85dd2
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682050"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541831"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Diretrizes para solicitações limitadas no Azure Resource Graph
 
@@ -29,6 +29,8 @@ Em cada resposta de consulta, o Azure Resource Graph adiciona dois cabeçalhos d
 
 - `x-ms-user-quota-remaining` (int): A cota de recursos que resta para o usuário. Esse valor é mapeado para a contagem de consultas.
 - `x-ms-user-quota-resets-after` (hh:mm:ss): O tempo até que o consumo da cota do usuário seja redefinido.
+
+Quando uma entidade de segurança tem acesso a mais de 5000 assinaturas no [escopo de consulta](./query-language.md#query-scope)de locatário ou grupo de gerenciamento, a resposta é limitada às primeiras assinaturas de 5000 e o `x-ms-tenant-subscription-limit-hit` cabeçalho é retornado como `true` .
 
 Para ilustrar como os cabeçalhos funcionam, examinaremos a resposta de uma consulta que tem o cabeçalho e os valores de `x-ms-user-quota-remaining: 10` e `x-ms-user-quota-resets-after: 00:00:03`.
 

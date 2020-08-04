@@ -1,6 +1,6 @@
 ---
 title: Recursos de segurança do Azure que ajudam com o gerenciamento de identidade | Microsoft Docs
-description: " Este artigo fornece uma visão geral dos recursos de segurança centrais do Azure que ajudam com o gerenciamento de identidades. As soluções de gerenciamento de identidade e acesso da Microsoft ajudam a ti a proteger o acesso a aplicativos e recursos no datacenter corporativo e na nuvem, permitindo níveis adicionais de validação, como a autenticação multifator e políticas de acesso condicional. "
+description: Saiba mais sobre os principais recursos de segurança do Azure que ajudam com o gerenciamento de identidades. Consulte informações sobre tópicos como logon único e proxy reverso.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 6abfcaac06dd82be79c9136718878f801ca241cc
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 9de31ba30c4599393d9127c7852cb567cf0258ef
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384524"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542069"
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança de gerenciamento de identidade do Azure
 

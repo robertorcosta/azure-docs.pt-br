@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c695a63705cce90bb0bf6b3cf787d9e6481b888
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 121bf7ef05c2a5bee621ecddcb40033d54194fac
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603886"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542103"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Atribuir ou remover licenças no portal de Azure Active Directory
 
@@ -35,7 +35,7 @@ Há vários planos de licença disponíveis para o serviço do Azure AD, incluin
 
 - Azure AD Premium P2
 
-Para obter informações específicas sobre cada plano de licença e os detalhes de licenciamento associados, consulte [qual licença eu preciso?](https://azure.microsoft.com/pricing/details/active-directory/).
+Para obter informações específicas sobre cada plano de licença e os detalhes de licenciamento associados, consulte [qual licença eu preciso?](https://azure.microsoft.com/pricing/details/active-directory/). Para se inscrever nos planos de licença do Azure AD Premium, veja [aqui](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 Nem todos os serviços da Microsoft estão disponíveis em todos os locais. Antes que uma licença possa ser atribuída a um grupo, você deve especificar o **Local de uso** para todos os membros. Você pode definir esse valor **Azure Active Directory &gt; os usuários &gt; perfil &gt; configurações** área no Azure AD. Qualquer usuário cujo local de uso não seja especificado herda o local da organização do Azure AD.
 
@@ -84,7 +84,7 @@ Certifique-se de que qualquer pessoa que precise usar um serviço licenciado do 
     > [!NOTE]
     > Nem todos os serviços da Microsoft estão disponíveis em todos os locais. Antes que uma licença possa ser atribuída a um usuário, você deve especificar o **Local de uso**. Você pode definir esse valor **Azure Active Directory &gt; os usuários &gt; perfil &gt; configurações** área no Azure AD. Qualquer usuário cujo local de uso não seja especificado herda o local da organização do Azure AD.
 
-1. Selecione **atribuir**.
+1. Selecione **Atribuir**.
 
     O usuário é adicionado à lista de usuários licenciados e tem acesso aos serviços incluídos do Azure AD.
     > [!NOTE]
@@ -110,7 +110,7 @@ Certifique-se de que qualquer pessoa que precise usar um serviço licenciado do 
 
     A página **Atribuir licença** é atualizada para mostrar que um usuário está selecionado e que as atribuições estão configuradas.
 
-1. Selecione **atribuir**.
+1. Selecione **Atribuir**.
 
     O grupo é adicionado à lista de grupos licenciados e todos os membros têm acesso aos serviços incluídos do Azure AD.
 

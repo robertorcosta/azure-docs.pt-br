@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 47bf14a8da8357e0114ef3c5d6cf96185306dd16
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3ffc3883fb4a0d0b725239711bc0163f50998713
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325858"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541043"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implantar um modelo usando uma imagem de base do Docker personalizada
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -49,7 +49,7 @@ Este documento está dividido em duas seções:
 * O [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * A [Extensão da CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Um [registro de contêiner do Azure](/azure/container-registry) ou outro registro do Docker que está acessível na Internet.
-* As etapas neste documento pressupõem que você esteja familiarizado com a criação e o uso de um objeto de __configuração de inferência__ como parte da implantação do modelo. Para obter mais informações, consulte a seção "preparar para implantar" de [onde implantar e como](how-to-deploy-and-where.md#prepare-to-deploy).
+* As etapas neste documento pressupõem que você esteja familiarizado com a criação e o uso de um objeto de __configuração de inferência__ como parte da implantação do modelo. Para obter mais informações, consulte [onde implantar e como](how-to-deploy-and-where.md).
 
 ## <a name="create-a-custom-base-image"></a>Criar uma imagem de base personalizada
 

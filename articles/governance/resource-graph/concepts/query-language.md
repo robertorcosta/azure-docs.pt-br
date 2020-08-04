@@ -1,14 +1,14 @@
 ---
 title: Noções básicas da linguagem de consulta
 description: Descreve as tabelas do Resource Graph e os tipos de dados, operadores e funções do Kusto disponíveis utilizáveis com o Azure Resource Graph.
-ms.date: 06/29/2020
+ms.date: 08/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4c545a8a5113f800545660a3ea812b61711630c2
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: b59811ecd877b9b2e22a43c00329ed7d02dfb97d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970443"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541814"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do Azure Resource Graph
 
@@ -19,6 +19,7 @@ Este artigo aborda os componentes de linguagem com suporte no Resource Graph:
 - [Tabelas do Resource Graph](#resource-graph-tables)
 - [Elementos de linguagem personalizada do grafo de recursos](#resource-graph-custom-language-elements)
 - [Elementos da linguagem KQL com suporte](#supported-kql-language-elements)
+- [Escopo da consulta](#query-scope)
 - [Caracteres de escape](#escape-characters)
 
 ## <a name="resource-graph-tables"></a>Tabelas do Resource Graph
@@ -116,6 +117,31 @@ A seguir está a lista de operadores de tabela da linguagem KQL com suporte do R
 |[início](/azure/kusto/query/topoperator) |[Mostrar as primeiras cinco máquinas virtuais por nome e tipo do sistema operacional](../samples/starter.md#show-sorted) | |
 |[union](/azure/kusto/query/unionoperator) |[Combinar resultados de duas consultas em um único resultado](../samples/advanced.md#unionresults) |Tabela individual permitida: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_ColumnName_\] _Table_. Há um limite de 3 expressões de `union` em uma única consulta. A resolução difusa de tabelas da expressão de `union` não é permitida. Elas podem ser usadas para uma única tabela ou entre as tabelas _Resources_ e _ResourceContainers_. |
 |[where](/azure/kusto/query/whereoperator) |[Mostrar recursos que contêm o armazenamento](../samples/starter.md#show-storage) | |
+
+## <a name="query-scope"></a>Escopo da consulta
+
+O escopo das assinaturas dos quais os recursos são retornados por uma consulta depende do método de acesso ao grafo de recursos. CLI do Azure e Azure PowerShell popular a lista de assinaturas a serem incluídas na solicitação com base no contexto do usuário autorizado. A lista de assinaturas pode ser definida manualmente para cada uma com as **assinaturas** e os parâmetros de **assinatura** , respectivamente.
+Na API REST e em todos os outros SDKs, a lista de assinaturas para incluir recursos deve ser explicitamente definida como parte da solicitação.
+
+Como uma **Visualização**, a versão da API REST `2020-04-01-preview` adiciona uma propriedade para o escopo da consulta a um [grupo de gerenciamento](../../management-groups/overview.md). Essa API de visualização também torna a propriedade de assinatura opcional. Se o grupo de gerenciamento ou a lista de assinaturas não forem definidos, o escopo da consulta será todos os recursos que o usuário autenticado pode acessar. A nova `managementGroupId` propriedade usa a ID do grupo de gerenciamento, que é diferente do nome do grupo de gerenciamento.
+Quando `managementGroupId` é especificado, os recursos das primeiras assinaturas 5000 no ou na hierarquia do grupo de gerenciamento especificado são incluídos. `managementGroupId`Não pode ser usado ao mesmo tempo que `subscriptions` .
+
+Exemplo: consultar todos os recursos na hierarquia do grupo de gerenciamento denominado ' meu grupo de gerenciamento ' com a ID ' myMG '.
+
+- URI da API REST
+
+  ```http
+  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview
+  ```
+
+- Corpo da solicitação
+
+  ```json
+  {
+      "query": "Resources | summarize count()",
+      "managementGroupId": "myMG"
+  }
+  ```
 
 ## <a name="escape-characters"></a>Caracteres de escape
 

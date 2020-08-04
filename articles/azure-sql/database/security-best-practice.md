@@ -1,7 +1,7 @@
 ---
 title: Guia estratégico para tratar dos requisitos de segurança comuns
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
-description: Este artigo fornece requisitos de segurança e práticas recomendadas comuns no banco de dados SQL do Azure e no Azure SQL Instância Gerenciada
+description: Este artigo fornece requisitos de segurança e práticas recomendadas comuns no banco de dados SQL do Azure e no Azure SQL Instância Gerenciada.
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 6a3a52c90187920be13628a6d2fa44159e1109d7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6630b924decacc5ff59611c657e1d7e38b1813a7
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371780"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541712"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Guia estratégico para tratar dos requisitos de segurança comuns com o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -291,7 +291,7 @@ Separação de tarefas, também chamada de diferenciação de direitos, descreve
 - Identifique uma hierarquia abrangente de usuários (e processos automatizados) que acessam o sistema.
 
 - Crie funções de acordo com os grupos de usuários necessários e atribua permissões a funções.
-  - Para tarefas em nível de gerenciamento no portal do Azure ou por meio da automação do PowerShell, use funções RBAC. Localize uma função interna que corresponda ao requisito ou crie uma função personalizada do Azure usando as permissões disponíveis
+  - Para tarefas em nível de gerenciamento no portal do Azure ou por meio da automação do PowerShell, use funções do Azure. Localize uma função interna que corresponda ao requisito ou crie uma função personalizada do Azure usando as permissões disponíveis
   - Crie funções de servidor para tarefas em todo o servidor (criando novos logons, bancos de dados) em uma instância gerenciada.
   - Criar funções de banco de dados para tarefas em nível de banco de dados.
 
@@ -318,7 +318,7 @@ Separação de tarefas, também chamada de diferenciação de direitos, descreve
 
 - Criar e usar funções definidas pelo usuário quando funções internas concedem permissões demais ou permissões insuficientes.
 
-- As atribuições de função também podem ser feitas temporariamente, também conhecidas como DSD (separação dinâmica de funções), dentro das etapas de trabalho do SQL Agent no T-SQL ou usando o Azure PIM para funções RBAC.
+- As atribuições de função também podem ser feitas temporariamente, também conhecidas como DSD (separação dinâmica de funções), dentro das etapas de trabalho do SQL Agent no T-SQL ou usando o Azure PIM para funções do Azure.
 
 - Verifique se os DBAs não têm acesso às chaves de criptografia ou aos repositórios de chaves, e se os administradores de segurança com acesso às chaves não têm acesso ao banco de dados por vez. O uso de [EKM (gerenciamento extensível de chaves)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-ekm) pode facilitar a obtenção dessa separação. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) pode ser usado para implementar EKM.
 
