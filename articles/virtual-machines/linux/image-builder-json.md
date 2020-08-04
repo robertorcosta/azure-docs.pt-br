@@ -3,17 +3,17 @@ title: Criar um modelo do Construtor de Imagens do Azure (versão prévia)
 description: Saiba como criar um modelo para usar com o Construtor de Imagens do Azure.
 author: danielsollondon
 ms.author: danis
-ms.date: 07/09/2020
+ms.date: 08/03/2020
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: fe4ddeaadedc14e7e3d92a8b185920bf18bd142b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 132e547fe2512676e4d8082744489f4719dcc0bf
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283292"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543598"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Visualização: Criar um modelo do Construtor de Imagens do Azure 
 
@@ -142,12 +142,13 @@ Para obter mais informações sobre como implantar esse recurso, confira [Config
 
 ## <a name="properties-source"></a>Propriedades: origem
 
-A seção `source` contém informações sobre a imagem de origem que será usada pelo Construtor de Imagens.
+Atualmente, o Image Builder dá suporte apenas a imagens e VMs da geração 1 do HyperV, a `source` seção contém informações sobre a imagem de origem que será usada pelo construtor de imagem.
 
 A API requer um 'SourceType' que define a origem para o build da imagem. No momento, há três tipos:
 - PlatformImage – indica que a imagem de origem é uma imagem do Marketplace.
 - ManagedImage – use ao iniciar em uma imagem gerenciada normal.
 - SharedImageVersion – é usado quando você está usando uma versão de imagem em uma Galeria de Imagens Compartilhadas como a origem.
+
 
 > [!NOTE]
 > Ao usar imagens personalizadas do Windows existentes, você pode executar o comando Sysprep até 8 vezes em uma única imagem do Windows, para obter mais informações, consulte a documentação do [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) .
@@ -191,7 +192,10 @@ Você também pode especificar informações de plano, por exemplo:
 ```
 ### <a name="managedimage-source"></a>Origem da ManagedImage
 
-Define a imagem de origem como uma imagem gerenciada existente de um VHD ou VM generalizado. A imagem gerenciada de origem deve ser de um sistema operacional com suporte e estar na mesma região que o seu modelo do Construtor de Imagens do Azure. 
+Define a imagem de origem como uma imagem gerenciada existente de um VHD ou VM generalizado.
+
+> [!NOTE]
+> A imagem gerenciada de origem deve ser de um sistema operacional com suporte e a imagem deve estar na mesma região que o seu modelo do Azure Image Builder. 
 
 ```json
         "source": { 
@@ -204,7 +208,11 @@ O `imageId` deve ser a ResourceId da imagem gerenciada. Use `az image list` para
 
 
 ### <a name="sharedimageversion-source"></a>Origem da SharedImageVersion
-Define a imagem de origem como uma versão de imagem existente em uma Galeria de Imagens Compartilhadas. A versão da imagem deve ser de um SO com suporte e a imagem deve ser replicada na mesma região que o seu modelo do Construtor de Imagens do Azure. 
+Define a imagem de origem como uma versão de imagem existente em uma Galeria de Imagens Compartilhadas.
+
+> [!NOTE]
+> A imagem gerenciada de origem deve ser de um sistema operacional com suporte e a imagem deve estar na mesma região que o seu modelo do Azure Image Builder, caso contrário, replique a versão da imagem para a região de modelo do Image Builder.
+
 
 ```json
         "source": { 

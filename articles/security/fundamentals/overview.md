@@ -1,6 +1,6 @@
 ---
 title: Introdução à segurança do Azure | Microsoft Docs
-description: Saiba mais sobre a Segurança do Azure, seus serviços e como ela funciona.
+description: Apresente-se à segurança do Azure, seus diversos serviços e como ele funciona lendo esta visão geral.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 9c107789fe4a88b3cd73a2f290871016b95cae19
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 7f78b5d0baff149fc687d2b4bb71d70186315def
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371389"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543819"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Visão geral
@@ -60,7 +60,7 @@ Dependendo do modelo de serviço de nuvem, a responsabilidade de quem gerencia a
 
 Os recursos internos são organizados em seis áreas funcionais: operações, aplicativos, armazenamento, rede, computação e identidade. Detalhes adicionais sobre os recursos e funcionalidades disponíveis na plataforma do Azure nessas seis áreas são fornecidos por meio de informações de resumo.
 
-## <a name="operations"></a>Operations
+## <a name="operations"></a>Operações
 Esta seção fornece outras informações sobre os principais recursos em operações de segurança, e informações de resumo sobre esses recursos.
 
 ### <a name="security-and-audit-dashboard"></a>Painel Segurança e Auditoria
@@ -142,7 +142,7 @@ No Application Diagnostics, você pode ver os eventos agrupados destas maneiras:
 A seção fornece outras informações sobre os principais recursos em segurança de armazenamento do Azure e informações de resumo sobre esses recursos.
 
 ### <a name="role-based-access-control-rbac"></a>RBAC (Controle de Acesso Baseado em Função)
-Você pode proteger a conta de armazenamento com o RBAC (Controle de Acesso Baseado em Função). Restringir o acesso com base na [necessidade de conhecer](https://en.wikipedia.org/wiki/Need_to_know) e aos princípios de segurança de [privilégios mínimos](https://en.wikipedia.org/wiki/Principle_of_least_privilege) é imperativo para organizações que desejam impor políticas de segurança para acesso a dados. Esses direitos de acesso são concedidos atribuindo a função de RBAC apropriada a grupos e aplicativos em determinado escopo. Você pode usar [funções internas do Azure](../../role-based-access-control/built-in-roles.md), como colaborador da conta de armazenamento, para atribuir privilégios aos usuários. O acesso às chaves de armazenamento para uma conta de armazenamento usando o [modelo Azure Resource Manager](../../storage/blobs/security-recommendations.md) pode ser controlado por meio do RBAC (Controle de Acesso Baseado em Função).
+Você pode proteger a conta de armazenamento com o RBAC (Controle de Acesso Baseado em Função). Restringir o acesso com base na [necessidade de conhecer](https://en.wikipedia.org/wiki/Need_to_know) e aos princípios de segurança de [privilégios mínimos](https://en.wikipedia.org/wiki/Principle_of_least_privilege) é imperativo para organizações que desejam impor políticas de segurança para acesso a dados. Esses direitos de acesso são concedidos atribuindo a função apropriada do Azure a grupos e aplicativos em um determinado escopo. Você pode usar [funções internas do Azure](../../role-based-access-control/built-in-roles.md), como colaborador da conta de armazenamento, para atribuir privilégios aos usuários. O acesso às chaves de armazenamento para uma conta de armazenamento usando o [modelo Azure Resource Manager](../../storage/blobs/security-recommendations.md) pode ser controlado por meio do RBAC (Controle de Acesso Baseado em Função).
 
 ### <a name="shared-access-signature"></a>Assinatura de acesso compartilhado
 Uma [SAS (assinatura de acesso compartilhado)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) fornece acesso delegado aos recursos em sua conta de armazenamento. A SAS significa que você pode conceder a um cliente permissões limitadas para objetos em sua conta de armazenamento por determinado período e com um conjunto específico de permissões. Você pode conceder essas permissões limitadas sem precisar compartilhar as chaves de acesso da conta.
@@ -155,7 +155,7 @@ A criptografia em trânsito é um mecanismo de proteção de dados quando eles s
 
 -   Criptografia do cliente, que permite criptografar os dados antes que eles sejam transferidos para o armazenamento e descriptografá-los após serem transferidos para fora do armazenamento.
 
-### <a name="encryption-at-rest"></a>Criptografia em repouso
+### <a name="encryption-at-rest"></a>Criptografar em repouso
 Para muitas organizações, a criptografia de dados em repouso é uma etapa obrigatória no sentido de garantir a soberania, a privacidade e a conformidade dos dados. Há três recursos de segurança de armazenamento do Azure que fornecem criptografia de dados que estão “em repouso”:
 
 -   [Criptografia do Serviço de Armazenamento](../../storage/common/storage-service-encryption.md) permite solicitar que o serviço de armazenamento criptografe automaticamente os dados ao gravá-los no Armazenamento do Azure.

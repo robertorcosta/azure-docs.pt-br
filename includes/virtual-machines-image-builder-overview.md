@@ -1,16 +1,16 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 05/15/2020
+ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 0a4dcf749a76623df7f46d77bf3e4877f2c41900
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 8ad191ca0d31abf317bab521dfbbc7c2567c3450
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821517"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87545217"
 ---
 As imagens de VM (máquina virtual) padronizadas permitem que as organizações migrem para a nuvem e garantam consistência nas implantações. As imagens normalmente incluem definições de segurança e de configuração, bem como o software necessário. Configurar seu próprio pipeline de geração de imagens requer tempo, infraestrutura e configuração, mas com o Construtor de Imagens de VM do Azure, basta fornecer uma configuração simples que descreva sua imagem e enviá-la ao serviço para que a imagem seja criada e distribuída.
  
@@ -70,9 +70,9 @@ O Construtor de Imagens do Azure é um serviço do Azure totalmente gerenciado q
 ![Desenho conceitual do processo do Construtor de Imagens do Azure](./media/virtual-machines-image-builder-overview/image-builder-process.png)
 
 1. Crie o Modelo de Imagem como um arquivo .json. Esse arquivo .json contém informações sobre a origem, as personalizações e a distribuição da imagem. Há vários exemplos no [repositório GitHub do Construtor de Imagens do Azure](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
-1. Envie-o para o serviço. Isso criará um artefato de Modelo de Imagem no grupo de recursos que você especificar. Em segundo plano, o Construtor de Imagens baixará a ISO ou imagem de origem e os scripts, conforme necessário. Eles são armazenados em um grupo de recursos separado que é criado automaticamente em sua assinatura, neste formato: IT_\<GrupoDeRecursosDeDestino>_\<NomeDoModelo>. 
-1. Depois que o modelo de imagem for criado, você poderá compilar a imagem. Em segundo plano, o Construtor de Imagens usa o modelo e os arquivos de origem para criar uma VM (tamanho padrão: Standard_D1_v2), rede, IP público, NSG e armazenamento no grupo de recursos IT_\<GrupoDeRecursosDeDestino>_\<NomeDoModelo>.
-1. Como parte da criação da imagem, o Construtor de Imagens distribui a imagem de acordo com o modelo e, em seguida, exclui os recursos adicionais no grupo de recursos IT_\<GrupoDeRecursosDeDestino>_\<NomeDoModelo> que foi criado para o processo.
+1. Envie-o para o serviço. Isso criará um artefato de Modelo de Imagem no grupo de recursos que você especificar. Em segundo plano, o Construtor de Imagens baixará a ISO ou imagem de origem e os scripts, conforme necessário. Eles são armazenados em um grupo de recursos separado que é criado automaticamente em sua assinatura, no formato: IT_ \<DestinationResourceGroup> _ \<TemplateName> . 
+1. Depois que o modelo de imagem for criado, você poderá compilar a imagem. No construtor de imagem de plano de fundo usa o modelo e os arquivos de origem para criar uma VM (tamanho padrão: Standard_D1_v2), rede, IP público, NSG e armazenamento no \<DestinationResourceGroup> grupo de recursos IT_ _ \<TemplateName> .
+1. Como parte da criação da imagem, o Image Builder distribui a imagem de acordo com o modelo e, em seguida, exclui os recursos adicionais no \<DestinationResourceGroup> grupo de recursos IT_ _ \<TemplateName> que foi criado para o processo.
 
 
 ## <a name="permissions"></a>Permissões
@@ -97,6 +97,9 @@ Durante o processo de criação de imagem, os arquivos são baixados e armazenad
 O Construtor de Imagens cria uma VM usando um tamanho de VM D1v2 e o armazenamento e a rede necessários para a VM. Esses recursos terão a mesma duração que o processo de build e serão excluídos assim que o Construtor de Imagens terminar de criar a imagem. 
  
 O Construtor de Imagens do Azure distribuirá a imagem para suas regiões escolhidas, o que poderá incorrer em encargos de saída de rede.
+
+## <a name="hyper-v-generation"></a>Geração de Hyper V
+O Image Builder atualmente oferece suporte a imagens Hyper V geração 1 e VMs.
  
 ## <a name="next-steps"></a>Próximas etapas 
  

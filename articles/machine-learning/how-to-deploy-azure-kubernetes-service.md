@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 58a8bd6b8e5594f36bf27a3ad76bee137fdd1160
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: bc53a243a58522a76be63536aa721f269ed4759a
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433231"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544040"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implantar um modelo em um cluster do serviço kubernetes do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -65,7 +65,7 @@ O cluster AKS e o espaço de trabalho AML podem estar em grupos de recursos dife
 
 - Se você precisar de um SLB (Standard Load Balancer) implantado em seu cluster em vez de um Load Balancer básico (BLB), crie um cluster no portal do AKS/CLI/SDK e anexe-o ao espaço de trabalho AML.
 
-- Se você anexar um cluster AKS, que tem um [intervalo de IP autorizado habilitado para acessar o servidor de API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), habilite os intervalos de IP do plano controle AML para o cluster AKs. O plano de controle AML é implantado em regiões emparelhadas e implanta inferência pods no cluster AKS. Sem acesso ao servidor de API, os pods inferência não podem ser implantados. Use os [intervalos de IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) para ambas as [regiões emparelhadas]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) ao habilitar os intervalos de IP em um cluster AKs.
+- Se você anexar um cluster AKS, que tem um [intervalo de IP autorizado habilitado para acessar o servidor de API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), habilite os intervalos de IP do plano de controle AML para o cluster AKs. O plano de controle AML é implantado em regiões emparelhadas e implanta inferência pods no cluster AKS. Sem acesso ao servidor de API, os pods inferência não podem ser implantados. Use os [intervalos de IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) para ambas as [regiões emparelhadas]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) ao habilitar os intervalos de IP em um cluster AKs.
 
 __Os intervalos de IP Authroized funcionam apenas com Standard Load Balancer.__
  
@@ -423,15 +423,12 @@ print(token)
 >
 > Para recuperar um token, você deve usar o SDK do Azure Machine Learning ou o comando [AZ ml Service Get-Access-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token) .
 
-## <a name="update-the-web-service"></a>Atualizar o serviço Web
-
-[!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
-
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Experimentação e inferência de segurança em uma rede virtual](how-to-enable-virtual-network.md)
 * [Como implantar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Solução de problemas de implantação](how-to-troubleshoot-deployment.md)
+* [Atualizar serviço Web](how-to-deploy-update-web-service.md)
 * [Use o TLS para proteger um serviço Web por meio do Azure Machine Learning](how-to-secure-web-service.md)
 * [Consumir um modelo de ML implantado como um serviço Web](how-to-consume-web-service.md)
 * [Monitore seus modelos de Azure Machine Learning com Application Insights](how-to-enable-app-insights.md)

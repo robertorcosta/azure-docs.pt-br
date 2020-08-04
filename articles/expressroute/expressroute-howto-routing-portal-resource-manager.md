@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/13/2019
 ms.author: mialdrid
-ms.openlocfilehash: 1e3d855d0860d8d9875e4a93091653cab18965f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bcbe2bd038a3e27df86b281c51cf0a151c5b5af
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738525"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542901"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Criar e modificar o emparelhamento de um circuito de ExpressRoute
 
@@ -60,11 +60,13 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
 
    **Status do provedor de circuito: não provisionado**
 
-    [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png "Provider status: Not provisioned")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+   [![Captura de tela mostrando a página de visão geral do circuito de demonstração do ExpressRoute com uma caixa vermelha realçando o status do provedor que está definido como "não provisionado".](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+
 
    **Status do provedor de circuito: provisionado**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png "Provider status = Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
+   [![Captura de tela mostrando a página de visão geral do circuito de demonstração do ExpressRoute com uma caixa vermelha realçando o status do provedor que está definido como "provisionado".](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
+
 2. Configurar o emparelhamento da Microsoft para o circuito. Você precisa ter as seguintes informações antes de continuar:
 
    * Uma sub-rede /30 para o link principal. Este valor deve ser um prefixo IPv4 público válido próprio e registrado em um RIR/IRR. Dessa sub-rede, você atribuirá o primeiro endereço IP utilizável ao seu roteador já que a Microsoft usa o segundo IP utilizável para seu roteador.
@@ -125,11 +127,11 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
 
    **Status do provedor de circuito: não provisionado**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png "Provider status = Not Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
+   [![Captura de tela mostrando a página de visão geral do circuito de demonstração do ExpressRoute com uma caixa vermelha realçando o status do provedor que está definido como "não provisionado".](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
 
    **Status do provedor de circuito: provisionado**
 
-   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png "Provider Status = Provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
+   [![Captura de tela mostrando a página de visão geral do circuito de demonstração do ExpressRoute com uma caixa vermelha realçando o status do provedor que está definido como "provisionado".](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png)](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
 
 2. Configure o emparelhamento privado do Azure para o circuito. Verifique se você tem os seguintes itens antes de continuar com as próximas etapas:
 

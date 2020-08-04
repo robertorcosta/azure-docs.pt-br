@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3e7ee90d75a2ff2b3552992c19f11cc86b6109ca
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5d9d7c59244474c76e63271c0be92f835c2ed087
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486640"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543343"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consultar o grafo gêmeos do Azure digital
 
-Este artigo oferece exemplos e mais detalhes para usar a [linguagem de repositório de consultas do gêmeos digital do Azure](concepts-query-language.md) para consultar o [grafo de entrelaçamento](concepts-twins-graph.md) para obter informações. Você executa consultas no grafo usando as [**APIs de consulta**](how-to-use-apis-sdks.md)do gêmeos digital do Azure.
+Este artigo oferece exemplos e mais detalhes para usar a [linguagem de consulta do gêmeos digital do Azure](concepts-query-language.md) para consultar o [grafo de entrelaçamento](concepts-twins-graph.md) para obter informações. Você executa consultas no grafo usando as [**APIs de consulta**](how-to-use-apis-sdks.md)do gêmeos digital do Azure.
 
 [!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
 
@@ -87,11 +87,11 @@ SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', ex
 
 ### <a name="query-based-on-relationships"></a>Consulta baseada em relações
 
-Ao consultar com base em relações do gêmeos digital, o idioma do Azure digital gêmeos Repositório de Consultas tem uma sintaxe especial.
+Ao consultar com base em relações de gêmeos digital, a linguagem de consulta gêmeos digital do Azure tem uma sintaxe especial.
 
 As relações são retiradas no escopo de consulta na `FROM` cláusula. Uma distinção importante das linguagens do tipo SQL "clássico" é que cada expressão nessa `FROM` cláusula não é uma tabela; em vez disso, a `FROM` cláusula expressa uma passagem de relacionamento entre entidades e é escrita com uma versão do gêmeos digital do Azure do `JOIN` . 
 
-Lembre-se de que com os recursos do [modelo](concepts-models.md) de gêmeos digital do Azure, as relações não existem independentemente do gêmeos. Isso significa que a linguagem de Repositório de Consultas do Azure digital gêmeos `JOIN` é um pouco diferente do SQL geral `JOIN` , pois as relações aqui não podem ser consultadas de forma independente e devem estar vinculadas a um ".".
+Lembre-se de que com os recursos do [modelo](concepts-models.md) de gêmeos digital do Azure, as relações não existem independentemente do gêmeos. Isso significa que a linguagem de consulta do gêmeos digital do Azure `JOIN` é um pouco diferente do SQL geral `JOIN` , pois as relações aqui não podem ser consultadas de forma independente e devem estar vinculadas a um ".".
 Para incorporar essa diferença, a palavra-chave `RELATED` é usada na `JOIN` cláusula para fazer referência a um conjunto de relações de entrelaçar. 
 
 A seção a seguir fornece vários exemplos de como isso se parece.
@@ -117,7 +117,7 @@ WHERE T.$dtId = 'ABC'
 
 #### <a name="query-the-properties-of-a-relationship"></a>Consultar as propriedades de uma relação
 
-Da mesma forma que o gêmeos digital tem propriedades descritas por meio de DTDL, as relações também podem ter propriedades. A linguagem Repositório de Consultas do Azure digital gêmeos permite a filtragem e a projeção de relações, atribuindo um alias à relação dentro da `JOIN` cláusula. 
+Da mesma forma que o gêmeos digital tem propriedades descritas por meio de DTDL, as relações também podem ter propriedades. A linguagem de consulta do gêmeos digital do Azure permite filtrar e projeção de relações, atribuindo um alias à relação dentro da `JOIN` cláusula. 
 
 Como exemplo, considere uma relação *servicedBy* que tem uma propriedade *reportedCondition* . Na consulta abaixo, essa relação recebe um alias de ' R ' para referenciar sua propriedade.
 

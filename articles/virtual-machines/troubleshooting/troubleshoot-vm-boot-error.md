@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: 5353bad3ff631fd7baa5d9892d38449ba622ea46
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5a2fd7fcfdae8559bfb39bffff7c73c7082a86aa
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284669"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543275"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>A VM do Linux é inicializada para a resgate grub
 
@@ -35,7 +35,7 @@ Siga as etapas de mitigação abaixo, dependendo do erro que você receber:
 * Se você estiver recebendo o sistema de arquivos de erro **desconhecido**, esse erro poderá resultar de uma corrupção do sistema de arquivos na partição de inicialização ou de uma configuração de kernel incorreta.
 
    * Para problemas do sistema de arquivos, siga as etapas no artigo [recuperação do Linux: não é possível SSH para VM Linux devido a erros do sistema de arquivos (fsck, inodes)](/archive/blogs/linuxonazure/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes).
-   * Para problemas de kernel, siga as etapas no artigo [recuperação do Linux: corrigindo manualmente problemas de não inicialização relacionados a problemas de kernel](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/)ou [recuperação do Linux: corrigindo problemas de não inicialização relacionados a problemas de kernel usando o chroot](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
+   * Para problemas de kernel, siga as etapas no artigo [como recuperar uma máquina virtual Linux do Azure de problemas de inicialização relacionados ao kernel](https://support.microsoft.com/help/4091524/how-recover-azure-linux-vm-from-kernel-related-boot-related-issues)ou [recuperação do Linux: corrigindo problemas de não inicialização relacionados a problemas de kernel usando o chroot](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
    
 ### <a name="error---file-not-found"></a>Erro-arquivo não encontrado
 

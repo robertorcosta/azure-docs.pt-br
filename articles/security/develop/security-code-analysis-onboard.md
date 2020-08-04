@@ -1,6 +1,6 @@
 ---
 title: Guia de integração da análise de código de segurança da Microsoft
-description: Este artigo descreve como instalar a extensão de análise de código de segurança da Microsoft
+description: Saiba como carregar e instalar a extensão de análise de código de segurança da Microsoft. Consulte pré-requisitos e exibir recursos adicionais.
 author: sukhans
 manager: sukhans
 ms.author: terrylan
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: fd0057c5f5e365d6c91ae221a7add813855bb1ec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5366da1048e7c6d9612ad8b6b1f1694068bb35fb
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323580"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543020"
 ---
 # <a name="onboarding-and-installing"></a>Integração e instalação
 

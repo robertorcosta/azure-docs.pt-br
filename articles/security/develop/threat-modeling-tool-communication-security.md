@@ -1,7 +1,7 @@
 ---
 title: Segurança de comunicação para o Microsoft Threat Modeling Tool
 titleSuffix: Azure
-description: atenuações de ameaças expostas na ferramenta de modelagem de ameaças
+description: Saiba mais sobre a mitigação de ameaças de segurança de comunicação expostas no Threat Modeling Tool. Veja informações de mitigação e exiba exemplos de código.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 8cb74a020590fc55dcd1f046ba667be3d6640b3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73210da43c9919af1d92d0e8c354e1d7f9c77bed
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82203736"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543938"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Estrutura de segurança: Segurança de comunicações | Atenuações 
 | Produto/Serviço | Artigo |
@@ -36,7 +36,7 @@ ms.locfileid: "82203736"
 | **Cliente móvel** | <ul><li>[Implementar a anexação de certificado](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[Habilitar HTTPS - proteger o canal de transporte](#https-transport)</li><li>[WCF: definir o nível de proteção da segurança de mensagens como EncryptAndSign](#message-protection)</li><li>[WCF: use uma conta com privilégios mínimos para executar o serviço WCF](#least-account-wcf)</li></ul> |
 | **API da Web** | <ul><li>[Forçar todo o tráfego para APIs Web pela conexão HTTPS](#webapi-https)</li></ul> |
-| **Cache Redis do Azure** | <ul><li>[Garantir que a comunicação com o cache do Azure para Redis seja por TLS](#redis-ssl)</li></ul> |
+| **Cache do Azure para Redis** | <ul><li>[Garantir que a comunicação com o cache do Azure para Redis seja por TLS](#redis-ssl)</li></ul> |
 | **Gateway de Campo de IoT** | <ul><li>[Proteger dispositivo para comunicações do Gateway de Campo](#device-field)</li></ul> |
 | **Gateway de Nuvem IoT** | <ul><li>[Proteger o dispositivo para comunicações do Gateway de Nuvem usando SSL/TLS](#device-cloud)</li></ul> |
 

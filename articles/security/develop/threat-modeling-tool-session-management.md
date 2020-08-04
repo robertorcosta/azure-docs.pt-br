@@ -1,6 +1,6 @@
 ---
 title: Gerenciamento de sessão - Ferramenta de Modelagem de Ameaças da Microsoft - Azure | Microsoft Docs
-description: atenuações de ameaças expostas na ferramenta de modelagem de ameaças
+description: Saiba mais sobre a mitigação de gerenciamento de sessão para ameaças expostas no Threat Modeling Tool. Veja informações de mitigação e exiba exemplos de código.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 7f9eb18e72c12a8585ea8bcd42d8d720af43dbaf
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 6a40d89db3e81721ec8a35973b79a558c17caee4
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420542"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543683"
 ---
 # <a name="security-frame-session-management"></a>Quadro de segurança: Gerenciamento de sessão
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Implementar o logoff apropriado usando métodos ADAL ao usar o Azure AD](#logout-adal)</li></ul> |
-| Dispositivo IoT | <ul><li>[Usar tempos de vida finitos para tokens SaS gerados](#finite-tokens)</li></ul> |
+| **Dispositivo IoT** | <ul><li>[Usar tempos de vida finitos para tokens SaS gerados](#finite-tokens)</li></ul> |
 | **Azure DocumentDB** | <ul><li>[Usar tempos de vida mínimos de tokens para tokens de Recurso gerados](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[Implementar o logoff apropriado usando métodos WsFederation ao usar o ADFS](#wsfederation-logout)</li></ul> |
 | **Servidor de identidade** | <ul><li>[Implementar o logoff apropriado ao usar o servidor de identidade](#proper-logout)</li></ul> |

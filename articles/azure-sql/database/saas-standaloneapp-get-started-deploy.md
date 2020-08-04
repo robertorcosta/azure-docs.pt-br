@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/07/2018
-ms.openlocfilehash: fd4b94f6a99241ffddd7ae359059c3a4a918934a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52dfc285deaa84792e37d0f012abd7702d856113
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84026937"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544074"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implantar e explorar um aplicativo autônomo de locatário único que usa o Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,13 +43,17 @@ Outros tutoriais serão liberados. Eles permitirão que você explore uma varied
 
 Implante o aplicativo para os três locatários fornecidos:
 
-1. Clique em cada botão azul **Implantar no Azure** para abrir o modelo de implantação no [Portal do Azure](https://portal.azure.com). Cada modelo exige dois valores de parâmetro: um nome para um novo grupo de recursos e um nome de usuário que distingue essa implantação de outras implantações do aplicativo. A próxima etapa fornece detalhes para definir esses valores.<br><br>
-    <a href="https://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Contoso Concert Hall**
-<br><br>
-    <a href="https://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Dogwood Dojo**
-<br><br>
-    <a href="https://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazz Club**
+1. Clique em cada botão azul **Implantar no Azure** para abrir o modelo de implantação no [Portal do Azure](https://portal.azure.com). Cada modelo exige dois valores de parâmetro: um nome para um novo grupo de recursos e um nome de usuário que distingue essa implantação de outras implantações do aplicativo. A próxima etapa fornece detalhes para definir esses valores.
 
+   **Contoso Concert Hall**   
+   [![Imagem mostrando um botão rotulado como "implantar no Azure".](media/saas-standaloneapp-get-started-deploy/deploy.png)](https://aka.ms/deploywingtipsa-contoso)
+
+   **Dogwood Dojo**   
+   [![Imagem mostrando um botão rotulado como "implantar no Azure".](media/saas-standaloneapp-get-started-deploy/deploy.png)](https://aka.ms/deploywingtipsa-dogwood)
+
+   **Fabrikam Jazz Club**   
+   [![Imagem mostrando um botão rotulado como "implantar no Azure".](media/saas-standaloneapp-get-started-deploy/deploy.png)](https://aka.ms/deploywingtipsa-fabrikam)
+ 
 2. Insira os valores de parâmetro necessários para cada implantação.
 
     > [!IMPORTANT]

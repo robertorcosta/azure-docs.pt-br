@@ -1,6 +1,6 @@
 ---
 title: Lista de verificação de segurança operacional do Azure| Microsoft Docs
-description: Este artigo fornece um conjunto de lista de verificação de segurança operacional do Azure.
+description: Examine esta lista de verificação para ajudar sua empresa a avaliar as considerações de segurança operacional do Azure.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c7c44018bb1a010298738d3e46b7b9e7b6c04292
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 656459c4a29a73732b8825e735719731a0979a0e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448294"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542918"
 ---
 # <a name="azure-operational-security-checklist"></a>Lista de verificação de segurança operacional do Azure
 Implantar um aplicativo no Azure é rápido, fácil e econômico. Antes de implantar o aplicativo na nuvem em produção útil para ter uma lista de verificação visando ajudar na avaliação de seu aplicativo mediante uma lista de ações de segurança operacional essenciais e recomendadas a você.
@@ -37,7 +37,7 @@ O Azure fornece um conjunto de serviços de infraestrutura que você pode utiliz
 
 Esta lista de verificação destina-se a ajudar as empresas a pensar em várias considerações de segurança operacional na medida em que implantam aplicativos empresariais sofisticados no Azure. Também pode ser utilizado para ajudá-lo a compilar uma estratégia de operação e migração na nuvem segura para sua organização.
 
-|Categoria da lista de verificação| Description|
+|Categoria da lista de verificação| Descrição|
 | ------------ | -------- |
 | [<br>Funções de segurança & controles de acesso](../../security-center/security-center-planning-and-operations-guide.md)|<ul><li>Utilize o [RBAC (Controle de Acesso Baseado em Função)](../../role-based-access-control/role-assignments-portal.md) para fornecer especificações específicas do usuário usadas para atribuir permissões a usuários, grupos e aplicativos em um determinado escopo.</li></ul> |
 | [<br>Coleta de dados & armazenamento](../../storage/blobs/security-recommendations.md)|<ul><li>Utilize a Segurança do Plano de Gerenciamento para proteger sua Conta de Armazenamento usando o [RBAC (Controle de Acesso Baseado em Função)](../../role-based-access-control/role-assignments-portal.md).</li><li>Segurança do Plano de Dados para Proteção de Acesso aos seus dados, utilizando [SAS (Assinatura de Acesso Compartilhado)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) e Políticas de Acesso Armazenadas.</li><li>Utilizar Criptografia em Nível de Transporte – através de HTTPS e criptografia usada pelo [SMB 3.0 (protocolos SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) para [Compartilhamentos de Arquivos do Azure](../../storage/files/storage-dotnet-how-to-use-files.md).</li><li>Utilize a [Criptografia do lado do cliente](../../storage/common/storage-client-side-encryption.md) para proteger os dados enviados para contas de armazenamento quando você exige o controle exclusivo das chaves de criptografia. </li><li>Utilize a [SSE (Criptografia do Serviço de Armazenamento)](../../storage/common/storage-service-encryption.md) para criptografar dados automaticamente no Armazenamento do Microsoft Azure e [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) para criptografar arquivos de disco da máquina virtual para o SO e discos de dados.</li><li>Utilize a [Análise de Armazenamento](https://docs.microsoft.com/rest/api/storageservices/storage-analytics) do Azure para monitorar o tipo de autorização; como com Armazenamento de Blobs, você pode consultar se os usuários utilizaram uma Assinatura de Acesso Compartilhado ou as chaves de conta de armazenamento.</li><li>Utilizar o [CORS (Compartilhamento de Recursos entre Origens)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) para acessar recursos de armazenamento de diferentes domínios.</li></ul> |

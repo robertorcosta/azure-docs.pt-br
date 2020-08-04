@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 3e01d5c8d57752c11b2890c1d109b58a223d260f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d45d802456345eab857f571d2d52793c8be691eb
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091920"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543054"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Transformações e trabalhos nos serviços de mídia
 
@@ -74,7 +74,7 @@ O diagrama a seguir mostra o objeto de **transformação** e os objetos referenc
 
 Selecione a imagem para exibi-la no tamanho total.  
 
-<a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a>
+[![Diagrama que mostra o objeto de transformação e os objetos referenciados por ele, incluindo as relações de derivação de classe entre os objetos.](./media/api-diagrams/transform-small.png)](./media/api-diagrams/transform-large.png#lightbox)
 
 ## <a name="jobs"></a>Trabalhos
 
@@ -102,7 +102,7 @@ O diagrama a seguir mostra o objeto de **trabalho** e os objetos que ele faz ref
 
 Clique na imagem para exibi-la em tamanho normal.  
 
-<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a>
+[![Diagrama que mostra o objeto de trabalho e os objetos referenciados, incluindo as relações de derivação de classe entre os objetos.](./media/api-diagrams/job-small.png)](./media/api-diagrams/job-large.png#lightbox)
 
 ## <a name="configure-media-reserved-units"></a>Configurar unidades reservadas de mídia
 

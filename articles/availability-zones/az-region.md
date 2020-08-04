@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 2e337628542475c081a59bffd25368de313011f8
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: b031b2a26f81c34f1699e530c8d0bb8839454c89
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206213"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543870"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Regiões que dão suporte a Zonas de Disponibilidade no Azure
 
@@ -32,7 +32,7 @@ Os serviços que estão disponíveis em cada região, juntamente com o próximo 
 | Conjuntos de Dimensionamento de Máquinas Virtuais      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | ILB ambientes de serviço de Azure App | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | Serviço de Kubernetes do Azure        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| **Armazenamento**   |            |              |           |           |                |              |          |             |            |                |                |
+| **Storage**   |            |              |           |           |                |              |          |             |            |                |                |
 | Managed Disks                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | Armazenamento com redundância de zona          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | **Rede**                     |            |              |           |           |                |              |          |             |            |                |                |
@@ -60,10 +60,10 @@ O Azure também oferece suporte Zonas de Disponibilidade nas seguintes regiões:
 - Gov. dos EUA – Virgínia
 - Leste da Austrália
 - Norte da África do Sul
-- South Central US
+- Centro-Sul dos Estados Unidos
 - Canadá Central
 
-Para saber mais sobre o suporte a Zonas de Disponibilidade nessas cinco regiões, entre em contato com seu representante de vendas ou cliente da Microsoft.
+Para saber mais sobre o suporte a Zonas de Disponibilidade nessas cinco regiões, entre em contato com seu representante de vendas ou cliente da Microsoft ou abra uma solicitação de suporte técnico.
 
 ## <a name="next-steps"></a>Próximas etapas
 

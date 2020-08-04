@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: eab2beecc4153bdb2b74ca81bb43f86e2e29a778
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 54867278b583124473b5b41c164714bf91f2f631
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504136"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543292"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controle de acesso no Azure Data Lake Storage Gen2
 
@@ -210,13 +210,12 @@ for entry in entries:
 member_count = 0
 perms = 0
 entries = get_acl_entries( path, NAMED_GROUP | OWNING_GROUP )
+mask = get_mask( path )
 for entry in entries:
 if (user_is_member_of_group(user, entry.identity)) :
-    member_count += 1
-    perms | =  entry.permissions
-if (member_count>0) :
-return ((desired_perms & perms & mask ) == desired_perms)
-
+    if ((desired_perms & entry.permissions & mask) == desired_perms)
+        return True 
+        
 # Handle other
 perms = get_perms_for_other(path)
 mask = get_mask( path )
@@ -348,6 +347,6 @@ ACLS não herdam. Porém, as ACLs padrão pode ser usadas para definir as ACLs d
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL usando listas de controle de acesso no Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Visão geral do Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

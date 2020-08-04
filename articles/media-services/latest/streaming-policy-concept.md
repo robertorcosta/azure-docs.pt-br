@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
-ms.openlocfilehash: 01972ab02aa901af6144c02171efd36314e2f514
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 30164e1af1948f86c68e102f4d348674ea931e7b
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091939"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544006"
 ---
 # <a name="streaming-policies"></a>Políticas de Streaming
 
@@ -40,7 +40,7 @@ A "árvore de decisão" a seguir ajuda você a escolher uma política de streami
 
 Clique na imagem para exibi-la em tamanho normal.  
 
-<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
+[![Diagrama que mostra uma árvore de decisão projetada para ajudá-lo a escolher uma política de streaming predefinida para seu cenário.](./media/streaming-policy/large.png)](./media/streaming-policy/large.png#lightbox)
 
 Ao criptografar seu conteúdo, você precisa criar uma [política de chave de conteúdo](content-key-policy-concept.md), a política de chave de **conteúdo** não é necessária para streaming ou download claro. 
 

@@ -1,6 +1,6 @@
 ---
 title: Visão geral da criptografia do Azure | Microsoft Docs
-description: Saiba mais sobre as várias opções de criptografia no Azure
+description: Saiba mais sobre as opções de criptografia no Azure. Veja informações de criptografia em repouso, criptografia em trânsito e gerenciamento de chaves com Azure Key Vault.
 services: security
 author: msmbaldwin
 ms.assetid: ''
@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 14808016b627bc593d90ff88fc9bddf2449f6ee5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5189270a7b9de9ff5a222ad76ce46254ae5d2ee3
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083949"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542952"
 ---
 # <a name="azure-encryption-overview"></a>Visão geral da criptografia do Azure
 
@@ -113,7 +113,7 @@ O Azure oferece muitos mecanismos para manter os dados privados à medida que el
 
 ### <a name="data-link-layer-encryption-in-azure"></a>Criptografia de camada de link de dados no Azure
 
-Sempre que o tráfego do cliente do Azure se move entre data centers – os limites físicos externos não são controlados pela Microsoft (ou em nome da Microsoft) – um método de criptografia de camada de vínculo de dados que usa os [padrões de segurança do Mac IEEE 802.1 AE](https://1.ieee802.org/security/802-1ae/) (também conhecido como MACsec) é aplicado de ponto a ponto no hardware de rede subjacente.  Os pacotes são criptografados e descriptografados nos dispositivos antes de serem enviados, impedindo ataques físicos "Man-in-the-middle" ou de espionagem/wiretapping.  Como essa tecnologia é integrada ao próprio hardware de rede, ela fornece criptografia de taxa de linha no hardware de rede sem aumento de latência de link mensurável.  Essa criptografia de MACsec está ativada por padrão para todos os viajam de tráfego do Azure em uma região ou entre regiões, e nenhuma ação é necessária na parte dos clientes para habilitar. 
+Sempre que o tráfego do cliente do Azure se move entre data centers – os limites físicos externos não são controlados pela Microsoft (ou em nome da Microsoft) – um método de criptografia de camada de vínculo de dados que usa os [padrões de segurança do Mac IEEE 802.1 AE](https://1.ieee802.org/security/802-1ae/) (também conhecido como MACsec) é aplicado de ponto a ponto no hardware de rede subjacente. Os pacotes são criptografados e descriptografados nos dispositivos antes de serem enviados, impedindo ataques físicos "Man-in-the-middle" ou de espionagem/wiretapping. Como essa tecnologia é integrada ao próprio hardware de rede, ela fornece criptografia de taxa de linha no hardware de rede sem aumento de latência de link mensurável. Essa criptografia MACsec está ativada por padrão para todo o tráfego do Azure que viaja dentro de uma região ou entre regiões, e nenhuma ação é necessária na parte dos clientes para habilitar. 
 
 ### <a name="tls-encryption-in-azure"></a>Criptografia TLS no Azure
 

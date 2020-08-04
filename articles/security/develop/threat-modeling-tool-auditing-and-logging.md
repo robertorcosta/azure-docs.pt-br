@@ -1,6 +1,6 @@
 ---
 title: Auditoria e Log - Ferramenta de Modelagem de Ameaças da Microsoft - Azure | Microsoft Docs
-description: atenuações de ameaças expostas na ferramenta de modelagem de ameaças
+description: Saiba mais sobre a auditoria e a mitigação de log no Threat Modeling Tool. Veja informações de mitigação e exiba exemplos de código.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: c9d20b3259cf4ea7af263d5e31145ad372db0c77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bac17073650736df9ec48e951290852e082e9417
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68728409"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542986"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Quadro de segurança: Auditoria e log | Atenuações 
 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
-| **Dynamics CRM**    | <ul><li>[Identificar entidades confidenciais em sua solução e implementar a auditoria de alteração](#sensitive-entities)</li></ul> |
+| **Dynamics CRM**    | <ul><li>[Identificar entidades sensíveis em sua solução e implementar a auditoria de alteração](#sensitive-entities)</li></ul> |
 | **Aplicativo Web** | <ul><li>[Verifique se a auditoria e o log são impostos no aplicativo](#auditing)</li><li>[Verifique se a rotação de log e a separação estão em vigor](#log-rotation)</li><li>[Verifique se o aplicativo não registra em log os dados confidenciais do usuário](#log-sensitive-data)</li><li>[Garantir que os arquivos de auditoria e de log tenham acesso restrito](#log-restricted-access)</li><li>[Certifique-se de que os eventos de gerenciamento de usuário estão registrados](#user-management)</li><li>[Verifique se o sistema tem embutidas defesas contra uso indevido](#inbuilt-defenses)</li><li>[Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure](#diagnostics-logging)</li></ul> |
 | **Backup de banco de dados** | <ul><li>[Verifique se a auditoria de logon é habilitada no SQL Server](#identify-sensitive-entities)</li><li>[Ativar a detecção de ameaças no SQL Azure](#threat-detection)</li></ul> |
 | **Armazenamento do Azure** | <ul><li>[Uso da Análise de Armazenamento do Azure para auditar o acesso do Armazenamento do Azure](#analytics)</li></ul> |

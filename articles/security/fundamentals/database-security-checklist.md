@@ -1,6 +1,6 @@
 ---
 title: Lista de verificação de segurança do banco de dados do Azure | Microsoft Docs
-description: Este artigo fornece um conjunto de lista de verificação de segurança do banco de dados do Azure.
+description: Use a lista de verificação de segurança do banco de dados do Azure para garantir que você resolva problemas importantes de segurança de computação em nuvem.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: fc79d7204ba360696b8d9411cd56efd09d1678dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad8f15f7d1cf69824bfb9298d7ccf097e4893ea8
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021833"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542969"
 ---
 # <a name="azure-database-security-checklist"></a>Lista de verificação de segurança do banco de dados do Azure
 
 Para ajudar a melhorar a segurança, o banco de dados do Azure inclui uma série de controles de segurança internos que você pode usar para limitar e controlar o acesso.
 
-Elas incluem:
+Eles incluem:
 
 -    Um firewall que permite que você crie [regras de firewall](../../azure-sql/database/firewall-configure.md) limitando a conectividade por endereço IP,
 -    Firewall de nível de servidor acessível pelo portal do Azure
@@ -48,7 +48,7 @@ A computação na nuvem exige novos paradigmas de segurança que não são famil
 | ------------ | -------- |
 |**Proteger dados**||
 | <br> Criptografia em movimento/trânsito| <ul><li>[Protocolo TLS](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), para criptografia de dados quando os dados se movem para as redes.</li><li>O banco de dados requer uma comunicação segura de clientes com base no protocolo [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) em TLS (Transport Layer Security).</li></ul> |
-|<br>Criptografia em repouso| <ul><li>[Transparent Data Encryption](https://go.microsoft.com/fwlink/?LinkId=526242), quando dados inativos são armazenados fisicamente em qualquer formato digital.</li></ul>|
+|<br>Criptografar em repouso| <ul><li>[Transparent Data Encryption](https://go.microsoft.com/fwlink/?LinkId=526242), quando dados inativos são armazenados fisicamente em qualquer formato digital.</li></ul>|
 |**Controlar acesso**||  
 |<br> Acesso a banco de dados | <ul><li>[Autenticação](../../azure-sql/database/logins-create-manage.md) (Autenticação do Azure Active Directory), a autenticação do AD usa identidades gerenciadas pelo Azure Active Directory.</li><li>[Autorização](../../azure-sql/database/logins-create-manage.md) concede aos usuários os privilégios mínimos necessários.</li></ul> |
 |<br>Acesso a aplicativos| <ul><li>[Segurança em nível de linha](https://msdn.microsoft.com/library/dn765131) (Usando política de segurança, ao mesmo tempo restringindo o acesso em nível de linha com base na identidade, função ou contexto de execução do usuário).</li><li>[Máscara de Dados Dinâmicos](../../azure-sql/database/dynamic-data-masking-overview.md) (Usando permissão e política, limita a exposição de dados confidenciais através do mascaramento dos dados a usuários sem privilégios)</li></ul>|

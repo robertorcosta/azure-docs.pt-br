@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 12d86f9415f7f5b813d2dce8eb3ad4bb63dec30c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1d14fa9730e3ddd47378a45ff7a1442bdee69ac
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82929750"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543377"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gerenciamento de modelos, implantação e monitoramento com Azure Machine Learning
 
@@ -74,7 +74,7 @@ Para obter mais informações, consulte a seção sobre registro de modelos em [
 ### <a name="profile-models"></a>Modelos de perfil
 
 Azure Machine Learning pode ajudá-lo a entender os requisitos de CPU e memória do serviço que será criado quando você implantar seu modelo. A criação de perfil testa o serviço que executa o modelo e retorna informações como uso da CPU, uso de memória e latência de resposta. Ele também fornece uma recomendação de CPU e memória com base no uso de recursos.
-Para obter mais informações, consulte a seção criação de perfil de [implantar modelos](how-to-deploy-and-where.md#profilemodel).
+Para obter mais informações, consulte a seção criação de perfil de [implantar modelos](how-to-deploy-profile-model.md).
 
 ### <a name="package-and-debug-models"></a>Modelos de pacote e depuração
 
@@ -94,7 +94,7 @@ Para obter mais informações sobre o ONNX com Azure Machine Learning, consulte 
 
 Os modelos de aprendizado de máquina treinados são implantados como serviços Web na nuvem ou localmente. Você também pode implantar modelos para Azure IoT Edge dispositivos. As implantações usam CPU, GPU ou FPGA (matrizes de portão programável por campo) para inferência. Você também pode usar modelos do Power BI.
 
-Ao usar um modelo como um serviço Web ou IoT Edge dispositivo, você fornece os seguintes itens:
+Ao usar um modelo como um serviço Web ou dispositivo IoT Edge, você fornece os seguintes itens:
 
 * Os modelos que são usados para pontuar os dados enviados para o serviço/dispositivo.
 * Um script de entrada. Esse script aceita solicitações, usa os modelos para pontuar os dados e retornar uma resposta.
@@ -103,7 +103,7 @@ Ao usar um modelo como um serviço Web ou IoT Edge dispositivo, você fornece os
 
 Você também fornece a configuração da plataforma de implantação de destino. Por exemplo, o tipo de família de VMs, a memória disponível e o número de núcleos durante a implantação no serviço kubernetes do Azure.
 
-Quando a imagem é criada, os componentes exigidos pelo Azure Machine Learning também são adicionados. Por exemplo, os ativos necessários para executar o serviço Web e interagir com IoT Edge.
+Quando a imagem é criada, também são adicionados os componentes exigidos pelo Azure Machine Learning. Por exemplo, os ativos necessários para executar o serviço Web e interagir com o IoT Edge.
 
 #### <a name="batch-scoring"></a>Pontuação do lote
 A pontuação de lote tem suporte por meio de pipelines de ML. Para obter mais informações, consulte [previsões de lote em Big data](how-to-use-parallel-run-step.md).

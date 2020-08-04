@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: ea6aec9ffcaf01c0db5b297d40783ce4690a8f0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea5f2d5838c926fa8ee7b92278b0854264346a7b
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84031477"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543751"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importar ou exportar um banco de dados SQL do Azure sem permitir que os serviços do Azure acessem o servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,9 +34,7 @@ Crie uma máquina virtual do Azure selecionando o botão **implantar no Azure** 
 Este modelo permite que você implante uma máquina virtual simples do Windows usando algumas opções diferentes para a versão do Windows, usando a versão mais recente com patches. Isso implantará uma VM de tamanho a2 no local do grupo de recursos e retornará o nome de domínio totalmente qualificado da VM.
 <br><br>
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+[![Imagem mostrando um botão rotulado como "implantar no Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json)
 
 Para obter mais informações, consulte [implantação muito simples de uma VM do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows).
 
@@ -91,7 +89,7 @@ As etapas a seguir criam uma regra de firewall de IP no nível de servidor para 
 
 4. Escolha **Adicionar IP do cliente** na barra de ferramentas para adicionar o endereço IP público da máquina virtual a uma nova regra de firewall de IP no nível de servidor. Uma regra de firewall de IP no nível do servidor pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
 
-5. Selecione **Salvar**. Uma regra de firewall de IP no nível de servidor é criada para o endereço IP público da sua máquina virtual abrindo a porta 1433 no servidor.
+5. Clique em **Salvar**. Uma regra de firewall de IP no nível de servidor é criada para o endereço IP público da sua máquina virtual abrindo a porta 1433 no servidor.
 
 6. Feche a página **Configurações do Firewall**.
 

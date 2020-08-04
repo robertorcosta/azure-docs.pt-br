@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 0e538299dfc9c9406b519d888d1a92c5c643bb03
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: eea64520dd5440467c911b6de42d8c8c31fc1bde
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421732"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543445"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Solução de problemas e limitações do Azure Cloud Shell
 
@@ -151,7 +151,8 @@ O Azure Cloud Shell leva seus dados pessoais a sério, os dados capturados e arm
 ### <a name="export"></a>Exportação
 Para **exportar** as configurações de usuário Cloud Shell salvas para você, como o shell preferencial, o tamanho da fonte e o tipo de fonte, execute os seguintes comandos.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+1. [![Imagem mostrando um botão chamado iniciar Azure Cloud Shell.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+
 2. Execute os seguintes comandos no PowerShell:
 
 Bash:
@@ -174,7 +175,8 @@ Para **excluir** as configurações de usuário Cloud Shell salvas para você, c
 >[!Note]
 > Se você excluir as configurações de usuário, vá para arquivos do Azure para concluir essa ação. Vá para os seus arquivos do Azure para concluir essa ação.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+1. [![Imagem mostrando um botão chamado iniciar Azure Cloud Shell.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+
 2. Execute os seguintes comandos no PowerShell:
 
 Bash:

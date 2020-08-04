@@ -1,18 +1,18 @@
 ---
 title: Azure Disk Encryption para máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais
-description: Este artigo fornece uma visão geral de Azure Disk Encryption
+description: Saiba mais sobre a criptografia de disco do Azure para VMs (máquinas virtuais) e conjuntos de dimensionamento de VM. A criptografia de disco do Azure funciona para VMs Linux e Windows.
 author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: c881b2b9743766e4d35e6cb05f6f3469803850bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21194bf2fe76a7eb0ee034d4a502c20ee3032dd9
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80062119"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543666"
 ---
 # <a name="azure-disk-encryption-for-virtual-machines-and-virtual-machine-scale-sets"></a>Azure Disk Encryption para máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais
 
@@ -25,7 +25,7 @@ Os artigos a seguir fornecem orientação para criptografar máquinas virtuais d
 ### <a name="current-version-of-azure-disk-encryption"></a>Versão atual do Azure Disk Encryption
 
 - [Visão geral de Azure Disk Encryption para VMs Linux](../../virtual-machines/linux/disk-encryption-overview.md)
-- [Cenários de Azure Disk Encryption em VMs Linux](../../virtual-machines/linux/disk-encryption-linux.md)
+- [Cenários do Azure Disk Encryption em VMs do Linux](../../virtual-machines/linux/disk-encryption-linux.md)
 - [Criar e criptografar uma VM do Linux com a CLI do Azure](../../virtual-machines/linux/disk-encryption-cli-quickstart.md)
 - [Criar e criptografar uma VM do Linux com o Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 - [Criar e criptografar uma VM do Linux com o portal do Azure](../../virtual-machines/linux/disk-encryption-portal-quickstart.md)

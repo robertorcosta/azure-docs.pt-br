@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a9def93e6eb337300d3c166532a9415f02b825b7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2a4ba5494cb65738f5443915c013571b98854a91
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286386"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543411"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Criar um pool de hosts da área de trabalho virtual do Windows com o PowerShell
 
@@ -60,7 +60,7 @@ New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtuali
 Execute este próximo cmdlet para adicionar grupos de usuários do Azure Active Directory ao grupo de aplicativos da área de trabalho padrão para o pool de host:
 
 ```powershell
-New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname+“-DAG”> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
+New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname+"-DAG"> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
 Execute o cmdlet a seguir para exportar o token de registro para uma variável, que será usada posteriormente em [Registrar as máquinas virtuais no pool de host da Área de Trabalho Virtual do Windows](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
