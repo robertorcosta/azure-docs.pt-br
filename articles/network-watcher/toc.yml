@@ -51,6 +51,12 @@
   items:
     - name: Configurar o Observador de Rede
       href: network-watcher-create.md
+    - name: Criar Monitor da Conexão (versão prévia)
+      items:
+        - name: Usando o Portal do Azure
+          href: connection-monitor-preview-create-using-portal.md
+        - name: Usando o ARMClient
+          href: connection-monitor-preview-create-using-arm-client.md
     - name: Diagnosticar problemas de rede de VM
       items:
         - name: Instalar a extensão de VM
