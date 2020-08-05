@@ -3,12 +3,13 @@ title: 'Início Rápido: Biblioteca de clientes do QnA Maker para Node.js'
 description: Este início rápido oferece uma introdução à biblioteca de clientes do QnA Maker para Node.js.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 7b3c5e69e820951896cb00b82295dc07ba698c94
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 76d0587c68ac46253dbd937c661b06bdb8c495c8
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114498"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87404066"
 ---
 Use a biblioteca de clientes do QnA Maker para Node.js para:
 
@@ -122,7 +123,7 @@ Instancie um cliente com o ponto de extremidade e a chave. Crie um objeto Servic
 Uma base de dados de conhecimento armazena pares de perguntas e respostas para o objeto [CreateKbDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/createkbdto?view=azure-node-latest) de três fontes:
 
 * Para **conteúdo editorial**, use o objeto [QnADTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnadto?view=azure-node-latest).
-    * Para usar os metadados e as solicitações de acompanhamento, use o contexto editorial, pois esses dados são adicionados no nível do par individual do QnA.
+    * Para usar os metadados e as solicitações de acompanhamento, use o contexto editorial, pois esses dados são adicionados no nível do par individual de P e R.
 * Para **arquivos**, use o objeto [FileDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/filedto?view=azure-node-latest). O FileDTO inclui o nome de arquivo, bem como a URL pública para acessar o arquivo.
 * Em **URLs**, use uma lista de cadeias de caracteres para representar URLs disponíveis publicamente.
 

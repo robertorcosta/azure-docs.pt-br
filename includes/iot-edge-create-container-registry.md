@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 12/30/2019
 ms.author: kgremban
-ms.openlocfilehash: f8cb734e8a57e3b0ee114ae20f454d0034e9cdc9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0c43c6dcced94225e9ab9ae903535ce74286ad9a
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387601"
+ms.locfileid: "87406700"
 ---
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
 
@@ -33,7 +33,7 @@ Caso ainda não tenha um registro de contêiner, siga estas etapas para criar um
 
 3. Selecione **Criar**.
 
-4. Depois que o registro de contêiner for criado, navegue até ele e, no painel esquerdo, selecione **Chaves de acesso** no menu localizado em **Configurações**.
+4. Depois que o registro de contêiner for criado, navegue até ele e, no painel esquerdo, selecione **Chaves de acesso** no menu localizado em **Configurações**. 
 
 5. Clique para Habilitar que o usuário administrador veja o **Nome de usuário** e a **Senha** do seu registro de contêiner.
 
