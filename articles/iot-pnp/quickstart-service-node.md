@@ -7,13 +7,13 @@ ms.date: 07/13/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: 9ddca58e166baa1e94fcc3edcfbbc64abd578049
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 511a61fb1069ce10e94e24ecd3ba6d60470ca40f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352533"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424436"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-nodejs"></a>Início Rápido: Interagir com um dispositivo em versão prévia IoT Plug and Play que está conectado à sua solução (Node.js)
 

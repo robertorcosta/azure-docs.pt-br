@@ -6,12 +6,13 @@ ms.topic: quickstart
 description: Este início rápido mostra como usar o Azure Dev Spaces e o Visual Studio Code para depurar e iterar rapidamente um aplicativo Node.js no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 370d49b5287a4d5beafc8c2cc5d8f48c269715db
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: c27718cc87a1c9401b31ff8c3c77c7b7a8c52292
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006937"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420372"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>Início Rápido: Depurar e iterar no Kubernetes com o Visual Studio Code e o Node.js no Kubernetes – Azure Dev Spaces
 

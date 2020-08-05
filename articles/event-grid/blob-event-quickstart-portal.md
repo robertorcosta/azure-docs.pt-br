@@ -3,12 +3,12 @@ title: 'Início Rápido: enviar eventos de Armazenamento de Blobs para o ponto d
 description: 'Início Rápido: Use a Grade de Eventos do Azure e o portal do Azure para criar a conta de armazenamento de Blobs e faça uma assinatura dos seus respectivos eventos. Envie os eventos para um Webhook.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: fe942a4daa877088bd354352aa994e4e283f9be5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 46cd88558334239a1a9971c63b8b2608def3c4d3
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103612"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421596"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Início Rápido: Encaminhar eventos de Armazenamento de Blobs para o ponto de extremidade da Web com o portal do Azure
 
@@ -50,7 +50,7 @@ Antes de assinar eventos para o armazenamento de Blobs, vamos criar o ponto de e
 
 1. Selecione **Implantar no Azure** para implantar a solução na sua assinatura. 
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Aquent." /></a>
 2. Na página **Implantação personalizada**, realize as seguintes etapas: 
     1. Para **Grupo de recursos**, selecione o mesmo grupo de recursos que você usou ao criar a conta de armazenamento. Será mais fácil fazer a limpeza após a concluir o tutorial, excluindo o grupo de recursos.  
     2. Em **Nome do Site**, insira um nome para o aplicativo Web.

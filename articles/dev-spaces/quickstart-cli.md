@@ -6,12 +6,13 @@ ms.topic: quickstart
 description: Este início rápido mostra como usar o Azure Dev Spaces e a linha de comando para desenvolver um aplicativo no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 337c3cb139e1fe0c35344e49271503b98a59fa7b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 82e7e73a91b07770881353465af063497deae085
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82165995"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87414795"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>Início Rápido: Desenvolver um aplicativo no Kubernetes – Azure Dev Spaces
 Neste guia, você aprenderá a:

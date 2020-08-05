@@ -3,12 +3,12 @@ title: 'Início Rápido: Enviar eventos personalizados para o ponto de extremida
 description: 'Início Rápido: Use a Grade de Eventos do Azure e o portal do Azure para publicar um tópico personalizado e assinar eventos para esse tópico. Os eventos são tratados por um aplicativo Web.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 21c3d043925d328c671de19444b0fed1c6950bf1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 592e2d6b7393da8cb55a457b022d6c2358048cfe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115223"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421035"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Início Rápido: Encaminhar eventos personalizados ao ponto de extremidade Web com o portal do Azure e a Grade de Eventos
 
@@ -44,7 +44,8 @@ Um tópico de grade de evento fornece um ponto de extremidade definido pelo usu�
 5. Depois que a implantação for realizada com sucesso, digite **Tópicos da Grade de Eventos** na barra de pesquisa novamente e selecione **Tópicos da Grade de Eventos** na lista suspensa como antes. 
 6. Selecione o tópico que você criou na lista. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Selecione seu tópico na lista":::  
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Selecione seu tópico na lista":::
+
 7. Você vê a página **Tópico de Grade de Eventos** para seu tópico. Mantenha essa página aberta. Você a usará posteriormente no início rápido. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Home page do Tópico de Grade de Eventos":::
@@ -54,7 +55,7 @@ Antes de criar uma assinatura para o tópico personalizado, crie um ponto de ext
 
 1. Na página do artigo, selecione **Implantar no Azure** para implantar a solução na sua assinatura. No portal do Azure, forneça os valores para os parâmetros.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
 1. A implantação pode levar alguns minutos para ser concluída. Depois que a implantação for bem-sucedida, exiba seu aplicativo Web para garantir que ele esteja em execução. Em um navegador da Web, navegue até: `https://<your-site-name>.azurewebsites.net`
 
     Se a implantação falhar, verifique a mensagem de erro. Talvez o nome do site já esteja em uso. Implante o modelo novamente e escolha outro nome para o site. 

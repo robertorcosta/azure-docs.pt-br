@@ -6,12 +6,13 @@ ms.topic: quickstart
 description: Este início rápido mostra como usar o Azure Dev Spaces e a linha de comando para desenvolver um aplicativo com um gráfico do Helm existente no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: c37ea0b04e99cf1bba555e098bdf33b8a8558cfa
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 7d1d782203401607d3909d79d1f0f3a499712c32
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996673"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87414302"
 ---
 # <a name="quickstart-develop-an-application-with-an-existing-helm-chart-on-kubernetes---azure-dev-spaces"></a>Início Rápido: Desenvolver um aplicativo com um gráfico do Helm existente no kubernetes – Azure Dev Spaces
 Neste guia, você aprenderá a:

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 7aa0889ab95cdac37f9fe0735c7ad58569621059
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bf9e403fb8691f378558ef5f0403d132214ed187
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205408"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421766"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes do Azure Load Balancer
 
@@ -75,7 +75,7 @@ Uma regra do Load Balancer é usada para definir como o tráfego de entrada é d
 Por exemplo, use uma regra de balanceamento de carga para a porta 80 a fim de rotear o tráfego do IP de front-end para a porta 80 das instâncias de back-end.
 
 <p align="center">
-  <img src="./media/load-balancer-components/lbrules.svg" width="512" title="Regras de balanceamento de carga">
+  <img src="./media/load-balancer-components/lbrules.svg" alt= "Figure depicts how Azure Load Balancer directs frontend port 80 to three instances of backend port 80." width="512" title="Regras de balanceamento de carga">
 </p>
 
 *Figura: regras de balanceamento de carga*
@@ -97,7 +97,7 @@ A decisão de balanceamento de carga é feita por fluxo. Essa ação se baseia n
 As regras de balanceamento de carga de portas de HA o ajudam com cenários críticos, como alta disponibilidade e escala para NVAs (soluções de virtualização de rede) dentro de redes virtuais. O recurso pode ser útil quando um grande número de portas precisa do balanceamento de carga.
 
 <p align="center">
-  <img src="./media/load-balancer-components/harules.svg" width="512" title="Regras de portas HA">
+  <img src="./media/load-balancer-components/harules.svg" alt="Figure depicts how Azure Load Balancer directs all frontend ports to three instances of all backend ports" width="512" title="Regras de portas HA">
 </p>
 
 *Figura: regras de portas HA*
@@ -111,7 +111,7 @@ Uma regra NAT de entrada encaminha o tráfego de entrada enviado para a combina�
 Por exemplo, se você quiser que as sessões de protocolo RDP ou SSH (Secure Shell) separem as instâncias de VM dentro de um pool de back-end. É possível mapear vários pontos de extremidade internos para portas no mesmo endereço IP de Front-end. Você pode usar os endereços IP de Front-end para administrar remotamente suas VMs sem um jumpbox adicional.
 
 <p align="center">
-  <img src="./media/load-balancer-components/inboundnatrules.svg" width="512" title="Regras NAT de entrada">
+  <img src="./media/load-balancer-components/inboundnatrules.svg" alt="Figure depicts how Azure Load Balancer directs frontend ports 3389, 443, and 80 to backend ports with the same values on separate servers." width="512" title="Regras NAT de entrada">
 </p>
 
 *Figura: Regras NAT de entrada*

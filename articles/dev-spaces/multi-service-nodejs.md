@@ -5,12 +5,13 @@ ms.date: 11/21/2018
 ms.topic: tutorial
 description: Este tutorial mostra como usar o Azure Dev Spaces e o Visual Studio Code para depurar um aplicativo Node.js de vários serviços no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: 2c87dedda1db97a033526c809de735fe036120ef
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 7a8f97df976b7e989021308385ef930e539a1e56
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006975"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87414843"
 ---
 # <a name="running-multiple-dependent-services-nodejs-and-visual-studio-code-with-azure-dev-spaces"></a>Executar vários serviços dependentes: Node.js e Visual Studio Code com o Azure Dev Spaces
 
