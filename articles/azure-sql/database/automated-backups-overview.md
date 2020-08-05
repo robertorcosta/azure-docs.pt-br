@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-ms.date: 07/20/2020
-ms.openlocfilehash: ed3f23b13920a9c3220a030059fdc8471f350d28
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 08/04/2020
+ms.openlocfilehash: c24a78413b09de04a10266f883e11617bb7a2f27
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428223"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554032"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados – banco de dados SQL do Azure & SQL Instância Gerenciada
 
@@ -120,7 +120,7 @@ Para obter mais informações sobre LTR, confira [Retenção de backup de longo 
 
 ## <a name="storage-costs"></a>Custos de armazenamento
 
-O preço do armazenamento varia, dependendo se você estiver usando o modelo de DTU ou o modelo vCore.
+O preço do armazenamento de backup varia dependendo se você estiver usando o modelo de DTU ou o modelo vCore e também em sua região. O armazenamento de backup é cobrado por GB/mês consumido, para preços, consulte página de [preços do banco de dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/single/) e página de [preços do Azure SQL instância gerenciada](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) .
 
 ### <a name="dtu-model"></a>Modelo de CPU
 
@@ -203,7 +203,7 @@ Alterações na retenção de backup PITR para banco de dados SQL são feitas na
 
 ![Alterar a retenção de PITR, nível de servidor](./media/automated-backups-overview/configure-backup-retention-sqldb.png)
 
-#### <a name="sql-managed-instance"></a>[Instância Gerenciada do SQL](#tab/managed-instance)
+#### <a name="sql-managed-instance"></a>[Instância Gerenciada de SQL](#tab/managed-instance)
 
 As alterações na retenção de backup PITR para o SQL Instância Gerenciada são feitas em um nível de banco de dados individual. Para alterar a retenção de backup de PITR para um banco de dados de instância no portal do Azure, vá para a folha de visão geral do banco de dados individual. Em seguida, selecione **Configurar retenção de backup** na parte superior da tela:
 
@@ -227,7 +227,7 @@ Para alterar a retenção de backup do PITR para bancos de dados SQL do Azure at
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
 
-#### <a name="sql-managed-instance"></a>[Instância Gerenciada do SQL](#tab/managed-instance)
+#### <a name="sql-managed-instance"></a>[Instância Gerenciada de SQL](#tab/managed-instance)
 
 Para alterar a retenção de backup do PITR de um banco de dados ativo do SQL Instância Gerenciada **individual** , use o seguinte exemplo do PowerShell.
 

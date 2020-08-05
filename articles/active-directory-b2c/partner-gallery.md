@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 986abbe6c124ce1323add5b8e854973416dfcbf4
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 225e337cdb4a1901d6b8e563a2a7d7c0bea4b05d
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371202"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552944"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Parceiros ISV Azure Active Directory B2C
 
@@ -34,6 +34,7 @@ Nossa rede de parceiros de ISV estende nossos recursos de solução para ajudá-
 | ![Logotipo](./media/partner-gallery/idology-logo.png) | O [IDology](./partner-idology.md) é um provedor de verificação de identidade e de provação com soluções de verificação de ID, soluções de prevenção de fraudes, soluções de conformidade e outras.|
 | ![Logotipo](./media/partner-gallery/itsme-logo.png) | o [ITSM](./partner-itsme.md) é uma solução de identificação digital em conformidade com os serviços de autenticação e confiança (eiDAS) para permitir que os usuários se conectem com segurança sem leitores de cartão, senhas, autenticação de dois fatores e vários códigos de PIN. |
 | ![Logotipo](./media/partner-gallery/lexisnexis-logo.png) | O [LexisNexis](./partner-lexisnexis.md) é um provedor de validação de identidade e criação de perfil que verifica a identificação do usuário e fornece uma avaliação de risco abrangente com base no dispositivo do usuário. |
+| ![Logotipo](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) é uma ID de documento e uma solução de verificação de biometria facial que permite que as empresas atendam aos requisitos de *clientes* e de identidade em tempo real.  |
 | ![Logotipo](./media/partner-gallery/trusona-logo.png) | A integração do [Trusona](./partner-trusona.md) ajuda você a entrar com segurança e permite a autenticação sem senha, a autenticação multifator e a verificação de licença digital.|
 | ![Logotipo](./media/partner-gallery/twilio-logo.png) | [Twilio Verify app](./partner-twilio.md) fornece várias soluções para habilitar a MFA (autenticação multifator) por meio de OTP (senha de uso único) do SMS, uma senha de uso único baseada em tempo (TOTP) e notificações por push e para atender aos requisitos de SCA para a diretiva de serviços de pagamento 2 (PSD2).|
 | ![Logotipo](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) é um provedor de verificação de identidade e de provação com base no padrão de digitação do usuário, fornece soluções de verificação de ID que forçam a autenticação multifator e ajuda a cumprir os requisitos de SCA para a diretiva 2 de serviços de pagamento (PSD2). |

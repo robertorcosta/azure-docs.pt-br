@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/28/2020
+ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 4a6de0b2067cdc847b830fba7607be8cb8f265ab
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 14ae9103571d72b0a48ee8e1a9c9dc6bb008373b
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981376"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552119"
 ---
 # <a name="dynamic-data-masking"></a>Mascaramento de dados dinâmicos 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -76,7 +76,7 @@ Você pode usar a API REST para gerenciar programaticamente a política e as reg
 
 ### <a name="data-masking-policies"></a>Políticas de mascaramento de dados
 
-- [Criar ou Atualizar](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): Cria ou atualiza o rótulo de confidencialidade da coluna especificada.
+- [Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): cria ou atualiza uma política de mascaramento de dados de banco de dado.
 - [Obter](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get): Obtém uma política de mascaramento de dados de banco de dados. 
 
 ### <a name="data-masking-rules"></a>Regras de mascaramento de dados

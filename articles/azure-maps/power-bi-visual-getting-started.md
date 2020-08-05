@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: e840517934e77c96f1c19c3243ad2884d7ccce66
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9f7f44e053cfb26cbf7d897b8a1df1ad2861fd07
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261598"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551992"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Introdução ao Visual do Azure Maps Power BI
 
@@ -25,9 +25,9 @@ Este artigo mostra como usar o Visual do Microsoft Azure Maps para Power BI.
 > [!NOTE]
 > Esse visual pode ser criado e exibido tanto no Power BI Desktop quanto no serviço do Power BI. As etapas e ilustrações deste artigo são do Power BI Desktop.
 
-O Visual do mapas do Azure para Power BI fornece um rico conjunto de visualizações de dados para dados espaciais sobre um mapa. É estimado que mais de 80% dos dados corporativos tenham um contexto de local. O Visual Maps do Azure pode ser usado para obter informações sobre como esse contexto de local se relaciona e influencia seus dados corporativos.
+O visual do Azure Mapas para Power BI fornece um rico conjunto de visualizações de dados para dados espaciais sobre um mapa. É estimado que mais de 80% dos dados corporativos tenham um contexto de localização. O Visual Maps do Azure pode ser usado para obter informações sobre como esse contexto de local se relaciona e influencia seus dados corporativos.
 
-![Power BI desktop com o Visual Maps do Azure exibindo dados corporativos](media/power-bi-visual/azure-maps-visual-hero.png)
+![O Power BI Desktop com o visual do Azure Mapas exibindo dados corporativos](media/power-bi-visual/azure-maps-visual-hero.png)
 
 ## <a name="what-is-sent-to-azure"></a>O que é enviado para o Azure?
 
@@ -35,6 +35,9 @@ O Visual do mapas do Azure se conecta ao serviço de nuvem hospedado no Azure pa
 
 -   Os detalhes sobre a área em que o mapa está focalizado são enviados ao Azure para recuperar as imagens necessárias para renderizar a tela de mapa (também conhecida como blocos de mapa). 
 -   Os dados nos buckets local, latitude e longitude podem ser enviados ao Azure para recuperar coordenadas de mapa (um processo chamado geocodificação). 
+-   Os dados de telemetria podem ser coletados na integridade do Visual (ou seja, relatórios de falha), se a opção de telemetria no Power BI estiver habilitada.
+
+Além dos cenários descritos acima, nenhum outro dado sobreposto no mapa é enviado aos servidores do Azure Maps. Toda a renderização de dados ocorre localmente no cliente.
 
 Você, ou seu administrador, talvez precise atualizar seu firewall para permitir o acesso à plataforma mapas do Azure que usa a URL a seguir.
 
@@ -89,7 +92,7 @@ Execute as seguintes etapas para carregar o Visual do Azure Maps:
 
 Os seguintes buckets de dados estão disponíveis no painel **campos** do Visual mapas do Azure.
 
-| Campo     | Descrição  |
+| Campo     | DESCRIÇÃO  |
 |-----------|--------------|
 | Latitude  | O campo usado para especificar o valor de latitude dos pontos de dados. Os valores de latitude devem estar entre-90 e 90 no formato decimal graus.  |
 | Longitude | O campo usado para especificar o valor de longitude dos pontos de dados. Os valores de longitude devem estar entre-180 e 180 no formato decimal graus.  |

@@ -4,12 +4,12 @@ description: Este artigo fornece informações sobre como adicionar um ponto de 
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4518f7faedb44631c76c6d8b42ff9cca0dc3e08c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f902c77c3c7e614247abd4f8af50b8ed37b7e574
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422939"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552978"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Permitir acesso ao namespace do barramento de serviço do Azure de redes virtuais específicas
 
@@ -32,6 +32,7 @@ O resultado é um relacionamento privado e isolado entre as cargas de trabalho a
 > Os serviços da Microsoft abaixo devem estar em uma rede virtual
 > - Serviço de aplicativo do Azure
 > - Funções do Azure
+> - Azure Monitor (configuração de diagnóstico)
 
 > [!IMPORTANT]
 > As redes virtuais têm suporte apenas em namespaces do Barramento de Serviço [camada Premium](service-bus-premium-messaging.md).

@@ -6,12 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: c9696167d9addc3029a53f25e289d17bd3add263
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 533d114e08464ff95c654a6f071ea28a04caf510
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073620"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564088"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Entender como a ferramenta de migração funciona
 
@@ -104,7 +104,7 @@ Alertas em Mongo as métricas de solicitações com falha devem ser divididos em
 
 ### <a name="classic-compute-metrics"></a>Métricas de computação clássicas
 
-Quaisquer alertas sobre métricas de computação clássicas não serão migrados usando a ferramenta de migração, já que os recursos de computação clássicos ainda não têm suporte com novos alertas. O suporte para novos alertas nesses tipos de recursos será adicionado no futuro. Uma vez disponível, os clientes devem recriar novas regras de alerta equivalentes com base em suas regras de alerta clássicas antes de junho de 2020.
+Quaisquer alertas sobre métricas de computação clássicas não serão migrados usando a ferramenta de migração, já que os recursos de computação clássicos ainda não têm suporte com novos alertas. O suporte para novos alertas nesses tipos de recursos está atualmente em visualização pública e os clientes podem recriar novas regras de alerta equivalentes com base em suas regras de alerta clássicas.
 
 ### <a name="classic-alert-rules-on-deprecated-metrics"></a>Regras de alerta clássicas sobre métricas preteridas
 
@@ -161,7 +161,7 @@ Para serviços de conta de armazenamento como BLOB, tabela, arquivo e fila, as m
 | SASSuccess | Métrica de transações com dimensões "ResponseType" = "êxito" e "autenticação" = "SAS" | |
 | ServerOtherError | Métrica de transações com dimensões "ResponseType" = "ServerOtherError" | |
 | ServerTimeOutError | Métrica de transações com dimensões "ResponseType" = "ServerTimeOutError"  | |
-| Êxito | Métrica de transações com dimensões "ResponseType" = "êxito" | |
+| Sucesso | Métrica de transações com dimensões "ResponseType" = "êxito" | |
 | TotalBillableRequests| Transactions | |
 | TotalEgress | Saída | |
 | TotalIngress | Entrada | |

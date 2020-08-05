@@ -6,24 +6,51 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: f43f17a0f3742831920836e448de3ef757f2dfa6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 763a13cf2ecbe845619101bc9e325cc51564260a
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85566997"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553386"
 ---
 # <a name="scenario-isolating-vnets"></a>Cenário: isolando VNets
 
-Ao trabalhar com o roteamento de Hub virtual de WAN virtual, há alguns cenários disponíveis. Nesse cenário, o objetivo é impedir que o VNets seja capaz de acessar outros. Isso é conhecido como isolar VNets. A carga de trabalho na VNet permanece isolada e não é capaz de se comunicar com outros VNets, como em um cenário de qualquer para qualquer. No entanto, os VNets são necessários para alcançar todos os branches (VPN, ER e VPN de usuário). Nesse cenário, todas as conexões VPN, ExpressRoute e VPN de usuário são associadas à mesma tabela de rotas e a uma. Todas as conexões VPN, ExpressRoute e VPN de usuário propagam rotas para o mesmo conjunto de tabelas de rotas. Para obter informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
+Ao trabalhar com o roteamento de Hub virtual de WAN virtual, há alguns cenários disponíveis. Nesse cenário, o objetivo é impedir que o VNets seja capaz de acessar outros. Isso é conhecido como isolar VNets. Para obter informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
 
-## <a name="scenario-workflow"></a><a name="workflow"></a>Fluxo de trabalho do cenário
+## <a name="design"></a><a name="design"></a>Design
+
+Nesse cenário, a carga de trabalho em uma determinada VNet permanece isolada e não é capaz de se comunicar com outras VNets. No entanto, os VNets são necessários para alcançar todos os branches (VPN, ER e VPN de usuário). Para descobrir quantas tabelas de rotas serão necessárias, você pode criar uma matriz de conectividade. Para esse cenário, ele se parecerá com a tabela a seguir, em que cada célula representa se uma origem (linha) pode se comunicar com um destino (coluna):
+
+| De |   Para |  *VNets* | *Branches* |
+| -------------- | -------- | ---------- | ---|
+| VNets     | &#8594;|           |     X    |
+| Branches   | &#8594;|    X     |     X    |
+
+Cada uma das células na tabela anterior descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha) aprende um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico) para um fluxo de tráfego específico.
+
+Essa matriz de conectividade nos oferece dois padrões de linha diferentes, que são convertidos em duas tabelas de rotas. A WAN virtual já tem uma tabela de rotas padrão, portanto, precisaremos de outra tabela de rotas. Para este exemplo, nomearemos a tabela de rotas **RT_VNET**.
+
+VNets será associado a esta **RT_VNET** tabela de rotas. Como eles precisam de conectividade com ramificações, as ramificações precisarão ser propagadas para **RT_VNET** (caso contrário, o VNets não aprenderia os prefixos de ramificação). Como as ramificações estão sempre associadas à tabela de rotas padrão, o VNets precisará se propagar para a tabela de rotas padrão. Como resultado, este é o design final:
+
+* Redes virtuais:
+  * Tabela de rotas associada: **RT_VNET**
+  * Propagando para tabelas de rotas: **padrão**
+* Filia
+  * Tabela de rotas associada: **padrão**
+  * Propagando para tabelas de rotas: **RT_VNET** e **padrão**
+
+Observe que, como apenas branches se propagam para a tabela de rotas **RT_VNET**, esses serão os únicos prefixos que VNets aprenderão e não os de outros VNets.
+
+Para obter informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
+
+## <a name="workflow"></a><a name="workflow"></a>Fluxo de trabalho
 
 Para configurar esse cenário, leve em consideração as seguintes etapas:
 
-1. Crie uma tabela de rotas personalizada. No exemplo, a tabela de rotas é **RT_VNet**. Para criar uma tabela de rotas, consulte [como configurar o roteamento de Hub virtual](how-to-virtual-hub-routing.md). Para obter mais informações sobre tabelas de rotas, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
+1. Crie uma tabela de rotas personalizada em cada Hub. No exemplo, a tabela de rotas é **RT_VNet**. Para criar uma tabela de rotas, consulte [como configurar o roteamento de Hub virtual](how-to-virtual-hub-routing.md). Para obter mais informações sobre tabelas de rotas, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
 2. Ao criar a tabela de rotas **RT_VNet** , defina as seguintes configurações:
 
    * **Associação**: selecione o VNets que você deseja isolar.

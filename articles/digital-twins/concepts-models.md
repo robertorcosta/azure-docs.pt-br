@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 56ebb32e2d1c2a9bab9592da63e1ada7130bb7ff
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 2d062ea4f38742129d44be0e2b7ff51fe3ad8dd1
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131626"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562422"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Entender os modelos de entrelaçamento no Azure digital gêmeos
 
@@ -26,7 +26,7 @@ Os modelos são escritos usando o **DTDL (digital Mydefinition Language)** basea
 
 Os modelos para o gêmeos digital do Azure são definidos usando o DTDL (digital gêmeos Definition Language). O DTDL é baseado em JSON-LD e é independente da linguagem de programação. O DTDL não é exclusivo do Azure digital gêmeos, mas também é usado para representar dados de dispositivo em outros serviços de IoT, como o [IoT plug and Play](../iot-pnp/overview-iot-plug-and-play.md). 
 
-O Azure digital gêmeos usa a *versão 2*do DTDL. Para obter mais informações sobre esta versão do DTDL, consulte sua documentação de especificações no GitHub: [*digital gêmeos Definition Language (DTDL)-versão 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+O Azure digital gêmeos usa a ** _versão 2_do DTDL**. Para obter mais informações sobre esta versão do DTDL, consulte sua documentação de especificações no GitHub: [*digital gêmeos Definition Language (DTDL)-versão 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). O uso do DTDL _versão 1_ com o Azure digital gêmeos agora foi preterido.
 
 > [!TIP] 
 > Nem todos os serviços que usam DTDL implementam exatamente os mesmos recursos de DTDL. Por exemplo, a Plug and Play de IoT não usa os recursos de DTDL que são para grafos, enquanto o Azure digital gêmeos atualmente não implementa comandos DTDL. Para obter mais informações sobre os recursos do DTDL que são específicos do Azure digital gêmeos, consulte a seção mais adiante neste artigo sobre [especificações de implementação do Azure digital gêmeos DTDL](#azure-digital-twins-dtdl-implementation-specifics).
@@ -216,7 +216,7 @@ Você pode aprender mais sobre a biblioteca do analisador, incluindo exemplos de
 ## <a name="next-steps"></a>Próximas etapas
 
 Consulte como gerenciar modelos com as APIs do DigitalTwinsModels:
-* [*Instruções: Gerenciar modelos personalizados*](how-to-manage-model.md)
+* [*Como gerenciar modelos personalizados*](how-to-manage-model.md)
 
 Ou então, saiba como os gêmeos digitais são criados com base em modelos:
 * [*Conceitos: digital gêmeos e o gráfico de entrelaçamento*](concepts-twins-graph.md)

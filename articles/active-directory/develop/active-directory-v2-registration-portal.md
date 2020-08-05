@@ -13,12 +13,12 @@ ms.date: 08/13/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 910aaf84d3563d4410826d3c0bdfde3d2dfc75e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 53a44ed270dc47725dddfd57d6a212e859d46bad
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885626"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552706"
 ---
 # <a name="app-registration-reference"></a>Referência de registro de aplicativo
 
@@ -38,11 +38,11 @@ Esta lista contém todos os aplicativos registrados para uso exclusivo com uma c
 
 ## <a name="application-secrets"></a>Segredos do aplicativo
 
-Segredos do aplicativo são credenciais que permitem ao aplicativo executar a [autenticação de cliente](https://tools.ietf.org/html/rfc6749#section-2.3) confiável com o Azure AD. No OAuth e no OpenID Connect, o segredo do aplicativo é conhecido como `client_secret`. No protocolo v 2.0, qualquer aplicativo que receba um token de segurança em um local endereçável da Web (usando um esquema `https` ) deve usar um segredo do aplicativo para se identificar ao Azure AD durante o resgate desse token de segurança. Além disso, qualquer cliente nativo que receba os tokens em um dispositivo será proibido de usar o segredo do aplicativo para executar a autenticação do cliente. Isso desencoraja o armazenamento de segredos em ambientes inseguros.
+Os segredos do aplicativo são credenciais que permitem que seu aplicativo execute a [autenticação de cliente](https://tools.ietf.org/html/rfc6749#section-2.3) confiável com a plataforma de identidade da Microsoft. No OAuth e no OpenID Connect, o segredo do aplicativo é conhecido como `client_secret`. No protocolo v 2.0, qualquer aplicativo que recebe um token de segurança em um local endereçável da Web (usando um `https` esquema) deve usar um segredo de aplicativo para se identificar para a plataforma de identidade da Microsoft após o resgate desse token de segurança. Além disso, qualquer cliente nativo que receba os tokens em um dispositivo será proibido de usar o segredo do aplicativo para executar a autenticação do cliente. Isso desencoraja o armazenamento de segredos em ambientes inseguros.
 
 Cada aplicativo pode conter dois segredos do aplicativo válidos em qualquer momento. Mantendo dois segredos, você pode executar a substituição de chave periódica em todo o ambiente de seu aplicativo. Depois de migrar todo o seu aplicativo para um novo segredo, você pode excluir o segredo antigo e provisionar um novo.
 
-No momento, há permissão para apenas dois tipos de segredos do aplicativo no portal de registro do aplicativo. Escolher **Gerar Nova Senha** vai gerar e armazenar um segredo compartilhado no respectivo armazenamento de dados, que você pode usar em seu aplicativo. Escolher **Gerar Novo Par de Chaves** criará um novo par de chaves público/privado que pode ser baixado e usado para autenticação de cliente no Azure AD. Escolher **Carregar a chave pública** permite que você use seu próprio par de chaves públicas/privadas.
+No momento, há permissão para apenas dois tipos de segredos do aplicativo no portal de registro do aplicativo. Escolher **Gerar Nova Senha** vai gerar e armazenar um segredo compartilhado no respectivo armazenamento de dados, que você pode usar em seu aplicativo. Escolher **gerar novo par de chaves** cria um novo par de chaves pública/privada que pode ser baixado e usado para autenticação de cliente na plataforma de identidade da Microsoft. Escolher **Carregar a chave pública** permite que você use seu próprio par de chaves públicas/privadas.
 Você deve carregar um certificado que contenha uma chave pública.
 
 ## <a name="profile"></a>Perfil

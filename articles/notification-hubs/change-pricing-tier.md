@@ -9,16 +9,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 04/02/2020
+ms.date: 08/03/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: 855a050afa14144f8963f24398c6b7b3939ef562
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1455259bc42aea9d506a9a2a19d725cac3d643f8
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656478"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562762"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Alterar tipo de preço de um namespace de hubs de notificações do Microsoft Azure
 
@@ -26,11 +26,11 @@ Os Hubs de Notificação é oferecido em três tipos: **gratuito**, **básico** 
 
 ## <a name="overview"></a>Visão geral
 
-Em Hubs de Notificação do Microsoft Azure, um hub é o menor recurso/entidade. Em geral, ele é mapeado para um aplicativo e pode conter um certificado para cada Sistema de Notificação de Plataforma (PNS) que damos suporte para o aplicativo. O aplicativo pode ser um aplicativo híbrido ou nativo e de plataforma cruzada.
+Nos hubs de notificação do Azure, um *Hub de notificação* é o menor recurso/entidade. Em geral, ele é mapeado para um aplicativo e pode conter um certificado para cada Sistema de Notificação de Plataforma (PNS) que damos suporte para o aplicativo. O aplicativo pode ser um aplicativo híbrido ou nativo e de plataforma cruzada.
 
-Um **namespace** é uma coleção de hubs de notificações. Geralmente, cada namespace é composto por hubs relacionados e usados para um fim específico. Por exemplo, você pode ter três namespaces diferentes para fins de desenvolvimento, teste e produção, respectivamente.
+Um *namespace* é uma coleção de hubs de notificações. Geralmente, cada namespace é composto por hubs relacionados e usados para um fim específico. Por exemplo, você pode ter três namespaces diferentes para fins de desenvolvimento, teste e produção, respectivamente.
 
-Você pode associar um namespace com os tipos de preço **gratuito**, **básico**ou **padrão** . É possível usar a camada para um namespace que atenda aos seus requisitos. As seções a seguir mostram como alterar o tipo de preço de um namespace de Hubs de Notificação.
+Você pode associar um namespace com os tipos de preço **gratuito**, **básico**ou **padrão** . Para qualquer namespace, você pode usar a camada que atenda às suas necessidades. As seções a seguir mostram como alterar o tipo de preço de um namespace de Hubs de Notificação.
 
 ## <a name="use-azure-portal"></a>Usar o portal do Azure
 
@@ -42,7 +42,7 @@ O procedimento a seguir mostra como alterar o tipo de preço para um namespace n
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os serviços** no menu à esquerda.
-3. Selecione **Namespaces do Hub de Notificação** na seção **Internet das Coisas**. Se você selecionar o asterisco ( `*` ) ao lado do texto, ele será adicionado à barra de navegação à esquerda em **favoritos**. Ele ajuda a acessar a página de namespaces mais rápido no futuro. Depois de adicioná-lo aos favoritos, selecione **namespaces do hub de notificação**.
+3. Selecione **Namespaces do Hub de Notificação** na seção **Internet das Coisas**. Se você selecionar o asterisco ( `*` ) ao lado do texto, ele será adicionado à barra de navegação à esquerda em **favoritos**. Isso ajuda a acessar a página de namespaces mais rápido na próxima vez. Depois de adicioná-lo aos **favoritos**, selecione **namespaces do hub de notificação**.
 
     ![Todos os serviços -> Namespaces do Hub de Notificação](./media/change-pricing-tier/all-services-nhub.png)
 
@@ -51,7 +51,7 @@ O procedimento a seguir mostra como alterar o tipo de preço para um namespace n
 
     ![Tipo de preço atual na página do namespace](./media/change-pricing-tier/pricing-tier-before.png)
 
-6. Na página **Namespace de Hub de Notificação** do namespace, selecione **Tipo de Preço** na seção **Gerenciar**.
+6. Na página **namespace do hub de notificação** para seu namespace, selecione **tipo de preço** na seção **gerenciar** .
 
     ![Selecionar o tipo de preço na página do namespace](./media/change-pricing-tier/namespace-select-pricing-menu.png)
 
@@ -62,7 +62,7 @@ O procedimento a seguir mostra como alterar o tipo de preço para um namespace n
 
 ### <a name="change-tier-on-the-hub-page"></a>Alterar o tipo na página do hub
 
-O procedimento a seguir mostra como alterar o tipo de preço de um namespace na página de Hub. Mesmo que você siga essas etapas começando da página do hub, na verdade, você alterará o tipo de preço do namespace e todos os hubs no namespace.
+Siga estas etapas para alterar o tipo de preço de um namespace na página de Hub. Embora você execute essas etapas a partir da página de Hub, você realmente altera o tipo de preço para o namespace e todos os hubs no namespace:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os serviços** no menu à esquerda.

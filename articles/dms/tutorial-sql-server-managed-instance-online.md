@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/10/2020
-ms.openlocfilehash: 4bd6c3dc1f3cd1ef553efc6ac3cd3c4e558afc97
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/04/2020
+ms.openlocfilehash: 5bd78f2db8ea1f2a26d26269822ec78978a3cfde
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087655"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553300"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Tutorial: migrar SQL Server para um SQL do Azure Instância Gerenciada online usando DMS
 
@@ -262,6 +262,9 @@ Depois que o backup completo do banco de dados é restaurado na instância de de
 4. Selecione **Confirmar**e, em seguida, **Aplicar**.
 
     ![Preparar para a substituição completa](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
+
+    > [!IMPORTANT]
+    > Após a transferência, a disponibilidade do SQL Instância Gerenciada com Comercialmente Crítico camada de serviço pode levar significativamente mais tempo do que Uso Geral, pois três réplicas secundárias precisam ser propagadas para o grupo de alta disponibilidade AlwaysOn. Essa duração de operação depende do tamanho dos dados, para obter mais informações, consulte [duração das operações de gerenciamento](../azure-sql/managed-instance/management-operations-overview.md#management-operations-duration).
 
 5. Quando o status de migração do banco de dados mostrar **concluído**, conecte seus aplicativos à nova instância de destino do SQL instância gerenciada.
 

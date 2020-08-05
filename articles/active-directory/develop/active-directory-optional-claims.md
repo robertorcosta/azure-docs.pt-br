@@ -1,7 +1,7 @@
 ---
 title: Fornecer declarações opcionais a aplicativos Azure AD
 titleSuffix: Microsoft identity platform
-description: Como incluir declarações adicionais ou personalizadas aos tokens SAML 2.0 e JSON Web Tokens (JWT) emitidos pelo Azure Active Directory.
+description: Como adicionar declarações personalizadas ou adicionais aos tokens SAML 2,0 e JSON Web tokens (JWT) emitidos pela plataforma de identidade da Microsoft.
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
@@ -12,21 +12,21 @@ ms.date: 07/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: dd181e87305f3d32fb301c8b563b7330e09b43d6
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: f93e2b34c64ce4bd8cec7182c3e990f0e675dc11
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445574"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552859"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como fazer: Fornecer declarações opcionais ao aplicativo Azure AD
+# <a name="how-to-provide-optional-claims-to-your-app"></a>Como: fornecer declarações opcionais para seu aplicativo
 
 Os desenvolvedores de aplicativos podem usar declarações opcionais em seus aplicativos Azure AD para especificar quais declarações eles desejam nos tokens enviados ao aplicativo.
 
 Você pode usar declarações opcionais para:
 
 - Selecione declarações adicionais para incluir nos tokens para o aplicativo.
-- Altere o comportamento de determinadas declarações que o Azure AD retorna em tokens.
+- Altere o comportamento de determinadas declarações que a plataforma de identidade da Microsoft retorna em tokens.
 - Adicione e acesse as declarações personalizadas para o aplicativo.
 
 Para obter as listas de declarações padrão, confira a documentação de declarações de [token de acesso](access-tokens.md) e [id_token](id-tokens.md).

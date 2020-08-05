@@ -9,17 +9,28 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 06/05/2020
-ms.openlocfilehash: d5d60db2cc0c35b908454be3f00716db6d2da945
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: 74e9772ada010d79e81ef36cae89ba586db73077
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361635"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553403"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notas de versão do Azure SQL Edge 
 
 Este artigo descreve o que há de novo e o que mudou em todas as novas compilações do Azure SQL Edge.
+
+## <a name="ctp-22"></a>CTP 2.2
+### <a name="sql-engine-build-number---15020001546"></a>Número de Build do mecanismo SQL-15.0.2000.1546
+### <a name="fixes"></a>Correções
+1. Suporte para contêineres não raiz 
+2. Suporte para coleta de dados de diagnóstico e uso 
+3. Atualizações de streaming T-SQL
+   - Suporte para caracteres Unicode para nomes de objetos de fluxo
+   - Aprimoramentos na limpeza de processos
+   - Aprimoramentos no log e diagnóstico
+4. Melhoria de desempenho para ingestão de dados
 
 ## <a name="ctp-21"></a>CTP 2.1 
 ### <a name="sql-engine-build-number---15020001545"></a>Número de Build do mecanismo SQL-15.0.2000.1545
@@ -31,7 +42,7 @@ Este artigo descreve o que há de novo e o que mudou em todas as novas compilaç
 
 ## <a name="ctp-20"></a>CTP 2.0 
 ### <a name="sql-engine-build-number---15020001401"></a>Número de Build do mecanismo SQL-15.0.2000.1401
-### <a name="whats-new"></a>Novidades
+### <a name="whats-new"></a>Quais são as novidades?
 1.  Nome do produto atualizado para ' Azure SQL Edge '
 1.  Função Date_bucket
 
@@ -42,7 +53,7 @@ Este artigo descreve o que há de novo e o que mudou em todas as novas compilaç
     
 4.  Suporte a streaming TSQL (versão prévia limitada) 
  
-### <a name="known-issues"></a>Problemas conhecidos
+### <a name="known-issues"></a>Problemas Conhecidos
 
 1. <b>Problema:</b> Falhas em potencial com a aplicação do dacpac na inicialização devido ao problema de tempo.
 
@@ -60,7 +71,7 @@ Este artigo descreve o que há de novo e o que mudou em todas as novas compilaç
 
 ## <a name="ctp-15"></a>CTP 1,5
 ### <a name="sql-engine-build-number---15020001331"></a>Número de Build do mecanismo SQL-15.0.2000.1331
-### <a name="whats-new"></a>Novidades
+### <a name="whats-new"></a>Quais são as novidades?
 1. Função Date_bucket
     
     i. Suporte para o tipo DateTimeOffset
@@ -70,7 +81,7 @@ Este artigo descreve o que há de novo e o que mudou em todas as novas compilaç
  
 ## <a name="ctp-14"></a>CTP 1,4
 ### <a name="sql-engine-build-number---15020001247"></a>Número de Build do mecanismo SQL-15.0.2000.1247
-### <a name="whats-new"></a>Novidades
+### <a name="whats-new"></a>Quais são as novidades?
 1.  PREVER com modelos ONNX
  
     i.  Suporte a varchar
@@ -90,7 +101,7 @@ Este artigo descreve o que há de novo e o que mudou em todas as novas compilaç
  
 ## <a name="ctp-13"></a>CTP 1,3
 ### <a name="sql-engine-build-number---15020001147"></a>Número de Build do mecanismo SQL-15.0.2000.1147
-### <a name="whats-new"></a>Novidades
+### <a name="whats-new"></a>Quais são as novidades?
 1. Implantação do portal do Azure IOT 
 
     i.   Suporte para implantação de imagens AMD64 e ARM

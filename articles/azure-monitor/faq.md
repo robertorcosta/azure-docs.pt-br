@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: ff7472b764b0e65d69d9b694603e145440e89c0d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 211b7aedc901031e366c60a6c7a2cee396bbe124
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318106"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563833"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Monitor
 
@@ -121,7 +121,7 @@ Um grupo de ações é uma coleção de notificações e ações que podem ser d
 
 
 ### <a name="what-is-an-action-rule"></a>O que é uma regra de ação?
-Uma regra de ação permite modificar o comportamento de um conjunto de alertas que correspondem a um determinado critério. Isso permite que você execute requisitos como desabilitar ações de alerta durante uma janela de manutenção. Você também pode aplicar um grupo de ações a um conjunto de alertas em vez de aplicá-los diretamente às regras de alerta. Confira [Regras de ação](platform/alerts-action-rules.md).
+Uma regra de ação permite modificar o comportamento de um conjunto de alertas que correspondem a um determinado critério. Isso permite que você execute esses requisitos como desabilitar ações de alerta durante uma janela de manutenção. Você também pode aplicar um grupo de ações a um conjunto de alertas em vez de aplicá-los diretamente às regras de alerta. Confira [Regras de ação](platform/alerts-action-rules.md).
 
 ## <a name="agents"></a>Agentes
 
@@ -137,7 +137,7 @@ A extensão Diagnóstico do Azure é para máquinas virtuais do Azure e coleta d
 O tráfego para o Azure Monitor usa o circuito do ExpressRoute de emparelhamento da Microsoft. Confira a [documentação do ExpressRoute](../expressroute/expressroute-faqs.md#supported-services) para obter uma descrição dos diferentes tipos de tráfego do ExpressRoute. 
 
 ### <a name="how-can-i-confirm-that-the-log-analytics-agent-is-able-to-communicate-with-azure-monitor"></a>Como faço para confirmar se o agente do Log Analytics é capaz de se comunicar com o Azure Monitor?
-No Painel de Controle no computador do agente, selecione **Segurança & Configurações**, **Microsoft Monitoring Agent**. Na guia **Log Analytics do Azure (OMS)** , um ícone de marca de seleção verde confirma que o agente é capaz de se comunicar com o Azure Monitor. Um ícone de aviso amarelo significa que o agente está tendo problemas. Uma motivo comum é que o serviço **Microsoft Monitoring Agent** foi interrompido. Use o gerenciador de controle de serviço para reiniciar o serviço.
+No painel de controle no computador do agente, selecione **configurações de & de segurança**, * * Microsoft Monitoring Agent. Na guia **Log Analytics do Azure (OMS)** , um ícone de marca de seleção verde confirma que o agente é capaz de se comunicar com o Azure Monitor. Um ícone de aviso amarelo significa que o agente está tendo problemas. Uma motivo comum é que o serviço **Microsoft Monitoring Agent** foi interrompido. Use o gerenciador de controle de serviço para reiniciar o serviço.
 
 ### <a name="how-do-i-stop-the-log-analytics-agent-from-communicating-with-azure-monitor"></a>Como faço para que o agente do Log Analytics pare de se comunicar com o Azure Monitor?
 Para agentes conectados diretamente ao Log Analytics, abra o Painel de Controle e selecione **Segurança e Configurações**, **Microsoft Monitoring Agent**. Na guia **Log Analytics do Azure (OMS)** , remova todos os workspaces listados. No System Center Operations Manager, remova o computador da lista de computadores gerenciados do Log Analytics. O Operations Manager atualiza a configuração do agente para não relatar mais para o Log Analytics. 
@@ -207,7 +207,7 @@ O Designer de Exibição só está disponível para os usuários atribuídos com
 * [Configurar um servidor ASP.NET](app/monitor-performance-live-website-now.md)
 * [Configurar um servidor Java](app/java-agent.md)
 
-*Quantos Application Insights devo implantar?:*
+*Quantos recursos de Application Insights devo implantar:*
 
 * [Como projetar sua implantação do Application Insights: Um ou muitos recursos do Application Insights?](app/separate-resources.md)
 
@@ -509,6 +509,15 @@ A maioria dos dados do Application Insights tem uma latência inferior a cinco m
 [start]: app/app-insights-overview.md
 [windows]: app/app-insights-windows-get-started.md
 
+### <a name="http-502-and-503-responses-are-not-always-captured-by-application-insights"></a>As respostas HTTP 502 e 503 nem sempre são capturadas pelo Application Insights
+
+os erros "502 gateway insatisfatório" e "503 Serviço indisponível" nem sempre são capturados pelo Application Insights. Se apenas JavaScript do lado do cliente estiver sendo usado para monitoramento, isso seria um comportamento esperado, uma vez que a resposta de erro é retornada antes da página que contém o cabeçalho HTML com o trecho de código JavaScript de monitoramento sendo renderizado. 
+
+Se a resposta 502 ou 503 foi enviada de um servidor com o monitoramento no lado do servidor habilitado, os erros seriam coletados pelo SDK do Application Insights. 
+
+No entanto, ainda existem casos em que, mesmo quando o monitoramento do lado do servidor está habilitado no servidor Web de um aplicativo, um erro 502 ou 503 não será capturado pelo Application Insights. Muitos servidores Web modernos não permitem que um cliente se comunique diretamente, mas, em vez disso, emprega soluções como proxies reversos para passar informações entre o cliente e os servidores Web front-end. 
+
+Nesse cenário, uma resposta 502 ou 503 poderia ser retornada a um cliente devido a um problema na camada de proxy reverso e isso não seria capturado por Application Insights. Para ajudar a detectar problemas nessa camada, talvez seja necessário encaminhar logs do proxy reverso para Log Analytics e criar uma regra personalizada para verificar se há 502/503 respostas. Para saber mais sobre as causas comuns de erros 502 e 503, consulte o artigo Azure App de solução de problemas de serviço [para "502 gateway inadequado" e "serviço 503 indisponível"](../app-service/troubleshoot-http-502-http-503.md).     
 
 ## <a name="azure-monitor-for-containers"></a>Azure Monitor para contêineres
 

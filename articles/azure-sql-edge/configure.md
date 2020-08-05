@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: c38bb6100665cc9456b66608660bdca520b934c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: 0cb2eed0895c10f649facaa184a5f9f9ea158aa5
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636233"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551975"
 ---
 # <a name="configure-azure-sql-edge-preview"></a>Configurar SQL do Azure no Edge (versão prévia)
 
@@ -79,7 +79,7 @@ As opções MSSQL. conf a seguir não são aplicáveis ao SQL Edge:
 |**Perfil do Database Mail** | Definir o perfil padrão do Database Mail para o SQL Server em Linux. |
 |**Alta disponibilidade** | Habilitar grupos de disponibilidade. |
 |**Coordenador de Transações Distribuídas da Microsoft** | Configurar e solucionar problemas do MSDTC no Linux. Não há suporte para as opções de configuração relacionadas à transação distribuída adicional para o SQL Edge. Para obter mais informações sobre essas opções de configuração adicionais, consulte [Configurar o MSDTC](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
-|**EULAs para Serviços de Machine Learning** | Aceite os EULAs do R e do Python para pacotes Azure Machine Learning. Aplica-se somente ao SQL Server 2019.|
+|**EULAs de serviços ML** | Aceite os EULAs do R e do Python para pacotes Azure Machine Learning. Aplica-se somente ao SQL Server 2019.|
 |**outboundnetworkaccess** |Habilitar o acesso à rede para extensões Java, R e Python dos [Serviços de Machine Learning](/sql/linux/sql-server-linux-setup-machine-learning/).|
 
 O arquivo MSSQL. conf de exemplo a seguir funciona para o SQL Edge. Para obter mais informações sobre o formato de um arquivo MSSQL. conf, consulte o [formato MSSQL. conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
@@ -113,6 +113,51 @@ traceflag0 = 3604
 traceflag1 = 3605
 traceflag2 = 1204
 ```
+
+## <a name="run-azure-sql-edge-as-non-root-user"></a>Executar o Azure SQL Edge como um usuário não raiz
+
+A partir do Azure SQL Edge CTP 2.2, os contêineres do SQL Edge podem ser executados com um usuário/grupo não raiz. Quando implantado por meio do Azure Marketplace, a menos que um usuário/grupo diferente seja especificado, contêineres do SQL Edge são iniciados como o usuário MSSQL (não raiz). Para especificar um usuário não raiz diferente durante a implantação, adicione o `*"User": "<name|uid>[:<group|gid>]"*` par chave-valor em opções de criação de contêiner. No exemplo abaixo, o SQL Edge está configurado para iniciar como o usuário `*IoTAdmin*` .
+
+```json
+{
+    ..
+    ..
+    ..
+    "User": "IoTAdmin",
+    "Env": [
+        "MSSQL_AGENT_ENABLED=TRUE",
+        "ClientTransportType=AMQP_TCP_Only",
+        "MSSQL_PID=Premium"
+    ]
+}
+```
+
+Para permitir que o usuário não raiz Acesse arquivos de BD que estão em volumes montados, verifique se o usuário/grupo no qual você executa o contêiner tem permissões de leitura & gravação no armazenamento de arquivos persistente. No exemplo abaixo, definimos o usuário não raiz com user_id 10001 como o proprietário dos arquivos. 
+
+```bash
+chown -R 10001:0 <database file dir>
+```
+
+### <a name="upgrading-from-earlier-ctp-releases"></a>Atualizando de versões anteriores do CTP
+
+O CTP anterior do Azure SQL Edge foi configurado para ser executado como os usuários raiz. As opções a seguir estão disponíveis ao atualizar do CTP anterior
+
+- Continuar a usar o usuário raiz – para continuar usando o usuário raiz, adicione o `*"User": "0:0"*` par chave-valor em opções de criação de contêiner.
+- Usar o usuário MSSQL padrão-para usar o usuário MSSQL padrão, siga as etapas abaixo
+  - Adicione um usuário chamado MSSQL no host do Docker. No exemplo a seguir, adicionamos um usuário MSSQL com a ID 10001. Esse usuário também é adicionado ao grupo raiz.
+    ```bash
+    sudo useradd -M -s /bin/bash -u 10001 -g 0 mssql
+    ```
+  - Alterar a permissão no volume de montagem/diretório no qual reside o arquivo de banco de dados 
+    ```bash
+    sudo chgrp -R 0 /var/lib/docker/volumes/kafka_sqldata/
+    sudo chmod -R g=u /var/lib/docker/volumes/kafka_sqldata/
+    ```
+- Usar uma conta diferente de usuário não raiz-para usar uma conta de usuário diferente da raiz
+  - Atualize as opções de criação do contêiner para especificar o `*"User": "user_name | user_id*` par adicionar chave-valor em opções de criação de contêiner. Substitua user_name ou user_id por um user_name ou user_id real do host do Docker. 
+  - Altere as permissões no volume de montagem/diretório.
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

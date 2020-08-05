@@ -9,18 +9,45 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 8546b74401a291a29493164f8b5bebc7d67a9b6f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: b1f45cad5def0e7d9a576a05299b065705ff3e30
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531108"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553429"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) .
 
 Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender sobre erros e soluções conhecidas.
+
+## <a name="2020-08-03"></a>2020-08-03
+
+### <a name="azure-machine-learning-sdk-for-python-v1110"></a>Azure Machine Learning SDK para Python v 1.11.0
+
++ **Correções de bugs e melhorias**
+  + **azure-cli-ml**
+    + Corrigir estrutura de modelo e estrutura de modelo não passada no objeto de execução no caminho de registro do modelo da CLI
+    + Corrigir o comando CLI amlcompute Identity show para mostrar a ID do locatário e a ID da entidade 
+  + **azureml-train-automl-client**
+    + Adição de get_best_child () a AutoMLRun para buscar a melhor execução de filho para uma execução de AutoML sem baixar o modelo associado.
+    + Adicionado o objeto ModelProxy que permite que previsão ou previsão seja executada em um ambiente de treinamento remoto sem baixar o modelo localmente.
+    + As exceções sem tratamento no AutoML agora apontam para uma página HTTP de problemas conhecidos, onde mais informações sobre os erros podem ser encontradas.
+  + **azureml-core**
+    + Os nomes de modelo podem ter de 255 a caracteres de comprimento.
+    + Tipo de objeto de retorno Environment. get_image_details () alterado. `DockerImageDetails`classe substituída `dict` , os detalhes da imagem estão disponíveis nas propriedades da nova classe. As alterações são compatíveis com versões anteriores.
+    + Corrigir o bug do ambiente. from_pip_requirements () para preservar a estrutura de dependências
+    + Corrigido um bug em que o log_list falharia se um int e duplo fossem incluídos na mesma lista.
+    + Ao habilitar o link privado em um espaço de trabalho existente, observe que, se houver destinos de computação associados ao espaço de trabalho, esses destinos não funcionarão se não estiverem atrás da mesma rede virtual que o ponto de extremidade privado do espaço de trabalho.
+    + Tornar `as_named_input` opcional ao usar conjuntos de valores em experimentos e adicionado `as_mount` e `as_download` ao `FileDataset` . O nome de entrada será gerado automaticamente se `as_mount` ou `as_download` for chamado.
+  + **azureml-automl-core**
+    + As exceções sem tratamento no AutoML agora apontam para uma página HTTP de problemas conhecidos, onde mais informações sobre os erros podem ser encontradas.
+    + Adição de get_best_child () a AutoMLRun para buscar a melhor execução de filho para uma execução de AutoML sem baixar o modelo associado.
+    + Adicionado o objeto ModelProxy que permite que previsão ou previsão seja executada em um ambiente de treinamento remoto sem baixar o modelo localmente.
+  + **azureml-pipeline-steps**
+    + Adicionados `enable_default_model_output` e `enable_default_metrics_output` sinalizadores a `AutoMLStep` . Esses sinalizadores podem ser usados para habilitar/desabilitar as saídas padrão.
+
 
 ## <a name="2020-07-20"></a>2020-07-20
 
@@ -767,7 +794,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
   + **azureml-core**
     + Obtenha o uso principal atual e a limitação de cota para recursos de AmlCompute em um determinado espaço de trabalho e assinatura
   
-  + **azureml-contrib-pipeline-steps**
+  + **azureml-contrib-pipeline-etapas**
     + Habilitar o usuário a passar o conjunto de resultados de tabela como resultado intermediário da etapa anterior para parallelrunstep
 
 + **Correções de bugs e melhorias**

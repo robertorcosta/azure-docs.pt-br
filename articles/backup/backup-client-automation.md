@@ -3,12 +3,12 @@ title: Usar o PowerShell para fazer backup do Windows Server no Azure
 description: Neste artigo, saiba como usar o PowerShell para configurar o backup do Azure no Windows Server ou um cliente do Windows e gerenciar o backup e a recuperação.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 116bdd6b5f48a9d5abc0f9f0d9ce61f857196fd2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0deccc49b82d4a8b81889c35174c3efa81b6d74d
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513720"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564020"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implantar e gerenciar o backup no Azure para o Windows Server/Windows Client usando o PowerShell
 
@@ -148,7 +148,7 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -
 ```
 
 No computador cliente do Windows Server ou do Windows, execute o cmdlet [Start-OBRegistration](/powershell/module/msonlinebackup/start-obregistration) para registrar o computador no cofre.
-Este e outros cmdlets usados para backup, são do módulo MSONLINE, que o AgentInstaller da Mars adicionou como parte do processo de instalação.
+Isso, e outros cmdlets usados para backup, são do módulo MSONLINE, que o MARS AgentInstaller adicionou como parte do processo de instalação.
 
 O instalador do agente não atualiza o $Env:P variável SModulePath. Isso significa que o carregamento automático do módulo falhará. Para resolver esse problema, você pode fazer o seguinte:
 

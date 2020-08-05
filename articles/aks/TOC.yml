@@ -301,7 +301,7 @@
     - name: Desenvolver e executar aplicativos
       items:
         - name: Usar o Local Process with Kubernetes com o Visual Studio Code (versão prévia)
-          href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+          href: 'https://code.visualstudio.com/docs/containers/local-process-kubernetes'
         - name: Instalar aplicativos existentes com o Helm
           href: kubernetes-helm.md
         - name: Usar o OpenFaaS

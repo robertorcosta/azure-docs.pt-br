@@ -6,22 +6,43 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: ecc2b3cf236cb2a78fd595189649e7f6b176d709
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 95fa7a8c6abd0ad65b367cacef15b8faa16da640
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85567002"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553420"
 ---
 # <a name="scenario-any-to-any"></a>Cenário: qualquer-para-qualquer
 
-Ao trabalhar com o roteamento de Hub virtual de WAN virtual, há alguns cenários disponíveis. Em um cenário qualquer para qualquer, qualquer spoke pode alcançar outro spoke. Quando existem vários hubs, o roteamento de Hub para Hub (também conhecido como inter-Hub) é habilitado por padrão na WAN virtual padrão. 
+Ao trabalhar com o roteamento de Hub virtual de WAN virtual, há alguns cenários disponíveis. Em um cenário qualquer para qualquer, qualquer spoke pode alcançar outro spoke. Quando existem vários hubs, o roteamento de Hub para Hub (também conhecido como inter-Hub) é habilitado por padrão na WAN virtual padrão. Para obter mais informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
 
-Nesse cenário, as conexões VPN, ExpressRoute e VPN de usuário são associadas à mesma tabela de rotas. Todas as conexões VPN, ExpressRoute e VPN de usuário propagam rotas para o mesmo conjunto de tabelas de rotas. Para obter mais informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
+## <a name="design"></a><a name="design"></a>Design
 
-## <a name="scenario-architecture"></a><a name="architecture"></a>Arquitetura de cenário
+Para descobrir quantas tabelas de rotas serão necessárias em um cenário de WAN virtual, você pode criar uma matriz de conectividade, em que cada célula representa se uma origem (linha) pode se comunicar com um destino (coluna). A matriz de conectividade nesse cenário é trivial, mas incluímos isso para ser consistente com outros cenários.
+
+| De |   Para |  *VNets* | *Branches* |
+| -------------- | -------- | ---------- | ---|
+| VNets     | &#8594;|      X     |     X    |
+| Branches   | &#8594;|    X     |     X    |
+
+Cada uma das células na tabela anterior descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico na tabela) para um fluxo de tráfego específico.
+
+Como todas as conexões de VNets e branches (VPN, ExpressRoute e VPN de usuário) têm os mesmos requisitos de conectividade, uma única tabela de rotas é necessária. Como resultado, todas as conexões serão associadas e propagadas para a mesma tabela de rotas, a tabela de rotas padrão:
+
+* Redes virtuais:
+  * Tabela de rotas associada: **padrão**
+  * Propagando para tabelas de rotas: **padrão**
+* Filia
+  * Tabela de rotas associada: **padrão**
+  * Propagando para tabelas de rotas: **padrão**
+
+Para obter mais informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
+
+## <a name="architecture"></a><a name="architecture"></a>Arquitetura
 
 Na **Figura 1**, todos os VNets e branches (VPN, EXPRESSROUTE, P2S) podem alcançar uns aos outros. Em um hub virtual, as conexões funcionam da seguinte maneira:
 
@@ -35,7 +56,7 @@ Essas conexões (por padrão, na criação) são associadas à tabela de rotas p
 
 :::image type="content" source="./media/routing-scenarios/any-any/figure-1.png" alt-text="Figura 1":::
 
-## <a name="scenario-workflow"></a><a name="workflow"></a>Fluxo de trabalho do cenário
+## <a name="workflow"></a><a name="workflow"></a>Fluxo de trabalho
 
 Esse cenário é habilitado por padrão para a WAN virtual padrão. Se a configuração de Branch para Branch estiver desabilitada na configuração de WAN, isso não permitirá a conectividade entre spokes de ramificação. VPN/ExpressRoute/VPN de usuário são considerados como spokes de ramificação na WAN virtual
 

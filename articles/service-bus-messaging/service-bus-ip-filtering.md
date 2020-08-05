@@ -3,12 +3,12 @@ title: Configuração de regras de firewall IP para o Barramento de Serviço do 
 description: Como usar Regras de Firewall para permitir conexões de endereços IP específicos para o Barramento de Serviço do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 378f8a6331c18b2c99e3e08e83021878f7384c2b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: e9b39f1b163a894bf4831662ac050463086133d5
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418501"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552910"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Permitir acesso ao namespace do barramento de serviço do Azure de intervalos ou endereços IP específicos
 Por padrão, os namespaces de Barramento de Serviço são acessíveis pela Internet, desde que a solicitação acompanhe uma autenticação e uma autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -34,6 +34,7 @@ As regras de firewall de IP são aplicadas no nível de namespace do Barramento 
 > Os serviços da Microsoft a seguir devem estar em uma rede virtual
 > - Serviço de aplicativo do Azure
 > - Funções do Azure
+> - Azure Monitor (configuração de diagnóstico)
 
 ## <a name="use-azure-portal"></a>Usar o portal do Azure
 Esta seção mostra como usar o portal do Azure para criar regras de firewall de IP para um namespace do Barramento de Serviço. 

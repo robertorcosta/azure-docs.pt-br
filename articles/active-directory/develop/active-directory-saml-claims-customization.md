@@ -1,7 +1,7 @@
 ---
-title: Personalizar declarações de tokens SAML de aplicativo do Azure AD
+title: Personalizar declarações de token SAML do aplicativo
 titleSuffix: Microsoft identity platform
-description: Aprenda a personalizar as declarações emitidas no token SAML para aplicativos empresariais no Azure AD.
+description: Saiba como personalizar as declarações emitidas pela plataforma de identidade da Microsoft no token SAML para aplicativos empresariais.
 services: active-directory
 author: kenwith
 manager: CelesteDG
@@ -13,20 +13,20 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5cce985e3f63ade94fb626d18bded440caeff1fa
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f35e5971374f54940396f602a23ffa0ae3abd015
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87274461"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552825"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como personalizar declarações emitidas no token SAML para aplicativos empresariais
 
-Hoje, o Azure AD (Azure Active Directory) é compatível com SSO (logon único) com a maioria dos aplicativos empresariais, incluindo os dois aplicativos pré-integrados na galeria de aplicativos do Azure AD, bem como aplicativos personalizados. Quando um usuário é autenticado em um aplicativo por meio do Azure AD usando o protocolo SAML 2.0, o Azure AD envia um token ao aplicativo (por um HTTP POST). Em seguida, o aplicativo é validado e usa o token para conectar o usuário em vez de solicitar um nome de usuário e a senha. Esses tokens SAML contêm partes de informações sobre o usuário conhecidas como *declarações*.
+Atualmente, a plataforma de identidade da Microsoft dá suporte ao SSO (logon único) com a maioria dos aplicativos corporativos, incluindo os aplicativos previamente integrados na Galeria de aplicativos do Azure AD, bem como os personalizados. Quando um usuário é autenticado em um aplicativo por meio da plataforma Microsoft Identity usando o protocolo SAML 2,0, a plataforma de identidade da Microsoft envia um token para o aplicativo (por meio de um HTTP POST). Em seguida, o aplicativo é validado e usa o token para conectar o usuário em vez de solicitar um nome de usuário e a senha. Esses tokens SAML contêm partes de informações sobre o usuário conhecidas como *declarações*.
 
 Uma *declaração* são informações que um provedor de identidade declara sobre um usuário dentro do token que emite para esse usuário. No [Token SAML](https://en.wikipedia.org/wiki/SAML_2.0), esses dados normalmente estão contidos na Instrução de Atributo SAML. A ID única do usuário é normalmente representada na SAML Subject, também denominada Identificador de Nome.
 
-Por padrão, o Azure AD emite um token SAML ao seu aplicativo que contém uma declaração `NameIdentifier` com um valor do nome do usuário (também conhecido como nome UPN) no Azure AD, que pode identificar o usuário de maneira exclusiva. O token SAML também contém declarações adicionais com o endereço de email, nome e sobrenome do usuário.
+Por padrão, a plataforma de identidade da Microsoft emite um token SAML para seu aplicativo que contém uma `NameIdentifier` declaração com um valor de nome de usuário (também conhecido como o nome UPN) no Azure AD, que pode identificar exclusivamente o usuário. O token SAML também contém declarações adicionais com o endereço de email, nome e sobrenome do usuário.
 
 Para exibir ou editar as declarações emitidas no token SAML para o aplicativo, abra o aplicativo no Portal do Azure. Em seguida, abra a seção **Declarações e Atributos do Usuário**.
 
@@ -48,19 +48,19 @@ Para editar o NameID (valor do Identificador de nome):
 
 ### <a name="nameid-format"></a>Formato de NameID
 
-Se a solicitação SAML contiver o elemento NameIDPolicy com um formato específico, o Azure AD honrará o formato na solicitação.
+Se a solicitação SAML contiver o elemento NameIDPolicy com um formato específico, a plataforma de identidade da Microsoft respeitará o formato na solicitação.
 
-Se a solicitação SAML não contiver um elemento para NameIDPolicy, o Azure AD emitirá o NameID com o formato que você especificar. Se nenhum formato for especificado, o Azure AD usará o formato de origem padrão associado à origem de declaração selecionada.
+Se a solicitação SAML não contiver um elemento para NameIDPolicy, a plataforma de identidade da Microsoft emitirá NameID com o formato especificado. Se nenhum formato for especificado, a plataforma de identidade da Microsoft usará o formato de origem padrão associado à fonte de declaração selecionada.
 
 Na lista suspensa **Escolha o formato do identificador de nome**, você pode selecionar uma das opções a seguir.
 
 | Formato de NameID | Descrição |
 |---------------|-------------|
-| **Default** | O Azure AD usará o formato de origem padrão. |
-| **Persistente** | O Azure AD usará Persistente como o formato de NameID. |
-| **EmailAddress** | O Azure AD usará EmailAddress como o formato de NameID. |
-| **Não especificado** | O Azure AD usará Não especificado como o formato de NameID. |
-| **Nome qualificado de domínio do Windows** | O Azure AD usará WindowsDomainQualifiedName como o formato de NameID. |
+| **Default** | A plataforma de identidade da Microsoft usará o formato de origem padrão. |
+| **Persistente** | A plataforma de identidade da Microsoft usará persistente como o formato NameID. |
+| **EmailAddress** | A plataforma de identidade da Microsoft usará EmailAddress como o formato NameID. |
+| **Não especificado** | A plataforma de identidade da Microsoft usará não especificado como o formato NameID. |
+| **Nome qualificado de domínio do Windows** | A plataforma de identidade da Microsoft usará WindowsDomainQualifiedName como o formato NameID. |
 
 O NameID transitório também é compatível, mas não está disponível na lista suspensa e não pode ser configurado no lado do Azure. Para saber mais sobre o atributo NameIDPolicy, confira [Protocolo SAML de logon único](single-sign-on-saml-protocol.md).
 
@@ -169,9 +169,9 @@ Para adicionar uma condição de declaração:
 
 A ordem na qual você adiciona as condições é importante. O Azure AD avalia as condições de cima para baixo para decidir qual valor emitir na declaração. 
 
-Por exemplo, Brenda Fernandes é um usuário convidado no locatário da Contoso. Ela pertence a outra organização que também usa o Azure AD. Dada a configuração abaixo para o aplicativo Fabrikam, quando o Brenda tentar entrar no Fabrikam, o Azure AD avaliará as condições como descrito a seguir.
+Por exemplo, Brenda Fernandes é um usuário convidado no locatário da Contoso. Ela pertence a outra organização que também usa o Azure AD. Dada a configuração abaixo para o aplicativo Fabrikam, quando o Brenda tenta entrar na Fabrikam, a plataforma de identidade da Microsoft avaliará as condições como segue.
 
-Primeiro, o Azure AD verifica se o tipo de usuário do Brenda é `All guests`. Como isso é verdadeiro, o Azure AD atribui a origem da declaração a `user.extensionattribute1`. Em segundo lugar, o Azure AD verifica se o tipo de usuário de Brenda é `AAD guests`; já que isso também é verdadeiro, o Azure AD atribui a origem da declaração a `user.mail`. Por fim, a declaração é emitida com o valor `user.mail` para Brenda.
+Primeiro, a plataforma de identidade da Microsoft verifica se o tipo de usuário do Brenda é `All guests` . Como isso é verdadeiro, a plataforma de identidade da Microsoft atribui a origem para a Declaração `user.extensionattribute1` . Em segundo lugar, a plataforma de identidade da Microsoft verifica se o tipo de usuário do Brenda é `AAD guests` , uma vez que isso também é verdadeiro, a plataforma de identidade da Microsoft atribui a origem para a Declaração `user.mail` . Por fim, a declaração é emitida com o valor `user.mail` para Brenda.
 
 ![Configuração condicional de declarações](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 

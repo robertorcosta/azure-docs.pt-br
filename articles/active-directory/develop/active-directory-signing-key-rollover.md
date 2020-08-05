@@ -1,5 +1,5 @@
 ---
-title: Substituição da Chave de Assinatura no Azure AD
+title: Substituição de chave de assinatura na plataforma Microsoft Identity
 description: Este artigo descreve as práticas recomendadas de substituição de chave de assinatura para o Azure Active Directory
 services: active-directory
 author: rwike77
@@ -12,20 +12,20 @@ ms.date: 10/20/2018
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e0a38eb03df3d1da64172842fb6eca3cd762f9cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2f9fd27515e9ecda6e78ae16528a4956d3bf607
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537229"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552757"
 ---
-# <a name="signing-key-rollover-in-azure-active-directory"></a>Substituição de chave de assinatura no Azure Active Directory
-Este artigo aborda o que você precisa saber sobre as chaves públicas que são usadas no Azure Active Directory (Azure AD) para assinar tokens de segurança. É importante observar que essas chaves passam periodicamente e, em uma emergência, podem ser transferidas imediatamente. Todos os aplicativos que usam o Azure AD devem ser capazes de manipular programaticamente o processo de substituição de chave ou estabelecer um processo de substituição manual periódica. Continue lendo para entender como funcionam as chaves, como avaliar o impacto de substituição no seu aplicativo e como atualizar seu aplicativo ou estabelecer um processo de substituição manual periódica para tratar a substituição de chave, se necessário.
+# <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Substituição de chave de assinatura na plataforma Microsoft Identity
+Este artigo discute o que você precisa saber sobre as chaves públicas que são usadas pela plataforma de identidade da Microsoft para assinar tokens de segurança. É importante observar que essas chaves passam periodicamente e, em uma emergência, podem ser transferidas imediatamente. Todos os aplicativos que usam a plataforma de identidade da Microsoft devem ser capazes de manipular programaticamente o processo de substituição de chave ou estabelecer um processo de substituição manual periódico. Continue lendo para entender como funcionam as chaves, como avaliar o impacto de substituição no seu aplicativo e como atualizar seu aplicativo ou estabelecer um processo de substituição manual periódica para tratar a substituição de chave, se necessário.
 
-## <a name="overview-of-signing-keys-in-azure-ad"></a>Visão geral das chaves de assinatura no Azure AD
-O Azure AD usa criptografia de chave pública criada nos padrões da indústria para estabelecer a confiança entre ela e os aplicativos que a utilizam. Em termos práticos, isso funciona da seguinte maneira: o Azure AD usa uma chave de assinatura que consiste em um par de chaves público e privado. Quando um usuário entra em um aplicativo que usa o Azure AD para autenticação, este cria um token de segurança que contém informações sobre o usuário. Esse token é assinado pelo Azure AD usando sua chave privada antes de ser enviado para o aplicativo. Para verificar se o token é válido e é originado a partir do Azure AD, o aplicativo deverá validar a assinatura do token usando a chave pública exposta pelo Azure AD que está contida no [documento de descoberta do OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) do locatário ou o [documento de metadados federados do locatário SAML/WS-Fed](../azuread-dev/azure-ad-federation-metadata.md).
+## <a name="overview-of-signing-keys-in-microsoft-identity-platform"></a>Visão geral das chaves de assinatura na plataforma de identidade da Microsoft
+A plataforma de identidade da Microsoft usa a criptografia de chave pública criada nos padrões do setor para estabelecer a confiança entre si mesmo e os aplicativos que o utilizam. Em termos práticos, isso funciona da seguinte maneira: a plataforma de identidade da Microsoft usa uma chave de assinatura que consiste em um par de chaves pública e privada. Quando um usuário entra em um aplicativo que usa a plataforma de identidade da Microsoft para autenticação, a plataforma de identidade da Microsoft cria um token de segurança que contém informações sobre o usuário. Esse token é assinado pela plataforma de identidade da Microsoft usando sua chave privada antes de ser enviado de volta para o aplicativo. Para verificar se o token é válido e originado da plataforma de identidade da Microsoft, o aplicativo deve validar a assinatura do token usando a chave pública exposta pela plataforma de identidade da Microsoft que está contida no [documento de descoberta do OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) do locatário ou no [documento de metadados de Federação](../azuread-dev/azure-ad-federation-metadata.md)SAML/WS-alimentado.
 
-Para fins de segurança, a chave de assinatura do Azure AD é substituída periodicamente e, em caso de emergência, pode ser substituída imediatamente. Um aplicativo que se integra ao Azure AD deve estar preparado para lidar com um evento de substituição de chave, independentemente da frequência em que pode ocorrer. Se não tiver, e o aplicativo tentar usar uma chave expirada para verificar a assinatura em um token, a solicitação falhará.
+Para fins de segurança, a chave de assinatura da plataforma de identidade da Microsoft é revertida periodicamente e, no caso de uma emergência, pode ser transferida imediatamente. Qualquer aplicativo que se integre com a plataforma de identidade da Microsoft deve estar preparado para lidar com um evento de substituição de chave, independentemente da frequência que possa ocorrer. Se não tiver, e o aplicativo tentar usar uma chave expirada para verificar a assinatura em um token, a solicitação falhará.
 
 Sempre há mais de uma chave pública válida disponível no documento de descoberta do OpenID Connect e no documento de metadados de federação. O aplicativo deve estar preparado para usar qualquer uma das chaves especificadas no documento, já que uma das chaves pode ser substituída em breve, a outra pode ser a sua substituta e assim por diante.
 
@@ -140,7 +140,7 @@ As etapas a seguir o ajudarão a verificar se a lógica está funcionando corret
 3. Na tabela **IssuingAuthorityKeys**, haverá pelo menos uma fila, que corresponde ao valor da impressão para a chave. Exclua todas as linhas na tabela.
 4. Clique com o botão direito do mouse em **Locatários** e clique em **Mostrar dados da tabela**.
 5. Na tabela **Locatários**, haverá pelo menos uma fila, que corresponde a um identificador único do locatário do diretório. Exclua todas as linhas na tabela. Se você não excluir as linhas em ambas as tabelas **Locatários** e **IssuingAuthorityKeys**, obterá um erro no runtime.
-6. Criar e executar o aplicativo. Depois de entrar na sua conta, você poderá interromper o aplicativo.
+6. Compile e execute o aplicativo. Depois de entrar na sua conta, você poderá interromper o aplicativo.
 7. Volte no **Explorador do Servidor** e olhe os valores na tabela **IssuingAuthorityKeys** e **Locatários**. Você notará que eles foram repopulados automaticamente com as informações apropriadas do documento de metadados federados.
 
 ### <a name="web-apis-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>APIs Web que protegem recursos e que foram criados com o Visual Studio 2013
@@ -148,7 +148,7 @@ Se você tiver criado um aplicativo API no Visual Studio 2013 usando o modelo AP
 
 Se você configurou manualmente a autenticação, siga as instruções abaixo para saber como configurar sua API Web para atualizar automaticamente suas informações de chave.
 
-O snippet de código a seguir demonstra como obter as últimas chaves de documento de metadados federados e usar o [Manipulador de Token JWT](https://msdn.microsoft.com/library/dn205065.aspx) para validar o token. O snippet de código pressupõe que você usará seu próprio mecanismo de cache para persistir a chave e validar futuros tokens do Azure AD, seja em um banco de dados, em um arquivo de configuração ou em outro lugar.
+O snippet de código a seguir demonstra como obter as últimas chaves de documento de metadados federados e usar o [Manipulador de Token JWT](https://msdn.microsoft.com/library/dn205065.aspx) para validar o token. O trecho de código pressupõe que você usará seu próprio mecanismo de cache para manter a chave para validar os tokens futuros da plataforma de identidade da Microsoft, seja em um banco de dados, arquivo de configuração ou em outro lugar.
 
 ```
 using System;
@@ -239,7 +239,7 @@ namespace JWTValidation
 ```
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>Aplicativos Web que protegem recursos e que foram criados com o Visual Studio 2012
-Se seu aplicativo foi criado no Visual Studio 2012, você provavelmente usou a Ferramenta de Identidade e Acesso para configurar seu aplicativo. Também é provável que você esteja usando o [VINR (registro de nome de emissor validador)](https://msdn.microsoft.com/library/dn205067.aspx). O VINR é responsável por manter informações sobre os provedores de identidade confiável (Azure AD) e as chaves usadas para validar tokens emitidos por eles. O VINR também facilita a atualização automática das informações fundamentais armazenadas em um arquivo Web.config baixando o documento de metadados federados mais recente associado ao seu diretório, verificando se a configuração está desatualizada em relação ao documento mais recente e atualizando o aplicativo para usar a nova chave conforme necessário.
+Se seu aplicativo foi criado no Visual Studio 2012, você provavelmente usou a Ferramenta de Identidade e Acesso para configurar seu aplicativo. Também é provável que você esteja usando o [VINR (registro de nome de emissor validador)](https://msdn.microsoft.com/library/dn205067.aspx). O VINR é responsável por manter informações sobre provedores de identidade confiáveis (plataforma de identidade da Microsoft) e as chaves usadas para validar tokens emitidos por eles. O VINR também facilita a atualização automática das informações fundamentais armazenadas em um arquivo Web.config baixando o documento de metadados federados mais recente associado ao seu diretório, verificando se a configuração está desatualizada em relação ao documento mais recente e atualizando o aplicativo para usar a nova chave conforme necessário.
 
 Se você criou seu aplicativo usando um dos exemplos de código ou documentação passo a passo fornecidos pela Microsoft, a lógica de substituição de chave já estará incluída no seu projeto. Você notará que o código a seguir já existe em seu projeto. Se seu aplicativo não tiver essa lógica, siga as etapas abaixo para adicioná-la e verificar se ela está funcionando corretamente.
 
@@ -282,7 +282,7 @@ Siga as etapas abaixo para verificar se a lógica de substituição de chave est
           </keys>
    ```
 2. Na **\<add thumbprint="">** configuração, altere o valor da impressão digital substituindo qualquer caractere por um diferente. Salvar o arquivo **Web.config**.
-3. Crie o aplicativo e o execute. Se você consegue completar o processo de logon, seu aplicativo está atualizando a chave com êxito baixando as informações necessárias do documento de metadados federados do diretório. Se você estiver tendo problemas ao entrar, verifique se as alterações em seu aplicativo estão corretas lendo o artigo [Adicionando logon ao seu aplicativo Web usando o Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) ou baixando e inspecionando o seguinte exemplo de código: [Aplicativo de nuvem multilocatário do Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
+3. Crie o aplicativo e o execute. Se você consegue completar o processo de logon, seu aplicativo está atualizando a chave com êxito baixando as informações necessárias do documento de metadados federados do diretório. Se você estiver tendo problemas para entrar, verifique se as alterações em seu aplicativo estão corretas lendo o artigo [adicionando logon ao seu aplicativo Web usando a plataforma de identidade da Microsoft](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) ou baixando e inspecionando o exemplo de código a seguir: [aplicativo de nuvem multilocatário para Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2008-or-2010-and-windows-identity-foundation-wif-v10-for-net-35"></a><a name="vs2010"></a>Os aplicativos Web que protegem recursos e que foram criados com o Visual Studio 2008 ou 2010 e o Windows Identity Foundation (WIF) v1.0 para .NET 3.5
 Se você criou um aplicativo no WIF v 1.0, nenhum mecanismo foi fornecido para atualizar automaticamente a configuração do seu aplicativo e usar uma nova chave.
@@ -301,10 +301,10 @@ Instruções para usar o FedUtil para atualizar sua configuração:
 ### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>Aplicativos/APIs Web que protegem recursos usando quaisquer outras bibliotecas ou implementando manualmente qualquer um dos protocolos com suporte
 Se você estiver usando alguma outra biblioteca ou se tiver implementado manualmente qualquer um dos protocolos com suporte, precisará examinar a biblioteca ou a implementação para garantir que a chave esteja sendo recuperada do documento de descoberta OpenID Connect ou do documento de metadados de federação. Uma maneira de verificar isso é fazer uma pesquisa no seu código ou no código da biblioteca de quaisquer chamadas para o documento de descoberta OpenID ou para o documento de metadados de federação.
 
-Se a chave estiver sendo armazenada em algum lugar ou codificada em seu aplicativo, você poderá recuperar manualmente a chave e atualizá-la de forma adequada executando uma substituição manual de acordo com as instruções ao final deste documento de diretrizes. **É altamente recomendável que você Aprimore seu aplicativo para dar suporte à substituição automática** usando qualquer uma das abordagens deste artigo para evitar futuras interrupções e sobrecarga se o Azure ad aumentar sua cadência de substituição ou tiver uma substituição fora de banda de emergência.
+Se a chave estiver sendo armazenada em algum lugar ou codificada em seu aplicativo, você poderá recuperar manualmente a chave e atualizá-la de forma adequada executando uma substituição manual de acordo com as instruções ao final deste documento de diretrizes. **É altamente recomendável que você Aprimore seu aplicativo para dar suporte à substituição automática** usando qualquer uma das abordagens deste artigo para evitar futuras interrupções e sobrecarga se a plataforma de identidade da Microsoft aumentar sua cadência de substituição ou se tiver uma substituição fora de banda de emergência.
 
 ## <a name="how-to-test-your-application-to-determine-if-it-will-be-affected"></a>Como testar o aplicativo para determinar se ele será afetado
 Você pode validar se o aplicativo oferece suporte à substituição automática da chave baixando os scripts e seguindo as instruções [neste repositório GitHub.](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
 
 ## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>Como executar uma substituição manual se seu aplicativo não oferecer suporte à substituição automática
-Se seu aplicativo **não** der suporte à substituição automática, será necessário estabelecer um processo que monitore periodicamente as chaves de assinatura do Azure AD e execute uma substituição manual de forma adequada. [Este repositório GitHub](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) contém scripts e instruções sobre como fazer isso.
+Se seu aplicativo não **oferecer suporte** à substituição automática, você precisará estabelecer um processo que monitora periodicamente as chaves de assinatura da plataforma de identidade da Microsoft e executa uma substituição manual de acordo. [Este repositório GitHub](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) contém scripts e instruções sobre como fazer isso.

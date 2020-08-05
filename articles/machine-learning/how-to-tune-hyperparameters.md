@@ -8,15 +8,15 @@ ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 03/30/2020
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 93418369724286e8b8c967754b2fb37135094008
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
+ms.openlocfilehash: a41fe159f3ac7ef91ba943534aaa6baeeab83001
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027582"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552400"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Ajustar os hiperparâmetros para o seu modelo com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -379,7 +379,7 @@ Por fim, você pode identificar visualmente a correlação entre desempenho e va
 
 [![coordenadas paralelas de ajuste de hiperparâmetro](./media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
 
-Você pode visualizar todas as suas execuções de ajuste de hiperparâmetro no seu portal da Web do Azure também. Para mais informações sobre como visualizar uma experiência no portal da Web, consulte [como acompanhar experiências](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
+Você pode visualizar todas as suas execuções de ajuste de hiperparâmetro no seu portal da Web do Azure também. Para mais informações sobre como visualizar uma experiência no portal da Web, consulte [como acompanhar experiências](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
 
 ## <a name="find-the-best-model"></a>Localizar o melhor modelo
 

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 8e832f57053cb950f705875f2895a9197cc7c83e
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 61ec96a35fac6a033fe6c8b65cff156ba63e5e58
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960292"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563339"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Configurar um domínio personalizado nos Aplicativos Web Estáticos do Azure – Visualização
 
@@ -37,7 +37,7 @@ Há alguns tipos diferentes de configurações de DNS disponíveis para um aplic
 
 ## <a name="map-a-cname-record"></a>Criar um registro CNAME
 
-Um registro CNAME mapeia um domínio para outro. Você pode usar um registro CNAME para mapear o `www.example.com` para o domínio gerado automaticamente que é fornecido pelos Aplicativos Web Estáticos do Azure.
+Um registro CNAME mapeia um domínio para outro. Você pode usar um registro CNAME para mapear `www.example.com` , `blog.example.com` ou qualquer outro subdomínio para o domínio gerado automaticamente que é fornecido pelos aplicativos Web estáticos do Azure.
 
 1. Abra o [portal do Azure](https://portal.azure.com) e entre com sua conta do Azure.
 

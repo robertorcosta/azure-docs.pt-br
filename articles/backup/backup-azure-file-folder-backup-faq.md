@@ -3,12 +3,12 @@ title: Agente de Serviços de Recuperação do Microsoft Azure (MARS) – pergun
 description: Aborda perguntas comuns sobre como fazer backup de arquivos e pastas com o backup do Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 5a4560499c56e4dcdf41c2e5c7920b415ceab6c5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c4494b09a5cf838aae3dde01c1268042929ef213
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533573"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563085"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Agente de perguntas frequentes – Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -19,6 +19,12 @@ Este artigo responde a perguntas comuns sobre como fazer backup de dados com o a
 ### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>Onde posso baixar a versão mais recente do agente MARS?
 
 O agente MARS mais recente usado ao fazer backup de computadores com Windows Server, System Center DPM e Backup do Microsoft Azure Server está disponível para [Download](https://aka.ms/azurebackup_agent).
+
+### <a name="where-can-i-download-the-vault-credentials-file"></a>Onde posso baixar o arquivo de credenciais do cofre?
+
+Na portal do Azure, navegue até **Propriedades** do cofre. Em **credenciais de backup**, marque a caixa de seleção **já usando o agente de serviços de recuperação mais recente**. Selecione **Baixar**.
+
+![Baixar credenciais](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
 
 ### <a name="how-long-are-vault-credentials-valid"></a>Por quanto tempo as credenciais do cofre são válidas?
 
@@ -174,7 +180,7 @@ O agente de backup do Azure requer uma frase secreta (que você forneceu durante
 
 Considere as seguintes condições:
 
-* Se você desinstalar e registrar novamente o agente no mesmo computador original com três
+* Se você desinstalar e registrar novamente o agente no mesmo computador original com o
   * *Mesma senha*, você pode restaurar os dados de backup.
   * *Senha diferente*. em seguida, você não pode restaurar os dados de backup.
 * Se você instalar o agente em um *computador diferente* com o

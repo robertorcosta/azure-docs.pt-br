@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 48b8175ed5f753ffe7b62d3e97f4fe20f60da5ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0f4d9811dc288222c0a2190805a8b052cb1ae47b
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87061592"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563918"
 ---
 # <a name="manage-digital-twins"></a>Gerenciar gêmeos digitais
 
@@ -37,10 +37,10 @@ Para criar um teledigital, você precisa fornecer:
 
 Opcionalmente, você pode fornecer valores iniciais para todas as propriedades da digital. 
 
-> [!TIP]
-> Somente as propriedades que foram definidas pelo menos uma vez são retornadas quando você recupera um GetDigitalTwin com um.  
-
 O modelo e os valores de propriedade inicial são fornecidos por meio do `initData` parâmetro, que é uma cadeia de caracteres JSON que contém os dados relevantes.
+
+> [!TIP]
+> Depois de criar ou atualizar um vertical, pode haver uma latência de até 10 segundos antes que as alterações sejam refletidas nas [consultas](how-to-query-graph.md). A `GetDigitalTwin` API (descrita [mais adiante neste artigo](#get-data-for-a-digital-twin)) não tem esse atraso, portanto, use a chamada à API em vez de consultar para ver o gêmeos criado recentemente se precisar de uma resposta instantânea. 
 
 ### <a name="initialize-properties"></a>Propriedades de inicialização
 
@@ -90,6 +90,9 @@ object result = await client.GetDigitalTwin(id);
 ```
 
 Essa chamada retorna dados de texto como uma cadeia de caracteres JSON. 
+
+> [!TIP]
+> Somente as propriedades que foram definidas pelo menos uma vez são retornadas quando você recupera um conjunto de entrelaças com `GetDigitalTwin` .
 
 Para recuperar vários gêmeos usando uma única chamada à API, consulte os exemplos de API de consulta em [*instruções: consultar o gráfico de entrelaçamento*](how-to-query-graph.md).
 
@@ -148,7 +151,7 @@ O resultado da chamada `object result = await client.DigitalTwins.GetByIdAsync("
 As propriedades definidas de 10 digitais são retornadas como propriedades de nível superior no digital. Metadados ou informações do sistema que não fazem parte da definição DTDL são retornados com um `$` prefixo. As propriedades de metadados incluem:
 * A ID do cópia digital nesta instância de gêmeos digital do Azure, como `$dtId` .
 * `$etag`, um campo HTTP padrão atribuído pelo servidor Web
-* Outras propriedades em uma `$metadata` seção. Elas incluem:
+* Outras propriedades em uma `$metadata` seção. Eles incluem:
     - O DTMI do modelo do teledigital.
     - Status de sincronização para cada propriedade gravável. Isso é mais útil para dispositivos, em que é possível que o serviço e o dispositivo tenham status divergente (por exemplo, quando um dispositivo estiver offline). Atualmente, essa propriedade só se aplica a dispositivos físicos conectados ao Hub IoT. Com os dados na seção de metadados, é possível entender o status completo de uma propriedade, bem como os últimos carimbos de data/hora modificados. Para obter mais informações sobre o status de sincronização, consulte [este tutorial do Hub IOT](../iot-hub/tutorial-device-twins.md) sobre como sincronizar o estado do dispositivo.
     - Metadados específicos do serviço, como do Hub IoT ou do gêmeos digital do Azure. 
@@ -170,11 +173,16 @@ foreach (string prop in twin.CustomProperties.Keys)
 
 Você pode ler mais sobre as classes auxiliares de serialização em [*How-to: Use the Azure digital gêmeos APIs and SDKs*](how-to-use-apis-sdks.md).
 
-## <a name="update-a-digital-twin"></a>Atualizar uma atualização digital
+## <a name="update-a-digital-twin"></a>Atualizar um gêmeo digital
 
 Para atualizar as propriedades de uma troca digital, você escreve as informações que deseja substituir no formato de [patch JSON](http://jsonpatch.com/) . Dessa forma, você pode substituir várias propriedades de uma só vez. Em seguida, você passa o documento de patch JSON para um `Update` método:
 
-`await client.UpdateDigitalTwin(id, patch);`.
+```csharp
+await client.UpdateDigitalTwin(id, patch);
+```
+
+> [!TIP]
+> Depois de criar ou atualizar um vertical, pode haver uma latência de até 10 segundos antes que as alterações sejam refletidas nas [consultas](how-to-query-graph.md). A `GetDigitalTwin` API (descrita [anteriormente neste artigo](#get-data-for-a-digital-twin)) não enfrenta esse atraso, portanto, use a chamada à API em vez de consultar para ver seu gêmeos atualizado recentemente se precisar de uma resposta instantânea. 
 
 Aqui está um exemplo de código de patch JSON. Este documento substitui os valores de propriedade de *massa* e de *RADIUS* do teledigital em que é aplicado.
 

@@ -6,20 +6,52 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3719956df0dce62ee69d8e306ff2cad27197616d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4443c92fad2510b6bc4bc1214840aca5553556a5
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85566999"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553454"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Cenário: isolamento personalizado para VNets
 
-Ao trabalhar com o roteamento de Hub virtual de WAN virtual, há alguns cenários disponíveis. Em um cenário de isolamento personalizado para VNets, o objetivo é impedir que um conjunto específico de VNets seja capaz de alcançar outro conjunto específico de VNets. No entanto, os VNets são necessários para alcançar todos os branches (VPN/ER/usuário VPN).
+Ao trabalhar com o roteamento de Hub virtual de WAN virtual, há alguns cenários disponíveis. Em um cenário de isolamento personalizado para VNets, o objetivo é impedir que um conjunto específico de VNets seja capaz de alcançar outro conjunto específico de VNets. No entanto, os VNets são necessários para alcançar todos os branches (VPN/ER/usuário VPN). Para obter mais informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
 
-Nesse cenário, as conexões VPN, ExpressRoute e VPN de usuário (coletivamente chamadas de ramificações) estão associadas à mesma tabela de rotas (tabela de rotas padrão). Todas as conexões VPN, ExpressRoute e VPN de usuário propagam rotas para o mesmo conjunto de tabelas de rotas. Para obter mais informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
+## <a name="scenario-design"></a><a name="design"></a>Design de cenário
+
+Para descobrir quantas tabelas de rotas serão necessárias, você pode criar uma matriz de conectividade. Para esse cenário, ele será semelhante ao seguinte, onde cada célula representa se uma origem (linha) pode se comunicar com um destino (coluna):
+
+| De | Para:| *VNets azul* | *VNets vermelho* | *Branches*|
+|---|---|---|---|---|
+| **VNets azul** |   &#8594;|      X        |               |       X      |
+| **VNets vermelho**  |   &#8594;|              |       X       |       X      |
+| **Branches**   |   &#8594;|     X        |       X       |       X      |
+
+Cada uma das células na tabela anterior descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico na tabela) para um fluxo de tráfego específico.
+
+O número de padrões de linha diferentes será o número de tabelas de rotas que será necessário neste cenário. Nesse caso, três tabelas de rota de rota que chamaremos **RT_BLUE** e **RT_RED** para as redes virtuais e o **padrão** para as ramificações. Lembre-se de que as ramificações sempre precisam ser associadas à tabela de roteamento padrão.
+
+Os branches precisarão aprender os prefixos de VNets vermelho e azul, portanto, todos os VNets precisarão se propagar para o padrão (além de **RT_BLUE** ou **RT_RED**). O VNets azul e o vermelho precisarão aprender os prefixos de ramificações, portanto, as ramificações serão propagadas para ambas as tabelas de rotas **RT_BLUE** e **RT_RED** também. Como resultado, este é o design final:
+
+* Redes virtuais azuis:
+  * Tabela de rotas associada: **RT_BLUE**
+  * Propagando para tabelas de rotas: **RT_BLUE** e **padrão**
+* Redes virtuais vermelhas:
+  * Tabela de rotas associada: **RT_RED**
+  * Propagando para tabelas de rotas: **RT_RED** e **padrão**
+* Filia
+  * Tabela de rotas associada: **padrão**
+  * Propagando para tabelas de rotas: **RT_BLUE**, **RT_RED** e **padrão**
+
+> [!NOTE]
+> Como todas as ramificações precisam ser associadas à tabela de rotas padrão, bem como se propagarem para o mesmo conjunto de tabelas de roteamento, todas as ramificações terão o mesmo perfil de conectividade. Em outras palavras, o conceito vermelho/azul para VNets não pode ser aplicado a branches.
+
+> [!NOTE]
+> Se sua WAN virtual for implantada em várias regiões, você precisará criar as **RT_BLUE** e **RT_RED** tabelas de rotas em cada Hub, e as rotas de cada conexão de VNet precisam ser propagadas para as tabelas de rotas em cada Hub virtual usando rótulos de propagação.
+
+Para obter mais informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
 
 ## <a name="scenario-workflow"></a><a name="architecture"></a>Fluxo de trabalho do cenário
 
@@ -31,8 +63,8 @@ Na **Figura 1**, há conexões VNet azuis e vermelhas.
 Considere as etapas a seguir ao configurar o roteamento.
 
 1. Crie duas tabelas de rotas personalizadas na portal do Azure, **RT_BLUE** e **RT_RED**.
-2. Para a tabela de rotas **RT_BLUE**, em:
-   * **Associação**: selecione todos os VNets azuis
+2. Para a tabela de rotas **RT_BLUE**, para as seguintes configurações:
+   * **Associação**: selecione todos os VNets azuis.
    * **Propagação**: para branches, selecione a opção para branches, que implicam conexões de ramificação (VPN/er/P2S) propagarão rotas para esta tabela de rotas.
 3. Repita as mesmas etapas para **RT_RED** tabela de rotas para VNets vermelho e branches (VPN/er/P2S).
 

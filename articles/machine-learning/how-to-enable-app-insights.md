@@ -11,17 +11,17 @@ author: blackmist
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 88a122a9af4a5edac45a3189df5ffb78fb2ce271
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: e12c22d56399ce1690bee678623c58288cf0163b
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423806"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552196"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorar e coletar dados de pontos de extremidade de serviço Web do ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, você aprende a coletar dados do e a monitorar modelos implantados em pontos de extremidade de serviço Web no AKS (serviço de kubernetes do Azure) ou em ACI (instâncias de contêiner do Azure) habilitando informações de Aplicativo Azure por meio de 
+Neste artigo, você aprende a coletar dados e a monitorar modelos implantados em pontos de extremidade de serviço Web no AKS (serviço de kubernetes do Azure) ou ACI (instâncias de contêiner do Azure) consultando logs e habilitando informações de Aplicativo Azure por meio de 
 * [SDK do Python do Azure Machine Learning](#python)
 * [Azure Machine Learning Studio](#studio) emhttps://ml.azure.com
 
@@ -42,6 +42,18 @@ Além de coletar dados de saída e resposta de um ponto de extremidade, você po
 
 * Um modelo de aprendizado de máquina treinado para ser implantado para o serviço de Kubernetes do Azure (AKS) ou Instância de Contêiner do Azure (ACI). Se você não tiver um, consulte o tutorial [treinar modelo de classificação de imagem](tutorial-train-models-with-aml.md)
 
+## <a name="query-logs-for-deployed-models"></a>Logs de consulta para modelos implantados
+
+Para recuperar logs de um serviço Web implantado anteriormente, carregue o serviço e use a função `get_logs()`. Os logs podem conter informações detalhadas sobre quaisquer erros ocorridos durante a implantação.
+
+```python
+from azureml.core.webservice import Webservice
+
+# load existing web service
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+
 ## <a name="web-service-metadata-and-response-data"></a>Metadados do serviço Web e dados de resposta
 
 > [!IMPORTANT]
@@ -50,6 +62,7 @@ Além de coletar dados de saída e resposta de um ponto de extremidade, você po
 Para registrar informações de uma solicitação ao serviço Web, adicione `print` instruções ao arquivo score.py. Cada `print` instrução resulta em uma entrada na tabela de rastreamento em Application insights, sob a mensagem `STDOUT` . O conteúdo da `print` instrução estará contido em `customDimensions` e, em seguida, `Contents` na tabela de rastreamento. Se você imprimir uma cadeia de caracteres JSON, ela produzirá uma estrutura de dados hierárquica na saída de rastreamento em `Contents` .
 
 Você pode consultar Aplicativo Azure informações diretamente para acessar esses dados ou configurar uma [exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) para uma conta de armazenamento para maior retenção ou processamento adicional. Os dados de modelo podem ser usados no Azure Machine Learning para configurar o rotulamento, o novo treinamento, a explicação, a análise de dados ou outro uso. 
+
 
 <a name="python"></a>
 
@@ -164,7 +177,7 @@ Para exibi-lo:
 1. Vá para o espaço de trabalho Azure Machine Learning no [estúdio](https://ml.azure.com/).
 1. Selecione **Pontos de extremidade**.
 1. Selecione seu serviço implantado.
-1. Role para baixo para localizar a **URL de Application insights** e clique no link.
+1. Role para baixo para localizar a **URL de Application insights** e selecione o link.
 
     [![Localizar URL de Application Insights](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 

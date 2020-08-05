@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: f8d296e62be9571bdedd5acf40d5547bae8c864e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e80f7d26fb7ab598651d08b4c1b6478b2ae75e3b
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564582"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563051"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Conectar o Azure Sentinel ao AWS CloudTrail
 
-Use o conector do AWS para transmitir todos os eventos do AWS CloudTrail para o Azure Sentinel. Esse processo de conexão delega o acesso para o Azure Sentinel aos logs de recursos do AWS, criando uma relação de confiança entre o AWS CloudTrail e o Azure sentinela. Isso é feito em AWS criando uma função que concede permissão ao Azure Sentinel para acessar seus logs do AWS.
+Use o conector do AWS para transmitir seus eventos de gerenciamento do AWS CloudTrail para o Azure Sentinel. Esse processo de conexão delega o acesso para o Azure Sentinel aos logs de recursos do AWS, criando uma relação de confiança entre o AWS CloudTrail e o Azure sentinela. Isso é feito em AWS criando uma função que concede permissão ao Azure Sentinel para acessar seus logs do AWS.
 
 > [!NOTE]
 > AWS CloudTrail tem [limitações internas](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) em sua API LookupEvents. Ele não permite mais do que duas operações por segundo (TPS) por conta, e cada consulta pode retornar um máximo de 50 registros. Consequentemente, se um único locatário gerar constantemente mais de 100 registros por segundo em uma região, os registros posteriores e os atrasos na ingestão de dados ocorrerão.
@@ -33,7 +33,7 @@ Use o conector do AWS para transmitir todos os eventos do AWS CloudTrail para o 
 Você deve ter permissão de gravação no espaço de trabalho do Azure Sentinel.
 
 > [!NOTE]
-> O Azure Sentinel coleta eventos CloudTrail de todas as regiões. É recomendável que você não transmita eventos de uma região para outra.
+> O Azure Sentinel coleta eventos de gerenciamento de CloudTrail de todas as regiões. É recomendável que você não transmita eventos de uma região para outra.
 
 ## <a name="connect-aws"></a>Conectar o AWS 
 

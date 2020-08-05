@@ -3,12 +3,12 @@ title: Coletar & analisar logs de recursos
 description: Registre e analise eventos de log de recursos para o registro de contêiner do Azure, como autenticação, push de imagem e pull de imagem.
 ms.topic: article
 ms.date: 06/01/2020
-ms.openlocfilehash: 8757b8bdb67cf75b1ba800658d80b2a44311f1ba
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 63ccb944b9c3de9941acf55ca5ea85fda70a7008
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252480"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553369"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria
 
@@ -121,7 +121,7 @@ ContainerRegistryRepositoryEvents
 | project LoginServer, OperationName, Repository, Tag, Identity, CallerIpAddress
 ```
 
-### <a name="reposity-level-operation-failures"></a>Falhas de operação em nível de reposity
+### <a name="repository-level-operation-failures"></a>Falhas de operação em nível de repositório
 
 ```kusto
 ContainerRegistryRepositoryEvents 

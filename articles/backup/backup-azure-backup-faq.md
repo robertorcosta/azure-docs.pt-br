@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas para perguntas comuns sobre: recursos de Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 4273d93e36dd8d956246811dd3f1d71d96ddcb68
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 95d515e65e31304dd4839f851736be6926a5a29f
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532451"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553080"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 
@@ -196,6 +196,10 @@ Quando uma nova política for aplicada, a agenda e a retenção da nova polític
 
 - Se a retenção for estendida, os pontos de recuperação existentes serão marcados para mantê-los de acordo com a nova política.
 - Se a retenção for reduzida, eles serão marcados para remoção no próximo trabalho de limpeza e subsequentemente excluídos.
+
+### <a name="how-long-is-data-retained-when-stopping-backups-but-selecting-the-option-to-retain-backup-data"></a>Por quanto tempo os dados são retidos ao parar os backups, mas selecionar a opção para reter os dados de backup?
+
+Quando os backups são interrompidos e os dados são retidos, as regras de política existentes para remoção de dados serão interrompidas e os dados serão retidos indefinidamente até que sejam iniciados pelo administrador para exclusão.
 
 ## <a name="encryption"></a>Criptografia
 

@@ -7,19 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/30/2020
-ms.openlocfilehash: b5e408eeac024f63eb8e7ce47039dc4c0a6aa5b5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/01/2020
+ms.custom: references_regions
+ms.openlocfilehash: 9e4181956d81ddbe0a385987689a8cb0248ac535
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501484"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553947"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Segurança no Azure Pesquisa Cognitiva-visão geral
 
-Este artigo descreve os principais recursos de segurança do Azure Pesquisa Cognitiva que podem proteger o conteúdo e as operações. 
+Este artigo descreve os principais recursos de segurança do Azure Pesquisa Cognitiva que podem proteger o conteúdo e as operações.
 
-+ Na camada de armazenamento, a criptografia em repouso é fornecida no nível da plataforma, mas Pesquisa Cognitiva também oferece chaves gerenciadas pelo cliente por meio de Azure Key Vault para uma camada de criptografia adicional.
++ Na camada de armazenamento, a criptografia em repouso é interna para todo o conteúdo gerenciado pelo serviço salvo em disco, incluindo índices, mapas de sinônimos e as definições de indexadores, fontes de dados e habilidades. O Azure Pesquisa Cognitiva também dá suporte à adição de chaves gerenciadas pelo cliente (CMK) para criptografia complementar de conteúdo indexado. Para serviços criados após 1 2020 de agosto, a criptografia CMK se estende aos dados em discos temporários, para criptografia dupla completa de conteúdo indexado.
 
 + A segurança de entrada protege o ponto de extremidade do serviço de pesquisa em níveis crescentes de segurança: de chaves de API na solicitação, às regras de entrada no firewall, para pontos de extremidade privados que protegem totalmente o serviço da Internet pública.
 
@@ -29,29 +30,41 @@ Assista a este vídeo rápido do ritmo para obter uma visão geral da arquitetur
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
 
+<a name="encryption"></a>
+
 ## <a name="encrypted-transmissions-and-storage"></a>Armazenamento e transmissões criptografados
 
-A criptografia é generalizada no Azure Pesquisa Cognitiva, começando com conexões e transmissões, estendendo para conteúdo armazenado em disco. Para serviços de pesquisa na Internet pública, o Azure Pesquisa Cognitiva escuta na porta HTTPS 443. Todas as conexões de cliente para serviço usam a criptografia TLS 1,2. Não há suporte para versões anteriores (1,0 ou 1,1).
+No Azure Pesquisa Cognitiva, a criptografia começa com conexões e transmissões e se estende ao conteúdo armazenado em disco. Para serviços de pesquisa na Internet pública, o Azure Pesquisa Cognitiva escuta na porta HTTPS 443. Todas as conexões de cliente para serviço usam a criptografia TLS 1,2. Não há suporte para versões anteriores (1,0 ou 1,1).
 
-### <a name="data-encryption-at-rest"></a>Criptografia de dados em repouso
+Para dados manipulados internamente pelo serviço de pesquisa, a tabela a seguir descreve os [modelos de criptografia de dados](../security/fundamentals/encryption-atrest.md#data-encryption-models). Alguns recursos, como armazenamento de conhecimento, enriquecimento incremental e indexação baseada em indexador, leitura ou gravação em estruturas de dados em outros serviços do Azure. Esses serviços têm seus próprios níveis de suporte de criptografia separados do Azure Pesquisa Cognitiva.
 
-O Azure Pesquisa Cognitiva armazena definições de índice e conteúdo, definições de fonte de dados, definições de indexador, definições de Skills e mapas de sinônimos.
+| Modelo | Novas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requirement&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrições | Aplica-se a |
+|------------------|-------|-------------|--------------|------------|
+| criptografia do lado do servidor | Chaves gerenciadas pela Microsoft | Nenhum (interno) | Nenhum, disponível em todas as camadas, em todas as regiões, para o conteúdo criado após janeiro de 24 2018. | Conteúdo (índices e mapas de sinônimos) e definições (indexadores, fontes de dados, habilidades) |
+| criptografia do lado do servidor | chaves gerenciadas pelo cliente | Cofre de Chave do Azure | Disponível em camadas faturáveis, em todas as regiões, para conteúdo criado depois de janeiro de 2019. | Conteúdo (mapas e índices de sinônimos) em discos de dados |
+| criptografia dupla do lado do servidor | chaves gerenciadas pelo cliente | Cofre de Chave do Azure | Disponível em camadas faturáveis, em regiões selecionadas, em serviços de pesquisa depois de agosto de 1 2020. | Conteúdo (mapas e índices de sinônimos) em discos de dados e discos temporários |
 
-Na camada de armazenamento, os dados são criptografados em disco usando chaves gerenciadas pela Microsoft. Você não pode ativar ou desativar a criptografia ou exibir as configurações de criptografia no portal ou programaticamente. A criptografia é totalmente internalizada, sem impacto mensurável na indexação do tempo de conclusão ou do tamanho do índice. Isso ocorre automaticamente em toda a indexação, incluindo em atualizações incrementais em um índice que não está totalmente criptografado (criado antes de janeiro de 2018).
+### <a name="service-managed-keys"></a>Chaves gerenciadas pelo serviço
 
-Internamente, a criptografia é baseada na [Criptografia do Serviço de Armazenamento do Azure](../storage/common/storage-service-encryption.md), usando a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) do 256 bits.
+A criptografia gerenciada por serviço é uma operação interna da Microsoft, com base no [Azure criptografia do serviço de armazenamento](../storage/common/storage-service-encryption.md), usando a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits. Ele ocorre automaticamente em toda a indexação, incluindo em atualizações incrementais para índices que não são totalmente criptografados (criados antes de janeiro de 2018).
 
-> [!NOTE]
-> A criptografia em repouso foi anunciada em 24 de janeiro de 2018 e se aplica a todas as camadas de serviço, incluindo a camada gratuita, em todas as regiões. Para a criptografia completa, os índices criados antes dessa data precisam ser removidos e recompilados para que a criptografia ocorra. Caso contrário, somente os novos dados adicionados após 24 de janeiro são criptografados.
+### <a name="customer-managed-keys-cmk"></a>Chaves gerenciadas pelo cliente (CMK)
 
-### <a name="customer-managed-key-cmk-encryption"></a>Criptografia de chave gerenciada pelo cliente (CMK)
+Chaves gerenciadas pelo cliente exigem um serviço Faturável adicional, Azure Key Vault, que pode estar em uma região diferente, mas na mesma assinatura, como o Azure Pesquisa Cognitiva. Habilitar a criptografia CMK aumentará o tamanho do índice e reduzirá o desempenho da consulta. Com base nas observações até a data, você pode esperar um aumento de 30%-60% nos tempos de consulta, embora o desempenho real varie dependendo da definição de índice e dos tipos de consultas. Devido a esse impacto no desempenho, recomendamos que você habilite apenas esse recurso em índices que realmente o exigem. Para obter mais informações, consulte [Configurar chaves de criptografia gerenciadas pelo cliente no Azure pesquisa cognitiva](search-security-manage-encryption-keys.md).
 
-Os clientes que desejam proteção de armazenamento adicional podem criptografar dados e objetos antes de serem armazenados e criptografados em disco. Essa abordagem se baseia em uma chave de Propriedade do usuário, gerenciada e armazenada por meio de Azure Key Vault, independentemente da Microsoft. A criptografia de conteúdo antes de ser criptografada no disco é conhecida como "criptografia dupla". No momento, você pode criptografar seletivamente os índices e os mapas de sinônimos. Para obter mais informações, consulte [chaves de criptografia gerenciadas pelo cliente no Azure pesquisa cognitiva](search-security-manage-encryption-keys.md).
+<a name="double-encryption"></a>
 
-> [!NOTE]
-> A criptografia CMK está geralmente disponível para os serviços de pesquisa criados após janeiro de 2019. Não há suporte para serviços gratuitos (compartilhados). 
->
->Habilitar esse recurso aumentará o tamanho do índice e diminuirá o desempenho da consulta. Com base nas observações até a data, você pode esperar um aumento de 30%-60% nos tempos de consulta, embora o desempenho real varie dependendo da definição de índice e dos tipos de consultas. Devido a esse impacto no desempenho, recomendamos que você habilite apenas esse recurso em índices que realmente o exigem.
+### <a name="double-encryption"></a>Criptografia dupla 
+
+No Azure Pesquisa Cognitiva, a criptografia dupla é uma extensão de CMK. Ele é entendido como criptografia de duas dobras (uma vez por CMK e novamente pelas chaves gerenciadas pelo serviço) e abrangente no escopo, abrangendo o armazenamento de longo prazo que é gravado em um disco de dados e o armazenamento de curto prazo gravado em discos temporários. A diferença entre CMK antes de agosto de 1 2020 e posteriores e o que torna o CMK um recurso de criptografia dupla no Azure Pesquisa Cognitiva é a criptografia adicional de dados em repouso em discos temporários.
+
+A criptografia dupla está disponível atualmente em novos serviços que são criados nessas regiões após 1º de agosto:
+
++ Oeste dos EUA 2
++ Leste dos EUA
++ Centro-Sul dos Estados Unidos
++ Gov. dos EUA – Virgínia
++ Governo dos EUA do Arizona
 
 <a name="service-access-and-authentication"></a>
 
@@ -131,7 +144,7 @@ Azure Policy é um recurso interno do Azure que ajuda a gerenciar a conformidade
 
 Para o Azure Pesquisa Cognitiva, há atualmente uma definição interna. É para o log de diagnóstico. Com esse interno, você pode atribuir uma política que identifica qualquer serviço de pesquisa que não tem o log de diagnóstico e, em seguida, ativa-o. Para obter mais informações, consulte [Azure Policy controles de conformidade regulatória para o pesquisa cognitiva do Azure](security-controls-policy.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 + [Conceitos básicos de segurança do Azure](../security/fundamentals/index.yml)
 + [Segurança do Azure](https://azure.microsoft.com/overview/security)

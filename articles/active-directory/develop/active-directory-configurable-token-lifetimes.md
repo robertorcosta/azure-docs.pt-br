@@ -1,7 +1,7 @@
 ---
-title: Tempos de vida de token configuráveis do Azure AD
+title: Tempos de vida de token configuráveis
 titleSuffix: Microsoft identity platform
-description: Saiba como definir tempos de vida dos tokens emitidos pelo Azure AD.
+description: Saiba como definir tempos de vida para tokens emitidos pela plataforma de identidade da Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,16 +13,16 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 23283a44f78522d2b589993c11b494092352cbb6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d25c2e2603f36ff090d01f235a4c8e4a1ae12605
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478358"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552842"
 ---
-# <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Tempos de vida de token configuráveis no Azure Active Directory (versão prévia)
+# <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Tempos de vida de token configuráveis na plataforma Microsoft Identity (versão prévia)
 
-Especifique o tempo de vida de um token emitido pelo Azure Active Directory (Azure AD). Configure os tempos de vida de token de todos os aplicativos em uma organização, para um aplicativo multilocatário (várias organizações) ou para uma entidade de serviço específica em sua organização.
+Você pode especificar o tempo de vida de um token emitido pela plataforma de identidade da Microsoft. Configure os tempos de vida de token de todos os aplicativos em uma organização, para um aplicativo multilocatário (várias organizações) ou para uma entidade de serviço específica em sua organização.
 
 > [!IMPORTANT]
 > Depois de ouvir os clientes durante a versão prévia, implementamos os [recursos de gerenciamento de sessão de autenticação](https://go.microsoft.com/fwlink/?linkid=2083106) no acesso condicional do Azure AD. Você pode usar esse novo recurso para configurar tempos de vida de token de atualização definindo a frequência de entrada. Após 30 de maio de 2020, nenhum novo locatário será capaz de usar a política de tempo de vida de token configurável para configurar os tokens de sessão e de atualização. A reprovação ocorrerá em vários meses depois disso, o que significa que vamos parar de respeitar as políticas existentes de tokens de atualização e de sessão. Você ainda pode configurar tempos de vida de token de acesso após a reprovação.
@@ -68,12 +68,12 @@ Clientes públicos não são capazes de armazenar com segurança a senha (segred
 > A propriedade idade máxima é o período de tempo que um único token pode ser usado. 
 
 ### <a name="id-tokens"></a>Tokens de ID
-Tokens de ID são passados para sites e clientes nativos. Os tokens de ID contêm informações de perfil sobre um usuário. Um token de ID é associado a uma combinação específica de cliente e usuário. Os tokens de ID são considerados válidos até a expiração. Normalmente, um aplicativo Web corresponde o tempo de vida de sessão de um usuário no aplicativo ao tempo de vida do token de ID emitido para o usuário. Ajuste o tempo de vida de um token de ID para controlar com que frequência o aplicativo Web expira a sessão do aplicativo, com que frequência exige que o usuário seja autenticado novamente no Azure AD (de forma silenciosa ou interativa).
+Tokens de ID são passados para sites e clientes nativos. Os tokens de ID contêm informações de perfil sobre um usuário. Um token de ID é associado a uma combinação específica de cliente e usuário. Os tokens de ID são considerados válidos até a expiração. Normalmente, um aplicativo Web corresponde o tempo de vida de sessão de um usuário no aplicativo ao tempo de vida do token de ID emitido para o usuário. Você pode ajustar o tempo de vida de um token de ID para controlar a frequência com que o aplicativo Web expira a sessão do aplicativo e com que frequência ele requer que o usuário seja autenticado novamente com a plataforma de identidade da Microsoft (silenciosa ou interativamente).
 
 ### <a name="single-sign-on-session-tokens"></a>Tokens de sessão de logon único
-Quando um usuário se autentica no Azure AD, uma sessão de SSO (Logon Único) é estabelecida com o navegador do usuário e o Azure AD. O Token de SSO, na forma de um cookie, representa essa sessão. O token de sessão de SSO não está associado a um aplicativo cliente/recurso específico. Tokens de sessão de SSO podem ser revogados, e sua validade é verificada sempre que eles são usados.
+Quando um usuário é autenticado com a plataforma de identidade da Microsoft, uma sessão de logon único (SSO) é estabelecida com o navegador do usuário e a plataforma de identidade da Microsoft. O Token de SSO, na forma de um cookie, representa essa sessão. O token de sessão de SSO não está associado a um aplicativo cliente/recurso específico. Tokens de sessão de SSO podem ser revogados, e sua validade é verificada sempre que eles são usados.
 
-O Azure AD usa dois tipos de tokens de sessão de SSO: persistente e não persistente. Tokens de sessão persistentes são armazenadas como cookies persistentes pelo navegador. Tokens de sessão não persistentes são armazenados como cookies de sessão. (Os cookies de sessão são destruídos quando o navegador é fechado.) Normalmente, um token de sessão não persistente é armazenado. Porém, quando o usuário marca a caixa de seleção **Mantenha-me conectado** durante a autenticação, um token de sessão persistente é armazenado.
+A plataforma de identidade da Microsoft usa dois tipos de tokens de sessão de SSO: persistente e não persistente. Tokens de sessão persistentes são armazenadas como cookies persistentes pelo navegador. Tokens de sessão não persistentes são armazenados como cookies de sessão. (Os cookies de sessão são destruídos quando o navegador é fechado.) Normalmente, um token de sessão não persistente é armazenado. Porém, quando o usuário marca a caixa de seleção **Mantenha-me conectado** durante a autenticação, um token de sessão persistente é armazenado.
 
 Tokens de sessão não persistentes têm uma vida útil de 24 horas. Os tokens persistentes têm um tempo de vida de 90 dias. Sempre que um token de sessão de SSO é usado dentro de seu período de validade, o período de validade é estendido em mais de 24 horas ou 90 dias, dependendo do tipo de token. Se o token de sessão de SSO não for usado dentro do período de validade, ele será considerado expirado e não será mais aceito.
 
@@ -83,7 +83,7 @@ Use uma política para definir o tempo limite após a emissão do primeiro token
 Uma política de tempo de vida do token é um tipo de objeto de política que contém regras de tempo de vida do token. Use as propriedades da política para controlar tempos de vida de tokens especificados. Se nenhuma política for definida, o sistema aplicará o valor de tempo de vida padrão.
 
 ### <a name="configurable-token-lifetime-properties"></a>Propriedades de tempo de vida de token configurável
-| Property | Cadeia de caracteres de propriedade de política | Afeta | Padrão | Mínimo | Máximo |
+| Propriedade | Cadeia de caracteres de propriedade de política | Afeta | Padrão | Mínimo | Máximo |
 | --- | --- | --- | --- | --- | --- |
 | Tempo de Vida do Token de Acesso |AccessTokenLifetime<sup>2</sup> |Tokens de acesso, tokens de ID, tokens SAML2 |1 hora |10 minutos |1 dia |
 | Tempo Máximo Inativo de Token de Atualização |MaxInactiveTime |Tokens de atualização |90 dias |10 minutos |90 dias |
@@ -96,13 +96,13 @@ Uma política de tempo de vida do token é um tipo de objeto de política que co
 * <sup>2</sup> Para garantir que o cliente Web do Microsoft Teams funcione, é recomendável manter o AccessTokenLifetime a mais de 15 minutos para o Microsoft Teams.
 
 ### <a name="exceptions"></a>Exceções
-| Property | Afeta | Padrão |
+| Propriedade | Afeta | Padrão |
 | --- | --- | --- |
 | Idade Máxima dos Tokens de Atualização (emitidos para usuários federados com informações de revogação insuficientes<sup>1</sup>) |Tokens de atualização (emitidos para usuários federados com informações de revogação insuficientes<sup>1</sup>) |12 horas |
 | Tempo Máximo Inativo do Token de Atualização (emitido para clientes confidenciais) |Tokens de atualização (emitido para clientes confidenciais) |90 dias |
 | Idade Máxima do Token de Atualização (emitido para clientes confidenciais) |Tokens de atualização (emitido para clientes confidenciais) |Until-revoked |
 
-* <sup>1</sup>Os usuários federados com informações de revogação insuficientes incluem todos os usuários que não têm o atributo "LastPasswordChangeTimestamp" sincronizado. Esses usuários recebem essa breve Idade Máxima porque o AAD não é capaz de verificar quando revogar tokens vinculados a uma credencial antiga (como uma senha que foi alterada) e devem verificar novamente, com mais frequência, para garantir que o usuário e tokens associados estejam válidos ainda. Para melhorar essa experiência, os administradores de locatário devem garantir que estejam sincronizando o atributo "LastPasswordChangeTimestamp" (isso pode ser definido no objeto do usuário usando o Powershell ou por meio do AADSync).
+* <sup>1</sup> usuários federados que têm informações de revogação insuficientes incluem todos os usuários que não têm o atributo "LastPasswordChangeTimestamp" sincronizado. Esses usuários recebem essa breve Idade Máxima porque o AAD não é capaz de verificar quando revogar tokens vinculados a uma credencial antiga (como uma senha que foi alterada) e devem verificar novamente, com mais frequência, para garantir que o usuário e tokens associados estejam válidos ainda. Para melhorar essa experiência, os administradores de locatários devem garantir que estejam sincronizando o atributo "LastPasswordChangeTimestamp" (isso pode ser definido no objeto de usuário usando o PowerShell ou por meio de AADSync).
 
 ### <a name="policy-evaluation-and-prioritization"></a>Avaliação e priorização de política
 Crie e atribua uma política de tempo de vida de token para um aplicativo específico, para sua organização e para entidades de serviço. Várias políticas podem se aplicar a um aplicativo específico. A política de tempo de vida do token que entra em vigor segue estas regras:
@@ -129,13 +129,13 @@ Todos os períodos de tempo usados aqui são formatados de acordo com o objeto C
 > * O Aplicativo Web A é um aplicativo de uso normal e não está vinculado a políticas.
 > * O Aplicativo Web B é usado para processos altamente confidenciais. Essa entidade de serviço é vinculada à Política de tempo de vida de token 2, que tem uma Idade Máxima de Token de Sessão de 30 minutos.
 >
-> Às 12h, o usuário inicia uma nova sessão do navegador e tenta acessar o Aplicativo Web A. O usuário é redirecionado para o Azure AD e recebe uma solicitação para entrar. Isso crie um cookie com um token de sessão no navegador. O usuário é redirecionado ao Aplicativo Web A com um token de ID que permite e ele acessar o aplicativo.
+> Às 12:00 PM, o usuário inicia uma nova sessão do navegador e tenta acessar o aplicativo Web A. O usuário é redirecionado para a plataforma de identidade da Microsoft e é solicitado a entrar. Isso crie um cookie com um token de sessão no navegador. O usuário é redirecionado ao Aplicativo Web A com um token de ID que permite e ele acessar o aplicativo.
 >
-> Às 12h15, o usuário tentar acessar o Aplicativo Web B. O navegador é redirecionado para o Azure AD, que detecta o cookie de sessão. A entidade de serviço do Aplicativo Web B está vinculada à Política de tempo de vida de token 2, mas também faz parte da organização pai, com a Política de tempo de vida de token 1 padrão. A Política de tempo de vida de token 2 entra em vigor, pois as políticas vinculadas a entidades de serviço têm uma prioridade maior do que as políticas padrão de organização. O token de sessão foi originalmente emitido nos últimos 30 minutos. Portanto, ele é considerado válido. O usuário é redirecionado para o Aplicativo Web B com um token de ID que lhe concede acesso.
+> Às 12:15 PM, o usuário tenta acessar o aplicativo Web B. O navegador redireciona para a plataforma de identidade da Microsoft, que detecta o cookie de sessão. A entidade de serviço do Aplicativo Web B está vinculada à Política de tempo de vida de token 2, mas também faz parte da organização pai, com a Política de tempo de vida de token 1 padrão. A Política de tempo de vida de token 2 entra em vigor, pois as políticas vinculadas a entidades de serviço têm uma prioridade maior do que as políticas padrão de organização. O token de sessão foi originalmente emitido nos últimos 30 minutos. Portanto, ele é considerado válido. O usuário é redirecionado para o Aplicativo Web B com um token de ID que lhe concede acesso.
 >
-> Às 13h, o usuário tenta acessar o Aplicativo Web B. O usuário é redirecionado ao Azure AD. O Aplicativo Web A não está vinculado a qualquer política, mas como está em uma organização com a Política de tempo de vida de token 1 padrão, essa política entra em vigor. O cookie de sessão que foi originalmente emitido nas últimas oito horas é detectado. O usuário é redirecionado silenciosamente de volta ao Aplicativo Web A com um novo token de ID. O usuário não precisa autenticar.
+> Às 1:00 PM, o usuário tenta acessar o aplicativo Web A. O usuário é redirecionado para a plataforma de identidade da Microsoft. O Aplicativo Web A não está vinculado a qualquer política, mas como está em uma organização com a Política de tempo de vida de token 1 padrão, essa política entra em vigor. O cookie de sessão que foi originalmente emitido nas últimas oito horas é detectado. O usuário é redirecionado silenciosamente de volta ao Aplicativo Web A com um novo token de ID. O usuário não precisa autenticar.
 >
-> Imediatamente após isso, o usuário tenta acessar o Aplicativo Web B. O usuário é redirecionado ao Azure AD. Como antes, a Política de tempo de vida de token 2 entra em vigor. Como o token foi emitido há mais de 30 minutos, o usuário recebe uma solicitação para reinserir suas credenciais de logon. Um token de sessão e um token de ID totalmente novos são emitidos. Assim, o usuário pode acessar o Aplicativo Web B.
+> Imediatamente depois, o usuário tenta acessar o aplicativo Web B. O usuário é redirecionado para a plataforma de identidade da Microsoft. Como antes, a Política de tempo de vida de token 2 entra em vigor. Como o token foi emitido há mais de 30 minutos, o usuário recebe uma solicitação para reinserir suas credenciais de logon. Um token de sessão e um token de ID totalmente novos são emitidos. Assim, o usuário pode acessar o Aplicativo Web B.
 >
 >
 

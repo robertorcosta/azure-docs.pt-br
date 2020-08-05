@@ -4,12 +4,12 @@ description: Saiba como desenvolver funções usando Python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 3d3e313d464a8da8b62d5c22b5983c6458f42b5d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 6be225c1384892dfdb94da3375707351887c8344
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170370"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564003"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor de Python para o Azure Functions
 
@@ -434,8 +434,8 @@ Você também pode usar Azure Pipelines para criar suas dependências e publicar
 
 ### <a name="remote-build"></a>Build remoto
 
-Ao usar a compilação remota, as dependências restauradas no servidor e as dependências nativas correspondem ao ambiente de produção. Isso resulta em um pacote de implantação menor a ser carregado. Use a compilação remota ao desenvolver aplicativos Python no Windows. Se o seu projeto tiver dependências personalizadas, você poderá [usar a compilação remota com a URL de índice extra](#remote-build-with-extra-index-url). 
- 
+Ao usar a compilação remota, as dependências restauradas no servidor e as dependências nativas correspondem ao ambiente de produção. Isso resulta em um pacote de implantação menor a ser carregado. Use a compilação remota ao desenvolver aplicativos Python no Windows. Se o seu projeto tiver dependências personalizadas, você poderá [usar a compilação remota com a URL de índice extra](#remote-build-with-extra-index-url).
+
 As dependências são obtidas remotamente com base no conteúdo do arquivo de requirements.txt. O [Build remoto](functions-deployment-technologies.md#remote-build) é o método de build recomendado. Por padrão, o Azure Functions Core Tools solicita um build remoto quando você usa o comando [func azure functionapp publish](functions-run-local.md#publish) a seguir para publicar seu projeto Python no Azure.
 
 ```bash
@@ -456,7 +456,7 @@ func azure functionapp publish <APP_NAME> --build local
 
 Lembre-se de substituir `<APP_NAME>` pelo nome do aplicativo de funções no Azure.
 
-Com a opção `--build local`, as dependências do projeto são lidas no arquivo requirements.txt e esses pacotes dependentes são baixados e instalados localmente. Os arquivos e as dependências do projeto são implantados de seu computador local no Azure. Isso faz com que um pacote de implantação maior seja carregado no Azure. Se, por algum motivo, as dependências no arquivo requirements.txt não puderem ser adquiridas pelo Core Tools, você precisará usar a opção de dependências personalizadas para publicar. 
+Com a opção `--build local`, as dependências do projeto são lidas no arquivo requirements.txt e esses pacotes dependentes são baixados e instalados localmente. Os arquivos e as dependências do projeto são implantados de seu computador local no Azure. Isso faz com que um pacote de implantação maior seja carregado no Azure. Se, por algum motivo, as dependências no arquivo requirements.txt não puderem ser adquiridas pelo Core Tools, você precisará usar a opção de dependências personalizadas para publicar.
 
 Não recomendamos o uso de compilações locais ao desenvolver localmente no Windows.
 
@@ -466,7 +466,7 @@ Quando o projeto tem dependências não encontradas no [índice do pacote do Pyt
 
 #### <a name="remote-build-with-extra-index-url"></a>Build remoto com URL de índice extra
 
-Quando os pacotes estiverem disponíveis em um índice de pacote personalizado acessível, use uma compilação remota. Antes de publicar, certifique-se de [criar uma configuração de aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) chamada `PIP_EXTRA_INDEX_URL` . O valor dessa configuração é a URL do seu índice de pacote personalizado. Usar essa configuração instrui a compilação remota a ser executada `pip install` usando a `--extra-index-url` opção. Para saber mais, confira a [documentação de instalação do Python Pip](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format). 
+Quando os pacotes estiverem disponíveis em um índice de pacote personalizado acessível, use uma compilação remota. Antes de publicar, certifique-se de [criar uma configuração de aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) chamada `PIP_EXTRA_INDEX_URL` . O valor dessa configuração é a URL do seu índice de pacote personalizado. Usar essa configuração instrui a compilação remota a ser executada `pip install` usando a `--extra-index-url` opção. Para saber mais, confira a [documentação de instalação do Python Pip](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format).
 
 Você também pode usar credenciais básicas de autenticação com suas URLs de índice de pacote extra. Para saber mais, consulte [credenciais de autenticação básica](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) na documentação do Python.
 
@@ -658,11 +658,14 @@ Para exibir os detalhes completos da lista dessas bibliotecas, visite os links a
 
 O trabalho do Python do Functions requer um conjunto específico de bibliotecas. Você também pode usar essas bibliotecas em suas funções, mas elas não fazem parte do padrão Python. Se suas funções dependem de qualquer uma dessas bibliotecas, elas podem não estar disponíveis para seu código durante a execução fora do Azure Functions. Você pode encontrar uma lista detalhada de dependências na seção **instalar \_ requer** no arquivo [Setup.py](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282) .
 
+> [!NOTE]
+> Se o requirements.txt do seu aplicativo de funções contiver uma `azure-functions-worker` entrada, remova-a. O operador do Functions é gerenciado automaticamente pela plataforma Azure Functions e nós os atualizamos regularmente com novos recursos e correções de bugs. A instalação manual de uma versão antiga do Worker no requirements.txt pode causar problemas inesperados.
+
 ### <a name="azure-functions-python-library"></a>Azure Functions biblioteca do Python
 
 Cada atualização de trabalho do Python inclui uma nova versão da [biblioteca Azure Functions Python (Azure. Functions)](https://github.com/Azure/azure-functions-python-library). Essa abordagem torna mais fácil atualizar continuamente seus aplicativos de funções do Python, pois cada atualização é compatível com versões anteriores. Uma lista de versões dessa biblioteca pode ser encontrada no [Azure-Functions PyPi](https://pypi.org/project/azure-functions/#history).
 
-A versão da biblioteca de tempo de execução é corrigida pelo Azure e não pode ser substituída por requirements.txt. A `azure-functions` entrada no requirements.txt é apenas para refiapor e conscientização do cliente. 
+A versão da biblioteca de tempo de execução é corrigida pelo Azure e não pode ser substituída por requirements.txt. A `azure-functions` entrada no requirements.txt é apenas para refiapor e conscientização do cliente.
 
 Use o código a seguir para acompanhar a versão real da biblioteca de funções do Python em seu tempo de execução:
 
@@ -676,8 +679,8 @@ Para obter uma lista de bibliotecas do sistema pré-instalado em imagens do Dock
 
 |  runtime do Functions  | Versão do Debian | Versões do Python |
 |------------|------------|------------|
-| Versão 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3,7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
-| Versão 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3,7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
+| Versão 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
+| Versão 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
 
 ## <a name="cross-origin-resource-sharing"></a>Compartilhamento de recursos entre origens
 
@@ -689,7 +692,8 @@ O CORS tem suporte total a aplicativos de funções do Python.
 
 Veja a seguir uma lista de guias de solução de problemas comuns:
 
-* [ModuleNotFoundError e ImportError](recover-module-not-found.md)
+* [ModuleNotFoundError e ImportError](recover-python-functions.md#troubleshoot-modulenotfounderror)
+* [Não é possível importar ' cygrpc '](recover-python-functions.md#troubleshoot-cannot-import-cygrpc)
 
 Todos os problemas conhecidos e solicitações de recursos são controlados usando a lista [Problemas do GitHub](https://github.com/Azure/azure-functions-python-worker/issues). Se você tiver um problema e não for possível localizá-lo no GitHub, abra um novo problema e inclua uma descrição detalhada dele.
 

@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: 2a1fc4de572fbb8634f8f58452ce5f9b632023a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1595354803b0625137dd1ac45d17962063ce4e0
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628786"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562439"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Visão geral do cache local do Serviço de Aplicativo do Azure
 
@@ -48,7 +48,7 @@ O recurso Cache Local do Serviço de Aplicativo do Azure fornece uma exibição 
 ## <a name="enable-local-cache-in-app-service"></a>Habilitar o Cache Local no Serviço de Aplicativo
 Configure o Cache Local usando uma combinação de configurações de aplicativo reservadas. Você pode configurar essas configurações de aplicativo usando os seguintes métodos:
 
-* [Azure portal](#Configure-Local-Cache-Portal)
+* [Portal do Azure](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Configurar o Cache Local usando o portal do Azure
@@ -105,10 +105,13 @@ Se estiver usando o recurso de Cache Local com os Ambientes de Preparo, a opera�
 ### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>Acabei de publicar novas alterações, mas meu aplicativo parece não tê-las. Por quê?
 Se o seu aplicativo usar o Cache Local, será necessário reiniciar o site para obter as últimas alterações. Não quer publicar alterações em um site de produção? Confira as opções de slot na seção anterior de práticas recomendadas.
 
+> [!NOTE]
+> A opção [de implantação de pacote executar de](deploy-run-package.md) não é compatível com o cache local.
+
 ### <a name="where-are-my-logs"></a>Onde estão meus logs?
 Com o cache local, as pastas de logs e de dados são um pouco diferentes. No entanto, a estrutura de suas subpastas permanece a mesma, tirando o fato de as subpastas ficarem aninhadas em uma subpasta com o formato "identificador da VM exclusivo" + carimbo de data/hora.
 
-### <a name="i-have-local-cache-enabled-but-my--app-still-gets-restarted-why-is-that-i-thought-local-cache-helped-with-frequent-app-restarts"></a>Meu Cache Local está habilitado, mas meu aplicativo ainda é reiniciado. Por que isso acontece? Pensei que o Cache Local ajudasse com reinicializações frequentes do aplicativo.
+### <a name="i-have-local-cache-enabled-but-my--app-still-gets-restarted-why-is-that-i-thought-local-cache-helped-with-frequent-app-restarts"></a>Meu Cache Local está habilitado, mas meu aplicativo ainda é reiniciado. Por quê? Pensei que o Cache Local ajudasse com reinicializações frequentes do aplicativo.
 O Cache Local ajuda a evitar reinicializações de aplicativo relacionadas ao armazenamento. No entanto, seu aplicativo ainda pode sofrer reinicializações durante atualizações de infraestrutura planejadas da VM. A quantidade de reinicializações de aplicativo gerais que você enfrenta com o Cache Local habilitado deve ser menor.
 
 ### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>O Cache Local exclui os diretórios de serem copiados para a unidade local mais rápida?

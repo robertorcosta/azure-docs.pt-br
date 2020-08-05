@@ -6,6 +6,8 @@
       href: overview.md
     - name: 'Sobre Chaves, Segredos e Certificados'
       href: about-keys-secrets-certificates.md
+    - name: Novidades
+      href: whats-new.md
 - name: Inícios rápidos
   expanded: true
   items:

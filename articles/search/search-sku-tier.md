@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 00080322b4fa474e5095d40afb041134e1a85fe7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 93fb65fc7c7551635c49e33d0f626d72c2755a11
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519724"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553964"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um tipo de preço para o Azure Pesquisa Cognitiva
 
@@ -61,9 +61,18 @@ Você pode saber mais sobre as várias camadas na [página de preços](https://a
 Uma solução criada no Azure Pesquisa Cognitiva pode gerar custos das seguintes maneiras:
 
 + Custo do próprio serviço, executando 24x7, na configuração mínima (uma partição e réplica)
+
 + Adicionando capacidade (réplicas ou partições)
-+ Encargos de largura de banda (transferência de dados de saída) 
-+ Serviços de complemento, como o enriquecimento de AI (anexando serviços cognitivas no habilidades que definem o processamento de ia ou usando o armazenamento do Azure para armazenamento de conhecimento) ou implantando um serviço de pesquisa em uma rede virtual privada
+
++ Encargos de largura de banda (transferência de dados de saída)
+
++ Serviços de complemento necessários para recursos ou recursos específicos:
+
+  + Enriquecimento de ia (requer [Serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/))
+  + loja de conhecimento (requer o [armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/))
+  + enriquecimento incremental (requer o [armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/), aplica-se ao enriquecimento de ia)
+  + chaves gerenciadas pelo cliente e criptografia dupla (requer [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
+  + pontos de extremidade privados para um modelo de acesso sem Internet (requer o [link privado do Azure](https://azure.microsoft.com/pricing/details/private-link/))
 
 ### <a name="service-costs"></a>Custos de serviço
 
@@ -88,7 +97,7 @@ Para [aprimorar o ia](cognitive-search-concept-intro.md), você deve planejar [a
 
 | Operação | Impacto de cobrança |
 |-----------|----------------|
-| Quebra de documentos, extração de texto | Gratuita |
+| Quebra de documentos, extração de texto | Grátis |
 | Quebra de documento, extração de imagem | Cobrado de acordo com o número de imagens extraídas dos seus documentos. Em uma [configuração de indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters), **imageaction** é o parâmetro que dispara a extração de imagem. Se **imageaction** for definido como "None" (o padrão), você não será cobrado pela extração de imagem. A taxa de extração de imagem está documentada na página de [detalhes de preços](https://azure.microsoft.com/pricing/details/search/) do Azure pesquisa cognitiva.|
 | [Habilidades cognitivas internas](cognitive-search-predefined-skills.md) | Cobrado na mesma taxa que se você executou a tarefa usando serviços cognitivas diretamente. |
 | Habilidades personalizadas | Uma habilidade personalizada é A funcionalidade que você fornece. O custo de usar uma habilidade personalizada depende totalmente de se o código personalizado está chamando outros serviços medidos. |

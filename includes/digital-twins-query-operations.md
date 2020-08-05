@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/28/2020
 ms.author: baanders
-ms.openlocfilehash: 70ff1847548c1328a709cf17c02bba3dd25ba213
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 82639a19ef728c22a74381d24754992e0f647976
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486639"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562456"
 ---
 ## <a name="query-language-features"></a>Recursos de linguagem de consulta
 
@@ -19,7 +19,7 @@ O Azure digital gêmeos fornece recursos de consulta extensivos em relação ao 
 > [!NOTE]
 > Todas as operações de consulta do Azure digital gêmeos diferenciam maiúsculas de minúsculas.
 
-Aqui estão as operações disponíveis na linguagem Repositório de Consultas do Azure digital gêmeos.
+Aqui estão as operações disponíveis na linguagem de consulta do Azure digital gêmeos.
 
 Obter gêmeos digital por seus...
 * modelo (usando o `IS_OF_MODEL` operador)

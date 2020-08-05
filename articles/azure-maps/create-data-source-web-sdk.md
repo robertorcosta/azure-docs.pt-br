@@ -9,18 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 57589552af3b93d98733d4872b43a719703d501a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4f51afbcf50939d762b1b5d32d6204ccfbb9a62d
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285723"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551669"
 ---
 # <a name="create-a-data-source"></a>Criar uma fonte de dados
 
 O SDK da Web do Azure Maps armazena dados em fontes de dados. O uso de fontes de dados otimiza as operações de dados para consulta e renderização. Atualmente, há dois tipos de fontes de dados:
 
-**Fonte de dados geojson**
+- **Origem geojson**: gerencia dados de local brutos no formato geojson localmente. Bom para conjuntos de dados pequenos a médios (em cima de centenas de milhares de formas).
+- **Origem do bloco de vetor**: carrega dados formatados como blocos de vetor para a exibição de mapa atual, com base no sistema de mapas de blocos. Ideal para conjuntos de dados grandes a grandes (milhões ou bilhões de formas).
+
+## <a name="geojson-data-source"></a>Fonte de dados geojson
 
 Uma fonte de dados baseada em geojson carrega e armazena dados localmente usando a `DataSource` classe. Os dados geojson podem ser criados ou criados manualmente usando as classes auxiliares no namespace do [Atlas. Data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) . A `DataSource` classe fornece funções para importar arquivos geojson locais ou remotos. Arquivos geojson remotos devem ser hospedados em um ponto de extremidade habilitado para CORs. A `DataSource` classe fornece funcionalidade para dados de ponto de cluster. E, os dados podem ser facilmente adicionados, removidos e atualizados com a `DataSource` classe. O código a seguir mostra como os dados geojson podem ser criados no Azure Maps.
 
@@ -37,7 +40,7 @@ var rawGeoJson = {
      }
 };
 
-//Create GeoJSON using helper classes (less error prone).
+//Create GeoJSON using helper classes (less error prone and less typing).
 var geoJsonClass = new atlas.data.Feature(new atlas.data.Point([-100, 45]), {
     "custom-property": "value"
 }); 
@@ -69,7 +72,7 @@ dataSource.setShapes(geoJsonData);
 > [!TIP]
 > Digamos que você deseja substituir todos os dados em um `DataSource` . Se você fizer chamadas para as `clear` `add` funções then, o mapa poderá renderizar novamente duas vezes, o que pode causar um pouco de atraso. Em vez disso `setShapes` , use a função, que removerá e substituirá todos os dados na fonte de dados e disparará apenas uma única rerenderização do mapa.
 
-**Origem do bloco de vetor**
+## <a name="vector-tile-source"></a>Origem do bloco de vetor
 
 Uma fonte de bloco de vetor descreve como acessar uma camada de bloco de vetor. Use a classe [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) para criar uma instância de uma fonte de bloco de vetor. As camadas de bloco de vetor são semelhantes às camadas de bloco, mas não são as mesmas. Uma camada de peça é uma imagem rasterizada. As camadas de bloco de vetor são um arquivo compactado, no formato **PBF** . Esse arquivo compactado contém dados de mapa de vetor e uma ou mais camadas. O arquivo pode ser renderizado e estilizado no cliente, com base no estilo de cada camada. Os dados em um bloco de vetor contêm recursos geográficos na forma de pontos, linhas e polígonos. Há várias vantagens de usar camadas de bloco vetorial em vez de camadas de bloco rasterizadas:
 

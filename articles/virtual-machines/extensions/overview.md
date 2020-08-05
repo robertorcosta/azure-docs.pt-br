@@ -1,54 +1,36 @@
 ---
 title: Extensões e recursos da máquina virtual do Azure
-description: Saiba o que são as extensões Azure VM e como usá-las com as máquinas virtuais do Azure
-services: virtual-machines-linux
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
+description: Saiba mais sobre extensões de VM do Azure
+services: virtual-machines
+author: amjads1
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/12/2019
-ms.author: akjosh
-ms.openlocfilehash: bf17f499c1e8339a1e9abb13cffd5e35c390f564
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/03/2020
+ms.author: amjads
+ms.openlocfilehash: 73738f339bea3e8e075530e5de564c1c0854d283
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74072969"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552043"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Extensões e recursos da máquina virtual do Azure
-Extensões de máquina virtual do Azure (VM) são pequenos aplicativos que fornecem as tarefas de configuração e automação de pós-implantação em VMs do Azure, você pode usar imagens existentes e personalizá-las como parte de suas implantações, você saindo da empresa de criação de imagem personalizada.
-
-A plataforma do Azure hospeda várias extensões que variam de configuração de VM, monitoramento, segurança e aplicativos de utilidade. Os publicadores tomam um aplicativo, e o envolvem em uma extensão e simplificam a instalação, assim tudo que você precisa fazer é fornecer parâmetros obrigatórios. 
-
- Há uma opção grande de primeiras e extensões de terceiros, se o aplicativo no repositório de extensão não existir, você pode usar a extensão de Script personalizado e configurar sua VM com seus próprios comandos e scripts.
-
-Exemplos de cenários-chave cujas extensões são usadas para:
-* Configuração da VM, você pode usar a DSC (Configuração de Estado Desejado) do Powershell, Extensões Chef, Puppet e Custom Script para instalar os agentes de configuração da VM e configurar a sua VM. 
-* Produtos AV, como Symantec, ESET.
-* Ferramenta de vulnerabilidade VM, como Qualys, Rapid7, HPE.
-* Ferramentas de VM e aplicativo, como DynaTrace, Observador de Rede do Azure, Site24x7, e Stackify.
-
-As extensões podem ser incluídas com uma nova implantação de VM. Por exemplo, podem fazer parte de uma implantação maior, configuração de aplicativos no provisionamento de VM, ou executar em qualquer pós-implantação de sistemas operado por  extensão com suporte.
+Extensões são pequenos aplicativos que fornecem configuração pós-implantação e automação em VMs do Azure. A plataforma Azure hospeda muitas extensões que abrangem aplicativos de configuração, monitoramento, segurança e utilitário da VM. Os editores usam um aplicativo, o encapsulam em uma extensão e simplificam a instalação. Tudo o que você precisa fazer é fornecer parâmetros obrigatórios. 
 
 ## <a name="how-can-i-find-what-extensions-are-available"></a>Como localizar quais extensões estão disponíveis?
-Você pode exibir as extensões disponíveis na folha da VM no Portal, em extensões, isso representa apenas uma pequena quantidade para a lista completa, você pode usar as ferramentas CLI, consulte [Descobrindo as Extensões VM para Linux](features-linux.md) e [ Descobrindo as Extensões VM para Windows](features-windows.md).
+Você pode exibir as extensões disponíveis selecionando uma VM, selecionando **extensões** no menu à esquerda. Para efetuar pull de uma lista completa de extensões, consulte [descobrindo extensões de VM para Linux](features-linux.md) e [descobrindo extensões de VM para Windows](features-windows.md).
 
 ## <a name="how-can-i-install-an-extension"></a>Como instalar uma extensão?
-As extensões de VM do Azure podem ser gerenciadas usando a CLI do Azure, o Azure PowerShell, os modelos do Azure Resource Manager e o portal do Azure. Para testar uma extensão, você pode ir para o portal do Azure, selecionar a extensão de Script personalizado, em seguida, passar um comando / script e executar as extensões.
+As extensões de VM do Azure podem ser gerenciadas usando o CLI do Azure, o PowerShell, os modelos do Resource Manager e o portal do Azure. Para tentar uma extensão, vá para a portal do Azure, selecione a extensão de script personalizado e, em seguida, passe um comando ou script para executar a extensão.
 
-Caso deseje a mesma extensão que você adicionou no portal pela CLI ou pelo modelo do Resource Manager, confira a documentação de uma extensão diferente, como a [Extensão de Script Personalizado do Windows](custom-script-windows.md) e a [Extensão de Script Personalizado do Linux](custom-script-linux.md).
+Para obter mais informações, consulte [extensão de script personalizado do Windows](custom-script-windows.md) e extensão de [script personalizado do Linux](custom-script-linux.md).
 
 ## <a name="how-do-i-manage-extension-application-lifecycle"></a>Como gerenciar o ciclo de vida do aplicativo de extensão?
-Você não precisa se conectar a uma VM diretamente para instalar ou excluir a extensão. Como o ciclo de vida do aplicativo de extensão do Azure é gerenciado fora da VM e integrado à plataforma do Azure, também é possível obter status integrado da extensão.
+Você não precisa se conectar a uma VM diretamente para instalar ou excluir uma extensão. O ciclo de vida da extensão do Azure é gerenciado fora da VM e integrado à plataforma Azure.
 
 ## <a name="anything-else-i-should-be-thinking-about-for-extensions"></a>Qualquer outra coisa que devo estar pensando sobre extensões?
-As extensões instalam aplicativos, como os aplicativos, há alguns requisitos, para extensões existe uma lista de Windows e Linux OSes compatíveis e você  precisa ter os agentes de VM do Azure instalados. Alguns aplicativos de extensão VM individuais podem ter seus próprios pré-requisitos de ambiente, como acesso a um ponto de extremidade.
+Alguns aplicativos de extensão VM individuais podem ter seus próprios pré-requisitos de ambiente, como acesso a um ponto de extremidade. Cada extensão tem um artigo que explica os pré-requisitos, incluindo quais sistemas operacionais têm suporte.
 
 ## <a name="troubleshoot-extensions"></a>Solucionar problemas de extensões
 
@@ -69,14 +51,14 @@ As informações de solução de problemas para cada extensão podem ser encontr
 | Microsoft. enterprisecloud. Monitoring. omsagentforlinux | [Azure Monitor para Linux](oms-linux.md#troubleshoot-and-support)
 | Microsoft. enterprisecloud. Monitoring. extensão microsoftmonitoringagent | [Azure Monitor para Windows](oms-windows.md#troubleshoot-and-support) |
 | stackify. linuxagent. Extension. stackifylinuxagentextension | [Stackify retrace para Linux](stackify-retrace-linux.md#troubleshoot-and-support) |
-| vmaccessforlinux. Microsoft. ostcextensions | [Redefinir senha (VMAccess) para Linux](vmaccess.md#troubleshoot-and-support) |
+| vmaccessforlinux. Microsoft. ostcextensions | [Redefinir senha para Linux](vmaccess.md#troubleshoot-and-support) |
 | Microsoft. recoveryservices. vmsnapshot | [Instantâneo para Linux](vmsnapshot-linux.md#troubleshoot-and-support) |
 | Microsoft. recoveryservices. vmsnapshot | [Instantâneo para Windows](vmsnapshot-windows.md#troubleshoot-and-support) |
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter mais informações sobre como as extensões e agente do Linux funcionam, consulte [extensões de VM do Azure e recursos para Linux](features-linux.md).
-* Para obter mais informações sobre como as extensões e agente do Windows funcionam, consulte [extensões de VM do Azure e recursos para Windows](features-windows.md).  
+* Para obter mais informações sobre como o agente e as extensões do Linux funcionam, consulte [recursos e extensões de VM do Azure para Linux](features-linux.md).
+* Para obter mais informações sobre como o agente convidado do Windows e as extensões funcionam, consulte [extensões e recursos de VM do Azure para Windows](features-windows.md).  
 * Para instalar o agente convidado do Windows, consulte [visão geral do agente de máquina virtual do Windows do Azure](agent-windows.md).  
 * Para instalar o agente do Linux, consulte [visão geral do agente de máquina virtual Linux do Azure](agent-linux.md).  
 

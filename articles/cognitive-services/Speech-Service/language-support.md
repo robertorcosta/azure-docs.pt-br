@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 8e3f33e8f453ffd6eedaeb75a041af7ec11b4e39
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 3b70590002e9c49f2f8711bb7fe90de79e1d2a73
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87457797"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554049"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Idiomas compatíveis e suporte de voz para o serviço de Fala
 
@@ -38,15 +38,15 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Local  | Linguagem                          | Personalizações                                    |
 |---------|-----------------------------------|---------------------------------------------------|
-| `ar-AE` | Árabe (EAU)                      | No                                                |
+| `ar-AE` | Árabe (EAU)                      | Não                                                |
 | `ar-BH` | Árabe (Bahrein), padrão moderno | Modelo de linguagem                                    |
 | `ar-EG` | Árabe (Egito)                    | Modelo de linguagem                                    |
-| `ar-IL` | Árabe (Israel)                   | No                                                |
-| `ar-JO` | Árabe (Jordânia)                   | No                                                |
-| `ar-KW` | Árabe (Kuwait)                   | No                                                |
-| `ar-LB` | Árabe (Líbano)                  | No                                                |
+| `ar-IL` | Árabe (Israel)                   | Não                                                |
+| `ar-JO` | Árabe (Jordânia)                   | Não                                                |
+| `ar-KW` | Árabe (Kuwait)                   | Não                                                |
+| `ar-LB` | Árabe (Líbano)                  | Não                                                |
 | `ar-PS` | Árabe (Palestina)                | Não                                                |
-| `ar-QA` | Árabe (Catar)                    | No                                                |
+| `ar-QA` | Árabe (Catar)                    | Não                                                |
 | `ar-SA` | Árabe (Arábia Saudita)             | Não                                                |
 | `ar-SY` | Árabe (Síria)                    | Modelo de linguagem                                    |
 | `ca-ES` | Catalão                           | Modelo de linguagem                                    |
@@ -161,7 +161,7 @@ Para obter mais informações sobre a disponibilidade regional, consulte [regiõ
 |         |                                 | Feminino | `zh-CN-XiaoyouNeural`    | Voz de criança, otimização para narração de histórias |
 |         |                                 | Masculino   | `zh-CN-YunyangNeural`    | Otimização para leitura de notícias, com vários estilos de voz disponíveis |
 |         |                                 | Masculino   | `zh-CN-YunyeNeural`      | Otimização para narração de histórias |
-| `zh-HK` | Chinês (Cantonês, tranditional)   | Feminino | `zh-HK-HiuGaaiNeural`| Geral |
+| `zh-HK` | Chinês (Cantonês tradicional)   | Feminino | `zh-HK-HiuGaaiNeural`| Geral |
 | `zh-TW` | Chinês (Mandarim Taiwanês)   | Feminino | `zh-TW-HsiaoYuNeural`    | Geral |
 
 > [!IMPORTANT]

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 948ada46085d83c8cf453cdde23cb407ea2dd2d8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e78f4133e7f722870f6c84de2ab7e784cd151d79
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447713"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562677"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Linha de base de segurança do Azure para automação
 
@@ -34,7 +34,7 @@ Para obter mais isolamento para seus runbooks, você pode usar Hybrid runbook Wo
 
 Como alternativa, se você tiver um requisito específico, o Firewall do Azure também poderá ser usado para atendê-lo.
 
-* [Redes virtuais e máquinas virtuais no Azure](../virtual-machines/windows/network-overview.md)
+* [Redes virtuais e máquinas virtuais no Azure](../virtual-machines/network-overview.md)
 
 * [Como criar uma Rede Virtual](../virtual-network/quick-create-portal.md)
 
@@ -848,7 +848,7 @@ O controle de aplicativo adaptável é uma solução inteligente, automatizada e
 
 **Orientação**: aplicativos de alto risco implantados em seu ambiente do Azure podem ser isolados usando contêineres de rede e de recursos separados usando construções como redes virtuais, sub-rede, assinaturas, grupos de gerenciamento, eles podem ser suficientemente protegidos com um firewall do Azure, o WAF (firewall do aplicativo Web) ou o NSG (grupo de segurança de rede).
 
-* [Redes virtuais e máquinas virtuais no Azure](../virtual-machines/windows/network-overview.md)
+* [Redes virtuais e máquinas virtuais no Azure](../virtual-machines/network-overview.md)
 
 * [Visão geral do firewall do Azure](../firewall/overview.md)
 

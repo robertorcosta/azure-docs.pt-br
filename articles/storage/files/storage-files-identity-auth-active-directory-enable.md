@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: rogarana
-ms.openlocfilehash: 1ea1bfdf2c3b2dcfd49f87a5a75597a464b07913
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d7aab7f5db6256d2f2525ff4a58c10ff5aa517f7
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999574"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553165"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Visão geral-local Active Directory Domain Services autenticação sobre SMB para compartilhamentos de arquivos do Azure
 
@@ -46,6 +46,8 @@ Antes de habilitar a autenticação AD DS para compartilhamentos de arquivos do 
     Você pode habilitar o recurso em um ambiente de AD DS local novo ou existente. As identidades usadas para o acesso devem ser sincronizadas com o Azure AD. O locatário do Azure AD e o compartilhamento de arquivos que você está acessando devem ser associados à mesma assinatura.
 
 - Domínio-ingresse em um computador local ou em uma VM do Azure para AD DS local. Para obter informações sobre como ingressar no domínio, consulte [ingressar um computador em um domínio](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
+
+    Se seu computador não estiver ingressado no domínio de um AD DS, você ainda poderá aproveitar as credenciais do AD para autenticação se o seu computador tiver uma linha de visão do controlador de domínio do AD.
 
 - Selecione ou crie uma conta de armazenamento do Azure.  Para obter um desempenho ideal, recomendamos que você implante a conta de armazenamento na mesma região que o cliente do qual você planeja acessar o compartilhamento. Em seguida, [monte o compartilhamento de arquivos do Azure](storage-how-to-use-files-windows.md) com sua chave de conta de armazenamento. A montagem com a chave da conta de armazenamento verifica a conectividade.
 

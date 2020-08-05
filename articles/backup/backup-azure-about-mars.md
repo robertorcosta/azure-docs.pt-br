@@ -1,19 +1,20 @@
 ---
 title: Sobre o agente MARS
 description: Saiba como o agente MARS dá suporte aos cenários de backup
-ms.reviewer: srinathv
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 417fc385750ccab5c2f11f8160d9bbc85a013cde
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/04/2020
+ms.openlocfilehash: 8e4ace0c17dbe75e989981db56583ed9477b3716
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497940"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562592"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Sobre o agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
 Este artigo descreve como o serviço de backup do Azure usa o agente de Serviços de Recuperação do Microsoft Azure (MARS) para fazer backup e restaurar arquivos, pastas e o volume ou o estado do sistema de um computador local para o Azure.
+
+## <a name="backup-scenarios"></a>Cenários de backup
 
 O agente MARS dá suporte aos seguintes cenários de backup:
 
@@ -23,13 +24,21 @@ O agente MARS dá suporte aos seguintes cenários de backup:
 - **Nível de volume**: Proteja todo o volume do Windows de seu computador.
 - **Nível do sistema**: proteger todo o estado do sistema do Windows.
 
+### <a name="additional-scenarios"></a>Cenários adicionais
+
+- **Fazer backup de arquivos e pastas específicos em máquinas virtuais do Azure**: o método principal para fazer backup de VMs (máquinas virtuais) do Azure é usar uma extensão de backup do Azure na VM. A extensão faz o backup de toda a VM. Se desejar fazer backup de arquivos e pastas específicos em uma VM, você poderá instalar o agente MARS nas VMs do Azure. Para obter mais informações, consulte [arquitetura: backup de VM do Azure interno](./backup-architecture.md#architecture-built-in-azure-vm-backup).
+
+- **Propagação offline**: backups completos iniciais de dados no Azure normalmente transferem grandes quantidades de dados e exigem mais largura de banda de rede. Os backups subsequentes transferem apenas o Delta, ou incrementais, a quantidade de dados. O backup do Azure compacta os backups iniciais. Por meio do processo de *propagação offline*, o backup do Azure pode usar discos para carregar os dados de backup inicial compactados offline no Azure. Para obter mais informações, consulte [backup offline do Azure-backup usando Azure data Box](offline-backup-azure-data-box.md).
+
+## <a name="restore-scenarios"></a>Cenários de restauração
+
 O agente MARS dá suporte aos seguintes cenários de restauração:
 
 ![Cenários de recuperação MARS](./media/backup-try-azure-backup-in-10-mins/restore-scenarios.png)
 
 - **Mesmo servidor**: o servidor no qual o backup foi criado originalmente.
   - **Arquivos e pastas**: escolha os arquivos e as pastas individuais que você deseja restaurar.
-  - **Nível de volume**: escolha o volume e o ponto de recuperação que deseja restaurar e, em seguida, restaure-o no mesmo local ou em um local alternativo no mesmo computador.  Crie uma cópia dos arquivos existentes, substitua os arquivos existentes ou ignore a recuperação de arquivos existentes.
+  - **Nível de volume**: escolha o volume e o ponto de recuperação que você deseja restaurar. Em seguida, restaure-o no mesmo local ou em um local alternativo no mesmo computador.  Crie uma cópia dos arquivos existentes, substitua os arquivos existentes ou ignore a recuperação de arquivos existentes.
   - **Nível do sistema**: escolha o estado do sistema e o ponto de recuperação para restaurar no mesmo computador em um local especificado.
 
 - **Servidor alternativo**: um servidor que não seja o servidor onde o backup foi feito.
@@ -54,12 +63,6 @@ O agente MARS dá suporte aos seguintes cenários de restauração:
 - Os **backups incrementais** (backups subsequentes) são executados de acordo com o agendamento especificado. Durante backups incrementais, os arquivos alterados são identificados e um novo VHD é criado. O VHD é compactado e criptografado e é enviado para o cofre. Após a conclusão do backup incremental, o novo VHD é mesclado com o VHD criado após a replicação inicial. Esse VHD mesclado fornece o estado mais recente a ser usado para comparação para o backup em andamento.
 
 - O agente MARS pode executar o trabalho de backup no **modo otimizado** usando o diário de alterações USN (número de sequência de atualização) ou, no **modo não otimizado** , verificando alterações em diretórios ou arquivos por meio da verificação de todo o volume. O modo não otimizado é mais lento porque o agente precisa verificar cada arquivo no volume e compará-lo com os metadados para determinar os arquivos alterados.  O **backup inicial** sempre será executado no modo não otimizado. Se o backup anterior tiver falhado, o próximo trabalho de backup agendado será executado no modo não otimizado. Para saber mais sobre esses modos e como verificá-los, consulte [Este artigo](backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-job-running-in-unoptimized-mode).
-
-### <a name="additional-scenarios"></a>Cenários adicionais
-
-- **Fazer backup de arquivos e pastas específicos em máquinas virtuais do Azure**: o método principal para fazer backup de VMs (máquinas virtuais) do Azure é usar uma extensão de backup do Azure na VM. A extensão faz o backup de toda a VM. Se desejar fazer backup de arquivos e pastas específicos em uma VM, você poderá instalar o agente MARS nas VMs do Azure. Para obter mais informações, consulte [arquitetura: backup de VM do Azure interno](./backup-architecture.md#architecture-built-in-azure-vm-backup).
-
-- **Propagação offline**: backups completos iniciais de dados no Azure normalmente transferem grandes quantidades de dados e exigem mais largura de banda de rede. Os backups subsequentes transferem apenas o Delta, ou incrementais, a quantidade de dados. O backup do Azure compacta os backups iniciais. Por meio do processo de *propagação offline*, o backup do Azure pode usar discos para carregar os dados de backup inicial compactados offline no Azure. Para obter mais informações, consulte [backup offline do Azure-backup usando Azure data Box](offline-backup-azure-data-box.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

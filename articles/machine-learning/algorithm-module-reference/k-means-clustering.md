@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/19/2020
-ms.openlocfilehash: 9606768288cc74afc24491149eb471944f45e2dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/04/2020
+ms.openlocfilehash: 94a2c9bf3f65897809edaf94fc01b442e02b46d9
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77921157"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552995"
 ---
 # <a name="module-k-means-clustering"></a>Módulo: clustering K-means
 
@@ -62,7 +62,7 @@ Quando ele processa os dados de treinamento, o algoritmo K-means começa com um 
   
 3.  Para **número de centróides**, digite o número de clusters para o qual você deseja que o algoritmo comece.  
   
-     Não há garantia de que o modelo produza exatamente esse número de clusters. O algoritmo começa com esse número de pontos de dados e itera para localizar a configuração ideal.  
+     Não há garantia de que o modelo produza exatamente esse número de clusters. O algoritmo começa com esse número de pontos de dados e itera para localizar a configuração ideal. Você pode consultar o [código-fonte de sklearn](https://github.com/scikit-learn/scikit-learn/blob/fd237278e/sklearn/cluster/_kmeans.py#L1069).
   
 4.  A **inicialização** de propriedades é usada para especificar o algoritmo que é usado para definir a configuração de cluster inicial.  
   

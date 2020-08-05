@@ -1,15 +1,14 @@
 ---
 title: Solucionar problemas do agente de backup do Azure
 description: Neste artigo, saiba como solucionar problemas de instalação e registro do agente de backup do Azure.
-ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: b810b5abfb15a39d19a0571b6ac36a6c86bf0b4f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1afe437239ec7015bf3bbc195cf0b90e75698142
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054649"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564105"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solucionar problemas do agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -42,7 +41,7 @@ Recomendamos que você verifique o seguinte antes de iniciar a solução de prob
 
 | Causa | Ações recomendadas |
 | ---     | ---    |
-| **As credenciais do cofre não são válidas** <br/> <br/> Os arquivos de credencial do cofre podem estar corrompidos ou podem ter expirado. (Por exemplo, eles podem ter sido baixados mais de 48 horas antes do horário de registro.)| Baixe novas credenciais do cofre dos serviços de recuperação no portal do Azure. (Consulte a etapa 6 na seção [baixar o agente Mars](./install-mars-agent.md#download-the-mars-agent) .) Em seguida, siga estas etapas, conforme apropriado: <ul><li> Se você já tiver instalado e registrado o MARS, abra o console do MMC do Backup do Microsoft Azure Agent e, em seguida, selecione **registrar servidor** no painel **ações** para concluir o registro com as novas credenciais. <br/> <li> Se a nova instalação falhar, Tente reinstalar com as novas credenciais.</ul> **Observação**: se vários arquivos de credencial de cofre tiverem sido baixados, somente o arquivo mais recente será válido nas próximas 48 horas. Recomendamos que você baixe um novo arquivo de credencial de cofre.
+| **As credenciais do cofre não são válidas** <br/> <br/> Os arquivos de credencial do cofre podem estar corrompidos ou podem ter expirado. (Por exemplo, eles podem ter sido baixados mais de 48 horas antes do horário de registro.)| [Baixe novas credenciais](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) do cofre dos serviços de recuperação no portal do Azure. Em seguida, siga estas etapas, conforme apropriado: <ul><li> Se você já tiver instalado e registrado o MARS, abra o console do MMC do Backup do Microsoft Azure Agent. Em seguida, selecione **registrar servidor** no painel **ações** para concluir o registro com as novas credenciais. <br/> <li> Se a nova instalação falhar, Tente reinstalar com as novas credenciais.</ul> **Observação**: se vários arquivos de credencial de cofre tiverem sido baixados, somente o arquivo mais recente será válido nas próximas 48 horas. Recomendamos que você baixe um novo arquivo de credencial de cofre.
 | **O servidor proxy/firewall está bloqueando o registro** <br/>ou <br/>**Sem conectividade com a Internet** <br/><br/> Se o seu computador ou servidor proxy tiver conectividade limitada com a Internet e você não garantir o acesso às URLs necessárias, o registro falhará.| Siga estas etapas:<br/> <ul><li> Trabalhe com sua equipe de ti para garantir que o sistema tenha conectividade com a Internet.<li> Se você não tiver um servidor proxy, certifique-se de que a opção proxy não esteja selecionada quando você registrar o agente. [Verifique as configurações de proxy](#verifying-proxy-settings-for-windows).<li> Se você tiver um servidor de firewall/proxy, trabalhe com sua equipe de rede para garantir que essas URLs e endereços IP tenham acesso:<br/> <br> **URLs**<br> `www.msftncsi.com` <br> . Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Endereços IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Tente se registrar novamente depois de concluir as etapas de solução de problemas anteriores.<br></br> Se sua conexão for por meio do Azure ExpressRoute, verifique se as configurações estão definidas conforme descrito em [suporte do Azure expressroute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
 | **O software antivírus está bloqueando o registro** | Se você tiver um software antivírus instalado no servidor, adicione as regras de exclusão necessárias à verificação de antivírus para esses arquivos e pastas: <br/><ul> <li> CBengine.exe <li> CSC.exe<li> A pasta de rascunho. Seu local padrão é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> A pasta bin em C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
@@ -235,7 +234,7 @@ Para que as operações do agente MARS tenham sucesso, a pasta de cache precisa 
 
 ### <a name="increase-shadow-copy-storage"></a>Aumentar o armazenamento de cópias de sombra
 
-As operações de backup poderão falhar se não houver espaço de armazenamento de cópia de sombra suficiente necessário para proteger a fonte de dados. Para resolver esse problema, aumente o espaço de armazenamento de cópia de sombra no volume protegido usando vssadmin, conforme mostrado abaixo:
+As operações de backup poderão falhar se não houver espaço de armazenamento de cópia de sombra suficiente necessário para proteger a fonte de dados. Para resolver esse problema, aumente o espaço de armazenamento de cópia de sombra no volume protegido usando **vssadmin** , conforme mostrado abaixo:
 
 - Verifique o espaço de armazenamento de sombra atual do prompt de comando elevado:<br/>
   `vssadmin List ShadowStorage /For=[Volume letter]:`
@@ -246,8 +245,8 @@ As operações de backup poderão falhar se não houver espaço de armazenamento
 
 Se você tiver um software antivírus instalado no servidor, adicione as regras de exclusão necessárias à verificação de antivírus para esses arquivos e pastas:  
 
-- A pasta de rascunho. Seu local padrão é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch
-- A pasta bin em C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
+- A pasta de rascunho. Seu local padrão é`C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+- A pasta bin em`C:\Program Files\Microsoft Azure Recovery Services Agent\Bin`
 - CBengine.exe
 - CSC.exe
 
@@ -258,25 +257,25 @@ Esta seção aborda os erros comuns que você encontrar ao usar o agente MARS.
 ### <a name="salchecksumstoreinitializationfailed"></a>SalChecksumStoreInitializationFailed
 
 Mensagem de erro | Ação recomendada
--- | --
-O agente de Serviços de Recuperação do Microsoft Azure não pôde acessar a soma de verificação de backup armazenada no local de rascunho | Para resolver esse problema, execute o seguinte e reinicie o servidor <br/> - [Verificar se há um antivírus ou outros processos bloqueando os arquivos de local de rascunho](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Verifique se o local de rascunho é válido e acessível ao agente Mars.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+--|--
+O agente de Serviços de Recuperação do Microsoft Azure não pôde acessar a soma de verificação de backup armazenada no local de rascunho | Para resolver esse problema, execute o seguinte e reinicie o servidor <br/> - [Verificar se há um antivírus ou outros processos bloqueando os arquivos de local de rascunho](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Verifique se o local de rascunho é válido e acessível para o agente MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="salvhdinitializationerror"></a>SalVhdInitializationError
 
 Mensagem de erro | Ação recomendada
--- | --
-O agente de Serviços de Recuperação do Microsoft Azure não pôde acessar a localização de rascunho para inicializar o VHD | Para resolver esse problema, execute o seguinte e reinicie o servidor <br/> - [Verificar se há um antivírus ou outros processos bloqueando os arquivos de local de rascunho](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Verifique se o local de rascunho é válido e acessível ao agente Mars.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+--|--
+O agente de Serviços de Recuperação do Microsoft Azure não pôde acessar a localização de rascunho para inicializar o VHD | Para resolver esse problema, execute o seguinte e reinicie o servidor <br/> - [Verifique se o antivírus ou outros processos estão bloqueando os arquivos de local de rascunho](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Verifique se o local de rascunho é válido e acessível para o agente MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="sallowdiskspace"></a>SalLowDiskSpace
 
 Mensagem de erro | Ação recomendada
--- | --
+--|--
 O backup falhou devido ao armazenamento insuficiente no volume em que a pasta de rascunho está localizada | Para resolver esse problema, verifique as etapas abaixo e repita a operação:<br/>- [Verifique se o agente MARS é mais recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Verificar e resolver problemas de armazenamento que afetam o espaço transitório de backup](#prerequisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
 Mensagem de erro | Ação recomendada
--- | --
+--|--
 Não é possível encontrar as alterações em um arquivo. Isso pode ocorrer por vários motivos. Tente executar a operação novamente | Para resolver esse problema, verifique as etapas abaixo e repita a operação:<br/> - [Verifique se o agente MARS é mais recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verificar e resolver problemas de armazenamento que afetam o espaço transitório de backup](#prerequisites)
 
 ## <a name="next-steps"></a>Próximas etapas

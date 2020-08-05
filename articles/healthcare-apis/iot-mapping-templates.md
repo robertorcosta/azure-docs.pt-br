@@ -1,19 +1,19 @@
 ---
 title: 'Conceitos: mapeando modelos no conector do Azure IoT para o recurso FHIR (versão prévia) da API do Azure para FHIR'
-description: Aprenda a criar dois tipos de modelos de mapeamento no conector IoT do Azure para FHIR (versão prévia). O modelo de mapeamento de dispositivo transforma os dados do dispositivo em um esquema normalizado. O modelo de mapeamento FHIR transforma uma mensagem normalizada em um recurso de observação baseado em FHIR.
+description: Aprenda a criar dois tipos de modelos de mapeamento no conector IoT do Azure para FHIR (versão prévia). O modelo de mapeamento de dispositivo transforma os dados do dispositivo em um esquema normalizado. O modelo de mapeamento FHIR transforma uma mensagem normalizada em um recurso de Observação baseado no FHIR.
 services: healthcare-apis
 author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: cc8b7d46e1018974c6a88cef9e4f4a9f9a09caa7
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: da5eb43f8bc2fc8b4ac213f6ff90464de5995a47
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513342"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553638"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Modelos de mapeamento do Azure IoT Connector para FHIR (visualização)
 Este artigo fornece detalhes sobre como configurar o conector do Azure IoT para FHIR * usando modelos de mapeamento.
@@ -332,7 +332,7 @@ A suposição ao usar esse modelo é que as mensagens que estão sendo avaliadas
 }
 ```
 
-## <a name="fhir-mapping"></a>Mapeamento de FHIR
+## <a name="fhir-mapping"></a>Mapeamento FHIR
 Depois que o conteúdo do dispositivo é extraído em um modelo normalizado, os dados são coletados e agrupados de acordo com o identificador do dispositivo, o tipo de medida e o período de tempo. A saída desse Agrupamento é enviada para conversão em um recurso FHIR ([Observação](https://www.hl7.org/fhir/observation.html) no momento). Aqui, o modelo de mapeamento FHIR controla como os dados são mapeados para uma observação FHIR. Uma observação deve ser criada para um ponto no tempo ou durante um período de uma hora? Quais códigos devem ser adicionados à observação? O valor deve ser representado como [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) ou uma [quantidade](https://www.hl7.org/fhir/datatypes.html#Quantity)? Esses tipos de dados são todas as opções dos controles de configuração de mapeamento FHIR.
 
 ### <a name="codevaluefhirtemplate"></a>CodeValueFhirTemplate
@@ -369,7 +369,7 @@ Representa o tipo de dados de [quantidade](http://hl7.org/fhir/datatypes.html#Qu
 | --- | --- 
 |**Unidade**| Representação de unidade.
 |**Código**| Forma codificada da unidade.
-|**System**| Sistema que define o formato de unidade codificado.
+|**Sistema**| Sistema que define o formato de unidade codificado.
 
 ### <a name="codeableconcept"></a>CodeableConcept
 Representa o tipo de dados [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConcept) FHIR. O valor real não é usado.
@@ -565,7 +565,7 @@ Representa o tipo de dados [CodeableConcept](http://hl7.org/fhir/datatypes.html#
 Confira as perguntas frequentes sobre o conector do Azure IoT para FHIR (versão prévia).
 
 >[!div class="nextstepaction"]
->[Azure IoT Connector para FHIR FAQs](fhir-faq.md#iot-connector-preview)
+>[Azure IoT Connector para FHIR FAQs](fhir-faq.md#azure-iot-connector-for-fhir-preview)
 
 * No portal do Azure, o conector do IoT do Azure para FHIR é conhecido como conector IoT (versão prévia).
 

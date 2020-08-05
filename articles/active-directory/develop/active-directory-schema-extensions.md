@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 71dcad908884351950c89b590523ffa91d6d47f9
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: cd21ef8d697570afb2109bb56d552284c03fd9a2
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424751"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552774"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Usando atributos de extensão de esquema de diretório em declarações
 
@@ -41,7 +41,7 @@ Os atributos de extensão do esquema de diretório podem ser registrados e preen
 Os atributos de extensão de esquema de diretório criados e sincronizados usando o AD Connect sempre estão associados à ID do aplicativo usada pelo AD Connect. Eles podem ser usados como uma fonte para declarações Configurando-os como declarações na configuração de **aplicativos empresariais** na interface do usuário do portal para aplicativos SAML registrados usando a galeria ou a experiência de configuração de aplicativo não galeria em **aplicativos empresariais**e por meio de uma política de mapeamento de declarações para aplicativos registrados por meio da experiência de registro do aplicativo.  Depois que um atributo de extensão de diretório criado por meio do AD Connect estiver no diretório, ele será exibido na interface do usuário de configuração de declarações de SSO do SAML.
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-for-an-application-using-graph-or-powershell"></a>Emitindo declarações com dados de atributos de extensão de esquema de diretório criados para um aplicativo usando o Graph ou o PowerShell
-Se um atributo de extensão de esquema de diretório for registrado para um aplicativo usando Microsoft Graph ou PowerShell (por meio de uma configuração inicial de aplicativos ou etapa de provisionamento para a instância), o mesmo aplicativo poderá ser configurado no Azure Active Directory para receber dados nesse atributo de um objeto de usuário em uma declaração quando o usuário entrar.  O aplicativo pode ser configurado para receber dados em extensões de esquema de diretório registradas no mesmo aplicativo usando [declarações opcionais](active-directory-optional-claims.md#configuring-directory-extension-optional-claims).  Eles podem ser definidos no manifesto do aplicativo.  Isso permite que um aplicativo multilocatário Registre atributos de extensão de esquema de diretório para seu próprio uso. Quando o aplicativo é provisionado em um locatário, as extensões de esquema de diretório associadas ficam disponíveis para serem definidas nos usuários desse locatário e para serem consumidas.  Depois de configurado no locatário e no consentimento concedido, ele pode ser usado para armazenar e recuperar dados via grafo e mapear para declarações em tokens que o Azure AD emite para aplicativos.
+Se um atributo de extensão de esquema de diretório for registrado para um aplicativo usando Microsoft Graph ou PowerShell (por meio de uma configuração inicial de aplicativos ou etapa de provisionamento para a instância), o mesmo aplicativo poderá ser configurado no Azure Active Directory para receber dados nesse atributo de um objeto de usuário em uma declaração quando o usuário entrar.  O aplicativo pode ser configurado para receber dados em extensões de esquema de diretório registradas no mesmo aplicativo usando [declarações opcionais](active-directory-optional-claims.md#configuring-directory-extension-optional-claims).  Eles podem ser definidos no manifesto do aplicativo.  Isso permite que um aplicativo multilocatário Registre atributos de extensão de esquema de diretório para seu próprio uso. Quando o aplicativo é provisionado em um locatário, as extensões de esquema de diretório associadas ficam disponíveis para serem definidas nos usuários desse locatário e para serem consumidas.  Depois de configurado no locatário e no consentimento concedido, ele pode ser usado para armazenar e recuperar dados via grafo e mapear para declarações em tokens que a plataforma de identidade da Microsoft emite para aplicativos.
 
 Os atributos de extensão do esquema de diretório podem ser registrados e preenchidos para qualquer aplicativo.
 

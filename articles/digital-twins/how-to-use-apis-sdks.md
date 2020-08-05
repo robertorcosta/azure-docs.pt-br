@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 867c32203d8f780b307ede2ba2916ad4e82e1136
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5b83c60182c311d9b04a205da4ab0c3477dc9b9e
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373226"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563692"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usar as APIs e os SDKs dos Gêmeos Digitais do Azure
 
@@ -43,7 +43,7 @@ As APIs do plano de dados são usadas para gerenciar os elementos em sua instân
 * **Consulta** -a categoria de consulta permite que os desenvolvedores [encontrem conjuntos de gêmeos digitais no grafo de entrelaçamento](how-to-query-graph.md) entre relações.
 * **EventRoutes** -a categoria EventRoutes contém APIs para [rotear dados](concepts-route-events.md), por meio do sistema e para serviços downstream.
 
-A versão mais atual da API do plano de dados para visualização pública é _**2020-05-31-Preview**_.
+A versão mais atual da API do plano de dados para visualização pública é _**2020-05-31-Preview**_. A versão da API _2020-03-01-Preview_ para operações do plano de dados agora foi preterida.
 
 Para usar as APIs do plano de dados:
 * Você pode chamar as APIs diretamente, por...

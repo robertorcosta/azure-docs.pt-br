@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 16e390f2c206cb1f81914bc02e15818282a54a5b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ac92e45e69522fe3de8abdb3afcf6049e5f07ac8
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537557"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563493"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Ambientes de computação com suporte do Azure Data Factory versão 1
 > [!NOTE]
@@ -114,7 +114,7 @@ O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Li
 > [!IMPORTANT]
 > O cluster HDInsight cria um *contêiner padrão* no armazenamento de Blob do Azure que você especifica na propriedade JSON **linkedServiceName**. Por design, o HDInsight não exclui esse contêiner quando o cluster é excluído. Em um serviço vinculado HDInsight sob demanda, um cluster HDInsight é criado sempre que uma fatia é processada, a menos que haja um cluster ativo existente (**timeToLive**). O cluster é excluído quando o processamento é concluído. 
 >
-> Quanto mais fatias forem processadas, mais contêineres você verá no armazenamento de Blobs. Se você não precisa dos contêineres para trabalhos de solução de problemas, convém excluir contêineres para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: `adf<your Data Factory name>-<linked service name>-<date and time>`. Você pode usar uma ferramenta como o [Gerenciador de Armazenamento da Microsoft](https://storageexplorer.com/) para excluir contêineres no armazenamento de Blob.
+> Quanto mais fatias forem processadas, mais contêineres você verá no armazenamento de Blobs. Se você não precisa dos contêineres para trabalhos de solução de problemas, convém excluir contêineres para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: `adf<your Data Factory name>-<linked service name>-<date and time>`. Você pode usar uma ferramenta como [Gerenciador de armazenamento do Microsoft Azure](https://storageexplorer.com/) para excluir contêineres no armazenamento de BLOBs.
 >
 > 
 
@@ -142,7 +142,7 @@ O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Li
 ### <a name="advanced-properties"></a>Propriedades avançadas
 Para a configuração granular do cluster HDInsight sob demanda, você pode especificar as seguintes propriedades:
 
-| Propriedade               | Descrição                              | Necessária |
+| Propriedade               | Descrição                              | Obrigatório |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Especifica os parâmetros de configuração do núcleo (core-site.xml) para o cluster HDInsight a ser criado. | Não       |
 | hBaseConfiguration     | Especifica os parâmetros de configuração HBase (hbase-site.xml) para o cluster HDInsight. | Não       |
@@ -330,7 +330,7 @@ Você pode criar um serviço vinculado do Machine Learning para registrar um pon
 ```
 
 ### <a name="properties"></a>Propriedades
-| Propriedade   | Descrição                              | Necessária |
+| Propriedade   | Descrição                              | Obrigatório |
 | ---------- | ---------------------------------------- | -------- |
 | Type       | Defina a propriedade de tipo como **AzureML**. | Sim      |
 | mlEndpoint | A URL de pontuação do lote.                   | Sim      |
@@ -388,7 +388,7 @@ Use a autenticação de entidade de serviço especificando as seguintes propried
 #### <a name="user-credential-authentication"></a>Autenticação de credenciais de usuário
 Para autenticação de credenciais de usuário para o Data Lake Analytics, especifique as seguintes propriedades:
 
-| Propriedade          | Descrição                              | Necessária |
+| Propriedade          | Descrição                              | Obrigatório |
 | :---------------- | :--------------------------------------- | :------- |
 | autorização | No Editor do Data Factory, selecione o botão **Autorizar**. Insira as credenciais que atribuem a URL de autorização gerada automaticamente para essa propriedade. | Sim      |
 | sessionID     | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usada somente uma vez. Essa configuração é gerada automaticamente quando você usa o Editor do Data Factory. | Sim      |

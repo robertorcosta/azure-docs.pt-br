@@ -1,20 +1,20 @@
 ---
 title: Criar e gerenciar escopos de criptografia (visualização)
-description: ''
+description: Saiba como criar um escopo de criptografia para isolar dados de blob no nível de contêiner ou BLOB.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 07/13/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: f589f0108cf21e77be5103afcaa0242c6f191ab3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d4dd3f3ced8aac6852fe8516a4a5cadca2ebdc49
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531008"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564139"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Criar e gerenciar escopos de criptografia (visualização)
 
@@ -24,7 +24,7 @@ Este artigo mostra como criar um escopo de criptografia. Ele também mostra como
 
 ## <a name="create-an-encryption-scope"></a>Criar um escopo de criptografia
 
-Para criar um escopo de criptografia, você deve primeiro criar um cofre de chaves do Azure e adicionar a chave que você pretende usar para o escopo. O cofre de chaves deve ter as propriedades de proteção de **exclusão reversível** e de **limpeza** habilitadas e devem estar na mesma região que a conta de armazenamento. Para obter mais informações, confira [Usar chaves gerenciadas pelo cliente com o Azure Key Vault para gerenciar a criptografia do Armazenamento do Azure](../common/encryption-customer-managed-keys.md).
+Você pode criar escopos de criptografia com uma chave gerenciada pela Microsoft ou com uma chave gerenciada pelo cliente que é armazenada em Azure Key Vault. Para criar um escopo de criptografia com uma chave gerenciada pelo cliente, você deve primeiro criar um cofre de chaves do Azure e adicionar a chave que você pretende usar para o escopo. O cofre de chaves deve ter as propriedades de proteção de **exclusão reversível** e de **limpeza** habilitadas e devem estar na mesma região que a conta de armazenamento. Para obter mais informações, confira [Usar chaves gerenciadas pelo cliente com o Azure Key Vault para gerenciar a criptografia do Armazenamento do Azure](../common/encryption-customer-managed-keys.md).
 
 Um escopo de criptografia é habilitado automaticamente quando você o cria. Depois de criar o escopo de criptografia, você pode especificá-lo ao criar um blob. Você também pode especificar um escopo de criptografia padrão ao criar um contêiner, que se aplica automaticamente a todos os BLOBs no contêiner.
 

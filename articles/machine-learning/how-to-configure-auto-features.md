@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 31df880d9d6d586491d115d9b70de9f85bc980b2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8e3657128ddcff7f9436398ac4bcc6e220b86168
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502912"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552468"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Personalização no Machine Learning automatizado
 
@@ -161,7 +161,7 @@ text_transformations_used
 > [!NOTE]
 > Nossa implementação de BERT limita o tamanho de texto total de um exemplo de treinamento a tokens de 128. Isso significa que, de forma ideal, todas as colunas de texto quando concatenadas devem ter, no máximo, 128 tokens de comprimento. Idealmente, se várias colunas estiverem presentes, cada coluna deverá ser removida de modo que essa condição seja satisfeita. Por exemplo, se houver duas colunas de texto nos dados, ambas as colunas de texto deverão ser removidas para 64 tokens cada (supondo que ambas as colunas sejam representadas igualmente na coluna de texto concatenada final) antes de alimentar os dados para AutoML. Para colunas concatenadas de comprimento >tokens 128, a camada criador do BERT truncará essa entrada para 128 tokens.
 
-3. Na etapa de limpeza do recurso, AutoML compara BERT com a linha de base (conjunto de palavras recursos + incorporações de palavras treinadas) em uma amostra dos dados e determina se o BERT daria melhorias de precisão. Se ele determinar que o BERT tem um desempenho melhor do que a linha de base, o AutoML usará BERT para Text personalização como a estratégia de personalização ideal e continuará com destacar os dados inteiros. Nesse caso, você verá o "PretrainedTextDNNTransformer" no modelo final.
+3. Na etapa de limpeza do recurso, o AutoML compara o BERT com a linha de base (recursos de conjunto de palavras) em uma amostra dos dados e determina se o BERT forneceria melhorias de precisão. Se ele determinar que o BERT tem um desempenho melhor do que a linha de base, o AutoML usará BERT para Text personalização como a estratégia de personalização ideal e continuará com destacar os dados inteiros. Nesse caso, você verá o "PretrainedTextDNNTransformer" no modelo final.
 
 BERT geralmente é executado por mais tempo do que a maioria das outras featurizers. Ele pode ser o acelerador, fornecendo mais computação em seu cluster. O AutoML distribuirá o treinamento do BERT em vários nós se eles estiverem disponíveis (até um máximo de 8 nós). Isso pode ser feito definindo [max_concurrent_iterations](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) como maior que 1. Para obter um melhor desempenho, é recomendável usar SKUs com recursos RDMA (como "STANDARD_NC24r" ou "STANDARD_NC24rs_V3")
 
