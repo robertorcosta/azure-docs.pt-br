@@ -8,12 +8,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 08/04/2020
-ms.openlocfilehash: 1f6624c454364ca19c8ce112cb1cbbef134f162d
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 8547c07214e94176babe4909504b9292d45c06f9
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/04/2020
-ms.locfileid: "87567871"
+ms.locfileid: "87759607"
 ---
 # <a name="azure-sql-edge-usage-and-diagnostics-data-configuration"></a>Configuração de dados de diagnóstico e uso do Azure SQL Edge
 
@@ -87,7 +87,7 @@ O componente de auditoria local do uso do Azure SQL Edge e da coleta de dados de
 
 Para habilitar o uso de auditoria local e dados de diagnóstico no Azure SQL Edge
 
-1. Crie um diretório de destino para o novo armazenamento de log de auditoria local. Esse diretório de destino precisa ser criado no mesmo volume de montagem que é mapeado para o caminho/var/opt/MSSQL/no SQL Edge.
+1. Crie um diretório de destino para o novo armazenamento de log de auditoria local. Esse diretório de destino pode estar no host ou dentro do contêiner. No exemplo abaixo, o diretório de destino é criado no mesmo volume de montagem que é mapeado para o caminho/var/opt/MSSQL/no SQL Edge.
 
    ```bash
    sudo mkdir <host mount path>/audit
@@ -95,14 +95,14 @@ Para habilitar o uso de auditoria local e dados de diagnóstico no Azure SQL Edg
 
 2. Configure a auditoria de dados de diagnóstico e uso usando as variáveis de ambiente ou o arquivo MSSQL. conf.
 
-   - Usando variáveis de ambiente – adicione a seguinte variável de ambiente à implantação do SQL Edge.
+   - Usando variáveis de ambiente – adicione a seguinte variável de ambiente à implantação do SQL Edge e especifique o diretório de destino para os arquivos de auditoria.
    
-     `*MSSQL_TELEMETRY_DIR = /var/opt/mssql/audit*`
+     `*MSSQL_TELEMETRY_DIR = <host mount path>/audit*`
    
-   - Usando o arquivo MSSQL. conf – adicione as seguintes linhas no arquivo MSSQL. conf.
+   - Usando o arquivo MSSQL. conf – adicione as seguintes linhas no arquivo MSSQL. conf e especifique o diretório de destino para os arquivos de auditoria.
        ```ini
        [telemetry]
-       userrequestedlocalauditdirectory  = /var/opt/mssql/audit
+       userrequestedlocalauditdirectory  = <host mount path>/audit
        ```  
 
 ## <a name="next-steps"></a>Próximas etapas

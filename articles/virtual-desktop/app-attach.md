@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6f8e20f97ae19a33674631e4dee18901d54462b3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 328f7bb8c03cb78f4b5375eb4f6e3d9891b83942
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291507"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760661"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar anexação de aplicativo MSIX
 
@@ -202,12 +202,12 @@ Se seu aplicativo usa um certificado que não é confiável para o público ou f
 
 1. Clique com o botão direito do mouse no pacote e selecione **Propriedades**.
 2. Na janela exibida, selecione a guia **Assinaturas digitais**. Deve haver apenas um item na lista na guia, conforme mostrado na imagem a seguir. Selecione esse item para realçar o item e, em seguida, selecione **Detalhes**.
-3. Quando a janela Detalhes da assinatura digital for exibida, selecione a guia **Geral** e, em seguida, selecione **Instalar certificado**.
+3. Quando a janela detalhes da assinatura digital for exibida, selecione a guia **geral** , selecione **Exibir certificado**e, em seguida, selecione **Instalar certificado**.
 4. Quando o instalador for aberto, selecione **Computador local** como o local de armazenamento e, em seguida, selecione **Avançar**.
 5. Se o instalador perguntar se você deseja permitir que o aplicativo faça alterações no seu dispositivo, selecione **Sim**.
 6. Selecione **Colocar todos os certificados no seguinte repositório** e, em seguida, selecione **Procurar**.
 7. Quando a janela Selecionar repositório de certificados for exibida, selecione **Pessoas confiáveis** e, em seguida, selecione **OK**.
-8. Selecione **Concluir**.
+8. Selecione **Avançar** e **concluir**.
 
 ## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>Preparar scripts do PowerShell para anexação do aplicativo MSIX
 

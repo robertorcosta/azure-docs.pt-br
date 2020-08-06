@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: marayerm
-ms.openlocfilehash: df2a7d7de236d4a2f7a93b92d7c0ac984de6f010
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 30eaa9b9f8700877607af047e5e64eca65471545
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87096036"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759590"
 ---
 # <a name="azure-storage-explorer-support-lifecycle-and-policy"></a>Ciclo de vida e política de suporte do Gerenciador de Armazenamento do Azure
 
@@ -39,8 +39,9 @@ A partir da versão 1.13.0, um alerta no aplicativo será exibido quando uma ver
 
 Esta tabela descreve a data de lançamento e o fim da data de suporte para cada versão do Gerenciador de Armazenamento do Azure.
 
-| Versão do Gerenciador de Armazenamento  | Data de lançamento       | Data do fim do suporte |
+| Versão do Gerenciador de Armazenamento  | Data de liberação       | Data do fim do suporte |
 |:-------------------------:|:------------------:|:-------------------:|
+| v 1.14.2                   | 16 de julho de 2020      | 16 de julho de 2021       |
 | v 1.14.1                   | 14 de julho de 2020      | 14 de julho de 2021       |
 | v 1.14.0                   | 24 de junho de 2020      | 14 de julho de 2021       |
 | v 1.13.1                   | 18 de maio de 2020       | 14 de julho de 2021       |

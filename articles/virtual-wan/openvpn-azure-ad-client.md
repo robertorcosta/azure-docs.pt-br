@@ -5,14 +5,14 @@ services: vpn-gateway
 author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 08/04/2020
 ms.author: alzam
-ms.openlocfilehash: cf978f9551e5b2db885ca28d14f66586c029d913
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 97620192fb645dd453d1479d1e755e87cf9afd5c
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082215"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761171"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configurar um cliente VPN para conexões de protocolo P2S OpenVPN: Autenticação do Azure AD
 
@@ -250,6 +250,15 @@ Você pode modificar o arquivo XML do perfil baixado e adicionar ** \<excluderou
 </clientconfig>
 </azvpnprofile>
 ```
+### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>Posso importar o perfil de um prompt de linha de comando?
+
+Você pode importar o perfil de um prompt de linha de comando colocando o arquivo **azurevpnconfig.xml** baixado na pasta **%USERPROFILE%\appdata\local\packages\microsoft. AzureVpn_8wekyb3d8bbwe \localstate** e executando o seguinte comando:
+
+```
+azurevpn -i azurevpnconfig.xml 
+```
+para forçar a importação, use a opção **-f** também
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
