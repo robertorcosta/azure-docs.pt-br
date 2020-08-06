@@ -4,12 +4,13 @@ description: Este artigo fornece um script de exemplo da CLI do Azure que mostra
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
-ms.openlocfilehash: 951008a2bf3919f69429ca15382334a9618b912f
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: d61dac0e76fc7b7006fa36f1cb96965ccee3d863
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171305"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494121"
 ---
 # <a name="create-event-grid-custom-topic-with-azure-cli"></a>Criar um tópico personalizado da Grade de Eventos com a CLI do Azure
 
@@ -29,10 +30,10 @@ Este script usa o seguinte comando para criar o tópico personalizado. Cada coma
 
 | Comando | Observações |
 |---|---|
-| [az eventgrid topic create](https://docs.microsoft.com/cli/azure/eventgrid/topic#az-eventgrid-topic-create) | Este script cria um tópico personalizado da Grade de Eventos. |
+| [az eventgrid topic create](/cli/azure/eventgrid/topic#az-eventgrid-topic-create) | Este script cria um tópico personalizado da Grade de Eventos. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter informações sobre como consultar as assinaturas, confira [Assinaturas da Grade de Eventos de Consulta](../query-event-subscriptions.md).
-* Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+* Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).

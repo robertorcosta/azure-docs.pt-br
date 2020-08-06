@@ -3,12 +3,13 @@ title: 'Início Rápido: Enviar eventos personalizados para os Hubs de Eventos �
 description: 'Início Rápido: Use a Grade de Eventos do Azure e a CLI do Azure para publicar um tópico e assinar esse evento. Um hub de eventos é usado para o ponto de extremidade.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 77268dde90959298c76813fb146e972ecfa3685d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0965963e6527e625d0684821b977b05cb9f28657
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104088"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497346"
 ---
 # <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Início Rápido: Encaminhar eventos personalizados para os Hubs de Eventos do Azure com a CLI do Azure e a Grade de Eventos
 
@@ -97,8 +98,8 @@ Navegue até o hub de evento no portal e observe que a Grade de Eventos enviou e
 
 Normalmente você cria um aplicativo que recupera os eventos do hub de eventos. Para criar um aplicativo que recebe mensagens de um hub de eventos, consulte:
 
-* [Introdução à recepção de mensagens com o Host do Processador de Eventos no .NET Standard](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
-* [Receber eventos de Hubs de Eventos do Azure usando Java](../event-hubs/event-hubs-java-get-started-receive-eph.md)
+* [Introdução à recepção de mensagens com o Host do Processador de Eventos no .NET Standard](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+* [Receber eventos de Hubs de Eventos do Azure usando Java](../event-hubs/event-hubs-java-get-started-send.md)
 * [Receber eventos de Hubs de Eventos usando o Apache Storm](../event-hubs/event-hubs-storm-getstarted-receive.md)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

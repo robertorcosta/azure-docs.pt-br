@@ -4,12 +4,13 @@ description: Este artigo fornece um script de exemplo da CLI do Azure que mostra
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
-ms.openlocfilehash: 04d69d440dc971908b1fe2931721c50e671cd7d9
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: fe81be64ea4672d233564726cfdae5b60951057d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171390"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494325"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-azure-cli"></a>Inscrever-se em eventos de uma assinatura do Azure com a CLI do Azure
 
@@ -41,4 +42,4 @@ Este script usa o seguinte comando para criar a assinatura do evento. Cada coman
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter informações sobre como consultar as assinaturas, confira [Assinaturas da Grade de Eventos de Consulta](../query-event-subscriptions.md).
-* Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+* Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
