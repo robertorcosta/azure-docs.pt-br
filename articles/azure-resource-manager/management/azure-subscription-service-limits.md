@@ -4,12 +4,12 @@ description: Fornece uma lista de assinaturas comuns do Azure e limites de servi
 ms.topic: conceptual
 author: davidsmatlak
 ms.date: 06/04/2020
-ms.openlocfilehash: ffe0703fbbea75b221dfc6fd16f334dcf58e8ab3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 79aaa594a708fe775a2cdcc6e15b7c7f880f9f50
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515824"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810472"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 
@@ -375,11 +375,11 @@ Para obter mais informações sobre os limites de arquivos do Azure, consulte [m
 
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
-Para obter mais informações, consulte [tamanhos de máquina virtual](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para obter mais informações, consulte [tamanhos de máquina virtual](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 #### <a name="disk-encryption-sets"></a>Conjuntos de criptografia de disco
 
-Há uma limitação de 50 conjuntos de criptografia de disco por região, por assinatura. Para obter mais informações, consulte a documentação de criptografia para máquinas virtuais [Linux](/azure/virtual-machines/linux/disk-encryption#restrictions) ou [Windows](/azure/virtual-machines/windows/disk-encryption#restrictions) . Se você precisar aumentar a cota, entre em contato com o suporte do Azure.
+Há uma limitação de 50 conjuntos de criptografia de disco por região, por assinatura. Para obter mais informações, consulte a documentação de criptografia para máquinas virtuais [Linux](../../virtual-machines/linux/disk-encryption.md#restrictions) ou [Windows](../../virtual-machines/windows/disk-encryption.md#restrictions) . Se você precisar aumentar a cota, entre em contato com o suporte do Azure.
 
 ### <a name="managed-virtual-machine-disks"></a>Discos de máquina virtual gerenciados
 
@@ -423,9 +423,9 @@ Há limites por assinatura para implantar recursos usando Galerias de Imagens Co
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Entender os limites e as aumentos do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-* [Tamanhos de máquina virtual e serviço de nuvem para o Azure](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Tamanhos de máquina virtual e serviço de nuvem para o Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Tamanhos dos serviços de nuvem do Azure](../../cloud-services/cloud-services-sizes-specs.md)
 * [Regras de nomenclatura e restrições para recursos do Azure](resource-name-rules.md)

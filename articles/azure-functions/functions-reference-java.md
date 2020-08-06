@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções usando Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: 121a3263a28da5e17b1ab918529aa9f285089687
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ffdb6ee9747c76e7f4a6ff3e2f7b65ae96f53fb4
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372409"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810081"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia do desenvolvedor de Java do Azure Functions
 
@@ -19,7 +19,7 @@ Como desenvolvedor de Java, se você for novo no Azure Functions, considere prim
 
 | Introdução | Conceitos| 
 | -- | -- |  
-| <ul><li>[Função Java usando Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java)</li><li>[Função Java/Maven com terminal/prompt de comando](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java)</li><li>[Função Java usando gradle](functions-create-first-java-gradle.md)</li><li>[Função Java usando o eclipse](functions-create-maven-eclipse.md)</li><li>[Função Java usando a ideia IntelliJ](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Guia do desenvolvedor](functions-reference.md)</li><li>[Opções de hospedagem](functions-scale.md)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li></ul> |
+| <ul><li>[Função Java usando Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java)</li><li>[Função Java/Maven com terminal/prompt de comando](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)</li><li>[Função Java usando gradle](functions-create-first-java-gradle.md)</li><li>[Função Java usando o eclipse](functions-create-maven-eclipse.md)</li><li>[Função Java usando a ideia IntelliJ](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Guia do desenvolvedor](functions-reference.md)</li><li>[Opções de hospedagem](functions-scale.md)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li></ul> |
 
 ## <a name="java-function-basics"></a>Noções básicas da função Java
 

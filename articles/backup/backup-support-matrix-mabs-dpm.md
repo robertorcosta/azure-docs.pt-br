@@ -3,12 +3,12 @@ title: MABS & matriz de suporte do System Center DPM
 description: Este artigo resume o suporte ao backup do Azure quando você usa o Backup do Microsoft Azure Server (MABS) ou o System Center DPM para fazer backup de recursos locais e da VM do Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 938fb751de90112dc206779a36b88f95f1d7d508
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a97c37accd1275fa99437862a8d939df31360e87
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289450"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810421"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com o Backup do Microsoft Azure Server ou o System Center DPM
 
@@ -24,7 +24,7 @@ O MABS é baseado no System Center DPM e fornece funcionalidade semelhante com a
 
 - Não é necessária a licença do System Center para executar o MABS.
 - Para o MABS e o DPM, o Azure fornece armazenamento de backup de longo prazo. Além disso, o DPM permite fazer backup de dados para armazenamento de longo prazo em fita. O MABS não possui essa funcionalidade.
-- [Você pode fazer backup de um servidor DPM primário com um servidor DPM secundário](https://docs.microsoft.com/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019). O servidor secundário protege o banco de dados do servidor primário e as réplicas de fonte de dados armazenadas no servidor primário. Se o servidor primário falhar, o servidor secundário pode continuar a proteger as cargas de trabalho que são protegidas pelo servidor primário, até que o servidor primário esteja disponível novamente.  O MABS não possui essa funcionalidade.
+- [Você pode fazer backup de um servidor DPM primário com um servidor DPM secundário](/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019). O servidor secundário protege o banco de dados do servidor primário e as réplicas de fonte de dados armazenadas no servidor primário. Se o servidor primário falhar, o servidor secundário pode continuar a proteger as cargas de trabalho que são protegidas pelo servidor primário, até que o servidor primário esteja disponível novamente.  O MABS não possui essa funcionalidade.
 
 Você baixa o MABS do [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=57520). Ele pode ser executado localmente ou em uma VM do Azure.
 

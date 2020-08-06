@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5b83c60182c311d9b04a205da4ab0c3477dc9b9e
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 73e23f24717616ef417460d2fdae6116cfdbdb3a
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563692"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810404"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usar as APIs e os SDKs dos Gêmeos Digitais do Azure
 
@@ -284,7 +284,7 @@ As métricas de API, como solicitações, latência e taxa de falha podem ser ex
 
 Na página inicial do portal, pesquise sua instância do gêmeos digital do Azure para obter seus detalhes. Selecione a opção **métricas** no menu da instância do gêmeos digital do Azure para abrir a página de *métricas* .
 
-:::image type="content" source="media/how-to-view-metrics/azure-digital-twins-metrics.png" alt-text="Captura de tela mostrando a página de métricas do Azure digital gêmeos":::
+:::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Captura de tela mostrando a página de métricas do Azure digital gêmeos":::
 
 A partir daqui, você pode exibir as métricas para sua instância e criar exibições personalizadas.
 

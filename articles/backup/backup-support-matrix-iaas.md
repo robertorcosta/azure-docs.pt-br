@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações ao
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3be5bdffd999907234fff64f8f88459d9c9b18b6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 9d7e3b4f565fac42d0a91d155846e672c7437f2d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531856"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810455"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 
@@ -39,17 +39,17 @@ Saiba mais sobre o backup [usando um servidor de backup](backup-architecture.md#
 --- | ---
 Fazer backup de uma VM que esteja desligada/offline | Com suporte.<br/><br/> O instantâneo só é consistente com a falha e não com o aplicativo.
 Fazer backup de discos após a migração para discos gerenciados | Com suporte.<br/><br/> O backup continuará a funcionar. Nenhuma ação é necessária.
-Backup de discos gerenciados depois de habilitar o bloqueio de grupo de recursos | Não há suporte.<br/><br/> O Backup do Azure não consegue excluir os pontos mais antigos do recurso e os backups começam a falhar ao atingir o limite máximo de pontos de restauração.
+Backup de discos gerenciados depois de habilitar o bloqueio de grupo de recursos | Sem suporte.<br/><br/> O Backup do Azure não consegue excluir os pontos mais antigos do recurso e os backups começam a falhar ao atingir o limite máximo de pontos de restauração.
 Modificar a política de backup de uma VM | Com suporte.<br/><br/> O backup da VM é feito usando as configurações de retenção e agendamento da nova política. Se as configurações de retenção forem estendidas, os pontos de recuperação existentes serão marcados e mantidos. Se forem reduzidas, os pontos de recuperação existentes serão removidos no próximo trabalho de limpeza e eventualmente excluídos.
 Cancelar um trabalho de backup| Tem suporte durante o processo de instantâneo.<br/><br/> Não tem suporte quando o instantâneo está em transferência para o cofre.
-Backup da VM para uma região ou uma assinatura diferentes |Não há suporte.<br><br>Para fazer backup com êxito, as máquinas virtuais precisam estar na mesma assinatura que a do cofre para backup.
+Backup da VM para uma região ou uma assinatura diferentes |Sem suporte.<br><br>Para fazer backup com êxito, as máquinas virtuais precisam estar na mesma assinatura que a do cofre para backup.
 Backups por dia (com a extensão de VM do Azure) | Um backup agendado por dia.<br/><br/>O serviço de Backup do Azure dá suporte a até nove backups sob demanda por dia, mas a Microsoft recomenda não mais do que quatro backups diários sob demanda para garantir o melhor desempenho.
 Backups por dia (por meio do agente MARS) | Três backups agendados por dia.
 Backups por dia (por meio do DPM/MABS) | Dois backups agendados por dia.
 Backup mensal/anual| Não tem suporte durante o backup com a extensão de VM do Azure. Só há suporte para diários e semanais.<br/><br/> É possível configurar a política para manter backups diários/semanais por um período de retenção mensal/anual.
-Ajuste automático de relógio | Não há suporte.<br/><br/> O Backup do Azure não é ajustado automaticamente para alterações do horário de verão ao fazer backup de uma VM.<br/><br/>  Modifique a política manualmente, se necessário.
+Ajuste automático de relógio | Sem suporte.<br/><br/> O Backup do Azure não é ajustado automaticamente para alterações do horário de verão ao fazer backup de uma VM.<br/><br/>  Modifique a política manualmente, se necessário.
 [Recursos de segurança para backups híbridos](./backup-azure-security-feature.md) |Não há suporte para desabilitar recursos de segurança.
-Fazer backup da VM cuja hora do computador foi alterada | Não há suporte.<br/><br/> Se a hora da máquina for alterada para uma data/hora futura depois de habilitar o backup para essa VM; No entanto, mesmo se a alteração de tempo for revertida, o backup bem-sucedido não será garantido.
+Fazer backup da VM cuja hora do computador foi alterada | Sem suporte.<br/><br/> Se a hora da máquina for alterada para uma data/hora futura depois de habilitar o backup para essa VM; No entanto, mesmo se a alteração de tempo for revertida, o backup bem-sucedido não será garantido.
 VMs do Azure em [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/overview.md) | Há suporte para backup e restauração em VMs com o [modo de orquestração](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) definido como 3. <br><br>Não há suporte para conjuntos de disponibilidade.
 
 ## <a name="operating-system-support-windows"></a>Suporte do sistema operacional (Windows)
@@ -110,8 +110,8 @@ Pontos de recuperação no disco do DPM/MABS | 64 para servidores de arquivos e 
 **Restaurar** | **Com suporte**
 --- | ---
 Restaurar arquivos entre sistemas operacionais | Você pode restaurar os arquivos de qualquer máquina que tenha o mesmo sistema operacional (ou compatível) que a VM do backup. Veja a [Tabela de sistemas operacionais compatíveis](backup-azure-restore-files-from-vm.md#system-requirements).
-Restaurar arquivos de VMs criptografadas | Não há suporte.
-Restaurar arquivos de contas de armazenamento restritas à rede | Não há suporte.
+Restaurar arquivos de VMs criptografadas | Sem suporte.
+Restaurar arquivos de contas de armazenamento restritas à rede | Sem suporte.
 Restaurar arquivos em máquinas virtuais usando Espaços de Armazenamento do Windows | Não há suporte para restaurar a mesma VM.<br/><br/> Em vez disso, restaure os arquivos em uma VM compatível.
 Restaurar arquivos em VM Linux usando matrizes LVM/Raid | Não há suporte para restaurar a mesma VM.<br/><br/> Restaure em uma VM compatível.
 Restaurar arquivos com configurações de rede especiais | Não há suporte para restaurar a mesma VM. <br/><br/> Restaure em uma VM compatível.
@@ -122,7 +122,7 @@ A tabela a seguir resume o suporte para backup durante as tarefas de gerenciamen
 
 **Restaurar** | **Com suporte**
 --- | ---
-Restaure em região/assinatura/zona. | Não há suporte.
+Restaure em região/assinatura/zona. | Sem suporte.
 Restaurar uma VM existente | Use a opção para substituir disco.
 Restaurar o disco com a conta de armazenamento habilitada com a Criptografia do Serviço de Armazenamento do Azure (SSE) | Sem suporte.<br/><br/> Restaure em uma conta que não esteja habilitado com SSE.
 Restaurar as contas de armazenamento mistas |Sem suporte.<br/><br/> Com base no tipo de conta de armazenamento, todos os discos restaurados serão premium ou standard e não mistos.
@@ -137,7 +137,7 @@ Restaurar a VM em uma rede virtual diferente |Com suporte.<br/><br/> As rede vir
 
 **Computação** | **Suporte**
 --- | ---
-Tamanho da VM |Qualquer tamanho de VM do Azure com, no mínimo, 2 núcleos de CPU e 1 GB de RAM.<br/><br/> [Saiba mais.](../virtual-machines/windows/sizes.md)
+Tamanho da VM |Qualquer tamanho de VM do Azure com, no mínimo, 2 núcleos de CPU e 1 GB de RAM.<br/><br/> [Saiba mais.](../virtual-machines/sizes.md)
 Backup de VMs em [conjuntos de disponibilidade](../virtual-machines/availability.md#availability-sets) | Com suporte.<br/><br/> Você não pode restaurar uma VM em um conjunto disponível usando a opção para criar rapidamente uma VM. Em vez disso, ao restaurar a VM, restaure o disco e use-o para implantar uma VM ou restaure um disco e use-o para substituir um disco existente.
 Fazer backup de VMs implantadas com [HUB (Benefício de uso híbrido)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) | Com suporte.
 Fazer backup de VMs implantadas em um [conjunto de dimensionamento](../virtual-machine-scale-sets/overview.md) |Com suporte. O [modo de orquestração](../virtual-machine-scale-sets/orchestration-modes.md) deve ser definido como 2 para o domínio de falha. Não há suporte para o conjunto de disponibilidade.
@@ -160,12 +160,12 @@ Tamanho do disco de dados | O tamanho do disco individual pode ter até 32 TB e 
 Tipo de armazenamento | HDD Standard, SSD Standard e SSD Premium.
 Discos gerenciados | Com suporte.
 Discos criptografados | Com suporte.<br/><br/> É possível fazer o backup das VMs do Azure habilitadas com o Azure Disk Encryption (com ou sem o aplicativo Azure AD).<br/><br/> As VMs criptografadas não podem ser recuperadas no nível de arquivo/pasta. Você precisa recuperar a VM inteira.<br/><br/> Você pode habilitar a criptografia em VMs que já estão protegidos pelo Backup do Azure.
-Discos com o Acelerador de Gravação habilitado | Não há suporte.<br/><br/> O backup do Azure exclui automaticamente os discos com WA (Acelerador de Gravação) habilitado durante o backup. Como não é feito backup, você não pode restaurar esses discos de pontos de recuperação da VM. <br><br> **Observação importante**: as máquinas virtuais com discos de WA precisam de conectividade com a Internet para um backup bem-sucedido (embora esses discos sejam excluídos do backup).
+Discos com o Acelerador de Gravação habilitado | Sem suporte.<br/><br/> O backup do Azure exclui automaticamente os discos com WA (Acelerador de Gravação) habilitado durante o backup. Como não é feito backup, você não pode restaurar esses discos de pontos de recuperação da VM. <br><br> **Observação importante**: as máquinas virtuais com discos de WA precisam de conectividade com a Internet para um backup bem-sucedido (embora esses discos sejam excluídos do backup).
 Fazer backup e restaurar VMs/discos com eliminação de duplicação | O backup do Azure não dá suporte à eliminação de duplicação. Para obter mais informações, confira este [artigo](./backup-support-matrix.md#disk-deduplication-support) <br/> <br/>  -O backup do Azure não elimina a duplicação entre VMs no cofre dos serviços de recuperação <br/> <br/>  -Se houver VMs no estado de eliminação de duplicação durante a restauração, os arquivos não poderão ser restaurados porque o cofre não entende o formato. No entanto, você pode executar com êxito a restauração completa da VM.
 Adicionar o disco à VM protegida | Com suporte.
 Redimensionar o disco em uma VM protegida | Com suporte.
 Armazenamento compartilhado| Não há suporte para o backup de VMs usando Volume Compartilhado Clusterizado (CSV) ou Servidor de Arquivos de Escalabilidade Horizontal. Os gravadores de CSV provavelmente falharão durante o backup. Na restauração, os discos que contêm volumes CSV podem não aparecer.
-[Discos compartilhados](../virtual-machines/windows/disks-shared-enable.md) | Não há suporte.
+[Discos compartilhados](../virtual-machines/windows/disks-shared-enable.md) | Sem suporte.
 
 ## <a name="vm-network-support"></a>Suporte de rede de VM
 
