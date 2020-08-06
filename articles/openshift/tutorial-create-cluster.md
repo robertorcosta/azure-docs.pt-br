@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: b78364cef6bfd6cf91e6edf81fd57fa5912125db
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: be04b690add70468335ac694e3be54fa55a94249
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260672"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475644"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Criar um cluster do Red Hat OpenShift 4 no Azure
 
@@ -33,42 +33,12 @@ Para criar um cluster do Red Hat OpenShift no Azure, verifique as seguintes perm
 |**Administrador de Acesso do Usuário**|X|X| |
 |**Colaborador**|X|X|X|
 
-### <a name="install-the-az-aro-extension"></a>Instalar a extensão `az aro`
-A extensão `az aro` permite que você crie, acesse e exclua clusters do Red Hat OpenShift no Azure diretamente da linha de comando usando o CLI do Azure.
-
-Para instalar a extensão `az aro`, execute o comando a seguir.
-
-```azurecli-interactive
-az extension add -n aro --index https://az.aroapp.io/stable
-```
-
-Se você já tiver a extensão instalada, poderá atualizá-la executando o comando a seguir.
-
-```azurecli-interactive
-az extension update -n aro --index https://az.aroapp.io/stable
-```
-
 ### <a name="register-the-resource-provider"></a>Registre o provedor de recursos
 
 Em seguida, você precisa registrar o provedor de recursos `Microsoft.RedHatOpenShift` em sua assinatura.
 
 ```azurecli-interactive
 az provider register -n Microsoft.RedHatOpenShift --wait
-```
-
-Verifique se a extensão está registrada.
-
-```azurecli-interactive
-az -v
-```
-
-  Você deverá receber uma saída semelhante à abaixo.
-
-```output
-...
-Extensions:
-aro                                1.0.0
-...
 ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Obter um segredo de pull do Red Hat (opcional)

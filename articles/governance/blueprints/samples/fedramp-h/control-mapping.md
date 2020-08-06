@@ -1,14 +1,14 @@
 ---
 title: Controles do exemplo de blueprint do FedRAMP High
 description: Mapeamento de controle do exemplo de blueprint do FedRAMP High. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
-ms.date: 05/12/2020
+ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: cf9db71a18654f973306637831ae1bcdf8dbef9e
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.openlocfilehash: ae534248196dec30c087ff4b529e699ef082426e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517194"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87484225"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Controlar o mapeamento do exemplo de blueprint do FedRAMP High
 

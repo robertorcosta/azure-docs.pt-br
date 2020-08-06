@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 07/07/2020
 ms.author: eamono
-ms.openlocfilehash: 79f3d83417a99d40ea0d4bd101a89300bc85a393
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3b9b49a4d38566891f442a3d2d7eac9bf1d36465
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114509"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461996"
 ---
 # <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Tutorial: Integrar a Automação do Azure à Grade de Eventos e ao Microsoft Teams
 
@@ -33,7 +33,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-Para concluir este tutorial, uma [conta de Automação do Azure](../automation/automation-offering-get-started.md) é necessária para armazenar o runbook que é disparado da assinatura da Grade de Eventos do Azure.
+Para concluir este tutorial, uma [conta de Automação do Azure](../automation/index.yml) é necessária para armazenar o runbook que é disparado da assinatura da Grade de Eventos do Azure.
 
 * O módulo `AzureRM.Tags` precisa ser carregado em sua conta de automação, veja [Como importar os módulos na automação do Azure](../automation/automation-update-azure-modules.md) para aprender a importar os módulos para a Automação do Azure.
 

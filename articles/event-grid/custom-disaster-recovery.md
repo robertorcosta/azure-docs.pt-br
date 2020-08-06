@@ -3,12 +3,12 @@ title: Recuperação de desastre para tópicos personalizados na Grade de Evento
 description: Este tutorial orientará você ao longo do processo de configurar sua arquitetura de eventos a ser recuperada se o serviço da Grade de Eventos passar a ser não íntegro em uma região.
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: 1ee9c9566a70ba104f6c12866a631061672cb0c0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dc893973fe1f6367cd9b95de2014d92c045056f4
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115073"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461673"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Criar sua própria recuperação de desastre para tópicos personalizados na Grade de Eventos
 A recuperação de desastre tem como foco a recuperação após uma perda grave de funcionalidade do aplicativo. Este tutorial o orientará pelo processo de configurar sua arquitetura de eventos a ser recuperada se o serviço de Grade de Eventos se tornar não íntegro em uma região específica.
@@ -26,7 +26,7 @@ Para simplificar o teste, implante um [aplicativo Web criado previamente](https:
 
 1. Selecione **Implantar no Azure** para implantar a solução na sua assinatura. No portal do Azure, forneça os valores para os parâmetros.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Aquent." /></a>
 
 1. A implantação pode levar alguns minutos para ser concluída. Depois que a implantação for bem-sucedida, exiba seu aplicativo Web para garantir que ele esteja em execução. Em um navegador da Web, navegue até: `https://<your-site-name>.azurewebsites.net`
 Anote essa URL, pois você precisará dela posteriormente.
@@ -207,4 +207,4 @@ Da mesma forma, talvez convenha implementar a lógica de failback com base em su
 
 - Saiba como [receber eventos em um ponto de extremidade http](./receive-events.md)
 - Descubra como [encaminhar eventos para Conexões Híbridas](./custom-event-to-hybrid-connection.md)
-- Saiba mais sobre a [recuperação de desastre usando a DNS do Azure e o Gerenciador de Tráfego](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager)
+- Saiba mais sobre a [recuperação de desastre usando a DNS do Azure e o Gerenciador de Tráfego](../networking/disaster-recovery-dns-traffic-manager.md)
