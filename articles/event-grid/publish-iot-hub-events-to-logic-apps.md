@@ -7,12 +7,13 @@ ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.author: robinsh
-ms.openlocfilehash: b9c2fc636b08e872b9ea5288eb6205d905885f0e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 35359c63b79d9eea6f8f6ad688bd040428a39eb8
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120476"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503439"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutorial: Enviar notificações por email sobre os eventos do Hub IoT do Azure usando Aplicativos Lógicos e a Grade de Eventos
 
@@ -24,12 +25,12 @@ Este artigo aborda uma configuração de exemplo que usa o Hub IoT e a Grade de 
 
 * Uma assinatura ativa do Azure. Se você não tem uma assinatura, pode [criar uma conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* Uma conta de email de qualquer provedor de email compatível com os Aplicativos Lógicos do Azure, como Office 365 Outlook, Outlook.com ou Gmail. Essa conta de email é usada para enviar as notificações de eventos. Para obter uma lista completa de conectores dos Aplicativos Lógicos compatíveis, confira a [Visão geral dos conectores](https://docs.microsoft.com/connectors/).
+* Uma conta de email de qualquer provedor de email compatível com os Aplicativos Lógicos do Azure, como Office 365 Outlook, Outlook.com ou Gmail. Essa conta de email é usada para enviar as notificações de eventos. Para obter uma lista completa de conectores dos Aplicativos Lógicos compatíveis, confira a [Visão geral dos conectores](/connectors/).
 
   > [!IMPORTANT]
-  > Antes de usar o Gmail, verifique se você tem uma conta comercial do G Suite (endereço de email com um domínio personalizado) ou uma conta de consumidor do Gmail (endereço de email com @gmail.com ou @googlemail.com). Somente as contas comerciais do G Suite poderão usar o conector do Gmail sem restrição nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Antes de usar o Gmail, verifique se você tem uma conta comercial do G Suite (endereço de email com um domínio personalizado) ou uma conta de consumidor do Gmail (endereço de email com @gmail.com ou @googlemail.com). Somente as contas comerciais do G Suite poderão usar o conector do Gmail sem restrição nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação](/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* Um Hub IoT no Azure. Se ainda não criou um, consulte a [Introdução ao Hub IoT](../iot-hub/iot-hub-csharp-csharp-getstarted.md) para obter um passo a passo.
+* Um Hub IoT no Azure. Se ainda não criou um, consulte a [Introdução ao Hub IoT](../iot-hub/quickstart-send-telemetry-dotnet.md) para obter um passo a passo.
 
 ## <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 
@@ -247,7 +248,7 @@ Teste seu aplicativo lógico criando um novo dispositivo para ativar um email de
 
 ## <a name="use-the-azure-cli"></a>Usar a CLI do Azure
 
-Em vez de usar o Portal do Azure, é possível realizar as etapas do Hub IoT usando a CLI do Azure. Para obter detalhes, consulte as páginas da CLI do Azure para [criar uma assinatura de evento](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) e [criar um dispositivo IoT](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity).
+Em vez de usar o Portal do Azure, é possível realizar as etapas do Hub IoT usando a CLI do Azure. Para obter detalhes, consulte as páginas da CLI do Azure para [criar uma assinatura de evento](/cli/azure/eventgrid/event-subscription) e [criar um dispositivo IoT](/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

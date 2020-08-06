@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 7ef7a771442dba5c7f82196a13b77cb28b0d1ed8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 93e6b373aa125facb3a3eddecc926438c919b335
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386649"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489734"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Consultar arquivos de armazenamento usando recursos de SQL sob demanda (versão prévia) no Synapse SQL
 
@@ -90,7 +90,7 @@ WITH (
 ```
 
 Para cada coluna, você precisa especificar o nome da coluna e digitar a cláusula `WITH`.
-Para obter exemplos, veja [Ler arquivos CSV sem especificar todas as colunas](query-single-csv-file.md#returning-subset-of-columns).
+Para obter exemplos, veja [Ler arquivos CSV sem especificar todas as colunas](query-single-csv-file.md#return-a-subset-of-columns).
 
 ## <a name="schema-inference"></a>Inferência de esquema
 
