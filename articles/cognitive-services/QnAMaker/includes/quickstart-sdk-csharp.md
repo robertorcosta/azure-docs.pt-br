@@ -3,12 +3,12 @@ title: 'Início Rápido: Biblioteca de clientes do QnA Maker para .NET'
 description: Este início rápido oferece uma introdução à biblioteca de clientes do QnA Maker para .NET. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.  O QnA Maker permite ter um serviço avançado de perguntas e respostas a partir de um conteúdo semiestruturado, como documentos de perguntas frequentes ou URLs e manuais de produtos.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 06aaf8861a263711ab3d01e6355bc161538a3311
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 0dfabfa1357543e4011412c0a9f63061e8856019
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114500"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507518"
 ---
 Use a biblioteca de clientes do QnA Maker para .NET para:
 
@@ -109,7 +109,7 @@ Gerencie sua base de dados de conhecimento enviando um objeto JSON. Para operaç
 
 O cliente de previsão do QnA Maker é um objeto [QnAMakerRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerruntimeclient?view=azure-dotnet) que é autenticado no Azure usando Microsoft.Rest.ServiceClientCredentials, que contém sua chave do runtime de previsão, retornada pela chamada do cliente de criação, `client.EndpointKeys.GetKeys`, após a publicação da base de dados de conhecimento.
 
-Use o método [GenerateAnswer](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtimeextensions.generateanswer?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_RuntimeExtensions_GenerateAnswer_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_IRuntime_System_String_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_Models_QueryDTO_) para obter uma resposta do runtime da consulta.
+Use o método [GenerateAnswer](/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtimeextensions) para obter uma resposta do runtime da consulta.
 
 ## <a name="code-examples"></a>Exemplos de código
 
