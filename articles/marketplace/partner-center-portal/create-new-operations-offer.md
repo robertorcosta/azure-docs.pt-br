@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 2c6c6b3fb4f863840b39de6f56fe473be693fe87
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 657c41fbcda30ffb5af4c5a27d58ef17c02a46bc
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001427"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798249"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Criar uma oferta do Dynamics 365 for Operations
 
@@ -191,11 +191,14 @@ Nesta seção, você pode fornecer logotipos e imagens que serão usados ao most
 
 #### <a name="store-logos"></a>Armazenar logotipos
 
-Forneça o logotipo de sua oferta em dois tamanhos de pixel:
+Forneça um arquivo PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center usará isso para criar um logotipo de tamanho **pequeno** (48 x 48 pixels). Opcionalmente, você pode substituir isso por uma imagem diferente.
+
+Os dois tamanhos de logotipo são necessários para uso em locais diferentes na lista:
 
 - **Pequeno** (48 x 48)
-- **Grande** (216 x 216)
+- **Grande** (entre 216 x 216 e 350 x 350)
 
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de tela
 
@@ -253,7 +256,7 @@ Para encontrar o identificador da solução:
 
 Selecione a versão do Dynamics 365 for Finance and Operations com as quais essa solução funciona.
 
-Selecione **Salvar rascunho** antes de continuar.
+Selecione **Salvar rascunho** para continuar.
 
 ## <a name="test-drive-technical-configuration"></a>Configuração técnica de test drive
 

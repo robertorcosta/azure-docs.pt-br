@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: 44a51972e459f64f44a791ef1cf40825dddedf91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7417515d6f3c293368868e380ac53f0c524b872d
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85798146"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760865"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Gerenciar indexação no Azure Cosmos DB – Visão geral
 
@@ -173,7 +173,6 @@ Desde que um predicado de filtro use um dos tipos de índice, o mecanismo de con
 * Usando o índice, a consulta acima primeiro filtrará as entradas em que firstName = "Andrew". Em seguida, ela passa todas as entradas firstName = "Andrew" por meio de um pipeline subsequente para avaliar o predicado de filtro CONTAINS.
 
 * Você pode acelerar as consultas e evitar verificações de contêiner completas ao usar funções que não usam o índice (por exemplo, CONTAINS). Para isso, adicione predicados de filtro adicionais que usam o índice. A ordem das cláusulas de filtro não é importante. O mecanismo de consulta descobrirá quais predicados são mais seletivos e executará a consulta de acordo.
-
 
 ## <a name="querying-with-indexes"></a>Consultar com índices
 

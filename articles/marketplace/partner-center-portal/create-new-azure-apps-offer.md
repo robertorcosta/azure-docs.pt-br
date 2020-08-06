@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: f9d7e88e78800df07dfe82d7336324eef38b92d5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7a0f04344d2e4213bbbabb63d57bdaf933154388
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326658"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797876"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicativo do Azure
 
@@ -247,14 +247,15 @@ Forneça logotipos e imagens para usar com sua oferta. O logotipo precisa estar 
 
 #### <a name="store-logos"></a>Armazenar logotipos
 
-Forneça arquivos PNG do logotipo da sua oferta nos seguintes três tamanhos de pixel:
+Forneça um arquivo PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center usará isso para criar um logotipo de tamanho **pequeno** (48 x 48 pixels) e **médio** (90 x 90 pixels). Opcionalmente, você pode substituí-los por imagens diferentes.
+
+Todos os três tamanhos de logotipos são necessários para uso em locais diferentes na lista:
 
 - **Pequeno** (48 x 48)
 - **Médio** (90 x 90)
-- **Grande** (216 x 216)
-- **Largo** (255 x 115)
+- **Grande** (entre 216 x 216 e 350 x 350)
 
-Todos os três logotipos são necessários e são usados em locais diferentes na lista.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de tela
 
@@ -268,7 +269,7 @@ Adicione até cinco vídeos que demonstrem sua oferta. Os vídeos devem ser hosp
 
 - [Melhores práticas para listagens de oferta do marketplace](../gtm-offer-listing-best-practices.md)
 
-Selecione **Salvar rascunho** para continuar.
+Selecione **Salvar rascunho** antes de continuar.
 
 ## <a name="preview-audience"></a>Público-alvo de versão prévia
 
@@ -284,7 +285,7 @@ Adicione pelo menos uma ID da assinatura do Azure, seja individualmente (até 10
 > [!NOTE]
 > Um público-alvo de versão prévia difere de um público-alvo privado. Um público-alvo de versão prévia pode acessar sua oferta _antes_ de ela ser publicada como ativa nos marketplaces. O público-alvo de versão prévia pode ver e validar todos os planos, incluindo aqueles que estarão disponíveis somente para um público-alvo privado depois que sua oferta for publicada integralmente no marketplace. Um público-alvo privado (definido na guia do plano **Preços e Disponibilidade**) tem acesso exclusivo a um plano específico.
 
-Selecione **Salvar rascunho** para continuar.
+Selecione **Salvar rascunho** antes de continuar.
 
 ## <a name="technical-configuration"></a>Configuração técnica
 

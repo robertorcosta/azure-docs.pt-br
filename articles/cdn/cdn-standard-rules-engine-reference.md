@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 06/22/2020
+ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: 6260a4b78197329e020bebaa3bc08db5ad792086
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f729176d3f79c2a1f6fabb5631d49747219db48f
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559305"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760083"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referência do mecanismo de regras Standard para a CDN do Azure
 
@@ -43,7 +43,7 @@ Cada ponto de extremidade da CDN do Azure pode ter até 25 regras. Cada regra po
 - Solicitações processadas: $0.60 por milhão de requets
 - As primeiras 5 regras permanecerão livres
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 A forma como os caracteres especiais são tratados em uma regra varia de acordo com a forma como as condições de correspondência e as ações diferentes manipulam valores de texto. Uma condição de correspondência ou ação pode interpretar o texto de uma das seguintes maneiras:
 
@@ -59,15 +59,7 @@ Um sinal de porcentagem é usado para indicar a codificação de URL (por exempl
 
 ### <a name="wildcard-values"></a>Valores de caractere curinga
 
-O texto que é interpretado como um valor de caractere curinga atribui significado adicional a caracteres especiais. A tabela a seguir descreve como os caracteres especiais específicos são interpretados no mecanismo de regras padrão:
-
-Caractere | Descrição
-----------|------------
-\ | Uma barra invertida é usada para funcionar como escape para qualquer um dos caracteres especificados nesta tabela. Uma barra invertida deve ser especificada diretamente antes do caractere especial que deve ter escape. Por exemplo, a seguinte sintaxe ignora um asterisco: `\*`
-% | Um sinal de porcentagem é usado para indicar a codificação de URL (por exemplo, `%20` ).
-\* | Um asterisco é um caractere curinga que representa um ou mais caracteres.
-espaço | Um caractere de espaço indica que uma condição de correspondência pode ser satisfeita por qualquer um dos valores ou padrões especificados.
-aspas simples | Uma aspa simples não tem significado especial. No entanto, um conjunto de aspas simples indica que um valor deve ser tratado como um valor literal. Aspas simples podem ser usadas das seguintes maneiras:<ul><li>Para permitir que uma condição de correspondência seja satisfeita sempre que o valor especificado corresponder a qualquer parte do valor de comparação.  Por exemplo, `'ma'` corresponderia a qualquer uma das seguintes cadeias de caracteres: <ul><li>/business/**ma**rathon/asset.htm</li><li>**ma**p.gif</li><li>/business/template.**ma**p</li></ul><li>Para permitir que um caractere especial seja especificado como um caractere literal. Por exemplo, você pode especificar um caractere de espaço literal ao colocar um caractere de espaço em um conjunto de aspas simples ( `' '` ou `'<sample value>'` ).</li><li>Para permitir que um valor em branco seja especificado. Especifique um valor em branco especificando um conjunto de aspas simples (**' '**).</li></ul>**Importante**:<br /><ul><li>Se o valor especificado não contiver um caractere curinga, o valor será automaticamente considerado um valor literal. Você não precisa especificar um conjunto de aspas simples para um valor literal.</li><li>Se uma barra invertida não for usada para escapar de outro caractere nesta tabela, a barra invertida será ignorada quando for especificada em um conjunto de aspas simples.</li><li>Outra maneira de especificar um caractere especial como um caractere literal é fazer o escape dele usando uma barra invertida ( `\` ).</li></ul>
+Atualmente, damos suporte ao caractere curinga na **condição de correspondência UrlPath** no mecanismo de regras padrão. O \* caractere é um asterisco que representa um ou mais caracteres. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

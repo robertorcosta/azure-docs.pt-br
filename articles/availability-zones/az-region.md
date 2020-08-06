@@ -4,15 +4,15 @@ description: Para criar aplicativos altamente disponíveis e resilientes no Azur
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 08/04/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: b031b2a26f81c34f1699e530c8d0bb8839454c89
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: e13d7a1cb35d2b0c9544a8be36f834efc6970501
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543870"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759641"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Regiões que dão suporte a Zonas de Disponibilidade no Azure
 
@@ -58,12 +58,11 @@ Os serviços que estão disponíveis em cada região, juntamente com o próximo 
 O Azure também oferece suporte Zonas de Disponibilidade nas seguintes regiões:
 
 - Gov. dos EUA – Virgínia
-- Leste da Austrália
 - Norte da África do Sul
 - Centro-Sul dos Estados Unidos
 - Canadá Central
 
-Para saber mais sobre o suporte a Zonas de Disponibilidade nessas cinco regiões, entre em contato com seu representante de vendas ou cliente da Microsoft ou abra uma solicitação de suporte técnico.
+Para saber mais sobre o suporte a Zonas de Disponibilidade nessas quatro regiões, entre em contato com seu representante do cliente ou vendas da Microsoft ou abra uma solicitação de suporte técnico.
 
 ## <a name="next-steps"></a>Próximas etapas
 

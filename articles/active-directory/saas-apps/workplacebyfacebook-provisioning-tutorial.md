@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 799206ee08dc3b1cdac46a0e4e79d2c929138c31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d2262017b257e9d7540d8dc640123ab584223d6
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718590"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797144"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: configurar o Workplace by Facebook para provisionamento automático de usuários
 
@@ -32,6 +32,8 @@ Este tutorial descreve as etapas que você precisa executar no local de trabalho
 > * Remover usuários do workplace by Facebook quando eles não exigem mais acesso
 > * Manter os atributos de usuário sincronizados entre o Azure AD e o Workplace by Facebook
 > * [Logon único](https://docs.microsoft.com/azure/active-directory/saas-apps/workplacebyfacebook-tutorial) no workplace by Facebook (recomendado)
+
+>[!VIDEO https://www.youtube.com/embed/oF7I0jjCfrY]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

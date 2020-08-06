@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: 29138b4fc6716ae5361cc4d7f97ceba41b90c2da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 051737a9f5e0d4092cda26a3f7ce3df1d7f535ef
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259945"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760117"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Ações no mecanismo de regras padrão para a CDN do Azure
 
@@ -33,8 +33,8 @@ Use essa ação para substituir o valor de vida útil (TTL) do ponto de extremid
 Comportamento do cache |  Descrição              
 ---------------|----------------
 Ignorar cache | Quando essa opção é selecionada e a regra corresponde, o conteúdo não é armazenado em cache.
-Substituições | Quando essa opção é selecionada e a regra corresponde, o valor de TTL retornado de sua origem é substituído pelo valor especificado na ação.
-Definir se ausente | Quando essa opção for selecionada e a regra corresponder, se nenhum valor de TTL for retornado de sua origem, a regra definirá o TTL para o valor especificado na ação.
+Substituições | Quando essa opção é selecionada e a regra corresponde, o valor de TTL retornado de sua origem é substituído pelo valor especificado na ação. Esse comportamento só será aplicado se a resposta for armazenável em cache. Para o cabeçalho de resposta de controle de cache com valores "no-cache", "Private", "no-Store", a ação não será aplicável.
+Definir se ausente | Quando essa opção for selecionada e a regra corresponder, se nenhum valor de TTL for retornado de sua origem, a regra definirá o TTL para o valor especificado na ação. Esse comportamento só será aplicado se a resposta for armazenável em cache. Para o cabeçalho de resposta de controle de cache com valores "no-cache", "Private", "no-Store", a ação não será aplicável.
 
 #### <a name="additional-fields"></a>Campos adicionais
 
@@ -55,7 +55,7 @@ Armazenar em cache todas as URLs exclusivas | Quando essa opção é selecionada
 Excluir | Quando essa opção é selecionada e a regra corresponde, as cadeias de caracteres de consulta especificadas nos parâmetros são excluídas quando a chave de cache é gerada.
 Ignorar as cadeias de caracteres de consulta | Quando essa opção é selecionada e a regra corresponde, as cadeias de caracteres de consulta não são consideradas quando a chave de cache é gerada. 
 
-### <a name="modify-request-header"></a>Modificar cabeçalho de solicitação
+### <a name="modify-request-header"></a>Modificar o cabeçalho de solicitação
 
 Use esta ação para modificar os cabeçalhos que estão presentes nas solicitações enviadas para sua origem.
 
@@ -63,11 +63,11 @@ Use esta ação para modificar os cabeçalhos que estão presentes nas solicita�
 
 Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
-Acrescentar | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à solicitação com o valor especificado. Se o cabeçalho já estiver presente, o valor será anexado ao valor existente. | String
-Overwrite | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à solicitação com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substituirá o valor existente. | String
+Acrescentar | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado em **Nome do cabeçalho** é adicionado à solicitação com o valor especificado. Se o cabeçalho já estiver presente, o valor será anexado ao valor existente. | String
+Overwrite | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado em **Nome do cabeçalho** é adicionado à solicitação com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substituirá o valor existente. | String
 Excluir | Quando essa opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é excluído da solicitação. | String
 
-### <a name="modify-response-header"></a>Modificar cabeçalho de resposta
+### <a name="modify-response-header"></a>Modificar o cabeçalho de resposta
 
 Use essa ação para modificar os cabeçalhos que estão presentes nas respostas retornadas aos clientes.
 
@@ -75,8 +75,8 @@ Use essa ação para modificar os cabeçalhos que estão presentes nas respostas
 
 Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
-Acrescentar | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à resposta usando o **valor**especificado. Se o cabeçalho já estiver presente, o **valor** será anexado ao valor existente. | String
-Overwrite | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome do cabeçalho** é adicionado à resposta usando o **valor**especificado. Se o cabeçalho já estiver presente, o **valor** substituirá o valor existente. | String
+Acrescentar | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado em **Nome do cabeçalho** é adicionado à resposta usando o **Valor** especificado. Se o cabeçalho já estiver presente, **Valor** será anexado ao valor existente. | String
+Overwrite | Quando essa opção é selecionada e a regra corresponde, o cabeçalho especificado em **Nome do cabeçalho** é adicionado à resposta usando o **Valor** especificado. Se o cabeçalho já estiver presente, **Valor** substituirá o valor existente. | String
 Excluir | Quando essa opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é excluído da resposta. | String
 
 ### <a name="url-redirect"></a>Redirecionamento de URL
@@ -87,11 +87,11 @@ Use esta ação para redirecionar clientes para uma nova URL.
 
 Campo | Descrição 
 ------|------------
-Type | Selecione o tipo de resposta para retornar ao solicitante: encontrado (302), movido (301), redirecionamento temporário (307) e redirecionamento permanente (308).
+Type | Selecione o tipo de resposta para retornar ao solicitante: Encontrado (302), Movido (301), Redirecionamento temporário (307) e Redirecionamento permanente (308).
 Protocolo | Solicitação de correspondência, HTTP, HTTPS.
 Nome do host | Selecione o nome do host para o qual você deseja que a solicitação seja redirecionada. Deixe em branco para preservar o host de entrada.
 Caminho | Defina o caminho a ser usado no redirecionamento. Deixe em branco para preservar o caminho de entrada.  
-Cadeia de consulta | Defina a cadeia de caracteres de consulta usada no redirecionamento. Deixe em branco para preservar a cadeia de caracteres de consulta de entrada. 
+Cadeia de consulta | Defina a cadeia de consulta usada no redirecionamento. Deixe em branco para preservar a cadeia de consulta de entrada. 
 Fragmento | Defina o fragmento a ser usado no redirecionamento. Deixe em branco para preservar o fragmento de entrada. 
 
 É altamente recomendável que você use uma URL absoluta. O uso de uma URL relativa pode redirecionar as URLs da CDN do Azure para um caminho inválido. 
@@ -105,7 +105,7 @@ Use essa ação para reescrever o caminho de uma solicitação que é roteada pa
 Campo | Descrição 
 ------|------------
 Padrão de origem | Defina o padrão de origem no caminho da URL a ser substituído. Atualmente, o padrão de origem usa uma correspondência baseada em prefixo. Para corresponder a todos os caminhos de URL, use uma barra ( **/** ) como o valor de padrão de origem.
-Destination | Defina o caminho de destino a ser usado na regravação. O caminho de destino substitui o padrão de origem.
+Destino | Defina o caminho de destino a ser usado na regravação. O caminho de destino substitui o padrão de origem.
 Preservar caminho sem correspondência | Se definido como **Sim**, o caminho restante após o padrão de origem será acrescentado ao novo caminho de destino. 
 
 ## <a name="next-steps"></a>Próximas etapas

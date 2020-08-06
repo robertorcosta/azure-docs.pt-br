@@ -12,12 +12,12 @@ ms.date: 7/27/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 9bd34831beea4ce20f7abffb2eaac70e08decfd5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e5fe8e751077bc04850879d27827c197767a81c2
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529218"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759063"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plataforma de identidade da Microsoft e o fluxo de credenciais do cliente OAuth 2,0
 
@@ -64,19 +64,11 @@ Em vez de usar ACLs, você pode usar APIs para expor um conjunto de **permissõe
 * Enviar emails como qualquer usuário
 * Ler dados do diretório
 
-Para obter mais informações sobre permissões de aplicativo, consulte a [documentação de consentimento e permissões](v2-permissions-and-consent.md#permission-types).
+Para usar permissões de aplicativo com sua própria API (ao contrário de Microsoft Graph), você deve primeiro [expor a API](quickstart-configure-app-expose-web-apis.md) definindo escopos no registro de aplicativo da API no portal do Azure. Em seguida, [Configure o acesso à API](quickstart-configure-app-access-web-apis.md) selecionando essas permissões no registro de aplicativo do aplicativo cliente. Se você não tiver exposto nenhum escopo no registro de aplicativo da API, não será possível especificar permissões de aplicativo para essa API no registro de aplicativo do aplicativo cliente no portal do Azure.
 
-Para usar permissões de aplicativo no seu aplicativo, siga as etapas discutidas nas próximas seções.
+Ao autenticar como um aplicativo (em oposição a um usuário), você não pode usar *as permissões delegadas* -escopos que são concedidas por um usuário. Você deve usar permissões de aplicativo, também conhecidas como funções, que são concedidas por um administrador para o aplicativo ou via pré-autorização pela API Web.
 
-> [!NOTE]
-> Ao autenticar como um aplicativo, em oposição a um usuário, você não pode usar "permissões delegadas" (escopos que são concedidos por um usuário).  Você deve usar "permissões de aplicativo", também conhecidas como "funções", que são concedidas por um administrador para o aplicativo (ou via pré-autorização pela API Web).
-
-#### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicitar as permissões no portal de registro do aplicativo
-
-1. Registre e crie um aplicativo por meio da nova [experiência de registros de aplicativo (versão prévia)](quickstart-register-app.md).
-2. Vá para o aplicativo na experiência de Registros de aplicativo (versão prévia). Navegue até a seção **certificados & segredos** e adicione um **novo segredo do cliente**, pois você precisará de pelo menos um segredo do cliente para solicitar um token.
-3. Localize a seção **Permissões de API** e adicione as **permissões de aplicativo** que seu aplicativo requer.
-4. **Salve** o registro do aplicativo.
+Para obter mais informações sobre permissões de aplicativo, consulte [permissões e consentimento](v2-permissions-and-consent.md#permission-types).
 
 #### <a name="recommended-sign-the-user-into-your-app"></a>Recomendado: conectar o usuário ao seu aplicativo
 
@@ -108,7 +100,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Necessária | O locatário do diretório para o qual você deseja solicitar permissão. Pode estar no formato de nome amigável ou de GUID. Se você não souber a qual locatário o usuário pertence e se quiser deixá-lo entrar com qualquer locatário, use `common`. |
+| `tenant` | Obrigatório | O locatário do diretório para o qual você deseja solicitar permissão. Pode estar no formato de nome amigável ou de GUID. Se você não souber a qual locatário o usuário pertence e se quiser deixá-lo entrar com qualquer locatário, use `common`. |
 | `client_id` | Obrigatório | A **ID do Aplicativo (cliente)** que a experiência [Portal do Microsoft Azure - Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribui ao seu aplicativo. |
 | `redirect_uri` | Obrigatório | O URI de redirecionamento onde você deseja que a resposta seja enviada para ser tratada pelo aplicativo. Ele deve corresponder exatamente a um dos URIs de redirecionamento que você registrou no portal, com exceção de que ele deve ser codificado por URL e podem ter mais segmentos de caminho. |
 | `state` | Recomendadas | Um valor incluído na solicitação que também é retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. O estado é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
@@ -123,7 +115,7 @@ Se o administrador aprovar as permissões para o seu aplicativo, a resposta bem-
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| Parâmetro | DESCRIÇÃO |
+| Parâmetro | Descrição |
 | --- | --- |
 | `tenant` | O locatário do diretório que concedeu as permissões solicitadas, no formato GUID. |
 | `state` | Um valor incluído na solicitação que também é retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. O estado é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
@@ -137,7 +129,7 @@ Se o administrador não aprovar as permissões para o seu aplicativo, a resposta
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| Parâmetro | DESCRIÇÃO |
+| Parâmetro | Descrição |
 | --- | --- |
 | `error` | Uma cadeia de caracteres de código de erro que você pode usar para classificar os tipos de erros, e que você pode usar para reagir a erros. |
 | `error_description` | Uma mensagem de erro específica que pode ajudar você a identificar a causa raiz de um erro. |
@@ -214,7 +206,7 @@ Uma resposta bem-sucedida tem a seguinte aparência:
 }
 ```
 
-| Parâmetro | DESCRIÇÃO |
+| Parâmetro | Descrição |
 | --- | --- |
 | `access_token` | O token de acesso solicitado. O aplicativo pode usar esse token para se autenticar no recurso protegido, como em uma API da Web. |
 | `token_type` | Indica o valor do tipo de token. O único tipo com suporte da plataforma de identidade da Microsoft é `bearer`. |

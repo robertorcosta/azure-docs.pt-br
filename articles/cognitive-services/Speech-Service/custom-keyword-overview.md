@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
-ms.openlocfilehash: 60bcdac0d7e19c424b007980294898638814d586
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d7eea031e50a0f54a57d8a9c857d52ca137f3283
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044870"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760542"
 ---
 # <a name="what-is-a-keyword"></a>O que é uma palavra-chave?
 
@@ -35,6 +35,23 @@ Com a personalização, o desempenho e os recursos de integração da palavra-ch
 
 * Consulte [noções básicas de palavras-chave personalizadas](custom-keyword-basics.md) para uso básico e padrões de design.
 * Como [Ativar voz para seu produto com o SDK de fala, usando C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+
+## <a name="choose-an-effective-keyword"></a>Escolher uma palavra-chave efetiva
+
+A criação de uma palavra-chave efetiva é vital para garantir que seu dispositivo responda de forma consistente e precisa. Personalizar sua palavra-chave é uma maneira eficaz de diferenciar seu dispositivo e fortalecer sua identidade visual. Considere as seguintes diretrizes ao escolher uma palavra-chave:
+
+> [!div class="checklist"]
+> * Sua palavra-chave deve ser uma palavra ou frase em inglês.
+> * Não deve levar mais dois segundos para ser dita.
+> * Palavras com quatro a sete sílabas funcionam melhor. Por exemplo, "Ei, computador" é uma boa palavra-chave. Apenas "Hey" ("Ei") seria uma ruim.
+> * As palavras-chave devem seguir as regras de pronúncia em inglês comuns.
+> * Uma palavra única ou até mesmo inventada que siga as regras comuns de pronúncia do português pode reduzir falsos positivos. Por exemplo, "computerama" pode ser uma boa palavra-chave.
+> * Não escolha uma palavra comum. Por exemplo, "comer" e "ir" são palavras que as pessoas costumam usar em conversas. Elas podem ser gatilhos falsos para o seu dispositivo.
+> * Evite usar uma palavra-chave que possa ter pronúncias alternativas. Os usuários precisariam saber a pronúncia "certa" para fazer o dispositivo responder. Por exemplo, “509” poderia ser pronunciado como "five zero nine" ("cinco zero nove") ou "five hundred and nine" ("quinhentos e nove"). "R.E.I." pode ser pronunciado como “r-e-i” ou “ray”. "Live" pode ser pronunciado "/līv/" ou "/liv/".
+> * Não use caracteres especiais, símbolos nem dígitos. Por exemplo, "Go #" e "20 + gatos" podem ser palavras-chave problemáticas. No entanto, "go sharp" ("fique esperto") ou "twenty plus cats" ("mais de vinte gatos") pode funcionar. Você ainda pode usar os símbolos na sua identidade visual, bem como marketing e documentação para reforçar a pronúncia adequada.
+
+> [!NOTE]
+> Se você escolher uma palavra com marca registrada como sua palavra-chave, certifique-se de que você possui essa marca registrada ou que você tem permissão do proprietário da marca comercial para usar a palavra. A Microsoft não é responsável por problemas legais que possam surgir da sua escolha de palavra-chave.
 
 ## <a name="see-samples-on-github"></a>Consulte os exemplos no GitHub
 

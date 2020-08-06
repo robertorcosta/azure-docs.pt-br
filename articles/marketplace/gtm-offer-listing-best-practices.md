@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 388fb7e36a823d7f6e9ee1d58220d3a1008d8cec
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b7bcdaf9e3935c01a0906ecfaa1570e4bc7caba9
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498031"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798113"
 ---
 # <a name="offer-listing-best-practices"></a>Práticas recomendadas de listagem de ofertas
 
@@ -99,7 +99,7 @@ A seleção do setor só se aplica a ofertas publicadas no AppSource e serviços
 | **Recursos de produção &** | Agrochemical de química & <br> Fabricação discreta <br> Energia | 
 | **Comunicações de & de mídia** | Entretenimento de mídia & <br> Telecomunicações | 
 | **Outros setores do setor público** | Pesca de & de floresta <br> Sem fins lucrativos | 
-| **Serviços profissionais** | Serviços profissionais de parceiros <br> Legal | 
+| **Serviços profissionais** | Serviços profissionais de parceiros <br> Ofício | 
 | **Espaço real** | |
 
 Setor somente para Microsoft AppSource:
@@ -119,9 +119,9 @@ Palavras-chave podem ajudar os clientes a encontrarem sua oferta ao pesquisarem 
 ## <a name="storefront-marketing-details"></a>Detalhes da vitrine marketing
 | Configuração de vitrine | Melhor prática |
 |:--- |:--- |  
-| Logotipo da oferta (formato PNG, 48&nbsp;&times;&nbsp;48): página de pesquisa | Projetar e otimizar seu logotipo para uma mídia digital:<br>Carregue o logotipo no formato PNG para a página de pesquisa de sua oferta. |
-| Logotipo da oferta (formato PNG, 216&nbsp;&times;&nbsp;216): página de detalhes do aplicativo | Projetar e otimizar seu logotipo para uma mídia digital:<br>Carregue o logotipo no formato PNG os detalhes do aplicativo listando a página de sua oferta. |
-| Documentos de "Saiba mais" | Inclua ativos de vendas e de marketing de apoio em "Saiba mais", alguns exemplos são: <ul> <li> white papers, </li> <li> folhetos, </li> <li> listas de verificação ou </li> <li> apresentações do PowerPoint.</li> </ul>Salve todos os arquivos no formato PDF. Sua meta aqui deve ser instruir os clientes, não vender para eles. <br><br>Adicione um link à sua página de destino do aplicativo para todos os seus documentos e adicione parâmetros de URL para ajudar você a acompanhar os visitantes e as avaliações. |
+| Logotipo da oferta (formato PNG, entre 216 × 216 e 350 x 350 pixels): página de detalhes do aplicativo | Projetar e otimizar seu logotipo para uma mídia digital:<br>Carregue o logotipo no formato PNG os detalhes do aplicativo listando a página de sua oferta. O Partner Center irá redimensioná-lo para os tamanhos de logotipo necessários. |
+| Logotipo da oferta (formato PNG, 48 × 48 pixels): página de pesquisa | O Partner Center gerará esse logotipo do logotipo grande que você carregou. Opcionalmente, você pode substituir isso por uma imagem diferente. |
+| Documentos de "Saiba mais" | Inclua ativos de vendas e de marketing de apoio em "Saiba mais", alguns exemplos são:<ul><li>White papers</li><li> folhetos</li><li>listas de verificação ou</li><li> Apresentações do PowerPoint</li></ul><br>Salve todos os arquivos no formato PDF. Sua meta aqui deve ser instruir os clientes, não vender para eles.<br><br>Adicione um link à sua página de destino do aplicativo para todos os seus documentos e adicione parâmetros de URL para ajudar você a acompanhar os visitantes e as avaliações. |
 | Vídeos: AppSource, serviços de consultoria e apenas ofertas de SaaS | Os vídeos mais fortes comunicam o valor da sua oferta na forma narrativa:<ul> <li> Verifique seu cliente, e não em sua empresa, o herói da história. </li> <li> Seu vídeo deve abordar os principais desafios e metas de seu cliente-alvo. </li> <li> Duração recomendada: 60 a 90 segundos.</li> <li> Incorporar palavras-chave de pesquisa que usam o nome dos vídeos. </li> <li> Considere adicionar outros vídeos, tais como tutoriais de como fazer, de introdução ou depoimentos de cliente. </li> </ul> |
 | Capturas de tela (1280&nbsp;&times;&nbsp;720) | Adicione até cinco capturas de tela:<br>Incorpore palavras-chave de pesquisa nos nomes de arquivo. |
 

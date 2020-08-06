@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 88f1c120ac4578e077e1c51f59bcaf53b1de2083
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 0cbfed307cea1bd98bf864046a8c08edb849226a
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87538890"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797978"
 ---
 # <a name="enable-infiniband"></a>Habilitar InfiniBand
 
@@ -42,11 +42,12 @@ Para adicionar a extensão de VM a uma VM, use cmdlets do [Azure PowerShell](/po
 Os [drivers Mellanox OpenFabrics (ofed)](https://www.mellanox.com/products/InfiniBand-VPI-Software) podem ser instalados manualmente nas VMs das séries [H](../../sizes-hpc.md) e série [N](../../sizes-gpu.md) [habilitadas para Sr-IOV](../../sizes-hpc.md#rdma-capable-instances) .
 
 ### <a name="linux"></a>Linux
-Os [drivers do ofed para Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed) podem ser instalados com o exemplo abaixo. Embora o exemplo aqui seja para RHEL/CentOS, mas as etapas são gerais e podem ser usadas para qualquer sistema operacional Linux compatível, como Ubuntu (16, 4, 18, 4 19, 4, 20, 4) e SLES (12 SP4 e 15). Os drivers de caixa de entrada também funcionam, mas os drivers Mellanox OFED fornecem mais recursos.
+Os [drivers do ofed para Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed) podem ser instalados com o exemplo abaixo. Embora o exemplo aqui seja para RHEL/CentOS, mas as etapas são gerais e podem ser usadas para qualquer sistema operacional Linux compatível, como Ubuntu (16, 4, 18, 4 19, 4, 20, 4) e SLES (12 SP4 e 15). Mais exemplos para outros distribuições estão no [repositório azhpc-images](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-18.x/ubuntu-18.04-hpc/install_mellanoxofed.sh). Os drivers de caixa de entrada também funcionam bem, mas os drivers Mellanox OFED fornecem mais recursos.
 
 ```bash
 MLNX_OFED_DOWNLOAD_URL=http://content.mellanox.com/ofed/MLNX_OFED-5.0-2.1.8.0/MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64.tgz
-# Optinally verify checksum
+# Optionally verify checksum
+wget --retry-connrefused --tries=3 --waitretry=5 $MLNX_OFED_DOWNLOAD_URL
 tar zxvf MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64.tgz
 
 KERNEL=( $(rpm -q kernel | sed 's/kernel\-//g') )

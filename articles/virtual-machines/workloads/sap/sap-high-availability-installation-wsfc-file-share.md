@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 08/04/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a393c1ac09283f1570908cea72750ed5ae28f81e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a6d3d4c791cebdee02d7d2c739be3b32b8086ec
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77617324"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760882"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instalar alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP no Azure
 
@@ -323,6 +323,7 @@ Atualize os parâmetros no perfil de instância do SAP ASCS/SCS \<SID> _ASCS \<N
 | enque/encni/set_so_keepalive  | **true** |
 | service/ha_check_node | **1** |
 
+O parâmetro `enque/encni/set_so_keepalive` só será necessário se você estiver usando ENSA1.  
 Reinicie a instância do SAP ASCS/SCS. Definir `KeepAlive` parâmetros em ambos os nós de cluster do SAP ASCS/SCS siga as instruções para [definir entradas de registro nos nós de cluster da instância do SAP ASCS/SCS][high-availability-guide]. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Instalar instância DBMS e servidores de aplicativos SAP

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: a0946da7ff516aa241a0c6d845723c43618ce70e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e1b8c432673712b637d51a64ce87b4eb2131be7d
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809472"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760406"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes sobre a porta frontal do Azure
 
@@ -30,7 +30,7 @@ Este artigo responde a perguntas comuns sobre recursos e funcionalidades de port
 
 ### <a name="what-is-azure-front-door"></a>O que é o Azure Front Door?
 
-A porta frontal do Azure é um Rede de Distribuição de Aplicativos (ADN) como um serviço, oferecendo vários recursos de balanceamento de carga de camada 7 para seus aplicativos. Ele fornece o DSA (aceleração de site dinâmico) junto com o balanceamento de carga global com failover quase em tempo real. É um serviço altamente disponível e escalonável, que é totalmente gerenciado pelo Azure.
+A porta frontal do Azure é um Rede de Distribuição de Aplicativos (ADN) como um serviço, oferecendo vários recursos de balanceamento de carga de camada 7 para seus aplicativos. Ele fornece a DSA (Aceleração de Site Dinâmico) junto com o balanceamento de carga global com failover quase em tempo real. É um serviço altamente disponível e escalonável, totalmente gerenciado pelo Azure.
 
 ### <a name="what-features-does-azure-front-door-support"></a>Quais recursos o Azure front door dá suporte?
 
@@ -159,9 +159,12 @@ Para a opção de certificado gerenciado de porta frontal, os certificados são 
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door"></a>Quais são os conjuntos de codificação atuais com suporte na porta frontal do Azure?
 
-Para o TLS 1.2, há suporte para os seguintes conjuntos de codificação
+Para o TLS 1.2, há suporte para os seguintes conjuntos de codificação: 
 
-TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
 Ao usar domínios personalizados com o TLS 1.0/1.1 habilitado, há suporte para os seguintes conjuntos de codificação:
 

@@ -5,27 +5,19 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/10/2019
-ms.openlocfilehash: c0af92bdec6248a38040f972734764fa1bc10226
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/04/2020
+ms.openlocfilehash: f3ae081c8657a3ee6a27b0f9208c3eb4e4e745cc
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289103"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759726"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Criar exibições personalizadas usando o designer de exibição no Azure Monitor
 Usando o designer de exibição no Azure Monitor, você pode criar uma variedade de exibições personalizadas na portal do Azure que podem ajudá-lo a Visualizar dados em seu espaço de trabalho do Log Analytics. Este artigo apresenta uma visão geral do Designer de Exibição e procedimentos para criar e editar exibições personalizadas.
 
 > [!IMPORTANT]
-> As exibições no Azure Monitor estão sendo desativadas e substituídas por [pastas de trabalho](workbooks-overview.md) que fornecem funcionalidade adicional. Confira [Azure monitor guia de transição do designer de exibição para pastas de trabalho](view-designer-conversion-overview.md) para obter detalhes sobre como converter suas exibições existentes em pastas de trabalho. Consulte a tabela a seguir para ver as etapas que serão executadas nos próximos meses.
-> 
-> | Alterar | O que isso significa | Data esperada |
-> |:---|:---|:---|
-> | Desabilite a criação de novas exibições criadas por meio do designer de exibição. | Você não poderá mais criar e salvar novas exibições personalizadas no portal do Azure.| Novembro de 2020 |
-> | Desabilite a função editar para exibições existentes com o designer de exibição. | Você não poderá mais modificar e salvar as alterações em seus modos de exibição personalizados existentes. | Novembro de 2020 |
-> | Desabilitar a implantação de modos de exibição em Log Analytics espaços de trabalho | Você não poderá mais implantar exibições personalizadas usando o ARM para Log Analytics espaços de trabalho. | Março de 2021 |
-> | O designer de exibição não está mais disponível no portal do Azure | A experiência do portal não dará mais suporte ao designer de exibição. | Junho de 2021 |
-> | Exibições personalizadas removidas do resumo do espaço de trabalho | Você não poderá mais acessar seus dados de exibição personalizados. | Dezembro de 2021 |
+> As exibições no Azure Monitor foram transferidas para [pastas de trabalho](workbooks-overview.md) que fornecem funcionalidade adicional. Confira [Azure monitor guia de transição do designer de exibição para pastas de trabalho](view-designer-conversion-overview.md) para obter detalhes sobre como converter suas exibições existentes em pastas de trabalho.
  
 
 
@@ -59,7 +51,7 @@ As exibições que foram criadas com o Designer de Exibição exibem as opções
 
 As opções estão descritas na tabela a seguir:
 
-| Opção | DESCRIÇÃO |
+| Opção | Descrição |
 |:--|:--|
 | Atualizar   | Atualiza a exibição com os dados mais recentes. | 
 | Logs      | Abre o [log Analytics](../log-query/log-query-overview.md) para analisar dados com consultas de log. |

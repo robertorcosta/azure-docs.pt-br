@@ -3,7 +3,7 @@ title: Encontrar ajuda e abrir um tíquete de suporte – Azure Active Directory
 description: Instruções sobre como obter ajuda e abrir um tíquete de suporte do Azure Active Directory.
 services: active-directory
 documentationcenter: na
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c49d795b80ed5e9536740e0d8fe877d070da87a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e4d1490c4900c957a7dce7e632415823723f81b
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85799353"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797280"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Encontrar ajuda e abrir um tíquete de suporte para o Azure Active Directory
 A Microsoft fornece suporte técnico global, de pré-vendas, cobrança e assinatura para o Azure AD (Azure Active Directory). O suporte está disponível online e por telefone para versões de avaliação e assinaturas pagas do Microsoft Azure. O suporte telefônico e o suporte de cobrança online estão disponíveis em outros idiomas. 

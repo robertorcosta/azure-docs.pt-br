@@ -5,16 +5,17 @@ author: austonli
 ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 02/07/2020
-ms.openlocfilehash: 234da921b4f0d1243ca8cfdb12ba2d851db2b43f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/04/2020
+ms.openlocfilehash: 19fd1d064a3f106d7b770481d1e456c51cf1e166
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658686"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759420"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Guia de transição do designer de Azure Monitor exibição para pastas de trabalho
-O [Designer de exibição](view-designer.md) é um recurso do Azure monitor que permite que você crie modos de exibição personalizados para ajudá-lo a Visualizar dados em seu espaço de trabalho do log Analytics, com gráficos, listas e linhas do tempo. Eles estão sendo desativados e substituídos por pastas de trabalho que fornecem funcionalidade adicional. Este artigo fornece uma visão geral do processo de conversão de suas exibições existentes em pastas de trabalho do.
+O [Designer de exibição](view-designer.md) é um recurso do Azure monitor que permite que você crie modos de exibição personalizados para ajudá-lo a Visualizar dados em seu espaço de trabalho do log Analytics, com gráficos, listas e linhas do tempo. Elas foram transferidas para pastas de trabalho para fornecer uma tela flexível para análise de dados e criação de relatórios visuais avançados dentro do portal do Azure. Este artigo ajuda você a fazer a transição do designer de exibição para pastas de trabalho. 
+
 
 ## <a name="workbooks-overview"></a>Visão geral das pastas de trabalho
 As [pastas de trabalho](../insights/vminsights-workbooks.md) combinam texto, consultas de [log](../log-query/query-language.md), métricas e parâmetros em relatórios interativos sofisticados. Os membros da equipe com o mesmo acesso aos recursos do Azure também podem editar pastas de trabalho.

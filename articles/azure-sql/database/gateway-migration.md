@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 22bfab5b9f00a392054fa1aef6a93195180fd968
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 30e57736d0b0e40eb01573d6acca2c618dcf6ee3
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373480"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759692"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migração de tráfego do banco de dados SQL do Azure para gateways mais recentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -26,20 +26,23 @@ Os clientes serão notificados por email e na portal do Azure bem antes de qualq
 
 ## <a name="status-updates"></a>Atualizações de status
 
-# <a name="in-progress"></a>[Em andamento](#tab/in-progress-ip)
+# <a name="in-progress"></a>[Em Andamento](#tab/in-progress-ip)
 ### <a name="september-2020"></a>Setembro de 2020
 
-Novos gateways do SQL estão sendo adicionados às seguintes regiões:
+Novos gateways do SQL estão sendo adicionados às regiões a seguir. Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 10 de setembro de 2020:
+
+- EUA Central ocidental: 13.78.248.43 
+- Norte da África do Sul: 102.133.120.2  
+
+Novos gateways do SQL estão sendo adicionados às regiões a seguir. Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 1 de setembro de 2020:
 
 - Europa Setentrional: 13.74.104.113 
 - DOS EUA 2 ocidental: 40.78.248.10 
 - Europa Ocidental: 52.236.184.163 
 - EUA Central do Sul: 20.45.121.1, 20.49.88.1 
 
-Os gateways SQL existentes começarão a aceitar o tráfego nas seguintes regiões:
+Os gateways SQL existentes começarão a aceitar o tráfego nas regiões a seguir. Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 1 de setembro de 2020. :
 - Leste do Japão: 40.79.184.8, 40.79.192.5
-
-Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 1 de setembro de 2020. 
 
 ### <a name="august-2020"></a>Agosto de 2020
 
@@ -59,7 +62,7 @@ As seguintes migrações de gateway estão concluídas:
 - Brazil South
 - Oeste dos EUA
 - Europa Ocidental
-- East US
+- Leste dos EUA
 - Centro dos EUA
 - Sudeste da Ásia
 - Centro-Sul dos Estados Unidos
@@ -82,7 +85,7 @@ Você poderá ser afetado se:
 - Usar a [configuração com redundância de zona](high-availability-sla.md#zone-redundant-configuration) para seu banco de dados
 
 Você não será afetado se tiver:
-
+ 
 - Redirecionamento como a política de conexão
 - Conexões com o banco de dados SQL de dentro do Azure e usando marcas de serviço
 - As conexões feitas usando as versões com suporte do driver JDBC para SQL Server não terão impacto. Para obter suporte para versões JDBC, consulte [baixar o Microsoft JDBC Driver para SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).

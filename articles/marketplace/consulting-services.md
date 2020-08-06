@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 5cea220b44618787e34ce2297921d715476b7f14
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 31bb6dd188786fda532bf85d071e119e69e5bccc
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280946"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797858"
 ---
 # <a name="consulting-service-offers"></a>Ofertas de serviço de consultoria
 
@@ -86,12 +86,12 @@ Os parceiros integradores de sistema podem enviar ofertas de serviço de consult
 Comece [registrando](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) as informações da sua empresa no marketplace. Para obter uma lista de verificação completa dos requisitos de registro, consulte [Tornar-se um publicador no marketplace](become-publisher.md). 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Preparar os artefatos de publicação
-Antes do registro, você pode iniciar a coleta e preparação do conteúdo que ajudará sua listagem a articular o valor do serviço e solução para seu cliente-alvo. 
+Antes do registro, você pode iniciar a coleta e preparação do conteúdo que ajudará sua listagem a articular o valor do serviço e solução para seu cliente-alvo.
 
 |Configuração para novos publicadores  |
 |---------|
 |ID MPN     |
-|Logotipos da empresa (48 x 48, 216 x 216 pixels)     |
+|Logotipos da empresa: 48 x 48 pixels (opcional), 216 x 216 pixels – 350 x 350 pixels (obrigatório)  |
 |Destino do cliente potencial     |
 ||
 

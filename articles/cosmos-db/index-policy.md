@@ -4,14 +4,14 @@ description: Saiba como configurar e alterar a política de indexação padrão 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 08/04/2020
 ms.author: tisande
-ms.openlocfilehash: a335da61fac914368b4044a97582ef0060f5de4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3981e828e7ffe401be3b72f68185c272ab11645
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636318"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760814"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 
@@ -20,7 +20,7 @@ No Azure Cosmos DB, cada contêiner tem uma política de indexação que determi
 Em algumas situações, talvez você queira substituir esse comportamento automático para atender melhor às suas necessidades. Você pode personalizar a política de indexação de um contêiner definindo seu *modo de indexação*e incluir ou excluir os *caminhos de propriedade*.
 
 > [!NOTE]
-> O método de atualização das políticas de indexação descritas neste artigo se aplica somente à API do SQL (Core) do Azure Cosmos DB.
+> O método de atualização das políticas de indexação descritas neste artigo se aplica somente à API do SQL (Core) do Azure Cosmos DB. Saiba mais sobre a indexação na [API do Azure Cosmos DB para MongoDB](mongodb-indexing.md)
 
 ## <a name="indexing-mode"></a>Modo de indexação
 
@@ -36,7 +36,7 @@ Por padrão, a política de indexação é definida como `automatic` . É possí
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Incluindo e excluindo caminhos de propriedade
 
-Uma política de indexação personalizada pode especificar caminhos de propriedade que são explicitamente incluídos ou excluídos da indexação. Ao otimizar o número de caminhos que são indexados, você pode diminuir a quantidade de armazenamento usada pelo seu contêiner e melhorar a latência de operações de gravação. Esses caminhos são definidos seguindo [o método descrito na seção visão geral da indexação](index-overview.md#from-trees-to-property-paths) com as seguintes adições:
+Uma política de indexação personalizada pode especificar caminhos de propriedade que são explicitamente incluídos ou excluídos da indexação. Ao otimizar o número de caminhos que são indexados, você pode reduzir substancialmente a latência e a carga de RU das operações de gravação. Esses caminhos são definidos seguindo [o método descrito na seção visão geral da indexação](index-overview.md#from-trees-to-property-paths) com as seguintes adições:
 
 - um caminho que leva a um valor escalar (cadeia de caracteres ou número) termina com`/?`
 - os elementos de uma matriz são abordados em conjunto por meio da `/[]` notação (em vez de `/0` , `/1` etc.)
@@ -89,7 +89,7 @@ Ao incluir e excluir caminhos, você pode encontrar os seguintes atributos:
 
 Quando não for especificado, essas propriedades terão os seguintes valores padrão:
 
-| **Nome da propriedade**     | **Valor Padrão** |
+| **Nome da propriedade**     | **Valor padrão** |
 | ----------------------- | -------------------------------- |
 | `kind`   | `range` |
 | `precision`   | `-1`  |
@@ -101,7 +101,7 @@ Consulte [esta seção](how-to-manage-indexing-policy.md#indexing-policy-example
 
 Se os caminhos incluídos e os caminhos excluídos tiverem um conflito, o caminho mais preciso terá precedência.
 
-Aqui está um exemplo:
+Este é um exemplo:
 
 **Caminho incluído**:`/food/ingredients/nutrition/*`
 
@@ -129,7 +129,7 @@ Ao definir um caminho espacial na política de indexação, você deve definir q
 
 * LineString
 
-Azure Cosmos DB, por padrão, não criará nenhum índice espacial. Se você quiser usar funções internas SQL espaciais, deverá criar um índice espacial nas propriedades necessárias. Consulte [esta seção](geospatial.md) para obter exemplos de política de indexação para adicionar índices espaciais.
+Azure Cosmos DB, por padrão, não criará nenhum índice espacial. Se você quiser usar funções internas SQL espaciais, deverá criar um índice espacial nas propriedades necessárias. Consulte [esta seção](sql-query-geospatial-index.md) para obter exemplos de política de indexação para adicionar índices espaciais.
 
 ## <a name="composite-indexes"></a>Índices compostos
 
@@ -259,16 +259,23 @@ As seguintes considerações são usadas ao criar índices compostos para otimiz
 
 ## <a name="modifying-the-indexing-policy"></a>Modificando a política de indexação
 
-A política de indexação de um contêiner pode ser atualizada a qualquer momento [usando o portal do Azure ou um dos SDKs com suporte](how-to-manage-indexing-policy.md). Uma atualização para a política de indexação dispara uma transformação do índice antigo para o novo, que é executado online e em vigor (portanto, nenhum espaço de armazenamento adicional é consumido durante a operação). O índice antigo da política é transformado com eficiência na nova política sem afetar a disponibilidade de gravação ou a taxa de transferência provisionada no contêiner. A transformação de índice é uma operação assíncrona e o tempo necessário para concluir depende da taxa de transferência provisionada, do número de itens e de seu tamanho.
+A política de indexação de um contêiner pode ser atualizada a qualquer momento [usando o portal do Azure ou um dos SDKs com suporte](how-to-manage-indexing-policy.md). Uma atualização para a política de indexação dispara uma transformação do índice antigo para o novo, que é executado online e in-loco (portanto, nenhum espaço de armazenamento adicional é consumido durante a operação). O índice antigo da política é transformado com eficiência na nova política sem afetar a disponibilidade de gravação, a disponibilidade de leitura ou a taxa de transferência provisionada no contêiner. A transformação de índice é uma operação assíncrona e o tempo necessário para concluir depende da taxa de transferência provisionada, do número de itens e de seu tamanho.
 
 > [!NOTE]
-> Ao adicionar um intervalo ou índice espacial, as consultas podem não retornar todos os resultados correspondentes e farão isso sem retornar erros. Isso significa que os resultados da consulta podem não ser consistentes até que a transformação do índice seja concluída. É possível acompanhar o progresso da transformação de índice [usando um dos SDKs](how-to-manage-indexing-policy.md).
+> É possível acompanhar o progresso da transformação de índice [usando um dos SDKs](how-to-manage-indexing-policy.md).
 
-Se o modo da nova política de indexação for definido como consistente, nenhuma outra alteração de política de indexação poderá ser aplicada enquanto a transformação do índice estiver em andamento. Uma transformação índice em execução pode ser cancelada definindo o modo da política de indexação como None (o que descartará imediatamente o índice).
+Não há nenhum impacto na disponibilidade de gravação durante as transformações de índice. A transformação índice usa o RUs provisionado, mas com uma prioridade mais baixa do que suas operações ou consultas CRUD.
+
+Não há nenhum impacto na disponibilidade de leitura ao adicionar um novo índice. As consultas só utilizarão novos índices depois que a transformação do índice for concluída. Durante a transformação do índice, o mecanismo de consulta continuará a usar índices existentes, portanto, você observará um desempenho de leitura semelhante durante a transformação de indexação para o que você observou antes de iniciar a alteração de indexação. Ao adicionar novos índices, também não há nenhum risco de resultados de consulta incompletos ou inconsistentes.
+
+Ao remover índices e executar imediatamente consultas que filtram os índices descartados, não há uma garantia de resultados de consulta consistentes ou completos. Se você remover vários índices e fizer isso em uma única alteração de política de indexação, o mecanismo de consulta garantirá resultados consistentes e completos em toda a transformação do índice. No entanto, se você remover índices por meio de várias alterações de política de indexação, o mecanismo de consulta não garantirá resultados consistentes ou completos até que todas as transformações de índice sejam concluídas. A maioria dos desenvolvedores não remove índices e tenta imediatamente executar consultas que utilizam esses índices, de modo que, na prática, essa situação é improvável.
+
+> [!NOTE]
+> Quando possível, você sempre deve tentar agrupar várias alterações de indexação em uma única modificação de política de indexação
 
 ## <a name="indexing-policies-and-ttl"></a>Políticas de indexação e TTL
 
-O [recurso TTL (vida útil)](time-to-live.md) requer que a indexação esteja ativa no contêiner em que está ativada. Isso significa que:
+Usar o [recurso TTL (vida útil)](time-to-live.md) requer indexação. Isso significa que:
 
 - Não é possível ativar o TTL em um contêiner em que o modo de indexação está definido como nenhum,
 - Não é possível definir o modo de indexação como None em um contêiner em que TTL está ativado.

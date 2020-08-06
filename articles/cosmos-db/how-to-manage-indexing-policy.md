@@ -4,15 +4,15 @@ description: Saiba como gerenciar políticas de indexação, incluir ou excluir 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/28/2020
+ms.date: 08/04/2020
 ms.author: tisande
 ms.custom: tracking-python, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: ccee172f4b8df8d930bc06faca929e5206f8765e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b3234d524adc8256373acce7480319a8fd4b76ac
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498439"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761099"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gerenciar políticas de indexação no Azure Cosmos DB
 
@@ -344,7 +344,7 @@ No Azure Cosmos DB, a política de indexação pode ser atualizada usando qualqu
 Uma [atualização de política de indexação](index-policy.md#modifying-the-indexing-policy) dispara uma transformação de índice. O andamento dessa transformação também pode ser acompanhado dos SDKs.
 
 > [!NOTE]
-> Ao atualizar a política de indexação, as gravações para Azure Cosmos DB não serão interrompidas. Durante a reindexação, as consultas podem retornar resultados parciais à medida que o índice está sendo atualizado.
+> Ao atualizar a política de indexação, as gravações para Azure Cosmos DB não serão interrompidas. Saiba mais sobre as [transformações de indexação](indexing-policy.md#modifying-the-indexing-policy)
 
 ## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 

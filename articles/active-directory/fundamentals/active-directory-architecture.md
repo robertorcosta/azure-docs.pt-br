@@ -2,7 +2,7 @@
 title: Visão geral da arquitetura – Azure Active Directory | Microsoft Docs
 description: Saiba o que é um locatário do Azure Active Directory e como gerenciar o Azure usando o Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 854fb4649f8c1113f20abe5807dd0ce473ba6ee3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5599ce6f086ca9c3dcbf7ac406306b6198d3080a
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77368075"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797607"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Qual é a arquitetura do Active Directory do Azure?
 
@@ -94,7 +94,7 @@ O Azure AD opera em data centers com as seguintes características:
 * Para *leituras*, o diretório tem réplicas secundárias e serviços front-end correspondentes em uma configuração ativo-ativo operando em vários datacenters. No caso de uma falha de um datacenter inteiro, o tráfego será automaticamente roteado para um datacenter diferente.
  * Para *gravações*, o diretório fará failover da réplica primária (Mestre) em datacenters via planejado (o novo primário é sincronizado com o primário antigo) ou procedimentos de failover de emergência. A durabilidade dos dados é obtida com a replicação de qualquer confirmação para pelo menos dois data centers.
 
-#### <a name="data-consistency"></a>Consistência de dados
+#### <a name="data-consistency"></a>Coerência de dados
 
 O modelo de diretório é uma das consistências eventuais. Um problema típico dos sistemas de replicação assíncrona distribuídos é que os dados retornados de uma réplica “particular” podem não estar atualizados. 
 

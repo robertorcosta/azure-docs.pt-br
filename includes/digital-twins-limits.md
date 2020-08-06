@@ -5,18 +5,18 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 64b3bf87df7d0b10f8a69e8303010f64b3e68f79
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 22b00b41c7fce0af57fd9f92b0f42bbd9412afda
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87507556"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87771199"
 ---
 ### <a name="functional-limits"></a>Limites funcionais
 
 A tabela a seguir lista os limites funcionais do Azure digital gêmeos na visualização atual.
 
-| Área | Funcionalidade | Limite padrão | Ajustá? |
+| Área | Recurso | Limite padrão | Ajustá? |
 | --- | --- | --- | --- |
 | Recurso do Azure | Número de instâncias de gêmeos digitais do Azure em uma região, por assinatura | 10 | Sim |
 | Gêmeos Digitais | Número de gêmeos em uma instância de gêmeos digital do Azure | 200.000 | Sim |
@@ -31,13 +31,13 @@ A tabela a seguir lista os limites funcionais do Azure digital gêmeos na visual
 | Consulta | Número de `AND`  /  `OR` expressões em uma consulta | 50 | Sim |
 | Consulta | Número de itens de matriz em uma `IN`  /  `NOT IN` cláusula | 50 | Sim |
 | Consulta | Número de caracteres em uma consulta | 8,000 | Sim |
-| Consulta | Número de `JOINS` em uma consulta | 1 | Sim |
+| Consulta | Número de `JOINS` em uma consulta | 5 | Sim |
 
 ### <a name="rate-limits"></a>Limites de taxa
 
 Esta tabela reflete os limites de taxa de APIs diferentes.
 
-| API | Funcionalidade | Limite padrão | Ajustá? |
+| API | Recurso | Limite padrão | Ajustá? |
 | --- | --- | --- | --- |
 | API de modelos | Número de solicitações por segundo | 100 | Sim |
 | API gêmeos digital | Número de solicitações por segundo | 1,000 | Sim |

@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 5e6f241fcf30d4090a1af9a26441a5a10b939972
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 107b1103b5662decd8da0937ac84e0e8bab3f8eb
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307056"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760763"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Usar Azure Machine Learning com o pacote Fairlearn Open-Source para avaliar a imparcialidade dos modelos de ML (versão prévia)
 
@@ -142,7 +142,7 @@ O exemplo a seguir mostra como usar o pacote de imparcialidade para carregar inf
         return registered_model.id
 
     # Call the register_model function 
-    lr_reg_id = register_model("fairness_linear_regression", unmitigated_predictor)
+    lr_reg_id = register_model("fairness_linear_regression", lr_predictor)
     ```
 
 3. Métricas de imparcialidade pré-calcular.
@@ -152,7 +152,7 @@ O exemplo a seguir mostra como usar o pacote de imparcialidade para carregar inf
     ```python
     #  Create a dictionary of model(s) you want to assess for fairness 
     sf = { 'Race': A_test.Race, 'Sex': A_test.Sex}
-    ys_pred = unmitigated_predictor.predict(X_test)
+    ys_pred = { lr_reg_id:lr_predictor.predict(X_test) }
     from fairlearn.metrics._group_metric_set import _create_group_metric_set
 
     dash_dict = _create_group_metric_set(y_true=Y_test,
@@ -207,7 +207,7 @@ O exemplo a seguir mostra como usar o pacote de imparcialidade para carregar inf
 
     Para saber mais sobre o painel de visualização e o que ele contém, consulte o guia do [usuário](https://fairlearn.github.io/user_guide/assessment.html#fairlearn-dashboard)do Fairlearn.
 
-s # # carregar informações de inintegridade para vários modelos
+## <a name="upload-fairness-insights-for-multiple-models"></a>Carregar informações de imparcialidade para vários modelos
 
 Se você estiver interessado em comparar vários modelos e ver como suas avaliações de imparcialidade diferem, você pode passar mais de um modelo para o painel de visualização e navegar por suas compensações de integridade de desempenho.
 

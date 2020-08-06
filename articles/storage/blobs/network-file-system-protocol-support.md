@@ -1,24 +1,24 @@
 ---
 title: Suporte do sistema de arquivos de rede 3,0 no armazenamento de BLOBs do Azure (visualização) | Microsoft Docs
-description: O armazenamento de BLOBs agora dá suporte ao protocolo NFS (Network File System) 3,0. Esse suporte permite que clientes Linux montem um contêiner no armazenamento de blobs de uma VM (máquina virtual) do Azure ou um computador local.
+description: O armazenamento de BLOBs agora dá suporte ao protocolo NFS (Network File System) 3,0. Esse suporte permite que os clientes Windows e Linux montem um contêiner no armazenamento de blobs de uma VM (máquina virtual) do Azure ou um computador que é executado no local.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: ab8d262e4eac08ce21b7ad01402c3608d52a1aab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 32eafc41451c42a9c929e94d30450b923e7eae83
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372885"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760916"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Suporte ao protocolo NFS (sistema de arquivos de rede) 3,0 no armazenamento de BLOBs do Azure (versão prévia)
 
-O armazenamento de BLOBs agora dá suporte ao protocolo NFS (Network File System) 3,0. Esse suporte permite que clientes Linux montem um contêiner no armazenamento de blobs de uma VM (máquina virtual) do Azure ou um computador local. 
+O armazenamento de BLOBs agora dá suporte ao protocolo NFS (Network File System) 3,0. Esse suporte permite que clientes Windows ou Linux montem um contêiner no armazenamento de blob de uma VM (máquina virtual) do Azure ou um computador local. 
 
 > [!NOTE]
 > O suporte ao protocolo NFS 3,0 no armazenamento de BLOBs do Azure está em visualização pública e está disponível nas seguintes regiões: leste dos EUA, Centro dos EUA e Canadá central.
@@ -41,7 +41,7 @@ Para montar um contêiner de conta de armazenamento, você precisará fazer essa
 
 7. Monte o contêiner.
 
-Para obter orientações passo a passo, consulte [montar o armazenamento de BLOBs no Linux usando o protocolo NFS (sistema de arquivos de rede) 3,0 (versão prévia)](network-file-system-protocol-support-how-to.md).
+Para obter orientações passo a passo, consulte [montar o armazenamento de BLOBs usando o protocolo NFS (sistema de arquivos de rede) 3,0 (versão prévia)](network-file-system-protocol-support-how-to.md).
 
 > [!IMPORTANT]
 > É importante concluir essas tarefas na ordem. Você não pode montar contêineres criados antes de habilitar o protocolo NFS 3,0 em sua conta. Além disso, depois de habilitar o protocolo NFS 3,0 em sua conta, você não poderá desabilitá-lo.
@@ -113,7 +113,7 @@ Uma transação não é cobrada durante a visualização. O preço das transaç�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar, consulte [montar o armazenamento de BLOBs no Linux usando o protocolo NFS (sistema de arquivos de rede) 3,0 (versão prévia)](network-file-system-protocol-support-how-to.md).
+Para começar, consulte [montar o armazenamento de BLOBs usando o protocolo NFS (sistema de arquivos de rede) 3,0 (versão prévia)](network-file-system-protocol-support-how-to.md).
 
 
 

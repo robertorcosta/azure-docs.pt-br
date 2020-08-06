@@ -7,20 +7,27 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 9ba0ad1414a09aec7ec2fb6b8c209b23f3f37050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82202206"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760933"
 ---
 # <a name="what-is-azure-private-link-service"></a>O que é o serviço de vínculo privado do Azure?
 
 O serviço de Link Privado do Azure é a referência para seu serviço que é desenvolvido com o Link Privado do Azure. Seu serviço que está sendo executado por trás [do Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) pode ser habilitado para acesso de link privado para que os consumidores de seu serviço possam acessá-lo de forma privada em seu próprio VNets. Seus clientes podem criar um ponto de extremidade privado dentro de sua VNet e mapeá-lo para esse serviço. Este artigo explica os conceitos relacionados ao lado do provedor de serviço. 
 
+:::image type="content" source="./media/private-link-service-overview/consumer-provider-endpoint.png" alt-text="Fluxo de trabalho do serviço de vínculo privado" border="true":::
+
+*Figura: serviço de vínculo privado do Azure.*
+
 ## <a name="workflow"></a>Fluxo de trabalho
 
 ![Fluxo de trabalho do serviço de vínculo privado](media/private-link-service-overview/private-link-service-workflow.png)
+
+
+*Figura: fluxo de trabalho do serviço de vínculo privado do Azure.*
 
 ### <a name="create-your-private-link-service"></a>Criar seu serviço de vínculo privado
 

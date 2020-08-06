@@ -3,7 +3,7 @@ title: Delegar governança de acesso para criadores de catálogo no gerenciament
 description: Saiba como delegar a governança de acesso dos administradores de ti aos criadores de catálogo e aos gerentes de projeto para que eles possam gerenciar o acesso.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02f44543f78789284e7b8d39471d1346ca7b8e74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e41f372cd0105896765d5a267456b6bda767dd4d
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078367"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798419"
 ---
 # <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management"></a>Delegar governança de acesso para criadores de catálogo no gerenciamento de direitos do Azure AD
 
@@ -47,7 +47,7 @@ Siga estas etapas para atribuir um usuário à função de criador de catálogo.
 
 1. Clique em **Selecionar**.
 
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 
 ## <a name="allow-delegated-roles-to-access-the-azure-portal"></a>Permitir que funções delegadas acessem o portal do Azure
 

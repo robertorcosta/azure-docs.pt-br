@@ -1,24 +1,24 @@
 ---
-title: Montar o armazenamento de BLOBs do Azure no Linux usando o protocolo NFS 3,0 (versão prévia) | Microsoft Docs
-description: Saiba como montar um contêiner no armazenamento de blobs de uma VM (máquina virtual) do Azure baseada em Linux ou um sistema Linux que é executado localmente usando o protocolo NFS 3,0.
+title: Montar o armazenamento de BLOBs do Azure usando o protocolo NFS 3,0 (visualização) | Microsoft Docs
+description: Saiba como montar um contêiner no armazenamento de blobs de uma VM (máquina virtual) do Azure ou um cliente que é executado localmente usando o protocolo NFS 3,0.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: d3907967572b22e7a70316080b08a4368a9805ce
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 2517a0ac8edf30ac041708a57b166af6eb36440a
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372902"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760780"
 ---
-# <a name="mount-blob-storage-on-linux-using-the-network-file-system-nfs-30-protocol-preview"></a>Montar o armazenamento de BLOBs no Linux usando o protocolo NFS (sistema de arquivos de rede) 3,0 (versão prévia)
+# <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montar o armazenamento de BLOBs usando o protocolo NFS (sistema de arquivos de rede) 3,0 (versão prévia)
 
-Você pode montar um contêiner no armazenamento de blobs de uma VM (máquina virtual) do Azure baseada em Linux ou um sistema Linux que é executado localmente usando o protocolo NFS 3,0. Este artigo fornece orientações passo a passo. Para saber mais sobre o suporte ao protocolo NFS 3,0 no armazenamento de BLOBs, consulte [suporte ao protocolo NFS (Network File System) 3,0 no armazenamento de BLOBs do Azure (versão prévia)](network-file-system-protocol-support.md).
+Você pode montar um contêiner no armazenamento de blobs de uma VM (máquina virtual) do Azure baseada em Windows ou Linux ou um sistema Windows ou Linux que é executado no local usando o protocolo NFS 3,0. Este artigo fornece orientações passo a passo. Para saber mais sobre o suporte ao protocolo NFS 3,0 no armazenamento de BLOBs, consulte [suporte ao protocolo NFS (Network File System) 3,0 no armazenamento de BLOBs do Azure (versão prévia)](network-file-system-protocol-support.md).
 
 > [!NOTE]
 > O suporte ao protocolo NFS 3,0 no armazenamento de BLOBs do Azure está em visualização pública e está disponível nas seguintes regiões: leste dos EUA, Centro dos EUA e Canadá central.
@@ -90,9 +90,9 @@ Na versão de visualização desse recurso, o protocolo NFS 3,0 tem suporte apen
 
 Ao configurar a conta, escolha estes valores:
 
-|Configuração | Valor|
+|Setting | Valor|
 |----|---|
-|Location|Uma das seguintes regiões: leste dos EUA, Centro dos EUA e Canadá central |
+|Localização|Uma das seguintes regiões: leste dos EUA, Centro dos EUA e Canadá central |
 |Desempenho|Premium|
 |Tipo de conta|BlockBlobStorage|
 |Replicação|Armazenamento com redundância local (LRS)|
@@ -113,9 +113,13 @@ Crie um contêiner em sua conta de armazenamento usando qualquer uma dessas ferr
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[CLI do Azure](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-|[Azure portal](https://portal.azure.com)|[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
+|[Portal do Azure](https://portal.azure.com)|[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
 
 ## <a name="step-7-mount-the-container"></a>Etapa 7: montar o contêiner
+
+Crie um diretório em seu sistema Windows ou Linux e, em seguida, monte um contêiner na conta de armazenamento.
+
+### <a name="linux"></a>[Linux](#tab/linux)
 
 1. Em um sistema Linux, crie um diretório.
 
@@ -133,14 +137,33 @@ Crie um contêiner em sua conta de armazenamento usando qualquer uma dessas ferr
 
    - Substitua o `<container-name>` espaço reservado pelo nome do seu contêiner.
 
+
+### <a name="windows"></a>[Windows](#tab/windows)
+
+1. Abra a caixa de diálogo **recursos do Windows** e ative o recurso **cliente para NFS** . 
+
+   ![Recurso cliente para sistema de arquivos de rede](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
+
+2. Monte um contêiner usando o comando [Mount](https://docs.microsoft.com/windows-server/administration/windows-commands/mount) .
+
+   ```
+   mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
+   ```
+
+   - Substitua o `<storage-account-name>` espaço reservado que aparece nesse comando pelo nome da sua conta de armazenamento.  
+
+   - Substitua o `<container-name>` espaço reservado pelo nome do seu contêiner.
+
+---
+
 ## <a name="resolve-common-issues"></a>Resolver problemas comuns
 
 |Problema/erro | Resolução|
 |---|---|
 |`Access denied by server while mounting`|Verifique se o cliente está sendo executado em uma sub-rede com suporte. Consulte os [locais de rede com suporte](network-file-system-protocol-support.md#supported-network-connections).|
-|`No such file or directory`| Verifique se o contêiner que você está montando foi criado depois de verificar se o recurso foi registrado. Consulte [etapa 2: verificar se o recurso está registrado](#step-2-verify-that-the-feature-is-registered). Além disso, certifique-se de digitar o comando mount e os parâmetros diretamente no terminal. Se você copiar e colar qualquer parte deste comando no terminal de outro aplicativo, os caracteres ocultos nas informações coladas poderão causar a exibição desse erro.|
+|`No such file or directory`| Verifique se o contêiner que você está montando foi criado após verificar se o recurso foi registrado. Consulte [etapa 2: verificar se o recurso está registrado](#step-2-verify-that-the-feature-is-registered). Além disso, certifique-se de digitar o comando mount e os parâmetros diretamente no terminal. Se você copiar e colar qualquer parte deste comando no terminal de outro aplicativo, os caracteres ocultos nas informações coladas poderão causar esse erro.|
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [Suporte ao protocolo NFS (sistema de arquivos de rede) 3,0 no armazenamento de BLOBs do Azure (versão prévia)](network-file-system-protocol-support.md)
 

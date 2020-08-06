@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 83e76cd96e09b0e136d2bfbe2e5863b289724bdd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2b3f9b0a4bec76f1f5f9b1f42ec33fdf5e2678bf
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284244"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760151"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR (reconhecimento óptico de caracteres)
 
@@ -123,7 +123,7 @@ Agora, a operação de leitura dá suporte à extração de texto manuscrito exc
 
 ### <a name="printed-text-in-supported-languages"></a>Texto impresso em idiomas com suporte
 
-A API Read 3,0 dá suporte à extração de texto impresso em idiomas inglês, espanhol, alemão, francês, italiano, Português e holandês. [Leia 3,1-Preview. 1 API pública Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) adiciona suporte para chinês simplificado. Se seu cenário exigir suporte a mais idiomas, consulte a visão geral da API de OCR neste documento. Consulte a lista de todos os [idiomas com suporte OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
+A API Read 3,0 dá suporte à extração de texto impresso em idiomas inglês, espanhol, alemão, francês, italiano, Português e holandês. [Leia 3,1 API de visualização pública](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) adiciona suporte para chinês simplificado. Se seu cenário exigir suporte a mais idiomas, consulte a visão geral da API de OCR neste documento. Consulte a lista de todos os [idiomas com suporte OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
 
 ![Uma imagem sendo girada e seu texto sendo lido e delimitado](./Images/supported-languages-example.png)
 
@@ -149,5 +149,5 @@ A [API de OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf9918
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre a [API REST de leitura 3,0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
-- Saiba mais sobre a [API REST de leitura 3,1-Preview. 1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) com suporte adicionado para chinês simplificado.
+- Saiba mais sobre a [API REST de visualização pública 3,1 de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) com suporte adicional para chinês simplificado.
 - Siga o guia de início rápido [extrair texto](./QuickStarts/CSharp-hand-text.md) para implementar o OCR usando C#, Java, JavaScript ou Python juntamente com a API REST.

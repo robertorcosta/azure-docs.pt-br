@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c5b105bf6fea8b78a11f77d73918376670be9ac5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bf483d5a9b6a75ccad48908701d89d1c40206208
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052570"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759862"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Alta disponibilidade do SAP NetWeaver em VMs do Azure
 
@@ -1449,7 +1449,7 @@ Você precisa adicionar um novo parâmetro de perfil. O parâmetro de perfil imp
 
 Para modificar o perfil SAP da instância do ASCS/SCS:
 
-1. Adicione este parâmetro de perfil ao perfil da instância do SAP ASCS/SCS:
+1. Adicione esse parâmetro de perfil ao perfil da instância do SAP ASCS/SCS, se estiver usando ENSA1:
 
    ```
    enque/encni/set_so_keepalive = true
@@ -1461,6 +1461,8 @@ Para modificar o perfil SAP da instância do ASCS/SCS:
    Por exemplo, para o perfil da instância do SAP SCS e o caminho correspondente:
 
    `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_SCS01_pr1-ascs-sap`
+
+   Para ENSA1 e ENSA2, verifique se os parâmetros do `keepalive` sistema operacional estão definidos conforme descrito na observação do SAP [1410736](https://launchpad.support.sap.com/#/notes/1410736).  
 
 2. Para aplicar as alterações, reinicie a instância SAP ASCS /SCS.
 

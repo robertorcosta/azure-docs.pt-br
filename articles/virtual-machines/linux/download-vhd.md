@@ -4,76 +4,47 @@ description: Baixe um VHD do Linux usando a CLI do Azure e o portal do Azure.
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: how-to
-ms.date: 08/21/2019
+ms.date: 08/03/2020
 ms.author: cynthn
-ms.openlocfilehash: 6254be55ae2a1ba6d178d330a41903585da2e50a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 897cae53e589f4058e5499c0e6e941d4f1d9bb2f
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289773"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761035"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Baixar um VHD do Linux por meio do Azure
 
-Neste artigo, você aprende a baixar um arquivo de VHD (disco rígido virtual) do Linux por meio do Azure usando a CLI do Azure e o portal do Azure. 
-
-Se você ainda não fez isso, instale a [CLI do Azure](/cli/azure/install-az-cli2).
+Neste artigo, você aprende a baixar um arquivo de VHD (disco rígido virtual) do Linux do Azure usando o portal do Azure. 
 
 ## <a name="stop-the-vm"></a>Pare a VM.
 
-Não é possível baixar um VHD por meio do Azure se ele estiver anexado a uma VM em execução. Você precisa parar a VM para baixar um VHD. Se desejar usar um VHD como uma [imagem](tutorial-custom-images.md) para criar outras VMs com novos discos, você precisará desprovisionar e generalizar o sistema operacional contido no arquivo e parar a VM. Para usar o VHD como um disco de uma nova instância de uma VM existente ou um disco de dados, basta parar e desalocar a VM.
-
-Para usar o VHD como uma imagem para criar outras VMs, conclua estas etapas:
-
-1. Use o SSH, o nome da conta e o endereço IP público da VM para se conectar a ela e desprovisioná-la. É possível localizar o endereço IP público com [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). O parâmetro +user também remove a última conta de usuário provisionada. Se estiver trazendo as credenciais de conta para a VM, exclua esse parâmetro +user. O exemplo a seguir remove a última conta de usuário provisionada:
-
-    ```bash
-    ssh azureuser@<publicIpAddress>
-    sudo waagent -deprovision+user -force
-    exit 
-    ```
-
-2. Entre em sua conta do Azure com [az login](/cli/azure/reference-index).
-3. Pare e desaloque a VM.
-
-    ```azurecli
-    az vm deallocate --resource-group myResourceGroup --name myVM
-    ```
-
-4. Generalize a VM. 
-
-    ```azurecli
-    az vm generalize --resource-group myResourceGroup --name myVM
-    ``` 
-
-Para usar o VHD como um disco de uma nova instância de uma VM existente ou um disco de dados, conclua estas etapas:
+Não é possível baixar um VHD por meio do Azure se ele estiver anexado a uma VM em execução. Você precisa parar a VM para baixar o VHD. 
 
 1.  Entre no [portal do Azure](https://portal.azure.com/).
 2.  No menu à esquerda, selecione **máquinas virtuais**.
 3.  Selecione a VM na lista.
 4.  Na página da VM, selecione **parar**.
 
-    ![Parar a VM](./media/download-vhd/export-stop.png)
+    :::image type="content" source="./media/download-vhd/export-stop.PNG" alt-text="Mostra o botão de menu para parar a VM.":::
 
 ## <a name="generate-sas-url"></a>Gerar a URL de SAS
 
 Para baixar o arquivo VHD, você precisa gerar uma URL de [SAS (assinatura de acesso compartilhado)](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json). Quando a URL é gerada, uma hora de expiração é atribuída à URL.
 
-1.  No menu da página da VM, selecione **discos**.
-2.  Selecione o disco do sistema operacional para a VM e, em seguida, selecione **exportação de disco**.
-3.  Selecione **gerar URL**.
-
-    ![Gerar a URL](./media/download-vhd/export-generate.png)
-
+1. No menu da página da VM, selecione **discos**.
+2. Selecione o disco do sistema operacional para a VM e, em seguida, selecione **exportação de disco**.
+1. Se necessário, atualize o valor da **URL expira em (segundos)** para fornecer tempo suficiente para concluir o download. O padrão é 3600 segundos (uma hora).
+3. Selecione **gerar URL**.
+ 
+      
 ## <a name="download-vhd"></a>Baixar o VHD
 
 1.  Na URL que foi gerada, selecione **baixar o arquivo VHD**.
-**
-    ![Baixar VHD](./media/download-vhd/export-download.png)
+
+    :::image type="content" source="./media/download-vhd/export-download.PNG" alt-text="Mostra o botão para baixar o VHD.":::
 
 2.  Talvez seja necessário selecionar **salvar** no navegador para iniciar o download. O nome padrão do arquivo VHD é *abcd*.
-
-    ![Selecione salvar no navegador](./media/download-vhd/export-save.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
