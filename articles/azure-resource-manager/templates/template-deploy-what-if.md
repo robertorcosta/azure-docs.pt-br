@@ -3,23 +3,23 @@ title: Implantação de modelo What-if (visualização)
 description: Determine quais alterações ocorrerão para seus recursos antes de implantar um modelo de Azure Resource Manager.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 08/05/2020
 ms.author: tomfitz
-ms.openlocfilehash: 1e2c83167e7ccc1e3e98b23711fba567ef11ac23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27efe1e03b8a0d373d566106a53a41007731973e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888747"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810064"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Operação de hipóteses de implantação de modelo ARM (versão prévia)
 
-Antes de implantar um modelo de Azure Resource Manager (ARM), você pode visualizar as alterações que ocorrerão. Azure Resource Manager fornece a operação What-If para permitir que você veja como os recursos serão alterados se você implantar o modelo. A operação What-If não faz nenhuma alteração nos recursos existentes. Em vez disso, ele prevê as alterações se o modelo especificado for implantado.
+Antes de implantar um modelo de Azure Resource Manager (modelo ARM), você pode visualizar as alterações que ocorrerão. Azure Resource Manager fornece a operação What-If para permitir que você veja como os recursos serão alterados se você implantar o modelo. A operação What-If não faz nenhuma alteração nos recursos existentes. Em vez disso, ele prevê as alterações se o modelo especificado for implantado.
 
 > [!NOTE]
 > A operação What-If está atualmente em visualização. Como uma versão de visualização, os resultados podem, às vezes, mostrar que um recurso será alterado quando, na verdade, nenhuma alteração ocorrerá. Estamos trabalhando para reduzir esses problemas, mas precisamos de sua ajuda. Informe esses problemas em [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 
-Você pode usar a operação What-If com as operações Azure PowerShell, CLI do Azure ou API REST. O What-If tem suporte para implantações de nível de assinatura e grupo de recursos.
+Você pode usar a operação What-If com as operações Azure PowerShell, CLI do Azure ou API REST. O What-If tem suporte para implantações de grupo de recursos, de assinatura, de grupo de gerenciamento e de nível de locatário.
 
 ## <a name="install-azure-powershell-module"></a>Instalar o módulo do Azure PowerShell
 
@@ -125,20 +125,23 @@ Os comandos anteriores retornam um resumo de texto que você pode inspecionar ma
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para visualizar as alterações antes de implantar um modelo, use [AZ Deployment Group What-If](/cli/azure/deployment/group#az-deployment-group-what-if) ou [AZ Deployment sub What-If](/cli/azure/deployment/sub#az-deployment-sub-what-if).
+Para visualizar as alterações antes de implantar um modelo, use:
 
-* `az deployment group what-if`para implantações de grupo de recursos
-* `az deployment sub what-if`para implantações em nível de assinatura
+* [AZ Deployment Group e-se](/cli/azure/deployment/group#az-deployment-group-what-if) para implantações de grupo de recursos
+* [AZ Deployment sub What-If](/cli/azure/deployment/sub#az-deployment-sub-what-if) para implantações em nível de assinatura
+* [AZ Deployment mg e-se](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-what-if) para implantações de grupo de gerenciamento
+* [AZ Deployment locatário What-se](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-what-if) para implantações de locatário
 
-Você pode usar a `--confirm-with-what-if` opção (ou sua forma abreviada `-c` ) para visualizar as alterações e receber uma solicitação para continuar com a implantação. Adicione essa opção para [AZ Deployment Group Create](/cli/azure/deployment/group#az-deployment-group-create) ou [AZ Deployment sub Create](/cli/azure/deployment/sub#az-deployment-sub-create).
+Você pode usar a `--confirm-with-what-if` opção (ou sua forma abreviada `-c` ) para visualizar as alterações e receber uma solicitação para continuar com a implantação. Adicione esta opção a:
 
-* `az deployment group create --confirm-with-what-if`ou `-c` para implantações de grupo de recursos
-* `az deployment sub create --confirm-with-what-if`ou `-c` para implantações de nível de assinatura
+* [Criar grupo de implantação AZ](/cli/azure/deployment/group#az-deployment-group-create)
+* [AZ Deployment sub Create](/cli/azure/deployment/sub#az-deployment-sub-create).
+* [criação de mg de implantação AZ](/cli/azure/deployment/mg#az-deployment-mg-create)
+* [criar locatário de implantação AZ](/cli/azure/deployment/tenant#az-deployment-tenant-create)
 
-Os comandos anteriores retornam um resumo de texto que você pode inspecionar manualmente. Para obter um objeto JSON que você pode inspecionar para alterações programaticamente, use:
+Por exemplo, use `az deployment group create --confirm-with-what-if` ou `-c` para implantações de grupo de recursos.
 
-* `az deployment group what-if --no-pretty-print`para implantações de grupo de recursos
-* `az deployment sub what-if --no-pretty-print`para implantações em nível de assinatura
+Os comandos anteriores retornam um resumo de texto que você pode inspecionar manualmente. Para obter um objeto JSON que você pode inspecionar para alterações programaticamente, use a `--no-pretty-print` opção. Por exemplo, use `az deployment group what-if --no-pretty-print` para implantações de grupo de recursos.
 
 Se você quiser retornar os resultados sem cores, abra o arquivo de [configuração CLI do Azure](/cli/azure/azure-cli-configuration) . Defina **no_color** como **Sim**.
 
@@ -147,7 +150,9 @@ Se você quiser retornar os resultados sem cores, abra o arquivo de [configuraç
 Para a API REST, use:
 
 * [Implantações-What If](/rest/api/resources/deployments/whatif) para implantações de grupo de recursos
-* [Implantações-What If no escopo da assinatura](/rest/api/resources/deployments/whatifatsubscriptionscope) para implantações em nível de assinatura
+* [Implantações-What If no escopo da assinatura](/rest/api/resources/deployments/whatifatsubscriptionscope) para implantações de assinatura
+* [Implantações-What If no escopo do grupo de gerenciamento](/rest/api/resources/deployments/whatifatmanagementgroupscope) para implantações do grupo de gerenciamento
+* [Implantações-What If no escopo do locatário](/rest/api/resources/deployments/whatifattenantscope) para implantações de locatário.
 
 ## <a name="change-types"></a>Alterar tipos
 
@@ -312,7 +317,7 @@ Resource changes: 1 to modify.
 
 Observe na parte superior da saída que as cores são definidas para indicar o tipo de alterações.
 
-Na parte inferior da saída, mostra que o proprietário da marca foi excluído. O prefixo de endereço mudou de 10.0.0.0/16 para 10.0.0.0/15. A sub-rede denominada subnet001 foi excluída. Lembre-se de que essas alterações não foram realmente implantadas. Você verá uma visualização das alterações que ocorrerão se você implantar o modelo.
+Na parte inferior da saída, mostra que o proprietário da marca foi excluído. O prefixo de endereço mudou de 10.0.0.0/16 para 10.0.0.0/15. A sub-rede denominada subnet001 foi excluída. Lembre-se que essas alterações não foram implantadas. Você verá uma visualização das alterações que ocorrerão se você implantar o modelo.
 
 Algumas das propriedades listadas como excluídas não serão realmente alteradas. As propriedades podem ser relatadas incorretamente como excluídas quando não estão no modelo, mas são definidas automaticamente durante a implantação como valores padrão. Esse resultado é considerado "ruído" na resposta What-If. O recurso implantado final terá os valores definidos para as propriedades. Como a operação What-If amadurece, essas propriedades serão filtradas do resultado.
 

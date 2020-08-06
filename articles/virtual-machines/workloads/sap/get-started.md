@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/16/2020
+ms.date: 08/04/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7319adfc88eedb007677a78693ab0b2e514e646f
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: a882e3a21d5e1e99f6f9154fd2162071752b4499
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171663"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800341"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 
@@ -104,6 +104,8 @@ Para obter informações sobre a integração dos serviços do Azure em componen
 
 ## <a name="change-log"></a>Log de alterações
 
+- 08/04/2020: alterar na [configuração do pacemaker no SLES no Azure](./high-availability-guide-suse-pacemaker.md) e [Configurar o pacemaker no RHEL no Azure](./high-availability-guide-rhel-pacemaker.md) para enfatizar a importância da resolução de nomes confiável para clusters do pacemaker
+- 08/04/2020: alteração no [SAP NW ha no WFCS com compartilhamento de arquivos](./sap-high-availability-installation-wsfc-file-share.md), [SAP NW ha no WFCS com disco compartilhado](./sap-high-availability-installation-wsfc-shared-disk.md), [ha para SAP NW em VMs do Azure](./high-availability-guide.md), [ha para SAP NW em VMs do Azure no SLES](./high-availability-guide-suse.md), [ha para SAP NW em VMs do Azure no SLES com seja](./high-availability-guide-suse-netapp-files.md), [ha para SAP NW em VMs do Azure no guia de vários SID do SLES](./high-availability-guide-suse-multi-sid.md), [alta disponibilidade para SAP NetWeaver em VMs do Azure no RHEL](./high-availability-guide-rhel.md), [ha para SAP NW em VMs do Azure no RHEL com seja](./high-availability-guide-rhel-netapp-files.md) e [ha para SAP NW em VMs do Azure no RHEL multi-Sid](./high-availability-guide-rhel-multi-sid.md) para esclarecer o uso do parâmetro`enque/encni/set_so_keepalive`
 - 07/23/2020: foi adicionado o artigo [salvar em SAP Hana em instâncias grandes com um Azure reserva](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) explicando o que você precisa saber antes de comprar uma reserva de SAP Hana em instâncias grandes e como fazer a compra
 - 07/16/2020: descrever como usar Azure PowerShell para instalar a nova extensão de VM para SAP no [Guia de implantação](deployment-guide.md)
 - 7/04/2020: lançamento do [Azure monitor para soluções SAP (versão prévia)](./azure-monitor-overview.md)
@@ -130,7 +132,7 @@ Para obter informações sobre a integração dos serviços do Azure em componen
 - 31/03/2020: alteração a [Alta disponibilidade do SAP HANA em VMs do Azure em SLES](./sap-hana-high-availability.md) e [Alta disponibilidade do SAP HANA em VMs do Azure em RHEL](./sap-hana-high-availability-rhel.md) para adicionar instruções sobre como especificar o tamanho da distribuição ao criar volumes distribuídos
 - 27/03/2020: alteração a [Alta disponibilidade para o SAP NW em VMs do Azure em SLES com ANF para aplicativos SAP](./high-availability-guide-suse-netapp-files.md) para alinhar as opções de montagem do sistema de arquivos ao NetApp TR-4746 (remover a opção de montagem de sincronização)
 - 26/03/2020: alteração a [Alta disponibilidade para SAP NetWeaver em VMs do Azure no guia de vários SID do SLES](./high-availability-guide-suse-multi-sid.md) para adicionar referência ao NetApp TR-4746
-- 26/03/2020: alteração a [Alta disponibilidade para SAP NetWeaver em VMs do Azure no SLES para aplicativos SAP](./high-availability-guide-suse.md), [Alta disponibilidade para SAP NetWeaver em VMs do Azure no SLES com Azure NetApp Files para aplicativos SAP](./high-availability-guide-suse-netapp-files.md), [Alta disponibilidade para NFS em VMs do Azure no SLES](./high-availability-guide-suse-nfs.md), [Alta disponibilidade para SAP NetWeaver em VMs do Azure no guia de vários SID do SLES](./high-availability-guide-suse-multi-sid.md), [Alta disponibilidade para SAP NetWeaver em VMs do Azure em RHEL para aplicativos SAP](./high-availability-guide-rhel.md) e [Alta disponibilidade para SAP NetWeaver em VMs do Azure no RHEL com Azure NetApp Files para aplicativos SAP](./high-availability-guide-rhel-netapp-files.md) para atualizar diagramas e esclarecer instruções para a criação do pool de back-end do Azure Load Balancer
+- 03/26/2020: alteração na [alta disponibilidade para SAP NetWeaver em VMs do Azure no SLES para aplicativos SAP](./high-availability-guide-suse.md), [alta disponibilidade para SAP NetWeaver em VMs do Azure no SLES com Azure NetApp Files para aplicativos SAP](./high-availability-guide-suse-netapp-files.md), [alta disponibilidade para NFS em VMs do Azure no SLES](./high-availability-guide-suse-nfs.md), [alta disponibilidade para SAP NetWeaver em VMs do Azure no guia de vários SID do RHEL](./high-availability-guide-suse-multi-sid.md), [alta disponibilidade para SAP NetWeaver em VMs do Azure em RHEL para aplicativos SAP](./high-availability-guide-rhel.md) e [alta disponibilidade para SAP NetWeaver em VMs do Azure em RHEL com Azure NetApp Files para](./high-availability-guide-rhel-netapp-files.md) aplicações do Microsoft SAP para atualizar diagramas e esclarecer instruções para a criação de pool de back-end Azure Load Balancer
 - 19/03/2020: revisão principal do documento [Início Rápido: Instalação manual do SAP HANA de instância única em máquinas virtuais do Azure](./hana-get-started.md) para [Instalação do SAP HANA em máquinas virtuais do Azure](./hana-get-started.md)
 - 17/03/2020: alteração a [Configuração do Pacemaker no SUSE Linux Enterprise Server no Azure](./high-availability-guide-suse-pacemaker.md) para remover a configuração de SBD que não é mais necessária
 - 16/03/2020: Esclarecimento do cenário de certificação de coluna na plataforma certificada de IaaS do SAP HANA em [Qual software SAP tem suporte para implantações do Azure](./sap-supported-product-on-azure.md)

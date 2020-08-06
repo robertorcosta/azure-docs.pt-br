@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 5ead227d886805c0ed48ebb52c4c0e30ef13b851
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 779fc1cfc617e18eee4d84dcfd007f10ddb31f96
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320027"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808704"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
 
@@ -50,10 +50,10 @@ A página **Visão geral da oferta** mostra uma representação visual das etapa
 
 Essa página inclui links para executar operações nessa oferta com base na seleção feita por você. Por exemplo:
 
-- Se a oferta for uma oferta rascunho- [excluir rascunho](update-existing-offer.md#delete-a-draft-offer))
-- Se a oferta estiver em tempo real, [pare de vender a oferta](update-existing-offer.md#stop-selling-an-offer-or-plan))
-- Se a oferta estiver em visualização- [Go-Live](publishing-status.md#publisher-approval))
-- Se você ainda não concluiu a saída do Publicador, [cancele a publicação.](update-existing-offer.md#cancel-publishing))
+- Se a oferta for um rascunho – [Excluir oferta de rascunho](update-existing-offer.md#delete-a-draft-offer)
+- Se a oferta estiver ativa – [Parar de vender a oferta](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Se a oferta estiver em versão prévia – [Ativar](publishing-status.md#publisher-approval)
+- Se você ainda não tiver concluído a desconexão do editor – [Cancelar publicação.](update-existing-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuração da oferta
 
@@ -199,14 +199,15 @@ Forneça logotipos e imagens para usar com sua oferta. O logotipo precisa estar 
 
 #### <a name="store-logos"></a>Armazenar logotipos
 
-Forneça arquivos PNG do logotipo da sua oferta em cada um dos seguintes quatro tamanhos de pixel:
+Forneça um arquivo PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center usará isso para criar um logotipo de tamanho **pequeno** (48 x 48 pixels) e **médio** (90 x 90 pixels). Opcionalmente, você pode substituí-los por imagens diferentes.
 
-- **Pequeno (48 x 48)**
-- **Médio (90 x 90)**
-- **Grande (216 x 216)**
-- **Largo (255 x 115)**
+Todos os três tamanhos de logotipo são necessários para uso em locais diferentes na lista:
 
-Todos os quatro logotipos são necessários e são usados em locais diferentes na lista do marketplace.
+- **Pequeno** (48 x 48)
+- **Médio** (90 x 90)
+- **Grande** (entre 216 x 216 e 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Capturas de tela (opcional)
 

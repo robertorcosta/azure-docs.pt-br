@@ -3,7 +3,7 @@ title: Criar um novo pacote de acesso no gerenciamento de direitos-Azure AD
 description: Saiba como criar um novo pacote de acesso de recursos que você deseja compartilhar no gerenciamento de direitos Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d54c4e5980383c721629143910eafbd5ae6a527
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64f5c88de72bcd241f0cd42d338acbe707de6f34
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078947"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798776"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Criar um novo pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -67,7 +67,7 @@ Aqui estão as etapas de alto nível para criar um novo pacote de acesso.
    
     ![Gerenciamento de direitos no portal do Azure](./media/entitlement-management-shared/access-packages-list.png)
 
-## <a name="basics"></a>Noções básicas
+## <a name="basics"></a>Básico
 
 Na guia **noções básicas** , você dá um nome ao pacote de acesso e especifica em qual catálogo criar o pacote de acesso.
 
@@ -83,7 +83,7 @@ Na guia **noções básicas** , você dá um nome ao pacote de acesso e especifi
 
     O pacote de acesso que você está criando e todos os recursos incluídos nele serão adicionados ao novo catálogo. Você também pode adicionar mais proprietários de catálogo posteriormente.
 
-1. Clique em **Próximo**.
+1. Clique em **Avançar**.
 
 ## <a name="resource-roles"></a>Funções de recurso
 
@@ -105,7 +105,7 @@ Na guia **funções de recurso** , selecione os recursos a serem incluídos no p
 
     ![Pacote de acesso-seleção de função de recurso](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
-1. Clique em **Próximo**.
+1. Clique em **Avançar**.
 
 ## <a name="requests"></a>Requests
 

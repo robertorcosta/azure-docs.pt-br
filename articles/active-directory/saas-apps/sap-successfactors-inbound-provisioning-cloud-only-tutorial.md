@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 09501a80d6ddcbbc9fa6cc08e36f47beb13d1663
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97bda09870949846e333cc2845286512fd5d6386
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77063215"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809894"
 ---
-# <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning-preview"></a>Tutorial: configurar o SAP SuccessFactors para o provisionamento de usuário do Azure AD (versão prévia)
-O objetivo deste tutorial é mostrar as etapas que você precisa executar para provisionar dados de trabalho do SuccessFactors Employee central no Azure Active Directory, com write-back opcional de endereço de email para SuccessFactors. Essa integração está em visualização pública e dá suporte à recuperação de mais de [70 atributos de usuário](../app-provisioning/sap-successfactors-attribute-reference.md) do SuccessFactors Employee central. 
+# <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning"></a>Tutorial: configurar o SAP SuccessFactors para o provisionamento de usuário do Azure AD
+O objetivo deste tutorial é mostrar as etapas que você precisa executar para provisionar dados de trabalho do SuccessFactors Employee central no Azure Active Directory, com write-back opcional de endereço de email para SuccessFactors. 
 
 >[!NOTE]
 >Use este tutorial se os usuários que você deseja provisionar do SuccessFactors forem usuários somente na nuvem que não precisam de uma conta do AD local. Se os usuários exigirem apenas conta do AD local ou conta do AD e do Azure AD, consulte o tutorial em configurar o [SAP SuccessFactors para Active Directory provisionamento de](sap-successfactors-inbound-provisioning-tutorial.md#overview) usuário. 
@@ -79,7 +79,7 @@ A configuração do provisionamento de usuário controlado por RH na nuvem do Su
 * Transformação de atributo 
 * Filtros de escopo
 
-Consulte o plano de [implantação de RH de nuvem](../app-provisioning/plan-cloud-hr-provision.md) para obter diretrizes abrangentes sobre esses tópicos. 
+Consulte o plano de [implantação de RH de nuvem](../app-provisioning/plan-cloud-hr-provision.md) para obter diretrizes abrangentes sobre esses tópicos. Consulte a referência de [integração do SAP SuccessFactors](../app-provisioning/sap-successfactors-integration-reference.md) para saber mais sobre as entidades com suporte, os detalhes de processamento e como personalizar a integração para cenários de RH diferentes. 
 
 ## <a name="configuring-successfactors-for-the-integration"></a>Configurando o SuccessFactors para a integração
 
@@ -175,7 +175,7 @@ Esta seção fornece etapas para o provisionamento de contas de usuário do Succ
 
    * **URL do locatário –** Insira o nome do ponto de extremidade dos serviços de API OData do SuccessFactors. Insira apenas o nome do host do servidor sem http ou HTTPS. Esse valor deve ser semelhante a: **API-Server-Name.successfactors.com**.
 
-   * **Email de notificação –** Insira seu endereço de email e marque a caixa de seleção "enviar email se ocorrer falha".
+   * **Email de Notificação –** Digite seu endereço de email e marque a caixa de seleção “enviar email se ocorrer falha”.
     > [!NOTE]
     > O Serviço de Provisionamento do Azure AD envia uma notificação por email quando o trabalho de provisionamento entra no estado de [quarentena](/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 

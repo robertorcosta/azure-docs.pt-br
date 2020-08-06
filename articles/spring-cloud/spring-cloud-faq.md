@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: f1871871fa3a191c636a965977dba485d2c77f1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1cf29438d3785a3406aa8ce3b75929a5d5261121
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037501"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800361"
 ---
 # <a name="azure-spring-cloud-faq"></a>FAQ do Azure Spring Cloud
 
@@ -161,6 +161,21 @@ Não.
 * Recomendamos que você use bibliotecas dinâmicas e estáveis do Spring pivot. Versões não oficiais, beta ou bifurcadas de bibliotecas de Spring dinâmicos não têm suporte de SLA (contrato de nível de serviço).
 
 Após a migração, monitore suas métricas de CPU/RAM e o tráfego de rede para garantir que as instâncias do aplicativo sejam dimensionadas adequadamente.
+
+## <a name="trouble-shooting"></a>Solução de problemas
+
+### <a name="what-are-the-impacts-of-service-registry-rarely-unavailable"></a>Quais são os impactos do registro de serviço raramente indisponíveis?
+
+Em alguns cenários raramente ocorridos, você poderá ver alguns erros como 
+```
+RetryableEurekaHttpClient: Request execution failure with status code 401; retrying on another server if available
+```
+de seus logs de aplicativos. Esse problema foi introduzido pelo Spring Framework com uma taxa muito baixa devido à rede instável ou a outros problemas de rede. 
+
+Não deve haver nenhum impacto na experiência do usuário, o cliente Eureka tem uma política de pulsação e de repetição para cuidar disso. Você pode considerá-lo como um erro transitório e ignorá-lo com segurança.
+
+Aprimoraremos essa parte e evitaremos esse erro dos aplicativos dos usuários em breve.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

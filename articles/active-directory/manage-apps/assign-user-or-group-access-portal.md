@@ -12,12 +12,12 @@ ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eeab9cbb68567b6af3b1381b8ec5e67e82461ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04b0b0120a514591fb4fa23656906203acf443b4
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763730"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799495"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory
 
@@ -26,6 +26,9 @@ Neste artigo, você verá como atribuir usuários ou grupos a aplicativos empres
 Para maior controle, determinados tipos de aplicativos empresariais podem ser configurados para [exigir a atribuição de usuário](#configure-an-application-to-require-user-assignment). 
 
 Para [atribuir um usuário ou grupo a um aplicativo empresarial](#assign-users-or-groups-to-an-app-via-the-azure-portal), você precisará entrar como administrador global, administrador de aplicativos, administrador de aplicativos de nuvem ou proprietário atribuído do aplicativo empresarial.
+
+> [!IMPORTANT]
+> Quando você atribui um grupo a um aplicativo, somente os usuários no grupo terão acesso. A atribuição não faz a cascata para grupos aninhados.
 
 > [!NOTE]
 > A atribuição baseada em grupo exige o Azure Active Directory Premium edição P1 ou P2. A atribuição baseada em grupo é compatível somente com os grupos de segurança. Atualmente, não há compatibilidade com associações de grupo aninhado e grupos do Office 365. Para ver mais requisitos de licenciamento dos recursos discutidos neste artigo, confira a [página de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory). 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9c7c1000ed5229886d4a964161042eca6517c230
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: d0bca2ad14216873836c751dc002ea915baa3a66
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367428"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800476"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrar o gêmeos digital do Azure a outros serviços
 
@@ -33,7 +33,7 @@ O Azure digital gêmeos pode enviar dados para **pontos de extremidade**conectad
 * [Grade de Eventos](../event-grid/overview.md)
 * [Barramento de Serviço](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Os pontos de extremidade são anexados ao Azure digital gêmeos usando APIs de gerenciamento ou o portal do Azure. Saiba mais sobre como anexar um ponto de extremidade ao gêmeos digital do Azure em [*instruções: gerenciar pontos de extremidade e rotas*](how-to-manage-routes.md).
+Os pontos de extremidade são anexados ao Azure digital gêmeos usando APIs de gerenciamento ou o portal do Azure. Saiba mais sobre como anexar um ponto de extremidade ao gêmeos digital do Azure em [*instruções: gerenciar pontos de extremidade e rotas*](how-to-manage-routes-apis-cli.md).
 
 Há muitos outros serviços em que você pode querer direcionar, por fim, os dados, como o [armazenamento do Azure](../storage/common/storage-introduction.md) ou [Time Series insights](../time-series-insights/time-series-insights-update-overview.md). Para enviar seus dados a serviços como esses, anexe o serviço de destino a um ponto de extremidade.
 

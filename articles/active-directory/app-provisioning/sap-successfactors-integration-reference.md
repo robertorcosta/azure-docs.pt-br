@@ -10,12 +10,12 @@ ms.topic: reference
 ms.workload: identity
 ms.date: 07/20/2020
 ms.author: chmutali
-ms.openlocfilehash: 4aac13bf34394c359837ecd7a85abd78495bc4b4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ea47f8a6fc29571a27f8976bd0ad9bbd30ed0ad9
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283105"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808449"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Como Azure Active Directory provisionamento se integra ao SAP SuccessFactors 
 
@@ -33,7 +33,7 @@ O serviço de provisionamento do Azure AD usa a autenticação básica para se c
 Para proteger ainda mais a conectividade entre o serviço de provisionamento do Azure AD e o SuccessFactors, você pode adicionar os intervalos de IP do Azure AD na lista de permissões de IP do SuccessFactors usando as etapas descritas abaixo:
 
 1. Baixar os [intervalos de IP mais recentes](https://www.microsoft.com/download/details.aspx?id=56519) para a nuvem pública do Azure 
-1. Abra o arquivo e procure as marcas **AzureActiveDirectory** e **AzureActiveDirectoryDomainServices** 
+1. Abra o arquivo e procure a marca **AzureActiveDirectory** 
 
    >[!div class="mx-imgBorder"] 
    >![Intervalo de IPS do Azure AD](media/sap-successfactors-integration-reference/azure-active-directory-ip-range.png)

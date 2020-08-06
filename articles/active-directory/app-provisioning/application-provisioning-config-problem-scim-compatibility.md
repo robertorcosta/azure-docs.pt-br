@@ -1,5 +1,5 @@
 ---
-title: Problemas conhecidos com a conformidade do protocolo SCIM 2,0-Azure AD
+title: Problemas conhecidos com o sistema de conformidade do protocolo SCIM (gerenciamento de identidade entre domínios) 2,0-Azure AD
 description: Como solucionar problemas de compatibilidade de protocolo comuns enfrentados ao adicionar um aplicativo inexistente na galeria que dá suporte a SCIM 2.0 ao Microsoft Azure AD
 services: active-directory
 author: kenwith
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/03/2018
+ms.date: 08/05/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 441d830c7512b7d06c5d4f3e64dc59844b764453
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: c54478282cb1106ae95fe1c9e3fbb15e9c37bbf9
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387159"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808568"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conhecidos e as resoluções em conformidade com o protocolo SCIM 2.0 do serviço de Provisionamento de Usuário do Microsoft Azure Active Directory
 
@@ -26,32 +26,63 @@ Suporte do Azure AD para o protocolo SCIM 2.0 é descrito em [Usando o Sistema p
 
 Este artigo descreve os problemas atuais e anteriores com a aderência ao serviço de provisionamento do usuário do Azure Active Directory ao protocolo SCIM 2.0 e como trabalhar nesses problemas.
 
-> [!IMPORTANT]
-> A atualização mais recente para o cliente SCIM do serviço de provisionamento do usuário do Microsoft Azure Active Directory foi feita em 18 de dezembro de 2018. Essa atualização abordou as questões de compatibilidade conhecidas listadas na tabela abaixo. Consulte as perguntas frequentes abaixo para obter mais informações sobre essa atualização.
+## <a name="understanding-the-provisioning-job"></a>Noções básicas sobre o trabalho de provisionamento
+O serviço de provisionamento usa o conceito de um trabalho para operar em um aplicativo. A jobID pode ser encontrada na [barra de progresso](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar). Todos os novos aplicativos de provisionamento são criados com um jobID começando com "SCIM". O trabalho scim representa o estado atual do serviço. Os trabalhos mais antigos têm a ID "customappsso". Esse trabalho representa o estado do serviço em 2018. 
+
+Se você estiver usando um aplicativo na Galeria, o trabalho geralmente conterá o nome do aplicativo (por exemplo, zoom do floco de neve, databricks, etc.). Você pode ignorar esta documentação ao usar um aplicativo da galeria. Isso se aplica principalmente a aplicativos que não são da galeria com jobID SCIM ou customAppSSO.
 
 ## <a name="scim-20-compliance-issues-and-status"></a>Problemas de conformidade de SCIM 2.0 e o status
-
-| **Problemas de conformidade SCIM 2.0** |  **Fixado?** | **Corrigir a data**  |  
-|---|---|---|
-| O Microsoft Azure Active Directory requer "/ scim" para estar na raiz da URL do ponto de extremidade do SCIM do aplicativo  | Sim  |  18 de dezembro de 2018 | 
-| Os atributos de extensão usam ponto de notação "." antes de nomes de atributo, em vez de notação de dois pontos “:” |  Sim  | 18 de dezembro de 2018  | 
-|  As solicitações de patch para atributos com vários valores contêm a sintaxe de filtro de caminho inválido | Sim  |  18 de dezembro de 2018  | 
-|  As solicitações de criação de grupo contêm um URI de esquema inválido | Sim  |  18 de dezembro de 2018  |  
-
-## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>As correções de serviços foram aplicadas automaticamente ao meu aplicativo SCIM já existente?
-
-Não. Como constituiria uma alteração significativa para aplicativos SCIM que foram codificados para trabalhar com o comportamento mais antigo, as alterações não foram aplicadas automaticamente para os aplicativos existentes.
-
-As alterações são aplicadas a todos os novos aplicativos SCIM não existentes na galeria configuradas no portal do Azure, após a data da correção.
-
-Para obter informações sobre como migrar um trabalho de provisionamento pré-existente para incluir as correções mais recentes, consulte a próxima seção.
-
-## <a name="can-i-migrate-an-existing-scim-based-user-provisioning-job-to-include-the-latest-service-fixes"></a>Posso migrar um trabalho de provisionamento do usuário baseado em SCIM para incluir as últimas correções de serviço?
-
-Sim. Se você já estiver usando essa instância de aplicativo para logon único e precisa migrar o trabalho de provisionamento existente para incluir as correções mais recentes, siga o procedimento abaixo. Este procedimento descreve como usar a API do Microsoft Graph e o Gerenciador de API do Microsoft Graph para remover o trabalho de provisionamento antigo do seu aplicativo SCIM existente e criar um novo que exibe o novo comportamento.
+Na tabela a seguir, qualquer item marcado como Fixed significa que o comportamento adequado pode ser encontrado no trabalho SCIM. Trabalhamos para garantir a compatibilidade com versões anteriores para as alterações que fizemos. No entanto, não recomendamos a implementação de comportamento antigo. É recomendável usar o novo comportamento para novas implementações e atualizar as implementações existentes.
 
 > [!NOTE]
-> Se o aplicativo ainda estiver em desenvolvimento e ainda não tiver sido implantado para o logon único ou provisionamento do usuário, a solução mais fácil será excluir a entrada do aplicativo na seção **Microsoft Azure Active Directory > Aplicativos Empresariais** do portal do Azure e simplesmente adicionar uma nova entrada para o aplicativo usando a opção **Criar aplicativo > Inexistente na galeria**. Isso é uma alternativa para executar o procedimento abaixo.
+> Para as alterações feitas em 2018, você pode reverter para o comportamento customappsso. Para as alterações feitas desde 2018, você pode usar as URLs para reverter para o comportamento mais antigo. Trabalhamos para garantir a compatibilidade com versões anteriores para as alterações que fizemos, permitindo que você reverta para o jobID antigo ou usando um sinalizador. No entanto, como mencionado anteriormente, não recomendamos a implementação de um comportamento antigo. É recomendável usar o novo comportamento para novas implementações e atualizar as implementações existentes.
+
+| **Problemas de conformidade SCIM 2.0** |  **Fixado?** | **Corrigir a data**  |  **Compatibilidade com versões anteriores** |
+|---|---|---|
+| O Microsoft Azure Active Directory requer "/ scim" para estar na raiz da URL do ponto de extremidade do SCIM do aplicativo  | Sim  |  18 de dezembro de 2018 | fazer downgrade para customappSSO |
+| Os atributos de extensão usam ponto de notação "." antes de nomes de atributo, em vez de notação de dois pontos “:” |  Sim  | 18 de dezembro de 2018  | fazer downgrade para customappSSO |
+| As solicitações de patch para atributos com vários valores contêm a sintaxe de filtro de caminho inválido | Sim  |  18 de dezembro de 2018  | fazer downgrade para customappSSO |
+| As solicitações de criação de grupo contêm um URI de esquema inválido | Sim  |  18 de dezembro de 2018  |  fazer downgrade para customappSSO |
+| Atualizar o comportamento do PATCH para garantir a conformidade | Não | TBD| usar sinalizador de visualização |
+
+## <a name="flags-to-alter-the-scim-behavior"></a>Sinalizadores para alterar o comportamento de SCIM
+Use os sinalizadores abaixo na URL do locatário do seu aplicativo para alterar o comportamento padrão do cliente do SCIM.
+
+:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="SCIM sinalizadores para o comportamento posterior.":::
+
+* Atualizar o comportamento do PATCH para garantir a conformidade
+  * **Referências de RFC SCIM:** 
+    * https://tools.ietf.org/html/rfc7644#section-3.5.2
+  * **URL (compatível com scim):** AzureAdScimPatch062020
+  * **Comportamento**
+    * Remoções de associação de grupo em conformidade:
+  ```json
+   {
+     "schemas":
+      ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+     "Operations":[{
+       "op":"remove",
+       "path":"members[value eq \"2819c223-7f76-...413861904646\"]"
+     }]
+   }
+  ```
+  * **URL (não compatível com scim):** AzureAdScimPatch2017
+  * **Comportamento**
+    * Remoções de associação de grupo não compatível:
+   ```json
+   {
+     "schemas":
+     ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+     "Operations":[{
+       "op":"Remove",  
+       "path":"members",
+       "value":[{"value":"2819c223-7f76-...413861904646"}]
+     }]
+   }
+   ```
+
+## <a name="upgrading-from-the-older-customappsso-job-to-the-scim-job"></a>Atualizando do trabalho customappsso mais antigo para o trabalho SCIM
+Seguir as etapas abaixo excluirá seu trabalho customappsso existente e criará um novo trabalho do SCIM. 
  
 1. Entre no portal do Azure em: https://portal.azure.com.
 2. Na seção **Azure Active Directory > Aplicativos Enterprise** do portal do Azure, localize e selecione o seu aplicativo de SCIM.
@@ -71,7 +102,7 @@ Sim. Se você já estiver usando essa instância de aplicativo para logon único
  
    ![Obter esquema](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Obter esquema") 
 
-8. Copie a saída JSON da última etapa e salve-a em um arquivo de texto. Isso contém qualquer mapeamento de atributo personalizado que você adicionou para o seu aplicativo antigo e deve ser aproximadamente algumas milhares de linhas de JSON.
+8. Copie a saída JSON da última etapa e salve-a em um arquivo de texto. O JSON contém qualquer mapeamento de atributo personalizado que você adicionou ao seu aplicativo antigo e deve ter aproximadamente algumas milhares de linhas de JSON.
 9. Execute o comando a seguir para excluir o trabalho de provisionamento:
  
    `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
@@ -81,7 +112,7 @@ Sim. Se você já estiver usando essa instância de aplicativo para logon único
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
  `{   templateId: "scim"   }`
    
-11. Nos resultados da última etapa, copie a cadeia de caracteres completa de "ID" que começa com "scim". Opcionalmente, aplique novamente seus mapeamentos de atributos antigos, executando o comando abaixo, substituindo [new-job-id] com a nova ID de trabalho que você acabou de copiar e inserir que o JSON de saída da etapa 7 como o corpo da solicitação.
+11. Nos resultados da última etapa, copie a cadeia de caracteres completa de "ID" que começa com "scim". Opcionalmente, reaplique os mapeamentos de atributo antigos executando o comando a seguir, substituindo [New-Job-ID] pela nova ID de trabalho copiada e inserindo a saída JSON da etapa #7 como o corpo da solicitação.
 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
  `{   <your-schema-json-here>   }`
@@ -89,10 +120,9 @@ Sim. Se você já estiver usando essa instância de aplicativo para logon único
 12. Volte para a primeira janela do navegador da web e selecione a guia **Provisionamento** para o seu aplicativo.
 13. Verifique a configuração e, em seguida, inicie o trabalho de provisionamento. 
 
-## <a name="can-i-add-a-new-non-gallery-app-that-has-the-old-user-provisioning-behavior"></a>É possível adicionar um novo aplicativo inexistente na Galeria que tem o comportamento de provisionamento de usuário antigo?
+## <a name="downgrading-from-the-scim-job-to-the-customappsso-job-not-recommended"></a>Fazendo downgrade do trabalho SCIM para o trabalho customappsso (não recomendado)
+ Permitimos que você faça o downgrade de volta para o comportamento antigo, mas não o recomende, pois o customappsso não se beneficia de algumas das atualizações que fazemos, e talvez não tenha suporte para sempre. 
 
-Sim. Se você tivesse codificado um aplicativo para o comportamento antigo que existia antes das correções e precisar implantar uma nova instância dele, siga o procedimento a seguir. Este procedimento descreve como usar a API do Microsoft Graph e o Gerenciador de API do Microsoft Graph para criar um trabalho de provisionamento de SCIM que exiba o comportamento antigo.
- 
 1. Entre no portal do Azure em: https://portal.azure.com.
 2. a seção **Azure Active Directory > aplicativos empresariais > Criar aplicativo** do portal do Azure, crie um novo aplicativo **inexistente na galeria**.
 3. Na seção **propriedades** do seu novo aplicativo personalizado, copie a **ID de objeto**.

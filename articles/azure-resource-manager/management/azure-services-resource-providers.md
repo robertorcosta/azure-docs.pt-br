@@ -3,12 +3,12 @@ title: Provedores de recursos pelos serviços do Azure
 description: Lista todos os namespaces do provedor de recursos para Azure Resource Manager e mostra o serviço do Azure para esse namespace.
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: 1f57f5cd5822e9acf59462c9ecd6d0fda359b5a0
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 6c57f3523ca8f3f4ad1565d18791d24c0e698ad6
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054365"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808330"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provedores de recursos para serviços do Azure
 
@@ -53,9 +53,9 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.ClassicNetwork | Rede virtual do modelo de implantação clássico |
 | Microsoft.ClassicStorage | Armazenamento de modelo de implantação clássico |
 | Microsoft. ClassicSubscription<sup>1</sup> | Modelo de implantação clássica |
-| Microsoft.CognitiveServices | [Serviços Cognitivos](../../cognitive-services/index.yml) |
+| Microsoft.CognitiveServices | [Serviços cognitivas](../../cognitive-services/index.yml) |
 | Microsoft. Commerce<sup>1</sup> | core |
-| Microsoft.Compute | [Máquinas Virtuais](../../virtual-machines/index.yml)<br />[Conjuntos de Escala de Máquina Virtual](../../virtual-machine-scale-sets/index.yml) |
+| Microsoft.Compute | [Máquinas virtuais](../../virtual-machines/index.yml)<br />[Conjuntos de Escala de Máquina Virtual](../../virtual-machine-scale-sets/index.yml) |
 | Microsoft. consumo<sup>1</sup> | [Gerenciamento de Custos](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Instâncias de Contêiner](../../container-instances/index.yml) |
 | Microsoft.ContainerRegistry | [Registro de Contêiner](../../container-registry/index.yml) |
@@ -129,7 +129,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.Peering | [Serviço de Emparelhamento do Azure](../../peering-service/index.yml) |
 | Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft. Portal<sup>1</sup> | [Azure portal](../../azure-portal/index.yml) |
+| Microsoft. Portal<sup>1</sup> | [Portal do Azure](../../azure-portal/index.yml) |
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft. PowerPlatform | [Power Platform](/power-platform/) |
@@ -158,7 +158,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.Storage | [Storage](../../storage/index.yml) |
 | Microsoft.StorageSync | [Storage](../../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](../../storsimple/index.yml) |
-| Microsoft.StreamAnalytics | [Stream Analytics do Azure](../../stream-analytics/index.yml) |
+| Microsoft.StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
 | Microsoft.Subscription | core |
 | Microsoft. support<sup>1</sup> | core |
 | Microsoft.Synapse | [Azure Synapse Analytics](/azure/sql-data-warehouse/) |
@@ -167,7 +167,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.VirtualMachineImages | [Construtor de Imagens do Azure](../../virtual-machines/linux/image-builder-overview.md) |
 | microsoft.visualstudio | [Azure DevOps](/azure/devops/?view=azure-devops) |
 | Microsoft.VMware | [Solução VMware no Azure](../../azure-vmware/index.yml) |
-| Microsoft.VMwareCloudSimple | [Solução VMware no Azure pela CloudSimple](/azure/vmware-cloudsimple/) |
+| Microsoft.VMwareCloudSimple | [Solução VMware no Azure pela CloudSimple](../../vmware-cloudsimple/index.md) |
 | Microsoft.VSOnline | [Azure DevOps](/azure/devops/?view=azure-devops) |
 | Microsoft.Web | [Serviço de Aplicativo](../../app-service/index.yml)<br />[Azure Functions](../../azure-functions/index.yml) |
 | Microsoft.WindowsESU | Atualizações de segurança estendidas |

@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 6a7b24de860b543778d7e6ceabc95d10bf7c44c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077080"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800493"
 ---
 # <a name="azure-resource-logs"></a>Logs de recursos do Azure
 Os logs de recursos do Azure são [logs de plataforma](platform-logs-overview.md) que fornecem informações sobre as operações que foram executadas em um recurso do Azure. O conteúdo dos logs de recursos varia de acordo com o serviço do Azure e o tipo de recurso. Os logs de recursos não são coletados por padrão. Você deve criar uma configuração de diagnóstico para cada recurso do Azure para enviar seus logs de recursos para um Log Analytics espaço de trabalho para usar com [logs de Azure monitor](data-platform-logs.md), hubs de eventos do Azure para encaminhar fora do Azure ou para o armazenamento do Azure para arquivamento.
 
-Consulte [criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes](diagnostic-settings.md) para obter detalhes sobre como criar uma configuração de diagnóstico e [implantar Azure monitor em escala usando Azure Policy](deploy-scale.md) para obter detalhes sobre como usar Azure Policy para criar automaticamente uma configuração de diagnóstico para cada recurso do Azure que você criar.
+Consulte [criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes](diagnostic-settings.md) para obter detalhes sobre como criar uma configuração de diagnóstico e [implantar Azure monitor em escala usando Azure Policy](../deploy-scale.md) para obter detalhes sobre como usar Azure Policy para criar automaticamente uma configuração de diagnóstico para cada recurso do Azure que você criar.
 
 ## <a name="send-to-log-analytics-workspace"></a>Enviar para o workspace do Log Analytics
  Envie logs de recursos para um espaço de trabalho Log Analytics para habilitar os recursos de [logs de Azure monitor](data-platform-logs.md) que incluem o seguinte:

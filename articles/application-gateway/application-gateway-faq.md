@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 8db47cd94f508803964398f19353e79f3d93d92a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d76506141b2563b3ae8d5779e774ad564022494d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506563"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809996"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -353,7 +353,7 @@ Para obter informações específicas do gateway de aplicativo, consulte abaixo-
 Se você estiver usando um certificado emitido por um dos ICAs revogados, a disponibilidade do aplicativo poderá ser interrompida e, dependendo do aplicativo, você receberá uma variedade de mensagens de erro, incluindo, mas não se limitando a: 
 
 1.  Certificado inválido/certificado revogado
-2.  Tempo limite de conexão expirado
+2.  A conexão atingiu o tempo limite
 3.  HTTP 502
 
 Para evitar qualquer interrupção em seu aplicativo devido a esse problema, ou para emitir novamente uma AC que foi revogada, você precisa executar as seguintes ações: 
@@ -466,30 +466,6 @@ Sim. Se sua configuração corresponder ao cenário a seguir, você não verá o
 - Você implantou o Gateway de Aplicativo v2
 - Você tem um NSG na sub-rede do gateway de aplicativo
 - Você habilitou os logs de fluxo do NSG no NSG
-
-### <a name="how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address"></a>Como usar o Gateway de Aplicativo V2 com apenas endereço IP de front-end privado?
-
-O Gateway de Aplicativo v2 atualmente não dá suporte apenas ao modo de IP privado. Ele permite as seguintes combinações
-* IP privado e IP público
-* Somente IP público
-
-Mas se você quiser usar o Gateway de Aplicativo v2 somente com o IP privado, você pode seguir o processo abaixo:
-1. Criar um Gateway de Aplicativo com o endereço IP de front-end público e privado
-2. Não crie nenhum ouvinte para o endereço IP de front-end público. O Gateway de Aplicativo não escutará nenhum tráfego no endereço IP público se nenhum ouvinte for criado para ele.
-3. Crie e anexe um [Grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview) para a sub-rede do Gateway de Aplicativo com a seguinte configuração na ordem de prioridade:
-    
-    a. Permita o tráfego da Origem como **GatewayManager** marca de serviço e destino como **Qualquer** e porta de Destino como **65200-65535**. Esse intervalo de porta é necessário para a comunicação da infraestrutura do Azure. Essas portas são protegidas (bloqueadas) por autenticação de certificado. Entidades externas, incluindo os administradores de usuário do gateway, não podem iniciar alterações nesses pontos de extremidade sem os certificados apropriados em vigor
-    
-    b. Permita o tráfego da Origem como marca de serviço e destino **AzureLoadBalancer** e porta de destino  **Qualquer**
-    
-    c. Permita o tráfego da Origem como marca de serviço e destino **Internet** e porta de destino e portas de destino como **Qualquer**. Dê a essa regra *menos prioridade* nas regras de entrada
-    
-    d. Mantenha as regras padrão como permitir a entrada de VirtualNetwork para que o acesso no endereço IP privado não seja bloqueado
-    
-    e. A conectividade de internet de saída não pode ser bloqueada. Caso contrário, você enfrentará problemas de registro em log, métricas etc.
-
-Exemplo de configuração de NSG para acesso somente IP privado: ![Configuração de NSG do Gateway de Aplicativo v2 somente para acesso IP privado](./media/application-gateway-faq/appgw-privip-nsg.png)
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

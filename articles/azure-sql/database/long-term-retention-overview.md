@@ -12,16 +12,18 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: 992ad40d343fcc85b6c7c8fe0ed8b083a5b08238
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b2324c480ef81ef241f4d639c22c2ed4dd1545b
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344502"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808840"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Retenção de longo prazo-banco de dados SQL do Azure e Azure SQL Instância Gerenciada
 
-Muitos aplicativos têm regulamentação, conformidade ou outras finalidades comerciais que exigem que você retenha backups de banco de dados além dos 7-35 dias fornecidos pelo banco de dados SQL do Azure e pelo Azure SQL Instância Gerenciada [backups automáticos](automated-backups-overview.md). Usando o recurso de retenção de longo prazo (EPD), você pode armazenar o banco de dados SQL especificado e os backups completos do SQL Instância Gerenciada no armazenamento de BLOBs do Azure com o armazenamento com redundância geográfica com acesso de leitura por até 10 anos. É possível restaurar qualquer backup como um novo banco de dados. Para obter mais informações sobre a redundância do Armazenamento do Microsoft Azure, confira [Redundância no Armazenamento do Azure](../../storage/common/storage-redundancy.md). 
+Muitos aplicativos têm regulamentação, conformidade ou outras finalidades comerciais que exigem que você retenha backups de banco de dados além dos 7-35 dias fornecidos pelo banco de dados SQL do Azure e pelo Azure SQL Instância Gerenciada [backups automáticos](automated-backups-overview.md). Usando o recurso de retenção de longo prazo (EPD), você pode armazenar o banco de dados SQL especificado e os backups completos do SQL Instância Gerenciada no armazenamento de BLOBs do Azure com o armazenamento com redundância geográfica com acesso de leitura por até 10 anos. É possível restaurar qualquer backup como um novo banco de dados.
+
+Além disso, o SQL Instância Gerenciada introduz a [redundância de armazenamento de backup configurável](automated-backups-overview.md#backup-storage-redundancy) , que fornece flexibilidade para escolher entre os [blobs de armazenamento](../../storage/common/storage-redundancy.md)com redundância local (LRS), com REDUNDÂNCIA de zona (ZRS) ou com redundância geográfica (ra-grs). Essa opção só está disponível no momento durante o processo de criação de instância gerenciada e não pode ser alterada depois que o recurso é provisionado.
 
 A retenção de tempo por extenso pode ser habilitada para o banco de dados SQL do Azure e está em uma visualização pública limitada para o Azure SQL Instância Gerenciada. Este artigo fornece uma visão geral conceitual da retenção de longo prazo. Para configurar a retenção de longo prazo, consulte [Configurar o banco de dados SQL do Azure EPD](long-term-backup-retention-configure.md) e [Configurar o Azure SQL instância gerenciada EPD](../managed-instance/long-term-backup-retention-configure.md). 
 

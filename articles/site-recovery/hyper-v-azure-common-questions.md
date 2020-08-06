@@ -3,12 +3,12 @@ title: Perguntas comuns sobre a recuperação de desastres do Hyper-V com o Azur
 description: Este artigo resume perguntas comuns sobre a configuração da recuperação de desastre de VMs do Hyper-V locais para o Azure usando o site do Azure Site Recovery.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: b3d806908ce2274d07e6b508c8cc269b553e684f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: c168ba9ff14e57f238069e8ca5b0c34a8fb58015
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132668"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799881"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns - Recuperação de desastre do Hyper-V para o Azure
 
@@ -156,6 +156,10 @@ Quando você replica para o Azure, o tráfego de replicação atinge os pontos d
 ### <a name="what-are-the-replicated-vm-requirements"></a>Quais são os requisitos de VM replicadas?
 
 Para replicação, uma VM do Hyper-V deve estar executando um sistema operacional suportado. Além disso, a VM deve atender aos requisitos das VMs do Azure. [Saiba mais](hyper-v-azure-support-matrix.md#replicated-vms) na matriz de suporte.
+
+### <a name="why-is-an-additional-standard-storage-account-required-if-i-replicate-my-virtual-machine-disks-to-premium-storage"></a>Por que uma conta de armazenamento padrão adicional é necessária se eu replicar meus discos de máquina virtual para o armazenamento Premium?
+
+Quando você Replica seus servidores físicos/máquinas virtuais locais para o armazenamento Premium, todos os dados que residem nos discos da máquina protegida são replicados para a conta de armazenamento Premium. Uma conta de armazenamento padrão adicional é necessária para armazenar os logs de replicação. Depois que a fase inicial de replicação dos dados do disco estiver concluída, todas as alterações nos dados do disco local serão rastreadas continuamente e armazenadas como logs de replicação nessa conta de armazenamento padrão adicional.
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Com que frequência é possível replicar para o Azure?
 

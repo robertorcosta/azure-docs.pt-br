@@ -2,36 +2,37 @@
 title: Referência de atributo SAP SuccessFactors
 description: Saiba quais atributos de SuccessFactors são suportados pelo provisionamento controlado por SuccessFactors-HR
 services: active-directory
-author: kenwith
+author: cmmdesai
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 12/06/2019
-ms.author: kenwith
+ms.date: 08/05/2020
+ms.author: chmutali
 ms.reviewer: celested
-ms.openlocfilehash: 25541b76dda55db1ec26f4d8e3ec63573a47e7b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef2da377c7720cfb7b431d1ce0fed56656a2b8c7
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781541"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808500"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Referência de atributo SAP SuccessFactors
 
 Neste artigo, você encontrará informações sobre:
 
-- [Atributos e entidades SuccessFactors com suporte](#supported-successfactors-entities-and-attributes)
+- [Atributos e entidades do SuccessFactors](#supported-successfactors-entities-and-attributes)
 - [Mapeamento de atributo padrão](#default-attribute-mapping)
 
 ## <a name="supported-successfactors-entities-and-attributes"></a>Atributos e entidades SuccessFactors com suporte
 
-A tabela a seguir captura a lista de atributos SuccessFactors com suporte nos dois aplicativos de provisionamento a seguir:
+A tabela a seguir captura a lista de atributos SuccessFactors incluídos por padrão nos dois aplicativos de provisionamento a seguir:
 
 - [SuccessFactors para Active Directory provisionamento de usuário](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 - [SuccessFactors para provisionamento de usuário do Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
 
+Consulte a referência de [integração do SAP SuccessFactors](./sap-successfactors-integration-reference.md#retrieving-additional-attributes) para estender o esquema para atributos adicionais. 
 
 | \# | Entidade SuccessFactors                  | Atributo SuccessFactors     | Tipo de operação |
 |----|----------------------------------------|------------------------------|----------------|

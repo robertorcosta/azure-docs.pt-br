@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: 37b3e5eff0baee736fc05760e19c31fdc513e23d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 665bb89d929433db5868eff1c2a5d182d7a94d54
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060371"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800272"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>A sinalização atingiu o tempo de metadados na transmissão ao vivo 
 
@@ -220,7 +220,7 @@ Ao receber um evento **"onUserDataEvent"** válido, os serviços de mídia do Az
 - (b) passá-lo para entrega em fragmentos de CMAF por meio de HLS ou DASH, ou 
 - (c) convertê-lo em um sinal de faixa esparsa para entrega via Smooth Streaming [MS-SSTR].
 
-Além do formato "EMSG" em banda CMAF ou dos pacotes de TS PES para HLS, os manifestos para DASH (MPD) e Smooth Streaming conterá uma referência para os fluxos de eventos em banda (também conhecido como faixa de fluxo esparsa no Smooth Streaming). 
+Além do formato "EMSG" em banda CMAF ou dos pacotes de TS PES para HLS, os manifestos para DASH (MPD) e Smooth Streaming conterá uma referência para os fluxos de eventos em banda (também conhecido como faixa de fluxo esparsa no Smooth Streaming).
 
 Eventos individuais ou suas cargas de dados não são gerados diretamente nos manifestos HLS, traço ou Smooth. 
 
@@ -239,7 +239,7 @@ A seção a seguir mostra o conteúdo RTMP "modo simples", que pode ser usado pa
 
 | Nome do campo | Tipo de campo | Necessário? | Descrições                                                                                                                                                                                                                                                                        |
 | ---------- | ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tipo       | Cadeia de caracteres     | Obrigatório  | A mensagem do evento.  Deve ser "SpliceOut" para designar uma junção de modo simples.                                                                                                                                                                                                         |
+| type       | String     | Obrigatório  | A mensagem do evento.  Deve ser "SpliceOut" para designar uma junção de modo simples.                                                                                                                                                                                                         |
 | id         | String     | Obrigatório  | Um identificador exclusivo que descreve a junção ou o segmento. Identifica esta instância da mensagem                                                                                                                                                                                       |
 | duration   | Número     | Obrigatório  | A duração da junção. As unidades são frações de segundo.                                                                                                                                                                                                                           |
 | elapsed    | Número     | Opcional  | Quando o sinal está sendo repetido para dar suporte a ajuste, este campo deve ser a quantidade de horas de apresentação decorrida desde que a junção começou. As unidades são frações de segundo. Ao usar o modo simples, esse valor não deve exceder a duração original da junção. |
@@ -255,7 +255,7 @@ Consulte o exemplo [de manifesto 3.3.3.1 Dash com um único ponto e modo simples
 
 #### <a name="example-hls-manifest-output-when-using-adobe-rtmp-simple-mode"></a>Exemplo de saída de manifesto HLS ao usar o modo simples do Adobe RTMP
 
-Consulte o [manifesto de 3.2.2 HLS usando o modo simples da Adobe e a marca ext-X-Cue](#322-apple-hls-with-adobe-primetime-ext-x-cue-legacy)
+Consulte o [manifesto de 3.2.2 HLS usando o modo simples da Adobe e a marca ext-X-Cue](#322-apple-hls-with-adobe-primetime-ext-x-cue)
 
 ## <a name="214-rtmp-ad-cue-signaling-with-onadcue---scte-35-mode"></a>sinalização de indicação de anúncio RTMP 2.1.4 com "onAdCue"-modo SCTE-35
 
@@ -267,8 +267,8 @@ Nesse cenário, a carga a seguir deve ser enviada do codificador local usando o 
 
 | Nome do campo | Tipo de campo | Necessário? | Descrições                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ---------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| advertência        | Cadeia de caracteres     | Obrigatório  | A mensagem do evento.  Para mensagens [SCTE-35], ele deve ser o binário codificado na base64 [RFC4648] splice_info_section () para que as mensagens sejam enviadas aos clientes HLS, Smooth e Dash.                                                                                                                                                                                                                               |
-| tipo       | Cadeia de caracteres     | Obrigatório  | Uma URN ou URL que identifica o esquema da mensagem. Para mensagens [SCTE-35], isso **deve** ser **"scte35"** para que as mensagens sejam enviadas aos clientes HLS, Smooth e Dash, em conformidade com [Adobe-Primetime]. Opcionalmente, o URN "urn: SCTE: scte35:2013: bin" também pode ser usado para sinalizar uma mensagem [SCTE-35].                                                                                                        |
+| advertência        | String     | Obrigatório  | A mensagem do evento.  Para mensagens [SCTE-35], ele deve ser o binário codificado na base64 [RFC4648] splice_info_section () para que as mensagens sejam enviadas aos clientes HLS, Smooth e Dash.                                                                                                                                                                                                                               |
+| type       | String     | Obrigatório  | Uma URN ou URL que identifica o esquema da mensagem. Para mensagens [SCTE-35], isso **deve** ser **"scte35"** para que as mensagens sejam enviadas aos clientes HLS, Smooth e Dash, em conformidade com [Adobe-Primetime]. Opcionalmente, o URN "urn: SCTE: scte35:2013: bin" também pode ser usado para sinalizar uma mensagem [SCTE-35].                                                                                                        |
 | id         | String     | Obrigatório  | Um identificador exclusivo que descreve a junção ou o segmento. Identifica esta instância da mensagem.  Mensagens com semântica equivalente devem ter o mesmo valor.                                                                                                                                                                                                                                                       |
 | duration   | Número     | Obrigatório  | A duração do evento ou junção-segmento ad, se conhecido. Se for desconhecido, o valor **deverá** ser 0.                                                                                                                                                                                                                                                                                                                    |
 | elapsed    | Número     | Opcional  | Quando o sinal [SCTE-35] ad está sendo repetido para ajustar, este campo deve ser a quantidade de horas de apresentação decorrida desde que a junção começou. As unidades são frações de segundo. No modo [SCTE-35], esse valor pode exceder a duração especificada original da junção ou segmento.                                                                                                                   |
@@ -276,11 +276,15 @@ Nesse cenário, a carga a seguir deve ser enviada do codificador local usando o 
 
 ---
 
-#### <a name="example-mpeg-dash-mpd-manifest-with-scte-35-mode"></a>Exemplo de manifesto de MPEG DASH. MPD com o modo SCTE-35
-Consulte [a seção 3.3.3.2 exemplo de manifesto com SCTE-35](#3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling)
+<!---
+#### Example MPEG DASH .mpd manifest with SCTE-35 mode
+See [Section 3.3.3.2 example DASH manifest with SCTE-35](#3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling)
+--->
 
 #### <a name="example-hls-manifest-m3u8-with-scte-35-mode-signal"></a>Exemplo de manifesto HLS. M3U8 com sinal de modo SCTE-35
-Consulte [a seção 3.2.1.1 de exemplo HLS manifest com SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35)
+Consulte [a seção 3.2.1.1 de exemplo HLS manifest com SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-cue-signaling-of-scte-35)
+
+
 
 ## <a name="215-rtmp-ad-signaling-with-oncuepoint-for-elemental-live"></a>sinalização de anúncio RTMP 2.1.5 com "onCuePoint" para elemento ao vivo
 
@@ -293,8 +297,8 @@ O tipo de mensagem "onCuePoint" é definido em [Adobe-Flash-AS] e tem a seguinte
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | name       | O nome deve ser '**scte35**' por um elemento ao vivo.                                                                                                                                                                              |
 | time       | O tempo em segundos no qual o ponto de sinalização ocorreu no arquivo de vídeo durante a linha do tempo                                                                                                                                           |
-| tipo       | O tipo de ponto de sinalização deve ser definido como "**evento**".                                                                                                                                                                             |
-| parameters | Uma matriz associativa de cadeias de caracteres de pares de nome/valor que contém as informações da mensagem SCTE-35, incluindo a ID e a duração. Esses valores são analisados pelos serviços de mídia do Azure e incluídos na marca de decoração do manifesto. |
+| type       | O tipo de ponto de sinalização deve ser definido como "**evento**".                                                                                                                                                                             |
+| parâmetros | Uma matriz associativa de cadeias de caracteres de pares de nome/valor que contém as informações da mensagem SCTE-35, incluindo a ID e a duração. Esses valores são analisados pelos serviços de mídia do Azure e incluídos na marca de decoração do manifesto. |
 
 
 Quando esse modo de marcador do AD é usado, a saída do manifesto HLS é semelhante ao modo "simples" da Adobe.
@@ -355,6 +359,7 @@ Quando esse modo de marcador do AD é usado, a saída do manifesto HLS é semelh
 </MPD>
 ~~~
 
+
 #### <a name="example-hls-playlist-adobe-simple-mode-signals-using-ext-x-cue-tag-truncated--for-brevity"></a>Exemplo de lista de reprodução HLS, sinais de modo simples da Adobe usando marca de indicação EXT-X (truncado "..." para fins de brevidade)
 
 O exemplo a seguir mostra a saída do empacotador dinâmico dos serviços de mídia para um fluxo de ingestão RTMP usando sinais de modo "simples" e a marca "Primetime] EXT-X-CUE herdada.  
@@ -409,7 +414,8 @@ Consulte [MS-SSTR-ingestão] para obter os requisitos de ingestão de fluxo ao v
 
 Cada fragmento esparso consiste em uma caixa de fragmento de filme (' Moof ') e Data Box de mídia (' mdat '), em que a caixa ' mdat ' é a mensagem binária.
 
-Para obter a inserção precisa de quadros de anúncios, o codificador deve dividir o fragmento no momento da apresentação onde a indicação precisa ser inserida.  É necessário criar um novo fragmento que começa com um quadro de IDR recém-criado ou com os pontos de acesso de fluxo (SAP) do tipo 1 ou 2, conforme definido em [ISO-14496-12] anexo I. Isso permite que o Azure Media Packager gere corretamente um manifesto de HLS e um manifesto de vários períodos de traço, em que o novo período começa no tempo de apresentação com condição exata do quadro.
+Para obter a inserção precisa de quadros de anúncios, o codificador deve dividir o fragmento no momento da apresentação onde a indicação precisa ser inserida.  É necessário criar um novo fragmento que começa com um quadro de IDR recém-criado ou com os pontos de acesso de fluxo (SAP) do tipo 1 ou 2, conforme definido em [ISO-14496-12] anexo I.
+<!--- This allows the Azure Media Packager to properly generate an HLS manifest and a DASH multi-period manifest where the new Period begins at the frame-accurate splice conditioned presentation time. --->
 
 ### <a name="221-live-server-manifest-box"></a>2.2.1 Caixa de manifesto do servidor Live
 
@@ -418,11 +424,11 @@ A faixa esparsa **deve** ser declarada na caixa de manifesto do Live Server com 
 | **Nome do atributo** | **Tipo de campo** | **Obrigatório?** | **Descrição**                                                                                                                                                                                                              |
 | ------------------ | -------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | systemBitrate      | Número         | Obrigatório      | **Deve** ser "0", indicando uma faixa com taxa de bits de variável desconhecida.                                                                                                                                                          |
-| parentTrackName    | Cadeia de caracteres         | Obrigatório      | **Deve** ser o nome da faixa pai, para a qual os códigos de tempo de faixa esparsa são alinhados em escala temporal. A faixa pai não pode ser uma faixa esparsa.                                                                             |
+| parentTrackName    | String         | Obrigatório      | **Deve** ser o nome da faixa pai, para a qual os códigos de tempo de faixa esparsa são alinhados em escala temporal. A faixa pai não pode ser uma faixa esparsa.                                                                             |
 | manifestOutput     | Boolean        | Obrigatório      | **Deve** ser "true" para indicar que a faixa esparsa será inserida no manifesto do cliente suave.                                                                                                                        |
-| Subtype            | Cadeia de caracteres         | Obrigatório      | **Deve** ser o código de quatro caracteres "dados".                                                                                                                                                                                  |
-| Esquema             | Cadeia de caracteres         | Obrigatório      | **Deve** ser um urn ou uma URL que identifica o esquema de mensagem. Para mensagens [SCTE-35], **deve** ser "urn: SCTE: scte35:2013: bin" para que as mensagens sejam enviadas aos clientes HLS, Smooth e Dash em conformidade com [SCTE-35]. |
-| trackName          | Cadeia de caracteres         | Obrigatório      | **Deve** ser o nome da faixa esparsa. O trackname pode ser usado para diferenciar vários fluxos de eventos com o mesmo esquema. Cada fluxo de eventos exclusivo **deve** ter um nome de faixa exclusivo.                                |
+| Subtype            | String         | Obrigatório      | **Deve** ser o código de quatro caracteres "dados".                                                                                                                                                                                  |
+| Esquema             | String         | Obrigatório      | **Deve** ser um urn ou uma URL que identifica o esquema de mensagem. Para mensagens [SCTE-35], **deve** ser "urn: SCTE: scte35:2013: bin" para que as mensagens sejam enviadas aos clientes HLS, Smooth e Dash em conformidade com [SCTE-35]. |
+| trackName          | String         | Obrigatório      | **Deve** ser o nome da faixa esparsa. O trackname pode ser usado para diferenciar vários fluxos de eventos com o mesmo esquema. Cada fluxo de eventos exclusivo **deve** ter um nome de faixa exclusivo.                                |
 | escala de tempo          | Número         | Opcional      | **Deve** ser a escala de temporal da faixa pai.                                                                                                                                                                               |
 
 ---
@@ -542,21 +548,182 @@ O StreamIndex **deve** ter um subtipo de "data" e o CustomAttributes **deve** co
 
 Os serviços de mídia do Azure dão suporte às seguintes marcas de manifesto HLS para sinalizar informações sobre o AD DISP durante um evento ao vivo ou sob demanda. 
 
-- EXT-X-DATERANGE conforme definido no Apple HLS [RFC8216]
-- "EXT-X-CUE" conforme definido em [Adobe-Primetime]-esse modo é considerado "legacy". Os clientes devem adotar a marca EXT-X-DATERANGE quando possível.
+<!--- EXT-X-DATERANGE as defined in Apple HLS [RFC8216] --->
+- "EXT-X-CUE" conforme definido em [Adobe-Primetime]
+<!--- this mode is considered "legacy".  Customers should adopt the EXT-X-DATERANGE tag when possible. --->
 
 A saída de dados para cada marca irá variar com base no modo de sinal de ingestão usado. Por exemplo, a ingestão RTMP com o modo simples da Adobe não contém a carga codificada em base64 SCTE-35 completa.
 
-## <a name="321-apple-hls-with-ext-x-daterange-recommended"></a>3.2.1 Apple HLS com EXT-X-DATERANGE (recomendado)
+<!---
+## 3.2.1 Apple HLS with EXT-X-DATERANGE (recommended)
 
-A especificação Apple HTTP Live Streaming [RFC8216] permite a sinalização de mensagens [SCTE-35]. As mensagens são inseridas na lista de reprodução de segmentos em uma marca EXT-X-DATERANGE por [RFC8216] seção intitulada "Mapping SCTE-35 em EXT-X-DATERANGE".  A camada de aplicativo cliente pode analisar a playlist de M3U e processar marcas de M3U ou receber os eventos por meio da estrutura Apple Player.  
+The Apple HTTP Live Streaming [RFC8216] specification allows for signaling of [SCTE-35] messages. The messages are inserted into the segment playlist in an EXT-X-DATERANGE tag per [RFC8216] section titled "Mapping SCTE-35 into EXT-X-DATERANGE".  The client application layer can parse the M3U playlist and process M3U tags, or receive the events through the Apple player framework.  
 
-A abordagem **recomendada** nos serviços de mídia do Azure (API da versão 3) é seguir [RFC8216] e usar a marca EXT-X_DATERANGE para a decoração do AD DISP [SCTE35] no manifesto.
+The **RECOMMENDED** approach in Azure Media Services (version 3 API) is to follow [RFC8216] and use the EXT-X_DATERANGE tag for [SCTE35] ad avail decoration in the manifest.
+--->
 
-## <a name="3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35"></a>3.2.1.1 exemplo HLS manifest. M3U8 mostrando a sinalização EXT-X-DATERANGE de SCTE-35
 
-O exemplo de saída de manifesto HLS a seguir do Gerenciador dinâmico dos serviços de mídia mostra o uso da marca EXT-X-DATERANGE de [RFC8216] sinalizando os eventos SCTE-35 no fluxo. Além disso, esse fluxo contém a marca "legacy" EXT-X-CUE para [Adobe-Primetime].
+## <a name="3211-example-hls-manifest-m3u8-showing-ext-x-cue-signaling-of-scte-35"></a>3.2.1.1 exemplo HLS manifest. M3U8 mostrando a sinalização EXT-X-CUE de SCTE-35
 
+O exemplo de saída de manifesto HLS a seguir do empacotador dinâmico dos serviços de mídia mostra a marca de indicação EXT-X para [Adobe-Primetime] no modo SCTE35. 
+
+~~~
+#EXTM3U
+#EXT-X-VERSION:8
+#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-TARGETDURATION:2
+#EXT-X-INDEPENDENT-SEGMENTS
+#EXT-X-PROGRAM-DATE-TIME:2020-01-07T19:40:50Z
+#EXTINF:1.501500,no-desc
+Fragments(video=22567545,format=m3u8-aapl-v8)
+#EXTINF:1.501500,no-desc
+Fragments(video=22702680,format=m3u8-aapl-v8)
+#EXTINF:1.501500,no-desc
+Fragments(video=22837815,format=m3u8-aapl-v8)
+#EXTINF:1.501500,no-desc
+Fragments(video=22972950,format=m3u8-aapl-v8)
+#EXTINF:1.501500,no-desc
+Fragments(video=23108085,format=m3u8-aapl-v8)
+#EXTINF:1.234567,no-desc
+Fragments(video=23243220,format=m3u8-aapl-v8)
+#EXTINF:0.016689,no-desc
+Fragments(video=23354331,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=0.000022
+#EXTINF:0.250244,no-desc
+Fragments(video=23355833,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=0.250267
+#EXTINF:0.850856,no-desc
+Fragments(video=23378355,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=1.101122
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=0.000000,TIME=260.610344,CUE="/DAgAAAAAAXdAP/wDwUAAAPqf0/+AWXk0wABAQEAAGB86Fo="
+#EXTINF:0.650644,no-desc
+Fragments(video=23454932,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=1.751767
+#EXTINF:0.050044,no-desc
+Fragments(video=23513490,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=1.801811
+#EXTINF:1.451456,no-desc
+Fragments(video=23517994,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=3.253267
+#EXTINF:1.501500,no-desc
+Fragments(video=23648625,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=4.754767
+#EXTINF:1.501500,no-desc
+Fragments(video=23783760,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=6.256267
+#EXTINF:1.501500,no-desc
+Fragments(video=23918895,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=7.757767
+#EXTINF:1.501500,no-desc
+Fragments(video=24054030,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=9.259267
+#EXTINF:1.501500,no-desc
+Fragments(video=24189165,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=10.760767
+#EXTINF:1.501500,no-desc
+Fragments(video=24324300,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=12.262267
+#EXTINF:1.501500,no-desc
+Fragments(video=24459435,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=13.763767
+#EXTINF:1.501500,no-desc
+Fragments(video=24594570,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=15.265267
+#EXTINF:1.501500,no-desc
+Fragments(video=24729705,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=16.766767
+#EXTINF:1.501500,no-desc
+Fragments(video=24864840,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=18.268267
+#EXTINF:1.501500,no-desc
+Fragments(video=24999975,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=19.769767
+#EXTINF:1.501500,no-desc
+Fragments(video=25135110,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=21.271267
+#EXTINF:1.501500,no-desc
+Fragments(video=25270245,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=22.772767
+#EXTINF:1.501500,no-desc
+Fragments(video=25405380,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=24.274267
+#EXTINF:1.501500,no-desc
+Fragments(video=25540515,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=25.775767
+#EXTINF:1.501500,no-desc
+Fragments(video=25675650,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=27.277267
+#EXTINF:1.501500,no-desc
+Fragments(video=25810785,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=28.778767
+#EXTINF:1.501500,no-desc
+Fragments(video=25945920,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=30.280267
+#EXTINF:1.501500,no-desc
+Fragments(video=26081055,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=31.781767
+#EXTINF:1.501500,no-desc
+Fragments(video=26216190,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=33.283267
+#EXTINF:1.501500,no-desc
+Fragments(video=26351325,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=34.784767
+#EXTINF:1.501500,no-desc
+Fragments(video=26486460,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=36.286267
+#EXTINF:1.501500,no-desc
+Fragments(video=26621595,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=37.787767
+#EXTINF:1.501500,no-desc
+Fragments(video=26756730,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=39.289267
+#EXTINF:1.501500,no-desc
+Fragments(video=26891865,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=40.790767
+#EXTINF:1.501500,no-desc
+Fragments(video=27027000,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=42.292267
+#EXTINF:1.501500,no-desc
+Fragments(video=27162135,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=43.793767
+#EXTINF:1.501500,no-desc
+Fragments(video=27297270,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=45.295267
+#EXTINF:1.501500,no-desc
+Fragments(video=27432405,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=46.796767
+#EXTINF:1.501500,no-desc
+Fragments(video=27567540,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=48.298267
+#EXTINF:1.501500,no-desc
+Fragments(video=27702675,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=49.799767
+#EXTINF:1.501500,no-desc
+Fragments(video=27837810,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=51.301267
+#EXTINF:1.501500,no-desc
+Fragments(video=27972945,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=52.802767
+#EXTINF:1.501500,no-desc
+Fragments(video=28108080,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=54.304267
+#EXTINF:1.501500,no-desc
+Fragments(video=28243215,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=55.805767
+#EXTINF:1.501500,no-desc
+Fragments(video=28378350,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=57.307267
+#EXTINF:1.501500,no-desc
+Fragments(video=28513485,format=m3u8-aapl-v8)
+#EXT-X-CUE:ID="1002",TYPE="scte35",DURATION=59.993278,TIME=259.509244,CUE="/DAlAAAAAAXdAP/wFAUAAAPqf+/+AWRhuP4AUmNjAAEBAQAA8g1eNw==",ELAPSED=58.808767
+#EXTINF:1.501500,no-desc
+Fragments(video=28648620,format=m3u8-aapl-v8)
+
+~~~
+
+
+<!---
+THIS VERSION HAS THE HLSv8 DATERANGE Tags in it
 ~~~
 #EXTM3U
 #EXT-X-VERSION:8
@@ -755,10 +922,11 @@ Fragments(video=28648620,format=m3u8-aapl-v8)
 
 ~~~
 
+--->
 
-## <a name="322-apple-hls-with-adobe-primetime-ext-x-cue-legacy"></a>3.2.2 Apple HLS com Adobe Primetime EXT-X-CUE (Herdado)
+## <a name="322-apple-hls-with-adobe-primetime-ext-x-cue"></a>3.2.2 Apple HLS com Adobe Primetime EXT-X-CUE
 
-Também há uma implementação "herdada" fornecida nos serviços de mídia do Azure (versão 2 e 3 API) que usa a marca EXT-X-CUE, conforme definido no [Adobe-Primetime] "modo SCTE-35". Nesse modo, os serviços de mídia do Azure incorporarão a codificação Base64 [SCTE-35] splice_info_section () na marca EXT-X-CUE.  
+Os serviços de mídia (API da versão 2 e 3) dão suporte à saída da marca EXT-X-CUE, conforme definido no [Adobe-Primetime] "SCTE-35 Mode". Nesse modo, os serviços de mídia do Azure incorporarão a codificação Base64 [SCTE-35] splice_info_section () na marca EXT-X-CUE.  
 
 A marca "legacy" EXT-X-CUE é definida como abaixo e também pode ser normativas referenciada na especificação [Adobe-Primetime]. Isso só deve ser usado para sinalização de SCTE35 herdada quando necessário; caso contrário, a marca recomendada é definida em [RFC8216] como EXT-X-DATERANGE. 
 
@@ -771,12 +939,15 @@ A marca "legacy" EXT-X-CUE é definida como abaixo e também pode ser normativas
 | DECORRIDO            | um número de ponto flutuante decimal | Opcional, mas Necessário para janela deslizante | Quando o sinal está sendo repetido para dar suporte a uma janela de apresentação deslizante, esse campo **deve** ser a quantidade de tempo de apresentação decorrido desde o início do evento. As unidades são frações de segundo. Esse valor pode exceder a duração especificada original da junção ou segmento. |
 | TIME               | um número de ponto flutuante decimal | Obrigatório                                  | O horário da apresentação do evento. As unidades são frações de segundo.                                                                                                                                                                                                                        |
 
-
 A camada de aplicativo de player HLS usará o TIPO para identificar o formato da mensagem, decodificar a mensagem, aplicar as conversões de tempo necessárias e processar o evento.  Os eventos são sincronizados por horário na lista de reprodução de segmento da faixa pai, de acordo com o carimbo de data/hora do evento.  Eles são inseridos antes do segmento mais próximo (marca #EXTINF).
 
-### <a name="323-hls-m3u8-manifest-example-using-legacy-adobe-primetime-ext-x-cue"></a>exemplo de manifesto 3.2.3 HLS. M3U8 usando "legacy" Adobe Primetime EXT-X-CUE
 
-O exemplo a seguir mostra a decoração de manifesto HLS usando a marca Primetime EXT-X-CUE da Adobe.  O parâmetro "CUE" contém apenas as propriedades TYPE e Duration, o que significa que essa era uma fonte RTMP usando a sinalização de modo "simples" da Adobe.  Se esse era um sinal de modo SCTE-35, a marca incluiria a carga de SCTE-35 binária codificada em base64, como visto no [exemplo 3.2.1.1](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35).
+### <a name="323-hls-m3u8-manifest-example-using-adobe-primetime-ext-x-cue"></a>exemplo de manifesto 3.2.3 HLS. M3U8 usando Adobe Primetime EXT-X-CUE
+
+O exemplo a seguir mostra a decoração de manifesto HLS usando a marca Primetime EXT-X-CUE da Adobe.  O parâmetro "CUE" contém apenas as propriedades TYPE e Duration, o que significa que essa era uma fonte RTMP usando a sinalização de modo "simples" da Adobe.  
+<!---If this was a SCTE-35 mode signal, the tag would include the base64 encoded binary SCTE-35 payload as seen in the [3.2.1.1 example](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35).
+--->
+
 
 ~~~
 #EXTM3U
@@ -839,7 +1010,7 @@ Fragments(video=4011702982,format=m3u8-aapl)
 
 ~~~
 
-### <a name="324-hls-message-handling-for-legacy-adobe-primetime-ext-x-cue"></a>Manipulação de mensagens do 3.2.4 HLS para "herdado" Adobe Primetime EXT-X-CUE
+### <a name="324-hls-message-handling-for-adobe-primetime-ext-x-cue"></a>Manipulação de mensagens 3.2.4 HLS para Adobe Primetime EXT-X-CUE
 
 Os eventos são sinalizados na lista de reprodução de segmentos de cada faixa de vídeo e áudio. A posição da marca EXT-X-CUE **deve** sempre ser imediatamente anterior ao primeiro segmento HLS (para União externa ou início de segmento) ou imediatamente após o último segmento de HLS (para junção no ou fim de segmento) ao qual seus atributos de tempo e duração se referem, conforme exigido pelo [Adobe-Primetime].
 
@@ -855,7 +1026,7 @@ Quando uma janela de apresentação deslizante está habilitada, as marcas EXT-X
 2.  Eventos sinalizados em banda usando a caixa de mensagem de evento (' EMSG ')
 3.  Uma combinação de 1 e 2
 
-Eventos sinalizados no EventStream do MPD são úteis para o streaming do VOD porque os clientes têm acesso a todos os eventos, imediatamente quando o MPD é baixado. Ele também é útil para a sinalização SSAI, em que o fornecedor downstream SSAI precisa analisar os sinais de um manifesto MPD de vários períodos e inserir conteúdo do AD dinamicamente.  A solução em banda (' EMSG ') é útil para transmissão ao vivo, em que os clientes não precisam baixar o MPD novamente, ou não há nenhuma manipulação de manifesto SSAI acontecendo entre o cliente e a origem. 
+Eventos sinalizados no EventStream do MPD são úteis para o streaming do VOD porque os clientes têm acesso a todos os eventos, imediatamente quando o MPD é baixado. Ele também é útil para a sinalização SSAI, em que o fornecedor downstream SSAI precisa analisar os sinais do manifesto MPD e inserir conteúdo do AD dinamicamente.  A solução em banda (' EMSG ') é útil para transmissão ao vivo, em que os clientes não precisam baixar o MPD novamente, ou não há nenhuma manipulação de manifesto SSAI acontecendo entre o cliente e a origem. 
 
 O comportamento padrão dos serviços de mídia do Azure para DASH é sinalizar ambos em MPD EventStream e em banda usando a caixa de mensagem de evento (' EMSG ').
 
@@ -871,11 +1042,13 @@ Normativas as definições de referência de carro de [SCTE-35] indicações de 
 
 A decoração de eventos do manifesto (MPD) será sinalizada no MPD usando o elemento EventStream, que aparece dentro do elemento period. O schemeid usado é "urn: SCTE: scte35:2014: XML + bin".
 
+
 > [!NOTE]
 > Para fins de resumição [SCTE-35] permite o uso da seção codificada em base64 no elemento Signal. Binary (em vez do elemento Signal. SpliceInfoSection) como uma alternativa ao carro de uma mensagem de indicação completamente analisada.
 > Os serviços de mídia do Azure usam essa abordagem de ' XML + bin ' para sinalizar no manifesto MPD.
 > Esse também é o método recomendado usado na seção [DASH-IF-IOP]-consulte intitulada [' fluxos de eventos de inserção do AD ' do Dash se a diretriz de IOP](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html#ads-insertion-event-streams)
 > 
+
 
 O elemento EventStream tem os seguintes atributos:
 
@@ -909,12 +1082,14 @@ O exemplo a seguir mostra um trecho EventStream do empacotador dinâmico dos ser
     </EventStream>
 ~~~
 
+
 #### <a name="3322-example-mpeg-dash-mpd-manifest-signaling-of-an-rtmp-stream-using-adobe-scte-35-mode"></a>exemplo de 3.3.2.2 do manifesto MPEG DASH. MPD de um fluxo RTMP usando o modo Adobe SCTE-35
 
 O exemplo a seguir mostra um trecho EventStream do empacotador dinâmico dos serviços de mídia para um fluxo RTMP usando a sinalização do modo Adobe SCTE-35.
 
+Elemento EventStream de exemplo usando a sinalização de estilo XML + bin por [SCTE-214-1]
+
 ~~~ xml
-<!-- Example EventStream element using xml+bin style signaling per [SCTE-214-1] -->
 
       <EventStream schemeIdUri="urn:scte:scte35:2014:xml+bin" value="scte35" timescale="10000000">
         <Event presentationTime="2595092444" duration="11011000" id="1002">
@@ -930,11 +1105,14 @@ O exemplo a seguir mostra um trecho EventStream do empacotador dinâmico dos ser
       </EventStream>
 ~~~
 
+
+
 > [!IMPORTANT]
 > Observe que presentationtime é o tempo de apresentação do evento [SCTE-35] traduzido para ser relativo à hora de início do período, não à hora de chegada da mensagem.
 > [MPEGDASH] define o Event@presentationTime como "especifica a hora da apresentação do evento em relação ao início do período.
 > O valor do tempo de apresentação em segundos é a divisão do valor desse atributo e o valor do EventStream@timescale atributo.
 > Se não estiver presente, o valor da hora da apresentação será 0.
+
 
 #### <a name="3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals"></a>exemplo de manifesto MPEG DASH (MPD) 3.3.3.1 com um único período, EventStream, usando sinais de modo simples do Adobe
 
@@ -992,10 +1170,11 @@ Cada sinal simples é fornecido em um elemento de evento com @presentationTime a
 
 ~~~
 
-#### <a name="3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling"></a>exemplo de manifesto MPEG DASH (MPD) 3.3.3.2 com vários períodos, EventStream, usando a sinalização do modo Adobe SCTE35
+<!---
+#### 3.3.3.2 Example MPEG DASH manifest (MPD) with multi-period, EventStream, using Adobe SCTE35 mode signaling
 
-O exemplo a seguir mostra a saída do empacotador dinâmico dos serviços de mídia para um fluxo RTMP de origem usando a sinalização do modo SCTE35 da Adobe.
-Nesse caso, o manifesto de saída é um traço. MPD de vários períodos com um elemento EventStream e a @schemeIdUri propriedade definida como "urn: SCTE: scte35:2014: XML + bin" e uma @value propriedade definida como "scte35". Cada elemento de evento no EventStream contém o sinal de SCTE35 binário codificado em base64 completo 
+The following example shows the output from the Media Services dynamic packager for a source RTMP stream using the Adobe SCTE35 mode signaling.
+In this case, the output manifest is a multi-period DASH .mpd with an EventStream element, and @schemeIdUri property set to "urn:scte:scte35:2014:xml+bin" and a @value property set to "scte35". Each Event element in the EventStream contains the full base64 encoded binary SCTE35 signal 
 
 ~~~ xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -1028,9 +1207,6 @@ Nesse caso, o manifesto de saída é um traço. MPD de vários períodos com um 
                 <SegmentTimeline>
                     <S t="7417856" d="133120"/>
                     <S d="132096" r="1"/>
-                    
-                    <!--> ... aduio segments truncated for sample brevity </-->
-
                 </SegmentTimeline>
             </SegmentTemplate>
             <ProducerReferenceTime id="7417856" type="0" wallClockTime="2020-01-07T19:40:50.037Z" presentationTime="7417856"/>
@@ -1122,6 +1298,9 @@ Nesse caso, o manifesto de saída é um traço. MPD de vários períodos com um 
 </MPD>
 
 ~~~
+
+--->
+
 ### <a name="334-mpeg-dash-in-band-event-message-box-signaling"></a>Sinalização da caixa de mensagem de evento em banda do 3.3.4 MPEG DASH
 
 Um fluxo de eventos em banda requer que o MPD tenha um elemento InbandEventStream no nível do Conjunto de Adaptação.  Esse elemento tem um atributo schemeIdUri obrigatório e um atributo de TIMESCALE opcional, que também aparecem na caixa de mensagem de evento (' EMSG ').  Caixas de mensagem de evento com identificadores de esquema que não estão definidos no MPD não **devem** estar presentes.
@@ -1164,6 +1343,7 @@ Smooth Streaming ingestão [MS-SSTR-ingestão] requer que o Data Box de mídia (
 
 Para ingestão RTMP, o atributo Cue da mensagem AMF é definido como o splice_info_section codificado na base64 **()** definido em [SCTE-35].  
 
+
 Quando as mensagens têm o formato descrito acima, elas são enviadas aos clientes HLS, Smooth e DASH, conforme definido acima.  
 
 Ao testar sua implementação com a plataforma de serviços de mídia do Azure, comece testando com um LiveEvent de "passagem" primeiro, antes de passar para o teste em um LiveEvent de codificação.
@@ -1174,9 +1354,10 @@ Ao testar sua implementação com a plataforma de serviços de mídia do Azure, 
 
 | Data     | Alterações                                                                                                             |
 | -------- | ------------------------------------------------------------------------------------------------------------------- |
-| 07/2/19  | Ingestão RTMP revisada para suporte a SCTE35, adicionado "onCuePoint" RTMP para o elemento ao vivo                                  |
+| 07/2/19  | Suporte de ingestão RTMP revisado, adicionado "onCuePoint" RTMP para o elemento ao vivo                                            |
 | 08/22/19 | Atualizado para adicionar OnUserDataEvent a RTMP para metadados personalizados                                                          |
 | 1/08/20  | Erro fixo no modo SCTE35 RTMP simples e RTMP. Alterado de "onCuePoint" para "onAdCue". Tabela de modo simples atualizada. |
+| 08/4/20  | Foi removido o suporte para a marca DATERANGE para corresponder à implementação no serviço de produção.    |
 
 ## <a name="next-steps"></a>Próximas etapas
 Exibir os roteiros de aprendizagem dos Serviços de Mídia.

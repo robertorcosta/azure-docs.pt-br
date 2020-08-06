@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2019
+ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 77b4336fd9430b523f4f9fa288b7451117f7e0c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 95c46550570d579af7ab8107686ad20838a3a62e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016965"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809945"
 ---
-# <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Tutorial: configurar o SAP SuccessFactors para Active Directory provisionamento de usuário (versão prévia)
-O objetivo deste tutorial é mostrar as etapas que você precisa executar para provisionar usuários do SuccessFactors Employee central no Active Directory (AD) e no Azure AD, com write-back opcional de endereço de email para SuccessFactors. Essa integração está em visualização pública e dá suporte à recuperação de mais de [70 atributos de usuário](../app-provisioning/sap-successfactors-attribute-reference.md) do SuccessFactors Employee central.
+# <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Tutorial: configurar o SAP SuccessFactors para Active Directory provisionamento de usuário 
+O objetivo deste tutorial é mostrar as etapas que você precisa executar para provisionar usuários do SuccessFactors Employee central no Active Directory (AD) e no Azure AD, com write-back opcional de endereço de email para SuccessFactors. 
 
 >[!NOTE]
 >Use este tutorial se os usuários que você deseja provisionar do SuccessFactors precisarem de uma conta do AD local e, opcionalmente, uma conta do Azure AD. Se os usuários de SuccessFactors precisarem apenas de uma conta do Azure AD (usuários somente em nuvem), consulte o tutorial em [Configurar o SAP SuccessFactors para o provisionamento de usuário do Azure ad](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) . 
@@ -82,7 +82,7 @@ A configuração do provisionamento de usuário controlado por RH na nuvem do Su
 * Número de SuccessFactors para aplicativos de provisionamento de usuário do AD a serem implantados
 * ID de correspondência, mapeamento de atributo, transformação e filtros de escopo
 
-Consulte o plano de [implantação de RH de nuvem](../app-provisioning/plan-cloud-hr-provision.md) para obter diretrizes abrangentes sobre esses tópicos. 
+Consulte o plano de [implantação de RH de nuvem](../app-provisioning/plan-cloud-hr-provision.md) para obter diretrizes abrangentes sobre esses tópicos. Consulte a referência de [integração do SAP SuccessFactors](../app-provisioning/sap-successfactors-integration-reference.md) para saber mais sobre as entidades com suporte, os detalhes de processamento e como personalizar a integração para cenários de RH diferentes. 
 
 ## <a name="configuring-successfactors-for-the-integration"></a>Configurando o SuccessFactors para a integração
 
@@ -236,7 +236,7 @@ Transfira o instalador do agente baixado para o host do servidor e siga as etapa
   
    ![Sair da Tela](./media/workday-inbound-tutorial/pa_install_screen_9.png "Sair da tela")
    
-1. Verifique a instalação do Agente e certifique-se de que ele esteja em execução abrindo o Snap-In de “Serviços” e procurando pelo Serviço chamado “Agente de Provisionamento do Microsoft Azure AD Connect”
+1. Verifique a instalação do Agente e verifique se ele está em execução abrindo o Snap-In de “Serviços” e procurando pelo Serviço chamado “Agente de Provisionamento do Microsoft Azure AD Connect”
   
    ![Serviços](./media/workday-inbound-tutorial/services.png)
 
@@ -260,7 +260,7 @@ Nesta etapa, estabelecemos a conectividade com SuccessFactors e Active Directory
         > [!NOTE]
         > Essa configuração só entra em vigor para criações de contas de usuário quando o atributo *parentDistinguishedName* não está configurado nos mapeamentos de atributo. Essa configuração não é usada para operações de atualização e pesquisa de usuários. A subárvore de todo o domínio se enquadra no escopo da operação de pesquisa.
 
-   * **Email de notificação –** Insira seu endereço de email e marque a caixa de seleção "enviar email se ocorrer falha".
+   * **Email de Notificação –** Digite seu endereço de email e marque a caixa de seleção “enviar email se ocorrer falha”.
     > [!NOTE]
     > O Serviço de Provisionamento do Azure AD envia uma notificação por email quando o trabalho de provisionamento entra no estado de [quarentena](/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 

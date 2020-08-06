@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 8148163dc969920b473f12a7162c6f317d85b3c8
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ff2745a636d25c429a1a40644757c00b28e2668c
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503218"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799167"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Criar uma oferta de contêiner do Azure no Azure Marketplace
 
@@ -195,14 +195,15 @@ Forneça logotipos e imagens para usar com sua oferta. O logotipo precisa estar 
 
 #### <a name="store-logos"></a>Armazenar logotipos
 
- Forneça arquivos PNG do logotipo da sua oferta em cada um dos seguintes quatro tamanhos de pixel:
+Forneça um arquivo PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center usará isso para criar um logotipo de tamanho **pequeno** (48 x 48 pixels) e **médio** (90 x 90 pixels). Opcionalmente, você pode substituí-los por imagens diferentes.
+
+Todos os três tamanhos de logotipo são necessários para uso em locais diferentes na lista:
 
 - **Pequeno** (48 x 48)
 - **Médio** (90 x 90)
-- **Grande** (216 x 216)
-- **Largo** (255 x 115)
+- **Grande** (entre 216 x 216 e 350 x 350)
 
-Todos os quatro logotipos são necessários e são usados em locais diferentes na lista do marketplace.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Capturas de tela (opcional)
 
@@ -354,7 +355,7 @@ Forneça as informações a seguir na guia **Detalhes do repositório de imagens
 
 **Nome do Registro de Contêiner do Azure** – forneça o nome do [Registro de Contêiner do Azure](../../container-registry/container-registry-intro.md) que tenha sua imagem de contêiner. O registro de contêiner deve estar no grupo de recursos do Azure que fornecido anteriormente. Inclua somente o nome do registro, não o nome completo do servidor de logon. Lembre-se de omitir o **azurecr.io** do nome. Você pode encontrar o nome do registro na [página Registros de Contêiner](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) no portal do Azure.
 
-**Nome de usuário do administrador para o registro de contêiner do Azure** – forneça o [nome de usuário do administrador](../../container-registry/container-registry-authentication.md#admin-account)) vinculado ao registro de contêiner do Azure que tem sua imagem de contêiner. O nome de usuário e a senha são obrigatórios para garantir que sua empresa tenha acesso ao Registro. Para obter o nome de usuário do administrador e a senha, defina a propriedade **admin-enabled** como **True** usando a CLI (Interface de Linha de Comando) do Azure. Como opção, você pode definir **Usuário administrador** como **Habilitar** no portal do Azure.
+**Nome de usuário do administrador para o registro de contêiner do Azure** – forneça o [nome de usuário do administrador](../../container-registry/container-registry-authentication.md#admin-account)) vinculado ao registro de contêiner do Azure que tem sua imagem de contêiner. O nome de usuário e a senha são obrigatórios para garantir que sua empresa tenha acesso ao registro. Para obter o nome de usuário do administrador e a senha, defina a propriedade **admin-enabled** como **True** usando a CLI (Interface de Linha de Comando) do Azure. Como opção, você pode definir **Usuário administrador** como **Habilitar** no portal do Azure.
 
  :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Ilustra a caixa de diálogo Atualizar registro de contêiner.":::
 

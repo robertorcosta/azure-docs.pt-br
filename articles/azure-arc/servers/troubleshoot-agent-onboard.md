@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 46096e1f3f4266e9c070bd1d67f328241163126b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2a6f51f1c6901eaa18c1de9c1fc788ed583b7394
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004538"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809435"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Solucionar problemas de conexão do agente do computador conectado
 
@@ -90,7 +90,7 @@ A tabela a seguir lista alguns dos erros conhecidos e as sugestões sobre como s
 
 Se você não encontrar seu problema aqui ou não conseguir resolvê-lo, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio do [Microsoft Q&a](https://docs.microsoft.com/answers/topics/azure-arc.html).
+* Obtenha respostas de especialistas do Azure por meio do [Microsoft Q&a](/answers/topics/azure-arc.html).
 
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. O Suporte do Azure conecta a Comunidade do Azure a respostas, suporte e especialistas.
 

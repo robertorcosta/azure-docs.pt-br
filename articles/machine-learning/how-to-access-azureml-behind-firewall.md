@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 27b625dfa31b366d95922e1dd0bad7fda6e86ed4
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 23ec12daa2e5c236da482615228b7c44037282fb
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540063"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808109"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Usar o espaço de trabalho por trás de um firewall para Azure Machine Learning
 
@@ -34,7 +34,7 @@ No firewall, crie uma regra de rede permitindo o tráfego de e para os endereço
 > [!TIP]
 > Ao adicionar a regra de rede, defina o __protocolo__ como qualquer e as portas para `*` .
 >
-> Para obter mais informações sobre como configurar o Firewall do Azure, consulte [implantar e configurar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule).
+> Para obter mais informações sobre como configurar o Firewall do Azure, consulte [implantar e configurar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
 ## <a name="microsoft-hosts"></a>Hosts da Microsoft
 
@@ -57,7 +57,7 @@ Os hosts nesta seção são de propriedade da Microsoft e fornecem os serviços 
 | **azurecr.io** | Registro de Contêiner do Azure |
 | **mcr.microsoft.com** | Registro de contêiner da Microsoft para imagens base do Docker |
 | **your-acr-server-name.azurecr.io** | Necessário somente se o registro de contêiner do Azure estiver por trás da rede virtual. Nessa configuração, um link privado é criado do ambiente da Microsoft para a instância do ACR em sua assinatura. Use o nome do servidor ACR para seu espaço de trabalho Azure Machine Learning. |
-
+| **\*. notebooks.azure.net** | Necessário para os notebooks no Azure Machine Learning Studio. |
 ## <a name="python-hosts"></a>Hosts do Python
 
 Os hosts nesta seção são usados para instalar pacotes do Python. Eles são necessários durante o desenvolvimento, o treinamento e a implantação. 

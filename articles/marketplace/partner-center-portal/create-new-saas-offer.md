@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 61592ee8ad5991c9540f5b418cafe2441ab4d3ea
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2b12eb88f0297c44fabb62e40d315517f3d3b954
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317700"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800325"
 ---
 # <a name="create-a-saas-offer"></a>Criar uma oferta de SaaS
 
@@ -172,7 +172,7 @@ Para obter informações adicionais, confira [Faça o test drive de sua oferta n
 - [Erros comuns de configuração de leads](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
 - [One Pager Visão geral do gerenciamento de leads](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
-Selecione **Salvar rascunho** antes de continuar.
+Selecione **Salvar rascunho** para continuar.
 
 ## <a name="properties"></a>Propriedades
 
@@ -282,12 +282,16 @@ Esse campo é obrigatório.
 #### <a name="files-and-images"></a>Arquivos e imagens
 
 - **Documentos** (obrigatório) – adicione documentos de marketing relacionados para sua oferta, em formato PDF, de pelo menos um e até três documentos por oferta.
-- **Imagens** (opcional) – há vários locais em que as imagens de logotipo da sua oferta podem aparecer em todo o Marketplace, exigindo os seguintes tamanhos de pixel no formato PNG:
+- **Imagens** (obrigatórias) – há vários locais onde as imagens de logotipo da sua oferta podem aparecer em todo o Marketplace. Forneça um arquivo PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center usará isso para criar um logotipo de tamanho **pequeno** (48 x 48 pixels) e **médio** (90 x 90 pixels). Opcionalmente, você pode substituí-los por imagens diferentes. Adicionar um logotipo **amplo** é opcional.
 
-  - **Pequeno** (48 x 48, obrigatório)
-  - **Médio** (90 x 90, obrigatório)
-  - **Grande** (216 x 216, obrigatório)
-  - **Largo** (255 x 115)
+    Três tamanhos de logotipo são necessários para uso em locais diferentes na lista; um é opcional:
+
+    - **Pequeno** (48 x 48)
+    - **Médio** (90 x 90)
+    - **Grande** (entre 216 x 216 e 350 x 350)
+    - **Largo** (255 x 115), *opcional*
+
+    [!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 - **Capturas de tela** (obrigatórias) – adicione um máximo de cinco capturas de tela demonstrando sua oferta, dimensionada em 1280 x 720 pixels. Todas as imagens precisam estar no formato .PNG.
 - **Vídeos** (opcional) – adicione links para vídeos que demonstrem sua oferta. É possível usar links para vídeos do YouTube e/ou do Vimeo, que são mostrados juntamente com sua oferta aos clientes. Você também precisará inserir uma imagem em miniatura do vídeo, dimensionada para 1280 x 720 pixels em formato PNG. É possível exibir um máximo de quatro vídeos por oferta.
@@ -315,7 +319,7 @@ Adicione manualmente até dez endereços de email (ou 20 se estiver carregando u
 > [!NOTE]
 > O público-alvo de versão prévia difere de um público-alvo privado. Um público-alvo de versão prévia tem permissão para acessar sua oferta _antes_ de ela ser publicada como ativa nos Marketplaces. Você também pode optar por criar um plano e disponibilizá-lo somente para um público-alvo privado. Na guia **listagem do plano**, você pode definir um público-alvo privado com a caixa de seleção **Este é um plano privado**. Em seguida, você pode definir um público-alvo privado de até 20.000 clientes usando as IDs de Locatário do Azure.
 
-Selecione **Salvar rascunho** antes de continuar.
+Selecione **Salvar rascunho** para continuar.
 
 ## <a name="technical-configuration"></a>Configurações técnicas
 

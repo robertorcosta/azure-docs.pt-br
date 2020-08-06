@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b7d62777f73a92768b1ede3fb9b7e0cb97951823
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 394752792d143a3712d0bb9c50189936f23062f1
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537473"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800459"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotear eventos dentro e fora do Azure digital gêmeos
 
@@ -77,7 +77,7 @@ await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<e
 
 * O `endpoint-name` identifica um ponto de extremidade, como um hub de eventos, uma grade de eventos ou um barramento de serviço. Esses pontos de extremidade devem ser criados em sua assinatura e anexados ao Azure digital gêmeos usando as APIs do plano de controle antes de fazer essa chamada de registro.
 
-O objeto de rota de evento passado para `EventRoutes.Add` também usa um parâmetro de [ **filtro** ](./how-to-manage-routes.md#filter-events), que pode ser usado para restringir os tipos de eventos que seguem essa rota.
+O objeto de rota de evento passado para `EventRoutes.Add` também usa um parâmetro de [ **filtro** ](./how-to-manage-routes-apis-cli.md#filter-events), que pode ser usado para restringir os tipos de eventos que seguem essa rota.
 
 As rotas também podem ser criadas usando a [CLI do Azure digital gêmeos](how-to-use-cli.md).
 
@@ -90,7 +90,7 @@ Tipos diferentes de eventos no Hub IoT e no Azure digital gêmeos produzem difer
 ## <a name="next-steps"></a>Próximas etapas
 
 Consulte como configurar e gerenciar uma rota de eventos:
-* [*Como: gerenciar pontos de extremidade e rotas*](how-to-manage-routes.md)
+* [*Como: gerenciar pontos de extremidade e rotas*](how-to-manage-routes-apis-cli.md)
 
 Ou, consulte como usar Azure Functions para rotear eventos no Azure digital gêmeos:
 * [*Como: configurar uma função do Azure para processar dados*](how-to-create-azure-function.md)

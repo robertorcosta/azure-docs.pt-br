@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: e90e45a0c96d8bbd2806a0ab6df70ef83e0cc9f6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 650210ab965936de6e48b2ace3f2042857760053
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121921"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799998"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Criar uma oferta do Dynamics 365 for Customer Engagement e PowerApps
 
@@ -195,10 +195,14 @@ Forneça logotipos e imagens para sua oferta. O logotipo precisa estar no format
 
 #### <a name="store-logos"></a>Armazenar logotipos
 
-Forneça o logotipo de sua oferta em três tamanhos de pixel:
-- **Pequeno** (obrigatório; 48 x 48)
-- **Grande** (obrigatório; 216 x 216)
-- **Amplo** (opcional; 255 x 115)
+Forneça um arquivo PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center usará isso para criar um logotipo de tamanho **pequeno** (48 x 48 pixels). Opcionalmente, você pode substituir isso por uma imagem diferente.
+
+Os dois tamanhos de logotipo são necessários para uso em locais diferentes na lista:
+
+- **Pequeno** (48 x 48)
+- **Grande** (entre 216 x 216 e 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de tela
 
@@ -235,7 +239,7 @@ Antes de publicar sua oferta como ativa para a oferta de Marketplace mais ampla,
 
 Em seguida, quando estiver pronto para disponibilizar sua oferta e remover a restrição de versão prévia, você precisará remover o **ocultar chave** e publicar novamente.
 
-Selecione **Salvar rascunho** para continuar.
+Selecione **Salvar rascunho** antes de continuar.
 
 ## <a name="technical-configuration"></a>Configurações técnicas
 
