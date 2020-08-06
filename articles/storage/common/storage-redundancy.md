@@ -1,7 +1,7 @@
 ---
 title: Redundância de dados
 titleSuffix: Azure Storage
-description: Os dados na sua conta do Armazenamento do Microsoft Azure são replicados para garantir durabilidade e alta disponibilidade. As configurações de redundância incluem o armazenamento com redundância local (LRS), o armazenamento com redundância de zona (ZRS), o armazenamento com redundância geográfica (GRS), o armazenamento com redundância geográfica com acesso de leitura (RA-GRS), o armazenamento com redundância de zona geográfica (GZRS) e o armazenamento com redundância de zona geográfica com acesso de leitura (RA-GZRS).
+description: Entenda a redundância de dados no armazenamento do Azure. Os dados na sua conta do Armazenamento do Microsoft Azure são replicados para garantir durabilidade e alta disponibilidade.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.date: 07/21/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e4ec4925da40cf6051b88d77fbbc35d93ececf87
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8fa775ab4d183d75fef41529a95555fe3bcdc91c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036719"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827836"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 

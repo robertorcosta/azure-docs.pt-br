@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 438fe490bb241cbc42e53d8502e9065454ebcc4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dda05331163d071a9a47c6f6af8c758a11ec7dd8
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514380"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827887"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync-with-azure-databox"></a>Migrar dados em massa para Sincronização de Arquivos do Azure com o Azure Data Box
 Você pode migrar dados em massa para Sincronização de Arquivos do Azure de duas maneiras:
@@ -88,6 +88,13 @@ Desabilite o modo de transferência de dados offline somente quando o estado for
 
 > [!IMPORTANT]
 > Depois de desabilitar o modo de transferência de dados offline, você não poderá habilitá-lo novamente, mesmo que o compartilhamento de preparo da migração em massa ainda esteja disponível.
+
+## <a name="azure-file-sync-and-pre-seeded-files-in-the-cloud"></a>Arquivos de Sincronização de Arquivos do Azure e pré-propagados na nuvem
+
+Se você tiver arquivos propagados em um compartilhamento de arquivos do Azure por outros meios que data Box-por exemplo, via AzCopy, RoboCopy de um backup na nuvem ou qualquer outro método, você ainda deverá seguir o [processo de transferência de dados offline](#process-for-offline-data-transfer) descrito neste artigo. Você só precisa desconsiderar data box como o método que os arquivos movem para a nuvem. No entanto, é fundamental garantir que você ainda esteja seguindo o processo de propagação dos arquivos em um *compartilhamento de preparo* e não no final, sincronização de arquivos do Azure compartilhamento conectado.
+
+> [!WARNING]
+> **Siga o processo de propagação de arquivos em um compartilhamento de preparo, não no final**, sincronização de arquivos do Azure compartilhamento conectado. Se você não fizer isso, poderão ocorrer conflitos de arquivo (as duas versões de arquivo serão armazenadas), assim como os arquivos excluídos no servidor dinâmico poderão voltar, se ainda existirem em seu conjunto de arquivos mais antigo e propagado. Além disso, as alterações de pasta serão mescladas umas com as outras, tornando muito difícil separar o namespace após esse erro.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Planejar uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)

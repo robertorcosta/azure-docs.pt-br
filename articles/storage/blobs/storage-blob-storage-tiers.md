@@ -1,6 +1,6 @@
 ---
 title: Camadas de acesso quentes, frias e de arquivo para BLOBs-armazenamento do Azure
-description: Camadas de acesso quentes, frias e de arquivo para contas de armazenamento do Azure.
+description: Leia sobre as camadas de acesso frequente, fria e de arquivo para o armazenamento de BLOBs do Azure. Examine as contas de armazenamento que dão suporte a camadas. Compare as opções de armazenamento de blog do bloco.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 03/23/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: dc9e4e0a896677fd22baf33e7776e8158bd0bee6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 17df78f846d8422c0200ce5fc75b4722d21d35df
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011338"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828265"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de Blobs do Azure: camadas de acesso frequentes, esporádicas e de arquivo
 
@@ -57,7 +57,7 @@ A camada de acesso frio reduz os custos de armazenamento e os custos de acesso m
 - Conteúdo de mídia mais antigo que não é mais exibido frequentemente, mas ainda deve estar disponível imediatamente quando acessado.
 - Grandes conjuntos de dados que precisam ser armazenados de forma econômica enquanto mais dados estão sendo obtidos para processamento futuro. (*por exemplo*, armazenamento de longo prazo de dados científicos; dados brutos de telemetria de uma instalação de manufatura)
 
-## <a name="archive-access-tier"></a>Camada de acesso ao arquivo
+## <a name="archive-access-tier"></a>Camada de acesso aos arquivos
 
 A camada de acesso de arquivamento tem o menor custo de armazenamento. Mas ele tem custos de recuperação de dados mais altos em comparação com as camadas quente e fria. Os dados devem permanecer na camada de arquivo por pelo menos 180 dias ou estar sujeitos a uma cobrança de exclusão antecipada. Os dados na camada de arquivo podem levar várias horas para serem recuperados, dependendo da prioridade do reidratação. Para objetos pequenos, um reidratar de alta prioridade pode recuperar o objeto do arquivo em menos de uma hora. Consulte [dados de blob reidratar da camada de arquivo](storage-blob-rehydration.md) para saber mais.
 

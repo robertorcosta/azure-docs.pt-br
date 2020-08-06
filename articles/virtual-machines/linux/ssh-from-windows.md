@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.date: 07/09/2020
 ms.topic: how-to
 ms.author: cynthn
-ms.openlocfilehash: dcb5277773be1fc45a3d2b0901cf9fda177b7054
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 7e99c9191e93562211f6294cf671f431a5db455d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512645"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825558"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Como usar chaves SSH com o Windows no Azure
 
@@ -45,7 +45,7 @@ As versões recentes do Windows 10 incluem [comandos de cliente do OpenSSH](http
 
 Você também pode usar o bash no [Azure cloud Shell](../../cloud-shell/overview.md) para se conectar à sua VM. Você pode usar Cloud Shell em um [navegador da Web](https://shell.azure.com/bash), na [portal do Azure](https://portal.azure.com)ou como um terminal no Visual Studio Code usando a [extensão de conta do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
-Você também pode instalar o [subsistema do Windows para Linux](https://docs.microsoft.com/windows/wsl/about) para se conectar à VM por SSH e usar outras ferramentas nativas do Linux em um shell bash.
+Você também pode instalar o [subsistema do Windows para Linux](/windows/wsl/about) para se conectar à VM por SSH e usar outras ferramentas nativas do Linux em um shell bash.
 
 ## <a name="create-an-ssh-key-pair"></a>Criar um par de chaves SSH
 

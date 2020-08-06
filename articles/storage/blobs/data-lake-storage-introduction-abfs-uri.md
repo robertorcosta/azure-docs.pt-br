@@ -1,6 +1,6 @@
 ---
 title: Usar o Azure Data Lake armazenamento Gen2 URI
-description: Usar o Azure Data Lake armazenamento Gen2 URI
+description: Aprenda a sintaxe do URI para o identificador do esquema abfs, que representa o driver do sistema de arquivos do blob do Azure (driver do FileSystem do Hadoop para Azure Data Lake Storage Gen2).
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
@@ -8,12 +8,12 @@ ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: fa0f67e0d72ee5710a42b6de744ddae98e20220a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c9c452d608bc2c5f64292d72f3eae6825bf1ce2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80437123"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828244"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Usar o Azure Data Lake armazenamento Gen2 URI
 

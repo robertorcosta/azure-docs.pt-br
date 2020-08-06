@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 0707d578f90f70318c2a01f324b50092d9962965
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 3a628a70d8ce62827f79c1f7e16d2826be8d80f5
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513835"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827241"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores de Aplicativos Lógicos do Azure
 
@@ -66,7 +66,7 @@ Para aplicativos lógicos que precisam de acesso direto a recursos em uma rede v
 > [!NOTE]
 > Os aplicativos lógicos que são executados em um ISE e seus conectores, independentemente de onde esses conectores são executados, seguem um plano de preços fixo versus o plano de preços baseado em consumo. Para obter mais informações, consulte [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md) e [detalhes de preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-| Label | Exemplo | Descrição |
+| Rótulo | Exemplo | Descrição |
 |-------|---------|-------------|
 | **CORE** | ![Conector do ISE de exemplo](./media/apis-list/example-core-connector.png) | Gatilhos e ações internos com esse rótulo são executados no mesmo ISE que seus aplicativos lógicos. |
 | **ISE** | ![Conector do ISE de exemplo](./media/apis-list/example-ise-connector.png) | Conectores gerenciados com esse rótulo são executados no mesmo ISE que seus aplicativos lógicos. Se você tiver um sistema local conectado a uma rede virtual do Azure, um ISE permitirá que seus aplicativos lógicos acessem diretamente esse sistema sem o [Gateway de dados local](../logic-apps/logic-apps-gateway-connection.md). Em vez disso, você pode usar o conector do **ISE** do sistema, se disponível, uma ação http ou um [conector personalizado](#custom). Para sistemas locais que não têm conectores do **ISE** , use o gateway de dados local. Para examinar os conectores do ISE disponíveis, consulte [conectores do ISE](#ise-connectors). |
@@ -79,7 +79,7 @@ Para aplicativos lógicos que precisam de acesso direto a recursos em uma rede v
 
 Os aplicativos lógicos fornecem gatilhos e ações internas para que você possa criar fluxos de trabalho baseados em agendamento, ajudar seus aplicativos lógicos a se comunicar com outros aplicativos e serviços, controlar o fluxo de trabalho por meio de seus aplicativos lógicos e gerenciar ou manipular dados.
 
-| Name | Descrição |
+| Nome | Descrição |
 |------|-------------|
 | [![Ícone da API ][schedule-icon]<br> **agenda**][schedule-doc] | -Executar um aplicativo lógico em uma recorrência especificada, variando de programação básica para avançada com o gatilho de [ **recorrência** ][schedule-recurrence-doc]. <br>-Executar um aplicativo lógico que precisa manipular dados em partes contínuas com o gatilho de [ **janela deslizante** ][schedule-sliding-window-doc]. <br>-Pause seu aplicativo lógico por uma duração especificada com a [ação de **atraso** ][schedule-delay-doc]. <br>-Pause seu aplicativo lógico até a data e a hora especificadas com a ação de [ **atraso até** ][schedule-delay-until-doc]. |
 | [![Ícone da API ][batch-icon]<br> **lote**][batch-doc] | - Processe mensagens em lotes com o gatilho **Mensagens em lote**. <br>- Chame aplicativos lógicos que possuem gatilhos de lote existentes com a ação **Enviar mensagens para lote**. |
@@ -94,7 +94,7 @@ Os aplicativos lógicos fornecem gatilhos e ações internas para que você poss
 
 Os aplicativos lógicos fornecem ações internas para executar seu próprio código no fluxo de trabalho do aplicativo lógico:
 
-| Name | Descrição |
+| Nome | Descrição |
 |------|-------------|
 | [![Ícone de API ][azure-functions-icon]<br> **Azure Functions**][azure-functions-doc] | Chame funções do Azure que executam snippets de códigos personalizados (C# ou Node.js) de seus aplicativos lógicos. |
 | [![Ícone da API ][inline-code-icon]<br> **código embutido**][inline-code-doc] | Adicione e execute trechos de código JavaScript de seus aplicativos lógicos. |
@@ -104,7 +104,7 @@ Os aplicativos lógicos fornecem ações internas para executar seu próprio có
 
 Os aplicativos lógicos fornecem ações internas para estruturar e controlar as ações no fluxo de trabalho do aplicativo lógico:
 
-| Name | Descrição |
+| Nome | Descrição |
 |------|-------------|
 | [![Condição de ícone interno ][condition-icon]<br> **Condition**][condition-doc] | Avalie uma condição e execute ações diferentes com base em se a condição é verdadeira ou falsa. |
 | [![Ícone interno ][for-each-icon]<br> **para cada**][for-each-doc] | Execute as mesmas ações em cada item em uma matriz. |
@@ -118,7 +118,7 @@ Os aplicativos lógicos fornecem ações internas para estruturar e controlar as
 
 Os aplicativos lógicos fornecem ações internas para trabalhar com saídas de dados e seus formatos:
 
-| Name | Descrição |
+| Nome | Descrição |
 |------|-------------|
 | [![][data-operations-icon]<br>**Operações de dados** de ícone interno][data-operations-doc] | Execute operações com dados: <p>- **Compor**: crie uma única saída de várias entradas com vários tipos. <br>- **Criar tabela CSV**: crie uma tabela CSV (separada por valores vírgula) de uma matriz com objetos JSON. <br>- **Criar tabela HTML**: crie uma tabela HTML de uma matriz com objetos JSON. <br>- **Matriz de filtro**: crie uma matriz de itens na outra matriz que atendem aos seus critérios. <br>- **Juntar-se**: crie uma cadeia de caracteres de todos os itens em uma matriz e separe esses itens com o delimitador especificado. <br>- **Analisar JSON**: Crie tokens amigáveis de propriedades e seus valores no conteúdo JSON para que você possa usar essas propriedades em seu fluxo de trabalho. <br>- **Selecionar**: crie uma matriz com objetos JSON transformando itens ou valores em outra matriz e mapeando esses itens para propriedades especificadas. |
 | ![Ícone Interno][date-time-icon]<br>**Data e hora** | Execute operações com carimbos de data/hora: <p>- **Adicionar horário**: adicionar número especificado de unidades a um carimbo de data/hora. <br>- **Converter fuso horário**: converter um carimbo de data/hora do fuso horário de origem para o fuso horário de destino. <br>- **Horário atual**: retornar o carimbo de data/hora atual como uma cadeia de caracteres. <br>- **Obter horário futuro**: retornar o carimbo de data/hora atual mais as unidades de tempo especificadas. <br>- **Obter horário passado**: retornar o carimbo de data/hora atual menos as unidades de tempo especificadas. <br>- **Subtrair de horário**: subtrair um número de unidades de tempo de um carimbo de data/hora. |
@@ -131,7 +131,7 @@ Os aplicativos lógicos fornecem ações internas para trabalhar com saídas de 
 
 Os aplicativos lógicos fornecem esses conectores padrão populares para automatizar tarefas, processos e fluxos de trabalho com esses serviços ou sistemas:
 
-| Name | Descrição |
+| Nome | Descrição |
 |------|-------------|
 | [![Ícone da API ][azure-service-bus-icon]<br> **barramento de serviço do Azure**][azure-service-bus-doc] | Gerencie mensagens assíncronas, sessões e assinaturas de tópico com o conector mais comumente usado em Aplicativos Lógicos. |
 | [![Ícone de API ][sql-server-icon]<br> **SQL Server**][sql-server-doc] | Conecte-se ao seu SQL Server local ou a um banco de dados SQL do Azure na nuvem para que você possa gerenciar registros, executar procedimentos armazenados ou executar consultas. |
@@ -393,7 +393,7 @@ As conexões podem acessar o serviço ou sistema de destino pelo tempo que o ser
 
 ## <a name="custom-apis-and-connectors"></a>Conectores e APIs personalizados
 
-Para chamar as APIs que executam o código personalizado ou não estão disponíveis como conectores, você pode estender a plataforma dos Aplicativos Lógicos [criando Aplicativos de API personalizados](../logic-apps/logic-apps-create-api-app.md). Você também pode [criar conectores personalizados](../logic-apps/custom-connector-overview.md) para *qualquer* API REST ou baseadas em SOAP, o que torna essas APIs disponíveis para qualquer aplicativo lógico em sua assinatura do Azure. Para tornar Aplicativos de API personalizado ou conectores público disponíveis para qualquer pessoa para uso no Azure, você pode [enviar conectores para certificação da Microsoft](../logic-apps/custom-connector-submit-certification.md).
+Para chamar as APIs que executam o código personalizado ou não estão disponíveis como conectores, você pode estender a plataforma dos Aplicativos Lógicos [criando Aplicativos de API personalizados](../logic-apps/logic-apps-create-api-app.md). Você também pode [criar conectores personalizados](../logic-apps/custom-connector-overview.md) para *qualquer* API REST ou baseadas em SOAP, o que torna essas APIs disponíveis para qualquer aplicativo lógico em sua assinatura do Azure. Para tornar Aplicativos de API personalizado ou conectores público disponíveis para qualquer pessoa para uso no Azure, você pode [enviar conectores para certificação da Microsoft](/connectors/custom-connectors/submit-certification).
 
 > [!NOTE]
 > Os aplicativos lógicos implantados e executados em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) podem acessar diretamente os recursos em uma rede virtual do Azure. Se você tiver conectores personalizados que exigem o gateway de dados local e tiver criado esses conectores fora de um ISE, os aplicativos lógicos em um ISE também poderão usar esses conectores.
@@ -618,4 +618,3 @@ Se sua organização não permitir a conexão a recursos específicos usando seu
 [x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Codificar mensagens que usam o protocolo X12"
 [xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transformar mensagens XML"
 [xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validar mensagens XML"
-

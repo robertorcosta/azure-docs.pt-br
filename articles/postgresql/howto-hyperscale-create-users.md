@@ -7,17 +7,17 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 85366b8b3e3ba7d612373e6b754aa9805d00f8f5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8a1b38b9f673669adb0b5fcf67d9d560c24d5c2a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116957"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825949"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Criar usuários no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 
 > [!NOTE]
-> O termo "usuários" refere-se a usuários em um grupo de servidores de hiperescala (Citus). Para saber mais sobre os usuários de assinatura do Azure e seus privilégios, visite o [artigo RBAC (controle de acesso baseado em função) do Azure](../role-based-access-control/built-in-roles.md) ou examine [como personalizar funções](../role-based-access-control/custom-roles.md).
+> O termo "usuários" refere-se a usuários em um grupo de servidores de hiperescala (Citus). Para saber mais sobre os usuários de assinatura do Azure e seus privilégios, visite o [artigo controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/built-in-roles.md) ou examine [como personalizar funções](../role-based-access-control/custom-roles.md).
 
 ## <a name="the-server-admin-account"></a>A conta do administrador do servidor
 
@@ -50,7 +50,7 @@ Conforme mencionado, a `citus` conta de administrador não tem permissão para c
 
    ![A página funções](media/howto-hyperscale-create-users/1-role-page.png)
 
-2. Insira o nome da função e a senha. Clique em **Save** (Salvar).
+2. Insira o nome da função e a senha. Clique em **Salvar**.
 
    ![Adicionar função](media/howto-hyperscale-create-users/2-add-user-fields.png)
 
@@ -88,5 +88,5 @@ Abra o firewall para os endereços IP dos computadores dos novos usuários para 
 Para obter mais informações sobre o gerenciamento de conta de usuário de banco de dados, consulte a documentação do produto PostgreSQL:
 
 * [Funções e privilégios de banco de dados](https://www.postgresql.org/docs/current/static/user-manag.html)
-* [Sintaxe de concessão](https://www.postgresql.org/docs/current/static/sql-grant.html)
-* [Privilégios](https://www.postgresql.org/docs/current/static/ddl-priv.html)
+* [Sintaxe GRANT](https://www.postgresql.org/docs/current/static/sql-grant.html)
+* [Direitos](https://www.postgresql.org/docs/current/static/ddl-priv.html)

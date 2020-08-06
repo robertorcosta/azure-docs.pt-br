@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: cd96fe550a508e54c467ca52cd36322581029654
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e420fe81941352d1002ed2c25c04fc686115c7c2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283224"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827445"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais em um modelo do Azure Resource Manager
 
@@ -274,7 +274,7 @@ Para definir essa propriedade, o adaptador de rede deve existir. Portanto, é ne
 
 Vários elementos de perfil são usados ao definir um recurso de máquina virtual. Alguns são obrigatórios e alguns são opcionais. Por exemplo, os elementos hardwareProfile, osProfile, storageProfile e networkProfile são obrigatórios, mas diagnosticsProfile é opcional. Esses perfis definem configurações como:
    
-- [size](sizes.md)
+- [size](../sizes.md)
 - [nome](/azure/architecture/best-practices/resource-naming) e credenciais
 - disco e [configurações do sistema operacional](cli-ps-findimage.md)
 - [interface de rede](/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-ps) 
@@ -353,7 +353,7 @@ Se você desejar criar uma máquina virtual de uma imagem gerenciada, altere o e
 
 ### <a name="attach-data-disks"></a>Anexar discos de dados
 
-Opcionalmente, é possível adicionar discos de dados às VMs. O [número de discos](sizes.md) depende do tamanho do disco do sistema operacional que você usa. Com o tamanho das VMs definido como Standard_DS1_v2, o número máximo de discos de dados que poderão ser adicionadas a eles é dois. No exemplo, um disco de dados gerenciado está sendo adicionado a cada VM:
+Opcionalmente, é possível adicionar discos de dados às VMs. O [número de discos](../sizes.md) depende do tamanho do disco do sistema operacional que você usa. Com o tamanho das VMs definido como Standard_DS1_v2, o número máximo de discos de dados que poderão ser adicionadas a eles é dois. No exemplo, um disco de dados gerenciado está sendo adicionado a cada VM:
 
 ```json
 "dataDisks": [

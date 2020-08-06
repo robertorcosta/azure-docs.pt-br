@@ -1,6 +1,6 @@
 ---
 title: Reagir aos eventos de armazenamento de Blobs do Azure | Microsoft Docs
-description: Use a Grade de Eventos do Azure para assinar eventos de Armazenamento de Blobs.
+description: Use a grade de eventos do Azure para assinar e reagir a eventos de armazenamento de BLOBs. Entenda o modelo de evento, a filtragem de eventos e as práticas de consumo de eventos.
 author: normesta
 ms.author: normesta
 ms.date: 04/06/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: 8f51b6f94ae8a245471757d256a923570582bb12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62cd31ab6f63aec5ddeb675bca3621a329ab1f2b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809066"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826561"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagir aos eventos de armazenamento de Blobs
 

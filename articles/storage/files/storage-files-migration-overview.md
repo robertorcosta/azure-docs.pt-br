@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 512688345c03ea9d5da0e4933cd6a794eaaf597b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d979d2d0167a4398d31271bb896c812bbe86be73
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660766"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827853"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrar para compartilhamentos de Arquivos do Azure
 
@@ -78,10 +78,10 @@ Como usar a tabela:
 
 Um cenário sem um link ainda não tem um guia de migração publicado. Marque esta tabela ocasionalmente para obter atualizações. Novos guias serão publicados quando estiverem disponíveis.
 
-| Origem | Destino: </br>Implantação híbrida | Destino: </br>Implantação somente em nuvem |
+| Fonte | Destino: </br>Implantação híbrida | Destino: </br>Implantação somente em nuvem |
 |:---|:--|:--|
 | | Combinação de ferramentas:| Combinação de ferramentas: |
-| Windows Server 2012 R2 e posterior | <ul><li>[Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)</li><li>[Sincronização de Arquivos do Azure e Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>Serviço de migração de Sincronização de Arquivos do Azure e armazenamento</li></ul> | <ul><li>Sincronização de Arquivos do Azure</li><li>Sincronização de Arquivos do Azure e Data Box</li><li>Serviço de migração de Sincronização de Arquivos do Azure e armazenamento</li><li>RoboCopy</li></ul> |
+| Windows Server 2012 R2 e posterior | <ul><li>[Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)</li><li>[Sincronização de Arquivos do Azure e Azure Data Box](storage-sync-offline-data-transfer.md)</li><li>[Arquivos de Sincronização de Arquivos do Azure e pré-propagados na nuvem](storage-sync-offline-data-transfer.md#azure-file-sync-and-pre-seeded-files-in-the-cloud)</li><li>Serviço de migração de Sincronização de Arquivos do Azure e armazenamento</li></ul> | <ul><li>Sincronização de Arquivos do Azure</li><li>Sincronização de Arquivos do Azure e Data Box</li><li>Serviço de migração de Sincronização de Arquivos do Azure e armazenamento</li><li>RoboCopy</li></ul> |
 | Windows Server 2012 e anterior | <ul><li>Sincronização de Arquivos do Azure e Data Box</li><li>Serviço de migração de Sincronização de Arquivos do Azure e armazenamento</li></ul> | <ul><li>Serviço de migração de Sincronização de Arquivos do Azure e armazenamento</li><li>RoboCopy</li></ul> |
 | NAS (armazenamento conectado à rede) | <ul><li>[Sincronização de Arquivos do Azure e RoboCopy](storage-files-migration-nas-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
 | Linux ou samba | <ul><li>[Sincronização de Arquivos do Azure e RoboCopy](storage-files-migration-linux-hybrid.md)</li></ul> | <ul><li>RoboCopy</li></ul> |
@@ -115,7 +115,7 @@ Há várias ferramentas de cópia de arquivos disponíveis da Microsoft e de out
 
 A tabela a seguir classifica as ferramentas da Microsoft e sua adequação atual para compartilhamentos de arquivos do Azure:
 
-| Recomendado | Ferramenta | Suporte para compartilhamentos de arquivos do Azure | Preservação da fidelidade do arquivo |
+| Recomendadas | Ferramenta | Suporte para compartilhamentos de arquivos do Azure | Preservação da fidelidade do arquivo |
 | :-: | :-- | :---- | :---- |
 |![Sim, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| RoboCopy | Com suporte. Os compartilhamentos de arquivos do Azure podem ser montados como unidades de rede. | Fidelidade total. * |
 |![Sim, recomendado](media/storage-files-migration-overview/circle-green-checkmark.png)| Sincronização de Arquivos do Azure | Integrado nativamente aos compartilhamentos de arquivos do Azure. | Fidelidade total. * |
@@ -152,5 +152,5 @@ A versão testada da ferramenta é a versão 4.4.1. Ele é compatível com arqui
 Aqui estão mais informações sobre as tecnologias de arquivos do Azure mencionadas neste artigo:
 
 * [Visão geral do compartilhamento de arquivos do Azure](storage-files-introduction.md)
-* [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
+* [Planejar uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
 * [Sincronização de Arquivos do Azure: camadas de nuvem](storage-sync-cloud-tiering.md)

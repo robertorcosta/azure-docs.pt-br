@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 07/28/2020
-ms.openlocfilehash: 30d665cc1d573ec47681599f2bde6a40864796c9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04536836c4d061249201c82f738aa41501f0847e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387703"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828856"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Noções básicas sobre o uso de máquina virtual do Azure
 Ao analisar os dados de uso do Azure, podem ser obtidas informações poderosas sobre o consumo - insights que podem permitir um melhor gerenciamento e alocação de custos em toda a sua organização. Este documento fornece um aprofundamento em seus detalhes de consumo de Computação do Azure. Para obter mais detalhes sobre o uso geral do Azure, navegue até [Entendendo sua fatura](../../cost-management-billing/understand/review-individual-bill.md).
@@ -35,8 +35,8 @@ Para começar, [faça o download dos seus detalhes de uso](../../cost-management
 | Consumido| A quantidade do recurso que foi consumida naquele dia. Para Computação, contamos por cada minuto que a VM correu por uma hora determinada (até 6 decimais de precisão).| `1, 0.5`|
 | Local do recurso  | Identifica o datacenter onde o recurso está sendo executado.| `JA East`|
 | Serviço consumido | O serviço da plataforma do Azure que você usou.| `Microsoft.Compute`|
-| Grupo de recursos | O grupo de recursos no qual o recurso implantado está sendo executado. Para obter mais informações, consulte [Visão geral do Azure Resource Manager.](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)|`MyRG`|
-| ID da instância | O identificador do recurso. O identificador contém o nome especificado para o recurso quando ele foi criado. Para as VMs, a ID da Instância conterá o SubscriptionId, ResourceGroupName e VMName (ou o nome do conjunto de dimensionamento para o uso do conjunto de dimensionamento).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>ou<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
+| Grupo de recursos | O grupo de recursos no qual o recurso implantado está sendo executado. Para obter mais informações, consulte [Visão geral do Azure Resource Manager.](../../azure-resource-manager/management/overview.md)|`MyRG`|
+| ID da instância | O identificador do recurso. O identificador contém o nome especificado para o recurso quando ele foi criado. Para as VMs, a ID da Instância conterá o SubscriptionId, ResourceGroupName e VMName (ou o nome do conjunto de dimensionamento para o uso do conjunto de dimensionamento).| `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1`<br><br>ou o<br><br>`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/ resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1`|
 | Marcas| Marca atribuída ao recurso. Use marcas para agrupar registros de cobrança. Saiba como [marcar suas Máquinas Virtuais.](tag.md) Isso está disponível somente para VMs do Gerenciador de Recursos.| `{"myDepartment":"RD","myUser":"myName"}`|
 | Informações adicionais | Metadados específicos ao serviço. Para as VMs, nós preenchemos os seguintes dados no campo de informações adicionais: <br><br> Tipo de Imagem - especifica a imagem que foi executada. Localize a lista completa de cadeias de caracteres suportadas abaixo em Tipos de Imagem.<br><br> Tipo de Serviço: o tamanho que você implantou.<br><br> VMName: nome da sua VM. Este campo é preenchido apenas para VMs de conjunto de dimensionamento. Se for necessário o Nome da VM para VMs de conjunto de dimensionamento, será possível localizá-lo na cadeia de caracteres da ID da Instância acima.<br><br> UsageType: especifica o tipo de uso que isso representa.<br><br> ComputeHR é o uso de Hora de Computação para a VM subjacente, como Standard_D1_v2.<br><br> ComputeHR_SW é a carga de software Premium se a VM estiver utilizando o software Premium, como o Microsoft R Server. | Máquinas Virtuais<br>`{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR"}`<br><br>Conjuntos de Dimensionamento de Máquinas Virtuais<br> `{"ImageType":"Canonical","ServiceType":"Standard_DS1_v2","VMName":"myVM1", "UsageType":"ComputeHR"}`<br><br>Software Premium<br> `{"ImageType":"","ServiceType":"Standard_DS1_v2","VMName":"", "UsageType":"ComputeHR_SW"}` |
 

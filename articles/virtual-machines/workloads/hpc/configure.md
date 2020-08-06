@@ -13,19 +13,19 @@ ms.topic: article
 ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: c49286f370691c39c3d14d589f2657d6e0bb3c04
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: dfa1c790dc0f2e229b3bfa19616e5760c3d3d02e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542324"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825133"
 ---
 # <a name="configure-and-optimize-vms"></a>Configurar e otimizar VMs
 
 Este artigo compartilha técnicas conhecidas para configurar e otimizar as VMs da série [H](../../sizes-hpc.md) e da série [N](../../sizes-gpu.md) habilitadas para InfiniBand para HPC.
 
 ## <a name="vm-images"></a>Imagens de VM
-Em VMs habilitadas para InfiniBand, os drivers apropriados são necessários para habilitar o RDMA. No Linux, as imagens de VM CentOS-HPC no Marketplace vêm pré-configuradas com os drivers apropriados. As imagens de VM Ubuntu podem ser configuradas com os drivers corretos usando as [instruções aqui](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Também é recomendável criar [imagens de VM personalizadas](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) com os drivers e a configuração apropriados e reutilizá-las de forma recorrente.
+Em VMs habilitadas para InfiniBand, os drivers apropriados são necessários para habilitar o RDMA. No Linux, as imagens de VM CentOS-HPC no Marketplace vêm pré-configuradas com os drivers apropriados. As imagens de VM Ubuntu podem ser configuradas com os drivers corretos usando as [instruções aqui](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Também é recomendável criar [imagens de VM personalizadas](../../linux/tutorial-custom-images.md) com os drivers e a configuração apropriados e reutilizá-las de forma recorrente.
 
 ### <a name="centos-hpc-vm-images"></a>Imagens de VM CentOS-HPC
 Para [VMs compatíveis com RDMA com](../../sizes-hpc.md#rdma-capable-instances)não-Sr-IOV, a versão 6,5 do CentOS-HPC ou uma versão posterior, até 7,5 no Marketplace são adequadas. Como exemplo, para as [VMs da série H16](../../h-series.md), as versões 7,1 a 7,5 são recomendadas. Essas imagens de VM são pré-carregadas com os drivers diretos de rede para RDMA e Intel MPI versão 5,1.
@@ -53,7 +53,7 @@ A seguir estão algumas configurações de otimização opcionais para melhorar 
 
 ### <a name="update-lis"></a>Atualizar LIS
 
-Se necessário para funcionalidade ou desempenho, OS [drivers do Integration Services do Linux (LIS)](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) podem ser instalados ou atualizados em distribuições do sistema operacional com suporte, especialmente implantando usando uma imagem personalizada ou uma versão mais antiga do sistema operacional, como CentOS/RHEL 6. x ou versão anterior do 7. x.
+Se necessário para funcionalidade ou desempenho, OS [drivers do Integration Services do Linux (LIS)](../../linux/endorsed-distros.md) podem ser instalados ou atualizados em distribuições do sistema operacional com suporte, especialmente implantando usando uma imagem personalizada ou uma versão mais antiga do sistema operacional, como CentOS/RHEL 6. x ou versão anterior do 7. x.
 
 ```bash
 wget https://aka.ms/lis

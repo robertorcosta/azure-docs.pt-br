@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cc7c256ca6866e5b981f8740c9953534d830316
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e72e3cb3ccc6273a9b698475c5e5aa0bb87b8b7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359153"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828788"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operações do Azure Active Directory Connect Health
 Este tópico descreve as várias operações que você pode executar usando o Azure AD (Azure Active Directory) Connect Health.
@@ -104,7 +104,7 @@ Ao excluir uma instância de serviço, esteja ciente do seguinte:
 
 [//]: # (Início da seção de RBAC)
 ## <a name="manage-access-with-role-based-access-control"></a>Gerenciar acesso com controle de acesso baseado em função
-O [RBAC (Controle de acesso baseado em função)](../../role-based-access-control/role-assignments-portal.md) do Azure AD Connect Health fornece acesso a usuários e grupos que não sejam administradores globais. O RBAC atribui funções aos usuários e grupos desejados e fornece um mecanismo para limitar os administradores globais em seu diretório.
+O Azure [RBAC (controle de acesso baseado em função)](../../role-based-access-control/role-assignments-portal.md) do azure para Azure ad Connect Health fornece acesso a usuários e grupos diferentes de administradores globais. O RBAC atribui funções aos usuários e grupos desejados e fornece um mecanismo para limitar os administradores globais em seu diretório.
 
 ### <a name="roles"></a>Funções
 O Azure AD Connect Health dá suporte às seguintes funções internas:

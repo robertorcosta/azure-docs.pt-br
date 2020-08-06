@@ -4,12 +4,12 @@ description: Como colocar em contêineres seus serviços de Reliable Services e 
 ms.topic: conceptual
 ms.date: 5/23/2018
 ms.author: anmola
-ms.openlocfilehash: 9fe5980c13f655f8f30cc42771971a5015460420
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 186afb87b4668ad575208beeeb19643e6a11cedd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75466177"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824538"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Colocar em contêineres seus Reliable Services e Reliable Actors do Service Fabric no Windows
 
@@ -93,7 +93,7 @@ Este documento fornece diretrizes para colocar o serviço em execução dentro d
    </Policies>
    ```
 
-9. Para configurar o modo de isolamento de contêiner, veja [Configurar o modo de isolamento]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). O Windows dá suporte a dois modos de isolamento para contêineres: processo e Hyper-V. O snippet a seguir mostra como o modo de isolamento é especificado no arquivo de manifesto do aplicativo.
+9. Para configurar o modo de isolamento de contêiner, veja [Configurar o modo de isolamento]( ./service-fabric-get-started-containers.md#configure-isolation-mode). O Windows dá suporte a dois modos de isolamento para contêineres: processo e Hyper-V. O snippet a seguir mostra como o modo de isolamento é especificado no arquivo de manifesto do aplicativo.
 
    ```xml
    <Policies>

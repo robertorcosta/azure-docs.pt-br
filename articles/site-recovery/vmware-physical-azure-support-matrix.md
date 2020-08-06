@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres do VMware/físico no Az
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidor físico para o Azure usando Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 56c86993e4e98764bc7e3ce04180f9e870cc612d
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 595f12f9204dff58af0bfebb60402cc89ffb386a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87458018"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826238"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -190,71 +190,71 @@ Acesso de link privado ao serviço de Site Recovery | Sim. [Saiba mais](hybrid-h
 
 **Componente** | **Com suporte**
 --- | ---
-Azure ExpressRoute | Yes
-ILB | Yes
-ELB | Yes
-Gerenciador de Tráfego do Azure | Yes
-NIC múltipla | Yes
-Endereço IP Reservado | Yes
-IPv4 | Yes
-Manter endereço IP de origem | Yes
-Pontos de extremidade de serviço de rede virtual do Azure<br/> | Yes
+Azure ExpressRoute | Sim
+ILB | Sim
+ELB | Sim
+Gerenciador de Tráfego do Azure | Sim
+NIC múltipla | Sim
+Endereço IP Reservado | Sim
+IPv4 | Sim
+Manter endereço IP de origem | Sim
+Pontos de extremidade de serviço de rede virtual do Azure<br/> | Sim
 Redes aceleradas | Não
 
 ## <a name="storage"></a>Armazenamento
 **Componente** | **Com suporte**
 --- | ---
 Dados dinâmicos | O disco do sistema operacional deve ser um disco básico. <br/><br/>Os discos de Dados podem ser discos dinâmicos
-Configuração de disco do Docker | No
+Configuração de disco do Docker | Não
 NFS do host | Sim para VMware<br/><br/> Não para servidores físicos
-Host SAN iSCSI/FC) | Yes
+Host SAN iSCSI/FC) | Sim
 Host vSAN | Sim para VMware<br/><br/> N/D para servidores físicos
 MPIO (Múltiplos caminhos) do host | Sim, testado com Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 Volumes de host Virtual (VVols) | Sim para VMware<br/><br/> N/D para servidores físicos
-VMDK do convidado/servidor | Yes
-Disco de cluster compartilhado do convidado/servidor | No
-Disco criptografado do convidado/servidor | No
-NFS do convidado/servidor | No
+VMDK do convidado/servidor | Sim
+Disco de cluster compartilhado do convidado/servidor | Não
+Disco criptografado do convidado/servidor | Não
+NFS do convidado/servidor | Não
 ISCSI de convidado/servidor | Para migração-Sim<br/>Para recuperação de desastre-não, o iSCSI fará o failback como um disco anexado à VM
-SMB 3.0 do convidado/servidor | No
-RDM do convidado/servidor | Yes<br/><br/> N/D para servidores físicos
+SMB 3.0 do convidado/servidor | Não
+RDM do convidado/servidor | Sim<br/><br/> N/D para servidores físicos
 Disco do convidado/servidor > 1 TB | Sim, o disco deve ter mais de 1024 MB<br/><br/>Até 8.192 GB ao replicar para discos gerenciados (versão 9,26 em diante)<br></br> Até 4.095 GB ao replicar para contas de armazenamento
-Disco do convidado/servidor com tamanho de setor lógico e físico de 4.000 cada | No
-Disco de convidado/servidor com tamanho de setor físico de 512 bytes e lógicos de 4K | No
-Volume do convidado/servidor com discos distribuídos >4 TB | Yes
+Disco do convidado/servidor com tamanho de setor lógico e físico de 4.000 cada | Não
+Disco de convidado/servidor com tamanho de setor físico de 512 bytes e lógicos de 4K | Não
+Volume do convidado/servidor com discos distribuídos >4 TB | Sim
 Gerenciamento de volumes lógicos (LVM)| Provisionamento espesso-Sim <br></br> Provisionamento dinâmico-não
-Convidado/servidor - espaços de armazenamento | No
-Adicionar/remover disco a quente por convidado/servidor | No
-Convidado/servidor - excluir disco | Yes
-MPIO (Múltiplos caminhos) de convidado/servidor | No
+Convidado/servidor - espaços de armazenamento | Não
+Adicionar/remover disco a quente por convidado/servidor | Não
+Convidado/servidor - excluir disco | Sim
+MPIO (Múltiplos caminhos) de convidado/servidor | Não
 Partições do convidado/servidor GPT | Há suporte para cinco partições do [pacote cumulativo de atualizações 37](https://support.microsoft.com/help/4508614/) (versão 9,25 do serviço de mobilidade) em diante. Quatro eram suportados anteriormente.
 ReFS | O sistema de arquivos resiliente tem suporte com o serviço de mobilidade versão 9,23 ou superior
-Inicialização de EFI/servidor do convidado/UEFI | -Há suporte para todos os [SOS de UEFI do Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-images-in-azure-marketplace) com site Recovery o agente de mobilidade versão 9,30 em diante. <br/> -Não há suporte para o tipo de inicialização UEFI segura. [Saiba mais.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
+Inicialização de EFI/servidor do convidado/UEFI | -Há suporte para todos os [SOS de UEFI do Azure Marketplace](../virtual-machines/windows/generation-2.md#generation-2-vm-images-in-azure-marketplace) com site Recovery o agente de mobilidade versão 9,30 em diante. <br/> -Não há suporte para o tipo de inicialização UEFI segura. [Saiba mais.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Canais de replicação
 
 |**Tipo de replicação**   |**Com suporte**  |
 |---------|---------|
-|Transferências de dados descarregadas (ODX)    |       No  |
-|Propagação offline        |   No      |
-| Azure Data Box | No
+|Transferências de dados descarregadas (ODX)    |       Não  |
+|Propagação offline        |   Não      |
+| Azure Data Box | Não
 
 ## <a name="azure-storage"></a>Armazenamento do Azure
 
 **Componente** | **Com suporte**
 --- | ---
-Armazenamento com redundância local | Yes
-Armazenamento com redundância geográfica | Yes
-Armazenamento com redundância geográfica com acesso de leitura | Yes
-Armazenamento frio | No
-Armazenamento quente| No
-Blobs de bloco | No
-Criptografia em repouso (SSE)| Yes
+Armazenamento com redundância local | Sim
+Armazenamento com redundância geográfica | Sim
+Armazenamento com redundância geográfica com acesso de leitura | Sim
+Armazenamento frio | Não
+Armazenamento quente| Não
+Blobs de bloco | Não
+Criptografia em repouso (SSE)| Sim
 Criptografia em repouso (CMK)| Sim (por meio do PowerShell AZ 3.3.0 Module em diante)
 Criptografia dupla em repouso | Sim (por meio do PowerShell AZ 3.3.0 Module em diante). Saiba mais sobre as regiões com suporte para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md).
-Armazenamento Premium | Yes
-Opção de transferência segura | Yes
-Serviço de importação/exportação | No
+Armazenamento Premium | Sim
+Opção de transferência segura | Sim
+Serviço de importação/exportação | Não
 Firewalls do armazenamento do Azure para VNets | Sim.<br/> Configurado na conta de armazenamento de armazenamento/cache de destino (usada para armazenar dados de replicação).
 Contas de armazenamento v2 de uso geral (camadas quentes e frias) | Sim (os custos de transações são consideravelmente mais altos para v2 em comparação com v1)
 
@@ -262,10 +262,10 @@ Contas de armazenamento v2 de uso geral (camadas quentes e frias) | Sim (os cust
 
 **Recurso** | **Com suporte**
 --- | ---
-Conjuntos de disponibilidade | Yes
-Zonas de disponibilidade | No
-HUB | Yes
-Discos gerenciados | Yes
+Conjuntos de disponibilidade | Sim
+Zonas de disponibilidade | Não
+HUB | Sim
+Discos gerenciados | Sim
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM do Azure
 
@@ -279,7 +279,7 @@ Tamanho do disco do sistema operacional | Até 2.048 GB. | A verificação falha
 Contagem do disco do sistema operacional | 1 | A verificação falha se não tiver suporte.
 Contagem de disco de dados | 64 ou menos. | A verificação falha se não tiver suporte.
 Tamanho do disco de dados | Até 8.192 GB ao replicar para o disco gerenciado (versão 9,26 em diante)<br></br>Até 4.095 GB ao replicar para a conta de armazenamento| A verificação falha se não tiver suporte.
-Adaptadores de rede | Há suporte para vários adaptadores. |
+Adaptadores de Rede | Há suporte para vários adaptadores. |
 VHD compartilhado | Não há suporte. | A verificação falha se não tiver suporte.
 Disco FC | Não há suporte. | A verificação falha se não tiver suporte.
 BitLocker | Não há suporte. | O BitLocker precisa ser desabilitado antes de habilitar a replicação em um computador. |
@@ -319,10 +319,10 @@ Variação máxima de dados por dia com suporte de um Servidor de Processo | 2 T
 
 **Ação** | **Com suporte**
 --- | ---
-Mover cofre entre grupos de recursos | No
-Mover o cofre dentro e entre assinaturas | No
-Mover armazenamento, rede, VMs do Azure entre grupos de recursos | No
-Mova armazenamento, rede, VMs do Azure dentro e entre assinaturas. | No
+Mover cofre entre grupos de recursos | Não
+Mover o cofre dentro e entre assinaturas | Não
+Mover armazenamento, rede, VMs do Azure entre grupos de recursos | Não
+Mova armazenamento, rede, VMs do Azure dentro e entre assinaturas. | Não
 
 
 ## <a name="obtain-latest-components"></a>Obter os componentes mais recentes

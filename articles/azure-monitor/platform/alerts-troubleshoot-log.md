@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 10/29/2018
-ms.openlocfilehash: a66cb190309fb9e966392f57a251eff746bfa315
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d61e052b10b7255cac37531f889324075d596f3c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321098"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828448"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Solucionar problemas de alertas de log no Azure Monitor  
 
@@ -190,7 +190,7 @@ O [Azure Advisor](../../advisor/advisor-overview.md) avisa você sobre esse comp
 
 ## <a name="alert-rule-quota-was-reached"></a>A cota da regra de alerta foi atingida
 
-O número de regras de alerta de pesquisa de logs por assinatura e recurso estão sujeitos aos limites de cota descritos [aqui](https://docs.microsoft.com/azure/azure-monitor/service-limits).
+O número de regras de alerta de pesquisa de logs por assinatura e recurso estão sujeitos aos limites de cota descritos [aqui](../service-limits.md).
 
 ### <a name="recommended-steps"></a>Etapas Recomendadas
     
@@ -201,7 +201,7 @@ Se você tiver atingido o limite de cota, as etapas a seguir podem ajudar a reso
 
     - IDs de assinatura que requerem aumento dos limites de cota
     - Motivo para aumento de cota
-    - Tipo de recurso para o aumento de cota: **log Analytics**, **Application insights** de etc.
+    - Tipo de recurso para o aumento de cota: **log Analytics**, **Application insights**, etc.
     - Limite de cota solicitado
 
 
@@ -226,4 +226,3 @@ Se você tiver atingido o limite de cota, as etapas a seguir podem ajudar a reso
 - Saiba mais sobre os [alertas de log no Azure](./alerts-unified-log.md).
 - Saiba mais sobre o [Application Insights](../log-query/log-query-overview.md).
 - Saiba mais sobre [consultas de log](../log-query/log-query-overview.md).
-

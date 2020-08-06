@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d41a71ff5f97449968d82812119cfdfd4bc2ef44
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 09c56646ffa9bcadcec821bcd83411077d6a55ae
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261171"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824589"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planejamento de capacidade e dimensionamento para o Azure Service Fabric
 
@@ -19,7 +19,7 @@ Antes de criar qualquer cluster de Service Fabric do Azure ou dimensionar recurs
 Além de considerar o tipo de nó e as características do cluster, você deve esperar que as operações de dimensionamento demorem mais de uma hora para serem concluídas em um ambiente de produção. Essa consideração é verdadeira independentemente do número de VMs que você está adicionando.
 
 ## <a name="autoscaling"></a>Dimensionamento automático
-Você deve executar operações de dimensionamento por meio de modelos de Azure Resource Manager, pois é a melhor prática tratar [as configurações de recursos como código]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code). 
+Você deve executar operações de dimensionamento por meio de modelos de Azure Resource Manager, pois é a melhor prática tratar [as configurações de recursos como código](./service-fabric-best-practices-infrastructure-as-code.md). 
 
 Usar o dimensionamento automático por meio de conjuntos de dimensionamento de máquinas virtuais fará com que o modelo com versão do Resource Manager defina incorretamente as contagens de instâncias para conjuntos de dimensionamento de máquinas virtuais. A definição imprecisa aumenta o risco de implantações futuras causarem operações de dimensionamento indesejadas. Em geral, você deve usar o dimensionamento automático se:
 
@@ -72,7 +72,7 @@ Com as propriedades de nó e as restrições de posicionamento declaradas, siga 
 5. Depois que todas as VMs estiverem ausentes (representadas como "inativas"), o Fabric:/System/InfrastructureService/[nome do nó] mostrará um estado de erro. Em seguida, você pode atualizar o recurso de cluster para remover o tipo de nó. Você pode usar a implantação de modelo ARM ou editar o recurso de cluster por meio do [Azure Resource Manager](https://resources.azure.com). Isso iniciará uma atualização de cluster, o que removerá o serviço Fabric:/System/InfrastructureService/[nó Type] que está em estado de erro.
  6. Depois disso, você pode, opcionalmente, excluir o VMScaleSet, você ainda verá os nós como "inativos" do modo de exibição de Service Fabric Explorer no entanto. A última etapa seria limpá-los com o `Remove-ServiceFabricNodeState` comando.
 
-## <a name="horizontal-scaling"></a>Dimensionamento em escala horizontal
+## <a name="horizontal-scaling"></a>Dimensionamento horizontal
 
 Você pode fazer o dimensionamento horizontal [manualmente](./service-fabric-cluster-scale-in-out.md) ou [programaticamente](./service-fabric-cluster-programmatic-scaling.md).
 

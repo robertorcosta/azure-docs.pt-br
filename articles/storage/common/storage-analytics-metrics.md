@@ -1,6 +1,6 @@
 ---
 title: Métricas da Análise de Armazenamento do Azure (clássico)
-description: Saiba como usar as métricas de Análise de Armazenamento no Armazenamento do Microsoft Azure.
+description: Saiba como usar as métricas de Análise de Armazenamento no Armazenamento do Microsoft Azure. Saiba mais sobre métricas de capacidade e transação, como as métricas são armazenadas, habilitando métricas e muito mais.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: b4bb17fce7be7aeff2a6978177106201e4c80aee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7d7db5a756e5d75cb4f9719f54d95f9cee1e8d2f
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087264"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828040"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métricas da Análise de Armazenamento do Azure (clássico)
 
@@ -146,7 +146,7 @@ Na seção **Monitoramento (clássico)** do painel de menus da conta de armazena
 
 Se você quiser baixar as métricas para armazenamento a longo prazo ou para analisá-las localmente, você deve usar uma ferramenta ou escrever um código para ler as tabelas. Você deve baixar a métrica de minutos para análise. As tabelas não aparecem quando você lista todas as tabelas em sua conta de armazenamento, mas você pode acessá-las diretamente por nome. Muitas ferramentas de navegação de armazenamento reconhecem essas tabelas e permitem que você as exiba diretamente. Para obter uma lista das ferramentas disponíveis, confira as [ferramentas do cliente de Armazenamento do Microsoft Azure](/azure/storage/storage-explorers).
 
-|Métricas|Nomes da tabela|Observações| 
+|Métricas|Nomes da tabela|Anotações| 
 |-|-|-|  
 |Métricas por hora|$MetricsHourPrimaryTransactionsBlob<br /><br /> $MetricsHourPrimaryTransactionsTable<br /><br /> $MetricsHourPrimaryTransactionsQueue<br /><br /> $MetricsHourPrimaryTransactionsFile|Nas versões anteriores a 15 de agosto de 2013, essas tabelas eram conhecidas como:<br /><br /> $MetricsTransactionsBlob<br /><br /> $MetricsTransactionsTable<br /><br /> $MetricsTransactionsQueue<br /><br /> As métricas do serviço de arquivo estão disponíveis a partir da versão de 5 de abril de 2015.|  
 |Métricas por minuto|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Só podem ser habilitadas usando o PowerShell ou programaticamente.<br /><br /> As métricas do serviço de arquivo estão disponíveis a partir da versão de 5 de abril de 2015.|  

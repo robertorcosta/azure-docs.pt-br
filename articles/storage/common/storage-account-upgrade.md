@@ -1,7 +1,7 @@
 ---
 title: Atualizar para uma conta de armazenamento de uso geral v2
 titleSuffix: Azure Storage
-description: Atualizar para contas de armazenamento de uso geral v2.
+description: Atualize para contas de armazenamento de uso geral v2 usando o portal do Azure, o PowerShell ou o CLI do Azure. Especifique uma camada de acesso para dados de BLOB.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8ba2478bbfb2a26951d682ab12cb5b98df73be97
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 029753ecb0afd0cdd02a2f4594a0708cbda06efc
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497963"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828210"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento de uso geral v2
 

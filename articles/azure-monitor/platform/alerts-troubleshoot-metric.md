@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: reference
 ms.date: 07/21/2020
 ms.subservice: alerts
-ms.openlocfilehash: b4a2329640387ab1c3cda93d18c6cb22c7d511cd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3e691e3f32404af792c852636a257659b629eef4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327473"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824555"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solucionando problemas em alertas de métrica Azure Monitor 
 
@@ -110,7 +110,7 @@ Os alertas de métricas são monitorados por padrão e, portanto, alertas adicio
 
 Ao criar uma regra de alerta de métrica, o nome da métrica é validado em relação à [API de definições de métrica](/rest/api/monitor/metricdefinitions/list) para verificar se ela existe. Em alguns casos, você gostaria de criar uma regra de alerta em uma métrica personalizada mesmo antes de ela ser emitida. Por exemplo, ao criar (usando um modelo ARM) um recurso Application Insights que emitirá uma métrica personalizada, juntamente com uma regra de alerta que monitora essa métrica.
 
-Para evitar a falha da implantação ao tentar validar as definições da métrica personalizada, você pode usar o parâmetro *skipMetricValidation* na seção critérios da regra de alerta, o que fará com que a validação da métrica seja ignorada. Consulte o exemplo abaixo para saber como usar esse parâmetro em um modelo do ARM (para obter exemplos de modelos do ARM completos para criar regras de alerta de métrica, consulte [aqui]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)).
+Para evitar a falha da implantação ao tentar validar as definições da métrica personalizada, você pode usar o parâmetro *skipMetricValidation* na seção critérios da regra de alerta, o que fará com que a validação da métrica seja ignorada. Consulte o exemplo abaixo para saber como usar esse parâmetro em um modelo do ARM (para obter exemplos de modelos do ARM completos para criar regras de alerta de métrica, consulte [aqui]( ./alerts-metric-create-templates.md)).
 
 ```json
 "criteria": {
@@ -247,4 +247,3 @@ Por exemplo:
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter informações gerais sobre solução de problemas de alertas e notificações, consulte [Solucionando problemas em alertas de Azure monitor](alerts-troubleshoot.md).
-

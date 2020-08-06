@@ -5,12 +5,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: ef3c2161e5a032983a2cbc9e4ccdf60af6920a7d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 186d4c510b58e06fcb0b823ca0d5770a2684196e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323104"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824980"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Recurso baseado em espaço de trabalho do Application Insights (versão prévia)
 
@@ -19,7 +19,7 @@ Os recursos baseados em espaço de trabalho dão suporte à integração complet
 Isso também permite o RBAC (Controle de Acesso Baseado em Função) comum em seus recursos e elimina a necessidade de consultas entre aplicativos/espaço de trabalhos.
 
 > [!NOTE]
-> A ingestão de dados e a retenção de recursos do Application Insights baseados em espaço de trabalho são cobradas por meio do espaço de trabalho do Log Analytics onde ficam os dados. [Saiba mais]( https://docs.microsoft.com/azure/azure-monitor/app/pricing#workspace-based-application-insights) sobre a cobrança de recursos do Application Insights baseados em espaço de trabalho.
+> A ingestão de dados e a retenção de recursos do Application Insights baseados em espaço de trabalho são cobradas por meio do espaço de trabalho do Log Analytics onde ficam os dados. [Saiba mais]( ./pricing.md#workspace-based-application-insights) sobre a cobrança de recursos do Application Insights baseados em espaço de trabalho.
 
 Para testar a nova experiência, entre no [portal do Azure](https://portal.azure.com) e crie um recurso do Application Insights:
 
@@ -204,4 +204,3 @@ A funcionalidade de exportação contínua herdada não tem suporte para recurso
 [diagnostic]: ./diagnostic-search.md
 [metrics]: ../platform/metrics-charts.md
 [start]: ./app-insights-overview.md
-

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 1e844934852f3eb45f665a67bbdb7087a8ba0202
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aca2c51ff14b99ba41b159cf32e59dc861de7a53
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039152"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826204"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>Mover recursos do aplicativo lógico para outros grupos de recursos, regiões ou assinaturas do Azure
 
@@ -31,7 +31,7 @@ Para migrar seu aplicativo lógico ou recursos relacionados para outro grupo de 
 
 * A mesma assinatura do Azure que foi usada para criar o aplicativo lógico ou a conta de integração que você deseja mover
 
-* Permissões do proprietário do recurso para mover e configurar os recursos desejados. Saiba mais sobre o [RBAC (controle de acesso baseado em função)](../role-based-access-control/built-in-roles.md#owner).
+* Permissões do proprietário do recurso para mover e configurar os recursos desejados. Saiba mais sobre o [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/built-in-roles.md#owner).
 
 <a name="move-subscription"></a>
 

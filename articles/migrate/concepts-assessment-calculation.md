@@ -3,12 +3,12 @@ title: Avaliações de VM do Azure na avaliação do servidor de migrações par
 description: Saiba mais sobre as avaliações na avaliação do servidor de migrações para Azure
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 52cdd6bb9cb062b5c36e10c67524fa4d266ca6e0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7664c8296f0d47f37f9542dee82d3c718be40126
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107994"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825983"
 ---
 # <a name="azure-vm-assessments-in-azure-migrate-server-assessment"></a>Avaliações de VM do Azure nas migrações para Azure: avaliação do servidor
 
@@ -27,15 +27,15 @@ Há dois tipos de avaliações que podem ser criadas usando as Migrações para 
 
 **Tipo de avaliação** | **Detalhes**
 --- | --- 
-**VM do Azure** | Avaliações para migrar seus servidores locais para máquinas virtuais do Azure. <br/><br/> Você pode avaliar suas [VMs VMware](how-to-set-up-appliance-vmware.md)locais, VMS do [Hyper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para o Azure usando esse tipo de avaliação.
-**AVS (Solução VMware no Azure)** | Avaliações para migrar seus servidores locais para a [solução VMware do Azure (AVS)](../azure-vmware/introduction.md). <br/><br/> Você pode avaliar suas [VMs do VMware](how-to-set-up-appliance-vmware.md) locais para migração para a solução VMware do Azure (AVS) usando esse tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+**VM do Azure** | Avaliações para migrar servidores locais para máquinas virtuais do Azure. <br/><br/> Avalie as [VMs do VMware](how-to-set-up-appliance-vmware.md), [VMs do Hyper-V](how-to-set-up-appliance-hyper-v.md) e [servidores físicos](how-to-set-up-appliance-physical.md) locais para migração para o Azure usando esse tipo de avaliação.
+**AVS (Solução VMware no Azure)** | Avaliações para migrar servidores locais para a [AVS (Solução VMware no Azure)](../azure-vmware/introduction.md). <br/><br/> Avalie as [VMs do VMware](how-to-set-up-appliance-vmware.md) locais para migração para a AVS (Solução VMware no Azure) usando esse tipo de avaliação.[Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
 As avaliações criadas com a avaliação do servidor são um instantâneo de dados de ponto no tempo. Uma avaliação de VM do Azure na avaliação do servidor fornece duas opções de critérios de dimensionamento:
 
 **Tipo de avaliação** | **Detalhes** | **Dados**
 --- | --- | ---
 **Com base no desempenho** | Avaliações que fazem recomendações com base nos dados de desempenho coletados | A recomendação de tamanho da VM é baseada em dados de utilização de CPU e RAM.<br/><br/> A recomendação de tipo de disco se baseia nas operações de entrada/saída por segundo (IOPS) e na taxa de transferência dos discos locais. Os tipos de disco são Azure HDD Standard, Azure SSD Standard e discos Premium do Azure.
-**No estado em que se encontra no local** | Avaliações que não usam dados de desempenho para fazer recomendações | A recomendação de tamanho da VM é baseada no tamanho da VM local.<br/><br> O tipo de disco recomendado é baseado no tipo de armazenamento selecionado para a avaliação.
+**No estado em que se encontra localmente** | Avaliações que não usam dados de desempenho para fazer recomendações | A recomendação de tamanho da VM é baseada no tamanho da VM local.<br/><br> O tipo de disco recomendado é baseado no tipo de armazenamento selecionado para a avaliação.
 
 ## <a name="how-do-i-run-an-assessment"></a>Como fazer executar uma avaliação?
 
@@ -124,7 +124,7 @@ Aqui estão as novidades incluídas em uma avaliação de VM do Azure na avalia�
 **Série da VM** | A série de VMs do Azure que você deseja considerar para a permissão de direitos. Por exemplo, se você não tiver um ambiente de produção que precise de VMs série A no Azure, poderá excluir uma série da lista de séries.
 **Fator de conforto** | O buffer usado durante a avaliação. Ele é aplicado aos dados de CPU, RAM, disco e utilização de rede para VMs. Ele conta com problemas como uso sazonal, histórico de desempenho curto e, provavelmente, aumenta o uso futuro.<br/><br/> Por exemplo, uma VM de 10 núcleos com 20% de utilização normalmente resulta em uma VM de dois núcleos. Com um fator de conforto de 2,0, o resultado é uma VM de quatro núcleos.
 **Oferta** | A [oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) na qual você está inscrito. A avaliação do servidor estima o custo dessa oferta.
-**Currency** | A moeda de cobrança da sua conta.
+**Moeda** | A moeda de cobrança da sua conta.
 **Desconto (%)** | Quaisquer descontos específicos de assinatura recebidos por cima da oferta do Azure. A configuração padrão é 0%.
 **Tempo de atividade da VM** | A duração em dias por mês e horas por dia para VMs do Azure que não serão executadas continuamente. As estimativas de custo são baseadas nessa duração.<br/><br/> Os valores padrão são 31 dias por mês e 24 horas por dia.
 **Benefício Híbrido do Azure** | Especifica se você tem o Software Assurance e se está qualificado para [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Se a configuração tiver o valor padrão "Sim", os preços do Azure para sistemas operacionais diferentes do Windows serão considerados para VMs do Windows.
@@ -152,7 +152,7 @@ Propriedade | Detalhes | Status de preparação do Azure
 --- | --- | ---
 **Tempo de inicialização** | O Azure dá suporte a VMs com um tipo de inicialização de BIOS, não UEFI. | Condicionalmente pronto se o tipo de inicialização for UEFI
 **Núcleos** | Cada computador não deve ter mais de 128 núcleos, que é o número máximo com suporte de uma VM do Azure.<br/><br/> Se o histórico de desempenho estiver disponível, as Migrações para Azure considerarão os núcleos utilizados para comparação. Se as configurações de avaliação especificarem um fator de conforto, o número de núcleos utilizados será multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, as migrações para Azure usarão os núcleos alocados sem aplicar o fator de conforto. | Pronto se o número de núcleos estiver dentro do limite
-**RAM** | Cada computador não deve ter mais de 3.892 GB de RAM, que é o tamanho máximo que uma VM da série M do Azure Standard_M128m &nbsp; <sup>2</sup> dá suporte. [Saiba mais](../virtual-machines/windows/sizes.md).<br/><br/> Se o histórico de desempenho estiver disponível, as migrações para Azure considerarão a RAM utilizada para comparação. Se um fator de conforto for especificado, a RAM utilizada será multiplicada pelo fator de conforto.<br/><br/> Se não houver nenhum histórico, a RAM alocada será usada sem a aplicação de um fator de conforto.<br/><br/> | Pronto se a quantidade de RAM estiver dentro do limite
+**RAM** | Cada computador não deve ter mais de 3.892 GB de RAM, que é o tamanho máximo que uma VM da série M do Azure Standard_M128m &nbsp; <sup>2</sup> dá suporte. [Saiba mais](../virtual-machines/sizes.md).<br/><br/> Se o histórico de desempenho estiver disponível, as migrações para Azure considerarão a RAM utilizada para comparação. Se um fator de conforto for especificado, a RAM utilizada será multiplicada pelo fator de conforto.<br/><br/> Se não houver nenhum histórico, a RAM alocada será usada sem a aplicação de um fator de conforto.<br/><br/> | Pronto se a quantidade de RAM estiver dentro do limite
 **Disco de armazenamento** | O tamanho alocado de um disco não deve ter mais de 32 TB. Embora o Azure dê suporte a discos de 64 TB com discos SSD Ultra do Azure, migrações para Azure: a avaliação de servidor atualmente verifica 32 TB como o limite de tamanho de disco porque ele ainda não dá suporte a SSD Ultra. <br/><br/> O número de discos anexados ao computador, incluindo o disco do sistema operacional, deve ser de 65 ou menos. | Pronto se o tamanho e o número do disco estiverem dentro dos limites
 **Rede** | Um computador não deve ter mais de 32 NICs (adaptadores de rede) conectados a ele. | Pronto se o número de NICs estiver dentro do limite
 
@@ -176,7 +176,7 @@ Windows Server 2008 (32 bits e 64 bits) | O Azure fornece suporte total. | Pront
 Windows Server 2003 e Windows Server 2003 R2 | Esses sistemas operacionais passaram suas datas de fim de suporte e precisam de um [contrato de suporte personalizado (CSA)](https://aka.ms/WSosstatement) para dar suporte no Azure. | Condicionalmente pronto para o Azure. Considere atualizar o sistema operacional antes de migrar para o Azure.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3,1 e MS-DOS | Esses sistemas operacionais passaram por suas datas de fim de suporte. O computador pode iniciar no Azure, mas o Azure não fornece suporte ao sistema operacional. | Condicionalmente pronto para o Azure. Recomendamos que você atualize o sistema operacional antes de migrar para o Azure.
 Windows 7, Windows 8 e Windows 10 | O Azure fornece suporte apenas com uma [assinatura do Visual Studio.](../virtual-machines/windows/client-images.md) | Condicionalmente pronto para o Azure.
-Windows 10 Pro | O Azure oferece suporte com [Direitos de Hospedagem multilocatário.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Condicionalmente pronto para o Azure.
+Windows 10 Pro | O Azure oferece suporte com [Direitos de Hospedagem multilocatário.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Condicionalmente pronto para o Azure.
 Windows Vista e Windows XP Professional | Esses sistemas operacionais passaram por suas datas de fim de suporte. O computador pode iniciar no Azure, mas o Azure não fornece suporte ao sistema operacional. | Condicionalmente pronto para o Azure. Recomendamos que você atualize o sistema operacional antes de migrar para o Azure.
 Linux | Consulte os [sistemas operacionais Linux](../virtual-machines/linux/endorsed-distros.md) que o Azure endossa. Outros sistemas operacionais Linux podem ser iniciados no Azure. Mas é recomendável que você atualize o sistema operacional para uma versão endossada antes de migrar para o Azure. | Pronto para o Azure se a versão é aprovada.<br/><br/>Condicionalmente pronto se a versão não for endossada.
 Outros sistemas operacionais, como Oracle Solaris, Apple macOS e FreeBSD | O Azure não endossa esses sistemas operacionais. O computador pode iniciar no Azure, mas o Azure não fornece suporte ao sistema operacional. | Condicionalmente pronto para o Azure. Recomendamos que você instale um sistema operacional com suporte antes de migrar para o Azure.  
@@ -282,7 +282,7 @@ Após a conclusão das recomendações de dimensionamento, uma avaliação de VM
     - Software Assurance
     - Instâncias reservadas
     - Tempo de atividade da VM
-    - Location
+    - Localização
     - Configurações de moeda
 
     A avaliação do servidor agrega o custo em todas as máquinas para calcular o custo de computação mensal total.

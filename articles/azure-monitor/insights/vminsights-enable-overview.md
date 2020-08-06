@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 96783955eac6ade90a155236891307720616ed20
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e3c5f6d7e04620cf36f6cd952467d47afd775b19
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323937"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824759"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Habilitar Azure Monitor para VMs visão geral
 
@@ -45,7 +45,7 @@ O Azure Monitor para VMs dá suporte a um espaço de trabalho do Log Analytics n
 - Oeste dos EUA
 - Oeste dos EUA 2
 - Centro-Sul dos Estados Unidos
-- East US
+- Leste dos EUA
 - Leste dos EUA 2
 - Centro dos EUA
 - Centro-Norte dos EUA
@@ -113,7 +113,7 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux aos quais Azure
 | Versão do SO | Versão do kernel |
 |:--|:--|
 | 7.6 | 3.10.0-957 |
-| 7,5 | 3.10.0-862 |
+| 7.5 | 3.10.0-862 |
 | 7.4 | 3.10.0-693 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
@@ -150,7 +150,7 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux aos quais Azure
 
 | Versão do SO | Versão do kernel |
 |:--|:--|
-| 9 | 4,9 | 
+| 9 | 4.9 | 
 
 ## <a name="supported-azure-arc-machines"></a>Máquinas do Arc do Azure com suporte
 Azure Monitor para VMs está disponível para servidores habilitados para Arc do Azure em regiões em que o serviço de extensão Arc está disponível. Você deve estar executando a versão 0,9 ou superior do agente Arc.
@@ -174,10 +174,10 @@ A seguir estão vários métodos para implantar esses agentes.
 
 | Método | Descrição |
 |:---|:---|
-| [Azure portal](vminsights-enable-single-vm.md) | Instale os dois agentes em uma única máquina virtual, conjunto de dimensionamento de máquinas virtuais ou máquinas virtuais híbridas conectadas com o arco do Azure. |
-| [Modelos do Gerenciador de Recursos](vminsights-enable-powershell.md) | Instale ambos os agentes usando qualquer um dos métodos com suporte para implantar um modelo do Resource Manager, incluindo a CLI e o PowerShell. |
-| [Azure Policy](vminsights-enable-at-scale-policy.md) | Atribua Azure Policy Initiative para instalar automaticamente os agentes quando uma máquina virtual ou um conjunto de dimensionamento de máquinas virtuais for criado. |
-| [Instalação manual](vminsights-enable-hybrid-cloud.md) | Instale os agentes no sistema operacional convidado em computadores hospedados fora do Azure, incluindo em seu datacenter ou em outros ambientes de nuvem. |
+| [Azure portal](./vminsights-enable-portal.md) | Instale os dois agentes em uma única máquina virtual, conjunto de dimensionamento de máquinas virtuais ou máquinas virtuais híbridas conectadas com o arco do Azure. |
+| [Modelos do Resource Manager](vminsights-enable-powershell.md) | Instale ambos os agentes usando qualquer um dos métodos com suporte para implantar um modelo do Resource Manager, incluindo a CLI e o PowerShell. |
+| [Azure Policy](./vminsights-enable-policy.md) | Atribua Azure Policy Initiative para instalar automaticamente os agentes quando uma máquina virtual ou um conjunto de dimensionamento de máquinas virtuais for criado. |
+| [Instalação manual](./vminsights-enable-hybrid.md) | Instale os agentes no sistema operacional convidado em computadores hospedados fora do Azure, incluindo em seu datacenter ou em outros ambientes de nuvem. |
 
 
 
@@ -200,4 +200,3 @@ Para obter mais informações sobre a coleta e uso de dados, consulte a [Políti
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber como usar o recurso de monitoramento de desempenho, consulte [exibir Azure monitor para VMs desempenho](vminsights-performance.md). Para exibir as dependências de aplicativos descobertas, confira [Exibir o Mapa do Azure Monitor para VMs](vminsights-maps.md).
-
