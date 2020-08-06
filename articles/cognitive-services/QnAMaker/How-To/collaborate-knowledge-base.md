@@ -3,18 +3,18 @@ title: Colaborando na base de dados de conhecimento-QnA Maker
 description: O QnA Maker permite que várias pessoas colaborem em uma base de dados de conhecimento. Esse recurso é fornecido com o controle de acesso baseado em função do Azure (RBAC do Azure).
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 20eb58f346322cb78bff85af3d6a0d366090763d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 86c8d919618b37223e51a23635a1322a4e0d780c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446934"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837424"
 ---
 # <a name="collaboration-with-authors-and-editors"></a>Colaboração com autores e editores
 
 A colaboração é fornecida no nível de recurso QnA Maker para permitir que você restrinja o acesso do colaborador com base na função do colaborador. Saiba mais sobre os [conceitos](../Concepts/role-based-access-control.md)de autenticação do colaborador do QnA Maker.
 
-## <a name="add-role-based-access-rbac-to-your-qna-maker-resource"></a>Adicionar o RBAC (acesso baseado em função) ao recurso QnA Maker
+## <a name="add-azure-role-based-access-control-azure-rbac-to-your-qna-maker-resource"></a>Adicionar o Azure RBAC (controle de acesso baseado em função) ao recurso QnA Maker
 
 QnA Maker permite que várias pessoas colaborem em todas as bases de dados de conhecimento no mesmo recurso de QnA Maker. Esse recurso é fornecido com o [Controle de Acesso Baseado em Função](../../../active-directory/role-based-access-control-configure.md) do Azure.
 

@@ -1,6 +1,6 @@
 ---
 title: Escolha uma solução do Azure para transferência de dados | Microsoft Docs
-description: Saiba como escolher uma solução do Azure para transferência de dados com base em tamanhos de dados e largura de banda disponível em seu ambiente
+description: Saiba como escolher uma solução do Azure para transferência de dados com base em tamanhos de dados e largura de banda de rede disponível em seu ambiente.
 services: storage
 author: alkohli
 ms.service: storage
@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 7094fffa1ea8ca2c2557e75fcb31b700abc43da5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 123fa86714ae3cefe7de5bebda9e0fccd385ecb4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514431"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836591"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Escolha uma solução do Azure para transferência de dados
 
@@ -74,7 +74,7 @@ Você também pode acessar sua conta de armazenamento do Azure em portal do Azur
 - [Leia uma visão geral do AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).
 - [Início Rápido: Carregar, baixar e listar blobs com o PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 - [Início Rápido: Criar, baixar e listar blobs com a CLI do Azure](../blobs/storage-quickstart-blobs-cli.md)
-- Saiba mais sobre:
+- Saiba mais:
 
     - [Azure Data Box, Azure Data Box Disk e Azure Data Box Heavy para transferências offline ](https://docs.microsoft.com/azure/databox/).
     - [Gateway do Azure data box e Azure Stack Edge para transferências online](https://docs.microsoft.com/azure/databox-online/).

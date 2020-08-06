@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: d1ec61bf18248ea56c8ee5e430a671af7f39d732
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9310fd5c9a66fbd39e32c4756c5037567963912d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81458652"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87841814"
 ---
 É importante manter sua VM (máquina virtual) segura para os aplicativos que você executa. Proteger suas VMs pode incluir um ou mais serviços do Azure e recursos que abrangem o acesso seguro a suas máquinas virtuais e armazenamento seguro de seus dados. Este artigo fornece informações que permite que você mantenha sua VM e aplicativos seguros.
 
@@ -63,7 +63,7 @@ As [Políticas do Azure](../articles/azure-policy/azure-policy-introduction.md) 
 
 ## <a name="role-based-access-control"></a>Controle de acesso baseado em função
 
-Com o [RBAC (controle de acesso baseado em função)](../articles/role-based-access-control/overview.md), você pode separar as tarefas dentro de sua equipe e conceder somente a quantidade de acesso que os usuários em sua VM precisam para realizar seus trabalhos. Em vez de apresentar todas as permissões irrestritas na VM, você pode permitir que apenas determinadas ações. Você pode configurar o controle de acesso para a VM no [portal do Azure](../articles/role-based-access-control/role-assignments-portal.md), usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/role) ou o [Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
+Usando o Azure [RBAC (controle de acesso baseado em função)](../articles/role-based-access-control/overview.md), você pode separar as tarefas dentro de sua equipe e conceder apenas a quantidade de acesso aos usuários em sua VM que eles precisam para executar seus trabalhos. Em vez de apresentar todas as permissões irrestritas na VM, você pode permitir que apenas determinadas ações. Você pode configurar o controle de acesso para a VM no [portal do Azure](../articles/role-based-access-control/role-assignments-portal.md), usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/role) ou o [Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

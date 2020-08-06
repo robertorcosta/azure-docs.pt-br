@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 4fabaed28ca186f3ca091107e51ed3900168ba41
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f312170fd357e64e2fbd7d455987993cdad76123
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387720"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837101"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Discos do sistema operacional efêmero para VMs do Azure
 
@@ -35,7 +35,7 @@ Principais diferenças entre discos do sistema operacional persistentes e efême
 |                             | Disco do so persistente                          | Disco do SO Efêmero                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | **Limite de tamanho para o disco do sistema operacional**      | 2 TiB                                                                                        | Tamanho do cache para o tamanho da VM ou 2TiB, o que for menor. Para o **tamanho do cache em GIB**, consulte [DS](sizes-general.md), [es](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md)e [GS](sizes-previous-gen.md#gs-series)              |
-| **Tamanhos de VM com suporte**          | Todos                                                                                          | Tamanhos de VM que dão suporte ao armazenamento Premium, como DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
+| **Tamanhos de VM com suporte**          | Tudo                                                                                          | Tamanhos de VM que dão suporte ao armazenamento Premium, como DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
 | **Suporte a tipo de disco**           | Disco do sistema operacional gerenciado e não gerenciado                                                                | Somente disco do sistema operacional gerenciado                                                               |
 | **Suporte de regiões**              | Todas as regiões                                                                                  | Todas as regiões                              |
 | **Persistência de dados**            | Os dados do disco do sistema operacional gravados no disco do sistema operacional são armazenados no armazenamento do Azure                                  | Os dados gravados no disco do sistema operacional são armazenados no armazenamento da VM local e não são persistidos no armazenamento do Azure. |
@@ -51,7 +51,7 @@ Você pode implantar as imagens da VM e da instância até o tamanho do cache da
 Os discos efêmeros também exigem que o tamanho da VM dê suporte ao armazenamento Premium. Os tamanhos geralmente (mas nem sempre) têm um `s` no nome, como DSv2 e EsV3. Para obter mais informações, consulte [tamanhos de VM do Azure](sizes.md) para obter detalhes sobre quais tamanhos dão suporte ao armazenamento Premium.
 
 ## <a name="preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks"></a>Visualização-OS discos do sistema operacional efêmero agora podem ser armazenados em discos temporários
-Os discos do sistema operacional efêmero agora podem ser armazenados no disco temporário/de recurso da VM, além do cache da VM. Então, agora você pode usar discos do sistema operacional efêmero com a VM que não tem um cache ou tem cache insuficiente, mas tem um disco temporário/de recursos para armazenar o disco do sistema operacional efêmero, como Dav3, Dav4, Eav4 e Eav3. Se uma VM tiver um espaço temporário e cache suficiente, você também poderá especificar onde deseja armazenar o disco do sistema operacional efêmero usando uma nova propriedade chamada [DiffDiskPlacement](https://docs.microsoft.com/rest/api/compute/virtualmachines/list#diffdiskplacement). Esse recurso está atualmente na visualização. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para começar, [solicite o acesso](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
+Os discos do sistema operacional efêmero agora podem ser armazenados no disco temporário/de recurso da VM, além do cache da VM. Então, agora você pode usar discos do sistema operacional efêmero com a VM que não tem um cache ou tem cache insuficiente, mas tem um disco temporário/de recursos para armazenar o disco do sistema operacional efêmero, como Dav3, Dav4, Eav4 e Eav3. Se uma VM tiver um espaço temporário e cache suficiente, você também poderá especificar onde deseja armazenar o disco do sistema operacional efêmero usando uma nova propriedade chamada [DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement). Esse recurso está atualmente na visualização. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para começar, [solicite o acesso](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
 
 ## <a name="powershell"></a>PowerShell
 

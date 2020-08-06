@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 08/05/2020
 ms.author: juliako
-ms.openlocfilehash: d7667f7c5194762b227c3cddd5bea5ed9d50a96e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1b11dc0ee17fd0686776a7262c4bc99bd98bcc3e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042622"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837302"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de versão do Video Indexer de serviços de mídia do Azure
 
@@ -29,6 +29,28 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 * Problemas conhecidos
 * Correções de bug
 * Funcionalidades preteridas
+
+## <a name="july-2020"></a>Julho de 2020
+
+### <a name="ga-for-multi-language-identification"></a>GA para identificação em vários idiomas
+
+A identificação em vários idiomas é movida de visualização para GA e pronta para uso produtivo.
+
+Não há impacto de preço relacionado à transição de "visualização para GA".
+
+### <a name="video-indexer-website-improvements"></a>Aprimoramentos no site Video Indexer
+
+#### <a name="adjustments-in-the-video-gallery"></a>Ajustes na Galeria de vídeos
+
+Foi adicionada uma nova barra de pesquisa para a pesquisa detalhada com recursos de filtragem adicionais. Os resultados da pesquisa também foram aprimorados.
+
+Novo modo de exibição de lista com a capacidade de classificar e gerenciar o arquivo de vídeo com vários arquivos.
+
+#### <a name="new-panel-for-easy-selection-and-configuration"></a>Novo painel para fácil seleção e configuração
+
+Painel lateral para fácil seleção e configuração de usuário foi adicionada, permitindo a criação e o compartilhamento de contas simples e rápidas, bem como configuração de configuração.
+
+O painel lateral também é usado para preferências e ajuda do usuário.
 
 ## <a name="june-2020"></a>Junho de 2020
 

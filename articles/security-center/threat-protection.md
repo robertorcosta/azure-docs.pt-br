@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: f5218b2346b6ddebcee87a0e24f4924deafdb0f2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e74dac779fc1eafaf33ffbc63bf997cf26b64954
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037181"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836795"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças na Central de Segurança do Azure
 
@@ -54,11 +54,15 @@ A Central de Segurança do Azure integra-se aos serviços do Azure para monitora
 
     Quando a ATP do Microsoft Defender detecta uma ameaça, ela dispara um alerta. O alerta é mostrado no painel da Central de Segurança. No painel, você pode dinamizar para o console da ATP do Microsoft Defender e realizar uma investigação detalhada para descobrir o escopo do ataque. Para saber mais sobre a ATP do Microsoft Defender, confira [Integrar servidores ao serviço da ATP do Microsoft Defender](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
-* **Detecção de ataques sem arquivo** <a name="windows-fileless"></a> - ataques sem arquivos direcionados aos seus pontos de extremidade são comuns. Para evitar a detecção, os ataques sem arquivos injetam cargas mal-intencionadas na memória. Os payloads do invasor persistem na memória de processos comprometidos e executam uma ampla gama de atividades mal-intencionadas.
+* Detecção de ataque de não- **arquivo** <a name="windows-fileless"></a> -Ataques de arquivo insuficiente injetam cargas mal-intencionadas na memória para evitar a detecção por técnicas de verificação baseadas em disco. A carga do invasor persiste dentro da memória de processos comprometidos e executa uma ampla variedade de atividades mal-intencionadas.
 
-    Com a detecção de ataques sem arquivos, as técnicas forenses de memória automatizada identificam os toolkits, as técnicas e os comportamentos de ataques sem arquivos. Essa solução verifica periodicamente seu computador em tempo de execução e extrai informações diretamente da memória de processos críticos de segurança.
+    Com a detecção de ataques sem arquivos, as técnicas forenses de memória automatizada identificam os toolkits, as técnicas e os comportamentos de ataques sem arquivos. Essa solução verifica periodicamente seu computador em tempo de execução e extrai informações diretamente da memória dos processos. Informações específicas para Linux incluem a identificação de: 
 
-    Ele encontra evidências de exploração, injeção de código e execução de payloads mal-intencionados. A detecção de ataques sem arquivos gera alertas de segurança detalhados para acelerar a triagem de alerta, a correlação e o tempo de resposta downstream. Essa abordagem complementa as soluções de EDR baseadas em eventos, proporcionando uma maior cobertura de detecção.
+    - Kits de programas conhecidos e software de mineração de criptografia 
+    - Shellcode, que é uma pequena parte do código normalmente usada como a carga na exploração de uma vulnerabilidade de software.
+    - Executável mal-intencionado injetado na memória do processo
+
+    A detecção de ataque sem arquivo gera alertas de segurança detalhados contendo as descrições com metadados de processo adicionais, como a atividade de rede. Isso acelera a triagem de alerta, correlação e tempo de resposta downstream. Essa abordagem complementa as soluções de EDR baseadas em eventos e fornece maior cobertura de detecção.
 
     Para obter detalhes sobre os alertas de detecção de ataques sem arquivos, confira a [Tabela de referência de alertas](alerts-reference.md#alerts-windows).
 

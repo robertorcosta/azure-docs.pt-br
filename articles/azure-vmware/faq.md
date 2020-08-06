@@ -4,12 +4,12 @@ description: Fornece respostas para algumas dúvidas comuns sobre a AVS (Soluç�
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: f160e617163f11c02e4d661cbf1c14f63a6772f8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6bf8e924b0776ace282e94f62ae2b0a67439efd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003416"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836574"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Perguntas frequentes sobre a versão prévia da AVS (Solução VMware no Azure)
 
@@ -25,7 +25,7 @@ Respostas a perguntas frequentes sobre a AVS (Solução VMware no Azure).
 
 **Onde a AVS está disponível atualmente?**
 
-Durante a versão prévia, a AVS está disponível no Leste dos EUA, na América do Norte, e em Amsterdã, no Oeste da Europa.
+O serviço está sendo adicionado continuamente a novas regiões, portanto, exiba as [informações mais recentes de disponibilidade do serviço](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) para obter mais detalhes. 
 
 **As cargas de trabalho em execução em uma instância da AVS (Solução VMware no Azure) consomem ou se integram aos serviços do Azure?**
 
@@ -65,7 +65,7 @@ Não há qualquer alteração na Solução VMware da CloudSimple no Azure atual.
 
 **Posso migrar da Solução VMware da CloudSimple no Azure para essa nova solução?**
 
-Sim, a Solução VMware no Azure dá suporte à migração usando ferramentas conhecidas de VMware, como HCX. Para os clientes interessados em migrar para a nova solução, procure a equipe da sua conta Microsoft para explorar opções e suporte disponíveis.
+Sim, a Solução VMware no Azure dá suporte à migração usando ferramentas conhecidas de VMware, como HCX. Para clientes interessados em migrar para a nova solução, trabalhe com sua equipe de conta Microsoft para explorar opções e suporte disponível.
 
 
 
@@ -89,7 +89,7 @@ Cada host ESXi tem dois diskgroups vSAN com uma camada de capacidade de 15,2 TB 
 
 **Cada host ESXi possui quanto de largura de banda de rede disponível?**
 
-Os hosts ESXi são compatíveis com uma largura de banda de conectividade de até 25 Gbps.
+Cada host ESXi é o AVS configurado com NICs de 4 25 Gbps, com duas NICs provisionadas para o tráfego do sistema ESXi e duas NICs provisionadas para o tráfego de carga de trabalho. 
 
 **Os dados são armazenados nos armazenamentos do vSAN criptografados em repouso?**
 
@@ -197,11 +197,11 @@ Durante a versão prévia, a cobrança pela AVS é mensal e conforme o uso. Outr
 
 **Como os preços serão estruturados durante a versão prévia da AVS?**
 
-Para perguntas gerais sobre preços, confira a página de [preços](https://azure.microsoft.com/pricing/details/azure-vmware) da Solução VMware no Azure. Os preços da versão prévia estão disponíveis na solicitação. Entre em contato com sua equipe de conta ou siga o link na página de preços para entrar em contato com o setor de vendas.
+Para perguntas gerais sobre preços, confira a página de [preços](https://azure.microsoft.com/pricing/details/azure-vmware) da Solução VMware no Azure. Os preços da versão prévia estão disponíveis na solicitação, entre em contato com sua equipe de conta ou siga o link na página de preços para entrar em contato com as vendas.
 
 **Quem dá suporte à AVS?**
 
-O suporte para AVS é fornecido pela Microsoft. Observe que, de acordo com nossas diretrizes de versão prévia, o suporte será dado durante o horário comercial, das 9 às 17h, de segunda a sexta-feira. Você pode criar um Tíquete de suporte usando [este link](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+O suporte para AVS é fornecido pela Microsoft. Observe que, de acordo com nossas diretrizes de visualização, forneceremos suporte durante 9 a 5 horas de trabalho de PST de segunda a sexta-feira. Você pode criar um Tíquete de suporte usando [este link](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 **De que conta eu preciso para criar uma nuvem privada da AVS?**
 

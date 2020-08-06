@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: d9b4766b42704da8c81704822f263a6ddf46ce5a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2f7ba4c1e4fdfad33a74fcb159fbb9efca3b5271
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052851"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836438"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Como gerar miniaturas usando o Codificador de Mídia Padrão com o .NET 
 
@@ -282,7 +282,7 @@ Observe o uso da macro {Resolution} no FileName. Isso faz com que o codificador 
 Embora todos os exemplos acima tenham discutido como enviar uma tarefa de codificação que produz apenas imagens, também é possível combinar a codificação de vídeo ou áudio com a geração de miniaturas. As predefinições JSON e XML a seguir fazem com que o **Media Encoder Standard** gere uma miniatura durante a codificação.
 
 ### <a name="json-preset"></a><a id="json"></a>Predefinição JSON
-Para obter informações sobre o esquema, consulte [este](/azure/media-services/previous/media-services-mes-schema) artigo.
+Para obter informações sobre o esquema, consulte [este](./media-services-mes-schema.md) artigo.
 
 ```json
     {
@@ -347,7 +347,7 @@ Para obter informações sobre o esquema, consulte [este](/azure/media-services/
 ```
 
 ### <a name="xml-preset"></a><a id="xml"></a>Predefinição XML
-Para obter informações sobre o esquema, consulte [este](/azure/media-services/previous/media-services-mes-schema) artigo.
+Para obter informações sobre o esquema, consulte [este](./media-services-mes-schema.md) artigo.
 
 ```csharp
     <?xml version="1.0" encoding="utf-16"?>

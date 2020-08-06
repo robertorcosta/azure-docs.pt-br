@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: f63bcbb26752dc787d508260cce0b0518cdc7c38
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6113ee61d4949649b65607c0f1bd606be4edb2ac
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080396"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837152"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rede para conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -244,7 +244,7 @@ Exemplo de saída do [Azure Resource Explorer](https://resources.azure.com) e AP
 Todas as NICs anexadas a uma VM em um conjunto de dimensionamento têm uma ou mais configurações IP associadas a elas. Cada configuração é atribuída a um endereço IP privado. Cada configuração também pode ter um recurso de endereço IP público associado a ela. Para entender quantos endereços IP podem ser atribuídos a uma NIC e quantos endereços IP públicos você pode usar em uma assinatura do Azure, confira [Limites do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="multiple-nics-per-virtual-machine"></a>Várias NICs por máquina virtual
-Você pode ter até 8 NICs por máquina virtual, dependendo do tamanho da máquina. O número máximo de NICs por máquina está disponível no [artigo Tamanho de VM](../virtual-machines/windows/sizes.md). Todas as NICs conectadas a uma instância de VM devem se conectar à mesma rede virtual. As NICs podem se conectar a diferentes sub-redes, mas todas as sub-redes devem fazer parte da mesma rede virtual.
+Você pode ter até 8 NICs por máquina virtual, dependendo do tamanho da máquina. O número máximo de NICs por máquina está disponível no [artigo Tamanho de VM](../virtual-machines/sizes.md). Todas as NICs conectadas a uma instância de VM devem se conectar à mesma rede virtual. As NICs podem se conectar a diferentes sub-redes, mas todas as sub-redes devem fazer parte da mesma rede virtual.
 
 O exemplo a seguir é um perfil de rede do conjunto de dimensionamento mostrando várias entradas NIC e vários IPs públicos por máquina virtual:
 

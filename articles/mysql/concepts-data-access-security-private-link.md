@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: f780bf946e81e9873a1828f9d697f69c81cef513
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6391b21faaf6cd2a61dbe84af50ae12e4289dff9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509314"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837282"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Link privado para o banco de dados do Azure para MySQL
 
@@ -20,7 +20,7 @@ O Link Privado permite que você se conecte a vários serviços de PaaS no Azure
 Para obter uma lista dos serviços de PaaS que dão suporte à funcionalidade de link privado, examine a [documentação](https://docs.microsoft.com/azure/private-link/index)do link privado. Um ponto de extremidade privado é um endereço IP privado em uma [VNET](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) e sub-rede específicas.
 
 > [!NOTE]
-> Esse recurso está disponível em todas as regiões do Azure em que o banco de dados do Azure para MySQL dá suporte a tipos de preço Uso Geral e com otimização de memória.
+> O recurso de link privado só está disponível para servidores do banco de dados do Azure para MySQL nos tipos de preço Uso Geral ou com otimização de memória. Verifique se o servidor de banco de dados está em um desses tipos de preço.
 
 ## <a name="data-exfiltration-prevention"></a>Prevenção contra exportação de dados
 

@@ -3,12 +3,12 @@ title: Autenticar eventos de publicação de clientes em domínios ou tópicos p
 description: Este artigo descreve diferentes maneiras de autenticar os eventos de publicação de clientes para tópicos personalizados da grade de eventos.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 1e147830a4b37a8603df8e4ce29953acab2345bd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8b08c46fdeadccfad0471ddfa4f9ba2762a951a0
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115869"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837390"
 ---
 # <a name="authenticate-publishing-clients-azure-event-grid"></a>Autenticar clientes de publicação (grade de eventos do Azure)
 Este artigo fornece informações sobre como autenticar os clientes que publicam eventos em domínios ou tópicos da grade de eventos do Azure usando a **chave de acesso** ou o token **SAS (assinatura de acesso compartilhado)** . É recomendável usar o token SAS, mas a autenticação de chave fornece programação simples e é compatível com muitos Publicadores de webhook existentes.  
@@ -27,7 +27,7 @@ aeg-sas-key: XXXXXXXXXXXXXXXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
 Você também pode especificar `aeg-sas-key` como um parâmetro de consulta. 
 
 ```
-https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01&&aeg-sas-key=XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
+https://<yourtopic>.<region>.eventgrid.azure.net/api/events?aeg-sas-key=XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
 ```
 
 Para obter instruções sobre como obter chaves de acesso para um tópico ou domínio, consulte [obter chaves de acesso](get-access-keys.md).
@@ -35,7 +35,7 @@ Para obter instruções sobre como obter chaves de acesso para um tópico ou dom
 ## <a name="authenticate-using-a-sas-token"></a>Autenticar usando um token SAS
 Os tokens SAS para um recurso da grade de eventos incluem o recurso, o tempo de expiração e uma assinatura. O formato do token SAS é: `r={resource}&e={expiration}&s={signature}`.
 
-O recurso é o caminho para o tópico da grade de eventos para o qual você está enviando eventos. Por exemplo, um caminho de recurso válido é: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01`. Para ver todas as versões de API compatíveis, confira [Tipos de recurso do Microsoft.EventGrid](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions). 
+O recurso é o caminho para o tópico da grade de eventos para o qual você está enviando eventos. Por exemplo, um caminho de recurso válido é: `https://<yourtopic>.<region>.eventgrid.azure.net/api/events`. Para ver todas as versões de API compatíveis, confira [Tipos de recurso do Microsoft.EventGrid](/azure/templates/microsoft.eventgrid/allversions). 
 
 Primeiro, gere programaticamente um token SAS e, em seguida, use o `aeg-sas-token` cabeçalho ou `Authorization SharedAccessSignature` cabeçalho para autenticar com a grade de eventos. 
 
@@ -69,14 +69,14 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 Aqui está um exemplo de como passar o token SAS como um valor para o `aeg-sas-toke` cabeçalho. 
 
 ```http
-aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2feventGrid%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
+aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
 ```
 
 ### <a name="using-authorization-header"></a>Usando o cabeçalho de autorização
 Aqui está um exemplo de como passar o token SAS como um valor para o `Authorization` cabeçalho. 
 
 ```http
-Authorization: SharedAccessSignature r=https%3a%2f%2fmytopic.eventgrid.azure.net%2feventGrid%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
+Authorization: SharedAccessSignature r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -1,6 +1,6 @@
 ---
 title: Monitorar o Armazenamento do Microsoft Azure | Microsoft Docs
-description: Saiba como monitorar o desempenho e a disponibilidade do Armazenamento do Microsoft Azure.
+description: Saiba como monitorar o desempenho e a disponibilidade do Armazenamento do Microsoft Azure. Monitore os dados do armazenamento do Azure, saiba mais sobre a configuração e analise os dados de métrica e de log.
 author: normesta
 services: storage
 ms.service: storage
@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 2f6320bf4606dc9357ac676b3bc5d7421b24a36c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: e1be9a7e543f8513f3b30182dfbc421dc38bdbce
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182705"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836659"
 ---
 # <a name="monitor-azure-storage"></a>Monitorar o Armazenamento do Microsoft Azure
 
@@ -86,9 +86,9 @@ Você também precisa especificar as categorias de operações para as quais des
 
 | Categoria | Descrição |
 |:---|:---|
-| StorageRead | Ler operações em blobs. |
-| StorageWrite | Gravar operações em blobs. |
-| StorageDelete | Exclui operações em blobs. |
+| StorageRead | Operações de leitura em objetos. |
+| StorageWrite | Operações de gravação em objetos. |
+| StorageDelete | Excluir operações em objetos. |
 
 ## <a name="analyze-metric-data"></a>Analisar dados de métrica
 

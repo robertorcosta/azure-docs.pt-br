@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 65ec92aeca44a514467a642de1dab06f06c220e9
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 880ec24c377091173202098a3c54b5776bf69a98
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533845"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836608"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Usar pontos de extremidade de serviço de rede virtual e regras para servidores no banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -59,7 +59,7 @@ Há uma separação de funções de segurança na administração de pontos de e
 
 As funções de Administrador de banco de dados e Administrador de rede têm mais recursos do que o necessário para gerenciar regras da rede virtual. É necessário apenas um subconjunto de seus recursos.
 
-Você tem a opção de usar o [controle de acesso baseado em função (RBAC)][rbac-what-is-813s] no Azure para criar uma única função personalizada que tenha apenas o subconjunto necessário de recursos. A função personalizada pode ser usada em vez de envolver o administrador de rede ou o administrador de banco de dados. A área da superfície de sua exposição de segurança será menor se você adicionar um usuário a uma função personalizada, em vez de adicionar o usuário às outras duas principais funções de administrador.
+Você tem a opção de usar o [controle de acesso baseado em função do Azure (RBAC do Azure)][rbac-what-is-813s] no Azure para criar uma única função personalizada que tem apenas o subconjunto necessário de recursos. A função personalizada pode ser usada em vez de envolver o administrador de rede ou o administrador de banco de dados. A área da superfície de sua exposição de segurança será menor se você adicionar um usuário a uma função personalizada, em vez de adicionar o usuário às outras duas principais funções de administrador.
 
 > [!NOTE]
 > Em alguns casos, o banco de dados no banco de dados SQL do Azure e a sub-rede VNet estão em assinaturas diferentes. Nesses casos, você deve garantir as seguintes configurações:
@@ -139,7 +139,7 @@ O PolyBase costuma ser usado para carregar dados no Azure Synapse Analytics de c
 1. Na conta de armazenamento, navegue até o **Controle de Acesso (IAM)** e selecione **Adicionar atribuição de função**. Atribua a função de **colaborador de dados de armazenamento de BLOBs** do Azure ao servidor que hospeda a análise de Synapse do Azure que você registrou com Azure Active Directory (AAD) como na etapa #1.
 
    > [!NOTE]
-   > Somente membros com privilégio de proprietário na conta de armazenamento podem executar esta etapa. Para várias funções internas do Azure, consulte este [guia](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Somente membros com privilégio de proprietário na conta de armazenamento podem executar esta etapa. Para obter várias funções internas do Azure, confira este [guia](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1. **Conectividade do Polybase com a conta de Armazenamento do Azure:**
 

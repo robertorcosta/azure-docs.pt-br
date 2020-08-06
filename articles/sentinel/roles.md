@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: b907fead145847d54b8b1de196586b65101b22ed
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 7dded3b938444198e72d6eb87476f571dd3f4d78
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533998"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836761"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões no Azure Sentinel
 
-O Azure Sentinel usa o [RBAC (controle de acesso baseado em função)](../role-based-access-control/role-assignments-portal.md) para fornecer [funções internas](../role-based-access-control/built-in-roles.md)   que podem ser atribuídas a usuários, grupos e serviços no Azure.
+O Azure Sentinel usa o Azure [RBAC (controle de acesso baseado em função)](../role-based-access-control/role-assignments-portal.md) para fornecer [funções internas](../role-based-access-control/built-in-roles.md)   que podem ser atribuídas a usuários, grupos e serviços no Azure.
 
 Use o RBAC para criar e atribuir funções em sua equipe de operações de segurança para conceder acesso apropriado ao Azure Sentinel. As diferentes funções oferecem um controle refinado sobre o que os usuários do Azure Sentinel podem ver e fazer. As funções do Azure podem ser atribuídas diretamente no espaço de trabalho do Azure Sentinel (veja a observação abaixo), ou em uma assinatura ou grupo de recursos ao qual o espaço de trabalho pertence, que o Azure Sentinel herdará.
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 08e146ebde34c6d85e258c93a1ed1780bb97727b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 6c96c4803293db9d9bacfc43f0de2f7803e6c41c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206443"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836472"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Criar e gerenciar o link privado para o banco de dados do Azure para MariaDB usando o portal
 
@@ -20,7 +20,7 @@ Um ponto de extremidade privado é o bloco de construção fundamental para o li
 Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!NOTE]
-> Esse recurso está disponível em todas as regiões do Azure em que o banco de dados do Azure para MariaDB dá suporte a tipos de preço Uso Geral e com otimização de memória.
+> O recurso de link privado só está disponível para o banco de dados do Azure para servidores MariaDB nos tipos de preço Uso Geral ou com otimização de memória. Verifique se o servidor de banco de dados está em um desses tipos de preço.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 Entre no [portal do Azure](https://portal.azure.com).
@@ -103,7 +103,7 @@ Nesta seção, você criará um banco de dados do Azure para o servidor MariaDB 
 
 1. No **banco de dados do Azure para MariaDB** , forneça estas informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | **Detalhes do projeto** | |
     | Subscription | Selecione sua assinatura. |
@@ -114,7 +114,7 @@ Nesta seção, você criará um banco de dados do Azure para o servidor MariaDB 
     | Senha | Insira uma senha de sua escolha. A senha deve ter no mínimo 8 caracteres e atender a requisitos complexidade definidos. |
     | Location | Selecione uma região do Azure onde você deseja que seu servidor MariaDB resida. |
     |Versão  | Selecione a versão do banco de dados do servidor MariaDB que é necessária.|
-    | Computação + armazenamento| Selecione o tipo de preço necessário para o servidor com base na carga de trabalho. |
+    | Computação + Armazenamento| Selecione o tipo de preço necessário para o servidor com base na carga de trabalho. |
     |||
 
 7. Selecione **OK**. 
@@ -137,7 +137,7 @@ Nesta seção, você criará um ponto de extremidade privado para o servidor Mar
 
 1. Em **criar um ponto de extremidade privado-noções básicas**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | **Detalhes do projeto** | |
     | Subscription | Selecione sua assinatura. |
@@ -227,11 +227,11 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
 
 4. Em **nova conexão**, insira ou selecione estas informações:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | Tipo de servidor| Selecione **MariaDB**.|
     | Nome do servidor| Selecionar *mydemoserver.privatelink.MariaDB.Database.Azure.com* |
-    | Nome do usuário | Insira o nome de usuário como username@servername fornecido durante a criação do servidor MariaDB. |
+    | Nome de usuário | Insira o nome de usuário como username@servername fornecido durante a criação do servidor MariaDB. |
     |Senha |Insira uma senha fornecida durante a criação do servidor MariaDB. |
     |SSL|Selecione **obrigatório**.|
     ||
@@ -242,7 +242,7 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
 
 7. Feche a conexão de área de trabalho remota para myVm.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando você terminar de usar o ponto de extremidade privado, o servidor MariaDB e a VM, exclua o grupo de recursos e todos os recursos que ele contém:
 
 1. Insira *MyResource*   The na caixa de **pesquisa** na parte superior do portal e selecione *MyResource*   Bedos resultados da pesquisa.

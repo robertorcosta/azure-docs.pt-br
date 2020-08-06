@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 06/15/2020
-ms.openlocfilehash: 8bf1a19c8756e8c51b79ec63f10822efa7816d32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9bc5e91d45b75c47cee31c45b937f7d3f0118b8
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986966"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836676"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Transparent Data Encryption para o banco de dados SQL, o SQL Instância Gerenciada e o Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -26,7 +26,7 @@ A [TDE (Transparent Data Encryption)](/sql/relational-databases/security/encrypt
 
 A TDE realiza a criptografia e a descriptografia de E/S em tempo real dos dados no nível da página. Cada página é descriptografada quando é lida na memória e, em seguida, criptografada antes de ser gravada no disco. O TDE criptografa o armazenamento de um banco de dados inteiro usando uma chave simétrica chamada de DEK (chave de criptografia de banco de dados). Na inicialização do banco de dados, o DEK criptografado é descriptografado e usado para descriptografia e recriptografia dos arquivos de banco de dados no processo do mecanismo de banco de dados SQL Server. DEK é protegido pelo protetor de TDE. O protetor de TDE é um certificado gerenciado por serviço (criptografia de dados transparente gerenciada por serviço) ou uma chave assimétrica armazenada em [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) (Transparent Data Encryption gerenciada pelo cliente).
 
-Para o banco de dados SQL do Azure e o Azure Synapse, o protetor de TDE é definido no nível do [servidor](logical-servers.md) e é herdado por todos os bancos de dados associados a esse servidor. Para o Azure SQL Instância Gerenciada (recurso BYOK na versão prévia), o protetor de TDE é definido no nível de instância e é herdado por todos os bancos de dados criptografados nessa instância. O termo *servidor* refere-se ao servidor e instância ao longo deste documento, a menos que indicado de forma diferente.
+Para o banco de dados SQL do Azure e o Azure Synapse, o protetor de TDE é definido no nível do [servidor](logical-servers.md) e é herdado por todos os bancos de dados associados a esse servidor. Para a Instância Gerenciada do SQL do Azure, o protetor de TDE é definido no nível de instância e é herdado por todos os bancos de dados criptografados nessa instância. O termo *servidor* refere-se ao servidor e instância ao longo deste documento, a menos que indicado de forma diferente.
 
 > [!IMPORTANT]
 > Todos os bancos de dados recém-criados no banco de dados SQL são criptografados por padrão usando a Transparent Data Encryption gerenciada por serviço. Os bancos de dados SQL existentes criados antes de 2017 de maio e de SQL criados por meio da restauração, da replicação geográfica e da cópia do banco de dados não são criptografados por padrão. Os bancos de dados existentes do SQL Instância Gerenciada criados antes de fevereiro de 2019 não são criptografados por padrão. Os bancos de dados do SQL Instância Gerenciada criados por meio da restauração herdam o status de criptografia da origem.

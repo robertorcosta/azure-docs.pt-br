@@ -1,5 +1,5 @@
 ---
-title: Configurar uma instância e autenticação (Portal)
+title: Configurar uma instância e uma autenticação (portal)
 titleSuffix: Azure Digital Twins
 description: Consulte como configurar uma instância do serviço gêmeos do Azure digital usando o portal do Azure
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 73b7171b89b26926992e95f77e376e7bb7731eff
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c7027f474c9ff5cbd90ed1800d74e3b4ebd60b3e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408234"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836931"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (Portal)
 
@@ -62,7 +62,7 @@ Na página *criar recurso* a seguir, preencha os valores fornecidos abaixo:
 
 Quando terminar, selecione _revisar + criar_. Isso levará você a uma página de resumo, na qual você pode examinar os detalhes da instância inseridos e clicar em _criar_. 
 
-### <a name="verify-success"></a>Verificar êxito
+### <a name="verify-success-and-collect-important-values"></a>Verificar o êxito e coletar valores importantes
 
 Depois de *enviar por*Push, você pode exibir o status da implantação da sua instância em suas notificações do Azure ao longo da barra de ícones do Portal. A notificação indicará quando a implantação foi bem-sucedida e você poderá selecionar o botão _ir para o recurso_ para exibir a instância criada.
 

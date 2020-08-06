@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: ddbd64049307dcfd9b27cde1418eef2378b4f6b4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c03105326b6d189b3c6fde72ff959211b3009517
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085683"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837033"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs
 
@@ -580,7 +580,7 @@ Supondo que as configurações protegidas estejam no arquivo ProtectedSettings.j
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-O comando pressupõe que você esteja usando o modo ARM (gerenciamento de recursos do Azure) da CLI do Azure. Para configurar o LAD para as VMs do modelo de implantação clássico (ASM), alterne para o modo "asm" (`azure config mode asm`) e omita o nome do grupo de recursos no comando. Para saber mais, confira a [documentação da CLI entre plataformas](/azure/xplat-cli-connect).
+O comando pressupõe que você esteja usando o modo de gerenciamento de recursos do Azure da CLI do Azure. Para configurar o LAD para as VMs do modelo de implantação clássico (ASM), alterne para o modo "asm" (`azure config mode asm`) e omita o nome do grupo de recursos no comando. Para saber mais, confira a [documentação da CLI entre plataformas](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 ### <a name="powershell"></a>PowerShell
 

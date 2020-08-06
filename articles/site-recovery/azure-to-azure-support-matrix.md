@@ -4,12 +4,12 @@ description: Resume o suporte para a recuperação de desastre de VMs do Azure e
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: d4beec60a2cd705884ee79296c9afab2afc08c2e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 09b6bf6db5927c49950fc5b2a6d1753d53364380
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534491"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836642"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação de desastre de VM do Azure entre regiões do Azure
 
@@ -170,7 +170,7 @@ SUSE Linux Enterprise Server 15 e 15 SP1 | 9.32 | Por padrão, todos os [kernels
 
 **Configuração** | **Suporte** | **Detalhes**
 --- | --- | ---
-Tamanho | Qualquer tamanho de VM do Azure com, no mínimo, 2 núcleos de CPU e 1 GB de RAM | Verifique se [tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md).
+Tamanho | Qualquer tamanho de VM do Azure com, no mínimo, 2 núcleos de CPU e 1 GB de RAM | Verifique se [tamanhos de máquina virtual do Azure](../virtual-machines/sizes.md).
 Conjuntos de disponibilidade | Com suporte | Se você habilitar a replicação para uma VM do Azure com as opções padrão, um conjunto de disponibilidade será criado automaticamente com base nas configurações da região de origem. Você pode modificar essas configurações.
 Zonas de disponibilidade | Com suporte |
 Benefício de uso híbrido (HUB) | Com suporte | Se a VM de origem tiver uma licença do HUB ativada, um failover de teste ou falha na VM também usará a licença do HUB.
@@ -205,7 +205,7 @@ Tamanho máximo do disco do sistema operacional | 2048 GB | [Saiba mais](../virt
 Disco temporário | Sem suporte | O disco temporário é sempre excluído da replicação.<br/><br/> Não armazene nenhum dado persistente no disco temporário. [Saiba mais](../virtual-machines/windows/managed-disks-overview.md).
 Tamanho máximo do disco de dados | 8\.192 GB para discos gerenciados<br></br>4\.095 GB para discos não gerenciados|
 Tamanho mínimo do disco de dados | Sem restrições para discos não gerenciados. 2 GB para discos gerenciados |
-Número máximo de discos de dados | Até 64, de acordo com o suporte para um tamanho específico de VM do Azure | [Saiba mais](../virtual-machines/windows/sizes.md) sobre os tamanhos de VM.
+Número máximo de discos de dados | Até 64, de acordo com o suporte para um tamanho específico de VM do Azure | [Saiba mais](../virtual-machines/sizes.md) sobre os tamanhos de VM.
 Taxa de alteração do disco de dados | Máximo de 20 MBps por disco para o armazenamento Premium. Máximo de 2 MBps por disco para armazenamento padrão. | Se a taxa média de alteração de dados no disco for continuamente maior que a máxima, a replicação não será recuperada.<br/><br/>  No entanto, se o máximo for excedido esporadicamente, a replicação poderá recuperar, mas você poderá ver pontos de recuperação um pouco atrasados.
 Disco de dados - conta de armazenamento padrão | Com suporte |
 Disco de dados - conta de armazenamento premium | Com suporte | Se uma VM tiver discos distribuídos em contas de armazenamento premium e padrão, você poderá selecionar uma conta de armazenamento de destino diferente para cada disco, para garantir que você tenha a mesma configuração de armazenamento na região de destino.
@@ -219,7 +219,7 @@ Criptografia em repouso (SSE) | Com suporte | SSE é a configuração padrão em
 Criptografia em repouso (CMK) | Com suporte | As chaves de software e HSM são compatíveis com discos gerenciados
 Criptografia dupla em repouso | Com suporte | Saiba mais sobre as regiões com suporte para [Windows](../virtual-machines/windows/disk-encryption.md) e [Linux](../virtual-machines/linux/disk-encryption.md)
 Habilitar o ADE (Azure Disk Encryption) para o sistema operacional Windows | Compatível com VMs com discos gerenciados. | VMs usando discos não gerenciados não são compatíveis. <br/><br/> Chaves protegidas por HSM não são compatíveis. <br/><br/> A criptografia de volumes individuais em apenas um disco não é um procedimento compatível. |
-ADE (Azure Disk Encryption) para sistema operacional Linux | Compatível com VMs com discos gerenciados. | VMs usando discos não gerenciados não são compatíveis. <br/><br/> Chaves protegidas por HSM não são compatíveis. <br/><br/> A criptografia de volumes individuais em apenas um disco não é um procedimento compatível. <br><br> Problema conhecido com a habilitação da replicação. [Saiba mais.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors#enable-protection-failed-as-the-installer-is-unable-to-find-the--root-disk-error-code-151137) |
+ADE (Azure Disk Encryption) para sistema operacional Linux | Compatível com VMs com discos gerenciados. | VMs usando discos não gerenciados não são compatíveis. <br/><br/> Chaves protegidas por HSM não são compatíveis. <br/><br/> A criptografia de volumes individuais em apenas um disco não é um procedimento compatível. <br><br> Problema conhecido com a habilitação da replicação. [Saiba mais.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
 Rotação de chave SAS | Sem suporte | Se a chave SAS para contas de armazenamento for girada, o cliente precisará desabilitar e reabilitar a replicação. |
 Adição a quente    | Com suporte | A habilitação da replicação para um disco de dados que você adiciona a uma VM do Azure replicada é compatível com VMs que usam discos gerenciados. <br/><br/> É possível adicionar a quente somente um disco por vez a uma VM do Azure. A adição paralela de vários discos não é um procedimento compatível. |
 Remoção de disco a quente    | Sem suporte | Se você remover um disco de dados da VM, precisará desabilitar a replicação e habilitá-la novamente na VM.
@@ -290,4 +290,3 @@ Acesso de link privado ao serviço de Site Recovery | Com suporte | [Saiba mais]
 
 - Leia as [diretrizes de rede](./azure-to-azure-about-networking.md) para replicar VMs do Azure.
 - Implante a recuperação de desastres [replicando as VMs do Azure](./azure-to-azure-quickstart.md).
-

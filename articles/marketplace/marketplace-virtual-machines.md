@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/15/2020
-ms.openlocfilehash: dac67c6dae801d11866f7c4978a050a0cb2fa1dd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9f408174b9a8dff925a9c834ea75bf725ec6f913
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065643"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837337"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>Guia de publicação para ofertas de máquina virtual
 
@@ -29,7 +29,7 @@ Para organizar os usuários para testar sua oferta, acesse licenças de software
 
 Você pode implantar uma ou mais máquinas virtuais por meio de aplicativos de infraestrutura como serviço (IaaS) ou software como serviço (SaaS). Um benefício da opção de publicação *Test Drive* é a configuração automatizada de uma máquina virtual ou uma solução completa, por um tour guiado hospedado pelo parceiro. Uma test drive permite que seus clientes avaliem as VMs sem custo adicional para elas. Um cliente não precisa ser um cliente do Azure existente para se envolver com a experiência de avaliação. 
 
-Para começar, entre em contato conosco por email em [amp-testdrive](mailto:amp-testdrive@microsoft.com). 
+Para obter mais informações sobre unidades de teste, consulte [o que é um test drive?](what-is-test-drive.md)
 
 |Requisitos  |Detalhes |
 |---------|---------|
