@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a79db217c5444e59e35d4dfad9fbb98bbccbd251
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1945dc3b9fa03354ef447f813d95b6040a4b7b91
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079801"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833327"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Carga de trabalho do SAP em cenários compatíveis com a máquina virtual do Azure
 A criação da arquitetura de sistemas SAP NetWeaver, Business One `Hybris` ou S/4HANA no Azure abre muitas oportunidades diferentes para várias arquiteturas e ferramentas a serem usadas para chegar a uma implantação escalonável, eficiente e altamente disponível. Embora dependam do sistema operacional ou do DBMS usado, há restrições. Além disso, nem todos os cenários com suporte no local têm suporte da mesma maneira no Azure. Este documento orientará as configurações de não alta disponibilidade e as arquiteturas e configurações de alta disponibilidade com suporte usando VMs do Azure exclusivamente. Para cenários com suporte com [instâncias grandes do Hana](./hana-overview-architecture.md), verifique o artigo [cenários com suporte para instâncias grandes do Hana](./hana-supported-scenario.md). 
@@ -246,7 +246,7 @@ Há suporte para usar uma VM menor como instância de destino na região de recu
 - Redimensionar entre famílias de VMs pode ser um problema quando as diferentes VMs são coletadas em um conjunto de disponibilidade do Azure ou quando o redimensionamento deve ocorrer entre a família da série M e a família Mv2 de VMs
 - Consumo de CPU e memória para a instância do banco de dados poder receber o fluxo de alterações com atraso mínimo e recursos de CPU e memória suficientes para aplicar essas alterações com atraso mínimo nos dados  
 
-Mais detalhes sobre as limitações de diferentes tamanhos de VM podem ser encontrados [aqui](../../linux/sizes.md) 
+Mais detalhes sobre as limitações de diferentes tamanhos de VM podem ser encontrados [aqui](../../sizes.md) 
 
 Outro método com suporte para implantar um destino de DR é ter uma segunda instância de DBMS instalada em uma VM que executa uma instância de DBMS de não produção de uma instância SAP que não seja de produção. Isso pode ser um pouco mais desafiador, pois você precisa descobrir o que acontece na memória, recursos de CPU, largura de banda de rede e largura de banda de armazenamento para as instâncias de destino específicas que devem funcionar como instância principal no cenário de DR. Especialmente no HANA, é altamente recomendável que você esteja configurando a instância que funciona como destino de DR em um host compartilhado para que os dados não sejam pré-carregados na instância de destino de DR.
 

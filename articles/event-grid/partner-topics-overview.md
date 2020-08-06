@@ -3,12 +3,12 @@ title: Tópicos de parceiro da Grade de Eventos do Azure
 description: Envie eventos de parceiros de PaaS e SaaS da Grade de Eventos de terceiros diretamente para os serviços do Azure com a Grade de Eventos do Azure.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 97829f262a00e2353624b2a3fa9df210518ad3a0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e56055c55a3b30c5d13736b9838257f3c0bbec10
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115988"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831899"
 ---
 # <a name="partner-topics-in-azure-event-grid-preview"></a>Tópicos de parceiro na grade de eventos do Azure (visualização)
 Usando tópicos de parceiros, você pode conectar fontes de eventos de terceiros diretamente à grade de eventos do Azure. Essa integração permite que você assine eventos de parceiros da mesma maneira que assina eventos dos serviços do Azure. 
@@ -22,7 +22,7 @@ O primeiro parceiro disponível por meio de tópicos de parceiros de grade de ev
 Os tópicos de parceiros são cobrados com a mesma taxa de operação que os tópicos do sistema.
 
 ## <a name="limits"></a>limites
-Os tópicos de parceiros estão em visualização pública. Durante a visualização pública, os tópicos de parceiros estão sujeitos aos [mesmos limites](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#event-grid-limits) que os tópicos do sistema e os tópicos personalizados.
+Os tópicos de parceiros estão em visualização pública. Durante a visualização pública, os tópicos de parceiros estão sujeitos aos [mesmos limites](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits) que os tópicos do sistema e os tópicos personalizados.
 
 ## <a name="how-do-i-become-an-event-grid-partner"></a>Como fazer para eu me tornar um parceiro da Grade de Eventos?
 A infraestrutura criada para dar suporte a esse lançamento torna fácil e rápido a integração de funcionalidades de eventos de novos parceiros com a Grade de Eventos. Para obter mais informações, consulte a [documentação de integração do parceiro](partner-onboarding-overview.md).

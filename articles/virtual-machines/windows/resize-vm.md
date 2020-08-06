@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: 31979854ad3f6bd6d1cf4e73fc3c993520ac423d
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 4860422fefb5a95fe41912b4898f02867f7b3aeb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432673"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832239"
 ---
 # <a name="resize-a-windows-vm"></a>Redimensionar uma VM do Windows
 
-Este artigo mostra como mover uma VM para um [tamanho de VM](sizes.md)diferente.
+Este artigo mostra como mover uma VM para um [tamanho de VM](../sizes.md)diferente.
 
 Depois de criar uma VM (máquina virtual), você pode expandir ou reduzir a VM, alterando o tamanho da VM. Em alguns casos, você deverá desalocar a VM primeiro. Isso pode acontecer se o novo tamanho não estiver disponível no cluster de hardware que hospeda atualmente a VM.
 
@@ -25,7 +25,7 @@ Se sua VM usa a Premium Storage - Armazenamento Premium, certifique-se de que vo
 
 ## <a name="use-the-portal"></a>Usar o portal
 
-1. Abra o [portal do Azure](https://portal.azure.com).
+1. Abra o [Portal do Azure](https://portal.azure.com).
 1. Abra a página da máquina virtual.
 1. No menu à esquerda, selecione **tamanho**.
 1. Escolha um novo tamanho na lista de tamanhos disponíveis e, em seguida, selecione **redimensionar**.

@@ -3,12 +3,12 @@ title: Configurar a análise de dependência baseada em agente na avaliação do
 description: Este artigo descreve como configurar a análise de dependência baseada em agente na avaliação do servidor de migrações para Azure.
 ms.topic: how-to
 ms.date: 6/09/2020
-ms.openlocfilehash: 50061bead9b00ade0defba45691ea8a7c84625dd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c41f8eb82cf912fc566975f833fc73589f17be98
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321200"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829910"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurar a visualização de dependência
 
@@ -76,7 +76,7 @@ Instale o MMA em cada computador Windows ou Linux que você deseja analisar.
 Para instalar o agente em uma máquina com Windows:
 
 1. Clique duas vezes no agente baixado.
-2. Na página de **Boas-vindas**, clique em **Avançar**. Na página **termos de licença** , clique em **concordo** para aceitar a licença.
+2. Na página de **Boas-vindas**, clique em **Avançar**. Na página **Termos de Licença**, clique em **Concordo** para aceitar a licença.
 3. Em **Pasta de Destino**, mantenha ou modifique a pasta de instalação padrão > **Avançar**.
 4. Em **Opções de Configuração do Agente**, selecione **Azure Log Analytics** > **Avançar**.
 5. Clique em **Adicionar** para adicionar um espaço de trabalho do Log Analytics. Cole a ID do workspace e a chave que você copiou do portal. Clique em **Próximo**.
@@ -104,7 +104,7 @@ Para instalar o MMA em um computador Linux:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- [Saiba mais](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) sobre como você pode usar scripts para instalar o Dependency agent.
+- [Saiba mais](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent) sobre como você pode usar scripts para instalar o Dependency agent.
 - [Saiba mais](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) sobre os sistemas operacionais com suporte do Dependency Agent.
 
 
@@ -208,5 +208,3 @@ VMConnection
 ## <a name="next-steps"></a>Próximas etapas
 
 [Crie uma avaliação](how-to-create-assessment.md) para um grupo.
-
-

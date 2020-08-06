@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/21/2020
 tags: connectors
-ms.openlocfilehash: a8985f951b8ff37beb7a1f63e8200321fc706ce6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a0f6af706a81db537b9ed66dc49996282c4dbbaa
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086601"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833888"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conectar aos sistemas SAP a partir do Aplicativos Lógicos do Azure
 
@@ -128,7 +128,7 @@ Esses pré-requisitos se aplicam quando os seus aplicativos lógicos são execut
 
 * Por padrão, o instalador do SAP coloca os arquivos de assembly na pasta de instalação padrão. Você precisa copiar esses arquivos de assembly para outro local, com base em seu cenário, da seguinte maneira:
 
-  Para aplicativos lógicos executados em um ISE, siga as etapas descritas nos [pré-requisitos do ambiente do serviço de integração](#sap-ise). Para aplicativos lógicos que são executados em vários locatários do Azure e usam o gateway de dados local, copie os arquivos de assembly da pasta de instalação padrão para a pasta de instalação do gateway de dados. Se você encontrar problemas com o gateway de dados, examine os seguintes problemas:
+  * Para aplicativos lógicos executados em um ISE, siga as etapas descritas nos [pré-requisitos do ambiente do serviço de integração](#sap-ise). Para aplicativos lógicos que são executados em vários locatários do Azure e usam o gateway de dados local, copie os arquivos de assembly da pasta de instalação padrão para a pasta de instalação do gateway de dados. Se você encontrar problemas com o gateway de dados, examine os seguintes problemas:
 
   * Você deve instalar a versão de 64 bits para a biblioteca de cliente SAP porque o gateway de dados é executado somente em sistemas de 64 bits. Caso contrário, você obtém um erro de “imagem incorreta” porque o serviço de host do gateway de dados não oferece suporte a assemblies de 32 bits.
 
@@ -532,7 +532,7 @@ Para enviar IDocs do SAP para seu aplicativo lógico, você precisará da seguin
 
 1. Salve as alterações.
 
-1. Para testar sua conexão, selecione **teste de conexão** .
+1. Para testar sua conexão, selecione **teste de conexão**.
 
 #### <a name="create-receiver-port"></a>Criar porta do destinatário
 
@@ -727,7 +727,10 @@ O exemplo a seguir é uma chamada RFC com um parâmetro de tabela que tem um cam
 
 ```
 
-O exemplo a seguir inclui prefixos para os namespaces. Você pode declarar todos os prefixos de uma vez ou pode declarar qualquer quantidade de prefixos como atributos de um nó. O alias do namespace RFC `ns0` é usado como a raiz e os parâmetros para o tipo básico. Observe que os tipos complexos são declarados em um namespace diferente para tipos RFC com o alias `ns3` em vez do namespace RFC regular com o alias `ns0` .
+O exemplo a seguir inclui prefixos para os namespaces. Você pode declarar todos os prefixos de uma vez ou pode declarar qualquer número de prefixos como atributos de um nó. O alias do namespace RFC `ns0` é usado como a raiz e os parâmetros para o tipo básico.
+
+> [!NOTE]
+> tipos complexos são declarados em um namespace diferente para tipos RFC com o alias `ns3` em vez do namespace RFC regular com o alias `ns0` .
 
 ```xml
 
@@ -883,7 +886,7 @@ O exemplo a seguir é um registro de dados de exemplo com segmentos simples. Est
 
 ```
 
-O exemplo a seguir é um registro de dados com segmentos agrupados. Isso inclui um nó pai do grupo, `E2EDKT1002GRP` e vários nós filho, incluindo `E2EDKT1002` e `E2EDKT2001` . 
+O exemplo a seguir é um registro de dados com segmentos agrupados. O registro inclui um nó pai do grupo, `E2EDKT1002GRP` e vários nós filho, incluindo `E2EDKT1002` e `E2EDKT2001` . 
 
 ```xml
 
@@ -900,7 +903,7 @@ O exemplo a seguir é um registro de dados com segmentos agrupados. Isso inclui 
 
 ```
 
-O método recomendado é criar um identificador de IDoc para uso com tRFC. Você pode definir esse identificador de transação, `tid` usando a [operação enviar IDOC](https://docs.microsoft.com/connectors/sap/#send-idoc) na API do conector SAP.
+O método recomendado é criar um identificador de IDoc para uso com tRFC. Você pode definir esse identificador de transação, `tid` usando a [operação enviar IDOC](/connectors/sap/#send-idoc) na API do conector SAP.
 
 O exemplo a seguir é um método alternativo para definir o identificador da transação ou `tid` . Neste exemplo, o nó de segmento do último registro de dados e o nó de dados IDoc são fechados. Em seguida, o GUID, `guid` , é usado como o identificador tRFC para detectar duplicatas. 
 

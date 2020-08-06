@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/06/2020
 author: jluk
-ms.openlocfilehash: 8be0b05c260037bbe8afc92726d81668e1391d4a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5677cb3d240381e06c76ed73354981f782bdb0dd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050460"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830216"
 ---
 # <a name="secure-pods-with-azure-policy-preview"></a>Proteger pods com Azure Policy (versão prévia)
 
@@ -47,7 +47,7 @@ Este documento pressupõe que você tem os seguintes que são implantados no det
 
 Em um cluster AKS, um controlador de admissão é usado para interceptar solicitações ao servidor de API quando um recurso deve ser criado e atualizado. O controlador de admissão pode *validar* a solicitação de recurso em relação a um conjunto de regras se ele deve ser criado.
 
-Anteriormente, a [política de segurança pod de recurso (versão prévia)](use-pod-security-policies.md) foi habilitada por meio do projeto kubernetes para limitar o que o pods pode ser implantado. Esse recurso não está mais no desenvolvimento ativo do projeto kubernetes.
+Anteriormente, a [política de segurança pod de recurso (versão prévia)](use-pod-security-policies.md) foi habilitada por meio do projeto kubernetes para limitar o que o pods pode ser implantado.
 
 Usando o complemento Azure Policy, um cluster AKS pode usar políticas internas do Azure que protegem os pods e outros recursos de kubernetes semelhantes à política de segurança de Pod anteriormente. O complemento Azure Policy do AKS instala uma instância gerenciada do [gatekeeper](https://github.com/open-policy-agent/gatekeeper), um controlador de admissão de validação. O Azure Policy para kubernetes é criado no agente de política aberta de software livre que se baseia na [linguagem de política do Rego](../governance/policy/concepts/policy-for-kubernetes.md#policy-language).
 

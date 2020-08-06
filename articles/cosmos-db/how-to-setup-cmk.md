@@ -4,14 +4,14 @@ description: Saiba como configurar chaves gerenciadas pelo cliente para sua cont
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 08/05/2020
 ms.author: thweiss
-ms.openlocfilehash: 989fbb123e39f85aeeb8eba9961f9aeab1e76c84
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9fa899e0f0de3b263baad7e44ed24d32d735b001
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092586"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836501"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurar chaves gerenciadas pelo cliente para sua conta do Azure Cosmos DB com o Azure Key Vault
 
@@ -64,6 +64,8 @@ Se estiver usando uma instância existente do Azure Key Vault, você poderá ver
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Selecionar a entidade de segurança do Azure Cosmos DB":::
 
 1. Selecione **Adicionar** para adicionar a nova política de acesso.
+
+1. Selecione **salvar** na instância de Key Vault para salvar todas as alterações.
 
 ## <a name="generate-a-key-in-azure-key-vault"></a>Gerar uma chave no Azure Key Vault
 

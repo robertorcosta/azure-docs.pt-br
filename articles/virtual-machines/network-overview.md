@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 054838d9e2c6dcc0bb021fdbf818db95922697f0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cc98a0703cf408194c4c3740938399b57a36d468
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87096095"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835605"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Redes virtuais e máquinas virtuais no Azure 
 
@@ -48,7 +48,7 @@ Esta tabela lista os métodos que você pode usar para criar uma interface de re
 | Método | Descrição |
 | ------ | ----------- |
 | Portal do Azure | Quando você cria uma VM no portal do Azure, uma interface de rede é criada automaticamente para você (não é possível usar uma NIC que você cria separadamente). O portal cria uma VM com apenas uma NIC. Se quiser criar uma VM com mais de uma NIC, você deverá criá-la com um método diferente. |
-| [Azure PowerShell](./windows/multiple-nics.md) | Use [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) com o parâmetro **-PublicIpAddressId** para fornecer o identificador do endereço IP público que você criou anteriormente. |
+| [PowerShell do Azure](./windows/multiple-nics.md) | Use [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) com o parâmetro **-PublicIpAddressId** para fornecer o identificador do endereço IP público que você criou anteriormente. |
 | [CLI do Azure](./linux/multiple-nics.md) | Para fornecer o identificador do endereço IP público que você criou anteriormente, use [az network nic create](/cli/azure/network/nic) com o parâmetro **--public-ip-address**. |
 | [Modelo](../virtual-network/template-samples.md) | Use [Interface de rede em uma rede Virtual com endereço IP público](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) como um guia para a implantação de uma interface de rede usando um modelo. |
 
@@ -70,7 +70,7 @@ Esta tabela lista os métodos que você pode usar para criar um endereço IP.
 | Método | Descrição |
 | ------ | ----------- |
 | [Azure portal](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | Por padrão, endereços IP públicos são dinâmicos, e o endereço associado a eles pode ser alterado quando a VM é parada ou excluída. Para assegurar que a VM sempre use o mesmo endereço IP público, crie um endereço IP público estático. Por padrão, o portal atribui um endereço IP privado dinâmico a uma NIC ao criar uma VM. Você pode alterar esse endereço IP para estático após a criação da VM.|
-| [Azure PowerShell](../virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | Você usa [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) com o parâmetro **-AllocationMethod** como Dinâmico ou Estático. |
+| [PowerShell do Azure](../virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | Você usa [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) com o parâmetro **-AllocationMethod** como Dinâmico ou Estático. |
 | [CLI do Azure](../virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | Você usa [az network public-ip create](/cli/azure/network/public-ip) com o parâmetro **--allocation-method** como Dinâmico ou Estático. |
 | [Modelo](../virtual-network/template-samples.md) | Use [Interface de rede em uma rede Virtual com endereço IP público](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) como um guia para implantar um IP público de endereço usando um modelo. |
 
@@ -112,13 +112,13 @@ Esta tabela lista os métodos que você pode usar para criar um grupo de seguran
 | Método | Descrição |
 | ------ | ----------- |
 | [Azure portal](../virtual-network/tutorial-filter-network-traffic.md) | Quando você cria uma VM no portal do Azure, um NSG é criado e associado automaticamente à NIC que o portal cria. O nome do NSG é uma combinação do nome da VM e **-nsg**. Este NSG contém uma regra de entrada com uma prioridade de 1000, o serviço definido como RDP, o protocolo definido como TCP, a porta configurada para 3389 e as ações definidas para Permitir. Se quiser permitir qualquer outro tráfego de entrada para a VM, você deverá incluir regras adicionais para o NSG. |
-| [Azure PowerShell](../virtual-network/tutorial-filter-network-traffic.md) | Use [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) e forneça as informações de regra necessárias. Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) para criar o NSG. Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) para configurar o NSG da sub-rede. Use [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) para adicionar o NSG à rede virtual. |
+| [PowerShell do Azure](../virtual-network/tutorial-filter-network-traffic.md) | Use [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) e forneça as informações de regra necessárias. Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) para criar o NSG. Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) para configurar o NSG da sub-rede. Use [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) para adicionar o NSG à rede virtual. |
 | [CLI do Azure](../virtual-network/tutorial-filter-network-traffic-cli.md) | Use [az network nsg create](/cli/azure/network/nsg) para criar inicialmente o NSG. Use [az network nsg rule create](/cli/azure/network/nsg/rule) para adicionar regras para o NSG. Use [az network vnet subnet update](/cli/azure/network/vnet/subnet) para adicionar o NSG à sub-rede. |
 | [Modelo](../virtual-network/template-samples.md) | Use [Criar um grupo de segurança de rede](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) como um guia para a implantação de um grupo de segurança de rede usando um modelo. |
 
 ## <a name="load-balancers"></a>Balanceadores de carga
 
-O [Azure Load Balancer](../load-balancer/load-balancer-overview.md) oferece alta disponibilidade e desempenho de rede para seus aplicativos. Um balanceador de carga pode ser configurado para [equilibrar o tráfego da Internet](../load-balancer/load-balancer-internet-overview.md) para VMs ou [equilibrar o tráfego entre VMs em uma rede virtual](../load-balancer/load-balancer-internal-overview.md). Um balanceador de carga também pode equilibrar o tráfego entre computadores locais e VMs em uma rede entre locais ou encaminhar tráfego externo para uma VM específica.
+O [Azure Load Balancer](../load-balancer/load-balancer-overview.md) oferece alta disponibilidade e desempenho de rede para seus aplicativos. Um balanceador de carga pode ser configurado para [equilibrar o tráfego da Internet](../load-balancer/components.md#frontend-ip-configurations) para VMs ou [equilibrar o tráfego entre VMs em uma rede virtual](../load-balancer/components.md#frontend-ip-configurations). Um balanceador de carga também pode equilibrar o tráfego entre computadores locais e VMs em uma rede entre locais ou encaminhar tráfego externo para uma VM específica.
 
 O balanceador de carga mapeia o tráfego de entrada e saída entre o endereço IP público e a porta do balanceador de carga e o endereço IP privado e a porta da VM.
 
@@ -129,15 +129,15 @@ Ao criar um balanceador de carga, você também deve considerar estes elementos 
 - **[Encaminhamento de porta](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)** – define como o tráfego de entrada flui pelo IP de front-end e é distribuído para o IP de back-end usando regras NAT de entrada.
 - **Regras do balanceador de carga** -mapeia determinada combinação de porta e IP front-end para um conjunto de endereços IP back-end e combinação de portas. Um balanceador de carga único pode ter várias regras de balanceamento de carga. Cada regra é uma combinação de um IP de front-end e IP de porta e back-end e porta associada a VMs.
 - **[Sondas](../load-balancer/load-balancer-custom-probe-overview.md)** - monitora a integridade das VMs. Quando uma investigação não responde, o balanceador de carga interrompe o envio de novas conexões para a VM não íntegra. As conexões existentes não são afetadas e novas conexões são enviadas para VMs íntegras.
-- **[Regras de saída](../load-balancer/load-balancer-outbound-rules-overview.md)** – uma regra de saída configura a NAT (conversão de endereços de rede) de saída para todas as máquinas virtuais identificadas pelo pool de back-end do Standard Load Balancer a serem convertidas no front-end.
+- **[Regras de saída](../load-balancer/load-balancer-outbound-connections.md#outboundrules)** – uma regra de saída configura a NAT (conversão de endereços de rede) de saída para todas as máquinas virtuais identificadas pelo pool de back-end do Standard Load Balancer a serem convertidas no front-end.
 
 Esta tabela lista os métodos que você pode usar para criar um balanceador de carga voltado para a Internet.
 
 | Método | Descrição |
 | ------ | ----------- |
 | Portal do Azure |  Você pode [balancear a carga de tráfego de Internet para VMs que estejam usando o portal do Azure](../load-balancer/tutorial-load-balancer-standard-manage-portal.md). |
-| [Azure PowerShell](/azure/load-balancer/load-balancer-get-started-ilb-arm-ps) | Para fornecer o identificador do endereço IP público que você criou anteriormente, use [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) com o parâmetro **-PublicIpAddress**. Use [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) para criar a configuração do pool de endereços de back-end. Use [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) para criar regras NAT de entrada associadas à configuração de IP front-end que você criou. Use [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) para criar os testes de que você precisa. Use [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) para criar a configuração de balanceador de carga. Use [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) para criar o balanceador de carga.|
-| [CLI do Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md) | Use [az network lb create](/cli/azure/network/lb) para criar a configuração de balanceador de carga inicial. Use [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip) para adicionar o endereço IP público que você criou anteriormente. Use [az network lb address-pool create](/cli/azure/network/lb/address-pool) para adicionar a configuração do pool de endereços de back-end. Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule) para adicionar regras de NAT. Use [az network lb rule create](/cli/azure/network/lb/rule) para adicionar as regras do balanceador de carga. Use [az network lb probe create](/cli/azure/network/lb/probe) para adicionar as sondas. |
+| [PowerShell do Azure](../load-balancer/load-balancer-get-started-ilb-arm-ps.md) | Para fornecer o identificador do endereço IP público que você criou anteriormente, use [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) com o parâmetro **-PublicIpAddress**. Use [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) para criar a configuração do pool de endereços de back-end. Use [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) para criar regras NAT de entrada associadas à configuração de IP front-end que você criou. Use [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) para criar os testes de que você precisa. Use [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) para criar a configuração de balanceador de carga. Use [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) para criar o balanceador de carga.|
+| [CLI do Azure](../load-balancer/quickstart-load-balancer-standard-public-cli.md) | Use [az network lb create](/cli/azure/network/lb) para criar a configuração de balanceador de carga inicial. Use [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip) para adicionar o endereço IP público que você criou anteriormente. Use [az network lb address-pool create](/cli/azure/network/lb/address-pool) para adicionar a configuração do pool de endereços de back-end. Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule) para adicionar regras de NAT. Use [az network lb rule create](/cli/azure/network/lb/rule) para adicionar as regras do balanceador de carga. Use [az network lb probe create](/cli/azure/network/lb/probe) para adicionar as sondas. |
 | [Modelo](../load-balancer/quickstart-load-balancer-standard-public-template.md) | Use [Duas VMs em um balanceador de carga e regras de NAT configuradas no balanceamento de carga](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create) como um guia para a implantação de um balanceador de carga usando um modelo. |
     
 Esta tabela lista os métodos que você pode usar para criar um balanceador de carga interno.
@@ -151,7 +151,7 @@ Esta tabela lista os métodos que você pode usar para criar um balanceador de c
 
 ### <a name="virtual-machine-scale-sets"></a>conjuntos de escala de máquina virtual
 
-Para obter mais informações sobre o balanceador de carga e conjuntos de dimensionamento de máquinas virtuais, confira [Rede para conjuntos de dimensionamento de máquinas virtuais do Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking).
+Para obter mais informações sobre o balanceador de carga e conjuntos de dimensionamento de máquinas virtuais, confira [Rede para conjuntos de dimensionamento de máquinas virtuais do Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
 
 ## <a name="vms"></a>VMs
 
@@ -179,4 +179,3 @@ Também existem tutoriais sobre como balancear a carga de VMs e criar aplicativo
 - Saiba como configurar [conexões de VNet para VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Saiba como [Solucionar problemas de rotas](../virtual-network/diagnose-network-routing-problem.md).
 - Saiba mais sobre [largura de banda de rede da máquina virtual](../virtual-network/virtual-machine-network-throughput.md).
-

@@ -6,18 +6,18 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2019
-ms.openlocfilehash: f25bda1a450919264c7ddba3886554381009c546
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1ae627a7ee1a7e2a704cc17cc8ec9ccc9846c109
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119592"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829298"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Criar usuários no banco de dados do Azure para PostgreSQL-servidor único
 
 Este artigo descreve como você pode criar usuários em um servidor de banco de dados do Azure para PostgreSQL.
 
-Se você quiser saber mais sobre como criar e gerenciar usuários de assinatura do Azure e seus privilégios, você pode visitar o [artigo RBAC (controle de acesso baseado em função) do Azure](../role-based-access-control/built-in-roles.md) ou examinar [como personalizar funções](../role-based-access-control/custom-roles.md).
+Se você quiser saber mais sobre como criar e gerenciar usuários de assinatura do Azure e seus privilégios, você pode visitar o [artigo Azure RBAC (controle de acesso baseado em função)](../role-based-access-control/built-in-roles.md) do Azure ou examinar [como personalizar funções](../role-based-access-control/custom-roles.md).
 
 ## <a name="the-server-admin-account"></a>A conta do administrador do servidor
 

@@ -1,5 +1,5 @@
 ---
-title: Avaliar e atenuar problemas de imparcialidade em modelos de aprendizado de máquina (versão prévia)
+title: Mitigar a imparcialidade em modelos de aprendizado de máquina (versão prévia)
 titleSuffix: Azure Machine Learning
 description: Saiba mais sobre a imparcialidade em modelos de machine learning e como o pacote Fairlearn para Python pode ajudá-lo a criar modelos mais razoáveis.
 services: machine-learning
@@ -8,22 +8,22 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 07/09/2020
-ms.openlocfilehash: 2cc3228c20fba322ec804a3bcc9ee322c7d37907
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 08/05/2020
+ms.openlocfilehash: 0d3e49fbb11af92d016910e91b0144f6de998238
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207298"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829366"
 ---
-# <a name="build-fairer-machine-learning-models-preview"></a>Criar modelos de aprendizado de máquina mais razoáveis (versão prévia)
+# <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Mitigar a imparcialidade em modelos de aprendizado de máquina (versão prévia)
 
-Saiba mais sobre a imparcialidade no aprendizado de máquina e como o pacote Python de código-fonte [Fairlearn](https://fairlearn.github.io/) pode ajudá-lo a criar modelos mais razoáveis. Se você não estiver tomando um esforço para entender problemas de imparcialidade e para avaliar a imparcialidade ao criar modelos de aprendizado de máquina, poderá criar modelos que produzam resultados injustos. 
+Saiba mais sobre a imparcialidade no aprendizado de máquina e como o pacote Python de software livre [Fairlearn](https://fairlearn.github.io/) pode ajudá-lo a reduzir problemas de imparcialidade em modelos de aprendizado de máquina. Se você não estiver tomando um esforço para entender problemas de imparcialidade e para avaliar a imparcialidade ao criar modelos de aprendizado de máquina, poderá criar modelos que produzam resultados injustos.
 
 O seguinte Resumo do [Guia do usuário](https://fairlearn.github.io/user_guide/index.html) para o pacote de código-fonte aberto do Fairlearn, descreve como usá-lo para avaliar a imparcialidade dos sistemas de ia que você está criando.  O pacote Fairlearn Open-Source também pode oferecer opções para ajudar a mitigar ou ajudar a reduzir os problemas de imparcialidade que você observar.  Consulte os [blocos de anotações](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) de [instruções](how-to-machine-learning-fairness-aml.md) e de exemplo para habilitar a avaliação de imparcialidade de sistemas de ia durante o treinamento em Azure Machine Learning.
 
 
-## <a name="what-is-fairness-in-machine-learning-systems"></a>O que é imparcialidade nos sistemas de machine learning?
+## <a name="what-is-fairness-in-machine-learning-models"></a>O que é a imparcialidade em modelos de aprendizado de máquina?
 
 >[!NOTE]
 > A imparcialidade é um desafio sociotécnico. Muitos aspectos de imparcialidade, como justiça e processo devido, não são capturados em métricas de imparcialidade quantitativas. Além disso, muitas métricas de imparcialidade quantitativas não podem ser atendidas simultaneamente. O objetivo do Fairlearn pacote de código-fonte aberto é permitir que as pessoas avaliem estratégias diferentes de impacto e mitigação. Por fim, cabe aos usuários humanos criar modelos de inteligência artificial e aprendizado de máquina para fazer compensações apropriadas para seu cenário.
@@ -38,7 +38,6 @@ Dois tipos comuns de danos causados pela IA são:
 
 Para reduzir o comportamento injusto em sistemas de IA, você precisa avaliar e atenuar esses danos.
 
-
 ## <a name="fairness-assessment-and-mitigation-with-fairlearn"></a>Avaliação e mitigação de imparcialidade com Fairlearn
 
 O Fairlearn é um pacote de software livre para Python que permite que os desenvolvedores de sistemas de machine learning avaliem a imparcialidade dos seus sistemas e atenuem os problemas de imparcialidade observados.
@@ -50,7 +49,8 @@ O pacote Fairlearn Open-Source tem dois componentes:
 
 Juntos, esses componentes permitem que os cientistas de dados e os líderes de negócios naveguem por quaisquer compensações entre a imparcialidade e o desempenho e selecionem a estratégia de mitigação que melhor atenda às suas necessidades.
 
-## <a name="fairness-assessment"></a>Avaliação de imparcialidade
+## <a name="assess-fairness-in-machine-learning-models"></a>Avaliar a imparcialidade em modelos de aprendizado de máquina
+
 No pacote de código-fonte aberto do Fairlearn, a imparcialidade é conceituada por meio de uma abordagem conhecida como **imparcialidade de grupo**, que pergunta: quais grupos de indivíduos estão em risco de sofrer danos? Os grupos relevantes, também conhecidos como subpopulações, são definidos por meio de **recursos sensíveis** ou atributos sensíveis. Os recursos confidenciais são passados para um estimador no pacote de código-fonte aberto do Fairlearn como um vetor ou uma matriz chamada `sensitive_features` . O termo sugere que o designer do sistema deve ser sensível a esses recursos ao avaliar a imparcialidade de grupo. 
 
 Algo a ser cuidadoso é se esses recursos contêm implicações de privacidade devido a dados privados. Mas a palavra “sensível” não significa que esses recursos não devem ser usados para fazer previsões.
@@ -72,7 +72,7 @@ Durante a fase de avaliação, a imparcialidade é quantificada por meio de mét
 
 - Disparidade na taxa de seleção: Essa métrica contém a diferença na taxa de seleção entre subgrupos diferentes. Um exemplo disso é a disparidade na taxa de aprovação de empréstimo. Taxa de seleção significa a fração de pontos de dados em cada classe classificada como 1 (em classificação binária) ou distribuição de valores de previsão (em regressão).
 
-## <a name="unfairness-mitigation"></a>Mitigação de parcialidade
+## <a name="mitigate-unfairness-in-machine-learning-models"></a>Atenuar a injustação em modelos de aprendizado de máquina
 
 ### <a name="parity-constraints"></a>Restrições de paridade
 

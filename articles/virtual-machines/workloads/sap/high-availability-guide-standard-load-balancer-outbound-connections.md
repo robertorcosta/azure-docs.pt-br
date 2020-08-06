@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/16/2020
 ms.author: radeltch
-ms.openlocfilehash: eca36a2c13fcdc232d4d06ca6e59598fe9a611f2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a0dc9f673abcac549fffc7291b8ac376c297da6b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082130"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836115"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividade de ponto de extremidade público para Máquinas Virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP
 
@@ -100,7 +100,7 @@ A configuração tem a seguinte aparência:
 2. Crie um pool de back-end **MyBackendPoolOfPublicILB** e adicione as VMs.  
    1. Selecione a rede virtual  
    1. Selecione as VMs e seus endereços IP e adicione-as ao pool de back-end  
-3. [Criar regras de saída](../../../load-balancer/configure-load-balancer-outbound-cli.md#create-outbound-rule). No momento, não é possível criar regras de saída do portal do Azure. Você pode criar regras de saída com a [CLI do Azure](../../../cloud-shell/overview.md?view=azure-cli-latest).  
+3. [Criar regras de saída](../../../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard%3ftabs%3doption-1-create-load-balancer-standard#create-outbound-rule-configuration). No momento, não é possível criar regras de saída do portal do Azure. Você pode criar regras de saída com a [CLI do Azure](../../../cloud-shell/overview.md?view=azure-cli-latest).  
 
    ```azurecli
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup

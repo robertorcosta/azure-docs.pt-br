@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 1ee4c8a52098bfa7c012e85f25371c306b106b86
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5e786a64d7d9606a3a99a3f1b3f8c67c9869cd1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029426"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830675"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Solução de problemas do dimensionamento automático com conjuntos de escala de máquina virtual
 **Problema**: você criou uma infraestrutura de dimensionamento automático no Azure Resource Manager usando conjuntos de dimensionamento de máquinas virtuais, por exemplo, implantando um modelo como este: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – suas regras de escala estão definidas e ele funciona muito bem, exceto que, independentemente da carga colocada nas VMs, ele não usa dimensionamento automático.
@@ -23,7 +23,7 @@ ms.locfileid: "87029426"
 Alguns aspectos a serem considerados incluem:
 
 * Quantas vCPUs cada VM tem e você está carregando cada vCPU?
-  O modelo de Início Rápido do Azure de exemplo acima tem um script do_work.php, que carrega uma única vCPU. Se você estiver usando uma VM de tamanho maior do que o de uma VM de vCPU única, como Standard_A1 ou D1, será necessário executar essa carga várias vezes. Verifique quantas vCPUs suas VMs têm conferindo [Tamanhos para máquinas virtuais do Windows no Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+  O modelo de Início Rápido do Azure de exemplo acima tem um script do_work.php, que carrega uma única vCPU. Se você estiver usando uma VM de tamanho maior do que o de uma VM de vCPU única, como Standard_A1 ou D1, será necessário executar essa carga várias vezes. Verifique quantas vCPUs suas VMs têm conferindo [Tamanhos para máquinas virtuais do Windows no Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * Há quantas VMs no conjunto de dimensionamento de máquinas virtuais, e você está trabalhando em cada uma delas?
   
     Um evento de expansão só ocorre quando a CPU média em **todas** as VMs em um conjunto de escala exceder o valor de limite além do tempo interno definido nas regras de dimensionamento automático.

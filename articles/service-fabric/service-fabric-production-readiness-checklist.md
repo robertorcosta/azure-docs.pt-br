@@ -3,12 +3,12 @@ title: Lista de verificação de preparação da produção do Azure Service Fab
 description: Prepare o aplicativo do Service Fabric e o cluster prontos para produção seguindo as melhores práticas.
 ms.topic: conceptual
 ms.date: 6/05/2019
-ms.openlocfilehash: cf5245b4b97706703d9f96e047ecb49786ff6266
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a03df40a8ce213c5de9ed7017d47713c4de3449d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282051"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835860"
 ---
 # <a name="production-readiness-checklist"></a>Lista de verificação de preparação para produção
 
@@ -35,7 +35,7 @@ O aplicativo e o cluster estão prontos para receber tráfego de produção? Exe
 1. Estabeleça um RPO (Objetivo de Ponto de Recuperação) para o serviço e configure um [processo de recuperação de desastre](service-fabric-disaster-recovery.md) e teste-o.
 1. Planeje a [colocação em escala](service-fabric-cluster-scaling.md) do cluster manualmente ou programaticamente.
 1. Planeje a [aplicação de patch](service-fabric-patch-orchestration-application.md) dos nós do cluster. 
-1. Estabeleça um pipeline de CI/CD para que as alterações mais recentes sejam testadas continuamente. Por exemplo, usando [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) ou [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+1. Estabeleça um pipeline de CI/CD para que as alterações mais recentes sejam testadas continuamente. Por exemplo, usando [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) ou [Jenkins](/azure/developer/jenkins/deploy-to-service-fabric-cluster)
 1. Teste os clusters de preparo e desenvolvimento sob carga com o [Serviço de Análise de Falhas](service-fabric-testability-overview.md) e induza [caos](service-fabric-controlled-chaos.md) controlado. 
 1. Planeje a [colocação em escala](service-fabric-concepts-scalability.md) dos aplicativos. 
 

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/08/2016
-ms.openlocfilehash: 38861ed941d49317e69bfab9afd17638a790bf7b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: da583a1c884ddcae0815849c43dc0eb335005e53
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072430"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832732"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Criar mapas que transformam dados XML entre formatos nos Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
@@ -36,7 +36,7 @@ Depois de carregar a transformação em sua conta de integração, você poderá
 
 Agora que você cuidou dos pré-requisitos, é hora de criar seu Aplicativo lógico:  
 
-1. Crie um aplicativo lógico e [vincule-o à sua conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md "Saiba como vincular uma conta de integração a um aplicativo lógico") que contém o mapa.
+1. Crie um aplicativo lógico e [vincule-o à sua conta de integração](./logic-apps-enterprise-integration-create-integration-account.md "Saiba como vincular uma conta de integração a um aplicativo lógico") que contém o mapa.
 2. Adicione um gatilho de **Solicitação** a seu Aplicativo lógico  
    ![Captura de tela da lista suspensa "mostrar APIs gerenciadas da Microsoft" com o gatilho de solicitação selecionado. O menu suspenso está em um aplicativo lógico criado usando o SDK de integração do Visual Studio Enterprise.](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
 3. Adicione a ação **Transformar XML** selecionando primeiro **Adicionar uma ação**   
@@ -136,4 +136,3 @@ Por padrão, a resposta da transformação iniciará com marca de ordem de byte 
 ## <a name="learn-more"></a>Saiba mais
 * [Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")  
 * [Saiba mais sobre mapas](../logic-apps/logic-apps-enterprise-integration-maps.md "Saiba mais sobre mapas de integração corporativa")  
-

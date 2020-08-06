@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e1ad4e53596b8228bdef5beb18aa250a9512c49f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4800234b55507b7c8d8a16d16ce4d2fef3365baa
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77659655"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829587"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Solução de problemas nos gráficos de métrica
 
@@ -42,7 +42,7 @@ A exploração de métricas precisa do provedor de recursos *Microsoft.Insights*
 
 ### <a name="you-dont-have-sufficient-access-rights-to-your-resource"></a>Você não tem direitos de acesso suficientes para seu recurso
 
-No Azure, o acesso às métricas é controlado pelo [controle de acesso baseado em função (RBAC)](../../role-based-access-control/overview.md). Você deve ser um membro de [leitor de monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-reader), [colaborador de monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-contributor) ou [colaborador](../../role-based-access-control/built-in-roles.md#contributor) para explorar as métricas de qualquer recurso.
+No Azure, o acesso a métricas é controlado pelo Azure [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md). Você deve ser um membro de [leitor de monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-reader), [colaborador de monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-contributor) ou [colaborador](../../role-based-access-control/built-in-roles.md#contributor) para explorar as métricas de qualquer recurso.
 
 **Solução:** Verifique se você tem permissões suficientes para o recurso do qual você está explorando métricas.
 
@@ -68,7 +68,7 @@ Por [bloqueio dos limites do eixo y do gráfico](metrics-charts.md#lock-boundari
 
 A coleta de métricas do **Sistema Operacional Convidado** requer a configuração da Extensão de Diagnóstico do Azure ou habilitá-la usando o painel **Configurações de Diagnóstico** para seu recurso.
 
-**Solução:** Se Diagnóstico do Azure extensão estiver habilitada, mas você ainda não conseguir ver suas métricas, siga as etapas descritas no [Guia de solução de problemas de extensão diagnóstico do Azure](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Consulte também as etapas de solução de problemas para [não pode escolher o namespace e as métricas do SO convidado](metrics-troubleshoot.md#cannot-pick-guest-os-namespace-and-metrics)
+**Solução:** Se Diagnóstico do Azure extensão estiver habilitada, mas você ainda não conseguir ver suas métricas, siga as etapas descritas no [Guia de solução de problemas de extensão diagnóstico do Azure](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Consulte também as etapas de solução de problemas para [não pode escolher o namespace e as métricas do SO convidado](#cannot-pick-guest-os-namespace-and-metrics)
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>Mensagem "erro ao recuperar dados" no painel
 
@@ -106,7 +106,7 @@ Por padrão, as métricas de sistema operacional convidado são armazenadas na c
     > [!WARNING]
     > Não é possível usar o [Agente do Log Analytics](agents-overview.md#log-analytics-agent) (também conhecido como Microsoft Monitoring Agent ou "MMA") para enviar o **Sistema Operacional Convidado** para uma conta de armazenamento.
 
-1. Verifique se o provedor de recursos **Microsoft. insights** está [registrado para sua assinatura](metrics-troubleshoot.md#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
+1. Verifique se o provedor de recursos **Microsoft. insights** está [registrado para sua assinatura](#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
 
 1. Verifique se a conta de armazenamento não está protegida pelo firewall. O portal do Azure precisa acessar a conta de armazenamento para recuperar dados de métricas e plotar os gráficos.
 

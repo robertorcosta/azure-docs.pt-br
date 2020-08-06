@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 50fb9c597a74a7aa08dfc3d8b7acd9b94760a9df
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: f09d2604a1dbf06caebb604ba2d63a09560fd33b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542884"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835911"
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral de segurança operacional do Azure
 
@@ -87,7 +87,7 @@ A [Central de Segurança do Azure](/azure/security-center/security-center-intro)
 - Validação de criptografia de disco.
 - Ataques baseados em rede.
 
-A Central de Segurança usa o [RBAC (controle de acesso baseado em função)](/azure/role-based-access-control/role-assignments-portal). O RBAC fornece [funções internas](../../role-based-access-control/built-in-roles.md) que podem ser atribuídas a usuários, grupos e serviços no Azure.
+A central de segurança usa o [Azure RBAC (controle de acesso baseado em função)](/azure/role-based-access-control/role-assignments-portal). O RBAC fornece [funções internas](../../role-based-access-control/built-in-roles.md) que podem ser atribuídas a usuários, grupos e serviços no Azure.
 
 A Central de Segurança avalia a configuração de seus recursos para identificar problemas de segurança e vulnerabilidades. Na Central de Segurança, você vê informações relacionadas a um recurso apenas quando recebe a função de proprietário, colaborador ou leitor da assinatura ou do grupo de recursos ao qual o recurso pertence.
 

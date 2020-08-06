@@ -3,12 +3,12 @@ title: Glossário-LUIS
 description: O glossário explica os termos que você pode encontrar à medida que trabalha com o Serviço de API do LUIS.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 93e3df755596f7f77d2cd11edfa616c44d1f6c16
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 44749648559994d986e4d84b06f38369850de6ca
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056371"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836404"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de noções básicas de linguagem de conceitos e vocabulário comuns
 O Glossário de Reconhecimento vocal (LUIS) explica os termos que você pode encontrar enquanto trabalha com o serviço LUIS.
@@ -72,7 +72,7 @@ No teste de lote, a precisão (também chamada de valor preditivo positivo) é a
 
 Um exemplo para um teste de lote de animais é o número de ovelha que foram previstas divididos pelo número total de animais (ovelha e não ovelha semelhantes).
 
-### <a name="recall"></a>Recuperação
+### <a name="recall"></a>Chamar de volta
 
 No teste de lote, recall (também conhecido como sensibilidade) é a capacidade de generalização do LUIS.
 
@@ -94,11 +94,11 @@ Uma [intenção](#intent) é um exemplo de classificador.
 
 ## <a name="collaborator"></a>Colaborador
 
-Um colaborador é conceitualmente a mesma coisa que um [contribuinte](#contributor). Um colaborador recebe acesso quando um proprietário adiciona o endereço de email do colaborador a um aplicativo que não é controlado com o RBAC (acesso baseado em função). Se você ainda estiver usando colaboradores, deverá migrar sua conta do LUIS e usar os recursos de criação do LUIS para gerenciar os colaboradores com o RBAC.
+Um colaborador é conceitualmente a mesma coisa que um [contribuinte](#contributor). Um colaborador recebe acesso quando um proprietário adiciona o endereço de email do colaborador a um aplicativo que não é controlado com o controle de acesso baseado em função do Azure (RBAC do Azure). Se você ainda estiver usando colaboradores, deverá migrar sua conta do LUIS e usar os recursos de criação do LUIS para gerenciar os colaboradores com o RBAC.
 
 ## <a name="contributor"></a>Colaborador
 
-Um colaborador não é o [proprietário](#owner) do aplicativo, mas tem as mesmas permissões para adicionar, editar e excluir as intenções, entidades, declarações. Um colaborador fornece acesso baseado em função (RBAC) a um aplicativo LUIS.
+Um colaborador não é o [proprietário](#owner) do aplicativo, mas tem as mesmas permissões para adicionar, editar e excluir as intenções, entidades, declarações. Um colaborador fornece o Azure RBAC (controle de acesso baseado em função) para um aplicativo LUIS.
 
 Consulte também:
 * [Como](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource) adicionar colaboradores
@@ -107,7 +107,7 @@ Consulte também:
 
 Um descritor é o termo usado anteriormente para um [recurso](#features)de aprendizado de máquina.
 
-## <a name="domain"></a>Domínio
+## <a name="domain"></a>Domain
 
 No contexto do LUIS, um domínio é uma área de conhecimento. Seu domínio é específico do seu cenário. Domínios diferentes usam uma terminologia e linguagem específica que têm significado no contexto do domínio. Por exemplo, se você estiver criando um aplicativo para reproduzir música, seu aplicativo teria termos e idioma específicos para música – palavras como "música, faixa, álbum, letras do lado do b, artista". Para obter exemplos de domínios, consulte [domínios predefinidos](#prebuilt-domain).
 
@@ -305,7 +305,7 @@ Um [token](luis-language-support.md#tokenization) é a menor unidade de texto qu
 
 Para o **Inglês**, um token é um intervalo contínuo (sem espaços ou pontuação) de letras e números. Um espaço não é um token.
 
-|Senha|Contagem de tokens|Explicação|
+|Frase|Contagem de tokens|Explicação|
 |--|--|--|
 |`Dog`|1|Uma única palavra sem pontuação ou espaços.|
 |`RMT33W`|1|Um número de localizador de registro. Ele pode ter números e letras, mas não tem pontuação.|

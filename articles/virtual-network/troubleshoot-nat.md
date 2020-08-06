@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: 690543ebc91e346e77509fbf993493f6978374ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: d75f13f6a0621158bdb9a2f1682d0c85eaacb59d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688274"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836098"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Solucionar problemas de conectividade da NAT da Rede Virtual do Azure
 
@@ -195,6 +195,14 @@ O [NAT da Rede Virtual](nat-overview.md) substitui a conectividade de saída da 
 Não é necessário reinicializar uma máquina virtual configurando uma sub-rede para um recurso de gateway NAT.  No entanto, se uma máquina virtual for reinicializada, o estado da conexão será liberado.  Quando o estado da conexão for liberado, todas as conexões começarão a usar os endereços IP do recurso de gateway NAT.  No entanto, esse é um efeito colateral da máquina virtual ser reinicializada, e não um indicador de que uma reinicialização é necessária.
 
 Se ainda tiver problemas, abra um caso de suporte para solução de problemas.
+
+### <a name="connection-setup-time"></a>Tempo de configuração da conexão
+
+Como Load Balancer regras de saída atribuem estaticamente pools de portas SNAT a máquinas virtuais específicas, a criação de novos fluxos de saída é mais rápida do que usar NAT de rede virtual. Portanto, ao mudar de Load Balancer regras de saída, você poderá ver uma latência maior ao criar uma nova conexão de saída. Conforme explicado anteriormente, para maximizar o desempenho do seu aplicativo, você deve usar fluxos de longa duração (por exemplo, conexões TCP reutilizadas).
+
+_**Solução:**_
+
+Se você estiver interessado principalmente em latência mínima de configuração de conexão, use Load Balancer regras de saída.
 
 ## <a name="next-steps"></a>Próximas etapas
 

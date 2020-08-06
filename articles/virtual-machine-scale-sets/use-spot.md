@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer, devx-track-azurecli
-ms.openlocfilehash: 2898364811616c16a0c33ea26dcaacace9c2c4ed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: de8cfa66d6d52fe16cc40c5df0f41a39fff134fd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491792"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832630"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VMs do Azure Spot para conjuntos de dimensionamento de máquinas virtuais 
 
@@ -40,6 +40,11 @@ Se você quiser que suas instâncias em seu conjunto de dimensionamento do Spot 
 
 Os usuários podem optar por receber notificações na VM por meio dos [Eventos Agendados do Azure](../virtual-machines/linux/scheduled-events.md). Isso notificará você se suas VMs estiverem sendo removidas e você terá 30 segundos para concluir todos os trabalhos e realizar tarefas de desligamento antes da remoção. 
 
+## <a name="placement-groups"></a>Grupos de posicionamento
+O grupo de posicionamento é um constructo semelhante a um conjunto de disponibilidade do Azure, com seus próprios domínios de falha e domínios de atualização. Por padrão, um conjunto de dimensionamento consiste em um único grupo de posicionamento com tamanho máximo de 100 VMs. Se a propriedade do conjunto de dimensionamento chamada `singlePlacementGroup` for definida como *false*, o conjunto de dimensionamento poderá ser composto de vários grupos de posicionamento e terá um intervalo de 0-1.000 VMS. 
+
+> [!IMPORTANT]
+> A menos que você esteja usando o InfiniBand com o HPC, é altamente recomendável definir a propriedade do conjunto de dimensionamento `singlePlacementGroup` como *false* para habilitar vários grupos de posicionamento para um melhor dimensionamento na região ou zona. 
 
 ## <a name="deploying-spot-vms-in-scale-sets"></a>Implantar VMs do Spot em conjuntos de dimensionamento
 
@@ -64,6 +69,7 @@ az vmss create \
     --name myScaleSet \
     --image UbuntuLTS \
     --upgrade-policy-mode automatic \
+    --single-placement-group false \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \
@@ -89,14 +95,26 @@ $vmssConfig = New-AzVmssConfig `
 
 O processo para criar um conjunto de dimensionamento que use VMs do Spot é o mesmo detalhado no artigo de introdução para [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). 
 
-Para implantações de modelo do Spot, use`"apiVersion": "2019-03-01"` ou posterior. Adicione as propriedades `priority`, `evictionPolicy` e `billingProfile` à seção `"virtualMachineProfile":` em seu modelo: 
+Para implantações de modelo do Spot, use`"apiVersion": "2019-03-01"` ou posterior. 
+
+Adicione as `priority` `evictionPolicy` Propriedades, e `billingProfile` à `"virtualMachineProfile":` seção e a `"singlePlacementGroup": false,` Propriedade à `"Microsoft.Compute/virtualMachineScaleSets"` seção em seu modelo:
 
 ```json
-                "priority": "Spot",
+
+{
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  },
+  "properties": {
+    "singlePlacementGroup": false,
+    }
+
+        "virtualMachineProfile": {
+              "priority": "Spot",
                 "evictionPolicy": "Deallocate",
                 "billingProfile": {
                     "maxPrice": -1
                 }
+            },
 ```
 
 Para excluir a instância depois que ela tiver sido removida, altere o parâmetro `evictionPolicy` para `Delete`.

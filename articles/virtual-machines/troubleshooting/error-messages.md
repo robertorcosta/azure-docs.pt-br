@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: f5639d1cf94c77d699dc6de9841698b045ac1f96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52508a6820ce0cbbbe3a0341a99894f8b92b1645
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76543011"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831219"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Entender as mensagens de erro comuns ao gerenciar máquinas virtuais no Azure
 
@@ -176,7 +176,7 @@ Esta seção lista as mensagens de erro comuns que você pode encontrar ao geren
 |  OSProvisioningClientError  |  O nome de usuário especificado para a VM é inválido para essa distribuição do Linux. Detalhes do erro: {0}.  |
 |  OSProvisioningInternalError  |  Falha no provisionamento do SO para a VM "{0}" devido a um erro interno.  |
 |  OSProvisioningTimedOut  |  O provisionamento do SO para a VM "{0}" não foi concluído no tempo alocado. A VM ainda pode concluir o provisionamento com êxito. Verifique mais tarde o estado do provisionamento.  |
-|  OSProvisioningTimedOut  |  O provisionamento do SO para a VM "{0}" não foi concluído no tempo alocado. A VM ainda pode concluir o provisionamento com êxito. Verifique mais tarde o estado do provisionamento. Verifique também se a imagem foi preparada corretamente (generalizada).   <ul><li>Instruções para Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instruções para Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
+|  OSProvisioningTimedOut  |  O provisionamento do SO para a VM "{0}" não foi concluído no tempo alocado. A VM ainda pode concluir o provisionamento com êxito. Verifique mais tarde o estado do provisionamento. Verifique também se a imagem foi preparada corretamente (generalizada).   <ul><li>Instruções para o [Windows]( ../windows/upload-generalized-managed.md).</li><li> Instruções para [Linux](../linux/capture-image.md)</li></ul>  |
 |  OSProvisioningTimedOut  |  O provisionamento do SO para a VM "{0}" não foi concluído no tempo alocado. No entanto, o agente convidado da VM foi detectado como em execução. Isso sugere que o SO convidado não foi corretamente preparado para ser usado como uma imagem de VM (com CreateOption=FromImage). Para resolver esse problema, use o VHD como é feito em CreateOption=Attach, ou prepare-o corretamente para uso como uma imagem:   <ul><li>Instruções para Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instruções para Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OverConstrainedAllocationRequest  |  O tamanho de VM necessário não está atualmente disponível na localização selecionada.  |
 |  ResourceUpdateBlockedOnPlatformUpdate  |  De momento, não é possível atualizar o recurso devido a uma atualização de plataforma em curso. Tente novamente mais tarde.  |

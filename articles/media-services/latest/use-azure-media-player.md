@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: bfc22862bc40679644d7dc9eddedf45fbacccab1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ca2da842d9a2d529cf5ea01211efaff2047a9e9a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292889"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836013"
 ---
 # <a name="playback-with-azure-media-player"></a>Reprodução com Player de Mídia do Azure
 
@@ -47,7 +47,7 @@ Você pode usar a página de demonstração do [Player de Mídia do Azure](https
 
 ## <a name="set-up-azure-media-player-in-your-html"></a>Configurar o Player de Mídia do Azure em seu HTML
 
-O Player de Mídia do Azure é fácil de configurar. São necessários apenas alguns minutos para obter a reprodução básica de conteúdo de mídia de sua conta dos Serviços de Mídia. Consulte a [Documentação do Player de Mídia do Azure](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview) para obter detalhes de como instalar e configurar o Player de Mídia do Azure.
+O Player de Mídia do Azure é fácil de configurar. São necessários apenas alguns minutos para obter a reprodução básica de conteúdo de mídia de sua conta dos Serviços de Mídia. Consulte a [Documentação do Player de Mídia do Azure](../azure-media-player/azure-media-player-overview.md) para obter detalhes de como instalar e configurar o Player de Mídia do Azure.
 
 ## <a name="additional-notes"></a>Observações adicionais
 
@@ -55,5 +55,5 @@ O Player de Mídia do Azure é fácil de configurar. São necessários apenas al
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Documentação do Player de Mídia do Azure](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview)
+* [Documentação do Player de Mídia do Azure](../azure-media-player/azure-media-player-overview.md)
 * [Exemplos de Player de Mídia do Azure](https://github.com/Azure-Samples/azure-media-player-samples)

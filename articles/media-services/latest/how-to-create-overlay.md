@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.openlocfilehash: 0d1a6d5626e081ff50f65b3a4396e223b33f920d
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 85b1b6c56221deaa03057a7ccb658b4bf67124eb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433543"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830573"
 ---
 # <a name="how-to-create-an-overlay-with-media-encoder-standard"></a>Como criar uma sobreposição com Media Encoder Standard
 
@@ -19,7 +19,7 @@ O Codificador de Mídia Padrão permite sobrepor uma imagem em um vídeo existen
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Colete as informações da conta de que você precisa para configurar o *appsettings.jsno* arquivo no exemplo. Se você não tiver certeza de como fazer isso, consulte [início rápido: registrar um aplicativo com a plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Os valores a seguir são esperados no *appsettings.jsno* arquivo.
+* Colete as informações da conta de que você precisa para configurar o *appsettings.jsno* arquivo no exemplo. Se você não tiver certeza de como fazer isso, consulte [início rápido: registrar um aplicativo com a plataforma de identidade da Microsoft](../../active-directory/develop/quickstart-register-app.md). Os valores a seguir são esperados no *appsettings.jsno* arquivo.
 
     ```json
     {
@@ -40,7 +40,7 @@ Se você ainda não estiver familiarizado com as transformações, é recomendá
 
 * Ler [codificação de vídeo e áudio com os serviços de mídia](encoding-concept.md)
 * Leia [como codificar com uma transformação personalizada-.net](customize-encoder-presets-how-to.md). Siga as etapas neste artigo para configurar o .NET necessário para trabalhar com transformações e, em seguida, retornar aqui para experimentar uma amostra predefinida de sobreposições.
-* Consulte o [documento de referência de transformações](https://docs.microsoft.com/rest/api/media/transforms).
+* Consulte o [documento de referência de transformações](/rest/api/media/transforms).
 
 Quando estiver familiarizado com as transformações, baixe o exemplo de sobreposições.
 

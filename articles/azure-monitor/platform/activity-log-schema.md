@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e50d6b6fe88cbad42d238ee2779abfe10e752f0e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 656161849ce8d48fb15cfac4024ec5b77adb5fee
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327269"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829502"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema sobre eventos do Log de Atividades do Azure
 O [log de atividades do Azure](platform-logs-overview.md) fornece informações sobre qualquer evento de nível de assinatura que ocorreu no Azure. Este artigo descreve as categorias de log de atividades e o esquema para cada uma. 
@@ -796,7 +796,7 @@ Essa categoria contém registros de todas as operações de ação de efeito exe
 Ao transmitir o log de atividades do Azure para uma conta de armazenamento ou Hub de eventos, os dados seguem o [esquema do log de recursos](./resource-logs-schema.md). A tabela a seguir fornece um mapeamento das propriedades dos esquemas acima para o esquema de logs de recursos.
 
 > [!IMPORTANT]
-> O formato dos dados do log de atividades gravados em uma conta de armazenamento alterado para linhas JSON em 1º de novembro de 2018. Consulte [preparar para o formato de alteração para Azure monitor logs de recursos arquivados em uma conta de armazenamento](/azure/azure-monitor/platform/resource-logs-blob-format) para obter detalhes sobre essa alteração de formato.
+> O formato dos dados do log de atividades gravados em uma conta de armazenamento alterado para linhas JSON em 1º de novembro de 2018. Consulte [preparar para o formato de alteração para Azure monitor logs de recursos arquivados em uma conta de armazenamento](./resource-logs-blob-format.md) para obter detalhes sobre essa alteração de formato.
 
 
 | Propriedade de esquema dos logs de recursos | Propriedade de esquema da API REST do Log de Atividades | Observações |
@@ -885,4 +885,3 @@ Veja a seguir um exemplo de um evento que usa esse esquema.
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre o log de atividades](platform-logs-overview.md)
 * [Criar uma configuração de diagnóstico para enviar o log de atividades para Log Analytics espaço de trabalho, armazenamento do Azure ou hubs de eventos](diagnostic-settings.md)
-

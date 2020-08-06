@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: ce8e8b083b108d24c11d828ae1cbd4e47e090fc0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: de1345fca418118e88929870cd2f4007dd36b3a4
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963199"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835979"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parâmetros de servidor no banco de dados do Azure para MySQL
 
@@ -197,6 +197,21 @@ Consulte a [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/ser
 |Otimizado para memória|8|0|0|134217728|
 |Otimizado para memória|16|0|0|134217728|
 |Otimizado para memória|32|0|0|134217728|
+
+### <a name="lower_case_table_names"></a>lower_case_table_names
+
+O lower_case_table_name é definido como 1 por padrão e você pode atualizar esse parâmetro no MySQL 5,6 e no MySQL 5,7
+
+Consulte a [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names) para saber mais sobre esse parâmetro.
+
+> [!NOTE]
+> No MySQL 8,0, o lower_case_table_name é definido como 1 por padrão e você não pode alterá-lo.
+
+### <a name="innodb_strict_mode"></a>innodb_strict_mode
+
+Se você receber um erro semelhante a "tamanho de linha muito grande (> 8126)", talvez queira desativar o parâmetro **innodb_strict_mode**. O parâmetro do servidor **innodb_strict_mode** não pode ser modificado globalmente no nível do servidor porque se o tamanho dos dados da linha for maior que 8K, os dados serão truncados sem um erro que leva à perda potencial de dados. É recomendável modificar o esquema para se ajustar ao limite de tamanho de página. 
+
+Esse parâmetro pode ser definido em um nível de sessão usando `init_connect` . Para definir **innodb_strict_mode** no nível de sessão, consulte [parâmetro de configuração não listado](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
 
 ### <a name="sort_buffer_size"></a>sort_buffer_size
 

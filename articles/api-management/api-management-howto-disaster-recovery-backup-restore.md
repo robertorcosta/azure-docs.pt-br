@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 4c6f4bbae180184c13041863a85e2a7025f06a6e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 826f47115d15b9c46476af711eddc5499afab419
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250436"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830250"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
 
@@ -169,19 +169,24 @@ Defina o valor do cabeçalho de solicitação `Content-Type` para `application/j
 
 O backup é uma operação longa de execução que pode levar mais de um minuto para concluir. Se a solicitação foi bem-sucedida e o processo de backup foi iniciado, você receberá uma `202 Accepted` resposta com um cabeçalho `Location`. Faça solicitações “GET” para a URL no cabeçalho do `Location` para descobrir o status da operação. Enquanto o backup está em andamento, você continua recebendo um código de status “202 Aceito”. Um Código de resposta `200 OK` indica a conclusão bem-sucedida da operação de backup.
 
-Observe as seguintes restrições ao fazer uma solicitação de backup ou restauração:
+#### <a name="constraints-when-making-backup-or-restore-request"></a>Restrições ao fazer backup ou solicitação de restauração
 
 -   O **contêiner** especificado no corpo solicitado **tem que existir**.
 -   Enquanto o backup está em andamento, **Evite alterações de gerenciamento no serviço** , como atualização de SKU ou downgrade, alteração no nome de domínio e muito mais.
 -   A restauração de um **backup é garantida somente por 30 dias** desde o momento de sua criação.
--   Os **Dados de uso** utilizados para a criação de relatórios de análise **não estão incluídos** no backup. Use o [API REST de Gerenciamento de API do Azure][azure api management rest api] para recuperar periodicamente os relatórios analíticos por questões de segurança.
--   Além disso, os seguintes itens não fazem parte dos dados de backup: certificados TLS/SSL de domínio personalizado e quaisquer certificados intermediários ou raiz carregados pelo cliente, pelo conteúdo do portal do desenvolvedor e pelas configurações de integração de rede virtual.
--   A frequência com que você executa backups de serviço afeta seu objetivo de ponto de recuperação. Para minimizar, aconselhamos a implementação de backups regulares e realizar backups sob demanda depois de fazer as mudanças ao seu serviço de Gerenciamento de API.
 -   As **alterações** feitas na configuração do serviço (por exemplo, APIs, políticas, aparência do portal do desenvolvedor) enquanto uma operação de backup está em andamento **podem não ser incluídas no backup e, portanto, serão perdidas**.
--   **Permitir** o acesso do plano de controle à conta de armazenamento do Azure se ele tiver o [Firewall][azure-storage-ip-firewall] habilitado. O cliente deve abrir o conjunto de [endereços IP do plano de controle de gerenciamento de API do Azure][control-plane-ip-address] em sua conta de armazenamento para backup ou restauração. 
+-   **Permitir** o acesso do plano de controle à conta de armazenamento do Azure se ele tiver o [Firewall][azure-storage-ip-firewall] habilitado. O cliente deve abrir o conjunto de [endereços IP do plano de controle de gerenciamento de API do Azure][control-plane-ip-address] em sua conta de armazenamento para backup ou restauração. Isso ocorre porque as solicitações para o armazenamento do Azure não são no modo SNAT a um IP público do > de computação (plano de controle de gerenciamento de API do Azure). A solicitação de armazenamento entre regiões será no modo SNAT.
 
-> [!NOTE]
-> Se você tentar fazer backup/restaurar de/para um serviço de gerenciamento de API usando uma conta de armazenamento que tem o [Firewall][azure-storage-ip-firewall] habilitado, na mesma região do Azure, isso não funcionará. Isso ocorre porque as solicitações para o armazenamento do Azure não são no modo SNAT a um IP público do > de computação (plano de controle de gerenciamento de API do Azure). A solicitação de armazenamento entre regiões será no modo SNAT.
+#### <a name="what-is-not-backed-up"></a>O que não é feito backup
+-   Os **Dados de uso** utilizados para a criação de relatórios de análise **não estão incluídos** no backup. Use o [API REST de Gerenciamento de API do Azure][azure api management rest api] para recuperar periodicamente os relatórios analíticos por questões de segurança.
+-   Certificados [TLS/SSL de domínio personalizado](configure-custom-domain.md)
+-   [Certificado de autoridade de certificação personalizado](api-management-howto-ca-certificates.md) que inclui certificados intermediários ou raiz carregados pelo cliente
+-   Configurações de integração de [rede virtual](api-management-using-with-vnet.md) .
+-   Configuração de [identidade gerenciada](api-management-howto-use-managed-service-identity.md) .
+-   [Diagnóstico de Azure monitor](api-management-howto-use-azure-monitor.md) Configuração.
+-   [Protocolos e configurações de codificação](api-management-howto-manage-protocols-ciphers.md) .
+
+A frequência com que você executa backups de serviço afeta seu objetivo de ponto de recuperação. Para minimizar, aconselhamos a implementação de backups regulares e realizar backups sob demanda depois de fazer as mudanças ao seu serviço de Gerenciamento de API.
 
 ### <a name="restore-an-api-management-service"></a><a name="step2"> </a>Restaurar um serviço de Gerenciamento de API
 

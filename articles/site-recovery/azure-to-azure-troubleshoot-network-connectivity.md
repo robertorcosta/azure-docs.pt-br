@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 8396ffa958e41e12e9258766483310baef0cabbe
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9600f1cae61b59af5d026eb74f504658395a11ae
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421426"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835877"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Solucionar problemas de conectividade de rede de VM do Azure para Azure
 
@@ -18,7 +18,7 @@ Este artigo descreve os problemas comuns relacionados à conectividade de rede q
 
 Para replicação de recuperação de Site para o trabalho, conectividade de saída para intervalos específicos de IP ou URLs é necessária da VM. Se a VM estiver atrás de um firewall ou usa regras de grupo de segurança de rede (NSG) para controlar a conectividade de saída, você poderá enfrentar um desses problemas.
 
-| **Nome**                  | **Comercial**                               | **Governamental**                                 | **Descrição** |
+| **Nome**                  | **Comercial**                               | **Governo**                                 | **Descrição** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
 | Armazenamento                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Necessário para que os dados possam ser gravados para a conta de armazenamento de cache da região de origem da VM. Se você souber todas as contas de armazenamento em cache para suas VMs, poderá usar uma lista de permissões para as URLs de conta de armazenamento específicas. Por exemplo, `cache1.blob.core.windows.net` e `cache2.blob.core.windows.net` em vez de `*.blob.core.windows.net` . |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Necessário para autorização e autenticação para as URLs do serviço de recuperação de Site. |
@@ -51,7 +51,7 @@ Tente acessar o servidor DNS da máquina virtual. Se o servidor DNS não estiver
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problema 2: falha na configuração do Azure Site Recovery (151196)
 
 > [!NOTE]
-> Se as VMs estiverem atrás de um balanceador de carga interno **padrão** , por padrão, não teria acesso aos IPS do Office 365, como `login.microsoftonline.com` . Altere-o para o tipo **básico** de balanceador de carga interno ou crie acesso de saída conforme mencionado no artigo [Configurar o balanceamento de carga e as regras de saída no Standard Load Balancer usando CLI do Azure](../load-balancer/configure-load-balancer-outbound-cli.md).
+> Se as VMs estiverem atrás de um balanceador de carga interno **padrão** , por padrão, não teria acesso aos IPS do Office 365, como `login.microsoftonline.com` . Altere-o para o tipo **básico** de balanceador de carga interno ou crie acesso de saída conforme mencionado no artigo [Configurar o balanceamento de carga e as regras de saída no Standard Load Balancer usando CLI do Azure](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration).
 
 #### <a name="possible-cause"></a>Causa possível
 
@@ -82,7 +82,7 @@ Este exemplo mostra como configurar regras de NSG para uma VM a ser replicada.
 
 1. Crie regras de saída da porta HTTPS 443 para os IPs de Site Recovery que correspondem ao local de destino:
 
-   | Location | Endereço IP do Site Recovery | Endereço IP de monitoramento do Site Recovery |
+   | Localização | Endereço IP do Site Recovery | Endereço IP de monitoramento do Site Recovery |
    | --- | --- | --- |
    | Centro dos EUA | 40.69.144.231 | 52.165.34.144 |
 
@@ -102,7 +102,7 @@ Para este exemplo, essas regras NSG são necessárias para que a replicação po
 
 1. Crie regras de saída da porta HTTPS 443 para os IPs de Site Recovery que correspondem ao local de origem:
 
-   | Location | Endereço IP do Site Recovery | Endereço IP de monitoramento do Site Recovery |
+   | Localização | Endereço IP do Site Recovery | Endereço IP de monitoramento do Site Recovery |
    | --- | --- | --- |
    | Leste dos EUA | 13.82.88.226 | 104.45.147.24 |
 

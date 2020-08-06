@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: d1ab9834d4bf25c7c18171ecb271f18b213d15b0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d754f27a1510d9db0837eabb96b3a7cf75f76fc1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507872"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835520"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Hospedagem de mainframe em máquinas virtuais do Azure
 
@@ -90,7 +90,7 @@ Com o IaaS do Azure, como uma VM, as funções específicas do sistema fornecem 
 
 ### <a name="scalability"></a>Escalabilidade
 
-Os mainframes normalmente aumentam, enquanto os ambientes de nuvem são expandidos. O Azure oferece uma variedade de tamanhos do [Linux](../../linux/sizes.md) e do [Windows](../../windows/sizes.md) para atender às suas necessidades. A nuvem também é dimensionada para cima ou para baixo para corresponder às especificações exatas do usuário. A capacidade de computação, o armazenamento e os serviços são [dimensionados](/azure/architecture/best-practices/auto-scaling) sob demanda em um modelo de cobrança baseado em uso.
+Os mainframes normalmente aumentam, enquanto os ambientes de nuvem são expandidos. O Azure oferece uma variedade de tamanhos do [Linux](../../sizes.md) e do [Windows](../../sizes.md) para atender às suas necessidades. A nuvem também é dimensionada para cima ou para baixo para corresponder às especificações exatas do usuário. A capacidade de computação, o armazenamento e os serviços são [dimensionados](/azure/architecture/best-practices/auto-scaling) sob demanda em um modelo de cobrança baseado em uso.
 
 ### <a name="storage"></a>Armazenamento
 
@@ -98,7 +98,7 @@ Na nuvem, você tem uma variedade de opções de armazenamento flexíveis e esca
 
 Saiba como [mover o armazenamento de mainframe para o Azure](./concepts/mainframe-storage-azure.md).
 
-### <a name="backup-and-recovery"></a>Backup e descoberta
+### <a name="backup-and-recovery"></a>Backup e recuperação
 
 Manter seu próprio site de recuperação de desastre pode ser uma proposta cara. O Azure tem opções fáceis de implementar e econômicas para [backup](../../../backup/backup-overview.md), [recuperação](../../../site-recovery/site-recovery-overview.md)e [redundância](../../../storage/common/storage-redundancy.md) em níveis locais ou regionais, ou por meio de redundância geográfica.
 

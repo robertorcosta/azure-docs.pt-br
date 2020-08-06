@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 721848b996bc4887370b77404e3d571975815624
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a623436cdeaac89d140b3834808fb975bd733f4e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421885"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835945"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administração de serviço do Azure Pesquisa Cognitiva no portal do Azure
 
@@ -56,7 +56,7 @@ Em relação ao acesso ao ponto de extremidade, qualquer pessoa com acesso à UR
 * Acesso somente leitura ao serviço são direitos de consulta, normalmente concedidos a um aplicativo cliente, fornecendo a ela a URL e uma chave de API de consulta.
 * Acesso de leitura/gravação fornece a capacidade de adicionar, excluir ou modificar objetos de servidor, incluindo chaves de API, índices, indexadores, fontes de dados e agendas. Acesso de leitura-gravação é concedido fornecendo a URL, uma chave de API de administração.
 
-Os direitos para os aparelhos de provisionamento de serviço são concedidos por meio de atribuições de função. O [RBAC (acesso baseado em função)](../role-based-access-control/overview.md) é um sistema de autorização criado em [Azure Resource Manager](../azure-resource-manager/management/overview.md) para o provisionamento de recursos do Azure. 
+Os direitos para os aparelhos de provisionamento de serviço são concedidos por meio de atribuições de função. O Azure [RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) do Azure é um sistema de autorização criado em [Azure Resource Manager](../azure-resource-manager/management/overview.md) para o provisionamento de recursos do Azure. 
 
 No contexto do Azure Pesquisa Cognitiva, as [atribuições de função do Azure](search-security-rbac.md) determinarão quem pode executar tarefas, independentemente de estarem usando o [portal](search-manage.md), o [PowerShell](search-manage-powershell.md)ou as [APIs REST de gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
 

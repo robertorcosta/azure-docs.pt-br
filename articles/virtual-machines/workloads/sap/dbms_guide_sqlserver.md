@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1771b0b55301fe4beaf2049859ebf3b9642fdd5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6e217540b1dd3744da855c71e0add289dd1c9e18
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077349"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831049"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implantação do DBMS de Máquinas de Virtuais do SQL Server Azure para NetWeaver do SAP
 
@@ -336,7 +336,7 @@ De acordo com a descrição geral, os executáveis do SQL Server devem ser local
 
 
 * Com todos os tipos de VM certificadas pela SAP (consulte a Nota SAP [1928533]), exceto que VMs da série A, dados tempdb e arquivos de log podem ser colocados na unidade D:\ não-persistente. 
-* No entanto, é recomendável usar vários arquivos de dados de tempdb. Esteja ciente de que os volumes da unidade D:\ são diferentes com base no tipo de VM. Para obter tamanhos exatos da unidade D:\ das VMs diferentes, verifique o artigo [máquinas virtuais de tamanhos para Windows no Azure](../../windows/sizes.md).
+* No entanto, é recomendável usar vários arquivos de dados de tempdb. Esteja ciente de que os volumes da unidade D:\ são diferentes com base no tipo de VM. Para obter tamanhos exatos da unidade D:\ das VMs diferentes, verifique o artigo [máquinas virtuais de tamanhos para Windows no Azure](../../sizes.md).
 
 Essas configurações permitem que o tempdb consuma mais espaço do que a unidade do sistema é capaz de fornecer. A unidade D:\ não persistente também oferece melhor latência de e/s e taxa de transferência (com exceção de VMs da série). Para determinar o tamanho adequado de tempdb, é possível verificar os tamanhos de tempdb nos sistemas existentes. 
 
@@ -379,7 +379,7 @@ O SQL Server 2014 e versões mais recentes abrem a possibilidade para armazenar 
 
 * A conta de armazenamento usada precisa estar na mesma região do Azure que a usada para implantar a VM em que o SQL Server está sendo executado.
 * As considerações listadas anteriormente em relação à distribuição de VHDs em diferentes Contas de Armazenamento do Azure também se aplicam a esse método de implantações. Significa a contagem de operações de E/S em relação aos limites da Conta de Armazenamento do Azure.
-* Em vez de contabilização em relação à cota de e/s de armazenamento da VM, o tráfego em blobs de armazenamento que representam os arquivos de log e de dados do SQL Server será contabilizado na largura de banda de rede da VM do tipo específico de VM. Para obter a largura de banda de rede e de armazenamento de um tipo específico de VM, confira o artigo [Tamanhos das máquinas virtuais do Windows no Azure](../../windows/sizes.md).
+* Em vez de contabilização em relação à cota de e/s de armazenamento da VM, o tráfego em blobs de armazenamento que representam os arquivos de log e de dados do SQL Server será contabilizado na largura de banda de rede da VM do tipo específico de VM. Para obter a largura de banda de rede e de armazenamento de um tipo específico de VM, confira o artigo [Tamanhos das máquinas virtuais do Windows no Azure](../../sizes.md).
 * Como resultado do envio por push da E/S de arquivo por meio da cota de rede, você está deixando de lado grande parte da cota de armazenamento e, com isso, usando a largura de banda geral da VM apenas parcialmente.
 * As metas de desempenho de taxa de transferência e/s e IOPS que tem o armazenamento Premium do Azure para os tamanhos de disco diferentes não se aplicam mais. Mesmo se os blobs que você criou estejam localizados no armazenamento Premium do Azure. Os destinos são documentados no artigo [Armazenamento Premium de alto desempenho e discos gerenciados para VMs](../../windows/disks-types.md#premium-ssd). Como resultado de colocar arquivos de dados do SQL Server e arquivos de log diretamente nos blobs que são armazenados no armazenamento Premium do Azure, as características de desempenho podem ser diferentes em comparação com VHDs no armazenamento Premium do Azure.
 * O cache baseado em host disponível para discos de Armazenamento Premium do Azure não está disponível para arquivos de dados do SQL Server colocados diretamente nos blobs do Azure.
