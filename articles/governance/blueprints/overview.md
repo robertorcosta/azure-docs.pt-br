@@ -3,12 +3,12 @@ title: Visão geral do Azure Blueprint
 description: Entenda como o serviço do Azure Blueprints permite criar, definir e implantar artefatos no seu ambiente do Azure.
 ms.date: 05/06/2020
 ms.topic: overview
-ms.openlocfilehash: 3a7cece81027bd8ac79250f2f2cd08da637b5f0b
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: a8cec34bb5bdd52b22063a4109153c7f455aaa65
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970919"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530371"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -39,7 +39,7 @@ Um blueprint é um pacote ou contêiner para composição de conjuntos específi
 
 Uma [política](../policy/overview.md) é uma permissão padrão e um sistema de negação explícito focado nas propriedades do recurso durante a implementação e para recursos já existentes. Ele dá suporte à governança de nuvem confirmando que os recursos dentro de uma assinatura estão cumprindo os requisitos e os padrões.
 
-A inclusão de uma política em um blueprint permite a criação do design ou padrão correto durante a atribuição do blueprint. A inclusão da política faz com que apenas alterações aprovadas ou esperadas possam ocorrer no ambiente para proteger a conformidade com a intenção do blueprint.
+A inclusão de uma política em um blueprint permite a criação do padrão ou design correto durante a atribuição do blueprint. A inclusão da política faz com que apenas alterações aprovadas ou esperadas possam ocorrer no ambiente para proteger a conformidade com a intenção do blueprint.
 
 Uma política pode ser incluída como um dos muitos _artefatos_ em uma definição de blueprint. Os Blueprints também suportam o uso de parâmetros com políticas e iniciativas.
 
@@ -103,7 +103,7 @@ Para atribuir ou desatribuir um plano gráfico, sua conta precisa das seguintes 
 
 As seguintes funções internas estão disponíveis:
 
-|Função RBAC | Descrição |
+|Função do Azure | Descrição |
 |-|-|
 |[Proprietário](../../role-based-access-control/built-in-roles.md#owner) | Além de outras permissões, inclui todas as permissões relacionadas ao Azure Blueprint. |
 |[Colaborador](../../role-based-access-control/built-in-roles.md#contributor) | Além de outras permissões, pode criar e excluir definições de blueprint, mas não tem permissões de atribuição de blueprint. |
