@@ -3,12 +3,12 @@ title: Enviar eventos do Armazenamento de Blobs para o ponto de extremidade da W
 description: Use a Grade de Eventos do Azure e um modelo do Azure Resource Manager para criar uma conta de Armazenamento de Blobs e assinar os eventos. Envie os eventos para um webhook.
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 603d6bf11f2ec6988d52e69817bddf2fd3ccf3b3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e1d266f747671542059e0610cfcdd8cd12594e51
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103306"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460432"
 ---
 # <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Rotear eventos do Armazenamento de Blobs para o ponto de extremidade da Web usando um modelo do Resource Manager
 
@@ -86,7 +86,7 @@ Quando o grupo de recursos não for mais necessário, [exclua-o](../azure-resour
 
 Para obter mais informações sobre os modelos do Azure Resource Manager, confira os seguintes artigos:
 
-* [Documentação do Azure Resource Manager](/azure/azure-resource-manager)
+* [Documentação do Azure Resource Manager](../azure-resource-manager/index.yml)
 * [Definir recursos em modelos do Azure Resource Manager](/azure/templates/)
 * [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/)
 * [Modelos da Grade de Eventos do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).

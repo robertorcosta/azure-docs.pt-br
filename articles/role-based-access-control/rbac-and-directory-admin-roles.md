@@ -15,12 +15,12 @@ ms.date: 07/07/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 64b4b0bd8c1e387229144e02293b573062ab196c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4c501368dfbeb95be1c5d2af9ff7aae3850257b3
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087819"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761137"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Funções de administrador da assinatura clássica, funções do Azure e funções do Azure AD
 
@@ -131,4 +131,3 @@ Várias funções do Azure AD englobam o Azure AD e o Microsoft Office 365, como
 - [O que é o RBAC do Azure (controle de acesso baseado em função do Azure)?](overview.md)
 - [Permissões da função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 - [Administradores da assinatura clássica do Azure](classic-administrators.md)
-- [Cloud Adoption Framework: Gerenciamento de acesso aos recursos no Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

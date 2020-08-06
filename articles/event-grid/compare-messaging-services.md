@@ -3,20 +3,20 @@ title: Comparar os serviços de mensagens do Azure
 description: Descreve os três serviços de mensagens do Azure – Grade de Eventos do Azure, Hubs de Eventos e Barramento de Serviço. Recomenda que serviço usar para cenários diferentes.
 ms.topic: overview
 ms.date: 07/07/2020
-ms.openlocfilehash: 9c539accbc41f56e4421b9e793c25496987363aa
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7a3a0cd7f63a67206053ae55f33bd71aee2c19c6
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101368"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460398"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Escolha entre os três serviços de mensagens do Azure – Grade de Eventos, Hubs de Eventos e Barramento de Serviço
 
 O Azure oferece três serviços lhe ajudam na entrega de mensagens de evento ao longo de uma solução. Esses serviços são:
 
-* [Grade de Eventos](/azure/event-grid/)
-* [Hubs de Evento](/azure/event-hubs/)
-* [Barramento de Serviço](/azure/service-bus-messaging/)
+* [Grade de Eventos](./index.yml)
+* [Hubs de Evento](../event-hubs/index.yml)
+* [Barramento de Serviço](../service-bus-messaging/index.yml)
 
 Embora tenham algumas semelhanças, cada serviço é criado para cenários específicos. Este artigo descreve as diferenças entre esses serviços e ajuda a entender qual deles escolher para seu aplicativo. Em muitos casos, os serviços de mensagens são complementares e podem ser usados juntos.
 

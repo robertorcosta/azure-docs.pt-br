@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2020
 ms.author: tomfitz
-ms.openlocfilehash: 900f31ff87e6a588fc1d1e3efd854437d2c8c1b9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 915b8e13adaa440063f5db62b72fa39e1035d576
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76719935"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460772"
 ---
 # <a name="create-event-grid-custom-topic-with-powershell"></a>Criar um tópico de Grade de Eventos personalizado com o PowerShell
 
@@ -36,9 +36,9 @@ Este script usa o seguinte comando para criar o tópico personalizado. Cada coma
 
 | Comando | Observações |
 |---|---|
-| [New-AzEventGridTopic](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridtopic) | Este script cria um tópico personalizado da Grade de Eventos. |
+| [New-AzEventGridTopic](/powershell/module/az.eventgrid/new-azeventgridtopic) | Este script cria um tópico personalizado da Grade de Eventos. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados do Azure](../overview.md).
-* Para obter mais informações sobre o PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Para obter mais informações sobre o PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/get-started-azureps).

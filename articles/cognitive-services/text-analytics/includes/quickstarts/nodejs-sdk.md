@@ -9,12 +9,13 @@ ms.topic: include
 ms.date: 07/27/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: cc5db825771369d35b447232b58a9e42b14efb4f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-javascript
+ms.openlocfilehash: b1a0425fba7dc8c6fb87f03305062f61fc431ca9
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87375280"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87451161"
 ---
 <a name="HOLTop"></a>
 
@@ -265,7 +266,7 @@ Document ID: 3 , Language: Chinese_Simplified
 #### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
 > [!NOTE]
-> Na versão `3.0-preview`:
+> Na versão `3.0`:
 > * A vinculação de entidade é uma solicitação separada do NER.
 
 Crie uma matriz de cadeias de caracteres que contenha o documento que você deseja analisar. Chame o método `recognizeEntities()` do cliente e obtenha o objeto `RecognizeEntitiesResult`. Itere na lista de resultados e imprima o nome, o tipo, o subtipo, o deslocamento, o comprimento e a pontuação da entidade.

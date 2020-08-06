@@ -4,12 +4,12 @@ description: Este artigo fornece um script de exemplo do Azure PowerShell que mo
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 07/08/2020
-ms.openlocfilehash: 82f40b9971d89d96500887e2927a7b86246ce74d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c8e84fe12cf239e7dbb0e6a15088efda793ddec9
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171186"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460738"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-powershell"></a>Inscrever-se em eventos para um grupo de recursos com o Azure PowerShell
 
@@ -37,9 +37,9 @@ Este script usa o seguinte comando para criar a assinatura do evento. Cada coman
 
 | Comando | Observações |
 |---|---|
-| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Criar uma assinatura na Grade de Eventos. |
+| [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) | Criar uma assinatura na Grade de Eventos. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados do Azure](../overview.md).
-* Para obter mais informações sobre o PowerShell, confira a [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Para obter mais informações sobre o PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/get-started-azureps).
