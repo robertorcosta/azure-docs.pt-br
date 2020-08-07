@@ -6,12 +6,12 @@ manager: gwallace
 ms.topic: article
 ms.date: 07/10/2020
 author: jluk
-ms.openlocfilehash: f6cb370d258a79420b03baf17ec964b091cdebb7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5b3dc3803cfb89f4a74d082b5913e69df1d03a00
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056579"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986705"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Reduzir a latência com grupos de posicionamento de proximidade (visualização)
 
@@ -26,11 +26,7 @@ Ao implantar seu aplicativo no Azure, a difusão de instâncias de máquina virt
 * Um pool de nós deve usar conjuntos de dimensionamento de máquinas virtuais para associar um grupo de posicionamento de proximidade.
 * Um pool de nós pode associar um grupo de posicionamento de proximidade no pool de nós apenas a tempo de criação.
 
-> [!IMPORTANT]
-> As versões prévias do recurso AKS estão disponíveis em uma base de autoatendimento e aceitação. As versões prévias são fornecidas "no estado em que se encontram" e "conforme disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As versões prévias do AKS são parcialmente cobertas pelo suporte ao cliente em uma base de melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter mais informações, consulte os seguintes artigos:
->
-> - [Políticas de suporte do AKS](support-policies.md)
-> - [Perguntas frequentes sobre o suporte do Azure.](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 

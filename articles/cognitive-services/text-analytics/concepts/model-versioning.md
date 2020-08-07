@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 04/21/2020
+ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: c9c598d385768e604d9b42e3ea055629e6ae2866
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b3e8c2c8a5e95cc5c862112410f5073a5e600651
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108542"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986756"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Controle de versão de modelo no API de Análise de Texto
 
@@ -26,14 +26,14 @@ A versão 3 do API de Análise de Texto permite que você escolha a versão do m
 Use a tabela abaixo para localizar quais versões de modelo têm suporte em cada ponto de extremidade.
 
 
-| Ponto de extremidade                        | Versões compatíveis                       | última versão |
-|---------------------------------|------------------------------------------|----------------|
-| `/sentiment`                    | `2019-10-01`, `2020-04-01`               | `2020-04-01`   |
-| `/languages`                    | `2019-10-01`                             | `2019-10-01`   |
-| `/entities/linking`             | `2019-10-01`, `2020-02-01`               | `2020-02-01`   |
-| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01` | `2020-04-01`   |
-| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01` | `2020-04-01`   |
-| `/keyphrases`                   | `2019-10-01`                             | `2019-10-01`   |
+| Ponto de extremidade                        | Versões compatíveis                                     | última versão |
+|---------------------------------|--------------------------------------------------------|----------------|
+| `/sentiment`                    | `2019-10-01`, `2020-04-01`                             | `2020-04-01`   |
+| `/languages`                    | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
+| `/entities/linking`             | `2019-10-01`, `2020-02-01`                             | `2020-02-01`   |
+| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,              | `2020-04-01`   |
+| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`  | `2020-07-01`   |
+| `/keyphrases`                   | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
 
 
 Você pode encontrar detalhes sobre as atualizações para esses modelos no [que há de novo](../whats-new.md).

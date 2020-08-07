@@ -5,12 +5,12 @@ services: container-service
 ms.service: container-service
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: ce2871883300e9eb135b51fdb2f5566e451084f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbb003c287a18810c2c14c4f2ea401fa55cca427
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374603"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987283"
 ---
 # <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Visualização-adicionar um pool de nós Spot a um cluster do serviço de kubernetes do Azure (AKS)
 
@@ -24,7 +24,7 @@ Neste artigo, você adiciona um pool de nós Spot secundário a um cluster exist
 
 Este artigo pressupõe uma compreensão básica dos conceitos do Kubernetes e do Azure Load Balancer. Para obter mais informações, confira [Principais conceitos do Kubernetes para o AKS (Serviço de Kubernetes do Azure)][kubernetes-concepts].
 
-Esse recurso atualmente está em versão prévia.
+Esse recurso está atualmente na visualização.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -32,11 +32,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Quando você cria um cluster para usar um pool de nós Spot, esse cluster também deve usar conjuntos de dimensionamento de máquinas virtuais para pools de nós e o balanceador de carga SKU *padrão* . Você também deve adicionar um pool de nós adicional depois de criar o cluster para usar um pool de nós Spot. Adicionar um pool de nós adicional é abordado em uma etapa posterior, mas primeiro você precisa habilitar um recurso de visualização.
 
-> [!IMPORTANT]
-> Os recursos de visualização do AKS são de autoatendimento e aceitação. Eles são fornecidos para reunir comentários e bugs de nossa comunidade. Na versão prévia, esses recursos não são destinados ao uso em produção. Os recursos na visualização pública se enquadram no suporte "melhor esforço". A assistência das equipes de suporte técnico do AKS está disponível durante o horário comercial do fuso horário do Pacífico (PST). Para obter informações adicionais, consulte os seguintes artigos de suporte:
->
-> * [Políticas de suporte do AKS][aks-support-policies]
-> * [Perguntas frequentes sobre o suporte do Azure.][aks-faq]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="register-spotpoolpreview-preview-feature"></a>Registrar o recurso de visualização do spotpoolpreview
 
@@ -85,7 +81,7 @@ As seguintes limitações se aplicam quando você cria e gerencia clusters AKS c
 * Um pool de nós spot terá o rótulo *kubernetes.Azure.com/scalesetpriority:spot*, o seu *kubernetes.Azure.com/scalesetpriority=spot:NoSchedule*e os pods do sistema terão a proteção contra afinidade.
 * Você deve adicionar um [toleration correspondente][spot-toleration] para agendar cargas de trabalho em um pool de nós Spot.
 
-## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>Adicionar um pool de nós Spot a um cluster AKS
+## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>Adicionar um pool de nós spot a um cluster do AKS
 
 Você deve adicionar um pool de nós Spot a um cluster existente que tenha vários pools de nós habilitados. Mais detalhes sobre como criar um cluster AKS com vários pools de nós estão disponíveis [aqui][use-multiple-node-pools].
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: dbd0699924268b38d69bc576a5886e8d31fa1208
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 9b76dac0734985b01a4a73ad4fc7f2a5f35838db
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373463"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986892"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Como usar Análise de Texto para integridade (versão prévia)
 
@@ -44,7 +44,7 @@ A extração de relações identifica conexões significativas entre os conceito
 > ![Renovar integridade](../media/ta-for-health/health-relation-extraction.png)
 
 
-#### <a name="entity-linking"></a>[Vinculação de Identidade](#tab/entity-linking)
+#### <a name="entity-linking"></a>[Vinculação de entidade](#tab/entity-linking)
 
 A vinculação de entidade ambiguidade entidades distintas associando entidades nomeadas mencionadas em texto a conceitos encontrados em um banco de dados predefinido de conceitos. Por exemplo, o sistema de idiomas médicos unificados (UMLS).
 
@@ -90,7 +90,7 @@ O Azure [aplicativo Web para contêineres](https://azure.microsoft.com/services/
 > [!NOTE]
 > Usando o aplicativo Web do Azure, você obterá automaticamente um domínio na forma de`<appservice_name>.azurewebsites.net`
 
-Execute este script do PowerShell usando o CLI do Azure para criar um Aplicativo Web para Contêineres, usando sua assinatura e a imagem de contêiner sobre HTTPS. Aguarde até que o script seja concluído (aproximadamente 20 minutos) antes de enviar a primeira solicitação.
+Execute este script do PowerShell usando o CLI do Azure para criar um Aplicativo Web para Contêineres, usando sua assinatura e a imagem de contêiner sobre HTTPS. Aguarde até que o script seja concluído (aproximadamente 25-30 minutos) antes de enviar a primeira solicitação.
 
 ```bash
 $subscription_name = ""                    # THe name of the subscription you want you resource to be created on.
@@ -120,7 +120,8 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 
 Você também pode usar uma ACI (instância de contêiner do Azure) para facilitar a implantação. ACI é um recurso que permite executar contêineres do Docker sob demanda em um ambiente gerenciado e sem servidor do Azure. 
 
-Consulte [como usar as instâncias de contêiner do Azure](text-analytics-how-to-use-container-instances.md) para obter etapas sobre como implantar um recurso ACI usando o portal do Azure. Você também pode usar o script do PowerShell abaixo usando CLI do Azure, que criará um ACI em sua assinatura usando a imagem de contêiner.  Aguarde até que o script seja concluído (aproximadamente 20 minutos) antes de enviar a primeira solicitação.
+Consulte [como usar as instâncias de contêiner do Azure](text-analytics-how-to-use-container-instances.md) para obter etapas sobre como implantar um recurso ACI usando o portal do Azure. Você também pode usar o script do PowerShell abaixo usando CLI do Azure, que criará um ACI em sua assinatura usando a imagem de contêiner.  Aguarde até que o script seja concluído (aproximadamente 25-30 minutos) antes de enviar a primeira solicitação.  Devido ao limite do número máximo de CPUs por recurso ACI, não selecione esta opção se você espera enviar mais de 5 documentos grandes (aproximadamente 5000 caracteres cada) por solicitação.
+Consulte o artigo de [suporte regional do ACI](https://docs.microsoft.com/azure/container-instances/container-instances-region-availability) para obter informações de disponibilidade. 
 
 > [!NOTE] 
 > As instâncias de contêiner do Azure não incluem suporte a HTTPS para os domínios internos. Se você precisar de HTTPS, será necessário configurá-lo manualmente, incluindo a criação de um certificado e o registro de um domínio. Você pode encontrar instruções para fazer isso com o NGINX abaixo.
@@ -143,7 +144,7 @@ $DOCKER_IMAGE_NAME = "containerpreview.azurecr.io/microsoft/cognitive-services-h
 
 az login
 az account set -s $subscription_name
-az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 5 --memory 12 --registry-login-server $DOCKER_REGISTRY_LOGIN_SERVER --registry-username $DOCKER_REGISTRY_SERVER_USERNAME --registry-password $DOCKER_REGISTRY_SERVER_PASSWORD --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
+az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 4 --memory 12 --registry-login-server $DOCKER_REGISTRY_LOGIN_SERVER --registry-username $DOCKER_REGISTRY_SERVER_USERNAME --registry-password $DOCKER_REGISTRY_SERVER_PASSWORD --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
 
 # Once deployment complete, the resource should be available at: http://<unique_dns_label>.<resource_group_region>.azurecontainer.io:5000
 ```

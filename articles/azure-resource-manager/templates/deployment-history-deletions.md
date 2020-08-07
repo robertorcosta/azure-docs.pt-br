@@ -2,24 +2,22 @@
 title: Exclusões de histórico de implantações
 description: Descreve como Azure Resource Manager exclui automaticamente implantações do histórico de implantação. As implantações são excluídas quando o histórico está próximo de exceder o limite de 800.
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 8ec3291dc5e35689d4e2c614949e0328057fbfd3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 08/07/2020
+ms.openlocfilehash: 736a25a3c73f8f4c70c5fb6c686fa2b8bb86666d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248967"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986501"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Exclusões automáticas do histórico de implantação
 
 Toda vez que você implanta um modelo, as informações sobre a implantação são gravadas no histórico de implantação. Cada grupo de recursos é limitado a 800 implantações em seu histórico de implantação.
 
-Azure Resource Manager em breve começará a excluir automaticamente as implantações do seu histórico conforme você próximo ao limite. A exclusão automática é uma alteração do comportamento passado. Anteriormente, era necessário excluir manualmente as implantações do histórico de implantação para evitar a obtenção de um erro. **Este recurso ainda não foi adicionado ao Azure. Estamos notificando sobre essa alteração futura, caso você queira recusar.**
+Azure Resource Manager exclui automaticamente as implantações do seu histórico conforme você próximo ao limite. A exclusão automática é uma alteração do comportamento passado. Anteriormente, era necessário excluir manualmente as implantações do histórico de implantação para evitar a obtenção de um erro. **Essa alteração foi implementada em 6 de agosto de 2020.**
 
 > [!NOTE]
 > A exclusão de uma implantação do histórico não afeta nenhum dos recursos que foram implantados.
->
-> Se você tiver um [bloqueio CanNotDelete](../management/lock-resources.md) em um grupo de recursos, as implantações desse grupo de recursos não poderão ser excluídas. Você deve remover o bloqueio para aproveitar as exclusões automáticas no histórico de implantação.
 
 ## <a name="when-deployments-are-deleted"></a>Quando as implantações são excluídas
 
@@ -35,6 +33,24 @@ As implantações são excluídas do seu histórico quando você atinge 775 ou m
 Além das implantações, você também dispara exclusões quando executa a [operação What-If](template-deploy-what-if.md) ou valida uma implantação.
 
 Quando você dá a uma implantação o mesmo nome que uma no histórico, você redefine seu local no histórico. A implantação é movida para o local mais recente no histórico. Você também redefine o local de uma implantação ao [reverter para essa implantação](rollback-on-error.md) após um erro.
+
+## <a name="remove-locks-that-block-deletions"></a>Remover bloqueios que bloqueiam exclusões
+
+Se você tiver um [bloqueio CanNotDelete](../management/lock-resources.md) em um grupo de recursos, as implantações desse grupo de recursos não poderão ser excluídas. Você deve remover o bloqueio para aproveitar as exclusões automáticas no histórico de implantação.
+
+Para usar o PowerShell para excluir um bloqueio, execute os seguintes comandos:
+
+```azurepowershell-interactive
+$lockId = (Get-AzResourceLock -ResourceGroupName lockedRG).LockId
+Remove-AzResourceLock -LockId $lockId
+```
+
+Para usar CLI do Azure para excluir um bloqueio, execute os seguintes comandos:
+
+```azurecli-interactive
+lockid=$(az lock show --resource-group lockedRG --name deleteLock --output tsv --query id)
+az lock delete --ids $lockid
+```
 
 ## <a name="opt-out-of-automatic-deletions"></a>Recusar exclusões automáticas
 

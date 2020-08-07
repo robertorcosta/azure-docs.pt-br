@@ -5,22 +5,18 @@ services: container-service
 ms.topic: article
 ms.date: 07/06/2020
 author: jluk
-ms.openlocfilehash: 5677cb3d240381e06c76ed73354981f782bdb0dd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 18947f409ebcef570998671f9f421f8228e9692d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830216"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987351"
 ---
 # <a name="secure-pods-with-azure-policy-preview"></a>Proteger pods com Azure Policy (versão prévia)
 
 Para melhorar a segurança do cluster AKS, você pode controlar quais funções os pods são concedidos e se algo está em execução na política da empresa. Esse acesso é definido por meio de políticas internas fornecidas pelo [complemento Azure Policy para o AKs][kubernetes-policy-reference]. Ao fornecer controle adicional sobre os aspectos de segurança da especificação do pod, como os privilégios de raiz, o permite uma maior adesão à segurança e visibilidade do que é implantado em seu cluster. Se um pod não atender às condições especificadas na política, Azure Policy poderá impedir que o Pod inicie ou sinalize uma violação. Este artigo mostra como usar Azure Policy para limitar a implantação de pods no AKS.
 
-> [!IMPORTANT]
-> Os recursos de visualização do AKS são consentimento de autoatendimento. As visualizações são fornecidas "no estado em que se encontram" e "como disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As visualizações do AKS são parcialmente cobertas pelo suporte ao cliente com base no melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter informações adicionais, consulte os seguintes artigos de suporte:
->
-> * [Políticas de suporte do AKS][aks-support-policies]
-> * [Perguntas frequentes sobre o suporte do Azure.][aks-faq]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 

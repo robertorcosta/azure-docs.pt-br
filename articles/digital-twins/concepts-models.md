@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 2d062ea4f38742129d44be0e2b7ff51fe3ad8dd1
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 4d0ed9826326256e3b91815746e43d34b6934ba0
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562422"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985863"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Entender os modelos de entrelaçamento no Azure digital gêmeos
 
@@ -204,14 +204,7 @@ A interface de extensão não pode alterar nenhuma das definições das interfac
 
 ## <a name="validating-models"></a>Validando modelos
 
-> [!TIP]
-> É recomendável validar seus modelos offline antes de carregá-los na instância do gêmeos digital do Azure.
-
-Há um exemplo independente de linguagem disponível para validar documentos de modelo para verificar se o DTDL está correto. Ele está localizado aqui: [**exemplo de validador de DTDL**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
-
-O exemplo do validador DTDL é criado em uma biblioteca do analisador do .NET DTDL, que está disponível no NuGet como uma biblioteca do lado do cliente: [**Microsoft. Azure. DigitalTwins. Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). Você também pode usar a biblioteca diretamente para criar sua própria solução de validação. Ao usar a biblioteca do analisador, certifique-se de usar uma versão compatível com a versão que o Azure digital gêmeos está executando. Durante a visualização, esta é a versão *3.7.0*.
-
-Você pode aprender mais sobre a biblioteca do analisador, incluindo exemplos de uso, em [*instruções: analisar e validar modelos*](how-to-use-parser.md).
+[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

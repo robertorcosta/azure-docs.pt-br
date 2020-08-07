@@ -8,24 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: f2ce8f300ae7586fc16fd9170ec290b19875d01c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 67850490a3c1d972d4d03eec545068b1d9eb9fff
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371117"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986291"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
 O API de Análise de Texto é atualizado em uma base contínua. Para se manter atualizado com os recentes desenvolvimentos, este artigo fornece informações sobre novas versões e recursos.
 
-## <a name="july-2020"></a>Julho de 2020
+## <a name="august-2020"></a>Agosto de 2020
+
+* Versão `2020-07-01` do modelo para v3 `/keyphrases` `/pii` e pontos de `/languages` extremidade, que adiciona:
+    * [Categorias de entidades](named-entity-types.md?tabs=personal) específicas do governo e do país adicionais para reconhecimento de entidade nomeada.
+* Um erro HTTP 400 agora será retornado para solicitações de API v3 que excedem os [limites de dados](concepts/data-limits.md)publicados. 
+
+## <a name="july-2020"></a>Julho de 2020 
 
 ### <a name="text-analytics-for-health-container---public-gated-preview"></a>Análise de Texto para contêiner de integridade – visualização de portão público
 
-O Análise de Texto para o contêiner de integridade agora está em uma visualização de entrada pública, que permite extrair informações de textos não estruturados em idiomas em inglês em documentos clínicos, como: formulários de ingestão de pacientes, notas do médico, documentos de pesquisa e resumos de descarga. No momento, você não será cobrado por Análise de Texto para uso do contêiner de integridade. 
+O Análise de Texto para o contêiner de integridade agora está em uma visualização de entrada pública, que permite extrair informações de textos não estruturados em idiomas em inglês em documentos clínicos, como: formulários de ingestão de pacientes, notas do médico, documentos de pesquisa e resumos de descarga. No momento, você não será cobrado por Análise de Texto para uso do contêiner de integridade.
 
 O contêiner oferece os seguintes recursos:
 
@@ -130,7 +136,7 @@ Tipos de entidade adicionais agora estão disponíveis no serviço de visualiza�
 * [Versão do modelo](concepts/model-versioning.md) `2019-10-01` , que inclui:
     * Detecção expandida e categorização de entidades encontradas no texto. 
     * Reconhecimento dos seguintes novos tipos de entidade:
-        * Número de telefone
+        * Número do telefone
         * Endereço IP
 
 A vinculação de entidades dá suporte a inglês e espanhol. O suporte ao idioma NER varia de acordo com o tipo de entidade.

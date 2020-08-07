@@ -4,12 +4,12 @@ description: Saiba como habilitar e configurar o ultra disks em um cluster do AK
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 540269c7ecf42a7e022aa2efb048df7b11587d1a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: f74da764f5a0b021199782dbad03e6e95cceb7f2
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926732"
+ms.locfileid: "87986824"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Usar ultra discos do Azure no serviço kubernetes do Azure (versão prévia)
 
@@ -49,11 +49,7 @@ Quando estiver pronto, atualize o registro do provedor de recursos *Microsoft.Co
 az provider register --namespace Microsoft.ContainerService
 ```
 
-> [!IMPORTANT]
-> Os recursos de visualização do AKS são consentimento de autoatendimento. As visualizações são fornecidas "no estado em que se encontram" e "como disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As visualizações do AKS são parcialmente cobertas pelo suporte ao cliente com base no melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter informações adicionais, consulte os seguintes artigos de suporte:
->
-> - [Políticas de suporte do AKS](support-policies.md)
-> - [Perguntas frequentes sobre o suporte do Azure.](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
 
@@ -95,9 +91,8 @@ Se você quiser criar clusters sem suporte a ultra Disk, poderá fazer isso omit
 
 Você pode habilitar ultra discos em clusters existentes adicionando um novo pool de nós ao cluster que dá suporte a ultra discos. Configure um novo pool de nós para usar a criptografia baseada em host usando o `--aks-custom-headers` sinalizador.
 
-
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
+az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
 ```
 
 Se você quiser criar novos pools de nós sem suporte para ultra disks, poderá fazer isso omitindo o `--aks-custom-headers` parâmetro personalizado.

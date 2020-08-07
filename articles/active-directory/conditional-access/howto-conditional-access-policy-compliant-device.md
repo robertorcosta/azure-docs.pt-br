@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65b4ede6f4851418bf17d42db5b3215dafa9234
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c60c0324b04bca0a8115f4ac884704012e8e1d8c
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995166"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986841"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Acesso condicional: exigir dispositivos em conformidade
 
@@ -44,7 +44,7 @@ As etapas a seguir ajudarão a criar uma política de acesso condicional para ex
 1. Em **aplicativos de nuvem ou ações**  >  **incluem**, selecione **todos os aplicativos de nuvem**.
    1. Se você precisar excluir aplicativos específicos de sua política, poderá selecioná-los na guia **excluir** em **selecionar aplicativos de nuvem excluídos** e escolher **selecionar**.
    1. Selecione **Concluído**.
-1. Em **Condições** > **Aplicativos clientes (versão prévia)** , defina **Configurar** como **Sim** e selecione **Concluído**.
+1. Em **condições**  >  **aplicativos de cliente (versão prévia)**  >  **Selecione os aplicativos cliente aos quais essa política será aplicada**, deixe todos os padrões selecionados e selecione **concluído**.
 1. Em **Access controls**  >  **concessão**de controles de acesso, selecione **exigir que o dispositivo seja marcado como compatível**.
    1. Selecione **Selecionar**.
 1. Confirme suas configurações e defina **Habilitar política** como **Ativado**.

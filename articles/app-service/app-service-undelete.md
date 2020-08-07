@@ -5,26 +5,25 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: c3c79944aa4add0a32dbb584b13606e32e146a1a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 20c220bcb44a1a47e308f57d1466aee2773111a4
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050290"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985675"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Restaurar o aplicativo Serviço de Aplicativo excluído usando o PowerShell
 
 Se excluir acidentalmente seu aplicativo no Serviço de Aplicativo do Azure, você poderá restaurá-lo usando os comandos do [módulo Az PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
 
 > [!NOTE]
-> Os aplicativos excluídos são limpos do sistema 30 dias após a exclusão inicial. Depois que um aplicativo for limpo, ele não poderá ser recuperado.
->
-
-> [!NOTE]
-> Não há suporte para a funcionalidade de reexclusão no plano de consumo.
+> - Os aplicativos excluídos são limpos do sistema 30 dias após a exclusão inicial. Depois que um aplicativo é limpo, ele não pode ser recuperado.
+> - Não há suporte para a funcionalidade de reexclusão no plano de consumo.
+> - Aplicativos de serviço de aplicativos em execução em um Ambiente do Serviço de Aplicativo não dão suporte a instantâneos. Portanto, não há suporte para a funcionalidade de clonagem e a funcionalidade de clone para aplicativos do serviço de aplicativo em execução em um Ambiente do Serviço de Aplicativo.
 >
 
 ## <a name="re-register-app-service-resource-provider"></a>Registrar novamente o provedor de recursos do Serviço de Aplicativo
+
 Alguns clientes podem encontrar um problema em que não é possível recuperar a lista de aplicativos excluídos. Para resolver o problema, execute o seguinte comando:
 
 ```powershell
@@ -52,6 +51,7 @@ As informações detalhadas incluem:
 - **Hora da exclusão**: Quando o aplicativo foi excluído  
 
 ## <a name="restore-deleted-app"></a>Restaurar aplicativo excluído
+
 >[!NOTE]
 > `Restore-AzDeletedWebApp` não tem suporte para aplicativos de funções.
 
@@ -61,7 +61,7 @@ Depois de identificar o aplicativo que quer restaurar, você poderá usar `Resto
 Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
 > [!NOTE]
-> Os slots de implantação não são restaurados como parte do seu aplicativo. Se você precisar restaurar um slot de preparo, use o sinalizador `-Slot <slot-name>`.
+> Os slots de implantação não são restaurados como parte do seu aplicativo. Se você precisar restaurar um slot de preparo, use o `-Slot <slot-name>` sinalizador.
 >
 
 As entradas para o comando são:

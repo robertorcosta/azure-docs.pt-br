@@ -4,12 +4,12 @@ description: Saiba como controlar as inmissões Pod usando o PodSecurityPolicy n
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: b5e9ec19392056115ae739d40c429d93d6ac810e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3c8ec61666942fc74dcb64c03c0e3f06986e8c37
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015571"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987266"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Visualização – Proteja seu cluster usando políticas de segurança pod no serviço de kubernetes do Azure (AKS)
 
@@ -22,11 +22,7 @@ ms.locfileid: "87015571"
 
 Para melhorar a segurança do cluster AKS, você pode limitar o que o pods pode ser agendado. Os pods que solicitam recursos que você não permitir não podem ser executados no cluster AKS. Você define esse acesso usando políticas de segurança de Pod. Este artigo mostra como usar políticas de segurança de pod para limitar a implantação de pods em AKS.
 
-> [!IMPORTANT]
-> Os recursos de visualização do AKS são consentimento de autoatendimento. As visualizações são fornecidas "no estado em que se encontram" e "como disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As visualizações do AKS são parcialmente cobertas pelo suporte ao cliente com base no melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter informações adicionais, consulte os seguintes artigos de suporte:
->
-> * [Políticas de suporte do AKS][aks-support-policies]
-> * [Perguntas frequentes sobre o suporte do Azure.][aks-faq]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 

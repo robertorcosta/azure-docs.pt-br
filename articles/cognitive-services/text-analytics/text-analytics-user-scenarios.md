@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: eb82422aa0e3d45743539da623fcb919e8e77bbc
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 0e60ba0517fb3b9388045762853c651869cffb6a
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141799"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986450"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exemplos de cenário do usuário para a API de Análise de Texto
 
@@ -29,7 +29,7 @@ Obtenha insights dos resultados de pesquisas de clientes e funcionários process
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>Analisar chamadas de clientes gravadas
 
-Extraia insights de chamadas de serviços de atendimento ao cliente usando Conversão de Texto em Fala, Análise de Sentimento e Extração de Frases-chave. Exiba os resultados em um dashboard do Power BI ou um portal para compreender melhor os clientes, destacar tendências de atendimento ao cliente e aumentar o engajamento do cliente. Envie solicitações de API como um lote para emissão de relatórios ou em tempo real para intervenção. Consulte o código de exemplo [no GitHub](https://github.com/rlagh2/callcenteranalytics).
+Extraia informações de chamadas de serviços de clientes usando a conversão de fala em texto, Análise de Sentimento e Extração de Frases-chave. Exiba os resultados em um dashboard do Power BI ou um portal para compreender melhor os clientes, destacar tendências de atendimento ao cliente e aumentar o engajamento do cliente. Envie solicitações de API como um lote para emissão de relatórios ou em tempo real para intervenção. Consulte o código de exemplo [no GitHub](https://github.com/rlagh2/callcenteranalytics).
 
 ![Uma imagem descrevendo como automatizar a obtenção de insights de chamadas de serviço de atendimento ao cliente usando análise de sentimento](media/use-cases/azure-inbound.svg)
 

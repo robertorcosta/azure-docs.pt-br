@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/20/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 824146e7e0b1130b8e5f6c087dbf5ccbac2c8224
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 064a62b030a1fd9f3c875fce646ad8553b75d513
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799354"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986620"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Usar o Azure RBAC para Autorização do Kubernetes (versão prévia)
 
@@ -25,11 +25,7 @@ Este documento aborda uma nova abordagem que permite o gerenciamento unificado e
 
 A capacidade de gerenciar o RBAC para recursos de kubernetes do Azure oferece a você a opção de gerenciar o RBAC para os recursos de cluster usando o Azure ou mecanismos kubernetes nativos. Quando habilitada, as entidades de segurança do Azure AD serão validadas exclusivamente pelo RBAC do Azure, enquanto os usuários e contas de serviço kubernetes regulares são validados exclusivamente pelo RBAC kubernetes. Para obter mais detalhes sobre autenticação, autorização e RBAC no AKS, consulte [aqui](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
 
-> [!IMPORTANT]
-> As versões prévias do recurso AKS estão disponíveis em uma base de autoatendimento e aceitação. As versões prévias são fornecidas "no estado em que se encontram" e "conforme disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As versões prévias do AKS são parcialmente cobertas pelo suporte ao cliente em uma base de melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter mais informações, consulte os seguintes artigos:
->
-> - [Políticas de suporte do AKS](support-policies.md)
-> - [Perguntas frequentes sobre o suporte do Azure.](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="prerequisites"></a>Pré-requisitos 
 - Inscreva-se para a versão prévia <https://aka.ms/aad-rbac-sign-up-form> .

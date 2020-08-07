@@ -2,20 +2,27 @@
 title: Cota de implantação excedida
 description: Descreve como resolver o erro de ter mais de 800 implantações no histórico do grupo de recursos.
 ms.topic: troubleshooting
-ms.date: 06/25/2020
-ms.openlocfilehash: 1b0c3de6007964b487a13e71cd43bd984cd970f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/07/2020
+ms.openlocfilehash: 8996d7817eea2f8daf44fbc9b4416c884b05940f
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391172"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987045"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>Resolver erro quando a contagem de implantação exceder 800
 
 Cada grupo de recursos é limitado a 800 implantações em seu histórico de implantação. Este artigo descreve o erro que você recebe quando uma implantação falha porque ela excederia as implantações permitidas do 800. Para resolver esse erro, exclua as implantações do histórico do grupo de recursos. A exclusão de uma implantação do histórico não afeta nenhum dos recursos que foram implantados.
 
-> [!NOTE]
-> Azure Resource Manager em breve começará a excluir automaticamente as implantações do seu histórico conforme você próximo ao limite. Você ainda poderá ver esse erro se tiver optado por exclusões automáticas. Para obter mais informações, consulte [exclusões automáticas do histórico de implantação](deployment-history-deletions.md).
+Azure Resource Manager exclui automaticamente as implantações do seu histórico conforme você próximo ao limite. Você ainda poderá ver esse erro por um dos seguintes motivos:
+
+1. Você tem um bloqueio de CanNotDelete no grupo de recursos que impede as exclusões do histórico de implantação.
+1. Você optou por excluir exclusões automáticas.
+1. Você tem um grande número de implantações em execução simultaneamente e as exclusões automáticas não são processadas com rapidez suficiente para reduzir o número total.
+
+Para obter informações sobre como remover o bloqueio ou optar por exclusões automáticas, consulte [exclusões automáticas do histórico de implantação](deployment-history-deletions.md).
+
+Este artigo descreve como excluir manualmente implantações do histórico.
 
 ## <a name="symptom"></a>Sintoma
 

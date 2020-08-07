@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: 0e660678f33f36b75147c2513c77d3085136127d
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 8c5c4a6e5d8b2997d80c7263ba17a705d3846ed8
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563196"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987385"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Usar identidades gerenciadas no serviço kubernetes do Azure
 
@@ -108,11 +108,7 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ## <a name="bring-your-own-control-plane-mi-preview"></a>Traga seu próprio plano de controle MI (visualização)
 Uma identidade de plano de controle personalizado permite que o acesso seja concedido à identidade existente antes da criação do cluster. Isso permite cenários como usar uma VNET personalizada ou uma saída de UDR com uma identidade gerenciada.
 
-> [!IMPORTANT]
-> As versões prévias do recurso AKS estão disponíveis em uma base de autoatendimento e aceitação. As versões prévias são fornecidas "no estado em que se encontram" e "conforme disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As versões prévias do AKS são parcialmente cobertas pelo suporte ao cliente em uma base de melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter mais informações, consulte os seguintes artigos:
->
-> - [Políticas de suporte do AKS](support-policies.md)
-> - [Perguntas frequentes sobre o suporte do Azure.](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 Você deve ter os seguintes recursos instalados:
 - O CLI do Azure, versão 2.9.0 ou posterior

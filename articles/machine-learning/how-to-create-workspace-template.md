@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: 06ab819065f96508bcc4ebd26371c743c89b9220
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5ddd4fc368a4e479d3d720698c7447d2b3cdf3cc
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87487795"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986555"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usar um modelo do Azure Resource Manager para criar um workspace para o Azure Machine Learning
 
@@ -84,7 +84,7 @@ Consulte a seção [portal do Azure](#use-the-azure-portal) se preferir usar a i
 az group create --name "examplegroup" --location "eastus"
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroup -Name "examplegroup" -Location "eastus"
@@ -104,7 +104,7 @@ az deployment group create \
     --parameters workspaceName="exampleworkspace" location="eastus"
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -135,7 +135,7 @@ az deployment group create \
       storageAccountName="existingstorageaccountname"
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -184,7 +184,7 @@ __Para adicionar o aplicativo Azure Machine Learning como um colaborador__, use 
     > [!TIP]
     > Para selecionar outra assinatura, use o comando `az account set -s <subscription name or ID>` e especifique o nome ou a ID da assinatura para a qual deseja alternar. Para obter mais informações sobre a seleção da assinatura, confira [Usar várias assinaturas do Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). 
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
     ```azurepowershell
     Get-AzSubscription
@@ -203,7 +203,7 @@ __Para adicionar o aplicativo Azure Machine Learning como um colaborador__, use 
     az ad sp list --display-name "Azure Machine Learning" --query '[].[appDisplayName,objectId]' --output tsv
     ```
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
     ```azurepowershell
     Get-AzADServicePrincipal --DisplayName "Azure Machine Learning" | select-object DisplayName, Id
@@ -220,7 +220,7 @@ __Para adicionar o aplicativo Azure Machine Learning como um colaborador__, use 
     az role assignment create --role 'Contributor' --assignee-object-id <object-ID> --subscription <subscription-ID>
     ```
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
     ```azurepowershell
     New-AzRoleAssignment --ObjectId <object-ID> --RoleDefinitionName "Contributor" -Scope /subscriptions/<subscription-ID>
@@ -236,7 +236,7 @@ __Para adicionar o aplicativo Azure Machine Learning como um colaborador__, use 
     az keyvault key create --vault-name <keyvault-name> --name <key-name> --protection software
     ```
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
     ```azurepowershell
     Add-AzKeyVaultKey -VaultName <keyvault-name> -Name <key-name> -Destination 'Software'
@@ -253,7 +253,7 @@ __Para adicionar uma política de acesso ao cofre de chaves, use os seguintes co
     az ad sp list --display-name "Azure Cosmos DB" --query '[].[appDisplayName,objectId]' --output tsv
     ```
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
     ```azurepowershell
     Get-AzADServicePrincipal --DisplayName "Azure Cosmos DB" | select-object DisplayName, Id
@@ -270,7 +270,7 @@ __Para adicionar uma política de acesso ao cofre de chaves, use os seguintes co
     az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
     ```
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
     
     ```azurepowershell
     Set-AzKeyVaultAccessPolicy -VaultName <keyvault-name> -ObjectId <object-ID> -PermissionsToKeys get, unwrapKey, wrapKey
@@ -287,7 +287,7 @@ __Para obter os valores__ para a `cmk_keyvault` (ID do Key Vault) e os parâmetr
     az keyvault show --name <keyvault-name> --query 'id' --output tsv
     ```
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
     ```azurepowershell
     Get-AzureRMKeyVault -VaultName '<keyvault-name>'
@@ -304,7 +304,7 @@ __Para obter os valores__ para a `cmk_keyvault` (ID do Key Vault) e os parâmetr
     az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv
     ```
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
     ```azurepowershell
     Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>'
@@ -336,7 +336,7 @@ az deployment group create \
       resource_cmk_uri="https://mykeyvault.vault.azure.net/keys/mykey/{guid}" \
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -394,7 +394,7 @@ az deployment group create \
       privateEndpointType="AutoApproval"
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -427,7 +427,7 @@ az deployment group create \
       privateEndpointType="AutoApproval"
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -465,7 +465,7 @@ az deployment group create \
       privateEndpointType="AutoApproval"
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -541,7 +541,7 @@ Para implantar um espaço de trabalho com recursos associados existentes, você 
     az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.ContainerRegistry"
     ```
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
     ```azurepowershell
     Get-AzVirtualNetwork -ResourceGroupName "examplegroup" -Name "examplevnet" | Set-AzVirtualNetworkSubnetConfig -Name "examplesubnet" -AddressPrefix "<subnet prefix>" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
@@ -575,7 +575,7 @@ Para implantar um espaço de trabalho com recursos associados existentes, você 
       privateEndpointType="AutoApproval"
     ```
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
     ```azurepowershell
     New-AzResourceGroupDeployment `
       -Name "exampledeployment" `
@@ -750,6 +750,32 @@ Para evitar esse problema, recomendamos uma das seguintes abordagens:
 
     ```text
     /subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault
+    ```
+
+### <a name="virtual-network-not-linked-to-private-dns-zone"></a>Rede virtual não vinculada à zona DNS privada
+
+Ao criar um espaço de trabalho com um ponto de extremidade privado, o modelo cria uma zona de DNS privado chamada __privatelink.API.azureml.ms__. Um __link de rede virtual__ é adicionado automaticamente a essa zona DNS privada. O link só é adicionado ao primeiro espaço de trabalho e ao ponto de extremidade privado que você criar em um grupo de recursos; Se você criar outra rede virtual e espaço de trabalho com um ponto de extremidade privado no mesmo grupo de recursos, a segunda rede virtual poderá não ser adicionada à zona DNS privada.
+
+Para exibir os links de rede virtual que já existem para a zona DNS privada, use o seguinte comando de CLI do Azure:
+
+```azurecli
+az network private-dns link vnet list --zone-name privatelink.api.azureml.ms --resource-group myresourcegroup
+```
+
+Para adicionar a rede virtual que contém outro espaço de trabalho e o ponto de extremidade privado, use as seguintes etapas:
+
+1. Para localizar a ID de rede virtual para a rede que você deseja adicionar, use o seguinte comando:
+
+    ```azurecli
+    az network vnet show --name myvnet --resource-group myresourcegroup --query id
+    ```
+    
+    Esse comando retorna um valor semelhante a ' "/subscriptions/GUID/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet" '. Salve esse valor e use-o na próxima etapa.
+
+2. Para adicionar um link de rede virtual à zona de DNS privado privatelink.api.azureml.ms, use o comando a seguir. Para o `--virtual-network` parâmetro, use a saída do comando anterior:
+
+    ```azurecli
+    az network private-dns link vnet create --name mylinkname --registration-enabled true --resource-group myresourcegroup --virtual-network myvirtualnetworkid --zone-name privatelink.api.azureml.ms
     ```
 
 ## <a name="next-steps"></a>Próximas etapas

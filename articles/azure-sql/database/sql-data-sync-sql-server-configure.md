@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 6138dc06e8ed70ba85f4ccfc3370c044f34bd1f1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: bd1362db2e70d4f9f46d80b00805856e08aedac4
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963947"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987334"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Tutorial: Configurar Sincronização de Dados SQL entre bancos de dados no banco de dados SQL do Azure e SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -57,9 +57,9 @@ Para obter exemplos do PowerShell sobre como configurar Sincronização de Dados
 
    | Setting                        | Descrição |
    | ------------------------------ | ------------------------------------------------- |
-   | **Nome do Grupo de Sincronização** | Insira um nome para o novo grupo de sincronização. Esse nome é diferente do nome do banco de dados. |
+   | **Nome do grupo de sincronização** | Insira um nome para o novo grupo de sincronização. Esse nome é diferente do nome do banco de dados. |
    | **Sincronizar Banco de Dados de Metadados** | Escolha criar um banco de dados (recomendado) ou usar um banco de dados existente.<br/><br/>Se você escolher **Novo banco de dados**, selecione **Criar novo banco de dados**. Em seguida, na página **Banco de Dados SQL**, nomeie e configure o novo banco de dados e selecione **OK**.<br/><br/>Se você escolher **Usar banco de dados existente**, selecione o banco de dados na lista. |
-   | **Sincronização automática** | Selecione **Ativar** ou **Desativar**.<br/><br/>Se você escolher **Ativar**, insira um número e selecione **Segundos**, **Minutos**, **Horas** ou **Dias** na seção **Frequência de Sincronização**. |
+   | **Sincronização automática** | Selecione **Ativar** ou **Desativar**.<br/><br/>Se você escolher **Ativar**, insira um número e selecione **Segundos**, **Minutos**, **Horas** ou **Dias** na seção **Frequência de Sincronização**.<br/> A primeira sincronização começa depois que o período de intervalo selecionado expira desde o momento em que a configuração é salva.|
    | **Resolução de conflitos** | Selecione **Hub win** ou **Membro win**.<br/><br/>**Hub win** significa que, quando ocorre um conflito, os dados no banco de dados hub substituem os dados conflitantes no banco de dados membro.<br/><br/>**Membro win** significa que, quando ocorre um conflito, os dados no banco de dados membro substituem os dados conflitantes no banco de dados hub. |
 
    > [!NOTE]

@@ -4,12 +4,12 @@ description: Saiba como configurar uma criptografia baseada em host em um cluste
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: d2b34d8c3090eb6ae3f1445ff1fc663d90367977
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4b5deeec0b76520952345e9b03135fa094a1f78e
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517715"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986858"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Criptografia baseada em host no serviço kubernetes do Azure (AKS) (visualização)
 
@@ -57,11 +57,7 @@ az provider register --namespace Microsoft.Compute
 az provider register --namespace Microsoft.ContainerService
 ```
 
-> [!IMPORTANT]
-> Os recursos de visualização do AKS são consentimento de autoatendimento. As visualizações são fornecidas "no estado em que se encontram" e "como disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As visualizações do AKS são parcialmente cobertas pelo suporte ao cliente com base no melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter informações adicionais, consulte os seguintes artigos de suporte:
->
-> - [Políticas de suporte do AKS](support-policies.md)
-> - [Perguntas frequentes sobre o suporte do Azure.](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
 

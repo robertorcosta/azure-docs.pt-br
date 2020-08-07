@@ -1,14 +1,14 @@
 ---
 title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como o Azure Policy usa o agente de Configuração de Convidado para auditar as configurações dentro de máquinas virtuais.
-ms.date: 05/20/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8c0f5d4df640fa29f88b3c4c6c0403ad9de97dea
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 906c86856342febc92f070493fde31af42e4ca10
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921683"
+ms.locfileid: "87987096"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -35,8 +35,9 @@ Antes de usar a Configuração de Convidado, você precisa registrar o provedor 
 Para auditar as configurações dentro de um computador, uma [extensão de máquina virtual](../../../virtual-machines/extensions/overview.md) é habilitada e o computador deve ter uma identidade gerenciada pelo sistema. A extensão baixa a atribuição de política aplicável e a definição de configuração correspondente. A identidade é usada para autenticar o computador conforme ele lê e grava no serviço de configuração do convidado. A extensão não é necessária para computadores conectados ao Arc porque está incluída no agente do computador conectado ao Arc.
 
 > [!IMPORTANT]
-> A extensão de configuração de convidado e uma identidade gerenciada são necessárias para auditar as máquinas virtuais do Azure. Para > a extensão de configuração de convidado é necessária para executar auditorias em máquinas virtuais do Azure. Para implantar a extensão em escala, atribua a seguinte iniciativa de política: > implantar a extensão em escala, atribua as seguintes definições de política: 
->  - [Implantar pré-requisitos para habilitar as políticas de Configuração de Convidado em máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
+> A extensão de configuração de convidado e uma identidade gerenciada são necessárias para auditar as máquinas virtuais do Azure. Para implantar a extensão em escala, atribua a seguinte iniciativa de política:
+> 
+> - [Implantar pré-requisitos para habilitar as políticas de Configuração de Convidado em máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
 
 ### <a name="limits-set-on-the-extension"></a>Limites definidos na extensão
 
@@ -99,7 +100,7 @@ Para se comunicar com o provedor de recursos de Configuração de Convidado no A
 
 ## <a name="managed-identity-requirements"></a>Requisitos de identidade gerenciada
 
-As políticas na iniciativa [implantam pré-requisitos para habilitar políticas de configuração de convidado em máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) habilitam uma identidade gerenciada atribuída pelo sistema, caso não exista uma. Há duas definições de política na iniciativa que gerenciam a criação de identidade. As condições IF nas definições de política garantem o comportamento correto com base no estado atual do recurso de máquina no Azure.
+As definições de política na iniciativa [implantar pré-requisitos para habilitar políticas de configuração de convidado em máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) habilitam uma identidade gerenciada atribuída pelo sistema, caso não exista uma. Há duas definições de política na iniciativa que gerenciam a criação de identidade. As condições IF nas definições de política garantem o comportamento correto com base no estado atual do recurso de máquina no Azure.
 
 Se o computador não tiver nenhuma identidade gerenciada no momento, a política efetiva será: versão [ \[ prévia \] : Adicionar identidade gerenciada atribuída pelo sistema para habilitar atribuições de configuração de convidado em máquinas virtuais sem identidades](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
 
@@ -201,8 +202,8 @@ Os exemplos de política interna de Configuração de Convidado estão disponív
 
 - Saiba como exibir os detalhes de cada configuração na [exibição de conformidade da Configuração de Convidado](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
 - Examine os exemplos em [amostras do Azure Policy](../samples/index.md).
-- Revise a [estrutura de definição do Azure Policy](definition-structure.md).
-- Revisar [Compreendendo os efeitos da política](effects.md).
+- Revise a [estrutura de definição do Azure Policy](./definition-structure.md).
+- Revisar [Compreendendo os efeitos da política](./effects.md).
 - Entenda como [criar políticas de forma programática](../how-to/programmatically-create.md).
 - Saiba como [obter dados de conformidade](../how-to/get-compliance-data.md).
 - Saiba como [corrigir recursos fora de conformidade](../how-to/remediate-resources.md).

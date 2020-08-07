@@ -4,12 +4,12 @@ description: Traga suas próprias chaves (BYOK) para criptografar o sistema oper
 services: container-service
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: f0b96b3f78adf4a7efb1d43626a5aaf82a5b5d43
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d4f7842330862013644cf961f5bd8e079d097069
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499612"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985829"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Traga suas próprias chaves (BYOK) com discos do Azure no serviço kubernetes do Azure (AKS)
 
@@ -23,11 +23,7 @@ O Armazenamento do Azure criptografa todos os dados em uma conta de armazenament
 
 * Você precisa do CLI do Azure versão 2.0.79 ou posterior e a extensão 0.4.26 AKs-Preview
 
-> [!IMPORTANT]
-> Os recursos de visualização do AKS são consentimento de autoatendimento. As visualizações são fornecidas "no estado em que se encontram" e "como disponíveis" e são excluídas dos contratos de nível de serviço e da garantia limitada. As visualizações do AKS são parcialmente cobertas pelo suporte ao cliente com base no melhor esforço. Dessa forma, esses recursos não são destinados ao uso em produção. Para obter outras incompatibilidades, consulte os seguintes artigos de suporte:
->
-> * [Políticas de suporte do AKS](support-policies.md)
-> * [Perguntas frequentes sobre o suporte do Azure.](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="install-latest-aks-cli-preview-extension"></a>Instalar a última extensão de visualização da CLI do AKS
 

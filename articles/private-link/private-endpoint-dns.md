@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: e4e83ec1fc64dd78e3b03ddf1b58733ce2588c81
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: df1896caaa0cba1f62dc1466124b393337fa8c83
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030055"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87985777"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuração de DNS do ponto de extremidade privado do Azure
 
@@ -71,7 +71,7 @@ Para os serviços do Azure, use os nomes de zona recomendados, conforme descrito
 | Azure Machine Learning (Microsoft. MachineLearningServices/Workspaces)/espaço de trabalho | privatelink.api.azureml.ms | api.azureml.ms |
 | Hub IoT (Microsoft. Devices/IotHubs)/IotHub | privatelink.azure-devices.net | azure-devices.net |
 | Signalr (Microsoft. SignalRService/Signalr)/signalr | privatelink.service.signalr.net | service.signalr.net |
-| Azure Monitor (Microsoft. insights/privateLinkScopes)/azuremonitor | privatelink.monitor.azure.com | monitor.azure.com |
+| Azure Monitor (Microsoft. insights/privateLinkScopes)/azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.com | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.com |
 | Serviços cognitivas (Microsoft. Cognitivaservices/contas)/conta | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
 | Sincronização de Arquivos do Azure (Microsoft. StorageSync/storageSyncServices)/AFS |  privatelink.afs.azure.net  |  afs.azure.net  |
 
