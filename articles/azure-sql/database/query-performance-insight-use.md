@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 01287f344d77dedade30892d76f5fdbd54481df1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 76be966d8202bb56a6762a261be5adeaf2d58d6b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042876"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926392"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Análise de Desempenho de Consultas para Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ A Análise de Desempenho de Consultas exige a execução do [Repositório de Con
 
 ## <a name="permissions"></a>Permissões
 
-É necessário ter as seguintes permissões de [controle de acesso baseado em função](../../role-based-access-control/overview.md) para usar a Análise de Desempenho de Consultas:
+Você precisa das seguintes permissões do Azure [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) para usar o análise de desempenho de consultas:
 
 * As permissões **Leitor**, **Proprietário**, **Colaborador**, **Colaborador do DB SQL** ou **Colaborador do SQL Server** são necessárias para exibir as principais consultas e gráficos que consomem muitos recursos.
 * As permissões **Proprietário**, **Colaborador**, **Colaborador do Banco de Dados SQL** ou **Colaborador do SQL Server** são necessárias para exibir o texto da consulta.
@@ -86,7 +86,7 @@ Por padrão, a Análise de Desempenho de Consultas mostra as cinco principais co
    > Para uma comparação mais precisa (até um minuto), considere criar um gráfico de utilização da DTU personalizado:
    >
    > 1. No portal do Azure, selecione monitoramento **do banco de dados SQL do Azure**  >  **Monitoring**.
-   > 2. Selecione **métricas**.
+   > 2. Selecione **Métricas**.
    > 3. Selecione **+Adicionar gráfico**.
    > 4. Selecione a porcentagem da DTU no gráfico.
    > 5. Além disso, selecione **Últimas 24 horas** no menu superior esquerdo e altere para um minuto.
@@ -178,7 +178,7 @@ Para identificar consultas de execução longa:
    > Para reconhecer o consumo da DTU do banco de dados com mais detalhes (até um minuto), considere a criação de um gráfico personalizado no portal do Azure:
    >
    > 1. Selecione **monitoramento do banco de dados SQL do Azure**  >  **Monitoring**.
-   > 2. Selecione **métricas**.
+   > 2. Selecione **Métricas**.
    > 3. Selecione **+Adicionar gráfico**.
    > 4. Selecione a porcentagem da DTU no gráfico.
    > 5. Além disso, selecione **Últimas 24 horas** no menu superior esquerdo e altere para um minuto.

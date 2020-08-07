@@ -12,29 +12,37 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: cd476d3210263268627541eb40c50048f0eddd1b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 114d4f41ad48af3d1e585fcb01eb0794a8e349b5
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422905"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920102"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutorial: configurar a replicação entre duas instâncias gerenciadas
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-A replicação transacional permite replicar dados de um banco de dado para outro hospedado em SQL Server ou [instância gerenciada do Azure SQL](sql-managed-instance-paas-overview.md) (visualização pública). O SQL Instância Gerenciada pode ser um Publicador, distribuidor ou Assinante na topologia de replicação. Consulte [configurações de replicação transacional](replication-transactional-overview.md#common-configurations) para configurações disponíveis.
+A replicação transacional permite replicar dados de um banco de dado para outro hospedado em SQL Server ou [instância gerenciada do SQL do Azure](sql-managed-instance-paas-overview.md). O SQL Instância Gerenciada pode ser um Publicador, distribuidor ou Assinante na topologia de replicação. Consulte [configurações de replicação transacional](replication-transactional-overview.md#common-configurations) para configurações disponíveis. 
 
-> [!NOTE]
-> Este artigo descreve o uso de [replicação transacional](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) no Azure SQL instância gerenciada. Ele não está relacionado a [grupos de failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), um recurso de instância gerenciada do SQL do Azure que permite criar réplicas legíveis completas de instâncias individuais. Há considerações adicionais ao configurar [a replicação transacional com grupos de failover](replication-transactional-overview.md#with-failover-groups).
+A replicação transacional está atualmente em visualização pública para SQL Instância Gerenciada. 
 
-Este tutorial ensina a configurar uma instância gerenciada como o Publicador e o distribuidor e, em seguida, uma segunda instância gerenciada como assinante.  
+Neste tutorial, você aprenderá como:
+
+> [!div class="checklist"]
+>
+> - Configure uma instância gerenciada como um Publicador e distribuidor de replicação.
+> - Configurar uma instância gerenciada como um distribuidor de replicação.
 
 ![Replicar entre duas instâncias gerenciadas](./media/replication-between-two-instances-configure-tutorial/sqlmi-sqlmi-repl.png)
 
-  > [!NOTE]
-  > - Este artigo destina-se a guiar um usuário avançado em Configurando a replicação com o SQL Instância Gerenciada de ponta a ponta, começando com a criação do grupo de recursos. Se você já tiver instâncias gerenciadas implantadas, pule para a [etapa 4](#4---create-a-publisher-database) para criar o banco de dados do Publicador ou a [etapa 6](#6---configure-distribution) se você já tiver um banco de dados do Publicador e do assinante e estiver pronto para começar a configurar a replicação.  
-  > - Este artigo configura o Publicador e o distribuidor na mesma instância gerenciada. Para posicionar o distribuidor em uma instância gerenciada separada, consulte o tutorial [Configurar a replicação transacional entre o Azure SQL instância gerenciada e o SQL Server](replication-two-instances-and-sql-server-configure-tutorial.md). 
+Este tutorial destina-se a um público-alvo experiente e pressupõe que o usuário esteja familiarizado com a implantação e a conexão com as instâncias gerenciadas e as VMs do SQL Server no Azure. 
+
+
+> [!NOTE]
+> - Este artigo descreve o uso de [replicação transacional](/sql/relational-databases/replication/transactional/transactional-replication) no Azure SQL instância gerenciada. Ele não está relacionado a [grupos de failover](../database/auto-failover-group-overview.md), um recurso de instância gerenciada do SQL do Azure que permite criar réplicas legíveis completas de instâncias individuais. Há considerações adicionais ao configurar [a replicação transacional com grupos de failover](replication-transactional-overview.md#with-failover-groups).
+
+
 
 ## <a name="requirements"></a>Requisitos
 

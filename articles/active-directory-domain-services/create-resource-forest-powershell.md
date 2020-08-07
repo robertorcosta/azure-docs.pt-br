@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: d5eef553d0d3bf5acbcb61ef8f2dcfab88a53266
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: eb627b8069bcd9efd1d56adab5eda45dc34a1a10
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505764"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921989"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Criar uma floresta de recursos de Azure Active Directory Domain Services e uma relação de confiança de floresta de saída para um domínio local usando Azure PowerShell
 
@@ -102,17 +102,17 @@ Para criar uma floresta de recursos de domínio gerenciado, use o `New-AzureAadd
 
 1. Revise os parâmetros a seguir necessários para o `New-AzureAaddsForest` script. Verifique se você também tem os pré-requisitos **Azure PowerShell** e módulos **do PowerShell do Azure ad** . Verifique se você planejou os requisitos de rede virtual para fornecer conectividade de aplicativo e local.
 
-    | Name                         | Parâmetro de script          | Descrição |
+    | Nome                         | Parâmetro de script          | Descrição |
     |:-----------------------------|---------------------------|:------------|
     | Assinatura                 | *-azureSubscriptionId*    | ID da assinatura usada para a cobrança do AD DS do Azure. Você pode obter a lista de assinaturas usando o cmdlet [Get-AzureRMSubscription][Get-AzureRMSubscription] . |
     | Grupo de recursos               | *-aaddsResourceGroupName* | Nome do grupo de recursos para o domínio gerenciado e recursos associados. |
-    | Location                     | *-aaddsLocation*          | A região do Azure para hospedar seu domínio gerenciado. Para as regiões disponíveis, consulte [regiões com suporte para o AD DS do Azure.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
+    | Localização                     | *-aaddsLocation*          | A região do Azure para hospedar seu domínio gerenciado. Para as regiões disponíveis, consulte [regiões com suporte para o AD DS do Azure.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
     | Administrador de AD DS do Azure    | *-aaddsAdminUser*         | O nome principal do usuário do primeiro administrador de domínio gerenciado. Essa conta deve ser uma conta de usuário de nuvem existente no seu Azure Active Directory. O usuário e o usuário que executa o script são adicionados ao grupo de *Administradores de DC do AAD* . |
     | Nome de domínio do AD DS do Azure      | *-aaddsDomainName*        | O FQDN do domínio gerenciado, com base nas diretrizes anteriores sobre como escolher um nome de floresta. |
 
     O `New-AzureAaddsForest` script pode criar a rede virtual do Azure e a sub-rede AD DS do Azure se esses recursos ainda não existirem. O script pode, opcionalmente, criar as sub-redes de carga de trabalho, quando especificado:
 
-    | Name                              | Parâmetro de script                  | Descrição |
+    | Nome                              | Parâmetro de script                  | Descrição |
     |:----------------------------------|:----------------------------------|:------------|
     | Nome da rede virtual              | *-aaddsVnetName*                  | Nome da rede virtual para o domínio gerenciado.|
     | Espaço de endereço                     | *-aaddsVnetCIDRAddressSpace*      | Intervalo de endereços da rede virtual na notação CIDR (se estiver criando a rede virtual).|
@@ -148,8 +148,8 @@ Antes de começar, certifique-se de entender as [considerações e as recomenda�
 
 1. Crie a conectividade híbrida para sua rede local para o Azure usando uma VPN do Azure ou uma conexão do Azure ExpressRoute. A configuração de rede híbrida está além do escopo desta documentação e talvez já exista em seu ambiente. Para obter detalhes sobre cenários específicos, consulte os seguintes artigos:
 
-    * [VPN site a site do Azure](/vpn-gateway/vpn-gateway-about-vpngateways).
-    * [Visão geral do Azure ExpressRoute](/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [VPN site a site do Azure](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [Visão geral do Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
 
     > [!IMPORTANT]
     > Se você criar a conexão diretamente com a rede virtual do seu domínio gerenciado, use uma sub-rede de gateway separada. Não crie o gateway na sub-rede do domínio gerenciado.
@@ -193,7 +193,7 @@ Install-Script -Name Add-AaddsResourceForestTrust
 
 Agora forneça ao script as seguintes informações:
 
-| Name                               | Parâmetro de script     | Descrição |
+| Nome                               | Parâmetro de script     | Descrição |
 |:-----------------------------------|:---------------------|:------------|
 | Nome de domínio do AD DS do Azure            | *-ManagedDomainFqdn* | FQDN do domínio gerenciado, como *aaddscontoso.com* |
 | Nome de domínio AD DS local      | *-TrustFqdn*         | O FQDN da floresta confiável, como *OnPrem.contoso.com* |

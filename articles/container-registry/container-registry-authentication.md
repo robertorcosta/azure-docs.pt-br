@@ -3,12 +3,12 @@ title: Opções de autenticação do registro
 description: Opções de autenticação para um registro de contêiner do Azure privado, incluindo a entrada com uma identidade de Azure Active Directory, o uso de entidades de serviço e o uso de credenciais de administrador opcionais.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 0d44a97e01eef709dff47342e4503d1e0263a225
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 3d2379b2b2384342fb84ba1b610caa609300aa0c
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760576"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926313"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Autenticar com um Registro de contêiner do Azure
 
@@ -44,7 +44,7 @@ Ao fazer logon com `az acr login`, a CLI usa o token criado quando você executo
 
 Para acesso ao registro, o token usado pelo `az acr login` é válido por **3 horas**, portanto, é recomendável que você sempre faça logon no registro antes de executar um `docker` comando. Se o token expirar, você poderá atualizá-lo usando o comando `az acr login` novamente para se reautenticar. 
 
-Usar `az acr login` com identidades do Azure fornece [acesso baseado em função](../role-based-access-control/role-assignments-portal.md). Para alguns cenários, talvez você queira fazer logon em um registro com sua própria identidade individual no Azure AD ou configurar outros usuários do Azure com [funções e permissões RBAC](container-registry-roles.md)específicas. Para cenários de serviço cruzado ou para lidar com as necessidades de um grupo de trabalho ou de um Workflow de desenvolvimento em que você não deseja gerenciar o acesso individual, também é possível fazer logon com uma [identidade gerenciada para recursos do Azure](container-registry-authentication-managed-identity.md).
+Usar `az acr login` com identidades do Azure fornece [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/role-assignments-portal.md). Para alguns cenários, talvez você queira fazer logon em um registro com sua própria identidade individual no Azure AD ou configurar outros usuários do Azure com [funções e permissões específicas do Azure](container-registry-roles.md). Para cenários de serviço cruzado ou para lidar com as necessidades de um grupo de trabalho ou de um Workflow de desenvolvimento em que você não deseja gerenciar o acesso individual, também é possível fazer logon com uma [identidade gerenciada para recursos do Azure](container-registry-authentication-managed-identity.md).
 
 ### <a name="az-acr-login-with---expose-token"></a>AZ ACR login com--Expose-token
 
@@ -73,7 +73,7 @@ docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-0000000000
 
 ## <a name="service-principal"></a>Entidade de serviço
 
-Se você atribuir uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) ao registro, seu aplicativo ou serviço poderá usá-lo na autenticação remota. As entidades de serviço permitem [acesso baseado em função](../role-based-access-control/role-assignments-portal.md) a um registro ao qual você pode atribuir várias entidades de serviço. Várias entidades de serviço permitem que você defina acesso diferente para diferentes aplicativos.
+Se você atribuir uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) ao registro, seu aplicativo ou serviço poderá usá-lo na autenticação remota. As entidades de serviço permitem o [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/role-assignments-portal.md) a um registro, e você pode atribuir várias entidades de serviço a um registro. Várias entidades de serviço permitem que você defina acesso diferente para diferentes aplicativos.
 
 As funções disponíveis para um registro de contêiner incluem:
 

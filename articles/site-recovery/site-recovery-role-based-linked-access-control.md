@@ -6,12 +6,12 @@ ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: a11cd001e33e52f9138d9b302c39e04ee3d984a5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 95ea8b61b01b17512d99d0316073835326e6d7bd
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503524"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927157"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gerenciar o acesso de recuperação do site com controle de acesso baseado em função (RBAC)
 
@@ -41,7 +41,7 @@ Um usuário precisa das seguintes permissões para concluir a replicação de um
 > [!NOTE]
 > Se você estiver habilitando a replicação para uma VM do Azure e quiser permitir que Site Recovery gerencie atualizações, ao mesmo tempo em que permite a replicação, você também pode querer criar uma nova conta de automação, caso em que você precisará de permissão para criar uma conta de automação na mesma assinatura que o cofre também.
 
-| **Tipo de Recurso** | **Modelo de implantação** | **Permissão** |
+| **Tipo de recurso** | **Modelo de implantação** | **Permissão** |
 | --- | --- | --- |
 | Computação | Gerenciador de Recursos | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
@@ -72,7 +72,7 @@ Um usuário precisa das seguintes permissões para concluir a replicação de um
 Considere usar as [funções internas](../role-based-access-control/built-in-roles.md) 'Colaborador de Máquina Virtual' e ‘Colaborador de Máquina Virtual Clássica’ para os modelos de implantação do Resource Manager e do Clássico respectivamente.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Controle de Acesso Baseado em Função](../role-based-access-control/role-assignments-portal.md): introdução ao RBAC no portal do Azure.
+* [Controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/role-assignments-portal.md): introdução ao rbac no portal do Azure.
 * Saiba como gerenciar o acesso com:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI do Azure](../role-based-access-control/role-assignments-cli.md)

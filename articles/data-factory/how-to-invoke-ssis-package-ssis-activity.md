@@ -14,12 +14,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/20/2020
-ms.openlocfilehash: 2f8706fa8b272075ec64e2d36475509732914acf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0b6aba2b857a16631871d13f4a0fc14b682393e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003127"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926682"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Executar um pacote SSIS com a atividade Executar pacote SSIS no Azure Data Factory
 
@@ -97,7 +97,7 @@ Na guia **configurações** da atividade executar pacote SSIS, conclua as etapas
 
 O **SSISDB** como o local do pacote será selecionado automaticamente se o Azure-SSIS ir tiver sido provisionado com um catálogo do SSIS (SSISDB) hospedado pelo servidor/instância gerenciada do banco de dados SQL do Azure ou você mesmo pode selecioná-lo. Se estiver selecionado, conclua as etapas a seguir.
 
-   1. Se o Azure-SSIS IR estiver em execução e a caixa de seleção **entradas manuais** estiver desmarcada, procure e selecione suas pastas, projetos, pacotes e ambientes existentes do SSISDB. Selecione **Atualizar** para buscar suas pastas, projetos, pacotes ou ambientes recém-adicionados do SSISDB, para que fiquem disponíveis para navegação e seleção. Para procurar e selecionar os ambientes para suas execuções de pacote, você deve configurar seus projetos com antecedência para adicionar esses ambientes como referências das mesmas pastas em SSISDB. Para obter mais informações, consulte [criar e mapear ambientes SSIS](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014).
+   1. Se o Azure-SSIS IR estiver em execução e a caixa de seleção **entradas manuais** estiver desmarcada, procure e selecione suas pastas, projetos, pacotes e ambientes existentes do SSISDB. Selecione **Atualizar** para buscar suas pastas, projetos, pacotes ou ambientes recém-adicionados do SSISDB, para que fiquem disponíveis para navegação e seleção. Para procurar e selecionar os ambientes para suas execuções de pacote, você deve configurar seus projetos com antecedência para adicionar esses ambientes como referências das mesmas pastas em SSISDB. Para obter mais informações, consulte [criar e mapear ambientes SSIS](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages).
 
    1. Em **Nível de registro**, selecione um escopo predefinido de registro em log para a execução do pacote. Marque a caixa de seleção **personalizado** se desejar inserir seu nome de log personalizado em vez disso. 
 
@@ -269,7 +269,7 @@ Na guia **substituições de propriedade** da atividade executar pacote SSIS, co
 
    1. Insira os caminhos das propriedades existentes no pacote selecionado um a um para atribuir valores a elas manualmente. Verifique se eles existem e foram inseridos corretamente para que a execução do pacote seja bem sucedido. Por exemplo, para substituir o valor de sua variável de usuário, insira seu caminho no seguinte formato: `\Package.Variables[User::<variable name>].Value` . 
 
-      Você pode obter o **caminho de propriedade** correto para qualquer propriedade de pacote abrindo o pacote que o contém em SSDT. Depois que o pacote for aberto, selecione sua propriedade fluxo de controle e **configurações** na janela **Propriedades** do SSDT. Em seguida, selecione o botão de reticências (**...**) ao lado de sua propriedade de **configurações** para abrir o **organizador de configurações de pacote** que normalmente é usado para [criar configurações de pacote no modelo de implantação de pacote](https://docs.microsoft.com/sql/integration-services/create-package-configurations?view=sql-server-2014). 
+      Você pode obter o **caminho de propriedade** correto para qualquer propriedade de pacote abrindo o pacote que o contém em SSDT. Depois que o pacote for aberto, selecione sua propriedade fluxo de controle e **configurações** na janela **Propriedades** do SSDT. Em seguida, selecione o botão de reticências (**...**) ao lado de sua propriedade de **configurações** para abrir o **organizador de configurações de pacote** que normalmente é usado para [criar configurações de pacote no modelo de implantação de pacote](https://docs.microsoft.com/sql/integration-services/packages/legacy-package-deployment-ssis#create-package-configurations). 
 
       ![Obter propriedades do pacote da propriedade SSDT-configurações](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
 

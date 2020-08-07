@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: af3f9b4595be5af2477fdbef4e5f0a15224e8a93
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4aaa729ffd272c886bf5c545574d99c9de5842f9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285825"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922244"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticação com Azure Mapas
 
@@ -80,7 +80,7 @@ Para obter informações sobre como exibir a ID do cliente, consulte [Exibir det
 
 ## <a name="authorization-with-role-based-access-control"></a>Autorização com controle de acesso baseado em função
 
-O Azure Maps dá suporte ao acesso a todos os tipos principais para o [controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/overview) do Azure, incluindo: usuários individuais do Azure AD, grupos, aplicativos, recursos do Azure e identidades gerenciadas do Azure. Os tipos de entidade são concedidos a um conjunto de permissões, também conhecido como uma definição de função. Uma definição de função fornece permissões para ações da API REST. A aplicação de acesso a uma ou mais contas do Azure Maps é conhecida como um escopo. Ao aplicar uma entidade de segurança, definição de função e escopo, uma atribuição de função é criada. 
+O Azure Maps dá suporte ao acesso a todos os tipos principais para o Azure [RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/role-based-access-control/overview) , incluindo: usuários individuais do Azure AD, grupos, aplicativos, recursos do Azure e identidades gerenciadas do Azure. Os tipos de entidade são concedidos a um conjunto de permissões, também conhecido como uma definição de função. Uma definição de função fornece permissões para ações da API REST. A aplicação de acesso a uma ou mais contas do Azure Maps é conhecida como um escopo. Ao aplicar uma entidade de segurança, definição de função e escopo, uma atribuição de função é criada. 
 
 As seções a seguir discutem conceitos e componentes da integração do Azure Maps com o controle de acesso baseado em função do Azure AD. Como parte do processo para configurar sua conta do Azure Maps, um diretório do AD do Azure é associado à assinatura do Azure que a conta do Azure Maps reside. 
 

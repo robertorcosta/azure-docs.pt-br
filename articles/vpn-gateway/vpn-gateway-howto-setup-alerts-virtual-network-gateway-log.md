@@ -1,18 +1,18 @@
 ---
 title: 'Gateway de VPN do Azure: configurar alertas em eventos de log de recursos de diagnóstico'
-description: Etapas para configurar alertas em eventos de log de recursos de diagnóstico do gateway de VPN
+description: Saiba como configurar alertas com base em eventos de log de recursos do gateway de VPN do Azure usando Azure Monitor Log Analytics e os logs de recursos disponíveis no Azure.
 services: vpn-gateway
 author: kumudD
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 21fcebf6667eb1bc7741dfb4ba268af42567d58e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d79bdc669ab2c3785b1cde569cfce3021e4d924f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075587"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923179"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>Configurar alertas em eventos de log de recursos do gateway de VPN
 

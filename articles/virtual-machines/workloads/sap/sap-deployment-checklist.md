@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea691ff42f9e5f214aa9987fae53732be844e034
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9f517eb5bd113d8d54714b75bea4c8436882d0f9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836336"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924420"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho do SAP no Azure: lista de verificação de planejamento e implantação
 
@@ -74,7 +74,7 @@ Durante essa fase, você planeja a migração da carga de trabalho do SAP para a
 4.  Design de serviços de base. Esse design deve incluir os seguintes itens:
     - Design de Active Directory e DNS.
     - Topologia de rede no Azure e atribuição de diferentes sistemas SAP.
-    - Estrutura de [acesso baseado em função](../../../role-based-access-control/overview.md) para equipes que gerenciam aplicativos SAP e infraestrutura no Azure.
+    - Estrutura do [Azure RBAC (controle de acesso baseado em função)](../../../role-based-access-control/overview.md) para equipes que gerenciam aplicativos SAP e infraestrutura no Azure.
     - Topologia do grupo de recursos.
     - [Estratégia de marcação](../../../azure-resource-manager/management/tag-resources.md#tags-and-billing).
     - Convenções de nomenclatura para VMs e outros componentes de infraestrutura e/ou nomes lógicos.

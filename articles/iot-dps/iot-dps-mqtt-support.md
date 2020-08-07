@@ -10,12 +10,12 @@ ms.author: ravokkar
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 213fc3412a2dfad77946e52a355a30774d6860c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7683f5d60c5d788707e2f89774cee42e7820db87
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81680684"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924199"
 ---
 # <a name="communicate-with-your-dps-using-the-mqtt-protocol"></a>Comunicar-se com seu DPS usando o protocolo MQTT
 
@@ -82,7 +82,7 @@ Ao se conectar via WebSocket, especifique o subprotocolo como `mqtt` . Siga o [R
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o protocolo MQTT, confira a [documentação do MQTT](https://mqtt.org/documentation).
+Para saber mais sobre o protocolo MQTT, confira a [documentação do MQTT](https://mqtt.org/).
 
 Para explorar ainda mais os recursos do DPS, consulte:
 

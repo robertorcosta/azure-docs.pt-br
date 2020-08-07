@@ -312,9 +312,15 @@
         - name: Lista de versão prévia do recurso
           href: search-api-preview.md
         - name: Desenvolver em .NET
-          href: search-howto-dotnet-sdk.md
+          items:
+            - name: Usar o Microsoft.Azure.Search (v10)
+              href: search-howto-dotnet-sdk.md
+            - name: Introdução (v10)
+              href: search-get-started-dotnet-v10.md
         - name: Atualizar o SDK
           items:
+            - name: SDK do .NET 11.0
+              href: search-dotnet-sdk-migration-version-11.md
             - name: SDK do .NET 10.0
               href: search-dotnet-sdk-migration-version-10.md
             - name: .NET SDK 9.0
@@ -349,7 +355,7 @@
           items:
             - name: Filtros de segurança
               href: search-security-trimming-for-azure-search.md
-            - name: Filtrar identidades do AAD
+            - name: Filtrar por identidades de usuário
               href: search-security-trimming-for-azure-search-with-aad.md
     - name: Gerenciar
       items:
@@ -520,5 +526,5 @@
       href: search-faq-frequently-asked-questions.md
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/search/'
-    - name: vídeos
+    - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 9ead7eb19e49574073f038648ca1d247b2dab98f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b478272ff790121d914a51f8ee4c5cf250134f4d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131694"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923876"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Compartilhar painéis do Azure usando o Controle de Acesso Baseado em Função
 
-Depois de configurar um painel, você pode publicá-lo e compartilhá-lo com outros usuários na sua organização. Você permite que outras pessoas exibam seu painel usando o RBAC ( [controle de acesso baseado em função](../role-based-access-control/role-assignments-portal.md) ) do Azure. Atribuir um usuário ou grupo de usuários a uma função. Essa função define se esses usuários podem exibir ou modificar o painel publicado.
+Depois de configurar um painel, você pode publicá-lo e compartilhá-lo com outros usuários na sua organização. Você permite que outras pessoas exibam seu painel usando o [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/role-assignments-portal.md). Atribuir um usuário ou grupo de usuários a uma função. Essa função define se esses usuários podem exibir ou modificar o painel publicado.
 
 Todos os painéis publicados são implementados como recursos do Azure. Elas existem como itens gerenciáveis em sua assinatura e estão contidas em um grupo de recursos. Do ponto de vista do controle de acesso, os painéis não são diferentes de outros recursos, como uma máquina virtual ou uma conta de armazenamento.
 

@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: dce7fb87ee49aefdedf5653243fa5729eee34519
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94b581f677e370911a60db08276ff7dd0eb45486
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414318"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927072"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Executar pacotes de SQL Server Integration Services com o utilitário dtexec habilitado para Azure
 
@@ -87,7 +87,7 @@ Invocar AzureDTExec oferece opções semelhantes como invocar dtexec. Para saber
 - **/F [ile]**: carrega um pacote armazenado no sistema de arquivos, compartilhamento de arquivos ou arquivos do Azure. Como o valor dessa opção, você pode especificar o caminho UNC para o arquivo de pacote no sistema de arquivos, compartilhamento de arquivos ou arquivos do Azure com sua extensão. dtsx. Se o caminho UNC especificado contiver qualquer espaço, coloque o caminho inteiro entre aspas.
 - **/Conf [igFile]**: especifica um arquivo de configuração do qual extrair valores. Usando essa opção, você pode definir uma configuração de tempo de execução para o pacote que difere da especificada em tempo de design. Você pode armazenar configurações diferentes em um arquivo de configuração XML e, em seguida, carregá-las antes da execução do pacote. Para obter mais informações, consulte [configurações do pacote SSIS](https://docs.microsoft.com/sql/integration-services/packages/package-configurations?view=sql-server-2017). Para especificar o valor dessa opção, use o caminho UNC para o arquivo de configuração no sistema de arquivos, compartilhamento de arquivos ou arquivos do Azure com sua extensão dtsConfig. Se o caminho UNC especificado contiver qualquer espaço, coloque o caminho inteiro entre aspas.
 - **/Conn [ection]**: especifica as cadeias de conexão para os gerenciadores de conexões existentes em seu pacote. Usando essa opção, você pode definir cadeias de conexão de tempo de execução para os gerenciadores de conexões existentes em seu pacote que diferem daqueles especificados em tempo de design. Especifique o valor para essa opção da seguinte maneira: `connection_manager_name_or_id;connection_string [[;connection_manager_name_or_id;connection_string]...]` .
-- **/Set**: substitui a configuração de um parâmetro, uma variável, uma propriedade, um contêiner, um provedor de log, um enumerador foreach ou uma conexão em seu pacote. Essa opção pode ser especificada várias vezes. Especifique o valor para essa opção da seguinte maneira: `property_path;value` . Por exemplo, `\package.variables[counter].Value;1` substitui o valor da `counter` variável como 1. Você pode usar o assistente de **configuração de pacotes** para localizar, copiar e colar o valor de `property_path` para itens em seu pacote cujo valor você deseja substituir. Para obter mais informações, consulte [Assistente de configuração de pacote](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014).
+- **/Set**: substitui a configuração de um parâmetro, uma variável, uma propriedade, um contêiner, um provedor de log, um enumerador foreach ou uma conexão em seu pacote. Essa opção pode ser especificada várias vezes. Especifique o valor para essa opção da seguinte maneira: `property_path;value` . Por exemplo, `\package.variables[counter].Value;1` substitui o valor da `counter` variável como 1. Você pode usar o assistente de **configuração de pacotes** para localizar, copiar e colar o valor de `property_path` para itens em seu pacote cujo valor você deseja substituir. Para obter mais informações, consulte [Assistente de configuração de pacote](https://docs.microsoft.com/sql/integration-services/packages/legacy-package-deployment-ssis).
 - **/De [criptu]**: define a senha de descriptografia para o pacote que é configurado **EncryptAllWithPassword**com o / nível de proteção**EncryptSensitiveWithPassword** do EncryptAllWithPassword.
 
 > [!NOTE]

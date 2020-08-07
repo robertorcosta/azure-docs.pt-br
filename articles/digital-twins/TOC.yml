@@ -92,6 +92,8 @@
           href: troubleshoot-metrics.md
         - name: Habilitar logs de diagnóstico
           href: troubleshoot-diagnostics.md
+        - name: Habilitar alertas
+          href: troubleshoot-alerts.md
         - name: Problemas conhecidos
           href: troubleshoot-known-issues.md
         - name: Resolução de problemas

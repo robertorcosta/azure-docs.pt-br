@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: d8baf1c70d115b80e3238d3eedf128057684d2e6
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 73d82efed438d447c7af3bfc54d5c3fc22cdd819
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224699"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921921"
 ---
 # <a name="security-management-in-azure"></a>Gerenciamento de segurança no Azure
 Os assinantes do Azure podem gerenciar ambientes de nuvem de vários dispositivos, incluindo estações de trabalho, computadores de desenvolvedores e até mesmo dispositivos de usuário final com privilégios que têm permissões de tarefas específicas. Em alguns casos, as funções administrativas são executadas por meio de consoles baseado na Web, como o [Portal do Azure](https://azure.microsoft.com/features/azure-portal/). Em outros casos, pode haver conexões diretas ao Azure de sistemas locais por meio de VPNs (Redes Virtuais Privadas), Serviços de Terminal, protocolos de aplicativos de cliente ou (programaticamente) a SMAPI (API de Gerenciamento de Serviços do Azure). Além disso, os pontos de extremidade do cliente podem ser unidos ao domínio ou isolados e não gerenciados, como tablets ou smartphones.
@@ -66,7 +66,7 @@ Consolidar recursos de acesso e eliminar pontos de extremidade não gerenciados 
 ### <a name="providing-security-for-azure-remote-management"></a>Fornecer segurança para o gerenciamento remoto do Azure
 O Azure fornece mecanismos de segurança para ajudar os administradores que gerenciam serviços de nuvem e máquinas virtuais do Azure. Esses mecanismos incluem:
 
-* Autenticação e [controle de acesso baseado em função](../../role-based-access-control/role-assignments-portal.md).
+* Autenticação e [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/role-assignments-portal.md).
 * Monitoramento, registro em log e auditoria.
 * Certificados e comunicações criptografadas.
 * Um portal de gerenciamento da Web.
@@ -138,7 +138,7 @@ A imposição de políticas que inclui controles de acesso estritos utiliza meca
 ## <a name="client-configuration"></a>Configuração do cliente
 Recomendamos três configurações principais para uma estação de trabalho protegida. Os maiores diferenciais entre elas são o custo, a usabilidade e a acessibilidade, mantendo um perfil de segurança semelhante em todas as opções. A tabela a seguir fornece uma breve análise dos benefícios e riscos de cada uma delas. (Observe que "computador corporativo" se refere a uma configuração de computador desktop padrão que seria implantada para todos os usuários do domínio, independentemente das funções.)
 
-| Configuração | Benefícios | Contras |
+| Configuração | Vantagens | Contras |
 | --- | --- | --- |
 | Estação de trabalho protegida autônoma |Estação de trabalho rigidamente controlada |custo mais alto para áreas de trabalho dedicadas |
 | - | Risco reduzido de explorações de aplicativos |Maior esforço de gerenciamento |

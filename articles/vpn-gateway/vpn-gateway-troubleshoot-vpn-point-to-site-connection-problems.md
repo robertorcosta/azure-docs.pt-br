@@ -1,19 +1,19 @@
 ---
 title: Solucionar problemas de conexão de ponto a site do Azure
 titleSuffix: Azure VPN Gateway
-description: Saiba como solucionar problemas de conexão de ponto a site.
+description: Saiba como solucionar problemas comuns de conexão ponto a site que podem ocorrer no Azure, incluindo vários erros de cliente VPN.
 services: vpn-gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: b997942fd8d8a90b4bd395c2afa7d99b64a97ad8
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 8fd32cb99db115484c913e1a0f00b038b62367e9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037742"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920646"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solução de problemas: problemas de conexão de ponto a site do Azure
 
@@ -39,7 +39,7 @@ Para resolver esse problema, siga estas etapas:
 
 2. Verifique se os certificados abaixo estão no local correto:
 
-    | Certificado | Location |
+    | Certificado | Localização |
     | ------------- | ------------- |
     | AzureClient.pfx  | Current User\Personal\Certificates |
     | AzureRoot. cer    | Local Computer\Trusted Root Certification Authorities|
@@ -115,7 +115,7 @@ Quando você tenta conectar-se à rede virtual do Azure usando o cliente VPN, re
 
 1. Verifique se os certificados abaixo estão no local correto:
 
-    | Certificado | Location |
+    | Certificado | Localização |
     | ------------- | ------------- |
     | AzureClient.pfx  | Current User\Personal\Certificates |
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|

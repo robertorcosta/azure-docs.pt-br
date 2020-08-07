@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 645d92a214f88985e1427ab24d350a6f85c0a076
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: fa23637500755f43bb380a9f20cbe3acc7c3a394
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371372"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925797"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Melhores práticas para proteger aplicativos PaaS móveis e Web usando o Armazenamento do Azure
 Neste artigo, discutiremos uma coleção de melhores práticas de segurança do Armazenamento do Azure para proteger seus aplicativos PaaS (plataforma como serviço) móveis e Web. Essas práticas recomendadas derivam da nossa experiência com o Azure e da experiência de clientes como você.
@@ -56,7 +56,7 @@ A SAS lhe permite compartilhar conteúdo da maneira desejada sem precisar fornec
 Para saber mais sobre a assinatura de acesso compartilhado, confira [Usando SAS (Assinaturas de Acesso Compartilhado)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1). 
 
 ## <a name="use-role-based-access-control"></a>Use o controle de acesso baseado em função
-Outra maneira de gerenciar o acesso é usar o [RBAC](/azure/role-based-access-control/overview) (controle de acesso baseado em função). Com o RBAC, você se concentra em fornecer aos funcionários as permissões exatas de que eles precisam, com base nos princípios de segurança de privilégio mínimo e do que os usuários precisam saber. Muitas permissões podem expor uma conta a ataques. Permissões insuficientes significa que os funcionários não podem ter seu trabalho feito com eficiência. O RBAC ajuda a resolver esse problema oferecendo gerenciamento de acesso refinado ao Azure. Isso é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados.
+Outra maneira de gerenciar o acesso é usar o [controle de acesso baseado em função do Azure (RBAC do Azure)](/azure/role-based-access-control/overview). Com o RBAC, você se concentra em fornecer aos funcionários as permissões exatas de que eles precisam, com base nos princípios de segurança de privilégio mínimo e do que os usuários precisam saber. Muitas permissões podem expor uma conta a ataques. Permissões insuficientes significa que os funcionários não podem ter seu trabalho feito com eficiência. O RBAC ajuda a resolver esse problema oferecendo gerenciamento de acesso refinado ao Azure. Isso é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados.
 
 Você pode usar funções internas do Azure no Azure para atribuir privilégios a usuários. Por exemplo, use o Colaborador da Conta de Armazenamento para operadores de nuvem que precisarem gerenciar contas de armazenamento e a função de Colaborador de Conta de Armazenamento Clássica para gerenciar contas de armazenamento clássicas. Para operadores de nuvem que precisam gerenciar VMs, mas não a rede virtual ou a conta de armazenamento a que estão conectados, adicione-os à função de Colaborador de Máquina Virtual.
 

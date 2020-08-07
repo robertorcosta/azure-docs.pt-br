@@ -4,12 +4,12 @@ description: Fornece um resumo das configurações de suporte e limitações ao 
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4d197f8b3c1ed74ef45c1f7942ead52ccef0c14a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 41511abaa071bd0f64ee699c52486b71ec036a68
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513176"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926443"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Matriz de suporte para backup SQL Server em VMs do Azure
 
@@ -25,21 +25,26 @@ Você pode usar o backup do Azure para fazer backup de bancos de dados SQL Serve
 **Versões do SQL Server com suporte** | SQL Server 2019, SQL Server 2017, conforme detalhado na [página Pesquisar ciclo de vida de produto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 e SPs conforme detalhado na [página Pesquisar ciclo de vida do produto](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer e Express.
 **Versões do .NET com suporte** | .NET Framework 4.5.2 ou posterior instalado na VM
 
-## <a name="feature-consideration-and-limitations"></a>Considerações e limitações de recurso
+## <a name="feature-considerations-and-limitations"></a>Considerações e limitações de recursos
+
+|Setting  |Limite máximo |
+|---------|---------|
+|Número de bancos de dados que podem ser protegidos em um servidor (e em um cofre)    |   2000      |
+|Tamanho do banco de dados com suporte (Além disso, problemas de desempenho podem surgir)   |   2 TB      |
+|Número de arquivos com suporte em um banco de dados    |   1000      |
+
+>[!NOTE]
+> [Baixe o planejador de recursos detalhado](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) para calcular o número aproximado de bancos de dados protegidos que são recomendados por servidor com base nos recursos da VM, na largura de banda e na política de backup.
 
 * O Backup do SQL Server pode ser configurado no portal do Azure ou **PowerShell**. Não há suporte para a CLI.
 * A solução é compatível em ambos os tipos de [implantações](../azure-resource-manager/management/deployment-models.md) – VMs do Azure Resource Manager e VMs clássicas.
-* VM que executa o SQL Server exige conectividade com a Internet para acessar os endereços IP públicos do Azure.
+* Há suporte para todos os tipos de backup (completo/diferencial/log) e modelos de recuperação (simples/completo/bulk-logged).
+* Os tipos de backup completo e somente cópia são compatíveis com bancos de dados **somente leitura** .
+* A compactação nativa do SQL tem suporte se habilitada explicitamente pelo usuário na política de backup. O backup do Azure substitui os padrões em nível de instância pela cláusula COMPRESSION/NO_COMPRESSION, dependendo do valor desse controle, conforme definido pelo usuário.
+* Há suporte para backup de banco de dados habilitado para TDE. Para restaurar um banco de dados criptografado com TDE para outro SQL Server, primeiro você precisa [restaurar o certificado para o servidor de destino](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). A compactação de backup para bancos de dados habilitados para TDE para o SQL Server 2016 e versões mais recentes está disponível, mas com tamanho de transferência mais baixo, conforme explicado [aqui](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
+* Não há suporte para operações de backup e restauração para bancos de dados de espelho e instantâneos do banco de dados.
 * Não há suporte para SQL Server **FCI (instância de cluster de failover)** .
-* Não há suporte para as operações de backup e de restauração para bancos de dados de espelho e instantâneos do banco de dados.
-* Usar mais de uma solução de backup para fazer backup de sua instância do SQL Server autônoma ou do grupo de disponibilidade SQL Always On pode levar à falha de backup. Evite fazer isso.
-* Fazer backup de dois nós de um grupo de disponibilidade individualmente com soluções iguais ou diferentes, também poderá levar à falha de backup.
-* Backup do Azure dá suporte a apenas tipos de backup Completo e Somente Cópia para banco de dados **Somente leitura**
-* Bancos de dados com um grande número de arquivos não podem ser protegidos. O número máximo de arquivos com suporte não é **~1000**.  
-* Você pode fazer backup de até **~ 2000** SQL Server bancos de dados em um cofre. Caso você tenha um número maior de bancos de dados, poderá criar vários cofres.
-* Você pode configurar o backup de até **50** bancos de dados de uma vez; essa restrição ajuda a otimizar cargas de backup.
-* Damos suporte a bancos de dados de até **2 TB** de tamanho; para tamanhos maiores do que os problemas de desempenho podem surgir.
-* Para ter uma noção de como muitos bancos de dados podem ser protegidos por servidor, considere fatores como largura de banda, tamanho da VM, frequência de backup, tamanho do banco de dados e assim por diante. [Baixe](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) o Resource Planner para calcular o número aproximado de bancos de dados que você pode ter por servidor com base nos recursos da VM e na política de backup.
+* Usar mais de uma solução de backup para fazer backup da instância SQL Server autônoma ou do grupo de disponibilidade AlwaysOn do SQL pode levar a uma falha de backup. Evite fazer isso. Fazer backup de dois nós de um grupo de disponibilidade individualmente com soluções iguais ou diferentes, também poderá levar à falha de backup.
 * Quando os grupos de disponibilidade são configurados, os backups são obtidos dos diferentes nós com base em alguns fatores. O comportamento de backup para um grupo de disponibilidade está resumido abaixo.
 
 ### <a name="back-up-behavior-with-always-on-availability-groups"></a>Comportamento de backup com grupos de disponibilidade Always On

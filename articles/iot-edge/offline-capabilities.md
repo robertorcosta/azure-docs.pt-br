@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ef6ed74149f106b801049da429dfe7b79b984a70
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: e929463c33603c650bec2e9a49a13dde6965e39f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725237"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926647"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Entender os recursos offline estendidos para dispositivos, módulos e dispositivos filho do IoT Edge
 
@@ -95,7 +95,7 @@ Você pode modificar a [consulta](../iot-hub/iot-hub-devguide-query-language.md)
 
 #### <a name="option-3-use-iot-hub-service-sdk"></a>Opção 3: Usar o SDK de serviço do Hub IoT
 
-Por fim, você pode gerenciar as relações filho-pai programaticamente usando o SDK do serviço de Hub IoT do C#, Java ou Node.js. Este é um [exemplo de atribuição de um dispositivo filho](https://aka.ms/set-child-iot-device-c-sharp) usando o SDK do C#.
+Por fim, você pode gerenciar as relações filho-pai programaticamente usando o SDK do serviço de Hub IoT do C#, Java ou Node.js. Este é um [exemplo de atribuição de um dispositivo filho](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs) usando o SDK do C#.
 
 ### <a name="set-up-the-parent-device-as-a-gateway"></a>Configurar o dispositivo pai como gateway
 
