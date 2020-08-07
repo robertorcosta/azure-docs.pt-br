@@ -171,10 +171,14 @@
         - name: Monitorar máquinas virtuais do Azure
           href: insights/monitor-vm-azure.md
           displayname: VM
+    - name: Implantar
+      items:
+        - name: Implantar o Azure Monitor
+          href: deploy.md
+        - name: Implantar em escala
+          href: deploy-scale.md
     - name: Gerenciar e configurar
       items:
-        - name: Implantar em escala
-          href: platform/deploy-scale.md
         - name: Permissões e segurança de funções
           href: platform/roles-permissions-security.md
         - name: Endereços IP
@@ -1096,7 +1100,7 @@
           items:
             - name: Controle de acesso
               href: platform/workbooks-access-control.md
-            - name: parâmetros
+            - name: Parâmetros
               items:
                 - name: Resumo dos parâmetros
                   href: platform/workbooks-parameters.md

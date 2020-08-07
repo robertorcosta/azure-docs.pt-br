@@ -7,6 +7,8 @@
     - name: Comparar serviços de mensagem
       href: ../event-grid/compare-messaging-services.md
       maintainContext: true
+    - name: Usar o Barramento de Serviço com o JMS (Serviço de Mensagens Java) 2.0 (versão prévia)
+      href: how-to-use-java-message-service-20.md
 - name: Inícios rápidos
   items:
     - name: Filas do Barramento de Serviço
@@ -127,6 +129,8 @@
           items:
             - name: 'Filas, tópicos e assinaturas'
               href: service-bus-queues-topics-subscriptions.md
+            - name: Entidades do JMS (Serviço de Mensagens Java) 2.0 (versão prévia)
+              href: java-message-service-20-entities.md
             - name: 'Mensagens, payloads e serialização'
               href: service-bus-messages-payloads.md
             - name: 'Transferências de mensagem, bloqueios e liquidação'

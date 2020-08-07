@@ -60,7 +60,7 @@
           href: how-tos/create-locate-anchors-cpp-winrt.md
     - name: Usar a relocalização grosseira para descobrir âncoras próximas
       items:
-        - name: 'No C#/Unity'
+        - name: No C#/Unity
           href: how-tos/set-up-coarse-reloc-unity.md
         - name: No Objective-C
           href: how-tos/set-up-coarse-reloc-objc.md
@@ -72,6 +72,12 @@
           href: how-tos/set-up-coarse-reloc-cpp-ndk.md
         - name: No C++/WinRT
           href: how-tos/set-up-coarse-reloc-cpp-winrt.md
+    - name: Configuração do projeto
+      items:
+        - name: C++/WinRT
+          href: how-tos/setup-cpp-winrt-project.md
+        - name: Unity
+          href: how-tos/setup-unity-project.md
 - name: Exemplos
   items:
     - name: Exemplos das Âncoras Espaciais do Azure (GitHub)
