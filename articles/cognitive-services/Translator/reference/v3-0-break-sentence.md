@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 01/21/2020
+ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 01a5404100da6c669da4513ac9fd08c959df220e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 340b0ed02821fb98f271539ac39e0ccad8581082
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588625"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903996"
 ---
 # <a name="translator-30-breaksentence"></a>Tradutor 3,0: BreakSentence
 
 Identifica o posicionamento dos limites de frase em uma parte do texto.
 
-## <a name="request-url"></a>URL da solicitação
+## <a name="request-url"></a>URL de Solicitação
 
 Envie uma solicitação `POST` para:
 
@@ -37,15 +37,15 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
 | -------| ----------- |
 | api-version <img width=200/>   | **Parâmetro de consulta obrigatório**.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`. |
 | Linguagem | **Parâmetro de consulta opcional**.<br/>Marcação de idioma que identifica o idioma do texto de entrada. Se um código não for especificado, a detecção automática de idioma será aplicada. |
-| script    | **Parâmetro de consulta opcional**.<br/>Marcação de script identificando o script usado pelo texto de entrada. Se um script não for especificado, o script padrão do idioma será presumido.  | 
+| Script    | **Parâmetro de consulta opcional**.<br/>Marcação de script identificando o script usado pelo texto de entrada. Se um script não for especificado, o script padrão do idioma será presumido.  | 
 
 Os cabeçalhos de solicitação incluem:
 
 | Cabeçalhos | Descrição |
 | ------- | ----------- |
-| Cabeçalho (s) de autenticação <img width=200/>  | **Cabeçalho de solicitação obrigatório**.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>. |
-| Tipo de conteúdo | **Cabeçalho de solicitação obrigatório**.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`. |
-| Content-Length    | **Cabeçalho de solicitação obrigatório**.<br/>O tamanho do corpo da solicitação.  | 
+| Cabeçalho (s) de autenticação <img width=200/>  | **Cabeçalho de solicitação necessário**.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>. |
+| Tipo de conteúdo | **Cabeçalho de solicitação necessário**.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`. |
+| Content-Length    | **Cabeçalho de solicitação necessário**.<br/>O tamanho do corpo da solicitação.  | 
 | X-ClientTraceId   | **Opcional**.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. Observe que você poderá omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta nomeado `ClientTraceId`.  | 
 
 ## <a name="request-body"></a>Corpo da solicitação
@@ -61,7 +61,7 @@ O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objet
 As seguintes limitações se aplicam:
 
 * A matriz pode ter no máximo 100 elementos.
-* O valor de texto de um elemento de matriz não pode exceder dez mil caracteres incluindo espaços.
+* O valor de texto de um elemento de matriz não pode exceder 50.000 caracteres, incluindo espaços.
 * Todo o texto incluído na solicitação não pode exceder 50 mil caracteres incluindo espaços.
 * Se o parâmetro de consulta `language` for especificado, todos os elementos de matriz deverão estar no mesmo idioma. Caso contrário, a detecção automática de idioma será aplicada independentemente a cada elemento da matriz.
 

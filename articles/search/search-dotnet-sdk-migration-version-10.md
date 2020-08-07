@@ -1,5 +1,5 @@
 ---
-title: Atualizar para o Azure Pesquisa Cognitiva SDK do .NET versão 10
+title: Atualizar para o SDK do .NET versão 10
 titleSuffix: Azure Cognitive Search
 description: Migre o código para o Azure Pesquisa Cognitiva .NET SDK versão 10 de versões mais antigas. Conheça as novidades e quais alterações de código são necessárias.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6ce4e308420fc3ea1928b44013a78d0ae57d2c35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61fee97323d110875cb05fb48157527a39c80f56
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562378"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905774"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Atualizar para o Azure Pesquisa Cognitiva SDK do .NET versão 10
 
@@ -111,7 +111,7 @@ var webApiSkill = new WebApiSkill(
 
 A habilidade de Modelador agora pode permitir a consolidação de entrada de contextos aninhados. Para habilitar essa alteração, modificamos `InputFieldMappingEntry` para que ela possa ser instanciada especificando apenas uma `Source` propriedade, ou ambas as `SourceContext` Propriedades e `Inputs` .
 
-Provavelmente, você não precisará fazer nenhuma alteração de código; no entanto, observe que apenas uma dessas duas combinações é permitida. Isso significa que:
+Provavelmente, você não precisará fazer nenhuma alteração de código; no entanto, observe que apenas uma dessas duas combinações é permitida. Isso significa:
 
 - A criação de um `InputFieldMappingEntry` em que apenas `Source` é inicializado é válida.
 - A criação de um `InputFieldMappingEntry` somente onde `SourceContext` e `Inputs` inicializado é válida.

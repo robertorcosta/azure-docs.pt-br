@@ -5,17 +5,17 @@ description: Agende Azure Machine Learning pipelines usando o SDK do Azure Machi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: laobri
 author: lobrien
 ms.date: 11/12/2019
-ms.custom: tracking-python
-ms.openlocfilehash: 3fede6bf194d0dd6b18118df7a44b7ccd0224a25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 351d52128660c25c557c536f2835e0e71c0115f7
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84552186"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87842953"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Agendar pipelines do Machine Learning com o SDK do Azure Machine Learning para Python
 

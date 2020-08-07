@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: dfdb717a27af8dc7f3186ac7afdff4d1eb3d79f5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9c77ed2bf0d764fbbbe24770cc70b3fbeec7f678
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420831"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833446"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Noções básicas sobre acesso à VM JIT (just-in-time)
 
@@ -44,7 +44,7 @@ Ao habilitar o acesso just-in-time à VM, você pode selecionar as portas na VM 
 
 Se outras regras já existirem para as portas selecionadas, essas regras existentes têm prioridade sobre as novas regras "negar todo o tráfego de entrada". Se não houver nenhuma regra existente nas portas selecionadas, as novas regras têm a prioridade mais alta no NSG e no firewall do Azure.
 
-Quando um usuário solicita acesso a uma VM, a central de segurança verifica se o usuário tem permissões de [RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para essa VM. Se a solicitação for aprovada, a central de segurança configurará o NSGs e o Firewall do Azure para permitir o tráfego de entrada para as portas selecionadas do endereço IP (ou intervalo) relevante, para o período de tempo especificado. Depois que o tempo expirar, a Central de Segurança restaura os NSGs aos seus estados anteriores. As conexões que já estão estabelecidas não são interrompidas.
+Quando um usuário solicita acesso a uma VM, a central de segurança verifica se o usuário tem permissões do Azure [RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para essa VM. Se a solicitação for aprovada, a central de segurança configurará o NSGs e o Firewall do Azure para permitir o tráfego de entrada para as portas selecionadas do endereço IP (ou intervalo) relevante, para o período de tempo especificado. Depois que o tempo expirar, a Central de Segurança restaura os NSGs aos seus estados anteriores. As conexões que já estão estabelecidas não são interrompidas.
 
 > [!NOTE]
 > O JIT não oferece suporte a VMs protegidas por firewalls do Azure controlados pelo [Gerenciador de firewall do Azure](https://docs.microsoft.com/azure/firewall-manager/overview).

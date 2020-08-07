@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: 1a7cc37f297f902fb5de473303f1dc260cbea9ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 3fcf26670ec03b1d3a496574e58ae706acdf5c53
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559099"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853284"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega contínua usando a ação do GitHub
 
@@ -204,8 +204,8 @@ Para implantar seu código em um aplicativo de funções, será necessário usar
 
 |Parâmetro |Explicação  |
 |---------|---------|
-|**_app-name_** | Obrigatório O nome do seu aplicativo de funções. |
-|_**slot-name**_ | Adicional O nome do [slot de implantação](functions-deployment-slots.md) no qual você deseja implantar. O slot já deve estar definido em seu aplicativo de funções. |
+|**_nome do aplicativo_** | Obrigatório O nome do seu aplicativo de funções. |
+|_**nome do slot**_ | Adicional O nome do [slot de implantação](functions-deployment-slots.md) no qual você deseja implantar. O slot já deve estar definido em seu aplicativo de funções. |
 
 
 O exemplo a seguir usa a versão 1 do `functions-action` :
@@ -223,4 +223,4 @@ O exemplo a seguir usa a versão 1 do `functions-action` :
 Para exibir um arquivo Workflow. YAML completo, consulte um dos arquivos no repositório de [exemplos de fluxo de trabalho de ações do Azure GitHub](https://aka.ms/functions-actions-samples) que têm `functionapp` no nome. Você pode usar esses exemplos em um ponto de partida para seu fluxo de trabalho.
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre as ações do GitHub](https://help.github.com/en/articles/about-github-actions)
+> [Saiba mais sobre as GitHub Actions](https://help.github.com/en/articles/about-github-actions)

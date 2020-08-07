@@ -1,6 +1,6 @@
 ---
 title: Exibir status de trabalhos de Importação/Exportação do Azure | Microsoft Docs
-description: Saiba como exibir o status de trabalhos de Importação/Exportação e as unidades usadas.
+description: Saiba como exibir o status dos trabalhos de importação/exportação do Azure e as unidades usadas. Entenda os fatores que afetam o tempo necessário para processar um trabalho.
 author: alkohli
 services: storage
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 7a000ab4a465e3b19efe6f2853bcd19dca47e440
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c75c9a2d0b491cc00d0fc58054b9bb1e58a364b8
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514129"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905713"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Exibir o status de trabalhos de Importação/Exportação do Azure
 
@@ -36,7 +36,7 @@ Você verá um dos seguintes status de trabalho, dependendo de onde a unidade es
 | Transferindo | Após pelo menos uma unidade começar o processamento, o estado do trabalho será definido como **Transferindo**. Para obter mais informações, consulte [Estados de unidade](#view-drive-status). |
 | Empacotamento | Depois que todas as unidades tiverem concluído o processamento, o trabalho será colocado no estado **Empacotamento** até que as unidades sejam enviadas de volta para você. |
 | Concluído | Depois que todas as unidades forem enviadas de volta para você, se o trabalho tiver sido concluído sem erros, ele será definido como **Concluído**. O trabalho será excluído automaticamente após 90 dias no estado **Concluído**. |
-| Fechado | Depois que todas as unidades são enviadas de volta para você, se erros tiverem ocorrido durante o processamento do trabalho, o trabalho será definido como **Fechado**. O trabalho é excluído automaticamente após 90 dias no estado **Fechado**. |
+| Fechadas | Depois que todas as unidades são enviadas de volta para você, se erros tiverem ocorrido durante o processamento do trabalho, o trabalho será definido como **Fechado**. O trabalho é excluído automaticamente após 90 dias no estado **Fechado**. |
 
 ## <a name="view-drive-status"></a>Exibir status da unidade
 

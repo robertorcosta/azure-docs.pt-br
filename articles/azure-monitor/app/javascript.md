@@ -2,14 +2,14 @@
 title: Aplicativo Azure insights para aplicativos Web JavaScript
 description: Obter a exibição de página e contagens de sessão, dados de cliente Web, SPA (aplicativos de página única) e rastrear padrões de uso. Detecte exceções e problemas de desempenho em páginas da Web do JavaScript.
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: e0545660cbca68d41bc24b7266496b7912d408bc
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 7c5abb109018bd8bc5b501fe728a3a0f422a3db7
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531312"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905818"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas da Web
 
@@ -104,18 +104,18 @@ Cada opção de configuração é mostrada acima em uma nova linha, se você nã
 
 As opções de configuração disponíveis são 
 
-| Nome | Tipo | Descrição
+| Nome | Type | Descrição
 |------|------|----------------
 | src | Cadeia de caracteres **[obrigatório]** | A URL completa para onde carregar o SDK. Esse valor é usado para o atributo "src" de um &lt; script/marca dinamicamente adicionado &gt; . Você pode usar o local da CDN pública ou sua própria hospedada de forma privada.
-| name | Cadeia de caracteres *[opcional]* | O nome global do SDK inicializado, por padrão, é appInsights. Portanto, ```window.appInsights``` será uma referência à instância inicializada. Observação: se você fornecer um valor de nome ou uma instância anterior parece ser atribuída (por meio do nome global appInsightsSDK), esse valor de nome também será definido no namespace global como ```window.appInsightsSDK=<name value>``` , isso é exigido pelo código de inicialização do SDK para garantir que ele esteja inicializando e atualizando o esqueleto de trecho e os métodos de proxy corretos.
+| name | Cadeia de caracteres *[opcional]* | O nome global do SDK inicializado, por padrão, é `appInsights` . Portanto, ```window.appInsights``` será uma referência à instância inicializada. Observação: se você fornecer um valor de nome ou uma instância anterior parece ser atribuída (por meio do nome global appInsightsSDK), esse valor de nome também será definido no namespace global como ```window.appInsightsSDK=<name value>``` , isso é exigido pelo código de inicialização do SDK para garantir que ele esteja inicializando e atualizando o esqueleto de trecho e os métodos de proxy corretos.
 | 2 | número em MS *[opcional]* | Define o atraso de carga a aguardar antes de tentar carregar o SDK. O valor padrão é 0ms e qualquer valor negativo adicionará imediatamente uma marca de script &lt; à &gt; região de cabeçalho da página, que bloqueará o evento de carregamento de página até que o script seja carregado (ou falhe).
 | useXhr | booliano *[opcional]* | Essa configuração é usada apenas para falhas de carregamento do SDK de relatório. A geração de relatórios tentará primeiro usar Fetch () se disponível e, em seguida, fallback para XHR, definir esse valor como true Apenas ignora a verificação de busca. O uso desse valor só será necessário se o aplicativo estiver sendo usado em um ambiente em que a busca falha ao enviar os eventos de falha.
-| crossOrigin | Cadeia de caracteres *[opcional]* | Ao incluir essa configuração, a marca de script adicionada para baixar o SDK incluirá o atributo crossOrigin com esse valor de cadeia de caracteres. Quando não definido (o padrão) nenhum atributo crossOrigin é adicionado. Os valores recomendados não estão definidos (o padrão); ""; ou "Anonymous" (para todos os valores válidos, consulte o [atributo HTML:](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) documentação do crossorigin)
+| crossOrigin | Cadeia de caracteres *[opcional]* | Ao incluir essa configuração, a marca de script adicionada para baixar o SDK incluirá o atributo crossOrigin com esse valor de cadeia de caracteres. Quando não definido (o padrão) nenhum atributo crossOrigin é adicionado. Os valores recomendados não estão definidos (o padrão); ""; ou "Anonymous" (para todos os valores válidos, consulte [atributo `crossorigin` HTML:](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) documentação)
 | cfg | objeto **[obrigatório]** | A configuração passou para o SDK do Application Insights durante a inicialização.
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Enviando telemetria para o portal do Azure
 
-Por padrão, o SDK do JavaScript Application Insights coleta a um número de itens de telemetria que são úteis para determinar a integridade do seu aplicativo e a experiência do usuário subjacente. Eles incluem:
+Por padrão, o SDK do JavaScript Application Insights coleta a um número de itens de telemetria que são úteis para determinar a integridade do seu aplicativo e a experiência do usuário subjacente. Elas incluem:
 
 - **Exceções não capturadas** em seu aplicativo, incluindo informações sobre
     - Rastreamento de pilha
@@ -155,8 +155,8 @@ A maioria dos campos de configuração são nomeados de modo que eles podem ser 
 
 | Nome | Padrão | Descrição |
 |------|---------|-------------|
-| instrumentationKey | nulo | **Obrigatório**<br>Chave de instrumentação que você obteve do portal do Azure. |
-| accountId | nulo | Uma ID de conta opcional, se seu aplicativo agrupar usuários em contas. Sem espaços, vírgulas, pontos-e-vírgulas, Equals ou barras verticais |
+| instrumentationKey | null | **Necessária**<br>Chave de instrumentação que você obteve do portal do Azure. |
+| accountId | null | Uma ID de conta opcional, se seu aplicativo agrupar usuários em contas. Sem espaços, vírgulas, pontos-e-vírgulas, Equals ou barras verticais |
 | sessionRenewalMs | 1,8 milhões | Uma sessão será registrada se o usuário estiver inativo por esse período de tempo em milissegundos. O padrão é 30 minutos |
 | sessionExpirationMs | 86,4 milhões | Uma sessão será registrada se continuar por esse período de tempo em milissegundos. O padrão é 24 horas |
 | maxBatchSizeInBytes | 10000 | Tamanho máximo do lote de telemetria. Se um lote exceder esse limite, ele será imediatamente enviado e um novo lote será iniciado |
@@ -180,14 +180,14 @@ A maioria dos campos de configuração são nomeados de modo que eles podem ser 
 | disableFlushOnBeforeUnload | false | Padrão false. Se for true, o método Flush não será chamado quando o evento onBeforeUnload for disparado |
 | enableSessionStorageBuffer | true | Padrão verdadeiro. Se for true, o buffer com todas as telemetrias não enviadas será armazenado no armazenamento de sessão. O buffer é restaurado no carregamento da página |
 | isCookieUseDisabled | false | Padrão false. Se for true, o SDK não armazenará nem lerá nenhum dado de cookies.|
-| cookieDomain | nulo | Domínio de cookie personalizado. Isso será útil se você quiser compartilhar Application Insights cookies entre subdomínios. |
+| cookieDomain | null | Domínio de cookie personalizado. Isso será útil se você quiser compartilhar Application Insights cookies entre subdomínios. |
 | isRetryDisabled | false | Padrão false. Se for false, tente novamente 206 (êxito parcial), 408 (timeout), 429 (número excessivo de solicitações), 500 (erro interno do servidor), 503 (Serviço indisponível) e 0 (offline, somente se detectado) |
 | isStorageUseDisabled | false | Se for true, o SDK não armazenará nem lerá nenhum dado do armazenamento local e de sessão. O padrão é false. |
 | isBeaconApiDisabled | true | Se for false, o SDK enviará toda a telemetria usando a [API de Beacon](https://www.w3.org/TR/beacon) |
 | onunloadDisableBeacon | false | Padrão false. Quando a guia for fechada, o SDK enviará toda a telemetria restante usando a [API de Beacon](https://www.w3.org/TR/beacon) |
-| sdkExtension | nulo | Define o nome da extensão do SDK. Somente caracteres alfabéticos são permitidos. O nome da extensão é adicionado como um prefixo à marca ' ia. Internal. sdkVersion ' (por exemplo, ' ext_javascript: 2.0.0 '). O padrão é nulo. |
+| sdkExtension | null | Define o nome da extensão do SDK. Somente caracteres alfabéticos são permitidos. O nome da extensão é adicionado como um prefixo à marca ' ia. Internal. sdkVersion ' (por exemplo, ' ext_javascript: 2.0.0 '). O padrão é nulo. |
 | isBrowserLinkTrackingEnabled | false | O padrão é false. Se for true, o SDK rastreará todas as solicitações de [link do navegador](/aspnet/core/client-side/using-browserlink) . |
-| appId | nulo | AppId é usado para a correlação entre dependências AJAX acontecendo no lado do cliente com as solicitações do lado do servidor. Quando a API de Beacon está habilitada, ela não pode ser usada automaticamente, mas pode ser definida manualmente na configuração. O padrão é NULL |
+| appId | null | AppId é usado para a correlação entre dependências AJAX acontecendo no lado do cliente com as solicitações do lado do servidor. Quando a API de Beacon está habilitada, ela não pode ser usada automaticamente, mas pode ser definida manualmente na configuração. O padrão é NULL |
 | enableCorsCorrelation | false | Se for true, o SDK adicionará dois cabeçalhos (' solicitação-ID ' e ' solicitação-contexto ') a todas as solicitações de CORS para correlacionar as dependências do AJAX de saída com as solicitações correspondentes no lado do servidor. O padrão é falso |
 | namePrefix | não definido | Um valor opcional que será usado como sufixo de nome para localStorage e o nome do cookie.
 | enableAutoRouteTracking | false | Rastreie automaticamente as alterações de rota em SPA (aplicativos de página única). Se for true, cada alteração de rota enviará um novo Pageview para Application Insights. As alterações de rota de hash ( `example.com/foo#bar` ) também são registradas como novas exibições de página.
@@ -195,9 +195,9 @@ A maioria dos campos de configuração são nomeados de modo que eles podem ser 
 | enableResponseHeaderTracking | false | Se verdadeiro, os cabeçalhos de resposta da solicitação de busca do AJAX & são rastreados, o padrão é false.
 | distributedTracingMode | `DistributedTracingModes.AI` | Define o modo de rastreamento distribuído. Se o modo de AI_AND_W3C ou o modo W3C for definido, os cabeçalhos de contexto de rastreamento do W3C (traceparent/tracestate) serão gerados e incluídos em todas as solicitações de saída. AI_AND_W3C é fornecida para compatibilidade com os serviços instrumentados Application Insightss herdados. Consulte o exemplo [aqui](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 | enableAjaxErrorStatusText | false | Padrão false. Se for true, inclua o texto de dados de erro de resposta no evento de dependência em solicitações AJAX com falha.
-| enableAjaxPerfTracking | false | Padrão false. Sinalizador para habilitar a pesquisa e a inclusão de janela adicional do navegador. tempos de desempenho nas métricas relatadas AJAX (XHR e FETCH) relatadas.
+| enableAjaxPerfTracking | false | Padrão false. Sinalizador para habilitar a pesquisa e a inclusão de janela adicional do navegador. os tempos de desempenho nas métricas relatadas `ajax` (XHR e FETCH) relatadas.
 | maxAjaxPerfLookupAttempts | 3 | O padrão é 3. O número máximo de vezes para procurar a janela. os tempos de desempenho (se disponíveis), isso é necessário, pois nem todos os navegadores preenchem a janela. o desempenho antes de relatar o final da solicitação XHR e, para buscar solicitações, isso é adicionado após sua conclusão.
-| ajaxPerfLookupDelay | 25 | O padrão é 25 MS. A quantidade de tempo de espera antes de tentar localizar os intervalos do Windows. performance para uma solicitação Ajax, o tempo é em milissegundos e é passado diretamente para setTimeout ().
+| ajaxPerfLookupDelay | 25 | O padrão é 25 MS. A quantidade de tempo de espera antes de tentar novamente localizar os intervalos do Windows. performance para uma `ajax` solicitação, o tempo é em milissegundos e é passado diretamente para setTimeout ().
 | enableUnhandledPromiseRejectionTracking | false | Se verdadeiro, as rejeições de promessa sem tratamento serão coletadas e relatadas como um erro de JavaScript. Quando disableExceptionTracking for true (não rastrear exceções), o valor de configuração será ignorado e as rejeições de promessa sem tratamento não serão relatadas.
 
 ## <a name="single-page-applications"></a>Aplicativos de página única
@@ -219,6 +219,38 @@ Por configuração `autoTrackPageVisitTime: true` , o tempo que um usuário gast
 |---------------|
 | [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
 | [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
+
+## <a name="correlation"></a>Correlação
+
+A correlação do cliente com o lado do servidor tem suporte para:
+
+- Solicitações XHR/AJAX 
+- Buscar solicitações 
+
+O cliente para correlação do lado do servidor **não tem suporte** para `GET` `POST` solicitações e.
+
+### <a name="enable-cross-component-correlation-between-client-ajax-and-server-requests"></a>Habilitar a correlação entre componentes entre o AJAX do cliente e as solicitações do servidor
+
+Para habilitar a `CORS` correlação, o cliente precisa enviar dois cabeçalhos de solicitação adicionais `Request-Id` e `Request-Context` o lado do servidor precisa ser capaz de aceitar conexões com esses cabeçalhos presentes. O envio desses cabeçalhos é habilitado pela configuração `enableCorsCorrelation: true` na configuração do SDK do JavaScript. 
+
+Dependendo da `Access-Control-Allow-Headers` configuração no lado do servidor, muitas vezes é necessário estender a lista do lado do servidor adicionando `Request-Id` e `Request-Context` .
+
+Acesso-controle-permitir-cabeçalhos: `Request-Id` , `Request-Context` ,`<your header>`
+
+Se qualquer um dos servidores de terceiros aos quais o cliente se comunica não puder aceitar os `Request-Id` cabeçalhos e e `Request-Context` você não puder atualizar sua configuração, você precisará colocá-los em uma lista de exclusões por meio da `correlationHeaderExcludeDomains` propriedade de configuração. Esta propriedade dá suporte a curingas.
+
+```javascript
+// excerpt of the config section of the JavaScript SDK snippet with correlation
+// between client-side AJAX and server requests enabled.
+cfg: { // Application Insights Configuration
+    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+    enableCorsCorrelation: true,
+    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
+    /* ...Other Configuration Options... */
+}});
+</script>
+
+``` 
 
 ## <a name="explore-browserclient-side-data"></a>Explorar dados do navegador/cliente
 

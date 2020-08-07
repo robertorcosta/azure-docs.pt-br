@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 779fc1cfc617e18eee4d84dcfd007f10ddb31f96
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 52bb3e63ff436aa73aaaf43f2f87f904b27f70b6
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808704"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876624"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
 
@@ -199,15 +199,14 @@ Forneça logotipos e imagens para usar com sua oferta. O logotipo precisa estar 
 
 #### <a name="store-logos"></a>Armazenar logotipos
 
-Forneça um arquivo PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center usará isso para criar um logotipo de tamanho **pequeno** (48 x 48 pixels) e **médio** (90 x 90 pixels). Opcionalmente, você pode substituí-los por imagens diferentes.
+Forneça arquivos PNG do logotipo da sua oferta em cada um dos seguintes quatro tamanhos de pixel:
 
-Todos os três tamanhos de logotipo são necessários para uso em locais diferentes na lista:
+- **Pequeno (48 x 48)**
+- **Médio (90 x 90)**
+- **Grande (216 x 216)**
+- **Largo (255 x 115)**
 
-- **Pequeno** (48 x 48)
-- **Médio** (90 x 90)
-- **Grande** (entre 216 x 216 e 350 x 350)
-
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+Todos os quatro logotipos são necessários e são usados em locais diferentes na lista do marketplace.
 
 #### <a name="screenshots-optional"></a>Capturas de tela (opcional)
 

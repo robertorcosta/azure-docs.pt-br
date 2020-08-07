@@ -1,44 +1,33 @@
 ---
-title: Entender a ferramenta de migração para alertas de Azure Monitor
-description: Entenda como funciona a ferramenta de migração de alertas e solucione problemas.
+title: Entender a migração para alertas de Azure Monitor
+description: Entenda como funciona a migração de alertas e solucione problemas.
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 533d114e08464ff95c654a6f071ea28a04caf510
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 52a74593fcfbdc2c1e464077e4ae460f6a5a9c39
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564088"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852388"
 ---
-# <a name="understand-how-the-migration-tool-works"></a>Entender como a ferramenta de migração funciona
+# <a name="understand-migration-options-to-newer-alerts"></a>Entender as opções de migração para alertas mais recentes
 
-Como [anunciado anteriormente](monitoring-classic-retirement.md), os alertas clássicos no Azure monitor estão sendo desativados até 31 de agosto de 2019 (foi originalmente 30 de junho de 2019). Uma ferramenta de migração está disponível no portal do Azure aos clientes que usam regras de alerta clássicas e que desejam disparar a migração por conta própria.
+Os alertas clássicos são [desativados](./monitoring-classic-retirement.md), embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas. Uma nova data será anunciada em breve para a migração de alertas restantes, a [nuvem do Azure governamental](../../azure-government/documentation-government-welcome.md)e o [Azure China 21vianet](https://docs.azure.cn/).
 
-Este artigo explica como funciona a ferramenta de migração voluntária. Ele também descreve as soluções para alguns problemas comuns.
-
-> [!NOTE]
-> Devido ao atraso na distribuição da ferramenta de migração, a data de desativação da migração de alertas clássicos foi [prorrogada para 31 de agosto de 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) da data de lançamento original de 30 de junho de 2019.
-
-## <a name="classic-alert-rules-that-will-not-be-migrated"></a>Regras de alerta clássico que não serão migradas
+Este artigo explica como a migração manual e a ferramenta de migração voluntária funcionam, que serão usadas para migrar as regras de alerta restantes. Ele também descreve as soluções para alguns problemas comuns.
 
 > [!IMPORTANT]
 > Alertas do log de atividades (incluindo alertas de integridade do serviço) e alertas de log não são afetados pela migração. A migração se aplica somente às regras de alerta clássicas descritas [aqui](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
 
-Embora a ferramenta possa migrar quase todas as [regras de alerta clássicas](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform), há algumas exceções. As seguintes regras de alerta não serão migradas usando a ferramenta (ou durante a migração automática a partir de setembro de 2019):
-
-- Regras de alerta clássicas em métricas de convidado de máquina virtual (Windows e Linux). Consulte as [diretrizes para recriar essas regras de alerta em novos alertas de métrica](#guest-metrics-on-virtual-machines) mais adiante neste artigo.
-- Regras de alerta clássicas em métricas de armazenamento clássico. Consulte as [diretrizes para monitorar suas contas de armazenamento clássicas](https://azure.microsoft.com/blog/modernize-alerting-using-arm-storage-accounts/).
-- Regras de alerta clássicas em algumas métricas de conta de armazenamento. Consulte os [detalhes](#storage-account-metrics) mais adiante neste artigo.
-- Regras de alerta clássicas em algumas métricas de Cosmos DB. Consulte os [detalhes](#cosmos-db-metrics) mais adiante neste artigo.
-- Regras de alerta clássicas em todas as máquinas virtuais clássicas e métricas de serviços de nuvem (Microsoft. ClassicCompute/virtualMachines e Microsoft. ClassicCompute/nome_do_domínio/Slots/funções). Consulte os [detalhes](#classic-compute-metrics) mais adiante neste artigo.
-
-Se sua assinatura tiver essas regras clássicas, você deverá migrá-las manualmente. Como não podemos fornecer uma migração automática, todos os alertas de métrica clássicos existentes desses tipos continuarão funcionando até 2020 de junho. Essa extensão dá tempo para passar para novos alertas. Você também pode continuar criando novos alertas clássicos nas exceções listadas acima até junho de 2020. No entanto, para todo o resto, nenhum alerta clássico novo pode ser criado após 2019 de agosto.
-
 > [!NOTE]
-> Além das exceções listadas acima, se suas regras de alerta clássicas forem inválidas, ou seja, se estiverem em [métricas preteridas](#classic-alert-rules-on-deprecated-metrics) ou recursos que foram excluídos, elas não serão migradas e não estarão disponíveis depois que o serviço for desativado.
+> Se suas regras de alerta clássicas forem inválidas, ou seja, se estiverem em [métricas preteridas](#classic-alert-rules-on-deprecated-metrics) ou recursos que foram excluídos, elas não serão migradas e não estarão disponíveis depois que o serviço for desativado.
+
+## <a name="manually-migrating-classic-alerts-to-newer-alerts"></a>Migrar alertas clássicos manualmente para alertas mais recentes
+
+Os clientes que estão interessados em migrar manualmente seus alertas restantes já podem fazer isso usando as seções a seguir. Essas seções também definem as métricas que são desativadas pelo provedor de recursos e, no momento, não podem ser migradas diretamente.
 
 ### <a name="guest-metrics-on-virtual-machines"></a>Métricas de convidado em máquinas virtuais
 
@@ -162,10 +151,10 @@ Para serviços de conta de armazenamento como BLOB, tabela, arquivo e fila, as m
 | ServerOtherError | Métrica de transações com dimensões "ResponseType" = "ServerOtherError" | |
 | ServerTimeOutError | Métrica de transações com dimensões "ResponseType" = "ServerTimeOutError"  | |
 | Sucesso | Métrica de transações com dimensões "ResponseType" = "êxito" | |
-| TotalBillableRequests| Transactions | |
+| TotalBillableRequests| Transações | |
 | TotalEgress | Saída | |
 | TotalIngress | Entrada | |
-| TotalRequests | Transactions | |
+| TotalRequests | Transações | |
 
 ### <a name="microsoftinsightscomponents"></a>Microsoft. insights/Components
 
