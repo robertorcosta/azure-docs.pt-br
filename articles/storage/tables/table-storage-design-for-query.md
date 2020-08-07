@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 1d157e7d2880761fb6559723bdc1d6c34baffb09
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 28a15541b9d706095bcd3d6d361bd7c983f195df
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903197"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926239"
 ---
 # <a name="design-for-querying"></a>Design para consulta
 Soluções de serviço Tabela podem ser de leitura intensiva, gravação intensiva ou uma combinação dos dois. Este artigo aborda as coisas a serem lembradas ao criar seu serviço Tabela para dar suporte a operações de leitura com eficiência. Normalmente, um design que dá suporte a operações de leitura com eficiência também é eficiente para operações de gravação. No entanto, neste artigo, [Design para modificação de dados](table-storage-design-for-modification.md), existem e são discutidas considerações adicionais para se ter em mente ao projetar de modo a dar suporte a operações de gravação.
@@ -38,7 +38,7 @@ Os exemplos a seguir pressupõem que o serviço Tabela é armazenar entidades de
 | *Nome da coluna* | *Data type* |
 | --- | --- |
 | **PartitionKey** (nome de departamento) |String |
-| **RowKey** (Id do funcionário) |String |
+| **RowKey** (ID do funcionário) |String |
 | **Nome** |String |
 | **Sobrenome** |String |
 | **Idade** |Integer |
@@ -88,7 +88,7 @@ Muitos designs devem atender aos requisitos para habilitar a pesquisa de entidad
 * [Padrão de entidades de índice](table-storage-design-patterns.md#index-entities-pattern) - Mantenha entidades de índice para permitir pesquisas eficientes que retornem listas de entidades.  
 
 ## <a name="sorting-data-in-the-table-service"></a>Armazenando dados no serviço Tabela
-O serviço Tabela retorna entidades classificadas em ordem crescente com base em **PartitionKey** e, em seguida, **RowKey**. Essas chaves são valores de cadeia de caracteres e para garantir que os valores numéricos sejam classificados corretamente, você deve convertê-los em um comprimento fixo e preenchê-los com zeros. Por exemplo, se o valor da ID de funcionário que você usa como a **RowKey** for um valor inteiro, você deverá converter a ID do funcionário **123** em **00000123**.  
+O serviço Tabela retorna entidades classificadas em ordem crescente com base em **PartitionKey** e, em seguida, **RowKey**. Essas chaves são valores de cadeia de caracteres e para garantir que os valores numéricos sejam classificados corretamente, você deve convertê-los em um comprimento fixo e preenchê-los com zeros. Por exemplo, se o valor de ID de funcionário usado como **RowKey** for um valor inteiro, você deverá converter a ID de funcionário **123** em **00000123**.  
 
 Muitos aplicativos têm requisitos para usar dados classificados em ordens diferentes: por exemplo, classificação de funcionários por nome ou por data de ingresso. Os seguintes padrões abordam como alternar as ordens de classificação para suas entidades:  
 

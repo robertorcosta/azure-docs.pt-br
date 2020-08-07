@@ -1,18 +1,18 @@
 ---
 title: 'Gateway de VPN do Azure: criar gateway baseado em rota: PowerShell'
-description: Criar rapidamente um gateway de VPN baseado em rotas usando PowerShell
+description: Saiba como criar um gateway de VPN do Azure baseado em rota usando o PowerShell. Use um gateway de VPN para se conectar à sua rede local.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5cd0971b04d1bad140cf3aac29a8c153977cfa62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e6c8ec12927afbabd6c6d41ab348bad9814e82c
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987646"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923196"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Criar um gateway VPN baseado em rotas usando PowerShell
 
@@ -20,7 +20,7 @@ Este artigo ajuda você a criar rapidamente um gateway de VPN do Azure baseadas 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-As etapas neste artigo criarão uma rede virtual, uma sub-rede, uma sub-rede do gateway e um gateway VPN com base em rota (gateway de rede virtual). Concluída a criação de gateway, você pode criar conexões. Estas etapas exigem uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+As etapas neste artigo criarão uma rede virtual, uma sub-rede, uma sub-rede do gateway e um gateway VPN com base em rota (gateway de rede virtual). Concluída a criação de gateway, você pode criar conexões. Estas etapas exigem uma assinatura do Azure. Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ### <a name="working-with-azure-powershell"></a>Trabalhando com o Azure PowerShell
 
@@ -62,7 +62,7 @@ Defina a configuração da sub-rede para a rede virtual usando o cmdlet [Set-AzV
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-## <a name="add-a-gateway-subnet"></a><a name="gwsubnet"></a>Adicione uma sub-rede de gateway
+## <a name="add-a-gateway-subnet"></a><a name="gwsubnet"></a>Adicionar uma sub-rede de gateway
 
 A sub-rede de gateway contém os endereços IP reservados que usam os serviços de gateway de rede virtual. Use os exemplos a seguir para adicionar uma sub-rede de gateway:
 
@@ -201,7 +201,7 @@ Sku                      : {
 IpTags                   : {}
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando os recursos criados não forem mais necessários, use o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para excluir o grupo de recursos. Isso excluirá o grupo de recursos e todos os recursos que ele contém.
 

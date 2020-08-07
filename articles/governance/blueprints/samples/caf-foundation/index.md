@@ -3,12 +3,12 @@ title: Visão Geral do exemplo de blueprint da Base do CAF
 description: Visão geral e arquitetura do exemplo de blueprint do CAF (Cloud Adoption Framework) para o Azure Foundation.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 3291fdc299652d2b22bff89f5b1dadbdc064e561
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: b8bd0015d5f95fc61806197ca21fdaeeb3452700
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901295"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852337"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Visão geral do exemplo de blueprint do Cloud Adoption Framework da Microsoft para o Azure Foundation
 
@@ -35,7 +35,7 @@ Essa implementação incorpora vários serviços do Azure usados para oferecer u
   - Exigir criptografia de transferência segura na Conta de Armazenamento do Microsoft Azure
   - Negar tipos de recursos (escolher durante a implantação)  
 - Iniciativas
-  - Habilitar o monitoramento na Central de Segurança do Azure (89 políticas)
+  - Habilitar o monitoramento na Central de Segurança do Azure (mais de 100 definições de política)
 
 Todos esses elementos cumprem as práticas comprovadas publicadas no [Centro de Arquitetura do Azure – Arquiteturas de Referência](/azure/architecture/reference-architectures/).
 

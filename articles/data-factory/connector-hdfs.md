@@ -9,16 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/15/2020
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 8041ce07c08c3b6063e2a1b3c7b55b1cec59b19a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 43ab59f109e311d9d7312b77d34321fa98a952d6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087751"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926800"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copiar dados do servidor HDFS usando Azure Data Factory
+
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-hdfs-connector.md)
 > * [Versão atual](connector-hdfs.md)
@@ -253,10 +254,10 @@ Para usar o DistCp para copiar arquivos da HDFS para o armazenamento de BLOBs do
 
 * Os serviços MapReduce e YARN estão habilitados.  
 * A versão YARN é 2,5 ou posterior.  
-* O servidor HDFS é integrado ao armazenamento de dados de destino: armazenamento de BLOBs do Azure ou Azure data Lake Store:  
+* O servidor HDFS é integrado ao armazenamento de dados de destino: **armazenamento de BLOBs do Azure** ou **Azure data Lake Store (ADLS Gen1)**: 
 
     - O FileSystem do Blob do Azure tem suporte nativo desde o Hadoop 2.7. Você só precisa especificar o caminho JAR na configuração do ambiente do Hadoop.
-    - O FileSystem do Azure Data Lake Store está empacotado desde o Hadoop 3.0.0-alpha1. Se a versão do cluster do Hadoop for anterior à versão, você precisará importar manualmente os pacotes JAR relacionados ao Azure Data Lake Storage Gen2 (Azure-datalake-Store. jar) para o cluster [aqui](https://hadoop.apache.org/releases.html)e especificar o caminho do arquivo JAR na configuração do ambiente do Hadoop.
+    - O FileSystem do Azure Data Lake Store está empacotado desde o Hadoop 3.0.0-alpha1. Se a versão do cluster do Hadoop for anterior à versão, você precisará importar manualmente os pacotes JAR relacionados ao Azure Data Lake Store (Azure-datalake-Store. jar) para o cluster [aqui](https://hadoop.apache.org/releases.html)e especificar o caminho do arquivo JAR na configuração do ambiente do Hadoop.
 
 * Prepare uma pasta temporária no HDFS. Essa pasta Temp é usada para armazenar um script de shell DistCp, portanto, ele ocupará o espaço em nível de KB.
 * Verifique se a conta de usuário fornecida no serviço vinculado do HDFS tem permissão para:
@@ -481,7 +482,7 @@ Para obter informações sobre propriedades de atividade de pesquisa, consulte [
 
 ### <a name="legacy-copy-activity-source-model"></a>Modelo de origem da atividade de cópia herdada
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade *Type* da fonte da atividade de cópia deve ser definida como *HdfsSource*. |Sim |
 | recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Quando recursivo é definido como *true* e o coletor é um armazenamento baseado em arquivo, uma pasta ou subpasta vazia não será copiada ou criada no coletor.<br/>Os valores permitidos são *true* (padrão) e *false*. | Não |

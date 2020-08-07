@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: mialdrid
-ms.openlocfilehash: b4a83013d2cbeb2871a3963ec0c95144c02f4d66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 459a70c787dfdcd54fb3010655390787022c8f2e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77187019"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921615"
 ---
 # <a name="expressroute-crossconnnections-api-development-and-integration"></a>Desenvolvimento e integração de API do ExpressRoute CrossConnnections
 
@@ -24,13 +24,13 @@ O recurso expressRouteCrossConnections é um recurso de sombra para o circuito d
 
 Os parceiros do ExpressRoute gerenciam a configuração de camada 2 e de camada 3 emitindo operações REST no recurso expressRouteCrossConnections.
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 
 Benefícios da mudança para o recurso expressRouteCrossConnections:
 
 * Quaisquer aprimoramentos futuros para parceiros do ExpressRoute serão disponibilizados no recurso ExpressRouteCrossConnection.
 
-* Os parceiros podem aplicar o [controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/overview) ao recurso expressRouteCrossConnection. Esses controles podem definir permissões para as quais as contas de usuários podem modificar o recurso expressRouteCrossConnection e adicionar/atualizar/excluir configurações de emparelhamento.
+* Os parceiros podem aplicar o [controle de acesso baseado em função do Azure (RBAC do Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview) ao recurso expressRouteCrossConnection. Esses controles podem definir permissões para as quais as contas de usuários podem modificar o recurso expressRouteCrossConnection e adicionar/atualizar/excluir configurações de emparelhamento.
 
 * O recurso expressRouteCrossConnection expõe APIs que podem ser úteis para solucionar problemas de conexões do ExpressRoute. Isso inclui a tabela ARP, o resumo da tabela de rotas BGP e os detalhes da tabela de rotas BGP. Essa funcionalidade não tem suporte nas APIs de implantação clássicas.
 

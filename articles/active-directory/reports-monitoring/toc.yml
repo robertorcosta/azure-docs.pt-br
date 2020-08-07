@@ -23,6 +23,8 @@
       href: tutorial-access-api-with-certificates.md
     - name: Transmitir por streaming logs para um hub de eventos
       href: tutorial-azure-monitor-stream-logs-to-event-hub.md
+    - name: Assistente de análise de logs
+      href: tutorial-log-analytics-wizard.md
 - name: Conceitos
   items:
     - name: Planejar um relatório e monitorar uma implantação

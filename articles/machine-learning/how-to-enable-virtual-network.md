@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 9d49ea99b97411e15d3f264057c865219e4d63c4
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7684933a7671f1f3d573cb8195551a56ebc27947
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853493"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925814"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento de rede durante o treinamento & inferência com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -79,7 +79,7 @@ O estúdio dá suporte à leitura de dados dos seguintes tipos de repositório d
 * Blob do Azure
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* Banco de dados SQL do Azure
+* Banco de Dados SQL do Azure
 
 ### <a name="add-resources-to-the-virtual-network"></a>Adicionar recursos à rede virtual 
 
@@ -129,7 +129,7 @@ Você também pode substituir o repositório de armazenamento padrão por módul
 
 Você pode usar as ACLs (listas de controle de acesso) de estilo RBAC e POSIX para controlar o acesso a dados dentro de uma rede virtual.
 
-Para usar o RBAC, adicione a identidade gerenciada do espaço de trabalho à função de [leitor de dados de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) . Para obter mais informações, confira [Controle de acesso baseado em função](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control).
+Para usar o RBAC, adicione a identidade gerenciada do espaço de trabalho à função de [leitor de dados de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) . Para obter mais informações, consulte [controle de acesso baseado em função do Azure (RBAC do Azure)](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control).
 
 Para usar ACLs, a identidade gerenciada do espaço de trabalho pode ser atribuída ao acesso, assim como qualquer outro princípio de segurança. Para obter mais informações, consulte [listas de controle de acesso em arquivos e diretórios](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
@@ -203,7 +203,7 @@ Por padrão, Azure Machine Learning executa as verificações de validade e cred
 - Armazenamento de Blobs do Azure
 - FileShare do Azure
 - PostgreSQL
-- Banco de dados SQL do Azure
+- Banco de Dados SQL do Azure
 
 O exemplo de código a seguir cria um novo armazenamento de BLOBs e conjuntos do Azure `skip_validation=True` .
 

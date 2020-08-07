@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 46ebb122b0165d469b1c40871d5939e50a8595c9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7c43d3dd0c8a0d9f6d31d8e379fd195adfd7873f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016280"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925406"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutorial: configurar o floco de neve para provisionamento automático de usuário
 
@@ -111,7 +111,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-8. Clique em **Save** (Salvar).
+8. Clique em **Salvar**.
 
 9. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para floco de neve**.
 
@@ -120,13 +120,13 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
    |Atributo|Type|
    |---|---|
    |ativo|Boolean|
-   |displayName|Cadeia de caracteres|
-   |emails[type eq "work"].value|Cadeia de caracteres|
-   |userName|Cadeia de caracteres|
+   |displayName|String|
+   |emails[type eq "work"].value|String|
+   |userName|String|
    |name.givenName|String|
    |name.familyName|String|
-   |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: defaultrole|Cadeia de caracteres|
-   |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: defaultwarehouse|Cadeia de caracteres|
+   |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: defaultrole|String|
+   |urn: IETF: params: SCIM: esquemas: extensão: Enterprise: 2.0: User: defaultwarehouse|String|
 
 11. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para floco de neve**.
 
@@ -157,7 +157,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 Depois de configurar o provisionamento, use os seguintes recursos para monitorar a implantação:
 
 1. Use os [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais usuários foram provisionados com êxito ou não
-2. Confira a [barra de progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
+2. Confira a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
 3. Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="connector-limitations"></a>Limitações do conector

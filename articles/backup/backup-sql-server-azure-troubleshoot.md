@@ -3,18 +3,18 @@ title: Solucionar problemas SQL Server backup de banco de dados
 description: Informações de solução de problemas para fazer backup de bancos de dados do SQL Server em execução em VMs do Azure com o Backup do Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 879a7edab77bad9671bea51e0e496f3eca96ee81
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f4049cca317d254bd5ee120e47cedc4cd42300e8
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538710"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926477"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solucionar problemas SQL Server backup de banco de dados usando o backup do Azure
 
 Este artigo fornece informações de solução de problemas para SQL Server bancos de dados em execução em máquinas virtuais do Azure.
 
-Para obter mais informações sobre o processo e as limitações de backup, consulte [about SQL Server Backup in Azure VMs](sql-support-matrix.md#feature-consideration-and-limitations).
+Para obter mais informações sobre o processo e as limitações de backup, consulte [about SQL Server Backup in Azure VMs](sql-support-matrix.md#feature-considerations-and-limitations).
 
 ## <a name="sql-server-permissions"></a>Permissões do SQL Server
 
@@ -60,7 +60,7 @@ Se a VM do SQL precisar ser registrada no novo cofre, ele deverá ter o registro
 
 ### <a name="backup-type-unsupported"></a>Tipo de backup sem suporte
 
-| Severidade | Descrição | Possíveis causas | Ação recomendada |
+| Gravidade | Descrição | Possíveis causas | Ação recomendada |
 |---|---|---|---|
 | Aviso | As configurações atuais deste banco de dados não dão suporte a determinados tipos de backup presentes na política associada. | <li>Somente uma operação de backup de banco de dados completa pode ser executada no banco de dados mestre. Nenhum backup diferencial nem backup de log de transações é possível. </li> <li>Qualquer banco de dados no modelo de recuperação simples não permite o backup de logs de transações.</li> | Modifica as configurações de banco de dados, de modo que todos os tipos na política de backup têm suporte. Ou altere a política atual para incluir apenas os tipos de backup com suporte. Caso contrário, os tipos de backup sem suporte serão ignorados durante o backup agendado ou o trabalho de backup falhará para o backup sob demanda.
 

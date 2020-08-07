@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 766fb9fbe50f8a138eae020082680204872a653a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0869de4ccfe89cc3919ec2d2d80aa3e18749039a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87315438"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921077"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Logs de Azure Monitor para provedores de serviço
 
@@ -40,7 +40,7 @@ Há duas maneiras pelas quais os administradores do provedor de serviços podem 
 
 As vantagens da arquitetura distribuída são:
 
-* O cliente pode confirmar níveis específicos de permissões por meio [do gerenciamento de recursos delegado do Azure](../../lighthouse/concepts/azure-delegated-resource-management.md)ou pode gerenciar o acesso aos logs usando seu próprio [acesso baseado em função](../../role-based-access-control/overview.md).
+* O cliente pode confirmar níveis específicos de permissões por meio [do gerenciamento de recursos delegado do Azure](../../lighthouse/concepts/azure-delegated-resource-management.md)ou pode gerenciar o acesso aos logs usando seu próprio [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md).
 * Os logs podem ser coletados de todos os tipos de recursos, não apenas de dados de VM baseados em agente. Por exemplo, os Logs de Auditoria do Azure.
 * Cada cliente pode ter configurações diferentes para seu workspace, como retenção e limitação de dados.
 * Isolamento entre os clientes para fins de regulamentação e conformidade.
@@ -90,4 +90,3 @@ Há duas opções para implementar logs em um local central:
 * Gerar relatórios de resumo usando o [Power BI](./powerbi.md)
 
 * Integrar clientes ao [Gerenciamento de recursos delegado do Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
-

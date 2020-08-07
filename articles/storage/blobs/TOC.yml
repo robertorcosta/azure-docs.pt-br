@@ -471,7 +471,7 @@
                   href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Fábrica de dados do Azure
               href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Montar armazenamento no Linux usando NFS
+            - name: Montar o armazenamento usando NFS
               href: network-file-system-protocol-support-how-to.md
             - name: Montar o armazenamento no Linux usando blobfuse
               href: storage-how-to-mount-container-linux.md
@@ -560,6 +560,8 @@
               href: 'https://github.com/microsoft/AzureStorageExplorer/releases'
             - name: Solucionar problemas do Gerenciador de Armazenamento
               href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Segurança do Gerenciador de Armazenamento
+              href: ../common/storage-explorer-security.md
             - name: Ciclo de vida e política de suporte do Gerenciador de Armazenamento
               href: ../common/storage-explorer-support-policy-lifecycle.md
             - name: Acessibilidade do Gerenciador de Armazenamento
@@ -744,7 +746,7 @@
                 - name: 'Configurar, otimizar, solucionar problemas'
                   href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Fábrica de dados do Azure
-              href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ../../data-factory/connector-azure-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Transferir dados com a ferramenta DistCp
               href: data-lake-storage-use-distcp.md
             - name: Transferir dados com a biblioteca de Movimentação de Dados
@@ -834,6 +836,10 @@
               href: 'https://github.com/microsoft/AzureStorageExplorer/releases'
             - name: Solucionar problemas do Gerenciador de Armazenamento
               href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Segurança do Gerenciador de Armazenamento
+              href: ../common/storage-explorer-security.md
+            - name: Ciclo de vida e política de suporte do Gerenciador de Armazenamento
+              href: ../common/storage-explorer-support-policy-lifecycle.md
             - name: Acessibilidade do Gerenciador de Armazenamento
               href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Página de perguntas de P e R da Microsoft
