@@ -1,18 +1,18 @@
 ---
 title: Firewall local de Sincronização de Arquivos do Azure e configurações de proxy | Microsoft Docs
-description: Configuração da rede local de Sincronização de Arquivos do Azure
+description: Entenda Sincronização de Arquivos do Azure configurações de firewall e proxy locais. Examine os detalhes de configuração de portas, redes e conexões especiais no Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7410e30c892eb083f9ed71b1d9ce379ae9a036b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4f011d9286a0685f1b091b930155db969407423
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515293"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903707"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configurações de proxy e firewall da Sincronização de arquivos do Azure
 A Sincronização de arquivos do Azure se conecta seus servidores locais para arquivos do Azure, permitindo camadas de recursos de nuvem e sincronização de vários locais. Como tal, um servidor local deve estar conectado à internet. Um administrador de TI precisa decidir o melhor caminho para o servidor acessar os serviços de nuvem do Azure.
@@ -111,9 +111,9 @@ Por motivos de BCDR (continuidade dos negócios e recuperação de desastres), v
 
 | Nuvem  | Região | URL do ponto de extremidade primário | Região emparelhada | URL de descoberta |
 |--------|--------|----------------------|---------------|---------------|
-| Público |Leste da Austrália | https: \/ /australiaeast01.AFS.Azure.net<br>https: \/ /Kailani-Aue.One.Microsoft.com | Sudeste da Austrália | https: \/ /TM-australiaeast01.AFS.Azure.net<br>https: \/ /TM-Kailani-Aue.One.Microsoft.com |
-| Público |Sudeste da Austrália | https: \/ /australiasoutheast01.AFS.Azure.net<br>https: \/ /Kailani-aus.One.Microsoft.com | Leste da Austrália | https: \/ /TM-australiasoutheast01.AFS.Azure.net<br>https: \/ /TM-Kailani-aus.One.Microsoft.com |
-| Público | Sul do Brasil | https: \/ /brazilsouth01.AFS.Azure.net | Centro-Sul dos Estados Unidos | https: \/ /TM-brazilsouth01.AFS.Azure.net |
+| Público |Leste da Austrália | https: \/ /australiaeast01.AFS.Azure.net<br>https: \/ /Kailani-Aue.One.Microsoft.com | Australia Southeast | https: \/ /TM-australiaeast01.AFS.Azure.net<br>https: \/ /TM-Kailani-Aue.One.Microsoft.com |
+| Público |Australia Southeast | https: \/ /australiasoutheast01.AFS.Azure.net<br>https: \/ /Kailani-aus.One.Microsoft.com | Leste da Austrália | https: \/ /TM-australiasoutheast01.AFS.Azure.net<br>https: \/ /TM-Kailani-aus.One.Microsoft.com |
+| Público | Brazil South | https: \/ /brazilsouth01.AFS.Azure.net | Centro-Sul dos Estados Unidos | https: \/ /TM-brazilsouth01.AFS.Azure.net |
 | Público | Canadá Central | https: \/ /canadacentral01.AFS.Azure.net<br>https: \/ /Kailani-CAC.One.Microsoft.com | Leste do Canadá | https: \/ /TM-canadacentral01.AFS.Azure.net<br>https: \/ /TM-Kailani-CAC.One.Microsoft.com |
 | Público | Leste do Canadá | https: \/ /canadaeast01.AFS.Azure.net<br>https: \/ /Kailani-CAE.One.Microsoft.com | Canadá Central | https: \/ /TM-canadaeast01.AFS.Azure.net<br>https: \/ /TM-Kailani.CAE.One.Microsoft.com |
 | Público | Índia Central | https: \/ /centralindia01.AFS.Azure.net<br>https: \/ /Kailani-CIN.One.Microsoft.com | Sul da Índia | https: \/ /TM-centralindia01.AFS.Azure.net<br>https: \/ /TM-Kailani-CIN.One.Microsoft.com |
@@ -121,8 +121,8 @@ Por motivos de BCDR (continuidade dos negócios e recuperação de desastres), v
 | Público | Leste da Ásia | https: \/ /eastasia01.AFS.Azure.net<br>https: \/ /kailani11.One.Microsoft.com | Sudeste Asiático | https: \/ /TM-eastasia01.AFS.Azure.net<br>https: \/ /TM-kailani11.One.Microsoft.com |
 | Público | Leste dos EUA | https: \/ /eastus01.AFS.Azure.net<br>https: \/ /kailani1.One.Microsoft.com | Oeste dos EUA | https: \/ /TM-eastus01.AFS.Azure.net<br>https: \/ /TM-kailani1.One.Microsoft.com |
 | Público | Leste dos EUA 2 | https: \/ /eastus201.AFS.Azure.net<br>https: \/ /Kailani-ESS.One.Microsoft.com | Centro dos EUA | https: \/ /TM-eastus201.AFS.Azure.net<br>https: \/ /TM-Kailani-ESS.One.Microsoft.com |
-| Público | Leste do Japão | https: \/ /japaneast01.AFS.Azure.net | Oeste do Japão | https: \/ /TM-japaneast01.AFS.Azure.net |
-| Público | Oeste do Japão | https: \/ /japanwest01.AFS.Azure.net | Leste do Japão | https: \/ /TM-japanwest01.AFS.Azure.net |
+| Público | Japan East | https: \/ /japaneast01.AFS.Azure.net | Oeste do Japão | https: \/ /TM-japaneast01.AFS.Azure.net |
+| Público | Oeste do Japão | https: \/ /japanwest01.AFS.Azure.net | Japan East | https: \/ /TM-japanwest01.AFS.Azure.net |
 | Público | Coreia Central | https: \/ /koreacentral01.AFS.Azure.net/ | Sul da Coreia | https: \/ /TM-koreacentral01.AFS.Azure.net/ |
 | Público | Sul da Coreia | https: \/ /koreasouth01.AFS.Azure.net/ | Coreia Central | https: \/ /TM-koreasouth01.AFS.Azure.net/ |
 | Público | Centro-Norte dos EUA | https: \/ /northcentralus01.AFS.Azure.net | Centro-Sul dos Estados Unidos | https: \/ /TM-northcentralus01.AFS.Azure.net |
@@ -136,8 +136,8 @@ Por motivos de BCDR (continuidade dos negócios e recuperação de desastres), v
 | Público | Europa Ocidental | https: \/ /westeurope01.AFS.Azure.net<br>https: \/ /kailani6.One.Microsoft.com | Norte da Europa | https: \/ /TM-westeurope01.AFS.Azure.net<br>https: \/ /TM-kailani6.One.Microsoft.com |
 | Público | Oeste dos EUA | https: \/ /westus01.AFS.Azure.net<br>https: \/ /Kailani.One.Microsoft.com | Leste dos EUA | https: \/ /TM-westus01.AFS.Azure.net<br>https: \/ /TM-Kailani.One.Microsoft.com |
 | Público | Oeste dos EUA 2 | https: \/ /westus201.AFS.Azure.net | Centro-Oeste dos EUA | https: \/ /TM-westus201.AFS.Azure.net |
-| Governamental | Governo dos EUA do Arizona | https: \/ /usgovarizona01.AFS.Azure.us | Governo dos EUA do Texas | https: \/ /TM-usgovarizona01.AFS.Azure.us |
-| Governamental | Governo dos EUA do Texas | https: \/ /usgovtexas01.AFS.Azure.us | Governo dos EUA do Arizona | https: \/ /TM-usgovtexas01.AFS.Azure.us |
+| Governo | Governo dos EUA do Arizona | https: \/ /usgovarizona01.AFS.Azure.us | Governo dos EUA do Texas | https: \/ /TM-usgovarizona01.AFS.Azure.us |
+| Governo | Governo dos EUA do Texas | https: \/ /usgovtexas01.AFS.Azure.us | Governo dos EUA do Arizona | https: \/ /TM-usgovtexas01.AFS.Azure.us |
 
 - Se estiver utilizando contas de LRS (armazenamento com redundância local) ou ZRS (com redundância de zona), será necessário somente habilitar a URL listada em "URL do ponto de extremidade primário".
 
@@ -280,6 +280,6 @@ As listas no início deste documento contém as URLs de Sincronização de Arqui
 A configuração das regras de firewall de restrição de domínio pode ser uma medida para melhorar a segurança. Se essas configurações de firewall são utilizadas, é necessário ter em mente que URLs serão adicionadas e poderão até mesmo ser alteradas ao longo do tempo. Consulte este artigo periodicamente.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
+- [Planejar uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
 - [Implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)
 - [Monitorar a Sincronização de Arquivos do Azure](storage-sync-files-monitoring.md)

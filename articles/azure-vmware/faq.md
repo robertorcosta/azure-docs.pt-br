@@ -4,12 +4,12 @@ description: Fornece respostas para algumas dúvidas comuns sobre a AVS (Soluç�
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: b6bf8e924b0776ace282e94f62ae2b0a67439efd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: bd27d4669788b10fc12c47e4514020f6b01300bc
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836574"
+ms.locfileid: "87872320"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Perguntas frequentes sobre a versão prévia da AVS (Solução VMware no Azure)
 
@@ -45,7 +45,7 @@ As integrações específicas e os casos de uso podem ser avaliados caso a caso.
 
 **Posso migrar as VMs vSphere de ambientes locais para nuvens privadas de AVS?**
 
-Sim. A migração de VM e o vMotion poderão ser usados para mover VMs para uma nuvem privada se forem atendidos [os requisitos do vMotion][https://kb.vmware.com/s/article/210695 ] de padrão cruzado do vCenter.
+Sim. A migração de VM e o vMotion podem ser usados para mover VMs para uma nuvem privada se [os requisitos](https://kb.vmware.com/s/article/210695) do vCenter VMotion padrão forem atendidos.
 
 **Uma versão específica do vSphere é necessária em ambientes locais?**
 

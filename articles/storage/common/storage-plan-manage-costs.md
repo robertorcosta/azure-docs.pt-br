@@ -9,18 +9,18 @@ ms.date: 08/03/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 90aa2b9504008783649662019179a5998d534746
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 75b464c140bfda6c3f3559d3bfdbe1e6bc2e7f24
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543088"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760729"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planejar e gerenciar custos para o armazenamento de BLOBs do Azure
 
 Este artigo ajuda você a planejar e gerenciar os custos do armazenamento de BLOBs do Azure. Primeiro, estimar os custos usando a calculadora de preços do Azure. Depois de criar sua conta de armazenamento, otimize a conta para que você pague apenas pelo que precisa. Use os recursos de gerenciamento de custos para definir orçamentos e monitorar custos. Você também pode examinar os custos previstos e monitorar as tendências de gastos para identificar as áreas em que talvez queira agir.
 
-Tenha em mente que os custos do armazenamento do Azure são apenas uma parte dos custos mensais em sua fatura do Azure. Embora este artigo explique como estimar e gerenciar os custos do armazenamento do Azure, você será cobrado por todos os serviços e recursos do Azure usados para sua assinatura do Azure, incluindo os serviços de terceiros. Depois de estar familiarizado com o gerenciamento de custos para o armazenamento do Azure, você pode aplicar métodos semelhantes para gerenciar os custos de todos os serviços do Azure usados em sua assinatura.
+Tenha em mente que os custos para o armazenamento de BLOBs são apenas uma parte dos custos mensais em sua fatura do Azure. Embora este artigo explique como estimar e gerenciar os custos do armazenamento de BLOBs, você será cobrado por todos os serviços e recursos do Azure usados para sua assinatura do Azure, incluindo os serviços de terceiros. Depois de estar familiarizado com o gerenciamento de custos para o armazenamento de BLOBs, você pode aplicar métodos semelhantes para gerenciar os custos de todos os serviços do Azure usados em sua assinatura.
 
 ## <a name="estimate-costs"></a>Estimar custos
 
@@ -85,7 +85,7 @@ Ao usar a análise de custo, você pode exibir os custos de armazenamento do Azu
 
 Para exibir os custos de armazenamento do Azure na análise de custo:
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 2. Abra a janela **Gerenciamento de custos + cobrança** , selecione **Gerenciamento de custos** no menu e, em seguida, selecione análise de **custo**. Em seguida, você pode alterar o escopo de uma assinatura específica da lista suspensa **escopo** .
 

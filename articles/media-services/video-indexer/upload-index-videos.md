@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: 011f94cf24c6148ee01275541b090ba28d697018
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b6f8181568e5996bfb3c99ae25fb801fa62f3af1
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052487"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904251"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar seus vídeos  
 
@@ -58,6 +58,13 @@ O artigo mostra como carregar e indexar vídeos com estas opções:
 
 Confira o artigo [contêiner de entrada/formatos de arquivo](../latest/media-encoder-standard-formats.md#input-containerfile-formats) para obter uma lista de formatos de arquivo que você pode usar com o Video Indexer.
 
+## <a name="video-files-storage"></a>Armazenamento de arquivos de vídeo
+
+- Com uma conta de Video Indexer paga, você cria uma conta de Video Indexer que está conectada à sua assinatura do Azure e uma conta dos serviços de mídia do Azure. Para obter mais informações, consulte [criar uma conta de video indexer conectada ao Azure](connect-to-azure.md).
+- Os arquivos de vídeo são armazenados no armazenamento do Azure pelos serviços de mídia do Azure. Não há nenhuma limitação de tempo.
+- Você sempre pode excluir seus arquivos de áudio e vídeo, bem como quaisquer metadados e informações extraídos deles por Video Indexer. Quando você exclui um arquivo do Video Indexer, o arquivo e seus metadados e insights são permanentemente removidos do Video Indexer. No entanto, se você implementou sua própria solução de backup no armazenamento do Azure, o arquivo permanece no seu armazenamento do Azure.
+- O persistência de um vídeo é idêntico, independentemente de o carregamento ser feito formando o site Video Indexer ou usando a API de carregamento.
+   
 ## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a name="website"></a>Carregar e indexar um vídeo usando o site Video Indexer
 
 > [!NOTE]
@@ -141,6 +148,9 @@ O parâmetro **priority** tem suporte apenas para contas pagas.
 Depois que o vídeo tiver sido carregado, o Video Indexer codificará opcionalmente o vídeo. Em seguida, passe para a indexação e análise do vídeo. Quando o Video Indexer terminar a análise, você receberá uma notificação com a ID do vídeo.  
 
 Ao usar a API [Carregar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [Reindexar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), um dos parâmetros opcionais é `streamingPreset`. Se você definir `streamingPreset` como `Default`, `SingleBitrate` ou `AdaptiveBitrate`, o processo de codificação será disparado. Depois que os trabalhos de indexação e codificação forem concluídos, o vídeo será publicado para que você também possa transmiti-lo. O Ponto de extremidade de streaming do qual você deseja transmitir o vídeo deve estar no estado **Executando**.
+
+Para SingleBitrate, o custo padrão do codificador será aplicado de acordo com a saída. Se a altura do vídeo for maior ou igual a 720, Video Indexer o codificará como 1280x720. Caso contrário, como 640x468.
+A configuração padrão é [codificação com reconhecimento de conteúdo](../latest/content-aware-encoding.md).
 
 Para executar trabalhos de indexação e de codificação, a [conta dos Serviços de Mídia do Azure conectada à sua conta do Video Indexer](connect-to-azure.md), requer unidades reservadas. Para obter mais informações, consulte [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md) (Colocação em escala do processamento de mídia). Como esses são trabalhos com uso intensivo de computação, o tipo de unidade S3 é altamente recomendável. O número de RUs define o número máximo de trabalhos que podem ser executados em paralelo. A recomendação de linha de base é de 10 RUs de S3. 
 

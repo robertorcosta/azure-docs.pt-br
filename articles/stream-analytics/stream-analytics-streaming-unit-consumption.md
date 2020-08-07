@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/27/2020
-ms.openlocfilehash: 397e455c8b6a1097e2a32473036e1acd2bbdf2eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/06/2020
+ms.openlocfilehash: 5d16e7f81a439d622a418dbc8cdff2d66c2a814f
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84704175"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903554"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Compreender e ajustar as Unidades de Streaming
 
@@ -27,7 +27,7 @@ A métrica de utilização % SU, que varia de 0% a 100%, descreve o consumo de m
 
 2. Na lista de recursos, localize o trabalho do Stream Analytics que você deseja escalar e abra-o. 
 
-3. Na página do trabalho, no título **Configurar**, selecione **Escalar**. 
+3. Na página do trabalho, no título **Configurar**, selecione **Escalar**.O número padrão de SUs é 3 ao criar um trabalho.
 
     ![Configuração de trabalho do Stream Analytics no Portal do Azure][img.stream.analytics.preview.portal.settings.scale]
     
