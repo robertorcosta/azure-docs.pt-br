@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cf89864eb6e52baf925f82aa590619d7cfeabb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d2bb927569a125015f1b0befa27fd3e1f17c00
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552112"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874768"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar o gerenciamento da sessão de autenticação com Acesso Condicional
 
@@ -92,7 +92,7 @@ O acesso condicional é um recurso Azure AD Premium e requer uma licença Premiu
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Política 1: controle de frequência de entrada
 
-1. Criar nova política
+1. Criar política
 1. Escolha todas as condições necessárias para o ambiente do cliente, incluindo os aplicativos de nuvem de destino.
 
    > [!NOTE]
@@ -107,11 +107,9 @@ O acesso condicional é um recurso Azure AD Premium e requer uma licença Premiu
 
 No Azure AD, os dispositivos registrados do Windows entram no dispositivo é considerado um prompt. Por exemplo, se você tiver configurado a frequência de entrada para 24 horas para aplicativos do Office, os usuários em dispositivos Windows registrados no Azure AD atenderão à política de frequência de entrada entrando no dispositivo e não serão solicitados novamente ao abrir aplicativos do Office.
 
-Se você tiver configurado uma frequência de entrada diferente para diferentes aplicativos Web em execução na mesma sessão do navegador, a política mais estrita será aplicada aos dois aplicativos, pois todos os aplicativos em execução na mesma sessão do navegador compartilham um único token de sessão.
-
 ### <a name="policy-2-persistent-browser-session"></a>Política 2: sessão persistente do navegador
 
-1. Criar nova política
+1. Criar política
 1. Escolha todas as condições necessárias.
 
    > [!NOTE]

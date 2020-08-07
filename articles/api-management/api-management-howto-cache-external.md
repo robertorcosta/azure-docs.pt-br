@@ -1,6 +1,6 @@
 ---
 title: Usar um cache externo no Gerenciamento de API do Azure|Microsoft Docs
-description: Saiba como configurar e usar um cache externo no Gerenciamento de API do Azure.
+description: Saiba como configurar e usar um cache externo no Gerenciamento de API do Azure. O uso de um cache externo permite que você supere algumas limitações do cache interno.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -11,18 +11,18 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: 3f1f3d0fd0164a37c8011dc82a95337c89e103df
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cfb7dd7a3831d90235b25af9598cfbc137ffcb3d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250627"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904948"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Usar um cache externo compatível com Redis no gerenciamento de API do Azure
 
 Além de utilizar o cache interno, o gerenciamento de API do Azure permite armazenar em cache as respostas em um cache externo compatível com Redis, por exemplo, o cache do Azure para Redis.
 
-O uso de um cache externo permite superar algumas limitações do cache interno:
+O uso de um cache externo permite que você supere algumas limitações do cache interno:
 
 * Evitar que o cache fique periodicamente desmarcado durante as atualizações de Gerenciamento de API
 * Ter mais controle sobre sua configuração de cache
@@ -46,7 +46,7 @@ Para concluir este tutorial, você precisará:
 + [Criar uma instância de gerenciamento de API do Azure](get-started-create-service-instance.md)
 + Entender o [cache no Gerenciamento de API do Azure](api-management-howto-cache.md)
 
-## <a name="create-azure-cache-for-redis"></a><a name="create-cache"> </a> Criar Cache do Azure para Redis
+## <a name="create-azure-cache-for-redis"></a><a name="create-cache"> </a> Criar cache do Azure para Redis
 
 Esta seção explica como criar um Cache do Azure para Redis no Azure. Se você já tiver um Cache do Azure para Redis, dentro ou fora do Azure, <a href="#add-external-cache">ignore</a> esta seção e siga para a próxima.
 

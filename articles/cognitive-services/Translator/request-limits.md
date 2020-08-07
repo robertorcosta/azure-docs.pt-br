@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: d9fda476a184731cd00317facbeceaf7bdf55edf
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 9ce2ea7da562372e5c1c25d4c0fe9ab410b02a1d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85561459"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903395"
 ---
 # <a name="request-limits-for-translator"></a>Limites de solicitação para o tradutor
 
@@ -23,18 +23,18 @@ Este artigo fornece limites de limitação para o tradutor. Os serviços incluem
 
 ## <a name="character-and-array-limits-per-request"></a>Limites de caracteres e de matriz por solicitação
 
-Cada solicitação de conversão é limitada a 5.000 caracteres, em todos os idiomas de destino para os quais você está convertendo. Por exemplo, o envio de uma solicitação de conversão de 1.500 caracteres para traduzir para três idiomas diferentes resulta em um tamanho de solicitação de 1, 500x3 = 4.500 caracteres, o que atende ao limite da solicitação. Você é cobrado por personagem, não pelo número de solicitações. É recomendável enviar solicitações mais curtas.
+Cada solicitação de conversão é limitada a 10.000 caracteres, em todos os idiomas de destino para os quais você está convertendo. Por exemplo, o envio de uma solicitação de conversão de 3.000 caracteres para traduzir para três idiomas diferentes resulta em um tamanho de solicitação de 3000x3 = 9.000 caracteres, o que atende ao limite da solicitação. Você é cobrado por personagem, não pelo número de solicitações. É recomendável enviar solicitações mais curtas.
 
 A tabela a seguir lista os limites de elemento e de caracteres de matriz para cada operação do tradutor.
 
 | Operação | Tamanho máximo do elemento de matriz |    Número máximo de elementos da matriz |    Tamanho máximo da solicitação (caracteres) |
 |:----|:----|:----|:----|
-| Translate | 5\.000    | 100    | 5\.000 |
-| Transliterate | 5\.000    | 10    | 5\.000 |
-| Detect | 10.000 |    100 |    50.000 |
-| BreakSentence | 10.000    | 100 |    50.000 |
-| Pesquisa no dicionário| 100 |    10    | 1,000 |
-| Exemplos de dicionário | 100 para texto e 100 para conversão (total de 200)| 10|    2\.000 |
+| Translate | 10.000    | 100   | 10.000 |
+| Transliterate | 5\.000 | 10    | 5\.000 |
+| Detect | 10.000 | 100 |   50.000 |
+| BreakSentence | 50.000    | 100 | 50.000 |
+| Pesquisa no dicionário| 100 |  10  | 1,000 |
+| Exemplos de dicionário | 100 para texto e 100 para conversão (total de 200)| 10|   2\.000 |
 
 ## <a name="character-limits-per-hour"></a>Limites de caractere por hora
 
@@ -64,7 +64,7 @@ O tradutor tem uma latência máxima de 15 segundos usando modelos padrão e 120
 
 Ao usar a função [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence), o comprimento da sentença é limitado a 275 caracteres. Existem exceções para esses idiomas:
 
-| Linguagem | Código | Limite de caracteres |
+| Idioma | Código | Limite de caracteres |
 |----------|------|-----------------|
 | Chinês | zh | 166 |
 | Alemão | de | 800 |

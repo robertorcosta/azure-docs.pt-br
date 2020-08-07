@@ -1,6 +1,6 @@
 ---
 title: Criar assinaturas no Gerenciamento de API do Azure | Microsoft Docs
-description: Saiba como criar assinaturas no Gerenciamento de API do Azure.
+description: Saiba como criar assinaturas no Gerenciamento de API do Azure. Uma assinatura é necessária para obter as chaves de assinatura que permitem o acesso às APIs.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: f8b2238eb0fab9aeeb42d11b4176c0d681b5f8e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 191323a4c150c00c93245be35c9c8af381e26b42
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70073533"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904846"
 ---
 # <a name="create-subscriptions-in-azure-api-management"></a>Criar assinaturas no Gerenciamento de API do Azure
 
@@ -38,7 +38,7 @@ Para executar as etapas neste artigo, os pré-requisitos são da seguinte maneir
 2. Selecione **Adicionar assinatura**.
 3. Forneça um nome da assinatura e selecione o escopo.
 4. Opcionalmente, escolha se a assinatura deve ser associada a um usuário.
-5. Clique em **Salvar**.
+5. Selecione **Salvar**.
 
 ![Assinaturas flexíveis](./media/api-management-subscriptions/flexible-subscription.png)
 

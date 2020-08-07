@@ -3,18 +3,18 @@ title: Instalar HCX (Extensão de Nuvem Híbrida)
 description: Configurar a solução de HCX (Extensão de Nuvem Híbrida) do VMware para sua nuvem privada da AVS (Solução VMware do Azure)
 ms.topic: how-to
 ms.date: 07/15/2020
-ms.openlocfilehash: ea968cb21812f7273af342763d307c2faba1eea6
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 84388c3ec53d9067df2580aabb21ca5885d154b8
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475440"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904986"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Instalar a HCX na Solução VMware do Azure
 
 Neste artigo, percorreremos procedimentos para configurar a solução de HCX (extensão de nuvem híbrida) do VMWare para sua nuvem privada da AVS (solução VMWare) do Azure. O HCX permite a migração de suas cargas de trabalho do VMware para a nuvem e outros sites conectados por meio de vários tipos de migração com suporte HCX internos.
 
-O HCX Advanced, a instalação padrão, dá suporte a até três vCenters. Se mais de três forem necessários, os clientes terão a opção de habilitar o complemento do HCX Enterprise por meio do suporte. A instalação do HCX Enterprise transporta cobranças adicionais para os clientes após a disponibilidade geral (GA), mas fornece [recursos adicionais](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+O HCX Advanced, a instalação padrão, oferece suporte a até três conexões de site (local ou nuvem para nuvem). Se mais de três conexões de site forem necessárias, os clientes terão a opção de habilitar o complemento do HCX Enterprise por meio do suporte, que está atualmente em versão prévia. A HCX Enterprise incorre em cobranças adicionais para os clientes após a GA (disponibilidade geral), mas fornece [recursos adicionais](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 
 [Antes de começar](#before-you-begin), analise detalhadamente os [Requisitos de versão do software](#software-version-requirements) e os [Pré-requisitos](#prerequisites). 
@@ -22,7 +22,7 @@ O HCX Advanced, a instalação padrão, dá suporte a até três vCenters. Se ma
 Em seguida, vamos examinar todos os procedimentos necessários para:
 
 > [!div class="checklist"]
-> * Implantar a HCX OVA no local
+> * Implantar o HCX OVA (conector) local
 > * Ativar e configurar a HCX
 > * Configurar o uplink de rede e a malha de serviço
 > * Concluir a instalação verificando o status do dispositivo
@@ -36,11 +36,14 @@ Depois de concluir a instalação, você pode seguir as próximas etapas recomen
 * Examine os documentos do VMware [migrando máquinas virtuais com o VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
 * Opcionalmente, examine as [considerações de implantação do VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Opcionalmente, examine os materiais sobre o VMware relacionados à HCX, como a [série de blogs](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) sobre VMware vSphere na HCX. 
-* Solicite a ativação da HCX Enterprise para AVS por meio dos canais de suporte da AVS.
+* Solicite uma ativação do AVS HCX Enterprise por meio de canais de suporte da AVS.
 
-Dimensionar cargas de trabalho nos recursos de armazenamento e computação é uma etapa de planejamento essencial da preparação para uso da solução de HCX de nuvem privada da AVS. Resolva a etapa de dimensionamento como parte do planejamento inicial do ambiente de nuvem privada.   
+O dimensionamento de cargas de trabalho em recursos de computação e armazenamento é uma etapa de planejamento essencial quando você está se preparando para usar a solução HCX de nuvem privada da AVS. Resolva a etapa de dimensionamento como parte do planejamento inicial do ambiente de nuvem privada. 
+
+Você também pode dimensionar cargas de trabalho concluindo uma avaliação de AVS no portal de migrações para Azure ( https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) .
 
 ## <a name="software-version-requirements"></a>Requisitos de versão do software
+
 Os componentes de infraestrutura devem estar executando a versão mínima necessária. 
                                                          
 | Tipo de componente    | Requisitos de ambiente de origem    | Requisitos de ambiente de destino   |

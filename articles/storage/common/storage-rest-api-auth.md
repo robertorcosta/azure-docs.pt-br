@@ -1,6 +1,6 @@
 ---
 title: Chamar operações da API REST com autorização de chave compartilhada
-titleSuffix: Azure Storage
+titleSuffix: Discover how to call Azure Storage REST API operations with Shared Key authorization. Get detailed information about each step of the sample operation.
 description: Use a API REST do armazenamento do Azure para fazer uma solicitação para o armazenamento de BLOBs usando a autorização de chave compartilhada.
 services: storage
 author: tamram
@@ -10,12 +10,12 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: ozge
 ms.subservice: common
-ms.openlocfilehash: 237ad3215ef0330fed8662d987b1b72eca4aec81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d43df68f48273b03fa9bde9633b487d69c0834ed
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509176"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905373"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Chamar operações da API REST com autorização de chave compartilhada
 
@@ -37,7 +37,7 @@ O aplicativo de exemplo lista os contêineres de BLOB para uma conta de armazena
 
 O aplicativo de exemplo é um aplicativo de console escrito em C#.
 
-Use o [git](https://git-scm.com/) para baixar uma cópia do aplicativo em seu ambiente de desenvolvimento.
+Use o [git](https://git-scm.com/) para baixar uma cópia do aplicativo para seu ambiente de desenvolvimento.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
@@ -570,6 +570,6 @@ Neste artigo, você aprendeu como fazer uma solicitação para a API REST do arm
 ## <a name="next-steps"></a>Próximas etapas
 
 - [API REST do serviço Blob](/rest/api/storageservices/blob-service-rest-api)
-- [API REST do serviço de arquivo](/rest/api/storageservices/file-service-rest-api)
+- [API REST do serviço Arquivo](/rest/api/storageservices/file-service-rest-api)
 - [API REST do serviço Fila](/rest/api/storageservices/queue-service-rest-api)
-- [API REST do serviço Tabela](/rest/api/storageservices/table-service-rest-api)
+- [API REST de Serviço Tabela](/rest/api/storageservices/table-service-rest-api)

@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 08/05/2020
 ms.author: anfeldma
 ms.custom: devx-track-javascript
-ms.openlocfilehash: ddbbb9f39dd17daf5c500bf582c100b4e1754a15
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: f280e6754d40ad5dc8cbfa4b760e090d0b5b81aa
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461350"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846472"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Node.js do Azure Cosmos DB para API do SQL: Notas sobre a versão e recursos
 > [!div class="op_single_selector"]
@@ -26,6 +26,8 @@ ms.locfileid: "87461350"
 > * [SDK do Java v4](sql-api-sdk-java-v4.md)
 > * [SDK do Java Assíncrono v2](sql-api-sdk-async-java.md)
 > * [SDK do Java Síncrono v2](sql-api-sdk-java.md)
+> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Conector do Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Provedor de recursos REST](/rest/api/cosmos-db-resource-provider/)
@@ -183,7 +185,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 ```
 
 #### <a name="improved-browser-experience"></a>Experiência de navegador aprimorada
-Embora fosse possível usar o SDK da v2 no navegador, não era uma experiência ideal. Era necessário o polyfill em várias bibliotecas internas do node.js e usar um empacotador, como Webpack ou Parcel. O SDK da v3 torna a experiência imediata e muito melhor para os usuários do navegador.
+Embora fosse possível usar o SDK da v2 no navegador, não era uma experiência ideal. Você precisava embutir várias node.js bibliotecas internas e usar um Agrupador como webpack ou remessa. O SDK da v3 torna a experiência imediata e muito melhor para os usuários do navegador.
 
 * Substituir os elementos internos da solicitação por fetch (nº 245)
 * Remover uso do buffer (nº 330)

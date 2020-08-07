@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: d26e1edb53f963d591b1ee1fba58b87fd454e898
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 18d7755bf6bf9d09a8da30cb5c2892af6ed90c7d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288562"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830641"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opções de disponibilidade para máquinas virtuais no Azure
 
@@ -47,11 +47,11 @@ Essa abordagem garante que pelo menos uma instância do aplicativo sempre perman
 
 ## <a name="virtual-machines-scale-sets"></a>Conjuntos de Escala de Máquinas Virtuais 
 
-Os conjuntos de dimensionamento de máquinas virtuais do Azure permitem criar e gerenciar um grupo de VMs com balanceamento de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente em resposta à demanda ou a um agendamento definido. Os conjuntos de dimensionamento fornecem alta disponibilidade para seus aplicativos e permitem que você gerencie, configure e atualize centralmente muitas VMs. Recomendamos que duas ou mais VMs sejam criadas dentro de um conjunto de dimensionamento para fornecer um aplicativo altamente disponível e para atender ao [SLA de 99,95% do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Não há nenhum custo para o conjunto de dimensionamento em si, você só paga por cada instância de VM que criar. Quando uma única VM está usando [SSDs premium do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd), o SLA do Azure se aplica a eventos de manutenção não planejada. As máquinas virtuais em um conjunto de dimensionamento podem ser implantadas em vários domínios de atualização e domínios de falha para maximizar a disponibilidade e a resiliência a interrupções devido a interrupções de data center e eventos de manutenção planejados ou não planejados. As máquinas virtuais em um conjunto de dimensionamento também podem ser implantadas em uma única zona de disponibilidade ou regiões. As opções de implantação de zona de disponibilidade podem ser diferentes com base no modo de orquestração.
+Os conjuntos de dimensionamento de máquinas virtuais do Azure permitem criar e gerenciar um grupo de VMs com balanceamento de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente em resposta à demanda ou a um agendamento definido. Os conjuntos de dimensionamento fornecem alta disponibilidade para seus aplicativos e permitem que você gerencie, configure e atualize centralmente muitas VMs. Recomendamos que duas ou mais VMs sejam criadas dentro de um conjunto de dimensionamento para fornecer um aplicativo altamente disponível e para atender ao [SLA de 99,95% do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Não há nenhum custo para o conjunto de dimensionamento em si, você só paga por cada instância de VM que criar. Quando uma única VM está usando [SSDs premium do Azure](./windows/disks-types.md#premium-ssd), o SLA do Azure se aplica a eventos de manutenção não planejada. As máquinas virtuais em um conjunto de dimensionamento podem ser implantadas em vários domínios de atualização e domínios de falha para maximizar a disponibilidade e a resiliência a interrupções devido a interrupções de data center e eventos de manutenção planejados ou não planejados. As máquinas virtuais em um conjunto de dimensionamento também podem ser implantadas em uma única zona de disponibilidade ou regiões. As opções de implantação de zona de disponibilidade podem ser diferentes com base no modo de orquestração.
 
 **Domínios de falha e domínios de atualização**
 
-Os conjuntos de dimensionamento de máquinas virtuais simplificam o design para alta disponibilidade alinhando domínios de falha e domínios de atualização. Você precisará definir apenas a contagem de domínios de falha para o conjunto de dimensionamento. O número de domínios de falha disponíveis para os conjuntos de dimensionamento pode variar por região. Consulte [gerenciar a disponibilidade de máquinas virtuais no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
+Os conjuntos de dimensionamento de máquinas virtuais simplificam o design para alta disponibilidade alinhando domínios de falha e domínios de atualização. Você precisará definir apenas a contagem de domínios de falha para o conjunto de dimensionamento. O número de domínios de falha disponíveis para os conjuntos de dimensionamento pode variar por região. Consulte [gerenciar a disponibilidade de máquinas virtuais no Azure](./windows/manage-availability.md).
 
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade
@@ -72,4 +72,3 @@ As VMs em um conjunto de disponibilidade também são distribuídas automaticame
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora você pode começar a usar esses recursos de redundância e disponibilidade para criar seu ambiente do Azure. Para obter informações de práticas recomendadas, confira [Práticas recomendadas de disponibilidade do Azure](/azure/architecture/checklist/resiliency-per-service).
-
