@@ -3,28 +3,28 @@ title: Conectar-se aos Hubs de Eventos do Azure
 description: Criar tarefas e fluxos de trabalho automatizados que monitoram e gerenciam eventos usando os hubs de eventos do Azure e os aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 32fa54ef0d8eccaf8745ee37cb028d4f3c6d73eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e3bc4cdab62dd304c5266ff6c9cccf66600fb7b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79247287"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848835"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorar, receber e enviar eventos com Hubs de Eventos do Azure e Aplicativos Lógicos do Azure
 
-Este artigo mostra como é possível monitorar e gerenciar eventos enviados para os [Hubs de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md) a partir de um aplicativo lógico com o conector de Hubs de Eventos do Azure. Dessa forma, é possível aplicativos lógicos que automatizam tarefas e fluxos de trabalho para verificar, enviar e receber eventos do Hub de Eventos. Para obter informações técnicas específicas do conector, consulte a [referência do conector dos hubs de eventos do Azure](https://docs.microsoft.com/connectors/eventhubs/) </a> .
+Este artigo mostra como é possível monitorar e gerenciar eventos enviados para os [Hubs de Eventos do Azure](../event-hubs/event-hubs-about.md) a partir de um aplicativo lógico com o conector de Hubs de Eventos do Azure. Dessa forma, é possível aplicativos lógicos que automatizam tarefas e fluxos de trabalho para verificar, enviar e receber eventos do Hub de Eventos. Para obter informações técnicas específicas do conector, consulte a [referência do conector dos hubs de eventos do Azure](/connectors/eventhubs/) </a> .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
 
-* Um [namespace dos Hubs de Eventos e Hub de Eventos do Azure](../event-hubs/event-hubs-create.md)
+* Um [namespace de hubs de eventos do Azure e um hub de eventos](../event-hubs/event-hubs-create.md)
 
-* O aplicativo lógico no qual você deseja acessar o Hub de Eventos. Para iniciar o aplicativo lógico com um gatilho dos Hubs de Eventos do Azure, será necessário um [aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* O aplicativo lógico no qual você deseja acessar o Hub de Eventos. Para iniciar seu aplicativo lógico com um gatilho de hubs de eventos do Azure, você precisa de um [aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Se ainda não estiver familiarizado com aplicativo lógicos, consulte [O que são os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início Rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
@@ -62,6 +62,9 @@ Nos Aplicativos Lógicos do Azure, cada aplicativo lógico deve começar com um 
 
 Este exemplo mostra como é possível iniciar um fluxo de trabalho de aplicativo lógico quando novos eventos são enviados para o Hub de Eventos. 
 
+> [!NOTE]
+> Todos os gatilhos de Hub de eventos são gatilhos *de sondagem longa* , o que significa que o gatilho processa todos os eventos e, em seguida, aguarda 30 segundos por partição para que mais eventos apareçam em seu hub de eventos. Portanto, se o gatilho estiver configurado com quatro partições, esse atraso poderá levar até dois minutos antes que o gatilho termine de sondar todas as partições. Se nenhum evento for recebido dentro desse atraso, a execução do gatilho será ignorada. Caso contrário, o gatilho continuará lendo os eventos até que o Hub de Eventos esteja vazio. A próxima pesquisa de gatilhos acontecerá com base no intervalo de recorrência que você especificar nas propriedades do gatilho.
+
 1. No portal do Azure ou no Visual Studio, crie um aplicativo lógico em branco, que abre o Designer de Aplicativos Lógicos. Este exemplo usa o portal do Azure.
 
 1. Na caixa de pesquisa, insira "hubs de eventos" como filtro. Na lista de gatilhos, selecione este gatilho: **quando os eventos estão disponíveis no Hub de eventos-hubs de eventos**
@@ -92,7 +95,7 @@ Este exemplo mostra como é possível iniciar um fluxo de trabalho de aplicativo
    | **Chave de participação mínima** | Não | Insira a ID de [partição](../event-hubs/event-hubs-features.md#partitions) mínima para leitura. Por padrão, todas as partições são lidas. |
    | **Chave de participação máxima** | Não | Insira a ID de [participação](../event-hubs/event-hubs-features.md#partitions) para leitura. Por padrão, todas as partições são lidas. |
    | **Fuso horário** | Não | Aplica-se somente quando você especifica uma hora de início, porque o gatilho não aceita diferença UTC. Selecione o fuso horário que você deseja aplicar. <p>Para obter mais informações, consulte [criar e executar tarefas e fluxos de trabalho recorrentes com o aplicativo lógico do Azure](../connectors/connectors-native-recurrence.md). |
-   | **Hora de início** | Não | Forneça uma hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você selecionar um fuso horário<p>-ou-<p>AAAA-MM-DDThh:mm:ssZ se você não selecionar um fuso horário<p>Para obter mais informações, consulte [criar e executar tarefas e fluxos de trabalho recorrentes com o aplicativo lógico do Azure](../connectors/connectors-native-recurrence.md). |
+   | **Hora de início** | Não | Forneça uma hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você selecionar um fuso horário<p>- ou -<p>AAAA-MM-DDThh:mm:ssZ se você não selecionar um fuso horário<p>Para obter mais informações, consulte [criar e executar tarefas e fluxos de trabalho recorrentes com o aplicativo lógico do Azure](../connectors/connectors-native-recurrence.md). |
    ||||
 
 1. Quando terminar, selecione **Salvar** na barra de ferramentas do designer.
@@ -100,11 +103,6 @@ Este exemplo mostra como é possível iniciar um fluxo de trabalho de aplicativo
 1. Agora, continue a adicionar uma ou mais ações ao aplicativo lógico para as tarefas que você deseja executar com os resultados do gatilho. 
 
    Por exemplo, para filtrar eventos com base em um valor específico, como uma categoria, você pode adicionar uma condição para que a ação **enviar evento** envie somente os eventos que atendem à sua condição. 
-
-> [!NOTE]
-> Todos os gatilhos de Hub de Eventos são gatilhos de *sondagem longa*, o que significa que quando um gatilho dispara, o gatilho processa todas os eventos e aguarda 30 segundos para que mais eventos apareçam no Hub de Eventos.
-> Se nenhum evento for recebido em 30 segundos, a execução do gatilho será ignorada. Caso contrário, o gatilho continuará lendo os eventos até que o Hub de Eventos esteja vazio.
-> A próxima pesquisa de gatilhos acontecerá com base no intervalo de recorrência que você especificar nas propriedades do gatilho.
 
 <a name="add-action"></a>
 
@@ -173,7 +171,7 @@ Na lista ações, selecione esta ação: **enviar evento-hubs de eventos**
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo de Swagger do conector, confira a [página de referência do conector](https://docs.microsoft.com/connectors/eventhubs/).
+Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo arquivo de Swagger do conector, confira a [página de referência do conector](/connectors/eventhubs/).
 
 > [!NOTE]
 > Para aplicativos lógicos em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), a versão rotulada do ISE do conector usa os [limites de mensagem do ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) em vez disso.

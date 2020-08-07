@@ -3,12 +3,12 @@ title: Fazer backup do SQL Server no Azure como uma carga de trabalho do DPM
 description: Uma introdução ao backup de bancos de dados SQL Server usando o serviço de backup do Azure
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: dd091f9446cafdb6ff91ae5679c703e07457169c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef8ffcb2445a7be27f7fd3da2115f76fe961fd74
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055383"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876301"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Fazer backup do SQL Server no Azure como uma carga de trabalho do DPM
 
@@ -21,6 +21,9 @@ Para fazer backup de um banco de dados SQL Server no Azure e recuperá-lo do Azu
 1. Crie uma política de backup para proteger SQL Server bancos de dados no Azure.
 1. Crie cópias de backup sob demanda no Azure.
 1. Recuperar o banco de dados do Azure.
+
+>[!NOTE]
+>O DPM 2019 UR2 dá suporte a SQL Server FCI (instâncias de cluster de failover) usando CSV (volumes compartilhados do cluster).
 
 ## <a name="prerequisites-and-limitations"></a>Pré-requisitos e limitações
 

@@ -9,21 +9,22 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: dapine
-ms.openlocfilehash: 8fcac761ab1f0805a3b2b75107e0119fbfb9db6e
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 6f5df14d9488f8ccb1f93c2a16ba52998f25e268
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148082"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876573"
 ---
-# <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais de serviços cognitivas do Azure
+# <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais de Serviços Cognitivos do Azure
 
-Os serviços cognitivas do Azure fornecem um modelo de segurança em camadas. Esse modelo permite que você proteja suas contas de serviços cognitivas para um subconjunto específico de redes. Quando as regras de rede são configuradas, somente os aplicativos que solicitam dados no conjunto especificado de redes podem acessar a conta. Você pode limitar o acesso a seus recursos com a filtragem de solicitações. Permitir somente solicitações provenientes de endereços IP especificados, intervalos de IP ou de uma lista de sub-redes em [redes virtuais do Azure](../virtual-network/virtual-networks-overview.md). Se você estiver interessado nessa oferta, precisará [solicitar acesso de visualização](https://aka.ms/cog-svc-vnet-signup).
+Os serviços cognitivas do Azure fornecem um modelo de segurança em camadas. Esse modelo permite que você assegure suas contas de Serviços Cognitivos a um subconjunto específico de redes. Quando as regras de rede são configuradas, somente dados de solicitação de aplicativos do conjunto especificado de redes podem acessar a conta. Você pode limitar o acesso a seus recursos com a filtragem de solicitações. Permitir somente solicitações provenientes de endereços IP especificados, intervalos de IP ou de uma lista de sub-redes em [redes virtuais do Azure](../virtual-network/virtual-networks-overview.md).
 
 Um aplicativo que acessa um recurso de serviços cognitivas quando as regras de rede estão em vigor requer autorização. Há suporte para autorização com as credenciais do [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) ou com uma chave de API válida.
 
 > [!IMPORTANT]
 > A ativação de regras de firewall para sua conta de serviços cognitivas bloqueia solicitações de entrada de dados por padrão. Para permitir solicitações por meio do, uma das seguintes condições precisa ser atendida:
+
 > * A solicitação deve originar-se de um serviço operando em uma rede virtual do Azure (VNet) na lista de sub-rede permitida da conta de serviços cognitivas de destino. O ponto de extremidade em solicitações originadas da VNet precisa ser definido como o [subdomínio personalizado](cognitive-services-custom-subdomains.md) de sua conta de serviços cognitivas.
 > * Ou a solicitação deve originar-se de uma lista de endereços IP permitidos.
 >
@@ -33,58 +34,58 @@ Um aplicativo que acessa um recurso de serviços cognitivas quando as regras de 
 
 ## <a name="scenarios"></a>Cenários
 
-Para proteger seu recurso de serviços cognitivas, primeiro você deve configurar uma regra para negar o acesso ao tráfego de todas as redes (incluindo o tráfego de Internet) por padrão. Em seguida, você deve configurar regras que concedem acesso ao tráfego de VNets específicas. Essa configuração permite que você crie um limite de rede seguro para seus aplicativos. Você também pode configurar regras para conceder acesso ao tráfego de selecionar intervalos de endereços IP públicos da Internet, permitindo conexões de clientes locais ou da Internet específicos.
+Para proteger seu recurso de serviços cognitivas, primeiro você deve configurar uma regra para negar o acesso ao tráfego de todas as redes (incluindo o tráfego de Internet) por padrão. Em seguida, você deve configurar regras que permitem acesso ao tráfego de VNets específicas. Essa configuração permite que você crie um limite de rede seguro para seus aplicativos. Você também pode configurar regras para permitir acesso ao tráfego de intervalos de endereço IP de Internet pública selecionados, permitindo conexões de clientes locais ou específicos da Internet.
 
 As regras de rede são impostas em todos os protocolos de rede para serviços cognitivas do Azure, incluindo REST e WebSocket. Para acessar dados usando ferramentas como os consoles de teste do Azure, regras de rede explícitas devem ser configuradas. Você pode aplicar regras de rede a recursos de serviços cognitivas existentes ou ao criar novos recursos de serviços cognitivas. Depois que as regras de rede são aplicadas, elas são impostas para todas as solicitações.
 
 ## <a name="supported-regions-and-service-offerings"></a>Regiões e ofertas de serviço com suporte
 
-O suporte de rede virtual para serviços cognitivas listados abaixo é limitado ao *EUA Central EUAP*, *Sul EUA Central*, *leste dos EUA*, *oeste dos EUA 2*, *Europa setentrional*, *África do Sul*, *Europa Ocidental*, *Índia central*, *leste da Austrália*, *oeste dos EUA*e *US gov-Virgínia* regiões do Azure. Se a oferta de serviço não estiver listada aqui, ela não oferecerá suporte a redes virtuais.
+Os serviços cognitivas listados abaixo dão suporte a redes virtuais em nuvem comercial e US Gov nuvem. Se o serviço não estiver listado aqui, ele ainda não dá suporte a redes virtuais.
 
 > [!div class="checklist"]
+
 > * [Detector de Anomalias](./anomaly-detector/index.yml)
 > * [Pesquisa Visual Computacional](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
-> * [Custom Vision](./custom-vision-service/index.yml)
+> * [Visão Personalizada](./custom-vision-service/index.yml)
 > * [Detecção Facial](./face/index.yml)
 > * [Reconhecimento de Formulários](./form-recognizer/index.yml)
-> * [LUIS](./luis/index.yml)
+> * [Reconhecimento vocal](./luis/index.yml)
 > * [Personalizador](./personalizer/index.yml)
 > * [Análise de Texto](./text-analytics/index.yml)
 > * [O QnA Maker](./qnamaker/index.yml)
-
-O suporte de rede virtual para serviços cognitivas listados abaixo é limitado às regiões *EUA Central EUAP*, *Sul EUA Central*, *leste dos EUA*, *oeste dos EUA 2*, *global*e *US gov-Virgínia* Azure.
-> [!div class="checklist"]
-> * [Conversor de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
+> * [Tradução de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
 
 ## <a name="service-tags"></a>Marcas de serviço
-Além de dar suporte a pontos de extremidade de serviço de rede virtual para os serviços acima, os serviços cognitivas também dão suporte a uma marca de serviço para a configuração de regras de rede de saída. Os serviços a seguir estão incluídos na marca de serviço do CognitiveServicesManagement.
+
+Serviços cognitivas dão suporte a marcas de serviço para configuração de regras de rede. Os serviços listados abaixo estão incluídos na marca de serviço **CognitiveServicesManagement** .
 > [!div class="checklist"]
+
 > * [Detector de Anomalias](./anomaly-detector/index.yml)
 > * [Pesquisa Visual Computacional](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
-> * [Custom Vision](./custom-vision-service/index.yml)
+> * [Visão Personalizada](./custom-vision-service/index.yml)
 > * [Detecção Facial](./face/index.yml)
 > * [Reconhecimento de Formulários](./form-recognizer/index.yml)
-> * [LUIS](./luis/index.yml)
+> * [Reconhecimento vocal (LUIS)](./luis/index.yml)
 > * [Personalizador](./personalizer/index.yml)
 > * [Análise de Texto](./text-analytics/index.yml)
 > * [O QnA Maker](./qnamaker/index.yml)
 > * [Tradutor](./translator/index.yml)
-> * [Serviço de Fala](./speech-service/index.yml)
+> * [Serviço de fala](./speech-service/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Alterar a regra de acesso de rede padrão
 
 Por padrão, os recursos de serviços cognitivas aceitam conexões de clientes em qualquer rede. Para limitar o acesso a redes selecionadas, primeiro você deve alterar a ação padrão.
 
 > [!WARNING]
-> Fazer alterações nas regras de rede pode afetar a capacidade dos seus aplicativos de se conectar aos serviços cognitivas do Azure. A definição da regra de rede padrão para **negar** bloqueia todo o acesso aos dados, a menos que regras de rede específicas que **concedem** acesso também sejam aplicadas. Certifique-se de conceder acesso a qualquer uma das redes permitidas usando regras de rede antes de alterar a regra padrão para negar o acesso. Se você estiver permitindo a listagem de endereços IP para sua rede local, certifique-se de adicionar todos os endereços IP públicos de saída possíveis de sua rede local.
+> Fazer alterações nas regras de rede pode afetar a capacidade dos seus aplicativos de se conectar aos serviços cognitivas do Azure. Definir a regra de rede padrão como **negar** bloqueia todo o acesso aos dados, a menos que regras específicas de rede que **concedam** o acesso também sejam aplicadas. Certifique-se de conceder acesso a qualquer uma das redes permitidas usando regras de rede antes de alterar a regra padrão para negar o acesso. Se você estiver permitindo a listagem de endereços IP para sua rede local, certifique-se de adicionar todos os endereços IP públicos de saída possíveis de sua rede local.
 
 ### <a name="managing-default-network-access-rules"></a>Como alterar as regras de acesso de rede padrão
 
 Você pode gerenciar regras de acesso de rede padrão para recursos de serviços cognitivas por meio do portal do Azure, do PowerShell ou do CLI do Azure.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 1. Vá para o recurso de serviços cognitivas que você deseja proteger.
 
@@ -92,8 +93,8 @@ Você pode gerenciar regras de acesso de rede padrão para recursos de serviços
 
    ![Opção de rede virtual](media/vnet/virtual-network-blade.png)
 
-1. Para negar acesso por padrão, escolha permitir o acesso de **redes selecionadas**. Com a configuração de **redes selecionadas** sozinha, não acompanhada por **redes virtuais** ou **intervalos de endereços** configurados, todo o acesso é efetivamente negado. Quando todo o acesso é negado, as solicitações que tentam consumir o recurso de serviços cognitivas não são permitidas. O portal do Azure, Azure PowerShell ou CLI do Azure ainda pode ser usado para configurar o recurso de serviços cognitivas.
-1. Para permitir o tráfego de todas as redes, escolha permitir o acesso de **todas as redes**.
+1. Para negar o acesso por padrão, opte por permitir o acesso de **Redes selecionadas**. Com a configuração de **redes selecionadas** sozinha, não acompanhada por **redes virtuais** ou **intervalos de endereços** configurados, todo o acesso é efetivamente negado. Quando todo o acesso é negado, as solicitações que tentam consumir o recurso de serviços cognitivas não são permitidas. O portal do Azure, Azure PowerShell ou CLI do Azure ainda pode ser usado para configurar o recurso de serviços cognitivas.
+1. Para permitir o tráfego de todas as redes, opte por permitir o acesso de **Todas as redes**.
 
    ![Negação de redes virtuais](media/vnet/virtual-network-deny.png)
 
@@ -169,7 +170,7 @@ Você pode gerenciar regras de acesso de rede padrão para recursos de serviços
 
 Você pode configurar recursos de serviços cognitivas para permitir o acesso somente de sub-redes específicas. As sub-redes permitidas podem pertencer a uma VNet na mesma assinatura ou em uma assinatura diferente, incluindo assinaturas que pertencem a um locatário de Azure Active Directory diferente.
 
-Habilite um [ponto de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) para serviços cognitivas do Azure na VNet. O ponto de extremidade de serviço roteia o tráfego da VNet por meio de um caminho ideal para o serviço de serviços cognitivas do Azure. As identidades da sub-rede e da rede virtual também são transmitidas com cada solicitação. Os administradores podem configurar as regras de rede para o recurso de serviços cognitivas que permitem que as solicitações sejam recebidas de sub-redes específicas em uma VNet. Os clientes com acesso concedido por essas regras de rede devem continuar atendendo aos requisitos de autorização do recurso de serviços cognitivas para acessar os dados.
+Habilite um [ponto de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) para serviços cognitivas do Azure na VNet. O ponto de extremidade de serviço roteia o tráfego da VNet por meio de um caminho ideal para o serviço de serviços cognitivas do Azure. As identidades da rede virtual e da sub-rede também são transmitidas com cada solicitação. Os administradores podem configurar as regras de rede para o recurso de serviços cognitivas que permitem que as solicitações sejam recebidas de sub-redes específicas em uma VNet. Os clientes com acesso concedido por essas regras de rede devem continuar atendendo aos requisitos de autorização do recurso de serviços cognitivas para acessar os dados.
 
 Cada recurso de serviços cognitivas dá suporte a até 100 regras de rede virtual, que podem ser combinadas com [regras de rede IP](#grant-access-from-an-internet-ip-range).
 
@@ -180,13 +181,13 @@ Para aplicar uma regra de rede virtual a um recurso de serviços cognitivas, o u
 O recurso de serviços cognitivas e as redes virtuais com acesso concedido podem estar em assinaturas diferentes, incluindo assinaturas que fazem parte de um locatário diferente do Azure AD.
 
 > [!NOTE]
-> A configuração de regras que concedem acesso a sub-redes em redes virtuais que fazem parte de um locatário Azure Active Directory diferente atualmente só tem suporte por meio do PowerShell, da CLI e de APIs REST. Essas regras não podem ser configuradas por meio do portal do Azure, embora possam ser exibidas no Portal.
+> A configuração de regras que permitem acesso a sub-redes em redes virtuais que fazem parte de um locatário diferente do Azure Active Directory atualmente só é compatível por meio do PowerShell, da CLI e de APIs REST. Essas regras não podem ser configuradas por meio do portal do Azure, embora ele possa exibi-las.
 
 ### <a name="managing-virtual-network-rules"></a>Gerenciando regras da rede virtual
 
 Você pode gerenciar regras de rede virtual para recursos de serviços cognitivas por meio do portal do Azure, do PowerShell ou do CLI do Azure.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 1. Vá para o recurso de serviços cognitivas que você deseja proteger.
 
@@ -213,7 +214,7 @@ Você pode gerenciar regras de rede virtual para recursos de serviços cognitiva
     > [!NOTE]
     > Se um ponto de extremidade de serviço para serviços cognitivas do Azure não foi configurado anteriormente para a rede virtual e as sub-redes selecionadas, você poderá configurá-lo como parte dessa operação.
     >
-    > Atualmente, somente as redes virtuais que pertencem ao mesmo locatário Azure Active Directory são mostradas para seleção durante a criação da regra. Para conceder acesso a uma sub-rede em uma rede virtual que pertence a outro locatário, use o PowerShell, a CLI ou as APIs REST.
+    > Atualmente, somente as redes virtuais que pertencem ao mesmo locatário do Azure Active Directory são mostradas para seleção durante a criação de regras. Para permitir acesso a uma sub-rede em uma rede virtual que pertence a outro locatário, use o PowerShell, a CLI ou as APIs REST.
 
 1. Para remover uma rede virtual ou regra de sub-rede, selecione **...** para abrir o menu de contexto da rede virtual ou sub-rede e selecione **remover**.
 
@@ -262,7 +263,7 @@ Você pode gerenciar regras de rede virtual para recursos de serviços cognitiva
     ```
 
     > [!TIP]
-    > Para adicionar uma regra de rede para uma sub-rede em uma VNet que pertence a outro locatário do Azure AD, use um parâmetro **VirtualNetworkResourceId** totalmente qualificado no formato "/subscriptions/Subscription-ID/resourceGroups/resourceGroup-Name/Providers/Microsoft.Network/virtualNetworks/vNet-Name/Subnets/subnet-Name".
+    > Para adicionar uma regra de rede para uma sub-rede em uma VNet que pertence a outro locatário do Azure AD, use um parâmetro **VirtualNetworkResourceId** totalmente qualificado no formato "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/nome-da-sub-rede".
 
 1. Remova uma regra de rede para uma rede virtual e uma sub-rede.
 
@@ -314,9 +315,9 @@ Você pode gerenciar regras de rede virtual para recursos de serviços cognitiva
     ```
 
     > [!TIP]
-    > Para adicionar uma regra para uma sub-rede em uma VNet que pertence a outro locatário do Azure AD, use uma ID de sub-rede totalmente qualificada no formato "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name".
+    > Para adicionar uma regra para uma sub-rede em uma VNet que pertence a outro locatário do Azure AD, use uma ID de sub-rede totalmente qualificada no formato "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/nome-da-sub-rede".
     > 
-    > Você pode usar o parâmetro de **assinatura** para recuperar a ID de sub-rede de uma VNet que pertence a outro locatário do Azure AD.
+    > Você pode usar o parâmetro **subscription** para recuperar a ID de sub-rede de uma VNet que pertence a outro locatário do Azure AD.
 
 1. Remova uma regra de rede para uma rede virtual e uma sub-rede.
 
@@ -330,6 +331,7 @@ Você pode gerenciar regras de rede virtual para recursos de serviços cognitiva
         -g "myresourcegroup" -n "myaccount" \
         --subnet $subnetid
     ```
+
 ***
 
 > [!IMPORTANT]
@@ -347,7 +349,7 @@ Forneça intervalos de endereços de Internet permitidos usando a [notação CID
 As regras de rede de IP são permitidas apenas para endereços IP de **Internet pública**. Intervalos de endereços IP reservados para redes privadas (conforme definido em [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) não são permitidos nas regras de IP. Redes privadas incluem endereços que começam com `10.*` , `172.16.*`  -  `172.31.*` e `192.168.*` .
 
    > [!NOTE]
-   > As regras de rede IP não têm nenhum efeito em solicitações provenientes da mesma região do Azure que o recurso serviços cognitivas. Use [regras de rede virtual](#grant-access-from-a-virtual-network) para permitir solicitações de mesma região.
+   > As regras de rede IP não têm nenhum efeito em solicitações provenientes da mesma região do Azure que o recurso serviços cognitivas. Use as [regras de rede Virtual](#grant-access-from-a-virtual-network) para permitir solicitações da mesma região.
 
 Só há suporte para endereços IPV4 no momento. Cada recurso de serviços cognitivas dá suporte a até 100 regras de rede IP, que podem ser combinadas com [regras de rede virtual](#grant-access-from-a-virtual-network).
 
@@ -355,13 +357,13 @@ Só há suporte para endereços IPV4 no momento. Cada recurso de serviços cogni
 
 Para conceder acesso de suas redes locais para o recurso de serviços cognitivas com uma regra de rede IP, você deve identificar os endereços IP voltados para a Internet usados pela sua rede. Entre em contato com o administrador de rede para obter ajuda.
 
-Se você estiver usando o [ExpressRoute](../expressroute/expressroute-introduction.md) local para emparelhamento público ou emparelhamento da Microsoft, será necessário identificar os endereços IP de NAT. Para o emparelhamento público, cada circuito do ExpressRoute, por padrão, usa dois endereços IP NAT. Cada um é aplicado ao tráfego de serviço do Azure quando o tráfego entra no backbone de rede Microsoft Azure. Para o emparelhamento da Microsoft, os endereços IP de NAT que são usados são fornecidos pelo cliente ou são fornecidos pelo provedor de serviços. Para permitir o acesso aos recursos do serviço, você deve permitir estes endereços IP públicos na configuração do firewall de IP do recurso. Para localizar os endereços IP públicos do circuito do ExpressRoute de emparelhamento, [abra um tíquete de suporte com o ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) por meio do Portal do Azure. Saiba mais sobre [NAT para emparelhamento público de ExpressRoute e emparelhamento da Microsoft.](../expressroute/expressroute-nat.md#nat-requirements-for-azure-public-peering)
+Se você estiver usando o [ExpressRoute](../expressroute/expressroute-introduction.md) local para emparelhamento público ou emparelhamento da Microsoft, você precisará identificar os endereços IP de NAT. Para o emparelhamento público, cada circuito do ExpressRoute, por padrão, usa dois endereços IP NAT. Cada um é aplicado ao tráfego de serviço do Azure quando o tráfego entra no backbone de rede Microsoft Azure. Para o emparelhamento da Microsoft, os endereços IP de NAT que são usados são fornecidos pelo cliente ou são fornecidos pelo provedor de serviços. Para permitir o acesso aos recursos do serviço, você deve permitir estes endereços IP públicos na configuração do firewall de IP do recurso. Para localizar os endereços IP do circuito do ExpressRoute de emparelhamento público, [abra um tíquete de suporte com o ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) por meio do Portal do Azure. Saiba mais sobre [NAT para emparelhamento público de ExpressRoute e emparelhamento da Microsoft.](../expressroute/expressroute-nat.md#nat-requirements-for-azure-public-peering)
 
 ### <a name="managing-ip-network-rules"></a>Gerenciando regras de rede IP
 
 Você pode gerenciar regras de rede IP para recursos de serviços cognitivas por meio do portal do Azure, do PowerShell ou do CLI do Azure.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 1. Vá para o recurso de serviços cognitivas que você deseja proteger.
 
@@ -491,13 +493,13 @@ Você pode usar [pontos de extremidade privados](../private-link/private-endpoin
 
 Pontos de extremidade privados para recursos de serviços cognitivas permitem que você:
 
-- Proteja seu recurso de serviços cognitivas Configurando o firewall para bloquear todas as conexões no ponto de extremidade público para o serviço de serviços cognitivas.
-- Aumente a segurança para a VNet, permitindo que você bloqueie vazamento de dados da VNet.
-- Conecte-se com segurança a recursos de serviços cognitivas de redes locais que se conectam à VNet usando [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [expressroute ao qual](../expressroute/expressroute-locations.md) com emparelhamento privado.
+* Proteja seu recurso de serviços cognitivas Configurando o firewall para bloquear todas as conexões no ponto de extremidade público para o serviço de serviços cognitivas.
+* Aumente a segurança para a VNet, permitindo que você bloqueie vazamento de dados da VNet.
+* Conecte-se com segurança a recursos de serviços cognitivas de redes locais que se conectam à VNet usando [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [expressroute ao qual](../expressroute/expressroute-locations.md) com emparelhamento privado.
 
 ### <a name="conceptual-overview"></a>Visão geral conceitual
 
-Um ponto de extremidade privado é uma interface de rede especial para um serviço do Azure em sua [VNet](../virtual-network/virtual-networks-overview.md). Quando você cria um ponto de extremidade privado para o recurso de serviços cognitivas, ele fornece conectividade segura entre clientes em sua VNet e seu recurso. O ponto de extremidade privado recebe um endereço IP do intervalo de endereços IP de sua VNet. A conexão entre o ponto de extremidade privado e o serviço de serviços cognitivas usa um link privado seguro.
+Um ponto de extremidade privado é uma interface de rede especial para um recurso do Azure em sua [VNet](../virtual-network/virtual-networks-overview.md). A criação de um ponto de extremidade privado para o recurso de serviços cognitivas fornece conectividade segura entre clientes em sua VNet e seu recurso. O ponto de extremidade privado recebe um endereço IP do intervalo de endereços IP de sua VNet. A conexão entre o ponto de extremidade privado e o serviço de serviços cognitivas usa um link privado seguro.
 
 Os aplicativos na VNet podem se conectar ao serviço por meio do ponto de extremidade privado diretamente, usando as mesmas cadeias de conexão e mecanismos de autorização que eles usariam de outra forma. A exceção é o serviço de fala, que requer um ponto de extremidade separado. Consulte a seção sobre [pontos de extremidade privados com o serviço de fala](#private-endpoints-with-the-speech-service). Pontos de extremidade privados podem ser usados com todos os protocolos compatíveis com o recurso de serviços cognitivas, incluindo REST.
 
@@ -509,11 +511,11 @@ Os proprietários de recursos de serviços cognitivas podem gerenciar solicitaç
 
 ### <a name="private-endpoints"></a>Pontos de extremidade privados
 
-Ao criar o ponto de extremidade privado, você deve especificar o recurso de serviços cognitivas ao qual ele se conecta. Para obter mais informações sobre como criar um ponto de extremidade privado, consulte os seguintes artigos:
+Ao criar o ponto de extremidade privado, você deve especificar o recurso de serviços cognitivas ao qual ele se conecta. Para obter mais informações sobre como criar um ponto de extremidade privado, consulte:
 
-- [Criar um ponto de extremidade privado usando o centro de links privado no portal do Azure](../private-link/create-private-endpoint-portal.md)
-- [Criar um ponto de extremidade privado usando a CLI do Azure](../private-link/create-private-endpoint-cli.md)
-- [Criar um ponto de extremidade privado usando Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
+* [Criar um ponto de extremidade privado usando o centro de links privado no portal do Azure](../private-link/create-private-endpoint-portal.md)
+* [Criar um ponto de extremidade privado usando a CLI do Azure](../private-link/create-private-endpoint-cli.md)
+* [Criar um ponto de extremidade privado usando Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
 
 ### <a name="connecting-to-private-endpoints"></a>Conectando-se a pontos de extremidade privados
 
@@ -523,7 +525,7 @@ Criamos uma [zona DNS privada](../dns/private-dns-overview.md) anexada à VNet c
 
 ### <a name="private-endpoints-with-the-speech-service"></a>Pontos de extremidade privados com o serviço de fala
 
-Ao usar pontos de extremidade privados com o serviço de fala, você deve usar um EndPoint personalizado para chamar a API do serviço de fala. Você não pode usar o ponto de extremidade global. Você deve usar um ponto de extremidade no formato {Account}. {STT | TTS | voz | DLS}. Speech. Microsoft. com.
+Ao usar pontos de extremidade privados com o serviço de fala, você deve usar um ponto de extremidades personalizado para chamar o serviço de fala. Você não pode usar o ponto de extremidade global. O ponto de extremidade deve seguir este padrão: `{account}.{stt|tts|voice|dls}.speech.microsoft.com` .
 
 ### <a name="dns-changes-for-private-endpoints"></a>Alterações de DNS para pontos de extremidade particulares
 
@@ -531,17 +533,17 @@ Quando você cria um ponto de extremidade privado, o registro de recurso DNS CNA
 
 Quando você resolve a URL do ponto de extremidade de fora da VNet com o ponto de extremidade privado, ela é resolvida para o ponto de extremidade público do recurso de serviços cognitivas. Quando resolvido da VNet que hospeda o ponto de extremidade privado, a URL do ponto de extremidade é resolvida para o endereço IP do ponto de extremidade privado.
 
-Essa abordagem permite o acesso ao recurso de serviços cognitivas usando a mesma cadeia de conexão para clientes na VNet que hospedam os pontos de extremidade privados, bem como clientes fora da VNet.
+Essa abordagem permite o acesso ao recurso de serviços cognitivas usando a mesma cadeia de conexão para clientes na VNet que hospedam os pontos de extremidade privados e clientes fora da VNet.
 
-Se você estiver usando um servidor DNS personalizado em sua rede, os clientes deverão ser capazes de resolver o FQDN (nome de domínio totalmente qualificado) para o ponto de extremidade de recurso dos serviços cognitivas para o endereço IP do ponto de extremidade privado. Você deve configurar o servidor DNS para delegar seu subdomínio de link privado à zona DNS privada para a VNet.
+Se você estiver usando um servidor DNS personalizado em sua rede, os clientes deverão ser capazes de resolver o FQDN (nome de domínio totalmente qualificado) para o ponto de extremidade de recurso dos serviços cognitivas para o endereço IP do ponto de extremidade privado. Configure o servidor DNS para delegar seu subdomínio de vínculo privado à zona DNS privada para a VNet.
 
 > [!TIP]
 > Ao usar um servidor DNS local ou personalizado, você deve configurar o servidor DNS para resolver o nome do recurso de serviços cognitivas no subdomínio ' privatelink ' para o endereço IP do ponto de extremidade privado. Você pode fazer isso delegando o subdomínio ' privatelink ' à zona DNS privada da VNet ou configurando a zona DNS no servidor DNS e adicionando os registros DNS A.
 
 Para obter mais informações sobre como configurar seu próprio servidor DNS para dar suporte a pontos de extremidade privados, consulte os seguintes artigos:
 
-- [Resolução de nomes para recursos em redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [Configuração de DNS para pontos de extremidade privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+* [Resolução de nomes para recursos em redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+* [Configuração de DNS para pontos de extremidade privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
 
 ### <a name="pricing"></a>Preços
 

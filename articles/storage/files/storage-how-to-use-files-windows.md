@@ -1,18 +1,18 @@
 ---
 title: Usar um compartilhamento de arquivos do Azure com o Windows | Microsoft Docs
-description: Saiba como usar um compartilhamento de arquivos do Azure com Windows e Windows Server.
+description: Aprenda a usar compartilhamentos de arquivos do Azure com o Windows e o Windows Server. Use compartilhamentos de arquivos do Azure com SMB 3,0 em instalações do Windows em execução localmente ou em VMs do Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bb9e7582317851d1968e104cd351a2b5e02b1e19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcc79a0763d7441a8a3c04723578ccc27cf5fe4e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509771"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905747"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usar um compartilhamento de arquivos do Azure com o Windows
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem fácil de usar da Microsoft. Os compartilhamentos de arquivos do Azure podem ser usados perfeitamente no Windows e no Windows Server. Este artigo aborda as considerações para usar um compartilhamento de arquivos do Azure com Windows e Windows Server.
@@ -59,7 +59,7 @@ Para obter esse script:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Navegue até a conta de armazenamento que contém o compartilhamento de arquivos que você deseja montar.
-1. Selecione **compartilhamentos de arquivos**.
+1. Selecionar **Compartilhamentos de arquivo**.
 1. Selecione o compartilhamento de arquivos que você deseja montar.
 
     :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="exemplo":::
@@ -132,10 +132,10 @@ A tabela a seguir fornece informações detalhadas sobre o status do SMB 1 em ca
 | Windows Server 2019                       | Desabilitado             | Remover com recurso do Windows |
 | Windows Server, versões 1709 e posteriores            | Desabilitado             | Remover com recurso do Windows |
 | Windows 10, versões 1709 ou posterior                | Desabilitado             | Remover com recurso do Windows |
-| Windows Server 2016                       | Habilitada              | Remover com recurso do Windows |
-| Windows 10 versões 1507, 1607 e 1703 | Habilitada              | Remover com recurso do Windows |
-| Windows Server 2012 R2                    | Habilitada              | Remover com recurso do Windows | 
-| Windows 8.1                               | Habilitada              | Remover com recurso do Windows | 
+| Windows Server 2016                       | habilitado              | Remover com recurso do Windows |
+| Windows 10 versões 1507, 1607 e 1703 | habilitado              | Remover com recurso do Windows |
+| Windows Server 2012 R2                    | habilitado              | Remover com recurso do Windows | 
+| Windows 8.1                               | habilitado              | Remover com recurso do Windows | 
 | Windows Server 2012                       | habilitado              | Desabilitar no Registro       | 
 | Windows Server 2008 R2                    | habilitado              | Desabilitar no Registro       |
 | Windows 7                                 | habilitado              | Desabilitar no Registro       | 

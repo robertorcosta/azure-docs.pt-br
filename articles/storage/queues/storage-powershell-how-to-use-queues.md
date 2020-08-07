@@ -1,6 +1,6 @@
 ---
 title: Executar ações de armazenamento de filas do Azure no PowerShell
-description: Como executar operações no armazenamento de Fila do Azure com o PowerShell
+description: Faça operações no armazenamento de filas do Azure com o PowerShell. Com o armazenamento de filas do Azure, você pode armazenar grandes números de mensagens que podem ser acessadas por HTTP/HTTPS.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 05/15/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 8a3de37f6442900f600f3c6a3efaf75141d151bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 873f1bd0187eb5609456592b7dc37a48671b7e42
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808982"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905696"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Executar operações de armazenamento de Fila do Azure com o Azure PowerShell
 

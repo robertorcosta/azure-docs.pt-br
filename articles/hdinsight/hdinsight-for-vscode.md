@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 04/07/2020
-ms.custom: tracking-python
-ms.openlocfilehash: d00e4ad8b0a9f1f50c30144867babcd8c782734d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-python
+ms.openlocfilehash: bf31ad3311d6cbfd82ad1071d28bb7fee1bb9d2b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087122"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876777"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use as ferramentas do Spark & Hive para Visual Studio Code
 
@@ -331,7 +331,7 @@ O método 2 envia um arquivo e observa que a `.vscode` pasta é adicionada autom
 
     **Postar/batches** Corpo da solicitação
 
-    | name | descrição | tipo |
+    | name | descrição | type |
     | --- | --- | --- |
     | file | Arquivo que contém o aplicativo a ser executado | Caminho (obrigatório) |
     | proxyUser | Usuário a representar ao executar o trabalho | String |
@@ -352,7 +352,7 @@ O método 2 envia um arquivo e observa que a `.vscode` pasta é adicionada autom
 
     Corpo da resposta o objeto do lote criado.
 
-    | name | descrição | tipo |
+    | name | descrição | type |
     | --- | ---| --- |
     | ID | ID da sessão | Int |
     | appId | ID do aplicativo desta sessão | String |

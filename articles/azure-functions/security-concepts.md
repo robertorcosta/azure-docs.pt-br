@@ -3,12 +3,12 @@ title: Proteger o Azure Functions
 description: Saiba mais sobre como tornar o código de função em execução no modo seguro do Azure contra ataques comuns.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: e0c5036681aace103ea69d1e9cc73e96dc30821f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9bec32c4c3d8005ef0d3c9fc5732785a5fa19a0c
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502674"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850705"
 ---
 # <a name="securing-azure-functions"></a>Proteger o Azure Functions
 
@@ -70,6 +70,18 @@ A tabela a seguir compara os usos para vários tipos de chaves de acesso:
 <sup>2</sup>Nomes específicos definidos pela extensão.
 
 Para saber mais sobre as chaves de acesso, consulte o [Artigo de associação de gatilho HTTP](functions-bindings-http-webhook-trigger.md#obtaining-keys).
+
+
+#### <a name="secret-repositories"></a>Repositórios secretos
+
+Por padrão, as chaves são armazenadas em um contêiner de armazenamento de BLOBs na conta fornecida pela `AzureWebJobsStorage` configuração. Você pode usar configurações de aplicativo específicas para substituir esse comportamento e armazenar as chaves em um local diferente.
+
+|Localização  |Setting | Valor | Descrição  |
+|---------|---------|---------|---------|
+|Conta de armazenamento diferente     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Armazena chaves no armazenamento de blobs de uma segunda conta de armazenamento, com base na URL da SAS fornecida. As chaves são criptografadas antes de serem armazenadas usando um segredo exclusivo para seu aplicativo de funções. |
+|Sistema de arquivos   | `AzureWebJobsSecretStorageType`   |  `files`       | As chaves são mantidas no sistema de arquivos, criptografadas antes do armazenamento usando um segredo exclusivo para seu aplicativo de funções. |
+|Cofre de Chave do Azure  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | O cofre deve ter uma política de acesso correspondente à identidade gerenciada atribuída pelo sistema do recurso de hospedagem. A política de acesso deve conceder à identidade as seguintes permissões de segredo: `Get` , `Set` , `List` e `Delete` . <br/>Ao ser executado localmente, a identidade do desenvolvedor é usada e as configurações devem estar na [local.settings.jsno arquivo](functions-run-local.md#local-settings-file). | 
+|Segredos do Kubernetes  |`AzureWebJobsSecretStorageType`<br/>`AzureWebJobsKubernetesSecretName` (opcional) | `kubernetes`<br/>`<SECRETS_RESOURCE>` | Com suporte apenas ao executar o tempo de execução do Functions em kubernetes. Quando `AzureWebJobsKubernetesSecretName` não estiver definido, o repositório será considerado somente leitura. Nesse caso, os valores devem ser gerados antes da implantação. O Azure Functions Core Tools gera os valores automaticamente ao implantar no kubernetes.|
 
 ### <a name="authenticationauthorization"></a>Autenticação/autorização
 

@@ -9,24 +9,24 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 2657f1998e3ca908bc52166154ac3353e1e5a66b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0a64c0a9653bd274e9298401163ad7abc1af99f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415038"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852286"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade REST usando o Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de um ponto de extremidade REST. O artigo baseia-se em [Atividade de Cópia no Azure Data Factory](copy-activity-overview.md), que apresenta uma visão geral da Atividade de Cópia.
 
-A diferença entre esse conector REST, o [conector HTTP](connector-http.md) e o [conector da tabela da Web](connector-web-table.md) é:
+A diferença entre esse conector REST, o [conector http](connector-http.md)e o [conector de tabela da Web](connector-web-table.md) são:
 
 - O **conector REST** oferece suporte especificamente à cópia de dados de APIs RESTful; 
-- O **conector HTTP** é genérico para recuperar dados de qualquer ponto de extremidade HTTP, por exemplo, para baixar o arquivo. Antes desse conector REST se tornar disponível, você pode usar o conector HTTP para copiar dados do API RESTful, que é um suporte menos funcional em comparação ao conector REST.
+- O **conector http** é genérico para recuperar dados de qualquer ponto de extremidade http, por exemplo, para baixar o arquivo. Antes desse conector REST se tornar disponível, você pode usar o conector HTTP para copiar dados do API RESTful, que é um suporte menos funcional em comparação ao conector REST.
 - O **conector da tabela da Web** extrai o conteúdo da tabela de uma página da Web em HTML.
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
@@ -62,7 +62,7 @@ As seguintes propriedades são suportadas para o serviço vinculado REST:
 | type | A propriedade **Type** deve ser definida como **RestService**. | Sim |
 | url | A URL base do serviço REST. | Sim |
 | enableServerCertificateValidation | Se o certificado TLS/SSL do lado do servidor deve ser validado ao se conectar ao ponto de extremidade. | Não<br /> (o padrão é **true**) |
-| authenticationType | Tipo de autenticação usado para se conectar ao serviço REST. Os valores permitidos são **Anônimo**, **Básico**, **Windows** e **ManagedServiceIdentity**. Consulte respectivamente as seções correspondentes abaixo em mais propriedades e exemplos. | Sim |
+| authenticationType | Tipo de autenticação usado para se conectar ao serviço REST. Os valores permitidos são **Anonymous**, **Basic**, **AadServicePrincipal**e **ManagedServiceIdentity**. Consulte respectivamente as seções correspondentes abaixo em mais propriedades e exemplos. | Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos](#prerequisites). Se não especificado, essa propriedade usará o Azure Integration Runtime padrão. |Não |
 
 ### <a name="use-basic-authentication"></a>Usar autenticação básica
@@ -107,7 +107,8 @@ Defina a **authenticationType** na propriedade **AadServicePrincipal**. Além da
 | servicePrincipalId | Especifique a ID do cliente do aplicativo do Azure Active Directory. | Sim |
 | servicePrincipalKey | Especifique a chave do aplicativo do Azure Active Directory. Marque esse campo como **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 | locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Para recuperá-lo, passe o mouse no canto superior direito do portal do Azure. | Sim |
-| aadResourceId | Especifique o recurso do AAD ao qual você está solicitando autorização, exemplo `https://management.core.windows.net`.| Sim |
+| aadResourceId | Especifique o recurso do AAD que você está solicitando para autorização, por exemplo, `https://management.core.windows.net` .| Sim |
+| azureCloudType | Para autenticação de entidade de serviço, especifique o tipo de ambiente de nuvem do Azure no qual seu aplicativo do AAD está registrado. <br/> Os valores permitidos são **AzurePublic**, **AzureChina**, **AzureUsGovernment**e **AzureGermany**. Por padrão, o ambiente de nuvem do data factory é usado. | Não |
 
 **Exemplo**
 
@@ -139,9 +140,9 @@ Defina a **authenticationType** na propriedade **AadServicePrincipal**. Além da
 
 Defina a **authenticationType** na propriedade **ManagedServiceIdentity**. Além das propriedades genéricas descritas na seção anterior, especifique as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
-| aadResourceId | Especifique o recurso do AAD ao qual você está solicitando autorização, exemplo `https://management.core.windows.net`.| Sim |
+| aadResourceId | Especifique o recurso do AAD que você está solicitando para autorização, por exemplo, `https://management.core.windows.net` .| Sim |
 
 **Exemplo**
 
@@ -305,21 +306,21 @@ Esse conector genérico REST suporta os seguintes padrões de paginação:
 * Próxima solicitação de cabeçalho = valor de propriedade no corpo de resposta atual
 * Próxima solicitação de cabeçalho = valor de cabeçalho nos cabeçalhos de resposta atuais
 
-**As regras de paginação** são definidas como um dicionário no conjunto de dados que contém um ou mais pares chave-valor que diferenciam maiúsculas de minúsculas. A configuração será usada para gerar a solicitação a partir da segunda página. O conector deixará de iteração quando obter o código de status HTTP 204 (sem conteúdo) ou qualquer uma das expressões JSONPath em "paginationRules" retornar NULL.
+**As regras de paginação** são definidas como um dicionário no conjunto de dados, que contém um ou mais pares chave-valor que diferenciam maiúsculas de minúsculas. A configuração será usada para gerar a solicitação a partir da segunda página. O conector deixará de iteração quando obter o código de status HTTP 204 (sem conteúdo) ou qualquer uma das expressões JSONPath em "paginationRules" retornar NULL.
 
 O **Suporte para chaves** nas regras de paginação:
 
 | Chave | Descrição |
 |:--- |:--- |
 | AbsoluteUrl | Indica a URL para emitir a próxima solicitação. Ele pode ser **uma URL absoluta ou relativa**. |
-| QueryParameters.*request_query_parameter* OU QueryParameters['request_query_parameter'] | O "request_query_parameter" é definido pelo usuário e faz referência a um nome de parâmetro de consulta na URL da próxima solicitação HTTP. |
-| Headers.*request_header* OU Headers['request_header'] | O "request_query_parameter" é definido pelo usuário e faz referência a um nome de parâmetro de cabeçalho da próxima solicitação HTTP. |
+| QueryParameters.*request_query_parameter* OU QueryParameters['request_query_parameter'] | "request_query_parameter" é definido pelo usuário, que faz referência a um nome de parâmetro de consulta na próxima URL de solicitação HTTP. |
+| Headers.*request_header* OU Headers['request_header'] | "request_header" é definido pelo usuário, que faz referência a um nome de cabeçalho na próxima solicitação HTTP. |
 
 Os **Valores com suporte** nas regras de paginação:
 
 | Valor | Descrição |
 |:--- |:--- |
-| Headers.*response_header* OU Headers['response_header'] | O "response_header" é definido pelo usuário que faz referência a um nome de cabeçalho na resposta HTTP atual, o valor que será usado para emitir a próxima solicitação. |
+| Headers.*response_header* OU Headers['response_header'] | "response_header" é definido pelo usuário, que faz referência a um nome de cabeçalho na resposta HTTP atual, o valor que será usado para emitir a próxima solicitação. |
 | Uma expressão JSONPath começando com "$" (que representa a raiz do corpo da resposta) | O corpo da resposta deve conter apenas um objeto JSON. A expressão JSONPath deve retornar um único valor primitivo, que será usado para emitir a próxima solicitação. |
 
 **Exemplo:**
@@ -409,7 +410,7 @@ O modelo define dois parâmetros:
 
     | Propriedade | Descrição |
     |:--- |:--- |:--- |
-    | URL |Especifique a URL da qual recuperar o token de portador OAuth. por exemplo, no exemplo, éhttps://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | URL |Especifique a URL da qual recuperar o token de portador OAuth. por exemplo, no exemplo, ele éhttps://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Método | O método HTTP. Os valores permitidos são **post** e **Get**. | 
     | Cabeçalhos | O cabeçalho é definido pelo usuário, que faz referência a um nome de cabeçalho na solicitação HTTP. | 
     | Corpo | O corpo da solicitação HTTP. | 

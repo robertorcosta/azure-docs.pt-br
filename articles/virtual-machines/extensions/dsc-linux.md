@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: a33d74c01771c2b60ac8667a1494ebe80271a8ac
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a1a166d12ef753a7a6fc7225d0467ead08514f99
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494778"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876709"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensão de DSC para Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -29,25 +29,17 @@ A DSC (configuração de estado desejado) é uma plataforma de gerenciamento que
 
 A extensão DSCForLinux é publicada e tem suporte da Microsoft. A extensão instala o agente OMI e DSC em máquinas virtuais do Azure. A extensão de DSC também pode executar as seguintes ações:
 
-
 - Registre a VM do Linux em uma conta de automação do Azure para efetuar pull das configurações do serviço de automação do Azure (registrar Extensionaction).
 - Envie por push configurações do MOF para a VM do Linux (extensão Pushaction).
 - Aplique a configuração do metamof à VM do Linux para configurar um servidor de pull para efetuar pull da configuração do nó (extensão Pullaction).
 - Instale módulos DSC personalizados para a VM do Linux (instalar Extensionaction).
 - Remova os módulos DSC personalizados da VM do Linux (remover Extensionaction).
 
- 
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 
-A extensão DSC Linux dá suporte a todas as [distribuições do Linux endossadas no Azure](../linux/endorsed-distros.md) exceto:
-
-| Distribuição | Versão |
-|---|---|
-| Debian | Todas as versões |
-| Ubuntu| 18.04 |
+Para nós que executam o Linux, a extensão de DSC do Linux dá suporte a todas as distribuições do Linux listadas na [documentação do DSC do PowerShell](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
  
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 

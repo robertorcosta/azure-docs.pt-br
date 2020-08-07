@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6b7453a0100233896e3d01769897ed224a0b2618
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03fe71855c43ba831f4b7a4ab746f05bd3bbb4a3
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737539"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846846"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Criar uma instância do Observador de Rede do Azure
 
@@ -27,7 +27,7 @@ O Observador de Rede é um serviço regional que permite monitorar e diagnostica
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="network-watcher-is-automatically-enabled"></a>O observador de rede é habilitado automaticamente
-Quando você cria ou atualiza uma Rede Virtual do Microsoft Azure em sua assinatura, o Observador de Rede será ativado automaticamente na região da sua rede virtual. Não há impacto em seus recursos ou cobranças associadas para ativar automaticamente o Observador de Rede.
+Quando você cria ou atualiza uma Rede Virtual do Microsoft Azure em sua assinatura, o Observador de Rede será habilitado automaticamente na região da sua rede virtual. Não há impacto em seus recursos ou cobranças associadas para habilitar automaticamente o Observador de Rede.
 
 #### <a name="opt-out-of-network-watcher-automatic-enablement"></a>Desativação da ativação automática do Observador de Rede
 Se você desejar desativar a ativação automática do Observador de Rede, poderá fazer isso executando os seguintes comandos:
@@ -57,7 +57,7 @@ Ao habilitar o Observador de Rede usando o portal, o nome da instância do Obser
 
 A instância do Observador de Rede é criada automaticamente em um grupo de recursos nomeado *NetworkWatcherRG*. O grupo de recursos será criado, se ainda não existir.
 
-Se você deseja personalizar o nome de uma instância do Observador de Rede e do grupo de recursos em que ele é colocado, use os métodos do Powershell, CLI do Azure, API REST ou ARMClient descritos nas seções a seguir. Em cada opção, o grupo de recursos deverá existir antes de você criar um Observador de Rede.  
+Se desejar personalizar o nome de uma instância do observador de rede e o grupo de recursos no qual ele é colocado, você poderá usar o PowerShell, o CLI do Azure, a API REST ou os métodos ARMClient descritos nas seções a seguir. Em cada opção, o grupo de recursos deverá existir antes de você criar um Observador de Rede.  
 
 ## <a name="create-a-network-watcher-with-powershell"></a>Criar um Observador de Rede com o PowerShell
 
@@ -101,6 +101,10 @@ $requestBody = @"
 armclient put "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}?api-version=${api-version}" $requestBody
 ```
 
+## <a name="create-a-network-watcher-using-azure-quickstart-template"></a>Criar um observador de rede usando o modelo de início rápido do Azure
+
+Para criar uma instância do observador de rede, consulte este [modelo de início rápido](https://azure.microsoft.com/resources/templates/101-networkwatcher-create/)
+
 ## <a name="delete-a-network-watcher-in-the-portal"></a>Excluir um observador de rede no portal
 
 Navegue até **todos os serviços**  >  **rede**  >  **observador de rede**.
@@ -129,6 +133,6 @@ Agora que você tem uma instância do Observador de Rede, saiba mais sobre os re
 * [Captura de pacotes](network-watcher-packet-capture-overview.md)
 * [Verificação de fluxo de IP](network-watcher-ip-flow-verify-overview.md)
 * [Próximo salto](network-watcher-next-hop-overview.md)
-* [Exibição do grupo de segurança](network-watcher-security-group-view-overview.md)
+* [Exibição de grupo de segurança](network-watcher-security-group-view-overview.md)
 * [Registro do fluxo NSG](network-watcher-nsg-flow-logging-overview.md)
 * [Solução de problemas do Gateway de Rede Virtual](network-watcher-troubleshoot-overview.md)

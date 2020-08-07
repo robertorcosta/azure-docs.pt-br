@@ -8,13 +8,13 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: robinsh
-ms.custom: mqtt, tracking-python
-ms.openlocfilehash: 9a3782c0d5791f20f14aabb53d486fc012518c1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mqtt, devx-track-python
+ms.openlocfilehash: 7ac634944c9df479617af4c9171faf0f99df4b1b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608495"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876641"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT (Python)
 
@@ -177,7 +177,7 @@ Nesta seção, você criará o aplicativo de dispositivo para carregar um arquiv
 
 1. Salve e feche o arquivo **UploadFile.py**.
 
-## <a name="run-the-application"></a>Execute o aplicativo
+## <a name="run-the-application"></a>Executar o aplicativo
 
 Agora você está pronto para executar o aplicativo.
 

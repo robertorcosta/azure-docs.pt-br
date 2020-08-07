@@ -75,7 +75,7 @@
       href: ./policy-samples.md
 - name: Conceitos
   items:
-    - name: Repositório de valor-chave
+    - name: Chaves e valores
       href: concept-key-value.md
     - name: Instantâneo pontual
       href: concept-point-time-snapshot.md

@@ -1,6 +1,6 @@
 ---
 title: Log da Análise de Armazenamento do Azure
-description: Saiba como registrar em log detalhes sobre as solicitações feitas para o Armazenamento do Azure.
+description: Use Análise de Armazenamento para registrar em log detalhes sobre as solicitações de armazenamento do Azure. Veja quais solicitações são registradas, como os logs são armazenados, como habilitar o log de armazenamento e muito mais.
 author: normesta
 ms.service: storage
 ms.subservice: common
@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring
-ms.openlocfilehash: 061c7f6a45b8667b7fd03d62bee67c695bec5e68
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 98c8bc07e1f5bb790c2f907bbc3c2125cae383a5
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87276781"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903214"
 ---
 # <a name="azure-storage-analytics-logging"></a>Log da Análise de Armazenamento do Azure
 
