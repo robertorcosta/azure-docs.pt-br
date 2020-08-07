@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3dc9d62141a63574a6796982542cb1491108eedc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f91e130bfa83c6a9b116c05d7293aa70945e2dc2
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259860"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903537"
 ---
 # <a name="linux-support"></a>Suporte para Linux
 
-Os parceiros podem usar o SDK do Linux para área de trabalho virtual do Windows para criar um cliente de área de trabalho virtual do Windows autônomo. Você também pode usá-lo para habilitar o suporte à área de trabalho virtual do Windows em seu aplicativo cliente. Este guia rápido explicará o que é o SDK do Linux e como começar a usá-lo.
+Você pode acessar os recursos da área de trabalho virtual do Windows de seus dispositivos Linux com os seguintes clientes com suporte, fornecidos por nossos parceiros de cliente fino do Linux. Estamos trabalhando com vários parceiros para habilitar clientes de área de trabalho virtual do Windows com suporte em mais sistemas operacionais e dispositivos baseados em Linux. Se você quiser o suporte à área de trabalho virtual do Windows em uma plataforma Linux que não está listada aqui, informe-nos em nossa [página uservoice](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
 
 ## <a name="connect-with-your-linux-device"></a>Conecte-se ao seu dispositivo Linux
 
@@ -29,14 +29,7 @@ Os parceiros a seguir aprovaram clientes de área de trabalho virtual do Windows
 
 ## <a name="what-is-the-linux-sdk"></a>O que é o SDK do Linux?
 
-Você pode usar as APIs do SDK para recuperar feeds de recursos, conectar-se a sessões de aplicativos remotos ou de área de trabalho e usar muitos dos redirecionamentos aos quais nossos clientes de primeira empresa dão suporte.
-
-> [!NOTE]
-> O SDK está atualmente em desenvolvimento. Atualizaremos este documento com instruções para acessar o SDK quando ele estiver disponível.
-
-### <a name="supported-linux-distributions"></a>Distribuições Linux compatíveis
-
-O SDK é compatível com a maioria dos sistemas operacionais baseados no Ubuntu 18, 4 ou posterior. Se você tiver uma distribuição do Linux diferente, poderemos trabalhar com você para descobrir como oferecer o melhor suporte às suas necessidades.
+Os parceiros de cliente fino do Linux podem usar as APIs do SDK do Linux para área de trabalho virtual do Windows para recuperar feeds de recursos, conectar-se a desktops ou sessões de aplicativos remotos e usar muitos dos redirecionamentos que nossos clientes de primeira empresa dão suporte. O SDK é compatível com a maioria dos sistemas operacionais baseados no Ubuntu 18, 4 ou posterior.
 
 ### <a name="feature-support"></a>Suporte a recursos
 
@@ -58,19 +51,12 @@ O SDK também dá suporte a várias configurações de exibição de monitor, co
 
 Atualizaremos este documento à medida que adicionamos suporte para novos recursos e redirecionamentos. Se você quiser sugerir novos recursos e outras melhorias, visite nossa [página uservoice](https://go.microsoft.com/fwlink/?linkid=2116523).
 
-## <a name="get-started-with-the-linux-sdk"></a>Introdução ao SDK do Linux
-
-Para poder desenvolver um cliente Linux para área de trabalho virtual do Windows, você precisa fazer o seguinte:
-
-1. Crie e implante um ambiente de área de trabalho virtual do Windows para teste ou uso em produção.
-2. Teste os clientes primários disponíveis para se familiarizar com a experiência do usuário da área de trabalho virtual do Windows.
-
 ## <a name="next-steps"></a>Próximas etapas
 
 Confira nossa documentação para os seguintes clientes:
 
 - [Cliente de Área de Trabalho do Windows](connect-windows-7-10.md)
 - [Cliente Web](connect-web.md)
-- [Cliente para Android](connect-android.md)
-- [Cliente para macOS](connect-macos.md)
+- [Cliente Android](connect-android.md)
+- [Cliente macOS](connect-macos.md)
 - [Cliente iOS](connect-ios.md)

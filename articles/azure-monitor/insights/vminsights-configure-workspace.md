@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 10c4f0ba4bfc88017304c228ca1afce4ba863118
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 40ff7bfe713f401a23dea0b3660be1b7728a1380
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328120"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828550"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configurar Log Analytics espaço de trabalho para Azure Monitor para VMs
 Azure Monitor para VMs coleta seus dados de um ou mais espaços de trabalho do Log Analytics no Azure Monitor. Antes de realizar a integração de agentes, você deve criar e configurar um espaço de trabalho. Este artigo descreve os requisitos do espaço de trabalho e para configurá-lo para Azure Monitor para VMs.
@@ -40,10 +40,10 @@ Você pode criar um novo espaço de trabalho Log Analytics usando qualquer um do
 
 * [Azure portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [CLI do Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)
-* [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
+* [PowerShell](../platform/powershell-workspace-configuration.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
-## <a name="supported-regions"></a>Regiões compatíveis
+## <a name="supported-regions"></a>Regiões com suporte
 
 O Azure Monitor para VMs dá suporte a espaços de trabalho do Log Analytics nas seguintes regiões, embora você possa monitorar máquinas virtuais em qualquer região. As máquinas virtuais propriamente ditas não são limitadas às regiões com suporte no espaço de trabalho Log Analytics.
 
@@ -51,7 +51,7 @@ O Azure Monitor para VMs dá suporte a espaços de trabalho do Log Analytics nas
 - Oeste dos EUA
 - Oeste dos EUA 2
 - Centro-Sul dos Estados Unidos
-- East US
+- Leste dos EUA
 - Leste dos EUA 2
 - Centro dos EUA
 - Centro-Norte dos EUA
@@ -68,7 +68,7 @@ O Azure Monitor para VMs dá suporte a espaços de trabalho do Log Analytics nas
 - Leste da Austrália
 - Sudeste da Austrália
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em função
+## <a name="role-based-access-control"></a>Controle de acesso baseado em funções
 Para habilitar e acessar os recursos no Azure Monitor para VMs, você deve ter a [função de colaborador de log Analytics](../platform/manage-access.md#manage-access-using-azure-permissions) no espaço de trabalho. Para exibir o desempenho, a integridade e os dados do mapa, você deve ter a [função leitor de monitoramento](../platform/roles-permissions-security.md#built-in-monitoring-roles) para a VM do Azure. Para obter mais informações sobre como controlar o acesso a um espaço de trabalho do Log Analytics, veja [Gerenciar espaços de trabalho](../platform/manage-access.md).
 
 ## <a name="add-vminsights-solution-to-workspace"></a>Adicionar a solução VMInsights ao espaço de trabalho

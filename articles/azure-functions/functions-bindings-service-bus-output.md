@@ -6,13 +6,13 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: 559198c4ecbbc86cc82ce8b286d9608170e161c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-python
+ms.openlocfilehash: c377d9882b59731857641e1f593dd6b7b24ca7f9
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079716"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844075"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Associação de saída do barramento de serviço do Azure para Azure Functions
 
@@ -282,7 +282,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | N/D | Deve ser definido como "serviceBus". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
+|**tipo** | n/d | Deve ser definido como "serviceBus". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
 |**direction** | n/d | Deve ser definido como "out". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
 |**name** | n/d | O nome da variável que representa a fila ou mensagem de tópico no código de função. Definido como "$return" para referenciar o valor de retorno da função. |
 |**queueName**|**QueueName**|Nome da fila.  Defina somente se for enviar mensagens da fila, não para um tópico.

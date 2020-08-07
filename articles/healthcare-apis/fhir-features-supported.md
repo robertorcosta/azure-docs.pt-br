@@ -2,18 +2,18 @@
 title: Recursos FHIR com suporte no Azure – API do Azure para FHIR
 description: Este artigo explica quais recursos da especificação FHIR são implementados na API do Azure para FHIR
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 7f92395f19d84f904493af458d1334f8013fd263
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: matjazl
+ms.openlocfilehash: 1cb3af32f1ad16218c82f91c3f28d4f4ab47e677
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85808022"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843497"
 ---
 # <a name="features"></a>Recursos
 
@@ -29,7 +29,7 @@ As versões anteriores também têm suporte no momento incluem:`3.0.2`
 
 | API                            | Com suporte-PaaS | Com suporte-OSS (SQL) | Com suporte-OSS (Cosmos DB) | Comentário                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
-| leitura                           | Sim       | Sim       | Sim       |                                                     |
+| read                           | Sim       | Sim       | Sim       |                                                     |
 | vread                          | Sim       | Sim       | Sim       |                                                     |
 | atualizar                         | Sim       | Sim       | Sim       |                                                     |
 | atualizar com bloqueio otimista | Sim       | Sim       | Sim       |                                                     |
@@ -115,7 +115,7 @@ Atualmente, o código-fonte aberto do servidor FHIR inclui uma implementação p
 
 Cosmos DB é um banco de dados multimodelo distribuído globalmente (API do SQL, API do MongoDB, etc.). Ele dá suporte a diferentes [níveis de consistência](../cosmos-db/consistency-levels.md). O modelo de implantação padrão configura o servidor FHIR com `Strong` consistência, mas a política de consistência pode ser modificada (geralmente relaxada) em uma solicitação pela base da solicitação usando o `x-ms-consistency-level` cabeçalho de solicitação.
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em função
+## <a name="role-based-access-control"></a>Controle de acesso baseado em funções
 
 O servidor FHIR usa [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para controle de acesso. Especificamente, o RBAC (controle de acesso baseado em função) é imposto, se o `FhirServer:Security:Enabled` parâmetro de configuração for definido como `true` , e todas as solicitações (exceto `/metadata` ) para o servidor FHIR devem ter o `Authorization` cabeçalho de solicitação definido como `Bearer <TOKEN>` . O token deve conter uma ou mais funções, conforme definido na `roles` declaração. Uma solicitação será permitida se o token contiver uma função que permita a ação especificada no recurso especificado.
 

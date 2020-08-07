@@ -1,6 +1,6 @@
 ---
 title: Criar o armazenamento de tabelas do Azure para consultas | Microsoft Docs
-description: Projetar tabelas para consultas no armazenamento de tabelas do Azure.
+description: Projetar tabelas para consultas no armazenamento de tabelas do Azure. Escolha uma chave de partição apropriada, Otimize as consultas e classifique os dados para o serviço tabela.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d157e7d2880761fb6559723bdc1d6c34baffb09
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75457633"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903197"
 ---
 # <a name="design-for-querying"></a>Design para consulta
 Soluções de serviço Tabela podem ser de leitura intensiva, gravação intensiva ou uma combinação dos dois. Este artigo aborda as coisas a serem lembradas ao criar seu serviço Tabela para dar suporte a operações de leitura com eficiência. Normalmente, um design que dá suporte a operações de leitura com eficiência também é eficiente para operações de gravação. No entanto, neste artigo, [Design para modificação de dados](table-storage-design-for-modification.md), existem e são discutidas considerações adicionais para se ter em mente ao projetar de modo a dar suporte a operações de gravação.

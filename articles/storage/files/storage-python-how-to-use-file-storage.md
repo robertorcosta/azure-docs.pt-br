@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
-ms.custom: tracking-python
-ms.openlocfilehash: c612ddc324144a818dd738b440660d473ec3a1bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 46512d61238c45936e7ebed4310993159cb43d34
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509635"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845435"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Desenvolvimento para o Arquivos do Azure com Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -66,7 +66,7 @@ O objeto `FileService` permite que você trabalhe com compartilhamentos, diretó
 file_service = FileService(account_name='myaccount', account_key='mykey')
 ```
 
-## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
+## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivo do Azure
 No exemplo de código a seguir, é possível usar um objeto `FileService` para criar o compartilhamento, se ele não existir.
 
 ```python
@@ -180,6 +180,6 @@ file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu como manipular s Arquivos do Azure com o Python, siga estes links para saber mais.
 
-* [Central de desenvolvedores do Python](https://azure.microsoft.com/develop/python/)
+* [Centro de desenvolvedores do Python](https://azure.microsoft.com/develop/python/)
 * [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355)
 * [SDK do Armazenamento do Microsoft Azure para Python](https://github.com/Azure/azure-storage-python)

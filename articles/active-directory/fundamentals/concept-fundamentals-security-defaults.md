@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 385107f3bb5dd30a118d3a5f7a5f14213f0ad1c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c5015cb6328dba70fed40053bc234966572ae98
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554526"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873714"
 ---
 # <a name="what-are-security-defaults"></a>O que são os padrões de segurança?
 
-Pode ser difícil fazer o gerenciamento da segurança quando estão se tornando cada vez mais populares os ataques comuns relacionados à identidade, como a pulverização de senha, a reprodução e o phishing. Com os padrões de segurança, fica mais fácil proteger sua organização contra esses ataques devido a configurações de segurança pré-definidas que:
+Gerenciar a segurança pode ser difícil com ataques comuns relacionados à identidade, como o spray de senha, reprodução e phishing se tornando cada vez mais popular. Com os padrões de segurança, fica mais fácil proteger sua organização contra esses ataques devido a configurações de segurança pré-definidas que:
 
 - Exigem que todos os usuários se registrem para a Autenticação Multifator do Microsoft Azure.
 - Exigem que os administradores executem a autenticação multifator.
