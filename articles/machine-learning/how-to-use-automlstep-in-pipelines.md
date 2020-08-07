@@ -10,13 +10,13 @@ author: lobrien
 manager: cgronlun
 ms.date: 06/15/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: 698fdf1295ec38fc7eca9a58e681d7fe13ec32fc
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 3973e94c9d3add25dba0af7a6b0c0deb18b77440
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319500"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850433"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Usar o ML automatizado em um pipeline de Azure Machine Learning no Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -339,7 +339,7 @@ O `automl_settings` dicionário é passado para o `AutoMLConfig` Construtor como
 - `task`é definido como `classification` para este exemplo. Outros valores válidos são `regression` e`forecasting`
 - `path`e `debug_log` descrevem o caminho para o projeto e um arquivo local no qual as informações de depuração serão gravadas 
 - `compute_target`é o anteriormente definido `compute_target` , neste exemplo, é um computador baseado em CPU de baixo custo. Se você estiver usando os recursos de aprendizado profundo do AutoML, você desejaria alterar o destino de computação para ser baseado em GPU
-- `featurization` está definido como `auto`. Mais detalhes podem ser encontrados na seção [Data personalização](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#data-featurization) do documento de configuração do ml automatizado 
+- `featurization` é definido como `auto`. Mais detalhes podem ser encontrados na seção [Data personalização](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#data-featurization) do documento de configuração do ml automatizado 
 - `training_data`é definido para os `PipelineOutputTabularDataset` objetos feitos das saídas da etapa de preparação de dados 
 - `label_column_name`indica em qual coluna estamos interessados em prever 
 

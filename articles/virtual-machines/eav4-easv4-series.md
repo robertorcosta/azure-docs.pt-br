@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 484539a9c41f055d2b215e6f5a1326d06faca82d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 31bc9a5f38d50318f858a4d7169391e9d2e5e610
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829213"
+ms.locfileid: "87848723"
 ---
 # <a name="eav4-and-easv4-series"></a>Séries Eav4 e Easv4
 
@@ -32,7 +32,7 @@ Atualizações de preservação de memória: Com suporte
 
 Os tamanhos da série Eav4 são baseados no processador AMD EPYC<sup>TM</sup> 7452 de 2.35 GHz que pode alcançar uma frequência máxima aumentada de 3.35 GHz e usar SSD Premium. Os tamanhos da série Eav4 são ideais para aplicativos empresariais com uso intensivo de memória. O armazenamento do disco de dados é faturado separadamente das máquinas virtuais. Para usar o SSD Premium, use os tamanhos da série Easv4. Os medidores de cobrança e preço para os tamanhos de Easv4 são os mesmos que os da série Eav3.
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Máximo de NICs | Largura de banda de rede esperada (MBps) |
+| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Máximo de NICs | Largura de banda de rede esperada (Mbps) |
 | -----|-----|-----|-----|-----|-----|-----|-----|
 | \_E2a \_ v4 padrão|2|16|50|4|3000 / 46 / 23|2 | 1000 |
 | \_E4a \_ v4 padrão|4|32|100|8|6000 / 93 / 46|2 | 2000 |

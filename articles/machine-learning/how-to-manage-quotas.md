@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: a75a5942ad0aac39f2fe6afb9c62a254c4645d0a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4bd13adb9bb431749f1d0f52781ce22c832fc090
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372936"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846727"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gerenciar e aumentar cotas para recursos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -46,13 +46,9 @@ Veja um detalhamento dos limites de cota por vários tipos de recurso dentro de 
 > Os limites estão sujeitos a alterações. A versão mais recente sempre pode ser encontrada no [documento](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) da cota de nível de serviço para tudo que é do Azure.
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
-Para cada assinatura do Azure, há um limite no número de máquinas virtuais que você pode ter em seus serviços ou de maneira autônoma. Esse limite está no nível da região nos núcleos totais e também é calculado por família.
-
-Os núcleos de máquina virtual têm um limite regional total, bem como um limite regional por tamanho de série (Dv2, F etc.), aplicados separadamente. Por exemplo, considere uma assinatura com uma VM do Leste dos EUA com um limite total de núcleos de 30, um limite de núcleos da série A de 30 e um limite de núcleos da série D de 30. Esta assinatura teria permissão para implantar 30 VMs A1, ou 30 VMs D1 ou uma combinação das duas a fim de não exceder um total de 30 núcleos (por exemplo, 10 VMs A1 e 20 VMs D1).
+Para cada assinatura do Azure, há um limite no número de máquinas virtuais em seus serviços ou autônomos. Os núcleos de máquina virtual têm um limite regional total, bem como um limite regional por tamanho de série (Dv2, F etc.), aplicados separadamente. Por exemplo, considere uma assinatura com uma VM do Leste dos EUA com um limite total de núcleos de 30, um limite de núcleos da série A de 30 e um limite de núcleos da série D de 30. Esta assinatura teria permissão para implantar 30 VMs A1, ou 30 VMs D1 ou uma combinação das duas a fim de não exceder um total de 30 núcleos (por exemplo, 10 VMs A1 e 20 VMs D1).
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
-
-Para obter uma lista mais detalhada e atualizada de limites de cota, confira o [artigo sobre as cotas do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ### <a name="azure-machine-learning-compute"></a>Computação do Azure Machine Learning
 Para a [Computação do Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed), há um limite de cota padrão para o número de núcleos e o número de recursos de computação exclusivos permitidos por região em uma assinatura. Essa cota é separada da cota de núcleos de VM acima e os limites de núcleo não são compartilhados entre os dois tipos de recurso, uma vez que AmlCompute é um serviço gerenciado que implanta recursos em um modelo "hospedado em nome de".
@@ -84,16 +80,10 @@ Para [pipelines do Azure Machine Learning](concept-ml-pipelines.md), há um limi
 - O número máximo de etapas permitidas em um pipeline é de 30.000
 - O número máximo da soma de execuções baseadas em agendamento e pulls de blob para agendamentos disparados por blog de pipelines publicados por assinatura por mês é de 100.000
 
-> [!NOTE]
-> Se você quiser aumentar esse limite, entre em contato com o [Suporte da Microsoft](https://azure.microsoft.com/support/options/).
-
 ### <a name="container-instances"></a>Instâncias de contêiner
 
 Também há um limite no número de instâncias de contêiner que você pode criar em um determinado período (por hora com escopo) ou em sua assinatura inteira.
-
-[!INCLUDE [container-instances-limits](../../includes/container-instances-limits.md)]
-
-Para obter uma lista mais detalhada e atualizada de limites de cota, confira o site de cota de todo o Azure [aqui](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
+Para os limites, consulte [limites de instâncias de contêiner](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
 
 ### <a name="storage"></a>Armazenamento
 Há um limite no número de contas de armazenamento por região também em uma determinada assinatura. O limite padrão é 250 e inclui contas de Armazenamento Standard e Premium. Se você precisar de mais de 250 contas de armazenamento em uma única região, faça uma solicitação por meio do [Suporte do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). A equipe de Armazenamento do Microsoft Azure examinará seu caso de negócios e poderá aprovar até 250 contas de armazenamento.
@@ -126,7 +116,7 @@ A Computação do Azure Machine Learning é gerenciada separadamente de outras c
 1. Selecione uma assinatura para exibir os limites de cota. Lembre-se de filtrar para a região em que você está interessado.
 
 1. Agora você pode alternar entre uma exibição de nível de assinatura e uma exibição no nível do workspace:
-    + **Exibição da assinatura:** Isso permite que você exiba o uso da cota de núcleos por família de VM, expandindo-a por workspace e expandindo-a ainda mais pelos nomes de cluster reais. Essa exibição é ideal para obter rapidamente os detalhes do uso de núcleo de uma família de VMs específica para ver a divisão por workspaces e além dos clusters subjacentes para cada um desses workspaces. A convenção geral nessa exibição é (uso/cota), em que o uso é o número atual de núcleos escalados verticalmente e a cota é o número máximo lógico de núcleos para os quais o recurso pode ser escalado. Para cada **workspace**, a cota seria a cota de nível do workspace (conforme explicado acima) que denota o número máximo de núcleos que você pode escalar para uma família de VMs específica. Da mesma forma, para um **cluster**, a cota é, na verdade, os núcleos que correspondem ao número máximo de nós que o cluster pode escalar para ser definido pela propriedade max_nodes.
+    + **Exibição de assinatura:** Exibe o uso da cota de núcleo por família de VM, expandindo-a por espaço de trabalho e expandindo-a ainda mais pelos nomes de cluster reais. Obtenha rapidamente os detalhes do uso principal de uma família de VMs específica para ver a divisão por espaços de trabalho e além dos clusters subjacentes para cada um desses espaços de trabalho. A convenção geral nessa exibição é (uso/cota), em que o uso é o número atual de núcleos escalados verticalmente e a cota é o número máximo lógico de núcleos para os quais o recurso pode ser escalado. Para cada **workspace**, a cota seria a cota de nível do workspace (conforme explicado acima) que denota o número máximo de núcleos que você pode escalar para uma família de VMs específica. Da mesma forma, para um **cluster**, a cota é, na verdade, os núcleos que correspondem ao número máximo de nós que o cluster pode escalar para ser definido pela propriedade max_nodes.
 
     + **Exibição do workspace:** Isso permite que você exiba o uso da cota de núcleo por workspace, expandindo-o por família de VM e expandindo-o ainda mais pelos nomes de cluster reais. Essa exibição é ideal para obter rapidamente os detalhes do uso de núcleo de um workspace específico para ver a divisão por famílias de VMs e além dos clusters subjacentes para cada uma dessas famílias.
 
@@ -149,8 +139,4 @@ Ao solicitar um aumento da cota, é necessário selecionar o serviço com relaç
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais com estes artigos:
-
 + [Planejar e gerenciar custos para o Azure Machine Learning](concept-plan-manage-cost.md)
-
-+ [Como aumentar sua cota](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).

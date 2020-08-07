@@ -1,7 +1,7 @@
 ---
 title: Visão geral do portal do desenvolvedor de gerenciamento de API do Azure
 titleSuffix: Azure API Management
-description: Saiba mais sobre o portal do desenvolvedor no gerenciamento de API.
+description: Saiba mais sobre o portal do desenvolvedor no gerenciamento de API. O portal do desenvolvedor é onde os consumidores podem encontrar suas APIs.
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: f5f4df58a4b147ccb73c7d69f5307a8328803442
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6a8c4c3fa2bd73fa689458d6877d09900ea86938
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373140"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852150"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Visão Geral do portal do desenvolvedor do Gerenciamento de API do Azure
 

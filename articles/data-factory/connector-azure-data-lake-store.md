@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: dbfd90c760f4f5f9f6cf1bac8c7d75f474f6827b
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.date: 08/06/2020
+ms.openlocfilehash: 25378cc0510260a6ccd0a0bdb162b145cbae5c8e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223662"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847832"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copiar dados no/do Azure Data Lake Storage Gen1 usando o Azure Data Factory
 
@@ -91,6 +91,7 @@ Há suporte para as seguintes propriedades:
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim |
 | servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como uma `SecureString` para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | locatário | Especifique as informações de locatário, como nome de domínio ou ID do locatário, em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | Sim |
+| azureCloudType | Para autenticação de entidade de serviço, especifique o tipo de ambiente de nuvem do Azure no qual seu aplicativo do AAD está registrado. <br/> Os valores permitidos são **AzurePublic**, **AzureChina**, **AzureUsGovernment**e **AzureGermany**. Por padrão, o ambiente de nuvem do data factory é usado. | Não |
 
 **Exemplo:**
 

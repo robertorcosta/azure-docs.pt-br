@@ -1,6 +1,6 @@
 ---
 title: Como usar valores nomeados nas políticas de Gerenciamento de API do Azure
-description: Saiba como usar valores nomeados nas políticas de Gerenciamento de API do Azure.
+description: Saiba como usar valores nomeados nas políticas de Gerenciamento de API do Azure. Os valores nomeados podem conter cadeias de caracteres literais e expressões de política.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 28a9f37f58a6c056bf23a85fcf2641f407988891
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3f317276ae92e6121d519553b7883677dab89705
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243470"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852184"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Como usar valores nomeados nas políticas de Gerenciamento de API do Azure
 

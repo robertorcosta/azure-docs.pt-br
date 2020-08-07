@@ -6,13 +6,13 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/12/2019
-ms.openlocfilehash: e9617018b06d4f62b49946ae5593bd51805355e0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 08/06/2020
+ms.openlocfilehash: b4e34befbf28de2b985ff49ce17a87a25842015e
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044559"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901684"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configurando políticas de ordenação de eventos para Azure Stream Analytics
 
@@ -40,7 +40,7 @@ Vamos ver um exemplo dessas políticas em ação.
 <br> **Política de chegada tardia:** 15 segundos
 <br> **Política fora de ordem:** 8 segundos
 
-| N º do evento | Hora do evento | Horário de chegada | System.Timestamp | Explicação |
+| N º do evento | Hora do Evento | Horário de chegada | System.Timestamp | Explicação |
 | --- | --- | --- | --- | --- |
 | **1** | 00:10:00  | 00:10:40  | 00:10:25  | O evento chegou ao nível de tolerância atrasado e externo. Portanto, a hora do evento é ajustada para a tolerância máxima de chegada tardia.  |
 | **2** | 00:10:30 | 00:10:41  | 00:10:30  | O evento chegou atrasado, mas dentro do nível de tolerância. Portanto, a hora do evento não é ajustada.  |
@@ -75,6 +75,11 @@ Quando várias partições do mesmo fluxo de entrada são combinadas, a tolerân
 Esta mensagem para informar que pelo menos uma partição em sua entrada está vazia e atrasará a saída pelo limite de chegada tardia. Para superar isso, é recomendável:  
 1. Verifique se todas as partições do hub de eventos/Hub IoT recebem entrada. 
 2. Use a cláusula PARTITION by PartitionID em sua consulta. 
+
+## <a name="why-do-i-see-a-delay-of-5-seconds-even-when-my-late-arrival-policy-is-set-to-0"></a>Por que vejo um atraso de cinco segundos mesmo quando minha política de chegada tardia é definida como 0?
+Isso acontece quando há uma partição de entrada que nunca recebeu nenhuma entrada. Você pode verificar as métricas de entrada por partição para validar esse comportamento. 
+
+Quando uma partição não tem dados para mais do que o limite de chegada em atraso configurado, o Stream Analytics avança o carimbo de data/hora do aplicativo, conforme explicado na seção considerações de ordenação de eventos. Isso requer o tempo de chegada estimado. Se a partição nunca tiver dados, o Stream Analytics estimará a hora de chegada como *horário local – 5 segundos*. Devido a essas partições que nunca tinham dados podem mostrar um atraso de marca d' água de 5 segundos.  
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Considerações sobre o uso do tempo](stream-analytics-time-handling.md)

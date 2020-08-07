@@ -1,6 +1,6 @@
 ---
 title: Políticas no Gerenciamento de API do Azure | Microsoft Docs
-description: Saiba mais sobre as políticas disponíveis para uso no Gerenciamento de API do Azure.
+description: Saiba mais sobre as políticas disponíveis para uso no Gerenciamento de API do Azure. As políticas permitem que o Publicador altere o comportamento da API por meio da configuração.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 069fc95d226e4417bb650b6092a7d00953f69e8d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4cdd9b7ace107d09ec14b23e02c56d2b13f264e6
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252837"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905662"
 ---
 # <a name="api-management-policies"></a>Políticas de Gerenciamento de API
 Esta seção fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](api-management-howto-policies.md).  

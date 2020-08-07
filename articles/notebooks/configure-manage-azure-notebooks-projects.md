@@ -3,13 +3,13 @@ title: Configurar e gerenciar Azure Notebooks visualização
 description: Saiba como gerenciar metadados de projeto, arquivos de projeto, o ambiente do projeto e as etapas de instalação por meio da interface do usuário do Azure Notebooks e acesso direto ao terminal.
 ms.topic: how-to
 ms.date: 02/28/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 53acf7c916b402e291b9779948579761e79179ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 7674c2151922d26e069b5cd285cb311d7a18fa98
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85834073"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852796"
 ---
 # <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Gerenciar e configurar projetos no Azure Notebooks Preview
 
@@ -82,7 +82,7 @@ Cada item na lista de arquivos do projeto fornece comandos por meio de um menu d
 | Visualização | p | Abre uma visualização do arquivo em HTML. Para notebooks, a visualização é uma renderização somente leitura do notebook. Para obter mais informações, confira a seção [Visualização](#preview). |
 | Editar arquivo | i | Abre o arquivo para edição. |
 | Baixar | d | Baixa um arquivo zip que contém o arquivo ou o conteúdo de uma pasta. |
-| Renomear | a | Solicita um novo nome para o arquivo ou pasta. |
+| Renomear | um | Solicita um novo nome para o arquivo ou pasta. |
 | Excluir | x | Solicita confirmação e, em seguida, remove permanentemente o arquivo do projeto. Exclusões não podem ser desfeitas. |
 | Mover | m | Move um arquivo para uma pasta diferente no mesmo projeto. |
 
@@ -134,7 +134,7 @@ As informações que você projeta em seguida dependem do tipo de operação que
 - **Environment. yml**: na segunda lista suspensa, selecione um arquivo *Environments. yml* para projetos do Python usando um ambiente Conda.
 
    > [!WARNING]
-   > Como se trata de um serviço de visualização em desenvolvimento, há um problema conhecido no momento em que a `Environment.yml` configuração não é aplicada ao seu projeto conforme o esperado. O projeto e os blocos de anotações do Jupyter dentro do não carregam o arquivo de ambiente especificado no momento.
+   > Como este é um serviço em versão prévia que está em desenvolvimento, há um problema conhecido de que a configuração `Environment.yml` não é aplicada ao projeto conforme o esperado. O projeto e os notebooks do Jupyter internos não carregam o arquivo de ambiente especificado no momento.
 
 Quando você terminar de adicionar etapas, selecione **Salvar**.
 

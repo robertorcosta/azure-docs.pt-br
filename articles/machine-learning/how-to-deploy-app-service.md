@@ -10,13 +10,13 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
-ms.openlocfilehash: faa2945b27e083865acb506f30c4d79ef65f3ca0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 04ae1788dfd3050fdd2042f88a8e1829e9063ad3
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317851"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851351"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implantar um modelo de aprendizado de máquina no serviço Azure App (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -68,7 +68,7 @@ Antes de implantar o, você deve definir o que é necessário para executar o mo
     >
     > Outra alternativa que pode funcionar para seu cenário é [previsões de lote](how-to-use-parallel-run-step.md), que fornece acesso a repositórios de armazenamento durante a pontuação.
 
-    Para obter mais informações sobre scripts de entrada, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
+    Para obter mais informações sobre scripts de entrada, confira [Implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
 * **Dependências**, como scripts auxiliares ou pacotes python/Conda necessários para executar o script ou modelo de entrada
 

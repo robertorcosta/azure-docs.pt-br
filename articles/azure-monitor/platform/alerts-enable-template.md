@@ -6,17 +6,17 @@ ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: 380a1366994e970c208a6c3ad505414cb12bc0c2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d7d9f55bbd3d8060670008f321a77b2a28376e47
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324090"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849012"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica clássico com um modelo do Gerenciador de Recursos
+
 > [!WARNING]
-> 
-> Este artigo descreve como criar **alertas clássicos de métrica** usando modelos do Resource Manager. Os alertas clássicos foram desativados em agosto de 2019 e foram definidos para serem totalmente preteridos em 2020 de junho. Você não pode criar novos alertas clássicos do Azure público. Algumas versões regionais do Azure ainda podem ter a opção, mas sugerimos que você crie [alertas de métrica mais recentes](./alerts-metric-near-real-time.md) usando modelos, se possível. [Este artigo](alerts-metric-create-templates.md) fornece os detalhes.
+> Este artigo descreve como criar alertas de métrica clássicos mais antigos. O Azure Monitor agora dá suporte [a alertas de métrica quase em tempo real mais recentes e uma nova experiência de alertas](./alerts-overview.md). Os alertas clássicos são [desativados](./monitoring-classic-retirement.md), embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas.
 >
 
 Este artigo mostra como você pode usar um [modelo de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar alertas de métrica clássicos do Azure. Isso permite que você configure de modo automático alertas sobre os recursos quando eles são criados para garantir que todos os recursos sejam monitorados corretamente.

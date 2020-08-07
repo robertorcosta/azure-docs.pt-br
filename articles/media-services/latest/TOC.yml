@@ -174,7 +174,7 @@
     - name: Player de Mídia do Azure
       items:
         - name: Visão geral do Player de Mídia do Azure
-          href: 'https://docs.microsoft.com/en-us/azure/media-services/azure-media-player/azure-media-player-overview'
+          href: ../azure-media-player/azure-media-player-overview.md
     - name: Desenvolver com APIs v3
       items:
         - name: Visão geral
@@ -362,7 +362,7 @@
     - name: Usar players de mídia
       items:
         - name: Configuração completa do Player de Mídia do Azure
-          href: 'https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-full-setup'
+          href: ../azure-media-player/azure-media-player-full-setup.md
         - name: Usar o player Video.js
           href: how-to-video-js-player.md
         - name: Usar o player de vídeo Shaka
@@ -373,7 +373,7 @@
       href: 'https://aka.ms/ams-v3-rest-sdk'
       displayName: schema
     - name: REST
-      href: 'https://docs.microsoft.com/rest/api/media/'
+      href: /rest/api/media/
     - name: CLI do Azure
       href: 'https://aka.ms/ams-v3-cli-ref'
     - name: SDKs

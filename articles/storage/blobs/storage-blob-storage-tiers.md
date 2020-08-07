@@ -1,6 +1,6 @@
 ---
 title: Camadas de acesso quentes, frias e de arquivo para BLOBs-armazenamento do Azure
-description: Leia sobre as camadas de acesso frequente, fria e de arquivo para o armazenamento de BLOBs do Azure. Examine as contas de armazenamento que dão suporte a camadas. Compare as opções de armazenamento de blog do bloco.
+description: Leia sobre as camadas de acesso frequente, fria e de arquivo para o armazenamento de BLOBs do Azure. Examine as contas de armazenamento que dão suporte a camadas. Compare as opções de armazenamento de blobs de blocos.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 03/23/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 17df78f846d8422c0200ce5fc75b4722d21d35df
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a46597087a3eee03f7c5b8d1c9746f968ea1980d
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828265"
+ms.locfileid: "87849719"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de Blobs do Azure: camadas de acesso frequentes, esporádicas e de arquivo
 

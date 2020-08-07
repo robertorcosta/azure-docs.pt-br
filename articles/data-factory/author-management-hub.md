@@ -9,12 +9,12 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.date: 06/02/2020
-ms.openlocfilehash: 308d19fde78edacebb168b8d4e459169338acc41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bba49014fd6b082ea015da259402a8e87bf4afff
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345937"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851971"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Hub de gerenciamento no Azure Data Factory
 
@@ -57,6 +57,12 @@ Para substituir os parâmetros de modelo do Resource Manager gerados ao publicar
 Os gatilhos determinam quando uma execução de pipeline deve ser inicializada. Atualmente, os gatilhos podem estar em uma agenda de relógio de parede, operar em um intervalo periódico ou depender de um evento. Para obter mais informações, saiba mais sobre a [execução do gatilho](concepts-pipeline-execution-triggers.md#trigger-execution). No Hub de gerenciamento, você pode criar, editar, excluir ou exibir o estado atual de um gatilho.
 
 ![Gerenciar parâmetros personalizados](media/author-management-hub/management-hub-triggers.png)
+
+### <a name="global-parameters"></a>Parâmetros globais
+
+Os parâmetros globais são constantes em um data factory que podem ser consumidos por um pipeline em qualquer expressão. Para obter mais informações, saiba mais sobre [parâmetros globais](author-global-parameters.md).
+
+![Criar parâmetros globais](media/author-global-parameters/create-global-parameter-3.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

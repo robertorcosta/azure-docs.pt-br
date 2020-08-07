@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: rogarana
-ms.openlocfilehash: d7aab7f5db6256d2f2525ff4a58c10ff5aa517f7
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: c3e8299a5acd7cbd3a6fd3cd76af33f4a798ad12
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553165"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832987"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Visão geral-local Active Directory Domain Services autenticação sobre SMB para compartilhamentos de arquivos do Azure
 
@@ -83,7 +83,7 @@ O diagrama a seguir ilustra o fluxo de trabalho de ponta a ponta para habilitar 
 
 ![Diagrama de fluxo de trabalho do AD de arquivos](media/storage-files-active-directory-domain-services-enable/diagram-files-ad.png)
 
-As identidades usadas para acessar os compartilhamentos de arquivos do Azure devem ser sincronizadas com o Azure AD para impor permissões de arquivo de nível de compartilhamento por meio do modelo [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) . As [DACLs de estilo do Windows](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) em arquivos/diretórios transferidos de servidores de arquivos existentes serão preservadas e impostas. Isso oferece integração direta com o ambiente de AD DS empresarial. Ao substituir servidores de arquivos locais por compartilhamentos de arquivos do Azure, os usuários existentes podem acessar compartilhamentos de arquivos do Azure de seus clientes atuais com uma experiência de logon único, sem nenhuma alteração nas credenciais em uso.  
+As identidades usadas para acessar os compartilhamentos de arquivos do Azure devem ser sincronizadas com o Azure AD para impor permissões de arquivo de nível de compartilhamento por meio do modelo de [controle de acesso baseado em função (RBAC do Azure)](../../role-based-access-control/overview.md) . As [DACLs de estilo do Windows](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) em arquivos/diretórios transferidos de servidores de arquivos existentes serão preservadas e impostas. Isso oferece integração direta com o ambiente de AD DS empresarial. Ao substituir servidores de arquivos locais por compartilhamentos de arquivos do Azure, os usuários existentes podem acessar compartilhamentos de arquivos do Azure de seus clientes atuais com uma experiência de logon único, sem nenhuma alteração nas credenciais em uso.  
 
 ## <a name="next-steps"></a>Próximas etapas
 

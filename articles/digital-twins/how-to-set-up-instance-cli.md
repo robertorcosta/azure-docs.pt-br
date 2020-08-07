@@ -1,5 +1,5 @@
 ---
-title: Configurar uma instância e autenticação (CLI)
+title: Configurar uma instância e uma autenticação (CLI)
 titleSuffix: Azure Digital Twins
 description: Veja como configurar uma instância do serviço gêmeos do Azure digital usando a CLI
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 287ee62acf3a078c4b47803060f61c9dd4134ab7
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: ba03acabb3325045a71d55f583343a26b4d121ca
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408225"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832308"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (CLI)
 
@@ -46,7 +46,7 @@ Use esses valores no comando a seguir para criar a instância:
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
 
-### <a name="verify-success"></a>Verificar êxito
+### <a name="verify-success-and-collect-important-values"></a>Verificar o êxito e coletar valores importantes
 
 Se a instância foi criada com êxito, o resultado em Cloud Shell será semelhante a este, gerando informações sobre o recurso que você criou:
 
@@ -71,12 +71,16 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 O resultado desse comando são informações de saída sobre a atribuição de função que foi criada.
 
-> [!TIP]
-> Se você receber um erro *400: BadRequest* , execute o seguinte comando para obter o *ObjectID* para o usuário:
-> ```azurecli
-> az ad user show --id <Azure-AD-email-of-user-to-assign> --query objectId
-> ```
-> Em seguida, repita o comando de atribuição de função usando a *ID de objeto* do usuário no lugar de seu email.
+> [!NOTE]
+> Se esse comando retornar um erro dizendo que a CLI **não pode localizar a entidade de serviço ou usuário no banco de dados de grafo**:
+>
+> Use a ID de *objeto* do usuário em vez de seu email. Isso pode acontecer para usuários em contas pessoais da [Microsoft (MSAS)](https://account.microsoft.com/account). 
+>
+> Use a [página portal do Azure de Azure Active Directory usuários](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) para selecionar a conta de usuário e abrir seus detalhes. Copie o *ObjectID*do usuário:
+>
+> :::image type="content" source="media/includes/user-id.png" alt-text="Exibição da página do usuário no portal do Azure realçando o GUID no campo ' ID do objeto '" lightbox="media/includes/user-id.png":::
+>
+> Em seguida, repita o comando da lista de atribuição de função usando a *ID de objeto* do usuário no lugar do email.
 
 ### <a name="verify-success"></a>Verificar êxito
 
@@ -117,7 +121,7 @@ Navegue até o *manifest.jsem* que você acabou de criar e pressione "abrir".
 Em seguida, execute o seguinte comando para criar um registro de aplicativo (substituindo espaços reservados, conforme necessário):
 
 ```azurecli
-az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
+az ad app create --display-name <name-for-your-app-registration> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
 ```
 
 Aqui está um trecho da saída deste comando, mostrando informações sobre o registro que você criou:
