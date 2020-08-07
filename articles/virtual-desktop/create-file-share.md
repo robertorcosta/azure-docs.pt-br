@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7c6b37cd8c127bf3c7643b39d54bfcdb8093c58c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: c9636a08b896cefdbec825e4979ad1ec89f8847b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027385"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87842902"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Criar um contêiner de perfil com arquivos do Azure e AD DS
 
@@ -35,11 +35,11 @@ Para configurar uma conta de armazenamento:
 
 2. Pesquise por **conta de armazenamento** na barra de pesquisa.
 
-3. Selecione **+ Adicionar**.
+3. Selecione **+Adicionar**.
 
 4. Insira as informações a seguir na página **criar conta de armazenamento** :
 
-    - Crie um novo grupo de recursos.
+    - Criar um grupo de recursos.
     - Insira um nome exclusivo para sua conta de armazenamento.
     - Para o **local**, recomendamos que você escolha o mesmo local do pool de hosts da área de trabalho virtual do Windows.
     - Para **Desempenho**, selecione **Standard**. (Dependendo dos requisitos de IOPS. Para obter mais informações, consulte [Opções de armazenamento para contêineres de perfil FSLogix na área de trabalho virtual do Windows](store-fslogix-profile.md).)
@@ -50,7 +50,7 @@ Para configurar uma conta de armazenamento:
 
 Se você precisar de instruções de configuração mais detalhadas, consulte [disponibilidade regional](../storage/files/storage-files-identity-auth-active-directory-enable.md#regional-availability).
 
-## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
+## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivo do Azure
 
 Em seguida, você precisará criar um compartilhamento de arquivos do Azure.
 
@@ -190,8 +190,6 @@ Para configurar suas permissões NTFS:
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
-5. Escolha **Aplicar**.
-
 ## <a name="configure-fslogix-on-session-host-vms"></a>Configurar o FSLogix em VMs de host de sessão
 
 Esta seção mostrará como configurar uma VM com o FSLogix. Você precisará seguir essas instruções sempre que configurar um host de sessão. Antes de começar a configurar o, siga as instruções em [baixar e instalar o FSLogix](/fslogix/install-ht). Há várias opções disponíveis que garantem que as chaves do registro sejam definidas em todos os hosts de sessão. Você pode definir essas opções em uma imagem ou configurar uma política de grupo.
@@ -216,7 +214,7 @@ Para configurar o FSLogix em sua VM host de sessão:
 
 6. Reinicie a VM.
 
-## <a name="testing"></a>Testando
+## <a name="testing"></a>Testes
 
 Depois de instalar e configurar o FSLogix, você pode testar sua implantação entrando com uma conta de usuário que tenha sido atribuída a um grupo de aplicativos ou área de trabalho no pool de hosts. Verifique se a conta de usuário com a qual você se conecta tem permissão no compartilhamento de arquivos.
 

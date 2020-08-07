@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 2992324a1080b75a98264958f56ea28e93b54651
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 21b09e6b7a2be6b87288d973b40c566fb6217841
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534576"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849974"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight
 
@@ -81,7 +81,7 @@ Atribua a identidade gerenciada à função de **proprietário de dados do blob 
 
     ![Captura de tela mostrando como atribuir uma função do Azure](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
 
-1. Clique em **Salvar**. A identidade atribuída pelo usuário que você selecionou agora está listada na função selecionada.
+1. Selecione **Salvar**. A identidade atribuída pelo usuário que você selecionou agora está listada na função selecionada.
 1. Ao concluir a configuração inicial, você poderá criar um cluster usando o portal. O cluster deve estar na mesma região do Azure da conta de armazenamento. Na guia **armazenamento** do menu de criação de cluster, selecione as seguintes opções:
 
     * Para **tipo de armazenamento primário**, selecione **Azure data Lake Storage Gen2**.
@@ -106,6 +106,7 @@ Você pode [baixar um arquivo de modelo de exemplo](https://github.com/Azure-Sam
 | `<RESOURCEGROUPNAME>` | O grupo de recursos em que você deseja criar o novo cluster e a conta de armazenamento. |
 | `<MANAGEDIDENTITYNAME>` | O nome da identidade gerenciada que receberá permissões em sua conta de Azure Data Lake Storage Gen2. |
 | `<STORAGEACCOUNTNAME>` | A nova conta de Azure Data Lake Storage Gen2 que será criada. |
+| `<FILESYSTEMNAME>`  | O nome do sistema de arquivos que esse cluster deve usar na conta de armazenamento. |
 | `<CLUSTERNAME>` | O nome do seu cluster HDInsight. |
 | `<PASSWORD>` | Sua senha escolhida para entrar no cluster usando SSH e o painel do Ambari. |
 
@@ -138,7 +139,8 @@ az storage account create --name <STORAGEACCOUNTNAME> \
 
 Em seguida, entre no Portal. Adicione a nova identidade gerenciada atribuída pelo usuário à função **colaborador de dados do blob de armazenamento** na conta de armazenamento. Esta etapa é descrita na etapa 3 em [usando o portal do Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
-Depois de atribuir a função para a identidade gerenciada atribuída pelo usuário, implante o modelo usando o trecho de código a seguir.
+ > [!IMPORTANT]
+ > Verifique se sua conta de armazenamento tem a identidade atribuída pelo usuário com permissões de função de **colaborador de dados de blob de armazenamento** . caso contrário, haverá falha na criação do cluster.
 
 ```azurecli
 az group deployment create --name HDInsightADLSGen2Deployment \

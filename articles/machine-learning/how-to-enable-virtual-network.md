@@ -10,13 +10,13 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: df819f5ff641af014750d6501c8b168e54917318
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: how-to, contperfq4, devx-track-python
+ms.openlocfilehash: 9d49ea99b97411e15d3f264057c865219e4d63c4
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420525"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853493"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento de rede durante o treinamento & inferência com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -79,7 +79,7 @@ O estúdio dá suporte à leitura de dados dos seguintes tipos de repositório d
 * Blob do Azure
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* Banco de Dados SQL do Azure
+* Banco de dados SQL do Azure
 
 ### <a name="add-resources-to-the-virtual-network"></a>Adicionar recursos à rede virtual 
 
@@ -203,7 +203,7 @@ Por padrão, Azure Machine Learning executa as verificações de validade e cred
 - Armazenamento de Blobs do Azure
 - FileShare do Azure
 - PostgreSQL
-- Banco de Dados SQL do Azure
+- Banco de dados SQL do Azure
 
 O exemplo de código a seguir cria um novo armazenamento de BLOBs e conjuntos do Azure `skip_validation=True` .
 

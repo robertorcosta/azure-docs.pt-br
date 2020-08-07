@@ -4,16 +4,30 @@ description: Conheça as diferentes maneiras como você pode implantar código p
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 754a3ea2a316878cc8c2bd918b99476a7194b545
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: bf8944952abf83837d05019bd783bec2fd43cefe
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562932"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905118"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação no Azure Functions
 
-Você pode usar algumas tecnologias diferentes para implantar o código do projeto Azure Functions no Azure. Este artigo fornece uma lista completa dessas tecnologias, descreve quais tecnologias estão disponíveis para quais tipos de funções, explica o que acontece quando você usa cada método e fornece recomendações para o melhor método a ser usado em vários cenários. As várias ferramentas que dão suporte à implantação em Azure Functions são ajustadas para a tecnologia certa com base em seu contexto. Em geral, a implantação de zip é a tecnologia de implantação recomendada para Azure Functions.
+Você pode usar algumas tecnologias diferentes para implantar o código do projeto Azure Functions no Azure. Este artigo fornece uma visão geral dos métodos de implantação disponíveis para você e recomendações para o melhor método a ser usado em vários cenários. Ele também fornece uma lista completa de detalhes importantes sobre as tecnologias de implantação underlyng. 
+
+## <a name="deployment-methods"></a>Métodos de implantação
+
+A tecnologia de implantação usada para publicar o código no Azure é geralmente determinada pela maneira como você publica seu aplicativo. O método de implantação apropriado é determinado por necessidades específicas e pelo ponto no ciclo de desenvolvimento. Por exemplo, durante o desenvolvimento e o teste, você pode implantar diretamente de sua ferramenta de desenvolvimento, como Visual Studio Code. Quando seu aplicativo está em produção, é mais provável que você publique continuamente do controle do código-fonte ou usando um pipeline de publicação automatizado, que inclui validação e testes adicionais.  
+
+A tabela a seguir descreve os métodos de implantação disponíveis para seu projeto de função.
+
+| Tipo de implantação &nbsp; | Métodos | Melhor para... |
+| -- | -- | -- |
+| Baseado em ferramentas | &bull;&nbsp;[Publicação do Visual &nbsp; Studio &nbsp; Code &nbsp;](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Publicação do Visual Studio](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Publicação de ferramentas principais](functions-run-local.md#publish) | Implantações durante o desenvolvimento e outras implantações ad-Hock. As implantações são gerenciadas localmente pelas ferramentas. | 
+| Serviço de aplicativo-gerenciado| &bull;&nbsp;[&nbsp;Centro &nbsp; de implantação (CI/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[Implantações de contêiner &nbsp;](functions-create-function-linux-custom-image.md#enable-continuous-deployment-to-azure) |  A implantação contínua (CI/CD) do controle do código-fonte ou de um registro de contêiner. As implantações são gerenciadas pela plataforma do serviço de aplicativo (kudu).|
+| Pipelines externos|&bull;&nbsp;[Pipelines do DevOps](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[Ações do GitHub](functions-how-to-github-actions.md) | Os pipelines de produção e DevOps que incluem validação, teste e outras ações adicionais são executados como parte de uma implantação automatizada. As implantações são gerenciadas pelo pipeline. |
+
+Embora implantações de funções específicas usem a melhor tecnologia com base em seu contexto, a maioria dos métodos de implantação se baseia na [implantação de zip](#zip-deploy).
 
 ## <a name="deployment-technology-availability"></a>Disponibilidade de tecnologia de implantação
 

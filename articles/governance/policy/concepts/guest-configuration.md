@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como o Azure Policy usa o agente de Configuração de Convidado para auditar as configurações dentro de máquinas virtuais.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: f2f07a3e88984a84ca1529052d5899ad8570a268
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bec0215d3f10aa9f6a20eea7258ec9d5081e8f98
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072825"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901973"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -74,7 +74,26 @@ A tabela a seguir mostra uma lista de sistemas operacionais compatíveis em imag
 
 As imagens de máquina virtual personalizadas são compatíveis com as políticas de Configuração de Convidado, desde que sejam um dos sistemas operacionais na tabela acima.
 
-## <a name="guest-configuration-extension-network-requirements"></a>Requisitos de rede da extensão de Configuração de Convidado
+## <a name="network-requirements"></a>Requisitos de rede
+
+As máquinas virtuais no Azure podem usar o adaptador de rede local ou um link privado para se comunicar com o serviço de configuração do convidado.
+
+Os computadores do Arc do Azure se conectam usando a infraestrutura de rede local para acessar os serviços do Azure e relatar o status de conformidade.
+
+### <a name="communicate-over-virtual-networks-in-azure"></a>Comunicar-se por redes virtuais no Azure
+
+As máquinas virtuais que usam redes virtuais para comunicação exigirão acesso de saída aos datacenters do Azure na porta `443` . Se você estiver usando uma rede virtual privada no Azure que não permita o tráfego de saída, configure exceções com regras de grupo de segurança de rede. A tag de serviço "GuestAndHybridManagement" pode ser usada para fazer referência ao serviço de Configuração de Convidado.
+
+### <a name="communicate-over-private-link-in-azure"></a>Comunicar-se sobre o link privado no Azure
+
+As máquinas virtuais podem usar o [link privado](../../../private-link/private-link-overview.md) para comunicação com o serviço de configuração do convidado. Aplique a marca com o nome `EnablePrivateNeworkGC` e o valor `TRUE` para habilitar esse recurso. A marca pode ser aplicada antes ou depois que as políticas de configuração de convidado são aplicadas ao computador.
+
+O tráfego é roteado usando o [endereço IP público virtual](../../../virtual-network/what-is-ip-address-168-63-129-16.md) do Azure para estabelecer um canal seguro e autenticado com recursos da plataforma Azure.
+
+### <a name="azure-arc-connected-machines"></a>Computadores conectados ao arco do Azure
+
+Os nós localizados fora do Azure que estão conectados pelo Arc do Azure exigem conectividade com o serviço de configuração do convidado.
+Detalhes sobre os requisitos de rede e proxy fornecidos na [documentação do Arc do Azure](../../../azure-arc/servers/overview.md).
 
 Para se comunicar com o provedor de recursos de Configuração de Convidado no Azure, as máquinas virtuais exigem acesso de saída aos datacenters do Azure na porta **443**. Se uma rede no Azure não permitir tráfego de saída, configure exceções com regras de [grupo de segurança de rede](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). A [tag de serviço](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" pode ser usada para fazer referência ao serviço de Configuração de Convidado.
 

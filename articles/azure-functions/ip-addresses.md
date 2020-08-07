@@ -3,12 +3,12 @@ title: Endereços IP no Azure
 description: Saiba como encontrar endereços IP de entrada e saída para aplicativos de função e o que faz com que eles sejam alterados.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: bfd2d573e0a1c78d0ef4c68be224f92e8f689f62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b99855d8cc28a41d9eb91bdcf691747910ed4a1
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656779"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874071"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Endereços IP no Azure
 
@@ -49,12 +49,13 @@ Uma maneira alternativa de encontrar os endereços IP de saída disponíveis é 
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
 ```
+
 > [!NOTE]
-> Quando um aplicativo de função que é executado no [Plano de consumo](functions-scale.md#consumption-plan) é dimensionado, um novo intervalo de endereços IP de saída pode ser atribuído. Quando executado no plano de consumo, talvez seja necessário colocar na lista de permissões todo o data center.
+> Quando um aplicativo de função que é executado no [Plano de consumo](functions-scale.md#consumption-plan) é dimensionado, um novo intervalo de endereços IP de saída pode ser atribuído. Ao executar no plano de consumo, talvez seja necessário adicionar o data center inteiro a uma lista de permissões.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Endereços IP de saída do data center
 
-Se você precisar colocar na lista de permissões os endereços IP de saída usados pelos seus aplicativos de função, outra opção é colocar na lista de permissões o data center dos aplicativos de função (região do Azure). Você pode [fazer o download de um arquivo JSON que lista endereços IP para todos os datacenters do Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Em seguida, localize o elemento JSON que se aplica à região em que seu aplicativo de função é executado.
+Se você precisar adicionar os endereços IP de saída usados por seus aplicativos de funções a uma lista de permissões, outra opção é adicionar o data center de aplicativos de funções (região do Azure) a uma lista de permissões. Você pode [fazer o download de um arquivo JSON que lista endereços IP para todos os datacenters do Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Em seguida, localize o elemento JSON que se aplica à região em que seu aplicativo de função é executado.
 
 Por exemplo, este é o que o fragmento JSON da Europa Ocidental pode parecer com:
 
