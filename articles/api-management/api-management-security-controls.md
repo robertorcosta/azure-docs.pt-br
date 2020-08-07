@@ -1,18 +1,18 @@
 ---
 title: Controles de segurança para o gerenciamento de API do Azure
-description: Uma lista de verificação de controles de segurança para avaliar o gerenciamento de API
+description: Examine uma lista de verificação de controles de segurança para avaliar o gerenciamento de API. Isso inclui controles de rede, identidade e proteção de dados.
 services: api-management
 author: vladvino
 ms.service: api-management
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: vlvinogr
-ms.openlocfilehash: 670050efe01fb658fab52a43914f193e9798b828
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a147179f7b55e43379b3c3fa3a7a0767cc97b198
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75751129"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902568"
 ---
 # <a name="security-controls-for-api-management"></a>Controles de segurança para o gerenciamento de API
 

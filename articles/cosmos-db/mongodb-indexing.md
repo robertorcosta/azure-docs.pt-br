@@ -1,20 +1,20 @@
 ---
 title: Gerenciar a indexação na API do Azure Cosmos DB para MongoDB
-description: Este artigo apresenta uma visão geral de Azure Cosmos DB recursos de indexação usando a API do MongoDB.
+description: Este artigo apresenta uma visão geral de Azure Cosmos DB recursos de indexação usando a API do Azure Cosmos DB para MongoDB
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 08/06/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b8db9e2d8b58047ebe29865bb95d7f218732c88e
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: e47b8727eccd1b185f381ae3f8474fe13a406501
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761154"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843803"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gerenciar a indexação na API do Azure Cosmos DB para MongoDB
 
@@ -315,7 +315,7 @@ Os detalhes do progresso do índice mostram a porcentagem de progresso para a op
    }
    ```
 
-### <a name="background-index-updates"></a>Atualizações de índice em segundo plano
+## <a name="background-index-updates"></a>Atualizações de índice em segundo plano
 
 Independentemente do valor especificado para a propriedade de índice de **plano de fundo** , as atualizações de índice sempre são feitas em segundo plano. Como as atualizações de índice consomem as unidades de solicitação (RUs) em uma prioridade mais baixa que outras operações de banco de dados, as alterações de índice não resultarão em nenhum tempo de inatividade para gravações, atualizações ou exclusões.
 

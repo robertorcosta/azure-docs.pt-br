@@ -3,12 +3,12 @@ title: Matriz de suporte para o agente MARS
 description: Este artigo resume o suporte ao backup do Azure ao fazer backup de computadores que executam o agente de Serviços de Recuperação do Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5ff9510dfa31bb947d50b1a91fb7f73c2d767471
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2b719bd36c27336b3fe24cdb904715bf8194ed70
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538642"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872405"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente MARS (Serviços de Recuperação do Microsoft Azure)
 
@@ -54,7 +54,7 @@ Alterações de local | Você pode alterar o local do cache interrompendo o meca
 
 O agente MARS precisa de acesso a estas URLs:
 
-- <http://www.msftncsi.com/ncsi.txt>
+- `http://www.msftncsi.com/ncsi.txt`
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *. MicrosoftOnline.com
@@ -89,6 +89,16 @@ Para obter mais informações, consulte os [requisitos de roteamento do ExpressR
 
 >[!NOTE]
 >O emparelhamento público foi preterido para novos circuitos.
+
+### <a name="private-endpoint-support"></a>Suporte de ponto de extremidade privado
+
+Agora você pode usar pontos de extremidade privados para fazer backup de seus dados com segurança de servidores para seu cofre de serviços de recuperação. Como Azure Active Directory atualmente não oferece suporte a pontos de extremidade privados, IPs e FQDNs necessários para Azure Active Directory precisarão ter permissão de acesso de saída separadamente.
+
+Ao usar o agente MARS para fazer backup de seus recursos locais, verifique se sua rede local (contendo seus recursos de backup) está emparelhada com a VNet do Azure que contém um ponto de extremidade privado para o cofre. Em seguida, você pode continuar a instalar o agente MARS e configurar o backup. No entanto, você deve garantir que toda a comunicação para o backup ocorra somente por meio da rede emparelhada.
+
+Se você remover pontos de extremidade privados para o cofre depois que um agente MARS tiver sido registrado nele, você precisará registrar novamente o contêiner com o cofre. Você não precisa interromper a proteção para eles.
+
+Leia mais sobre [pontos de extremidade privados para o backup do Azure](private-endpoints.md).
 
 ### <a name="throttling-support"></a>Suporte de limitação
 
@@ -152,7 +162,7 @@ Windows 7| 1\.700 GB
 
 ### <a name="other-limitations"></a>Outras limitações
 
-- O MARS não oferece suporte à proteção de vários computadores com o mesmo nome para um único cofre.
+- O MARS não dá suporte à proteção de vários computadores com o mesmo nome para um único cofre.
 
 ## <a name="supported-file-types-for-backup"></a>Tipos de arquivo compatíveis para backup
 
@@ -162,13 +172,13 @@ Criptografados<sup>*</sup>| Com suporte.
 Compressed | Com suporte.
 Esparsos | Com suporte.
 Compactados e esparsos |Com suporte.
-Links físicos| Sem suporte. Ignorada.
-Ponto de nova análise| Sem suporte. Ignorada.
-Criptografados e esparsos |Sem suporte. Ignorada.
-Fluxo compactado| Sem suporte. Ignorada.
-Fluxo esparso| Sem suporte. Ignorada.
-OneDrive (arquivos sincronizados são fluxos esparsos)| Sem suporte.
-Pastas com Replicação do DFS habilitado | Sem suporte.
+Links físicos| Não há suporte. Ignorada.
+Ponto de nova análise| Não há suporte. Ignorada.
+Criptografados e esparsos |Não há suporte. Ignorada.
+Fluxo compactado| Não há suporte. Ignorada.
+Fluxo esparso| Não há suporte. Ignorada.
+OneDrive (arquivos sincronizados são fluxos esparsos)| Não há suporte.
+Pastas com Replicação do DFS habilitado | Não há suporte.
 
 \*Verifique se o agente MARS tem acesso aos certificados necessários para acessar os arquivos criptografados. Arquivos inacessíveis serão ignorados.
 

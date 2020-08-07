@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 456764ae2b08b9852e56b2ab3f7cd9238b540b58
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5ec8949d1ba614ca947f9848182ae2c94e044fc3
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121938"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800391"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Criar uma oferta do Dynamics 365 Business Central
 
@@ -180,15 +180,19 @@ Na seção **Contato de suporte**, forneça também a **URL de suporte** em que 
 
 Forneça pelo menos um (e até três) documentos de marketing relacionados aqui, como white papers, folhetos, listas de verificação ou apresentações. Esses documentos precisam estar no formato .pdf.
 
-### <a name="marketplace-images"></a>Imagens do Marketplace
+### <a name="store-logos"></a>Armazenar logotipos
 
-Forneça logotipos e imagens para sua oferta. O logotipo precisa estar no formato PNG. Carregue o logotipo da oferta em dois tamanhos:
+Forneça um arquivo PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center usará isso para criar um logotipo de tamanho **pequeno** (48 x 48 pixels). Opcionalmente, você pode substituir isso por uma imagem diferente.
 
-* **Pequeno** (48 x 48 pixels)
-* **Grande** (216 x 216 pixels)
+Os dois tamanhos de logotipo são necessários para uso em locais diferentes na lista:
+
+- **Pequeno** (48 x 48)
+- **Grande** (entre 216 x 216 e 350 x 350)
 
 >[!NOTE]
 >Se você está enfrentando um problema ao carregar arquivos, verifique se sua rede local não bloqueia o serviço `https://upload.xboxlive.com` que é usado pelo Partner Center.
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de tela
 
@@ -223,9 +227,9 @@ Tenha em mente que, mesmo que você selecione todos os mercados, leis, restriç�
 
 ### <a name="preview-audience"></a>Público-alvo de versão prévia
 
-Antes de publicar sua oferta como ativa para a oferta de marketplace mais ampla, primeiro você precisará disponibilizá-la para um **público-alvo de versão prévia** limitado. Insira um **Ocultar chave** (qualquer cadeia de caracteres que use apenas letras minúsculas e/ou números) aqui. Os membros do seu público-alvo de versão prévia podem usar essa opção de ocultar chave como um token para ver uma versão prévia da sua oferta no marketplace.
+Antes de publicar sua oferta como ativa para a oferta de Marketplace mais ampla, primeiro você precisará disponibilizá-la para um **público-alvo de versão prévia** limitado. Insira um **Ocultar chave** (qualquer cadeia de caracteres que use apenas letras minúsculas e/ou números) aqui. Os membros do seu público-alvo de versão prévia podem usar esse "ocultar chave" como um token para ver uma versão prévia da sua oferta no Marketplace.
 
-Em seguida, quando estiver pronto para disponibilizar sua oferta e remover a restrição de versão prévia, você precisará remover a opção **Ocultar chave** e publicar novamente.
+Em seguida, quando estiver pronto para disponibilizar sua oferta e remover a restrição de versão prévia, você precisará remover o **ocultar chave** e publicar novamente.
 
 Selecione **Salvar rascunho** antes de continuar.
 

@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 08/06/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 29dc03d663d590c13a1948411ed597388750c1d7
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 82866daaf720fc6b1ea9ba823587c921fd438b9c
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428012"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902466"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como fazer: personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
 
@@ -261,13 +261,15 @@ Para controlar quais declarações são emitidas e o local em que os dados são 
 **Tipo de dados:** blob JSON com uma ou mais entradas de esquema de declaração
 
 **Resumo:** essa propriedade define quais declarações estão presentes nos tokens afetados pela política, além do conjunto de declarações básicas e do conjunto de declarações principais.
-Para cada entrada de esquema de declaração definida nesta propriedade, certas informações são necessárias. Especifique o local em que os dados são originados (**Valor** ou o **par Origem/ID**) e com qual declaração eles são emitidos (**Tipo de declaração**).
+Para cada entrada de esquema de declaração definida nesta propriedade, certas informações são necessárias. Especifique de onde os dados serão provenientes (**valor**, **par de origem/ID**ou par de **origem/extensão**) e quais declarações os dados são emitidos como (**tipo de declaração**).
 
 ### <a name="claim-schema-entry-elements"></a>Elementos de entrada do esquema de declaração
 
 **Valor:** o elemento de valor define um valor estático como os dados a serem emitidos na declaração.
 
-**Par ID/Origem:** os elementos de Origem e ID definem de onde os dados na declaração foram originados. 
+**Par ID/Origem:** os elementos de Origem e ID definem de onde os dados na declaração foram originados.  
+
+**Par de origem/ramalid:** Os elementos Source e ExtensionId definem o atributo de extensão do esquema de diretório em que os dados na declaração são originados. Para obter mais informações, consulte [usando atributos de extensão de esquema de diretório em declarações](active-directory-schema-extensions.md).
 
 Defina o elemento Origem para um dos seguintes valores: 
 

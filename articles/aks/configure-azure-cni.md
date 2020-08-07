@@ -4,12 +4,12 @@ description: Saiba como configurar a rede (avançada) CNI do Azure no AKS (Servi
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: d025bcddfdee25cddac311ac9a201b7f3afebd22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1bf459c530195b8855169123b8f496e4969403b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84416844"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872422"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar a rede CNI do Azure no AKS (Serviço de Kubernetes do Azure)
 
@@ -87,7 +87,7 @@ Um valor mínimo para máximo de pods por nó é imposto para garantir o espaço
 
 ### <a name="configure-maximum---existing-clusters"></a>Configurar o máximo - clusters existentes
 
-A configuração maxPod por nó pode ser definida quando você cria um novo pool de nós. Se você precisar aumentar a configuração de maxPod por nó em um cluster existente, adicione um novo pool de nós com a nova contagem de maxPod desejada. Depois de migrar o pods para o novo pool, exclua o pool mais antigo. Para excluir qualquer pool mais antigo em um cluster, verifique se você está definindo os modos de pool de nós conforme definido no [sistema de documentos do pool de nós do sistema[-node-pools].
+A configuração maxPod por nó pode ser definida quando você cria um novo pool de nós. Se você precisar aumentar a configuração de maxPod por nó em um cluster existente, adicione um novo pool de nós com a nova contagem de maxPod desejada. Depois de migrar o pods para o novo pool, exclua o pool mais antigo. Para excluir qualquer pool mais antigo em um cluster, verifique se você está definindo os modos de pool de nós conforme definido no [documento pools de nós do sistema][system-node-pools].
 
 ## <a name="deployment-parameters"></a>Parâmetros de implantação
 
@@ -106,7 +106,7 @@ Quando você cria um cluster do AKS, os seguintes parâmetros são configurávei
 
 Embora seja tecnicamente possível especificar um intervalo de endereço de serviço na mesma rede virtual do cluster, isso não é recomendado. Um comportamento imprevisível pode ocorrer se forem usados intervalos de IP sobrepostos. Para mais informações, consulte a seção [FAQ](#frequently-asked-questions) deste artigo. Para obter mais informações sobre os serviços do Kubernetes, consulte [Serviços][services] na documentação do Kubernetes.
 
-**Endereço IP do serviço DNS do Kubernetes**: O endereço IP para o serviço DNS do cluster. Esse endereço deve estar dentro do *intervalo de endereços do serviço do Kubernetes*. Não use o primeiro endereço IP no intervalo de endereços, como.1. O primeiro endereço no seu intervalo de sub-rede é usado para o endereço *kubernetes.default.svc.cluster.local*.
+**Endereço IP do serviço DNS do Kubernetes**: O endereço IP para o serviço DNS do cluster. Esse endereço deve estar dentro do *intervalo de endereços do serviço Kubernetes*. Não use o primeiro endereço IP no intervalo de endereços, como.1. O primeiro endereço no seu intervalo de sub-rede é usado para o endereço *kubernetes.default.svc.cluster.local*.
 
 **Endereço de ponte do Docker**: o endereço de rede da ponte do Docker representa o endereço de rede de ponte *docker0* padrão presente em todas as instalações do Docker. Embora a ponte *docker0* não seja usada por clusters AKs ou o próprio pods, você deve definir esse endereço para continuar a dar suporte a cenários como a *compilação do Docker* no cluster AKs. É necessário selecionar um CIDR para o endereço de rede de ponte do Docker porque, caso contrário, o Docker selecionará uma sub-rede automaticamente, o que poderá entrar em conflito com outros CIDRs. Você deve escolher um espaço de endereço que não se colide com o restante dos CIDR em suas redes, incluindo o CIDR de serviço do cluster e o Pod
 
@@ -214,4 +214,4 @@ Clusters de Kubernetes criados com Mecanismo do AKS dão suporte aos plug-ins [k
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
-[pools de nó do sistema]: use-system-pools.md
+[system-node-pools]: use-system-pools.md

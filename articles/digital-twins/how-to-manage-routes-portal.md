@@ -7,12 +7,12 @@ ms.author: v-lakast
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7786f970f612d2856948e2286ed234e2b0895072
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7d563c7706529c6f3e280f7d138c0d6ba0dfc849
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836948"
+ms.locfileid: "87902176"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (Portal)
 
@@ -129,44 +129,49 @@ Para realmente enviar dados do Azure digital gêmeos para um ponto de extremidad
 
 ### <a name="create-an-event-route"></a>Criar uma rota de eventos 
 
-Uma definição de rota de evento pode conter estes elementos:
-* A ID de rota que você deseja usar
+Uma definição de rota de evento contém estes elementos:
+* O nome da rota que você deseja usar
 * O nome do ponto de extremidade que você deseja usar
 * Um filtro que define quais eventos são enviados para o ponto de extremidade
+    - Para desabilitar a rota para que nenhum evento seja enviado, use um valor de filtro de`false`
+    - Para habilitar uma rota sem filtragem específica, use um valor de filtro de`true`
+    - Para obter detalhes sobre qualquer outro tipo de filtro, consulte a seção [*filtrar eventos*](#filter-events) abaixo.
 
-Se não houver nenhuma ID de rota, nenhuma mensagem será roteada fora do Azure digital gêmeos.
-Se houver uma ID de rota e o filtro for `true` , todas as mensagens serão roteadas para o ponto de extremidade.
-Se houver uma ID de rota e um filtro diferente for adicionado, as mensagens serão filtradas com base no filtro.
-
-Uma rota deve permitir que várias notificações e tipos de eventos sejam selecionados.
+Uma única rota pode permitir que várias notificações e tipos de eventos sejam selecionados.
 
 Para criar uma rota de evento, vá para a página de detalhes da instância do gêmeos digital do Azure no [portal do Azure](https://portal.azure.com) (você pode encontrar a instância inserindo seu nome na barra de pesquisa do Portal).
 
 No menu instância, selecione _rotas de eventos_. Em seguida, na página *rotas de eventos* a seguir, selecione *+ criar uma rota de evento*. 
 
-Na página *criar uma rota de eventos* que é aberta, escolha no mínimo um nome para a rota no campo _nome_ e selecione o ponto de _extremidade_ que você deseja usar para criar uma rota na lista suspensa.
+Na página *criar uma rota de eventos* que é aberta, escolha no mínimo:
+* Um nome para a rota no campo _nome_
+* O _ponto de extremidade_ que você gostaria de usar para criar a rota 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Captura de tela da criação de rota de evento para sua instância.":::
+Para que a rota seja habilitada, você também deve **Adicionar um filtro de rota de evento** de pelo menos `true` . (Deixar o valor padrão de `false` criará a rota, mas nenhum evento será enviado a ela). Para fazer isso, alterne a opção do _Editor avançado_ para habilitá-lo e escreva `true` na caixa de *filtro* .
+
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Captura de tela da criação de rota de evento para sua instância." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 Quando terminar, pressione o botão _salvar_ para criar a rota de eventos.
 
 ### <a name="filter-events"></a>Filtrar eventos
 
-Sem a filtragem, os pontos de extremidade recebem uma variedade de eventos do Azure digital gêmeos:
+Conforme descrito acima, as rotas têm um campo de **filtro** . Se o valor do filtro em sua rota for `false` , nenhum evento será enviado ao seu ponto de extremidade. 
+
+Depois de habilitar o filtro mínimo do `true` , os pontos de extremidade receberão uma variedade de eventos do Azure digital gêmeos:
 * Telemetria acionada por [gêmeos digital](concepts-twins-graph.md) usando a API do serviço gêmeos do Azure digital
 * Notificações de alteração de propriedade de cópia, disparadas em alterações de propriedade para qualquer cópia na instância de gêmeos digital do Azure
 * Eventos de ciclo de vida, acionados quando gêmeos ou relações são criados ou excluídos
 * Eventos de alteração de modelo, acionados quando [modelos](concepts-models.md) configurados em uma instância de gêmeos digital do Azure são adicionados ou excluídos
 
-Você pode restringir os eventos que estão sendo enviados adicionando um **filtro** para um ponto de extremidade à sua rota de eventos.
+Você pode restringir os tipos de eventos que estão sendo enviados definindo um filtro mais específico.
 
-Para adicionar um filtro durante a criação de uma rota de eventos, use a seção _Adicionar um filtro de rota de eventos_ da página *criar uma rota de eventos* . 
+Para adicionar um filtro de eventos durante a criação de uma rota de eventos, use a seção _Adicionar um filtro de rota de eventos_ da página *criar uma rota de eventos* . 
 
 Você pode selecionar entre algumas opções básicas de filtro comum ou usar as opções de filtro avançado para escrever seus próprios filtros personalizados.
 
 #### <a name="use-the-basic-filters"></a>Usar os filtros básicos
 
-Para usar os filtros básicos, expanda a opção _tipos de evento_ e marque as caixas de seleção correspondentes aos eventos que você gostaria de filtrar. 
+Para usar os filtros básicos, expanda a opção _tipos de evento_ e marque as caixas de seleção correspondentes aos eventos que você gostaria de enviar para o ponto de extremidade. 
 
 :::row:::
     :::column:::
