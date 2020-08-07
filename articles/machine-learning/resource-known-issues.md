@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 03/31/2020
-ms.openlocfilehash: 8f58fcef1a35494053803d98b43ce97fed7205e0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.date: 08/06/2020
+ms.openlocfilehash: 23b749a45e130e99b660cd5bc56349732159e340
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373684"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905489"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conhecidos e solução de problemas no Azure Machine Learning
 
@@ -131,7 +131,7 @@ Para obter mais informações sobre solução de problemas, consulte [próximas 
 
     Como alternativa, você pode usar scripts de inicialização se continuar enfrentando problemas de instalação com bibliotecas do Python. Essa abordagem não tem suporte oficial. Para obter mais informações, consulte [scripts de inicialização no escopo do cluster](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-* **Erro de importação do databricks: não é possível importar o nome ' timedelta ' de ' pandas. _libs. tslibs '**: se você vir esse erro ao usar o aprendizado de máquina automatizado, execute as duas linhas a seguir em seu bloco de anotações:
+* **Erro `Timedelta` de importação `pandas._libs.tslibs` do databricks: não é possível importar o nome de **: se você vir esse erro ao usar o aprendizado de máquina automatizado, execute as duas linhas a seguir no bloco de anotações:
     ```
     %sh rm -rf /databricks/python/lib/python3.7/site-packages/pandas-0.23.4.dist-info /databricks/python/lib/python3.7/site-packages/pandas
     %sh /databricks/python/bin/pip install pandas==0.23.4
@@ -219,7 +219,7 @@ Limitações e problemas conhecidos para monitores de descompasso de dados:
     | Categóricos | Cadeia de caracteres, bool, int, float | O número de valores exclusivos no recurso é menor que 100 e menor que 5% do número de linhas. | NULL é tratado como sua própria categoria. | 
     | Numérico | int, float | Os valores no recurso são de um tipo de dados numérico e não atendem à condição de um recurso categórico. | Recurso Descartado se >15% dos valores forem nulos. | 
 
-* Quando você tiver [criado um monitor de descompasso](how-to-monitor-datasets.md) , mas não puder ver os dados na página de **monitores do conjunto** no Azure Machine Learning Studio, tente o seguinte.
+* Quando você tiver [criado um monitor de descompasso de dados](how-to-monitor-datasets.md) , mas não puder ver os dados na página de **monitores do DataSet** no Azure Machine Learning Studio, tente o seguinte.
 
     1. Verifique se você selecionou o intervalo de datas correto na parte superior da página.  
     1. Na guia **monitores do conjunto** de testes, selecione o link experimento para verificar o status da execução.  Esse link está na extrema direita da tabela.
@@ -283,7 +283,7 @@ time.sleep(600)
 
 ## <a name="automated-machine-learning"></a>Machine Learning automatizado
 
-* **TensorFlow**: a partir da versão 1.5.0 do SDK, o Machine Learning automatizado não instala modelos TensorFlow por padrão. Para instalar o tensorflow e usá-lo com seus experimentos de ML automatizados, instale tensorflow = = 1.12.0 via CondaDependecies. 
+* **TensorFlow**: a partir da versão 1.5.0 do SDK, o Machine Learning automatizado não instala modelos TensorFlow por padrão. Para instalar o TensorFlow e usá-lo com seus experimentos de ML automatizados, instale TensorFlow = = 1.12.0 via CondaDependecies. 
  
    ```python
    from azureml.core.runconfig import RunConfiguration
@@ -373,7 +373,7 @@ Por exemplo, você receberá um erro se tentar criar ou anexar um destino de com
 
 O controle de acesso baseado em função do Azure pode ser usado para restringir ações que podem ser executadas com Azure Machine Learning. Essas restrições podem impedir que itens da interface do usuário sejam mostrados no Azure Machine Learning Studio. Por exemplo, se você receber uma função que não pode criar uma instância de computação, a opção para criar uma instância de computação não será exibida no estúdio.
 
-Para obter mais informações, consulte [gerenciar usuários e funções](how-to-assign-roles.md).
+Para obter mais informações, confira [Gerenciar usuários e funções](how-to-assign-roles.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -382,5 +382,5 @@ Veja mais artigos de solução de problemas para Azure Machine Learning:
 * [Solução de problemas de implantação do Docker com Azure Machine Learning](how-to-troubleshoot-deployment.md)
 * [Depurar pipelines do Machine Learning](how-to-debug-pipelines.md)
 * [Depurar a classe ParallelRunStep do SDK Azure Machine Learning](how-to-debug-parallel-run-step.md)
-* [Depuração interativa de uma instância de computação do Machine Learning com VS Code](how-to-set-up-vs-code-remote.md)
+* [Depuração interativa de uma instância de computação do Machine Learning com VS Code](how-to-debug-visual-studio-code.md)
 * [Usar Application Insights para depurar pipelines do Machine Learning](how-to-debug-pipelines-application-insights.md)

@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 0a9eaeb9b77c7b4dd7e0b2347c66de3a325a66ee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ff0df654650bb1c32d5c3e9833ebde2a81e3d65c
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505169"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799949"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes
 [Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo o log de atividades do Azure e os logs de recursos, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem. As [métricas de plataforma](data-platform-metrics.md) são coletadas por padrão e normalmente armazenadas no banco de dados de métricas Azure monitor. Este artigo fornece detalhes sobre como criar e definir configurações de diagnóstico para enviar métricas de plataforma e logs de plataforma para destinos diferentes.
@@ -58,7 +58,7 @@ Todos os destinos para a configuração de diagnóstico devem ser criados com as
 [Crie um novo espaço de trabalho](../learn/quick-create-workspace.md) se você ainda não tiver um. O espaço de trabalho não precisa estar na mesma assinatura que o recurso que envia logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 
 ### <a name="event-hub"></a>Hub de Eventos
-[Crie um hub de eventos](../../event-hubs/event-hubs-create.md) se você ainda não tiver um. O namespace dos Hubs de Eventos não precisa estar na mesma assinatura que emite os logs, desde que o usuário que define a configuração tenha acesso RBAC adequado a ambas as assinaturas e as duas assinaturas estejam no mesmo locatário do ADD.
+[Crie um hub de eventos](../../event-hubs/event-hubs-create.md) se você ainda não tiver um. O namespace de hubs de eventos não precisa estar na mesma assinatura que a assinatura que está emitindo logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas e ambas as assinaturas estejam no mesmo locatário.
 
 A política de acesso compartilhado para o namespace define as permissões que o mecanismo de streaming tem. O streaming para hubs de eventos requer permissões de gerenciar, enviar e escutar. Você pode criar ou modificar políticas de acesso compartilhado no portal do Azure na guia Configurar para seu namespace de hubs de eventos. Para atualizar a configuração de diagnóstico para incluir streaming, você deve ter a permissão ListKey nessa regra de autorização de hubs de eventos. 
 
@@ -83,15 +83,15 @@ Você pode definir as configurações de diagnóstico no portal do Azure no menu
 
    - Para um único recurso, clique em **configurações de diagnóstico** em **Monitor** no menu do recurso.
 
-        ![Configurações de diagnóstico](media/diagnostic-settings/menu-resource.png)
+        ![Configurações de Diagnóstico](media/diagnostic-settings/menu-resource.png)
 
    - Para um ou mais recursos, clique em **configurações de diagnóstico** em **configurações** no menu Azure monitor e clique no recurso.
 
-      ![Configurações de diagnóstico](media/diagnostic-settings/menu-monitor.png)
+      ![Configurações de Diagnóstico](media/diagnostic-settings/menu-monitor.png)
 
    - Para o log de atividades, clique em **log de atividades** no menu **Azure monitor** e, em seguida, **configurações de diagnóstico**. Certifique-se de desabilitar qualquer configuração herdada para o log de atividades. Consulte [desabilitar configurações existentes](./activity-log.md#legacy-collection-methods) para obter detalhes.
 
-        ![Configurações de diagnóstico](media/diagnostic-settings/menu-activity-log.png)
+        ![Configurações de Diagnóstico](media/diagnostic-settings/menu-activity-log.png)
 
 2. Se nenhuma configuração existir no recurso que você selecionou, será solicitada a criação de uma configuração. Clique em **Adicionar configuração de diagnóstico**.
 
@@ -138,7 +138,7 @@ Você pode definir as configurações de diagnóstico no portal do Azure no menu
         >
         > Por exemplo, se você definir a política de retenção para *WorkflowRuntime* como 180 dias e, em seguida, 24 horas depois defini-la como 365 dias, os logs armazenados durante essas primeiras 24 horas serão excluídos automaticamente após 180 dias, enquanto todos os logs subsequentes desse tipo serão excluídos automaticamente após 365 dias. A alteração da política de retenção mais tarde não faz com que as primeiras 24 horas de logs permaneçam por cerca de 365 dias.
 
-6. Clique em **Save** (Salvar).
+6. Clique em **Salvar**.
 
 Após alguns instantes, a nova configuração aparecerá na lista de configurações desse recurso e os logs serão transmitidos para os destinos especificados à medida que novos dados de evento forem gerados. Pode levar até 15 minutos entre o momento em que um evento é emitido e quando ele [aparece em um espaço de trabalho log Analytics](data-ingestion-time.md).
 
@@ -182,7 +182,7 @@ Consulte [exemplos de modelo do Resource Manager para configurações de diagnó
 Consulte [configurações de diagnóstico](/rest/api/monitor/diagnosticsettings) para criar ou atualizar as configurações de diagnóstico usando a [API REST do Azure monitor](/rest/api/monitor/).
 
 ## <a name="create-using-azure-policy"></a>Criar usando Azure Policy
-Como uma configuração de diagnóstico precisa ser criada para cada recurso do Azure, Azure Policy pode ser usada para criar automaticamente uma configuração de diagnóstico à medida que cada recurso é criado. Consulte [implantar Azure monitor em escala usando Azure Policy](deploy-scale.md) para obter detalhes.
+Como uma configuração de diagnóstico precisa ser criada para cada recurso do Azure, Azure Policy pode ser usada para criar automaticamente uma configuração de diagnóstico à medida que cada recurso é criado. Consulte [implantar Azure monitor em escala usando Azure Policy](../deploy-scale.md) para obter detalhes.
 
 
 ## <a name="next-steps"></a>Próximas etapas

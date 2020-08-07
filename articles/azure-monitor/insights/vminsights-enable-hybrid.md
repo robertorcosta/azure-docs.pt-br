@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ccf4ad960abfd737a9a05d8fdc77a8bb1ea92d2d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3b30cefdd72286c15095828c409a87f173200a7b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417107"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828397"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>Habilitar Azure Monitor para VMs para uma máquina virtual híbrida
 Este artigo descreve como habilitar Azure Monitor para VMs para uma máquina virtual fora do Azure, incluindo ambientes de nuvem locais e outros.
@@ -92,7 +92,7 @@ Se o Agente de Dependência não for iniciado, verifique os logs para obter info
 
 Os arquivos do Agente de Dependência são colocados nos diretórios a seguir:
 
-| Arquivos | Location |
+| Arquivos | Localização |
 |:--|:--|
 | Arquivos de núcleo | /opt/microsoft/dependency-agent |
 | Arquivos de log | /var/opt/microsoft/dependency-agent/log |
@@ -158,7 +158,7 @@ Se a instalação do agente de dependência for bem-sucedida, mas você não vir
 
     **Linux**: Procure o processo em execução "Microsoft-Dependency-Agent".
 
-2. Você está no [tipo de preço gratuito do log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? O plano gratuito permite até cinco computadores exclusivos. Todos os computadores subsequentes não aparecerão no mapa, mesmo que os cinco anteriores não estejam mais enviando dados.
+2. Você está no [tipo de preço gratuito do log Analytics](./solutions.md)? O plano gratuito permite até cinco computadores exclusivos. Todos os computadores subsequentes não aparecerão no mapa, mesmo que os cinco anteriores não estejam mais enviando dados.
 
 3. O computador está enviando dados de log e desempenho para Azure Monitor logs? Execute a seguinte consulta para seu computador:
 

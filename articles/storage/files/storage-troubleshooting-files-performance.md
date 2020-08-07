@@ -1,18 +1,18 @@
 ---
 title: Guia de solução de problemas de desempenho de arquivos do Azure
-description: Problemas de desempenho conhecidos com compartilhamentos de arquivos do Azure e soluções alternativas associadas.
+description: Solucionar problemas de desempenho conhecidos com compartilhamentos de arquivos do Azure. Descubra possíveis causas e soluções alternativas associadas quando esses problemas forem encontrados.
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 64c7e56f14fb06e7b211954eb93e4858563a8f08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c0d7e5c7c021f8cdad8980bd7659d819b85f899
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511948"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905007"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de desempenho de arquivos do Azure
 
@@ -30,7 +30,7 @@ Para confirmar se o compartilhamento está sendo limitado, você pode aproveitar
 
 1. Selecione **todos os serviços** e, em seguida, pesquise **métricas**.
 
-1. Selecione **métricas**.
+1. Selecione **Métricas**.
 
 1. Selecione sua conta de armazenamento como o recurso.
 
