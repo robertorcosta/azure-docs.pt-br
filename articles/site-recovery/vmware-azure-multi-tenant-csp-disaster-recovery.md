@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 1b77eb136b8415e5a6e4596dc0b192ea426f378f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7cf0d35ae610c3f9fe477267e28e5449459148b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292844"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924573"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurar a recuperação de desastre do VMware em um ambiente multilocatário com o programa CSP (Provedor de Solução de Nuvem)
 
@@ -98,7 +98,7 @@ Há três modelos principais de multilocatários:
 Ao configurar assinaturas de locatários, conforme descrito neste artigo, você pode iniciar rapidamente permitindo os clientes em qualquer um dos modelos de multilocatários relevantes. Você pode aprender mais sobre os diferentes modelos de multilocatários e habilitar o controles de acesso no local [aqui](vmware-azure-multi-tenant-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre [o controle de acesso baseado em função](site-recovery-role-based-linked-access-control.md) para gerenciar implantações do Azure Site Recovery.
+- Saiba mais sobre o Azure [RBAC (controle de acesso baseado em função)](site-recovery-role-based-linked-access-control.md) para gerenciar implantações de Azure site Recovery.
 - Saiba mais sobre a arquitetura de [replicação](vmware-azure-architecture.md)do VMware para o Azure.
 - [Revise o tutorial](vmware-azure-tutorial.md) para replicar VMs VMware no Azure.
 Saiba mais sobre [ambiantes multilocatários](vmware-azure-multi-tenant-overview.md) para replicar VMware VMs para Azure.

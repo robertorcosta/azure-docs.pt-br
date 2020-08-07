@@ -7,6 +7,8 @@
 - name: Inícios rápidos
   expanded: true
   items:
+    - name: Configurar os logs de fluxo NSG usando o modelo ARM
+      href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
     - name: Diagnosticar o problema de filtro de tráfego da VM - Portal
       href: diagnose-vm-network-traffic-filtering-problem.md
     - name: Diagnosticar o problema de filtro de tráfego da VM - PowerShell

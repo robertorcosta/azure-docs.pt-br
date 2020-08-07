@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 7035a4f6e3fe8a3c104568697fcf323e4c0bd2c0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fcde2ed4986b367e35965f6524e7d7727eaa07c9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095752"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926766"
 ---
 # <a name="tutorial-configure-linkedin-learning-for-automatic-user-provisioning"></a>Tutorial: Configurar LinkedIn Learning para provisionamento automático de usuário
 
@@ -114,13 +114,13 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
    |Atributo|Type|Com suporte para filtragem|
    |---|---|---|
-   |externalId|Cadeia de caracteres|&check;|
-   |userName|Cadeia de caracteres|
-   |name.givenName|Cadeia de caracteres|
+   |externalId|String|&check;|
+   |userName|String|
+   |name.givenName|String|
    |name.familyName|String|
-   |displayName|Cadeia de caracteres|
-   |addresses[type eq "work"].locality|Cadeia de caracteres|
-   |título|Cadeia de caracteres|
+   |displayName|String|
+   |addresses[type eq "work"].locality|String|
+   |título|String|
    |emails[type eq "work"].value|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
@@ -133,7 +133,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
     |---|---|---|
     |displayName|String|&check;|
     |membros|Referência|
-    |externalId|Cadeia de caracteres|
+    |externalId|String|
 
 12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -155,7 +155,7 @@ Essa operação começa o ciclo de sincronização inicial de todos os usuários
 Depois de configurar o provisionamento, use os seguintes recursos para monitorar a implantação:
 
 1. Use os [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais usuários foram provisionados com êxito ou não
-2. Confira a [barra de progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
+2. Confira a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
 3. Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="additional-resources"></a>Recursos adicionais

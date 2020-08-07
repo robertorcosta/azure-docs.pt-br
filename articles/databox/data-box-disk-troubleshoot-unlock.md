@@ -1,6 +1,6 @@
 ---
 title: Disco do Azure Data Box solução de problemas de desbloqueio de disco | Microsoft Docs
-description: Descreve como solucionar os problemas observados no Azure Data Box Disk.
+description: Saiba mais sobre os fluxos de trabalho para solucionar problemas da ferramenta de desbloqueio com Disco do Azure Data Box. Consulte Disco do Data Box erros de ferramenta de desbloqueio.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: troubleshooting
 ms.date: 08/05/2020
 ms.author: alkohli
-ms.openlocfilehash: 61f6da7df09f9569af1746563dc3be2922f4e2c1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 866cf01243983863292ada0b086f8f5b2f94e412
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833559"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925554"
 ---
 # <a name="troubleshoot-disk-unlocking-issues-in-azure-data-box-disk"></a>Solucionar problemas de desbloqueio de disco no Disco do Azure Data Box
 

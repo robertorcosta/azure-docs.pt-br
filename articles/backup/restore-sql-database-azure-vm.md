@@ -3,12 +3,12 @@ title: Restaurar bancos de dados SQL Server em uma VM do Azure
 description: Este artigo descreve como restaurar SQL Server bancos de dados que estão em execução em uma VM do Azure e cujo backup é feito com o backup do Azure.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 2c3b81c4d0bc4c7548fec8ec131fea66684a7aa8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 97cf8a7d7fcae0e31dde14e045b222c5899dbb02
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054574"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921139"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bancos de dados do SQL Server em VMs do Azure
 
@@ -30,6 +30,7 @@ Antes de restaurar um banco de dados, observe o seguinte:
 - Você pode restaurar o banco de dados para uma instância de um SQL Server na mesma região do Azure.
 - O servidor de destino precisa ser registrado no mesmo cofre que a fonte.
 - Para restaurar um banco de dados criptografado com TDE para outro SQL Server, primeiro você precisa [restaurar o certificado para o servidor de destino](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
+- Bancos de dados habilitados para [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-ver15) devem ser restaurados usando a opção [restaurar como arquivos](#restore-as-files) .
 - Antes de restaurar o banco de dados "mestre", inicie a instância de SQL Server no modo de usuário único usando a opção de inicialização **-m AzureWorkloadBackup**.
   - O valor de **-m** é o nome do cliente.
   - Somente o nome do cliente especificado pode abrir a conexão.
@@ -149,7 +150,7 @@ Se você tiver selecionado **Logs (Pontual)** como o tipo de restauração, faç
     ![Abrir o calendário](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
 
 1. Depois de você selecionar uma data, o gráfico de linha do tempo exibirá os pontos de recuperação disponíveis em um intervalo contínuo.
-1. Especifique uma hora para a recuperação no grafo da linha do tempo ou selecione uma hora. Em seguida, selecione **OK**.
+1. Especifique uma hora para a recuperação no grafo da linha do tempo ou selecione uma hora. Depois, selecione **OK**.
 
 ### <a name="restore-to-a-specific-restore-point"></a>Restaurar a um ponto de restauração específico
 

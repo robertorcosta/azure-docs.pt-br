@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 27fcbcec07012dc34c846f316fccf788a0d25329
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72f0d361f69232894df3a9131d173411614a2055
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84025807"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921190"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Você pode usar o portal do Azure para encontrar recomendações de desempenho q
 
 ## <a name="viewing-recommendations"></a>Exibindo recomendações
 
-Para exibir e aplicar as recomendações de desempenho, você precisa das permissões corretas ao [controle de acesso baseado em função](../../role-based-access-control/overview.md) no Azure. As permissões de **Leitor**, **Contribuidor do DB SQL** são necessárias para exibir as recomendações, enquanto as permissões de **Proprietário**, **Contribuidor do DB SQL** são necessárias para executar todas as ações: criar ou remover índices e cancelar a criação de índices.
+Para exibir e aplicar recomendações de desempenho, você precisa das permissões corretas do Azure [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) do Azure no Azure. As permissões de **Leitor**, **Contribuidor do DB SQL** são necessárias para exibir as recomendações, enquanto as permissões de **Proprietário**, **Contribuidor do DB SQL** são necessárias para executar todas as ações: criar ou remover índices e cancelar a criação de índices.
 
 Use as etapas a seguir para encontrar recomendações de desempenho no portal do Azure:
 
@@ -132,7 +132,7 @@ A aplicação de uma recomendação pode não acontecer instantaneamente. O port
 | Pendente |O comando Aplicar recomendação foi recebido e está programado para execução. |
 | Executando |A recomendação está sendo aplicada. |
 | Validando |A recomendação foi aplicada com êxito e o serviço está medindo os benefícios. |
-| Êxito |A recomendação foi aplicada com êxito e benefícios foram calculados. |
+| Sucesso |A recomendação foi aplicada com êxito e benefícios foram calculados. |
 | Erro |Ocorreu um erro durante o processo de aplicação da recomendação. Este pode ser um problema temporário ou, possivelmente, uma alteração de esquema na tabela, tornando o script inválido. |
 | Revertendo |A recomendação foi aplicada, mas foi considerada não funcional e está sendo revertida automaticamente. |
 | Revertida |A recomendação foi revertida. |
@@ -172,4 +172,4 @@ Monitore suas recomendações e continue a aplicá-las para refinar o desempenho
 
 * [Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Controle de acesso baseado em função](../../role-based-access-control/overview.md)
+* [Controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md)

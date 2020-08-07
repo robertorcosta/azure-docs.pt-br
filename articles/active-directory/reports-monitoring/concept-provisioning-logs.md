@@ -17,12 +17,12 @@ ms.date: 11/04/2019
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30cc8be6ad9ebffcad58c5b2412ae15ff3f26fa5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38cffdcc9c99cdec2aeac8bf6fe1dc1575691c8d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81113356"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924023"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisionando relatórios no portal de Azure Active Directory (versão prévia)
 
@@ -118,7 +118,7 @@ Ao selecionar um período de tempo personalizado, você pode configurar uma data
 
 O filtro **Status** permite que você selecione:
 
-- Tudo
+- Todos
 - Sucesso
 - Falha
 - Ignorado
@@ -128,7 +128,7 @@ O filtro **Status** permite que você selecione:
 O filtro de **ação** permite filtrar o:
 
 - Criar 
-- Atualizar
+- Atualização
 - Excluir
 - Desabilitar
 - Outros
@@ -175,7 +175,7 @@ Os detalhes são agrupados com base nas seguintes categorias:
 - Resumo
 
 
-![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Tabulações")
+![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Guias")
 
 
 
@@ -245,7 +245,7 @@ Use a tabela a seguir para entender melhor como resolver erros que podem ser enc
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Verificar o status do provisionamento do usuário](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)
+* [Verificar o status do provisionamento do usuário](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)
 * [Problema na configuração do provisionamento do usuário para um aplicativo de galeria do Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
 
 

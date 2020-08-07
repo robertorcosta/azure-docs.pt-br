@@ -5,22 +5,25 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 08/6/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 2398e95d9a119fe24c97f3887d16aa5b86c6ac76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af777efda769315019ecee41d4053f5ab82f3047
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119300"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920425"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Níveis de consistência e APIs do Azure Cosmos DB
 
-O Azure Cosmos DB fornece suporte nativo para APIs compatíveis com protocolo de conexão para bancos de dados populares. Isso inclui o MongoDB, o Apache Cassandra, o Gremlin e o armazenamento de tabelas do Azure. Esses bancos de dados não oferecem modelos de consistência definidos com precisão ou garantias com suporte de SLA para os níveis de consistência. Fornecem normalmente apenas um subconjunto dos cincos modelos de consistência oferecidos pelo Azure Cosmos DB. 
+O Azure Cosmos DB fornece suporte nativo para APIs compatíveis com protocolo de conexão para bancos de dados populares. Isso inclui o MongoDB, o Apache Cassandra, o Gremlin e o armazenamento de tabelas do Azure. Esses bancos de dados não oferecem modelos de consistência definidos com precisão ou garantias com suporte de SLA para os níveis de consistência. Fornecem normalmente apenas um subconjunto dos cincos modelos de consistência oferecidos pelo Azure Cosmos DB.
 
 Ao usar a API do SQL, a API do Gremlin e o API de Tabela, o nível de consistência padrão configurado na conta do Azure cosmos é usado. 
 
 Ao usar a API do API do Cassandra ou do Azure Cosmos DB para o MongoDB, os aplicativos obtêm um conjunto completo de níveis de consistência oferecidos pelo Apache Cassandra e pelo MongoDB, respectivamente, com uma consistência ainda mais forte e garantias de durabilidade. Este documento mostra os níveis de consistência de Azure Cosmos DB correspondentes para os níveis de consistência do Apache Cassandra e do MongoDB.
+
+> [!NOTE]
+> O modelo de consistência padrão para Azure Cosmos DB é Session. Session é um modelo de consistência centrado no cliente que não tem suporte nativo do Cassandra ou do MongoDB. Para obter mais informações sobre qual modelo de consistência escolher, consulte [níveis de consistência no Azure Cosmos DB](consistency-levels.md)
 
 ## <a name="mapping-between-apache-cassandra-and-azure-cosmos-db-consistency-levels"></a><a id="cassandra-mapping"></a>O mapeamento entre os níveis de consistência do Apache Cassandra e o Azure Cosmos DB
 
@@ -36,14 +39,14 @@ A tabela a seguir ilustra como os níveis de consistência Cassandra nativos sã
 
 ## <a name="mapping-between-mongodb-and-azure-cosmos-db-consistency-levels"></a><a id="mongo-mapping"></a>Mapeamento entre os níveis de consistência do MongoDB e do Azure Cosmos DB
 
-Ao contrário do Azure Cosmos DB, o MongoDB nativo não fornece garantias de consistência definidas com precisão. Em vez disso, o MongoDB nativo permite que os usuários configurem as seguintes garantias de consistência: uma preocupação de gravação, uma preocupação de leitura e a diretiva IsMaster – para direcionar as operações de leitura para réplicas primárias ou secundárias para atingir o nível de consistência desejado. 
+Ao contrário do Azure Cosmos DB, o MongoDB nativo não fornece garantias de consistência definidas com precisão. Em vez disso, o MongoDB nativo permite que os usuários configurem as seguintes garantias de consistência: uma preocupação de gravação, uma preocupação de leitura e a diretiva IsMaster – para direcionar as operações de leitura para réplicas primárias ou secundárias para atingir o nível de consistência desejado.
 
 Ao usar a API do Azure Cosmos DB para MongoDB, o driver do MongoDB trata sua região de gravação como a réplica primária e todas as outras regiões são de leitura de réplica. Você pode escolher qual região associada à sua conta do Azure cosmos como uma réplica primária. 
 
 Ao usar a API do Azure Cosmos DB para MongoDB:
 
 * A preocupação de gravação é mapeada para o nível de consistência padrão configurado em sua conta do Azure Cosmos.
- 
+
 * Azure Cosmos DB mapeará dinamicamente a preocupação de leitura especificada pelo driver do cliente MongoDB para um dos níveis de consistência Azure Cosmos DB configurados dinamicamente em uma solicitação de leitura.  
 
 * Você pode anotar uma região específica associada à sua conta do Azure cosmos como "mestre", tornando a região como a primeira região gravável. 

@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações do
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: d75e7053bfff14fbcb6deeae48c48f09e3e9ac0d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: f2f3d26f74c6227ad257c188d4088fd41fca7075
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531873"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922309"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte Backup do Azure
 
@@ -32,8 +32,8 @@ A tabela a seguir descreve os recursos dos cofres de Serviços de Recuperação:
 **Recurso** | **Detalhes**
 --- | ---
 **Cofres na assinatura** | Até 500 cofres dos Serviços de Recuperação em uma assinatura única.
-**Computadores em um cofre** | Até 1.000 VMs do Azure em um único cofre.<br/><br/> Até 50 servidores MABS podem ser registrados em um único cofre.
-**Fontes de dados** | O tamanho máximo de uma [fonte de dados](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) individual é de 54.400 GB. Este limite não se aplica a backups de VM do Azure. Nenhum limite se aplica à quantidade total de dados sobre os quais você pode fazer backup para o cofre.
+**Computadores em um cofre** | Até 2000 fontes de origem em todas as cargas de trabalho (como VMs do Azure, SQL Server VM, servidores MABS e assim por diante) podem ser protegidas em um único cofre.<br><br>Até 1.000 VMs do Azure em um único cofre.<br/><br/> Até 50 servidores MABS podem ser registrados em um único cofre.
+**Fontes de dados** | O tamanho máximo de uma [fonte de dados](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined) individual é de 54.400 GB. Esse limite não se aplica aos backups de VM do Azure. Nenhum limite se aplica à quantidade total de dados sobre os quais você pode fazer backup para o cofre.
 **Backups no cofre** | **VMs do Azure:** Uma vez por dia.<br/><br/>**Computadores protegidos por DPM/MABS:** Duas vezes por dia.<br/><br/> **Backup direto de computadores usando o agente MARS:** Três vezes por dia.
 **Backups entre cofres** | O backup é dentro de uma região.<br/><br/> Você precisa de um cofre em cada região do Azure que contenha VMs que você deseja fazer backup. Você não pode fazer backup em uma região diferente.
 **Movimentação de cofres** | Você pode [mover cofres](./backup-azure-move-recovery-services-vault.md) entre assinaturas ou entre grupos de recursos na mesma assinatura. No entanto, não há suporte para a movimentação de cofres entre regiões.
@@ -85,7 +85,7 @@ Veja a seguir os itens compatíveis, caso deseje fazer backup de computadores Li
 
 ## <a name="daylight-saving-time-support"></a>Suporte de horário de verão
 
-O Backup do Azure não dá suporte ao ajuste automático do relógio para alterações de horário de verão para backups de VMs do Azure. Ele não adianta ou atrasa a hora do backup. Para garantir que o backup seja executado na hora desejada, modifique as políticas de backup manualmente, conforme necessário.
+O Backup do Azure não dá suporte ao ajuste automático do relógio para alterações de horário de verão para backups de VMs do Azure. Ele não muda a hora do backup para frente ou para trás. Para garantir que o backup seja executado na hora desejada, modifique as políticas de backup manualmente, conforme necessário.
 
 ## <a name="disk-deduplication-support"></a>Suporte de eliminação de duplicação de disco
 

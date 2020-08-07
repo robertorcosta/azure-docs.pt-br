@@ -1,18 +1,18 @@
 ---
 title: 'Gateway de VPN do Azure: sobre roteamento de P2S'
-description: Este artigo ajuda você a entender como o roteamento de VPN Ponto a Site se comporta.
+description: Saiba mais sobre o comportamento de roteamento de VPN ponto a site do Azure, que depende do sistema operacional cliente, do protocolo usado para a conexão e de como as redes virtuais se conectam.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: kumud
-ms.openlocfilehash: 536e1e57af16a87fba85323e9448bfb904d56384
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8ee75f80ea2e1ee379561b743c2b4add4ef1d7b9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027862"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926902"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Sobre o roteamento VPN Ponto a Site
 

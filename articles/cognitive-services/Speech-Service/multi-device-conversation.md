@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 7c30ee2ef4a6ab0cd4241cac921a59eeadf5ce17
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 15b69e664ae9a01635afb44d7b6b7c24d7551ce9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81401057"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921411"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>O que é conversa com vários dispositivos (versão prévia)?
 
@@ -60,9 +60,9 @@ A transcrição e a tradução em tempo real podem ajudar a tornar as conversas 
 Você também pode fornecer legendas para apresentações e palestras na tela e nos próprios dispositivos dos membros do público. Depois que o público ingressa no código de conversa, ele pode ver a transcrição em seu idioma preferencial, em seu próprio dispositivo.
 
 > [!NOTE]
-> Para ver um exemplo, confira o [conversor de apresentação](https://www.microsoft.com/translator/apps/presentation-translator/), um suplemento do PowerPoint que usa o serviço de conversa de vários dispositivos. Você pode baixá-lo [aqui](https://www.microsoft.com/download/details.aspx?id=55024).
+> Para ver um exemplo, confira o [conversor de apresentação](https://www.microsoft.com/translator/apps/presentation-translator/), um suplemento do PowerPoint que usa o serviço de conversa de vários dispositivos. Você pode baixá-lo [aqui](https://download.cnet.com/s/powerpoint-add-in/).
 
-## <a name="how-it-works"></a>Como isso funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Todos os clientes usarão o SDK de fala para criar ou ingressar em uma conversa. O SDK de fala interage com o serviço de conversa de vários dispositivos, que gerencia o tempo de vida de uma conversa, incluindo a lista de participantes, as linguagens escolhidas por cada cliente e as mensagens enviadas.  
 

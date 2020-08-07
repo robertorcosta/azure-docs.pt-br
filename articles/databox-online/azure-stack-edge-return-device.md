@@ -1,6 +1,6 @@
 ---
 title: Retornar seu dispositivo de borda de Azure Stack | Microsoft Docs
-description: Descreve como retornar o dispositivo do Azure Stack Edge.
+description: Saiba como apagar os dados e retornar o dispositivo Azure Stack Edge e, em seguida, exclua o recurso associado ao dispositivo.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 018fe9b97b343bc07cf3c04a1d0e84edaf6cc7ac
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: aa917361ad3c967a697421e86d232e1a206c403e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283853"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923944"
 ---
 # <a name="return-your-azure-stack-edge-device"></a>Retornar o dispositivo do Azure Stack Edge
 

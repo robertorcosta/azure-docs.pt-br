@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 6acc1ffd197ddba4290ff7c0751b259d98a70927
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 995ac2776f4197dac1c2ef73fd209833474be5a5
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80754400"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922669"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planejar seu sistema Avere vFXT
 
@@ -73,7 +73,7 @@ Siga estas diretrizes ao planejar a infraestrutura de rede do cluster do avere v
 
   | Recurso | Usar existente? | Requisitos |
   |----------|-----------|----------|
-  | Resource group | Sim, se estiver vazio | Deve estar vazio|
+  | Grupo de recursos | Sim, se estiver vazio | Deve estar vazio|
   | Conta de armazenamento | **Sim** se estiver conectando um contêiner de blob existente após a criação do cluster <br/>  **Não** se estiver criando um novo contêiner de blob durante a criação do cluster | O contêiner de blob existente deve estar vazio <br/> &nbsp; |
   | Rede virtual | Sim | Deve incluir um ponto de extremidade de serviço de armazenamento se estiver criando um novo contêiner de blob do Azure |
   | Sub-rede | Sim | Não pode conter outros recursos |
@@ -166,7 +166,7 @@ Ao criar o cluster, você pode escolher se deseja ou não criar um endereço IP 
 
 ## <a name="vm-access-roles"></a>Funções de acesso à VM
 
-O Azure usa o RBAC ( [controle de acesso baseado em função](../role-based-access-control/index.yml) ) para autorizar as VMs de cluster a executar determinadas tarefas. Por exemplo, o controlador de cluster precisa de autorização para criar e configurar as VMs do nó de cluster. Os nós de cluster precisam ser capazes de atribuir ou reatribuir endereços IP a outros nós de cluster.
+O Azure usa o Azure [RBAC (controle de acesso baseado em função)](../role-based-access-control/index.yml) para autorizar as VMs de cluster a executar determinadas tarefas. Por exemplo, o controlador de cluster precisa de autorização para criar e configurar as VMs do nó de cluster. Os nós de cluster precisam ser capazes de atribuir ou reatribuir endereços IP a outros nós de cluster.
 
 Duas funções internas do Azure são usadas para as máquinas virtuais avere vFXT:
 

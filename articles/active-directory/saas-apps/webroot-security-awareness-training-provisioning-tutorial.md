@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0bed20dfd087783e865dd2e68897870ad56507c2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b9792ce25541917bfde3291b3864f58d70d6d03
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293979"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923978"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Tutorial: configurar o treinamento de reconhecimento de segurança do Webroot para o provisionamento automático de usuário
 
@@ -120,10 +120,10 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
    |Atributo|Type|Com suporte para filtragem|
    |---|---|---|
-   |externalId|Cadeia de caracteres|&check;|
-   |name.givenName|Cadeia de caracteres|
+   |externalId|String|&check;|
+   |name.givenName|String|
    |name.familyName|String|
-   |emails[type eq "work"].value|Cadeia de caracteres|
+   |emails[type eq "work"].value|String|
 
 10. Na seção **mapeamentos** , selecione **provisionar grupos de Azure Active Directory**.
 
@@ -133,7 +133,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
       |---|---|---|
       |displayName|String|&check;|
       |membros|Referência|
-      |externalId|Cadeia de caracteres|
+      |externalId|String|
 
 12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -155,7 +155,7 @@ Essa operação começa o ciclo de sincronização inicial de todos os usuários
 Depois de configurar o provisionamento, use os seguintes recursos para monitorar a implantação:
 
 1. Use os [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais usuários foram provisionados com êxito ou não
-2. Confira a [barra de progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
+2. Confira a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
 3. Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="additional-resources"></a>Recursos adicionais

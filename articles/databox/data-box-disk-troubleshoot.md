@@ -1,6 +1,6 @@
 ---
 title: Solução de problemas do Azure Data Box Disk | Microsoft Docs
-description: Descreve como solucionar os problemas observados no Azure Data Box Disk.
+description: Saiba como usar logs para solucionar problemas de validação que podem surgir ao implantar Disco do Azure Data Box.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 35b4b206de9c16d66387135b0ca75b6aaeb7c744
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c1b38c4021660b9f59098f8442d16bfd0ecc582
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565007"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925535"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Use logs para solucionar problemas de validação no Disco do Azure Data Box
 

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: 205e99303cd53adf6aa952ccd65441b72471f3a2
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 3e37d907d00acd3e2b368700b70b4e268bad3ec9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810251"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921938"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados – banco de dados SQL do Azure & SQL Instância Gerenciada
 
@@ -111,7 +111,7 @@ O consumo de armazenamento de backup até o tamanho máximo de dados de um banco
 
 - Reduza o [período de retenção de backup](#change-the-pitr-backup-retention-period-by-using-the-azure-portal) ao mínimo possível para suas necessidades.
 - Evite fazer grandes operações de gravação, como recompilações de índice, com mais frequência do que o necessário.
-- Para operações de carregamento de dados grandes, considere usar [índices columnstore clusterizados](https://docs.microsoft.com/sql/database-engine/using-clustered-columnstore-indexes) e seguir as [práticas recomendadas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)relacionadas e/ou reduzir o número de índices não clusterizados.
+- Para operações de carregamento de dados grandes, considere usar [índices columnstore clusterizados](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) e seguir as [práticas recomendadas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance)relacionadas e/ou reduzir o número de índices não clusterizados.
 - Na camada de serviço Uso Geral, o armazenamento de dados provisionado é mais barato do que o preço do armazenamento de backup. Se você estiver sempre com alto excesso de custos de armazenamento de backup, considere aumentar o armazenamento de dados para salvar no armazenamento de backup.
 - Use TempDB em vez de tabelas permanentes na lógica do aplicativo para armazenar resultados temporários e/ou dados transitórios.
 - Usar o armazenamento de backup com redundância local sempre que possível (por exemplo, ambientes de desenvolvimento/teste)

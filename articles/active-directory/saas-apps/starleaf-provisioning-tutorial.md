@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: zhchia
-ms.openlocfilehash: 520373fc6a05bcaada973273e3553f9da623c669
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74e37bda28bed3ecd2c842c4659bcff3cb86eb6a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77064284"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920680"
 ---
 # <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>Tutorial: configurar o StarLeaf para o provisionamento automático de usuário
 
@@ -36,7 +36,7 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no StarLeaf
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * Um locatário do Azure AD.
-* [Um locatário do StarLeaf](https://www.starleaf.com/solutions/).
+* [Um locatário do StarLeaf](https://starleaf.com/).
 * Uma conta de usuário no StarLeaf com permissões de administrador.
 
 ## <a name="assign-users-to-starleaf"></a>Atribuir usuários ao StarLeaf
@@ -115,7 +115,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Salvar).
+7. Clique em **Salvar**.
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para StarLeaf**.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c75c9a2d0b491cc00d0fc58054b9bb1e58a364b8
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: bf44b24b9222072bf5f1493b36b0dfcca24b5389
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905713"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923604"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Exibir o status de trabalhos de Importação/Exportação do Azure
 
@@ -73,7 +73,7 @@ A quantidade de tempo que leva para processar um trabalho de importação/export
 -  Tipo de trabalho e o tamanho dos dados sendo copiados
 -  Número de discos em um trabalho. 
 
-O serviço de Importação/Exportação não tem um SLA, mas o serviço se esforçará para concluir a cópia no prazo de 7 a 10 dias após o recebimento dos discos. Além do status postado no Portal do Azure, as APIs REST podem ser usadas para acompanhar o progresso do trabalho. O parâmetro de porcentagem concluída na chamada da API da operação [listar trabalhos](/previous-versions/azure/dn529083(v=azure.100)) fornece o progresso da cópia percentual.
+O serviço de Importação/Exportação não tem um SLA, mas o serviço se esforçará para concluir a cópia no prazo de 7 a 10 dias após o recebimento dos discos. Além do status Postado em portal do Azure, as APIs REST podem ser usadas para acompanhar o progresso do trabalho. O parâmetro de porcentagem concluída na chamada da API da operação [listar trabalhos](/previous-versions/azure/dn529083(v=azure.100)) fornece o progresso da cópia percentual.
 
 
 ## <a name="next-steps"></a>Próximas etapas

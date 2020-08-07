@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3839c7b87e5d07368727d037b585965dce91303a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 31374b851d90e43e7380024923c3ad025859b7a0
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058095"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923723"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivos adicionados ao Azure AD
 
@@ -28,8 +28,8 @@ A adição ao Azure AD destina-se a organizações que desejam estar somente em 
 | **Público principal** | Adequado para organizações híbridas e somente de nuvem. |
 |   | Aplicável a todos os usuários em uma organização |
 | **Propriedade do dispositivo** | Organização |
-| **Sistemas operacionais** | Todos os dispositivos com Windows 10 |
-|   | [Máquinas virtuais do Windows Server 2019 em execução no Azure](howto-vm-sign-in-azure-ad-windows.md) (não há suporte para o Server Core) |
+| **Sistemas operacionais** | Todos os dispositivos Windows 10, exceto Windows 10 Home |
+|   | [Máquinas Virtuais do Windows Server 2019 em execução no Azure](howto-vm-sign-in-azure-ad-windows.md) (não há suporte para Server Core) |
 | **Provisionamento** | Autoatendimento: Configurações ou OOBE do Windows |
 |   | Registro em massa |
 |   | Windows Autopilot |
@@ -62,7 +62,7 @@ Embora a adição ao Azure AD se destine basicamente às organizações que não
 - Você quer gerenciar um grupo de usuários no Azure AD, e não no Active Directory. Esse cenário pode se aplicar, por exemplo, a funcionários temporários, prestadores de serviços ou alunos.
 - Você deseja fornecer recursos de ingresso para trabalhadores em escritórios remotos com infraestrutura local limitada.
 
-Você pode configurar dispositivos adicionados ao Azure AD para dispositivos com Windows 10.
+Você pode configurar dispositivos ingressados no Azure AD para todos os dispositivos Windows 10 com exceção do Windows 10 Home.
 
 A meta dos dispositivos adicionados ao Azure AD é simplificar:
 

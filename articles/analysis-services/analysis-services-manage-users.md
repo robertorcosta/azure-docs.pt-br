@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b1f848b5e6fa053d81754d441fd4845c1a24ee5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15ae1ca6902c27732812a591f492430150c84ecb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361482"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926171"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticação e permissões de usuário
 
@@ -68,7 +68,7 @@ Os **usuários de banco de dados** se conectam a modelos de bancos de dados usan
 
 ![Controle de acesso no Portal do Azure](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-As funções nesse nível se aplicam a usuários ou contas que precisam executar tarefas que podem ser realizadas no Portal ou usando modelos do Azure Resource Manager. Para saber mais, consulte [Controle de acesso baseado em função](../role-based-access-control/overview.md). 
+As funções nesse nível se aplicam a usuários ou contas que precisam executar tarefas que podem ser realizadas no Portal ou usando modelos do Azure Resource Manager. Para saber mais, confira [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md). 
 
 ## <a name="database-roles"></a>Funções de banco de dados
 
@@ -81,4 +81,4 @@ As funções nesse nível se aplicam a usuários ou contas que precisam executar
 [Gerenciar o acesso a recursos com grupos do Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Gerenciar usuários e funções de banco de dados](analysis-services-database-users.md)  
 [Gerenciar administradores de servidor](analysis-services-server-admins.md)  
-[Controle de acesso baseado em função](../role-based-access-control/overview.md)  
+[Controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md)  

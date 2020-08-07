@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/06/2020
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ca536ddacb0f81459625b733eb79282e145afba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9aa97595f9a6ab2a866a8c8ebccde7e53854dbd1
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016284"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87924539"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configurar Slack para provisionamento automático de usuário
 
@@ -108,34 +108,34 @@ Esta seção orienta você pela conexão do Azure AD com a API de provisionament
    |Atributo|Type|
    |---|---|
    |ativo|Boolean|
-   |externalId|Cadeia de caracteres|
-   |displayName|Cadeia de caracteres|
+   |externalId|String|
+   |displayName|String|
    |name.familyName|String|
-   |name.givenName|Cadeia de caracteres|
-   |título|Cadeia de caracteres|
-   |emails[type eq "work"].value|Cadeia de caracteres|
-   |userName|Cadeia de caracteres|
-   |Apelido|Cadeia de caracteres|
-   |endereços [tipo EQ "não tipado"]. streetAddress|Cadeia de caracteres|
-   |endereços [tipo EQ "não tipado"]. localidade|Cadeia de caracteres|
-   |endereços [tipo EQ "não tipado"]. região|Cadeia de caracteres|
-   |endereços [tipo EQ "não tipado"]. postalCode|Cadeia de caracteres|
+   |name.givenName|String|
+   |título|String|
+   |emails[type eq "work"].value|String|
+   |userName|String|
+   |Apelido|String|
+   |endereços [tipo EQ "não tipado"]. streetAddress|String|
+   |endereços [tipo EQ "não tipado"]. localidade|String|
+   |endereços [tipo EQ "não tipado"]. região|String|
+   |endereços [tipo EQ "não tipado"]. postalCode|String|
    |endereços [tipo EQ "não tipado"]. país|String|
-   |phoneNumbers[type eq "mobile"].value|Cadeia de caracteres|
-   |phoneNumbers[type eq "work"].value|Cadeia de caracteres|
-   |funções [EQ principal "true"]. valor|Cadeia de caracteres|
-   |localidade|Cadeia de caracteres|
-   |nome. honorificPrefix|Cadeia de caracteres|
-   |fotos [tipo EQ "foto"]. valor|Cadeia de caracteres|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |funções [EQ principal "true"]. valor|String|
+   |localidade|String|
+   |nome. honorificPrefix|String|
+   |fotos [tipo EQ "foto"]. valor|String|
    |profileUrl|String|
-   |timezone|Cadeia de caracteres|
+   |timezone|String|
    |userType|String|
-   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. Department|Cadeia de caracteres|
+   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. Department|String|
    |urn: SCIM: esquemas: extensão: Enterprise: 1.0. Manager|Referência|
-   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. employeeNumber|Cadeia de caracteres|
-   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. costCenter|Cadeia de caracteres|
-   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. Organization|Cadeia de caracteres|
-   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. Division|Cadeia de caracteres|
+   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. employeeNumber|String|
+   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. costCenter|String|
+   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. Organization|String|
+   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. Division|String|
 
 12. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory grupos à margem de atraso**.
 
@@ -143,7 +143,7 @@ Esta seção orienta você pela conexão do Azure AD com a API de provisionament
 
       |Atributo|Type|
       |---|---|
-      |displayName|Cadeia de caracteres|
+      |displayName|String|
       |membros|Referência|
 
 14. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -166,7 +166,7 @@ Essa operação começa o ciclo de sincronização inicial de todos os usuários
 Depois de configurar o provisionamento, use os seguintes recursos para monitorar a implantação:
 
 1. Use os [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais usuários foram provisionados com êxito ou não
-2. Confira a [barra de progresso](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
+2. Confira a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o status do ciclo de provisionamento e saber como fechá-la para concluir
 3. Se a configuração de provisionamento parecer estar em um estado não íntegro, o aplicativo entrará em quarentena. Saiba mais sobre os estados de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="troubleshooting-tips"></a>Dicas de solução de problemas
