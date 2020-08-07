@@ -6,13 +6,13 @@ ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: a832fe4e212ce39ca423263ed2554c2682455002
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-python
+ms.openlocfilehash: 49bbc2199c7dc3040a24071b8eb5a91929d88e08
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165645"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849235"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho de temporizador para o Azure Functions 
 
@@ -219,8 +219,8 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | N/D | Deve ser definido como "timerTrigger". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
-|**direction** | N/D | Deve ser definido como "in". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
+|**tipo** | n/d | Deve ser definido como "timerTrigger". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
+|**direction** | n/d | Deve ser definido como "in". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
 |**name** | n/d | O nome da variável que representa o objeto de temporizador no código de função. | 
 |**agendamento**|**ScheduleExpression**|Um [expressão CRON](#ncrontab-expressions) ou um valor [TimeSpan](#timespan). É possível usar um `TimeSpan` somente para um aplicativo de função executado em um Plano do Serviço de Aplicativo. Você pode colocar a expressão de agendamento em uma configuração de aplicativo e definir essa propriedade como o nome da configuração do aplicativo encapsulado em **%** sinais, como neste exemplo: "% ScheduleAppSetting%". |
 |**runOnStartup**|**RunOnStartup**|Se `true`, a função será invocada quando o runtime for iniciado. Por exemplo, o runtime inicia quando o aplicativo de função desperta depois de ficar ocioso devido à inatividade. Quando o aplicativo de funções é reiniciado devido a alterações de função e quando o aplicativo de funções é dimensionado horizontalmente. Portanto, **runOnStartup** deve ser raramente, se já estiver definido como `true` , especialmente em produção. |
@@ -312,7 +312,7 @@ Se um aplicativo de funções se expandir para várias instâncias, apenas uma �
 
 Se você estiver compartilhando contas de armazenamento entre aplicativos de funções que não são implantados no serviço de aplicativo, talvez seja necessário atribuir explicitamente a ID do host a cada aplicativo.
 
-| Versão do Functions | Configuração                                              |
+| Versão do Functions | Setting                                              |
 | ----------------- | ---------------------------------------------------- |
 | 2. x (e superior)  | A variável de ambiente `AzureFunctionsWebHost__hostid` |
 | 1.x               | `id`em *host.jsem*                                  |

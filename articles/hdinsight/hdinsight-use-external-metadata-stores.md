@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/30/2020
-ms.openlocfilehash: 2d6ebcd720a5cea8d41bf3c05f753f2e9d4775d1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/06/2020
+ms.openlocfilehash: 78c0526ac750977115a88e96bb5f7d5cb4e9803f
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085898"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87873085"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Usar armazenamentos de metadados externos no Azure HDInsight
 
@@ -38,10 +38,10 @@ Por padrão, o HDInsight cria um metastore com cada tipo de cluster. Em vez diss
 
 * Não é possível compartilhar o metastore padrão com outros clusters.
 
-* O metastore padrão usa o banco de dados SQL do Azure básico, que tem um limite de cinco DTU (unidade de transação do banco de dados).
-Esse metastore padrão é normalmente usado para cargas de trabalho relativamente simples. Cargas de trabalho que não exigem vários clusters e não precisam de metadados preservados além do ciclo de vida do cluster.
+* O metastore padrão é recomendado apenas para cargas de trabalho simples. Cargas de trabalho que não exigem vários clusters e não precisam de metadados preservados além do ciclo de vida do cluster.
 
-* Para cargas de trabalho de produção, é recomendável migrar para um metastore externo. Consulte a seção abaixo para obter mais detalhes.
+> [!IMPORTANT]
+> O metastore padrão fornece um banco de dados SQL do Azure com um **limite de DTU básico de camada 5 (não atualizável)**! Adequado para fins de teste básico. Para cargas de trabalho grandes ou de produção, é recomendável migrar para um metastore externo.
 
 ## <a name="custom-metastore"></a>Metastore personalizado
 
@@ -81,9 +81,8 @@ Você pode apontar seu cluster para um banco de dados SQL do Azure criado anteri
 
 ## <a name="hive-metastore-guidelines"></a>Diretrizes de metastore do Hive
 
-* Use um metastore personalizado sempre que possível, para ajudar a separar recursos de computação (seu cluster em execução) e metadados (armazenados no metastore).
-
-* Inicie com uma camada S2, que fornece 50 DTU e 250 GB de armazenamento. Se você vir um afunilamento, poderá expandir o banco de dados.
+> [!NOTE]
+> Use um metastore personalizado sempre que possível, para ajudar a separar recursos de computação (seu cluster em execução) e metadados (armazenados no metastore). Comece com a camada S2, que fornece 50 DTU e 250 GB de armazenamento. Se você vir um afunilamento, poderá expandir o banco de dados.
 
 * Se você pretende que vários clusters HDInsight acessem dados separados, use um banco de dados separado para o metastore em cada cluster. Se você compartilhar um metastore entre vários clusters do HDInsight, isso significa que os clusters usam os mesmos metadados e arquivos de dados do usuário subjacentes.
 

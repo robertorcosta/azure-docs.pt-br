@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: fc35e6a723afab3f230aa91e4b6895aead35e141
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 1fa9a8aa24cf6a8c8c2223836ae80b8b47807c81
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037062"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903180"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Solucionar problemas de saídas do Azure Stream Analytics
 
@@ -24,7 +24,7 @@ Este artigo descreve problemas comuns com conexões de saída do Azure Stream An
 1. Verifique a conectividade com as saídas usando o botão **Testar Conexão** para cada uma das saídas.
 1. Dê uma olhada em [Métricas de monitoramento](stream-analytics-monitoring.md), na guia **Monitor**. Como os valores são agregados, as métricas são atrasadas em alguns minutos.
 
-   * Se o valor de **Eventos de Entrada** é maior que zero, o trabalho pode ler os dados de entrada. Se o valor de **Eventos de Entrada** não é maior que zero, há um problema com a entrada do trabalho. Confira [Solucionar problemas de conexões de entrada](stream-analytics-troubleshoot-input.md) para obter mais informações.
+   * Se o valor de **Eventos de Entrada** é maior que zero, o trabalho pode ler os dados de entrada. Se o valor de **Eventos de Entrada** não é maior que zero, há um problema com a entrada do trabalho. Confira [Solucionar problemas de conexões de entrada](stream-analytics-troubleshoot-input.md) para obter mais informações. Se seu trabalho tiver entrada de dados de referência, aplique a divisão por nome lógico ao examinar a métrica de **eventos de entrada** . Se não houver eventos de entrada apenas dos dados de referência, isso provavelmente significa que essa fonte de entrada não foi configurada corretamente para buscar o conjunto de dados de referência correto.
    * Se o valor de **Erros de conversão de dados** for maior que zero e crescente, confira [Erros de dados do Azure Stream Analytics](data-errors.md) para obter informações detalhadas sobre erros de conversão de dados.
    * Se o valor de **Erros de tempo de execução** é maior que zero, seu trabalho recebe dados, mas gera erros durante o processamento da consulta. Para encontrar os erros, acesse os [logs de auditoria](../azure-resource-manager/management/view-activity-logs.md) e filtre pelo status **Failed** (Com falha).
    * Se o valor de **Eventos de Entrada** é maior que zero e o valor de **Eventos de Saída** é igual a zero, uma das seguintes instruções é verdadeira:

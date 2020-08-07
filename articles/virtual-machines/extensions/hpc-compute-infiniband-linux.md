@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
-ms.openlocfilehash: 9085549486333968b98b4d34679c8616282d960f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb06f98d1a6e9b76c321e3d202043d656a2d94eb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87096060"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829043"
 ---
 # <a name="infiniband-driver-extension-for-linux"></a>Extensão de driver InfiniBand para Linux
 
 Essa extensão instala os drivers InfiniBand OFED nas VMs InfiniBand e SR-IOV (' r ' tamanhos) das [séries H](../sizes-hpc.md) e [N-Series](../sizes-gpu.md) que executam o Linux. Dependendo da família de VMs, a extensão instala os drivers apropriados para a NIC Connect-X.
 
-As instruções sobre a instalação manual dos drivers do OFED estão disponíveis [aqui](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband#manually-install-mellanox-ofed).
+As instruções sobre a instalação manual dos drivers do OFED estão disponíveis [aqui](../workloads/hpc/enable-infiniband.md#manual-installation).
 
 Uma extensão também está disponível para instalar os drivers InfiniBand para [VMs do Windows](hpc-compute-infiniband-windows.md).
 
@@ -74,7 +74,7 @@ O JSON a seguir mostra o esquema para a extensão.
 | apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.HpcCompute | string |
 | type | InfiniBandDriverLinux | string |
-| typeHandlerVersion | 1,1 | INT |
+| typeHandlerVersion | 1,1 | int |
 
 
 

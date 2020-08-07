@@ -10,13 +10,13 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
-ms.custom: tracking-python, devx-track-javascript
-ms.openlocfilehash: dc0097396bbd3d624fd043c54f2f37e434ad5b50
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-python, devx-track-javascript
+ms.openlocfilehash: 49daf816c4075820c9efc93611f33c4854a6042d
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87403970"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849566"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Usar um token de informações para obter informações sobre uma imagem
 
@@ -93,7 +93,7 @@ Para executar este aplicativo, siga estas etapas:
 2. Substitua o conteúdo de Program.cs pelo código mostrado neste guia de início rápido.
 3. Substitua o valor `accessKey` pela sua chave de assinatura.
 4. Substitua o valor `insightsToken` por um símbolo de insights de uma resposta /images/search.
-5. executar o programa.
+5. Execute o programa.
 
 ```csharp
 using System;
@@ -268,7 +268,7 @@ Para executar este aplicativo, siga estas etapas:
 2. Crie um projeto Java em seu IDE ou editor favorito.
 3. Adicione o código fornecido em um arquivo nomeado `VisualSearch.java`.
 4. Substitua o valor `subscriptionKey` pela sua chave de assinatura.
-5. executar o programa.
+5. Execute o programa.
 
 ```java
 package insightstoken;
@@ -392,7 +392,7 @@ Para executar este aplicativo, siga estas etapas:
    ```
 1. Crie um arquivo nomeado GetVisualInsights.js e adicione o seguinte código a ele.
 1. Substitua o valor `subscriptionKey` pela sua chave de assinatura.
-1. executar o programa.  
+1. Execute o programa.  
    ```
    node GetVisualInsights.js
    ```

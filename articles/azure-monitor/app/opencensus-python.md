@@ -6,13 +6,13 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.custom: tracking-python
-ms.openlocfilehash: eec4a46596b9cd39a43b6bb1f8969d41e99916b6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-python
+ms.openlocfilehash: ac7569a48e4bab25d4db17f2fc6dd92b31afcab5
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322543"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850042"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurar Azure Monitor para seu aplicativo Python
 
@@ -442,7 +442,7 @@ Como mostrado, há três exportadores de Azure Monitor diferentes que dão supor
 Cada exportador aceita os mesmos argumentos para configuração, passados pelos construtores. Você pode ver detalhes sobre cada um aqui:
 
 - `connection_string`: A cadeia de conexão usada para se conectar ao recurso de Azure Monitor. Tem prioridade `instrumentation_key` .
-- `enable_standard_metrics`: Usado para `AzureMetricsExporter` . Sinaliza o exportador para enviar as métricas do [contador de desempenho](../platform/app-insights-metrics.md#performance-counters) automaticamente para Azure monitor. O padrão é `True`.
+- `enable_standard_metrics`: Usado para `AzureMetricsExporter` . Sinaliza o exportador para enviar as métricas do [contador de desempenho](../platform/app-insights-metrics.md#performance-counters) automaticamente para Azure monitor. Assume o padrão de `True`.
 - `export_interval`: Usado para especificar a frequência em segundos de exportação.
 - `instrumentation_key`: A chave de instrumentação usada para se conectar ao recurso de Azure Monitor.
 - `logging_sampling_rate`: Usado para `AzureLogHandler` . Fornece uma taxa de amostragem [0, 1,0] para exportar logs. O padrão é 1,0.

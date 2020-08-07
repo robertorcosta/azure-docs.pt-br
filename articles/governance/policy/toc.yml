@@ -46,7 +46,7 @@
           href: ./samples/pattern-logical-operators.md
         - name: Campos
           href: ./samples/pattern-fields.md
-        - name: parâmetros
+        - name: Parâmetros
           href: ./samples/pattern-parameters.md
         - name: Detalhes do efeito
           href: ./samples/pattern-effect-details.md
@@ -156,10 +156,10 @@
       items:
         - name: Implantar o Azure Monitor em escala
           displayName: 'monitor, diagnostic settings, dependency agent'
-          href: ../../azure-monitor/platform/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+          href: ../../azure-monitor/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
         - name: Habilitar o Azure Monitor para VMs (versão prévia)
           displayName: 'monitor, insights, log analytics, builtin'
-          href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+          href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
 - name: Solucionar problemas
   href: ./troubleshoot/general.md
 - name: Referência
