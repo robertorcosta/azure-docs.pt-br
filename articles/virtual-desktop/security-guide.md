@@ -1,19 +1,17 @@
 ---
 title: Melhores práticas de segurança da Área de Trabalho Virtual do Windows – Azure
 description: Melhores práticas para manter a segurança do seu ambiente da Área de Trabalho Virtual do Windows.
-services: virtual-desktop
 author: heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 95f1027f4f5ace6963a38edf0dc028ddca351b7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736665"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002296"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -103,7 +101,7 @@ Os hosts de sessão são máquinas virtuais que são executadas dentro de uma as
 
 ### <a name="enable-endpoint-protection"></a>Habilitar a proteção de ponto de extremidade
 
-Para proteger sua implantação contra softwares mal-intencionados conhecidos, é recomendável habilitar a proteção de ponto de extremidade em todos os hosts de sessão. Você pode usar o Windows Defender Antivírus ou um programa de terceiros. Para saber mais, consulte [Guia de implantação do Windows Defender Antivírus em um ambiente da VDI](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus). 
+Para proteger sua implantação contra softwares mal-intencionados conhecidos, é recomendável habilitar a proteção de ponto de extremidade em todos os hosts de sessão. Você pode usar o Windows Defender Antivírus ou um programa de terceiros. Para saber mais, consulte [Guia de implantação do Windows Defender Antivírus em um ambiente da VDI](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus).
 
 Para soluções de perfil como FSLogix ou outras soluções que montam arquivos VHD, é recomendável a exclusão de extensões de arquivo VHD.
 

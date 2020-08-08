@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/30/2020
+ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: dd7a8b94aefbf389afef30b327ffaa367a30dd51
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2349c92fb74b546eaa929752f3d2343b9c97e6d1
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108475"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010916"
 ---
 > [!NOTE]
 > Para detectar `PHI` (informações de integridade protegidas), use o `domain=phi` parâmetro e a versão do modelo `2020-04-01` ou posterior.
@@ -28,20 +28,18 @@ As categorias de entidade a seguir são retornadas ao enviar solicitações para
 | Persontype | N/D         | Tipos de trabalho ou funções mantidas por uma pessoa. | `2020-02-01` | |
 | PhoneNumber | N/D | Números de telefone (somente números de telefone dos EUA e da UE). | `2019-10-01` | Também retornado com`domain=phi` |
 |Organização  | N/D | Empresas, grupos políticos, faixas musicais, clubes esporte, órgãos governamentais e organizações públicas.  | `2019-10-01` | As nacionalidades e Religions não são incluídas nesse tipo de entidade.  |
-|Organização | Médicos | Empresas e grupos médicos. | `2020-04-01` | Também retornado com `domain=phi` . |
-|Organização | Troca de estoque | Grupos de troca de estoque. | `2020-04-01` | Também retornado com `domain=phi` . |
-| Organização | Esportes | Organizações relacionadas a esportes. | `2020-04-01` | Também retornado com `domain=phi` . |
+|Organização | Médicos | Empresas e grupos médicos. | `2020-04-01` |  |
+|Organização | Troca de estoque | Grupos de troca de estoque. | `2020-04-01` |  |
+| Organização | Esportes | Organizações relacionadas a esportes. | `2020-04-01` |  |
 | Endereço | N/D | Endereços de endereçamento completos.  | `2020-04-01` | Também retornado com `domain=phi` . |
 | Coordenadas de GPS da UE | N/D | Coordenadas de GPS para locais na União Europeia.  | `2019-10-01` |  |
 | Email | N/D | Endereços de email. | `2019-10-01` | Também retornado com `domain=phi` .   |
 | URL | N/D | URLs para sites. | `2019-10-01` | Também retornado com `domain=phi` . |
-| IP | N/D | Endereços IP de rede. | `2019-10-01` | |
+| IP | N/D | Endereços IP de rede. | `2019-10-01` | Também retornado com `domain=phi` . |
 | Datetime | N/D | Datas e horas do dia. | `2019-10-01` |  | 
 | Datetime | Data | Datas do calendário. | `2019-10-01` | Também retornado com `domain=phi` . |
 | Quantidade | N/D | Números e quantidades numéricas. | `2019-10-01` |  |
 | Quantidade | Idade | Paralisa. | `2019-10-01` | | |
-| Classificação internacional de doenças (ICD-9-CM) | N/D | Entidades relacionadas à classificação internacional de doenças, nono revisão.   | `2020-04-01` | |
-| Classificação internacional de doenças (ICD-10-CM) | N/D | Entidades relacionadas à classificação internacional de doenças, décimo revisão.    | `2020-04-01` | |
 
 ## <a name="azure-information"></a>Informações do Azure
 

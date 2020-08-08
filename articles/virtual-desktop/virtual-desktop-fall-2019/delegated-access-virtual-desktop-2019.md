@@ -1,24 +1,22 @@
 ---
 title: Acesso delegado na área de trabalho virtual do Windows (clássico)-Azure
 description: Como delegar recursos administrativos em uma implantação de área de trabalho virtual (clássica) do Windows, incluindo exemplos.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fbb8c6e100a9f72c20bcfaba7049b6724ee458b2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0152dc5102fd3f77418448234cab1234d25b97c6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292533"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008144"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop-classic"></a>Acesso delegado na área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../delegated-access-virtual-desktop.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager, confira [este artigo](../delegated-access-virtual-desktop.md).
 
 A área de trabalho virtual do Windows tem um modelo de acesso delegado que permite definir a quantidade de acesso que um usuário específico tem permissão para ter atribuindo a eles uma função. Uma atribuição de função tem três componentes: entidade de segurança, definição de função e escopo. O modelo de acesso delegado da área de trabalho virtual do Windows baseia-se no modelo RBAC do Azure. Para saber mais sobre atribuições de função específicas e seus componentes, consulte [a visão geral do controle de acesso baseado em função do Azure](../../role-based-access-control/built-in-roles.md).
 

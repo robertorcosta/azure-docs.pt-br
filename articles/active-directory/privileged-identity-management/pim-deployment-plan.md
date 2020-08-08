@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/28/2020
+ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82c0fbb62f411ccc3056d782518c6c3b570106d2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9e8250661fdbd6c67faade31caaed61ee8a399fe
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828618"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008076"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implantar o Azure AD Privileged Identity Management (PIM)
 
@@ -27,9 +27,9 @@ Este guia passo a passo descreve como planejar a implantação do Privileged Ide
 
 > [!TIP]
 > Ao longo deste artigo, você verá itens marcados como:
-> 
+>
 > : heavy_check_mark: a **Microsoft recomenda**
-> 
+>
 > Essas são recomendações gerais e você só deverá implementá-las se elas se aplicarem às suas necessidades corporativas específicas.
 
 ## <a name="learn-about-privileged-identity-management"></a>Saiba mais sobre o Privileged Identity Management
@@ -142,9 +142,9 @@ Siga estas etapas para impor o Princípio de privilégios mínimos para suas fun
 
 1. Entenda a granularidade das funções lendo e compreendendo as [funções de administrador disponíveis do Azure AD](../users-groups-roles/directory-assign-admin-roles.md#available-roles). Você e sua equipe também devem fazer referência às [funções de administrador por tarefa de identidade no Azure AD](../users-groups-roles/roles-delegate-by-task.md), o que explica a função de privilégios mínimos de tarefas específicas.
 
-1. Liste quem tem função com privilégios em sua organização. Você pode usar o [Assistente de Privileged Identity Management](pim-security-wizard.md#run-the-wizard) para acessar uma página semelhante à seguinte.
+1. Liste quem tem função com privilégios em sua organização. Você pode usar a descoberta de Privileged Identity Management [e informações (versão prévia)](pim-security-wizard.md) para chegar a uma página semelhante à seguinte.
 
-    ![Painel descobrir funções privilegiadas mostrando quem tem funções com privilégios](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![Página de descoberta e informações (versão prévia) para reduzir a exposição por meio de funções privilegiadas](./media/pim-deployment-plan/new-preview-page.png)
 
 1. Para todos os Administradores Globais da organização, descubra por que eles precisam da função. Com base na leitura da documentação anterior, se o trabalho da pessoa puder ser executado por uma ou mais funções de administrador granulares, você deverá removê-los da função de administrador global e fazer atribuições adequadamente dentro de Azure Active Directory (como referência: a Microsoft atualmente tem cerca de 10 administradores com a função de administrador global. Saiba mais em [como a Microsoft usa o Privileged Identity Management](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)).
 
@@ -257,7 +257,7 @@ Antes de implementar sua solução de Privileged Identity Management, é uma pr�
 
 A tabela a seguir descreve cada configuração.
 
-| Configuração | Descrição |
+| Setting | Descrição |
 | --- | --- |
 | Função | Nome da função para a qual você está definindo as configurações. |
 | Exigir MFA | Se o usuário qualificado precisa executar a MFA antes de ativar a função.<br/><br/> : heavy_check_mark: a **Microsoft recomenda** que você aplique a MFA para todas as funções de administrador, especialmente se as funções tiverem usuários convidados. |

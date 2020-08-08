@@ -1,24 +1,22 @@
 ---
 title: Personalizar propriedades de RDP com a área de trabalho virtual do Windows do PowerShell (clássico)-Azure
 description: Como personalizar as propriedades de RDP para a área de trabalho virtual do Windows (clássico) com cmdlets do PowerShell.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3ed7e8b8348ae87e676ec4585bce42a1ac389e23
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1df576e3316a529ec38c4a53960ff817d129ffd8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291269"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002257"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a--windows-virtual-desktop-classic-host-pool"></a>Personalizar propriedades de protocolo RDP para um pool de hosts da área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../customize-rdp-properties.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager, confira [este artigo](../customize-rdp-properties.md).
 
 Personalizar as propriedades de protocolo RDP (RDP) de um pool de hosts, como experiência de vários monitores e redirecionamento de áudio, permite que você forneça uma experiência ideal para seus usuários com base em suas necessidades. Você pode personalizar as propriedades de RDP na área de trabalho virtual do Windows usando o parâmetro **-CustomRdpProperty** no cmdlet **set-RdsHostPool** .
 
@@ -36,7 +34,7 @@ Por padrão, os arquivos RDP publicados contêm as seguintes propriedades:
 
 |Propriedades de RDP | Desktops | RemoteApps |
 |---|---| --- |
-| Modo de vários monitores | habilitado | N/D |
+| Modo de vários monitores | Habilitada | N/D |
 | Redirecionamentos de unidade habilitados | Unidades, área de transferência, impressoras, portas COM, dispositivos USB e cartões inteligentes| Unidades, área de transferência e impressoras |
 | Modo de áudio remoto | Reproduzir localmente | Reproduzir localmente |
 

@@ -3,15 +3,15 @@ title: Configuração de cluster no AKS (Serviços de Kubernetes do Azure)
 description: Saiba como configurar um cluster no AKS (Serviço de Kubernetes do Azure)
 services: container-service
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 08/06/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: f1329aa056e8d1db951e01555634cf1ea709608b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c3123d22d2a13be9b9e5360e82990ba3a6320b1a
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252004"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008790"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurar um cluster do AKS
 
@@ -233,6 +233,67 @@ az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myR
 
 Se você quiser criar pools de nós Gen1 regulares, poderá fazer isso omitindo a marca personalizada `--aks-custom-headers` .
 
+
+## <a name="ephemeral-os-preview"></a>Sistema operacional efêmero (visualização)
+
+Por padrão, o disco do sistema operacional para uma máquina virtual do Azure é replicado automaticamente para o armazenamento do Azure para evitar a perda de dados caso a VM precise ser realocada para outro host. No entanto, como os contêineres não são projetados para ter o estado local persistido, esse comportamento oferece um valor limitado, fornecendo algumas desvantagens, incluindo provisionamento de nó mais lento e menor latência de leitura/gravação.
+
+Por outro lado, os discos do sistema operacional efêmero são armazenados apenas no computador host, assim como um disco temporário. Isso fornece menor latência de leitura/gravação, juntamente com o dimensionamento mais rápido de nó e atualizações de cluster.
+
+Como o disco temporário, um disco do sistema operacional efêmero é incluído no preço da máquina virtual, portanto, você não incorre em nenhum custo de armazenamento adicional.
+
+Registrar o recurso `EnableEphemeralOSDiskPreview`:
+
+```azurecli
+az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
+```
+
+Pode levar vários minutos para que o status seja exibido como **Registrado**. Você pode verificar o status de registro usando o comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list):
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"
+```
+
+Quando o status aparecer como registrado, atualize o registro do provedor de recursos `Microsoft.ContainerService` usando o comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```
+
+Para instalar a extensão da CLI AKs-Preview, use os seguintes comandos de CLI do Azure:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Para atualizar a extensão da CLI AKs-Preview, use os seguintes comandos de CLI do Azure:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+### <a name="use-ephemeral-os-on-new-clusters-preview"></a>Usar o sistema operacional efêmero em novos clusters (versão prévia)
+
+Configure o cluster para usar discos do sistema operacional efêmero quando o cluster for criado. Use o `--aks-custom-headers` sinalizador para definir o sistema operacional efêmero como o tipo de disco do sistema operacional para o novo cluster.
+
+```azure-cli
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+```
+
+Se você quiser criar um cluster regular usando discos de sistema operacional anexados à rede, poderá fazer isso omitindo a `--aks-custom-headers` marca personalizada. Você também pode optar por adicionar mais pools de nó do sistema operacional efêmero, conforme mostrado abaixo.
+
+### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>Usar o sistema operacional efêmero em clusters existentes (visualização)
+Configure um novo pool de nós para usar discos do sistema operacional efêmero. Use o `--aks-custom-headers` sinalizador para definir como o tipo de disco do sistema operacional como o tipo de disco do sistema operacional para esse pool de nós.
+
+```azure-cli
+az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+```
+
+> [!IMPORTANT]
+> Com o sistema operacional efêmero, você pode implantar as imagens da VM e da instância até o tamanho do cache da VM. No caso do AKS, a configuração padrão de disco do so do nó usa 100GiB, o que significa que você precisa de um tamanho de VM que tenha um cache maior que 100 GiB. O Standard_DS2_v2 padrão tem um tamanho de cache de 86 GiB, que não é grande o suficiente. O Standard_DS3_v2 tem um tamanho de cache de 172 GiB, que é grande o suficiente. Você também pode reduzir o tamanho padrão do disco do sistema operacional usando `--node-osdisk-size` . O tamanho mínimo para imagens AKS é 30GiB. 
+
+Se você quiser criar pools de nós com discos de sistema operacional anexados à rede, poderá fazer isso omitindo a `--aks-custom-headers` marca personalizada.
+
 ## <a name="custom-resource-group-name"></a>Nome do grupo de recursos personalizado
 
 Quando você implanta um cluster do Serviço de Kubernetes do Azure no Azure, um segundo grupo de recursos é criado para os nós de trabalho. Por padrão, o AKS dará ao grupo de recursos do nó o nome `MC_resourcegroupname_clustername_location`, mas você também poderá fornecer seu próprio nome.
@@ -259,6 +320,7 @@ Ao trabalhar com o grupo de recursos do nó, tenha em mente que não é possíve
 - Confira [Atualizar um cluster do AKS (Serviço de Kubernetes do Azure)](upgrade-cluster.md) para saber como atualizar o cluster para a versão mais recente do Kubernetes.
 - Leia mais sobre [ `containerd` e kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - Confira a lista de [Perguntas frequentes sobre o AKS](faq.md) para encontrar respostas a algumas perguntas comuns sobre o AKS.
+- Leia mais sobre [discos do sistema operacional efêmero](../virtual-machines/ephemeral-os-disks.md).
 
 
 <!-- LINKS - internal -->

@@ -1,24 +1,22 @@
 ---
 title: Tipo de atribuição da área de trabalho pessoal da Área de Trabalho Virtual do Windows – Azure
 description: Como configurar a atribuição automática ou direta para um pool de hosts da área de trabalho pessoal do Windows Virtual Desktop.
-services: virtual-desktop
-author: HeidiLohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 17df23a16bec91e5c333bc760143eac250b62699
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 446dae3c064f5f23d35cb12b2b24bdfea9e27012
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292633"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007804"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurar o tipo de atribuição do pool de hosts da área de trabalho pessoal
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à área de trabalho virtual do Windows com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows (clássico) sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
 
 Você pode configurar o tipo de atribuição de seu pool de hosts da área de trabalho pessoal para ajustar o ambiente da Área de Trabalho Virtual do Windows e atender melhor às suas necessidades. Neste tópico, mostraremos como configurar a atribuição automática ou direta para seus usuários.
 

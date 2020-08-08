@@ -3,21 +3,19 @@ title: Solucionar Problemas de erros comuns de implantação
 description: Descreve como resolver erros comuns ao implantar recursos no Azure usando o Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 06/25/2020
-ms.openlocfilehash: dad80cf4230c3c6b4d7d97b21d155f6e755c2ab9
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/07/2020
+ms.openlocfilehash: 1ab493b0ba2199d8e6778252cf50d963fbd2f387
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446599"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008161"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solução de erros comuns de implantação do Azure com o Azure Resource Manager
 
 Este artigo descreve alguns erros comuns de implantação do Azure e fornece informações para resolver os erros. Se não encontrar o código de erro para o erro de implantação, confira [Localizar código de erro](#find-error-code).
 
 Se você estiver procurando informações sobre um código de erro e se essas informações não forem fornecidas neste artigo, informe-nos. Na parte inferior desta página, você pode deixar comentários. Os comentários são acompanhados com problemas do GitHub.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="error-codes"></a>Códigos do Erro
 
@@ -76,6 +74,7 @@ Se você estiver procurando informações sobre um código de erro e se essas in
 | StorageAccountAlreadyTaken | Forneça um nome exclusivo para a conta de armazenamento. | [Resolver o nome da conta de armazenamento](error-storage-account-name.md) |
 | StorageAccountNotFound | Verifique a assinatura, o grupo de recursos e o nome da conta de armazenamento que você está tentando usar. | |
 | SubnetsNotInSameVnet | Uma máquina virtual pode ter apenas uma rede virtual. Ao implantar várias NICs, certifique-se de que elas pertencem à mesma rede virtual. | [Várias NICs](../../virtual-machines/windows/multiple-nics.md) |
+| SubscriptionNotFound | Uma assinatura especificada para implantação não pode ser acessada. Pode ser que a ID da assinatura esteja incorreta, o usuário que está implantando o modelo não tem as permissões adequadas para implantar na assinatura ou a ID da assinatura está no formato incorreto. Ao usar implantações aninhadas para [implantar entre escopos](cross-scope-deployment.md), forneça o GUID para a assinatura. | |
 | SubscriptionNotRegistered | Ao implantar recursos de rede, o provedor de recursos Microsoft. Network é registrado automaticamente na assinatura. Às vezes, o registro automático não é concluído no tempo. Para evitar esse erro intermitente, registre o provedor de recursos Microsoft. Network antes da implantação. | [Resolver registro](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Remova as dependências desnecessárias. | [Resolver as dependências circulares](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | Reduza o número de grupos de recursos para uma única implantação. | [Implantação entre escopos](cross-scope-deployment.md) |

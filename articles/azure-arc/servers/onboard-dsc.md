@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 02661ff3c21fa27367cc9f2c399341ed2b86db3f
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 6448a2d449f86e93630d9d555e101291aa84c71e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809605"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003895"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Como instalar o agente do computador conectado usando o DSC do Windows PowerShell
 
@@ -49,7 +49,7 @@ Usando a DSC ( [configuração de estado desejado) do Windows PowerShell](/power
 
 Os recursos neste módulo são projetados para gerenciar a configuração do agente de máquina conectado do Azure. Também está incluído um script `AzureConnectedMachineAgent.ps1` do PowerShell, encontrado na `AzureConnectedMachineDsc\examples` pasta. Ele usa recursos da Comunidade para automatizar o download e a instalação e estabelecer uma conexão com o arco do Azure. Esse script executa etapas semelhantes descritas no artigo [conectar máquinas híbridas ao Azure do portal do Azure](onboard-portal.md) .
 
-Se o computador precisar se comunicar por meio de um servidor proxy para o serviço, depois de instalar o agente, você precisará executar um comando descrito [aqui](onboard-portal.md#configure-the-agent-proxy-setting). Isso define a variável de ambiente `https_proxy` do sistema do servidor proxy. Em vez de executar o comando manualmente, você pode executar essa etapa com a DSC usando o módulo [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0) .
+Se o computador precisar se comunicar por meio de um servidor proxy para o serviço, depois de instalar o agente, você precisará executar um comando descrito [aqui](manage-agent.md#update-or-remove-proxy-settings). Isso define a variável de ambiente `https_proxy` do sistema do servidor proxy. Em vez de executar o comando manualmente, você pode executar essa etapa com a DSC usando o módulo [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0) .
 
 >[!NOTE]
 >Para permitir que a DSC seja executada, o Windows precisa ser configurado para receber comandos remotos do PowerShell, mesmo quando você estiver executando uma configuração de localhost. Para configurar seu ambiente corretamente de forma simples, basta executar `Set-WsManQuickConfig -Force` em um Terminal do PowerShell elevado.

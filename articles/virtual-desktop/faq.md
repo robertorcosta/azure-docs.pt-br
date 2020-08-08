@@ -1,19 +1,17 @@
 ---
 title: Perguntas frequentes sobre área de trabalho virtual do Windows-Azure
 description: Perguntas frequentes e práticas recomendadas para a área de trabalho virtual do Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6867d24d84f6dfb51b2ca7b86ec882102b96552b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e0e7084a00439fd9096367578f983e6b6acd1df5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504408"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007481"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Perguntas frequentes da Área de Trabalho Virtual do Windows
 
@@ -25,7 +23,7 @@ Se você quiser criar pools de hosts e outros objetos, deverá ser atribuída a 
 
 Você deve ser atribuído à função de administrador de acesso do usuário em um grupo de aplicativos para publicar grupos de aplicativos para usuários ou grupos de usuários.
 
-Para restringir um administrador a gerenciar apenas sessões de usuário, como enviar mensagens para usuários, desconectar usuários e assim por diante, você pode criar funções personalizadas. Por exemplo: 
+Para restringir um administrador a gerenciar apenas sessões de usuário, como enviar mensagens para usuários, desconectar usuários e assim por diante, você pode criar funções personalizadas. Por exemplo:
 
 ```powershell
 "actions": [
@@ -116,7 +114,7 @@ Depois de criar um pool de hosts, você não pode alterar seu tipo. No entanto, 
 
 As limitações ou cotas no FSLogix dependem da malha de armazenamento usada para armazenar arquivos VHD (X) do perfil do usuário.
 
-A tabela a seguir fornece um exemplo de como os recursos de um perfil de FSLogix precisam dar suporte a cada usuário. Os requisitos podem variar amplamente dependendo do usuário, dos aplicativos e da atividade em cada perfil. 
+A tabela a seguir fornece um exemplo de como os recursos de um perfil de FSLogix precisam dar suporte a cada usuário. Os requisitos podem variar amplamente dependendo do usuário, dos aplicativos e da atividade em cada perfil.
 
 | Recurso | Requisito |
 |---|---|

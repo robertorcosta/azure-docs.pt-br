@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b0e8de797d66b875b65c1b6b593852707c587e6e
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 97b2189020beffda32cc70dc66f028bec834eee5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446555"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003259"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Linha de base de segurança do Azure para Máquinas Virtuais do Linux
 
@@ -562,11 +562,11 @@ A Microsoft usa o protocolo TLS para proteger dados quando está viajando entre 
 
 **Responsabilidade**: Cliente
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: usando o RBAC (controle de acesso baseado em função), você pode separar as tarefas dentro de sua equipe e conceder apenas a quantidade de acesso aos usuários em sua VM que eles precisam para executar seus trabalhos. Em vez de apresentar todas as permissões irrestritas na VM, você pode permitir que apenas determinadas ações. Você pode configurar o controle de acesso para a VM no portal do Azure, usando o CLI do Azure ou Azure PowerShell.
+**Orientação**: usando o Azure RBAC (controle de acesso baseado em função), você pode separar as tarefas dentro de sua equipe e conceder apenas a quantidade de acesso aos usuários em sua VM que eles precisam para executar seus trabalhos. Em vez de apresentar todas as permissões irrestritas na VM, você pode permitir que apenas determinadas ações. Você pode configurar o controle de acesso para a VM no portal do Azure, usando o CLI do Azure ou Azure PowerShell.
 
-* [RBAC (Controle de acesso baseado em função) para recursos do Azure](../../role-based-access-control/overview.md)
+* [Azure RBAC](../../role-based-access-control/overview.md)
 
 * [Funções internas do Azure](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
@@ -920,11 +920,11 @@ Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com 
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: armazenar imagens personalizadas do sistema operacional com segurança
 
-**Orientação**: se estiver usando imagens personalizadas (por exemplo, disco rígido virtual), use controles de acesso baseado em função do Azure para garantir que somente usuários autorizados possam acessar as imagens.
+**Orientação**: se estiver usando imagens personalizadas (por exemplo, disco rígido virtual), use o controle de acesso baseado em função do Azure (RBAC do Azure) para garantir que somente usuários autorizados possam acessar as imagens.
 
-* [Entender o RBAC no Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Entender o RBAC do Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Como configurar o RBAC no Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Como configurar o RBAC do Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Monitoramento da central de segurança do Azure**: não disponível
 

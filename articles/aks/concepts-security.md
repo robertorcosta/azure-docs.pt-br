@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: a210098652a18959debfeabe36b390d1bdfca7fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e5f137808bb5e4c6876206bca7950117edb85aab
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287471"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005662"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicativos e clusters no AKS (Serviço de Kubernetes do Azure)
 
@@ -36,7 +36,7 @@ No AKS, os componentes mestres de Kubernetes fazem parte do serviço gerenciado 
 
 Por padrão, o servidor de API do Kubernetes usa um endereço IP público e um FQDN (nome de domínio totalmente qualificado). Você pode limitar o acesso ao ponto de extremidade do servidor da API usando [intervalos de IP autorizados][authorized-ip-ranges]. Você também pode criar um [cluster particular][private-clusters] para limitar o acesso do servidor de API à sua rede virtual.
 
-Você pode controlar o acesso ao Servidor de API usando os controles de acesso baseados em função do Kubernetes e do Azure Active Directory. Para obter mais informações, confira [Integração do Azure AD com o AKS][aks-aad].
+Você pode controlar o acesso ao servidor de API usando o RBAC (controle de acesso baseado em função) kubernetes e Azure Active Directory. Para obter mais informações, confira [Integração do Azure AD com o AKS][aks-aad].
 
 ## <a name="node-security"></a>Segurança do nó
 
@@ -50,7 +50,7 @@ Nós são implantados em uma sub-rede de rede virtual privada, sem nenhum endere
 
 Para fornecer armazenamento, os nós usam o Azure Managed Disks. Para a maioria dos tamanhos de nó VM, esses são discos Premium apoiados por SSDs de alto desempenho. Os dados armazenados em discos gerenciados são criptografados automaticamente em repouso na plataforma Azure. Para melhorar a redundância, esses discos também são replicados com segurança no datacenter do Azure.
 
-Os ambientes do Kubernetes, no AKS ou em outro lugar, não estão completamente seguros atualmente para uso de vários locatários hostis. Recursos de segurança adicionais, como *políticas de segurança de Pod*, ou RBAC (controles de acesso baseado em função) mais refinados para nós, tornam as explorações mais difíceis. No entanto, para ter uma segurança de verdade ao executar cargas de trabalho de vários locatários hostis, um hipervisor é o único nível de segurança no qual você deve confiar. O domínio de segurança para o Kubernetes se torna o cluster inteiro, não um nó individual. Para esses tipos de cargas de trabalho de vários locatários hostis, você deve usar clusters fisicamente isolados. Para obter mais informações sobre maneiras de isolar cargas de trabalho, consulte [práticas recomendadas para isolamento de cluster em AKs][cluster-isolation].
+Os ambientes do Kubernetes, no AKS ou em outro lugar, não estão completamente seguros atualmente para uso de vários locatários hostis. Recursos de segurança adicionais, como *políticas de segurança de Pod*, ou RBAC (controle de acesso baseado em função) mais refinado para nós, tornam as explorações mais difíceis. No entanto, para ter uma segurança de verdade ao executar cargas de trabalho de vários locatários hostis, um hipervisor é o único nível de segurança no qual você deve confiar. O domínio de segurança para o Kubernetes se torna o cluster inteiro, não um nó individual. Para esses tipos de cargas de trabalho de vários locatários hostis, você deve usar clusters fisicamente isolados. Para obter mais informações sobre maneiras de isolar cargas de trabalho, consulte [práticas recomendadas para isolamento de cluster em AKs][cluster-isolation].
 
 ### <a name="compute-isolation"></a>Isolamento de computação
 

@@ -1,24 +1,22 @@
 ---
 title: Problemas de diagnóstico da Área de Trabalho Virtual do Windows - Azure
 description: Como usar o recurso de diagnóstico da Área de Trabalho Virtual do Windows para diagnosticar problemas.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6ff1e3d8eb9cb40d46ae0624be9d37fd199accd2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a985ce4f93b04e4065b5189b2a406b54729720c3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288756"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005089"
 ---
 # <a name="identify-and-diagnose-windows-virtual-desktop-issues"></a>Identificar e diagnosticar problemas de área de trabalho virtual do Windows
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à área de trabalho virtual do Windows com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows (clássico) sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/diagnostics-role-service-2019.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/diagnostics-role-service-2019.md).
 
 A Área de Trabalho Virtual do Windows oferece um recurso de diagnóstico que permite ao administrador identificar problemas por meio de uma única interface. Para saber mais sobre os recursos de diagnóstico da área de trabalho virtual do Windows, confira [usar o log Analytics para o recurso de diagnóstico](diagnostics-log-analytics.md).
 

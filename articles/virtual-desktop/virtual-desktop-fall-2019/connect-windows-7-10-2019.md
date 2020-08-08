@@ -1,26 +1,24 @@
 ---
 title: Conectar-se à área de trabalho virtual do Windows (clássico) Windows 10 ou 7-Azure
 description: Como se conectar à área de trabalho virtual do Windows (clássico) usando o cliente de área de trabalho do Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d420927727c2d2209c00f4852188c4a2d8e4342d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 420c507361e3e2437366e6ccf2d46a8b78684e59
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87270321"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008349"
 ---
 # <a name="connect-with-the-windows-desktop-classic-client"></a>Conectar-se ao cliente do Windows Desktop (clássico)
 
 > Aplica-se a: Windows 7, Windows 10 e Windows 10 IoT Enterprise
 
 >[!IMPORTANT]
->Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../connect-windows-7-10.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager, confira [este artigo](../connect-windows-7-10.md).
 
 Você pode acessar os recursos da área de trabalho virtual do Windows em dispositivos com Windows 7, Windows 10 e Windows 10 IoT Enterprise usando o cliente de área de trabalho do Windows. O cliente não dá suporte ao Windows 8 ou Windows 8.1.
 

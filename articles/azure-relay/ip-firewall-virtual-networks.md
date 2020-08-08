@@ -3,12 +3,12 @@ title: Configurar firewall de IP para um namespace de Retransmissão do Azure
 description: Este artigo descreve como usar regras de firewall para permitir conexões de endereços IP específicos para o namespace de Retransmissão do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8cd788475ebe54c0316b8c37bd00aa186123fbf1
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 2b8d1adef30eea0af9efdb51c31390c33a14b62e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533029"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009011"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configurar firewall de IP para um namespace de Retransmissão do Azure
 Por padrão, os namespaces de Retransmissão são acessíveis da Internet, desde que a solicitação acompanhe autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -33,7 +33,6 @@ Esta seção mostra como usar o portal do Azure para criar regras de firewall de
 1. Para restringir o acesso a redes e endereços IP específicos, selecione a opção **Redes selecionadas**. Na seção **Firewall**, siga estas etapas:
     1. Selecione a opção **Adicionar o endereço IP do cliente** para permitir ao IP do cliente atual acesso ao namespace. 
     2. Para **intervalo de endereços**, insira um endereço IPv4 específico ou um intervalo de endereços IPv4 na notação CIDR. 
-    3. Especifique se você deseja **permitir que serviços confiáveis da Microsoft ignorem esse firewall**. 
 
         ![Firewall – opção "Todas as redes" selecionada](./media/ip-firewall/selected-networks-trusted-access-disabled.png)
 3. Selecione **Salvar** na barra de ferramentas para salvar as configurações. Aguarde alguns minutos para que a confirmação seja exibida nas notificações do portal.

@@ -3,16 +3,16 @@ title: Implantar recursos no locatário
 description: Descreve como implantar recursos no escopo do locatário em um modelo de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 3fbf869e371f385a335e4a154bc811a6fc8cab97
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 2f5249eb54a62e4df082a18b22625bb93a0f09f8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922516"
+ms.locfileid: "88002764"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos no nível do locatário
 
-À medida que sua organização cresce, talvez seja necessário definir e atribuir [políticas](../../governance/policy/overview.md) ou [controles de acesso baseado em função](../../role-based-access-control/overview.md) em seu locatário do Azure AD. Com os modelos de nível de locatário, você pode aplicar políticas declarativamente e atribuir funções em um nível global.
+À medida que sua organização amadureceu, talvez seja necessário definir e atribuir [políticas](../../governance/policy/overview.md) ou o [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md) em seu locatário do Azure AD. Com os modelos de nível de locatário, você pode aplicar políticas declarativamente e atribuir funções em um nível global.
 
 ## <a name="supported-resources"></a>Recursos compatíveis
 
@@ -251,5 +251,5 @@ O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/mas
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre como atribuir funções, confira [Gerenciar o acesso a recursos do Azure usando modelos do RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
+* Para saber mais sobre como atribuir funções, confira [Adicionar atribuições de função do Azure usando modelos de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Você também pode implantar modelos no [nível de assinatura](deploy-to-subscription.md) e [nível do grupo de gerenciamento](deploy-to-management-group.md).

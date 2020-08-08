@@ -4,12 +4,12 @@ description: Restaure uma máquina virtual do Azure de um ponto de recuperação
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a43e7d1d97196afdad0a1e451b0c1618f0ea3a16
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: a006988049925d2d81c3f15fe24cfe60205b5789
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809176"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006325"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar dados de VM do Azure no portal do Azure
 
@@ -45,7 +45,7 @@ Alguns detalhes sobre contas de armazenamento:
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Para restaurar uma VM (criar uma nova VM), verifique se você tem as [permissões](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) de RBAC (controle de acesso baseado em função) corretas para a operação de restauração de VM.
+Para restaurar uma VM (criar uma nova VM), verifique se você tem as [permissões](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) corretas do Azure RBAC (controle de acesso baseado em função) do Azure para a operação de restauração de VM.
 
 Se você não tiver permissões, poderá [restaurar um disco](#restore-disks)e, depois que o disco for restaurado, poderá [usar o modelo](#use-templates-to-customize-a-restored-vm) que foi gerado como parte da operação de restauração para criar uma nova VM.
 
@@ -173,7 +173,7 @@ A experiência do usuário de restauração da região secundária será semelha
 >
 >- Depois que a restauração é disparada e na fase de transferência de dados, o trabalho de restauração não pode ser cancelado.
 >- O recurso de restauração entre regiões restaura as VMs do Azure habilitadas para CMK (chaves gerenciadas pelo cliente), que não são submetidas a backup em um cofre de serviços de recuperação habilitado para o CMK, como VMs não-CMK habilitadas na região secundária.
->- As funções RBAC (controles de acesso baseado em função) necessárias para restaurar na região secundária são as mesmas da região primária.
+>- As funções do Azure necessárias para restaurar na região secundária são as mesmas da região primária.
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>Monitorando trabalhos de restauração de região secundária
 
@@ -192,7 +192,7 @@ Você receberá uma opção para restaurar [discos não gerenciados](../storage/
 
 Há vários cenários comuns nos quais você pode precisar restaurar VMs.
 
-**Cenário** | **Diretrizes**
+**Cenário** | **Orientação**
 --- | ---
 **Restaurar VMs usando Benefícios de uso híbrido** | Se uma VM do Windows usa o [licenciamento do Benefício de uso híbrido (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restaure os discos e crie uma nova VM usando o modelo fornecido (com **Tipo de Licença** definido como **Windows_Server**) ou o PowerShell.  Essa configuração também pode ser aplicada após a criação da VM.
 **Restaurar VMs durante um desastre de datacenter do Azure** | Se o cofre usa GRS e o datacenter principal da VM ficar inativo, o Backup do Azure oferece suporte à restauração de VMs de backup no datacenter emparelhado. Você seleciona uma conta de armazenamento no datacenter emparelhado e a restaura normalmente. O backup do Azure usa o serviço de computação na região emparelhada para criar a VM restaurada. [Saiba mais](/azure/architecture/resiliency/recovery-loss-azure-region) sobre a resiliência do datacenter.<br><br> Se o cofre usar GRS, você poderá escolher o novo recurso, a [restauração entre regiões](#cross-region-restore). Isso permite que você restaure para uma segunda região em cenários de interrupção totais ou parciais, ou mesmo se não houver nenhuma interrupção.

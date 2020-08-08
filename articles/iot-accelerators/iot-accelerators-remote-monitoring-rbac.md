@@ -1,6 +1,6 @@
 ---
 title: Controle de acesso de monitoramento remoto – Azure | Microsoft Docs
-description: Este artigo fornece informações sobre como configurar os controles de acesso baseados em função (RBAC) no acelerador da solução de Monitoramento Remoto
+description: Este artigo fornece informações sobre como você pode configurar o RBAC (controle de acesso baseado em função) no acelerador de solução de monitoramento remoto
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,16 +9,16 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: e41d3b47408d29a0463eed5f23117801be107c27
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 397e7cfbc2599d2a259f55a5f465d51cd1fe54a8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920715"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008977"
 ---
-# <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configure os controles de acesso baseados em função no acelerador da solução de Monitoramento Remoto
+# <a name="configure-role-based-access-control-in-the-remote-monitoring-solution-accelerator"></a>Configurar o controle de acesso baseado em função no acelerador de solução de monitoramento remoto
 
-Este artigo fornece informações sobre como configurar os controles de acesso baseados em função no acelerador da solução de Monitoramento Remoto. Os controles de acesso baseados em função permitem que você restrija o acesso para usuários individuais a recursos específicos da solução.
+Este artigo fornece informações sobre como configurar o controle de acesso baseado em função no acelerador de solução de monitoramento remoto. O controle de acesso baseado em função permite restringir o acesso de usuários individuais a recursos específicos na solução.
 
 ## <a name="default-settings"></a>Configurações padrão
 
@@ -244,7 +244,7 @@ public async Task DeleteAsync(string id)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu que os controles são implementados no acelerador de solução de Monitoramento Remoto.
+Neste artigo, você aprendeu como o controle de acesso baseado em função é implementado no acelerador de solução de monitoramento remoto.
 
 Ver [configurar controles de acesso para o Time Series Insights explorer](iot-accelerators-remote-monitoring-rbac-tsi.md) para obter informações sobre como gerenciar o acesso para o Time Series Insights explorer no acelerador de solução de Monitoramento Remoto.
 

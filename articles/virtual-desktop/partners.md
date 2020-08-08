@@ -1,19 +1,17 @@
 ---
 title: Integrações de parceiros de área de trabalho virtual do Windows – Azure
 description: Saiba mais sobre os parceiros da área de trabalho virtual do Windows e acesse a documentação sobre como integrá-los a eles.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d78de3d8e7fadc4b6760fef85fb4b850cc25111e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5431a0844a418ddcdbd595546253c1d03fda35c0
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075776"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006563"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
 
@@ -69,9 +67,9 @@ O Automai permite que você use os mesmos scripts para testes de desempenho, tes
 
 ![Logotipo da Cloudhouse](./media/partners/cloudhouse.png)
 
-O Cloudhouse é um provedor de serviços de valor agregado da área de trabalho virtual do Windows que oferece aos clientes um serviço de migração de aplicativos completo que pode mover todos os aplicativos, incluindo aqueles incompatíveis com sistemas operacionais Windows modernos, para o ambiente de área de trabalho virtual do Windows, permitindo que os clientes aproveitem verdadeiramente o Windows 10 de várias sessões. 
+O Cloudhouse é um provedor de serviços de valor agregado da área de trabalho virtual do Windows que oferece aos clientes um serviço de migração de aplicativos completo que pode mover todos os aplicativos, incluindo aqueles incompatíveis com sistemas operacionais Windows modernos, para o ambiente de área de trabalho virtual do Windows, permitindo que os clientes aproveitem verdadeiramente o Windows 10 de várias sessões.
 
-Aproveitando a tecnologia comprovada de contêiner Cloudhouse, o serviço Cloudhouse usa todos os aplicativos, incluindo aqueles projetados para o Windows XP, o Windows 7 ou o Windows 8, e os implanta em uma área de trabalho virtual do Windows moderna sem a necessidade de alterar o código nem afetar a experiência do usuário. O Cloudhouse aumenta ainda mais o valor da área de trabalho virtual do Windows Isolando aplicativos do sistema operacional subjacente, permitindo que as atualizações de serviço do Windows sejam distribuídas sem afetar o aplicativo em contêineres. 
+Aproveitando a tecnologia comprovada de contêiner Cloudhouse, o serviço Cloudhouse usa todos os aplicativos, incluindo aqueles projetados para o Windows XP, o Windows 7 ou o Windows 8, e os implanta em uma área de trabalho virtual do Windows moderna sem a necessidade de alterar o código nem afetar a experiência do usuário. O Cloudhouse aumenta ainda mais o valor da área de trabalho virtual do Windows Isolando aplicativos do sistema operacional subjacente, permitindo que as atualizações de serviço do Windows sejam distribuídas sem afetar o aplicativo em contêineres.
 
 - [Acesse o site do parceiro](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua).
 
@@ -111,9 +109,9 @@ Os clientes finos Wyse são projetados com a segurança em mente com a superfíc
 
 ![Logotipo do deviceTRUST](./media/partners/devicetrust.png)
 
-deviceTRUST é um provedor de serviços de valor agregado da área de trabalho virtual do Windows que contextualiza empresa corporativa. Ele permite aos usuários a liberdade de acessar sua área de trabalho virtual do Windows de qualquer local, em qualquer dispositivo, em qualquer rede, oferecendo aos departamentos de ti as informações e o controle de que precisam para atender aos seus requisitos de governança. 
+deviceTRUST é um provedor de serviços de valor agregado da área de trabalho virtual do Windows que contextualiza empresa corporativa. Ele permite aos usuários a liberdade de acessar sua área de trabalho virtual do Windows de qualquer local, em qualquer dispositivo, em qualquer rede, oferecendo aos departamentos de ti as informações e o controle de que precisam para atender aos seus requisitos de governança.
 
-deviceTRUST estende o valor da área de trabalho virtual do Windows com sua tecnologia de segurança contextual. o deviceTRUST habilita o acesso condicional para um acesso de área de trabalho virtual seguro do Windows, acesso condicional a aplicativos na área de trabalho virtual do Windows e aplica políticas condicionais de área de trabalho virtual do Windows sem nenhuma infraestrutura adicional. O uso do deviceTRUST permite um espaço de trabalho móvel e flexível que atende a todos os requisitos de segurança, conformidade e regulamentação. 
+deviceTRUST estende o valor da área de trabalho virtual do Windows com sua tecnologia de segurança contextual. o deviceTRUST habilita o acesso condicional para um acesso de área de trabalho virtual seguro do Windows, acesso condicional a aplicativos na área de trabalho virtual do Windows e aplica políticas condicionais de área de trabalho virtual do Windows sem nenhuma infraestrutura adicional. O uso do deviceTRUST permite um espaço de trabalho móvel e flexível que atende a todos os requisitos de segurança, conformidade e regulamentação.
 
 - [Acesse o site do parceiro](https://devicetrust.com/wvd).
 
@@ -121,7 +119,7 @@ deviceTRUST estende o valor da área de trabalho virtual do Windows com sua tecn
 
 ![Logotipo do sistema ekran](./media/partners/ekran.png)
 
-O sistema ekran é um parceiro de valor de área de trabalho virtual do Windows que permite que as equipes de ti monitorem todas as atividades de usuário remotas em Microsoft Azure máquinas virtuais. Com o sistema ekran, você pode registrar a atividade na tela para cada sessão de usuário em aplicativos publicados ou áreas de trabalho virtuais, ao mesmo tempo em que coleta uma ampla gama de metadados ricos em contexto, como nomes de aplicativos, títulos de janelas ativos, URLs visitadas e pressionamentos de teclas. Recursos avançados oferecem visibilidade detalhada e tempos de resposta rápidos de incidentes, tornando o sistema ekran uma solução de conformidade e gerenciamento de ameaças Insider eficiente.  
+O sistema ekran é um parceiro de valor de área de trabalho virtual do Windows que permite que as equipes de ti monitorem todas as atividades de usuário remotas em Microsoft Azure máquinas virtuais. Com o sistema ekran, você pode registrar a atividade na tela para cada sessão de usuário em aplicativos publicados ou áreas de trabalho virtuais, ao mesmo tempo em que coleta uma ampla gama de metadados ricos em contexto, como nomes de aplicativos, títulos de janelas ativos, URLs visitadas e pressionamentos de teclas. Recursos avançados oferecem visibilidade detalhada e tempos de resposta rápidos de incidentes, tornando o sistema ekran uma solução de conformidade e gerenciamento de ameaças Insider eficiente.
 
 O licenciamento de ponto de extremidade flutuante exclusivo de clientes do sistema ekran é automatizado para dar suporte à alteração dinâmica de áreas de trabalho virtuais. O sistema ekran permite que você desatribua automaticamente licenças de áreas de trabalho virtuais não persistentes excluídas e as remova do banco de dados. O sistema ekran integra-se perfeitamente com Azure Active Directory e o Azure Sentinel.
 
@@ -144,7 +142,7 @@ Quando um usuário entra em sua área de trabalho virtual, o software FabulaTech
 ![Logotipo de ti Flexxible](./media/partners/flexxible.png)
 
 Flexxible é um parceiro de valor de área de trabalho virtual do Windows que oferece às organizações a capacidade de dimensionar, monitorar e gerenciar com eficiência a infraestrutura de área de trabalho virtual do Windows e do Citrix Workspace. Flexxible | O SUITE permite que os administradores de ti provisionem e gerenciem de forma inteligente cargas de trabalho de área de trabalho virtual do Windows e hospedadas no Azure.
- 
+
 A tecnologia Flexxible IT estende o valor do espaço de trabalho virtual nativo do Windows e da Citrix, automatizando os processos comuns para simplificar a configuração da infraestrutura, o provisionamento da área de trabalho e o gerenciamento diário. Sem a necessidade de scripts complexos do PowerShell ou de processos manuais demorados, o pacote fornece implantação de área de trabalho escalonável, monitoramento e relatórios extensivos e gerenciamento seguro delegado. Esses recursos permitem que você se concentre em fornecer níveis aprimorados de serviço e uma experiência de área de trabalho virtual do Windows de qualidade para seus usuários.
 
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7A).
@@ -165,7 +163,7 @@ O HP Thin Client é um parceiro aprovado e verificado dos serviços de área de 
 ![Logotipo do IGEL](./media/partners/igel.png)
 
 IGEL é um parceiro aprovado e verificado de Microsoft Azure e serviços de área de trabalho virtual do Windows. O IGEL oferece o IGEL OS, o sistema operacional de borda da próxima geração para espaços de trabalho de nuvem projetados para acessar aplicativos virtuais, desktops e espaços de trabalho de nuvem de um ou mais dispositivos de usuário com um ponto de extremidade leve, simples e seguro baseado em Linux. Uma solução de software independente de plataforma, o sistema operacional IGEL e seu software de gerenciamento e controle baseado em servidor, o UMS (IGEL universal Management Suite), compõem uma solução de gerenciamento e controle de ponto de extremidade que libera as empresas para tirar total proveito das instâncias de nuvem baseadas no Azure e das áreas de trabalho de área de trabalho virtual do Windows, incluindo a área de trabalho virtual do Windows
- 
+
 O sistema operacional IGEL dá suporte a todos os aplicativos virtuais populares, desktops e protocolos de cliente de espaço de trabalho de nuvem da Citrix, da Microsoft e do VMware. Ele inclui tecnologias integradas de 85 periféricos, interface e parceiros de protocolo para ajudar as organizações a adotar rapidamente os serviços de área de trabalho virtual do Windows em seus próprios ambientes de usuário exclusivos. O sistema operacional IGEL é um sistema operacional de ponto de extremidade modular somente leitura, que ajuda a protegê-lo contra violação. Ele agora também inclui uma "cadeia de confiança" completa que verifica a integridade de todos os principais processos de chave em execução no ponto de extremidade, do hardware do ponto de extremidade (alguns modelos selecionados) ou do processo UEFI até os serviços de área de trabalho de nuvem do Azure e Windows virtual. Com o IGEL OS, as empresas podem assinar a área de trabalho virtual do Windows da nuvem do Azure com total confiança na integridade, na segurança e na capacidade de gerenciamento dos dispositivos de ponto de extremidade dos usuários.
 
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vviO).
@@ -175,9 +173,9 @@ O sistema operacional IGEL dá suporte a todos os aplicativos virtuais populares
 
 ![Logotipo do Ivanti](./media/partners/ivanti.png)
 
-O Gerenciador de espaço de trabalho do usuário Ivanti é um serviço de valor agregado da área de trabalho virtual do Windows que facilita a implantação e o gerenciamento de desktops, separando os dados do usuário da área de trabalho para portabilidade Com o Ivanti, os usuários podem entregar projetos complexos, como migrar para o Windows 10, adotar Microsoft 365 ou mover serviços para a nuvem mais rapidamente. 
+O Gerenciador de espaço de trabalho do usuário Ivanti é um serviço de valor agregado da área de trabalho virtual do Windows que facilita a implantação e o gerenciamento de desktops, separando os dados do usuário da área de trabalho para portabilidade Com o Ivanti, os usuários podem entregar projetos complexos, como migrar para o Windows 10, adotar Microsoft 365 ou mover serviços para a nuvem mais rapidamente.
 
-Quando usado com a área de trabalho virtual do Windows, o Gerenciador de espaço de trabalho do usuário Ivanti fornece gerenciamento contextual simples da experiência desktop do usuário, eliminando tempos de entrada longos e erradicando a política de grupo pesadelos. Os modelos prontos para uso do Gerenciador de espaço de trabalho do usuário Ivanti simplificam a instalação para usuários por meio de agentes e do console existente. O Gerenciador de espaço de trabalho de usuário do Ivanti fornece áreas responsivas e seguras que os usuários adoram, economizando em servidores, Gerenciando usuários com mais eficiência e reduzindo o risco de segurança do ponto de extremidade. 
+Quando usado com a área de trabalho virtual do Windows, o Gerenciador de espaço de trabalho do usuário Ivanti fornece gerenciamento contextual simples da experiência desktop do usuário, eliminando tempos de entrada longos e erradicando a política de grupo pesadelos. Os modelos prontos para uso do Gerenciador de espaço de trabalho do usuário Ivanti simplificam a instalação para usuários por meio de agentes e do console existente. O Gerenciador de espaço de trabalho de usuário do Ivanti fornece áreas responsivas e seguras que os usuários adoram, economizando em servidores, Gerenciando usuários com mais eficiência e reduzindo o risco de segurança do ponto de extremidade.
 
 - [Acesse o site do parceiro](https://www.ivanti.com/products/user-workspace-manager).
 
@@ -237,9 +235,9 @@ O Nerdio estende o valor da área de trabalho virtual do Windows, facilitando o 
 
 ![Logotipo do Numecent](./media/partners/numecent.png)
 
-O Numecent é um provedor de serviços de valor agregado da área de trabalho virtual do Windows que reduz significativamente os custos operacionais totais por meio da integração rápida e da migração de aplicativos Windows complicados ou incompatíveis em ambientes de área de trabalho virtual do Windows. O Numecent também minimiza a quantidade de configuração que os usuários precisam fazer, reduz as atualizações do aplicativo e simplifica processos complexos. Como o Numecent Cloudpaging dá suporte a mais aplicativos diretamente do que qualquer outra ferramenta de entrega de aplicativos, ele reduz o tempo e as cargas de trabalho de ti em ambientes com um conjunto diversificado de aplicativos. 
+O Numecent é um provedor de serviços de valor agregado da área de trabalho virtual do Windows que reduz significativamente os custos operacionais totais por meio da integração rápida e da migração de aplicativos Windows complicados ou incompatíveis em ambientes de área de trabalho virtual do Windows. O Numecent também minimiza a quantidade de configuração que os usuários precisam fazer, reduz as atualizações do aplicativo e simplifica processos complexos. Como o Numecent Cloudpaging dá suporte a mais aplicativos diretamente do que qualquer outra ferramenta de entrega de aplicativos, ele reduz o tempo e as cargas de trabalho de ti em ambientes com um conjunto diversificado de aplicativos.
 
-Quando usado com a área de trabalho virtual do Windows, o Cloudpaging reduz ainda mais os custos ao concluir o ciclo de vida do ativo de software da implantação para atualizar, monitorar e remover aplicativos. O Cloudpaging simplifica o gerenciamento de imagens ao provisionar dinamicamente aplicativos conforme necessário em tempo real para implantações de área de trabalho virtual do Windows. O Cloudpaging ajuda os aplicativos a executar sem administração ou intervenção por meio das atualizações periódicas do Windows 10. O Cloudpaging também reduz o custo de licenciamento de aplicativos caros, permitindo a implantação e o uso mais eficientes desses aplicativos. 
+Quando usado com a área de trabalho virtual do Windows, o Cloudpaging reduz ainda mais os custos ao concluir o ciclo de vida do ativo de software da implantação para atualizar, monitorar e remover aplicativos. O Cloudpaging simplifica o gerenciamento de imagens ao provisionar dinamicamente aplicativos conforme necessário em tempo real para implantações de área de trabalho virtual do Windows. O Cloudpaging ajuda os aplicativos a executar sem administração ou intervenção por meio das atualizações periódicas do Windows 10. O Cloudpaging também reduz o custo de licenciamento de aplicativos caros, permitindo a implantação e o uso mais eficientes desses aplicativos.
 
 - [Acesse o site do parceiro](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/).
 
@@ -247,9 +245,9 @@ Quando usado com a área de trabalho virtual do Windows, o Cloudpaging reduz ain
 
 ![Logotipo do PolicyPak](./media/partners/policypak.png)
 
-O PolicyPak software é um parceiro de área de trabalho virtual do Windows que realiza o gerenciamento total de configurações para aplicativos, área de trabalho, navegadores, Java e configurações de segurança. O PolicyPak mantém suas configurações de desktop, sistema e segurança em conformidade. O PolicyPak aprimora o valor da área de trabalho virtual do Windows adicionando um conjunto de componentes para aprimorar a administração interna do Windows. Use o Active Directory existente Política de Grupo e/ou o Windows Intune para fornecer as configurações do PolicyPak e aumentar a capacidade dos administradores de gerenciar suas máquinas com o Windows 10. 
+O PolicyPak software é um parceiro de área de trabalho virtual do Windows que realiza o gerenciamento total de configurações para aplicativos, área de trabalho, navegadores, Java e configurações de segurança. O PolicyPak mantém suas configurações de desktop, sistema e segurança em conformidade. O PolicyPak aprimora o valor da área de trabalho virtual do Windows adicionando um conjunto de componentes para aprimorar a administração interna do Windows. Use o Active Directory existente Política de Grupo e/ou o Windows Intune para fornecer as configurações do PolicyPak e aumentar a capacidade dos administradores de gerenciar suas máquinas com o Windows 10.
 
-Os principais casos de uso do PolicyPak são remover os direitos de administrador local e superar os prompts do UAC, bloquear ransomware, gerenciar vários navegadores, gerenciar os modos de compatibilidade e empresarial do Internet Explorer, reduzir o número de GPOs, gerenciar associações de arquivos do Windows 10, gerenciar o menu iniciar e a barra de tarefas do Windows 10 e gerenciar recursos opcionais e do Windows 10.  
+Os principais casos de uso do PolicyPak são remover os direitos de administrador local e superar os prompts do UAC, bloquear ransomware, gerenciar vários navegadores, gerenciar os modos de compatibilidade e empresarial do Internet Explorer, reduzir o número de GPOs, gerenciar associações de arquivos do Windows 10, gerenciar o menu iniciar e a barra de tarefas do Windows 10 e gerenciar recursos opcionais e do Windows 10.
 
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vviN).
 - [Acesse o site do parceiro](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html).
@@ -258,9 +256,9 @@ Os principais casos de uso do PolicyPak são remover os direitos de administrado
 
 ![Logotipo do PrinterLogic](./media/partners/printerlogic.png)
 
-PrinterLogic é uma plataforma de provedor de serviços com valor agregado da área de trabalho virtual do Windows que capacita os profissionais de ti a eliminar todos os servidores de impressão e fornecer uma infraestrutura de impressão sem servidor altamente disponível. O PrinterLogic estende o valor da área de trabalho virtual do Windows e do Azure, facilitando o gerenciamento central e a implantação de objetos de impressora em qualquer impressora ou sistema operacional de ponto de extremidade. 
+PrinterLogic é uma plataforma de provedor de serviços com valor agregado da área de trabalho virtual do Windows que capacita os profissionais de ti a eliminar todos os servidores de impressão e fornecer uma infraestrutura de impressão sem servidor altamente disponível. O PrinterLogic estende o valor da área de trabalho virtual do Windows e do Azure, facilitando o gerenciamento central e a implantação de objetos de impressora em qualquer impressora ou sistema operacional de ponto de extremidade.
 
-Disponível como SaaS ou como uma pilha da Web em sua própria nuvem privada, a plataforma PrinterLogic garante que os usuários sempre tenham as impressoras certas de que precisam em suas sessões virtuais com base na ID de usuário, no nome do dispositivo ou no local. Essa funcionalidade é complementada por um pacote completo de recursos de gerenciamento de impressão empresarial, como rastreamento de impressão e relatórios, impressão móvel e impressão de liberação de selo seguro. 
+Disponível como SaaS ou como uma pilha da Web em sua própria nuvem privada, a plataforma PrinterLogic garante que os usuários sempre tenham as impressoras certas de que precisam em suas sessões virtuais com base na ID de usuário, no nome do dispositivo ou no local. Essa funcionalidade é complementada por um pacote completo de recursos de gerenciamento de impressão empresarial, como rastreamento de impressão e relatórios, impressão móvel e impressão de liberação de selo seguro.
 
 - [Acesse o site do parceiro](https://www.printerlogic.com).
 
@@ -279,8 +277,8 @@ A impressão é uma tarefa fundamental em quase todos os escritórios e ambiente
 
 ![Logotipo do RDPSoft](./media/partners/rdpsoft.png)
 
-O RDPSoft é um parceiro de área de trabalho virtual do Windows que fornece soluções de monitoramento, gerenciamento e relatórios poderosas e econômicas. Suas ofertas Área de Trabalho Remota Commander permitem aos profissionais de ti obter informações sobre a integridade, o desempenho, a atividade do usuário, o licenciamento e a segurança de suas implantações de área de trabalho virtual do Windows. 
- 
+O RDPSoft é um parceiro de área de trabalho virtual do Windows que fornece soluções de monitoramento, gerenciamento e relatórios poderosas e econômicas. Suas ofertas Área de Trabalho Remota Commander permitem aos profissionais de ti obter informações sobre a integridade, o desempenho, a atividade do usuário, o licenciamento e a segurança de suas implantações de área de trabalho virtual do Windows.
+
 As soluções Área de Trabalho Remota Commander do RDPSoft aprimoram a administração da área de trabalho virtual do Windows. Os recursos de gerenciamento Premium simplificam a delegação de tarefas de gerenciamento de área de trabalho virtual do Windows para suporte à equipe de desk fornecendo assistência remota, sessão de usuário e gerenciamento de processos. Ao mesmo tempo, o Área de Trabalho Remota Commander Suite coleta métricas avançadas sobre desempenho e carga por usuário, atividade e auditoria do usuário, qualidade de conexão da área de trabalho virtual do Windows (latência e largura de banda), licenciamento e segurança em uma instância central do banco de dados SQL do Azure para análise. Com o RDPSoft, os amplos relatórios históricos e os painéis abrangentes são apenas um clique.
 
 - [Acesse o site do parceiro](https://www.rdpsoft.com/products/remote-desktop-commander/suite/).
@@ -322,7 +320,7 @@ A solução ezeep da ThinPrint estende o valor da área de trabalho virtual do W
 
 ![Logotipo do triCerat](./media/partners/tricerat.png)
 
-O triCerat oferece uma solução de gerenciamento de impressão superior para área de trabalho virtual do Windows e outras plataformas de área de trabalho. O triCerat software tem funcionalidade robusta, oferecendo uma experiência melhor para usuários e administradores. Os administradores adquirem eficiência por meio de gerenciamento de driver completo, implantação simplificada de filas de impressão e gerenciamento consistente em plataformas híbridas. A experiência do usuário melhora com tempos de entrada mais curtos, filas de impressão inteligentes baseadas em usuário, dispositivo e local de rede e opções de autoatendimento para seleção rápida de impressoras. 
+O triCerat oferece uma solução de gerenciamento de impressão superior para área de trabalho virtual do Windows e outras plataformas de área de trabalho. O triCerat software tem funcionalidade robusta, oferecendo uma experiência melhor para usuários e administradores. Os administradores adquirem eficiência por meio de gerenciamento de driver completo, implantação simplificada de filas de impressão e gerenciamento consistente em plataformas híbridas. A experiência do usuário melhora com tempos de entrada mais curtos, filas de impressão inteligentes baseadas em usuário, dispositivo e local de rede e opções de autoatendimento para seleção rápida de impressoras.
 
 Com o triCerat, a impressão é direta na área de trabalho virtual do Windows e além. O triCerat software permite que os Administradores conectem facilmente as impressoras locais à nuvem, estendendo o gerenciamento de impressão empresarial de ambientes tradicionais a novos e modernos espaços de trabalho.
 
@@ -344,7 +342,7 @@ o uberAgent é um produto de monitoramento e análise projetado para computaçã
 
 O espaço de trabalho 365 une todas as suas informações (dados de negócios, documentos, comunicação e micro aplicativos) e fornece acesso a qualquer aplicativo local, Web ou hospedado em um espaço de trabalho. Ele se adapta automaticamente à sua função, local, dispositivo, navegador e muito mais para fornecer um espaço de trabalho personalizado. Os usuários obtêm uma experiência simplificada e consistente, não importa qual tecnologia está abaixo da superfície. Você pode integrar suas soluções atuais, como RDP, Citrix e aplicativos herdados, e movê-las para a área de trabalho virtual do Windows, mantendo a mesma experiência do usuário. Além disso, você pode integrar todos os seus locais de arquivos, como SharePoint, OneDrive, equipes e servidores de arquivos, em um aplicativo de gerenciamento de documentos.
 
-Com o espaço de trabalho 365, os administradores de ti podem disponibilizar aplicativos habilitados para área de trabalho virtual do Windows para pessoas com base em permissões. O administrador pode então adicionar esses aplicativos a um grupo de aplicativos compartilhados. Quando o aplicativo de área de trabalho virtual do Windows estiver visível no espaço de trabalho 365, os usuários poderão abri-lo em seu espaço de trabalho sem precisar entrar novamente. 
+Com o espaço de trabalho 365, os administradores de ti podem disponibilizar aplicativos habilitados para área de trabalho virtual do Windows para pessoas com base em permissões. O administrador pode então adicionar esses aplicativos a um grupo de aplicativos compartilhados. Quando o aplicativo de área de trabalho virtual do Windows estiver visível no espaço de trabalho 365, os usuários poderão abri-lo em seu espaço de trabalho sem precisar entrar novamente.
 
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vARh).
 - [Acesse o site do parceiro](https://workspace365.net/product-tour/hybrid-workspace-365/).

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 0ed0009bce18e2b0970b425c31d2f38cef387187
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7e6afd40266d280ae872d24b1828b6feadbee17e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008312"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007906"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Melhores práticas para o Cache do Azure para Redis 
 Ao seguir essas práticas recomendadas, você pode ajudar a maximizar o desempenho e o uso econômico de seu cache do Azure para a instância Redis.
@@ -55,7 +55,7 @@ Há várias coisas relacionadas ao uso de memória em sua instância do servidor
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
- * [Provedor de estado de sessão Asp.Net](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
+ * [Provedor de estado de sessão ASP.NET](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
 
 ## <a name="when-is-it-safe-to-retry"></a>Quando é seguro tentar novamente?
@@ -79,7 +79,7 @@ Se você quiser testar como o código funciona em condições de erro, considere
  * **Considere o uso de instâncias de Redis da camada Premium**.  Esses tamanhos de cache terão melhor latência de rede e taxa de transferência, pois estão em execução em hardware melhor para CPU e rede.
  
      > [!NOTE]
-     > Nossos resultados de desempenho observados são [publicados aqui](cache-faq.md#azure-cache-for-redis-performance) para sua referência.   Além disso, lembre-se de que o SSL/TLS adiciona alguma sobrecarga, de modo que você poderá obter latências e/ou taxa de transferência diferentes se estiver usando a criptografia de transporte.
+     > Nossos resultados de desempenho observados são [publicados aqui](cache-planning-faq.md#azure-cache-for-redis-performance) para sua referência.   Além disso, lembre-se de que o SSL/TLS adiciona alguma sobrecarga, de modo que você poderá obter latências e/ou taxa de transferência diferentes se estiver usando a criptografia de transporte.
  
 ### <a name="redis-benchmark-examples"></a>Redis-exemplos de benchmark
 **Configuração de pré-teste**: Prepare a instância de cache com os dados necessários para os comandos de teste de latência e taxa de transferência listados abaixo.

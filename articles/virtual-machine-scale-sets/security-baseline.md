@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 6db83d17a9e6f3df6d691d6de616ead5407e3f5f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 89da86d753f746774737c248ee318c7a377dd7a0
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133037"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007090"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Linha de base de segurança do Azure para conjuntos de dimensionamento de máquinas virtuais
 
@@ -244,7 +244,7 @@ Para obter visibilidade avançada dos aplicativos e serviços com suporte no con
 
 * [Como monitorar máquinas virtuais no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/monitor)
 
-* [Visão geral de Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
+* [Visão geral do Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -576,11 +576,11 @@ A Microsoft usa o protocolo TLS para proteger dados quando está viajando entre 
 
 **Responsabilidade**: Cliente
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: usando o RBAC (controle de acesso baseado em função), você pode separar as tarefas dentro de sua equipe e conceder apenas a quantidade de acesso aos usuários em sua VM (máquina virtual) de que eles precisam para executar seus trabalhos. Em vez de apresentar todas as permissões irrestritas na VM, você pode permitir que apenas determinadas ações. Você pode configurar o controle de acesso para a VM no portal do Azure, usando o CLI do Azure ou Azure PowerShell.
+**Orientação**: usando o Azure RBAC (controle de acesso baseado em função), você pode separar as tarefas dentro de sua equipe e conceder apenas a quantidade de acesso aos usuários em sua VM (máquina virtual) de que eles precisam para executar seus trabalhos. Em vez de apresentar todas as permissões irrestritas na VM, você pode permitir que apenas determinadas ações. Você pode configurar o controle de acesso para a VM no portal do Azure, usando o CLI do Azure ou Azure PowerShell.
 
-* [RBAC (Controle de acesso baseado em função) para recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 * [Funções internas do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)
 
@@ -916,11 +916,11 @@ Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com 
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: armazenar imagens personalizadas do sistema operacional com segurança
 
-**Orientação**: se estiver usando imagens personalizadas (por exemplo, disco rígido virtual), use controles de acesso baseado em função do Azure para garantir que somente usuários autorizados possam acessar as imagens.
+**Orientação**: se estiver usando imagens personalizadas (por exemplo, disco rígido virtual), use o controle de acesso baseado em função do Azure (RBAC do Azure) para garantir que somente usuários autorizados possam acessar as imagens.
 
-* [Entender o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+* [Entender o RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 
-* [Como configurar o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+* [Como configurar o RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fcd1c3a9fd3e4be22e4057eb2cfc9a71d09d558
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 4e707393bda3d8820ccf94abed83beb1317027d5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529102"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005030"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Entrar na máquina virtual do Windows no Azure usando a autenticação Azure Active Directory (versão prévia)
 
@@ -32,7 +32,7 @@ Há muitos benefícios em usar a autenticação do Azure AD para fazer logon em 
 - Não precisa mais gerenciar contas de administrador local.
 - O RBAC do Azure permite conceder o acesso apropriado às VMs com base na necessidade e removê-la quando não for mais necessária.
 - Antes de permitir o acesso a uma VM, o acesso condicional do Azure AD pode impor requisitos adicionais, como: 
-   - Autenticação Multifator
+   - Autenticação multifator
    - Verificação de risco de entrada
 - Automatize e dimensione o ingresso no Azure AD de VMs do Windows do Azure que fazem parte para suas implantações de VDI.
 
@@ -45,7 +45,7 @@ Há muitos benefícios em usar a autenticação do Azure AD para fazer logon em 
 
 No momento, há suporte para as seguintes distribuições do Windows durante a versão prévia deste recurso:
 
-- Windows Server 2019 Datacenter
+- Windows Server 2019 Datacenter
 - Windows 10 1809 e posterior
 
 > [!IMPORTANT]
@@ -174,7 +174,7 @@ Após alguns instantes, a entidade de segurança é atribuída a função no esc
 
 ### <a name="using-the-azure-cloud-shell-experience"></a>Usando a experiência de Azure Cloud Shell
 
-O exemplo a seguir usa [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) para atribuir a função Logon de Administrador da Máquina Virtual para a VM ao usuário atual do Azure. O nome de usuário da conta do Azure ativa é obtido com [az account show](/cli/azure/account#az-account-show) e o escopo é definido para a VM criada na etapa anterior com [az vm show](/cli/azure/vm#az-vm-show). O escopo também pode ser atribuído no nível do grupo de recursos ou da assinatura, e as permissões de herança de RBAC normais são aplicadas. Para obter mais informações, consulte [controles de acesso baseado em função](../../virtual-machines/linux/login-using-aad.md).
+O exemplo a seguir usa [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) para atribuir a função Logon de Administrador da Máquina Virtual para a VM ao usuário atual do Azure. O nome de usuário da conta do Azure ativa é obtido com [az account show](/cli/azure/account#az-account-show) e o escopo é definido para a VM criada na etapa anterior com [az vm show](/cli/azure/vm#az-vm-show). O escopo também pode ser atribuído em um nível de assinatura ou grupo de recursos, e as permissões normais de herança do RBAC do Azure se aplicam. Para obter mais informações, consulte [fazer logon em uma máquina virtual Linux no Azure usando Azure Active Directory autenticação](../../virtual-machines/linux/login-using-aad.md).
 
 ```   AzureCLI
 username=$(az account show --query user.name --output tsv)
@@ -189,11 +189,11 @@ az role assignment create \
 > [!NOTE]
 > Se o domínio do AAD e o domínio de nome de usuário de logon não corresponderem, você deverá especificar a ID de objeto da sua conta de usuário com o `--assignee-object-id` , e não apenas o nome do usuário para `--assignee` . É possível obter a ID de objeto para a conta de usuário com [az ad user list](/cli/azure/ad/user#az-ad-user-list).
 
-Para obter mais informações sobre como usar o RBAC para gerenciar o acesso aos recursos de sua assinatura do Azure, consulte os seguintes artigos:
+Para obter mais informações sobre como usar o RBAC do Azure para gerenciar o acesso aos recursos de sua assinatura do Azure, consulte os seguintes artigos:
 
-- [Gerenciar o acesso aos recursos do Azure usando o RBAC e a CLI do Azure](/azure/role-based-access-control/role-assignments-cli)
-- [Gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure](/azure/role-based-access-control/role-assignments-portal)
-- [Gerencie o acesso aos recursos do Azure usando RBAC e Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
+- [Adicionar ou remover atribuições de função do Azure usando CLI do Azure](/azure/role-based-access-control/role-assignments-cli)
+- [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](/azure/role-based-access-control/role-assignments-portal)
+- [Adicionar ou remover atribuições de função do Azure usando Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
 ## <a name="using-conditional-access"></a>Usando o acesso condicional
 
@@ -224,7 +224,7 @@ Agora você está conectado à máquina virtual do Azure do Windows Server 2019 
 > [!NOTE]
 > Você pode salvar o. Arquivo RDP localmente no seu computador para iniciar futuras conexões de área de trabalho remota para sua máquina virtual em vez de ter que navegar até a página de visão geral da máquina virtual no portal do Azure e usando a opção conectar.
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 ### <a name="troubleshoot-deployment-issues"></a>Solucionar problemas de implantação
 

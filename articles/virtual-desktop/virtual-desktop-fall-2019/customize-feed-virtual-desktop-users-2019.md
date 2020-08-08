@@ -1,24 +1,22 @@
 ---
 title: Personalizar feed para usuários da área de trabalho virtual do Windows (clássico)-Azure
 description: Como personalizar o feed para usuários da área de trabalho virtual do Windows (clássico) com cmdlets do PowerShell.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ab1206a8963d9ba3b556a48b2e973eea663c9cb8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3a8c1a5da4f4d46d98e01eeb0bf210567af19a95
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288655"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007226"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-classic-users"></a>Personalizar feed para usuários da área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../customize-feed-for-virtual-desktop-users.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager, confira [este artigo](../customize-feed-for-virtual-desktop-users.md).
 
 Você pode personalizar o feed para que os recursos do RemoteApp e da área de trabalho remota apareçam de maneira reconhecível para seus usuários.
 

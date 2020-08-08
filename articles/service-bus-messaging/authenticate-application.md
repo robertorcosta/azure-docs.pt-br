@@ -3,15 +3,15 @@ title: Autenticar um aplicativo para acessar entidades do barramento de serviço
 description: Este artigo fornece informações sobre como autenticar um aplicativo com Azure Active Directory para acessar entidades do barramento de serviço do Azure (filas, tópicos, etc.)
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: f5142e59e1711d9bf63a7badc2d0947fd86f49f4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1d18772dfa9cf444dc55d5e4cef6f31dd6c0d669
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835962"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006257"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticar e autorizar um aplicativo com Azure Active Directory para acessar entidades do barramento de serviço do Azure
-O barramento de serviço do Azure dá suporte ao uso de Azure Active Directory (AD do Azure) para autorizar solicitações para entidades do barramento de serviço (filas, tópicos, assinaturas ou filtros). Com o Azure AD, você pode usar o RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança, que pode ser um usuário, grupo ou entidade de serviço de aplicativo. Para saber mais sobre funções e atribuições de função, confira [noções básicas sobre as diferentes funções](../role-based-access-control/overview.md).
+O barramento de serviço do Azure dá suporte ao uso de Azure Active Directory (AD do Azure) para autorizar solicitações para entidades do barramento de serviço (filas, tópicos, assinaturas ou filtros). Com o Azure AD, você pode usar o Azure RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança, que pode ser um usuário, grupo ou entidade de serviço de aplicativo. Para saber mais sobre funções e atribuições de função, confira [noções básicas sobre as diferentes funções](../role-based-access-control/overview.md).
 
 ## <a name="overview"></a>Visão geral
 Quando uma entidade de segurança (um usuário, grupo ou aplicativo) tenta acessar uma entidade do barramento de serviço, a solicitação deve ser autorizada. Com o Azure AD, o acesso a um recurso é um processo de duas etapas. 
@@ -27,12 +27,12 @@ Aplicativos nativos e aplicativos Web que fazem solicitações para o barramento
 
 
 ## <a name="assigning-azure-roles-for-access-rights"></a>Atribuindo funções do Azure para direitos de acesso
-O Azure Active Directory (AD do Azure) autoriza os direitos de acesso a recursos protegidos por meio do [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md). O barramento de serviço do Azure define um conjunto de funções internas do Azure que abrangem conjuntos comuns de permissões usadas para acessar entidades do barramento de serviço e você também pode definir funções personalizadas para acessar os dados.
+O Azure Active Directory (AD do Azure) autoriza os direitos de acesso a recursos protegidos por meio [do RBAC do Azure](../role-based-access-control/overview.md). O barramento de serviço do Azure define um conjunto de funções internas do Azure que abrangem conjuntos comuns de permissões usadas para acessar entidades do barramento de serviço e você também pode definir funções personalizadas para acessar os dados.
 
 Quando uma função do Azure é atribuída a uma entidade de segurança do Azure AD, o Azure concede acesso a esses recursos para essa entidade de segurança. O acesso pode ser definido para o nível de assinatura, o grupo de recursos ou o namespace do barramento de serviço. Uma entidade de segurança do Azure AD pode ser um usuário, um grupo, uma entidade de serviço de aplicativo ou uma [identidade gerenciada para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="azure-built-in-roles-for-azure-service-bus"></a>Funções internas do Azure para o barramento de serviço do Azure
-Para o Barramento de Serviço do Azure, o gerenciamento de namespaces e de todos os recursos relacionados por meio do portal do Azure e da API de gerenciamento de recursos do Azure já está protegido pelo modelo *RBAC (controle de acesso baseado em função)*. O Azure fornece as funções internas do Azure abaixo para autorizar o acesso a um namespace do barramento de serviço:
+Para o barramento de serviço do Azure, o gerenciamento de namespaces e todos os recursos relacionados por meio do portal do Azure e a API de gerenciamento de recursos do Azure já estão protegidos usando o modelo RBAC do Azure. O Azure fornece as funções internas do Azure abaixo para autorizar o acesso a um namespace do barramento de serviço:
 
 - [Proprietário de dados do barramento de serviço do Azure](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): habilita o acesso a dados ao namespace do barramento de serviço e suas entidades (filas, tópicos, assinaturas e filtros)
 - [Remetente de dados do barramento de serviço do Azure](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): Use essa função para fornecer acesso de envio ao namespace do barramento de serviço e suas entidades.
@@ -55,7 +55,7 @@ Para obter mais informações sobre como as funções internas são definidas, c
 
 
 ## <a name="assign-azure-roles-using-the-azure-portal"></a>Atribuir funções do Azure usando o portal do Azure  
-Para saber mais sobre como gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure, consulte [Este artigo](..//role-based-access-control/role-assignments-portal.md). 
+Para saber mais sobre como gerenciar o acesso aos recursos do Azure usando o RBAC do Azure e o portal do Azure, consulte [Este artigo](..//role-based-access-control/role-assignments-portal.md). 
 
 Depois de determinar o escopo apropriado para uma atribuição de função, navegue até esse recurso na portal do Azure. Exiba as configurações de controle de acesso (IAM) para o recurso e siga estas instruções para gerenciar as atribuições de função:
 
@@ -150,16 +150,16 @@ Ao executar o aplicativo de console, você será solicitado a selecionar um cen�
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para saber mais sobre o RBAC, confira [o que é o Azure RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md)?
+- Para saber mais sobre o RBAC do Azure, confira [o que é o Azure RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md)?
 - Para saber como atribuir e gerenciar atribuições de função do Azure com Azure PowerShell, CLI do Azure ou a API REST, consulte estes artigos:
-    - [Gerenciar o controle de acesso baseado em função (RBAC) com o Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
-    - [Gerenciar o controle de acesso baseado em função (RBAC) com a CLI do Azure](../role-based-access-control/role-assignments-cli.md)
-    - [Gerenciar o controle de acesso baseado em função (RBAC) com a API REST](../role-based-access-control/role-assignments-rest.md)
-    - [Gerenciar RBAC (controle de acesso baseado em função) com modelos de Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
+    - [Adicionar ou remover atribuições de função do Azure usando o Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
+    - [Adicionar ou remover atribuições de função do Azure usando CLI do Azure](../role-based-access-control/role-assignments-cli.md)
+    - [Adicionar ou remover atribuições de função do Azure usando a API REST](../role-based-access-control/role-assignments-rest.md)
+    - [Adicionar ou remover atribuições de função do Azure usando modelos de Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 
 Para saber mais sobre as mensagens do Barramento de Serviço, confira os tópicos a seguir.
 
-- [Exemplos de RBAC do barramento de serviço](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
+- [Exemplos de RBAC do Azure do barramento de serviço](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
 - [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)
 - [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 - [Como usar tópicos e assinaturas do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)

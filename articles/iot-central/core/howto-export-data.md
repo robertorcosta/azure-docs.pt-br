@@ -8,16 +8,17 @@ ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 6660f413c741b36f4dd28f6e1bcf83873e4f5c26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1428df124272816927c6bbbc4a242170c7f46c00
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483917"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008518"
 ---
-# <a name="export-iot-data-to-destinations-in-azure"></a>Exportar dados de IoT para destinos no Azure
+# <a name="export-iot-data-to-destinations-in-azure-using-data-export-legacy"></a>Exportar dados de IoT para destinos no Azure usando a exportação de dados (Herdado)
 
-*Este tópico aplica-se aos administradores.*
+> [!Note]
+> Há uma nova maneira de exportar dados no IoT Central. Você pode usar a nova exportação de dados para filtrar e enriquecer seus dados exportados e exportá-los para novos destinos, como pontos de extremidade de webhook. Você pode aprender sobre a nova exportação de dados [aqui](./howto-use-data-export.md). Para saber mais sobre as diferenças entre a nova exportação de dados e a exportação de dados herdados, consulte a [tabela de comparação](./howto-use-data-export.md#comparison-of-legacy-data-export-and-new-data-export).
 
 Este artigo descreve como usar o recurso de exportação de dados no Azure IoT Central. Esse recurso permite exportar os dados continuamente para os **hubs de eventos do**Azure, o **barramento de serviço do Azure**ou as instâncias **do armazenamento de BLOBs do Azure** . A exportação de dados usa o formato JSON e pode incluir telemetria, informações do dispositivo e informações do modelo do dispositivo. Use os dados exportados para:
 
@@ -66,7 +67,7 @@ Se você não tiver uma conta de armazenamento do Azure existente para a qual ex
     |-|-|
     |Standard|Uso Geral v2|
     |Standard|Uso Geral v1|
-    |Standard|Armazenamento de blob|
+    |Standard|Armazenamento de Blobs|
     |Premium|Armazenamento de blobs de blocos|
 
 2. Crie um contêiner em sua conta de armazenamento. Vá até sua conta de armazenamento. Em **Serviço Blob**, selecione **Procurar Blobs**. Selecione **+ Contêiner** na parte superior para criar um contêiner.

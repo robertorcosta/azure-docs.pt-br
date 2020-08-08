@@ -1,19 +1,17 @@
 ---
 title: Contêineres de perfil do FSLogix NetApp Windows Virtual Desktop – Azure
 description: Como criar um contêiner de perfil FSLogix usando Azure NetApp Files na área de trabalho virtual do Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2656c7ee433198d2ccd883b1c3a175c141c43813
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a9f2c62d8e7f17f6ea8377982c79fef3dfbb97c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362978"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002816"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Criar um contêiner de perfil com Azure NetApp Files e AD DS
 

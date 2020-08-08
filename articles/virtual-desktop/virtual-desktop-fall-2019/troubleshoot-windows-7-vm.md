@@ -1,24 +1,22 @@
 ---
 title: Máquinas virtuais Windows 7 Windows desktop virtual (clássico)-Azure
 description: Como resolver problemas de VMs (máquinas virtuais) do Windows 7 em um ambiente de área de trabalho virtual do Windows (clássico).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e7f433668c34fb5edc35889adcd604023202ada4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1d71b4472b16372927db56b20eca4fcbde0cc625
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286335"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005407"
 ---
 # <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop-classic"></a>Solucionar problemas de máquinas virtuais do Windows 7 na área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows.
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não dá suporte a objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
 
 Use este artigo para solucionar problemas que você está tendo ao configurar as VMs (máquinas virtuais) do host de sessão de área de trabalho virtual do Windows.
 
@@ -47,7 +45,7 @@ Para corrigir esse erro, adicione o usuário ao grupo de usuários Área de Trab
 2. Selecione a máquina virtual na qual você viu a mensagem de erro.
 3. Selecione **executar um comando**.
 4. Execute o seguinte comando com `<username>` substituído pelo nome do usuário que você deseja adicionar:
-   
+
    ```cmd
    net localgroup "Remote Desktop Users" <username> /add
    ```

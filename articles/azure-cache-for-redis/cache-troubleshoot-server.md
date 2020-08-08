@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: a68c27de304a0da6470745ee4abf69590d9bf78c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12d78846f5892e71388de6e6e76b868f9b14d4de
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698071"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008909"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Solucionar problemas no lado do servidor do Cache do Azure para Redis
 
@@ -76,7 +76,7 @@ Para atenuar situações em que o uso de largura de banda de rede está próximo
 ## <a name="additional-information"></a>Informações adicionais
 
 - [Solucionar problemas no lado do cliente do Cache do Azure para Redis](cache-troubleshoot-client.md)
-- [Qual oferta de Cache do Azure para Redis e tamanho eu devo usar?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
-- [Como medir e testar o desempenho do meu cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [Escolher a camada correta](cache-overview.md#choosing-the-right-tier)
+- [Como medir e testar o desempenho do meu cache?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 - [Como monitorar o Cache do Azure para Redis](cache-how-to-monitor.md)
-- [Como posso executar comandos do Redis?](cache-faq.md#how-can-i-run-redis-commands)
+- [Como posso executar comandos do Redis?](cache-development-faq.md#how-can-i-run-redis-commands)

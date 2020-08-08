@@ -1,24 +1,22 @@
 ---
 title: Log Analytics de diagnóstico da área de trabalho virtual (clássica) do Windows – Azure
 description: Como usar o log Analytics com o recurso de diagnóstico da área de trabalho virtual do Windows (clássico).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 500758839b426143650707d3d77d78e8a064533e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8a7a7a6681be78c2777130ca540319eb829d8f9d
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285060"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002350"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature-in-windows-virtual-desktop-classic"></a>Usar Log Analytics para o recurso de diagnóstico na área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../diagnostics-log-analytics.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager, confira [este artigo](../diagnostics-log-analytics.md).
 
 A Área de Trabalho Virtual do Windows oferece um recurso de diagnóstico que permite ao administrador identificar problemas por meio de uma única interface. Esse recurso registra as informações de diagnóstico sempre que alguém tiver atribuído a função de área de trabalho virtual do Windows usando o serviço. Cada log contém informações sobre qual função de área de trabalho virtual do Windows estava envolvida na atividade, todas as mensagens de erro que aparecem durante a sessão, informações de locatário e informações do usuário. O recurso de diagnóstico cria logs de atividade para ações administrativas e de usuário. Cada log de atividades cai em três categorias principais:
 
