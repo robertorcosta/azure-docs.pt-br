@@ -1,6 +1,6 @@
 ---
 title: Navegadores com suporte Web SDK | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá sobre os navegadores com suporte para o SDK da Web do Microsoft Azure Maps e como verificar se um navegador é um navegador com suporte.
+description: Descubra como verificar se o SDK da Web do Azure Maps dá suporte a um navegador. Exiba uma lista de navegadores com suporte. Saiba como usar os serviços de mapa com navegadores herdados.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 03/25/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: e81b15b974469d319384a67b08512130b7876a30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6d4ea19e5547adb7bee25f4bdce295eb9a76d44
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76988780"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002932"
 ---
 # <a name="web-sdk-supported-browsers"></a>Navegadores compatíveis com o SDK Web
 
@@ -40,7 +40,7 @@ O SDK da Web do Azure Maps dá suporte aos seguintes navegadores da área de tra
 
 Consulte também [direcionar navegadores herdados](#Target-Legacy-Browsers) mais adiante neste artigo.
 
-## <a name="mobile"></a>Dispositivos móveis
+## <a name="mobile"></a>Móvel
 
 O SDK da Web do Azure Maps dá suporte aos seguintes navegadores móveis:
 
@@ -63,7 +63,7 @@ Os seguintes módulos do SDK da Web também têm suporte no Node.js:
 
 ## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>Direcionar navegadores herdados
 
-Talvez você queira direcionar para navegadores mais antigos que não dão suporte a WebGL ou que tenham apenas suporte limitado para ele. Nesses casos, recomendamos que você use os serviços do Azure Maps junto com um controle de mapa de código-fonte aberto como [Leaflet](https://leafletjs.com/). Aqui está um exemplo:
+Talvez você queira direcionar para navegadores mais antigos que não dão suporte a WebGL ou que tenham apenas suporte limitado para ele. Nesses casos, recomendamos que você use os serviços do Azure Maps junto com um controle de mapa de código-fonte aberto como [Leaflet](https://leafletjs.com/). Este é um exemplo:
 
 <br/>
 

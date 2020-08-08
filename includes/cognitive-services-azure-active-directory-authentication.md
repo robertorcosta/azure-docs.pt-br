@@ -4,12 +4,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/11/2020
-ms.openlocfilehash: 6bbdd3eb62229c3f8f180d2618dd25062ff0c1e9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 235b7946fbcfc2322878428cce72e77ecceb9cfc
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86062704"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010981"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Autenticar com o Azure Active Directory
 
@@ -17,7 +17,7 @@ ms.locfileid: "86062704"
 > 1. Atualmente, **somente** o API da Pesquisa Visual Computacional, API de Detecção Facial, API de análise de texto, leitor de imersão, reconhecedor de formulário, detector de anomalias e todos os serviços do Bing, exceto pesquisa personalizada do Bing dar suporte à autenticação usando o Azure Active Directory (AAD).
 > 2. A autenticação do AAD precisa ser sempre usada junto com o nome de subdomínio personalizado do recurso do Azure. Os [pontos de extremidade regionais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#is-there-a-list-of-regional-endpoints) não dão suporte à autenticação do AAD.
 
-Nas seções anteriores, mostramos como se autenticar nos serviços cognitivas do Azure usando uma chave de assinatura de serviço único ou de vários serviços. Embora essas chaves forneçam um caminho rápido e fácil para iniciar o desenvolvimento, elas ficam curtas em cenários mais complexos que exigem controles de acesso baseados em função. Vamos dar uma olhada no que é necessário para autenticar usando o Azure Active Directory (AAD).
+Nas seções anteriores, mostramos como se autenticar nos serviços cognitivas do Azure usando uma chave de assinatura de serviço único ou de vários serviços. Embora essas chaves forneçam um caminho rápido e fácil para iniciar o desenvolvimento, elas ficam curtas em cenários mais complexos que exigem o controle de acesso baseado em função do Azure (RBAC do Azure). Vamos dar uma olhada no que é necessário para autenticar usando o Azure Active Directory (AAD).
 
 Nas seções a seguir, você usará o ambiente de Azure Cloud Shell ou o CLI do Azure para criar um subdomínio, atribuir funções e obter um token de portador para chamar os serviços cognitivas do Azure. Se você ficar preso, os links serão fornecidos em cada seção com todas as opções disponíveis para cada comando no Azure Cloud Shell/CLI do Azure.
 
@@ -45,7 +45,7 @@ A primeira etapa é criar um subdomínio personalizado. Se você quiser usar um 
 Agora que você tem um subdomínio personalizado associado ao recurso, será necessário atribuir uma função a uma entidade de serviço.
 
 > [!NOTE]
-> Tenha em mente que as atribuições de função do AAD podem levar até cinco minutos para serem propagadas.
+> Tenha em mente que as atribuições de função do Azure podem levar até cinco minutos para serem propagadas.
 
 1. Primeiro, vamos registrar um [aplicativo do AAD](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0).
 

@@ -1,6 +1,6 @@
 ---
-title: Assistente de segurança de funções do Azure AD no PIM-Azure Active Directory | Microsoft Docs
-description: Descreve o assistente de segurança que você pode usar para converter atribuição de função privilegiadas do Azure Active Directory para qualificados usando o Azure Active Directory Privileged Identity Management (PIM).
+title: Descoberta e insights de funções do Azure AD (visualização) no assistente de segurança do Privileged Identity Management anterior-Azure Active Directory
+description: A descoberta e as informações (anteriormente conhecido como assistente de segurança) ajudam a converter atribuições de função do Azure AD permanentes em atribuições just-in-time com Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,65 +10,60 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/21/2020
+ms.date: 08/07/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cc7aed1cc79a8c08a7ff11382a1c7a51455d5c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef1de7e98a9cb57f83b87589ceddedc3cdd80927
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743653"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005883"
 ---
-# <a name="azure-ad-roles-security-wizard-in-privileged-identity-management"></a>Assistente de segurança de funções do Azure AD no Privileged Identity Management
+# <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Descoberta e insights (visualização) para funções do Azure AD (anteriormente conhecido como assistente de segurança)
 
-Se você for a primeira pessoa a usar Privileged Identity Management (PIM) em sua organização do Azure Active Directory (Azure AD), verá um assistente para começar. O assistente ajuda você a entender os riscos de segurança de identidades com privilégios e a usar Privileged Identity Management para reduzir esses riscos. Você não precisará fazer nenhuma alteração nas atribuições de função existentes no assistente, se preferir fazer isso posteriormente.
+Se você estiver começando com o PIM (Privileged Identity Management) em sua organização do Azure Active Directory (Azure AD), você poderá usar a página **descoberta e informações (versão prévia)** para começar. Este recurso mostra quem está atribuído a funções privilegiadas em sua organização e como usar o PIM para alterar rapidamente as atribuições de função permanentes em atribuições just-in-time. Você pode exibir ou fazer alterações em suas atribuições de função com privilégios permanentes em **descoberta e ideias (versão prévia)**. É uma ferramenta de análise e uma ferramenta de ação.
 
-> [!Important]
-> O assistente de segurança está temporariamente indisponível. Agradecemos sua paciência.
+## <a name="discovery-and-insights-preview"></a>Descoberta e ideias (versão prévia)
 
-## <a name="wizard-overview"></a>Visão geral do assistente
+Antes que sua organização comece a usar Privileged Identity Management, todas as atribuições de função são permanentes. Os usuários sempre estão em suas funções atribuídas mesmo quando não precisam de seus privilégios. A descoberta e as informações (versão prévia), que substitui o antigo assistente de segurança, mostra uma lista de funções privilegiadas e quantos usuários estão atualmente nessas funções. Você pode listar as atribuições de uma função para saber mais sobre os usuários atribuídos se um ou mais deles não forem familiares.
 
-Antes que sua organização comece a usar Privileged Identity Management, todas as atribuições de função são permanentes: os usuários sempre estarão nessas funções, mesmo que não precisem atualmente de seus privilégios. A primeira etapa do assistente mostra uma lista de funções com privilégios altos e quantos usuários atualmente estão nessas funções. Você poderá analisar uma função específica para saber mais sobre os usuários se um ou mais não forem familiares.
+: heavy_check_mark: a **Microsoft recomenda** que você mantenha duas contas de interrupção que são atribuídas permanentemente à função de administrador global que não requer autenticação multifator ao entrar. Você pode usá-los em qualquer cenário de interrupção ou, caso nenhum seja capaz de elevar sua função de administrador global.
 
-A segunda etapa do assistente lhe fornece a oportunidade de alterar as atribuições de função do administrador.  
+Além disso, mantenha as atribuições de função permanentes se um usuário tiver um conta Microsoft (em outras palavras, uma conta que use para entrar nos serviços da Microsoft, como o Skype ou Outlook.com). Se você precisar que a autenticação multifator seja ativada nessa função, o usuário será bloqueado.
 
-> [!WARNING]
-> É importante que você tenha pelo menos um administrador global e mais de um administrador de função com privilégios com uma conta corporativa ou de estudante (não um conta Microsoft). Se houver apenas um administrador de função com privilégios, a organização não poderá gerenciar Privileged Identity Management se essa conta for excluída.
-> Além disso, mantenha as atribuições de função permanentes se um usuário tiver um conta Microsoft (em outras palavras, uma conta que use para entrar nos serviços da Microsoft, como o Skype e o Outlook.com). Se você planeja exigir a autenticação multifator para ativação para essa função, esse usuário será bloqueado.
-
-## <a name="run-the-wizard"></a>Executar o assistente
+## <a name="open-discovery-and-insights-preview"></a>Abrir descoberta e insights (versão prévia)
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. Abra **Azure ad Privileged Identity Management**.
 
-1. Selecione **funções do Azure ad** e, em seguida, selecione **Assistente**.
+1. Selecione **funções do Azure ad** e, em seguida, selecione **descoberta e insights (versão prévia)**. Abrir a página inicia o processo de descoberta para localizar as atribuições de função relevantes.
 
-    ![Funções do Azure AD – página do assistente mostrando as 3 etapas para executar o assistente](./media/pim-security-wizard/wizard-start.png)
+    ![Funções do Azure AD – página de descoberta e informações mostrando as 3 opções](./media/pim-security-wizard/new-preview-link.png)
 
-1. Selecione **1 descobrir funções com privilégios**.
+1. Selecione **reduzir administradores globais**.
 
-1. Examine a lista de funções com privilégios para ver quais usuários são permanentes ou qualificados.
+    ![Reduzir os administradores globais-painel de funções mostrando todos os membros](./media/pim-security-wizard/new-preview-page.png)
 
-    ![Descobrir funções privilegiadas – painel de funções mostrando membros permanentes e qualificados](./media/pim-security-wizard/discover-privileged-roles-users.png)
+1. Examine a lista de atribuições de função de administrador global.
 
-1. Selecione **Avançar** para selecionar os usuários ou grupos que você deseja tornar qualificados.
+    ![Reduzir os administradores globais-painel de funções mostrando todos os membros](./media/pim-security-wizard/new-global-administrator-list.png)
 
-    ![Converter Membros em uma página qualificada com opções para selecionar membros que você deseja tornar qualificados para funções](./media/pim-security-wizard/convert-members-eligible.png)
+1. Selecione **Avançar** para selecionar os usuários ou grupos que você deseja tornar qualificados e, em seguida, selecione **tornar qualificado** ou **remover atribuição**.
 
-1. Depois de selecionar os usuários ou grupos, selecione **Avançar**.
+    ![Converter Membros em uma página qualificada com opções para selecionar membros que você deseja tornar qualificados para funções](./media/pim-security-wizard/new-global-administrator-buttons.png)
 
-    ![Página examinar alterações mostrando Membros com atribuições de função permanentes que serão convertidas](./media/pim-security-wizard/review-changes.png)
+1. Você também pode exigir que todos os administradores globais revisem seu próprio acesso.
 
-1. Selecione **OK** para converter as atribuições permanentes para qualificado.
+    ![Página de administradores globais mostrando a seção de revisões de acesso](./media/pim-security-wizard/new-global-administrator-access-review.png)
 
-    Quando a conversão for concluída, você verá uma notificação.
+1. Depois de selecionar qualquer uma dessas alterações, você verá uma notificação do Azure.
 
-    ![Notificação mostrando o status de uma conversão](./media/pim-security-wizard/notification-completion.png)
+1. Em seguida, você pode selecionar **eliminar o acesso** ou **examinar entidades de serviço** para repetir as etapas acima em outras funções privilegiadas e nas atribuições de função da entidade de serviço. Para atribuições de função de entidade de serviço, você só pode remover atribuições de função.
 
-Se você precisar converter outras atribuições de função com privilégios para qualificados, você pode executar o assistente novamente. Se você quiser usar a interface Privileged Identity Management em vez do assistente, consulte [atribuir funções do Azure AD no Privileged Identity Management](pim-how-to-add-role-to-user.md).
+    ![Opções adicionais de informações para eliminar o acesso e a análise das entidades de serviço ](./media/pim-security-wizard/new-preview-page-service-principals.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

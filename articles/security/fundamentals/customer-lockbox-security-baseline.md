@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1e8fd08a22d5d243f404a12ff96c1a8797b97f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1cf4af12b9ef912d37014215e422d5b9c73903f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485579"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007872"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Linha de base de segurança do Azure para Sistema de Proteção de Dados do Cliente para Microsoft Azure
 
@@ -222,13 +222,13 @@ Integre os logs de atividade gerados por Sistema de Proteção de Dados do Clien
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Manter um inventário de contas administrativas
 
-**Diretrizes**: Mantenha um inventário das contas de usuário que têm acesso administrativo às suas solicitações de sistema de proteção de dados do cliente. Você pode usar o painel IAM (controle de acesso e identidade) no portal do Azure para sua assinatura para configurar o RBAC (controle de acesso baseado em função). As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Azure Active Directory.
+**Diretrizes**: Mantenha um inventário das contas de usuário que têm acesso administrativo às suas solicitações de sistema de proteção de dados do cliente. Você pode usar o painel IAM (controle de acesso e identidade) no portal do Azure para sua assinatura para configurar o controle de acesso baseado em função do Azure (RBAC do Azure). As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Azure Active Directory.
 
 Na organização do cliente, o usuário que tem a função proprietário para a assinatura do Azure recebe um email da Microsoft para notificá-los sobre quaisquer solicitações de acesso pendentes. Para solicitações de Sistema de Proteção de Dados do Cliente, essa pessoa é o aprovador designado.
 
 * [Entender as funções personalizadas](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
-* [Como configurar o RBAC para pastas de trabalho](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+* [Como configurar o RBAC do Azure para pastas de trabalho](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
 
 * [Entender as permissões de solicitação de acesso no Sistema de Proteção de Dados do Cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
@@ -483,7 +483,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: Implantar solução automatizada de gerenciamento de patch de sistema operacional
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -527,7 +527,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo 
 
 * [Como exibir suas assinaturas do Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Entender os controles de acesso com base em função do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Entender o controle de acesso baseado em função do Azure (RBAC do Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -561,7 +561,7 @@ Além disso, use Azure Policy para colocar restrições no tipo de recursos que 
 
 ### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4: Manter um inventário de recursos e títulos de software aprovados do Azure
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -591,7 +591,7 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Remover recursos e aplicativos de software não aprovados do Azure
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

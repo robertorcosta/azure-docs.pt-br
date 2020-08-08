@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: c043cfb6cf437ab55cc4a48ced716798738adbef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 52569f3cec26432970606b31fe831bb6459839d6
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87507426"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010926"
 ---
 Se você encontrar problemas ao executar quaisquer operações em galerias de imagens compartilhadas, definições de imagem e versões de imagem, execute o comando com falha novamente no modo de depuração. O modo de depuração é ativado passando a `--debug` opção com a CLI e a `-Debug` opção com o PowerShell. Depois de localizar o erro, siga este documento para solucionar os erros.
 
@@ -88,7 +88,7 @@ Verifique se o **OSType** da versão da imagem da qual você está tentando cria
 
 ## <a name="unable-to-share-resources"></a>Não é possível compartilhar recursos
 
-O compartilhamento de galeria de imagens compartilhada, definição de imagem e recursos de versão de imagem entre assinaturas é habilitado usando o RBAC ( [controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) ). 
+O compartilhamento de galeria de imagens compartilhada, definição de imagem e recursos de versão de imagem entre assinaturas é habilitado usando o Azure [RBAC (controle de acesso baseado em função do Azure)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
 
 ## <a name="replication-is-slow"></a>A replicação é lenta
 

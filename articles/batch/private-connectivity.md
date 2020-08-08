@@ -2,13 +2,14 @@
 title: Usar pontos de extremidade privados com contas do Lote do Azure
 description: Saiba como conectar-se de forma privada a uma conta do lote do Azure usando pontos de extremidade privados.
 ms.topic: how-to
-ms.date: 06/12/2020
-ms.openlocfilehash: 04f52c8c58668b2978b38c65a94533a38c593888
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/07/2020
+ms.custom: references_regions
+ms.openlocfilehash: fac9523dc2ecabaec5d1c108e0ddd7536f01f077
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84754286"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004245"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Usar pontos de extremidade privados com contas do Lote do Azure
 
@@ -16,16 +17,11 @@ Por padrão, [as contas do lote do Azure](accounts.md) têm um ponto de extremid
 
 Usando o [link privado do Azure](../private-link/private-link-overview.md), você pode se conectar a uma conta do lote do Azure por meio de um [ponto de extremidade privado](../private-link/private-endpoint-overview.md). O ponto de extremidade privado é um conjunto de endereços IP privados em uma sub-rede dentro da rede virtual. Você pode então limitar o acesso a uma conta do lote do Azure sobre endereços IP privados.
 
-O link privado permite que os usuários acessem uma conta do lote do Azure de dentro da rede virtual ou de qualquer rede virtual emparelhada. Os recursos mapeados para o link privado também podem ser acessados localmente no emparelhamento privado por meio de VPN ou [do Azure ExpressRoute](../expressroute/expressroute-introduction.md).
+O link privado permite que os usuários acessem uma conta do lote do Azure de dentro da rede virtual ou de qualquer rede virtual emparelhada. Os recursos mapeados para o link privado também podem ser acessados localmente no emparelhamento privado por meio de VPN ou [do Azure ExpressRoute](../expressroute/expressroute-introduction.md). Você pode se conectar a uma conta do lote do Azure configurada com o link privado usando o [método de aprovação automática ou manual](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
-Você pode se conectar a uma conta do lote do Azure configurada com o link privado usando o [método de aprovação automática ou manual](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
+O suporte para conectividade privada no lote do Azure está disponível atualmente nas seguintes regiões do Azure: Oeste EUA Central, oeste dos EUA 2, leste dos EUA, Sul EUA Central, US Gov-Virgínia, US Gov Arizona, Ásia Oriental, França e Sul do Reino Unido.
 
 Este artigo descreve as etapas para criar uma conta do lote particular e acessá-la usando um ponto de extremidade privado.
-
-> [!IMPORTANT]
-> O suporte para conectividade privada no lote do Azure está atualmente em visualização pública para as regiões Oeste EUA Central, oeste dos EUA 2, leste dos EUA, Sul EUA Central, US Gov-Virgínia e US Gov Arizona.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="azure-portal"></a>Portal do Azure
 

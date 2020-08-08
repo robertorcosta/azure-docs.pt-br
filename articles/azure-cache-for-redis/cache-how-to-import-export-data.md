@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: 84abbe8d9958bf41768f3706a700ae0ecad6b44f
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: a89acb73ea5c78c9f82758e0a322fb9001698c24
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856998"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004329"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importar e exportar dados no Cache do Azure para Redis
 A Importação/Exportação é uma operação de gerenciamento de dados do Cache do Azure para Redis que permite importar dados para o Cache do Azure para Redis ou exportar dados do Cache do Azure para Redis, importando e exportando um instantâneo (RBD) do Banco de Dados do Cache do Azure para Redis de um cache premium para um blob em uma Conta de Armazenamento do Azure.
@@ -24,7 +24,7 @@ A Importação/Exportação permite migrar entre diferentes instâncias do Cache
 Este artigo fornece um guia de importação e exportação de dados com Cache do Azure para Redis e fornece respostas para perguntas frequentes.
 
 > [!IMPORTANT]
-> A opção Importar/Exportar está disponível somente para caches do [tipo Premium](cache-premium-tier-intro.md) .
+> A importação/exportação só está disponível para caches da [camada Premium](cache-overview.md#service-tiers) .
 >
 >
 
@@ -152,6 +152,6 @@ Para resolver esse problema, inicie a operação de importação ou exportação
 A exportação funciona somente com arquivos RDB armazenados como blobs de páginas. Não há suporte para outros tipos de blobs no momento, incluindo contas de armazenamento de Blobs com as camadas dinâmicas e estáticas. Para saber mais, confira [Visão geral da conta de armazenamento do Azure](../storage/common/storage-account-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-Aprenda a usar mais recursos de cache premium.
+Saiba mais sobre o cache do Azure para recursos do Redis.
 
-* [Introdução à camada Premium do Cache do Azure para Redis](cache-premium-tier-intro.md)
+* [Cache do Azure para camadas de serviço Redis](cache-overview.md#service-tiers)

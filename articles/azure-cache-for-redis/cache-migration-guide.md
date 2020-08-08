@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: yegu
-ms.openlocfilehash: 554724c334cb6c51b8744de0eedd4d6815d707b5
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 2a95aa9e9fccdb7047c2c0901f4349fecfbab672
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172548"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009572"
 ---
 # <a name="migrate-to-azure-cache-for-redis"></a>Migrar para o Cache do Azure para Redis
 Este artigo descreve várias abordagens para migrar um cache Redis existente em execução local ou em outro serviço de nuvem para o cache do Azure para Redis.
@@ -51,7 +51,7 @@ As etapas gerais para implementar essa opção são:
 
 ### <a name="export-data-to-an-rdb-file-and-import-it-into-azure-cache-for-redis"></a>Exportar dados para um arquivo RDB e importá-los para o cache do Azure para Redis
 
-O Redis de código-fonte aberto define um mecanismo padrão para tirar um instantâneo do conjunto de armazenamento na memória de um cache e salvá-lo em um arquivo. Esse arquivo, chamado RDB, pode ser lido por outro cache Redis. O [cache do Azure para a camada Premium do Redis](cache-premium-tier-intro.md) oferece suporte à importação de dados em uma instância de cache por meio de arquivos RDB. Você pode usar um arquivo RDB para transferir dados de um cache existente para o cache do Azure para Redis.
+O Redis de código-fonte aberto define um mecanismo padrão para tirar um instantâneo do conjunto de armazenamento na memória de um cache e salvá-lo em um arquivo. Esse arquivo, chamado RDB, pode ser lido por outro cache Redis. O [cache do Azure para a camada Premium do Redis](cache-overview.md#service-tiers) oferece suporte à importação de dados em uma instância de cache por meio de arquivos RDB. Você pode usar um arquivo RDB para transferir dados de um cache existente para o cache do Azure para Redis.
 
 > [!IMPORTANT]
 > O formato de arquivo RDB pode ser alterado entre as versões Redis e pode não manter a compatibilidade com versões anteriores. A versão Redis do cache do qual você está exportando deve ser igual ou menor que a versão fornecida pelo cache do Azure para Redis.
@@ -114,5 +114,5 @@ As etapas gerais para implementar essa opção são:
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre o cache do Azure para recursos do Redis.
 
-* [Introdução à camada Premium do Cache do Azure para Redis](cache-premium-tier-intro.md)
+* [Cache do Azure para camadas de serviço Redis](cache-overview.md#service-tiers)
 * [Importar dados](cache-how-to-import-export-data.md#import)

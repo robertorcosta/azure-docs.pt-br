@@ -1,6 +1,6 @@
 ---
 title: Clustering de dados de ponto em um mapa | Microsoft Azure Mapas
-description: Neste artigo, você aprenderá como agrupar os dados de ponto e renderizá-los em um mapa usando o SDK da Web do Microsoft Azure Mapas.
+description: Saiba como agrupar dados de ponto em mapas. Consulte como usar o SDK da Web do Azure Maps para dados de cluster, reagir a eventos de mouse de cluster e exibir agregações de cluster.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.custom: codepen
-ms.openlocfilehash: ce2891201331ee1efd861d2f13cec78c0551b6ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: 207106d8daab4d5d2a6d8d681aad5a20923a5a48
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804564"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009045"
 ---
 # <a name="clustering-point-data"></a>Clustering de dados de ponto
 

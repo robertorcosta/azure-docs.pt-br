@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 9a2ec2e60ae38506d716a244872baddbbdf570e7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 956e3e83686677f3eb9895354a008783df5f7dcd
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184966"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003708"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Como configurar a replicação geográfica para o cache do Azure para Redis
 
@@ -24,7 +24,7 @@ A replicação geográfica fornece um mecanismo para vincular duas instâncias d
 
 Para configurar a replicação geográfica entre dois caches, os seguintes pré-requisitos devem ser atendidos:
 
-- Os dois caches são caches da [camada Premium](cache-premium-tier-intro.md) .
+- Os dois caches são caches da [camada Premium](cache-overview.md#service-tiers) .
 - Os dois caches estão na mesma assinatura do Azure.
 - O cache vinculado secundário tem o mesmo tamanho de cache ou um tamanho de cache maior do que o cache vinculado primário.
 - Ambos os caches são criados e em estado de execução.
@@ -186,5 +186,6 @@ O failover automático nas regiões do Azure não tem suporte para caches com re
 Para iniciar um failover iniciado pelo cliente, primeiro desvincule os caches. Em seguida, altere o cliente Redis para usar o ponto de extremidade de conexão do cache secundário (anteriormente vinculado). Quando os dois caches são desvinculados, o cache secundário se torna um cache de leitura-gravação regular e aceita solicitações diretamente de clientes Redis.
 
 ## <a name="next-steps"></a>Próximas etapas
+Saiba mais sobre o cache do Azure para recursos do Redis.
 
-Saiba mais sobre a [Camada Premium do Cache do Azure para Redis](cache-premium-tier-intro.md).
+* [Cache do Azure para camadas de serviço Redis](cache-overview.md#service-tiers)

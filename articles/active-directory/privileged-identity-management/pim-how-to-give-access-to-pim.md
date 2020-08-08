@@ -10,27 +10,27 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c17847546ace558d367aed6d935db0fed6d817f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95f8991d5ba9efb8e3223dd44a8d037acf2de849
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742191"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009555"
 ---
-# <a name="grant-access-to-other-administrators-to-manage-privileged-identity-management"></a>Conceder acesso a outros administradores para gerenciar Privileged Identity Management
+# <a name="delegate-access-to-privileged-identity-management"></a>Delegar acesso a Privileged Identity Management
 
-O administrador global que habilita Privileged Identity Management (PIM) para uma organização obtém automaticamente atribuições de função e acesso a Privileged Identity Management. Ninguém mais em sua organização do Azure Active Directory (Azure AD) obtém acesso de gravação por padrão, porém, incluindo outros administradores globais. Outros administradores globais, administradores de segurança e leitores de segurança têm acesso somente leitura ao Privileged Identity Management. Para conceder acesso ao Privileged Identity Management, o primeiro usuário pode atribuir outras pessoas à função de **administrador de função com privilégios** .
+Para delegar acesso ao Privileged Identity Management (PIM), um administrador global pode atribuir outros usuários à função de administrador de função privilegiada. Por padrão, os administradores de segurança e os leitores de segurança têm acesso somente leitura ao Privileged Identity Management. Para conceder acesso ao Privileged Identity Management, o primeiro usuário pode atribuir outras pessoas à função de **administrador de função com privilégios** . A função de administrador de função com privilégios é necessária para gerenciar somente funções do Azure AD. Permissões de administrador de função com privilégios não são necessárias para gerenciar configurações de recursos do Azure.
 
 > [!NOTE]
 > O gerenciamento de Privileged Identity Management requer a autenticação multifator do Azure. Como as contas da Microsoft não podem se registrar para a autenticação multifator do Azure, um usuário que entra com um conta Microsoft não pode acessar Privileged Identity Management.
 
 Certifique-se de que haja sempre pelo menos dois usuários em uma função de Administrador com Função com Privilégios, no caso de um usuário ser bloqueado ou a conta ser excluída.
 
-## <a name="grant-access-to-manage-pim"></a>Conceder acesso para gerenciar PIM
+## <a name="delegate-access-to-manage-pim"></a>Delegar acesso para gerenciar o PIM
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 
@@ -46,9 +46,9 @@ Certifique-se de que haja sempre pelo menos dois usuários em uma função de Ad
 
     ![Administrador com Função com Privilégios - Membros](./media/pim-how-to-give-access-to-pim/pim-pra-members.png)
 
-1. Selecione **Adicionar membro** para abrir o painel Adicionar Membros gerenciados.
+1. Selecione **Adicionar membro** para abrir o painel **adicionar membros gerenciados** .
 
-1. Selecione **selecionar Membros** para abrir o painel Selecionar Membros.
+1. Selecione **selecionar Membros** para abrir o painel **selecionar Membros** .
 
     ![Administrador com Função com Privilégios - Selecionar membros](./media/pim-how-to-give-access-to-pim/pim-pra-select-members.png)
 

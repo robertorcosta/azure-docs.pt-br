@@ -1,24 +1,22 @@
 ---
-title: Implantar uma ferramenta de gerenciamento para a área de trabalho virtual do Windows usando a entidade de serviço-Azure
-description: Como implantar a ferramenta de gerenciamento para a área de trabalho virtual do Windows usando o PowerShell.
-services: virtual-desktop
+title: Implantar uma ferramenta de gerenciamento para a área de trabalho virtual do Windows (clássica) usando a entidade de serviço-Azure
+description: Como implantar a ferramenta de gerenciamento para a área de trabalho virtual do Windows (clássica) usando o PowerShell.
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0ae3bb87bfee681aa518a4dfef064677ffa97119
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08366735308e8b3c6fb79efd1adca469272dd053
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513407"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005764"
 ---
-# <a name="deploy-a-management-tool-with-powershell"></a>Implantar uma ferramenta de gerenciamento com o PowerShell
+# <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-powershell"></a>Implantar uma ferramenta de gerenciamento de área de trabalho virtual do Windows (clássico) com o PowerShell
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não dá suporte a objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
 
 Este artigo mostrará como implantar a ferramenta de gerenciamento usando o PowerShell.
 

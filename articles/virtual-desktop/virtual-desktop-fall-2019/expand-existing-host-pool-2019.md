@@ -1,24 +1,22 @@
 ---
 title: Expandir o pool de hosts da área de trabalho virtual do Windows (clássico) existente com novos hosts de sessão-Azure
 description: Como expandir um pool de hosts existente com novos hosts de sessão na área de trabalho virtual do Windows (clássico).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ecdd63b054fda7f973898b0b3a42a29fc94c03bb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 61cf28b0f1ebee6a0312ec3f23f22b01c6c4919e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285026"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009164"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Expandir um pool de hosts existente com novos hosts de sessão na área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../expand-existing-host-pool.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager, confira [este artigo](../expand-existing-host-pool.md).
 
 Ao aumentar o uso em seu pool de hosts, talvez seja necessário expandir seu pool de hosts existente com novos hosts de sessão para lidar com a nova carga.
 
@@ -76,7 +74,7 @@ Veja como reimplantar o modelo de Azure Resource Manager para expandir um pool d
 
 Siga as instruções em [criar um pool de hosts usando o Azure Marketplace](create-host-pools-azure-marketplace-2019.md) até que você atinja [executar a oferta do Azure Marketplace para provisionar um novo pool de hosts](create-host-pools-azure-marketplace-2019.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). Quando chegar a esse ponto, você precisará inserir as seguintes informações para cada guia:
 
-### <a name="basics"></a>Noções básicas
+### <a name="basics"></a>Básico
 
 Todos os valores nesta seção devem corresponder ao que você forneceu ao criar pela primeira vez o pool de hosts e VMs de host de sessão, exceto para *usuários de área de trabalho padrão*:
 
