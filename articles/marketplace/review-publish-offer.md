@@ -8,18 +8,18 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/05/2020
-ms.openlocfilehash: 34e56e5d92526cbf46408c670127e87781e342cd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9c05753b44b0c644b121eb3ccd3316633f9e5964
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119728"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009521"
 ---
-# <a name="review-and-publish-an-offer-to-commercial-marketplace"></a>Revisar e publicar uma oferta no Marketplace comercial
+# <a name="review-and-publish-an-offer-to-the-commercial-marketplace"></a>Revisar e publicar uma oferta no Marketplace comercial
 
 Este artigo mostra como usar o Partner Center para enviar sua oferta para visualizar, Visualizar sua oferta e, em seguida, publicá-la no Microsoft Commercial Marketplace. Também abordaremos como verificar o status de publicação, pois ele prossegue pelas etapas de publicação. Você já deve ter criado uma oferta que deseja publicar.
 
-## <a name="go-to-your-offer-in-commercial-marketplace"></a>Vá para sua oferta no Marketplace comercial
+## <a name="go-to-your-offer-in-the-commercial-marketplace"></a>Vá para sua oferta no Marketplace comercial
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **visão geral**do Marketplace comercial.
@@ -53,7 +53,7 @@ Este artigo mostra como usar o Partner Center para enviar sua oferta para visual
 
 Depois de selecionar **publicar**, os processos de validação e publicação continuarão em ordem. O processo de publicação mais comum é mostrado nesta tabela:
 
-| Fase | O que ocorre | 
+| Fase | O que acontece | 
 | ------------ | ------------- | ------------- |
 | Validação automatizada | Processamos um conjunto de validações automatizadas. | 
 | Certificação | Realizamos validações manuais. | 

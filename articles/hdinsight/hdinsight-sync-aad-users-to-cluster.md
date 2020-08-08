@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: 5b2a195e0a3145e97bf101b3354c2781fff15801
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 83e168c5f1d1bad58a193937a4b97fe686dde2a3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085966"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004412"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronizar usuários do Azure Active Directory para um cluster HDInsight
 
-[Os clusters HDInsight com ESP (Enterprise Security Package - Pacote de Segurança Corporativa)](hdinsight-domain-joined-introduction.md) podem usar autenticação forte com usuários do Azure AD (Azure Active Directory), bem como usar *políticas de controle de acesso baseado em função* (RBAC). Ao adicionar usuários e grupos ao Azure AD, você pode sincronizar os usuários que precisam de acesso ao cluster.
+Os [clusters HDInsight com Enterprise Security Package (ESP)](hdinsight-domain-joined-introduction.md) podem usar a autenticação forte com usuários do Azure Active Directory (Azure AD), bem como usar políticas do Azure *RBAC (controle de acesso baseado em função) do* Azure. Ao adicionar usuários e grupos ao Azure AD, você pode sincronizar os usuários que precisam de acesso ao cluster.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

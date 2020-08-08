@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 27fbc669a81364bcb71160200504d61502169eae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6902d1420090b81c933f07f7e929aa86c052404
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609343"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009232"
 ---
 # <a name="ocr-cognitive-skill"></a>Habilidades cognitivas OCR
 
-A habilidade de **reconhecimento óptico de caracteres (OCR)** reconhece texto impresso e manuscrito em arquivos de imagem. Essa habilidade usa os modelos de machine learning fornecidos pela [Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) nos Serviços Cognitivos. A habilidade **OCR** é mapeada para a seguinte funcionalidade:
+A habilidade de **reconhecimento óptico de caracteres (OCR)** reconhece texto impresso e manuscrito em arquivos de imagem. Essa habilidade usa os modelos de aprendizado de máquina fornecidos pelo [Pesquisa Visual computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) API [v 3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) em serviços cognitivas. A habilidade **OCR** é mapeada para a seguinte funcionalidade:
 
-+ A API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) é usada para idiomas diferentes do inglês. 
-+ Para o inglês, a nova API de ["leitura"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) é usada.
++ Para inglês, espanhol, alemão, francês, italiano, Português e holandês, a nova API de ["leitura"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) é usada.
++ Para todos os outros idiomas, a API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) é usada.
 
 A habilidade **OCR** extrai o texto de arquivos de imagem. Formatos de arquivo com suporte incluem:
 

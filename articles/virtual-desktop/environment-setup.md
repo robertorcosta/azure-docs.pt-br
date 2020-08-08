@@ -1,24 +1,22 @@
 ---
 title: Ambiente de área de trabalho virtual do Windows – Azure
 description: Saiba mais sobre os elementos básicos de um ambiente de área de trabalho virtual do Windows, como pools de hosts e grupos de aplicativos.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e382c1d52130d44479e94378da895c6add7ba3ee
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 99a07dd1791b539ea44fcbab250aa9c227ee1705
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283411"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002607"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Ambiente da Área de Trabalho Virtual do Windows
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à área de trabalho virtual do Windows com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows (clássico) sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/environment-setup-2019.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/environment-setup-2019.md).
 
 A área de trabalho virtual do Windows é um serviço que oferece aos usuários acesso fácil e seguro a seus desktops e RemoteApps virtualizados. Este tópico lhe dirá um pouco mais sobre a estrutura geral do ambiente de área de trabalho virtual do Windows.
 
@@ -49,7 +47,7 @@ Para publicar recursos para os usuários, você deve atribuí-los a grupos de ap
 
 ## <a name="workspaces"></a>Workspaces
 
-Um espaço de trabalho é um agrupamento lógico de grupos de aplicativos na área de trabalho virtual do Windows. Cada grupo de aplicativos de área de trabalho virtual do Windows deve ser associado a um espaço de trabalho para que os usuários vejam os aplicativos e áreas de trabalho remotas publicados neles.  
+Um espaço de trabalho é um agrupamento lógico de grupos de aplicativos na área de trabalho virtual do Windows. Cada grupo de aplicativos de área de trabalho virtual do Windows deve ser associado a um espaço de trabalho para que os usuários vejam os aplicativos e áreas de trabalho remotas publicados neles.
 
 ## <a name="end-users"></a>Usuários finais
 

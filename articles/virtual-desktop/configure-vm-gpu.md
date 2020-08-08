@@ -1,23 +1,21 @@
 ---
 title: Configurar GPU para a Área de Trabalho Virtual do Windows – Azure
 description: Como habilitar a renderização e a codificação acelerada por GPU na Área de Trabalho Virtual do Windows.
-services: virtual-desktop
 author: gundarev
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: a80e9940aff69d351fde7512cfc38a12d6029f74
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: dd5eb8acb76fe5901149d90a6d551d8d14d363cc
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291500"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007769"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurar a aceleração da GPU (unidade de processamento gráfico) para a Área de Trabalho Virtual do Windows
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à área de trabalho virtual do Windows com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows (clássico) sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
 
 A Área de Trabalho Virtual do Windows dá suporte à renderização e à codificação acelerada por GPU para obter melhor desempenho do aplicativo e escalabilidade. A aceleração de GPU é particularmente fundamental para aplicativos com uso intensivo de gráficos.
 
@@ -58,7 +56,7 @@ Por padrão, aplicativos e áreas de trabalho sendo executados em configuraçõe
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Configurar codificação de quadros acelerada por GPU
 
 Área de Trabalho Remota codifica todos os gráficos renderizados por aplicativos e áreas de trabalho (sejam renderizados com GPU ou com CPU) para transmissão para clientes da Área de Trabalho Remota. Quando parte da tela é atualizada com frequência, essa parte da tela é codificada com um codec de vídeo (H. 264/AVC). Por padrão, a Área de Trabalho Remota não utiliza as GPUs disponíveis para essa codificação. Configure a Política de Grupo para que o host da sessão habilite a codificação de quadros acelerada por GPU. Continuando as etapas acima:
- 
+
 >[!NOTE]
 >A codificação de quadro acelerada por GPU não está disponível nas VMs da série NVv4.
 

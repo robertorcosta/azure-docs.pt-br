@@ -1,21 +1,19 @@
 ---
 title: Excluir pool de hosts da área de trabalho virtual do Windows – Azure
 description: Como excluir um pool de hosts na área de trabalho virtual do Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ced0d7513524758975919fad90f19581d15d95f4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dfc9858bea468389d8ce90677f048e5d1fd3bb82
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87096098"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007582"
 ---
-# <a name="delete-a-host-pool"></a>Excluir um pool de hosts
+# <a name="delete-a-host-pool"></a>Excluir um pool de host
 
 Todos os pools de host criados na área de trabalho virtual do Windows são anexados a hosts de sessão e grupos de aplicativos. Para excluir um pool de hosts, você precisa excluir seus grupos de aplicativos e hosts de sessão associados. A exclusão de um grupo de aplicativos é bem simples, mas a exclusão de um host de sessão é mais complicada. Ao excluir um host de sessão, você precisa verificar se ele não tem nenhuma sessão de usuário ativa. Todas as sessões de usuário no host de sessão devem ser desconectadas para impedir que os usuários percam dados.
 

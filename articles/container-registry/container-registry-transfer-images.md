@@ -4,12 +4,12 @@ description: Transferir coleções de imagens ou outros artefatos de um registro
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: 7f63936ad8f2a97bae6ff63e783e38c15db35e13
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 0bbdfc8d1586b7d71daf6d4cbfdc4288357aa45b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259463"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009147"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefatos para outro registro
 
@@ -23,7 +23,7 @@ Para transferir artefatos, você cria um *pipeline de transferência* que Replic
 
 A transferência é ideal para copiar conteúdo entre dois registros de contêiner do Azure em nuvens fisicamente desconectadas, mediadas por contas de armazenamento em cada nuvem. Para a cópia de imagem dos registros de contêiner em nuvens conectadas, incluindo o Hub do Docker e outros fornecedores de nuvem, a [importação de imagem](container-registry-import-images.md) é recomendada em vez disso.
 
-Neste artigo, você usa Azure Resource Manager implantações de modelo para criar e executar o pipeline de transferência. O CLI do Azure é usado para provisionar os recursos associados, como os segredos de armazenamento. É recomendável CLI do Azure versão 2.2.0 ou posterior. Caso precise instalar ou fazer upgrade da CLI, confira [Instalar a CLI do Azure][azure-cli].
+Neste artigo, você usa Azure Resource Manager implantações de modelo para criar e executar o pipeline de transferência. O CLI do Azure é usado para provisionar os recursos associados, como os segredos de armazenamento. É recomendável CLI do Azure versão 2.2.0 ou posterior. Se você precisar instalar ou atualizar a CLI, confira como [instalar a CLI do Azure][azure-cli].
 
 Esse recurso está disponível na camada de serviço **Premium** do registro de contêiner. Para obter informações sobre os limites e as camadas de serviço do registro, confira [Camadas do Registro de Contêiner do Azure](container-registry-skus.md).
 
@@ -234,6 +234,8 @@ Insira os seguintes valores de parâmetro no arquivo `azuredeploy.parameters.jso
 |targetName     |  Nome que você escolher para o blob de artefatos exportado para sua conta de armazenamento de origem, como *myblob*
 |artifacts | Matriz de artefatos de origem a serem transferidos, como marcas ou resumos de manifesto<br/>Exemplo: `[samples/hello-world:v1", "samples/nginx:v1" , "myrepository@sha256:0a2e01852872..."]` |
 
+Se reimplantar um recurso PipelineRun com propriedades idênticas, você também deverá usar a propriedade [forceUpdateTag](#redeploy-pipelinerun-resource) .
+
 Execute o [grupo de implantação AZ Create][az-deployment-group-create] para criar o recurso PipelineRun. O exemplo a seguir nomeia o *exportPipelineRun*de implantação.
 
 ```azurecli
@@ -291,6 +293,8 @@ Insira os seguintes valores de parâmetro no arquivo `azuredeploy.parameters.jso
 |pipelineResourceId     |  ID de recurso do pipeline de importação.<br/>Exemplo: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/importPipelines/myImportPipeline`       |
 |sourceName     |  Nome do blob existente para artefatos exportados em sua conta de armazenamento, como *myblob*
 
+Se reimplantar um recurso PipelineRun com propriedades idênticas, você também deverá usar a propriedade [forceUpdateTag](#redeploy-pipelinerun-resource) .
+
 Execute o [grupo de implantação AZ Create][az-deployment-group-create] para executar o recurso.
 
 ```azurecli
@@ -304,6 +308,23 @@ Quando a implantação for concluída com êxito, verifique a importação de ar
 
 ```azurecli
 az acr repository list --name <target-registry-name>
+```
+
+## <a name="redeploy-pipelinerun-resource"></a>Reimplantar recurso PipelineRun
+
+Se reimplantar um recurso PipelineRun com *Propriedades idênticas*, você deverá aproveitar a propriedade **forceUpdateTag** . Essa propriedade indica que o recurso PipelineRun deve ser recriado mesmo que a configuração não tenha sido alterada. Verifique se forceUpdateTag é diferente sempre que você reimplantar o recurso PipelineRun. O exemplo a seguir recria um PipelineRun para exportação. O DateTime atual é usado para definir forceUpdateTag, garantindo assim que essa propriedade seja sempre exclusiva.
+
+```console
+CURRENT_DATETIME=`date +"%Y-%m-%d:%T"`
+```
+
+```azurecli
+az deployment group create \
+  --resource-group $SOURCE_RG \
+  --template-file azuredeploy.json \
+  --name exportPipelineRun \
+  --parameters azuredeploy.parameters.json \
+  --parameters forceUpdateTag=$CURRENT_DATETIME
 ```
 
 ## <a name="delete-pipeline-resources"></a>Excluir recursos de pipeline

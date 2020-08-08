@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: 113808a3e2bab6c4cb9d2ea5f155a027abf1b5bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 33e7a97f4b82bd3d7e82532fe2f0a5e3d80c73f5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086329"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006784"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Atualizar uma oferta existente no Marketplace comercial
 
@@ -43,7 +43,7 @@ Para adicionar um novo plano em uma oferta existente que você já publicou:
 
 1. Com a página **visão geral da oferta** para sua oferta existente aberta, vá para a página **visão geral do plano** e, em seguida, selecione **criar novo plano**.
 1. Crie um novo plano de acordo com as [diretrizes](./create-new-saas-offer.md#plan-overview) usando o **modelo de preços de planos existentes**.
-1. Selecione **salvar rascunho** depois de alterar o nome do plano. 
+1. Selecione **salvar rascunho** depois de alterar o nome do plano.
 1. Selecione **publicar** quando estiver pronto para publicar suas atualizações. A página **[revisar e publicar](#review-and-publish-an-updated-offer)** é aberta e fornece um status de conclusão para suas atualizações.
 
 ## <a name="update-a-plan-within-an-existing-offer"></a>Atualizar um plano em uma oferta existente
@@ -55,6 +55,24 @@ Para fazer alterações em um plano dentro de uma oferta existente que você já
 1. Selecione **salvar rascunho** depois de fazer alterações no nome do plano, na descrição ou na disponibilidade do público.
 1. Selecione **revisar e publicar** quando estiver pronto para publicar suas atualizações. A página **[revisar e publicar](#review-and-publish-an-updated-offer)** é aberta e fornece um status de conclusão para suas atualizações.
 1. Envie o plano atualizado para publicação selecionando **publicar**. Enviaremos um email para você quando uma versão de visualização da oferta atualizada estiver disponível para revisão e aprovação.
+
+## <a name="offer-a-virtual-machine-plan-at-a-new-price"></a>Oferecer um plano de máquina virtual a um novo preço
+
+Depois que um plano de máquina virtual é publicado, seu preço não pode ser alterado. Para oferecer o mesmo plano a um preço diferente, você deve ocultar o plano e criar um novo com o preço atualizado. Primeiro, oculte o plano com o preço que você deseja alterar:
+
+1. Com a página **visão geral da oferta** para sua oferta existente aberta, escolha o plano que você deseja alterar. Se o plano não estiver acessível na lista **visão geral do plano** , selecione **Ver todos os planos**.
+1. Marque a caixa de seleção **ocultar plano** . Salve o rascunho antes de continuar.
+
+Agora que você ocultou o plano com o preço antigo, crie uma cópia desse plano com o preço atualizado:
+
+1. No Partner Center, volte para o **plano visão geral**.
+2. Selecione **Criar novo plano**. Insira uma **ID de plano** e um **nome de plano**e, em seguida, selecione **criar**.
+1. Para reutilizar a configuração técnica do plano que você ocultou, marque a caixa de seleção **reutilizar a configuração técnica** . Leia [visão geral do plano](azure-vm-create-offer.md#plan-overview) para saber mais.
+    > [!IMPORTANT]
+    > Se você selecionar **este plano reutiliza a configuração técnica de outro plano**, não será possível parar de vender o plano pai posteriormente. Não use essa opção se desejar parar de vender o plano pai.
+3. Conclua todas as seções necessárias para o novo plano, incluindo o novo preço.
+1. Selecione **Salvar rascunho**.
+1. Depois de concluir todas as seções necessárias para o novo plano, selecione **revisar e publicar**. Isso enviará sua oferta para revisão e publicação. Leia [revisar e publicar uma oferta no Marketplace comercial](../review-publish-offer.md) para obter mais detalhes.
 
 ## <a name="compare-changes-to-marketplace-offers"></a>Comparar alterações a ofertas do Marketplace
 

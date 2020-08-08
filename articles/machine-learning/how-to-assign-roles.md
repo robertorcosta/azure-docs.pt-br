@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 8cff5ec6886c0aceff5270418f9feeb145f6fd17
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 8c2203fec71430840e547115d24330b661bda50f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836540"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002214"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar o acesso a um espaço de trabalho do Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -66,7 +66,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 ## <a name="azure-machine-learning-operations"></a>Operações de Azure Machine Learning
 
-Azure Machine Learning ações internas para muitas operações e tarefas. Para obter uma lista completa, consulte [operações de provedores de recursos do Azure](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+Azure Machine Learning ações internas para muitas operações e tarefas. Para obter uma lista completa, consulte [operações do provedor de recursos do Azure](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 ## <a name="create-custom-role"></a>Criar função personalizada
 
@@ -382,9 +382,9 @@ Aqui estão algumas coisas que você deve conhecer enquanto usa o controle de ac
 Para atribuir uma identidade atribuída ao usuário em clusters Amlcompute, é necessário ter permissões de gravação para criar a computação e ter a [função de operador de identidade gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Para obter mais informações sobre RBAC com identidades gerenciadas, leia [como gerenciar a identidade atribuída ao usuário](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
 
 
-### <a name="q-do-we-support-role-based-access-controls-on-the-studio-portal"></a>Q. Há suporte para controles de acesso baseado em função no portal do estúdio?
+### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>Q. Damos suporte ao controle de acesso baseado em função no portal do estúdio?
 
-O Azure Machine Learning Studio dá suporte a controles de acesso baseados em função. 
+O Azure Machine Learning Studio dá suporte ao controle de acesso baseado em função do Azure (RBAC do Azure). 
 
 > [!IMPORTANT]
 > Depois de atribuir uma função personalizada com permissões específicas a um cientista de dados em seu espaço de trabalho, as ações correspondentes (como adicionar um botão de computação) são ocultadas automaticamente dos usuários. Ocultar esses itens impede qualquer confusão de ver controles que retornam uma notificação de acesso não autorizado do serviço quando usados.

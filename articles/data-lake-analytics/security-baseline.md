@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: cb93fa266111a0f60a139d7b76a149ba81b486e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 33084d72e26f2926751def686c0a4c1d0485a5c2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075086"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005129"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Linha de base de segurança do Azure para Data Lake Analytics
 
@@ -256,7 +256,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: alterar senhas padrão quando aplicável
 
-**Diretrizes**: data Lake Analytics não tem o conceito de senhas padrão, pois a autenticação é fornecida com Azure Active Directory e protegida por RBAC (controles de acesso baseado em função).
+**Diretrizes**: data Lake Analytics não tem o conceito de senhas padrão, pois a autenticação é fornecida com o Azure Active Directory e protegida pelo Azure RBAC (controle de acesso baseado em função).
 
 * [Visão geral de Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-overview)
 

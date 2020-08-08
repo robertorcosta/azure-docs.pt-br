@@ -1,19 +1,17 @@
 ---
 title: Criar um compartilhamento de arquivos do Azure files com um controlador de domínio-Azure
 description: Configure um contêiner de perfil FSLogix em um compartilhamento de arquivos do Azure em um pool de hosts de área de trabalho virtual do Windows existente com seu domínio Active Directory.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c9636a08b896cefdbec825e4979ad1ec89f8847b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e03d496881b0d563387ee5a5943b60f456530453
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87842902"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009215"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Criar um contêiner de perfil com arquivos do Azure e AD DS
 

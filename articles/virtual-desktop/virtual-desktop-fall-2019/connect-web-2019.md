@@ -1,24 +1,22 @@
 ---
 title: Conectar o cliente Web da área de trabalho virtual do Windows (clássico)-Azure
 description: Como se conectar à área de trabalho virtual do Windows (clássico) usando o cliente Web.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: efe97c86ebfac8e130489b3105a97302866d6822
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c8a55e35ba89caefc362024fc871ac5eb800447b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87270372"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008416"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-web-client"></a>Conectar-se à área de trabalho virtual do Windows (clássico) com o cliente Web
 
 >[!IMPORTANT]
->Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../connect-web.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager, confira [este artigo](../connect-web.md).
 
 O cliente Web permite acessar os recursos da Área de Trabalho Virtual do Windows em um navegador da Web sem o lento processo de instalação.
 

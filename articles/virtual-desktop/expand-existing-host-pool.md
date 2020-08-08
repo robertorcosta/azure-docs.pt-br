@@ -1,24 +1,22 @@
 ---
 title: Expandir o pool de hosts existente com novos hosts de sessão-Azure
 description: Como expandir um pool de hosts existente com novos hosts de sessão na área de trabalho virtual do Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 69237c2e4404793ce239710407ed10f02bf07d50
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 339fe25a5a75ca8bc5cc0af7c4d96651e90c7eb6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288739"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002436"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir um pool de hosts existente com novos hosts de sessão
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à área de trabalho virtual do Windows com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows (clássico) sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/expand-existing-host-pool-2019.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/expand-existing-host-pool-2019.md).
 
 Ao aumentar o uso em seu pool de hosts, talvez seja necessário expandir seu pool de hosts existente com novos hosts de sessão para lidar com a nova carga.
 
@@ -28,7 +26,7 @@ Este artigo lhe dirá como você pode expandir um pool de hosts existente com no
 
 Antes de começar, verifique se você criou um pool de hosts e VMs (máquinas virtuais) de host de sessão usando um dos seguintes métodos:
 
-- [Azure portal](./create-host-pools-azure-marketplace.md)
+- [Portal do Azure](./create-host-pools-azure-marketplace.md)
 - [Criar um pool de host com o PowerShell](./create-host-pools-powershell.md)
 
 Você também precisará das seguintes informações ao criar pela primeira vez o pool de hosts e as VMs de host de sessão:
@@ -41,7 +39,7 @@ Você também precisará das seguintes informações ao criar pela primeira vez 
 
 Para expandir o pool de hosts adicionando máquinas virtuais:
 
-1. Entre no portal do Azure.
+1. Entre no Portal do Azure.
 
 2. Pesquise e selecione **Área de Trabalho Virtual do Windows**.
 

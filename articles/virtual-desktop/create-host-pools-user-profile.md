@@ -1,19 +1,17 @@
 ---
 title: Compartilhamento de contêiner de perfil FSLogix da área de trabalho virtual do Windows – Azure
 description: Como configurar um contêiner de perfil FSLogix para um pool de hosts de área de trabalho virtual do Windows usando um compartilhamento de arquivos baseado em máquina virtual.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bac0047c1eb151f38ff09092b45ca7fd86fcc65a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35b692033cc16f276b48bc6d973b27d994c1082a
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211826"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002581"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivo
 
@@ -66,7 +64,7 @@ Para configurar as máquinas virtuais com o software FSLogix, faça o seguinte e
 6. Crie uma chave chamada **perfis**.
 7. Crie os seguintes valores para a chave de perfis:
 
-| Nome                | Tipo               | Dados/valor                        |
+| Nome                | Type               | Dados/valor                        |
 |---------------------|--------------------|-----------------------------------|
 | Habilitada             | DWORD              | 1                                 |
 | VHDLocations        | Valor de cadeia de caracteres múltipla | "Caminho de rede para compartilhamento de arquivos"     |

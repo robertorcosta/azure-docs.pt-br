@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: 7d5ab5c125a8a395d1bc0139421ec804e1221e12
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 122c96c95aea794fbba9cab8a9a5b867f9f34b48
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506427"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008960"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Solucionar problemas no lado do cliente do Cache do Azure para Redis
 
@@ -53,7 +53,7 @@ Na exceção anterior, há vários problemas que são interessantes:
 - Observe que, na seção `IOCP` e na seção `WORKER`, você tem um valor `Busy` que é maior que o valor `Min`. Essa diferença significa que suas `ThreadPool` configurações precisam ser ajustadas.
 - Você também pode ver `in: 64221`. Esse valor indica que 64.211 bytes foram recebidos na camada de soquete do kernel do cliente, mas que não foram lidos pelo aplicativo. Essa diferença normalmente significa que seu aplicativo (por exemplo, StackExchange. Redis) não está lendo dados da rede tão rapidamente quanto o servidor o está enviando para você.
 
-Você pode [definir suas `ThreadPool` configurações](cache-faq.md#important-details-about-threadpool-growth) para garantir que seu pool de threads seja dimensionado rapidamente em cenários de disparo contínuo.
+Você pode [definir suas `ThreadPool` configurações](cache-management-faq.md#important-details-about-threadpool-growth) para garantir que seu pool de threads seja dimensionado rapidamente em cenários de disparo contínuo.
 
 ## <a name="high-client-cpu-usage"></a>Alto nível de uso da CPU do cliente
 
@@ -109,4 +109,4 @@ As resoluções para tamanhos de resposta grandes são variadas, mas incluem:
 ## <a name="additional-information"></a>Informações adicionais
 
 - [Solucionar problemas no lado do servidor do Cache do Azure para Redis](cache-troubleshoot-server.md)
-- [Como medir e testar o desempenho do meu cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [Como medir e testar o desempenho do meu cache?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)

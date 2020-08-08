@@ -1,6 +1,6 @@
 ---
 title: Criar uma fonte de dados para um mapa | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá a criar uma fonte de dados e a adicioná-la a um mapa usando o SDK da Web do Microsoft Azure Maps.
+description: 'Descubra como criar uma fonte de dados para um mapa. Saiba mais sobre as fontes de dados que o SDK da Web do Azure Maps usa: fontes geojson e blocos de vetor.'
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 4f51afbcf50939d762b1b5d32d6204ccfbb9a62d
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: fea2c4fab51db59c9159853e9b0bdaec0bcdbb56
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87551669"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009079"
 ---
 # <a name="create-a-data-source"></a>Criar uma fonte de dados
 

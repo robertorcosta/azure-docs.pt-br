@@ -1,6 +1,6 @@
 ---
 title: Adicionar uma camada de linhas a um mapa | Microsoft Azure Mapas
-description: Neste artigo, você aprenderá a adicionar uma camada de linhas a um mapa usando o SDK da Web do Microsoft Azure Mapas.
+description: Saiba como adicionar linhas a mapas. Veja exemplos que usam o SDK da Web do Azure Maps para adicionar camadas de linha a mapas e personalizar linhas com símbolos e gradientes de cor.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen
-ms.openlocfilehash: c473be25907eb3a761fbccd598bb9b732e5be5b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: codepen, devx-track-javascript
+ms.openlocfilehash: c834ae6061fce6f2fc2f4cd7c4d80e036775b156
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80802341"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010201"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Adicionar uma camada de linhas ao mapa
 

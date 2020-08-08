@@ -1,14 +1,14 @@
 ---
 title: Versão Prévia – Conhecer o Azure Policy para Kubernetes
 description: Saiba como o Azure Policy usa o Rego e o Open Policy Agent para gerenciar clusters que executam o Kubernetes no Azure ou localmente. Esta é uma versão prévia do recurso.
-ms.date: 06/12/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 461dd467ecda2764c6753ed6eeee0405f8420bbc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: dc81d22677eeab16ae06e782c5ae47c121af04c6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373752"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003519"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Entender o Azure Policy para clusters Kubernetes (versão prévia)
 
@@ -130,10 +130,16 @@ Depois que as etapas de pré-requisito acima forem concluídas, instale o comple
 
   1. Na página principal, selecione o botão **Habilitar complemento**.
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Habilitar o Azure Policy para complemento do AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Habilitar o Azure Policy para complemento do AKS":::
 
+     <a name="migrate-from-v1"></a>
      > [!NOTE]
-     > Se o botão **Habilitar** do complemento estiver esmaecido, a assinatura ainda não foi adicionada à versão prévia. Se o botão **Desabilitar complemento** estiver habilitado e uma mensagem de aviso de migração para v2 for exibida, o Gatekeepver v2 ainda está instalado e deverá ser removido.
+     > Se o botão **Habilitar** do complemento estiver esmaecido, a assinatura ainda não foi adicionada à versão prévia. Se o botão **desabilitar complemento** estiver habilitado e uma mensagem de aviso de migração v2 for exibida, o complemento v1 será instalado e deverá ser removido antes de atribuir as definições de política v2. O complemento v1 _preterido_ será substituído automaticamente pelo complemento v2 a partir de 24 de agosto de 2020. As novas versões v2 das definições de política devem ser atribuídas. Para atualizar agora, siga estas etapas:
+     > 
+     > 1. Valide seu cluster AKS tem o complemento v1 instalado visitando a página **políticas (versão prévia)** no cluster AKs e tem o "o cluster atual usa Azure Policy complemento v1..." Mensagem.
+     > 1. [Remova o complemento](#remove-the-add-on-from-aks).
+     > 1. Selecione o botão **habilitar complemento** para instalar a versão v2 do complemento.
+     > 1. [Atribuir versões v2 de suas definições de política internas v1](#assign-a-built-in-policy-definition)
 
 - CLI do Azure
 

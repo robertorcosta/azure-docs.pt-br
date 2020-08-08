@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9d085ba494ea6bb6e9e80490d85e50f100fc0908
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03b1d43eeaffe4449d85d384e669ba0950442ab9
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485549"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003372"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Linha de base de segurança do Azure para Stream Analytics
 
@@ -248,7 +248,7 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: alterar senhas padrão quando aplicável
 
-**Orientação**: Stream Analytics não tem o conceito de senhas padrão, pois a autenticação é fornecida com Azure Active Directory e protegida por controles de acesso baseado em função (RBAC) para gerenciar o serviço. Dependendo dos serviços de fluxo de injeção e dos serviços de saída, você precisa girar as credenciais configuradas nos trabalhos.
+**Orientação**: Stream Analytics não tem o conceito de senhas padrão, pois a autenticação é fornecida com Azure Active Directory e protegida pelo RBAC (controle de acesso baseado em função) para gerenciar o serviço. Dependendo dos serviços de fluxo de injeção e dos serviços de saída, você precisa girar as credenciais configuradas nos trabalhos.
 
 * [Girar as credenciais de logon para entradas e saídas de um trabalho Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-login-credentials-inputs-outputs)
 
@@ -442,11 +442,11 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Responsabilidade**: Cliente
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: Use o RBAC (controle de acesso baseado em função) para controlar como os usuários interagem com o serviço.
+**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar como os usuários interagem com o serviço.
 
-* [Como configurar o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Como configurar o RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -498,7 +498,7 @@ A Microsoft executa o gerenciamento de vulnerabilidades nos sistemas subjacentes
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: Implantar solução automatizada de gerenciamento de patch de sistema operacional
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -818,7 +818,7 @@ Além disso, use o grafo de recursos do Azure para consultar/descobrir recursos 
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Usar software antimalware gerenciado centralmente
 
-**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
+**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

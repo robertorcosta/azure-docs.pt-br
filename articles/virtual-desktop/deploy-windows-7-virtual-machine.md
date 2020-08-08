@@ -1,30 +1,28 @@
 ---
 title: Implantar a máquina virtual do Windows 7 Windows Desktop-Azure
 description: Como configurar e implantar uma máquina virtual do Windows 7 na área de trabalho virtual do Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6cb4a31e3360f3f9f8c9ed4684c30295489d27d8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0dcf21190b52f966dafb9caa9ae28fdf9b99ba86
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285145"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007566"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Implantar uma máquina virtual do Windows 7 na Área de Trabalho Virtual do Windows
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à área de trabalho virtual do Windows com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows (clássico) sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
 
 O processo para implantar uma VM (máquina virtual) do Windows 7 na área de trabalho virtual do Windows é um pouco diferente do para VMs que executam versões posteriores do Windows. Este guia lhe dirá como implantar o Windows 7.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, siga as instruções em [criar um pool de hosts com o PowerShell](create-host-pools-powershell.md) para criar um pool de hosts. Se você estiver usando o portal, siga as instruções nas etapas 1 a 9 de [criar um pool de hosts usando o portal do Azure](create-host-pools-azure-marketplace.md). Depois disso, selecione **revisar + criar** para criar um pool de host vazio. 
+Antes de começar, siga as instruções em [criar um pool de hosts com o PowerShell](create-host-pools-powershell.md) para criar um pool de hosts. Se você estiver usando o portal, siga as instruções nas etapas 1 a 9 de [criar um pool de hosts usando o portal do Azure](create-host-pools-azure-marketplace.md). Depois disso, selecione **revisar + criar** para criar um pool de host vazio.
 
 ## <a name="configure-a-windows-7-virtual-machine"></a>Configurar uma máquina virtual do Windows 7
 
@@ -49,9 +47,9 @@ Para configurar uma VM do Windows 7 na área de trabalho virtual do Windows:
      ```
 
 12. Siga as instruções [aqui](/powershell/module/az.desktopvirtualization/new-azwvdregistrationinfo?view=azps-4.3.0) para obter um token de registro.
-      
+
       - Se preferir usar o portal do Azure, você também poderá ir para a página Visão geral do pool de hosts ao qual você deseja adicionar a VM e criar um token.
-  
+
 13. [Baixe o agente de área de trabalho virtual do Windows para Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
 14. [Baixe o Gerenciador de agentes de área de trabalho virtual do Windows para Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
 15. Abra o instalador do agente de área de trabalho virtual do Windows e siga as instruções. Quando solicitado, forneça a chave de registro que você criou na etapa 12.

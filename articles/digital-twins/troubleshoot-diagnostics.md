@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 0376a57e3f2c1158e9da97fb291a28c99ce2463c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: d47bb7cc868c5733c6e36290f097fec783764cd3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903945"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003581"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solução de problemas do Azure digital gêmeos: log de diagnóstico
 
@@ -38,6 +38,8 @@ Aqui está como habilitar as configurações de diagnóstico para sua instância
         - ModelsOperation
         - QueryOperation
         - AllMetrics
+        
+        Para obter mais detalhes sobre essas opções, consulte a seção [*detalhes da categoria*](#category-details) abaixo.
      * **Detalhes de destino**: escolha onde deseja enviar os logs. Você pode selecionar qualquer combinação das três opções abaixo:
         - Enviar para o Log Analytics
         - Arquivar em uma conta de armazenamento
@@ -50,6 +52,47 @@ Aqui está como habilitar as configurações de diagnóstico para sua instância
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Captura de tela mostrando a página de configurações de diagnóstico e o botão para adicionar":::
 
 As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecem no destino configurado de volta na página **configurações de diagnóstico** da instância do. 
+
+## <a name="category-details"></a>Detalhes da categoria
+
+Aqui estão mais detalhes sobre as categorias de log que podem ser selecionadas em **detalhes da categoria** ao definir as configurações de diagnóstico.
+
+| Categoria do log | Descrição |
+| --- | --- |
+| ADTModelsOperation | Registrar em log todas as chamadas de API pertencentes a modelos |
+| ADTQueryOperation | Registrar em log todas as chamadas de API pertencentes a consultas |
+| ADTEventRoutesOperation | Registrar em log todas as chamadas de API pertencentes a rotas de eventos, bem como saída de eventos do Azure digital gêmeos para um serviço de ponto de extremidade como grade de eventos, hubs de eventos e barramento de serviço |
+| ADTDigitalTwinsOperation | Registrar em log todas as chamadas de API pertencentes ao Azure digital gêmeos |
+
+Cada categoria de log consiste em operações de gravação, leitura, exclusão e ação.  Eles são mapeados para chamadas à API REST da seguinte maneira:
+
+| Tipo de evento | Operações da API REST |
+| --- | --- |
+| Gravar | PUT e PATCH |
+| Ler | GET |
+| Excluir | DELETE |
+| Ação | POST |
+
+Aqui está uma lista abrangente das operações e das [chamadas da API REST do Azure digital gêmeos](https://docs.microsoft.com/rest/api/azure-digitaltwins/) que são registradas em log em cada categoria. 
+
+>[!NOTE]
+> Cada categoria de log contém várias operações/chamadas à API REST. Na tabela a seguir, cada categoria de log é mapeada para todas as operações/chamadas à API REST abaixo dela até que a próxima categoria de log seja listada. 
+
+| Categoria do log | Operação | Chamadas à API REST e outros eventos |
+| --- | --- | --- |
+| ADTModelsOperation | Microsoft. DigitalTwins/Models/Write | API de atualização de modelos de entrelaçamento digital |
+|  | Microsoft. DigitalTwins/Models/Read | Modelos de entrelaçamento digital obter por ID e APIs de lista |
+|  | Microsoft. DigitalTwins/Models/Delete | API de exclusão de modelos de entrelaçamento digital |
+|  | Microsoft. DigitalTwins/modelos/ação | Modelos de entrelaçamento digital adicionar API |
+| ADTQueryOperation | Microsoft. DigitalTwins/consulta/ação | API do gêmeos de consulta |
+| ADTEventRoutesOperation | Microsoft. DigitalTwins/eventroutes/Write | Adicionar API às rotas de eventos |
+|  | Microsoft. DigitalTwins/eventroutes/Read | Rotas de eventos Get por ID e listar APIs |
+|  | Microsoft. DigitalTwins/eventroutes/Delete | API de exclusão de rotas de eventos |
+|  | Microsoft. DigitalTwins/eventroutes/Action | Saída de um evento para um serviço de ponto de extremidade (não uma chamada à API) |
+| ADTDigitalTwinsOperation | Microsoft. DigitalTwins/DigitalTwins/Write | Gêmeos digital-adicionar, adicionar relação, atualizar, atualizar componente |
+|  | Microsoft. DigitalTwins/DigitalTwins/Read | Digital gêmeos Get por ID, obter componente, obter relação por ID, listar relações de entrada, relações de lista |
+|  | Microsoft. DigitalTwins/DigitalTwins/Delete | Gêmeos digital excluir, excluir relação |
+|  | Microsoft. DigitalTwins/DigitalTwins/Action | Telemetria do componente de envio digital gêmeos, enviar telemetria |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c7027f474c9ff5cbd90ed1800d74e3b4ebd60b3e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 33772d46f363b161c1faa5c953f48a702ae2b8bf
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836931"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009626"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (Portal)
 
@@ -24,27 +24,13 @@ Esta versão deste artigo percorre essas etapas manualmente, uma a uma, usando o
 * Para percorrer essas etapas manualmente usando a CLI, consulte a versão da CLI deste artigo: [*como configurar uma instância e autenticação (CLI)*](how-to-set-up-instance-cli.md).
 * Para executar uma configuração automatizada usando um exemplo de script de implantação, consulte a versão com script deste artigo: [*como: configurar uma instância e autenticação (script)*](how-to-set-up-instance-scripted.md).
 
-[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
- 
-Em seguida, faça logon no [portal do Azure](https://ms.portal.azure.com/) com suas credenciais.
-
-## <a name="prerequisites-permission-requirements"></a>Pré-requisitos: requisitos de permissão
-
-Para poder concluir todas as etapas neste artigo, você precisa ser classificado como um proprietário em sua assinatura do Azure. 
-
-Você pode verificar seu nível de permissão na [página assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal do Azure (você pode usar este link ou procurar *assinaturas* com a barra de pesquisa do Portal). Procure o nome da assinatura que você está usando e exiba sua função na coluna *minha função* . Se você for um proprietário, esse valor será *proprietário*:
-
-:::image type="content" source="media/how-to-set-up-instance/portal/subscriptions-role.png" alt-text="Exibição da página assinaturas no portal do Azure, mostrando o usuário como proprietário" lightbox="media/how-to-set-up-instance/portal/subscriptions-role.png":::
-
-Se você achar que o valor é *colaborador* ou algo diferente do *proprietário*, você pode proceder de uma das seguintes maneiras:
-* Entre em contato com o proprietário da assinatura e solicite que o proprietário conclua as etapas neste artigo em seu nome
-* Entre em contato com o proprietário da assinatura ou com a função de administrador de acesso do usuário na assinatura e solicite que eles elevem você ao proprietário na assinatura para que você tenha as permissões para continuar. Se isso é apropriado depende de sua organização e sua função dentro dela.
+[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
 
 ## <a name="create-the-azure-digital-twins-instance"></a>Criar a instância de gêmeos digital do Azure
 
-Nesta seção, você **criará uma nova instância do Azure digital gêmeos** usando o portal do Azure.
+Nesta seção, você **criará uma nova instância do Azure digital gêmeos** usando o [portal do Azure](https://ms.portal.azure.com/). Navegue até o portal e faça logon com suas credenciais.
 
-Depois de fazer logon no [portal do Azure](https://ms.portal.azure.com/), comece selecionando _criar um recurso_ no menu de home page de serviços do Azure.
+Uma vez no portal, comece selecionando _criar um recurso_ no menu Home Page de serviços do Azure.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Selecionando "criar um recurso" na home page da portal do Azure":::
 
@@ -87,7 +73,7 @@ Primeiro, abra a página da instância do gêmeos digital do Azure no portal do 
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selecionando para adicionar uma atribuição de função da página ' controle de acesso (IAM) '":::
 
-Na página *Adicionar atribuição de função* a seguir, preencha os valores (deve ser concluído por um proprietário da assinatura do Azure):
+Na página *Adicionar atribuição de função* a seguir, preencha os valores (deve ser concluído por um usuário com [permissões suficientes](#prerequisites-permission-requirements) na assinatura do Azure):
 * **Função**: selecione *proprietário do gêmeos digital do Azure (versão prévia)* no menu suspenso
 * **Atribuir acesso a**: selecione *usuário, grupo ou entidade de serviço do Azure ad* no menu suspenso
 * **Selecione**: Procure o nome ou endereço de email do usuário a ser atribuído. Quando você seleciona o resultado, o usuário aparecerá em uma seção de *Membros selecionados* .

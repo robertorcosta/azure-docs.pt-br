@@ -1,19 +1,17 @@
 ---
 title: Lista de URL segura para área de trabalho virtual do Windows-Azure
 description: Uma lista de URLs que você deve desbloquear para garantir que sua implantação de área de trabalho virtual do Windows funcione conforme o esperado.
-services: virtual-desktop
-author: heidilohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9f7a3b51afa11562123a280da8634e100a22e6b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9ac147eec7004f109687a6bb0888e25d0db84448
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075602"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009470"
 ---
 # <a name="safe-url-list"></a>Lista de URL segura
 
@@ -69,11 +67,11 @@ Qualquer cliente Área de Trabalho Remota que você usar deve ter acesso às seg
 
 |Endereço|Porta TCP de saída|Finalidade|Cliente(s)|
 |---|---|---|---|
-|*.wvd.microsoft.com|443|Tráfego de serviço|Tudo|
-|*.servicebus.windows.net|443|Solucionar problemas de dados|Tudo|
-|go.microsoft.com|443|FWLinks da Microsoft|Tudo|
-|aka.ms|443|Redutor de URL da Microsoft|Tudo|
-|docs.microsoft.com|443|Documentação|Tudo|
+|*.wvd.microsoft.com|443|Tráfego de serviço|Todos|
+|*.servicebus.windows.net|443|Solucionar problemas de dados|Todos|
+|go.microsoft.com|443|FWLinks da Microsoft|Todos|
+|aka.ms|443|Redutor de URL da Microsoft|Todos|
+|docs.microsoft.com|443|Documentação|Todos|
 |privacy.microsoft.com|443|Política de privacidade|Todos|
 |query.prod.cms.rt.microsoft.com|443|Atualizações do cliente|Área de Trabalho do Windows|
 

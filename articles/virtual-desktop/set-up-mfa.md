@@ -1,19 +1,17 @@
 ---
 title: Configurar a autenticação multifator do Azure para área de trabalho virtual do Windows-Azure
 description: Como configurar a autenticação multifator do Azure para aumentar a segurança na área de trabalho virtual do Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8a8f5cb792f524354754b4368c0b68d5f9d40699
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5e42ca0a0d0ff9d9df3dc42f1e165d1035d56d6a
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291380"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009453"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Habilitar a Autenticação Multifator do Azure para a Área de Trabalho Virtual do Windows
 
@@ -59,7 +57,7 @@ Veja como criar uma política de acesso condicional que requer autenticação mu
 
    >[!IMPORTANT]
    > Os aplicativos cliente de área de trabalho virtual do Windows são usados para o cliente Web. No entanto, não selecione o aplicativo chamado provedor de Azure Resource Manager de área de trabalho virtual do Windows (50e95039-B200-4007-bc97-8d5790743a63). Este aplicativo é usado somente para recuperar o feed do usuário e não deve ter MFA.
-  
+
 1. Depois de selecionar seu aplicativo, escolha **selecionar**e, em seguida, selecione **concluído**.
 
    > [!div class="mx-imgBorder"]

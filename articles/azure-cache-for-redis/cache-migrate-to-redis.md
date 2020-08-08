@@ -6,12 +6,13 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: yegu
-ms.openlocfilehash: 3f5cfccd1f85f68c619192496c62bf80ea8d4785
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4e867f28209230cf33b0f94e7cc8ca12d015ff15
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170177"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008552"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis-deprecated"></a>Migrar do serviço de cache gerenciado para o cache do Azure para Redis (preterido)
 A migração de seus aplicativos que usam o Serviço de Cache Gerenciado do Azure para o Cache do Azure para Redis pode ser feita com alterações mínimas no aplicativo, dependendo dos recursos do Serviço de Cache Gerenciado usados pelo seu aplicativo de cache. Apesar das APIs não serem exatamente a mesmo coisa elas são semelhantes e grande parte do seu código existente que usa o Serviço de Cache Gerenciado para acessar um cache pode ser reutilizado com alterações mínimas. Este artigo mostra como fazer as alterações de aplicativo e configuração necessárias para migrar seus aplicativos do Serviço de Cache Gerenciado para usar o Cache do Azure para Redis, além de mostrar como alguns dos recursos do Cache do Azure para Redis podem ser usados para implementar a funcionalidade de um cache do Serviço de Cache Gerenciado.
@@ -39,7 +40,7 @@ O Serviço de Cache Gerenciado do Azure e o Cache do Azure para Redis são simil
 
 | Recurso do Serviço de Cache Gerenciado | Suporte do Serviço de Cache Gerenciado | Exemplos do Cache do Azure para Redis |
 | --- | --- | --- |
-| Caches nomeados |Um cache padrão está configurado e nas ofertas de cache Standard e Premium, até nove caches nomeados adicionais podem ser configuradas se desejado. |O Cache do Azure para Redis tem um número configurável de bancos de dados (padrão de 16) que pode ser usado para implementar uma funcionalidade semelhante aos caches nomeados. Para saber mais, veja [O que são os bancos de dados do Redis?](cache-faq.md#what-are-redis-databases) e [Configuração padrão do servidor Redis](cache-configure.md#default-redis-server-configuration). |
+| Caches nomeados |Um cache padrão está configurado e nas ofertas de cache Standard e Premium, até nove caches nomeados adicionais podem ser configuradas se desejado. |O Cache do Azure para Redis tem um número configurável de bancos de dados (padrão de 16) que pode ser usado para implementar uma funcionalidade semelhante aos caches nomeados. Para saber mais, veja [O que são os bancos de dados do Redis?](cache-development-faq.md#what-are-redis-databases) e [Configuração padrão do servidor Redis](cache-configure.md#default-redis-server-configuration). |
 | Alta disponibilidade |Fornece alta disponibilidade para itens no cache nas ofertas de cache Standard e Premium. Se os itens são perdidos devido a uma falha, cópias de backup dos itens no cache ainda ficam disponíveis. As gravações no cache de réplica são feitas de forma síncrona. |Alta disponibilidade nas ofertas de cache Standard e Premium, que possuem uma configuração Principal/Réplica de dois nós (cada fragmento em um cache Premium tem um par de principal/réplica). Gravações de réplica são feitas de forma assíncrona. Para obter mais informações, confira [Preços do Cache do Azure para Redis](https://azure.microsoft.com/pricing/details/cache/). |
 | Notificações |Permite que os clientes recebam notificações assíncronas quando várias operações de cache ocorrem em um cache nomeado. |Aplicativos cliente podem usar o Redis pub/sub ou [Notificações de keyspace](cache-configure.md#keyspace-notifications-advanced-settings) para obter uma funcionalidade semelhante para notificações. |
 | Cache local |Armazena uma cópia dos objetos armazenados em cache localmente no cliente para acesso extremamente rápido. |Os aplicativos cliente precisariam implementar essa funcionalidade usando um dicionário ou uma estrutura de dados semelhantes. |
@@ -47,7 +48,7 @@ O Serviço de Cache Gerenciado do Azure e o Cache do Azure para Redis são simil
 | Política de expiração |A política de expiração padrão é Absolute e o intervalo de expiração padrão é de dez minutos. As políticas Sliding e Never também estão disponíveis. |Por padrão, itens no cache não expiram, mas uma expiração pode ser configurada por gravação usando sobrecargas de conjunto de cache. |
 | Regiões e marcação |As regiões são subgrupos para itens em cache. Regiões também oferecem suporte à anotação dos itens em cache com mais sequências de caracteres descritivas denominadas marcas. As regiões oferecem suporte à capacidade de realizar operações de pesquisa em qualquer item marcado nessa região. Todos os itens dentro de uma região estão localizados dentro de um único nó do cluster de cache. |Um Cache do Azure para Redis consiste em um único nó (a menos que o cluster Redis esteja habilitado) e, sendo assim, o conceito de regiões do Serviço de Cache Gerenciado não se aplica. O Redis oferece suporte à pesquisa e operações com caractere curinga ao recuperar chaves para que marcas descritivas possam ser incorporadas nos nomes de chave e usadas para recuperar os itens posteriormente. Para obter um exemplo de implementação de uma solução de marcação usando Redis, consulte [Implementar marcação de cache com Redis](https://stackify.com/implementing-cache-tagging-redis/). |
 | Serialização |O Cache gerenciado suporta o NetDataContractSerializer, BinaryFormatter e o uso de serializadores personalizados. O padrão é o NetDataContractSerializer. |É responsabilidade do aplicativo cliente para serializar objetos .NET antes de colocá-los no cache, com a opção do serializador para o desenvolvedor do aplicativo cliente. Para obter mais informações e um código de exemplo, consulte [Trabalhar com objetos .NET no cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache). |
-| Emulador de cache |O Cache Gerenciado fornece um emulador de cache local. |O Cache do Azure para Redis não tem um emulador, mas é possível [executar o build MSOpenTech do redis-server.exe localmente](cache-faq.md#cache-emulator) para proporcionar uma experiência de emulador. |
+| Emulador de cache |O Cache Gerenciado fornece um emulador de cache local. |O cache do Azure para Redis não tem um emulador, mas você pode [executar o Redis localmente](cache-development-faq.md#is-there-a-local-emulator-for-azure-cache-for-redis) para fornecer uma experiência de emulador. |
 
 ## <a name="choose-a-cache-offering"></a>Escolher uma oferta de Cache
 O Cache do Microsoft Azure para Redis está disponível nas seguintes camadas:
@@ -58,7 +59,7 @@ O Cache do Microsoft Azure para Redis está disponível nas seguintes camadas:
 
 Cada camada é diferente em termos de recursos e preços. Os recursos são abordados posteriormente neste manual e, para obter mais informações sobre preços, consulte [Detalhes de preços do Cache](https://azure.microsoft.com/pricing/details/cache/).
 
-Um ponto de partida para a migração é escolher o tamanho que corresponda ao tamanho do cache do Serviço de Cache Gerenciado anterior e, em seguida, aumentar ou diminuir, dependendo dos requisitos do seu aplicativo. Para obter informações sobre como escolher a oferta certa do Cache do Azure para Redis, consulte [Qual oferta do Cache do Azure para Redis e tamanho devo usar](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
+Um ponto de partida para a migração é escolher o tamanho que corresponda ao tamanho do cache do Serviço de Cache Gerenciado anterior e, em seguida, aumentar ou diminuir, dependendo dos requisitos do seu aplicativo. Para obter mais informações sobre como escolher a oferta correta de cache do Azure para Redis, consulte [escolhendo a camada correta](cache-overview.md#choosing-the-right-tier).
 
 ## <a name="create-a-cache"></a>Criar um Cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]

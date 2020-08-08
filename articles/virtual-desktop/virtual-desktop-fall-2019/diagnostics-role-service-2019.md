@@ -1,31 +1,29 @@
 ---
 title: Problemas de diagnóstico da área de trabalho virtual do Windows (clássico)-Azure
 description: Como usar o recurso de diagnóstico da área de trabalho virtual (clássica) do Windows para diagnosticar problemas.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 257ad5aa11bfaece70f676b452119d7800e2d1e2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7e652f04b42b132e7c1307503b1764dda7b2036b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285043"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009334"
 ---
 # <a name="identify-and-diagnose-issues-in-windows-virtual-desktop-classic"></a>Identificar e diagnosticar problemas na área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
->Este conteúdo se aplica à área de trabalho virtual do Windows (clássico), que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows, consulte [Este artigo](../diagnostics-role-service.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager, confira [este artigo](../diagnostics-role-service.md).
 
 A Área de Trabalho Virtual do Windows oferece um recurso de diagnóstico que permite ao administrador identificar problemas por meio de uma única interface. As funções da Área de Trabalho Virtual do Windows registram uma atividade de diagnóstico sempre que um usuário interage com o sistema. Cada log contém informações relevantes, como as funções da Área de Trabalho Virtual do Windows envolvidas na transação, mensagens de erro, informações do locatário e informações do usuário. As atividades de diagnóstico são criadas pelas ações do usuário final e do administrador e podem ser categorizadas em três buckets principais:
 
 * Atividades de assinatura do feed: o usuário final aciona essas atividades sempre que tenta se conectar ao feed por meio de aplicativos da Área de Trabalho Remota da Microsoft.
 * Atividades de conexão: o usuário final aciona essas atividades sempre que tenta se conectar a uma área de trabalho ou RemoteApp por meio de aplicativos da Área de Trabalho Remota da Microsoft.
 * Atividades de gerenciamento: o administrador aciona essas atividades sempre que realiza operações de gerenciamento no sistema, como a criação de pools de hosts, a atribuição de usuários a grupos de aplicativos e a criação de atribuições de função.
-  
+
 As conexões que não acessam a Área de Trabalho Virtual do Windows não são exibidas nos resultados do diagnóstico porque o próprio serviço da função de diagnóstico faz parte da Área de Trabalho Virtual do Windows. Problemas de conexão da Área de Trabalho Virtual do Windows podem ocorrer quando o usuário final enfrenta problemas de conectividade de rede.
 
 Para começar, [baixe e importe o módulo do PowerShell da Área de Trabalho Virtual do Windows](/powershell/windows-virtual-desktop/overview/) para usá-lo na sessão do PowerShell, caso ainda não tenha feito isso. Depois disso, execute o seguinte cmdlet para entrar em sua conta:
@@ -39,7 +37,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 O diagnóstico da Área de Trabalho Virtual do Windows usa apenas um cmdlet do PowerShell, mas contém muitos parâmetros opcionais para ajudar a restringir e isolar problemas. As seções a seguir listam os cmdlets que você pode executar para diagnosticar problemas. A maioria dos filtros pode ser aplicada em conjunto. Os valores listados entre parênteses, como `<tenantName>`, devem ser substituídos pelos valores que se aplicam à situação.
 
 >[!IMPORTANT]
->O recurso de diagnóstico é para a solução de problemas de usuário único. Todas as consultas que usam o PowerShell devem incluir os parâmetros *-UserName* ou *-ActivityID*. Para recursos de monitoramento, use o Log Analytics. Confira [Usar Log Analytics para o recurso de diagnóstico](diagnostics-log-analytics-2019.md) para obter mais informações sobre como enviar dados de diagnóstico para o espaço de trabalho. 
+>O recurso de diagnóstico é para a solução de problemas de usuário único. Todas as consultas que usam o PowerShell devem incluir os parâmetros *-UserName* ou *-ActivityID*. Para recursos de monitoramento, use o Log Analytics. Confira [Usar Log Analytics para o recurso de diagnóstico](diagnostics-log-analytics-2019.md) para obter mais informações sobre como enviar dados de diagnóstico para o espaço de trabalho.
 
 ### <a name="filter-diagnostic-activities-by-user"></a>Filtrar atividades de diagnóstico por usuário
 

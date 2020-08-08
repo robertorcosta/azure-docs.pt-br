@@ -2,14 +2,14 @@
 title: Escolher tamanhos de VM para pools
 description: Como escolher entre os tamanhos de VM disponíveis para nós de computação em pools de Lote do Azure
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 08/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: e56632ce66cb25bf023813f2b98be6141f651465
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 9aef1fc21120401252d188b7373c6ce4139c71c4
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143530"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005145"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolher um tamanho de VM para nós de computação em um pool do Lote do Azure
 
@@ -35,12 +35,12 @@ Os pools de lote na configuração da máquina virtual oferecem suporte a quase 
 | DC | Nenhum |
 | Dv2, DSv2 | Todos os tamanhos |
 | Dv3, Dsv3 | Todos os tamanhos |
-| Dav4<sup>1</sup> | Nenhum - ainda não disponível |
-| Dasv4<sup>1</sup> | Todos os tamanhos, exceto para Standard_D48as_v4, Standard_D64as_v4 Standard_D96as_v4 |
+| Dav4<sup>1</sup> | Todos os tamanhos |
+| Dasv4<sup>1</sup> | Todos os tamanhos |
 | Ddv4, Ddsv4 |  Nenhum - ainda não disponível |
 | Ev3, Esv3 | Todos os tamanhos, exceto para E64is_v3 e E64i_v3 |
-| Eav4<sup>1</sup> | Todos os tamanhos, exceto para Standard_E48a_v4, Standard_E64a_v4 Standard_E96a_v4 |
-| Easv4<sup>1</sup> | Todos os tamanhos, exceto para Standard_E48as_v4, Standard_E64as_v4 Standard_E96as_v4 |
+| Eav4<sup>1</sup> | Todos os tamanhos |
+| Easv4<sup>1</sup> | Todos os tamanhos |
 | Edv4, Edsv4 |  Nenhum - ainda não disponível |
 | F, Fs | Todos os tamanhos |
 | Fsv2 | Todos os tamanhos |
