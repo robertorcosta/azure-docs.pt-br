@@ -671,7 +671,7 @@
                 - name: Expansão por meio de programação
                   href: service-fabric-cluster-programmatic-scaling.md
                 - name: Dimensionar o tipo de nó primário
-                  href: service-fabric-scale-up-node-type.md
+                  href: service-fabric-scale-up-primary-node-type.md
                 - name: Adicionar um tipo de nó
                   href: virtual-machine-scale-set-scale-node-type-scale-out.md
                 - name: Remover um tipo de nó
