@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 625a1a256ec5f1668c97e74c37e567a4ceb3612f
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 12fb644430d4bfd6444c6bbf09d37b4662ca6fd1
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871149"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810098"
 ---
 # <a name="quickstart-create-a-xamarin-ios-app-with-azure-spatial-anchors"></a>Início Rápido: Criar um aplicativo Xamarin para iOS com as Âncoras Espaciais do Azure
 
@@ -55,9 +55,7 @@ Localize o campo `SpatialAnchorsAccountKey` e substitua `Set me` pela chave de c
 
 Localize o campo `SpatialAnchorsAccountId` e substitua `Set me` pelo identificador de conta.
 
-Abra `Xamarin/SampleXamarin.iOS/ViewControllers/DemoViewControllerBase.cs`
-
-Localize `StartSession()` e adicione a seguinte linha, substituindo em seu domínio de conta anterior: `this.cloudSession.Configuration.AccountDomain = "MyAccountDomain";`.
+Localize o campo `SpatialAnchorsAccountDomain` e substitua `Set me` pelo domínio da conta.
 
 ## <a name="deploy-the-app-to-your-ios-device"></a>Implantar o aplicativo em seu dispositivo iOS
 

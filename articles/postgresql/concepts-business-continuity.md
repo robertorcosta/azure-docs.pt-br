@@ -1,17 +1,17 @@
 ---
 title: Continuidade dos negócios-banco de dados do Azure para PostgreSQL-servidor único
-description: Este artigo descreve a continuidade dos negócios (restauração pontual, data center interrupção, restauração geográfica) ao usar o banco de dados do Azure para PostgreSQL.
+description: Este artigo descreve a continuidade dos negócios (restauração pontual, data center interrupção, restauração geográfica, réplicas) ao usar o banco de dados do Azure para PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: 35b2236ae6ffd3df3e458cdbd4bc01e89a1da2b2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 08/07/2020
+ms.openlocfilehash: b14eba63d848b5f583e16b39f3ade6bd7e7ba83f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245287"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031193"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Visão geral da continuidade de negócios com o banco de dados do Azure para PostgreSQL-servidor único
 
@@ -23,19 +23,21 @@ O Banco de Dados do Azure para PostgreSQL fornece recursos de continuidade dos n
 
 A tabela a seguir compara o ERT e o RPO para os recursos disponíveis:
 
-| **Recurso** | **Básico** | **Uso Geral** | **Otimizado para memória** |
+| **Recurso** | **Basic** | **Uso Geral** | **Memória otimizada** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Recuperação Pontual do backup | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção |
 | Restauração geográfica de backups replicados geograficamente | Sem suporte | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
 
-> [!IMPORTANT]
-> Excluir servidores **não é possível** ser restaurado. Se você excluir o servidor, todos os bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados. Use o [bloqueio de recursos do Azure](../azure-resource-manager/management/lock-resources.md) para ajudar a evitar a exclusão acidental do seu servidor.
+Você também pode considerar o uso de [réplicas de leitura](concepts-read-replicas.md).
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperar um servidor após um erro de aplicativo ou usuário
 
 Você pode usar os backups do serviço para recuperar um servidor de vários eventos interruptivos. Um usuário pode excluir alguns dados acidentalmente, remover uma tabela importante inadvertidamente ou até mesmo um banco de dados inteiro. Um aplicativo pode substituir acidentalmente dados corretos por dados incorretos, devido a uma falha de aplicativo, e assim por diante.
 
 Você pode executar uma **restauração pontual** para criar uma cópia do seu servidor para um momento bom conhecido no tempo. Esse ponto no tempo deve estar dentro do período de retenção de backup que você configurou para o servidor. Depois que os dados forem restaurados para o novo servidor, você poderá substituir o servidor de origem pelo servidor restaurado recentemente, ou copiar os dados necessários do servidor restaurado para o servidor de origem.
+
+> [!IMPORTANT]
+> Excluir servidores **não é possível** ser restaurado. Se você excluir o servidor, todos os bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados. Use o [bloqueio de recursos do Azure](../azure-resource-manager/management/lock-resources.md) para ajudar a evitar a exclusão acidental do seu servidor.
 
 ## <a name="recover-from-an-azure-data-center-outage"></a>Recuperar de uma interrupção de data center do Azure
 

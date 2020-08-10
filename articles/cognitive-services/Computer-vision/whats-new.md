@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: ceb9e731b1052d47131dfbc6754e1cb921a8f585
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0b432a224aa32edf762f6610990027451abe9acc
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280827"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759199"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Pesquisa Visual Computacional
 
@@ -23,15 +23,15 @@ Conheça o que há de novo no serviço. Esses itens podem ser notas sobre a vers
 
 ## <a name="july-2020"></a>Julho de 2020
 
-### <a name="read-api-v31-preview1-adds-support-for-simplified-chinese"></a>A API de Leitura v3.1-preview.1 adiciona suporte para o chinês simplificado
-A API de Leitura v3.1-preview.1 da Pesquisa Visual Computacional adiciona suporte para o chinês simplificado.
+### <a name="read-api-v31-public-preview-adds-simplified-chinese-support"></a>A versão prévia pública da API de Leitura v3.1 adiciona suporte ao chinês (simplificado)
+A versão prévia pública da API de Leitura v3.1 da Pesquisa Visual Computacional adiciona suporte ao chinês (simplificado).
 
 * Esta versão prévia da API de Leitura dá suporte aos idiomas inglês, holandês, francês, alemão, italiano, português, chinês simplificado e espanhol.
 
 Confira a [Visão geral da API de Leitura](concept-recognizing-text.md) para saber mais.
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre a API de Leitura v3.1-preview.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
+> [Saiba mais sobre a versão prévia pública da API de Leitura v3.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>Maio de 2020
 API da Pesquisa Visual Computacional v3.0 inserida na Disponibilidade Geral, com atualizações para a [API de Leitura](concept-recognizing-text.md):

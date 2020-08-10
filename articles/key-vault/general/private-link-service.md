@@ -7,12 +7,13 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: 95a999f38104e0bb3cfd6a510bd8f9e3d5440562
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 70a0620369792c1aaf2c11867fd468f42d6bb9ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521081"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494682"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrar o Key Vault ao Link Privado do Azure
 
@@ -233,6 +234,38 @@ Address:  10.1.0.5 (private IP address)
 Aliases:  <your-key-vault-name>.vault.azure.net
           <your-key-vault-name>.privatelink.vaultcore.azure.net
 ```
+
+## <a name="troubleshooting-guide"></a>Guia de solução de problemas
+
+* Verifique se o ponto de extremidade privado está no estado aprovado. 
+    1. É possível verificar e corrigir isso no portal do Azure. Abra o recurso Key Vault e clique na opção Rede. 
+    2. Em seguida, selecione a guia Conexões de ponto de extremidade privado. 
+    3. Verifique se o estado da conexão é Aprovado e se o estado do provisionamento é Êxito. 
+    4. Você também pode navegar até o recurso do ponto de extremidade privado, examinar as mesmas propriedades e verificar novamente se a rede virtual corresponde à que está usando.
+
+* Verifique se você tem um recurso de Zona DNS Privada. 
+    1. Você precisa ter um recurso de Zona DNS Privada com o nome exato: privatelink.vaultcore.azure.net. 
+    2. Para saber como configurá-lo, confira o link a seguir. [Zonas DNS Privadas](https://docs.microsoft.com/azure/dns/private-dns-privatednszone)
+    
+* Confirme se a Zona DNS Privada não está vinculada à Rede Virtual. Se o endereço IP público ainda está sendo retornado, talvez seja esse o problema. 
+    1. Se a Zona DNS Privada não estiver vinculada à rede virtual, a consulta DNS proveniente da rede virtual retornará o endereço IP público do cofre de chaves. 
+    2. Navegue até o recurso Zona DNS Privada no portal do Azure e clique na opção Links de rede virtual. 
+    4. A rede virtual que executará chamadas para o cofre de chaves deve estar listada. 
+    5. Se não estiver, adicione-a. 
+    6. Para ver as etapas detalhadas, confira o documento a seguir [Vincular Rede Virtual a Zona DNS Privada](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
+
+* Verifique se não há um registro A ausente para o cofre de chaves na Zona DNS Privada. 
+    1. Navegue até a página da Zona DNS Privada. 
+    2. Clique em Visão geral e verifique se há um registro A com o nome simples do cofre de chaves (ou seja, fabrikam). Não especifique nenhum sufixo.
+    3. Verifique a ortografia e crie ou corrija o registro A. Use um TTL de 3600 (1 hora). 
+    4. Não deixe de especificar o endereço IP privado correto. 
+    
+* Verifique se o registro A tem o endereço IP correto. 
+    1. Confirme o endereço IP abrindo o recurso Ponto de Extremidade Privado no portal do Azure 
+    2. Navegue até o recurso Microsoft.Network/privateEndpoints no portal do Azure (e não até o recurso Key Vault)
+    3. Na página de visão geral, procure por Adaptador de rede e clique nesse link. 
+    4. O link mostrará a Visão geral do recurso NIC, que contém o Endereço IP Privado da propriedade. 
+    5. Verifique se esse é o endereço IP correto especificado no registro A.
 
 ## <a name="limitations-and-design-considerations"></a>Limitações e considerações de design
 

@@ -2,14 +2,14 @@
 title: Contêineres sem servidor no Azure
 description: O serviço das Instâncias de Contêiner do Azure oferece a maneira mais rápida e mais simples de executar contêineres isolados no Azure, sem a necessidade de gerenciar máquinas virtuais nem adotar um orquestrador de nível superior.
 ms.topic: overview
-ms.date: 04/25/2019
+ms.date: 07/28/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 261e5d0159b4201aab0e8aad1e05fa320cc76a14
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 2871aabe4d81cfb1441e9c74c8fa24e4e906d3b9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259510"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498677"
 ---
 # <a name="what-is-azure-container-instances"></a>O que são as Instâncias de Contêiner do Azure?
 
@@ -20,6 +20,11 @@ As Instâncias de Contêiner do Azure são uma ótima solução para qualquer ce
 ## <a name="fast-startup-times"></a>Inicialização mais rápida
 
 Os contêineres oferecem vantagens significativas de inicialização em relação às VMs (máquinas virtuais). As Instâncias de Contêiner do Azure podem iniciar contêineres no Azure em segundos, sem a necessidade de provisionar nem gerenciar VMs.
+
+Traga imagens de contêiner do Linux ou do Windows do Docker Hub, de um [registro de contêiner do Azure](../container-registry/index.yml) particular ou de outro registro do Docker baseado em nuvem. As Instâncias de Contêiner do Azure armazenam em cache várias imagens de SO base comuns, ajudando a acelerar a implantação de suas imagens de aplicativo personalizadas.
+
+> [!NOTE]
+> No momento, não é possível implantar uma imagem de um registro local nas Instâncias de Contêiner do Azure.
 
 ## <a name="container-access"></a>Acesso ao contêiner
 
@@ -68,7 +73,7 @@ As Instâncias de Contêiner do Azure são compatíveis com a programação de [
 
 ## <a name="virtual-network-deployment"></a>Implantação da rede virtual
 
-Atualmente disponível para cargas de trabalho de produção em um subconjunto de regiões do Azure, esse recurso de Instâncias de Contêiner do Azure permite [implantação de instâncias de contêiner em uma rede virtual do Azure](container-instances-vnet.md). Ao implantar instâncias de contêiner em uma sub-rede em sua rede virtual, elas podem se comunicar com segurança com outros recursos na rede virtual, incluindo os que são locais (por meio do [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou do [ExpressRoute](../expressroute/expressroute-introduction.md)).
+As Instâncias de Contêiner do Azure permitem a [implantação de instâncias de contêiner em uma rede virtual do Azure](container-instances-vnet.md). Quando implantadas em uma sub-rede dentro de sua rede virtual, as instâncias de contêiner podem se comunicar com segurança com outros recursos na rede virtual, incluindo os que são locais (por meio do [gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou do [ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 2dde784e2f67266b2f6c6ccd7da20f01546bbda7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a045ef0fea70347f168e8ae0cc93e0c359f31dfa
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506478"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031108"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrar Azure Functions extensões de associação
 
-No Azure Functions versão 2. x, as [associações](./functions-triggers-bindings.md) estão disponíveis como pacotes separados do tempo de execução do functions. Enquanto as funções do .NET acessam associações por meio de pacotes NuGet, os pacotes de extensão permitem que outras funções acessem todas as associações por meio de um parâmetro de configuração.
+A partir do Azure Functions versão 2. x, as [associações](./functions-triggers-bindings.md) estão disponíveis como pacotes separados do tempo de execução do functions. Enquanto as funções do .NET acessam associações por meio de pacotes NuGet, os pacotes de extensão permitem que outras funções acessem todas as associações por meio de um parâmetro de configuração.
 
 Considere os seguintes itens relacionados a extensões de associação:
 
@@ -24,30 +24,38 @@ Considere os seguintes itens relacionados a extensões de associação:
 
 A tabela a seguir indica quando e como você registra as associações.
 
-| Ambiente de desenvolvimento |Registro<br/> em funções de 1. x  |Registro<br/> em funções 2. x  |
+| Ambiente de desenvolvimento |Registro<br/> em funções de 1. x  |Registro<br/> nas funções 3. x/2. x  |
 |-------------------------|------------------------------------|------------------------------------|
-|Portal do Azure|Automática|Automática|
+|Portal do Azure|Automática|Automático<sup>*</sup>|
 |Idiomas Non-.NET ou desenvolvimento de ferramentas principais do Azure local|Automática|[Usar Azure Functions Core Tools e pacotes de extensão](#extension-bundles)|
 |Biblioteca de classes C# usando o Visual Studio|[Usar as ferramentas do NuGet](#vs)|[Usar as ferramentas do NuGet](#vs)|
 |Biblioteca de classes C# usando o código do Visual Studio|N/D|[Use o .NET Core CLI](#vs-code)|
 
-## <a name="extension-bundles-for-local-development"></a><a name="extension-bundles"></a>Pacotes de extensão para desenvolvimento local
+<sup>*</sup>O portal usa pacotes de extensão.
 
-Os pacotes de extensão são uma tecnologia de implantação que permite adicionar um conjunto compatível de extensões de associação de funções ao seu aplicativo de funções. Um conjunto predefinido de extensões é adicionado quando você cria seu aplicativo. Os pacotes de extensão definidos em um pacote são compatíveis entre si, o que ajuda a evitar conflitos entre pacotes. Você habilita os pacotes de extensão no host.jsdo aplicativo no arquivo.  
+## <a name="extension-bundles"></a><a name="extension-bundles"></a>Pacotes de extensão
 
-Você pode usar pacotes de extensão com a versão 2. x e versões posteriores do tempo de execução do functions. Ao desenvolver localmente, verifique se você está usando a versão mais recente do [Azure Functions Core Tools](functions-run-local.md#v2).
+Os pacotes de extensão são a maneira de adicionar um conjunto compatível de extensões de associação de funções ao seu aplicativo de funções. Ao usar pacotes, um conjunto predefinido de extensões é adicionado quando você cria seu aplicativo. Os pacotes de extensão definidos em um pacote são verificados como compatíveis entre si, o que ajuda a evitar conflitos entre pacotes. Os pacotes de extensão permitem que você evite ter que publicar o código do projeto .NET com um projeto do non-.NET functions. Você habilita os pacotes de extensão no host.jsdo aplicativo no arquivo.  
 
-Use pacotes de extensão para o desenvolvimento local usando Azure Functions Core Tools, Visual Studio Code e quando você cria remotamente.
+Você pode usar pacotes de extensão com a versão 2. x e versões posteriores do tempo de execução do functions. 
 
-Se você não usar pacotes de extensão, deverá instalar o SDK do .NET Core 2. x em seu computador local antes de instalar qualquer extensão de associação. Os pacotes de extensão eliminam esse requisito para o desenvolvimento local. 
+Use pacotes de extensão para o desenvolvimento local usando Azure Functions Core Tools, Visual Studio Code e quando você cria remotamente. Ao desenvolver localmente, verifique se você está usando a versão mais recente do [Azure Functions Core Tools](functions-run-local.md#v2). Os pacotes de extensão também são usados ao desenvolver funções no portal do Azure. 
+
+Se você não usar pacotes de extensão, deverá instalar o SDK do .NET Core 2. x em seu computador local antes de [instalar explicitamente qualquer extensão de associação](#explicitly-install-extensions). Um arquivo Extensions. csproj, que define explicitamente as extensões necessárias, é adicionado ao seu projeto. Os pacotes de extensão removem esses requisitos para o desenvolvimento local. 
 
 Para usar pacotes de extensão, atualize o *host.jsno* arquivo para incluir a seguinte entrada para `extensionBundle` :
  
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
-<a name="local-csharp"></a>
+## <a name="explicitly-install-extensions"></a>Instalar extensões explicitamente
 
-## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>\#Biblioteca de classes C com o Visual Studio
+[!INCLUDE [functions-extension-register-core-tools](../../includes/functions-extension-register-core-tools.md)]
+
+## <a name="nuget-packages"></a><a name="local-csharp"></a>Pacotes NuGet
+
+Para um projeto de funções baseadas em biblioteca de classes do C#, você deve instalar os pacotes de extensão criados especificamente para projetos que não são de classe 
+
+### <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>\#Biblioteca de classes C com o Visual Studio
 
 No **Visual Studio**, você pode instalar pacotes do console do Gerenciador de pacotes usando o comando [install-Package](/nuget/tools/ps-ref-install-package) , conforme mostrado no exemplo a seguir:
 

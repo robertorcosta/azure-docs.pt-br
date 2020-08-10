@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c4a128d46ca1b3f84981f9732f86ff49f72cc18
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a4f30202b08328854296b45e0279fc51b25b0a7c
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025822"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428465"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar o ingresso no Azure Active Directory híbrido para os domínios gerenciados
 
@@ -69,6 +69,9 @@ O ingresso no Azure AD híbrido requer que os dispositivos tenham acesso aos seg
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
 - `https://autologon.microsoftazuread-sso.com` (se você usa ou planeja usar o SSO contínuo)
+
+> [!WARNING]
+> Se a sua organização usa servidores proxy que interceptam o tráfego SSL para cenários como prevenção de perda de dados ou restrições de locatário do Azure AD, verifique se o tráfego para 'https://device.login.microsoftonline.com ' foi excluído do TLS de interrupção e inspeção. A falha ao excluir o 'https://device.login.microsoftonline.com ' pode causar interferência com a autenticação de certificado de cliente, causando problemas com o registro de dispositivo e o Acesso Condicional com base no dispositivo.
 
 Se a sua organização exigir acesso à Internet por meio de um proxy de saída, você poderá usar [implementar a WPAD (Descoberta Automática de Proxy Web)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) para permitir que computadores Windows 10 registrem-se no dispositivo com o Azure AD. Para solucionar problemas encontrados ao configurar e gerenciar a WPAD, veja [Solucionando problemas de detecção automática](/previous-versions/tn-archive/cc302643(v=technet.10)). Em dispositivos Windows 10 anteriores à atualização 1709, o WPAD é a única opção disponível para configurar um proxy para trabalhar com o ingresso no Azure AD Híbrido. 
 

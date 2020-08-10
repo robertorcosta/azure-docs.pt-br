@@ -3,12 +3,13 @@ title: Tutorial – Disparar o build da imagem na atualização da imagem base p
 description: Neste tutorial, você vai configurar uma Tarefa do Registro de Contêiner do Azure para disparar automaticamente builds de imagem de contêiner na nuvem quando uma imagem base em outro Registro de Contêiner do Azure particular for atualizada.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.openlocfilehash: e8aae8a91288d470c801dc4d82cfa6b44369d832
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-javascript
+ms.openlocfilehash: e28dc65f44f3d9997a59e6204451cc84b0e41e40
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77617679"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407125"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>Tutorial: Automatizar builds de imagem de contêiner quando uma imagem base é atualizada em outro registro de contêiner particular 
 
@@ -162,7 +163,7 @@ Primeiro, faça a autenticação em seu registro de contêiner com [az acr login
 az acr login --name $ACR_NAME
 ```
 
-Agora, execute o contêiner localmente com `docker run`. Substitua **\<run-id\>** pela ID de execução encontrada na saída da etapa anterior (por exemplo, “da6”). Este exemplo nomeia o contêiner `myapp` e inclui o parâmetro `--rm` para remover o contêiner quando você o interrompe.
+Agora, execute o contêiner localmente com `docker run`. Substitua **\<run-id\>** pela ID de Execução encontrada na saída da etapa anterior (por exemplo, "da6"). Este exemplo nomeia o contêiner `myapp` e inclui o parâmetro `--rm` para remover o contêiner quando você o interrompe.
 
 ```bash
 docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-id>

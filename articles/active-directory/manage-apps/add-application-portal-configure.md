@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: eb4a150a1680dd4101249458894ded652cde15a0
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: a1a99e9f02a25f5e1d57ea485930a4f26149b53f
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87338037"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808398"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Configurar propriedades para um aplicativo em seu locatário do Azure AD (Azure Active Directory)
 
@@ -95,9 +95,17 @@ Para usar um logotipo personalizado:
    > [!NOTE]
    > A miniatura exibida neste painel de **Propriedades** não é atualizada imediatamente. Você pode fechar e reabrir o painel **Propriedades** para ver o ícone atualizado.
 
+
+> [!TIP]
+> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Se você não pretende continuar com a série de guias de início rápido, considere a possibilidade de excluir o aplicativo para limpar seu locatário de teste. A exclusão do aplicativo é abordada no último guia de início rápido desta série; confira [Excluir um aplicativo](delete-application-portal.md).
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você configurou as propriedades de um aplicativo, pode continuar a configurar o logon único.
-
-- [Configurar logon único](add-application-portal-setup-sso.md)
-- [Excluir um aplicativo](delete-application-portal.md)
+Prossiga para o próximo artigo para aprender a configurar o logon único para um aplicativo.
+> [!div class="nextstepaction"]
+> [Configurar logon único](add-application-portal-setup-sso.md)

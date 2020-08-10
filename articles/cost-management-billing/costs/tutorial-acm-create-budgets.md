@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 3572cbb3f8c4a4f20c0141ac1fae5f0aa6fbd216
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a48e4b594b82f6e910db26fc2319032fbef30b6b
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044996"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446014"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: criar e gerenciar orçamentos do Azure
 
@@ -40,7 +40,7 @@ Neste tutorial, você aprenderá como:
 
 Os orçamentos têm compatibilidade com os seguintes tipos de escopos e tipos de conta do Azure:
 
-- Escopos de Controle de Acesso Baseado em Função do Azure
+- Escopos do RBAC do Azure (controle de acesso baseado em função do Azure)
     - Grupos de gerenciamento
     - Subscription
 - Escopos do Contrato Enterprise

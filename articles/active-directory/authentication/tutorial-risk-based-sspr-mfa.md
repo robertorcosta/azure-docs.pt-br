@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18b2fb520ecab8b233be3c93ef614a2bce01a75e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e008091b3d0b450384cb7a672a62c786c33bfeab
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034989"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419624"
 ---
 # <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>Tutorial: Usar detecções de risco para entradas de usuário para disparar a Autenticação Multifator do Azure ou alterações de senha
 
@@ -39,7 +39,7 @@ Neste tutorial, você aprenderá como:
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
-* Um locatário de trabalho do Azure AD com pelo menos uma licença de avaliação Premium P2 do Azure AD habilitada.
+* Um locatário do Azure AD em funcionamento com pelo menos uma licença de avaliação ou Premium P2 do Azure AD habilitada.
     * Se necessário, [crie um gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Uma conta com privilégios de *Administrador Global*.
 * Azure AD configurado para redefinição de senha por autoatendimento e Autenticação Multifator do Azure

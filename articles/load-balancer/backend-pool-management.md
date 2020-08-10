@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: overview
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: 7fe7c1473579c62b110548a2c5e98f9bdfaf6bf9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 1ab0fd2ff4a2105cdfc4a19b7307cd9817878156
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131456"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421783"
 ---
 # <a name="backend-pool-management"></a>Gerenciamento de pools de back-end
 O pool de back-end é um componente crítico do balanceador de carga. O pool de back-end define o grupo de recursos que receberá o tráfego para determinada regra de balanceamento de carga.

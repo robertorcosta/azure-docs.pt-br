@@ -3,12 +3,12 @@ title: O que é a Integridade do Serviço do Azure?
 description: Informações personalizadas sobre como seus aplicativos do Azure são afetados pela manutenção e pelos problemas de serviço atuais e futuros do Azure.
 ms.topic: overview
 ms.date: 05/10/2019
-ms.openlocfilehash: 44b819a88baec383d2faf80ab37edb903b0a5f4d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cb1eb8eb75a18a73e8f024f02217df37f45981fe
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77654079"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499765"
 ---
 # <a name="what-is-azure-service-health"></a>O que é a Integridade do Serviço do Azure?
 
@@ -18,9 +18,9 @@ A Integridade do Serviço do Azure é uma combinação de três serviços menore
 
 O [status do Azure](azure-status-overview.md) informa sobre interrupções de serviço no Azure na **[página Status do Azure](https://status.azure.com)** . A página é uma exibição global da integridade de todos os serviços do Azure em todas as regiões do Azure. A página de status é uma boa referência para incidentes com impacto generalizado, mas é altamente recomendável que os usuários atuais do Azure aproveitem a integridade do serviço do Azure para se manterem informados sobre incidentes e manutenção do Azure.
 
-A [integridade do serviço do Azure](service-health-overview.md) fornece uma exibição personalizada da integridade dos serviços do Azure e das regiões que você está usando. Esse é o melhor lugar para procurar por serviço que afete as comunicações sobre interrupções, atividades de manutenção planejada e outros avisos de integridade porque a experiência autenticada da Integridade do Serviço do Azure sabe quais serviços e recursos você usa atualmente. A melhor maneira de usar a Integridade do Serviço é configurar alertas de Integridade do Serviço para notificá-lo por meio de seus canais de comunicação preferenciais quando problemas de serviço, manutenção planejada ou outras alterações podem afetar os serviços do Azure e as regiões que você usa.
+A [integridade do serviço](service-health-overview.md) fornece uma exibição personalizada da integridade dos serviços e das regiões do Azure que você está usando. Esse é o melhor lugar onde procurar serviços que afetam as comunicações sobre interrupções, atividades de manutenção planejada e outros avisos de integridade, porque a experiência autenticada da Integridade do Serviço sabe quais serviços e recursos você usa atualmente. A melhor maneira de usar a Integridade do Serviço é configurar alertas de Integridade do Serviço para notificá-lo por meio de seus canais de comunicação preferenciais quando problemas de serviço, manutenção planejada ou outras alterações podem afetar os serviços do Azure e as regiões que você usa.
 
-O [Azure Resource Health](resource-health-overview.md) fornece informações sobre a integridade de seus recursos de nuvem individuais, como uma instância de máquina virtual específica. Usando o Azure Monitor, você também pode configurar alertas para notificá-lo de alterações de disponibilidade para seus recursos de nuvem. O Azure Resource Health juntamente com as notificações do Azure Monitor ajudará você a ficar mais bem informado sobre a disponibilidade de seus recursos de minuto a minuto e avaliar rapidamente se um problema ocorreu devido a uma complicação no seu lado ou está relacionado a um evento da plataforma do Azure.
+O [Resource Health](resource-health-overview.md) fornece informações sobre a integridade de seus recursos de nuvem individuais, como uma instância de máquina virtual específica. Usando o Azure Monitor, você também pode configurar alertas para notificá-lo de alterações de disponibilidade para seus recursos de nuvem. O Resource Health, em conjunto com as notificações do Azure Monitor, ajuda você a ficar mais bem informado sobre a disponibilidade de seus recursos de minuto a minuto e a avaliar rapidamente se um problema ocorreu devido a uma complicação no seu lado ou está relacionado a um evento da plataforma do Azure.
 
 Juntas, essas experiências fornecem uma visão abrangente da integridade do Azure, na granularidade mais relevante para você.
 

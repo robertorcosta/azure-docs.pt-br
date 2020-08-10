@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 07/29/2020
 ms.author: victorh
-ms.openlocfilehash: 7634effd5d1ac46955addd723ee7c992eb820a57
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 458ebe14e77c7b190a5c4cdd9b408396589d5d27
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084697"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420814"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Tutorial: Proteger seu hub virtual usando o Gerenciador de Firewall do Azure
 
@@ -108,7 +108,7 @@ Repita para conectar a rede virtual **Spoke-02**: nome da conexão – **hub-spo
 
 ### <a name="configure-the-hub-and-spoke-routing"></a>Configurar o roteamento hub e spoke
 
-No portal do Azure, abra um Cloud Shell e execute o Azure PowerShell a seguir para configurar o roteamento hub e spoke necessário.
+No portal do Azure, abra um Cloud Shell e execute o Azure PowerShell a seguir para configurar o roteamento hub e spoke necessário. As conexões emparelhadas de spoke/branch precisam definir a propagação como **NONE**. Isso impede qualquer comunicação entre os spokes e, em vez disso, roteia o tráfego para o firewall usando a rota padrão.
 
 ```azurepowershell
 $noneRouteTable = Get-AzVHubRouteTable -ResourceGroupName fw-manager `

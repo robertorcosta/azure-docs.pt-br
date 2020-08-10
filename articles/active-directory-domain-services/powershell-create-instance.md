@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 2d291af3cc6175b371f71fb63402ecb45afcba34
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 9c2345c93a163464ea735400c9269e2e3fc27ecf
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223441"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488101"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Habilitar o Azure Active Directory Domain Services usando PowerShell
 
@@ -154,9 +154,9 @@ Quando o portal do Azure mostra que o domínio gerenciado concluiu o provisionam
 
 * Atualize as configurações de DNS da rede virtual, de modo que as máquinas virtuais possam encontrar o domínio gerenciado para ingresso no domínio ou autenticação.
     * Para configurar o DNS, selecione o domínio gerenciado no portal. Na janela **Visão Geral**, você deve definir automaticamente essas configurações de DNS.
-* Se você tiver criado um domínio gerenciado em uma região que dê suporte a Zonas de Disponibilidade, crie um grupo de segurança de rede para restringir o tráfego na rede virtual para o domínio gerenciado. Um Azure Standard Load Balancer é criado e exige que essas regras sejam implementadas. Esse grupo de segurança de rede protege o Azure AD DS e é necessário para que o domínio gerenciado funcione corretamente.
-    * Para criar o grupo de segurança de rede e as regras necessárias, selecione seu domínio gerenciado no portal. Na janela **Visão Geral**, você deve criar e configurar automaticamente o grupo de segurança de rede.
-* [Habilite a sincronização de senha para o Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) para que os usuários possam entrar no domínio gerenciado usando as credenciais corporativas deles.
+* Crie um grupo de segurança de rede para restringir o tráfego na rede virtual para o domínio gerenciado. Um Azure Standard Load Balancer é criado e exige que essas regras sejam implementadas. Esse grupo de segurança de rede protege o Azure AD DS e é necessário para que o domínio gerenciado funcione corretamente.
+    * Para criar o grupo de segurança de rede e as regras necessárias, primeiro instale o script `New-AzureAddsNetworkSecurityGroup` usando o comando `Install-Script -Name New-AaddsNetworkSecurityGroup` e execute `New-AaddsNetworkSecurityGroup`. As regras necessárias para o domínio gerenciado são criadas para você.
+* [Habilite a sincronização de senha para o Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) para que os usuários possam entrar no domínio gerenciado usando as credenciais corporativas deles.
 
 ## <a name="complete-powershell-script"></a>Concluir script do PowerShell
 
@@ -241,9 +241,9 @@ Quando o portal do Azure mostra que o domínio gerenciado concluiu o provisionam
 
 * Atualize as configurações de DNS da rede virtual, de modo que as máquinas virtuais possam encontrar o domínio gerenciado para ingresso no domínio ou autenticação.
     * Para configurar o DNS, selecione o domínio gerenciado no portal. Na janela **Visão Geral**, você deve definir automaticamente essas configurações de DNS.
-* Se você tiver criado um domínio gerenciado em uma região que dê suporte a Zonas de Disponibilidade, crie um grupo de segurança de rede para restringir o tráfego na rede virtual para o domínio gerenciado. Um Azure Standard Load Balancer é criado e exige que essas regras sejam implementadas. Esse grupo de segurança de rede protege o Azure AD DS e é necessário para que o domínio gerenciado funcione corretamente.
-    * Para criar o grupo de segurança de rede e as regras necessárias, selecione seu domínio gerenciado no portal. Na janela **Visão Geral**, você deve criar e configurar automaticamente o grupo de segurança de rede.
-* [Habilite a sincronização de senha para o Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) para que os usuários possam entrar no domínio gerenciado usando as credenciais corporativas deles.
+* Crie um grupo de segurança de rede para restringir o tráfego na rede virtual para o domínio gerenciado. Um Azure Standard Load Balancer é criado e exige que essas regras sejam implementadas. Esse grupo de segurança de rede protege o Azure AD DS e é necessário para que o domínio gerenciado funcione corretamente.
+    * Para criar o grupo de segurança de rede e as regras necessárias, primeiro instale o script `New-AzureAddsNetworkSecurityGroup` usando o comando `Install-Script -Name New-AaddsNetworkSecurityGroup` e execute `New-AaddsNetworkSecurityGroup`. As regras necessárias para o domínio gerenciado são criadas para você.
+* [Habilite a sincronização de senha para o Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) para que os usuários possam entrar no domínio gerenciado usando as credenciais corporativas deles.
 
 ## <a name="next-steps"></a>Próximas etapas
 

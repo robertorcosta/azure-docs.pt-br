@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: e9d6f31674db0744e220a9cd88033a32bb5c1e17
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 02828e0c159e2d30dacc5759f1239dae1268dac5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024682"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491775"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Tutorial: Habilitar sincronização de senha no Azure Active Directory Domain Services para ambientes híbridos
 
@@ -22,7 +22,7 @@ Para ambientes híbridos, um locatário do Azure AD (Active Directory) pode ser 
 
 Para usar o Azure AD DS com contas sincronizadas de um ambiente do AD DS local, é necessário configurar o Azure AD Connect para sincronizar esses hashes de senha necessários para a autenticação do NTLM e do Kerberos. Depois que o Azure AD Connect é configurado, uma criação de conta ou evento de alteração de senha local também sincroniza os hashes de senha herdados com o Azure AD.
 
-Você não precisará seguir estas etapas se usar contas somente de nuvem sem nenhum ambiente do AD DS local.
+Você não precisará seguir estas etapas se usar contas somente de nuvem sem nenhum ambiente do AD DS local ou se usar uma *floresta de recursos*. Para domínios gerenciados que usam uma floresta de recursos, os hashes de senha locais nunca são sincronizados. A autenticação para contas locais usa as relações de confiança de floresta com seus próprios controladores de domínio do AD DS.
 
 Neste tutorial, você aprenderá:
 

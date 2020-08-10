@@ -1,14 +1,14 @@
 ---
 title: Visão geral da amostra de blueprint ISM PROTECTED do governo australiano
 description: Visão geral da amostra de blueprint ISM PROTECTED do governo australiano. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos do ISM PROTECTED.
-ms.date: 03/10/2020
+ms.date: 08/03/2020
 ms.topic: sample
-ms.openlocfilehash: d82598498fa7eb24ec2ea3f591d08ce8f9503b54
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.openlocfilehash: 750cc5551f0bbf05e0da6ad41d46729231243f72
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517092"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760423"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint ISM PROTECTED do governo australiano
 
@@ -106,10 +106,10 @@ Este blueprint ajuda a restringir a localização da implantação de todos os r
 
 - Auditar o acesso irrestrito à rede para contas de armazenamento
 - Os clusters do Service Fabric só devem usar o Azure Active Directory para autenticação de cliente
-- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Linux que permitem conexões remotas em contas sem senhas
-- \[Versão Prévia\]:  Implantar pré-requisitos para auditar as VMs do Linux que permitem conexões remotas em contas sem senhas
-- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Linux que têm contas sem senhas
-- \[Versão Prévia\]: Implantar pré-requisitos para auditar as VMs do Linux que têm contas que não usam senhas
+- Mostrar os resultados da auditoria das VMs do Linux que permitem conexões remotas em contas sem senhas
+- Implantar pré-requisitos para auditar as VMs do Linux que permitem conexões remotas em contas sem senhas
+- Mostrar os resultados da auditoria das VMs do Linux que têm contas sem senhas
+- Implantar pré-requisitos para auditar as VMs do Linux que têm contas que não usam senhas
 
 ### <a name="0974-multi-factor-authentication-is-used-to-authenticate-standard-users"></a>0974 A autenticação multifator é usada para autenticar usuários padrão
 
@@ -122,8 +122,8 @@ Este blueprint ajuda a restringir a localização da implantação de todos os r
 
 ### <a name="0421-passphrases-used-for-single-factor-authentication-are-a-minimum-of-14-characters-with-complexity-ideally-as-4-random-words"></a>0421 As senhas usadas para a autenticação de fator único têm pelo menos 14 caracteres com complexidade, idealmente, como quatro palavras aleatórias
 
-- \[Versão Prévia\]: Mostrar os resultados da auditoria das configurações de VMs do Windows em 'Configurações de Segurança – Políticas de Contas'
-- \[Versão Prévia\]: Implantar pré-requisitos para auditar as configurações de VMs do Windows em 'Configurações de Segurança – Políticas de Contas'
+- Mostrar os resultados da auditoria das configurações de VMs do Windows em 'Configurações de Segurança – Políticas de Contas'
+- Implantar pré-requisitos para auditar as configurações de VMs do Windows em 'Configurações de Segurança – Políticas de Contas'
 
 ## <a name="guidelines-for-system-management---system-administration"></a>Diretrizes para gerenciamento de sistema – administração do sistema
 
@@ -147,7 +147,7 @@ Este blueprint ajuda a restringir a localização da implantação de todos os r
 - As vulnerabilidades nos bancos de dados SQL devem ser corrigidas
 - A avaliação da vulnerabilidade deve ser habilitada nos servidores SQL
 - A avaliação de vulnerabilidades deve ser habilitada nas instâncias gerenciadas do SQL
-- \[Versão Prévia\]: a Avaliação de Vulnerabilidades deve estar habilitada nas Máquinas Virtuais
+- A Avaliação de Vulnerabilidades deve estar habilitada nos computadores
 - As vulnerabilidades da configuração de segurança nos conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas
 - As vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades
 - As vulnerabilidades da configuração de segurança nas máquinas devem ser corrigidas
@@ -159,7 +159,7 @@ Este blueprint ajuda a restringir a localização da implantação de todos os r
 - As vulnerabilidades nos bancos de dados SQL devem ser corrigidas
 - A avaliação da vulnerabilidade deve ser habilitada nos servidores SQL
 - A avaliação de vulnerabilidades deve ser habilitada nas instâncias gerenciadas do SQL
-- \[Versão Prévia\]: a Avaliação de Vulnerabilidades deve estar habilitada nas Máquinas Virtuais
+- a Avaliação de Vulnerabilidades deve estar habilitada nas Máquinas Virtuais
 - As vulnerabilidades da configuração de segurança nos conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas
 - As vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades
 - As vulnerabilidades da configuração de segurança nas máquinas devem ser corrigidas
@@ -171,7 +171,7 @@ Este blueprint ajuda a restringir a localização da implantação de todos os r
 - As vulnerabilidades nos bancos de dados SQL devem ser corrigidas
 - A avaliação da vulnerabilidade deve ser habilitada nos servidores SQL
 - A avaliação de vulnerabilidades deve ser habilitada nas instâncias gerenciadas do SQL
-- \[Versão Prévia\]: a Avaliação de Vulnerabilidades deve estar habilitada nas Máquinas Virtuais
+- a Avaliação de Vulnerabilidades deve estar habilitada nas Máquinas Virtuais
 - As vulnerabilidades da configuração de segurança nos conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas
 - As vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades
 - As vulnerabilidades da configuração de segurança nas máquinas devem ser corrigidas
@@ -183,7 +183,7 @@ Este blueprint ajuda a restringir a localização da implantação de todos os r
 - As vulnerabilidades nos bancos de dados SQL devem ser corrigidas
 - A avaliação da vulnerabilidade deve ser habilitada nos servidores SQL
 - A avaliação de vulnerabilidades deve ser habilitada nas instâncias gerenciadas do SQL
-- \[Versão Prévia\]: a Avaliação de Vulnerabilidades deve estar habilitada nas Máquinas Virtuais
+- a Avaliação de Vulnerabilidades deve estar habilitada nas Máquinas Virtuais
 - As vulnerabilidades da configuração de segurança nos conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas
 - As vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades
 - As vulnerabilidades da configuração de segurança nas máquinas devem ser corrigidas
@@ -195,7 +195,7 @@ Este blueprint ajuda a restringir a localização da implantação de todos os r
 - As vulnerabilidades nos bancos de dados SQL devem ser corrigidas
 - A avaliação da vulnerabilidade deve ser habilitada nos servidores SQL
 - A avaliação de vulnerabilidades deve ser habilitada nas instâncias gerenciadas do SQL
-- \[Versão Prévia\]: a Avaliação de Vulnerabilidades deve estar habilitada nas Máquinas Virtuais
+- a Avaliação de Vulnerabilidades deve estar habilitada nas Máquinas Virtuais
 - As vulnerabilidades da configuração de segurança nos conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas
 - As vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades
 - As vulnerabilidades da configuração de segurança nas máquinas devem ser corrigidas
@@ -207,7 +207,7 @@ Este blueprint ajuda a restringir a localização da implantação de todos os r
 - As vulnerabilidades nos bancos de dados SQL devem ser corrigidas
 - A avaliação da vulnerabilidade deve ser habilitada nos servidores SQL
 - A avaliação de vulnerabilidades deve ser habilitada nas instâncias gerenciadas do SQL
-- \[Versão Prévia\]: a Avaliação de Vulnerabilidades deve estar habilitada nas Máquinas Virtuais
+- a Avaliação de Vulnerabilidades deve estar habilitada nas Máquinas Virtuais
 - As vulnerabilidades da configuração de segurança nos conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas
 - As vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades
 - As vulnerabilidades da configuração de segurança nas máquinas devem ser corrigidas
@@ -229,8 +229,8 @@ Este blueprint ajuda a restringir a localização da implantação de todos os r
 ### <a name="0582-the-following-events-are-logged-for-operating-systems-access-to-important-data-and-processes-application-crashes-and-any-error-messages-attempts-to-use-special-privileges-changes-to-accounts-changes-to-security-policy-changes-to-system-configurations-domain-name-system-dns-and-hypertext-transfer-protocol-http-requests-failed-attempts-to-access-data-and-system-resources-service-failures-and-restarts-system-startup-and-shutdown-transfer-of-data-to-external-media-user-or-group-management-use-of-special-privileges"></a>0582 Os seguintes eventos são registrados em log para sistemas operacionais: acesso a dados e processos importantes, falhas do aplicativo e mensagens de erro, tentativas de usar privilégios especiais, alterações em contas, alterações na política de segurança, alterações nas configurações do sistema, DNS (sistema de nomes de domínio) e solicitações HTTP, tentativas com falha de acessar dados e recursos do sistema, falhas de serviço e reinicializações, inicialização e desligamento do sistema, transferência de dados para mídia externa, gerenciamento de usuário ou grupo, uso de privilégios especiais
 
 - \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics – imagem de VM (sistema operacional) não listada
-- \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics no VMSS – imagem de VM (sistema operacional) não listada
-- \[Versão Prévia\]: Auditar o espaço de trabalho do Log Analytics para a VM – Relatar incompatibilidade
+- Auditar a implantação do Agente do Log Analytics no VMSS – imagem de VM (sistema operacional) não listada
+- Auditar o espaço de trabalho do Log Analytics para a VM – Relatar incompatibilidade
 - Configuração de diagnóstico de auditoria
 
 ### <a name="1537-the-following-events-are-logged-for-databases-access-to-particularly-important-information-addition-of-new-users-especially-privileged-users-any-query-containing-comments-any-query-containing-multiple-embedded-queries-any-query-or-database-alerts-or-failures-attempts-to-elevate-privileges-attempted-access-that-is-successful-or-unsuccessful-changes-to-the-database-structure-changes-to-user-roles-or-database-permissions-database-administrator-actions-database-logons-and-logoffs-modifications-to-data-use-of-executable-commands"></a>1537 Os seguintes eventos são registrados em log para bancos de dados: acesso a informações particularmente importantes, adição de novos usuários, em especial, usuários privilegiados, qualquer consulta que contenha comentários, qualquer consulta que contenha várias consultas inseridas, alertas ou falhas de consulta ou banco de dados, tentar elevar privilégios, tentar acessar com êxito ou sem êxito, alterações na estrutura do banco de dados, alterações em funções de usuário ou permissões de banco de dados, ações do administrador de banco de dados, logons de banco de dados e logoffs, modificações em dados, uso de comandos executáveis
@@ -246,7 +246,7 @@ Este blueprint ajuda a restringir a localização da implantação de todos os r
 - As vulnerabilidades nos bancos de dados SQL devem ser corrigidas
 - A avaliação da vulnerabilidade deve ser habilitada nos servidores SQL
 - A avaliação de vulnerabilidades deve ser habilitada nas instâncias gerenciadas do SQL
-- \[Versão Prévia\]: a Avaliação de Vulnerabilidades deve estar habilitada nas Máquinas Virtuais
+- a Avaliação de Vulnerabilidades deve estar habilitada nas Máquinas Virtuais
 - As vulnerabilidades da configuração de segurança nos conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas
 - As vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades
 - As vulnerabilidades da configuração de segurança nas máquinas devem ser corrigidas

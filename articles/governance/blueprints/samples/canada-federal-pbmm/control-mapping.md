@@ -1,18 +1,18 @@
 ---
 title: Exemplo de controles de blueprint do PBMM Federal do Canadá
 description: Mapeamento de controle das amostras de blueprint do PBMM Federal do Canadá. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
-ms.date: 05/08/2020
+ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: e9153972938a572f8d37610e5721f7b0a578157c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3022dc32f689d1cbfc8b5b6545d1252ce47ca33d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085626"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500122"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint do PBMM Federal do Canadá
 
-O artigo a seguir fornece detalhes sobre como a amostra de blueprint do PBMM (Protegido B, Integridade Média, Disponibilidade Média) Federal do Canadá do Azure Blueprints é mapeada para os controles do PBMM Federal do Canadá. Para obter mais informações sobre os controles, confira [PBMM Federal do Canadá](https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html#toc4).
+O artigo a seguir fornece detalhes sobre como a amostra de blueprint do PBMM (Protegido B, Integridade Média, Disponibilidade Média) Federal do Canadá do Azure Blueprints é mapeada para os controles do PBMM Federal do Canadá. Para obter mais informações sobre os controles, confira [PBMM Federal do Canadá](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html).
 
 Os mapeamentos a seguir referem-se aos **controles do PBMM Federal do Canadá**. Use a navegação no lado direito para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa do [Azure Policy](../../../policy/overview.md). Para examinar a iniciativa completa, abra **Política** no portal do Azure e selecione a página **Definições**. Em seguida, localize e selecione a iniciativa de política interna **\[Versão prévia\]: Auditar os controles do PBMM Federal do Canadá**.
 
@@ -116,8 +116,8 @@ Este blueprint atribui definições do [Azure Policy](../../../policy/overview.m
 Dados de log coletados pelo Azure Monitor são armazenados em um workspace do Log Analytics, permitindo análises e relatórios centralizados. Este blueprint ajuda você a garantir que os eventos sejam registrados em log por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que auditam e impõem a implantação do agente do Log Analytics em máquinas virtuais do Azure.
 
 - \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics – imagem de VM (sistema operacional) não listada
-- \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics no VMSS – imagem de VM (sistema operacional) não listada
-- \[Versão Prévia\]: Auditar o espaço de trabalho do Log Analytics para a VM – Relatar incompatibilidade
+- Auditar a implantação do Agente do Log Analytics no VMSS – imagem de VM (sistema operacional) não listada
+- Auditar o espaço de trabalho do Log Analytics para a VM – Relatar incompatibilidade
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows
 
@@ -126,8 +126,9 @@ Dados de log coletados pelo Azure Monitor são armazenados em um workspace do Lo
 Este blueprint ajuda você a garantir que os eventos do sistema sejam registrados em log por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que auditam as configurações do log de auditoria em recursos do Azure. Essas definições de política auditam e impõem a implantação do agente do Log Analytics em máquinas virtuais do Azure, bem como as configurações de auditoria para outros tipos de recursos do Azure. Essas definições de política também auditam a configuração dos logs de diagnóstico para fornecer informações sobre as operações executadas em recursos do Azure. Além disso, a auditoria e a Segurança de Dados Avançada são configuradas em servidores SQL.
 
 - \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics – imagem de VM (sistema operacional) não listada
-- \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics no VMSS – imagem de VM (sistema operacional) não listada
-- \[Versão Prévia\]: Auditar o espaço de trabalho do Log Analytics para a VM – Relatar incompatibilidade
+- Auditar a implantação do Agente do Log Analytics no VMSS – imagem de VM (sistema operacional) não listada
+- Auditar o workspace do Log Analytics para a VM – Relatório 
+
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows
 - Configuração de diagnóstico de auditoria
@@ -140,13 +141,13 @@ Este blueprint ajuda você a garantir que os eventos do sistema sejam registrado
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM-7 (5) Funcionalidade Mínima | Um Software autorizado / Lista de Permissões
 
-O controle de aplicativo adaptável da Central de Segurança do Azure é uma solução inteligente, automatizada e completa de lista de permissões de aplicativos que pode bloquear ou impedir a execução de softwares específicos nas suas máquinas virtuais. O controle de aplicativo ajuda a criar listas de aplicativos aprovados para suas máquinas virtuais. Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a monitorar as máquinas virtuais nas quais uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
+O controle de aplicativos adaptável na Central de Segurança do Azure é uma solução de lista de permissões de aplicativos inteligente, automatizada e de ponta a ponta que pode bloquear ou impedir a execução de programas de software específicos em suas máquinas virtuais. O controle de aplicativo ajuda a criar listas de aplicativos aprovados para suas máquinas virtuais. Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a monitorar as máquinas virtuais nas quais uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
 
 - Os controles de aplicativos adaptáveis devem ser habilitados em máquinas virtuais
 
 ## <a name="cm-11-user-installed-software"></a>CM-11 Software Instalado pelo Usuário
 
-O controle de aplicativo adaptável da Central de Segurança do Azure é uma solução inteligente, automatizada e completa de lista de permissões de aplicativos que pode bloquear ou impedir a execução de softwares específicos nas suas máquinas virtuais. O controle de aplicativos pode ajudar a impor e a monitorar a conformidade com políticas de restrição de software. Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a monitorar as máquinas virtuais nas quais uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
+O controle de aplicativos adaptável na Central de Segurança do Azure é uma solução de lista de permissões de aplicativos inteligente, automatizada e de ponta a ponta que pode bloquear ou impedir a execução de programas de software específicos em suas máquinas virtuais. O controle de aplicativos pode ajudar a impor e a monitorar a conformidade com políticas de restrição de software. Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a monitorar as máquinas virtuais nas quais uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
 
 - Os controles de aplicativos adaptáveis devem ser habilitados em máquinas virtuais
 
@@ -167,25 +168,25 @@ Este blueprint ajuda você a restringir e controlar o acesso privilegiado por me
 
 Este blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que auditam as máquinas virtuais do Linux que permitem conexões remotas em contas sem senhas e/ou que têm permissões incorretas definidas no arquivo de senha. Este blueprint também atribui definições de política que auditam a configuração do tipo de criptografia de senha para máquinas virtuais do Windows. O monitoramento desses indicadores ajuda você a garantir que os autenticadores do sistema estejam em conformidade com a política de identificação e autenticação de sua organização.
 
-- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
-- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Linux que têm contas sem senhas
-- \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
-- \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Linux que têm contas sem senhas
+- Mostrar os resultados da auditoria das VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
+- Mostrar os resultados da auditoria das VMs do Linux que têm contas sem senhas
+- Implantar requisitos para auditar as VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
+- Implantar requisitos para auditar as VMs do Linux que têm contas sem senhas
 
 ## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Gerenciamento de Autenticador | Autenticação Baseada em Senha
 
 Este blueprint ajuda você a impor senhas fortes por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que auditam as máquinas virtuais do Windows que não impõem a força mínima e outros requisitos de senha. O reconhecimento de máquinas virtuais que estão violando a política de força da senha ajuda você a tomar ações corretivas para garantir que as senhas de todas as contas de usuário da máquina virtual estejam em conformidade com a política de senha de sua organização.
 
-- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que permitir reutilizar as 24 senhas anteriores
-- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que não têm uma duração máxima da senha de 70 dias
-- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que não têm uma duração mínima da senha de 1 dia
-- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
-- \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Windows que podem reutilizar as últimas 24 senhas
-- \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Windows que não têm uma duração máxima da senha de 70 dias
-- \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Windows que não têm uma duração mínima da senha de 1 dia
-- \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
+- Mostrar os resultados da auditoria das VMs do Windows que permitir reutilizar as 24 senhas anteriores
+- Mostrar os resultados da auditoria das VMs do Windows que não têm uma duração máxima da senha de 70 dias
+- Mostrar os resultados da auditoria das VMs do Windows que não têm uma duração mínima da senha de 1 dia
+- Mostrar os resultados da auditoria das VMs do Windows que não têm a configuração de complexidade de senha habilitada
+- Mostrar os resultados da auditoria das VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
+- Implantar requisitos para auditar as VMs do Windows que podem reutilizar as últimas 24 senhas
+- Implantar requisitos para auditar as VMs do Windows que não têm uma duração máxima da senha de 70 dias
+- Implantar requisitos para auditar as VMs do Windows que não têm uma duração mínima da senha de 1 dia
+- Implantar requisitos para auditar as VMs do Windows que não têm a configuração de complexidade de senha habilitada
+- Implantar requisitos para auditar as VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
 
 ## <a name="ia-8-100-identification-and-authentication-non-organizational-users--identity-and-credential-assurance-levels"></a>IA-8 (100) Identificação e autenticação (usuários não organizacionais) | Níveis de garantia de identidade e credencial
 
@@ -289,7 +290,7 @@ Este blueprint ajuda você a gerenciar a proteção do ponto de extremidade, inc
 Esse blueprint ajuda a monitorar seu sistema por meio da auditoria e da imposição do registro em log e da segurança de dados em todos os recursos do Azure. Especificamente, as políticas atribuídas auditam e impõem a implantação do agente do Log Analytics e de configurações de segurança aprimoradas para bancos de dados SQL, contas de armazenamento e recursos de rede. Esses recursos podem ajudar você a detectar comportamentos anormais e indicadores de ataques para que possa tomar as devidas providências.
 
 - \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics – imagem de VM (sistema operacional) não listada
-- \[Versão Prévia\]: Auditar a implantação do Agente do Log Analytics no VMSS – imagem de VM (sistema operacional) não listada
+- Auditar a implantação do Agente do Log Analytics no VMSS – imagem de VM (sistema operacional) não listada
 - \[Versão Prévia\]: Auditar o espaço de trabalho do Log Analytics para a VM – Relatar incompatibilidade
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows

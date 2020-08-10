@@ -1,21 +1,21 @@
 ---
 title: Gerenciando simultaneidade
 titleSuffix: Azure Storage
-description: Aprenda a gerenciar a simultaneidade para os serviços Blob, Fila, Tabela e Arquivo.
+description: Saiba como gerenciar a simultaneidade no armazenamento do Azure para os serviços BLOB, fila, tabela e arquivo. Entenda as três estratégias principais de simultaneidade de dados usadas.
 services: storage
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 45eb227d5e2608f4fbe6a75f3d95e46dbc3bdee4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b1ec7661bc2823932328bd994ec7bc7f6167f13a
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655939"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030377"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gerenciando a simultaneidade no Armazenamento do Microsoft Azure
 

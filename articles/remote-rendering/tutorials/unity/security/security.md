@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 4eee6aeaff045264c8d23276ac91a83592ddc601
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 297241c5f939ae15fc77b29614b55d9b2bd63c84
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207806"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445897"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutorial: Proteger o Azure Remote Rendering e o armazenamento de modelos
 
@@ -176,16 +176,13 @@ O script **RemoteRenderingCoordinator** tem um delegado chamado **ARRCredentialG
 1. Siga o tópico [Como Configurar autenticação – Autenticação para aplicativos implantados](../../../how-tos/authentication.md#authentication-for-deployed-applications), especificamente, você seguirá as instruções listadas na documentação de Âncoras Espaciais do Azure [Autenticação de usuário do Azure AD](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication). Elas envolvem o registro de um novo aplicativo do Azure Active Directory e a configuração do acesso à instância do ARR.
 1. Depois de configurar o novo aplicativo do AAD, verifique se o aplicativo do AAD está semelhante às seguintes imagens:
 
-    **Aplicativo do AAD -> Autenticação**\
-    ![Autenticação de aplicativo](./media/app-authentication-public.png)
+    **Aplicativo do AAD -> Autenticação** ![Autenticação de aplicativo](./media/app-authentication-public.png)
 
-    **Aplicativo do AAD -> Permissões de API**\
-    ![APIs de Aplicativo](./media/request-api-permissions-step-five.png)
+    **Aplicativo do AAD -> Permissões de API** ![APIs de aplicativo](./media/request-api-permissions-step-five.png)
 
 1. Depois de configurar sua conta do Remote Rendering, verifique se a configuração ficou semelhante à seguinte imagem:
 
-    **AAR -> AccessControl (IAM)** \
-    ![Função do ARR](./media/azure-remote-rendering-role-assignment-complete.png)
+    **AAR -> AccessControl (IAM)** ![Função do ARR](./media/azure-remote-rendering-role-assignment-complete.png)
 
     >[!NOTE]
     > Uma função de *Proprietário* não é suficiente para gerenciar sessões por meio do aplicativo cliente. Para cada usuário que você deseja conceder a capacidade de gerenciar sessões, você deve fornecer a função **Cliente do Remote Rendering**. Para cada usuário que você deseja que gerencie sessões e converta modelos, é necessário fornecer a função de **Administrador do Remote Rendering**.
@@ -357,9 +354,7 @@ No editor do Unity, quando a autenticação do AAD estiver ativa, você precisar
 1. Pressione Executar no editor do Unity e dê consentimento para executar uma sessão.
     Como o componente **AADAuthentication** tem um controlador de exibição, ele é conectado automaticamente para exibir um prompt depois do painel modal de autorização de sessão.
 1. Siga as instruções encontradas no painel à direita do **AppMenu**.
-    Você deve ver algo semelhante a isto:
-    ![Componente de autenticação do AAD](./media/device-flow-instructions.png)\
-    Depois de inserir o código fornecido em seu dispositivo secundário (ou navegador no mesmo dispositivo) e fazer logon usando suas credenciais, um Token de Acesso será retornado para o aplicativo solicitante, nesse caso, o editor do Unity.
+    Você deve ver algo semelhante a isto: ![Componente de autenticação do AAD](./media/device-flow-instructions.png) Depois de inserir o código fornecido em seu dispositivo secundário (ou navegador no mesmo dispositivo) e fazer logon usando suas credenciais, um Token de Acesso será retornado para o aplicativo solicitante, nesse caso, o editor do Unity.
 1. Depois desse ponto, tudo no aplicativo deverá continuar normalmente. Verifique se há erros no console do Unity se você não estiver progredindo entre os estágios conforme o esperado.
 
 ## <a name="build-to-device"></a>Compilar para o dispositivo

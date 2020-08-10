@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 4928938c38df8a1ed0f1e31c73e755a4f7f6c371
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ea951943c3f48443e4348d633c16ed61303f7aa8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367623"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449044"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutorial: Manipular modelos
 
@@ -332,18 +332,14 @@ Quando uma conversão de raios é concluída com êxito no **RemoteRayCastPointe
 
 2. No GameObject **TestModel** criado anteriormente, adicione os componentes **RemoteRayCastPointerHandler** e **RemoteEntityHelper**.
 1. Atribua o método `EntityToDebugLog` ao evento `OnRemoteEntityClicked`. Quando o tipo de saída do evento e o tipo de entrada do método coincidem, podemos usar a conexão de evento dinâmico do Unity. Isso passará automaticamente o valor do evento para o método.
-    1. Criar um campo de retorno de chamada\
-    ![Adicionar retorno de chamada](./media/add-callback-remote-entity-clicked.png)
-    1. Arraste o componente **Auxiliar de Entidade Remota** para o campo Objeto para fazer referência ao GameObject pai\
-    ![Atribuir objeto](./media/assign-object.png)
-    1. Atribua o `EntityToDebugLog` como o retorno de chamada\
-    ![Atribuir retorno de chamada](./media/remote-entity-event.png)
+    1. Crie um campo de retorno de chamada ![Adicionar retorno de chamada](./media/add-callback-remote-entity-clicked.png)
+    1. Arraste o componente **Auxiliar de Entidade Remota** para o campo Objeto para fazer referência ao GameObject pai ![Atribuir objeto](./media/assign-object.png)
+    1. Atribua o `EntityToDebugLog` como o retorno de chamada ![Atribuir retorno de chamada](./media/remote-entity-event.png)
 1. Pressione reproduzir no Editor do Unity para iniciar a cena, conectar-se a uma sessão remota e carregar o modelo de teste.
 1. Usando a simulação de mão do MRTK, pressione e mantenha pressionada a tecla Shift esquerda.
 1. Direcione a mão simulada para que o raio de mão fique apontando para o modelo de teste.
 1. Dê um clique longo para simular o fechamento e a abertura dos dedos indicador e polegar, executando o evento `OnPointerClicked`.
-1. Observe o Console do Unity para uma mensagem de log com o nome da entidade filho selecionada. Por exemplo:
-![Exemplo de entidade filho](./media/child-entity-example.png)
+1. Observe o Console do Unity para uma mensagem de log com o nome da entidade filho selecionada. Por exemplo:  ![Exemplo de entidade filho](./media/child-entity-example.png)
 
 ## <a name="synchronizing-the-remote-object-graph-into-the-unity-hierarchy"></a>Sincronizar o grafo de objetos remotos na hierarquia do Unity
 
@@ -377,7 +373,7 @@ O mesmo processo pode ser feito programaticamente e é a primeira etapa na modif
 1. Direcione a mão simulada para que o raio de mão fique apontando para o modelo de teste.
 1. Dê um clique longo para simular o fechamento e a abertura dos dedos indicador e polegar, executando o evento `OnPointerClicked`.
 1. Verifique e expanda a hierarquia para ver um novo objeto filho, que representa a entidade clicada.
-![Representação GameObject](./media/gameobject-representing-entity.png)\
+![Representação de GameObject](./media/gameobject-representing-entity.png)
 1. Após o teste, remova o retorno de chamada para `MakeSyncedGameObject`, pois vamos incorporar isso como parte de outros efeitos posteriormente.
 
 > [!NOTE]

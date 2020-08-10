@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c62cb9b64c42446c1f4ba8f6eb496fc792ff59a1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8d672c1113f265f9fbbabc7caed8df071f548f2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281269"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503813"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrar servidores que executam o Windows Server 2008 para o Azure
 
@@ -104,7 +104,7 @@ Execute as tarefas a seguir para preparar o ambiente de VMware/físico local e d
 5. Especifique uma região do Azure. Para verificar as regiões com suporte, confira a disponibilidade geográfica nos [Detalhes dos Preços de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Para acessar rapidamente o cofre no painel, clique em **Fixar no painel** e em **Criar**.
 
-   ![Novo cofre](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
+   ![Captura de tela mostrando as opções de criação de cofre.](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
 
 O novo cofre é adicionado ao **Painel** em **Todos os recursos** e na página principal **Cofres dos Serviços de Recuperação**.
 
@@ -136,15 +136,15 @@ A política é associada automaticamente ao servidor de configuração.
 > [!WARNING]
 > Verifique se você especificou **DESATIVADO** na definição frequência de instantâneos consistente com o aplicativo na política de replicação. Somente os pontos de recuperação consistentes com a falha são compatíveis ao replicar servidores que executam o Windows Server 2008. Especificar qualquer outro valor para a frequência de instantâneos consistentes com o aplicativo resultará em alertas falsos ao tornar crítica a integridade da replicação do servidor crítica devido à falta de pontos de recuperação consistentes com o aplicativo.
 
-   ![Criar política de replicação](media/migrate-tutorial-windows-server-2008/create-policy.png)
+   ![Captura de tela mostrando as opções de criação da política de replicação.](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
 ### <a name="enable-replication"></a>Habilitar a replicação
 
 [Habilitar a replicação](physical-azure-disaster-recovery.md#enable-replication) para o servidor do Windows Server 2008 SP2/Windows Server 2008 R2 SP1 a ser migrado.
    
-   ![Adicionar servidor físico](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
+   ![Captura de tela mostrando as opções para adicionar computadores físicos.](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
 
-   ![Habilitar a replicação](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
+   ![Captura de tela mostrando as opções para habilitar a replicação.](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
 
 ### <a name="run-a-test-migration"></a>Execute um teste de migração
 
@@ -152,7 +152,7 @@ Você poderá executar um failover de teste de servidores em replicação após 
 
 Execute um [failover de teste](tutorial-dr-drill-azure.md) para o Azure, para verificar se tudo está funcionando conforme o esperado.
 
-   ![Failover de Teste](media/migrate-tutorial-windows-server-2008/testfailover.png)
+   ![Captura de tela mostrando o comando Failover de teste.](media/migrate-tutorial-windows-server-2008/testfailover.png)
 
 
 ### <a name="migrate-to-azure"></a>Migrar para o Azure
@@ -168,7 +168,7 @@ Execute um failover para as máquinas que você deseja migrar.
     - Conclui o processo de migração, interrompe a replicação do servidor e a cobrança do Site Recovery para o servidor.
     - Esta etapa limpa os dados de replicação. Ela não exclui as VMs migradas.
 
-   ![Migração completa](media/migrate-tutorial-windows-server-2008/complete-migration.png)
+   ![Captura de tela mostrando o comando Concluir migração.](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]

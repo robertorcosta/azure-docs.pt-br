@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f9d736098e42bf5ca07eca0cb952275c5e39c2a9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 1864ce5a3c1b5b0b2e0cfe757e66fca2074b764c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125183"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475797"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga para balancear a carga de VMs usando o portal do Azure
+# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga público para balancear cargas de VMs usando o Portal do Azure
 
 Comece a usar o Azure Load Balancer por meio do portal do Azure para criar um balanceador de carga público e três máquinas virtuais.
 
@@ -36,7 +36,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 ---
 
-# <a name="option-1-default-create-a-load-balancer-standard-sku"></a>[Opção 1 (padrão): Criar um balanceador de carga (SKU Standard)](#tab/option-1-create-load-balancer-standard)
+# <a name="option-1-default-create-a-public-load-balancer-standard-sku"></a>[Opção 1 (padrão): Criar um balanceador de carga público (SKU Standard)](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >O balanceador de carga de SKU Standard é recomendado para cargas de trabalho de produção.  Para obter mais informações sobre SKUs, confira **[SKUs do Azure Load Balancer](skus.md)** .
@@ -76,7 +76,7 @@ Nesta seção, você definirá:
 
 * Configurações do balanceador de carga para um pool de endereços de back-end.
 * Uma investigação de integridade.
-* Uma regra do balanceador de carga e uma regra de saída automática.
+* Uma regra do balanceador de carga.
 
 ### <a name="create-a-backend-pool"></a>Crie um pool de back-end
 
@@ -281,7 +281,7 @@ Confira mais informações sobre conexões de saída em [Conexões de saída no 
 
 8. Clique em **Salvar**.
 
-# <a name="option-2-create-a-load-balancer-basic-sku"></a>[Opção 2: Criar um balanceador de carga (SKU Básico)](#tab/option-1-create-load-balancer-basic)
+# <a name="option-2-create-a-public-load-balancer-basic-sku"></a>[Opção 2: Criar um balanceador de carga público (SKU Básico)](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >O balanceador de carga de SKU Standard é recomendado para cargas de trabalho de produção.  Para obter mais informações sobre SKUs, confira **[SKUs do Azure Load Balancer](skus.md)** .
@@ -468,8 +468,9 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
 5. Selecione a guia **Gerenciamento** ou selecione **Avançar** > **Gerenciamento**.
 
 6. Na guia **Gerenciamento**, selecione ou insira:
+    
     | Setting | Valor |
-    |-|-|
+    |---|---|
     | **Monitoring** | |
     | Diagnóstico de inicialização | Selecione **Desativado** |
 
@@ -484,6 +485,24 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
     | Nome |  **myVM2** |**myVM3**|
     | Conjunto de disponibilidade| Selecione **myAvailabilitySet** | Selecione **myAvailabilitySet**|
     | Grupo de segurança de rede | Selecione o **myNSG** existente| Selecione o **myNSG** existente|
+
+### <a name="add-virtual-machines-to-the-backend-pool"></a>Adicionar máquinas virtuais ao pool de back-end
+
+As VMs criadas nas etapas anteriores devem ser adicionadas ao pool de back-end de **myLoadBalancer**.
+
+1. Clique em **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e depois selecione **myLoadBalancer** na lista de recursos.
+
+2. Em **Configurações**, selecione **Pools de back-end** e escolha **myBackendPool**.
+
+3. Selecione **Máquinas virtuais** em **Associado a**.
+
+4. Na seção **Máquinas virtuais**, selecione **+Adicionar**.
+
+5. Selecione as caixas ao lado de **myVM1**, **myVM2** e **myVM3**.
+
+6. Selecione **Adicionar**.
+
+7. Clique em **Salvar**.
 
 ---
 

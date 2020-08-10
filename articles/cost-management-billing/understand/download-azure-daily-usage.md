@@ -1,6 +1,6 @@
 ---
 title: Exibir e baixar uso e encargos do Azure
-description: Descreve como baixar ou exibir usos e encargos diários do Azure.
+description: Saiba como baixar ou exibir o uso diário que você faz do Azure e os encargos correspondentes, bem como conferir os recursos adicionais disponíveis.
 keywords: cobrança por uso, preço por uso, download de uso, exibir uso, fatura do azure, uso do azure
 author: bandersmsft
 ms.author: banders
@@ -8,12 +8,12 @@ tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: bf9a98d6484e7f78a80a4e3018afdec00df51337
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d09f792e784c89e704691975d44cb3cbfa753cf4
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322016"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460500"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Exibir e baixar uso e encargos do Azure
 

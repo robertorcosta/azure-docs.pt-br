@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 013b78e0e8ad47e98b1d192bfc48c5c4a4de0163
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1ed1305939f4f8a9de62de85a2f09c323a2636b1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555138"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489581"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Comparar o Active Directory Domain Services autogerenciado, o Azure Active Directory e o Azure Active Directory Domain Services gerenciado
 
@@ -47,7 +47,7 @@ Se você tiver aplicativos e serviços que precisam de acesso a mecanismos de au
 
 Com o Azure AD DS, os principais componentes de serviço são implantados e mantidos para você pela Microsoft como uma experiência de domínio *gerenciado*. Você não implanta, não gerencia, não aplica patches e nem protege a infraestrutura de AD DS de componentes como as VMs, o sistema operacional Windows Server ou DCs (controladores de domínio).
 
-O Azure AD DS fornece um subconjunto menor de recursos para o ambiente de AD DS tradicional autogerenciado, que reduz parte da complexidade do design e do gerenciamento. Por exemplo, não há florestas, domínios, sites e links de replicação do AD para criar e manter. Você ainda pode [criar relações de confiança de floresta entre os Azure AD DS e ambientes locais (atualmente em versão prévia)][create-forest-trust].
+O Azure AD DS fornece um subconjunto menor de recursos para o ambiente de AD DS tradicional autogerenciado, que reduz parte da complexidade do design e do gerenciamento. Por exemplo, não há florestas, domínios, sites e links de replicação do AD para criar e manter. Você ainda pode [criar relações de confiança de floresta entre o Azure AD DS e os ambientes locais][create-forest-trust].
 
 Para aplicativos e serviços que são executados na nuvem e precisam de acesso a mecanismos de autenticação tradicionais, como Kerberos ou NTLM, o Azure AD DS fornece uma experiência de domínio gerenciado com o mínimo de sobrecarga administrativa. Para obter mais informações, confira [Conceitos de gerenciamento para contas de usuário, senhas e administração no Azure AD DS][administration-concepts].
 

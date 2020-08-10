@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 3cd8b18358128c8566c0cde668c084a22dd261d0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 16a912b2530d567a11a81fc10e9e09eee572e7e6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320690"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528814"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Início Rápido: Usar o Cache do Azure para Redis com Java
 
@@ -30,12 +30,24 @@ Neste guia de início rápido, você incorporará o Cache do Azure para Redis a 
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-Adicionar variáveis de ambiente para o seu **NOME DO HOST** e a chave de acesso **Primária**. Você usará essas variáveis no seu código em vez de incluir as informações confidenciais diretamente no seu código.
+## <a name="setting-up-the-working-environment"></a>Como preparar o ambiente de trabalho 
+
+Dependendo do seu sistema operacional, adicione variáveis de ambiente para o seu **Nome do host** e a **Chave de acesso primária**. Abra um prompt de comando ou uma janela de terminal e configure os seguintes valores:
 
 ```CMD 
-set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
-set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
+set REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
 ```
+
+```bash
+export REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
+export REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
+```
+
+Substitua os espaços reservados pelos seguintes valores:
+
+- `<YOUR_HOST_NAME>`: O nome do host DNS, obtido na seção *Propriedades* do seu recurso do Cache do Azure para Redis no portal do Azure.
+- `<YOUR_PRIMARY_ACCESS_KEY>`: A chave de acesso primária, obtida na seção *Chaves de acesso* do seu recurso do Cache do Azure para Redis no portal do Azure.
 
 ## <a name="create-a-new-java-app"></a>Criar um novo aplicativo Java
 

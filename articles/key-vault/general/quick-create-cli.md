@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: quickstart
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2c71e96dc1c92fc94d403e7c721b2b9f3149b8e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f3b9758d52c4be8e4d85c398f5ef1d0b3fae7e86
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100621"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541797"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-cli"></a>Início Rápido: Criar um cofre de chaves usando a CLI do Azure
 
@@ -69,7 +69,7 @@ Nesse ponto, sua conta do Azure é a única autorizada a executar qualquer opera
 
 Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de início rápido. Se você planeja continuar a trabalhar com os tutoriais e inícios rápidos subsequentes, deixe esses recursos onde estão.
 
-Quando não forem mais necessários, você poderá usar o comando [az group delete](/cli/azure/group) para remover o grupo de recursos e todos os recursos relacionados. Você pode excluir os recursos da seguinte maneira:
+Quando não forem mais necessários, você poderá usar o comando [az group delete](/cli/azure/group) da CLI do Azure para remover o grupo de recursos e todos os recursos relacionados:
 
 ```azurecli
 az group delete --name myResourceGroup

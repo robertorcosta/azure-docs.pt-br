@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: ca13cbd8bdba911882f7452e34c45cbc7918dd7f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7b02296d5d9aed5866c0efcdf85fa1c9946617d0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077706"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501892"
 ---
 # <a name="introduction"></a>Introdução
 
@@ -67,7 +67,7 @@ EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
 
 As instruções de importação não são obrigatórias, elas são pré-importadas para a experiência de notebook.
 
-### <a name="transferring-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>Como transferir dados bidirecionalmente em um pool de SQL anexado ao workspace
+### <a name="transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>Transferir dados para ou de um pool de SQL anexado ao workspace
 
 > [!NOTE]
 > **Importações não necessárias na experiência do notebook**
@@ -134,7 +134,7 @@ df.write.
 
 ```
 
-### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>Se você estiver transferindo dados bidirecionalmente em um banco de dados ou um pool de SQL fora do workspace
+### <a name="if-you-transfer-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>Se você transfere dados para ou de um banco de dados ou um pool de SQL fora do workspace
 
 > [!NOTE]
 > Importações não necessárias na experiência do notebook
@@ -160,7 +160,7 @@ option(Constants.SERVER, "samplews.database.windows.net").
 sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### <a name="using-sql-auth-instead-of-aad"></a>Como usar a Autenticação SQL em vez do AAD
+### <a name="use-sql-auth-instead-of-aad"></a>Usar a Autenticação SQL em vez do AAD
 
 #### <a name="read-api"></a>API de leitura
 
@@ -184,7 +184,7 @@ option(Constants.PASSWORD, <SQLServer Login Password>).
 sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### <a name="using-the-pyspark-connector"></a>Como usar o conector do PySpark
+### <a name="use-the-pyspark-connector"></a>Usar o conector do PySpark
 
 > [!NOTE]
 > Este exemplo é fornecido apenas com a experiência de notebook mantida em mente.
@@ -208,7 +208,7 @@ pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTE
 
 Da mesma forma, no cenário de leitura, leia os dados usando o Scala, grave-os em uma tabela temporária e use o SQL do Spark no PySpark para consultar a tabela temporária em um dataframe.
 
-## <a name="allowing-other-users-to-use-the-azure-synapse-apache-spark-to-synapse-sql-connector-in-your-workspace"></a>Permitir que outros usuários usem o Apache Spark do Azure Synapse para o conector SQL do Synapse em seu workspace
+## <a name="allow-other-users-to-use-the-azure-synapse-apache-spark-to-synapse-sql-connector-in-your-workspace"></a>Permitir que outros usuários usem o conector do Apache Spark para SQL do Synapse do Azure Synapse em seu workspace
 
 Você precisa ser Proprietário de Dados do Blob de Armazenamento na conta de armazenamento do ADLS Gen2 conectada ao workspace para alterar permissões ausentes para outras pessoas. Verifique se o usuário tem acesso ao workspace e às permissões para executar notebooks.
 

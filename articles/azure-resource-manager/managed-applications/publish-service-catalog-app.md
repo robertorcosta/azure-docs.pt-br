@@ -3,15 +3,15 @@ title: Publicar um aplicativo gerenciado do catálogo de serviços
 description: Mostra como criar um aplicativo gerenciado do Azure destinado aos membros de sua organização.
 author: tfitzmac
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: d0a3e2a435be679a2a35941dfa24978ae77291b0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f6a3a16fe7fd6b0036b36520262e85a9066a4e63
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249029"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497847"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Início Rápido: Criar e publicar uma definição de aplicativo gerenciado
 
@@ -195,7 +195,7 @@ az storage blob upload \
 
 ### <a name="create-an-azure-active-directory-user-group-or-application"></a>Criar um grupo de usuários ou aplicativo do Azure Active Directory
 
-A próxima etapa é selecionar um grupo de usuários, um usuário ou um aplicativo a fim de gerenciar os recursos para o cliente. Essa identidade tem permissões no grupo de recursos gerenciado de acordo com a função atribuída. A função pode ser qualquer função interna de RBAC (Controle de acesso baseado em função) como Proprietário ou Colaborador. Para criar um novo grupo de usuários do Active Directory, consulte [Criar um grupo e adicionar membros no Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+A próxima etapa é selecionar um grupo de usuários, um usuário ou um aplicativo a fim de gerenciar os recursos para o cliente. Essa identidade tem permissões no grupo de recursos gerenciado de acordo com a função atribuída. A função pode ser qualquer função interna do Azure, como Proprietário ou Colaborador. Para criar um novo grupo de usuários do Active Directory, consulte [Criar um grupo e adicionar membros no Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 É necessário usar a ID de objeto do grupo de usuários para gerenciar os recursos. 
 

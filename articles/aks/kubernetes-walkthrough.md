@@ -11,12 +11,13 @@ ms.custom:
 - seo-javascript-september2019
 - seo-javascript-october2019
 - seo-python-october2019
-ms.openlocfilehash: cfe85db7a49f2d7b830165d05acaa458f51119f0
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+- devx-track-azurecli
+ms.openlocfilehash: 17edd19dd63c97983b3f12f0d59690b55367dbbe
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115778"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500854"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Início Rápido: Implantar um cluster do Serviço de Kubernetes do Azure usando a CLI do Azure
 
@@ -64,16 +65,31 @@ A seguinte saída de exemplo mostra o grupo de recursos criado com êxito:
 
 ## <a name="create-aks-cluster"></a>Criar cluster AKS
 
-Use o comando [az aks create][az-aks-create] para criar um cluster do AKS. O exemplo a seguir cria um cluster chamado *myAKSCluster* com um nó. O Azure Monitor para contêineres também é habilitado usando o parâmetro *--enable-addons monitoring*.  Isso levará vários minutos.
+Use o comando [az aks create][az-aks-create] para criar um cluster do AKS. O exemplo a seguir cria um cluster chamado *myAKSCluster* com um nó. Isso levará vários minutos.
 
 > [!NOTE]
-> Durante a criação de um cluster do AKS, um segundo grupo de recursos é criado automaticamente para armazenar os recursos do AKS. Para obter mais informações, confira [Por que dois grupos de recursos são criados com o AKS?](./faq.md#why-are-two-resource-groups-created-with-aks)
+> O Azure Monitor para contêineres é habilitado usando o parâmetro *--enable-addons monitoring*, que requer que *Microsoft.OperationsManagement* e *Microsoft.OperationalInsights* estejam registrados em sua assinatura. Para verificar o status do registro:
+> 
+> ```azurecli
+> az provider show -n Microsoft.OperationsManagement -o table
+> az provider show -n Microsoft.OperationalInsights -o table
+> ```
+> 
+> Se ainda não estiverem registrados, use o seguinte comando para registrar *Microsoft.OperationsManagement* e *Microsoft.OperationalInsights*:
+> 
+> ```azurecli
+> az provider register --namespace Microsoft.OperationsManagement
+> az provider register --namespace Microsoft.OperationalInsights
+> ```
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
 ```
 
 Após alguns minutos, o comando será concluído e retornará informações no formato JSON sobre o cluster.
+
+> [!NOTE]
+> Durante a criação de um cluster do AKS, um segundo grupo de recursos é criado automaticamente para armazenar os recursos do AKS. Para obter mais informações, confira [Por que dois grupos de recursos são criados com o AKS?](./faq.md#why-are-two-resource-groups-created-with-aks)
 
 ## <a name="connect-to-the-cluster"></a>Conectar-se ao cluster
 

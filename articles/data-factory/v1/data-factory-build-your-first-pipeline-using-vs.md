@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: bf7bfa6ec405841934cd068cbc90c2b071fc0afc
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f3c6364226288ffb6796664e89d0b7c2cc4dadf6
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022071"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543139"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Como criar uma data factory usando o Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -128,7 +128,7 @@ Com o serviço vinculado HDInsight sob demanda, o cluster do HDInsight é criado
     > [!IMPORTANT]
     > O cluster do HDInsight cria um **contêiner padrão** no armazenamento de blobs especificado no JSON (linkedServiceName). O HDInsight não exclui esse contêiner quando o cluster é excluído. Este comportamento ocorre por design. Com o serviço vinculado HDInsight sob demanda, um cluster do HDInsight é criado sempre que uma fatia é processada, a menos que haja um cluster ativo existente (timeToLive). O cluster será excluído automaticamente quando o processamento for concluído.
     > 
-    > Quanto mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp`. Use ferramentas como o [Gerenciador de Armazenamento da Microsoft](https://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
+    > Quanto mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp`. Use ferramentas como o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
 
     Para obter mais informações sobre as propriedades JSON, confira o artigo [Serviços vinculados de computação](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
 4. Salve o arquivo **HDInsightOnDemandLinkedService1.json** .
@@ -412,7 +412,7 @@ Você também pode usar o aplicativo Monitorar e Gerenciar para monitorar os pip
 -  O Data Factory cria um cluster HDInsight **baseado no Linux** para você com o JSON anterior. Confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes.
 - O cluster do HDInsight cria um **contêiner padrão** no armazenamento de blobs especificado no JSON (linkedServiceName). O HDInsight não exclui esse contêiner quando o cluster é excluído. Este comportamento ocorre por design. Com o serviço vinculado HDInsight sob demanda, um cluster do HDInsight é criado sempre que uma fatia é processada, a menos que haja um cluster ativo existente (timeToLive). O cluster será excluído automaticamente quando o processamento for concluído.
     
-    Quanto mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use ferramentas como o [Gerenciador de Armazenamento da Microsoft](https://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
+    Quanto mais fatias forem processadas, você verá muitos contêineres no armazenamento de blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use ferramentas como o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
 - Atualmente, o conjunto de dados de saída é o que aciona a agenda, então você deve criar um conjunto de dados de saída, mesmo que a atividade não produza qualquer saída. Se a atividade não receber entradas, ignore a criação de conjunto de dados de entrada. 
 - Este tutorial não mostra como copiar dados usando Azure Data Factory. Para obter um tutorial sobre como copiar dados usando o Azure Data Factory, confira [Tutorial: copiar dados do armazenamento de blobs para um banco de dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 

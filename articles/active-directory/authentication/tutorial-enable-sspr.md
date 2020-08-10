@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ac13dc669ed20df58f05c672926b7bee55dbc90
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6b6fe3238a2ad602b388ff24faaee3a200084ae0
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035019"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419471"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os usuários desbloqueiem sua conta ou redefinam senhas usando a redefinição de senha por autoatendimento do Microsoft Azure Active Directory
 
@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá a:
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
-* Um locatário de trabalho do Azure AD com pelo menos uma licença de avaliação habilitada.
+* Um locatário do Azure AD em funcionamento com pelo menos uma licença de avaliação ou Premium P1 do Azure AD habilitada.
     * Se necessário, [crie um gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Uma conta com privilégios de *Administrador Global*.
 * Um usuário que não seja administrador com uma senha que você conheça, como *testuser*. Você testa a experiência de SSPR do usuário final usando essa conta neste tutorial.
@@ -60,7 +60,7 @@ Neste tutorial, você configurará a SSPR para um conjunto de usuários em um gr
 1. Na página **Propriedades**, na opção *Redefinição de senha por autoatendimento habilitada*, escolha **Selecionar grupo**
 1. Procure e selecione um grupo do Azure AD, como *SSPR-Test-Group*, e escolha *Selecionar*.
 
-    [![](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png "Select a group in the Azure portal to enable for self-service password reset")](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
+    [ ![Selecione um grupo no portal do Azure para habilitar a redefinição de senha por autoatendimento](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png) ](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
 
 1. Para habilitar a SSPR para os usuários selecionados, selecione **Salvar**.
 

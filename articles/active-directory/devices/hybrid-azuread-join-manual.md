@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 007763d65021b0730c6e4e81ada33790d3cf4c02
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b80cd2e40e54837682e72837cf0d1a9058f3a7fc
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025771"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428378"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: configurar manualmente dispositivos ingressados no Azure Active Directory híbrido
 
@@ -59,6 +59,9 @@ Verifique se as seguintes URLs podem ser acessadas pelos computadores na rede da
 * `https://login.microsoftonline.com`
 * `https://device.login.microsoftonline.com`
 * o STS da organização (para domínios federados) devem ser incluídos nas configurações de intranet local do usuário
+
+> [!WARNING]
+> Se a sua organização usa servidores proxy que interceptam o tráfego SSL para cenários como prevenção de perda de dados ou restrições de locatário do Azure AD, verifique se o tráfego para 'https://device.login.microsoftonline.com ' foi excluído do TLS de interrupção e inspeção. A falha ao excluir o 'https://device.login.microsoftonline.com ' pode causar interferência com a autenticação de certificado de cliente, causando problemas com o registro de dispositivo e o Acesso Condicional com base no dispositivo.
 
 Se a organização está planejando usar o SSO Contínuo, as URLs a seguir precisam estar acessíveis aos computadores da organização. Elas também precisam ser adicionadas à zona de intranet local do usuário.
 

@@ -6,15 +6,15 @@ ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/03/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 449f1e50bda2991db8eec15464a32d295a054c6f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cb7978dfa2c3ded2ae8e8c621bcb679f19620a2c
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286590"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553471"
 ---
 # <a name="change-the-contact-information-for-your-azure-account"></a>Alterar as informações de contato de sua conta do Azure
 
@@ -24,7 +24,7 @@ Este artigo ajuda você a atualizar as informações de contato para sua conta n
 
 *Endereço para cobrança* – o endereço para cobrança é composto pelo endereço e pelas informações de contato da organização ou do indivíduo responsável pelas faturas geradas para uma conta de cobrança. Para uma conta de cobrança de um MOSP (Programa de Serviço Online da Microsoft), há um endereço para cobrança, que é exibido em todas as faturas geradas para a conta. Para uma conta de cobrança para um MCA (Contrato de Cliente da Microsoft), há um endereço para cobrança para cada perfil de cobrança e ele é exibido na fatura gerada para o perfil de cobrança.
 
-*Endereço de email de contato para emails de serviço e marketing* – para receber notificações importantes de cobrança, serviço e recomendação relacionadas à sua conta do Azure, você pode especificar um endereço de email diferente daquele com o qual você entra.  
+*Endereço de email de contato para emails de serviço e de marketing* – para receber notificações importantes de cobrança, serviço e relacionadas a recomendações para a conta do Azure, você poderá especificar um endereço de email diferente daquele com o qual você entra. Os emails de notificações de serviço, como problemas de segurança urgentes, alterações de preço ou alterações da falha nos serviços usados pela conta, são sempre enviados ao endereço de conexão.
 
 ## <a name="update-an-mosp-billing-account-address"></a>Atualizar um endereço da conta de cobrança do MOSP
 

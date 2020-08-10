@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
-ms.openlocfilehash: c2dcba05e3b1fc5cfc32d6f1b38c22b811b73626
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 60ad7f5df4f13d626d7a2c24990c7f48db28d01d
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352558"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475219"
 ---
 # <a name="iot-plug-and-play-preview-refresh"></a>Atualização da versão prévia do IoT Plug and Play
 
@@ -86,7 +86,7 @@ O SDK do serviço está disponível em [Node.js](https://github.com/Azure/azure-
 
 A extensão do [Azure IoT Device Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) dá suporte de criação para o DTDL v1, integração à versão anterior do repositório de modelos e geração de código.
 
-Se você precisar de suporte à criação do DTDL v2 no VS Code, instale a nova [extensão do DTDL](https://github.com/azure/vscode-dtdl) no VS Code. A extensão não fornece integração ao repositório de modelo nem geração de código. O gerenciamento de modelos no repositório agora é feito usando uma [interface do usuário da Web](https://aka.ms/iotmodelrepo).
+Se você precisar de suporte à criação do DTDL v2 no VS Code, instale a nova [extensão do DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) no VS Code. A extensão não fornece integração ao repositório de modelo nem geração de código. O gerenciamento de modelos no repositório agora é feito usando uma [IU da Web](https://aka.ms/iotmodelrepo) ou a [CLI](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest).
 
 ## <a name="digital-twin-service-side-rest-apis"></a>APIs REST do lado do serviço de gêmeo digital
 
@@ -103,8 +103,6 @@ As APIs REST existentes continuam com suporte neste lançamento.
 Agora, há um repositório de modelos que contém os modelos publicados públicos e os modelos da empresa protegidos por RBAC privados. Todos os modelos têm um identificador exclusivo e são imutáveis depois de criados.
 
 Os repositórios de modelo da empresa existentes do lançamento anterior não têm suporte neste lançamento. Você pode continuar a usar o site [Azure Certified para IoT](https://preview.catalog.azureiotsolutions.com/products) para gerenciar os modelos antigos do DTDL v1. No entanto, você não pode mais usar este site para registrar, testar e certificar dispositivos.
-
-A extensão do IoT do Azure para a CLI do Azure não dá suporte ao novo repositório de modelos. Os comandos `az iot pnp` só funcionam com os repositórios de modelo do lançamento anterior.
 
 ## <a name="azure-iot-central"></a>Azure IoT Central
 

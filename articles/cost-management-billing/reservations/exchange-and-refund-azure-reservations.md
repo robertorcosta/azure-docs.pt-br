@@ -1,17 +1,17 @@
 ---
 title: Trocas e reembolsos realizados via autoatendimento nas Reservas do Azure
-description: Saiba como você pode trocar ou reembolsar as Reservas do Azure.
+description: Saiba como você pode trocar ou reembolsar as Reservas do Azure. Você precisa ter acesso de proprietário ao Pedido de Reserva para trocar ou reembolsar reservas.
 author: yashesvi
 ms.service: cost-management-billing
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 3f41f26e6934e156ab38340a74e2c070b26cefb4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f1323d21ee59386220a35cc31b17cab3441f0e0d
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287646"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87457627"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas e reembolsos realizados via autoatendimento nas Reservas do Azure
 

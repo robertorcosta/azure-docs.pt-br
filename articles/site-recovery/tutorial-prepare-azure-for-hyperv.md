@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3be81d104e32946e2bfd7dc76052dad464f95623
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4e28a46b8d231b3f228a95ea06b7b9cada50de54
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130983"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498983"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Preparar recursos do Azure para recuperação de desastre do Hyper-V
 
@@ -63,7 +63,7 @@ As imagens de máquinas replicadas são mantidas no armazenamento do Azure. As V
 9. Em **Localização**, escolha a localização geográfica para sua conta de armazenamento. Neste tutorial, use **Oeste da Europa**.
 10. Selecione **Criar** para criar a conta de armazenamento.
 
-   ![Criar uma conta de armazenamento](media/tutorial-prepare-azure/create-storageacct.png)
+   ![Captura de tela das opções em Criar uma conta de armazenamento.](media/tutorial-prepare-azure/create-storageacct.png)
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
@@ -74,7 +74,7 @@ As imagens de máquinas replicadas são mantidas no armazenamento do Azure. As V
 3. Em **Localização**, selecione a região na qual o cofre deve estar localizado. Neste tutorial, use **Oeste da Europa**.
 4. Para acessar rapidamente o cofre do painel, selecione **Fixar no painel** > **Criar**.
 
-![Criar um novo cofre](./media/tutorial-prepare-azure/new-vault-settings.png)
+![Captura de tela da página Criar cofre dos Serviços de Recuperação.](./media/tutorial-prepare-azure/new-vault-settings.png)
 
 O novo cofre é exibido em **Painel** > **Todos os recursos** e na página principal **Cofres dos Serviços de Recuperação**.
 
@@ -91,7 +91,7 @@ Quando as VMs do Azure são criadas do armazenamento após o failover, elas são
 7. Mantenha as opções padrão da proteção contra DDoS básica, sem nenhum ponto de extremidade de serviço na rede.
 8. Selecione **Criar**.
 
-![Criar uma rede virtual](media/tutorial-prepare-azure/create-network.png)
+![Captura de tela das opções em Criar rede virtual.](media/tutorial-prepare-azure/create-network.png)
 
 A rede virtual leva alguns segundos para ser criada. Depois de ser criada, ela será exibida no painel do portal do Azure.
 

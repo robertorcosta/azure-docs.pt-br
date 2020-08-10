@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/15/2020
+ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 07350ffe4a57bfe4a79bfce5d821b51535867935
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5d4b87c14422744fd62d42a4d8e5b1ca0f34ffac
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76167005"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439722"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Realizar a classificação de imagem na borda com o Serviço de Visão Personalizada
 
@@ -142,7 +142,7 @@ Agora você tem os arquivos de uma versão de contêiner de seu classificador de
 
 Uma solução é uma maneira lógica de desenvolver e organizar vários módulos para uma mesma implantação do IoT Edge. Uma solução contém código para um ou mais módulos, bem como o manifesto de implantação que declara como configurá-los em um dispositivo do IoT Edge. 
 
-1. Selecione **Exibir** > **Paleta de comandos** para abrir a paleta de comandos do VS Code. 
+1. No Visual Studio Code, selecione **Exibir** > **Paleta de comandos** para abrir a paleta de comandos do VS Code. 
 
 1. Na paleta de comandos, digite e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Na paleta de comandos, forneça as seguintes informações para criar sua solução: 
 
@@ -152,7 +152,7 @@ Uma solução é uma maneira lógica de desenvolver e organizar vários módulos
    | Fornecer um nome para a solução | Insira um nome descritivo para a solução, como **CustomVisionSolution**, ou aceite o padrão. |
    | Selecionar modelo do módulo | Escolha **Módulo de Python**. |
    | Fornecer um nome de módulo | Nomeie seu módulo **classifier**.<br><br>É importante que esse nome de módulo esteja em letras minúsculas. O IoT Edge diferencia maiúsculas de minúsculas ao fazer referência a módulos, e essa solução usa uma biblioteca que formata todas as solicitações em letras minúsculas. |
-   | Fornecer o repositório de imagem do Docker para o módulo | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner foi preenchida automaticamente na última etapa. Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure. Você pode recuperar o servidor de logon da página Visão Geral do seu registro de contêiner no portal do Azure.<br><br>A cadeia de caracteres final se parece com **\<nome do Registro\>.azurecr.io/classifier**. |
+   | Fornecer o repositório de imagem do Docker para o módulo | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner foi preenchida automaticamente na última etapa. Substitua **localhost:5000** pelo valor do **Servidor de logon** do seu Registro de Contêiner do Azure. Você pode recuperar o servidor de Logon da página Visão Geral do seu registro de contêiner no portal do Azure.<br><br>A cadeia de caracteres final se parece com **\<registry name\>.azurecr.io/classifier**. |
  
    ![Fornecer o repositório de imagem do Docker](./media/tutorial-deploy-custom-vision/repository.png)
 
@@ -161,6 +161,8 @@ A janela do Visual Studio Code carregará seu workspace da solução IoT Edge.
 ### <a name="add-your-registry-credentials"></a>Adicionar suas credenciais de registro
 
 O arquivo do ambiente armazena as credenciais para o registro de contêiner e as compartilha com o runtime do IoT Edge. O runtime precisa dessas credenciais para efetuar pull de imagens privadas para o dispositivo IoT Edge.
+
+A extensão do IoT Edge tenta efetuar pull de suas credenciais de Registro de Contêiner do Azure e as popula no arquivo de ambiente. Verifique se suas credenciais já estão incluídas. Caso contrário, adicione-as agora:
 
 1. No explorador do VS Code, abra o arquivo .env.
 2. Atualize os campos com os valores de **nome de usuário** e **senha** que você copiou do registro de contêiner do Azure.
@@ -214,10 +216,10 @@ Nesta seção, você adiciona um novo módulo ao mesmo CustomVisionSolution e fo
 
    | Prompt | Valor | 
    | ------ | ----- |
-   | Selecionar arquivo de modelo de implantação | Selecione o arquivo deployment.template.json na pasta CustomVisionSolution. |
+   | Selecionar arquivo de modelo de implantação | Selecione o arquivo **deployment.template.json** na pasta CustomVisionSolution. |
    | Selecionar modelo do módulo | Selecione **Módulo de Python** |
    | Fornecer um nome de módulo | Nomeie seu módulo **cameraCapture** |
-   | Fornecer o repositório de imagem do Docker para o módulo | Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure.<br><br>A cadeia de caracteres final se parece com **\<nomedoregistro\>.azurecr.io/cameracapture**. |
+   | Fornecer o repositório de imagem do Docker para o módulo | Substitua **localhost:5000** pelo valor do **Servidor de logon** de seu registro de contêiner do Azure.<br><br>A cadeia de caracteres final se parece com **\<registryname\>.azurecr.io/cameracapture**. |
 
    A janela do VS Code carrega seu novo módulo no workspace da solução e atualiza o arquivo deployment.template.json. Agora você verá duas pastas de módulo: classifier e cameraCapture. 
 
@@ -364,7 +366,7 @@ A extensão do IoT Edge para Visual Studio Code fornece um modelo em cada soluç
 
     ```json
         "routes": {
-          "CameraCaptureToIoTHub": "FROM /messages/modules/cameraCapture/outputs/* INTO $upstream"
+          "cameraCaptureToIoTHub": "FROM /messages/modules/cameraCapture/outputs/* INTO $upstream"
         },
     ```
 
@@ -372,31 +374,51 @@ A extensão do IoT Edge para Visual Studio Code fornece um modelo em cada soluç
 
 7. Salve o arquivo **deployment.template.json**.
 
-## <a name="build-and-deploy-your-iot-edge-solution"></a>Criar e implantar sua solução do Azure IoT Edge
+## <a name="build-and-push-your-iot-edge-solution"></a>Compilar sua solução do IoT Edge e efetuar push dela
 
-Com os dois módulos criados e o modelo do manifesto de implantação configurado, você está pronto para compilar as imagens de contêiner e enviá-las ao registro de contêiner. 
+Com os dois módulos criados e o modelo do manifesto de implantação configurado, você está pronto para compilar as imagens de contêiner e enviá-las ao registro de contêiner.
 
 Depois que as imagens estiverem em seu registro, você poderá implantar a solução em um dispositivo do IoT Edge. Você pode definir os módulos em um dispositivo por meio do Hub IoT, mas também pode acessar o Hub IoT e dispositivos por meio do Visual Studio Code. Nesta seção, você configura o acesso ao seu Hub IoT, depois usa o VS Code para implantar a solução ao seu dispositivo IoT Edge.
 
-Primeiro, crie e efetue push da solução para o registro de contêiner. 
+Primeiro, crie e efetue push da solução para o registro de contêiner.
 
-1. No explorador do VS Code, clique com o botão direito do mouse no arquivo **deployment.template.json** e selecione **Compilar e efetuar push da solução IoT Edge**. Você pode observar o progresso dessa operação no terminal integrado no VS Code. 
-2. Observe que uma nova pasta foi adicionada à solução: **config**. Expanda essa pasta e abra o arquivo **deployment.json** dentro dele.
-3. Examine as informações no arquivo deployment JSON. O arquivo deployment.json é criado (ou atualizado) automaticamente com base no arquivo do modelo de implantação que você configurou e nas informações da solução, incluindo o arquivo .env e os arquivos module.json. 
+1. Abra o terminal integrado do VS Code selecionando **Exibir** > **Terminal**.
 
-Por fim, selecione o dispositivo e implante a solução.
+2. Entre no Docker inserindo o seguinte comando no terminal. Entre com o nome de usuário, a senha e o servidor de logon do seu Registro de Contêiner do Azure. É possível recuperar esses valores na seção **Chaves de acesso** no registro do portal do Azure.
 
-1. No explorador do VS Code, expanda a seção **Dispositivos do Hub IoT do Azure**. 
-2. Clique com o botão direito no dispositivo que deseja direcionar com sua implantação e selecione **Criar implantação para dispositivo único**. 
-3. No gerenciador de arquivos, navegue até a pasta **config** dentro de sua solução e escolha **deployment.json**. Clique em **Selecionar manifesto de implantação do Edge**. 
+   ```bash
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
+   ```
 
-Se a implantação for bem-sucedida, uma mensagem de confirmação será impressa na saída do VS Code. No explorador do VS Code, expanda os detalhes sobre o dispositivo do IoT Edge que você usou para essa implantação. Passe o cursor sobre o cabeçalho **Dispositivos do Hub IoT do Azure** para habilitar o botão de atualização se os módulos não forem exibidos imediatamente. Pode levar alguns instantes para que os módulos sejam iniciados e se reportem ao Hub IoT. 
+   Talvez você receba um aviso de segurança recomendando usar `--password-stdin`. Embora essa prática seja recomendada para cenários de produção, ela não serve para este tutorial. Para saber mais, confira a referência de [logon do docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
 
-Você também pode verificar se todos os módulos estão em execução no próprio dispositivo. No seu dispositivo IoT Edge, execute o comando a seguir para ver o status dos módulos. Pode levar alguns instantes para que os módulos sejam iniciados.
+3. No explorador do VS Code, clique com o botão direito do mouse no arquivo **deployment.template.json** e selecione **Compilar e enviar por push solução IoT Edge**.
+
+   O comando de criação e de envio por push inicia três operações. Primeiro, é criada uma pasta na solução denominada **config** que contém o manifesto de implantação completo, criado com base nas informações do modelo de implantação e em outros arquivos da solução. Depois, ele executa `docker build` para montar a imagem de contêiner com base no dockerfile apropriado para sua arquitetura de destino. Por fim, ele executa `docker push` para enviar por push o repositório de imagens para seu registro de contêiner.
+
+   Esse processo pode levar vários minutos na primeira vez, mas será mais rápido na próxima vez em que você executar os comandos.
+
+## <a name="deploy-modules-to-device"></a>Implantar módulos no dispositivo
+
+Use o gerenciador do Visual Studio Code e a extensão Azure IoT Tools para implantar o projeto de módulo em seu dispositivo IoT Edge. Você já tem um manifesto de implantação preparado para o seu cenário, o arquivo **deployment.amd64.json** na pasta config. Agora, tudo o que você precisa fazer é selecionar um dispositivo para receber a implantação.
+
+Verifique se seu dispositivo IoT Edge está em funcionamento.
+
+1. No gerenciador do Visual Studio Code, na seção **Hub IoT do Azure**, expanda **Dispositivos** para ver sua lista de dispositivos IoT.
+
+2. Clique com o botão direito no nome do seu dispositivo IoT Edge e selecione **Criar Implantação para Dispositivo Único**.
+
+3. Selecione o arquivo **deployment.amd64.json** na pasta **config** e clique em **Selecionar Manifesto de Implantação do Edge**. Não use o arquivo deployment.template.json.
+
+4. No dispositivo, expanda **Módulos** para ver uma lista de módulos implantados e em execução. Clique no botão Atualizar. Você deve ver os novos módulos **classifier** e **cameraCapture** sendo executados em conjunto com **$edgeAgent** e **$edgeHub**.  
+
+Você também pode verificar se todos os módulos estão em execução no próprio dispositivo. No seu dispositivo IoT Edge, execute o comando a seguir para ver o status dos módulos.
 
    ```bash
    iotedge list
    ```
+
+Pode levar alguns minutos para que os módulos sejam iniciados. O runtime do IoT Edge precisa receber seu novo manifesto de implantação, obter as imagens de módulo do runtime do contêiner e iniciar cada novo módulo.
 
 ## <a name="view-classification-results"></a>Exibir resultados de classificação
 
@@ -410,7 +432,12 @@ Em seu dispositivo, exiba os logs do módulo cameraCapture para ver as mensagens
 
 No Visual Studio Code, clique com o botão direito no nome do dispositivo do IoT Edge e selecione **Iniciar o Monitoramento de Ponto de Extremidade Interno**. 
 
-Os resultados do módulo da Visão Personalizada, que são enviados como mensagens do módulo cameraCapture, incluem a probabilidade de a imagem ser uma cicuta (hemlock) ou cerejeira (cherry tree). Como a imagem é uma cicuta, você deve ver a probabilidade como 1.0. 
+> [!NOTE]
+> Inicialmente, você pode ver alguns erros de conexão na saída do módulo cameraCapture. Isso ocorre devido ao atraso entre a implantação e a inicialização dos módulos.
+>
+> O módulo cameraCapture tentará novamente a conexão, de maneira automática, até obter êxito. Posteriormente, você deve começar a ver as mensagens de classificação de imagem esperadas descritas abaixo.
+
+Os resultados do módulo da Visão Personalizada, que são enviados como mensagens do módulo cameraCapture, incluem a probabilidade de a imagem ser uma cicuta (hemlock) ou cerejeira (cherry tree). Como a imagem é uma cicuta, você deve ver a probabilidade como 1.0.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

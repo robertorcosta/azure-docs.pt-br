@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: d60eeb279f9faa469c98d3d0578d0e4c1cdf0bd2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7005954b14a9263ec074c836180853a99812dd5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283445"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534763"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Controlar o acesso à conta de armazenamento para SQL sob demanda (versão prévia)
 
@@ -89,7 +89,7 @@ Você pode usar as seguintes combinações de autorização e tipos de Armazenam
 
 
 > [!IMPORTANT]
-> Ao acessar o armazenamento protegido pelo firewall, somente a Identidade Gerenciada pode ser usada. Você precisa [Permitir a configuração de serviços Microsoft confiáveis...](../../storage/common/storage-network-security.md#trusted-microsoft-services) e [atribuir uma função RBAC](../../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights) explicitamente à [identidade gerenciada atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para essa instância do recurso. Nesse caso, o escopo de acesso para a instância corresponde à função RBAC atribuída à identidade gerenciada.
+> Ao acessar o armazenamento protegido pelo firewall, somente a Identidade Gerenciada pode ser usada. Você precisa [Permitir a configuração de serviços Microsoft confiáveis...](../../storage/common/storage-network-security.md#trusted-microsoft-services) e [atribuir uma função do Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) explicitamente à [identidade gerenciada atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para essa instância do recurso. Nesse caso, o escopo de acesso para a instância corresponde à função do Azure atribuída à identidade gerenciada.
 >
 
 ## <a name="credentials"></a>Credenciais
@@ -219,7 +219,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 
 ## <a name="examples"></a>Exemplos
 
-**Como acessar uma fonte de dados disponível publicamente**
+### <a name="access-a-publicly-available-data-source"></a>**Acessar uma fonte de dados disponível publicamente**
 
 Use o script a seguir para criar uma tabela que acessa uma fonte de dados disponível publicamente.
 
@@ -248,7 +248,7 @@ SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
 GO
 ```
 
-**Como acessar uma fonte de dados usando uma credencial**
+### <a name="access-a-data-source-using-credentials"></a>**Acessar uma fonte de dados usando credenciais**
 
 Modifique o script a seguir para criar uma tabela externa que acessa o Armazenamento do Azure usando o token SAS, a identidade do usuário do Azure AD ou a identidade gerenciada do workspace.
 

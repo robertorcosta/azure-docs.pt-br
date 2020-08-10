@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 07/27/2020
-ms.openlocfilehash: 113249f56c1f5f9c035ec2ff6ccb7309dd355763
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9642f6d1090ef358cf86241640255c647dea52eb
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281337"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432663"
 ---
 # <a name="changelog"></a>Log de alteração #
 
@@ -57,13 +57,13 @@ ms.locfileid: "87281337"
 
 ### <a name="changes-234"></a>Alterações na versão 2.3.4
 
-- Removido o rótulo/faixa da legenda vazia ao reproduzir HLS no iOS e no MacOS Safari
+- Removido o rótulo/faixa da legenda vazia ao reproduzir HLS no iOS e no macOS Safari
 - Reduzido do número de 412s para legendas de IMSC1
 - Aviso de saída no console para 10 respostas de legenda IMSC1 consecutivas vazias para ajudar na depuração dinâmica
 
 ## <a name="232-official-update-october-9-2019"></a>2.3.2 (atualização oficial de 9 de outubro de 2019)
 
-### <a name="features"></a>Recursos
+### <a name="features-232"></a>Recursos do 2.3.2
 
 – Adicionado suporte de PlayReady para reprodução de DASH para O navegador Chromium Edge
 
@@ -228,7 +228,7 @@ ms.locfileid: "87281337"
 
 ### <a name="changes-218"></a>Alterações na versão 2.1.8 ###
 
-- [Alteração] Atualização do erro 0x0600001 para exibição quando o conteúdo AES é reproduzido com o Flash 30, pois não há suporte para ele no momento. Confira [Problemas conhecidos](azure-media-player-known-issues.md) para obter mais detalhes
+- [Alteração] O erro 0x0600001 foi atualizado para exibir quando o conteúdo AES for reproduzido com o Flash 30, pois não há suporte para ele no momento. Confira [Problemas conhecidos](azure-media-player-known-issues.md) para obter mais detalhes
 - [Alteração] Adição de outras repetições para cenários ao vivo quando o manifesto solicita 404 ou retorna manifestos vazios.
 
 ## <a name="217-official-update"></a>2.1.7 (atualização oficial) ##

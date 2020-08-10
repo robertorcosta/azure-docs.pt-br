@@ -10,13 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79d80a5b94a753b43715c1ccd8fc2059ff84cfca
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 0818ab782710e6a102d2034790ff8d997cd54f8e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87338020"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808429"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Adicionar um aplicativo a seu locatário do Azure AD (Azure Active Directory)
 
@@ -58,8 +57,15 @@ Para adicionar um aplicativo ao locatário do Azure AD:
 
 Você terminou de adicionar um aplicativo. O próximo guia de início rápido mostra como alterar o logotipo e editar outras propriedades do aplicativo.
 
+> [!TIP]
+> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Se você não pretende continuar com a série de guias de início rápido, considere a possibilidade de excluir o aplicativo para limpar seu locatário de teste. A exclusão do aplicativo é abordada no último guia de início rápido desta série; confira [Excluir um aplicativo](delete-application-portal.md).
+
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Configurar um aplicativo](add-application-portal-configure.md)
-- [Configurar logon único](add-application-portal-setup-sso.md)
-- [Excluir um aplicativo](delete-application-portal.md)
+Prossiga para o próximo artigo para aprender a configurar um aplicativo.
+> [!div class="nextstepaction"]
+> [Configurar um aplicativo](add-application-portal-configure.md)

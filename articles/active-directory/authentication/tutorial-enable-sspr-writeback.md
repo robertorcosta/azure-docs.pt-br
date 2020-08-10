@@ -11,12 +11,12 @@ author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 70a73cb1f855840831f2e1107baa94dfd54868a5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f4687a98bfb58db8ed5e8a853fa0db2207f435e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518480"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419641"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Habilitar o write-back da redefinição de senha por autoatendimento do Azure Active Directory para um ambiente local
 
@@ -40,7 +40,7 @@ Neste tutorial, você aprenderá como:
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
-* Um locatário funcional do Azure AD com, pelo menos, uma licença de avaliação do Azure AD Premium P1 habilitada.
+* Um locatário do Azure AD em funcionamento com pelo menos uma licença de avaliação ou Premium P1 do Azure AD habilitada.
     * Se necessário, [crie um gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * Para obter mais informações, confira [Requisitos de licenciamento para o SSPR do Azure AD](concept-sspr-licensing.md).
 * Uma conta com privilégios de *administrador global*.
@@ -81,7 +81,7 @@ Para configurar as permissões apropriadas para que ocorra o write-back de senha
     * **Gravar lockoutTime**
     * **Gravar pwdLastSet**
 
-    [![](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png "Set the appropriate permissions in Active Users and Computers for the account that is used by Azure AD Connect")](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
+    [ ![Defina as permissões apropriadas em Computadores e Usuários Ativos para a conta usada pelo Azure AD Connect](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png) ](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
 
 1. Quando concluído, selecione **Aplicar/OK** para aplicar as alterações e sair das caixas de diálogo abertas.
 

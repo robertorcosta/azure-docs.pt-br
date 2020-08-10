@@ -9,14 +9,14 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: a1f6548a83736cfb0e519559fd22e16d4527ae0b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c578958616e4b4d2d7d3aef1de1650566e0bd40e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197670"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496399"
 ---
-# <a name="using-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Como usar a autenticação multifator do AAD com o SQL do Synapse (suporte do SSMS à MFA)
+# <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Usar a Autenticação multifator do AAD com o SQL do Synapse (suporte do SSMS à MFA)
 
 O SQL do Synapse dá suporte a conexões do SSMS (SQL Server Management Studio) usando a *Autenticação Universal do Active Directory*. 
 

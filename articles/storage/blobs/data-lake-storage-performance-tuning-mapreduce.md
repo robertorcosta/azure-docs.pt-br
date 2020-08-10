@@ -1,6 +1,6 @@
 ---
 title: 'Ajustar o desempenho: MapReduce, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
-description: Diretrizes de Ajuste de Desempenho do MapReduce do Azure Data Lake Storage Gen2
+description: Entenda as diretrizes para ajustar o desempenho dos trabalhos de redução de mapeamento no Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 7e4030583ac902093c30374c24b877e3f089eb02
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e9d638a7ed17d08b585c71b1dac4a0177f4a2939
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86106213"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030513"
 ---
 # <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>Ajustar o desempenho: MapReduce, & HDInsight Azure Data Lake Storage Gen2
 
@@ -40,7 +40,7 @@ Ao executar trabalhos do MapReduce, aqui estão os parâmetros que você pode co
 
 **Mapreduce.job.maps / Mapreduce.job.reduces** Isso determinará o número máximo de mapeadores ou redutores a serem criados.  O número de divisões determinará quantas mapeadores serão criados para o trabalho MapReduce.  Portanto, você poderá obter menos mapeadores que o solicitado se houver menos divisões do que o número de mapeadores solicitado.       
 
-## <a name="guidance"></a>Diretrizes
+## <a name="guidance"></a>Orientação
 
 > [!NOTE]
 > As diretrizes neste documento pressupõem que seu aplicativo é o único aplicativo em execução no cluster.

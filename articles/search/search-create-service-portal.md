@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: 18204777a8e61b577b257b67cdd12bed1a5534fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b9507e500282afbdfba5cedd5420974aa8b3ade8
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529617"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554015"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Início Rápido: Criar um serviço da Pesquisa Cognitiva do Azure no portal
 
@@ -30,8 +30,8 @@ Prefere o PowerShell? Use o [modelo de serviço](https://azure.microsoft.com/res
 As propriedades de serviço a seguir são corrigidas durante o tempo de vida do serviço; a alteração de cada uma delas exige um novo serviço. Como elas são corrigidas, considere as implicações de uso conforme você preenche cada propriedade:
 
 * o nome do serviço passa a fazer parte do ponto de extremidade da URL ([examine as dicas](#name-the-service) para obter nomes de serviço úteis).
-* a camada de serviço [afeta a cobrança](search-sku-tier.md) e define um limite ascendente na capacidade.
-* a região do serviço pode determinar a disponibilidade de determinados cenários. Se você estiver interessado em mineração de conhecimento e enriquecimento de IA, precisará dos Serviços Cognitivos e, possivelmente, do Azure Machine Learning na mesma região do Azure Cognitive Search.
+* A camada de serviço [afeta a cobrança](search-sku-tier.md) e define um limite ascendente da capacidade. Alguns recursos não estão disponíveis na Camada gratuita.
+* A região do serviço pode determinar a disponibilidade de alguns cenários. Caso precise de [recursos de alta segurança](search-security-overview.md) ou de [enriquecimento de IA](cognitive-search-concept-intro.md), coloque o Azure Cognitive Search na mesma região de outros serviços ou em regiões que fornecem o recurso em questão. 
 
 ## <a name="subscribe-free-or-paid"></a>Assinar (gratuito ou pago)
 
@@ -51,7 +51,7 @@ Alternativamente, você pode [ativar os benefícios de assinante MSDN](https://a
 
 ## <a name="choose-a-subscription"></a>Escolha uma assinatura
 
-Se você tiver mais de uma assinatura, escolha uma para o serviço de pesquisa.
+Se você tiver mais de uma assinatura, escolha uma para o serviço de pesquisa. Se você estiver implementando a [criptografia dupla](search-security-overview.md#double-encryption) ou outros recursos que dependam das identidades de serviço gerenciadas, escolha a mesma assinatura usada para o Azure Key Vault ou outros serviços nos quais as identidades gerenciadas são usadas.
 
 ## <a name="set-a-resource-group"></a>Definir um grupo de recursos
 
@@ -89,6 +89,8 @@ O Azure Cognitive Search está disponível na maioria das regiões. A lista de r
 
 > [!Note]
 > A Índia Central e o Norte dos EAU estão indisponíveis atualmente para novos serviços. Para os serviços que já estão nessas regiões, você pode aumentar sem restrições, e seu serviço terá suporte total nessa região. As restrições são temporárias e estão limitadas apenas a novos serviços. Removeremos essa observação quando as restrições deixarem de ser aplicáveis.
+>
+> A criptografia dupla só está disponível em algumas regiões. Para obter mais informações, confira [criptografia dupla](search-security-overview.md#double-encryption).
 
 ### <a name="requirements"></a>Requisitos
 

@@ -3,16 +3,16 @@ title: Contratos e aditamentos de EA do Azure
 description: Este artigo explica como os contratos e aditamentos de EA do Azure afetam o uso do Portal do EA do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/13/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 4d40ffb04882e9809fc818ab492a4c97260d1ff4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bc1749ba8246aa2181890c4c846f9159a0557aff
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537792"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563476"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratos e aditamentos de EA do Azure
 
@@ -20,7 +20,7 @@ O artigo explica como os contratos e aditamentos do Azure EA podem afetar seu ac
 
 ## <a name="enrollment-provisioning-status"></a>Status de provisionamento do registro
 
-A data de início de um novo pagamento antecipado do Azure é definida pela data em que o centro de operações regionais o processou. Como as ordens do pagamento antecipado do Azure realizadas por meio do portal do Azure EA são processadas no fuso horário UTC, poderá ocorrer algum atraso se a sua ordem de compra do pagamento antecipado do Azure tiver sido processada em outra região. A data de início da cobertura na ordem de compra em https://www.explore.ms mostra o início do pagamento antecipado do Azure. A data de início da cobertura é quando o pagamento antecipado do Azure é exibido no portal do Azure EA.
+A data de início de um novo pagamento antecipado do Azure é definida pela data em que o centro de operações regionais o processou. Como as ordens do pagamento antecipado do Azure realizadas por meio do portal do Azure EA são processadas no fuso horário UTC, poderá ocorrer algum atraso se a sua ordem de compra do pagamento antecipado do Azure tiver sido processada em outra região. A data de início da cobertura na ordem de compra mostra o início do pagamento antecipado do Azure. A data de início da cobertura é quando o pagamento antecipado do Azure é exibido no portal do Azure EA.
 
 ## <a name="support-for-enterprise-customers"></a>Compatibilidade com clientes empresariais
 
@@ -43,7 +43,7 @@ Um registro tem um dos valores de status a seguir. Cada valor determina como voc
 
 **Expirado**: o registro do EA expira quando atinge a data de término do Contrato Enterprise. O cliente EA é desvinculado do termo estendido e todos os serviços dele são desabilitados.
 
-Desde 1º de agosto de 2019, novos formulários de recusa não são aceitos para clientes comerciais do Azure. Em vez disso, todos os registros entram em um termo estendido indefinido. Se você quiser parar de usar os serviços do Azure, feche sua assinatura no [portal do Azure](https://portal.azure.com). Ou, seu parceiro pode enviar uma solicitação de encerramento https://www.explore.ms. Não há alteração para clientes com tipos de contrato governamentais.
+Desde 1º de agosto de 2019, novos formulários de recusa não são aceitos para clientes comerciais do Azure. Em vez disso, todos os registros entram em um termo estendido indefinido. Se você quiser parar de usar os serviços do Azure, feche sua assinatura no [portal do Azure](https://portal.azure.com). Ou, seu parceiro pode enviar uma solicitação de encerramento. Não há alteração para clientes com tipos de contrato governamentais.
 
 **Transferido** – o status transferido é aplicado a registros que têm os respectivos serviços e contas associados transferidos para um novo registro. Os registros não são transferidos automaticamente se um novo número de registro é gerado durante a renovação. O número de registro anterior deve ser incluído na solicitação de renovação do cliente para uma transferência automática.
 

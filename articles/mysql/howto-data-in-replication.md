@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 6/11/2020
-ms.openlocfilehash: d1012a2afa84270089ae44b1c5d224e65a2e01ae
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 8/7/2020
+ms.openlocfilehash: dbf3a13ed5a544406950dbcfb5ea8796eceb03c1
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118555"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030530"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a replicação nos dados para o Banco de Dados do Azure para MySQL
 
 Este artigo descreve como configurar o [replicação de dados](concepts-data-in-replication.md) no banco de dados do Azure para MySQL Configurando os servidores mestre e de réplica. Este artigo pressupõe que você tenha alguma experiência anterior com servidores e bancos de dados MySQL.
 
 > [!NOTE]
-> Comunicação sem tendência
+> Comunicação livre de desvio
 >
 > A Microsoft dá suporte a um ambiente diversificado e de inclusão. Este artigo contém referências à palavra _subordinada_. O [Guia de estilo da Microsoft para comunicação sem tendência](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isso como uma palavra de exclusão. A palavra é usada neste artigo para fins de consistência porque, atualmente, ela é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
 >
@@ -37,11 +37,11 @@ Examine as [limitações e os requisitos](concepts-data-in-replication.md#limita
    > O Banco de Dados do Azure para MySQL deve ser criado nos tipos de preço Uso Geral ou Otimizado para Memória.
    > 
 
-2. Criar as mesmas contas de usuário e os privilégios correspondentes
+1. Criar as mesmas contas de usuário e os privilégios correspondentes
 
    Contas de usuário não são replicadas do servidor mestre para o servidor de réplica. Se você planeja fornecer aos usuários acesso ao servidor de réplica, precisa criar manualmente todas as contas e privilégios correspondentes no servidor do Banco de Dados do Azure para MySQL recém-criado.
 
-3. Adicione o endereço IP do servidor mestre às regras de firewall da réplica. 
+1. Adicione o endereço IP do servidor mestre às regras de firewall da réplica. 
 
    Atualizar regras de firewall usando o [Portal do Azure](howto-manage-firewall-using-portal.md) ou a [CLI do Azure](howto-manage-firewall-using-cli.md).
 
@@ -55,7 +55,7 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
    
    Teste a conectividade com o servidor mestre tentando se conectar de uma ferramenta como a linha de comando do MySQL hospedada em outro computador ou da [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) disponível no portal do Azure.
 
-2. Ligar o registro em log binário
+1. Ligar o registro em log binário
 
    Verifique se o log binário foi ativado no mestre executando o seguinte comando: 
 
@@ -67,7 +67,7 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
 
    Se `log_bin` for retornado com o valor "off", ative o log binário editando o arquivo My. cnf para que `log_bin=ON` o e reinicie o servidor para que a alteração entre em vigor.
 
-3. Configurações do servidor mestre
+1. Configurações do servidor mestre
 
    A replicação de entrada de dados exige que o parâmetro `lower_case_table_names` seja consistente entre os servidores mestre e de réplica. Esse parâmetro é 1 por padrão no Banco de Dados do Azure para MySQL. 
 
@@ -75,7 +75,7 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-4. Criar uma nova função de replicação e configurar permissão
+1. Criar uma nova função de replicação e configurar permissão
 
    Crie uma conta de usuário no servidor mestre que é configurado com privilégios de replicação. Isso pode ser feito por meio de comandos SQL ou de uma ferramenta como o Workbench do MySQL. Leve em conta se você planeja replicar com SSL, pois isso precisa ser especificado na criação do usuário. Consulte a documentação do MySQL para entender como [adicionar contas de usuário](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) ao seu servidor mestre. 
 
@@ -115,8 +115,7 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
 
    ![Replicação subordinada](./media/howto-data-in-replication/replicationslave.png)
 
-
-5. Configure o servidor mestre para o modo somente leitura
+1. Configure o servidor mestre para o modo somente leitura
 
    Antes de começar a despejar o banco de dados, o servidor precisa ser colocado no modo somente leitura. No modo somente leitura, o mestre será capaz de processar todas as transações de gravação. Avalie o impacto em seus negócios e agende a janela de somente leitura em um horário fora de pico, se necessário.
 
@@ -125,7 +124,7 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
    SET GLOBAL read_only = ON;
    ```
 
-6. Obter o nome e o deslocamento do arquivo de log binário
+1. Obter o nome e o deslocamento do arquivo de log binário
 
    Execute o [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) comando para determinar o deslocamento e o nome do arquivo de log binário atual.
     
@@ -138,11 +137,11 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
  
 ## <a name="dump-and-restore-master-server"></a>Despejar e restaurar o servidor principal
 
-1. Descarregar todos os bancos de dados do servidor mestre
+1. Determine os bancos de dados e as tabelas que você deseja replicar no Azure Database para MySQL e execute o despejo do servidor mestre.
+ 
+    Você pode usar o mysqldump para despejar bancos de dados do seu mestre. Para obter detalhes, consulte [Despejar e restaurar](concepts-migrate-dump-restore.md). Não é necessário despejar as bibliotecas normal e de teste do MySQL.
 
-   Você pode usar o mysqldump para despejar bancos de dados do seu mestre. Para obter detalhes, consulte [Despejar e restaurar](concepts-migrate-dump-restore.md). Não é necessário despejar as bibliotecas normal e de teste do MySQL.
-
-2. Definir o servidor mestre para o modo de leitura/gravação
+1. Definir o servidor mestre para o modo de leitura/gravação
 
    Uma vez que o banco de dados foi descartado, mude o servidor MySQL de volta para o modo de leitura / gravação.
 
@@ -151,7 +150,7 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
    UNLOCK TABLES;
    ```
 
-3. Restaurar arquivo de despejo no novo servidor
+1. Restaurar arquivo de despejo no novo servidor
 
    Restaure o arquivo de despejo no servidor criado no serviço Banco de Dados do Azure para MySQL. Consulte [Despejar e restaurar](concepts-migrate-dump-restore.md) para saber como restaurar um arquivo de despejo em um servidor MySQL. Se o arquivo de despejo é grande, carregue-o em uma máquina virtual do Azure na mesma região do servidor de réplica. Restaure-o no serviço Banco de Dados do Azure para MySQL da máquina virtual.
 
@@ -175,33 +174,39 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
    - master_ssl_ca: contexto do certificado de autoridade de certificação. Se não estiver usando SSL, passe em uma cadeia de caracteres vazia.
        - É recomendável passar esse parâmetro como uma variável. Confira os exemplos a seguir para obter mais informações.
 
-> [!NOTE]
-> Se o servidor mestre estiver hospedado em uma VM do Azure, defina "Permitir acesso a serviços do Azure" como "ATIVADO" para permitir que os servidores mestres e de réplica comuniquem-se entre si. Essa configuração pode ser alterada a partir das opções **Segurança de conexão**. Consulte [gerenciar regras de firewall usando o portal](howto-manage-firewall-using-portal.md) para obter mais informações.
-
+   > [!NOTE]
+   > Se o servidor mestre estiver hospedado em uma VM do Azure, defina "Permitir acesso a serviços do Azure" como "ATIVADO" para permitir que os servidores mestres e de réplica comuniquem-se entre si. Essa configuração pode ser alterada a partir das opções **Segurança de conexão**. Consulte [gerenciar regras de firewall usando o portal](howto-manage-firewall-using-portal.md) para obter mais informações.
+      
    **Exemplos**
-
+   
    *Replicação com SSL*
-
+   
    A variável `@cert` é criada executando os seguintes comandos do MySQL: 
-
-   ```sql
-   SET @cert = '-----BEGIN CERTIFICATE-----
-   PLACE YOUR PUBLIC KEY CERTIFICATE'`S CONTEXT HERE
-   -----END CERTIFICATE-----'
-   ```
-
+   
+      ```sql
+      SET @cert = '-----BEGIN CERTIFICATE-----
+      PLACE YOUR PUBLIC KEY CERTIFICATE'`S CONTEXT HERE
+      -----END CERTIFICATE-----'
+      ```
+   
    A replicação com SSL é configurada entre um servidor mestre hospedado no domínio "companya.com" e um servidor de réplica hospedado no banco de dados do Azure para MySQL. Esse procedimento armazenado é executado na réplica. 
-
-   ```sql
-   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
-   ```
+   
+      ```sql
+      CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
+      ```
    *Replicação sem SSL*
-
+   
    A replicação sem SSL é configurada entre um servidor mestre hospedado no domínio "companya.com" e um servidor de réplica hospedado no banco de dados do Azure para MySQL. Esse procedimento armazenado é executado na réplica.
+   
+      ```sql
+      CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
+      ```
 
-   ```sql
-   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
-   ```
+1. Filtragem 
+ 
+   Se você quiser ignorar a replicação de algumas tabelas do seu mestre, atualize o `replicate_wild_ignore_table` parâmetro de servidor no servidor de réplica. Consulte a [documentação do MySQL](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) para saber mais sobre esse parâmetro.
+    
+    Para atualizar o parâmetro, você pode usar o [portal do Azure](howto-server-parameters.md) ou [CLI do Azure](howto-configure-server-parameters-using-cli.md).
 
 1. Iniciar replicação
 

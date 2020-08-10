@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1e44b58335bf90dbc0e97b58de7f878bc94c91c7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 05dd1f1d429b59c4d621b63c6b78a1fc00e8d4dd
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371950"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528456"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Carregar dados com segurança usando o SQL do Synapse
 
@@ -88,13 +88,13 @@ A autenticação de identidade gerenciada é obrigatória quando sua conta de ar
    > [!NOTE]
    > Se você tiver uma conta de armazenamento de blobs ou de uso geral v1, será necessário **primeiro atualizar para v2** usando este [guia](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-3. Na conta de armazenamento, navegue até o **Controle de Acesso (IAM)** e selecione **Adicionar atribuição de função**. Atribua a função RBAC de **Proprietário, Colaborador ou Leitor de Dados de Blob de Armazenamento** ao seu SQL Server.
+3. Na conta de armazenamento, navegue até o **Controle de Acesso (IAM)** e selecione **Adicionar atribuição de função**. Atribua a função do Azure de **Proprietário, Colaborador ou Leitor de Dados de Blob de Armazenamento** ao seu SQL Server.
 
    > [!NOTE]
    > Somente membros com o privilégio Proprietário podem executar essa etapa. Para obter várias funções internas do Azure, confira este [guia](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
    
     > [!IMPORTANT]
-    > Especifique a função RBAC de Proprietário, Colaborador ou Leitor de **Dados de Blob** de **Armazenamento**. Essas funções são diferentes das funções internas do Azure de Proprietário, Colaborador e Leitor. 
+    > Especifique a função do Azure de Proprietário, Colaborador ou Leitor de **Dados de Blob** de **Armazenamento**. Essas funções são diferentes das funções internas do Azure de Proprietário, Colaborador e Leitor. 
 
     ![Concedendo permissão de RBAC para carregar](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
@@ -112,10 +112,10 @@ A autenticação de identidade gerenciada é obrigatória quando sua conta de ar
 ## <a name="d-azure-active-directory-authentication-aad"></a>D. Autenticação do AAD (Azure Active Directory)
 #### <a name="steps"></a>Etapas
 
-1. Na conta de armazenamento, navegue até o **Controle de Acesso (IAM)** e selecione **Adicionar atribuição de função**. Atribua a função RBAC de **Proprietário, Colaborador ou Leitor de Dados de Blob de Armazenamento** ao seu usuário do AAD. 
+1. Na conta de armazenamento, navegue até o **Controle de Acesso (IAM)** e selecione **Adicionar atribuição de função**. Atribua a função do Azure de **Proprietário, Colaborador ou Leitor de Dados de Blob de Armazenamento** ao seu usuário do AAD. 
 
     > [!IMPORTANT]
-    > Especifique a função RBAC de Proprietário, Colaborador ou Leitor de **Dados de Blob** de **Armazenamento**. Essas funções são diferentes das funções internas do Azure de Proprietário, Colaborador e Leitor.
+    > Especifique a função do Azure de Proprietário, Colaborador ou Leitor de **Dados de Blob** de **Armazenamento**. Essas funções são diferentes das funções internas do Azure de Proprietário, Colaborador e Leitor.
 
     ![Concedendo permissão de RBAC para carregar](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 

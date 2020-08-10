@@ -8,12 +8,13 @@ ms.topic: sample
 ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 2abe23de5fbd2feada6ac8ff0a827b8575bcb28b
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 6a9a3df1d200aae9e5ea401652752656ed9ff423
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171994"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760967"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Como usar o Armazenamento de Tabelas do Azure e a API da Tabela do Azure Cosmos DB do Node.js
 
@@ -122,7 +123,7 @@ function (returnObject, finalCallback, next)
 
 Nesse retorno de chamada, e após processar o `returnObject` (a resposta da solicitação ao servidor), o retorno de chamada precisará invocar `next`, se ele existir, para continuar processando outros filtros ou apenas invocar `finalCallback` para encerrar a invocação de serviço.
 
-Dois filtros que implementam a lógica de repetição estão incluídos no SDK do Azure para Node.js, `ExponentialRetryPolicyFilter** and `LinearRetryPolicyFilter`. The following creates a `TableService` object that uses the `ExponentialRetryPolicyFilter`:
+Dois filtros que implementam a lógica de repetição são incluídos com o Azure SDK para Node.js, `ExponentialRetryPolicyFilter` e `LinearRetryPolicyFilter`. O seguinte código cria um objeto `TableService` que usa o `ExponentialRetryPolicyFilter`:
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();

@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 04/30/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f4b42f2ed43da68daabb3bd334a362071202be42
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 619b5f16f5a913a4ec9bb1ebe2e7060fcac28d7d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073715"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421800"
 ---
 # <a name="app-service-overview"></a>Visão geral do Serviço de Aplicativo
 
@@ -31,11 +31,11 @@ Veja alguns dos principais recursos do Serviço de Aplicativo:
 * **Conexões com plataformas SaaS e dados locais** - escolha entre mais de 50 [conectores](../connectors/apis-list.md) para sistemas corporativos (como SAP), serviços de SaaS (como Salesforce) e serviços de Internet (como Facebook). Acesse dados locais usando [Conexões Híbridas](app-service-hybrid-connections.md) e [Redes Virtuais do Azure](web-sites-integrate-with-vnet.md).
 * **Segurança e conformidade** - o Serviço de Aplicativo está em [conformidade com ISO, SOC e PCI](https://www.microsoft.com/en-us/trustcenter). Autentique usuários com o [Azure Active Directory](configure-authentication-provider-aad.md) ou com logon social ([Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [Twitter](configure-authentication-provider-twitter.md) e [ Microsoft](configure-authentication-provider-microsoft.md)). Crie [Restrições de endereço IP](app-service-ip-restrictions.md) e [gerencie identidades de serviço](overview-managed-identity.md).
 * **Modelos de aplicativos** - escolha dentre uma lista abrangente de modelos de aplicativos no [Azure Marketplace](https://azure.microsoft.com/marketplace/), como WordPress, Joomla e Drupal.
-* **Integração do visual Studio** -ferramentas dedicadas no Visual Studio simplificam o trabalho de criar, implantar, depurar e gerenciar.
+* **Integração do Visual Studio e do Visual Studio Code** – Ferramentas dedicadas no Visual Studio e no Visual Studio Code simplificam o trabalho de criar, implantar e depurar.
 * **Recursos móveis e de API** – O Serviço de Aplicativo fornece suporte pronto para uso ao CORS para cenários de API RESTful e simplifica os cenários de aplicativos móveis permitindo autenticação, sincronização de dados offline, notificações por push e muito mais.
 * **Código sem servidor** - Execute um snippet de código ou um script sob demanda sem a necessidade de provisionar explicitamente ou gerenciar a infraestrutura, e pague somente pelo tempo de computação usado pelo seu código (consulte [Azure Functions](/azure/azure-functions/)).
 
-Além do Serviço de Aplicativo, o Azure oferece outros serviços que podem ser usados para hospedar sites e aplicativos Web. Para a maioria dos cenários, o Serviço de Aplicativo é a melhor opção.  Para arquitetura de microsserviço, considere o [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric). Se você precisar de mais controle sobre as VMs nas quais seu código é executado, considere as [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Para saber mais sobre como escolher entre esses serviços do Azure, confira [Comparação entre o Serviço de Aplicativo do Azure, Máquinas Virtuais, Service Fabric e Serviços de Nuvem do Azure](overview-compare.md).
+Além do Serviço de Aplicativo, o Azure oferece outros serviços que podem ser usados para hospedar sites e aplicativos Web. Para a maioria dos cenários, o Serviço de Aplicativo é a melhor opção.  Para a arquitetura de microsserviço, considere o [Serviço do Azure Spring Cloud](/azure/spring-cloud/) e o [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).  Se você precisar de mais controle sobre as VMs nas quais o seu código é executado, considere as [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Para saber mais sobre como escolher entre esses serviços do Azure, confira [Comparação entre o Serviço de Aplicativo do Azure, Máquinas Virtuais, Service Fabric e Serviços de Nuvem do Azure](overview-compare.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

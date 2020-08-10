@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/25/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5189a9dc8cd83877b4797fd828e9c9f6da8d1b93
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 405cb107711845a6699e09bc09a1d2d9f3005cd6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392823"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499969"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Linux no portal do Azure
 
@@ -32,11 +32,11 @@ Entre no [portal do Azure](https://portal.azure.com), se você ainda não fez is
 1. Na página **Máquinas Virtuais**, selecione **Adicionar**. A página **Criar uma máquina virtual** é aberta.
 1. Na guia **Básico**, em **Detalhes do projeto**, verifique se a assinatura correta está selecionada e, em seguida, escolha **Criar** grupo de recursos. Digite *myResourceGroup* no nome*. 
 
-    ![Criar um grupo de recursos para sua VM](./media/quick-create-portal/project-details.png)
+    ![Captura de tela da seção Detalhes do projeto mostrando onde você seleciona a assinatura do Azure e o grupo de recursos da máquina virtual](./media/quick-create-portal/project-details.png)
 
 1. Em **Detalhes da instância**, digite *myVM* para o **Nome da máquina virtual**, escolha *Leste dos EUA* para **Região** e escolha *Ubuntu 18.04 LTS* para sua **Imagem**. Deixe os outros padrões.
 
-    ![Seção de detalhes da instância](./media/quick-create-portal/instance-details.png)
+    ![Captura de tela da seção Detalhes da instância, onde você fornece um nome para a máquina virtual e seleciona sua região, sua imagem e seu tamanho](./media/quick-create-portal/instance-details.png)
 
 1. Em **Conta do administrador**, selecione **Chave pública SSH**.
 
@@ -44,11 +44,11 @@ Entre no [portal do Azure](https://portal.azure.com), se você ainda não fez is
 
 1. Em **Origem de chave pública SSH**, mantenha o padrão de **Gerar novo par de chaves** e digite *myKey* como o **Nome do par de chaves**.
 
-    ![Conta de administrador](./media/quick-create-portal/administrator-account.png)
+    ![Captura de tela da seção Conta de administrador, onde você fornece um tipo de autenticação e fornece as credenciais de administrador](./media/quick-create-portal/administrator-account.png)
 
 1. Em **Regras de porta de entrada** > **Portas de entrada públicas**, escolha **Permitir portas selecionadas** e, em seguida, selecione **SSH (22)** e **HTTP (80)** na lista suspensa. 
 
-    ![Abrir portas para RDP e HTTP](./media/quick-create-portal/inbound-port-rules.png)
+    ![Captura de tela da seção de regras de porta de entrada, na qual você seleciona as portas nas quais as conexões de entrada são permitidas](./media/quick-create-portal/inbound-port-rules.png)
 
 1. Deixe os padrões restantes e, em seguida, selecione o botão **Examinar + criar** na parte inferior da página.
 
@@ -61,7 +61,7 @@ Entre no [portal do Azure](https://portal.azure.com), se você ainda não fez is
 1. Na página da nova VM, selecione o endereço IP público e copie-o para a área de transferência.
 
 
-    ![Copiar o endereço IP público](./media/quick-create-portal/ip-address.png)
+    ![Captura de tela mostrando como copiar o endereço IP para a máquina virtual](./media/quick-create-portal/ip-address.png)
 
 ## <a name="connect-to-virtual-machine"></a>Conectar-se à máquina virtual
 
@@ -94,7 +94,7 @@ Quando terminar, digite `exit` para sair da sessão SSH.
 
 Use um navegador da Web de sua escolha para exibir a página inicial padrão do NGINX. Digite o endereço IP público da VM como o endereço Web. O endereço IP público pode ser encontrado na página de visão geral de VM ou como parte da cadeia de conexão SSH usada anteriormente.
 
-![Site padrão NGINX](./media/quick-create-portal/nginx.png)
+![Captura de tela mostrando o site padrão do NGINX em um navegador](./media/quick-create-portal/nginx.png)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

@@ -1,18 +1,18 @@
 ---
 title: Noções básicas das funções de administrador do Enterprise no Azure
-description: Aprenda sobre as funções de administrador corporativo no Azure.
+description: Aprenda sobre as funções de administrador corporativo no Azure. Você pode atribuir cinco funções administrativas distintas.
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: banders
-ms.openlocfilehash: 2cd786304180369fee39c7b362f27a44728f3ad8
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8a4705a68b0b96a8f95cc2356cda454fdef65054
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124333"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531482"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Gerenciando funções do Azure Enterprise
 
@@ -103,9 +103,9 @@ Você pode ver preços diferentes no portal do Azure, dependendo de sua função
 
 Para saber como definir essas políticas, consulte [Gerenciar acesso às informações de faturamento do Azure](manage-billing-access.md).
 
-A tabela a seguir mostra o relacionamento entre as funções de administração do Contrato Enterprise, a política de cobranças de visualização, a função de controle de acesso baseado em função (RBAC) no portal do Azure e o preço que você vê no portal do Azure. O administrador corporativo sempre vê detalhes de uso com base no preço do EA da organização. No entanto, o administrador do departamento e o proprietário da conta veem exibições de preços diferentes com base na política de cobrança de visualização e na função de RBAC. A função Administrador de departamento listada na tabela a seguir refere-se às funções Admin de departamento e Admin de departamento (somente leitura).
+A tabela a seguir mostra o relacionamento entre as funções de administração do Contrato Enterprise, a política de cobranças de exibição, a função do Azure no portal do Azure e o preço que você vê no portal do Azure. O administrador corporativo sempre vê detalhes de uso com base no preço do EA da organização. No entanto, o Administrador do Departamento e o Proprietário da Conta veem exibições de preços diferentes com base na política de cobranças de exibição e na função do Azure deles. A função Administrador de departamento listada na tabela a seguir refere-se às funções Admin de departamento e Admin de departamento (somente leitura).
 
-|Função de administrador do Contrato Enterprise|Política de encargos de exibição para função|Função RBAC|Exibição de preço|
+|Função de administrador do Contrato Enterprise|Política de encargos de exibição para função|Função do Azure|Exibição de preço|
 |---|---|---|---|
 |Proprietário da conta ou administrador de departamento|✔ Habilitado|Proprietário|Preços de EA da organização|
 |Proprietário da conta ou administrador de departamento|✘ Desabilitado|Proprietário|Preço de varejo|
@@ -113,7 +113,7 @@ A tabela a seguir mostra o relacionamento entre as funções de administração 
 |Proprietário da conta ou administrador de departamento|✘ Desabilitado |none|Não há preços|
 |Nenhum|Não aplicável |Proprietário|Preço de varejo|
 
-Você define a função de administrador da empresa e exibe as políticas de cobranças no portal da empresa. A função RBAC pode ser atualizada no portal do Azure. Para obter mais informações, confira [gerenciar o acesso usando o portal do Azure e o RBAC](../../role-based-access-control/role-assignments-portal.md).
+Você define a função de administrador da empresa e exibe as políticas de cobranças no portal da empresa. A função do Azure pode ser atualizada no portal do Azure. Para obter mais informações, confira [gerenciar o acesso usando o portal do Azure e o RBAC](../../role-based-access-control/role-assignments-portal.md).
 
 
 

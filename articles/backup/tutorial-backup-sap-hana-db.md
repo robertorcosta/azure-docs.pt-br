@@ -3,12 +3,12 @@ title: Tutorial – fazer backup de bancos de dados do SAP HANA em VMs do Azure
 description: Neste tutorial, saiba o backup de bancos de dados SAP HANA executados em uma VM do Azure pode ser realizado no cofre dos Serviços de Recuperação do Backup do Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 8f6fa00f65a99798ee105852a269247d717ad75d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f89d21a252870befae7807d2dda96828aaaa1326
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513261"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439654"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Fazer backup de bancos de dados do SAP HANA em uma VM do Azure
 
@@ -23,7 +23,7 @@ Este tutorial mostra a você como fazer backup de bancos de dados do SAP HANA em
 [Aqui](sap-hana-backup-support-matrix.md#scenario-support) estão todos os cenários aos quais damos suporte no momento.
 
 >[!NOTE]
->[Introdução]() à versão prévia de backup do SAP HANA para RHEL (7.4, 7.6, 7.7 ou 8.1). Para outras consultas, escreva-nos em [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>Desde 1º de agosto de 2020, o backup do SAP HANA para RHEL (7.4, 7.6, 7.7 e 8.1) está em disponibilidade geral.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,7 +31,7 @@ Antes de configurar backups, verifique se você fez o seguinte:
 
 * Identifique ou crie um [cofre dos Serviços de Recuperação](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) na mesma região e assinatura da VM que executa o SAP HANA.
 * Permitir a conectividade da VM com a Internet para que ela possa acessar o Azure, conforme descrito no procedimento [configurar conectividade de rede](#set-up-network-connectivity) abaixo.
-* Assegure que o comprimento combinado do nome da VM do servidor SAP HANA e o nome do grupo de recursos não exceda 84 caracteres no caso de VMs do ARM (Azure Resource Manager) e 77 caracteres no caso de VMs clássicas. Essa limitação é porque alguns caracteres são reservados pelo serviço.
+* Assegure que o comprimento combinado do nome da VM do Servidor SAP HANA e do nome do Grupo de Recursos não exceda 84 caracteres no caso de VMs do ARM (Azure Resource Manager) e 77 caracteres no caso de VMs clássicas. Essa limitação é porque alguns caracteres são reservados pelo serviço.
 * Uma chave deve existir no **hdbuserstore** que atenda aos seguintes critérios:
   * Ela deve estar presente no **hdbuserstore** padrão. O padrão é a conta `<sid>adm` sob a qual o SAP HANA está instalado.
   * Para MDC, a chave deve apontar para a porta SQL de **NAMESERVER**. No caso do SDC, ele deve apontar para a porta SQL de **INDEXSERVER**
@@ -43,60 +43,59 @@ Antes de configurar backups, verifique se você fez o seguinte:
 
 ## <a name="set-up-network-connectivity"></a>Configurar a conectividade de rede
 
-Para todas as operações, a VM do SAP HANA exige a conectividade com endereços IP públicos do Azure. As operações de VM (descoberta de banco de dados, configuração de backups, agendamento de backups, restauração de pontos de recuperação etc.) falham sem conectividade com endereços IP públicos do Azure.
+Para todas as operações, um banco de dados SAP HANA em execução em uma VM do Azure requer conectividade com o serviço de Backup do Azure, o Armazenamento do Azure e o Azure Active Directory. Isso pode ser feito usando pontos de extremidade privados ou concedendo acesso aos endereços IP públicos ou FQDNs necessários. Não permitir a conectividade adequada com os serviços do Azure necessários pode levar a uma falha em operações como descoberta de banco de dados, configuração de backup, realização de backups e restauração de dados.
 
-Estabeleça a conectividade usando uma das seguintes opções:
+A seguinte tabela lista as várias alternativas que você pode usar para estabelecer a conectividade:
 
-### <a name="allow-the-azure-datacenter-ip-ranges"></a>Permitir os intervalos de IP do datacenter do Azure
+| **Opção**                        | **Vantagens**                                               | **Desvantagens**                                            |
+| --------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Pontos de extremidade privados                 | Permitir backups por IPs privados dentro da rede virtual  <br><br>   Fornecer controle granular na rede e no lado do cofre | Incorre em [custos](https://azure.microsoft.com/pricing/details/private-link/) de ponto de extremidade privado padrão |
+| Marcas de serviço do NSG                  | Mais fácil de ser gerenciada, pois as alterações de intervalo são mescladas automaticamente   <br><br>   Sem custos adicionais | Pode ser usada somente com NSGs  <br><br>    Fornece acesso a todo o serviço |
+| Marcas de FQDN do Firewall do Azure          | Mais fácil de ser gerenciada, pois os FQDNs necessários são gerenciados automaticamente | Pode ser usada somente com o Firewall do Azure                         |
+| Permitir o acesso a FQDNs/IPs de serviço | Sem custos adicionais   <br><br>  Funciona com todos os dispositivos e firewalls de segurança de rede | Pode ser solicitado acesso a um amplo conjunto de IPs ou FQDNs   |
+| Usar um proxy HTTP                 | Único ponto de acesso à Internet para VMs                       | Custos adicionais para execução de uma VM com o software de proxy         |
 
-Essa opção permite os [intervalos de IP](https://www.microsoft.com/download/details.aspx?id=41653) no arquivo baixado. Para acessar um NSG (grupo de segurança de rede), use o cmdlet Set-AzureNetworkSecurityRule. Se a lista de destinatários confiáveis só incluir IPs específicos da região, você também precisará atualizar a lista de destinatários confiáveis quanto à marca de serviço do Azure AD (Azure Active Directory) para habilitar a autenticação.
+Mais detalhes sobre como usar essas opções são compartilhados abaixo:
 
-### <a name="allow-access-using-nsg-tags"></a>Permitir acesso usando marcas NSG
+### <a name="private-endpoints"></a>Pontos de extremidade privados
 
-Se você usar um NSG para restringir a conectividade, deverá usar a marca de serviço AzureBackup para permitir o acesso de saída ao Backup do Azure. Além disso, você deverá permitir a conectividade para autenticação e transferência de dados usando [regras](../virtual-network/security-overview.md#service-tags) para o Azure AD e o Armazenamento do Azure. Isso pode ser feito no portal do Azure ou por meio do PowerShell.
+Os pontos de extremidade privados permitem que você se conecte com segurança de servidores dentro de uma rede virtual ao seu cofre dos Serviços de Recuperação. O ponto de extremidade privado usa um IP do espaço de endereço da VNET para o cofre. O tráfego de rede entre seus recursos dentro da rede virtual e o cofre passa pela rede virtual e por um link privado na rede de backbone da Microsoft. Isso elimina a exposição à Internet pública. Leia mais sobre pontos de extremidade privados para o Backup do Azure [aqui](./private-endpoints.md).
 
-Para criar uma regra usando o portal:
+### <a name="nsg-tags"></a>Marcas do NSG
 
-  1. Em **Todos os Serviços**, acesse **Grupos de segurança de rede** e selecione o grupo de segurança de rede.
-  2. Selecione **Regras de segurança de saída** em **Configurações**.
-  3. Selecione **Adicionar**. Insira todos os detalhes necessários para criar uma regra, conforme descrito em [Configurações da regra de segurança](../virtual-network/manage-network-security-group.md#security-rule-settings). Verifique se a opção **Destino** está definida como **Marca de Serviço** e se **Marca de serviço de destino** está definida como **AzureBackup**.
-  4. Clique em **Adicionar** para salvar a regra de segurança de saída recém-criada.
+Se você usar o NSG (grupo de segurança de rede), use a tag de serviço *AzureBackup* para permitir o acesso de saída ao Backup do Azure. Além da tag do Backup do Azure, também será necessário permitir a conectividade para autenticação e transferência de dados criando [regras de NSG](../virtual-network/security-overview.md#service-tags) semelhantes para o *Azure AD* e o *Armazenamento do Azure*.  As seguintes etapas descrevem o processo para criar uma regra para a tag do Backup do Azure:
 
-Para criar uma regra usando o PowerShell:
+1. Em **Todos os Serviços**, acesse **Grupos de segurança de rede** e selecione o grupo de segurança de rede.
 
- 1. Adicione as credenciais de conta do Azure e atualize as nuvens nacionais<br/>
-      `Add-AzureRmAccount`<br/>
+1. Selecione **Regras de segurança de saída** em **Configurações**.
 
- 2. Selecione a assinatura do NSG<br/>
-      `Select-AzureRmSubscription "<Subscription Id>"`
+1. Selecione **Adicionar**. Insira todos os detalhes necessários para criar uma regra, conforme descrito em [Configurações da regra de segurança](../virtual-network/manage-network-security-group.md#security-rule-settings). Verifique se a opção **Destino** está definida como *Tag de Serviço* e se **Marca de serviço de destino** está definida como *AzureBackup*.
 
- 3. Selecione o NSG<br/>
-    `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
+1. Clique em **Adicionar** para salvar a regra de segurança de saída recém-criada.
 
- 4. Adicione a permissão da regra de saída à marca de serviço do Backup do Azure<br/>
-    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+De maneira semelhante, é possível criar regras de segurança de saída de NSG para o Armazenamento do Azure e o Azure AD. Para obter mais informações sobre as marcas de serviço, confira este [artigo](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
 
- 5. Adicione a permissão da regra de saída à marca de serviço do Armazenamento<br/>
-    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "StorageAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "Storage" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+### <a name="azure-firewall-tags"></a>Marcas do Firewall do Azure
 
- 6. Adicione a permissão da regra de saída à marca de serviço AzureActiveDirectory<br/>
-    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureActiveDirectoryAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureActiveDirectory" -DestinationPortRange 443 -Description "Allow outbound traffic to AzureActiveDirectory service"`
+Se estiver usando o Firewall do Azure, crie uma regra de aplicativo usando a [tag de FQDN do Firewall do Azure](../firewall/fqdn-tags.md) *AzureBackup*. Isso permite todo o acesso de saída ao Backup do Azure.
 
- 7. Salve o NSG<br/>
-    `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
+### <a name="allow-access-to-service-ip-ranges"></a>Permitir o acesso aos intervalos de IP de serviço
 
-**Permitir o acesso usando marcas do Firewall do Azure**. Se estiver usando o Firewall do Azure, crie uma regra de aplicativo usando a marca de [FQDN](../firewall/fqdn-tags.md) do AzureBackup. Isso permite o acesso de saída ao Backup do Azure.
+Se você optar por permitir o acesso a IPs de serviço, confira os intervalos de IP no arquivo JSON disponível [aqui](https://www.microsoft.com/download/confirmation.aspx?id=56519). Será necessário permitir o acesso a IPs correspondentes ao Backup do Azure, ao Armazenamento do Azure e ao Azure Active Directory.
 
-**Implantar um servidor proxy HTTP para rotear o tráfego**. Quando você faz backup de um banco de dados do SAP HANA em uma VM do Azure, a extensão de backup na VM usa as APIs HTTPS para enviar comandos de gerenciamento ao Backup do Azure e dados ao Armazenamento do Azure. A extensão de backup também usa o Azure AD para autenticação. Roteie o tráfego de extensão de backup para esses três serviços por meio do proxy HTTP. As extensões são o único componente que está configurado para acesso à Internet pública.
+### <a name="allow-access-to-service-fqdns"></a>Permitir o acesso a FQDNs de serviço
 
-As opções de conectividade incluem as seguintes vantagens e desvantagens:
+Também é possível usar os seguintes FQDNs para permitir o acesso aos serviços necessários de seus servidores:
 
-**Opção** | **Vantagens** | **Desvantagens**
---- | --- | ---
-Permitir intervalos de IP | Sem custos adicionais | É complexa de ser gerenciada porque os intervalos de endereços IP mudam com o tempo <br/><br/> Fornece acesso a todo o Azure, não somente ao Armazenamento do Azure
-Usar marcas de serviço do NSG | Mais fácil de ser gerenciada, pois as alterações de intervalo são mescladas automaticamente <br/><br/> Sem custos adicionais <br/><br/> | Pode ser usada somente com NSGs <br/><br/> Fornece acesso a todo o serviço
-Usar marcas de FQDN do Firewall do Azure | Mais fácil de ser gerenciada, pois os FQDNs necessários são gerenciados automaticamente | Pode ser usada somente com o Firewall do Azure
-Usar um proxy HTTP | É permitido o controle granular no proxy das URLs de armazenamento <br/><br/> Único ponto de acesso à Internet para VMs <br/><br/> Não está sujeita a alterações de endereços IP do Azure | Custos adicionais para execução de uma VM com o software de proxy
+| Serviço    | Nomes de domínio a serem acessados                             |
+| -------------- | ------------------------------------------------------------ |
+| Backup do Azure  | `*.backup.windowsazure.com`                             |
+| Armazenamento do Azure | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
+| Azure AD      | Permitir acesso a FQDNs nas seções 56 e 59 de acordo com [este artigo](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+
+### <a name="use-an-http-proxy-server-to-route-traffic"></a>Usar um servidor proxy HTTP para rotear o tráfego
+
+Quando você faz backup de um banco de dados SAP HANA em execução em uma VM do Azure, a extensão de backup na VM usa as APIs HTTPS para enviar comandos de gerenciamento ao Backup do Azure e dados ao Armazenamento do Azure. A extensão de backup também usa o Azure AD para autenticação. Roteie o tráfego de extensão de backup para esses três serviços por meio do proxy HTTP. Use a lista de IPs e FQDNs mencionados acima para permitir o acesso aos serviços necessários. Não há suporte para os servidores proxy autenticados.
 
 ## <a name="what-the-pre-registration-script-does"></a>O que o script de pré-registro faz
 

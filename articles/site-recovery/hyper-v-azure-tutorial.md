@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: afa8375805ebc5d52ac716126adca86850147166
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 5ce98c785700301bba92926d7d5a243b614eca7f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134091"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504221"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar a recuperação de desastre de VMs locais do Hyper-V para o Azure
 
@@ -51,14 +51,14 @@ Este é o terceiro tutorial de uma série. Presume-se que você já tenha conclu
 6. Em **Você está usando o VMM do System Center para gerenciar seus hosts Hyper-V**, selecione **Não**.
 7. Selecione **OK**.
 
-    ![Meta de replicação](./media/hyper-v-azure-tutorial/replication-goal.png)
+    ![Captura de tela das opções de Meta de proteção em Preparar infraestrutura.](./media/hyper-v-azure-tutorial/replication-goal.png)
 
 ## <a name="confirm-deployment-planning"></a>Confirmar planejamento de implantação
 
 1. Em **Planejamento de implantação**, se você estiver planejando uma implantação grande, baixe o Planejador de Implantações do Hyper-V usando o link na página. [Saiba mais](hyper-v-deployment-planner-overview.md) sobre o planejamento de implantação do Hyper-V.
 2. Para este tutorial, não precisamos do Planejador de Implantações. Em **Você concluiu o planejamento de implantação?** , selecione **Farei isso mais tarde** e, em seguida, selecione **OK**.
 
-    ![Planejamento de implantação](./media/hyper-v-azure-tutorial/deployment-planning.png)
+    ![Captura de tela das opções de Planejamento de implantação em Preparar infraestrutura.](./media/hyper-v-azure-tutorial/deployment-planning.png)
 
 ## <a name="set-up-the-source-environment"></a>Configurar o ambiente de origem
 
@@ -68,17 +68,17 @@ Para configurar o ambiente de origem, crie um site do Hyper-V e adicione a ele h
 2. Em **Preparar origem**, selecione **+ Site do Hyper-V**.
 3. Em **Criar site do Hyper-V**, especifique o nome do site. Estamos usando **ContosoHyperVSite**.
 
-    ![Site do Hyper-V](./media/hyper-v-azure-tutorial/hyperv-site.png)
+    ![Captura de tela da seleção do site do Hyper-V em Preparar infraestrutura.](./media/hyper-v-azure-tutorial/hyperv-site.png)
 
 4. Depois que o site for criado, em **Preparar origem** > **Etapa 1: Selecionar o site Hyper-V**, selecione o site que você criou.
 5. Selecione **+ Servidor do Hyper-V**.
 
-    ![Servidor Hyper-V](./media/hyper-v-azure-tutorial/hyperv-server.png)
+    ![Captura de tela da seleção de servidor do Hyper-V em Preparar infraestrutura.](./media/hyper-v-azure-tutorial/hyperv-server.png)
 
 6. Baixe o instalador do Provedor do Microsoft Azure Site Recovery.
 7. Baixe a chave do registro do cofre. Você precisa dessa chave para instalar o Provedor. A chave é válida por cinco dias após ser gerada.
 
-    ![Baixe o Provedor e chave de Registro](./media/hyper-v-azure-tutorial/download.png)
+    ![Captura de tela das opções para baixar o Provedor e a chave de registro.](./media/hyper-v-azure-tutorial/download.png)
     
 
 ### <a name="install-the-provider"></a>Instale o Provedor

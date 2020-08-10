@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 73ffe7fe6336d9547ebbbf4c894bd1b9398e0900
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 12c3a35e12e3f432345ea788893d0d0ae6e6433f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092925"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496909"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutorial: Proteger um banco de dados no Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -190,7 +190,7 @@ Para adicionar um usuário com a autenticação do SQL:
 A autenticação do Azure Active Directory exige que os usuários de banco de dados sejam criados como independentes. Um usuário de banco de dados independente é mapeado para uma identidade no diretório do Azure AD associada ao banco de dados e não tem logon no banco de dados *mestre*. A identidade do Azure AD pode se destinar a um usuário individual ou um grupo. Para obter mais informações, confira [Usuários de banco de dados independente – tornar o banco de dados portátil](/sql/relational-databases/security/contained-database-users-making-your-database-portable) e examine o [tutorial do Azure AD](authentication-aad-configure.md) sobre como fazer a autenticação usando o Azure AD.
 
 > [!NOTE]
-> Os usuários de banco de dados (excluindo os administradores) não podem ser criados usando o portal do Azure. As funções RBAC do Azure não são propagadas para servidores, bancos de dados nem data warehouses SQL. Elas só são usadas para gerenciar recursos do Azure e não se aplicam às permissões de banco de dados.
+> Os usuários de banco de dados (excluindo os administradores) não podem ser criados usando o portal do Azure. As funções do Azure não são propagadas para servidores, bancos de dados nem data warehouses SQL. Elas só são usadas para gerenciar recursos do Azure e não se aplicam às permissões de banco de dados.
 >
 > Por exemplo, a função *Colaborador do SQL Server* não permite acesso para conexão com um banco de dados ou um data warehouse. Essa permissão precisa ser concedida no banco de dados usando instruções T-SQL.
 

@@ -9,12 +9,12 @@ ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 167bcf4364b88529256b79574c6b8c03098fed02
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: cd0cf3bb7df8efc944fabb8e236f32adb38749d4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607118"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424114"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Início Rápido: Executar um fluxo de trabalho por meio do serviço Microsoft Genomics
 
@@ -48,18 +48,18 @@ Para obter mais informações sobre o Microsoft Genomics, confira [O que é Micr
 
 ## <a name="set-up-install-the-microsoft-genomics-python-client"></a>Configurar: Instalar o cliente do Python para o Microsoft Genomics
 
-Você precisa instalar o Python e o cliente Microsoft Genomics Python em seu ambiente local. 
+Você precisa instalar o Python e o cliente do Python `msgen` do Microsoft Genomics no seu ambiente local. 
 
 ### <a name="install-python"></a>Instalar o Python
 
 O cliente Microsoft Genomics Python é compatível com o Python 2.7.12 ou com uma versão 2.7.xx posterior. 2.7.14 é a versão sugerida. Você pode encontrar o download [aqui](https://www.python.org/downloads/release/python-2714/). 
 
 > [!IMPORTANT]
-> O Python 3.x não é compatível com o Python 2.7.xx.  MSGen é um aplicativo Python 2.7. Ao executar o MSGen, verifique se o ambiente ativo do Python está usando uma versão 2.7.xx do Python. Talvez você receba erros ao tentar usar o MSGen com uma versão 3.x do Python.
+> O Python 3.x não é compatível com o Python 2.7.xx.  O `msgen` é um aplicativo Python 2.7. Ao executar o `msgen`, verifique se o ambiente ativo do Python está usando uma versão 2.7.xx do Python. Talvez você receba erros ao tentar usar o `msgen` com uma versão 3.x do Python.
 
-### <a name="install-the-microsoft-genomics-client"></a>Instalar o cliente do Microsoft Genomics
+### <a name="install-the-microsoft-genomics-python-client-msgen"></a>Instalar o cliente do Python `msgen` do Microsoft Genomics
 
-Use o `pip` do Python para instalar o cliente Microsoft Genomics `msgen`. As instruções a seguir pressupõem que o Python já está no caminho do seu sistema. Se tiver problemas de não reconhecimento da instalação do `pip`, você precisará adicionar o Python e a subpasta de scripts ao seu caminho do sistema.
+Use o `pip` do Python para instalar o cliente Microsoft Genomics `msgen`. As instruções a seguir pressupõem que o Python2.x já está no seu caminho do sistema. Se tiver problemas de não reconhecimento da instalação do `pip`, você precisará adicionar o Python e a subpasta de scripts ao seu caminho do sistema.
 
 ```
 pip install --upgrade --no-deps msgen
@@ -67,14 +67,9 @@ pip install msgen
 ```
 
 Se não desejar instalar `msgen` como um binário de todo o sistema nem modificar pacotes do Python de todo o sistema, use o sinalizador `–-user` com `pip`.
-Se você usar a instalação baseada em pacote ou setup.py, todos os pacotes necessários são instalados. Caso contrário, os pacotes básicos necessários para `msgen` são 
+Ao você usar a instalação baseada em pacote ou setup.py, todos os pacotes necessários são instalados.
 
- * [Azure-storage](https://pypi.python.org/pypi/azure-storage). 
- * [Requests](https://pypi.python.org/pypi/requests). 
-
-Você pode instalar esses pacotes usando `pip`, `easy_install` ou por meio de procedimentos `setup.py` padrão. 
-
-### <a name="test-the-microsoft-genomics-client"></a>Testar o cliente Microsoft Genomics
+### <a name="test-msgen-python-client"></a>Testar o cliente do Python `msgen`
 Para testar o cliente Microsoft Genomics, baixe o arquivo de configuração na sua conta do Genomics. No portal do Azure, navegue até sua conta do Genomics selecionando **Todos os serviços** na parte superior esquerda e pesquisando e selecionando contas do Genomics.
 
 ![Localizar o Microsoft Genomics no portal do Azure](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Localizar o Microsoft Genomics no portal do Azure")
@@ -106,7 +101,7 @@ Configure sua conta de armazenamento com as informações a seguir, conforme mos
  |Desempenho                  | Standard                   | O padrão é standard. Para obter mais detalhes sobre as contas de armazenamento standard e premium, confira [Introdução ao Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
  |Tipo de conta       | BlobStorage       |  O armazenamento de blob pode ser de duas a cinco vezes mais rápido para downloads e uploads que o uso geral. |
  |Replicação                  | Armazenamento com redundância local                  | O armazenamento com redundância local replica seus dados dentro do datacenter da região em que você criou sua conta de armazenamento. Para obter mais informações, consulte [Replicação do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)    |
- |Camada de acesso                  | Dinâmica                   | Uma camada de acesso indica que os objetos na conta de armazenamento serão acessados com mais frequência.    |
+ |Camada de acesso                  | Frequente                   | Uma camada de acesso indica que os objetos na conta de armazenamento serão acessados com mais frequência.    |
 
 Em seguida, selecione **Examinar + criar** para criar a conta de armazenamento. Assim como você fez com a criação de sua conta do Genomics, você pode clicar em **Notificações** na barra de menus superior para monitorar o processo de implantação. 
 
@@ -119,18 +114,20 @@ O serviço do Microsoft Genomics espera leituras finais emparelhadas (arquivos f
 
 Em sua conta de armazenamento, você precisa criar um contêiner de blob para seus dados de entrada e um segundo contêiner de blob para os dados de saída.  Carregue os dados de entrada em seu contêiner de blob de entrada. Várias ferramentas podem ser usadas para fazer isso, incluindo [Gerenciador de Armazenamento do Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/), [BlobPorter](https://github.com/Azure/blobporter) ou [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 
-## <a name="run-a-workflow-through-the-microsoft-genomics-service-using-the-python-client"></a>Execute um fluxo de trabalho por meio do serviço do Microsoft Genomics usando o cliente Python 
+## <a name="run-a-workflow-through-the-microsoft-genomics-service-using-the-msgen-python-client"></a>Execute um fluxo de trabalho por meio do serviço do Microsoft Genomics usando o cliente do Python `msgen`
 
 Para executar um fluxo de trabalho por meio do serviço do Microsoft Genomics, edite o arquivo *config.txt* para especificar o contêiner de armazenamento de entrada e saída para seus dados.
 Abra o arquivo *config.txt* que você baixou da sua conta do Genomics. As seções que precisam ser especificadas são sua chave de assinatura e seis itens na parte inferior, o nome da conta de armazenamento e o nome da chave e do contêiner para a entrada e saída. É possível encontrar essas informações navegando no portal do Azure até **Chaves de acesso** da sua conta de armazenamento ou diretamente no Gerenciador de Armazenamento do Azure.  
 
-![Configuração do Genomics](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Configuração do Genomics")
+![Configuração do Genomics](./media/quickstart-run-genomics-workflow-portal/genomics-config.PNG "Configuração do Genomics")
 
 Caso deseje executar o GATK4, defina o parâmetro `process_name` como `gatk4`.
 
 Por padrão, o serviço Genomics gera arquivos VCF. Caso deseje obter uma saída gVCF em vez de uma saída VCF (equivalente a `-emitRefConfidence` no GATK 3.x e `emit-ref-confidence` no GATK 4.x), adicione o parâmetro `emit_ref_confidence` ao *config.txt* e defina-o como `gvcf`, conforme mostrado na figura anterior.  Para alterá-la novamente para a saída VCF, remova-a do arquivo *config.txt* ou defina o parâmetro `emit_ref_confidence` como `none`. 
 
-### <a name="submit-your-workflow-to-the-microsoft-genomics-service-the-microsoft-genomics-client"></a>Enviar seu fluxo de trabalho para o serviço do Microsoft Genomics e o cliente Microsoft Genomics
+O `bgzip` é uma ferramenta que compacta o arquivo vcf ou gvcf, e o `tabix` cria um índice para o arquivo compactado. Por padrão, o serviço Genomics executa `bgzip` seguido por `tabix` na saída ".g.vcf", mas não executa essas ferramentas por padrão na saída ".vcf". Quando executado, o serviço produz os arquivos ".gz" (saída do bgzi) e ".tbi" (saída do tabix). O argumento é um booliano, que é definido como false por padrão na saída ".vcf" e como true por padrão na saída ".g.vcf". Para usar na linha de comando, especifique `-bz` ou `--bgzip-output` como `true` (execute o bgzip e o tabix) ou `false`. Para usar esse argumento no arquivo *config.txt*, adicione `bgzip_output: true` ou `bgzip_output: false` ao arquivo.
+
+### <a name="submit-your-workflow-to-the-microsoft-genomics-service-using-the-msgen-python-client"></a>Envie o seu fluxo de trabalho por meio do serviço do Microsoft Genomics usando o cliente do Python `msgen`
 
 Use o cliente Microsoft Genomics Python para enviar seu fluxo de trabalho com o seguinte comando:
 
@@ -146,4 +143,5 @@ msgen list -f c:\temp\config.txt
 Assim que o fluxo de trabalho for concluído, será possível exibir os arquivos de saída em sua conta de Armazenamento do Azure no contêiner de saída que você configurou. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você carregou os dados de entrada de exemplo no armazenamento do Azure e enviou um fluxo de trabalho para o serviço do Microsoft Genomics por meio do cliente Python `msgen`. Para saber mais sobre outros tipos de arquivo de entrada que podem ser usados com o serviço do Microsoft Genomics, confira as páginas a seguir: [FASTQ emparelhado](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Vários FASTQ ou BAM](quickstart-input-multiple.md). Você também pode explorar esse tutorial usando nosso [tutorial do bloco de anotações do Azure.](https://aka.ms/genomicsnotebook)
+
+Neste artigo, você carregou os dados de entrada de exemplo no armazenamento do Azure e enviou um fluxo de trabalho para o serviço do Microsoft Genomics por meio do cliente Python `msgen`. Para saber mais sobre outros tipos de arquivo de entrada que podem ser usados com o serviço do Microsoft Genomics, confira as páginas a seguir: [FASTQ emparelhado](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Vários FASTQ ou BAM](quickstart-input-multiple.md). Você também pode explorar este tutorial usando nosso [exemplo de notebook do Azure](https://aka.ms/genomicsnotebook) baixando o arquivo "Genomics Tutorial.ipynb" e usando um leitor de notebook como o [Jupyter](https://docs.microsoft.com/azure/notebooks/tutorial-create-run-jupyter-notebook) para abrir o arquivo e executá-lo.

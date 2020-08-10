@@ -1,54 +1,50 @@
 ---
-title: Computação de alto desempenho em VMs da série H – Máquinas Virtuais do Azure
-description: Saiba mais sobre os recursos e as funcionalidades de VMs da série H otimizadas para HPC.
+title: Computação de alto desempenho em VMs das séries H e N habilitadas para InfiniBand – Máquinas Virtuais do Azure
+description: Conheça os recursos e as funcionalidades das VMs das séries H e N habilitadas para InfiniBand e otimizadas para HPC.
 author: vermagit
 ms.author: amverma
-tags: azure-resource-manager
 ms.service: virtual-machines
+ms-subservice: hpc
 ms.workload: infrastructure-services
 ms.topic: overview
-ms.date: 07/02/2019
-ms.openlocfilehash: 1f88496a6c474194089f20e128b2b92ec61e8559
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/29/2020
+ms.openlocfilehash: f9a672777fbc8a75cb6af10ba25232f8a274c894
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083422"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543717"
 ---
-# <a name="high-performance-computing-on-h-series-vms"></a>Computação de alto desempenho em VMs da série H
+# <a name="high-performance-computing-on-infiniband-enabled-h-series-and-n-series-vms"></a>Computação de alto desempenho em VMs das séries H e N habilitadas para InfiniBand
 
-HPC (computação de alto desempenho) em VMs das séries HB e HC possibilitam o desempenho de HPC mais otimizado de qualquer VM no Azure. VMs otimizadas para HPC são usadas para resolver alguns dos problemas matemáticos mais difíceis, como: dinâmica de fluidos, simulações de petróleo e gás e modelagem do clima.
+As VMs das séries H e N habilitadas para InfiniBand do Azure foram projetadas para fornecer desempenho no nível de liderança, escalabilidade da MPI (Interface de Passagem de Mensagem) e redução de custos para uma variedade de cargas de trabalho de HPC e IA do mundo real. Essas VMs otimizadas para HPC (computação de alto desempenho) são usadas para resolver alguns dos problemas que exigem uma computação mais intensiva em ciência e engenharia como: dinâmica de fluidos, modelagem da Terra, simulações climáticas etc.
 
-Este artigo aborda alguns dos principais recursos de VMs das séries HB e HC, por que essas VMs executam bem em cenários de HPC e como começar a usá-las.
+Estes artigos descrevem como começar a usar as VMs das séries N e H habilitadas para InfiniBand no Azure, bem como a configuração ideal das cargas de trabalho de HPC e IA nas VMs para escalabilidade.
 
 ## <a name="features-and-capabilities"></a>Recursos e funcionalidades
 
-VMs das séries HB e HC são projetadas para fornecer o melhor desempenho de HPC, escalabilidade de MPI (interface de transmissão de mensagens) e economia para cargas de trabalho HPC.
-
-### <a name="message-passing-interface"></a>Interface de envio de mensagem
-
-HB-series e HC-series são compatíveis com quase todos os tipos e versões de MPI. Alguns dos tipos de MPI mais comuns compatíveis são: OpenMPI, MVAPICH2, Platform MPI, Intel MPI e todos os verbos de RDMA (acesso remoto direto à memória). Para obter mais informações, confira [Configurar a Interface de Envio de Mensagens para HPC](setup-mpi.md).
+As VMs das séries H e N habilitadas para InfiniBand foram projetadas para fornecer o melhor em desempenho de HPC e escalabilidade da MPI (Interface de Passagem de Mensagem), bem como redução de custos para cargas de trabalho de HPC. Confira as VMs da [série H](../../sizes-hpc.md) e da [série N](../../sizes-gpu.md) para saber mais sobre os recursos e as funcionalidades delas.
 
 ### <a name="rdma-and-infiniband"></a>RDMA e InfiniBand
 
-A interface RDMA é o padrão nas VMs das séries HB e HC. Instâncias compatíveis com RDMA comunicam-se em uma rede InfiniBand, operando a EDRs (taxas de dados aprimoradas) para máquinas virtuais das séries HB e HC. Instâncias compatíveis com RDMA podem melhorar a escalabilidade e o desempenho de alguns aplicativos de MPI.
+As VMs [compatíveis com RDMA](../../sizes-hpc.md#rdma-capable-instances) da [série H](../../sizes-hpc.md) e da [série N](../../sizes-gpu.md) se comunicam pela rede InfiniBand de baixa latência e alta largura de banda. A funcionalidade RDMA em uma interconexão como essa é crítica para aumentar a escalabilidade e o desempenho de cargas de trabalho de HPC e IA de nó distribuído. As VMs das séries H e N habilitadas para InfiniBand estão conectadas em uma fat tree sem bloqueio com um design de diâmetro baixo para desempenho otimizado e consistente de RDMA.
+Confira [Habilitar o InfiniBand](enable-infiniband.md) para saber mais sobre como configurá-lo nas VMs habilitadas para InfiniBand.
 
-A configuração de InfiniBand compatível com VMs das séries HB e HC são fat trees (árvores gordas) sem bloqueio com um design de diâmetro baixo para desempenho de RDMA consistente.
+### <a name="message-passing-interface"></a>Interface de envio de mensagem
 
-Confira [Habilitar InfiniBand](enable-infiniband.md) para saber mais sobre como configurar InfiniBand em suas VMs da série HB ou HC.
+As séries H e N habilitadas para SR-IOV dão suporte a quase todas as versões e bibliotecas MPI. Algumas das bibliotecas MPI mais comuns compatíveis são: Intel MPI, OpenMPI, MPICH, MVAPICH2, Platform MPI e todos os verbos de RDMA (acesso remoto direto à memória).
+Confira [Configurar a MPI](setup-mpi.md) para saber mais sobre como instalar várias bibliotecas MPI compatíveis e a configuração ideal delas.
 
 ## <a name="get-started"></a>Introdução
 
-Primeiro, decida qual VM da série H você pretende usar. Para obter detalhes sobre VMs otimizadas para HPC, confira [Visão geral da série HB](hb-series-overview.md) e [Visão geral da série HC](hc-series-overview.md). Para obter especificações, confira [Tamanhos de VM de computação de alto desempenho](../../sizes-hpc.md).
-
-Depois de ter selecionado e criado uma VM para seu aplicativo, você precisará configurá-lo habilitando InfiniBand. Para saber como habilitar InfiniBand em VMs do Linux e do Windows, confira [Habilitar InfiniBand](enable-infiniband.md).
-
-Um componente crítico de cargas de trabalho HPC é MPI. HB-series e HC-series são compatíveis com quase todos os tipos e versões de MPI. Para obter mais informações, confira [Configurar a Interface de Envio de Mensagens para HPC](setup-mpi.md).
-
-Depois de escolher sua série de VM, configurar Infiniband e MPI, você está pronto para começar a criar suas cargas de trabalho HPC.
+A primeira etapa é selecionar o tipo de VM ideal da [série H](../../sizes-hpc.md) e da [série N](../../sizes-gpu.md) para a carga de trabalho com base nas especificações da VM e na [funcionalidade RDMA](../../sizes-hpc.md#rdma-capable-instances).
+Em segundo lugar, configure a VM habilitando o InfiniBand. Há vários métodos para fazer isso, incluindo o uso de imagens de VM otimizadas com drivers inclusos; confira [Otimização para Linux](configure.md) e [Habilitar o InfiniBand](enable-infiniband.md) para obter detalhes.
+Em terceiro lugar, para cargas de trabalho de nó distribuído, é essencial escolher e configurar a MPI. Confira [Configurar a MPI](setup-mpi.md) para obter detalhes.
+Em quarto lugar, para desempenho e escalabilidade, configure de maneira ideal as cargas de trabalho seguindo as diretrizes específicas da família de VMs, como a [visão geral da série HB](hb-series-overview.md) e a [visão geral da série HC](hc-series-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine a [Visão geral da série HB](hb-series-overview.md) e a [Visão geral da série HC](hc-series-overview.md) para saber mais sobre as principais diferenças e especificações.
-
-- Para um nível mais alto, a exibição da arquitetura de cargas de trabalho HPC em execução, confira [HPC (computação de alto desempenho) no Azure](/azure/architecture/topics/high-performance-computing/).
+- Saiba mais sobre como [configurar e otimizar](configure.md) as VMs da [série H](../../sizes-hpc.md) e da [série N](../../sizes-gpu.md) habilitadas para InfiniBand.
+- Examine a [visão geral da série HB](hb-series-overview.md) e a [visão geral da série HC](hc-series-overview.md) para saber mais sobre como configurar de maneira ideal as cargas de trabalho para desempenho e escalabilidade.
+- Leia os comunicados mais recentes e alguns exemplos e resultados da HPC nos [Blogs da Tech Community da Computação do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Para obter uma visão de nível superior da arquitetura de execução de cargas de trabalho de HPC, confira [HPC (computação de alto desempenho) no Azure](/azure/architecture/topics/high-performance-computing/).

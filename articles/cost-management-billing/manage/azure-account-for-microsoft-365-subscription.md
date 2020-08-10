@@ -1,6 +1,6 @@
 ---
 title: Inscrever-se no Microsoft 365 com a conta do Azure
-description: Saiba como criar uma assinatura do Microsoft 365 usando uma conta do Azure
+description: Saiba como criar uma assinatura do Microsoft 365 usando uma conta do Azure. Você também pode associar contas existentes do Azure e do Microsoft 365 entre si.
 author: JiangChen79
 ms.reviewer: adwise
 tags: billing,top-support-issue
@@ -8,14 +8,14 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: banders
-ms.openlocfilehash: 006f8edc81ec19647ff6173a4c786c6d7e93fadc
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 050bd9c420ccecdb91a6c438782d9be1c6c23b88
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84810373"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461877"
 ---
-# <a name="sign-up-for-a-microsoft--365-subscription-with-your-azure-account"></a>Inscreva-se para obter uma assinatura do Microsoft 365 com sua conta do Azure
+# <a name="sign-up-for-a-microsoft-365-subscription-with-your-azure-account"></a>Inscrever-se para obter uma assinatura do Microsoft 365 com sua conta do Azure
 
 Se for assinante do Azure, você poderá usar sua conta do Azure para se inscrever para obter uma assinatura do Microsoft 365. Se fizer parte de uma organização que tem uma assinatura do Azure, você poderá criar assinaturas do Microsoft 365 os para usuários em seu Azure AD (Azure Active Directory) existente. Inscreva-se no Microsoft 365 usando uma conta com permissões de Administrador Global ou de Administrador de Cobrança em seu locatário do Azure Active Directory. Para obter mais informações, consulte [Check my account permissions in Azure AD (Verificar minhas permissões de conta no Azure AD)](#RoleInAzureAD) e [Atribuindo funções de administrador no Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 

@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: dcd036f09982cba8271ed6057a167eb7440303a9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: a5e2a3569c70404d64d24ecfc35a8258ea864a4f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054484"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480417"
 ---
 # <a name="tutorial-publish-azure-managed-applications-in-the-marketplace"></a>Tutorial: Publicar aplicativos gerenciados do Azure no Marketplace
 
@@ -98,7 +98,7 @@ Um SKU aparece sob a oferta pai no marketplace. Ele aparece como sua própria en
 
      Para as ações disponíveis, confira [Operações do provedor de recursos do Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Por exemplo, para permitir que os consumidores reiniciem as máquinas virtuais, adicione `Microsoft.Compute/virtualMachines/restart/action` às ações permitidas. A ação `*/read` é permitida automaticamente para que você não precise incluir essa configuração.
    * **PrincipalId**: Essa propriedade é o identificador do Azure AD (Azure Active Directory) de um usuário, um grupo de usuários ou um aplicativo que recebeu o acesso aos recursos na assinatura do cliente. A Definição de Função descreve as permissões.
-   * **Definição de Função**: Essa propriedade é uma lista de todas as funções internas do RBAC (controle de acesso baseado em função) fornecidas pelo Azure AD. Você pode selecionar a função mais apropriada para gerenciar os recursos em nome do cliente.
+   * **Definição de Função**: essa propriedade é uma lista de todas as funções internas do Azure fornecidas pelo Azure AD. Você pode selecionar a função mais apropriada para gerenciar os recursos em nome do cliente.
    * **Configurações de Política**: Aplique um [Azure Policy](../../governance/policy/overview.md) ao aplicativo gerenciado para especificar os requisitos de conformidade para as soluções implantadas. Entre as opções disponíveis, selecione as políticas a serem aplicadas. Para **Parâmetros de Política**, forneça uma cadeia de caracteres JSON com os valores de parâmetro. Para definições de política e o formato dos valores de parâmetro, veja [Exemplos de Azure Policy](../../governance/policy/samples/index.md).
 
 Você pode adicionar várias autorizações. Recomendamos que você crie um grupo de usuários do AD e especifica sua ID em **PrincipalId**. Dessa forma, você pode adicionar mais usuários ao grupo de usuários sem a necessidade de atualizar o SKU.

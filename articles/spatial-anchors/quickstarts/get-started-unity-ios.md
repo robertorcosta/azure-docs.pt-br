@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 02/24/2019
+ms.date: 07/31/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 37a82c4001dd42a4cfbbb9dabec29f28359afd75
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1fbd7138c393809b279d780004ff476cea4735fe
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215524"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810319"
 ---
 # <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Início Rápido: criar um aplicativo Unity para iOS com as Âncoras Espaciais do Azure
 
@@ -34,7 +34,7 @@ Você aprenderá a:
 
 Para concluir este início rápido, certifique-se de que:
 
-- Um computador macOS com o <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 ou 2019.2</a>, a última versão do <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> e o <a href="https://cocoapods.org" target="_blank">CocoaPods</a> instalados.
+- Um computador macOS com o <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4 (LTS)</a>, a última versão do <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> e o <a href="https://cocoapods.org" target="_blank">CocoaPods</a> instalados.
 - Git instalado via Homebrew. Insira o seguinte comando em uma única linha do Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Em seguida, execute `brew install git` e `brew install git-lfs`.
 - Um dispositivo iOS <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">compatível com ARKit</a> habilitado para desenvolvedor.
 
@@ -48,13 +48,7 @@ Para concluir este início rápido, certifique-se de que:
 
 [!INCLUDE [iOS Unity Build Settings](../../../includes/spatial-anchors-unity-ios-build-settings.md)]
 
-## <a name="configure-account-identifier-and-key"></a>Configurar a chave e o identificador da conta
-
-No painel **Projeto**, navegue para `Assets/AzureSpatialAnchors.Examples/Scenes` e abra o arquivo de cena `AzureSpatialAnchorsBasicDemo.unity`.
-
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
-
-Salve a cena selecionando **Arquivo** -> **Salvar**.
 
 ## <a name="export-the-xcode-project"></a>Exportar o projeto do Xcode
 
@@ -82,13 +76,12 @@ brew install cocoapods --build-from-source
 brew link --overwrite cocoapods
 ```
 
-### <a name="unity-20193"></a>Unity 2019.3
-
-Devido a alterações da falha, atualmente, não há suporte para o Unity 2019.3. Use o Unity 2019.1 ou 2019.2.
-
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
 > [Tutorial: Compartilhar as Âncoras Espaciais nos dispositivos](../tutorials/tutorial-share-anchors-across-devices.md)
+
+> [!div class="nextstepaction"]
+> [Como configurar as Âncoras Espaciais do Azure em um projeto do Unity](../how-tos/setup-unity-project.md)

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/17/2020
+ms.date: 07/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13a11c74087731ddd3de4d6277e605ce06a8eea6
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: df9c55971d05efcdbf1300a8023285bd0c8f3e4f
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126925"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87796824"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-raketa"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Raketa
 
@@ -43,20 +43,29 @@ Para começar, você precisará dos seguintes itens:
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O Raketa dá suporte ao SSO iniciado por **SP**
-
-* Depois de configurar o Raketa, você poderá impor o controle de sessão, que protege contra o vazamento e a infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* O Raketa dá suporte ao SSO iniciado por **SP**.
+* Depois de configurar o Raketa, você poderá impor um controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-raketa-from-the-gallery"></a>Adicionar o Raketa da galeria
 
 Para configurar a integração do Raketa ao Azure AD, você precisará adicionar o Raketa da galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria**, digite **Raketa** na caixa de pesquisa.
-1. Escolha **Raketa** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. No painel de navegação à esquerda, escolha o serviço **Azure Active Directory** [1].
+
+    ![rkt_1](./media/raketa-tutorial/azure-active-directory.png)
+
+1. Navegue até **Aplicativos Empresariais** [2] e escolha **Todos os Aplicativos** [3].
+
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo** [4]. 
+
+    ![rkt_2](./media/raketa-tutorial/new-app.png)
+
+1. Na seção **Adicionar por meio da galeria** [5], digite **Raketa** na caixa de pesquisa [6].
+
+1. Selecione **Raketa** no painel de resultados [7] e clique no botão **Adicionar** [8]. 
+
+    ![rkt_3](./media/raketa-tutorial/add-btn.png)
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-raketa"></a>Configurar e testar o logon único do Azure AD para o Raketa
@@ -76,57 +85,88 @@ Para configurar e testar o SSO do Azure AD com o Raketa, conclua os seguintes bl
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Raketa**, localize a seção **Gerenciar** e selecione **logon único**.
-1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Raketa**, localize a seção **Gerenciar** e selecione **Logon único** [9].
 
-   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
+    ![rkt_4](./media/raketa-tutorial/manage-sso.png)
+
+1. Na página **Selecionar um método de logon único** [9], selecione **SAML** [10].
+
+    ![rkt_5](./media/raketa-tutorial/saml.png)
+
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** [11] para editar as configurações.
 
 1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de Logon**, digite a URL: `https://raketa.travel/`
+    1. Nas caixas de texto **Identificador (ID da Entidade)** [12] e **URL de Logon** [14], digite a URL `https://raketa.travel/`.
 
-    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://raketa.travel/sso/acs?clientId=<CLIENT_ID>`
+    1. Na caixa de texto **URL de Resposta** [13], digite uma URL usando o seguinte padrão: `https://raketa.travel/sso/acs?clientId=<CLIENT_ID>`.  
+
+    ![rkt_6](./media/raketa-tutorial/enter-urls.png)
 
     > [!NOTE]
     > O valor de URL de Resposta não é real. Atualize o valor com a URL de Resposta real. Para obter o valor, entre em contato com a [equipe de suporte ao cliente do Raketa](mailto:help@raketa.travel). Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
-
-    ![O link de download do Certificado](common/certificatebase64.png)
+1. Na página **Configurar o logon único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** [15] para baixar o certificado e salvá-lo no computador.
 
 1. Na seção **Configurar o Raketa**, copie as URLs apropriadas de acordo com suas necessidades.
 
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    1. URL de Logon [16] – A URL da página da Web de autorização, que é usada para redirecionar os usuários para o sistema de autenticação.
+
+    1. Identificador do Azure AD [17] – Identificador do Azure AD.
+
+    1. URL de Logoff [18] – A URL da página da Web, que é usada para redirecionar os usuários após o logoff.
+
+    ![rkt_7](./media/raketa-tutorial/copy-urls.png)
+
+
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
-1. Selecione **Novo usuário** na parte superior da tela.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** [1], **Usuários** [19] e **Todos os usuários** [20].
+
+1. Selecione **Novo usuário** [21] na parte superior da tela.
+
+    ![rkt_8](./media/raketa-tutorial/new-user.png)
+
 1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira `B.Simon`.  
-   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
-   1. Clique em **Criar**.
+
+   1. No campo **Nome de usuário** [22], insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+
+   1. No campo **Nome** [23], insira `B.Simon`.
+
+   1. Marque a caixa de seleção **Mostrar senha** [25] e anote o valor exibido na caixa **Senha** [24].
+
+   1. Clique em **Criar** [26]. 
+
+    ![rkt_9](./media/raketa-tutorial/create-user.png)
+
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure concedendo a ela acesso ao Raketa.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
-1. Na lista de aplicativos, escolha **Raketa**.
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+1. No portal do Azure, escolha **Aplicativos Empresariais** [2] e **Todos os aplicativos** [3].
 
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
+1. Na lista de aplicativos, escolha **Raketa** [27].  
 
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+    ![rkt_10](./media/raketa-tutorial/add-raketa.png)
 
-    ![O link Adicionar Usuário](common/add-assign-user.png)
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e selecione **Usuários e grupos** [28]. 
 
-1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+    ![rkt_11](./media/raketa-tutorial/users-groups.png)
+
+1. Escolha **Adicionar usuário** [29] e **Usuários e grupos** [30] na caixa de diálogo **Adicionar Atribuição**.
+
+    ![rkt_12](./media/raketa-tutorial/add-user-raketa.png)
+
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** [31] na lista Usuários e clique no botão **Selecionar** [32] na parte inferior da tela.
+
 1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+
+1. Na caixa de diálogo **Adicionar Atribuição**, clique no botão **Atribuir** [33]. 
+
+    ![rkt_13](./media/raketa-tutorial/assign-user.png)
 
 ## <a name="configure-raketa-sso"></a>Configurar o SSO do Raketa
 
@@ -134,7 +174,7 @@ Para configurar o logon único no lado do **Raketa**, é necessário enviar o **
 
 ### <a name="create-raketa-test-user"></a>Criar um usuário de teste do Raketa
 
-Nesta seção, você criará um usuário com o nome B.Fernandes no Raketa. Trabalhe com a [equipe de suporte do Raketa](mailto:help@raketa.travel) para adicionar os usuários à plataforma do Raketa. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário com o nome B.Fernandes no Raketa. Trabalhe com a [equipe de suporte do Raketa](mailto:help@raketa.travel) para adicionar os usuários à plataforma Raketa. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ## <a name="test-sso"></a>Testar o SSO
 
@@ -155,4 +195,3 @@ Ao clicar no bloco do Raketa no Painel de Acesso, você deverá ser conectado au
 - [O que é controle de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Como proteger o Raketa com visibilidade e controles avançados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

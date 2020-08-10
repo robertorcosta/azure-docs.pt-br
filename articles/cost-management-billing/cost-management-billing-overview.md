@@ -1,23 +1,36 @@
 ---
-title: Visão geral da Cobrança e do Gerenciamento de Custos do Azure | Microsoft Docs
-description: Use os recursos de Cobrança e Gerenciamento de Custos do Azure para realizar tarefas administrativas de cobrança e gerenciar o acesso da cobrança aos custos. Além disso, use o recurso para monitorar e controlar os gastos do Azure e otimizar o uso de recursos.
+title: Visão geral do Gerenciamento de Custos do Azure + Cobrança
+description: Você usa os recursos do Gerenciamento de Custos do Azure + Cobrança para realizar tarefas administrativas de cobrança e gerenciar o acesso da cobrança aos custos. Você também usa esses recursos para monitorar e controlar os gastos e otimizar o uso de recursos do Azure.
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 07/29/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.custom: ''
-ms.openlocfilehash: 2f96208ff3f9664d82bfc1d9ddf9bc5b9aec37c3
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 76121dd8126922de2843e430a4e01cae1c7c0d53
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879081"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87412993"
 ---
-# <a name="what-is-azure-cost-management-and-billing"></a>O que são a Cobrança e o Gerenciamento de Custos do Azure?
+# <a name="what-is-azure-cost-management--billing"></a>O que é o Gerenciamento de Custos do Azure + Cobrança?
 
-Com os produtos e serviços do Azure, você paga apenas pelo que usar. Ao criar e usar recursos do Azure, você será cobrado por eles. Use os recursos de Cobrança e Gerenciamento de Custos do Azure para realizar tarefas administrativas de cobrança e gerenciar o acesso da cobrança aos custos. Use também os recursos para monitorar e controlar os gastos do Azure e otimizar o uso de recursos do Azure.
+Usando a nuvem da Microsoft, você pode melhorar significativamente o desempenho técnico de suas cargas de trabalho de negócios. Ela também pode reduzir os custos e a sobrecarga necessária para gerenciar os ativos organizacionais. No entanto, a oportunidade de negócios cria um risco devido ao potencial de desperdício e às ineficiências que são introduzidos nas implantações na nuvem. O Gerenciamento de Custos do Azure + Cobrança é um conjunto de ferramentas fornecidas pela Microsoft que ajudam você a analisar, gerenciar e otimizar os custos das cargas de trabalho. O uso do conjunto ajuda a garantir que a organização aproveite ao máximo os benefícios fornecidos pela nuvem.
+
+Você pode considerar as cargas de trabalho do Azure como as luzes da sua casa. Ao sair de casa de manhã para mais uma jornada diária, você deixa as luzes acesas? Você pode usar lâmpadas diferentes, que sejam mais eficientes, para ajudar a reduzir a fatura mensal de energia? Você tem em uma sala mais luzes do que o necessário? Você pode usar o Gerenciamento de Custos do Azure + Cobrança para aplicar um raciocínio semelhante às cargas de trabalho usadas pela sua organização.
+
+Com os produtos e serviços do Azure, você paga apenas pelo que usar. Ao criar e usar os recursos do Azure, você será cobrado por eles. Devido à facilidade de implantação de novos recursos, os custos das cargas de trabalho podem saltar significativamente sem análise e monitoramento adequados. Você usa os recursos do Gerenciamento de Custos do Azure + Cobrança para:
+
+- Realizar tarefas administrativas de cobrança, como pagar sua fatura
+- Gerenciar o acesso da cobrança aos custos
+- Baixar os dados de custo e uso que foram usados para gerar sua fatura mensal
+- Aplicar proativamente a análise de dados aos seus custos
+- Definir limites de gastos
+- Identificar oportunidades de alteração da carga de trabalho a fim de otimizar gastos
+
+Para saber mais sobre como abordar o gerenciamento de custos como uma organização, consulte o artigo [práticas recomendadas do Azure Cost Management](./costs/cost-mgt-best-practices.md).
 
 ## <a name="understand-azure-billing"></a>Entender a Cobrança do Azure
 
@@ -29,7 +42,7 @@ Uma conta de cobrança é criada quando você se inscreve para usar o Azure. Voc
 
 Atualmente, o portal do Azure dá suporte aos seguintes tipos de contas de cobrança:
 
-- **Programa Microsoft Online Services**: Uma conta de cobrança individual para um Programa dos Microsoft Online Services é criada quando você se inscreve no Azure por meio do site do Azure. Por exemplo, quando você se inscreve em uma [conta gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), uma [conta com taxas pagas conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) ou como [assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
+- **Programa Microsoft Online Services**: Uma conta de cobrança individual para o Programa Microsoft Online Services é criada quando você se inscreve no Azure por meio do site do Azure. Por exemplo, quando você se inscreve em uma [conta gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), uma [conta com taxas pagas conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) ou como [assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
 - **Contrato Enterprise**: Uma conta de cobrança para um Contrato Enterprise é criada quando sua organização assina um [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/) para usar o Azure.
 
@@ -42,9 +55,8 @@ Um escopo é um nó em uma conta de cobrança que você usa para exibir e gerenc
 
 |Escopo  |Definição  |
 |---------|---------|
-|Conta de cobrança     | Representa um único proprietário (administrador da conta) de uma ou mais assinaturas do Azure. Um administrador da conta está autorizado a executar várias tarefas de cobrança, como criar assinaturas, exibir faturas ou alterar a cobrança de assinaturas.  |
+|Conta de cobrança     | Representa um único proprietário (administrador da conta) de uma ou mais assinaturas do Azure. Um administrador da conta está autorizado a realizar várias tarefas de cobrança, como criar assinaturas, exibir faturas ou alterar a cobrança de assinaturas.  |
 |Subscription     |  Representa um agrupamento de recursos do Azure. Uma fatura é gerada no escopo da assinatura. Ela tem suas próprias formas de pagamento que são usadas para pagar a fatura.|
-
 
 #### <a name="enterprise-agreement"></a>Contrato Enterprise
 
@@ -54,7 +66,6 @@ Um escopo é um nó em uma conta de cobrança que você usa para exibir e gerenc
 |department     |  Agrupamento opcional de contas de registro.      |
 |Conta de registro     |  Representa um único proprietário da conta. As assinaturas do Azure são criadas no escopo da conta de registro.  |
 
-
 #### <a name="microsoft-customer-agreement"></a>Contrato de Cliente da Microsoft
 
 |Escopo  |Tarefas  |
@@ -63,19 +74,17 @@ Um escopo é um nó em uma conta de cobrança que você usa para exibir e gerenc
 |Perfil de faturamento     |  Representa uma fatura e suas formas de pagamento. A fatura é gerada nesse escopo. O perfil de cobrança pode ter várias seções de fatura.      |
 |Seção da fatura     |   Representa um grupo de custos em uma fatura. As assinaturas e outras compras estão associadas ao escopo da seção da fatura.    |
 
-
 ## <a name="understand-azure-cost-management"></a>Entender o Gerenciamento de Custos do Azure
-O gerenciamento de custos é o processo de efetivamente planejar e controlar os custos envolvidos em seus negócios. As tarefas de gerenciamento de custos são normalmente executadas por equipes de finanças, gerenciamento e aplicativos. A Cobrança e o Gerenciamento de Custos do Azure ajudam as organizações a planejar priorizando o custo. Também ajuda a analisar os custos de maneira eficaz e a tomar medidas para otimizar o gasto na nuvem. Para saber mais sobre como abordar o gerenciamento de custos como uma organização, consulte o artigo [práticas recomendadas do Azure Cost Management](./costs/cost-mgt-best-practices.md).
-
-Assista ao [vídeo de visão geral do Gerenciamento de Custos do Azure](https://www.youtube.com/watch?v=el4yN5cHsJ0) para obter uma visão geral sobre como o Gerenciamento de Custos do Azure pode ajudar você a economizar dinheiro no Azure. Para assistir a outros vídeos, visite o [Canal do YouTube do Gerenciamento de Custos](https://www.youtube.com/c/AzureCostManagement).
-
->[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
 Embora relacionado, o faturamento difere do gerenciamento de custos. O faturamento é o processo de faturar os clientes por bens ou serviços e gerenciar o relacionamento comercial.
 
 O gerenciamento de custos mostra os padrões de custo e uso da organização com análises avançadas. Os relatórios no Gerenciamento de Custos mostram os custos baseados em uso consumidos pelos serviços do Azure e de ofertas do Marketplace de terceiros. Os custos são baseados nos fatores e preços negociados na reserva e nos descontos do Benefício Híbrido do Azure. Coletivamente, os relatórios mostram seus custos internos e externos de uso e os encargos do Microsoft Azure Marketplace. Outros encargos, como compras de reserva, suporte e impostos ainda não são mostrados nos relatórios. Os relatórios ajudam você a entender seus gastos e uso de recursos e podem ajudar a encontrar anomalias de gastos. A análise preditiva também está disponível. O Gerenciamento de Custos usa grupos de gerenciamento, orçamentos e recomendações do Azure para mostrar claramente como suas despesas são organizadas e como você pode reduzir custos.
 
 Você pode usar o portal do Azure ou várias APIs para automação de exportação para integrar dados de custo com sistemas e processos externos. A exportação automática de dados de faturamento e relatórios agendados também estão disponíveis.
+
+Assista ao [vídeo de visão geral do Gerenciamento de Custos do Azure](https://www.youtube.com/watch?v=el4yN5cHsJ0) para obter uma visão geral sobre como o Gerenciamento de Custos do Azure pode ajudar você a economizar dinheiro no Azure. Para assistir a outros vídeos, visite o [Canal do YouTube do Gerenciamento de Custos](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
 ### <a name="plan-and-control-expenses"></a>Plano e controle de despesas
 
@@ -99,17 +108,16 @@ Assista ao [vídeo do Gerenciamento de Custos do Azure e do Cloudyn](https://www
 
 ### <a name="additional-azure-tools"></a>Ferramentas do Azure adicionais
 
-O Azure tem outras ferramentas que não fazem parte do conjunto de recursos de Cobrança e Gerenciamento de Custos do Azure. No entanto, elas têm um papel importante no processo de gerenciamento de custos. Para saber mais sobre essas ferramentas, consulte os links a seguir.
+O Azure tem outras ferramentas que não fazem parte do conjunto de recursos de Gerenciamento de Custos do Azure + Cobrança. No entanto, elas têm um papel importante no processo de gerenciamento de custos. Para saber mais sobre essas ferramentas, consulte os links a seguir.
 
 - [Calculadora de preço do Azure](https://azure.microsoft.com/pricing/calculator/): use essa ferramenta para estimar seus custos iniciais de nuvem.
 - [Azure Migrate](../migrate/migrate-overview.md) - Avalie sua carga de trabalho atual do data center para obter insights sobre o que é necessário de uma solução de substituição do Azure.
 - [Azure Advisor](../advisor/advisor-overview.md) - Identifique VMs não usadas e receba recomendações sobre compras de instâncias reservadas do Azure.
 - [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) - Use suas licenças atuais do Windows Server ou do SQL Server no local para VMs no Azure para salvar.
 
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você está familiarizado com a Cobrança e o Gerenciamento de Custos, a próxima etapa é começar a usar o serviço.
+Agora que você está familiarizado com o Gerenciamento de Custos + Cobrança, a próxima etapa é começar a usar o serviço.
 
 - Comece a usar o Azure Cost Management para [analisar os custos](./costs/quick-acm-cost-analysis.md).
 - Você também pode ler mais sobre [práticas recomendadas de gerenciamento de custos do Azure](./costs/cost-mgt-best-practices.md).

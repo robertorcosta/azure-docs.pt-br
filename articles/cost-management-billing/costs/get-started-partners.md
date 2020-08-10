@@ -3,17 +3,17 @@ title: Introdução ao Gerenciamento de Custos do Azure para parceiros
 description: Este artigo explica como os parceiros usam os recursos do Gerenciamento de Custos do Azure e como eles habilitam o acesso do Gerenciamento de Custos para os clientes.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/28/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 25a64dd4d06c24b0f7e1f8433a1abf5f67fa6eba
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b5f00ee67803819b4d13cdc630bed3de26ac1be9
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372137"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563935"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introdução ao Gerenciamento de Custos do Azure para parceiros
 
@@ -140,7 +140,7 @@ Quando a política é definida como **Não**, o Gerenciamento de Custos do Azure
 
 Quando a política de custo é definida como **Sim**, os usuários da assinatura associados ao locatário do cliente podem ver os preços de uso com as taxas pagas conforme o uso.
 
-Quando a política de visibilidade de custo é habilitada, todos os serviços que tenham o uso da assinatura mostram os custos com base nas taxas pagas conforme o uso. O uso de reserva é exibido com preços sem nenhum valor para os custos reais e amortizados. As compras e os direitos não estão associados a uma assinatura específica. Portanto, as compras não são exibidas no escopo da assinatura.
+Quando a política de visibilidade de custo é habilitada, todos os serviços que tenham o uso da assinatura mostram os custos com base nas taxas pagas conforme o uso. O uso de reserva é exibido com preços sem nenhum valor para os custos reais e amortizados. As compras e os direitos não estão associados a uma assinatura específica. Portanto, as compras não são exibidas no escopo da assinatura. O administrador global/agente de administração de um parceiro direto ou um provedor indireto também pode usar a [API de Atualização de Cliente](/rest/api/billing/2019-10-01-preview/policies/updatecustomer) para definir a política de visibilidade de custos de cada cliente em escala.
 
 ### <a name="view-subscription-costs-in-the-customer-tenant"></a>Exibir custos de assinatura no locatário do cliente
 

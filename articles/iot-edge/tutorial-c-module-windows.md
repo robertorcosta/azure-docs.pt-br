@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 09d039801107a44df4f3bf3745a1e074e6d708b8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2da31944a58fb3e5834938b7de32348f30ed7e25
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76760957"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439811"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um módulo do IoT Edge em C para dispositivos Windows
 
@@ -89,7 +89,7 @@ Crie um modelo de solução de C que possa ser personalizado com seu próprio c�
    | ----- | ----- |
    | Selecione um modelo | Selecione **Módulo em C**. |
    | Nome do projeto de módulo | Nomeie o módulo **CModule**. |
-   | Repositório de imagens do Docker | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner é populada previamente com base no valor de nome do projeto de módulo. Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure. Você pode recuperar o servidor de logon da página Visão Geral do seu registro de contêiner no portal do Azure. <br><br> O repositório de imagem final se parece com \<nome do Registro\>.azurecr.io/cmodule. |
+   | Repositório de imagens do Docker | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner é populada previamente com base no valor de nome do projeto de módulo. Substitua **localhost:5000** pelo valor do **Servidor de logon** do seu Registro de Contêiner do Azure. Você pode recuperar o servidor de Logon da página Visão Geral do seu registro de contêiner no portal do Azure. <br><br> O repositório de imagens final se parece com \<registry name\>.azurecr.io/cmodule. |
 
    ![Configure seu projeto para o dispositivo de destino, tipo de módulo e registro de contêiner](./media/tutorial-c-module-windows/add-application-and-module.png)
 
@@ -316,7 +316,13 @@ O código padrão do módulo recebe mensagens em uma fila de entrada e as passa 
 
 Na seção anterior, você criou uma solução IoT Edge e adicionou um código a **CModule** para filtrar mensagens em que a temperatura relatada do computador estiver abaixo do limite aceitável. Agora você precisa compilar a solução como uma imagem de contêiner e enviá-la por push para seu registro de contêiner.
 
-1. Use o seguinte comando para entrar no Docker em seu computador de desenvolvimento. Entre com o nome de usuário, a senha e o servidor de logon do seu Registro de Contêiner do Azure. É possível recuperar esses valores na seção **Chaves de acesso** no registro do portal do Azure.
+### <a name="sign-in-to-docker"></a>Entrar no Docker
+
+Forneça suas credenciais do registro de contêiner para o Docker no computador de desenvolvimento, de modo que ele possa efetuar push da imagem de contêiner para que ela seja armazenada no registro.
+
+1. Abra o PowerShell ou um prompt de comando.
+
+2. Entre no Docker com as credenciais do Registro de Contêiner do Azure que você salvou após criar o Registro.
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -324,15 +330,21 @@ Na seção anterior, você criou uma solução IoT Edge e adicionou um código a
 
    Talvez você receba um aviso de segurança recomendando usar `--password-stdin`. Embora essa prática seja recomendada para cenários de produção, ela não serve para este tutorial. Para saber mais, confira a referência de [logon do docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
 
-2. No gerenciador de soluções do Visual Studio, clique com o botão direito do mouse no nome do projeto que você deseja criar. O nome padrão é **AzureIotEdgeApp1**, e, uma vez que você está criando um módulo do Windows, a extensão deve ser **Windows.Amd64**.
+### <a name="build-and-push"></a>Compilar e efetuar push
 
-3. Selecione **Compilar e Efetuar Push de Módulos do IoT Edge**.
+Agora, o computador de desenvolvimento tem acesso ao registro de contêiner e seus dispositivos IoT Edge também terão. É hora de transformar o código do projeto em uma imagem de contêiner.
+
+1. No gerenciador de soluções do Visual Studio, clique com o botão direito do mouse no nome do projeto que você deseja criar. O nome padrão é **AzureIotEdgeApp1**. Para este tutorial, foi escolhido o nome **CTutorialApp**. Uma vez que você está criando um módulo do Windows, a extensão deve ser **Windows.Amd64**.
+
+2. Selecione **Compilar e Efetuar Push de Módulos do IoT Edge**.
 
    O comando de criação e de envio por push inicia três operações. Primeiro, ele cria uma pasta na solução denominada **config** que contém manifesto de implantação, criado com base nas informações no modelo de implantação e em outros arquivos de solução. Depois, ele executa `docker build` para montar a imagem de contêiner com base no dockerfile apropriado para sua arquitetura de destino. Por fim, ele executa `docker push` para enviar por push o repositório de imagens para seu registro de contêiner.
 
+   Esse processo pode levar vários minutos na primeira vez, mas será mais rápido na próxima vez em que você executar os comandos.
+
 ## <a name="deploy-modules-to-device"></a>Implantar módulos no dispositivo
 
-Use o gerenciador de nuvem do Visual Studio e a extensão Ferramentas do Azure IoT Edge para implantar o projeto de módulo em seu dispositivo IoT Edge. Você já tem um manifesto de implantação preparado para o seu cenário, o arquivo **deployment.json** na pasta config. Agora, tudo o que você precisa fazer é selecionar um dispositivo para receber a implantação.
+Use o gerenciador de nuvem do Visual Studio e a extensão Ferramentas do Azure IoT Edge para implantar o projeto de módulo em seu dispositivo IoT Edge. Você já tem um manifesto de implantação preparado para seu cenário, o arquivo **deployment.windows-amd64.json** na pasta config. Agora, tudo o que você precisa fazer é selecionar um dispositivo para receber a implantação.
 
 Verifique se seu dispositivo IoT Edge está em funcionamento.
 

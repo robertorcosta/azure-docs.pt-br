@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 192219a804365957e9eaa0577019ff18d75861bf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b36469a89c7bae39ae3c2d62792c2ccde0fcfda9
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498501"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799320"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Quais são as novidades da documentação do Azure Monitor?
 
@@ -20,7 +20,7 @@ Este artigo lista os artigos sobre o Azure Monitor que são novos ou que foram a
 ## <a name="june-2020"></a>Junho de 2020
 
 ### <a name="general"></a>Geral
-- [Implantar Azure Monitor](platform/deploy-scale.md) – novo artigo.
+- [Implantar Azure Monitor](deploy-scale.md) – novo artigo.
 - [Chave gerenciada do cliente do Azure Monitor](platform/customer-managed-keys.md) – propriedade billingtype atualizada. Comandos do PowerShell adicionados.
 
 ### <a name="agents"></a>Agentes
@@ -35,7 +35,7 @@ Este artigo lista os artigos sobre o Azure Monitor que são novos ou que foram a
 - [Azure Application Insights para aplicativos Web JavaScript](app/javascript.md) – atualização à seção do SDK do JavaScript. Snippet atualizado para relatar falhas de carregamento.
 - [Configurar o BYOS (traga seu próprio armazenamento) para o Profiler e Depurador de Instantâneos](app/profiler-bring-your-own-storage.md) – novo artigo.
 - [Acompanhamento de solicitações de entrada no Azure Application Insights com o OpenCensus Python](app/opencensus-python-request.md) – registro em log e configuração atualizados para o OpenCensus.
-- [Monitorar um aplicativo Web ASP.NET ao vivo com o Azure Application Insights](app/monitor-performance-live-website-now.md) – data de descontinuação atualizada para o Status Monitor v1.
+- [Monitorar um aplicativo Web ASP.NET online com o Azure Application Insights](app/monitor-performance-live-website-now.md) – Atualização da data de reprovação do Status Monitor v1.
 - [Monitorar serviços do Node.js com o Azure Application Insights](app/nodejs.md) – várias atualizações, incluindo a migração de versões anteriores e a configuração do SDK
 - [Monitorar aplicativos Python com o Azure Monitor (versão prévia)](app/opencensus-python.md) – adicionada seção sobre a configuração de exportadores do Azure Monitor.
 - [Monitorar seus aplicativos sem alterações de código – instrumentação automática para Application Insights do Azure Monitor](app/codeless-overview.md) – novo artigo.
@@ -54,7 +54,7 @@ Este artigo lista os artigos sobre o Azure Monitor que são novos ou que foram a
 - [Excluir e recuperar o workspace do Azure Log Analytics](platform/delete-workspace.md) – adição de comando do PowerShell. Solução de problemas atualizada.
 - [Gerenciar workspaces do Log Analytics no Azure Monitor](platform/manage-access.md) – adicionado exemplo para tabelas não permitidas na seção RBAC.
 - [Gerenciar o uso e os custos de Logs do Azure Monitor](platform/manage-cost-storage.md) – detalhes adicionais sobre o cálculo do tamanho dos dados. Atualização da configuração de alertas de volume de dados. Detalhes sobre os dados de segurança coletados pelo Azure Sentinel. Esclarecimento sobre o limite de dados.
-- [Use os Logs do Azure Monitor com os Aplicativos Lógicos do Azure e o Power Automate](platform/logicapp-flow-connector.md) – adicionados limites do conector.
+- [Usar os Logs do Azure Monitor com os Aplicativos Lógicos do Azure e o Power Automate](platform/logicapp-flow-connector.md) – Adição dos limites do conector.
 
 ### <a name="metrics"></a>Métricas
 - [Métricas compatíveis do Azure Monitor por tipo de recurso](platform/metrics-supported.md) – métricas do SQL Server atualizadas.

@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1df88e26284dc868267cbc79e27df6f0e25f1250
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5aa84faea43846a2f930373529769e62f76e5bbf
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035053"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419539"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Tutorial: Proteger eventos de entrada do usuário com a Autenticação Multifator do Azure
 
@@ -39,7 +39,7 @@ Neste tutorial, você aprenderá a:
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
-* Um locatário de trabalho do Azure AD com Azure AD Premium ou uma licença de avaliação habilitada.
+* Um locatário do Azure AD em funcionamento com pelo menos uma licença de avaliação ou Premium P1 do Azure AD habilitada.
     * Se necessário, [crie um gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Uma conta com privilégios de *administrador global*.
 * Um usuário que não seja administrador com uma senha que você conheça, como *testuser*. Você testa a experiência de Autenticação Multifator do Microsoft Azure usando essa conta neste tutorial.
@@ -65,7 +65,7 @@ Primeiro, crie uma política de Acesso Condicional e atribua seu grupo de usuár
 1. Marque a caixa **Usuários e grupos** e **Selecionar** para procurar os usuários e grupos disponíveis do Azure AD.
 1. Procure e selecione um grupo do Azure AD, como *MFA-Test-Group*, e escolha **Selecionar**.
 
-    [![](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png "Select your Azure AD group to use with the Conditional Access policy")](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
+    [ ![Selecione o seu grupo do Azure AD para usar com a política de Acesso Condicional](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png) ](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
 
 1. Para aplicar a política de Acesso Condicional ao grupo, selecione **Concluído**.
 

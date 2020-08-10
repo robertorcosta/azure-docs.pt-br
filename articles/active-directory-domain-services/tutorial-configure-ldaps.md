@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 995ca20ed264d78e93e04a6f54e4f691ec551e84
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 61e2d4607ebe1b688b2874220a170b2539a2226e
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024852"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87404167"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar o LDAP Seguro para um domínio gerenciado do Azure Active Directory Domain Services
 
@@ -110,6 +110,7 @@ Para usar o LDAP Seguro, o tráfego de rede é criptografado usando a PKI (infra
 * Uma chave **privada** é aplicada ao domínio gerenciado.
     * Essa chave privada é usada para *descriptografar* o tráfego do LDAP Seguro. A chave privada só deve ser aplicada ao domínio gerenciado, não devendo ser amplamente distribuída aos computadores cliente.
     * Um certificado que inclui a chave privada usa o formato de arquivo *.PFX*.
+    * O algoritmo de criptografia do certificado precisa ser *TripleDES-SHA1*.
 * Uma chave **pública** é aplicada aos computadores cliente.
     * Essa chave pública é usada para *criptografar* o tráfego LDAP Seguro. A chave pública pode ser distribuída aos computadores cliente.
     * Os certificados sem a chave privada usam o formato de arquivo *.CER*.
@@ -149,7 +150,7 @@ Para usar o certificado digital criado na etapa anterior com o domínio gerencia
 
 1. Como esse certificado é usado para descriptografar dados, você deve controlar cuidadosamente o acesso. Uma senha pode ser usada para proteger o uso do certificado. Sem a senha correta, o certificado não pode ser aplicado a um serviço.
 
-    Na página **Segurança**, escolha a opção de **Senha** para proteger o arquivo de certificado *.PFX*. Insira e confirme uma senha e, em seguida, selecione **Avançar**. Essa senha será usada na próxima seção para habilitar o LDAP Seguro para o domínio gerenciado.
+    Na página **Segurança**, escolha a opção de **Senha** para proteger o arquivo de certificado *.PFX*. O algoritmo de criptografia precisa ser *TripleDES-SHA1*. Insira e confirme uma senha e, em seguida, selecione **Avançar**. Essa senha será usada na próxima seção para habilitar o LDAP Seguro para o domínio gerenciado.
 1. Na página **Arquivo a ser Exportado**, especifique o nome do arquivo e a localização em que deseja exportar o certificado, como *C:\Users\accountname\azure-ad-ds.pfx*. Anote a senha e o local do arquivo *.PFX*, pois essas informações serão necessárias nas próximas etapas.
 1. Na página de revisão, selecione **Concluir** para exportar o certificado para um arquivo de certificado *.PFX*. Uma caixa de diálogo de confirmação é exibida quando o certificado é exportado com êxito.
 1. Mantenha o MMC aberto para uso na seção a seguir.
@@ -210,7 +211,7 @@ Uma notificação é exibida, informando que o LDAP Seguro está sendo configura
 
 São necessários alguns minutos para habilitar o LDAP Seguro para o domínio gerenciado. Se o certificado LDAP Seguro fornecido não corresponder aos critérios obrigatórios, a ação para habilitar o LDAP Seguro para o domínio gerenciado falhará.
 
-Alguns motivos comuns de falha incluem um nome de domínio incorreto ou um certificado já expirado ou prestes a expirar. Você pode recriar o certificado com parâmetros válidos e, em seguida, habilitar o LDAP Seguro usando esse certificado atualizado.
+Alguns motivos comuns de falha incluem um nome de domínio incorreto, o algoritmo de criptografia do certificado não é *TripleDES-SHA1* ou um certificado já expirado ou prestes a expirar. Você pode recriar o certificado com parâmetros válidos e, em seguida, habilitar o LDAP Seguro usando esse certificado atualizado.
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Bloquear o acesso LDAP Seguro na Internet
 

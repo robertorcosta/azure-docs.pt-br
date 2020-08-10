@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 642082b3fe23e0d007e21409062fe8e777728cc3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a5b2f3a61e2167067bd6e61ee2a36bb1d22950d8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518532"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419658"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Tutorial: Configurar senhas proibidas personalizadas para proteção de senha do Azure Active Directory
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá a:
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
-* Um locatário de trabalho do Azure AD com pelo menos uma licença de avaliação habilitada.
+* Um locatário do Azure AD em funcionamento com pelo menos uma licença de avaliação ou Premium P1 do Azure AD habilitada.
     * Se necessário, [crie um gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Uma conta com privilégios de *administrador global*.
 * Um usuário que não seja administrador com uma senha que você conheça, como *testuser*. Você testará um evento de alteração de senha usando essa conta neste tutorial.
@@ -77,7 +77,7 @@ Para habilitar a lista personalizada de senhas proibidas e adicionar entradas a 
 
     Especifique as próprias senhas personalizadas a serem proibidas, conforme mostrado no exemplo a seguir
 
-    [![](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png "Modify the custom banned password list under Authentication Methods in the Azure portal")](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
+    [ ![Modifique a lista de senhas proibidas personalizada em Métodos de Autenticação no portal do Azure](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png) ](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
 
 1. Mantenha a opção **Habilitar proteção de senha no Windows Server Active Directory** como *Não*.
 1. Para habilitar as senhas proibidas personalizadas e as entradas, selecione **Salvar**.

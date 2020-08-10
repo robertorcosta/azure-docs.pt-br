@@ -3,18 +3,18 @@ title: Criar um aplicativo Azure IoT Central | Microsoft Docs
 description: Crie um novo aplicativo Azure IoT Central. Crie o aplicativo usando o plano de preços Gratuito ou um dos planos de preços Standard.
 author: viv-liu
 ms.author: viviali
-ms.date: 02/12/2020
+ms.date: 07/30/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: b670776804c9758774bf216052254148f063e7da
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 4b939505f807385f235def2606d0f29564f5d08f
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758153"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552570"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Crie um aplicativo Azure IoT Central
 
@@ -43,8 +43,11 @@ Para criar um aplicativo do Azure IoT Central com base no modelo de **Aplicativo
     ![Informações de cobrança do Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png)
 
     > [!NOTE]
-    > Se você escolher **Aplicativo personalizado** na página anterior, verá um menu suspenso **Modelo de aplicativo**. Nele, você poderá alternar entre modelos personalizados e herdados. Você também pode ver outros modelos que foram disponibilizados para sua organização.
+    > Se você escolheu **Aplicativo personalizado** na página anterior, uma lista suspensa **Modelo de aplicativo** é exibida. A lista suspensa pode mostrar outros modelos que foram disponibilizados para você pela sua organização. 
 
+    >[!IMPORTANT]
+    >O modelo **Aplicativo personalizado (herdado)** (V2) foi desativado, pois todas as funcionalidades disponíveis anteriormente no modelo de aplicativo herdado agora estão disponíveis no modelo mais recente de **Aplicativo personalizado** (V3). 
+    
 1. Opte por criar este aplicativo usando o plano de preços de avaliação gratuita de 7 dias ou um dos planos de preços Standard:
 
     - Os aplicativos criados com o plano *gratuito* são gratuitos por sete dias e dão suporte a até cinco dispositivos. Você pode convertê-los para usar um plano de preços Standard a qualquer momento antes que eles expirem.

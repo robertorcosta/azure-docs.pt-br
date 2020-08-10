@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: sudbalas
-ms.openlocfilehash: 91068bacee0bde9e11cc23816bd8e2a101854fb2
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: c75da4c27eae76df51836143c4fb383a1473159a
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388235"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564122"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>A exclusão reversível será habilitada em todos os cofres de chaves
 
@@ -48,7 +48,7 @@ As entidades de segurança que precisam de acesso para excluir permanentemente o
 
 Se você tiver uma Azure Policy nos cofres de chaves que exige que a exclusão reversível seja desativada, essa política precisará ser desabilitada.  Talvez seja necessário escalonar esse problema para um administrador que controla as políticas do Azure aplicadas ao seu ambiente. Se essa política não estiver desabilitada, você poderá perder a capacidade de criar cofres de chaves no escopo da política aplicada.
 
-Se a sua organização estiver sujeita a requisitos de conformidade legal e não puder permitir que os cofres de chaves e segredos excluídos permaneçam em um estado recuperável por um longo período, você precisará ajustar o período de retenção da exclusão reversível, que pode ser configurado entre 7 a 90 dias para atender aos padrões da sua organização.
+Se a sua organização estiver sujeita a requisitos de conformidade legal e não puder permitir que os cofres de chaves e os segredos excluídos permaneçam em um estado recuperável por um longo período, você precisará ajustar o período de retenção da exclusão reversível, que pode ser configurado entre 7 e 90 dias de acordo com os padrões da sua organização.
 
 ## <a name="procedures"></a>Procedimentos
 
@@ -66,14 +66,14 @@ Se a sua organização estiver sujeita a requisitos de conformidade legal e não
 10. Na Folha Azure Policy, clique em "Conformidade".
 11. Selecione a política que você aplicou.
 
-Agora você deve conseguir filtrar e ver quais dos cofres de chaves têm a exclusão reversível habilitada (recursos em conformidade) e quais cofres de chaves não têm a exclusão reversível habilitada (recursos sem conformidade).
+Agora, você conseguirá filtrar e ver quais cofres de chaves têm a exclusão reversível habilitada (recursos em conformidade) e quais deles não têm a exclusão reversível habilitada (recursos sem conformidade).
 
 ### <a name="turn-on-soft-delete-for-an-existing-key-vault"></a>Ativar a Exclusão Reversível para um cofre de chaves existente
 
 1. Faça logon no Portal do Azure.
 2. Pesquise o seu Key Vault.
 3. Selecione "Propriedades" em configurações.
-4. Em Exclusão Reversível, selecione o botão de opção correspondente a "Habilitar a recuperação deste cofre e dos objetos dele".
+4. Em Exclusão Reversível, selecione o botão de opção correspondente a "Habilitar a recuperação deste cofre e dos respectivos objetos".
 5. Defina o período de retenção para a exclusão reversível.
 6. Selecione "Salvar".
 

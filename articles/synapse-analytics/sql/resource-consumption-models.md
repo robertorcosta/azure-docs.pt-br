@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: a358052d5f3959a236f29461890c989e77edb4dc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 086c853b21301074cf35f13db52db1fdb145518c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369009"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489564"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consumo de recursos do SQL do Synapse
 
@@ -27,7 +27,7 @@ O SQL sob demanda é um serviço de pagamento por consulta que não exige a esco
 
 Recomendações sobre como escolher o número ideal de unidades de DWUs (Unidades de Data Warehouse) para otimizar o preço e o desempenho e como alterar o número unidades.
 
-### <a name="what-are-data-warehouse-units"></a>O que são Unidades de Data Warehouse
+### <a name="data-warehouse-units"></a>Unidades de Data Warehouse
 
 Um pool de SQL do Synapse representa uma coleção de recursos analíticos que estão sendo provisionados. Os recursos analíticos são definidos como uma combinação de CPU, memória e E/S. Esses três recursos são agrupados em unidades de escala de computação chamadas DWUs (Unidades de Data Warehouse). Uma DWU representa uma medida abstrata normalizada de recursos de computação e desempenho. Uma alteração do nível de serviço altera o número de DWUs que ficam disponíveis para o sistema, o que, por sua vez, ajusta o desempenho e o custo do sistema.
 
@@ -79,7 +79,7 @@ DWUs e cDWUs oferecem suporte ao dimensionamento vertical ou horizontal de compu
 
 Cada servidor SQL (por exemplo, myserver.database.windows.net) tem uma cota de [Unidade de Transação de Banco de Dados (DTU)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) que permite um número específico de unidades de depósito de dados. Para mais informações, consulte o [limites de capacidade de gerenciamento de carga de trabalho](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
 
-### <a name="how-many-data-warehouse-units-do-i-need"></a>De quantas Unidades de Data Warehouse precisarei?
+### <a name="assess-the-number-of-data-warehouse-units-you-need"></a>Avaliar o número de unidades de data warehouse necessárias
 
 O número ideal de unidades de data warehouse depende muito de sua carga de trabalho e da quantidade de dados carregados no sistema.
 

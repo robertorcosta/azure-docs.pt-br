@@ -3,12 +3,12 @@ title: Organizar seus recursos com grupos de gerenciamento – Governança do Az
 description: Saiba mais sobre os grupos de gerenciamento, o funcionamento de suas permissões e como usá-los.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: 1856b2d6f8fafb18757d547d0117f584fb2abb24
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 787658cebcb8345edd616bcdde485883ea43e8dc
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132918"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529340"
 ---
 # <a name="what-are-azure-management-groups"></a>O que são grupos de gerenciamento do Azure?
 
@@ -38,7 +38,7 @@ Outro cenário em que você usaria grupos de gerenciamento é fornecer acesso de
 
 ## <a name="root-management-group-for-each-directory"></a>Grupo de gerenciamento raiz para cada diretório
 
-Cada diretório recebe um único grupo de gerenciamento de nível superior chamado grupo de gerenciamento "Raiz". Esse grupo de gerenciamento raiz é compilado na hierarquia para que todos os grupos de gerenciamento e assinaturas sejam dobrados nele. Esse grupo de gerenciamento raiz permite que políticas globais e atribuições de RBAC sejam aplicados no nível de diretório. O [administrador global do Azure AD precisa elevar-se](../../role-based-access-control/elevate-access-global-admin.md) para a função de Administrador de Acesso do Usuário desse grupo raiz inicialmente. Após elevar o acesso, o administrador poderá atribuir qualquer função de RBAC a outros usuários ou grupos do diretório para gerenciar a hierarquia. Como administrador, você pode atribuir sua própria conta como proprietário do grupo de gerenciamento raiz.
+Cada diretório recebe um único grupo de gerenciamento de nível superior chamado grupo de gerenciamento "Raiz". Esse grupo de gerenciamento raiz é compilado na hierarquia para que todos os grupos de gerenciamento e assinaturas sejam dobrados nele. Esse grupo de gerenciamento raiz permite que políticas globais e atribuições de função do Azure sejam aplicadas no nível de diretório. O [administrador global do Azure AD precisa elevar-se](../../role-based-access-control/elevate-access-global-admin.md) para a função de Administrador de Acesso do Usuário desse grupo raiz inicialmente. Após elevar o acesso, o administrador poderá atribuir qualquer função do Azure a outros usuários ou grupos do diretório para gerenciar a hierarquia. Como administrador, você pode atribuir sua própria conta como proprietário do grupo de gerenciamento raiz.
 
 ### <a name="important-facts-about-the-root-management-group"></a>Fatos importantes sobre o grupo de gerenciamento raiz
 
@@ -50,7 +50,7 @@ Cada diretório recebe um único grupo de gerenciamento de nível superior chama
   - As novas assinaturas usam como padrão automaticamente o grupo de gerenciamento raiz quando criadas.
 - Todos os clientes do Azure podem ver o grupo de gerenciamento raiz, mas nem todos os clientes têm acesso para gerenciá-lo.
   - Qualquer pessoa que tenha acesso a uma assinatura pode ver o contexto no qual essa assinatura está na hierarquia.  
-  - Ninguém recebeu o acesso padrão ao grupo de gerenciamento raiz. Os administradores globais do Azure AD são os únicos usuários que podem se elevar para obter acesso. Depois de obter acesso ao grupo de gerenciamento raiz, os administradores globais podem atribuir qualquer função de RBAC a outros usuários para  
+  - Ninguém recebeu o acesso padrão ao grupo de gerenciamento raiz. Os administradores globais do Azure AD são os únicos usuários que podem se elevar para obter acesso. Depois de obter acesso ao grupo de gerenciamento raiz, os administradores globais podem atribuir qualquer função do Azure a outros usuários para  
     gerenciá-la.
 - No SDK, o grupo de gerenciamento raiz ou a 'Raiz do Locatário' opera como um grupo de gerenciamento.
 
@@ -82,12 +82,12 @@ Se você tiver dúvidas sobre esse processo de preenchimento, entre em contato c
   
 ## <a name="management-group-access"></a>Acesso do grupo de gerenciamento
 
-Os grupos de gerenciamento do Azure dão suporte ao [RBAC (Controle de Acesso Baseado em Função) do Azure](../../role-based-access-control/overview.md) para todos os acessos de recursos e definições de função.
-Essas permissões são herdadas de recursos filho existentes na hierarquia. Qualquer função RBAC pode ser atribuída a um grupo de gerenciamento que herdará a hierarquia para os recursos. Por exemplo, o colaborador da VM com a função RBAC pode ser atribuído a um grupo de gerenciamento. Essa função não tem nenhuma ação no grupo de gerenciamento, mas herdará de todas as VMs nesse grupo de gerenciamento.
+Os grupos de gerenciamento do Azure dão suporte ao [Azure RBAC (Controle de Acesso Baseado em Função do Azure)](../../role-based-access-control/overview.md) para todos os acessos de recursos e definições de função.
+Essas permissões são herdadas de recursos filho existentes na hierarquia. Qualquer função do Azure pode ser atribuída a um grupo de gerenciamento que herdará a hierarquia para os recursos. Por exemplo, o colaborador da VM com a função do Azure pode ser atribuído a um grupo de gerenciamento. Essa função não tem nenhuma ação no grupo de gerenciamento, mas herdará de todas as VMs nesse grupo de gerenciamento.
 
 O gráfico a seguir mostra a lista de funções e as ações compatíveis nos grupos de gerenciamento.
 
-| Nome da função RBAC             | Criar | Renomear | Mover\*\* | Excluir | Atribuir acesso | Atribuir política | Ler  |
+| Nome da função do Azure             | Criar | Renomear | Mover\*\* | Excluir | Atribuir acesso | Atribuir política | Ler  |
 |:-------------------------- |:------:|:------:|:--------:|:------:|:-------------:| :------------:|:-----:|
 |Proprietário                       | X      | X      | X        | X      | X             | X             | X     |
 |Colaborador                 | X      | X      | X        | X      |               |               | X     |

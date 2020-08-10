@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: e77701e17ef1b47aa6b8e3b8f2d10e93bf5e054e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ead0c13a1fce0b5d56c9dd875c594a2269e2c78c
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093129"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513104"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Tutorial: Usar o Azure Key Vault com uma máquina virtual no .NET
 
@@ -56,21 +56,15 @@ Para entrar no Azure usando a CLI do Azure, digite:
 az login
 ```
 
-### <a name="create-a-resource-group-and-key-vault"></a>Criar um grupo de recursos e um cofre de chaves
+## <a name="create-a-resource-group-and-key-vault"></a>Criar um grupo de recursos e um cofre de chaves
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
-### <a name="populate-your-key-vault-with-a-secret"></a>Preencher seu cofre de chaves com um segredo
+## <a name="populate-your-key-vault-with-a-secret"></a>Preencher seu cofre de chaves com um segredo
 
-Agora, adicione um segredo ao cofre de chaves usando o comando [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set). Para criar um segredo no cofre de chaves chamado **mySecret**, insira o seguinte comando:
+[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
 
-```azurecli
-az keyvault secret set --vault-name "<your-unique-key-vault-name>" --name "mySecret" --value "MySecret"
-```
-
-Esse segredo armazena o valor **MySecret**.
-
-### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
+## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 Crie uma máquina virtual do Windows ou Linux usando um dos seguintes métodos:
 
 | Windows | Linux |
@@ -79,7 +73,7 @@ Crie uma máquina virtual do Windows ou Linux usando um dos seguintes métodos:
 | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) |
 | [Azure portal](../../virtual-machines/windows/quick-create-portal.md) | [Azure portal](../../virtual-machines/linux/quick-create-portal.md) |
 
-### <a name="assign-an-identity-to-the-vm"></a>Atribuir uma identidade à VM
+## <a name="assign-an-identity-to-the-vm"></a>Atribuir uma identidade à VM
 Crie uma identidade atribuída pelo sistema para a máquina virtual com o comando [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign):
 
 ```azurecli
@@ -95,16 +89,16 @@ Observe a identidade atribuída pelo sistema que é exibida no código a seguir.
 }
 ```
 
-### <a name="assign-permissions-to-the-vm-identity"></a>Atribuir permissões à identidade da VM
+## <a name="assign-permissions-to-the-vm-identity"></a>Atribuir permissões à identidade da VM
 Atribua as permissões de identidade criadas anteriormente ao cofre de chaves, com o comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy):
 
 ```azurecli
 az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-### <a name="sign-in-to-the-virtual-machine"></a>Entrar na máquina virtual
+## <a name="sign-in-to-the-virtual-machine"></a>Entrar na máquina virtual
 
-Para entrar na máquina virtual, siga as instruções em [Conectar uma máquina virtual do Azure executando o Windows e entrar nela](../../virtual-machines/windows/connect-logon.md) ou [Conectar uma máquina virtual do Azure executando o Linux e entrar nela](../../virtual-machines/linux/login-using-aad.md).
+Para entrar na máquina virtual, siga as instruções em [Conectar-se e entrar em uma máquina virtual do Azure do Windows](../../virtual-machines/windows/connect-logon.md) ou [Conectar-se e fazer logon em uma máquina virtual do Azure do Linux](../../virtual-machines/linux/login-using-aad.md).
 
 ## <a name="set-up-the-console-app"></a>Configurar o aplicativo de console
 

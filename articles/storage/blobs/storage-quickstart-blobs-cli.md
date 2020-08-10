@@ -9,12 +9,13 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 06/04/2020
 ms.author: tamram
-ms.openlocfilehash: 471a8018a608da818f5961973f23123874c63427
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: eca67c4a5a942e6cd06f67cac868905da0e1f533
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434456"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535137"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Início Rápido: Criar, baixar e listar blobs com a CLI do Azure
 
@@ -79,7 +80,7 @@ az storage account create \
 
 Os blobs são sempre carregados em um contêiner. Você pode organizar grupos de blobs em contêineres de modo similar à maneira como organiza arquivos do computador em pastas. Crie um contêiner para armazenar os blobs com o comando [az storage container create](/cli/azure/storage/container). 
 
-O exemplo a seguir usa sua conta do Azure AD para autorizar a operação para criar o contêiner. Antes de criar o contêiner, atribua a função [Colaborador de Dados do Blob de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a si mesmo. Porém, mesmo que você seja o proprietário da conta, precisará de permissões explícitas para executar operações de dados na conta de armazenamento. Para obter mais informações sobre como atribuir funções RBAC, confira [Usar a CLI do Azure para atribuir uma função RBAC para acesso](../common/storage-auth-aad-rbac-cli.md?toc=/azure/storage/blobs/toc.json).  
+O exemplo a seguir usa sua conta do Azure AD para autorizar a operação para criar o contêiner. Antes de criar o contêiner, atribua a função [Colaborador de Dados do Blob de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) a si mesmo. Porém, mesmo que você seja o proprietário da conta, precisará de permissões explícitas para executar operações de dados na conta de armazenamento. Para obter mais informações sobre como atribuir funções do Azure, confira [Usar a CLI do Azure para atribuir uma função do Azure para acesso](../common/storage-auth-aad-rbac-cli.md?toc=/azure/storage/blobs/toc.json).  
 
 Você também pode usar a chave de conta de armazenamento para autorizar a operação para criar o contêiner. Para obter mais informações sobre como autorizar operações de dados com a CLI do Azure, confira [Autorizar o acesso a dados de blob ou de fila com a CLI do Azure](../common/authorize-data-operations-cli.md?toc=/azure/storage/blobs/toc.json).
 

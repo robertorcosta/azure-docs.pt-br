@@ -7,16 +7,18 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: a08e00b2debce970bdbd385b785806c8636e5946
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 706ae5a6c93468da9a65293c1bb4eefb136b938d
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318412"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553267"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Criar painéis de KPI personalizados usando o Azure Application Insights
 
-Você pode criar vários painéis no portal do Azure que incluam dados de visualização de blocos de vários recursos do Azure entre diferentes assinaturas e os grupos de recursos.  Você pode fixar diferentes gráficos e modos de exibição do Azure Application Insights para criar painéis personalizados que forneçam um panorama completo da integridade e do desempenho do seu aplicativo. Este tutorial orienta você durante a criação de um painel personalizado que inclui vários tipos de dados e visualizações do Azure Application Insights.  Você aprenderá como:
+Você pode criar vários painéis no portal do Azure que incluam dados de visualização de blocos de vários recursos do Azure entre diferentes assinaturas e os grupos de recursos.  Você pode fixar diferentes gráficos e modos de exibição do Azure Application Insights para criar painéis personalizados que forneçam um panorama completo da integridade e do desempenho do seu aplicativo. Este tutorial orienta você durante a criação de um painel personalizado que inclui vários tipos de dados e visualizações do Azure Application Insights.
+
+ Você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar um painel personalizado no Azure
@@ -25,13 +27,14 @@ Você pode criar vários painéis no portal do Azure que incluam dados de visual
 > * Adicionar um gráfico de métricas personalizadas do Application Insights ao painel
 > * Adicionar os resultados de uma consulta Logs (Analytics) ao painel
 
-
-
 ## <a name="prerequisites"></a>Prerequisites
 
 Para concluir este tutorial:
 
 - Implante um aplicativo .NET para Azure e [habilite o SDK do Application Insights](../app/asp-net.md).
+
+> [!NOTE]
+> As permissões necessárias para trabalhar com painéis são discutidas no artigo sobre [Noções básicas do controle de acesso para painéis](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboard-share-access#understanding-access-control-for-dashboards).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).

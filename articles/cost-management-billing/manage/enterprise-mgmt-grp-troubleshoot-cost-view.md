@@ -8,16 +8,16 @@ ms.topic: troubleshooting
 ms.date: 06/05/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 6c4fe563057e8d7fedbd68280bc8059867d997ed
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d96a2ed9f0aab03a0073519e08cf03d43d7ac2b7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120238"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503150"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Solucionar problemas de exibições de custo empresarial
 
-Nos registros empresariais, há várias configurações que podem fazer com que os usuários do registro não consigam ver os custos.  Essas configurações são gerenciadas pelo administrador de registros. Ou, se o registro não foi comprado diretamente por meio da Microsoft, as configurações são gerenciadas pelo parceiro.  Este artigo ajuda você a entender quais são as configurações e como elas afetam o registro. Essas configurações são independentes das funções de RBAC (Role-based access control) do Azure.
+Nos registros empresariais, há várias configurações que podem fazer com que os usuários do registro não consigam ver os custos.  Essas configurações são gerenciadas pelo administrador de registros. Ou, se o registro não foi comprado diretamente por meio da Microsoft, as configurações são gerenciadas pelo parceiro.  Este artigo ajuda você a entender quais são as configurações e como elas afetam o registro. Essas configurações são independentes das funções do Azure.
 
 ## <a name="enable-access-to-costs"></a>Habilitar o acesso aos custos
 

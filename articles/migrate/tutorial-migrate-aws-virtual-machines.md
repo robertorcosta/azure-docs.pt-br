@@ -1,15 +1,15 @@
 ---
-title: Descubra, avalie e migre as VMs AWS (Amazon Web Services) para o Azure
+title: Descubra, avalie e migre as VMs EC2 do AWS (Amazon Web Services) para o Azure
 description: Este artigo descreve como migrar VMs AWS para o Azure com as Migrações para Azure.
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: MVC
-ms.openlocfilehash: 5d697c2146144ca7f4b9a8739b6863ba31845f4e
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 61a7bee52179ac525b42ad696d118f4f753f6931
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165423"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534815"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Descubra, avalie e migre as VMs AWS (Amazon Web Services) para o Azure
 
@@ -172,7 +172,7 @@ A primeira etapa da migração é configurar o dispositivo de replicação. Para
     9.10 Em **Resumo**, selecione **Instalar**.   
     9.11 O **Progresso da Instalação** mostra informações sobre o processo de instalação. Quando terminar, selecione **Concluir**. Uma janela exibe uma mensagem sobre uma reinicialização. Selecione **OK**.   
     9.12 Em seguida, uma janela exibe uma mensagem sobre a frase secreta de conexão do servidor de configuração. Copie a frase secreta para a área de transferência e salve-a em um arquivo de texto temporário nas VMs de origem. Você precisará dessa frase secreta mais tarde, durante o processo de instalação do Serviço de Mobilidade.
-10. Após a conclusão da instalação, o Assistente de configuração de dispositivo será iniciado automaticamente (você também poderá iniciar o assistente manualmente usando o atalho cspsconfigtool criado na área de trabalho do dispositivo). Use a guia Gerenciar Contas do assistente para adicionar detalhes de conta a serem usados para a instalação por push do serviço de Mobilidade. Neste tutorial, vamos instalar manualmente o Serviço de Mobilidade nas VMs de origem a serem replicadas, portanto, crie uma conta fictícia nesta etapa e continue.
+10. Após a conclusão da instalação, o Assistente de configuração de dispositivo será iniciado automaticamente (você também poderá iniciar o assistente manualmente usando o atalho cspsconfigtool criado na área de trabalho do dispositivo). Use a guia Gerenciar Contas do assistente para adicionar detalhes de conta a serem usados para a instalação por push do serviço de Mobilidade. Neste tutorial, vamos instalar manualmente o Serviço de Mobilidade nas VMs de origem a serem replicadas, portanto, crie uma conta fictícia nesta etapa e continue. É possível fornecer os seguintes detalhes para criação de uma conta fictícia: "convidado" como o nome amigável, "nome de usuário" como o nome de usuário e "senha" como a senha da conta. Você usará essa conta fictícia no estágio Habilitar Replicação. 
 11. Depois que o dispositivo for reiniciado após a instalação, em **Descobrir computadores**, selecione o novo dispositivo em **Selecionar Servidor de Configuração** e clique em **Finalizar o registro**. Finalizar o registro executa algumas tarefas finais para preparar o dispositivo de replicação.
 
     ![Finalizar registro](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
@@ -240,25 +240,24 @@ Um agente do serviço Mobilidade deve ser instalado nas VMs AWS de origem a sere
 
 2. Em **Replicar**, > **Configurações de origem** > **Os computadores estão virtualizados?** , selecione **Não virtualizados/Outro**.
 3. Em **Dispositivo local**, selecione o nome do dispositivo de Migrações para Azure que você configurou.
-4. Em **Servidor de Processo**, selecione o nome do dispositivo de replicação.
-6. Em **Credenciais de convidado**, você especifica uma conta fictícia que será usada para instalar o serviço Mobilidade manualmente (a instalação por push não é compatível). Em seguida, clique em **Próximo: Máquinas virtuais**.
-
+4. Em **Servidor de Processo**, selecione o nome do dispositivo de replicação. 
+5. Em **Credenciais de convidado**, selecione a conta fictícia criada anteriormente durante a [configuração do instalador de replicação](#download-the-replication-appliance-installer) para instalar o serviço Mobilidade manualmente (a instalação por push não é compatível). Em seguida, clique em **Próximo: Máquinas virtuais**.   
+ 
     ![Replicar VMs](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
-
-7. Em **Máquinas Virtuais**, em **Importar configurações de migração de uma avaliação?** , deixe a configuração padrão, **Não, vou especificar as configurações de migração manualmente**.
-8. Verifique cada VM que você deseja migrar. Em seguida, clique em **Próximo: configurações de destino**.
+6. Em **Máquinas Virtuais**, em **Importar configurações de migração de uma avaliação?** , deixe a configuração padrão, **Não, vou especificar as configurações de migração manualmente**.
+7. Verifique cada VM que você deseja migrar. Em seguida, clique em **Próximo: configurações de destino**.
 
     ![Selecione as máquinas virtuais](./media/tutorial-migrate-physical-virtual-machines/select-vms.png)
 
-9. Em **Configurações de destino**, selecione a assinatura e a região de destino para a qual você migrará e especifique o grupo de recursos no qual as VMs do Azure residirão após a migração.
-10. Em **Rede Virtual**, selecione a VNet/sub-rede do Azure na qual as VMs do Azure serão ingressadas após a migração.
-11. Em **Benefício Híbrido do Azure**:
+8. Em **Configurações de destino**, selecione a assinatura e a região de destino para a qual você migrará e especifique o grupo de recursos no qual as VMs do Azure residirão após a migração.
+9. Em **Rede Virtual**, selecione a VNet/sub-rede do Azure na qual as VMs do Azure serão ingressadas após a migração.
+10. Em **Benefício Híbrido do Azure**:
     - Selecione **Não** se não desejar aplicar o Benefício Híbrido do Azure. Em seguida, clique em **Próximo**.
     - Selecione **Sim** se você tiver computadores Windows Server cobertos com assinaturas ativas do Software Assurance ou do Windows Server e quiser aplicar o benefício aos computadores que estão sendo migrados. Em seguida, clique em **Próximo**.
 
     ![Configurações de destino](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
 
-12. Em **Computação**, examine o nome da VM, o tamanho, o tipo de disco do sistema operacional e o conjunto de disponibilidade. As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
+11. Em **Computação**, examine o nome da VM, o tamanho, o tipo de disco do sistema operacional e o conjunto de disponibilidade. As VMs devem estar em conformidade com os [requisitos do Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
     - **Tamanho da VM**: Por padrão, a Migração de Servidor de Migrações para Azure escolhe um tamanho com base na correspondência mais próxima na assinatura do Azure. Como alternativa, escolha um tamanho manual em **Tamanho da VM do Azure**.
     - **Disco do SO**: especifique o disco do sistema operacional (inicialização) para a VM. O disco do sistema operacional é o disco que tem o carregador de inicialização e o instalador do sistema operacional. 
@@ -266,13 +265,13 @@ Um agente do serviço Mobilidade deve ser instalado nas VMs AWS de origem a sere
 
     ![Configurações de computação](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-13. Em **Discos**, especifique se os discos da VM devem ser replicados para o Azure e selecione o tipo de disco (discos gerenciados HDD/SSD standard ou premium) no Azure. Em seguida, clique em **Próximo**.
+12. Em **Discos**, especifique se os discos da VM devem ser replicados para o Azure e selecione o tipo de disco (discos gerenciados HDD/SSD standard ou premium) no Azure. Em seguida, clique em **Próximo**.
     - Você pode excluir discos da replicação.
     - Se você excluir os discos, eles não estarão presentes na VM do Azure após a migração. 
 
     ![Configurações de disco](./media/tutorial-migrate-physical-virtual-machines/disks.png)
 
-14. Em **Examinar e iniciar a replicação**, examine as configurações e clique em **Replicar** para iniciar a replicação inicial dos servidores.
+13. Em **Examinar e iniciar a replicação**, examine as configurações e clique em **Replicar** para iniciar a replicação inicial dos servidores.
 
 > [!NOTE]
 > É possível atualizar as configurações de replicação a qualquer momento antes do início da replicação em **Gerenciar** > **Computadores em replicação**. Não é possível alterar as configurações após o início da replicação.

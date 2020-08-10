@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: ae6205db4e120f0496fa47be6788887b155361b0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ecc442049ba63b64f951335940c312dc71985453
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077151"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501518"
 ---
 # <a name="understand-and-work-with-scopes"></a>Entender e trabalhar com escopos
 
@@ -93,8 +93,8 @@ Embora os escopos de governança estejam associados a um diretório, os escopos 
 
 Os escopos do orçamento de EA dão suporte às seguintes funções:
 
-- **Admin corporativo** – pode gerenciar as configurações e o acesso da conta de cobrança, pode exibir todos os custos e pode gerenciar a configuração de custo. Por exemplo, orçamentos e exportações. Em função, o escopo do orçamento do EA é o mesmo que a [função do Azure RBAC do Colaborador do Gerenciamento de Custos](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Usuário corporativo somente leitura** – pode exibir configurações de conta de cobrança, dados de custo e configuração de custo. Por exemplo, orçamentos e exportações. Em função, o escopo do orçamento do EA é o mesmo que a [função do Azure RBAC do Leitor do Gerenciamento de Custos](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Admin corporativo** – pode gerenciar as configurações e o acesso da conta de cobrança, pode exibir todos os custos e pode gerenciar a configuração de custo. Por exemplo, orçamentos e exportações. Em função, o escopo do orçamento do EA é o mesmo que a [função do Azure de Colaborador do Gerenciamento de Custos](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Usuário corporativo somente leitura** – pode exibir configurações de conta de cobrança, dados de custo e configuração de custo. Por exemplo, orçamentos e exportações. Em função, o escopo do orçamento do EA é o mesmo que a [função do Azure de Leitor do Gerenciamento de Custos](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Administrador de departamento** – pode gerenciar configurações de departamento, como centro de custo, e pode acessar e exibir todos os custos e gerenciar a configuração de custo. Por exemplo, orçamentos e exportações.  A configuração **Administrador de departamento exibir encargos** da conta de cobrança deve estar habilitada para que administradores do departamento e usuários somente leitura vejam os custos. Se a opção **Administrador do departamento ver encargos** estiver desabilitada, os usuários do departamento não poderão ver os custos em nenhum nível, mesmo se forem um proprietário de conta ou da assinatura.
 - **Usuário somente leitura do departamento** – pode exibir configurações de departamento, dados de custo e configuração de custo. Por exemplo, orçamentos e exportações. Se a opção **Administrador do departamento ver encargos** estiver desabilitada, os usuários do departamento não poderão ver os custos em nenhum nível, mesmo se forem um proprietário de conta ou da assinatura.
 - **Proprietário da conta** – pode gerenciar as configurações da conta de registro (como o centro de custo), exibir todos os custos e gerenciar a configuração de custos (como orçamentos e exportações) para a conta de registro. A configuração **Proprietário da conta exibir encargos** da conta de cobrança deve estar habilitada para que proprietários da conta e usuários RBAC vejam os custos.
@@ -141,10 +141,10 @@ Os escopos do orçamento do Contrato de Cliente não se aplicam a parceiros. As 
 
 Os escopos do orçamento de Contrato de Cliente dão suporte às seguintes funções:
 
-- **Proprietário** – pode gerenciar as configurações de cobrança e o acesso, exibir todos os custos e gerenciar a configuração de custo. Por exemplo, orçamentos e exportações. Em função, o escopo do orçamento do Contrato do Cliente é o mesmo que a [função do Azure RBAC do Colaborador do Gerenciamento de Custos](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Colaborador** – pode gerenciar as configurações de cobrança (com a exceção do acesso), bem como exibir todos os custos e gerenciar a configuração de custo. Por exemplo, orçamentos e exportações. Em função, o escopo do orçamento do Contrato do Cliente é o mesmo que a [função do Azure RBAC do Colaborador do Gerenciamento de Custos](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Leitor** – pode exibir configurações de cobrança, dados de custo e configuração de custo. Por exemplo, orçamentos e exportações. Em função, o escopo do orçamento do Contrato de Cliente é o mesmo que a [função do Azure RBAC do Leitor do Gerenciamento de Custos](../../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Gerenciador de faturas** – pode exibir e pagar faturas e pode exibir configuração e dados de custo. Por exemplo, orçamentos e exportações. Em função, o escopo do orçamento do Contrato de Cliente é o mesmo que a [função do Azure RBAC do Leitor do Gerenciamento de Custos](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Proprietário** – pode gerenciar as configurações de cobrança e o acesso, exibir todos os custos e gerenciar a configuração de custo. Por exemplo, orçamentos e exportações. Em função, o escopo do orçamento do Contrato do Cliente é o mesmo que a [função do Azure de Colaborador do Gerenciamento de Custos](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Colaborador** – pode gerenciar as configurações de cobrança (com a exceção do acesso), bem como exibir todos os custos e gerenciar a configuração de custo. Por exemplo, orçamentos e exportações. Em função, o escopo do orçamento do Contrato do Cliente é o mesmo que a [função do Azure de Colaborador do Gerenciamento de Custos](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Leitor** – pode exibir configurações de cobrança, dados de custo e configuração de custo. Por exemplo, orçamentos e exportações. Em função, o escopo do orçamento do Contrato de Cliente é o mesmo que a [função do Azure de Leitor do Gerenciamento de Custos](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Gerenciador de faturas** – pode exibir e pagar faturas e pode exibir configuração e dados de custo. Por exemplo, orçamentos e exportações. Em função, o escopo do orçamento do Contrato de Cliente é o mesmo que a [função do Azure de Leitor do Gerenciamento de Custos](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Criador de assinatura do Azure** – pode criar assinaturas do Azure, exibir custos e gerenciar a configuração de custo. Por exemplo, orçamentos e exportações. Em função, esse escopo do orçamento do Contrato de Cliente é o mesmo que a função de proprietário da conta de registro de EA.
 
 As assinaturas do Azure são aninhadas sob seções de fatura, como se estivessem sob contas de registro de EA. Os usuários de cobrança têm acesso aos dados de custo para as assinaturas e aos grupos de recursos que estão sob seus respectivos escopos. No entanto, eles não têm acesso para ver ou gerenciar recursos no portal do Azure. Os usuários de cobrança podem exibir os custos navegando para **Gerenciamento de Custos + Cobrança** na lista de serviços do portal do Azure. Em seguida, eles podem filtrar os custos para as assinaturas específicas e os grupos de recursos sobre os quais precisam fazer um relatório.

@@ -1,18 +1,18 @@
 ---
 title: Planejando uma implantação de Sincronização de Arquivos do Azure | Microsoft Docs
-description: Saiba o que considerar ao planejar uma implantação de Arquivos do Azure.
+description: Planejar uma implantação com o Sincronização de Arquivos do Azure, um serviço que permite armazenar em cache vários compartilhamentos de arquivos do Azure em um Windows Server ou VM de nuvem local.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f09e84d20b1a3c568eea015d92b93a99b8cf024e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: acdf830c9bf0eaedcca5bf0ffe1b2bd373750276
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036787"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030649"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 

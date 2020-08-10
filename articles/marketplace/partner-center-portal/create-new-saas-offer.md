@@ -3,18 +3,18 @@ title: Criar uma oferta de SaaS, Azure Marketplace e Microsoft AppSource
 description: Como criar uma oferta de SaaS (software como serviço) para listagem ou venda no Microsoft AppSource, no Azure Marketplace ou no programa CSP (provedor de soluções na nuvem) usando o programa Microsoft Commercial Marketplace no Microsoft Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 07/22/2020
+ms.topic: how-to
+ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 2b12eb88f0297c44fabb62e40d315517f3d3b954
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 7fbb50308f14acbcec98c562fe72763341538df2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800325"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031023"
 ---
-# <a name="create-a-saas-offer"></a>Criar uma oferta de SaaS
+# <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Criar uma oferta de SaaS no Marketplace comercial
 
 Para começar a criar ofertas de SaaS (software como serviço) no marketplace comercial, você precisa primeiro [criar uma conta do Partner Center](./create-account.md) e abra o [painel Marketplace Comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), com a guia **Visão geral** selecionada.
 
@@ -83,7 +83,7 @@ Com as soluções de SaaS em execução na assinatura do Azure do editor, os val
 
 O SaaS dá suporte à cobrança mensal ou anual com base em valores fixos por usuário ou cobranças de consumo usando o serviço de cobrança limitado. O marketplace comercial da Microsoft opera em um modelo de agência, no qual os editores definem preços, a Microsoft cobra os clientes e paga uma receita ao editor, retendo um valor de agenciamento.
 
-Esta é uma análise de exemplo de custos e pagamentos para demonstrar o modelo de agência (todos os preços listados são apenas para fins de exemplo e não se destinam a refletir os custos reais):
+Esta é uma análise de exemplo de custos e pagamentos para demonstrar o modelo de agência (os preços listados são, por exemplo, apenas finalidades e não têm a finalidade de refletir os custos reais):
 
 |**Custo de sua licença**|**US$ 100 por mês**|
 |:---|:---|
@@ -282,16 +282,18 @@ Esse campo é obrigatório.
 #### <a name="files-and-images"></a>Arquivos e imagens
 
 - **Documentos** (obrigatório) – adicione documentos de marketing relacionados para sua oferta, em formato PDF, de pelo menos um e até três documentos por oferta.
-- **Imagens** (obrigatórias) – há vários locais onde as imagens de logotipo da sua oferta podem aparecer em todo o Marketplace. Forneça um arquivo PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center usará isso para criar um logotipo de tamanho **pequeno** (48 x 48 pixels) e **médio** (90 x 90 pixels). Opcionalmente, você pode substituí-los por imagens diferentes. Adicionar um logotipo **amplo** é opcional.
+- **Imagens** – carregar imagens de logotipo no formato png:
 
-    Três tamanhos de logotipo são necessários para uso em locais diferentes na lista; um é opcional:
+  - **Pequeno** (48 x 48 pixels, obrigatório)
+  - **Médio** (90 x 90 pixels, obrigatório)
+  - **Grande** (216 x 216 pixels, obrigatório)
+  - **Largo** (255 x 115 pixels) (opcional)
 
-    - **Pequeno** (48 x 48)
-    - **Médio** (90 x 90)
-    - **Grande** (entre 216 x 216 e 350 x 350)
-    - **Largo** (255 x 115), *opcional*
+   Esses três tamanhos de logotipo são usados em locais diferentes nas vitrines:
 
-    [!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+   -   O logotipo pequeno (48 x 48 pixels) aparece nos resultados da pesquisa do Azure Marketplace e na página de Microsoft AppSource página principal e nos resultados da pesquisa. 
+   -   O logotipo médio (90 x 90 pixels) é exibido quando você cria um novo recurso no Microsoft Azure.
+   -   O logotipo grande (entre 216 x 216 e 350 x 350 pixels) aparece em sua página de listagem de ofertas no Azure Marketplace e Microsoft AppSource.
 
 - **Capturas de tela** (obrigatórias) – adicione um máximo de cinco capturas de tela demonstrando sua oferta, dimensionada em 1280 x 720 pixels. Todas as imagens precisam estar no formato .PNG.
 - **Vídeos** (opcional) – adicione links para vídeos que demonstrem sua oferta. É possível usar links para vídeos do YouTube e/ou do Vimeo, que são mostrados juntamente com sua oferta aos clientes. Você também precisará inserir uma imagem em miniatura do vídeo, dimensionada para 1280 x 720 pixels em formato PNG. É possível exibir um máximo de quatro vídeos por oferta.

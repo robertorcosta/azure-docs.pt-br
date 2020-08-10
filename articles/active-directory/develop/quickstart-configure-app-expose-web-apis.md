@@ -12,12 +12,12 @@ ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: e005ba9c5458849863bd4668ffde1e0f6fb4bf91
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 263eb531466e26ed6069dc889c17e2632aa9ed20
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76704214"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799405"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Início Rápido: Configurar um aplicativo para expor APIs Web
 
@@ -75,6 +75,13 @@ Para expor um novo escopo pela interface do usuário:
 
 1. Defina o **Estado** e selecione **Adicionar escopo** quando você terminar.
 
+1. (Opcional) Para suprimir a solicitação de consentimento dos usuários do seu aplicativo para os escopos que você definiu, você pode "pré-autorizar" o aplicativo cliente a acessar sua API Web. Você *só* deve pré-autorizar os aplicativos cliente confiáveis, pois os usuários não terão a oportunidade de recusar o consentimento.
+    1. Em **Aplicativos cliente autorizados**, selecione **Adicionar um aplicativo cliente**
+    1. Insira a **ID do Aplicativo (cliente)** do aplicativo cliente que deseja pré-autorizar. Por exemplo, aquela de um aplicativo Web que você já registrou.
+    1. Em **Escopos autorizados**, selecione os escopos para os quais deseja suprimir a solicitação de consentimento e escolha **Adicionar aplicativo**.
+
+    Agora, o aplicativo cliente é um PCA (aplicativo cliente pré-autorizado), e os usuários não precisarão fornecer consentimento ao entrar nele.
+
 1. Siga as etapas para [Verificar se que a API Web está exposta a outros aplicativos](#verify-the-web-api-is-exposed-to-other-applications).
 
 ## <a name="expose-a-new-scope-or-role-through-the-application-manifest"></a>Expor um novo escopo ou função pelo manifesto do aplicativo
@@ -84,7 +91,7 @@ Para expor um novo escopo pela interface do usuário:
 Para expor um novo escopo ou função pelo manifesto do aplicativo:
 
 1. Na página **Visão Geral** do aplicativo, selecione a seção **Manifesto**. Abre um editor de manifesto baseado na Web, permitindo a você **Editar** o manifesto dentro do portal. Opcionalmente, você pode selecionar **Baixar** e editar o manifesto localmente e, em seguida, usar **Carregar** para reaplicá-lo ao seu aplicativo.
-    
+
     O exemplo a seguir mostra como expor um novo escopo chamado `Employees.Read.All` no recurso ou na API adicionando o seguinte elemento JSON à coleção `oauth2Permissions`.
 
       ```json
@@ -110,14 +117,17 @@ Para expor um novo escopo ou função pelo manifesto do aplicativo:
 
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Verificar se a API Web está exposta a outros aplicativos
 
-1. Volte para o locatário do Azure AD, clique em **Registros de aplicativo** e localize e selecione o aplicativo cliente que você deseja configurar.
+1. Volte ao locatário do Azure AD, selecione **Registros de aplicativo** e localize e escolha o aplicativo cliente que deseja configurar.
 1. Repita as etapas definidas em [Configurar um aplicativo cliente para acessar APIs Web](quickstart-configure-app-access-web-apis.md).
-1. Quando chegar à etapa [selecionar uma API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
-), selecione o recurso. Você deve ver o novo escopo, disponível para solicitações de permissão do cliente.
+1. Quando chegar à etapa que [seleciona uma API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis), escolha o recurso (o registro do aplicativo de API Web).
+    * Se você criou o registro do aplicativo de API Web usando o portal do Azure, ele é listado na guia **Minhas APIs**.
+    * Se você permitiu que o Visual Studio criasse o registro do aplicativo de API Web durante a criação do projeto, o recurso de API está listado na guia **APIs que a minha organização usa**.
+
+Depois de selecionar o recurso de API Web, você verá o novo escopo disponível para as solicitações de permissão do cliente.
 
 ## <a name="more-on-the-application-manifest"></a>Mais sobre o manifesto do aplicativo
 
-O manifesto do aplicativo funciona como um mecanismo para atualizar a entidade do aplicativo, que define todos os atributos de configuração de identidade de um aplicativo do Azure AD. Para obter mais informações sobre a entidade Aplicativo e seu esquema, confira a [Documentação da entidade do Aplicativo da API do Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). O artigo contém informações de referência completas sobre os membros da entidade do Aplicativo usados para especificar permissões para a sua API, incluindo:  
+O manifesto do aplicativo funciona como um mecanismo para atualizar a entidade do aplicativo, que define todos os atributos de configuração de identidade de um aplicativo do Azure AD. Para obter mais informações sobre a entidade Aplicativo e seu esquema, confira a [Documentação da entidade do Aplicativo da API do Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). O artigo contém informações de referência completas sobre os membros da entidade do Aplicativo usados para especificar permissões para a sua API, incluindo:
 
 * O membro appRoles, que é uma coleção de entidades [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type), usado para definir [permissões de aplicativo](developer-glossary.md#permissions) para uma API Web.
 * O membro oauth2Permissions, que é uma coleção de entidades [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type), usado para definir as [permissões delegadas](developer-glossary.md#permissions) para uma API Web.

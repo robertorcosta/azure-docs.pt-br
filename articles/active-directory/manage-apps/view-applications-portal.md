@@ -12,13 +12,12 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 249cdbef6214eb8c66da841d9eae817bcf794996
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: dce579596563855022f14bb2c07353b84d1e6127
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055385"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808364"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Início Rápido: Veja a lista de aplicativos que estão usando seu locatário do Azure AD (Azure Active Directory) para gerenciamento de identidades
 
@@ -68,11 +67,17 @@ Para pesquisar aplicativo específico:
 3. Tente inserir as primeiras letras do nome de um aplicativo. Este exemplo mostra todos os aplicativos que começam com **Vendas**.
     ![O exemplo mostra todos os aplicativos que começam com vendas](media/view-applications-portal/search-by-prefix.png)
 
+
+> [!TIP]
+> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Você não criou recursos neste guia de início rápido e, portanto, não há nada a ser limpo.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você aprendeu como exibir os aplicativos no locatário do Azure AD. Você aprendeu como filtrar a lista de aplicativos por tipo de aplicativo, status e visibilidade. Você também aprendeu a procurar determinado aplicativo.
-
-- [Adicionar um aplicativo](add-application-portal.md)
-- [Configurar um aplicativo](add-application-portal-configure.md)
-- [Configurar logon único](add-application-portal-setup-sso.md)
-- [Excluir um aplicativo](delete-application-portal.md)
+Prossiga para o próximo artigo para aprender a usar o Azure AD como o provedor de identidade para um aplicativo.
+> [!div class="nextstepaction"]
+> [Adicionar um aplicativo](add-application-portal.md)

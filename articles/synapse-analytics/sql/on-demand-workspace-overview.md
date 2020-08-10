@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35e75037b4bf759fe90d608be0682004d3d3f23c
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: fc306dbca3191f04a85f2c5cc88d41336c13e09c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85480432"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496382"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL sob demanda (versão prévia) no Azure Synapse Analytics 
 
@@ -31,7 +31,7 @@ O SQL sob demanda é sem servidor, portanto, não há infraestrutura a ser insta
 
 Se usar o Apache Spark para o Azure Synapse em seu pipeline de dados para preparação, limpeza ou enriquecimento de dados, você poderá [consultar as tabelas externas do Spark](develop-storage-files-spark-tables.md) que criou no processo, diretamente do SQL sob demanda. Use o [Link Privado](../security/how-to-connect-to-workspace-with-private-links.md) para trazer o ponto de extremidade do SQL sob demanda para dentro da [VNet do workspace gerenciado](../security/synapse-workspace-managed-vnet.md).  
 
-## <a name="who-is-sql-on-demand-for"></a>A quem o SQL sob demanda se destina
+## <a name="sql-on-demand-benefits"></a>Benefícios do SQL sob demanda
 
 Se você precisar explorar dados no data lake, obter insights desses dados ou otimizar o pipeline de transformação de dados existente, poderá se beneficiar do uso do SQL sob demanda. Ele é adequado para os seguintes cenários:
 
@@ -46,7 +46,7 @@ Diferentes funções profissionais podem se beneficiar do SQL sob demanda:
 - Os analistas de dados podem [explorar dados e tabelas externas do Spark](develop-storage-files-spark-tables.md) criadas por cientistas de dados ou engenheiros de dados usando uma linguagem T-SQL familiar ou as ferramentas favoritas deles, que podem se conectar ao SQL sob demanda.
 - Os profissionais de BI podem rapidamente [criar relatórios do Power BI com base nos dados no lake](tutorial-connect-power-bi-desktop.md) e em tabelas do Spark.
 
-## <a name="what-do-i-need-to-do-to-start-using-it"></a>O que preciso fazer para começar a usá-lo?
+## <a name="how-to-start-using-sql-on-demand"></a>Como começar a usar o SQL sob demanda
 
 O ponto de extremidade sob demanda do SQL é fornecido em todos os workspaces do Azure Synapse. Você pode criar um workspace e começar a consultar dados instantaneamente usando ferramentas com as quais você está familiarizado.
 
@@ -54,7 +54,7 @@ O ponto de extremidade sob demanda do SQL é fornecido em todos os workspaces do
 
 O SQL sob demanda permite que as ferramentas existentes de consulta ad hoc e de business intelligence do SQL aproveitem o data lake. Já que ele fornece uma sintaxe de T-SQL familiar, qualquer ferramenta capaz de estabelecer ofertas de conexão TDS pode [se conectar ao SQL do Synapse e consultá-lo](connect-overview.md) sob demanda. Você pode se conectar com Azure Data Studio e executar consultas ad hoc ou conectar-se com Power BI para obter insights em questão de minutos.
 
-## <a name="is-full-t-sql-supported"></a>O T-SQL completo é compatível?
+## <a name="t-sql-support"></a>Suporte para T-SQL
 
 O SQL sob demanda oferece uma área de superfície de consulta T-SQL, que é ligeiramente aprimorada/estendida em alguns aspectos para permitir experiências relacionadas à consulta de dados semiestruturados e não estruturados. Além disso, alguns aspectos da linguagem T-SQL não são compatíveis devido ao design do SQL sob demanda. Por exemplo, atualmente, a funcionalidade DML não é compatível.
 

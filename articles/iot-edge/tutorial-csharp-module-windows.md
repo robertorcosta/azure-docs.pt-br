@@ -11,12 +11,12 @@ ms.service: iot-edge
 ms.custom:
 - mvc
 - amqp
-ms.openlocfilehash: b71db71ac61e0dcd65a2546b2164610e618dab18
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 105dbed66b67f16b305cea74b9761abbef64d5fd
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81733502"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439783"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um módulo do IoT Edge em C# para dispositivos Windows
 
@@ -83,7 +83,7 @@ O Azure IoT Edge Tools fornece modelos de projeto para todas as linguagens de m�
    | ----- | ----- |
    | Selecione um modelo | Selecione **Módulo em C#** . |
    | Nome do projeto de módulo | Nomeie o módulo **CSharpModule**. |
-   | Repositório de imagens do Docker | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner é populada previamente com base no valor de nome do projeto de módulo. Substitua **localhost:5000** pelo valor do servidor de logon do seu registro de contêiner do Azure. Você pode recuperar o servidor de logon da página Visão Geral do seu registro de contêiner no portal do Azure. <br><br> O repositório de imagem final se parece com \<nome_do_registro\>.azurecr.io/csharpmodule. |
+   | Repositório de imagens do Docker | Um repositório de imagem inclui o nome do registro de contêiner e o nome da imagem de contêiner. Sua imagem de contêiner é populada previamente com base no valor de nome do projeto de módulo. Substitua **localhost:5000** pelo valor do **Servidor de logon** do seu Registro de Contêiner do Azure. Você pode recuperar o servidor de Logon da página Visão Geral do seu registro de contêiner no portal do Azure. <br><br> O repositório de imagens final se parece com \<registry name\>.azurecr.io/csharpmodule. |
 
    ![Configure seu projeto para o dispositivo de destino, tipo de módulo e registro de contêiner](./media/tutorial-csharp-module-windows/add-application-and-module.png)
 
@@ -309,9 +309,11 @@ Na seção anterior, você criou uma solução IoT Edge e adicionou um código a
 
    O comando de criação e de envio por push inicia três operações. Primeiro, é criada uma pasta na solução denominada **config** que contém o manifesto de implantação completo, criado com base nas informações do modelo de implantação e em outros arquivos da solução. Depois, ele executa `docker build` para montar a imagem de contêiner com base no dockerfile apropriado para sua arquitetura de destino. Por fim, ele executa `docker push` para enviar por push o repositório de imagens para seu registro de contêiner.
 
+   Esse processo pode levar vários minutos na primeira vez, mas será mais rápido na próxima vez em que você executar os comandos.
+
 ## <a name="deploy-modules-to-device"></a>Implantar módulos no dispositivo
 
-Use o gerenciador de nuvem do Visual Studio e a extensão Ferramentas do Azure IoT Edge para implantar o projeto de módulo em seu dispositivo IoT Edge. Você já tem um manifesto de implantação preparado para o seu cenário, o arquivo **deployment.json** na pasta config. Agora, tudo o que você precisa fazer é selecionar um dispositivo para receber a implantação.
+Use o gerenciador de nuvem do Visual Studio e a extensão Ferramentas do Azure IoT Edge para implantar o projeto de módulo em seu dispositivo IoT Edge. Você já tem um manifesto de implantação preparado para seu cenário, o arquivo **deployment.windows-amd64.json** na pasta config. Agora, tudo o que você precisa fazer é selecionar um dispositivo para receber a implantação.
 
 Verifique se seu dispositivo IoT Edge está em funcionamento.
 
@@ -321,7 +323,7 @@ Verifique se seu dispositivo IoT Edge está em funcionamento.
 
 3. Selecione **Criar Implantação**.
 
-4. No explorador de arquivos, selecione o arquivo **deployment.windows-amd64** na pasta config de sua solução.
+4. No explorador de arquivos, selecione o arquivo **deployment.windows-amd64.json** na pasta config de sua solução.
 
 5. Atualize o gerenciador de nuvem para ver os módulos implantados listados em seu dispositivo.
 

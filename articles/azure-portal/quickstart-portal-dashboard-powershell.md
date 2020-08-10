@@ -1,0 +1,183 @@
+---
+title: Criar um painel no portal do Azure com o PowerShell
+description: Saiba como criar um painel no portal do Azure usando o Azure PowerShell.
+author: mgblythe
+ms.service: azure-portal
+ms.topic: quickstart
+ms.custom: devx-track-azurepowershell
+ms.author: mblythe
+ms.date: 07/24/2020
+ms.openlocfilehash: 6b7a4f6d4ad7f5e94d19b9d531992f54ff13fec0
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87440687"
+---
+# <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>Início Rápido: Criar um painel no portal do Azure com o PowerShell
+
+Um painel no portal do Azure é uma exibição concentrada e organizada dos seus recursos da nuvem. Este artigo se concentra no processo de usar o módulo do PowerShell Az.Portal para criar um painel.
+O painel mostra o desempenho de uma VM (máquina virtual), bem como algumas informações e links estáticos.
+
+## <a name="requirements"></a>Requisitos
+
+Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+
+Se você optar por usar o PowerShell localmente, este artigo exigirá que você instale o módulo Az PowerShell e conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount). Para obter mais informações sobre como instalar o módulo Az PowerShell, confira [Instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
+> [!IMPORTANT]
+> Enquanto o módulo **Az.Portal** do PowerShell está na versão prévia, você precisa instalá-lo separadamente do módulo Az PowerShell usando o cmdlet `Install-Module`. Quando esse módulo do PowerShell estiver em disponibilidade geral, ele passará a fazer parte das versões futuras do módulo Az PowerShell e estará disponível nativamente no Azure Cloud Shell.
+
+```azurepowershell-interactive
+Install-Module -Name Az.Portal
+```
+
+[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+
+## <a name="choose-a-specific-azure-subscription"></a>Escolher uma assinatura específica do Azure
+
+Se tiver várias assinaturas do Azure, escolha a que for adequada para cobrança do recurso. Selecione uma assinatura específica usando o cmdlet [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext).
+
+```azurepowershell-interactive
+Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+```
+
+## <a name="define-variables"></a>Definir variáveis
+
+Você usará várias informações repetidamente. Crie variáveis para armazenar as informações.
+
+```azurepowershell-interactive
+# Name of resource group used throughout this article
+$resourceGroupName = 'myResourceGroup'
+
+# Azure region
+$location = 'centralus'
+
+# Dashboard Title
+$dashboardTitle = 'Simple VM Dashboard'
+
+# Dashboard Name
+$dashboardName = $dashboardTitle -replace '\s'
+
+# Your Azure Subscription ID
+$subscriptionID = (Get-AzContext).Subscription.Id
+
+# Name of test VM
+$vmName = 'SimpleWinVM'
+```
+
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+
+Crie um [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) usando o cmdlet [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados como um grupo.
+
+O exemplo a seguir cria um grupo de recursos com base no nome na variável `$resourceGroupName` na região especificada na variável `$location`.
+
+```azurepowershell-interactive
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+```
+
+## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
+
+O painel que você criará na próxima parte deste guia de início rápido exige uma VM existente. Crie uma VM seguindo estas etapas.
+
+Armazene as credenciais de logon da VM em uma variável. A senha deve ser complexa. Esse é um novo nome de usuário e uma nova senha; não é, por exemplo, a conta que você usa para entrar no Azure. Para obter mais informações, confira [Requisitos de nome de usuário](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) e [Requisitos de senha](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+
+```azurepowershell-interactive
+$Cred = Get-Credential
+```
+
+Crie a VM.
+
+```azurepowershell-interactive
+$AzVmParams = @{
+  ResourceGroupName = $resourceGroupName
+  Name = $vmName
+  Location = $location
+  Credential = $Cred
+}
+New-AzVm @AzVmParams
+```
+
+A implantação da VM agora é iniciada e normalmente leva alguns minutos para ser concluída. Após a conclusão da implantação, vá para a próxima seção.
+
+## <a name="download-the-dashboard-template"></a>Baixar o modelo de painel
+
+Como os painéis do Azure são recursos, eles podem ser representados como JSON. O código a seguir baixa uma representação JSON de um painel de exemplo. Para obter mais informações, confira [A estrutura de Painéis do Azure](/azure/azure-portal/azure-portal-dashboards-structure).
+
+```azurepowershell-interactive
+$myPortalDashboardTemplateUrl = 'https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json'
+
+$myPortalDashboardTemplatePath = "$env:TEMP\portal-dashboard-template-testvm.json"
+
+Invoke-WebRequest -Uri $myPortalDashboardTemplateUrl -OutFile $myPortalDashboardTemplatePath -UseBasicParsing
+```
+
+## <a name="customize-the-template"></a>Personalizar o modelo
+
+Personalize o modelo baixado executando o código a seguir.
+
+```azurepowershell
+$Content = Get-Content -Path $myPortalDashboardTemplatePath -Raw
+$Content = $Content -replace '<subscriptionID>', $subscriptionID
+$Content = $Content -replace '<rgName>', $resourceGroupName
+$Content = $Content -replace '<vmName>', $vmName
+$Content = $Content -replace '<dashboardTitle>', $dashboardTitle
+$Content = $Content -replace '<location>', $location
+$Content | Out-File -FilePath $myPortalDashboardTemplatePath -Force
+```
+
+Para obter mais informações, confira [Referência de modelos de painéis no portal da Microsoft](/azure/templates/microsoft.portal/dashboards).
+
+## <a name="deploy-the-dashboard-template"></a>Implantar o modelo de painel
+
+Use o cmdlet `New-AzPortalDashboard`, que faz parte do módulo Az.Portal, para implantar o modelo diretamente do PowerShell.
+
+```azurepowershell
+$DashboardParams = @{
+  DashboardPath = $myPortalDashboardTemplatePath
+  ResourceGroupName = $resourceGroupName
+  DashboardName = $dashboardName
+}
+New-AzPortalDashboard @DashboardParams
+```
+
+## <a name="review-the-deployed-resources"></a>Examinar os recursos implantados
+
+Verifique se o painel foi criado com êxito.
+
+```azurepowershell
+Get-AzPortalDashboard -Name $dashboardName -ResourceGroupName $resourceGroupName
+```
+
+Verifique se você pode ver dados sobre a VM de dentro do portal do Azure.
+
+1. No portal do Azure, selecione **Painel**.
+
+   ![Navegação do portal do Azure até o painel](media/quickstart-portal-dashboard-powershell/navigate-to-dashboards.png)
+
+1. Na página do painel, selecione **Painel de VM Simples**.
+
+   ![Navegar até o Painel de VM Simples](media/quickstart-portal-dashboard-powershell/select-simple-vm-dashboard.png)
+
+1. Examine o painel. Você pode ver que parte do conteúdo é estático, mas também há gráficos que mostram o desempenho da VM.
+
+   ![Examinar o Painel de VM Simples](media/quickstart-portal-dashboard-powershell/review-simple-vm-dashboard.png)
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Para remover a VM e o painel associado, exclua o grupo de recursos que os contém.
+
+> [!CAUTION]
+> O exemplo a seguir exclui o grupo de recursos especificado e todos os recursos contidos nele.
+> Se existirem recursos fora do escopo deste artigo no grupo de recursos especificado, eles também serão excluídos.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name $resourceGroupName
+```
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para obter mais informações sobre os cmdlets contidos no módulo Az.Portal do PowerShell, confira:
+
+> [!div class="nextstepaction"]
+> [Microsoft Azure PowerShell: cmdlets do Painel do Portal](https://docs.microsoft.com/powershell/module/Az.Portal/)

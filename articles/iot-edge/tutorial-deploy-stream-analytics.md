@@ -3,16 +3,16 @@ title: Tutorial – Stream Analytics na borda usando o Azure IoT Edge
 description: Neste tutorial, você implantará o Azure Stream Analytics como um módulo em um dispositivo IoT Edge
 author: kgremban
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 62ee95db0e3b35c996cb4ee68d772a21c00778fb
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: c259e913a8ee5181bc58aea651af62324cf01fcb
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220280"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439406"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutorial: Implantar o Azure Stream Analytics como um módulo do IoT Edge
 
@@ -134,7 +134,7 @@ Usando os três elementos de entrada, saída e de consulta, esta seção cria um
     HAVING Avg(machine.temperature) > 70
     ```
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar consulta**.
 
 ### <a name="configure-iot-edge-settings"></a>Definição das configurações do IoT Edge
 
@@ -189,7 +189,7 @@ Para este tutorial, você deve implantar dois módulos. O primeiro é **Simulate
 
 1. Selecione **Atualizar** ou **Cancelar**.
 
-1. Anote o nome do módulo do Stream Analytics, pois precisará dele na próxima etapa e, em seguida, selecione **Próximo: Rotas** para continuar.
+1. Tome nota do nome do módulo do Stream Analytics, pois você precisará dele na próxima etapa. Em seguida, selecione **Avançar: Rotas** para continuar.
 
 1. Na guia **Rotas**, defina como as mensagens são transmitidas entre os módulos e o Hub IoT. As mensagens são construídas com pares nome/valor. Substitua o nome padrão de `route` e `upstream` e os valores pelos pares mostrados na tabela a seguir, os pares nome/valor a seguir, substituindo as instâncias de _{moduleName}_ pelo nome do módulo do Azure Stream Analytics.
 

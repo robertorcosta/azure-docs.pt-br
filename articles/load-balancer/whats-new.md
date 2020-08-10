@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: overview
 ms.date: 07/07/2020
 ms.author: anavin
-ms.openlocfilehash: 8b44dc230dbee1b29b9889a1b81e35ebe25f6b97
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24c5133b9c012b628e43e956c56d5112e1ad4649
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078679"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447029"
 ---
 # <a name="whats-new-in-azure-load-balancer"></a>O que há de novo no Azure Load Balancer?
 
@@ -34,6 +34,16 @@ Você também pode encontrar as atualizações mais recentes do Azure Load Balan
 | Validação | Adição de validação para portas de HA | Uma validação foi adicionada para que as regras de porta de HA e não HA só sejam configuráveis quando o IP flutuante estiver habilitado. Anteriormente, essa configuração passava, mas não funcionava conforme o esperado. Nenhuma alteração na funcionalidade foi feita. Você pode saber mais [aqui](load-balancer-ha-ports-overview.md#limitations)| Junho de 2020 |
 | Recurso| Suporte a IPv6 para o Azure Load Balancer (em disponibilidade geral) | Você pode ter endereços IPv6 como front-end para seus Azure Load Balancers. Saiba como [criar um aplicativo de pilha dupla aqui](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) |Abril de 2020|
 | Recurso| Redefinições de TCP no Tempo Limite de Ociosidade (em disponibilidade geral)| Use as redefinições de TCP para criar um comportamento de aplicativo mais previsível. [Saiba mais](load-balancer-tcp-reset.md)| Fevereiro de 2020 |
+
+## <a name="known-issues"></a>Problemas conhecidos
+
+O grupo do produto está trabalhando ativamente em resoluções para os seguintes problemas conhecidos:
+
+|Problema |Descrição  |Atenuação  |
+| ---------- |---------|---------|
+| Exportação do Log Analytics | O Log Analytics não pode exportar métricas para os Standard Load Balancers nem logs de status da investigação de integridade para o Load Balancer Básico  | [Utilize o Azure Monitor para obter métricas multidimensionais de seu Standard Load Balancer](load-balancer-standard-diagnostics.md). Embora não seja possível usar o Log Analytics para monitoramento, o Azure Monitor fornece a visualização de um conjunto avançado de métricas multidimensionais. Você pode aproveitar o painel de métricas pré-configurado por meio da folha secundária Insights de seu Load Balancer. Se estiver usando o Load Balancer Básico, [atualize para o Standard](upgrade-basic-standard.md) para ter monitoramento das métricas de nível de produção.
+
+  
 
 ## <a name="next-steps"></a>Próximas etapas
 

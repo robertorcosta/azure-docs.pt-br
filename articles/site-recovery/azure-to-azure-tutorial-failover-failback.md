@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9bc0d25e19ad3412e62eb3386b0faf3ae5d2a444
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8d38aa513b0829c2626fcd4a92c40faabff1f83e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68782586"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502385"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Fazer failover e proteger novamente VMs do Azure entre regiões
 
@@ -38,7 +38,7 @@ Este tutorial descreve como fazer failover de uma máquina virtual (VM) do Azure
 
 1. Em **Itens replicados**, selecione a VM cujo failover você deseja fazer > **Failover**
 
-   ![Failover](./media/azure-to-azure-tutorial-failover-failback/failover.png)
+   ![Captura de tela mostrando as opções de Failover para uma VM.](./media/azure-to-azure-tutorial-failover-failback/failover.png)
 
 2. Em **Failover**, selecione um **Ponto de Recuperação** para o qual fazer o failover. Você pode usar uma das seguintes opções:
 
@@ -58,7 +58,7 @@ Este tutorial descreve como fazer failover de uma máquina virtual (VM) do Azure
 > [!NOTE]
 > Quando você faz o failover de uma máquina virtual à qual você adiciona um disco após habilitar a replicação da VM, os pontos da replicação mostrarão os discos que estão disponíveis para recuperação. Por exemplo, se uma VM tiver um único disco e você adicionar um novo, os pontos de replicação que foram criados antes de você adicionar o disco mostrará que o ponto de replicação consiste em "1 de 2 discos".
 
-![Fazer failover com um disco adicionado](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
+![Captura de tela mostrando o failover com um disco adicionado.](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
 
 ## <a name="reprotect-the-secondary-vm"></a>Proteger novamente a VM secundária
 
@@ -67,7 +67,7 @@ Após o failover da VM, você precisa protegê-la novamente para que ela seja re
 1. Verifique se a VM está no estado **Failover confirmado** e verifique se a região primária está disponível e se você é capaz de criar e acessar novos recursos nela.
 2. Em **Cofre** > **Itens replicados**, clique com o botão direito do mouse na VM em que o failover foi executado e, em seguida, selecione **Proteger Novamente**.
 
-   ![Clicar com o botão direito do mouse para proteger novamente](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
+   ![Captura de tela da opção de nova proteção para uma VM.](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
 
 2. Verifique se a direção da proteção, da região secundária para a primária, já está selecionada.
 3. Examine as informações de **Grupo de recursos, Rede, Armazenamento e Conjuntos de disponibilidade**. Quaisquer recursos marcados como novos são criados como parte da operação de proteger novamente.

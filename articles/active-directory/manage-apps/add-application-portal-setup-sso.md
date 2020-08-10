@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f8f19e6b98143bb48430decdd51f5626e72d422
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 461a424f23161e1567c6b32a38db0225efc56b1e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387278"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808381"
 ---
 # <a name="quickstart-set-up-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Configurar o SSO (logon único) para um aplicativo no locatário do Azure AD (Azure Active Directory)
 
@@ -61,6 +61,16 @@ Para configurar o logon único para um aplicativo:
     :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Captura de tela mostrando a opção logon único na assinatura Enterprise da página de preços do GitHub.":::
 
 
-## <a name="next-step"></a>Próxima etapa
+> [!TIP]
+> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
 
-- [Excluir um aplicativo](delete-application-portal.md)
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Quando concluir esta série de guias de início rápido, considere a possibilidade de excluir o aplicativo para limpar seu locatário de teste. A exclusão do aplicativo é abordada no último guia de início rápido desta série; confira [Excluir um aplicativo](delete-application-portal.md).
+
+## <a name="next-steps"></a>Próximas etapas
+
+Prossiga para o próximo artigo para saber como excluir um aplicativo.
+> [!div class="nextstepaction"]
+> [Excluir um aplicativo](delete-application-portal.md)

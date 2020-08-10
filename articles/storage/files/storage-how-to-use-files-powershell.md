@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c0008ab89f4599e2ada51b5637a9665a249bc1c4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 360af0406a816a02540881962ed8794d69ce3bbb
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340830"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531805"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Início Rápido: Criar e gerenciar um compartilhamento de arquivos do Azure com o Azure PowerShell 
 Este guia oferece orientações básicas sobre como trabalhar com [compartilhamentos de arquivos do Azure](storage-files-introduction.md) usando o PowerShell. Os compartilhamentos de arquivos do Azure são iguais a outros compartilhamentos de arquivos, mas são armazenados na nuvem e compatíveis com a plataforma do Azure. Os compartilhamentos de Arquivos do Azure oferecem suporte ao protocolo SMB padrão do setor e habilitar o compartilhamento de arquivos entre vários computadores, aplicativos e instâncias. 
@@ -88,7 +88,7 @@ Na maioria dos casos, você usará o compartilhamento de arquivos do Azure em ve
 - Você está aproveitando as vantagens dos recursos sem servidor, como o [Azure Functions](../../azure-functions/functions-overview.md). 
 - Você está criando um serviço de valor agregado que interagirá com muitos compartilhamentos de arquivos do Azure, como realizar backup ou verificações antivírus.
 
-Os exemplos a seguir mostram como usar o módulo do Azure PowerShell para manipular o compartilhamento de arquivos do Azure com o protocolo REST de arquivo. O parâmetro `-Context` é usado para recuperar a chave de conta de armazenamento para executar as ações indicadas no compartilhamento de arquivo. Para recuperar a chave de conta de armazenamento, é necessário ter a função RBAC de `Owner` na conta de armazenamento.
+Os exemplos a seguir mostram como usar o módulo do Azure PowerShell para manipular o compartilhamento de arquivos do Azure com o protocolo REST de arquivo. O parâmetro `-Context` é usado para recuperar a chave de conta de armazenamento para executar as ações indicadas no compartilhamento de arquivo. Para recuperar a chave de conta de armazenamento, é necessário ter a função do Azure de `Owner` na conta de armazenamento.
 
 #### <a name="create-directory"></a>Criar diretório
 Para criar um novo diretório chamado *myDirectory* na raiz do seu compartilhamento de arquivos do Azure, use o cmdlet [New-AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory).

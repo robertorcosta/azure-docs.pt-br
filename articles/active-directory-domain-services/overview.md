@@ -10,18 +10,20 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 472ff9de069e7d95cb1753a6b05830649806d2fc
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 6efd33b9f8825b5b5699b6106dadafec851ed454
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84734547"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87488543"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>O que é o Azure Active Directory Domain Services?
 
 O Azure AD DS (Azure Active Directory Domain Services) fornece serviços de domínio gerenciado, como ingresso no domínio, política de grupo, protocolo LDAP e autenticação Kerberos/NTLM. Você pode usar esses serviços de domínio sem a necessidade de implantar, gerenciar e aplicar um patch em DCs (controladores de domínio) na nuvem.
 
-Um domínio gerenciado é um namespace DNS e um diretório correspondente. O domínio gerenciado se integra ao locatário existente do Azure AD, o que permite que os usuários entrem usando as respectivas credenciais atuais. Além disso, você pode usar contas de usuário e grupos existentes para proteger o acesso a recursos, garantindo um lift-and-shift mais tranquilo dos recursos locais para o Azure.
+Ao criar um domínio gerenciado do Azure AD DS, você define um namespace exclusivo. Esse namespace é o nome de domínio, por exemplo, *aaddscontoso.com*, e dois DCs (controladores de domínio) são implantados na região do Azure selecionada. Essa implantação de DCs é conhecida como conjunto de réplicas. O domínio gerenciado se integra ao locatário existente do Azure AD, o que permite que os usuários entrem usando as respectivas credenciais atuais. Além disso, você pode usar contas de usuário e grupos existentes para proteger o acesso a recursos, garantindo um lift-and-shift mais tranquilo dos recursos locais para o Azure.
+
+Você pode expandir um domínio gerenciado para ter mais de um conjunto de réplicas por locatário do Azure AD. Os conjuntos de réplicas podem ser adicionados a qualquer rede virtual emparelhada em qualquer região do Azure com suporte para o Azure AD DS. Conjuntos de réplicas adicionais em diferentes regiões do Azure fornecem recuperação de desastre geográfica para aplicativos herdados se uma região do Azure fica offline. Atualmente, os conjuntos de réplicas estão em versão prévia. Para obter mais informações, confira [Conceitos e recursos dos conjuntos de réplicas para domínios gerenciados][concepts-replica-sets].
 
 O Azure AD DS integra-se com o seu locatário existente do Azure AD. Essa integração permite que os usuários entrem no serviço e em aplicativos conectados ao domínio gerenciado usando as credenciais existentes deles. Você também pode usar grupos e contas de usuário para proteger o acesso aos recursos. Esses recursos fornecem um lift-and-shift mais suave de recursos locais para o Azure.
 
@@ -150,3 +152,4 @@ Para começar, [crie um domínio gerenciado usando o portal do Azure][tutorial-c
 [forest-trusts]: concepts-resource-forest.md
 [administration-concepts]: administration-concepts.md
 [synchronization]: synchronization.md
+[concepts-replica-sets]: concepts-replica-sets.md

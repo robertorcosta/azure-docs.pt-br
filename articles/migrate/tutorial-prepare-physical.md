@@ -4,12 +4,12 @@ description: Saiba como se preparar para a avaliação/migração de servidores 
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 31db91b512a4532cca144dc012282ea58a87514f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 55e6039e5844c575808210cde7ee348f658b40ec
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113244"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420780"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparar para a avaliação e a migração de servidores físicos para o Azure
 
@@ -138,7 +138,7 @@ Antes de configurar o dispositivo das Migrações para Azure e iniciar a avalia�
 
 As Migrações para Azure precisam de permissões para descobrir servidores locais.
 
-- **Windows:** você precisa ser um administrador de domínio ou administrador local em todos os servidores Windows que deseja descobrir. A conta de usuário deve ser adicionada a estes grupos: Usuários de Gerenciamento Remoto, Usuários do Monitor de Desempenho e Usuários do Log de Desempenho.
+- **Windows:** Você precisa de uma conta de domínio para descobrir servidores ingressados no domínio e uma conta local para descobrir computadores que não são ingressados no domínio. A conta de usuário deve ser adicionada a estes grupos: Usuários de Gerenciamento Remoto, Usuários do Monitor de Desempenho e Usuários do Log de Desempenho.
 - **Linux:** Você precisa de uma conta raiz nos servidores Linux que deseja descobrir.
 
 ## <a name="prepare-for-physical-server-migration"></a>Preparar para migração do servidor físico

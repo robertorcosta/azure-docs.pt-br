@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75b6ba110264ae3826093222e9cd3c4073bc17f0
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0e16fdaed8ce7e73718569652e88e66844850175
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683585"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416546"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory à AWS (Amazon Web Services)
 
@@ -105,7 +105,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica de SAML**, o aplicativo é pré-configurado e as URLs necessárias já são preenchidas previamente com o Azure. O usuário precisa salvar a configuração selecionando **Salvar**.
+1. Na seção **Configuração básica do SAML**, atualize **Identificador (ID da Entidade)** e **URL de Resposta** com o mesmo valor padrão: `https://signin.aws.amazon.com/saml`. Você precisa selecionar **Salvar** para salvar as alterações na configuração.
 
 1. Quando você estiver configurando mais de uma instância, forneça um valor de identificador. Da segunda instância em diante, use o seguinte formato, incluindo um sinal **#** para especificar um valor SPN exclusivo.
 
@@ -123,11 +123,19 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | Função            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes` |
     | SessionDuration             | "fornecer um valor entre 900 segundos (15 minutos) para segundos 43200 (12 horas)" |  `https://aws.amazon.com/SAML/Attributes` |
 
-1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar o logon único com o SAML**, na caixa de diálogo **Certificado de Autenticação do SAML** (Etapa 3), selecione **Adicionar um certificado**.
+
+    ![Criar um certificado SAML](common/add-saml-certificate.png)
+
+1. Gere um novo certificado de autenticação SAML e, em seguida, selecione **Novo Certificado**. Insira um endereço de email para notificações de certificado.
+   
+    ![Novo certificado SAML](common/new-saml-certificate.png) 
+
+1. Na seção **Certificado de Autenticação SAML**, localize o **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-1. Na seção **Configurar a AWS (Amazon Web Services)** , copie a URL apropriada, com base em suas necessidades.
+1. Na seção **Configurar o AWS (Amazon Web Services)** , copie a URL apropriada, com base nas suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 

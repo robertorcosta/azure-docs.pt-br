@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: b08670c51b56f01ad1193d2729ecc77821242a19
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: ae3d0ac6fb332fa17fbe938572b94c51e0785089
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200751"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449016"
 ---
 # <a name="tutorial-interfaces-and-custom-models"></a>Tutorial: Interfaces e modelos personalizados
 
@@ -81,8 +81,8 @@ Agora, você pode adicionar o prefab **AppMenu** à cena, para obter comentário
 1. No Editor, agora que o MRTK está configurado, você pode usar as teclas WASD para alterar a posição da exibição e manter o botão direito do mouse pressionado enquanto move o mouse para alterar a direção da exibição. Experimente "passear" um pouco pela cena para ter uma ideia dos controles.
 1. No dispositivo, você pode levantar a palma para convocar o **AppMenu**; no Editor do Unity, use a tecla de atalho 'M'.
 1. Se perder o menu de vista, pressione a tecla 'M' para convocá-lo. O menu será colocado próximo à câmera para facilitar a interação.
-1. Agora, a autorização será mostrada como uma solicitação à direita do **AppMenu**. A partir de agora, você a usará para autorizar o aplicativo a gerenciar sessões de Remote Rendering.
- ![Autorização da interface do usuário](./media/authorize-request-ui.png)\
+1. Agora, a autorização será mostrada como uma solicitação à direita do **AppMenu**. Daqui por diante, você a usará para autorizar o aplicativo a gerenciar sessões de renderização remota.
+ ![Autorização da interface do usuário](./media/authorize-request-ui.png)
 1. Pare a reprodução do Unity para continuar com o tutorial.
 
 ## <a name="manage-model-state"></a>Gerenciar o estado do modelo

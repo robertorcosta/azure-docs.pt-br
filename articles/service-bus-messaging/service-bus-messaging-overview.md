@@ -3,12 +3,12 @@ title: Visão geral de sistema de mensagens do Barramento de Serviço do Azure |
 description: Este artigo fornece uma visão geral de alto nível do Barramento de Serviço do Azure, um agente de mensagem de integração empresarial totalmente gerenciado.
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: 8583996cde23b056261662a0640aa310e63d45a9
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 478dd0debb5117e76cf8d0ab6599dcf363c12ab3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341670"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501467"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Barramento de Serviço do Azure?
 
@@ -92,7 +92,7 @@ Um erro pode fazer com que o cliente tenha uma dúvida sobre o resultado de uma 
 ### <a name="security-protocols"></a>Protocolos de segurança
 <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>
 
-O Barramento de Serviço dá suporte a protocolos de segurança, como [Assinaturas de Acesso Compartilhado](service-bus-sas.md) (SAS), [Controle de Acesso Baseado em Função](authenticate-application.md) (RBAC) e [Identidades Gerenciadas para recursos do Azure](service-bus-managed-service-identity.md).
+O Barramento de Serviço dá suporte a protocolos de segurança como [SAS (Assinaturas de Acesso Compartilhado)](service-bus-sas.md), [Azure RBAC (controle de acesso baseado em função do Azure)](authenticate-application.md) e [Identidades gerenciadas para recursos do Azure](service-bus-managed-service-identity.md).
 
 ### <a name="geo-disaster-recovery"></a>Recuperação de desastre geográfico
 

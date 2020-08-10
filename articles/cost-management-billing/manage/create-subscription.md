@@ -1,17 +1,17 @@
 ---
 title: Criar uma assinatura adicional do Azure
-description: Saiba como adicionar uma nova assinatura do Azure no portal do Azure.
+description: Saiba como adicionar uma nova assinatura do Azure no portal do Azure. Confira informações sobre formulários de conta de cobrança e exiba os recursos adicionais disponíveis.
 author: amberbhargava
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: d6a8196816aaaa61458050334f605cb41afa16b9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d27120f6bd0978b69d664ab3ab2e86bfee4f1755
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200839"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460959"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Criar uma assinatura adicional do Azure
 
@@ -83,4 +83,4 @@ Você também pode criar assinaturas adicionais programaticamente. Para obter ma
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Caso tenha dúvidas ou precise de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

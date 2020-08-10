@@ -10,13 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec0b3ef559abe1c65872d8ecf87f63e6ff3ed4b0
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 422c174116bb6973993f5c6093a83f8bdb42a62a
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223900"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808228"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Excluir um aplicativo do seu locatário do Azure AD (Azure Active Directory)
 
@@ -44,9 +43,15 @@ Para excluir um aplicativo do seu locatário do Azure AD:
 1. Na seção **Gerenciar** do painel esquerdo, selecione **Propriedades**.
 1. Selecione **Excluir** e **Sim** para confirmar que deseja excluir o aplicativo do seu locatário do Azure AD.
 
+> [!TIP]
+> Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Quando concluir esta série de guias de início rápido, considere a possibilidade de excluir o aplicativo para limpar seu locatário de teste. A exclusão do aplicativo foi abordada neste guia de início rápido.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Melhores práticas de gerenciamento de aplicativos](application-management-fundamentals.md)
-- [Cenários comuns de gerenciamento de aplicativos](common-scenarios.md)
-- [Visibilidade e controle do gerenciamento de aplicativos](cloud-app-security.md)
+Você concluiu a série de guias de início rápido. Como uma próxima etapa, leia mais sobre as melhores práticas em gerenciamento de aplicativos.
+> [!div class="nextstepaction"]
+> [Melhores práticas de gerenciamento de aplicativos](application-management-fundamentals.md)

@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 6d16e663626a1b19271b7d37b39202a0a9b605b9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: ddb40f470f9b951c786fdab529336af3eff38e54
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126118"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530003"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Adicionar ou alterar administradores de assinatura do Azure
 
@@ -33,7 +33,7 @@ Para obter mais informações, confira [Azure Resource Manager versus implantaç
 
 ## <a name="assign-a-subscription-administrator"></a>Atribuir um administrador de assinatura
 
-Para tornar um usuário administrador de uma assinatura do Azure, um administrador existente atribui a eles a função [Proprietário](../../role-based-access-control/built-in-roles.md#owner) (uma função RBAC) no escopo da assinatura. A função Proprietário permite ao usuário acesso completo a todos os recursos na assinatura, inclusive o direito de delegar acesso a outras pessoas. Essas etapas são as mesmas que as de qualquer outra atribuição de função.
+Para tornar um usuário administrador de uma assinatura do Azure, o administrador atual deve atribuir a esse usuário a função de [Proprietário](../../role-based-access-control/built-in-roles.md#owner) (uma função do Azure) no escopo da assinatura. A função Proprietário permite ao usuário acesso completo a todos os recursos na assinatura, inclusive o direito de delegar acesso a outras pessoas. Essas etapas são as mesmas que as de qualquer outra atribuição de função.
 
 Se você não tiver certeza de quem é o administrador da conta de uma assinatura, use as etapas a seguir para descobrir.
 

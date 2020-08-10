@@ -1,6 +1,6 @@
 ---
 title: Visão geral do controle de acesso no Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Compreenda como o controle de acesso funciona no Azure Data Lake Storage Gen2
+description: Entenda como o controle de acesso funciona no Azure Data Lake Storage Gen2. Há suporte para o controle de acesso baseado em função do Azure (RBAC do Azure) e ACLs semelhantes a POSIX.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 54867278b583124473b5b41c164714bf91f2f631
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9edf348c856de5c75c95d8a8f1957dcf73fc8ec1
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543292"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030479"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controle de acesso no Azure Data Lake Storage Gen2
 
@@ -347,6 +347,6 @@ ACLS não herdam. Porém, as ACLs padrão pode ser usadas para definir as ACLs d
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL usando listas de controle de acesso no Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Visão geral do Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

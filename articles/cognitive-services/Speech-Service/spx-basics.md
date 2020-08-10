@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 3af3134f715dc124b4aee3ac0a7bfbf11df6a462
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 5b516eb913bf9e7b8337a41483682e1201c58890
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801862"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759029"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Conheça os fundamentos da CLI de Fala
 
@@ -62,7 +62,7 @@ Os comandos da seção anterior são ótimos para ver rapidamente como o serviç
 Se você tiver um diretório de arquivos de áudio, será fácil fazer com que a CLI de Fala execute rapidamente o reconhecimento de fala em lote. Basta executar o comando a seguir, apontando para o diretório, com o comando `--files`. Neste exemplo, você acrescenta `\*.wav` ao diretório para reconhecer todos os arquivos `.wav` presentes no diretório. Além disso, especifique o argumento `--threads` para executar o reconhecimento em 10 threads paralelos.
 
 > [!NOTE]
-> O argumento `--threads` também pode ser usado na próxima seção para comandos `spx synthesize` e os threads disponíveis dependerão da CPU e do percentual de carga atual.
+> O argumento `--threads` também pode ser usado na próxima seção para comandos `spx synthesize`, e os threads disponíveis dependerão da CPU e do respectivo percentual de carga atual.
 
 ```shell
 spx recognize --files C:\your_wav_file_dir\*.wav --output file C:\output_dir\speech_output.tsv --threads 10

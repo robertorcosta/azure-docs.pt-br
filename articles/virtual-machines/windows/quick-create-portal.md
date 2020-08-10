@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5cf23a9c66c76f778dbd5d2b126b28a5a577c978
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 46119b9f7cdac47920d4bba8e00c3fc56b0edc78
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097992"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494512"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Windows no Portal do Azure
 
@@ -32,32 +32,32 @@ Entre no Portal do Azure em https://portal.azure.com.
 1. Na página **Máquinas Virtuais**, selecione **Adicionar**. 
 1. Na guia **Básico**, em **Detalhes do projeto**, verifique se a assinatura correta está selecionada e, em seguida, escolha **Criar** grupo de recursos. Digite *myResourceGroup* para o nome. 
 
-    ![Criar um grupo de recursos para sua VM](./media/quick-create-portal/project-details.png)
+    ![Captura de tela da seção Detalhes do projeto mostrando onde você seleciona a assinatura do Azure e o grupo de recursos da máquina virtual](./media/quick-create-portal/project-details.png)
 
 1. Em **Detalhes da instância**, digite *myVM* para o **Nome da máquina virtual** e escolha *Leste dos EUA* para a **Região** e, em seguida, escolha *Windows Server 2019 Datacenter* para **Imagem**. Deixe os outros padrões.
 
-    ![Seção de detalhes da instância](./media/quick-create-portal/instance-details.png)
+    ![Captura de tela da seção Detalhes da instância, onde você fornece um nome para a máquina virtual e seleciona sua região, sua imagem e seu tamanho](./media/quick-create-portal/instance-details.png)
 
 1. Em **Conta de administrador**, forneça um nome de usuário, como *azureuser* e uma senha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
-    ![Insira seu nome de usuário e sua senha](./media/quick-create-portal/administrator-account.png)
+    ![Captura de tela da seção Conta de administrador, onde você fornece o nome de usuário e a senha do administrador](./media/quick-create-portal/administrator-account.png)
 
 1. Em **Regras de porta de entrada**, escolha **Permitir portas selecionadas** e, em seguida, selecione **RDP (3389)** e **HTTP (80)** na lista suspensa.
 
-    ![Abrir portas para RDP e HTTP](./media/quick-create-portal/inbound-port-rules.png)
+    ![Captura de tela da seção de regras de porta de entrada, na qual você seleciona as portas nas quais as conexões de entrada são permitidas](./media/quick-create-portal/inbound-port-rules.png)
 
 1. Deixe os padrões restantes e, em seguida, selecione o botão **Examinar + criar** na parte inferior da página.
 
-    ![Examinar e criar](./media/quick-create-portal/review-create.png)
+    ![Captura de tela mostrando o botão Examinar e criar na parte inferior da página](./media/quick-create-portal/review-create.png)
 
 
 ## <a name="connect-to-virtual-machine"></a>Conectar-se à máquina virtual
 
 Inicie uma conexão da área de trabalho remota para a máquina virtual. Estas instruções ensinam a se conectar aàsua VM de um computador com Windows. Em um Mac, você precisa de um cliente RDP, como este [Cliente de Área de Trabalho Remota](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) da Mac App Store.
 
-1. Clique no botão **Conectar** na página de visão geral de sua máquina virtual. 
+1. Selecione o botão **Conectar** na página de visão geral de sua máquina virtual. 
 
-    ![Conecte-se a uma VM do Azure no portal](./media/quick-create-portal/portal-quick-start-9.png)
+    ![Captura de tela da página de visão geral da máquina virtual mostrando o local do botão conectar](./media/quick-create-portal/portal-quick-start-9.png)
     
 2. Na página **Conectar-se à máquina virtual**, mantenha as opções padrão para se conectar por endereço IP pela porta 3389 e clique em **Baixar arquivo RDP**.
 
@@ -82,7 +82,7 @@ Quando terminar, feche a conexão RDP com a VM.
 
 No portal, selecione a VM e na visão geral da VM, use o botão **Clique para copiar** à direita do endereço IP para copiá-lo e colá-lo em uma guia do navegador. A página de boas-vinda do IIS padrão será aberta e deve ter esta aparência:
 
-![Site do IIS padrão](./media/quick-create-powershell/default-iis-website.png)
+![Captura de tela do site padrão do IIS em um navegador](./media/quick-create-powershell/default-iis-website.png)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

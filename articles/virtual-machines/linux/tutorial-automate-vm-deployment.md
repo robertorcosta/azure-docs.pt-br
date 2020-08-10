@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: d2a6568b0d62c880a688160cf981fb33083ae02e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 2a07480bf5b3defb4176437d99274e9ecfb4ba13
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461473"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433020"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial – Como usar a inicialização de nuvem para personalizar uma máquina virtual do Linux no Azure na primeira inicialização
 
@@ -129,7 +129,7 @@ az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myAuto
 ```
 
 ## <a name="test-web-app"></a>Testar o aplicativo da web
-Agora, você pode abrir um navegador da Web e digitar *http:\/\/\<publicIpAddress>* na barra de endereços. Forneça seu próprio endereço de IP público do processo de criação da máquina virtual. Seu aplicativo Node.js é exibido como mostrado no exemplo a seguir:
+Agora, abra um navegador da Web e insira *http:\/\/\<publicIpAddress>* na barra de endereços. Forneça seu próprio endereço de IP público do processo de criação da máquina virtual. Seu aplicativo Node.js é exibido como mostrado no exemplo a seguir:
 
 ![Exibir o site NGINX em execução](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -260,7 +260,7 @@ az vm open-port \
 ```
 
 ### <a name="test-secure-web-app"></a>Testar o aplicativo da Web protegido
-Agora, você pode abrir um navegador da Web e digitar *https:\/\/\<publicIpAddress>* na barra de endereços. Forneça seu próprio endereço IP público, conforme mostrado na saída do processo de criação de VM anterior. Se você usou um certificado autoassinado, aceite o aviso de segurança:
+Agora, abra um navegador da Web e insira *https:\/\/\<publicIpAddress>* na barra de endereços. Forneça seu próprio endereço IP público, conforme mostrado na saída do processo de criação de VM anterior. Se você usou um certificado autoassinado, aceite o aviso de segurança:
 
 ![Aceite o aviso de segurança do navegador da web](./media/tutorial-automate-vm-deployment/browser-warning.png)
 

@@ -1,14 +1,14 @@
 ---
 title: Visão geral do Azure Resource Graph
 description: Entenda como o serviço do Azure Resource Graph habilita a consulta complexa de recursos em grande escala entre assinaturas e locatários.
-ms.date: 06/29/2020
+ms.date: 07/25/2020
 ms.topic: overview
-ms.openlocfilehash: 9c15ff12f21c1d3d168828eae67de51069cdcada
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 5a2be5e65ecd5590d992e1883f432c173660e78d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970596"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541780"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph?
 
@@ -62,6 +62,10 @@ Para usar o Resource Graph, você deve ter os direitos apropriados no RBAC ([con
 > O Resource Graph usa as assinaturas disponíveis para uma entidade de segurança durante o logon. Para ver os recursos de uma nova assinatura adicionada durante uma sessão ativa, a entidade de segurança deve atualizar o contexto. Essa ação ocorre automaticamente ao fazer logoff e logon.
 
 A CLI do Azure e o Azure PowerShell usam assinaturas às quais o usuário tem acesso. Ao usar a API REST diretamente, a lista de assinaturas é fornecida pelo usuário. Se o usuário tiver acesso a uma das assinaturas na lista, os resultados da consulta serão retornados para as assinaturas às quais o usuário tem acesso. Esse comportamento é o mesmo que chamar [Grupos de Recursos – Lista](/rest/api/resources/resourcegroups/list) \- você obtém os grupos de recursos aos quais tem acesso sem nenhuma indicação de que o resultado pode ser parcial. Se não houver nenhuma assinatura na lista de assinaturas à qual o usuário tenha direitos apropriados, a resposta será um _403_ (Proibido).
+
+> [!NOTE]
+> Na API REST **versão prévia** `2020-04-01-preview`, a lista de assinaturas pode ser omitida.
+> Quando as propriedades `subscriptions` e `managementGroupId` não estiverem definidas na solicitação, o _escopo_ será definido como o locatário. Para obter mais informações, confira [Escopo da consulta](./concepts/query-language.md#query-scope).
 
 ## <a name="throttling"></a>Limitação
 

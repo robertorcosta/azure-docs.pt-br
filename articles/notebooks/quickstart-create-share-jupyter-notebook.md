@@ -4,12 +4,12 @@ description: Crie e execute rapidamente um Jupyter notebook na versão prévia d
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 809cb006e1ea40e31d079b40febee6a09714731f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec1a03cb1c05248458a47ec4b22a0243b31bafcd
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832093"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423279"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Início Rápido: Criar e compartilhar um notebook na versão prévia do Azure Notebooks
 
@@ -43,9 +43,9 @@ Nenhum.
 
 1. Após alguns segundos, o Azure Notebooks o direcionará para o novo projeto. Adicione um notebook ao projeto, selecionando o menu suspenso **+ Novo** (que pode aparecer somente como **+** ) e, em seguida, selecionando **Notebook**:
 
-    [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
+    :::image type="content" source="media/quickstarts/empty-project-new-notebook-button.png" alt-text="Um novo projeto vazio e um comando de adição de notebook." lightbox="media/quickstarts/empty-project-new-notebook-button.png":::
 
-1. No pop-up **Criar Novo Notebook** que aparece, insira um nome de arquivo para o notebook, como *HelloWorldInPython.ipynb* ( *.ipynb* que significa IronPython (Jupyter) Notebook), e selecione **Python 3.6** para a linguagem (também conhecido como *kernel*):
+1. No pop-up **Criar Novo Notebook** que aparece, insira um nome de arquivo para o notebook, como *HelloWorldInPython.ipynb* (*.ipynb* que significa IronPython (Jupyter) Notebook), e selecione **Python 3.6** para a linguagem (também conhecido como *kernel*):
 
     ![Pop-up Criar Novo Notebook](media/quickstarts/new-notebook-popup.png)
 

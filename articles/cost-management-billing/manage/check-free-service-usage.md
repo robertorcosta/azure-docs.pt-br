@@ -1,18 +1,18 @@
 ---
 title: Monitorar e controlar o uso do serviço gratuito do Azure
-description: Saiba como verificar o uso do serviço gratuito no portal do Azure.
+description: Saiba como verificar o uso do serviço gratuito no portal do Azure. Não há encargos para os serviços incluídos em uma conta gratuita, a menos que você ultrapasse os limites de serviço.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 0a62deecc6f70bb21059ae3ddda9eea173de65fe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 03efb7e4d0aa06e4c33a94f15621d58330e52e50
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199799"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461860"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Verificar o uso de serviços gratuitos incluídos em sua conta gratuita do Azure
 
@@ -38,9 +38,9 @@ Você não é cobrado pelos serviços incluídos gratuitamente em sua conta grat
 * **Uso/Limite:** uso e o limite para o medidor no mês atual.
 * **Status:** Status de uso do serviço. Com base em seu uso, você pode ter um dos seguintes status:
   * **Não está em uso:** você não usou o medidor ou o uso desse medidor não alcançou o sistema de cobrança.
-  * **Excedido em \<Data>:** você excedeu o limite do medidor em \<Data>.
+  * **Excedido em \<Date>:** você excedeu o limite do medidor em \<Date>.
   * **Provavelmente não excederá:** é improvável que você exceda o limite do medidor.
-  * **Excede em \<Data>:** é improvável que você exceda o limite do medidor em \<Data>.
+  * **Excede em \<Date>:** é provável que você exceda o limite do medidor em \<Date>.
 
 > [!IMPORTANT]
 >

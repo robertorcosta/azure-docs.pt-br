@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: ca3c7d6bc6621c4b82a44431ae313384c1653f79
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0ae304763718f649d7895394d67c2aec307f14af
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324226"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799983"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Início Rápido: Criar um aplicativo Java no Serviço de Aplicativo do Azure no Windows
 
@@ -49,13 +49,19 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Configurar o plug-in do Maven
 
-O processo de implantação no Serviço de Aplicativo do Azure pode extrair suas credenciais da CLI do Azure automaticamente. Se você ainda não tiver a CLI do Azure instalada, o plug-in do Maven conectará você com o Oauth ou com o logon do dispositivo. Verifique os detalhes em [Autenticação com plug-ins do Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication), se necessário.
+O processo de implantação no Serviço de Aplicativo do Azure pode extrair suas credenciais do Azure automaticamente por meio da CLI do Azure. O plug-in do Maven conectará você ao OAuth ou ao logon do dispositivo se a CLI do Azure não estiver instalada localmente. Verifique os detalhes em [Autenticação com plug-ins do Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication), se necessário.
 
-Você pode executar o comando Maven a seguir no prompt de comando para configurar a implantação, escolher **'2'** para o sistema operacional **Windows** na primeira etapa e, em seguida, aceitar as configurações padrão pressionando **ENTER** até aparecer o prompt **Confirmar (S/N)** , em seguida, pressione **'S'** e a configuração é feita. 
-
+Execute o comando do Maven abaixo para configurar a implantação
 ```bash
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
+
+Você precisará selecionar 
+* **Sistema Operacional (Padrão: `linux`)**
+* **Versão do Java (Padrão: `1.8`)**
+* **Contêiner da Web (Padrão: `tomcat 8.5`)** 
+
+Tenha cuidado para inserir **`2`** a fim de escolher o sistema operacional **Windows** na primeira etapa. Mantenha as outras configurações com o padrão clicando em **ENTER**. Por fim, clique em **`Y`** no aviso **Confirmar (S/N)** para concluir a configuração.
 
 Um processo de exemplo é semelhante a este:
 
@@ -135,7 +141,7 @@ Confirm (Y/N)? :
 > [!NOTE]
 > Neste artigo, estamos trabalhando apenas com aplicativos Java empacotados em arquivos WAR. O plug-in também oferece suporte a aplicativos Web JAR, visite [Implantar um arquivo JAR do Java SE para o Serviço de Aplicativo no Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para experimentá-lo.
 
-Abra em `pom.xml` para ver a configuração atualizada.
+Abra `pom.xml` para ver a configuração atualizada.
 
 ```bash
 code pom.xml
@@ -153,8 +159,11 @@ Você poderá modificar as configurações do Serviço de Aplicativo diretamente
 `<runtime>` | true | A configuração do ambiente de runtime. Você pode ver os detalhes [aqui](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
 `<deployment>` | true | A configuração de implantação. Você pode ver os detalhes [aqui](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
 
+Tenha cuidado com os valores de `<appName>` e `<resourceGroup>`(`helloworld-1590394316693` e `helloworld-1590394316693-rg` de acordo com a demonstração), que serão usados posteriormente.
+
 > [!div class="nextstepaction"]
 > [Encontrei um problema](https://www.research.net/r/javae2e?tutorial=app-service-web-get-started-java&step=config)
+
 
 ## <a name="deploy-the-app"></a>Implantar o aplicativo
 
@@ -169,13 +178,14 @@ Em seguida, você poderá implantar seu aplicativo Java no Azure usando o seguin
 mvn package azure-webapp:deploy
 ```
 
-Após a conclusão da implantação, navegue até o aplicativo implantado usando a URL a seguir no navegador da Web, por exemplo, `http://<webapp>.azurewebsites.net/`.
+Depois que a implantação for concluída, seu aplicativo estará pronto em `http://<appName>.azurewebsites.net/`(`http://helloworld-1590394316693.azurewebsites.net` na demonstração). Abra a URL com o navegador da Web local para ver
 
 ![Aplicativo de exemplo em execução no Serviço de Aplicativo do Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 
 **Parabéns!** Você implantou seu primeiro aplicativo Java no Serviço de Aplicativo no Windows.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
