@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2020
 ms.author: memildin
-ms.openlocfilehash: b66969b26a801e6bd9aacf999c1c1ef9179ef1bd
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 767ad928779743ec28dbe3da8be6154a1fe0b0ab
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534661"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042302"
 ---
 # <a name="azure-container-registry-image-scanning-by-security-center"></a>Verificação de imagem do registro de contêiner do Azure por central de segurança
 
@@ -27,17 +27,16 @@ Se você estiver na camada Standard da central de segurança do Azure, poderá a
 
 ## <a name="availability"></a>Disponibilidade
 
-- Estado da versão: **disponibilidade geral**
-- Funções necessárias: **leitor de segurança** e [função de leitor do registro de contêiner do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
-- Registros e imagens com suporte:
-    - ✔ Registros de ACR hospedados pelo Linux que são acessíveis pela Internet pública e fornecem acesso ao shell.
-    - ✘ Registros de ACR hospedados pelo Windows.
-    - Registros ' Private ' do ✘-a central de segurança exige que seus registros sejam acessíveis da Internet pública. A central de segurança não pode se conectar ou verificar registros com acesso limitado com um firewall, um ponto de extremidade de serviço ou pontos de extremidades privados, como o link privado do Azure.
-    - ✘ Imagens de super plataforma, como imagens de [rascunho do Docker](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que contêm apenas um aplicativo e suas dependências de tempo de execução sem um Gerenciador de pacotes, Shell ou sistema operacional.
-- Nuvens: 
-    - ✔ Nuvens comerciais
-    - Nuvem do governo ✘ dos EUA
-    - Nuvem do governo ✘ na China, outras nuvens do governo
+|Aspecto|Detalhes|
+|----|:----|
+|Estado da versão:|Disponibilidade Geral|
+|Refere|Camada padrão|
+|Registros e imagens com suporte:|![Sim ](./media/icons/yes-icon.png) registros de ACR hospedados pelo Linux que são acessíveis pela Internet pública e fornecem acesso ao shell.<br>![Não há ](./media/icons/yes-icon.png) registros de ACR hospedados pelo Windows.<br>![Nenhum ](./media/icons/yes-icon.png) registro ' particular '-a central de segurança exige que seus registros sejam acessíveis pela Internet pública. A central de segurança não pode se conectar ou verificar registros com acesso limitado com um firewall, um ponto de extremidade de serviço ou pontos de extremidades privados, como o link privado do Azure.<br>![Não há imagens de super nada, como imagens de ](./media/icons/yes-icon.png) [rascunho do Docker](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que contenham apenas um aplicativo e suas dependências de tempo de execução sem um Gerenciador de pacotes, Shell ou sistema operacional.|
+|Funções e permissões necessárias:|**Leitor de segurança** e [função de leitor do registro de contêiner do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|||
+
+
 
 
 ## <a name="when-are-images-scanned"></a>Quando as imagens são digitalizadas?

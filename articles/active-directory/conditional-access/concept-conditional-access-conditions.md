@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b887c91a289730c3d92efe753a2df162f36a047
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: f8dfeb8a38e07d94671691bb797d26a32973c910
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032111"
+ms.locfileid: "88042472"
 ---
 # <a name="conditional-access-conditions"></a>Acesso Condicional: condições
 
@@ -68,7 +68,7 @@ Por padrão, todas as políticas de acesso condicional recém-criadas serão apl
 > O comportamento da condição aplicativos cliente foi atualizado em agosto de 2020. Se você tiver políticas de acesso condicional existentes, elas permanecerão inalteradas. No entanto, se você clicar em uma política existente, a opção Configurar alternância foi removida e os aplicativos cliente aos quais a política se aplica estão selecionados.
 
 > [!IMPORTANT]
-> Entradas de clientes de autenticação herdados não dão suporte à MFA e não passam informações de estado do dispositivo para o Azure AD, portanto, serão bloqueadas por controles de concessão de acesso condicional, como exigir MFA ou dispositivos compatíveis. Se você tiver contas que devem usar autenticação herdada, exclua essas contas da política ou configure a política para ser aplicada somente aos clientes de autenticação modernos.
+> Entradas de clientes de autenticação herdados não dão suporte à MFA e não passam informações de estado do dispositivo para o Azure AD, portanto, serão bloqueadas por controles de concessão de acesso condicional, como exigir MFA ou dispositivos compatíveis. Se você tiver contas que devem usar autenticação herdada, deverá excluir essas contas da política ou configurar a política para se aplicar somente aos clientes de autenticação modernos.
 
 A opção **Configurar** alternância quando definido como **Sim** se aplica a itens marcados, quando definido como **não** se aplica a todos os aplicativos cliente, incluindo clientes de autenticação modernos e herdados. Essa alternância não aparece em políticas criadas antes de 2020 de agosto.
 

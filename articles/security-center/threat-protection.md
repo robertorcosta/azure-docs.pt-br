@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: e74dac779fc1eafaf33ffbc63bf997cf26b64954
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d049538653ea345935d40bd965afd7d2453b2aa2
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836795"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041979"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças na Central de Segurança do Azure
 
@@ -114,12 +114,13 @@ Para saber mais sobre os planos do Serviço de Aplicativo, confira [Planos do Se
 
 ### <a name="availability"></a>Disponibilidade
 
-- Estado da versão: **disponibilidade geral**
-- Funções necessárias: o **administrador de segurança** pode ignorar alertas. **O leitor de segurança** pode exibir as conclusões.
-- Nuvens:<br>
-    ✔ Nuvens comerciais<br>
-    US Gov ✘<br>
-    ✘ China gov, outros gov
+|Aspecto|Detalhes|
+|----|:----|
+|Estado da versão:|Disponível|
+|Refere|Camada padrão|
+|Funções e permissões necessárias:|O **administrador de segurança** pode ignorar alertas.<br>**O leitor de segurança** pode exibir as conclusões.|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|||
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
@@ -150,14 +151,13 @@ Para obter mais informações, consulte:
 
 ### <a name="availability"></a>Disponibilidade
 
-- Estado da versão:
-    - [Armazenamento de BLOBs](https://azure.microsoft.com/services/storage/blobs/) (disponibilidade geral)
-    - [Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (versão prévia)
-    - [Azure data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (versão prévia)
-- Nuvens:<br>
-    ✔ Nuvens comerciais<br>
-    ✔ US Gov<br>
-    ✘ China gov, outros gov
+|Aspecto|Detalhes|
+|----|:----|
+|Estado da versão:|[Armazenamento de BLOBs](https://azure.microsoft.com/services/storage/blobs/) (disponibilidade geral)<br>[Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (versão prévia)<br>[Azure data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (versão prévia)|
+|Refere|Camada padrão|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) China gov, outros gov|
+|||
+
 
 ### <a name="whats-protected"></a>O que é protegido?
 

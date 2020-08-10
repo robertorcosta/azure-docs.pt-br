@@ -7,16 +7,17 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 08/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 8429f58b9b8ce1be12fea861b805084347a0e2b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2fc2ccdc7a0520bd156bde8c1da36e19a9e2af1e
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537690"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042183"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON no Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Siga este artigo quando desejar **analisar os arquivos JSON ou gravar os dados no formato JSON**. 
@@ -84,7 +85,7 @@ As propriedades a seguir têm suporte na seção *** \* origem \* *** da ativida
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | O tipo de formatSettings deve ser definido como **JsonReadSettings**. | Sim      |
 | compactproperties | Um grupo de propriedades sobre como descompactar dados para um determinado codec de compactação. | Não       |
-| preserveZipFileNameAsFolder<br>(*em `compressionProperties` *) | Aplica-se quando o conjunto de dados de entrada é configurado com compactação **ZipDeflate** . Indica se o nome do arquivo zip de origem deve ser preservado como estrutura de pastas durante a cópia. Quando definido como true (padrão), Data Factory grava arquivos descompactados para `<path specified in dataset>/<folder named as source zip file>/` ; quando definido como false, data Factory grava arquivos descompactados diretamente no `<path specified in dataset>` .  | Não |
+| preserveZipFileNameAsFolder<br>(*em `compressionProperties` *) | Aplica-se quando o conjunto de dados de entrada é configurado com compactação **ZipDeflate** . Indica se o nome do arquivo zip de origem deve ser preservado como estrutura de pastas durante a cópia.<br>-Quando definido como **true (padrão)**, data Factory grava arquivos descompactados em `<path specified in dataset>/<folder named as source zip file>/` .<br>-Quando definido como **false**, data Factory grava arquivos descompactados diretamente no `<path specified in dataset>` . Verifique se você não tem nomes de arquivo duplicados em arquivos zip de origem diferentes para evitar a corrida ou comportamento inesperado.  | Não |
 
 ### <a name="json-as-sink"></a>JSON como coletor
 
@@ -202,19 +203,19 @@ No mapeamento de fluxos de dados, você pode ler e gravar no formato JSON nos se
 
 A tabela abaixo lista as propriedades com suporte por uma origem JSON. Você pode editar essas propriedades na guia **Opções de origem** .
 
-| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Caminhos curinga | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | não | String[] | wildcardPaths |
-| Caminho raiz da partição | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | não | Cadeia de caracteres | partitionRootPath |
-| Lista de arquivos | Se sua fonte está apontando para um arquivo de texto que lista os arquivos a serem processados | não | `true` ou `false` | File |
-| Coluna para armazenar o nome do arquivo | Criar uma nova coluna com o nome e o caminho do arquivo de origem | não | Cadeia de caracteres | rowUrlColumn |
-| Após a conclusão | Exclua ou mova os arquivos após o processamento. O caminho do arquivo inicia a partir da raiz do contêiner | não | Excluir: `true` ou`false` <br> Prosseguir`['<from>', '<to>']` | purgeFiles <br> MoveFile |
-| Filtrar por última modificação | Escolher filtrar arquivos com base na última alteração | não | Timestamp | modifiedAfter <br> modifiedBefore |
-| Documento único | O mapeamento de fluxos de dados lê um documento JSON de cada arquivo | não | `true` ou `false` | singleDocument |
-| Nomes de colunas sem aspas | Se a seleção de **nomes de coluna sem aspas** for selecionada, o mapeamento de fluxos de dados lerá as colunas JSON que não estão entre aspas. | não | `true` ou `false` |  unquotedColumnNames |
-| Tem comentários | Select **tem comentários** se os dados JSON tiverem comentários sobre estilo C ou C++ | não | `true` ou `false` | ascomes |
-| Entre aspas simples | Lê as colunas JSON que não estão entre aspas | não | `true` ou `false` | singleQuoted |
-| Barra invertida | Selecionar **barra invertida** se as barras invertidas forem usadas para escapar caracteres nos dados JSON | não | `true` ou `false` | backslashEscape |
+| Caminhos curinga | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | no | String[] | wildcardPaths |
+| Caminho raiz da partição | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | no | String | partitionRootPath |
+| Lista de arquivos | Se sua fonte está apontando para um arquivo de texto que lista os arquivos a serem processados | no | `true` ou `false` | File |
+| Coluna para armazenar o nome do arquivo | Criar uma nova coluna com o nome e o caminho do arquivo de origem | no | String | rowUrlColumn |
+| Após a conclusão | Exclua ou mova os arquivos após o processamento. O caminho do arquivo inicia a partir da raiz do contêiner | no | Excluir: `true` ou`false` <br> Prosseguir`['<from>', '<to>']` | purgeFiles <br> MoveFile |
+| Filtrar por última modificação | Escolher filtrar arquivos com base na última alteração | no | Timestamp | modifiedAfter <br> modifiedBefore |
+| Documento único | O mapeamento de fluxos de dados lê um documento JSON de cada arquivo | no | `true` ou `false` | singleDocument |
+| Nomes de colunas sem aspas | Se a seleção de **nomes de coluna sem aspas** for selecionada, o mapeamento de fluxos de dados lerá as colunas JSON que não estão entre aspas. | no | `true` ou `false` |  unquotedColumnNames |
+| Tem comentários | Select **tem comentários** se os dados JSON tiverem comentários sobre estilo C ou C++ | no | `true` ou `false` | ascomes |
+| Entre aspas simples | Lê as colunas JSON que não estão entre aspas | no | `true` ou `false` | singleQuoted |
+| Barra invertida | Selecionar **barra invertida** se as barras invertidas forem usadas para escapar caracteres nos dados JSON | no | `true` ou `false` | backslashEscape |
 
 ### <a name="source-format-options"></a>Opções de formato de origem
 
@@ -297,10 +298,10 @@ Selecione **barra invertida** se as barras invertidas forem usadas para escapar 
 
 A tabela abaixo lista as propriedades com suporte por um coletor JSON. Você pode editar essas propriedades na guia **configurações** .
 
-| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Limpar a pasta | Se a pasta de destino for limpa antes da gravação | não | `true` ou `false` | truncate |
-| Opção de nome de arquivo | O formato de nomenclatura dos dados gravados. Por padrão, um arquivo por partição no formato`part-#####-tid-<guid>` | não | Padrão: cadeia de caracteres <br> Por partição: cadeia de caracteres [] <br> Como dados na coluna: String <br> Saída para arquivo único:`['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| Limpar a pasta | Se a pasta de destino for limpa antes da gravação | no | `true` ou `false` | truncate |
+| Opção de nome de arquivo | O formato de nomenclatura dos dados gravados. Por padrão, um arquivo por partição no formato`part-#####-tid-<guid>` | no | Padrão: cadeia de caracteres <br> Por partição: cadeia de caracteres [] <br> Como dados na coluna: String <br> Saída para arquivo único:`['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
 
 ### <a name="creating-json-structures-in-a-derived-column"></a>Criando estruturas JSON em uma coluna derivada
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 5a2410a5ccaa10867e94b3a2ec10228a006fbe20
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c09dca8b5927e417714ef89393950cfb58c89020
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534627"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042268"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Configurar notificações por email para alertas de segurança 
 
@@ -34,9 +34,15 @@ Para evitar o alerta fadiga, a central de segurança limita o volume de emails e
 
 ## <a name="availability"></a>Disponibilidade
 
-- Estado da versão: **Disponível para o público geral**
-- Funções necessárias: **administrador de segurança** ou **proprietário da assinatura** 
-- Nuvens: ✔ nuvens comerciais ✔ US Gov (parcial) ✘ National/soberanas (China gov, outros gov)
+|Aspecto|Detalhes|
+|----|:----|
+|Estado da versão:|Disponível|
+|Refere|Camada gratuita|
+|Funções e permissões necessárias:|**Administrador de Segurança**<br>**Proprietário da assinatura** |
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov (parcial)<br>![Não](./media/icons/no-icon.png) China gov, outros gov|
+|||
+
+
 
 
 ## <a name="set-up-email-notifications-for-alerts"></a>Configurar notificações por email para alertas<a name="email"></a>
@@ -53,7 +59,7 @@ Você pode enviar notificações por email para indivíduos ou para todos os usu
 1. Para aplicar as informações de contato de segurança à sua assinatura, selecione **salvar**.
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 Para saber mais sobre alertas de segurança, consulte o seguinte:
 
 * [Alertas de segurança-um guia de referência](alerts-reference.md) – saiba mais sobre os alertas de segurança que você pode ver no módulo de proteção contra ameaças da central de segurança do Azure

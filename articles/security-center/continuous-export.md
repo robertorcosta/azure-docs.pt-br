@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 7b0fbb7c4f680f9d732a63fff7b0b317c6cf1511
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3bfaa9f2961dca2b8b717b1506d112943910485a
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519690"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042306"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exporte alertas e recomendações
 
@@ -31,12 +31,14 @@ Usando essas ferramentas, você pode:
 
 ## <a name="availability"></a>Disponibilidade
 
-- Estado da versão: **Disponível para o público geral**
-- Funções e permissões necessárias:
-    - **Leitor** na assinatura que contém a configuração de exportação
-    - **Função de administrador de segurança** no grupo de recursos (ou **proprietário**)
-    - Também deve ter permissões de gravação para o recurso de destino
-- Nuvens: ✔ nuvens comerciais ✔ US Gov ✘ China gov, outros gov
+|Aspecto|Detalhes|
+|----|:----|
+|Estado da versão:|Disponível|
+|Refere|Camada gratuita|
+|Funções e permissões necessárias:|**Leitor** na assinatura que contém a configuração de exportação<br>**Função de administrador de segurança** no grupo de recursos (ou **proprietário**)<br>Também deve ter permissões de gravação para o recurso de destino|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) China gov, outros gov|
+|||
+
 
 
 ## <a name="setting-up-a-continuous-export"></a>Configurando uma exportação contínua

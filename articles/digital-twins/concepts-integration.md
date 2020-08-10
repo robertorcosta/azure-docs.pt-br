@@ -7,16 +7,18 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d0bca2ad14216873836c751dc002ea915baa3a66
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: ca500401a6bff8a00dd9c51eecb29aa93fdbc82b
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800476"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042642"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrar o gêmeos digital do Azure a outros serviços
 
-O Azure digital gêmeos normalmente é usado junto com outros serviços. Usando as [**rotas de eventos**](concepts-route-events.md), o Azure digital gêmeos recebe dados de serviços upstream, como o [Hub IOT](../iot-hub/about-iot-hub.md), que é usado para entregar telemetria e notificações. O Azure digital gêmeos também pode rotear dados para serviços de downstream para armazenamento, integração de fluxo de trabalho, análise e outros usos. 
+O Azure digital gêmeos normalmente é usado junto com outros serviços. Usando as [**rotas de eventos**](concepts-route-events.md), o Azure digital gêmeos recebe dados de serviços upstream, como o [Hub IOT](../iot-hub/about-iot-hub.md), que é usado para entregar telemetria e notificações. 
+
+O Azure digital gêmeos também pode rotear dados para serviços downstream, como mapas do Azure ([*como usar o Azure digital gêmeos para atualizar um mapa interno do Azure Maps*](how-to-integrate-maps.md)) e Time Series insights ([*instruções: integrar com Time Series insights*](how-to-integrate-time-series-insights.md)), para armazenamento, integração de fluxo de trabalho, análise e muito mais. 
 
 ## <a name="data-ingress"></a>Entrada de dados
 

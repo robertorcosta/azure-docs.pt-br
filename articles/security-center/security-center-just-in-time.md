@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: a077e1dfd166051ad1cf16e42d11e8eeb61d2c91
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 611124a113a0cce3ab1fb8db5969a6ab6f5f6658
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419845"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041930"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteja suas portas de gerenciamento com acesso just-in-time
 
@@ -31,21 +31,14 @@ Esta página ensina como incluir o JIT em seu programa de segurança. Você apre
 
 ## <a name="availability"></a>Disponibilidade
 
-- Estado da versão: **disponibilidade geral**
-- Preço: **camada Standard**. [Saiba mais sobre preços](/azure/security-center/security-center-pricing).
-- Funções e permissões necessárias:
-    - As funções **leitor** e **SecurityReader** podem exibir o status e os parâmetros do JIT.
-    - Para criar funções personalizadas que podem funcionar com o JIT, consulte [quais permissões são necessárias para configurar e usar o JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)
-    - Para criar uma função com privilégios mínimos para usuários que precisam solicitar acesso JIT a uma VM e não executar outras operações JIT, use o [script set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) das páginas da Comunidade do GitHub da central de segurança.
-- VMs com suporte: 
-    - ✔ VMs implantadas por meio de Azure Resource Manager.
-    - VMs ✘ implantadas com modelos de implantação clássicos. [Saiba mais sobre esses modelos de implantação](../azure-resource-manager/management/deployment-models.md).
-    - VMs ✘ protegidas por firewalls do Azure controladas pelo [Gerenciador de firewall do Azure](https://docs.microsoft.com/azure/firewall-manager/overview).
-- Nuvens: 
-    - ✔ Nuvens comerciais
-    - ✔ Nacionais/soberanas (US Gov, China Gov, outros Gov)
-
-
+|Aspecto|Detalhes|
+|----|:----|
+|Estado da versão:|Disponibilidade Geral|
+|Refere|Camada padrão|
+|VMs com suporte:|![Sim, ](./media/icons/yes-icon.png) VMs implantadas por meio de Azure Resource Manager.<br>![Nenhuma ](./media/icons/yes-icon.png) VM implantada com modelos de implantação clássicos. [Saiba mais sobre esses modelos de implantação](../azure-resource-manager/management/deployment-models.md).<br>![Não há ](./media/icons/yes-icon.png) VMs protegidas pelos firewalls do Azure controlados pelo [Gerenciador de firewall do Azure](https://docs.microsoft.com/azure/firewall-manager/overview)|
+|Funções e permissões necessárias:|As funções **leitor** e **SecurityReader** podem exibir o status e os parâmetros do JIT.<br>Para criar funções personalizadas que podem funcionar com o JIT, consulte [quais permissões são necessárias para configurar e usar o JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Para criar uma função com privilégios mínimos para usuários que precisam solicitar acesso JIT a uma VM e não executar outras operações JIT, use o [script set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) das páginas da Comunidade do GitHub da central de segurança.|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|||
 
 
 ## <a name="enable-jit-vm-access"></a>Habilitar o acesso à VM JIT<a name="jit-configure"></a>

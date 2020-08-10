@@ -7,16 +7,17 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 08/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 8ca3d7475472c6980be85299046624bdcf8cae11
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81fdb404b99dc5456e9e544b6ff45dff73a7940d
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254449"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042829"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato de texto delimitado no Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Siga este artigo quando desejar **analisar os arquivos de texto delimitados ou gravar os dados em um formato de texto delimitado**. 
@@ -27,7 +28,7 @@ O formato de texto delimitado tem suporte para os seguintes conectores: [Amazon 
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de acordo de texto delimitado.
 
-| Property         | Descrição                                                  | Obrigatório |
+| Propriedade         | Descrição                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | A propriedade Type do conjunto de conjuntos deve ser definida como **DelimitedText**. | Sim      |
 | local         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location` .  | Sim      |
@@ -77,7 +78,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte na seção *** \* origem \* *** da atividade de cópia.
 
-| Property       | Descrição                                                  | Obrigatório |
+| Propriedade       | Descrição                                                  | Obrigatório |
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | A propriedade Type da fonte da atividade de cópia deve ser definida como **DelimitedTextSource**. | Sim      |
 | formatSettings | Um grupo de propriedades. Consulte a tabela de **configurações de leitura de texto delimitada** abaixo. | Não       |
@@ -85,12 +86,12 @@ As propriedades a seguir têm suporte na seção *** \* origem \* *** da ativida
 
 **Configurações de leitura de texto delimitado** com suporte em `formatSettings` :
 
-| Property      | Descrição                                                  | Obrigatório |
+| Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | O tipo de formatSettings deve ser definido como **DelimitedTextReadSettings**. | Sim      |
 | skipLineCount | Indica o número de linhas **não vazias** a serem ignoradas ao ler dados de arquivos de entrada. <br>Se skipLineCount e firstRowAsHeader forem especificados, primeiro as linhas serão ignoradas e, em seguida, as informações de cabeçalho serão lidas no arquivo de entrada. | Não       |
 | compactproperties | Um grupo de propriedades sobre como descompactar dados para um determinado codec de compactação. | Não       |
-| preserveZipFileNameAsFolder<br>(*em `compressionProperties` *) | Aplica-se quando o conjunto de dados de entrada é configurado com compactação **ZipDeflate** . Indica se o nome do arquivo zip de origem deve ser preservado como estrutura de pastas durante a cópia. Quando definido como true (padrão), Data Factory grava arquivos descompactados para `<path specified in dataset>/<folder named as source zip file>/` ; quando definido como false, data Factory grava arquivos descompactados diretamente no `<path specified in dataset>` .  | Não |
+| preserveZipFileNameAsFolder<br>(*em `compressionProperties` *) | Aplica-se quando o conjunto de dados de entrada é configurado com compactação **ZipDeflate** . Indica se o nome do arquivo zip de origem deve ser preservado como estrutura de pastas durante a cópia.<br>-Quando definido como **true (padrão)**, data Factory grava arquivos descompactados em `<path specified in dataset>/<folder named as source zip file>/` .<br>-Quando definido como **false**, data Factory grava arquivos descompactados diretamente no `<path specified in dataset>` . Verifique se você não tem nomes de arquivo duplicados em arquivos zip de origem diferentes para evitar a corrida ou comportamento inesperado.  | Não |
 
 ```json
 "activities": [
@@ -124,7 +125,7 @@ As propriedades a seguir têm suporte na seção *** \* origem \* *** da ativida
 
 As propriedades a seguir têm suporte na seção *** \* coletor \* *** de atividade de cópia.
 
-| Property       | Descrição                                                  | Obrigatório |
+| Propriedade       | Descrição                                                  | Obrigatório |
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | A propriedade Type da fonte da atividade de cópia deve ser definida como **DelimitedTextSink**. | Sim      |
 | formatSettings | Um grupo de propriedades. Consulte a tabela de **configurações de gravação de texto delimitado** abaixo. |          |
@@ -132,10 +133,10 @@ As propriedades a seguir têm suporte na seção *** \* coletor \* *** de ativid
 
 **Configurações de gravação de texto delimitado** com suporte em `formatSettings` :
 
-| Property      | Descrição                                                  | Obrigatório                                              |
+| Propriedade      | Descrição                                                  | Obrigatório                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | O tipo de formatSettings deve ser definido como **DelimitedTextWriteSettings**. | Sim                                                   |
-| fileExtension | A extensão de arquivo usada para nomear os arquivos de saída, por exemplo `.csv` , `.txt` . Ele deve ser especificado quando o `fileName` não for especificado no conjunto de DelimitedText de saída. Quando o nome do arquivo for configurado no conjunto de resultados de saída, ele será usado como o nome do arquivo do coletor e a configuração da extensão do arquivo será ignorada.  | Sim quando o nome do arquivo não é especificado no conjunto de resultados de saída |
+| fileExtension | A extensão de arquivo usada para nomear os arquivos de saída, por exemplo, `.csv` , `.txt` . Ele deve ser especificado quando o `fileName` não for especificado no conjunto de DelimitedText de saída. Quando o nome do arquivo for configurado no conjunto de resultados de saída, ele será usado como o nome do arquivo do coletor e a configuração da extensão do arquivo será ignorada.  | Sim quando o nome do arquivo não é especificado no conjunto de resultados de saída |
 
 ## <a name="mapping-data-flow-properties"></a>Propriedades do fluxo de dados de mapeamento
 
@@ -147,13 +148,13 @@ A tabela abaixo lista as propriedades com suporte por uma fonte de texto delimit
 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Caminhos curinga | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | não | String[] | wildcardPaths |
-| Caminho raiz da partição | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | não | String | partitionRootPath |
-| Lista de arquivos | Se sua fonte está apontando para um arquivo de texto que lista os arquivos a serem processados | não | `true` ou `false` | File |
+| Caminhos curinga | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | no | String[] | wildcardPaths |
+| Caminho raiz da partição | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | no | String | partitionRootPath |
+| Lista de arquivos | Se sua fonte está apontando para um arquivo de texto que lista os arquivos a serem processados | no | `true` ou `false` | File |
 | Linhas multilinha | O arquivo de origem contém linhas que abrangem várias linhas. Os valores de várias linhas devem estar entre aspas. | Não `true` ou`false` | multiLineRow |
-| Coluna para armazenar o nome do arquivo | Criar uma nova coluna com o nome e o caminho do arquivo de origem | não | String | rowUrlColumn |
-| Após a conclusão | Exclua ou mova os arquivos após o processamento. O caminho do arquivo inicia a partir da raiz do contêiner | não | Excluir: `true` ou`false` <br> Prosseguir`['<from>', '<to>']` | purgeFiles <br> MoveFile |
-| Filtrar por última modificação | Escolher filtrar arquivos com base na última alteração | não | Timestamp | modifiedAfter <br> modifiedBefore |
+| Coluna para armazenar o nome do arquivo | Criar uma nova coluna com o nome e o caminho do arquivo de origem | no | String | rowUrlColumn |
+| Após a conclusão | Exclua ou mova os arquivos após o processamento. O caminho do arquivo inicia a partir da raiz do contêiner | no | Excluir: `true` ou`false` <br> Prosseguir`['<from>', '<to>']` | purgeFiles <br> MoveFile |
+| Filtrar por última modificação | Escolher filtrar arquivos com base na última alteração | no | Timestamp | modifiedAfter <br> modifiedBefore |
 
 ### <a name="source-example"></a>Exemplo de origem
 
@@ -177,9 +178,9 @@ A tabela abaixo lista as propriedades com suporte por um coletor de texto delimi
 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Limpar a pasta | Se a pasta de destino for limpa antes da gravação | não | `true` ou `false` | truncate |
-| Opção de nome de arquivo | O formato de nomenclatura dos dados gravados. Por padrão, um arquivo por partição no formato`part-#####-tid-<guid>` | não | Padrão: cadeia de caracteres <br> Por partição: cadeia de caracteres [] <br> Como dados na coluna: String <br> Saída para arquivo único:`['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
-| Cotar tudo | Incluir todos os valores entre aspas | não | `true` ou `false` | quoteAll |
+| Limpar a pasta | Se a pasta de destino for limpa antes da gravação | no | `true` ou `false` | truncate |
+| Opção de nome de arquivo | O formato de nomenclatura dos dados gravados. Por padrão, um arquivo por partição no formato`part-#####-tid-<guid>` | no | Padrão: cadeia de caracteres <br> Por partição: cadeia de caracteres [] <br> Como dados na coluna: String <br> Saída para arquivo único:`['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| Cotar tudo | Incluir todos os valores entre aspas | no | `true` ou `false` | quoteAll |
 
 ### <a name="sink-example"></a>Exemplo de coletor
 

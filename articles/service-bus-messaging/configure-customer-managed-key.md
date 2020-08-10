@@ -3,12 +3,12 @@ title: Configure sua própria chave para criptografar dados do barramento de ser
 description: Este artigo fornece informações sobre como configurar sua própria chave para criptografar dados REST do barramento de serviço do Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ca1597f26ec1c7ccaa578d4e7dcd68e0ef54f60c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4eef0965f585291c31a3698d1d37abf67c6295c
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85475978"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041556"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados do barramento de serviço do Azure em repouso usando o portal do Azure
 O barramento de serviço Premium do Azure fornece criptografia de dados em repouso com Criptografia do Serviço de Armazenamento do Azure (Azure SSE). O barramento de serviço Premium depende do armazenamento do Azure para armazenar os dados e, por padrão, todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. 
@@ -21,7 +21,7 @@ Habilitar o recurso BYOK é um processo de instalação única em seu namespace.
 > [!NOTE]
 > Há algumas advertências para a chave gerenciada pelo cliente para criptografia do lado do serviço. 
 >   * Esse recurso é suportado pela camada [Premium do barramento de serviço do Azure](service-bus-premium-messaging.md) . Ele não pode ser habilitado para namespaces de barramento de serviço da camada Standard.
->   * A criptografia só pode ser habilitada para namespaces novos ou vazios. Se o namespace contiver dados, a operação de criptografia falhará.
+>   * A criptografia só pode ser habilitada para namespaces novos ou vazios. Se o namespace contiver quaisquer filas ou tópicos, a operação de criptografia falhará.
 
 Você pode usar Azure Key Vault para gerenciar suas chaves e auditar o uso da chave. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs do Azure Key Vault para gerar chaves. Para obter mais informações sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](../key-vault/general/overview.md)
 
