@@ -1,6 +1,6 @@
 ---
 title: Cobertura de geocodificação no serviço de pesquisa do Microsoft Azure Maps
-description: Neste artigo, você aprenderá sobre a cobertura geocodificação de mapas de Microsoft Azure em diferentes países/regiões.
+description: Veja quais regiões o Azure Maps Search cobre. As categorias de geocodificação incluem pontos de endereço, números de casa, nível de rua, nível de cidade e pontos de interesse.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/28/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6014cb4dda18a68b9149206adf034536161eb08e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 1f79add26af40abfa320bc23a3287d8246237701
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386904"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037432"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura da geocodificação dos Mapas do Azure
 

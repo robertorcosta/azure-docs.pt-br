@@ -1,6 +1,6 @@
 ---
 title: Suporte à localização | Microsoft Azure Mapas
-description: Neste artigo, você aprenderá sobre os idiomas com suporte nos serviços do Microsoft Azure Mapas.
+description: Veja quais regiões o Azure Maps dá suporte com serviços como mapas, pesquisa, roteamento, clima e incidentes de tráfego. Saiba como configurar o parâmetro de exibição.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 11/20/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0d3adc4bc49379a9ec3408ab76b913a096840dbb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a6664b5a2c0c6b4de2435ee5c8bb29f63560c342
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127886"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037687"
 ---
 # <a name="localization-support-in-azure-maps"></a>Suporte à localização no Azure Mapas
 
@@ -110,37 +110,37 @@ O Azure Mapas foi traduzido para uma variedade de idiomas em seus serviços. A t
 > A partir de 1º de agosto de 2019, o parâmetro **Exibição** define o conteúdo do mapa retornado para as novas regiões/países listados acima. O parâmetro **Exibição** do Azure Mapas (também conhecido como "parâmetro de região do usuário") é um código de país ISO-3166 de duas letras que mostrará os mapas corretos para esse país/região, especificando qual conjunto de conteúdo contestado geopoliticamente é retornado por meio dos serviços do Azure Mapas, incluindo bordas e rótulos exibidos no mapa. 
 
 Certifique-se de configurar o parâmetro **Exibição** conforme necessário para as APIs REST e os SDKs que os serviços estão usando.
->  
->
->  **APIs REST:**
->  
->  Verifique se você configurou o parâmetro Exibição conforme necessário. O parâmetro Exibição especifica qual conjunto de conteúdo contestado geopoliticamente é retornado por meio dos serviços do Azure Mapas. 
->
->  Serviços REST do Azure Mapas afetados:
->    
->    * Obter Peça de Mapa
->    * Obter Imagem do Mapa 
->    * Obter Pesquisa Difusa
->    * Obter POI de Pesquisa
->    * Obter Categoria de POI de Pesquisa
->    * Obter Pesquisa Próxima
->    * Obter Endereço de Pesquisa
->    * Obter Endereço de Pesquisa Estruturado
->    * Obter Reversão do Endereço de Pesquisa
->    * Obter Reversão de Endereço de Pesquisa Entre Ruas
->    * Postar Pesquisa Dentro da Geometria
->    * Postar Prévia de Lote do Endereço de Pesquisa
->    * Postar Prévia de Lote da Reversão do Endereço de Pesquisa
->    * Postar Pesquisa ao Longo da Rota
->    * Postar Prévia de Lote da Pesquisa Difusa
->
->    
->  **SDKs:**
->
->  Verifique se você configurou o parâmetro **Exibição** conforme necessário e se tem a versão mais recente do SDK Web e do SDK do Android. SDKs afetados:
->
->    * SDK da Web do Azure Mapas
->    * SDK do Android do Azure Mapas
+  
+
+### <a name="rest-apis"></a>APIs REST
+  
+Verifique se você configurou o parâmetro Exibição conforme necessário. O parâmetro Exibição especifica qual conjunto de conteúdo contestado geopoliticamente é retornado por meio dos serviços do Azure Mapas. 
+
+Serviços REST do Azure Mapas afetados:
+    
+ * Obter Peça de Mapa
+ * Obter Imagem do Mapa 
+ * Obter Pesquisa Difusa
+ * Obter POI de Pesquisa
+ * Obter Categoria de POI de Pesquisa
+ * Obter Pesquisa Próxima
+ * Obter Endereço de Pesquisa
+ * Obter Endereço de Pesquisa Estruturado
+ * Obter Reversão do Endereço de Pesquisa
+ * Obter Reversão de Endereço de Pesquisa Entre Ruas
+ * Postar Pesquisa Dentro da Geometria
+ * Postar Prévia de Lote do Endereço de Pesquisa
+ * Postar Prévia de Lote da Reversão do Endereço de Pesquisa
+ * Postar Pesquisa ao Longo da Rota
+ * Postar Prévia de Lote da Pesquisa Difusa
+
+ 
+### <a name="sdks"></a>SDKs
+
+Verifique se você configurou o parâmetro **Exibição** conforme necessário e se tem a versão mais recente do SDK Web e do SDK do Android. SDKs afetados:
+
+ * SDK da Web do Azure Mapas
+ * SDK do Android do Azure Mapas
 
 Por padrão, o parâmetro Exibição é definido como **Unificado**, mesmo que você não o tenha definido na solicitação. Determine o local dos usuários. Em seguida, defina o parâmetro **Exibição** corretamente para esse local. Como alternativa, você pode definir "Exibição = Automática", que retornará os dados do mapa com base no endereço IP da solicitação.  O parâmetro **Exibição**  no Azure Mapas deve ser usado em conformidade com as leis aplicáveis, incluindo as leis sobre o mapeamento do país/região em que mapas, imagens e outros dados e conteúdos de terceiros que você está autorizado a acessar por meio do Azure Mapas são disponibilizados.
 

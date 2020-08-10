@@ -1,6 +1,6 @@
 ---
 title: Pesquisar categorias | Microsoft Azure Mapas
-description: Neste artigo, você aprenderá sobre as categorias de pesquisa com suporte no Microsoft Azure Mapas.
+description: Saiba quais categorias de pesquisa têm suporte no Azure Maps. Exiba todos os códigos de categoria com suporte e os tipos de pontos de interesse que cada um representa.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/14/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 4975a5842ef23b54444663f653f43bb8dbd1d2c1
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: a9e910c38000fc4dbc454b68b752925df9145837
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745976"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037670"
 ---
 # <a name="azure-maps-supported-categories"></a>Categorias com suporte do Azure Mapas
 

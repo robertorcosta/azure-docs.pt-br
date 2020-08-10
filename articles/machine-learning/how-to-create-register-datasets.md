@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 18eecdfeca58bc04c77dd0e39658a51fe56d0e68
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: b2252a70aea6df755bb8b37c36b77b08db819ba9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513087"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037534"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de Azure Machine Learning de os
 
@@ -25,17 +25,15 @@ ms.locfileid: "87513087"
 
 Neste artigo, você aprenderá a criar conjuntos de dados Azure Machine Learnings para acessar os dados para seus experimentos locais ou remotos. Para entender onde os conjuntos de dados se encaixam no fluxo de trabalho de acesso de data de Azure Machine Learning geral, confira o artigo [dados de acesso seguro](concept-data.md#data-workflow) .
 
-Ao criar um conjunto de dados, você cria uma referência para o local da fonte de dados com uma cópia de seus metadados. Como os dados permanecem em seu local existente, você não incorre nenhum custo de armazenamento extra e não arriscará a integridade de suas fontes de dados. Além disso, os conjuntos de itens são avaliados lentamente, o que ajuda em velocidades de desempenho do fluxo de trabalho.
+Ao criar um conjunto de dados, você cria uma referência para o local da fonte de dados com uma cópia de seus metadados. Como os dados permanecem em seu local existente, você não incorre nenhum custo de armazenamento extra e não arriscará a integridade de suas fontes de dados. Além disso, os conjuntos de itens são avaliados lentamente, o que auxilia nas velocidades de desempenho do fluxo de trabalho. Você pode criar conjuntos de valores de repositórios de armazenamento, URLs públicas e conjuntos de de [Azure abertos](../open-datasets/how-to-create-dataset-from-open-dataset.md).
 
 Com os conjuntos de Azure Machine Learning, você pode:
 
 * Mantenha uma única cópia de dados em seu armazenamento, referenciada por conjuntos.
 
-* Acesse dados diretamente durante o treinamento do modelo sem se preocupar com cadeias de conexão ou caminhos de dados.
+* Acesse dados diretamente durante o treinamento do modelo sem se preocupar com cadeias de conexão ou caminhos de dados. [Saiba mais sobre como treinar com conjuntos de](how-to-train-with-datasets.md)os.
 
 * Compartilhe dados e colabore com outros usuários.
-
-[Saiba mais sobre como treinar com conjuntos de dados](how-to-train-with-datasets.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,6 +44,12 @@ Para criar e trabalhar com conjuntos de os, você precisa de:
 * Um [espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md).
 
 * O [SDK do Azure Machine Learning para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), que inclui o pacote de conjuntos de linhas do azureml.
+
+    * Crie uma [instância de computação Azure Machine Learning](concept-compute-instance.md#managing-a-compute-instance), que é um ambiente de desenvolvimento totalmente configurado e gerenciado que inclui blocos de anotações integrados e o SDK já instalado.
+
+    **OR**
+
+    * Trabalhe em seu próprio notebook Jupyter e instale o SDK com [estas instruções](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 > [!NOTE]
 > Algumas classes de conjunto de objetos têm dependências no pacote [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) , que é compatível apenas com Python de 64 bits. Para usuários do Linux, essas classes têm suporte apenas nas seguintes distribuições: Red Hat Enterprise Linux (7, 8), Ubuntu (14, 4, 16, 4, 18, 4), Fedora (27, 28), Debian (8, 9) e CentOS (7).
@@ -159,11 +163,11 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-|Index|Passageiroid|Survived|Pclass|Name|Sexo|Idade|SibSp|Parch|Tíquete|Tarifa|Cabine|Embarcou
+|Index|Passageiroid|Survived|Pclass|Nome|Sexo|Idade|SibSp|Parch|Tíquete|Tarifa|Cabine|Embarcou
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|Falso|3|Braund, Sr. Owen Harris|masculino|22,0|1|0|A/5 21171|7,2500||S
-1|2|Verdadeiro|1|Cumings, Sra. John Bradley (Florence Briggs th...|feminino|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|Verdadeiro|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
+1|2|verdadeiro|1|Cumings, Sra. John Bradley (Florence Briggs th...|feminino|38,0|1|0|PC 17599|71,2833|C85|C
+2|3|verdadeiro|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 ### <a name="create-a-dataset-from-pandas-dataframe"></a>Criar um conjunto de uma série de dataframe do pandas
 
@@ -224,50 +228,15 @@ Para criar um conjunto de um DataSet no estúdio:
 1. Selecione **Avançar** para examinar o formulário **confirmar detalhes** . Verifique suas seleções e crie um perfil de dados opcional para seu conjunto de dados. Saiba mais sobre a [criação de perfil de dados](how-to-use-automated-ml-for-ml-models.md#profile). 
 1. Selecione **criar** para concluir a criação do conjunto de seus conjuntos de os.
 
+## <a name="create-datasets-with-azure-open-datasets"></a>Criar conjuntos de itens com os conjuntos de valores abertos do Azure
+
+Os [Conjuntos de dados abertos do Azure](https://azure.microsoft.com/services/open-datasets/) são conjuntos de dados públicos coletados que você pode usar para adicionar recursos específicos do cenário para soluções de aprendizado de máquina para obter modelos mais precisos. Os conjuntos de dados incluem dados de domínio público de clima, censo, feriados, segurança pública e localização que ajudam você a treinar os modelos de machine learning e aprimorar as soluções de previsão. Os conjuntos de itens abertos estão na nuvem no Microsoft Azure e são incluídos no SDK e no Studio.
+
+Saiba como criar [conjuntos de Azure Machine Learning de conjuntos de informações a partir do Azure Open DataSets](../open-datasets/how-to-create-dataset-from-open-dataset.md). 
+
 ## <a name="train-with-datasets"></a>Treinar com conjuntos de dados
 
 Use seus conjuntos de informações em seus experimentos de aprendizado de máquina para modelos de ML de treinamento. [Saiba mais sobre como treinar com conjuntos de os](how-to-train-with-datasets.md)
-
-## <a name="create-datasets-with-azure-open-datasets"></a>Criar conjuntos de itens com os conjuntos de valores abertos do Azure
-
-Os [Conjuntos de dados abertos do Azure](https://azure.microsoft.com/services/open-datasets/) são conjuntos de dados públicos coletados que você pode usar para adicionar recursos específicos do cenário para soluções de aprendizado de máquina para obter modelos mais precisos. Os conjuntos de dados incluem dados de domínio público de clima, censo, feriados, segurança pública e localização que ajudam você a treinar os modelos de machine learning e aprimorar as soluções de previsão. Os conjuntos de itens abertos estão na nuvem em Microsoft Azure e são incluídos no SDK e na interface do usuário do espaço de trabalho.
-
-### <a name="use-the-sdk"></a>Usar o SDK
-
-Para criar conjuntos de valores com os conjuntos de itens abertos do Azure do SDK, verifique se você instalou o pacote com o `pip install azureml-opendatasets` . Cada conjunto de dados discretos é representado por sua própria classe no SDK, e determinadas classes estão disponíveis como um `TabularDataset` , `FileDataset` ou ambos. Consulte a [documentação de referência](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) para obter uma lista completa de classes.
-
-Você pode recuperar determinadas classes como um `TabularDataset` ou o `FileDataset` , que permite manipular e/ou baixar os arquivos diretamente. Outras classes **só** podem obter um conjunto de um DataSet usando uma das `get_tabular_dataset()` `get_file_dataset()` funções ou. O exemplo de código a seguir mostra alguns exemplos desses tipos de classes.
-
-```python
-from azureml.opendatasets import MNIST
-
-# MNIST class can return either TabularDataset or FileDataset
-tabular_dataset = MNIST.get_tabular_dataset()
-file_dataset = MNIST.get_file_dataset()
-
-from azureml.opendatasets import Diabetes
-
-# Diabetes class can return ONLY TabularDataset and must be called from the static function
-diabetes_tabular = Diabetes.get_tabular_dataset()
-```
-
-Quando você registra um conjunto de dados criado a partir de DataSets abertos, nenhum dado é baixado imediatamente, mas os dados serão acessados posteriormente quando solicitado (durante o treinamento, por exemplo) de um local de armazenamento central.
-
-### <a name="use-the-ui"></a>Usar a interface do usuário
-
-Você também pode criar conjuntos de valores de classes de conjuntos de itens abertos por meio da interface do usuário. Em seu espaço de trabalho, selecione a guia **conjuntos de valores** em **ativos**. No menu suspenso **criar conjunto** de linhas, selecione **de conjuntos de valores abertos**.
-
-![Abrir conjunto de um com a interface do usuário](./media/how-to-create-register-datasets/open-datasets-1.png)
-
-Selecione um conjunto de um DataSet selecionando seu bloco. (Você tem a opção de filtrar usando a barra de pesquisa.) Selecione **Avançar**.
-
-![Escolher conjunto de um](./media/how-to-create-register-datasets/open-datasets-2.png)
-
-Escolha um nome sob o qual registrar o conjunto de dados e, opcionalmente, filtre-os usando os filtros disponíveis. Nesse caso, para o conjunto de data de feriados públicos, você filtra o período de tempo para um ano e o código do país apenas para os EUA. Selecione **Criar**.
-
-![Definir parâmetros de conjunto de DataSet e criar conjunto de um](./media/how-to-create-register-datasets/open-datasets-3.png)
-
-Agora, o conjunto de linhas está disponível em seu espaço de trabalho em **conjuntos**de os. Você pode usá-lo da mesma maneira que outros conjuntos de os que você criou.
 
 ## <a name="version-datasets"></a>Conjuntos de itens de versão
 

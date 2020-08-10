@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/30/2020
-ms.openlocfilehash: 2d6f667b6a49520dfe210fd797a828328899b634
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f2f5a8a87d4ac4936f25e7ece2a34b518c09a063
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674600"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037619"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controle do código-fonte no Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -211,11 +211,11 @@ Um painel lateral será aberto para você confirmar que o branch de publicação
 
 ### <a name="permissions"></a>Permissões
 
-Normalmente, você não quer que todos os membros da equipe tenham permissões para atualizar o alocador. As seguintes configurações de permissões são recomendadas:
+Normalmente, você não quer que todos os membros da equipe tenham permissões para atualizar o Data Factory. As seguintes configurações de permissões são recomendadas:
 
-*   Todos os membros da equipe devem ter permissões de leitura para o data factory.
-*   Somente um conjunto selecionado de pessoas deve ter permissão para publicar no alocador. Para fazer isso, eles precisam ter a função de **Colaborador do Data Factory** no grupo de recursos em que o alocador está. Para obter mais informações sobre permissões, confira [Funções e permissões para o Azure Data Factory](concepts-roles-permissions.md).
-   
+*   Todos os membros da equipe devem ter permissões de leitura para o Data Factory.
+*   Somente um conjunto selecionado de pessoas deve ter permissão para publicar no Data Factory. Para fazer isso, eles devem ter a função de **colaborador de data Factory** no **grupo de recursos** que contém o data Factory. Para obter mais informações sobre permissões, confira [Funções e permissões para o Azure Data Factory](concepts-roles-permissions.md).
+
 É recomendável não permitir check-ins diretos no branch de colaboração. Essa restrição pode ajudar a evitar bugs, uma vez que cada check-in passará por um processo de revisão de solicitação de pull descrito em [Criando branches de recurso](source-control.md#creating-feature-branches).
 
 ### <a name="using-passwords-from-azure-key-vault"></a>Usando senhas do Azure Key Vault

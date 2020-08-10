@@ -1,5 +1,5 @@
 ---
-title: APIs de preenchimento de SaaS no Microsoft Commercial Marketplace
+title: APIs de cumprimento de SaaS no Microsoft Commercial Marketplace
 description: Uma introdução às APIs de preenchimento que permitem que você integre suas ofertas de SaaS no Microsoft AppSource e no Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d9413deb99ce938429d05f7c6348c5914e7dd2b1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2e6381afb19018822f6f37171a5ca4b3d929b42e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304132"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037517"
 ---
-# <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>APIs de preenchimento de SaaS no Microsoft Commercial Marketplace
+# <a name="saas-fulfillment-apis-in-the-microsoft-commercial-marketplace"></a>APIs de cumprimento de SaaS no Microsoft Commercial Marketplace
 
 As APIs de cumprimento de SaaS habilitam editores, também conhecidos como ISVs (fornecedores independentes de software), para publicar e vender seus aplicativos SaaS em Microsoft AppSource, no Azure Marketplace e portal do Azure. Essas APIs permitem que aplicativos ISV participem de todos os canais habilitados para comércio: direto, orientado por parceiros (revendedor) e orientado por campo.  A integração com essas APIs é um requisito para criar e publicar uma oferta de SaaS transactável no Partner Center.
 

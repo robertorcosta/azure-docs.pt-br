@@ -1,6 +1,6 @@
 ---
 title: Introdução ao controle de mapa do Android | Microsoft Azure Mapas
-description: Neste artigo, você aprenderá a usar o controle de mapa do Android usando o SDK do Android do Microsoft Azure Mapas.
+description: Familiarize-se com o SDK do Android do Azure Maps. Veja como criar um projeto no Android Studio, instalar o SDK e criar um mapa interativo.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f3a19a3e596d4d0162e92ac3f69c1333eea6aa41
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: fca1b48911ff2af977b8415ad1d9ec1cc2801623
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132153"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037755"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introdução ao SDK do Android do Azure Mapas
 

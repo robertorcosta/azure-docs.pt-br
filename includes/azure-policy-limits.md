@@ -4,14 +4,14 @@ description: incluir arquivo
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/23/2020
+ms.date: 08/07/2020
 ms.author: dacoulte
-ms.openlocfilehash: 08183cc2cbe2fce83bc7347da22308931b99dcc1
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e22594a50a9c0d814ef7d66443f8253f5832cb1d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88011013"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88038490"
 ---
 Há uma contagem máxima para cada tipo de objeto do Azure Policy. Uma entrada do _Escopo_ significa a assinatura ou o [grupo de gerenciamento](../articles/governance/management-groups/overview.md).
 
@@ -26,4 +26,4 @@ Há uma contagem máxima para cada tipo de objeto do Azure Policy. Uma entrada d
 | Definição de iniciativa | Parâmetros | 100 |
 | Atribuições de iniciativa ou política | Exclusões (notScopes) | 400 |
 | Regra de política | Condicionais aninhadas | 512 |
-| Tarefa de correção | Recursos | 500 |
+| Tarefa de correção | Recursos | 1000 |
