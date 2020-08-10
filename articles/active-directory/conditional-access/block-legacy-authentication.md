@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/13/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d3df4eee14e5ce2f0638058efde0f80d0e5b051
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f72e477d332b33b7434663fb13cb3ca4f4c2069d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275472"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032166"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como fazer: Bloquear autenticação herdada para Azure AD com Acesso Condicional   
 
@@ -49,7 +49,7 @@ O Azure AD dá suporte para vários dos protocolos de autenticação e autoriza�
 - Aplicativos mais antigos do Microsoft Office
 - Aplicativos que usam protocolos de email como POP, IMAP e SMTP
 
-Autenticação de fator único (por exemplo, nome de usuário e senha) atualmente não é suficiente. Senhas são ruins porque são fáceis de adivinhar e nós (humanos) dificilmente escolhemos boas senhas. Senhas também são vulneráveis a uma variedade de ataques, como pulverização de senha e phishing. Uma das medidas mais fáceis que você pode tomar para proteção contra ameaças de senha é implementar MFA. Com MFA, mesmo se um invasor possuir a senha de um usuário, somente a senha não será suficiente para autenticar e acessar os dados com êxito.
+Autenticação de fator único (por exemplo, nome de usuário e senha) atualmente não é suficiente. Senhas são ruins porque são fáceis de adivinhar e nós (humanos) dificilmente escolhemos boas senhas. Senhas também são vulneráveis a uma variedade de ataques, como pulverização de senha e phishing. Uma das coisas mais fáceis que você pode fazer para se proteger contra ameaças à senha é implementar a MFA (autenticação multifator). Com MFA, mesmo se um invasor possuir a senha de um usuário, somente a senha não será suficiente para autenticar e acessar os dados com êxito.
 
 Como é possível impedir que aplicativos usando autenticação herdada acessem os recursos do locatário? A recomendação é apenas bloqueá-los com uma política de Acesso Condicional. Se necessário, você permite que apenas determinados usuários e locais de rede específicos usem aplicativos baseados em autenticação herdada.
 
@@ -91,46 +91,24 @@ A filtragem mostrará apenas as tentativas de entrada feitas por protocolos de a
 
 Esses logs indicarão quais usuários ainda estão dependendo da autenticação herdada e quais aplicativos estão usando protocolos herdados para fazer solicitações de autenticação. Para usuários que não aparecem nesses logs e são confirmados por não usar a autenticação herdada, implemente uma política de Acesso Condicional somente para esses usuários.
 
-### <a name="block-legacy-authentication"></a>Bloquear a autenticação herdada 
+## <a name="block-legacy-authentication"></a>Bloquear a autenticação herdada 
 
-Em uma política de Acesso Condicional, é possível definir uma condição vinculada aos aplicativos clientes usados para acessar os recursos. A condição de aplicativos cliente permite restringir o escopo a aplicativos usando autenticação herdada, selecionando **clientes do Exchange ActiveSync** e **Outros clientes** em **Aplicativos móveis e clientes de desktop**.
+Há duas maneiras de usar políticas de acesso condicional para bloquear a autenticação herdada.
 
-![Outros clientes](./media/block-legacy-authentication/01.png)
-
-Para bloquear o acesso a esses aplicativos, é necessário selecionar **Bloquear acesso**.
-
-![Acesso bloqueado](./media/block-legacy-authentication/02.png)
-
-### <a name="select-users-and-cloud-apps"></a>Selecione usuários e aplicativos na nuvem
-
-Se você quiser bloquear a autenticação herdada para sua organização, provavelmente pressupõe que é possível fazer isso, selecionando:
-
-- todos os usuários
-- Todos os aplicativos em nuvem
-- Acesso bloqueado
-
-![Atribuições](./media/block-legacy-authentication/03.png)
-
-O Azure tem um recurso de segurança que impede a criação de uma política como essa, pois essa configuração viola as [práticas recomendadas](best-practices.md) para políticas de Acesso Condicional.
+- [Bloqueando diretamente a autenticação herdada](#directly-blocking-legacy-authentication)
+- [Bloqueio indireto de autenticação herdada](#indirectly-blocking-legacy-authentication)
  
-![Sem suporte para configuração de política](./media/block-legacy-authentication/04.png)
+### <a name="directly-blocking-legacy-authentication"></a>Bloqueando diretamente a autenticação herdada
 
-O recurso de segurança é necessário porque *bloqueia todos os usuários e todos os aplicativos na nuvem* e tem o potencial de impedir que toda a organização faça autenticação no locatário. É necessário excluir pelo menos um usuário para satisfazer o requisito mínimo de melhor prática. Também é possível excluir uma função de diretório.
+A maneira mais fácil de bloquear a autenticação herdada em toda a organização é Configurando uma política de acesso condicional que se aplica especificamente aos clientes de autenticação herdados e bloqueia o acesso. Ao atribuir usuários e aplicativos à política, certifique-se de excluir usuários e contas de serviço que ainda precisam entrar usando a autenticação herdada. Configure a condição de aplicativos cliente selecionando **clientes do Exchange ActiveSync** e **outros clientes**. Para bloquear o acesso para esses aplicativos cliente, configure os controles de acesso para bloquear o acesso.
 
-![Sem suporte para configuração de política](./media/block-legacy-authentication/05.png)
+![Condição de aplicativos cliente configurada para bloquear autenticação herdada](./media/block-legacy-authentication/client-apps-condition-configured-yes.png)
 
-Você pode satisfazer esse recurso de segurança, excluindo um usuário da sua política. O ideal, é definir algumas [contas administrativas de acesso para emergência no Azure AD](../users-groups-roles/directory-emergency-access.md) e excluí-las da política.
+### <a name="indirectly-blocking-legacy-authentication"></a>Bloqueio indireto de autenticação herdada
 
-Usar o [modo somente relatório](concept-conditional-access-report-only.md) ao habilitar sua política para bloquear a autenticação herdada fornece à sua organização uma oportunidade de monitorar qual será o impacto da política.
+Mesmo que sua organização não esteja pronta para bloquear a autenticação herdada em toda a organização, você deve garantir que as entradas usando autenticação herdada não ignorem políticas que exijam controles de concessão, como a exigência de autenticação multifator ou dispositivos ingressados no Azure AD híbrido ou em conformidade. Durante a autenticação, os clientes de autenticação herdados não dão suporte ao envio de informações de MFA, conformidade do dispositivo ou estado de ingresso para o Azure AD. Portanto, aplique políticas com controles de concessão a todos os aplicativos cliente para que as entradas com base em autenticação herdadas que não podem atender aos controles de concessão sejam bloqueadas. Com a disponibilidade geral da condição de aplicativos cliente em agosto de 2020, as políticas de acesso condicional recém-criadas se aplicam a todos os aplicativos cliente por padrão.
 
-## <a name="policy-deployment"></a>Implantação de política
-
-Antes de colocar a política em produção, atente-se para:
- 
-- **Contas de serviço** - Identifique as contas de usuário que são usadas como contas de serviço ou por dispositivos, como telefones de sala de conferência. Certifique-se de que essas contas têm senhas fortes e adicione-as a um grupo excluído.
-- **Relatórios de entradas** - Analise o relatório de entrada e procure **outro tráfego de cliente**. Identifique o uso principal e investigue por que ele está em uso. Normalmente, o tráfego é gerado por clientes mais antigos do Office que não usam autenticação moderna ou alguns aplicativos de email de terceiros. Faça um plano para afastar o uso desses aplicativos ou, se o impacto for baixo, notifique os usuários de que eles não podem mais usar esses aplicativos.
- 
-Para obter mais informações, consulte [Como implantar uma nova política?](best-practices.md#how-should-you-deploy-a-new-policy).
+![Configuração padrão da condição de aplicativos cliente](./media/block-legacy-authentication/client-apps-condition-configured-no.png)
 
 ## <a name="what-you-should-know"></a>O que você deve saber
 
@@ -141,14 +119,6 @@ A configuração de uma política para **Outros clientes** bloqueia determinados
 Pode levar até 24 horas para que a política entre em vigor.
 
 É possível selecionar todos os controles de concessão disponíveis para a condição de **Outros clientes**, no entanto, a experiência do usuário final será sempre a mesma - acesso bloqueado.
-
-Se você bloquear a autenticação herdada usando a condição de **Outros clientes**, também poderá definir a plataforma do dispositivo e a condição da localização. Por exemplo, se você quiser bloquear apenas a autenticação herdada para dispositivos móveis, defina a condição **plataformas de dispositivo** selecionando:
-
-- Android
-- iOS
-- Windows Phone
-
-![Sem suporte para configuração de política](./media/block-legacy-authentication/06.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

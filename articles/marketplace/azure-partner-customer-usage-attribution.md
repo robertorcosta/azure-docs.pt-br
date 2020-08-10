@@ -1,5 +1,5 @@
 ---
-title: Atribuição de uso de parceiros e clientes do Marketplace comercial
+title: Parceiro do Marketplace comercial e atribuição de uso do cliente
 description: Obtenha uma visão geral de como acompanhar o uso do cliente para soluções do Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,14 +8,14 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/14/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: ab729d34219c05ee76a2a14832f41342d29eab21
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c5fc239c32037354547c6818fd507a7a8cfd3657
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065798"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031278"
 ---
-# <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Atribuição de uso de parceiros e clientes do Marketplace comercial
+# <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Parceiro do Marketplace comercial e atribuição de uso do cliente
 
 A atribuição de uso do cliente é um método para associar os recursos do Azure em execução em assinaturas de clientes, implantados para executar sua solução, com você como um parceiro. Formar essas associações em sistemas internos da Microsoft traz maior visibilidade para a superfície do Azure que executa seu software. Ao adotar essa capacidade de acompanhamento, você se alinha às equipes de vendas da Microsoft e obtém crédito para os programas de parceiros da Microsoft.
 
@@ -82,13 +82,13 @@ Depois que você adicionar um GUID ao seu modelo ou no agente do usuário e regi
 1. Clique em **Salvar**.
 
 ## <a name="use-resource-manager-templates"></a>Use modelos do Gerenciador de Recursos
-Muitas soluções de parceiros são implantadas usando modelos do Azure Resource Manager. Se você tiver um modelo do Resource Manager disponível no Azure Marketplace, no GitHub ou como Início Rápido, o processo para modificar o modelo a fim de habilitar a atribuição de uso do cliente deverá ser direto.
+Muitas soluções de parceiros são implantadas usando modelos do Azure Resource Manager. Se você tiver um modelo do Resource Manager que está disponível no Azure Marketplace, no GitHub ou como um guia de início rápido, o processo para modificar o modelo para habilitar a atribuição de uso do cliente é direto.
 
 > [!NOTE]
 > Para saber mais sobre como criar e publicar Modelos de Solução, confira
 > * [Criar e implantar seu primeiro modelo do Resource Manager](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 >* [Oferta de aplicativo do Azure](./partner-center-portal/create-new-azure-apps-offer.md).
->* Vídeo: [Compilar modelos de solução e aplicativos gerenciados para o Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+>* Vídeo: [criando modelos de solução e aplicativos gerenciados para o Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 
 Para adicionar um identificador global exclusivo (GUID), você faz uma única modificação no arquivo de modelo principal:
@@ -269,7 +269,7 @@ Se você precisar de assistência para integração do Marketplace e/ou atribui�
 1. Escolha o **categoria** para seu problema:
 
    - Para problemas de uso de associação, selecione **outros**.
-   - Para problemas de acesso com o Azure Marketplace, selecione **Problema de Acesso**.
+   - Para problemas de acesso com o Azure Marketplace, selecione **problema de acesso**.
 
      ![Escolha a categoria do problema](media/marketplace-publishers-guide/lu-article-incident.png)
 

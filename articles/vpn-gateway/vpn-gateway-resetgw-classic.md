@@ -1,18 +1,18 @@
 ---
 title: Redefinir um gateway de VPN do Azure para restabelecer o túnel IPsec
-description: Este artigo orienta você pela redefinição de seu Gateway de VPN do Azure para reestabelecer os túneis IPsec. O artigo se aplica a gateways de VPN tanto nos modelos de implantação clássicos quanto nos modelos de implantação do Resource Manager.
+description: Redefina o gateway de VPN do Azure para restabelecer túneis IPsec para gateways de VPN nos modelos de implantação clássico e do Resource Manager.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 90a01e4ee3ddf7b100ef51e55b9917c709a05864
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f78b33a95001639abfeaecb381b597f5273c0fc
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982876"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033046"
 ---
 # <a name="reset-a-vpn-gateway"></a>Redefinir um Gateway de VPN
 

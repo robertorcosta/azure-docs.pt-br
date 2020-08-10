@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 07/03/2019
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9aaab58acb00305f76b10847a0417d91d724ba8
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 46d3b8d94148e3db163411c21cccf39c7630c6b3
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737632"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032893"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Solucionar problema de Acesso Condicional usando a ferramenta What If
 
@@ -67,7 +67,7 @@ Muitas organizações criam políticas com base em locais de rede, permitindo lo
 
 Para validar que uma configuração foi feita adequadamente, um administrador pode usar a ferramenta de What If para imitar o acesso, de um local que deve ser permitido e de um local que deve ser negado.
 
-![Ferramenta What If mostrando resultados com Acesso bloqueado](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)
+[![Ferramenta de What If mostrando resultados com acesso de bloqueio](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png#lightbox)
 
 Nessa instância, o usuário será impedido de acessar qualquer aplicativo de nuvem em sua viagem à Coreia do Norte, pois a Contoso bloqueou o acesso desse local.
 

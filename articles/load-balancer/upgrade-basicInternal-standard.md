@@ -5,14 +5,14 @@ services: load-balancer
 author: irenehua
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 02/23/2020
+ms.date: 08/07/2020
 ms.author: irenehua
-ms.openlocfilehash: 801f57c8d5b67e31bd6b3ac25d845dc2e13e365c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10a0c186bb1a0d9f974d485e7d2d1d7326bd849c
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809324"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033148"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Atualizar o Load Balancer interno do Azure-nenhuma conexão de saída é necessária
 O [Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto avançado de funcionalidades e alta disponibilidade por meio de redundância de zona. Para saber mais sobre Load Balancer SKU, confira [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/skus#skus).
@@ -48,7 +48,7 @@ Há um script de Azure PowerShell disponível que faz o seguinte:
 
 ## <a name="download-the-script"></a>Baixar o script
 
-Baixe o script de migração do [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureILBUpgrade/3.0).
+Baixe o script de migração do [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureILBUpgrade/4.0).
 ## <a name="use-the-script"></a>Usar o script
 
 Há duas opções para você dependendo da configuração e das preferências do ambiente do PowerShell local:

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: fc5557c1b20d87d2f96559e1d41efa4576045f09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51aff856aa5bdeb042493d47f100be0ca32dfbbb
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392770"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032672"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitações no Banco de Dados do Azure para o MariaDB
 As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados.
@@ -42,6 +42,7 @@ Após a implantação inicial, um servidor do Azure para MariaDB inclui tabelas 
 - Função DBA: Muitas configurações e parâmetros do servidor podem, inadvertidamente, prejudicar o desempenho do servidor ou negar as propriedades de ACID do DBMS. Desa forma, para manter a SLA e integridade do serviço em um nível de produto, esse serviço não expõe a função DBA. A conta de usuário padrão, que é construída quando uma nova instância do banco de dados é criada, permite que o usuário execute a maioria das instruções DDL e DML na instância do banco de dados gerenciado.
 - Privilégio SUPER: De forma semelhante, o [privilégio SUPER](https://mariadb.com/kb/en/library/grant/#global-privileges) também é restrito.
 - DEFINER: Requer superprivilégios para criar e é restrito. Se estiver importando dados usando um backup, remova os comandos `CREATE DEFINER`manualmente ou usando o comando `--skip-definer` ao executar um mysqldump.
+- Bancos de dados do sistema: no Azure Database para MariaDB, o [banco de dados do sistema MySQL](https://mariadb.com/kb/en/the-mysql-database-tables/) é somente leitura, pois é usado para dar suporte a várias funcionalidades de serviço de PaaS. Observe que você não pode alterar nada no `mysql` banco de dados do sistema.
 
 ## <a name="data-manipulation-statement-support"></a>Suporte à instrução de manipulação de dados
 

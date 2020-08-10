@@ -1,6 +1,6 @@
 ---
 title: Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure | Microsoft Docs
-description: Configure a segurança de rede em camadas para sua conta de armazenamento.
+description: Configure a segurança de rede em camadas para sua conta de armazenamento usando os firewalls de armazenamento do Azure e a rede virtual do Azure.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: a6f59fff351ecdae82ef7175d54e3b2ab1b7d30b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 9c95501c4e17e0afaa082c3e02c29934435c1a19
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534100"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032485"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 

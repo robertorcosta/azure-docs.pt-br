@@ -1,18 +1,18 @@
 ---
 title: Noções básicas sobre a Camada de Nuvem da Sincronização de Arquivos do Azure | Microsoft Docs
-description: Saiba mais sobre a Camada de Nuvem do recurso de Sincronização de Arquivos do Azure
+description: Leia sobre camadas de nuvem, um recurso opcional de Sincronização de Arquivos do Azure. Arquivos acessados com frequência são armazenados em cache localmente no servidor; outras estão em camadas para os arquivos do Azure.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 74887e6ee4656091aa647b481bc406dcc23b9c12
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 6678f64802dc497de6cf0a70ba5ff0bbcaf44e1c
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460075"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033114"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral da Camada de Nuvem
 A camada de nuvem é um recurso opcional da Sincronização de Arquivos do Azure em que arquivos acessados frequentemente são armazenados em cache localmente no servidor, enquanto todos os outros arquivos são organizados em camadas para Arquivos do Azure com base nas configurações de política. Quando um arquivo está disposto em camadas, o filtro do sistema de arquivos da Sincronização de Arquivos do Azure (StorageSync.sys) substitui o arquivo localmente por um ponteiro ou ponto de nova análise. O ponto de nova análise representa uma URL para o arquivo nos Arquivos do Azure. Um arquivo em camadas tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definidos em NTFS, de modo que aplicativos de terceiros podem identificar com segurança os arquivos dispostos em camadas.
@@ -125,7 +125,7 @@ Há várias maneiras de verificar se um arquivo foi colocado em camadas no compa
         
         | Carta de atributo | Atributo | Definição |
         |:----------------:|-----------|------------|
-        | A | Archive | Indica que o arquivo deve ter o backup feito pelo software de backup. Esse atributo é sempre definido independentemente de o arquivo estar em camadas ou totalmente armazenado no disco. |
+        | Um | Archive | Indica que o arquivo deve ter o backup feito pelo software de backup. Esse atributo é sempre definido independentemente de o arquivo estar em camadas ou totalmente armazenado no disco. |
         | P | Arquivos esparsos | Indica que o arquivo é um arquivo esparso. Um arquivo esparso é um tipo especializado de arquivo que o NTFS oferece para uso eficiente quando o arquivo no fluxo do disco está basicamente vazio. A Sincronização de Arquivos do Azure usa arquivos esparsos, porque um arquivo é totalmente em camadas ou parcialmente cancelado. Em um arquivo totalmente em camadas, o fluxo de arquivos é armazenado na nuvem. Em um arquivo que sofreu recall parcial, essa parte do arquivo já está no disco. Se o recall de um arquivo é feito totalmente em disco, a Sincronização de Arquivos do Azure o converte de um arquivo esparso em um arquivo regular. Esse atributo só é definido no Windows Server 2016 e mais antigo.|
         | M | Recall no acesso a dados | Indica que os dados do arquivo não estão totalmente presentes no armazenamento local. A leitura do arquivo fará com que pelo menos um conteúdo do arquivo seja obtido de um compartilhamento de arquivos do Azure ao qual o ponto de extremidade do servidor está conectado. Esse atributo só é definido no Windows Server 2019. |
         | L | Ponto de nova análise | Indica que o arquivo tem um ponto de nova análise. Um ponto de nova análise é um ponteiro especial para ser usado por um filtro do sistema de arquivos. A Sincronização de Arquivos do Azure usa pontos de nova análise a fim de definir, para o filtro do sistema de arquivos da Sincronização de Arquivos do Azure (StorageSync.sys), o local na nuvem em que o arquivo está armazenado. Isso dá suporte a acesso contínuo. Os usuários não precisarão saber que a Sincronização de Arquivos do Azure está sendo usada ou como obter acesso ao arquivo em seu compartilhamento de arquivos do Azure. Quando o recall de um arquivo é totalmente feito, a Sincronização de Arquivos do Azure remove o ponto de nova análise do arquivo. |

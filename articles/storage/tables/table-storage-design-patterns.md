@@ -1,6 +1,6 @@
 ---
 title: Padrões de design de tabela de armazenamento do Azure | Microsoft Docs
-description: Use padrões para soluções de serviço de tabela do Azure.
+description: Examine os padrões de design apropriados para uso com soluções de serviço de tabela no Azure. Resolva problemas e compensações que são discutidos em outros artigos.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: cbafe7c3e3b76ea13a8ca7a82b2968662b43685a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 32904044cf6dcecf19b1a78eb4236dc02555bb86
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081223"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034189"
 ---
 # <a name="table-design-patterns"></a>Padrões de design de tabela
 Este artigo descreve alguns padrões adequados para uso com soluções de serviço Tabela. Além disso, você verá como abordar praticamente alguns dos problemas e compensações discutidos em outros artigos de design de armazenamento de Tabela. O diagrama a seguir resume as relações entre os diferentes padrões:  

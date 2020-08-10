@@ -4,12 +4,12 @@ description: Saiba como dimensionar um Cluster Service Fabric adicionando um tip
 ms.topic: article
 ms.date: 08/06/2020
 ms.author: pepogors
-ms.openlocfilehash: 01f6c90f9f7d7679f5b108138e2d2318eb6b9e18
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5cabe7e377c29812252074336d7c5e9c9d3ba259
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010801"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031959"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Dimensionar um tipo de nó primário do cluster do Service Fabric
 Este artigo descreve como escalar verticalmente um tipo de nó primário de Cluster Service Fabric adicionando um tipo de nó adicional ao cluster. Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você usa para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Então, cada tipo de nó pode ser gerenciado separadamente.
@@ -62,9 +62,6 @@ New-AzResourceGroupDeployment `
 ### <a name="add-a-new-primary-node-type-to-the-cluster"></a>Adicionar um novo tipo de nó primário ao cluster
 > [!Note]
 > Os recursos criados nas etapas a seguir se tornarão o novo tipo de nó primário no cluster depois que a operação de dimensionamento for concluída. Certifique-se de usar nomes que sejam exclusivos da sub-rede inicial, IP público, Load Balancer, conjunto de dimensionamento de máquinas virtuais e tipo de nó. 
-
-> [!Note]
-> Se você já estiver usando um IP público de SKU Standard e o SKU LB Standard, talvez não precise criar novos recursos de rede. 
 
 Você pode encontrar um modelo com todas as etapas a seguir concluídas aqui: [Service Fabric – novo cluster de tipo de nó](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-2.json). As etapas a seguir contêm trechos de recursos parciais que destacam as alterações nos novos recursos.  
 
@@ -162,7 +159,40 @@ O cluster de Service Fabric agora terá dois tipos de nó quando a implantação
 ### <a name="remove-the-existing-node-type"></a>Remover o tipo de nó existente 
 Depois que os recursos concluírem a implantação, você poderá começar a desabilitar os nós no tipo de nó primário original. À medida que os nós estiverem desabilitados, os serviços do sistema serão migrados para o novo tipo de nó primário que foi implantado na etapa anterior.
 
-1. Desabilite os nós no tipo de nó 0. 
+1. Defina a propriedade de tipo de nó primário no Service Fabric recurso de cluster como false. 
+```json
+{
+    "name": "[variables('vmNodeType0Name')]",
+    "applicationPorts": {
+        "endPort": "[variables('nt0applicationEndPort')]",
+        "startPort": "[variables('nt0applicationStartPort')]"
+    },
+    "clientConnectionEndpointPort": "[variables('nt0fabricTcpGatewayPort')]",
+    "durabilityLevel": "Bronze",
+    "ephemeralPorts": {
+        "endPort": "[variables('nt0ephemeralEndPort')]",
+        "startPort": "[variables('nt0ephemeralStartPort')]"
+    },
+    "httpGatewayEndpointPort": "[variables('nt0fabricHttpGatewayPort')]",
+    "isPrimary": false,
+    "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
+    "vmInstanceCount": "[parameters('nt0InstanceCount')]"
+}
+```
+2. Implante o modelo com a propriedade IsPrimary atualizada no tipo de nó original. Você pode encontrar um modelo com o sinalizador principal definido como false no tipo de nó original aqui: [Service Fabric-tipo de nó primário false](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-3.json).
+
+```powershell
+# deploy the updated template files to the existing resource group
+$templateFilePath = "C:\AzureDeploy-3.json"
+$parameterFilePath = "C:\AzureDeploy.Parameters.json"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile $templateFilePath `
+    -TemplateParameterFile $parameterFilePath `
+```
+
+3. Desabilite os nós no tipo de nó 0. 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterConnectionEndpoint `
     -KeepAliveIntervalInSec 10 `
@@ -196,7 +226,7 @@ foreach($node in $nodes)
 > [!Note]
 > Esta etapa pode demorar um pouco para ser concluída. 
 
-2. Parar dados no tipo de nó 0. 
+4. Parar dados no tipo de nó 0. 
 ```powershell
 foreach($node in $nodes)
 {
@@ -208,62 +238,18 @@ foreach($node in $nodes)
   }
 }
 ```
-3. Desalocar nós no conjunto de dimensionamento de máquinas virtuais original 
+5. Desalocar nós no conjunto de dimensionamento de máquinas virtuais original 
 ```powershell
 $scaleSetName="nt1vm"
 $scaleSetResourceType="Microsoft.Compute/virtualMachineScaleSets"
 
 Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceType -ResourceGroupName $resourceGroupName -Force
 ```
+> [!Note]
+> As etapas 6 e 7 são opcionais se você já estiver usando um IP público de SKU padrão e um balanceador de carga SKU Standard. Nesse caso, você poderia ter vários tipos de conjunto de dimensionamento de máquinas virtuais/tipo de nó no mesmo balanceador de carga. 
 
-4. Remova o estado do nó do tipo de nó 0.
-```powershell
-foreach($node in $nodes)
-{
-  if ($node.NodeType -eq $nodeType)
-  {
-    $node.NodeName
+6. Agora você pode excluir o IP original e Load Balancer recursos. Nesta etapa, você também atualizará o nome DNS. 
 
-    Remove-ServiceFabricNodeState -NodeName $node.NodeName -Force
-  }
-}
-```
-5. Defina a propriedade de tipo de nó primário no Service Fabric recurso de cluster como false. 
-
-```json
-{
-    "name": "[variables('vmNodeType0Name')]",
-    "applicationPorts": {
-        "endPort": "[variables('nt0applicationEndPort')]",
-        "startPort": "[variables('nt0applicationStartPort')]"
-    },
-    "clientConnectionEndpointPort": "[variables('nt0fabricTcpGatewayPort')]",
-    "durabilityLevel": "Bronze",
-    "ephemeralPorts": {
-        "endPort": "[variables('nt0ephemeralEndPort')]",
-        "startPort": "[variables('nt0ephemeralStartPort')]"
-    },
-    "httpGatewayEndpointPort": "[variables('nt0fabricHttpGatewayPort')]",
-    "isPrimary": false,
-    "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
-    "vmInstanceCount": "[parameters('nt0InstanceCount')]"
-}
-```
-
-5. Implante o modelo com a propriedade IsPrimary atualizada no tipo de nó original. Você pode encontrar um modelo com o sinalizador principal definido como false no tipo de nó original aqui: [Service Fabric-tipo de nó primário false](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-3.json).
-
-```powershell
-# deploy the updated template files to the existing resource group
-$templateFilePath = "C:\AzureDeploy-3.json"
-$parameterFilePath = "C:\AzureDeploy.Parameters.json"
-
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -TemplateFile $templateFilePath `
-    -TemplateParameterFile $parameterFilePath `
-```
-
-7. Agora você pode excluir o IP original e Load Balancer recursos. Nesta etapa, você também atualizará o nome DNS. 
 ```powershell
 $lbname="LB-cluster-name-nt1vm"
 $lbResourceType="Microsoft.Network/loadBalancers"
@@ -283,11 +269,24 @@ $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
 $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
 Set-AzPublicIpAddress -PublicIpAddress $PublicIP
 ``` 
-6. Atualize o ponto de extremidade de gerenciamento no cluster para fazer referência ao novo IP. 
+
+7. Atualize o ponto de extremidade de gerenciamento no cluster para fazer referência ao novo IP. 
 ```json
   "managementEndpoint": "[concat('https://',reference(concat(variables('lbIPName'),'-',variables('vmNodeType1Name'))).dnsSettings.fqdn,':',variables('nt0fabricHttpGatewayPort'))]",
 ```
-7. Remova a referência do tipo de nó original do recurso Service Fabric no modelo ARM. 
+8. Remova o estado do nó do tipo de nó 0.
+```powershell
+foreach($node in $nodes)
+{
+  if ($node.NodeType -eq $nodeType)
+  {
+    $node.NodeName
+
+    Remove-ServiceFabricNodeState -NodeName $node.NodeName -Force
+  }
+}
+```
+9. Remova a referência do tipo de nó original do recurso Service Fabric no modelo ARM. 
 ```json
 "name": "[variables('vmNodeType0Name')]",
 "applicationPorts": {
@@ -338,13 +337,10 @@ Somente para clusters de durabilidade prata e mais alta, atualize o recurso de c
  } 
 }
 ```
+10. Remova todos os outros recursos relacionados ao tipo de nó original do modelo ARM. Consulte [Service Fabric – novo cluster de tipo de nó](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) para um modelo com todos esses recursos originais removidos.
 
-8. Remova todos os outros recursos relacionados ao tipo de nó original do modelo ARM. Consulte [Service Fabric – novo cluster de tipo de nó](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) para um modelo com todos esses recursos originais removidos.
-
-9. Implante o modelo de Azure Resource Manager modificado. * * Esta etapa levará um tempo, geralmente até duas horas. Essa atualização irá alterar as configurações para o InfrastructureService, portanto, é necessária uma reinicialização de nó. Nesse caso, forceRestart é ignorado. O parâmetro upgradeReplicaSetCheckTimeout especifica o tempo máximo que Service Fabric aguarda até que uma partição esteja em um estado seguro, se ainda não estiver em um estado seguro. Depois que as verificações de segurança forem aprovadas para todas as partições em um nó, Service Fabric continuará com a atualização nesse nó. O valor do parâmetro upgradeTimeout pode ser reduzido para 6 horas, mas para a segurança máxima 12 horas deve ser usado.
-Em seguida, valide isso:
-
-* Service Fabric recurso no portal mostra pronto.
+11. Implante o modelo de Azure Resource Manager modificado. * * Esta etapa levará um tempo, geralmente até duas horas. Essa atualização irá alterar as configurações para o InfrastructureService, portanto, é necessária uma reinicialização de nó. Nesse caso, forceRestart é ignorado. O parâmetro upgradeReplicaSetCheckTimeout especifica o tempo máximo que Service Fabric aguarda até que uma partição esteja em um estado seguro, se ainda não estiver em um estado seguro. Depois que as verificações de segurança forem aprovadas para todas as partições em um nó, Service Fabric continuará com a atualização nesse nó. O valor do parâmetro upgradeTimeout pode ser reduzido para 6 horas, mas para a segurança máxima 12 horas deve ser usado.
+Em seguida, valide se o recurso Service Fabric no portal mostra como pronto. 
 
 ```powershell
 # deploy the updated template files to the existing resource group

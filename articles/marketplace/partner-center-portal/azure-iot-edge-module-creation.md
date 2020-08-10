@@ -3,16 +3,16 @@ title: Criar uma oferta de módulo do Azure IoT Edge com o Partner Center no Azu
 description: Saiba como criar, configurar e publicar uma oferta de módulo IoT Edge no Azure Marketplace usando o Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 07/22/2020
-ms.openlocfilehash: 52bb3e63ff436aa73aaaf43f2f87f904b27f70b6
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.date: 08/07/2020
+ms.openlocfilehash: a44e7835b90ca88460d2045a5494420c6d47921b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876624"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032825"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
 
@@ -194,6 +194,8 @@ Para saber mais sobre a criação de listagens de ofertas, confira [Melhores pr�
 
 Forneça logotipos e imagens para usar com sua oferta. O logotipo precisa estar no formato PNG. Imagens borradas serão rejeitadas.
 
+[!INCLUDE [logostips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Se você está enfrentando um problema ao carregar arquivos, verifique se sua rede local não bloqueia o serviço https://upload.xboxlive.com que é usado pelo Partner Center.
 
@@ -207,6 +209,8 @@ Forneça arquivos PNG do logotipo da sua oferta em cada um dos seguintes quatro 
 - **Largo (255 x 115)**
 
 Todos os quatro logotipos são necessários e são usados em locais diferentes na lista do marketplace.
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots-optional"></a>Capturas de tela (opcional)
 
@@ -445,14 +449,14 @@ Por exemplo, se o módulo ContosoModule escuta entradas em ContosoInput e gera s
 - Nome n.° 2: FromContosoModuleToCloud
 - Valor n.° 2: FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream
 
-**Propriedades desejadas do módulo gêmeo padrão**. Um módulo gêmeo é um documento JSON no Hub IoT que armazena as informações de estado para uma instância de módulo, incluindo as propriedades desejadas. As propriedades desejadas são usadas junto com as propriedades relatadas para sincronizar a configuração ou as condições do módulo. O back-end da solução pode definir as propriedades desejadas e o aplicativo de módulo pode lê-las. O módulo também pode receber notificações de alterações nas propriedades desejadas. As propriedades desejadas são criadas usando até cinco pares de nome/valor e cada valor padrão precisa ter menos de 512 caracteres. É possível definir até cinco propriedades desejadas de nome/valor do gêmeo. Os valores das propriedades desejadas do gêmeo devem ser válidos como JSON, sem escape, sem matrizes e com uma hierarquia aninhada máxima de quatro níveis. Em um cenário em que um parâmetro necessário para um valor padrão não faz sentido (por exemplo, o endereço IP do servidor de um cliente), você pode adicionar um parâmetro como o valor padrão. Para saber mais sobre as propriedades desejadas de entrelaçamento, confira [definir ou atualizar as propriedades desejadas](../../iot-edge/module-composition.md#define-or-update-desired-properties)).
+**Propriedades desejadas do módulo gêmeo padrão**. Um módulo gêmeo é um documento JSON no Hub IoT que armazena as informações de estado para uma instância de módulo, incluindo as propriedades desejadas. As propriedades desejadas são usadas junto com as propriedades relatadas para sincronizar a configuração ou as condições do módulo. O back-end da solução pode definir as propriedades desejadas e o aplicativo de módulo pode lê-las. O módulo também pode receber notificações de alterações nas propriedades desejadas. As propriedades desejadas são criadas usando até cinco pares de nome/valor e cada valor padrão deve ter menos de 512 caracteres. É possível definir até cinco propriedades desejadas de nome/valor do gêmeo. Os valores das propriedades desejadas do gêmeo devem ser válidos como JSON, sem escape, sem matrizes e com uma hierarquia aninhada máxima de quatro níveis. Em um cenário em que um parâmetro necessário para um valor padrão não faz sentido (por exemplo, o endereço IP do servidor de um cliente), você pode adicionar um parâmetro como o valor padrão. Para saber mais sobre as propriedades desejadas de entrelaçamento, confira [definir ou atualizar as propriedades desejadas](../../iot-edge/module-composition.md#define-or-update-desired-properties)).
 
 Por exemplo, se um módulo der suporte a uma taxa de atualização configurável dinamicamente usando as propriedades desejadas do gêmeo, é recomendável definir a seguinte propriedade desejada do gêmeo padrão:
 
 - Nome n.° 1: RefreshRate
 - Valor n.° 1: 60
 
-**Variáveis de ambiente padrão**. Variáveis de ambiente fornecem informações suplementares a um módulo que ajuda no processo de configuração. As variáveis de ambiente são criadas usando pares de nome/valor. Cada nome e valor da variável de ambiente padrão precisa ter menos de 512 caracteres e você pode definir até cinco. Em um cenário em que um parâmetro necessário para um valor padrão não faz sentido (por exemplo, o endereço IP do servidor de um cliente), você pode adicionar um parâmetro como o valor padrão.
+**Variáveis de ambiente padrão**. Variáveis de ambiente fornecem informações suplementares a um módulo que ajuda no processo de configuração. As variáveis de ambiente são criadas usando pares de nome/valor. Cada nome e valor da variável de ambiente padrão deve ter menos de 512 caracteres e você pode definir até cinco. Em um cenário em que um parâmetro necessário para um valor padrão não faz sentido (por exemplo, o endereço IP do servidor de um cliente), você pode adicionar um parâmetro como o valor padrão.
 
 Por exemplo, se um módulo precisar aceitar termos de uso antes de ser iniciado, será possível definir a seguinte variável de ambiente:
 

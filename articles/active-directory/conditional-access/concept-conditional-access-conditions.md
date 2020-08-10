@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a74fe2bf6b326dac782ac75418a7f4960e66501a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4b887c91a289730c3d92efe753a2df162f36a047
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87274996"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032111"
 ---
 # <a name="conditional-access-conditions"></a>Acesso Condicional: condições
 
 Em uma política de acesso condicional, um administrador pode usar sinais de condições como risco, plataforma de dispositivo ou local para aprimorar suas decisões de política. 
 
-![Definir uma política de acesso condicional e especificar condições](./media/concept-conditional-access-conditions/conditional-access-conditions.png)
+[![Definir uma política de acesso condicional e especificar condições](./media/concept-conditional-access-conditions/conditional-access-conditions.png)](./media/concept-conditional-access-conditions/conditional-access-conditions.png#lightbox)
 
 Várias condições podem ser combinadas para criar políticas de acesso condicional específicas e refinadas.
 
@@ -60,21 +60,28 @@ Por exemplo, algumas organizações podem optar por não exigir a autenticação
 
 Mais informações sobre locais podem ser encontradas no artigo, [qual é a condição de local em Azure Active Directory acesso condicional](location-condition.md).
 
-## <a name="client-apps-preview"></a>Aplicativos do cliente (versão prévia)
+## <a name="client-apps"></a>Aplicativos cliente
 
-Por padrão, as políticas de acesso condicional se aplicam a aplicativos e aplicativos baseados em navegador que utilizam protocolos de autenticação modernos. Além desses aplicativos, os administradores podem optar por incluir clientes do Exchange ActiveSync e outros clientes que utilizem protocolos herdados.
+Por padrão, todas as políticas de acesso condicional recém-criadas serão aplicadas a todos os tipos de aplicativo cliente, mesmo se a condição aplicativos cliente não estiver configurada. 
 
 > [!NOTE]
-> A alternância configurar Sim/não na condição aplicativos cliente foi removida para facilitar a visualização de quais aplicativos cliente estão selecionados. Isso não afeta a qual aplicativo de cliente uma política existente se aplica.
+> O comportamento da condição aplicativos cliente foi atualizado em agosto de 2020. Se você tiver políticas de acesso condicional existentes, elas permanecerão inalteradas. No entanto, se você clicar em uma política existente, a opção Configurar alternância foi removida e os aplicativos cliente aos quais a política se aplica estão selecionados.
 
-- Navegador
-   - Isso inclui aplicativos baseados na Web que usam protocolos como SAML, WS-Federation, OpenID Connect ou serviços registrados como um cliente confidencial do OAuth.
-- Aplicativos móveis e clientes de desktop
-   - Clientes de autenticação moderna
-      - Essa opção inclui aplicativos como os aplicativos de área de trabalho e de telefone do Office.
+> [!IMPORTANT]
+> Entradas de clientes de autenticação herdados não dão suporte à MFA e não passam informações de estado do dispositivo para o Azure AD, portanto, serão bloqueadas por controles de concessão de acesso condicional, como exigir MFA ou dispositivos compatíveis. Se você tiver contas que devem usar autenticação herdada, exclua essas contas da política ou configure a política para ser aplicada somente aos clientes de autenticação modernos.
+
+A opção **Configurar** alternância quando definido como **Sim** se aplica a itens marcados, quando definido como **não** se aplica a todos os aplicativos cliente, incluindo clientes de autenticação modernos e herdados. Essa alternância não aparece em políticas criadas antes de 2020 de agosto.
+
+- Clientes de autenticação moderna
+   - Navegador
+      - Isso inclui aplicativos baseados na Web que usam protocolos como SAML, WS-Federation, OpenID Connect ou serviços registrados como um cliente confidencial do OAuth.
+   - Aplicativos móveis e clientes de desktop
+      -  Essa opção inclui aplicativos como os aplicativos de área de trabalho e de telefone do Office.
+- Clientes de autenticação herdados
    - Clientes do Exchange ActiveSync
-      - Por padrão, isso inclui todo o uso do protocolo EAS (Exchange ActiveSync). **A escolha de aplicar política somente às plataformas com suporte** limitará a plataformas com suporte, como Ios, Android e Windows.
+      - Isso inclui todo o uso do protocolo EAS (Exchange ActiveSync).
       - Quando a política bloqueia o uso do Exchange ActiveSync, o usuário afetado receberá um único email de quarentena. Este email com fornece informações sobre por que eles estão bloqueados e incluem instruções de correção, se possível.
+      - Os administradores podem aplicar a política somente às plataformas com suporte (como iOS, Android e Windows) por meio do acesso condicional MS API do Graph.
    - Outros clientes
       - Essa opção inclui clientes que usam protocolos de autenticação básica/herdados que não dão suporte à autenticação moderna.
          - SMTP autenticado - usado por clientes POP e IMAP para enviar mensagens de email.

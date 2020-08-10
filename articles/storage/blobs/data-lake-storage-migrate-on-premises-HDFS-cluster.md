@@ -1,6 +1,6 @@
 ---
 title: Migrar do repositório HDFS local para o armazenamento do Azure com Azure Data Box
-description: Migrar dados de um repositório HDFS local para o armazenamento do Azure
+description: Migre dados de um repositório HDFS local para o armazenamento do Azure (armazenamento de BLOBs ou Data Lake Storage Gen2) usando um dispositivo Data Box.
 author: normesta
 ms.service: storage
 ms.date: 02/14/2019
@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: 6c5f2a041f03d53e1ea7c3f981683f4b70d3963b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a50f85e76f16f1e5ba8823adb1ea1aa02157fcee
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465993"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032553"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migrar do repositório HDFS local para o armazenamento do Azure com Azure Data Box
 

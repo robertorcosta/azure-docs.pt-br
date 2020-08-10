@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d9ca806a7ddaf7d6ba657d8224d312a6aae33b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5f75ce20d24f98e5fcefde49b95a545281f8066
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253130"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032876"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Solucionar problemas usando a ferramenta de What If no acesso condicional
 
@@ -30,7 +30,7 @@ A **ferramenta de política de What If de acesso condicional** permite que você
 
 A ferramenta de **What If** fornece uma maneira de determinar rapidamente as políticas que se aplicam a um usuário específico. Você pode usar as informações, por exemplo, se você precisar solucionar um problema.    
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Na **ferramenta de What If de acesso condicional**, primeiro você precisa definir as configurações do cenário de entrada que deseja simular. Essas configurações incluem:
 
@@ -76,7 +76,7 @@ Essa configuração imita a [condição de plataformas de dispositivo](concept-c
 
 ### <a name="client-apps"></a>Aplicativos cliente
 
-Essa configuração imita a [condição de aplicativos do cliente](concept-conditional-access-conditions.md#client-apps-preview).
+Essa configuração imita a [condição de aplicativos do cliente](concept-conditional-access-conditions.md#client-apps).
 Por padrão, essa configuração faz com que uma avaliação de todas as políticas com **navegador** ou **aplicativos móveis e clientes de desktop** sejam cada ou ambos selecionados. Ela também detecta políticas que impõem o **Exchange ActiveSync (EAS)**. Você pode reduzir essa configuração selecionando:
 
 - **Navegador** para avaliar todas as políticas com menos **Navegador** selecionado. 

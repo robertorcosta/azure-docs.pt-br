@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: ff2745a636d25c429a1a40644757c00b28e2668c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 77cc63945e5cfc612c074e75e38365ada26073ea
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799167"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032774"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Criar uma oferta de contêiner do Azure no Azure Marketplace
 
@@ -190,20 +190,23 @@ Para saber mais sobre a criação de listagens de ofertas, consulte [Práticas r
 
 Forneça logotipos e imagens para usar com sua oferta. O logotipo precisa estar no formato PNG. Imagens borradas serão rejeitadas.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Se você está enfrentando um problema ao carregar arquivos, verifique se sua rede local não bloqueia o serviço https://upload.xboxlive.com que é usado pelo Partner Center.
 
 #### <a name="store-logos"></a>Armazenar logotipos
 
-Forneça um arquivo PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center usará isso para criar um logotipo de tamanho **pequeno** (48 x 48 pixels) e **médio** (90 x 90 pixels). Opcionalmente, você pode substituí-los por imagens diferentes.
-
-Todos os três tamanhos de logotipo são necessários para uso em locais diferentes na lista:
+ Forneça arquivos PNG do logotipo da sua oferta em cada um dos seguintes quatro tamanhos de pixel:
 
 - **Pequeno** (48 x 48)
 - **Médio** (90 x 90)
-- **Grande** (entre 216 x 216 e 350 x 350)
+- **Grande** (216 x 216)
+- **Largo** (255 x 115)
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+Todos os quatro logotipos são necessários e são usados em locais diferentes na lista do marketplace.
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots-optional"></a>Capturas de tela (opcional)
 

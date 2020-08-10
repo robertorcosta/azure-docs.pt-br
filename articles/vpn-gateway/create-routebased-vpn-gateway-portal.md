@@ -1,19 +1,19 @@
 ---
 title: 'Criar um gateway de VPN baseado em rota: Portal'
 titleSuffix: Azure VPN Gateway
-description: Saiba como criar um gateway de VPN do Azure baseado em rota usando o portal do Azure. Use um gateway de VPN para se conectar à sua rede local.
+description: Use o portal do Azure para criar rapidamente um gateway de VPN do Azure baseado em rota, para uma conexão VPN com sua rede local ou para conectar redes virtuais.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: d78dff60c08a67305824139ba11f336380b0a018
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e6d44c9a92ad239c37620ee2e19efcc1777ec3de
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923366"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032622"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Criar um gateway de VPN baseado em rotas usando o portal do Azure
 

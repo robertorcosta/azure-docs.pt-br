@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d6539a233fbb8038d82a8ea41da2c9e79745324
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: b7a4693dabc62ec03897ccc46398bdff77118fe4
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995183"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032077"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acesso Condicional: Bloquear a autenticação herdada
 
@@ -36,8 +36,8 @@ As etapas a seguir ajudarão a criar uma política de Acesso Condicional para o 
    1. Selecione **Concluído**.
 1. Em **Aplicativos ou ações de nuvem**, selecione **Todos os aplicativos de nuvem**.
    1. Selecione **Concluído**.
-1. Em **Condições** > **Aplicativos clientes (versão prévia)** , defina **Configurar** com **Sim**.
-   1. Marque apenas as caixas **Aplicativos móveis e clientes desktop** > **Outros clientes**.
+1. Em **condições**  >  **aplicativos de cliente**, defina **Configurar** como **Sim**.
+   1. Marque apenas as caixas **clientes do Exchange ActiveSync** e **outros clientes**.
    1. Selecione **Concluído**.
 1. Em **Controles de acesso** > **Conceder**, selecione **Bloquear acesso**.
    1. Selecione **Selecionar**.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9a2ab4b1ebc1c958be9dc4bd07a010f7fef8afc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6778b556795f4e079100f1a7bcbb8b9465e9e315
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610491"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032961"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Solucionando problemas de conexão com acesso condicional
 
@@ -55,11 +55,16 @@ Para descobrir qual política de acesso condicional ou políticas são aplicadas
    1. As informações na guia **solução de problemas e suporte** podem fornecer um motivo claro sobre por que uma falha de entrada, como um dispositivo que não atende aos requisitos de conformidade.
    1. Para investigar ainda mais, faça uma busca detalhada na configuração das políticas clicando no **nome da política**. Clicar no **nome da política** mostrará a interface do usuário de configuração de política para a política selecionada para revisão e edição.
    1. Os **detalhes do dispositivo** e do **usuário cliente** que foram usados para a avaliação da política de acesso condicional também estão disponíveis nas guias **informações básicas**, **localização**, **informações do dispositivo**, **detalhes de autenticação**e **detalhes adicionais** do evento de entrada.
-   1. Selecionar as reticências no lado direito da política traz os detalhes da política. Isso fornece aos administradores informações adicionais sobre por que uma política foi aplicada com êxito ou não.
+
+### <a name="policy-details"></a>Detalhes da política
+
+Selecionar as reticências no lado direito da política em um evento de entrada traz detalhes da política. Isso fornece aos administradores informações adicionais sobre por que uma política foi aplicada com êxito ou não.
 
    ![Guia acesso condicional de evento de entrada](./media/troubleshoot-conditional-access/image5.png)
 
    ![Detalhes da política (versão prévia)](./media/troubleshoot-conditional-access/policy-details.png)
+
+O lado esquerdo fornece detalhes coletados na entrada e o lado direito fornece detalhes sobre se esses detalhes atendem aos requisitos das políticas de acesso condicional aplicadas. As políticas de acesso condicional se aplicam somente quando todas as condições são satisfeitas ou não configuradas.
 
 Se as informações no evento não forem suficientes para entender os resultados de entrada ou ajustar a política para obter os resultados desejados, um incidente de suporte poderá ser aberto. Navegue até a guia **solução de problemas e suporte** do evento de entrada e selecione **criar uma nova solicitação de suporte**.
 

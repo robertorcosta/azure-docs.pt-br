@@ -105,8 +105,10 @@
           href: howto-run-a-job.md
     - name: Transformar
       items:
-        - name: Exportar dados para destinos no Azure
+        - name: Exportar dados para destinos no Azure (herdado)
           href: howto-export-data.md
+        - name: Exportar dados para destinos de nuvem (versão prévia)
+          href: howto-use-data-export.md
         - name: Criar webhooks em regras
           href: howto-create-webhooks.md
         - name: Usar fluxos de trabalho para integrar-se a outros serviços

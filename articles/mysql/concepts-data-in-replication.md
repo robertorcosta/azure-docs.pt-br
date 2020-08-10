@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 20be34191355e6ade40e0f3b218818bfa5345a28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 8/7/2020
+ms.openlocfilehash: a9d6c1b2438f20a06062842b96b147e094760238
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79533225"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031210"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replicar dados no Banco de Dados do Azure para MySQL
 
@@ -30,6 +30,11 @@ Para cenários de migração, use o [serviço de migração de banco de dados do
 ### <a name="data-not-replicated"></a>Dados não replicados
 O [*banco de dados de sistema de mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) no servidor mestre não é replicado. Alterações nas contas e permissões no servidor mestre não são replicadas. Se você criar uma conta no servidor mestre e essa conta precisar acessar o servidor de réplica, crie manualmente a mesma conta no lado do servidor de réplica. Para entender quais tabelas estão contidas no banco de dados do sistema, confira o [Manual do MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
 
+### <a name="filtering"></a>Filtragem
+Para ignorar a replicação de tabelas do servidor mestre (hospedadas localmente, em máquinas virtuais ou em um serviço de banco de dados hospedado por outros provedores de nuvem), `replicate_wild_ignore_table` há suporte para o parâmetro. Opcionalmente, atualize esse parâmetro no servidor de réplica hospedado no Azure usando o [portal do Azure](howto-server-parameters.md) ou [CLI do Azure](howto-configure-server-parameters-using-cli.md).
+
+Consulte a [documentação do MySQL](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) para saber mais sobre esse parâmetro.
+
 ### <a name="requirements"></a>Requisitos
 - A versão do servidor mestre deve ser pelo menos a versão 5.6 do MySQL. 
 - As versões do servidor principal e de réplica devem ser as mesmas. Por exemplo, ambos devem ser MySQL versão 5.6 ou ambos devem ser MySQL versão 5.7.
@@ -41,7 +46,7 @@ O [*banco de dados de sistema de mysql*](https://dev.mysql.com/doc/refman/5.7/en
 - Assegure-se de que o computador que hospeda o servidor mestre permita tráfego de entrada e saída na porta 3306.
 - Verifique se o servidor mestre tem um **endereço IP público**, se o DNS está acessível publicamente ou se tem um FQDN (nome de domínio totalmente qualificado).
 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 - A replicação de dados têm suporte apenas em tipos de preços de Uso Geral e Otimizados para Memória.
 - O GTID (identificadores de transação globais) não são compatíveis.
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 425ed63238c07ffcf53df10eeddfa0ac95679a2c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: c5d52a78dec31dd796929b141556d6da10044099
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904506"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031475"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicativo do Azure
 
@@ -242,6 +242,8 @@ Forneça o nome, o email e o número de telefone de um **contato de suporte**, *
 
 Forneça logotipos e imagens para usar com sua oferta. O logotipo precisa estar no formato PNG. As imagens borradas farão com que seu envio seja rejeitado.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Se você está enfrentando um problema ao carregar arquivos, verifique se sua rede local não bloqueia o serviço https://upload.xboxlive.com que é usado pelo Partner Center.
 
@@ -255,6 +257,8 @@ Forneça arquivos PNG do logotipo da sua oferta nos seguintes três tamanhos de 
 - **Largo** (255 x 115)
 
 Todos os três logotipos são necessários e são usados em locais diferentes na lista.
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots"></a>Capturas de tela
 

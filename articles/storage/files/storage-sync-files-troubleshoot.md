@@ -1,18 +1,18 @@
 ---
 title: Solucionar problemas de sincronização de arquivos do Azure | Microsoft Docs
-description: Solucionar problemas comuns com a Sincronização de arquivos do Azure.
+description: Solucione problemas comuns em uma implantação no Sincronização de Arquivos do Azure, que você pode usar para transformar o Windows Server em um cache rápido do seu compartilhamento de arquivos do Azure.
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 17c8f846201553d3cfa9a2d68b8b4a7ab655c378
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: d268358f2f80cc9d347fa722d5027e1a87894b20
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232371"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034389"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
