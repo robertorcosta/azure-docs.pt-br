@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: juliako
-ms.openlocfilehash: 33c762e2f2a9bed90991f7b85e0fb83fbb43765c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a039e1d4442490d3747a302754d521f1f3402bcf
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090154"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035783"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Obter credenciais para acessar a API dos Serviços de Mídia  
 
@@ -45,7 +45,7 @@ Este artigo descreve as etapas para obter credenciais para acessar a API dos Ser
 A página **acesso à API** permite selecionar o método de autenticação que você deseja usar para se conectar à API. A página também fornece os valores necessários para se conectar à API.
 
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia.
-2. Selecione como se conectar à API dos Serviços de Mídia.
+2. Selecione a folha **acesso à API (novo)** na barra de navegação à esquerda.
 3. Em **Conectar à API dos Serviços de Mídia**, selecione a versão da API dos Serviços de Mídia à qual você deseja se conectar (v3 é a versão mais recente do serviço).
 
 ### <a name="service-principal-authentication--recommended"></a>Autenticação de entidade de serviço (recomendada)

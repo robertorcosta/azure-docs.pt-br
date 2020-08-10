@@ -1,6 +1,6 @@
 ---
 title: 'Conectar a rede local à rede virtual do Azure: VPN site a site: Portal'
-description: Etapas para criar uma conexão IPsec de sua rede local para uma rede virtual do Azure pela Internet pública. Essas etapas o ajudarão a criar uma conexão de Gateway de VPN Site a Site entre locais usando o portal.
+description: Crie uma conexão de gateway de VPN site a site IPsec de sua rede local para uma rede virtual do Azure pela Internet pública usando o Portal.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 03/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 601e31cde22942abd6d2bc7c5bdcbc5d97f5a591
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebfd03935f5189a544f11e5b8bbdd4b46e2aa989
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987660"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037058"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Criar uma conexão Site a Site no portal do Azure
 

@@ -3,12 +3,12 @@ title: Fazer backup de compartilhamentos de arquivos do Azure com a API REST
 description: Saiba como usar a API REST para fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 7059dbae9d448b710880f1f9d72b843a6d77d98b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f48ebbd20d6775fe61c3e3dbb07e8f71af41635a
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055014"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036735"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Fazer backup do compartilhamento de arquivos do Azure usando o backup do Azure via API REST
 
@@ -106,9 +106,9 @@ x-ms-routing-request-id  : CENTRALUSEUAP:20200127T105304Z:d9bdb266-8349-4dbd-968
 Date   : Mon, 27 Jan 2020 10:53:04 GMT
 ```
 
-### <a name="get-list-of-storage-accounts-that-can-be-protected-with-recovery-services-vault"></a>Obter lista de contas de armazenamento que podem ser protegidas com o cofre dos serviços de recuperação
+### <a name="get-list-of-storage-accounts-with-file-shares-that-can-be-backed-up-with-recovery-services-vault"></a>Obter lista de contas de armazenamento com compartilhamentos de arquivos cujo backup pode ser feito com o cofre dos serviços de recuperação
 
-Para confirmar se o "caching" está concluído, liste todas as contas de armazenamento que poderiam ser protegidas na assinatura. Em seguida, localize a conta de armazenamento desejada na resposta. Isso é feito usando a operação [Get ProtectableContainers](/rest/api/backup/protectablecontainers/list) .
+Para confirmar se o "caching" está concluído, liste todas as contas de armazenamento na assinatura com compartilhamentos de arquivos cujo backup pode ser feito com o cofre dos serviços de recuperação. Em seguida, localize a conta de armazenamento desejada na resposta. Isso é feito usando a operação [Get ProtectableContainers](/rest/api/backup/protectablecontainers/list) .
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectableContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
@@ -467,7 +467,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 Para disparar um backup sob demanda, a seguir estão os componentes do corpo da solicitação.
 
-| Nome       | Tipo                       | Descrição                       |
+| Nome       | Type                       | Descrição                       |
 | ---------- | -------------------------- | --------------------------------- |
 | Propriedades | AzurefilesharebackupReques | Propriedades de BackupRequestResource |
 

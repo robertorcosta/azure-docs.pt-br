@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/20/2019
+ms.date: 08/07/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 6f1beea12b33dcc3c0111e26d79daf096c1eedcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0d442624448cfe48fdd9ab426147599acbb940d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808424"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034713"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>Criar uma SAS de serviço para um contêiner ou BLOB com .NET
 
@@ -25,9 +25,17 @@ Este artigo mostra como usar a chave da conta de armazenamento para criar uma SA
 
 ## <a name="create-a-service-sas-for-a-blob-container"></a>Criar uma SAS de serviço para um contêiner de BLOBs
 
-Para criar uma SAS de serviço para um contêiner, chame o método [CloudBlobContainer. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature) .
+O exemplo de código a seguir cria uma SAS para um contêiner. Se o nome de uma política de acesso armazenada existente for fornecido, essa política está associada com a SAS. Se nenhuma política de acesso armazenada for fornecida, o código criará uma SAS ad hoc no contêiner.
 
-O exemplo de código a seguir cria uma SAS em um contêiner. Se o nome de uma política de acesso armazenada existente for fornecido, essa política está associada com a SAS. Se nenhuma política de acesso armazenada for fornecida, o código criará uma SAS ad hoc no contêiner.
+### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+Crie um novo [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder). Em seguida, chame o [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) para obter a cadeia de caracteres do token SAS. 
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetContainerSasUri":::
+
+### <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+
+Para criar uma SAS de serviço para um contêiner, chame o método [CloudBlobContainer. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature) .
 
 ```csharp
 private static string GetContainerSasUri(CloudBlobContainer container, string storedPolicyName = null)
@@ -67,13 +75,23 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     // Return the URI string for the container, including the SAS token.
     return container.Uri + sasContainerToken;
 }
+
 ```
+---
 
 ## <a name="create-a-service-sas-for-a-blob"></a>Criar uma SAS de serviço para um blob
 
-Para criar uma SAS de serviço para um blob, chame o método [CloudBlob. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) .
-
 O exemplo de código a seguir cria uma SAS em um blob. Se o nome de uma política de acesso armazenada existente for fornecido, essa política está associada com a SAS. Se nenhuma política de acesso armazenada for fornecida, o código criará uma SAS ad hoc no BLOB.
+
+### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+
+Crie um novo [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder). Em seguida, chame o [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) para obter a cadeia de caracteres do token SAS. 
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetBlobSasUri":::
+
+### <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+
+Para criar uma SAS de serviço para um blob, chame o método [CloudBlob. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) .
 
 ```csharp
 private static string GetBlobSasUri(CloudBlobContainer container, string blobName, string policyName = null)
@@ -117,6 +135,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
     return blob.Uri + sasBlobToken;
 }
 ```
+---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 

@@ -1,6 +1,6 @@
 ---
 title: Reagir a eventos do Azure Mapas usando a Grade de Eventos
-description: Neste artigo, você aprenderá a reagir a Microsoft Azure eventos de mapas usando a grade de eventos.
+description: Descubra como reagir aos eventos do Azure Maps que envolvem limites geográficos. Veja como escutar eventos de mapeamento e como usar a grade de eventos para redirecionar eventos para manipuladores de eventos.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/16/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: eb64634f25564abc4044364950b4d462a22608aa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 701c94237ef5348e11b5d7fbc85d4da1f20136ee
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499504"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036803"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reagir a eventos do Azure Mapas usando a Grade de Eventos
 

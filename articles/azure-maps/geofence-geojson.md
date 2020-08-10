@@ -1,6 +1,6 @@
 ---
 title: Formato de dados geojson para cerca de cerca | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá a preparar os dados de limite geográfico que podem ser usados no Microsoft Azure mapeia as APIs GET e POST de cerca geográfica.
+description: Saiba mais sobre os dados de limite geográfico do Azure Maps. Veja como usar as APIs obter a cerca geográfica e postar a cerca geográfica ao recuperar a posição das coordenadas em relação a uma cerca geográfica.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 02/14/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 924c23f0fb0156ff585872dded72932a1574a12d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 27a2fee04afc559a8564aea5e112de07e9c0dcf6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131298"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037398"
 ---
 # <a name="geofencing-geojson-data"></a>Dados GeoJSON de delimitação geográfica
 
@@ -30,7 +30,7 @@ Os dados para cerca geográfica ou conjunto de cercas geográficas são represen
 * O `expiredTime` é a data e hora de expiração dos dados de delimitação geográfica. Se o valor de `userTime` na solicitação for posterior a esse valor, os dados de cerca geográfica correspondentes serão considerados como dados expirados e não serão consultados. Para os quais, o geometryId desses dados de cerca geográfica serão incluídos na matriz `expiredGeofenceGeometryId` dentro da resposta da cerca geográfica.
 * O `validityPeriod` é uma lista do período de validade da cerca geográfica. Se o valor de `userTime` na solicitação ficar fora do período de validade, os dados de cerca geográfica correspondentes serão considerados inválidos e não serão consultados. O geometryId desses dados de cerca geográfica é incluído na matriz `invalidPeriodGeofenceGeometryId` dentro da resposta da cerca geográfica. A tabela a seguir mostra as propriedades do elemento validityPeriod.
 
-| Nome | Tipo | Obrigatório  | Descrição |
+| Nome | Type | Necessária  | Descrição |
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Datetime  | true | A data/hora de início do período de tempo validade. |
 | endTime   | Datetime  | true |  A data/hora de término do período de tempo de validade. |

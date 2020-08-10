@@ -1,6 +1,6 @@
 ---
 title: Alterar o estilo do Controle de Mapeamento Web do Azure Maps
-description: Neste artigo, você aprenderá sobre os recursos de estilo do Azure Maps Web Controle de Mapeamento
+description: Saiba como alterar o estilo e as opções de um mapa. Veja como adicionar um controle de seletor de estilo a um mapa no Azure Maps para que os usuários possam alternar entre diferentes estilos.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/27/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a4c1629302c72d6f59f7f1fd10dc850d46cea5a7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15224afac33a3e236c2d1ed9f60515bdc2f34c4f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285774"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036786"
 ---
 # <a name="change-the-style-of-the-map"></a>Alterar o estilo do mapa
 

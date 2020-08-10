@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: d1595354803b0625137dd1ac45d17962063ce4e0
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 739eb4e7968cb140e49f1baee777b48140811936
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562439"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034950"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Visão geral do cache local do Serviço de Aplicativo do Azure
 
@@ -36,7 +36,7 @@ O recurso Cache Local do Serviço de Aplicativo do Azure fornece uma exibição 
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Como o cache local altera o comportamento do serviço de aplicativo
 * _D:\home_ aponta para o cache local, que é criado na instância da VM quando o aplicativo é inicializado. _D:\local_ continua apontando para o armazenamento temporário específico da VM.
-* O cache local contém uma cópia única das pastas _/site_ e _/siteextensions_ do armazenamento de conteúdo compartilhado, em _D:\home\site_ e _D:\home\siteextensions_, respectivamente. Os arquivos são copiados para o cache local quando o aplicativo é iniciado. O tamanho das duas pastas para cada aplicativo é limitado a 1 GB por padrão, mas pode ser aumentado para 2 GB. Observe que, à medida que o tamanho do cache aumenta, levará mais tempo para carregar o cache. Se os arquivos copiados excederem o tamanho do cache local, o serviço de aplicativo ignorará silenciosamente o cache local e lerá do compartilhamento de arquivos remoto.
+* O cache local contém uma cópia única das pastas _/site_ e _/siteextensions_ do armazenamento de conteúdo compartilhado, em _D:\home\site_ e _D:\home\siteextensions_, respectivamente. Os arquivos são copiados para o cache local quando o aplicativo é iniciado. O tamanho das duas pastas para cada aplicativo é limitado a 1 GB por padrão, mas pode ser aumentado para 2 GB. Observe que, à medida que o tamanho do cache aumenta, levará mais tempo para carregar o cache. Se você tiver aumentado o limite de cache local para 2 GB e os arquivos copiados excederem o tamanho máximo de 2 GB, o serviço de aplicativo ignorará silenciosamente o cache local e lerá o compartilhamento de arquivos remoto. Se não houver nenhum limite definido ou se o limite for definido como algo inferior a 2 GB e os arquivos copiados excederem o limite, a implantação ou a permuta poderá falhar com um erro.
 * O cache local é de leitura/gravação. No entanto, qualquer modificação é descartada quando o aplicativo move as máquinas virtuais ou é reiniciado. Não use o cache local para aplicativos que armazenam dados de missão crítica no armazenamento de conteúdo.
 * _D:\home\LogFiles_ e _D:\home\Data_ contêm arquivos de log e dados do aplicativo. As duas subpastas são armazenadas localmente na instância da VM e são copiadas para o armazenamento de conteúdo compartilhado periodicamente. Os aplicativos podem manter arquivos e dados de log, gravando-os nessas pastas. No entanto, a cópia para o armazenamento de conteúdo compartilhado é melhor esforço, por isso, é possível que os arquivos de log e os dados sejam perdidos devido a uma falha súbita de uma instância de VM.
 * [ O fluxo de logs ](troubleshoot-diagnostic-logs.md#stream-logs) é afetado pela cópia de melhor esforço. Você pode observar até um atraso de um minuto nos logs transmitidos.

@@ -1,6 +1,6 @@
 ---
 title: Níveis de zoom e grade de bloco em mapas de Microsoft Azure
-description: Neste artigo, você aprenderá sobre níveis de zoom e grade de blocos em mapas de Microsoft Azure.
+description: Saiba como definir níveis de zoom no Azure Maps. Veja como converter coordenadas geográficas em coordenadas de pixel, coordenadas de bloco e quadkeys. Exibir exemplos de código.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/14/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9493ad21847cca230606ff1641c9ac02c3355f53
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ced524080df87468116a538d9b7c8e91fb178a41
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093044"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035868"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Níveis de zoom e grade lado a lado
 
@@ -58,7 +58,7 @@ A tabela a seguir fornece a lista completa de valores para níveis de zoom em qu
 |17|1.2|307.2|
 |18|0,6|152.8|
 |19|0.3|76.4|
-|20|0,15|38.2|
+|20|0.15|38.2|
 |21|0.075|19.1|
 |22|0.0375|9.55|
 |23|0, 1875|4,775|

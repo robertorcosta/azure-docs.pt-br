@@ -1,6 +1,6 @@
 ---
 title: 'Ajustar o desempenho: o Storm, o HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
-description: Diretrizes de ajuste de desempenho do Azure Data Lake Storage Gen2 Storm
+description: Entenda as diretrizes para ajustar o desempenho de uma topologia do Azure Storm em um cluster Azure HDInsight e Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 60e0d3fc22fdfc158110e9936748cc0bda280853
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85499839992f872896153e360507d7d1ba7fea38
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465908"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037194"
 ---
 # <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>Ajustar o desempenho: o Storm, o HDInsight & Azure Data Lake Storage Gen2
 

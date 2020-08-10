@@ -1,6 +1,6 @@
 ---
 title: Visão geral dos serviços de rede do Azure
-description: Saiba mais sobre os serviços de rede no Azure, incluindo serviços de conectividade, serviços de proteção de aplicativos, serviços de entrega de aplicativos e monitoramento de rede.
+description: Saiba mais sobre os serviços de rede no Azure, incluindo conectividade, proteção de aplicativo, entrega de aplicativos e serviços de monitoramento de rede.
 services: networking
 documentationcenter: na
 author: KumudD
@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 5b32f6b368af62bad13a505472a9ddd4709c032c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1110199a8c02b29d70f0c12e1ed1a6341c44e403
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282153"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037245"
 ---
 # <a name="azure-networking-services-overview"></a>Visão geral dos serviços de rede do Azure
 
@@ -157,7 +157,7 @@ A CDN oferece aos desenvolvedores uma solução global de fornecimento rápido d
 O Azure Front Door Service permite que você defina, gerencie e monitore o roteamento global para seu tráfego da Web otimizando para melhor desempenho e failover global instantâneo para ter alta disponibilidade. Com o Front Door, é possível transformar seus aplicativos consumidores e empresariais globais (de várias regiões) em modernos aplicativos robustos altamente personalizados e com alto desempenho, APIs e conteúdo que alcançam um público global com o Azure. Para obter mais informações, consulte [Azure front door](../frontdoor/front-door-overview.md).
 
 
-### <a name="traffic-manager"></a><a name="trafficmanager"></a>Gerenciador de Tráfego
+### <a name="traffic-manager"></a><a name="trafficmanager"></a>Gerenciador de tráfego
 
 O Gerenciador de tráfego do Azure é um balanceador de carga de tráfego baseado em DNS que permite que você distribua o tráfego de maneira ideal para serviços em todas as regiões globais do Azure, fornecendo alta disponibilidade e capacidade de resposta. O Gerenciador de tráfego fornece uma variedade de métodos de roteamento de tráfego para distribuir tráfego, como prioridade, peso, desempenho, geográfico, vários valores ou sub-rede. Para obter mais informações sobre métodos de roteamento de tráfego, consulte [métodos de roteamento do Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 

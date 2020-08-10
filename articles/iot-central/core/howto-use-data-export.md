@@ -8,12 +8,12 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 737fe4b334e60f1b51e8f60f39e8821588a6841c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f51630154b77233aeb2587ac3a2d603c1da6fa4f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010271"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036548"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-preview"></a>Exportar dados de IoT para destinos de nuvem usando a exportação de dados (versão prévia)
 
@@ -33,7 +33,7 @@ Este artigo descreve como usar os novos recursos de visualização de exportaç�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você deve ser um administrador em seu aplicativo IoT Central ou ter permissões de exportação de dados.
+Para usar a exportação de dados (versão prévia), você deve ter um aplicativo v3 e deve ter permissões de exportação de dados.
 
 ## <a name="set-up-export-destination"></a>Configurar o destino de exportação
 
@@ -82,7 +82,7 @@ Se você não tiver uma conta de armazenamento do Azure existente para a qual ex
     |-|-|
     |Standard|Uso Geral v2|
     |Standard|Uso Geral v1|
-    |Standard|Armazenamento de Blobs|
+    |Standard|Armazenamento de blob|
     |Premium|Armazenamento de blobs de blocos|
 
 2. Crie um contêiner em sua conta de armazenamento. Vá até sua conta de armazenamento. Em **Serviço Blob**, selecione **Procurar Blobs**. Selecione **+ Contêiner** na parte superior para criar um contêiner.
@@ -150,15 +150,22 @@ Crie um novo destino ou adicione um destino que você já criou.
 
 ## <a name="export-contents-and-format"></a>Exportar conteúdo e formato
 
-Para os hubs de eventos e os destinos do barramento de serviço, os dados são exportados quase em tempo real. Os dados estão no corpo da mensagem e estão no formato JSON codificado como UTF-8. Consulte abaixo para obter exemplos.
+### <a name="azure-blob-storage-destination"></a>Destino do armazenamento de BLOBs do Azure
 
-Para o armazenamento de BLOBs, os dados são exportados uma vez por minuto, com cada arquivo que contém o lote de alterações desde o último arquivo exportado. Os dados exportados são colocados em três pastas no formato JSON. Os caminhos padrão em sua conta de armazenamento são:
+Os dados são exportados uma vez por minuto, com cada arquivo que contém o lote de alterações desde o último arquivo exportado. Os dados exportados são colocados em três pastas no formato JSON. Os caminhos padrão em sua conta de armazenamento são:
 
 - Telemetria: _{container}/{app-id}/{partition_id}/{yyyy}/{mm}/{dd}/{hh}/{mm}/{filename}_
 - Alterações de propriedade: _{container}/{app-id}/{partition_id}/{yyyy}/{mm}/{dd}/{hh}/{mm}/{filename}_
 
 Para procurar os arquivos exportados no portal do Azure, navegue até o arquivo e selecione a guia **Editar blob** .
 
+### <a name="azure-event-hubs-and-azure-service-bus-destinations"></a>Hubs de eventos do Azure e destinos do barramento de serviço do Azure
+
+Os dados são exportados quase em tempo real. Os dados estão no corpo da mensagem e estão no formato JSON codificado como UTF-8. 
+
+No recipiente de propriedades de anotações ou do sistema da mensagem, você pode localizar `iotcentral-device-id` , `iotcentral-application-id` , `iotcentral-message-source` e `iotcentral-message-type` quais têm os mesmos valores que os campos correspondentes no corpo da mensagem.
+
+### <a name="webhook-destination"></a>Destino do webhook
 Para destinos de WebHooks, os dados também são exportados quase em tempo real. Os dados estão no corpo da mensagem estão no mesmo formato que para os hubs de eventos e o barramento de serviço.
 
 
@@ -254,6 +261,7 @@ Esta é uma tabela que realça as diferenças entre a exportação de dados herd
 | Filtragem | Nenhum | Depende do tipo de dados exportado. Para telemetria, filtragem por telemetria, propriedades de mensagem, valores de propriedade |
 | Aprimoramentos | Nenhum | Enriquecer com uma cadeia de caracteres personalizada ou um valor de propriedade no dispositivo |
 | Destinos | Hubs de eventos do Azure, filas e tópicos do barramento de serviço do Azure, armazenamento de BLOBs do Azure | O mesmo que para exportação de dados herdados e WebHooks| 
+| Aplicativos com suporte | V2, V3 | Somente V3 |
 | Limites notáveis | 5 exportações por aplicativo, 1 destino por exportação | 10 exportações-conexões de destino por aplicativo | 
 
 ## <a name="next-steps"></a>Próximas etapas

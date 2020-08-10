@@ -1,6 +1,6 @@
 ---
 title: Sobre os gateways de rede virtual com redundância de zona em Zonas de Disponibilidade do Azure
-description: Saiba mais sobre gateways de VPN e de ExpressRoute em Zonas de Disponibilidade do Azure, adicionando resiliência, escalabilidade e maior disponibilidade aos gateways de VNet.
+description: Implante gateways VPN e ExpressRoute no Zonas de Disponibilidade do Azure para proporcionar resiliência, escalabilidade e maior disponibilidade para gateways de rede virtual.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -9,12 +9,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6a0a3d59477511ebf019e2c2019786788a92ad70
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 3aed75c26880ae2c3e31b412496655e5225b2edc
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922686"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035443"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Sobre os gateways de rede virtual com redundância de zona em Zonas de Disponibilidade do Azure
 

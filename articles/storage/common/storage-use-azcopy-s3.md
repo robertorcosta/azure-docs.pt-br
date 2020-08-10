@@ -1,6 +1,6 @@
 ---
 title: Copiar dados do Amazon S3 para o armazenamento do Azure usando o AzCopy | Microsoft Docs
-description: Transferir dados com o AzCopy e os buckets do Amazon S3
+description: Use o AzCopy para copiar dados do Amazon S3 para o armazenamento do Azure. AzCopy é um utilitário de linha de comando que você pode usar para copiar blobs ou arquivos de ou para uma conta de armazenamento.
 services: storage
 author: normesta
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 88acb4fe31470dab3ca6f273fd8d942e7f84e687
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ac093f707167160e916c15b935cb3d8ff6bbc748
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281881"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037109"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copiar dados do Amazon S3 para o armazenamento do Azure usando o AzCopy
 

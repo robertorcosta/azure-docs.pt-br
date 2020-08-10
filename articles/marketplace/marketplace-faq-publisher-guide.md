@@ -7,20 +7,20 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 93366bf963350bf9cbdbda15ec4070c21a1dc975
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 20c82793726221515ad4d1019f4d8f4754b3ae08
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090137"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036565"
 ---
-# <a name="common-questions-about-microsoft-commercial-marketplace"></a>Perguntas comuns sobre o marketplace comercial da Microsoft
+# <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Perguntas comuns sobre o Marketplace comercial da Microsoft
 
 Este artigo responde às perguntas mais frequentes sobre o marketplace comercial.
 
 ## <a name="general"></a>Geral
 
-### <a name="what-is-microsoft-commercial-marketplace"></a>O que é o marketplace comercial da Microsoft?
+### <a name="what-is-the-microsoft-commercial-marketplace"></a>O que é o Microsoft Commercial Marketplace?
 
 O marketplace comercial conecta as agências corporativas e governamentais com soluções criadas por nossos parceiros. Nossos parceiros criam e gerenciam ofertas no Partner Center, e os clientes podem descobrir e comprar soluções por meio de experiências no produto, como Microsoft AppSource, Azure Marketplace, revendedores no programa de provedor de soluções de nuvem e nossas equipes de vendas por meio do programa de venda conjunta.
 
@@ -60,7 +60,7 @@ As maneiras como os clientes podem usar sua oferta do marketplace comercial depe
 
 - Para soluções que você fornece automaticamente, sejam elas pagas, BYOL (traga sua própria licença) ou gratuitas, os clientes são incentivados a *Obtê-las agora*.
 - Ofertas que dão suporte a um test drive (demonstração) solicitam que o cliente faça o *Test Drive*. 
-- Ofertas de SaaS (software como serviço) que fornecem uma avaliação fora de nosso marketplace comercial dizem *Avaliação Gratuita*.
+- As ofertas de SaaS (software como serviço) fornecem uma avaliação fora do mercado comercial, digamos que a *avaliação gratuita*.
 - As listagens simples permitem que o cliente solicite contato por meio da opção *Entre em Contato Comigo*.
 
 ### <a name="how-do-i-create-offers-for-the-commercial-marketplace"></a>Como faço para criar ofertas para o marketplace comercial?
@@ -77,7 +77,7 @@ Você também pode [ingressar em nosso fórum da comunidade ativo](https://www.m
 
 ### <a name="what-analytics-are-available-to-my-organization-from-the-commercial-marketplace"></a>Que análises estão disponíveis para minha organização no marketplace comercial?
 
-Fornecemos relatórios sobre suas ofertas em nosso marketplace comercial. Para acessar dados sobre clientes, pedidos, compromisso de loja e muito mais, acesse [Análise para o marketplace comercial no Partner Center](partner-center-portal/analytics.md).
+Fornecemos relatórios sobre suas ofertas no Marketplace comercial. Para acessar dados sobre clientes, pedidos, compromisso de loja e muito mais, acesse [Análise para o marketplace comercial no Partner Center](partner-center-portal/analytics.md).
 
 ### <a name="what-is-microsofts-relationship-with-my-customers"></a>Qual é o relacionamento da Microsoft com meus clientes?
 
@@ -124,7 +124,7 @@ Para concluir uma compra por um preço muito baixo, sugerimos publicar um plano 
 
 ### <a name="what-are-leads-from-the-commercial-marketplace-and-what-should-i-do-with-them"></a>O que são vendas potenciais do marketplace comercial e o que devo fazer com elas?
 
-À medida que os clientes usam suas ofertas nas lojas de Microsoft AppSource e do Azure Marketplace, são capturadas informações. Depois que os clientes tiverem demonstrado um interesse suficiente, uma venda potencial será criada e uma oportunidade será enviada ao sistema de sua escolha. Os editores que obtêm sucesso com nosso marketplace comercial geralmente buscam clientes potenciais, desenvolvem relacionamentos e transformam interesse em negócios.
+À medida que os clientes usam suas ofertas nas lojas de Microsoft AppSource e do Azure Marketplace, são capturadas informações. Depois que os clientes tiverem demonstrado um interesse suficiente, uma venda potencial será criada e uma oportunidade será enviada ao sistema de sua escolha. Os editores que obtiverem êxito com o Marketplace comercial geralmente buscam clientes potenciais, desenvolvem relações e transformam interesse em acordos.
 
 Para obter mais informações, confira [Vendas potenciais do cliente de sua oferta do marketplace](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
@@ -285,7 +285,7 @@ Para obter mais informações, confira [Limites, formas e períodos de pagamento
 
 ### <a name="in-what-countriesregions-are-taxes-managed-on-my-behalf"></a>Em quais países/regiões os impostos são gerenciados em meu nome?
 
-Os clientes podem encontrar soluções de nosso marketplace comercial em todo o mundo, e nós gerenciamos impostos em vários locais. 
+Os clientes podem encontrar soluções do Marketplace comercial em todo o mundo e gerenciamos impostos em vários locais. 
 
 Para examinar a lista completa de locais, acesse [Detalhes de impostos para editores do marketplace comercial](partner-center-portal/tax-details-paid-transactions.md).
 

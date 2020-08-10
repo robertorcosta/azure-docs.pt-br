@@ -1,18 +1,18 @@
 ---
 title: Perguntas frequentes sobre o Azure Files| Microsoft Docs
-description: Encontre respostas para perguntas frequentes sobre o Arquivos do Azure.
+description: Obtenha respostas para as perguntas frequentes sobre os arquivos do Azure. Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações Windows, Linux ou macOS locais ou em nuvem.
 author: roygara
 ms.service: storage
 ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 87c1aa4d65b313f4c068ef11c9d2209e9318ef02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bdc9451f0dbc32e14197cde48a3613196b864c0
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482863"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037126"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre o Azure Files
 [ Os arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do {SM} protocolo [de padrão do setor](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.

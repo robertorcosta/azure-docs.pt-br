@@ -1,18 +1,18 @@
 ---
 title: 'Gateway de VPN do Azure: criar gateway baseado em rota: PowerShell'
-description: Saiba como criar um gateway de VPN do Azure baseado em rota usando o PowerShell. Use um gateway de VPN para se conectar à sua rede local.
+description: Use o PowerShell para criar rapidamente um gateway de VPN do Azure baseado em rota, para uma conexão VPN com sua rede local ou para conectar redes virtuais.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5e6c8ec12927afbabd6c6d41ab348bad9814e82c
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 686732716b26e8e82aa98d445cd04b0d311cf23a
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923196"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035528"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Criar um gateway VPN baseado em rotas usando PowerShell
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 2df7d8273b2b25cd0171b38e5cc0ada557ea9a2d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bf1721b45ff63c225c378e50bff9040948820c8b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325348"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035018"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar produtos/serviços de ITSM ao Conector de Gerenciamento de Serviços de TI
 Este artigo fornece informações sobre como configurar a conexão entre seu produto/serviço de ITSM e o ITSMC (Conector de Gerenciamento de Serviços de TI) no Log Analytics para gerenciar seus itens de trabalho de forma centralizada. Para obter mais informações sobre o ITSMC, consulte [Visão geral](./itsmc-overview.md).
@@ -179,13 +179,14 @@ As seções a seguir fornecem detalhes sobre como conectar seu produto ServiceNo
 ### <a name="prerequisites"></a>Pré-requisitos
 Verifique se os seguintes pré-requisitos foram atendidos:
 - ITSMC instalado. Mais informações: [Adicionar a solução Conector de Gerenciamento de Serviços de TI](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Versões do ServiceNow com suporte: Nova Iorque, Madri, Londres, Kingston, Jacarta, Istambul, Helsinki, Genebra.
+- Versões com suporte do ServiceNow: Orlando, Nova York, Madri, Londres, Kingston, Jacarta, Istambul, Helsinque, Geneva.
 > [!NOTE]
 > O ITSMC dá suporte apenas à oferta de SaaS oficial do Service Now. Não há suporte para implantações particulares do Service Now. 
 
 **Os administradores do ServiceNow devem fazer o seguinte em sua instância do ServiceNow**:
 - Gere a ID do cliente e o segredo do cliente para o produto ServiceNow. Para saber mais sobre como gerar o ID e o segredo do cliente, consulte as informações conforme o necessário:
 
+    - [Configurar o OAuth para Orlando](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurar o OAuth para Nova Iorque](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurar o OAuth para Madri](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configurar o OAuth para Genebra](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)

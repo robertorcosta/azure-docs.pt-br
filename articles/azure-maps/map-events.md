@@ -1,6 +1,6 @@
 ---
 title: Manipular eventos de mapa | Microsoft Azure Mapas
-description: Neste artigo, você aprenderá a criar um mapa de SDK Web interativo com eventos de mapa usando o SDK Web do Microsoft Azure Mapas.
+description: Saiba quais eventos são acionados quando os usuários interagem com mapas. Exiba uma lista de todos os eventos de mapa com suporte. Consulte como usar o SDK da Web do Azure Maps para manipular eventos.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 667ab684ef4a453d210af36c0221d350b25c9829
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f3a48e4434588b2eb64637e6f0a454148cad39f2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282884"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036434"
 ---
 # <a name="interact-with-the-map"></a>Interagir com o mapa
 

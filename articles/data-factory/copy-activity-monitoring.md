@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 4e7828810a069756d1a0cde55ab47915ad11acc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd2bd404d59b57eae111ba969fb7dcf20a98de35
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249679"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036361"
 ---
 # <a name="monitor-copy-activity"></a>Monitorar atividade de cópia
 
@@ -56,6 +56,8 @@ Os detalhes de execução da atividade de cópia e as características de desemp
 | dataWritten | A montagem real de dados gravados/confirmados no coletor. O tamanho pode ser diferente do `dataRead` tamanho, pois ele relaciona como cada repositório de dados armazena os dados. | Valor Int64, em bytes |
 | filesRead | O número de arquivos lidos da fonte baseada em arquivo. | Valor Int64 (nenhuma unidade) |
 | filesWritten | O número de arquivos gravados/confirmados no coletor baseado em arquivo. | Valor Int64 (nenhuma unidade) |
+| filesSkipped | O número de arquivos ignorados da fonte baseada em arquivo. | Valor Int64 (nenhuma unidade) |
+| dataConsistencyVerification | Detalhes da verificação de consistência de dados em que você pode ver se os dados copiados foram verificados como consistentes entre o repositório de origem e de destino. Saiba mais [neste artigo](copy-activity-data-consistency.md#monitoring). | Array |
 | sourcePeakConnections | Número máximo de conexões simultâneas estabelecidas com o armazenamento de dados de origem durante a execução da atividade de cópia. | Valor Int64 (nenhuma unidade) |
 | sinkPeakConnections | Número máximo de conexões simultâneas estabelecidas com o armazenamento de dados do coletor durante a execução da atividade de cópia. | Valor Int64 (nenhuma unidade) |
 | rowsRead | Número de linhas lidas da origem. Essa métrica não se aplica ao copiar arquivos no estado em que se encontram sem analisá-los, por exemplo, quando os conjuntos de fontes de origem e de coletor são do tipo formato binário ou outro tipo de formato com configurações idênticas. | Valor Int64 (nenhuma unidade) |
@@ -71,9 +73,11 @@ Os detalhes de execução da atividade de cópia e as características de desemp
 | effectiveIntegrationRuntime | O tempo de execução de integração (IR) ou tempos de execução usados para ativar a atividade de execução, no formato `<IR name> (<region if it's Azure IR>)` . | Texto (cadeia de caracteres) |
 | usedDataIntegrationUnits | As unidades de integração de dados efetivas durante a cópia. | Valor Int32 |
 | usedParallelCopies | ParallelCopies efetivos durante a cópia. | Valor Int32 |
-| redirectRowPath | Caminho para o log de linhas incompatíveis ignoradas no armazenamento de BLOBs que você configurou na `redirectIncompatibleRowSettings` propriedade. Consulte [tolerância a falhas](copy-activity-overview.md#fault-tolerance). | Texto (cadeia de caracteres) |
+| logPath | Caminho para o log de sessão de dados ignorados no armazenamento de BLOBs. Consulte [tolerância a falhas](copy-activity-overview.md#fault-tolerance). | Texto (cadeia de caracteres) |
 | executionDetails | Mais detalhes sobre os estágios pelos quais a atividade de cópia passa e as etapas correspondentes, durações, configurações e assim por diante. Não recomendamos que você analise esta seção porque ela pode ser alterada. Para entender melhor como ele ajuda a entender e solucionar problemas de desempenho de cópia, consulte a seção [monitorar visualmente](#monitor-visually) . | Array |
 | perfRecommendation | Copiar dicas de ajuste de desempenho. Consulte [dicas de ajuste de desempenho](copy-activity-performance-troubleshooting.md#performance-tuning-tips) para obter detalhes. | Array |
+| billingReference | O consumo de cobrança para a execução fornecida. Saiba mais em [monitorar o consumo no nível de execução da atividade](plan-manage-costs.md#monitor-consumption-at-activity-run-level). | Objeto |
+| durationInQueue | Duração da fila em segundo antes da atividade de cópia começar a ser executada. | Objeto |
 
 **Exemplo:**
 
@@ -83,6 +87,7 @@ Os detalhes de execução da atividade de cópia e as características de desemp
     "dataWritten": 1180089300500,
     "filesRead": 110,
     "filesWritten": 110,
+    "filesSkipped": 0,
     "sourcePeakConnections": 640,
     "sinkPeakConnections": 1024,
     "copyDuration": 388,
@@ -92,6 +97,11 @@ Os detalhes de execução da atividade de cópia e as características de desemp
     "usedDataIntegrationUnits": 128,
     "billingReference": "{\"activityType\":\"DataMovement\",\"billableDuration\":[{\"Managed\":11.733333333333336}]}",
     "usedParallelCopies": 64,
+    "dataConsistencyVerification": 
+    { 
+        "VerificationResult": "Verified", 
+        "InconsistentData": "None" 
+    },
     "executionDetails": [
         {
             "source": {

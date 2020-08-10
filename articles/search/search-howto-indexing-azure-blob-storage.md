@@ -1,7 +1,7 @@
 ---
 title: Pesquisar o conteúdo do armazenamento de BLOBs do Azure
 titleSuffix: Azure Cognitive Search
-description: Saiba como indexar o armazenamento de BLOBs do Azure e extrair texto de documentos com o Azure Pesquisa Cognitiva.
+description: Saiba como indexar documentos no armazenamento de BLOBs do Azure e extrair texto de documentos com o Azure Pesquisa Cognitiva.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 29e123666b35e4659e68a1a925047267f8519940
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6295dfbbee2d44b61b5dc832163adc8d643ab0f1
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496444"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036140"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Como indexar documentos no armazenamento de BLOBs do Azure com o Azure Pesquisa Cognitiva
 
@@ -31,7 +31,7 @@ O indexador de blob pode extrair o texto dos seguintes formatos de documento:
 ## <a name="setting-up-blob-indexing"></a>Configuração da indexação de blob
 Você pode configurar um indexador do Armazenamento de Blobs do Azure usando:
 
-* [Azure portal](https://ms.portal.azure.com)
+* [Portal do Azure](https://ms.portal.azure.com)
 * [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) do Azure pesquisa cognitiva
 * SDK do [.net](https://docs.microsoft.com/dotnet/api/overview/azure/search) pesquisa cognitiva do Azure
 
@@ -270,7 +270,7 @@ Você pode controlar quais partes dos blobs são indexadas usando o parâmetro d
 
 * `storageMetadata` – especifica que somente [as propriedades de blob padrão e os metadados especificados pelo usuário](../storage/blobs/storage-properties-metadata.md) são indexados.
 * `allMetadata` – especifica que os metadados de armazenamento e os [metadados específicos do tipo de conteúdo](#ContentSpecificMetadata) extraídos do conteúdo do blob são indexados.
-* `contentAndMetadata` – especifica que todos os metadados e conteúdo textual extraídos do blob são indexados. Esse é o valor padrão.
+* `contentAndMetadata` – especifica que todos os metadados e conteúdo textual extraídos do blob são indexados. Este é o valor padrão.
 
 Por exemplo, para indexar apenas os metadados de armazenamento, use:
 

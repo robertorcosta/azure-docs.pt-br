@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 657c41fbcda30ffb5af4c5a27d58ef17c02a46bc
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 553fd4e49d274fcf4c25356764182d54b91149e4
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798249"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036633"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Criar uma oferta do Dynamics 365 for Operations
 
@@ -186,19 +186,19 @@ Forneça pelo menos um (e até três) documentos de marketing relacionados aqui,
 
 Nesta seção, você pode fornecer logotipos e imagens que serão usados ao mostrar sua oferta ao cliente. Todas as imagens precisam estar no formato .png.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Se você está enfrentando um problema ao carregar arquivos, verifique se sua rede local não bloqueia o serviço https://upload.xboxlive.com que é usado pela Central de Parceiros.
 
 #### <a name="store-logos"></a>Armazenar logotipos
 
-Forneça um arquivo PNG para o logotipo de tamanho **grande** (entre 216 x 216 e 350 x 350 pixels). O Partner Center usará isso para criar um logotipo de tamanho **pequeno** (48 x 48 pixels). Opcionalmente, você pode substituir isso por uma imagem diferente.
-
-Os dois tamanhos de logotipo são necessários para uso em locais diferentes na lista:
+Forneça o logotipo de sua oferta em dois tamanhos de pixel:
 
 - **Pequeno** (48 x 48)
-- **Grande** (entre 216 x 216 e 350 x 350)
+- **Grande** (216 x 216)
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
 #### <a name="screenshots"></a>Capturas de tela
 

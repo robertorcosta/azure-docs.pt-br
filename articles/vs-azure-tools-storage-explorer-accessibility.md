@@ -1,6 +1,6 @@
 ---
-title: Acessibilidade do Gerenciador de Armazenamento do Azure (Versão prévia) | Microsoft Docs
-description: Acessibilidade do Gerenciador de Armazenamento do Azure (Versão prévia)
+title: Acessibilidade de Gerenciador de Armazenamento do Azure | Microsoft Docs
+description: Entenda a acessibilidade no Gerenciador de Armazenamento do Azure. Examine quais leitores de tela estão disponíveis, a capacidade de zoom, temas de alto contraste e teclas de atalho.
 services: storage
 documentationcenter: na
 author: MrayermannMSFT
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
-ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca4a8d719277eaa1d853d53d282649f839256be9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60457228"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035478"
 ---
 # <a name="storage-explorer-accessibility"></a>Acessibilidade do Gerenciador de Armazenamento
 
@@ -59,7 +59,7 @@ Comando       | Atalho de teclado
 --------------|--------------------
 Nova Janela    | **Control+Shift+N**
 Fechar Editor  | **Control+F4**
-Sair          | **Control+Shift+W**
+Encerrar          | **Control+Shift+W**
 
 ### <a name="navigation-commands"></a>Comandos de navegação
 
@@ -68,7 +68,7 @@ Comando                | Atalho de teclado
 Foco próximo painel       | **F6**
 Foco painel anterior   | **Shift+F6**
 Explorer               | **Control+Shift+E**
-Gerenciamento de Contas     | **Control+Shift+A**
+Gerenciamento de Conta     | **Control+Shift+A**
 Alternar a barra lateral        | **Control+B**
 Log de Atividade           | **Control+Shift+L**
 Ações e Propriedades | **Control+Shift+P**
@@ -95,9 +95,9 @@ Up      | **Alt+Up Arrow**
 
 Comando | Atalho de teclado
 --------|------------------
-Copiar    | **Control+C**
-Recortar     | **Control+X**
-Colar   | **Control+V**
+Copiar    | **Control + C**
+Recortar     | **Control + X**
+Colar   | **Control + V**
 Atualizar  | **Control+R**
 
 ### <a name="other-commands"></a>Outros comandos

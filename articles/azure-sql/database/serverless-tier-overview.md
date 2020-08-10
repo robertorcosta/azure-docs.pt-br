@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 7/9/2020
-ms.openlocfilehash: 38ca6528b77d9f36c84f5aacaa34a64d113b5978
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 8/7/2020
+ms.openlocfilehash: 518d3880a740de2cda4f01e362d8a5ef7865b361
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206932"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037296"
 ---
 # <a name="azure-sql-database-serverless"></a>Banco de Dados SQL do Azure sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -88,7 +88,7 @@ A memória em bancos de dados sem servidor é recuperada mais frequentemente que
 
 #### <a name="cache-reclamation"></a>Recuperação de cache
 
-Ao contrário dos bancos de dados de computação provisionados, a memória do cache SQL é recuperada de um banco de dados sem servidor quando a utilização da CPU ou do cache ativo é baixa.  Observe que quando a utilização da CPU é baixa, a utilização do cache ativo pode permanecer alta dependendo do padrão de uso e evitar a reclamação da memória.
+Ao contrário dos bancos de dados de computação provisionados, a memória do cache SQL é recuperada de um banco de dados sem servidor quando a utilização da CPU ou do cache ativo é baixa.
 
 - A utilização do cache ativo é considerada baixa quando o tamanho total das entradas de cache usadas mais recentemente fica abaixo de um limite por um período de tempo.
 - Quando a recuperação do cache é disparada, o tamanho do cache de destino é reduzido incrementalmente para uma fração do tamanho anterior, e a recuperação só continua se o uso permanece baixo.
@@ -96,6 +96,8 @@ Ao contrário dos bancos de dados de computação provisionados, a memória do c
 - O tamanho do cache nunca é reduzido abaixo do limite mínimo de memória, conforme definido pelo mínimo de vCores que pode ser configurado.
 
 Em bancos de dados de computação sem servidor e provisionados, as entradas de cache poderão ser removidas se toda a memória disponível for usada.
+
+Observe que quando a utilização da CPU é baixa, a utilização do cache ativo pode permanecer alta dependendo do padrão de uso e evitar a reclamação da memória.  Além disso, pode haver atraso adicional depois que a atividade do usuário for interrompida antes que a recuperação de memória ocorra devido a processos de plano de fundo periódicos respondendo à atividade anterior do usuário.  Por exemplo, as operações de exclusão geram registros fantasmas que são marcados para exclusão, mas não são fisicamente excluídos até que o processo de limpeza de fantasma seja executado, o que pode envolver a leitura de páginas de dados no cache.
 
 #### <a name="cache-hydration"></a>Hidratação de cache
 
@@ -176,7 +178,7 @@ Criar um novo banco de dados ou mover um banco de dados existente para uma camad
 
 Os exemplos seguintes criam um novo banco de dados na camada de computação sem servidor.
 
-#### <a name="use-the-azure-portal"></a>Usar o portal do Azure
+#### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 Confira [Início Rápido: Criar um banco de dados individual no Banco de Dados SQL do Azure usando o portal do Azure](single-database-create-quickstart.md).
 

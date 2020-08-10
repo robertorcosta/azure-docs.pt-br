@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/05/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 072beb4f6bd8f823b150a6e81f4308bdd6b29402
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0d1845c06c1f0373ffd4be43c104889a7327c3ac
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852235"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035766"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>SDK do Java v4 do Azure Cosmos DB para API do Core (SQL): notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ O SDK do Java v4 do Azure Cosmos DB para Core (SQL) combina uma API assíncrona 
 |---|---|
 |**Baixe o SDK**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
 |**Documentação da API** | [Documentação de referência de API Java](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable) |
-|**Contribuir para o SDK** | [SDK do Azure para repositório central do Java no GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos) | 
+|**Contribuir para o SDK** | [SDK do Azure para repositório central do Java no GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos) | 
 |**Introdução** | [Início Rápido: Criar um aplicativo Java para gerenciar os dados de API de SQL do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-java) <br> [Repositório GitHub com código de início rápido](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
 |**Amostras de código básico** | [Azure Cosmos DB: exemplos de Java para API do SQL](sql-api-java-sdk-samples.md) <br> [Repositório GitHub com código de exemplo](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|
 |**Aplicativo de console com feed de alterações**| [Feed de alterações-exemplo de Java SDK v4](create-sql-api-java-changefeed.md) <br> [Repositório GitHub com código de exemplo](https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example)| 

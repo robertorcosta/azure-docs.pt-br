@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/08/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8fa775ab4d183d75fef41529a95555fe3bcdc91c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 556d3df41b7ee66bfb2b32b8a566d7172f45e313
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827836"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034457"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -51,11 +51,13 @@ O LRS é uma boa opção para os seguintes cenários:
 
 O armazenamento com redundância de zona (ZRS) replica seus dados do Armazenamento do Azure de forma síncrona em três zonas de disponibilidade do Azure na região primária. Cada zona de disponibilidade é um local físico separado com energia, resfriamento e rede independentes. O ZRS oferece durabilidade para objetos de dados do Armazenamento do Azure de, pelo menos, 99,9999999999% (doze noves) em um dado ano.
 
-Com o ZRS, seus dados ainda podem ser acessados por operações de leitura e de gravação, mesmo em caso de não disponibilidade de uma zona. Se uma zona se tornar indisponível, o Azure realizará atualizações da rede, como a reposição de DNS. Essas atualizações podem afetar seu aplicativo se você estiver acessando os dados antes que as atualizações sejam concluídas. Ao criar aplicativos para ZRS, siga práticas para manipulação de falha transitórias, incluindo a implementação de políticas de novas tentativas com retirada exponencial.
+Com o ZRS, seus dados ainda podem ser acessados por operações de leitura e de gravação, mesmo em caso de não disponibilidade de uma zona. Se uma zona ficar indisponível, o Azure assumirá as atualizações de rede, como a reapontação de DNS. Essas atualizações podem afetar seu aplicativo se você estiver acessando os dados antes que as atualizações sejam concluídas. Ao criar aplicativos para ZRS, siga práticas para manipulação de falha transitórias, incluindo a implementação de políticas de novas tentativas com retirada exponencial.
 
 Uma solicitação de gravação para uma conta de armazenamento que está usando o ZRS ocorre de forma síncrona. A operação de gravação retorna com êxito somente depois que os dados são gravados em todas as réplicas nas três zonas de disponibilidade.
 
-A Microsoft recomenda usar o ZRS na região primária para cenários que exigem consistência, durabilidade e alta disponibilidade. O ZRS fornece desempenho excelente, baixa latência e resiliência para seus dados se eles ficarem temporariamente indisponíveis. Entretanto, por si só, o ZRS não pode proteger seus dados contra um desastre regional em que várias zonas permanentemente são afetadas. Para proteção contra desastres regionais, a Microsoft recomenda o uso do [armazenamento com redundância de zona geográfica](#geo-zone-redundant-storage) (GZRS), que usa o ZRS na região primária e também replica geograficamente seus dados para uma região secundária.
+A Microsoft recomenda usar o ZRS na região primária para cenários que exigem consistência, durabilidade e alta disponibilidade. Também recomendamos o uso de ZRS se você quiser restringir um aplicativo para replicar dados somente em um país ou região devido aos requisitos de governança de dados.
+
+O ZRS fornece desempenho excelente, baixa latência e resiliência para seus dados se eles ficarem temporariamente indisponíveis. Entretanto, por si só, o ZRS não pode proteger seus dados contra um desastre regional em que várias zonas permanentemente são afetadas. Para proteção contra desastres regionais, a Microsoft recomenda o uso do [armazenamento com redundância de zona geográfica](#geo-zone-redundant-storage) (GZRS), que usa o ZRS na região primária e também replica geograficamente seus dados para uma região secundária.
 
 A tabela a seguir mostra quais tipos de contas de armazenamento dão suporte ao ZRS em quais regiões:
 

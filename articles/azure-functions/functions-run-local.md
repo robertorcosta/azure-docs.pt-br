@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: ae83d8f68b78a3b13f9ebafe3c7cedd18a29de53
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 5c6761b083200556314d7133d5040f7811066e30
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449133"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037024"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
@@ -205,7 +205,23 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 > [!IMPORTANT]
 > Por padrão, a versão 2. x e versões posteriores das ferramentas principais criam projetos de aplicativo de funções para o tempo de execução do .NET como [projetos de classe C#](functions-dotnet-class-library.md) (. csproj). Esses projetos C#, que podem ser usados com o Visual Studio ou com Visual Studio Code, são compilados durante o teste e ao publicar no Azure. Se você deseja criar e trabalhar com o os mesmos arquivos de script C# (. CSx) criados na versão 1. x e no portal, você deve incluir o `--csx` parâmetro ao criar e implantar funções.
 
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+## <a name="register-extensions"></a>Extensões de registro
+
+Com exceção dos gatilhos HTTP e Timer, as associações de funções no tempo de execução versão 2. x e superiores são implementadas como pacotes de extensão. Associações HTTP e gatilhos de temporizador não exigem extensões. 
+
+Para reduzir as incompatibilidades entre os vários pacotes de extensão, o Functions permite que você referencie um pacote de extensão em seu host.jsno arquivo de projeto. Se você optar por não usar pacotes de extensão, também precisará instalar o SDK do .NET Core 2. x localmente e manter um Extensions. csproj com seu projeto do functions.  
+
+Na versão 2. x e além do tempo de execução de Azure Functions, você precisa registrar explicitamente as extensões para os tipos de associação usados em suas funções. Você pode optar por instalar as extensões de associação individualmente ou pode adicionar uma referência de pacote de extensão ao host.jsno arquivo de projeto. Os pacotes de extensão eliminam a possibilidade de haver problemas de compatibilidade de pacote ao usar vários tipos de associação. É a abordagem recomendada para registrar extensões de associação. Os pacotes de extensão também eliminam a necessidade de instalar o SDK do .NET Core 2. x. 
+
+### <a name="use-extension-bundles"></a>Usar pacotes de extensão
+
+[!INCLUDE [Register extensions](../../includes/functions-extension-bundles.md)]
+
+Para saber mais, consulte [registrar Azure Functions extensões de associação](functions-bindings-register.md#extension-bundles). Você deve adicionar pacotes de extensão ao host.jsno antes de adicionar associações ao function.jsno arquivo.
+
+### <a name="explicitly-install-extensions"></a>Instalar extensões explicitamente
+
+[!INCLUDE [functions-extension-register-core-tools](../../includes/functions-extension-register-core-tools.md)]
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
@@ -349,7 +365,7 @@ npm start
 
 `func start` dá suporte para as seguintes opções:
 
-| Opção     | DESCRIÇÃO                            |
+| Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Não compile o projeto atual antes da execução. Somente para projetos dotnet. O padrão é definido como false. Sem suporte para a versão 1. x. |
 | **`--cors-credentials`** | Permitir solicitações autenticadas entre origens (ou seja, cookies e o cabeçalho de autenticação) sem suporte para a versão 1. x. |
@@ -566,7 +582,7 @@ Para arquivar uma solicitação de bug ou recurso, [abra um problema do GitHub](
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure portal]: https://portal.azure.com 
+[Portal do Azure]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage

@@ -1,7 +1,7 @@
 ---
 title: Visão geral da conta de armazenamento
 titleSuffix: Azure Storage
-description: Entenda as opções para criar e usar uma conta do Armazenamento do Azure.
+description: Leia uma visão geral das contas de armazenamento no armazenamento do Azure. Revise a nomenclatura da conta, as camadas de desempenho, as camadas de acesso, a redundância, a criptografia, os pontos de extremidade e muito mais.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6ae5f4ba88880a53db765ab0ad9fde5bd9a4e4f9
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 8342ffc122f56f4e2a3a41e249007b2ceaad22a6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043624"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034644"
 ---
 # <a name="storage-account-overview"></a>Visão geral da conta de armazenamento
 

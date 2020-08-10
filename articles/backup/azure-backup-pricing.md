@@ -3,12 +3,12 @@ title: Preços do Backup do Azure
 description: Saiba como estimar seus custos para orçar os preços do backup do Azure.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 274a61ff5a98fa1291f9d8917af9ab1d1b3da2fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cdb3dc756e1ee7e32453acd7246952c84abebaf7
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391104"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035749"
 ---
 # <a name="azure-backup-pricing"></a>Preços do Backup do Azure
 
@@ -38,7 +38,7 @@ Para estimar os custos de backup de VMs do Azure ou de servidores locais usando 
 - Número de servidores com esse tamanho
 
 - Qual é a quantidade de variação de dados esperada nesses servidores?<br>
-  A rotatividade refere-se à quantidade de alterações nos dados. Por exemplo, se você tivesse uma VM com 200 GB de dados para fazer backup e se 10 GB de ti forem alterados todos os dias, a rotatividade diária será de 5%.
+  A rotatividade refere-se à quantidade de alterações nos dados. Por exemplo, se você tivesse uma VM com 200 GB de dados para backup e 10 GB de alterações forem alteradas todos os dias, a rotatividade diária será de 5%.
 
   - A variação mais alta significa que você faz backup de mais dados
 
@@ -58,7 +58,7 @@ Para estimar os custos de backup de VMs do Azure ou de servidores locais usando 
 
   - Por quanto tempo você espera manter "instantâneos de restauração instantânea"? (1-5 dias)
 
-    - Essa opção permite que você restaure de até sete dias de maneira rápida usando instantâneos armazenados em discos
+    - Essa opção permite que você restaure de até sete dias de maneira rápida usando instantâneos armazenados em discos.
 
 - **Opcional** – backup de disco seletivo
 
@@ -129,6 +129,7 @@ Para estimar os custos de backup de SAP HANA servidores em execução em VMs do 
 - Tamanho total dos bancos de dados SAP HANA que você está tentando fazer backup. Essa deve ser a soma do tamanho de backup completo de cada um dos bancos de dados, conforme relatado pelo SAP HANA.
 - Número de servidores de SAP HANA com o tamanho acima
 - Qual é o tamanho esperado de backups de log?
+  
   - O% indica o tamanho médio diário do log como um% do tamanho total dos bancos de dados SAP HANA que você está fazendo backup no servidor SAP HANA
 - Qual é a quantidade esperada de rotatividade de dados diária nesses servidores?
   - O% indica o tamanho médio de rotatividade diária como um% do tamanho total dos bancos de dados SAP HANA que você está fazendo backup no servidor SAP HANA
@@ -144,9 +145,37 @@ Para estimar os custos de backup de SAP HANA servidores em execução em VMs do 
   - Por quanto tempo você espera manter os backups "mensais"? (em meses)
   - Por quanto tempo você espera manter os backups "anuais"? (em anos)
 - **Opcional** – redundância de armazenamento de backup
+  
   - Isso indica a redundância da conta de armazenamento na qual os dados de backup entram. É recomendável usar **grs** para a maior disponibilidade. Como garante que uma cópia dos seus dados de backup seja mantida em uma região diferente, ela ajuda a atender a vários padrões de conformidade. Altere a redundância para **LRS** se você estiver fazendo backup de ambientes de desenvolvimento ou de teste que não precisam de um backup de nível corporativo.
 - **Opcional** – modificar preços regionais ou aplicar tarifas com desconto
+  
   - Se você quiser verificar suas estimativas para uma região diferente ou taxas com desconto, selecione **Sim** para a opção **experimentar estimativas para uma região diferente?** e insira as taxas com as quais você deseja executar as estimativas.
+  
+## <a name="estimate-costs-for-backing-up-azure-file-shares"></a>Estimar os custos para fazer backup de compartilhamentos de arquivos do Azure
+
+Para estimar os custos de backup de compartilhamentos de arquivos do Azure usando a [solução de backup baseada em instantâneo](azure-file-share-backup-overview.md) oferecida pelo backup do Azure, você precisará dos seguintes parâmetros:
+
+- Tamanho (**em GB**) dos compartilhamentos de arquivos que você deseja fazer backup.
+
+- Se você quiser fazer backup de compartilhamentos de arquivos espalhados por várias contas de armazenamento, especifique o número de contas de armazenamento que hospedam os compartilhamentos de arquivos com o tamanho acima.
+
+- Quantidade esperada de variação de dados nos compartilhamentos de arquivos que você deseja fazer backup. <br>A rotatividade refere-se à quantidade de alterações nos dados e afeta diretamente o tamanho do armazenamento do instantâneo. Por exemplo, se você tiver um compartilhamento de arquivos com 200 GB de dados para backup e 10 GB de ti forem alterados todos os dias, a rotatividade diária será de 5%.
+  - A rotatividade mais alta significa que a quantidade de alteração de dados no conteúdo do compartilhamento de arquivos todos os dias é alta e, portanto, o tamanho do instantâneo incremental (captura apenas das alterações de dados) também seria mais.
+  - Selecione baixo (1%), moderado (3%) ou alto (5%) com base nas características e no uso do compartilhamento de arquivos.
+  - Se você souber o **% de rotatividade** exato para seu compartilhamento de arquivos, poderá selecionar a opção **inserir seu próprio%** na lista suspensa. Especifique os valores (em%) para rotatividade diária, semanal, mensal e anual.
+
+- Tipo de conta de armazenamento (Standard ou Premium) e a configuração de redundância de armazenamento da conta de armazenamento que hospeda o compartilhamento de arquivos de backup. <br>Na solução de backup atual para compartilhamentos de arquivos do Azure, os instantâneos são armazenados na mesma conta de armazenamento que o compartilhamento de arquivos de backup. Portanto, o custo de armazenamento associado aos instantâneos é cobrado como parte da sua fatura de arquivos do Azure, com base no preço do instantâneo para o tipo de conta e a configuração de redundância da conta de armazenamento que hospeda o compartilhamento de arquivos e instantâneos de backup.
+
+- Retenção para diferentes backups
+  - Por quanto tempo você espera manter os backups "diários"? (em dias)
+  - Por quanto tempo você espera manter backups "semanais"? (em semanas)
+  - Por quanto tempo você espera manter os backups "mensais"? (em meses)
+  - Por quanto tempo você espera manter os backups "anuais"? (em anos)
+
+  Consulte [a matriz de suporte do compartilhamento de arquivos do Azure](azure-file-share-support-matrix.md#retention-limits) para obter o máximo de valores de retenção com suporte em cada categoria.
+
+- **Opcional** – modifique os preços regionais ou aplique as tarifas com desconto.
+  - Os valores padrão definidos para custo de armazenamento de instantâneo por GB e custo de instância protegida no estimador são para a região leste dos EUA. Se você quiser verificar suas estimativas para uma região diferente ou taxas com desconto, selecione **Sim** para a opção **experimentar estimativas para uma região diferente?** e insira as taxas com as quais você deseja executar as estimativas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

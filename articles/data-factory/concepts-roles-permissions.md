@@ -10,12 +10,12 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 923b3fbb617f46ba0551f6b21c384331559da2f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40fa6bce67aa6c5643e4a153da610dce65907b56
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263238"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036327"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Funções e permissões do Azure Data Factory
 
@@ -26,21 +26,21 @@ Este artigo descreve as funções necessárias para criar e gerenciar recursos d
 
 ## <a name="roles-and-requirements"></a>Requisitos e funções
 
-Para criar instâncias de Data Factory, a conta de usuário usada para entrar no Azure deve ser um membro das funções *colaborador* ou *proprietário*, ou um *administrador* da assinatura do Azure. Para exibir as permissões que você tem na assinatura, portal do Azure, selecione seu nome de usuário no canto superior direito e selecione **Permissões**. Se tiver acesso a várias assinaturas, selecione a que for adequada. 
+Para criar instâncias de Data Factory, a conta de usuário que você usa para entrar no Azure deve ser membro da função de *colaborador* , da função de *proprietário* ou de um *administrador* da assinatura do Azure. Para exibir as permissões que você tem na assinatura, portal do Azure, selecione seu nome de usuário no canto superior direito e selecione **Permissões**. Se tiver acesso a várias assinaturas, selecione a que for adequada. 
 
 Para criar e gerenciar recursos filho para o Data Factory – incluindo conjuntos de dados, serviços vinculados, pipelines, gatilhos e runtimes de integração –, os requisitos a seguir são aplicáveis:
-- Para criar e gerenciar recursos filho no portal do Azure, você precisa pertencer à função **Colaborador do Data Factory** no nível do grupo de recursos ou superior.
+- Para criar e gerenciar recursos filho no portal do Azure, você deve pertencer à função de **colaborador de data Factory** no nível do grupo de **recursos** ou acima.
 - Para criar e gerenciar recursos filho com o PowerShell ou o SDK, a função de **colaborador** no nível do recurso ou superior é suficiente.
 
 Para obter instruções de exemplo sobre como adicionar um usuário a uma função, confira o artigo [Adicionar funções](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## <a name="set-up-permissions"></a>Configurar permissões
 
-Depois de criar um Data Factory, convém permitir que outros usuários trabalhem com ele. Para permitir acesso para outros usuários, você precisa adicioná-los à função interna **Colaborador do Data Factory** no grupo de recursos que contém o data factory.
+Depois de criar um Data Factory, convém permitir que outros usuários trabalhem com ele. Para conceder esse acesso a outros usuários, você precisa adicioná-los à função de colaborador de **Data Factory** interna no grupo de **recursos** que contém o data Factory.
 
 ### <a name="scope-of-the-data-factory-contributor-role"></a>Escopo da função de Colaborador do Data Factory
 
-A associação à função **Colaborador do Data Factory** permite que os usuários façam o seguinte:
+A associação da função **colaborador de data Factory** permite que os usuários realizem as seguintes ações:
 - Criem, editem e excluam os data factories e os recursos filho, incluindo conjuntos de dados, serviços vinculados, pipelines, gatilhos e runtimes de integração.
 - Implantem modelos do Resource Manager. A implantação do Resource Manager é o método de implantação usado pelo Data Factory no portal do Azure.
 - Gerenciem alertas do App Insights de um data factory.
@@ -50,7 +50,7 @@ Para obter mais informações sobre essa função, confira [Função de Colabora
 
 ### <a name="resource-manager-template-deployment"></a>Implantação de modelo do Resource Manager
 
-A função **Colaborador do Data Factory**, no nível do grupo de recursos ou acima, permite que os usuários implantem modelos do Resource Manager. Como resultado, os membros da função podem usar modelos do Resource Manager para implantar o data factory e seus recursos filho, incluindo conjuntos de dados, serviços vinculados, pipelines, gatilhos e runtimes de integração. No entanto, a associação a essa função não permite que o usuário crie outros recursos.
+A função **Colaborador do Data Factory**, no nível do grupo de recursos ou acima, permite que os usuários implantem modelos do Resource Manager. Como resultado, os membros da função podem usar modelos do Resource Manager para implantar o data factory e seus recursos filho, incluindo conjuntos de dados, serviços vinculados, pipelines, gatilhos e runtimes de integração. A associação nessa função não permite que o usuário crie outros recursos.
 
 As permissões no Azure Repos e no GitHub são independentes das permissões do Data Factory. Como resultado, um usuário com permissões de repo que é apenas um membro da função Leitor pode editar os recursos filhos do Data Factory e confirmar alterações no repo, mas não pode publicar essas alterações.
 

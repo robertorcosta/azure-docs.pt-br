@@ -1,6 +1,6 @@
 ---
 title: Configurar, otimizar e solucionar problemas do AzCopy com o armazenamento do Azure | Microsoft Docs
-description: Configurar, otimizar e solucionar problemas do AzCopy.
+description: Configurar, otimizar e solucionar problemas do AzCopy com o armazenamento do Azure. Altere o local ou remova o plano e os arquivos de log. Altere o nível de log padrão.
 author: normesta
 ms.service: storage
 ms.topic: how-to
@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 7e79f186688f3b6531ac24df4e3ae4201cf1903c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9742f97832c1fc931a1679132e262f92c9f11225
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282425"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037177"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e solucionar problemas do AzCopy
 

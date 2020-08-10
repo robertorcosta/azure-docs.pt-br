@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: c562b8a82ef21e78eccad2c2ed6159251056f4fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24a214d63fd01fc4353be6563d18f9e28b820c6f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392685"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036514"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações no Banco de Dados do Azure para MySQL
 As seções a seguir descrevem a capacidade, suporte do mecanismo de armazenamento, suporte de privilégio, suporte à instrução de manipulação de dados e limites funcionais no serviço do banco de dados. Consulte também as [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicáveis ao mecanismo de banco de dados MySQL.
@@ -43,7 +43,7 @@ Após a implantação inicial, um servidor do Azure para MySQL inclui tabelas de
 - Função DBA: Muitas configurações e parâmetros do servidor podem, inadvertidamente, prejudicar o desempenho do servidor ou negar as propriedades de ACID do DBMS. Desa forma, para manter a SLA e integridade do serviço em um nível de produto, esse serviço não expõe a função DBA. A conta de usuário padrão, que é construída quando uma nova instância do banco de dados é criada, permite que o usuário execute a maioria das instruções DDL e DML na instância do banco de dados gerenciado. 
 - Privilégio SUPER: De forma semelhante, o [privilégio SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) também é restrito.
 - DEFINER: Requer superprivilégios para criar e é restrito. Se estiver importando dados usando um backup, remova os comandos `CREATE DEFINER`manualmente ou usando o comando `--skip-definer` ao executar um mysqldump.
-
+- Bancos de dados do sistema: no Azure Database para MySQL, o [banco de dados do sistema MySQL](https://dev.mysql.com/doc/refman/8.0/en/system-schema.html) é somente leitura, pois é usado para dar suporte a várias funcionalidades de serviço de PaaS. Observe que você não pode alterar nada no `mysql` banco de dados do sistema.
 
 ## <a name="data-manipulation-statement-support"></a>Suporte à instrução de manipulação de dados
 

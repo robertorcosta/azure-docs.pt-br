@@ -1,18 +1,18 @@
 ---
 title: Transferir dados de ou para arquivos do Azure usando AzCopy v10 | Microsoft Docs
-description: Transferir dados com o AzCopy e o armazenamento de arquivos.
+description: Transferir dados com o AzCopy e o armazenamento de arquivos. AzCopy é uma ferramenta de linha de comando para copiar BLOBs ou arquivos de ou para uma conta de armazenamento. Use o AzCopy com os arquivos do Azure.
 author: normesta
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 7123a90505e5068422d76f22042deac46e721218
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e75ea5a8f5fdeaf7c3562e50d9493341d41ce393
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292712"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037143"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferir dados com o AzCopy e o Armazenamento de Arquivos 
 
@@ -41,7 +41,7 @@ Você pode usar o comando [azcopy Copy](storage-ref-azcopy-copy.md) para carrega
 Esta seção contém os seguintes exemplos:
 
 > [!div class="checklist"]
-> * Fazer upload de um arquivo
+> * Carregar um arquivo
 > * Carregar um diretório
 > * Carregar o conteúdo de um diretório
 > * Carregar um arquivo específico
@@ -61,7 +61,7 @@ Esta seção contém os seguintes exemplos:
 > [!NOTE]
 > AzCopy não calcula e armazena automaticamente o código hash MD5 do arquivo. Se você quiser que o AzCopy faça isso, anexe o `--put-md5` sinalizador a cada comando de cópia. Dessa forma, quando o arquivo for baixado, AzCopy calculará um hash MD5 para dados baixados e verificará se o hash MD5 armazenado na Propriedade do arquivo `Content-md5` corresponde ao hash calculado.
 
-### <a name="upload-a-file"></a>Fazer upload de um arquivo
+### <a name="upload-a-file"></a>Carregar um arquivo
 
 |    |     |
 |--------|-----------|
