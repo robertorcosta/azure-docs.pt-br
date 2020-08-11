@@ -1,28 +1,32 @@
 ---
 title: Habilitar e gerenciar o controle de versão de BLOB (visualização)
 titleSuffix: Azure Storage
-description: Saiba como habilitar o controle de versão de blob no portal do Azure ou usando um modelo de Azure Resource Manager.
+description: Saiba como habilitar o controle de versão de BLOB (visualização) no portal do Azure ou usando um modelo de Azure Resource Manager.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7ff0bb6d593a199bd249441cf484d1f0580774ac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 85e8ccd03bd20ed9bb572d482dbc7a06b8af725c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086040"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067266"
 ---
-# <a name="enable-and-manage-blob-versioning"></a>Habilitar e gerenciar o controle de versão de blob
+# <a name="enable-and-manage-blob-versioning-preview"></a>Habilitar e gerenciar o controle de versão de BLOB (visualização)
 
-Você pode habilitar ou desabilitar o controle de versão de BLOB (visualização) para a conta de armazenamento a qualquer momento usando o portal do Azure ou um modelo de Azure Resource Manager.
+Você pode habilitar o controle de versão do armazenamento de BLOBs (visualização) para manter automaticamente as versões anteriores de um objeto.  Quando o controle de versão de blob estiver habilitado, você poderá restaurar uma versão anterior de um blob para recuperar seus dados se eles forem modificados ou excluídos erroneamente.
+
+Este artigo mostra como habilitar ou desabilitar o controle de versão de BLOB para a conta de armazenamento usando o portal do Azure ou um modelo de Azure Resource Manager.
+
+Você deve se registrar para a visualização antes de habilitar o controle de versão de BLOB. Para saber mais sobre o controle de versão de BLOB, incluindo como registrar-se para a versão prévia, consulte [versionamento de BLOB (visualização)](versioning-overview.md).
 
 ## <a name="enable-blob-versioning"></a>Habilitar controle de versão de blob
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para habilitar o controle de versão de blob no portal do Azure:
 

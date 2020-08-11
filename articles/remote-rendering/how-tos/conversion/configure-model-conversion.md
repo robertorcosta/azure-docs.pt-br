@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 9ddf4641cfba2fb9704c2354e01299df368eb2ac
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: b4881ee52b39539bfc29f62d7c6773da371a3ea5
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432022"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067164"
 ---
 # <a name="configure-the-model-conversion"></a>Configurar a conversão de modelo
 
@@ -49,6 +49,12 @@ O conteúdo do arquivo deve satisfazer o esquema JSON a seguir:
             },
             "minItems": 3,
             "maxItems": 3
+        },
+        "metadataKeys": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         }
     },
     "additionalProperties" : false
@@ -130,6 +136,12 @@ O modo `none` tem a menor sobrecarga do runtime, além de tempos de carregamento
 ### <a name="coordinate-system-overriding"></a>Sobreposição do sistema de coordenadas
 
 * `axis` – para substituir os vetores de unidade do sistema de coordenadas. Os valores padrão são `["+x", "+y", "+z"]`. Teoricamente, o formato FBX tem um cabeçalho no qual esses vetores são definidos, e a conversão usa essas informações para transformar a cena. O formato glTF também define um sistema de coordenadas fixo. Na prática, alguns ativos têm informações incorretas em seus cabeçalhos ou foram salvos com uma convenção de sistema de coordenadas diferente. Essa opção permite que você substitua o sistema de coordenadas como forma de compensação. Por exemplo: `"axis" : ["+x", "+z", "-y"]` trocará o eixo Z e o eixo Y e manterá a destreza do sistema de coordenadas ao inverter a direção do eixo Y.
+
+### <a name="node-meta-data"></a>Metadados do nó
+
+* `metadataKeys`-Permite especificar chaves de propriedades de metadados de nó que você deseja manter no resultado da conversão. Você pode especificar chaves exatas ou chaves curinga. As chaves curinga são do formato "ABC *" e correspondem a qualquer chave que comece com "ABC". Os tipos de valor de metadados com suporte são `bool` ,, `int` `float` e `string` .
+
+    Para arquivos GLTF, esses dados são provenientes do [objeto extras em nós](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeextras). Para Arquivos FBX, esses dados são provenientes dos `Properties70` dados em `Model nodes` . Consulte a documentação da sua ferramenta de ativo 3D para obter mais detalhes.
 
 ### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex":::ao
 

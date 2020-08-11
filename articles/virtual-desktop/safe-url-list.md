@@ -3,15 +3,15 @@ title: Lista de URL segura para área de trabalho virtual do Windows-Azure
 description: Uma lista de URLs que você deve desbloquear para garantir que sua implantação de área de trabalho virtual do Windows funcione conforme o esperado.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9ac147eec7004f109687a6bb0888e25d0db84448
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 37fb5ccf121fed6e772dc1cd3dcba2345d62c66f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009470"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067198"
 ---
 # <a name="safe-url-list"></a>Lista de URL segura
 
@@ -76,4 +76,6 @@ Qualquer cliente Área de Trabalho Remota que você usar deve ter acesso às seg
 |query.prod.cms.rt.microsoft.com|443|Atualizações do cliente|Área de Trabalho do Windows|
 
 >[!IMPORTANT]
->Abrir essas URLs é essencial para ter uma experiência do cliente confiável. Não há suporte ao bloqueio do acesso a essas URLs e isso afetará a funcionalidade do serviço. Essas URLs correspondem apenas aos sites e recursos do cliente e não incluem URLs para outros serviços, como o Azure Active Directory.
+>Abrir essas URLs é essencial para ter uma experiência do cliente confiável. Não há suporte ao bloqueio do acesso a essas URLs e isso afetará a funcionalidade do serviço.
+>
+>Essas URLs correspondem apenas aos sites e recursos do cliente. Essa lista não inclui URLs para outros serviços, como Azure Active Directory. Azure Active Directory URLs podem ser encontradas na ID 56 nas [URLs do Office 365 e nos intervalos de endereços IP](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).

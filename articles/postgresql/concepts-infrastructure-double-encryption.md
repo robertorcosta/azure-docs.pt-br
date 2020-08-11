@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 3806135b7ed212e6eb5ea458c015ebc5810e0e80
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8468d733756ef92ffc9078e945dc46d23e1ab54a
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034775"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067487"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Criptografia dupla da infraestrutura do banco de dados do Azure para PostgreSQL
 
@@ -32,11 +32,11 @@ A implementação nas camadas de infraestrutura também dá suporte a uma divers
 > [!NOTE]
 > Usar a criptografia dupla de infraestrutura terá impacto no desempenho no banco de dados do Azure para o servidor PostgreSQL devido ao processo de criptografia adicional.
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 
 A criptografia dupla de infraestrutura para o banco de dados do Azure para PostgreSQL oferece os seguintes benefícios:
 
-1. **Adição de diversidade de implementação de criptografia** – a mudança planejada para a criptografia baseada em hardware irá mais diversificar as implementações fornecendo uma implementação baseada em hardware além da implementação baseada em software.
+1. **Diversidade adicional de implementação de criptografia** – a mudança planejada para a criptografia baseada em hardware irá mais diversificar as implementações fornecendo uma implementação baseada em hardware além da implementação baseada em software.
 2. **Erros de implementação** -duas camadas de criptografia na camada de infraestrutura protege contra erros no cache ou no gerenciamento de memória em camadas mais altas que expõem dados em texto sem formatação. Além disso, as duas camadas também garantem erros na implementação da criptografia em geral.
 
 A combinação delas fornece proteção forte contra ameaças comuns e pontos fracos usados para a criptografia de ataques.
@@ -54,7 +54,7 @@ Os recursos de criptografia fornecidos pelo banco de dados do Azure para Postgre
 |       |                    |                                  |                                              |
 
 > [!Important]
-> - O cenário 2 e 4 terá um impacto significativo no desempenho no banco de dados do Azure para o servidor PostgreSQL devido à camada adicional de criptografia de infraestrutura.
+> - O cenário 2 e 4 terá impacto no desempenho no banco de dados do Azure para o servidor PostgreSQL devido à camada adicional de criptografia de infraestrutura.
 > - A configuração da criptografia dupla de infraestrutura para o banco de dados do Azure para PostgreSQL só é permitida durante a criação do servidor. Depois que o servidor for provisionado, você não poderá alterar a criptografia de armazenamento. No entanto, você ainda pode habilitar a criptografia de dados usando chaves gerenciadas pelo cliente para o servidor criado com/sem criptografia dupla de infraestrutura.
 
 ## <a name="limitations"></a>Limitações

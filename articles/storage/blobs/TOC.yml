@@ -158,8 +158,10 @@
           items:
             - name: Controle de versão
               href: versioning-overview.md
-            - name: Exclusão reversível
-              href: soft-delete-overview.md
+            - name: Exclusão reversível para blobs
+              href: soft-delete-blob-overview.md
+            - name: Exclusão reversível para contêineres
+              href: soft-delete-container-overview.md
             - name: Instantâneos
               href: snapshots-overview.md
             - name: Feed de alteração
@@ -423,8 +425,10 @@
           items:
             - name: Habilitar controle de versão de blob
               href: versioning-enable.md
-            - name: Habilitar exclusão reversível
-              href: soft-delete-enable.md
+            - name: Habilitar exclusão reversível para blobs
+              href: soft-delete-blob-enable.md
+            - name: Habilitar exclusão reversível para contêineres
+              href: soft-delete-container-enable.md
             - name: Criar instantâneos (.NET)
               href: snapshots-manage-dotnet.md
             - name: Processar logs do feed de alterações

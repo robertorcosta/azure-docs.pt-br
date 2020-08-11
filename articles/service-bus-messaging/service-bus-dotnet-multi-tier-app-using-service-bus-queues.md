@@ -4,12 +4,12 @@ description: Um tutorial .NET que ajuda você a desenvolver um aplicativo de vá
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 183f3b6e1231c843c04290024a89c270f0dd0026
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 044d0698f1ea181e8f508f92ad2c30ec29b6490b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083932"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067827"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicativo multicamadas .NET usando filas do Barramento de Serviço do Azure
 
@@ -24,7 +24,7 @@ Você aprenderá o seguinte:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-Neste tutorial você compilará e executará o aplicativo de multicamadas em um serviço de nuvem do Microsoft Azure. O front-end é uma função Web MVC do ASP.NET e o back-end é uma função de trabalho que usa uma fila do Barramento de Serviço. Você pode criar o mesmo aplicativo multicamadas com o front-end que o de um projeto Web, que é implantado em um site do Azure em vez de em um serviço de nuvem. Você também pode experimentar o tutorial [Aplicativo .NET híbrido local/na nuvem](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
+Neste tutorial você compilará e executará o aplicativo de multicamadas em um serviço de nuvem do Microsoft Azure. O front-end é uma função Web MVC do ASP.NET e o back-end é uma função de trabalho que usa uma fila do Barramento de Serviço. Você pode criar o mesmo aplicativo multicamadas com o front-end que o de um projeto Web, que é implantado em um site do Azure em vez de em um serviço de nuvem. Você também pode experimentar o tutorial [Aplicativo .NET híbrido local/na nuvem](../azure-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
 A captura de tela a seguir mostra o aplicativo concluído.
 

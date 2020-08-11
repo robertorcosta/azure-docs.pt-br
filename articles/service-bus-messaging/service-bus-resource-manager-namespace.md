@@ -7,16 +7,16 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 6bcbdbb72f3d26522790b769a8185138c1207a98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b7aafca331170100ce99c084a11c96c97df7781
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336843"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067385"
 ---
 # <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Criar um namespace do barramento de serviço usando um modelo de Azure Resource Manager
 
-Saiba como implantar um modelo de Azure Resource Manager para criar um namespace do barramento de serviço. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades. Para obter mais informações sobre como criar modelos, consulte a [documentação do Azure Resource Manager](/azure/azure-resource-manager/).
+Saiba como implantar um modelo de Azure Resource Manager para criar um namespace do barramento de serviço. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades. Para obter mais informações sobre como criar modelos, consulte a [documentação do Azure Resource Manager](../azure-resource-manager/index.yml).
 
 Os modelos a seguir também estão disponíveis para a criação de namespaces do barramento de serviço:
 
@@ -39,7 +39,7 @@ Para encontrar mais exemplos de modelos, consulte [Modelos de Início Rápido do
 
 Para criar um namespace do barramento de serviço implantando um modelo:
 
-1. Selecione **Testar** no seguinte bloco de código e, em seguida, siga as instruções para entrar no Azure Cloud Shell.
+1. Selecione **Experimente** no seguinte bloco de código e siga as instruções para entrar no Azure cloud Shell.
 
     ```azurepowershell-interactive
     $serviceBusNamespaceName = Read-Host -Prompt "Enter a name for the service bus namespace to be created"

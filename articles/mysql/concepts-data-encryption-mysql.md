@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 7399bc60ffa88112fee87b429571772f634c0754
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8fca0195c2941e4ed1a859c3201adfc2a4a0a2ed
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285417"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067436"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Criptografia de dados do Banco de Dados do Azure para MySQL com uma chave gerenciada pelo cliente
 
@@ -24,9 +24,9 @@ O Key Vault é um sistema de gerenciamento de chaves externas baseado em nuvem. 
 > [!NOTE]
 > Esse recurso está disponível em todas as regiões do Azure nas quais o Banco de Dados do Azure para MySQL dá suporte aos tipos de preço "Uso Geral" e "Otimizado para Memória". Para obter outras limitações, consulte a seção [limitação](concepts-data-encryption-mysql.md#limitations) .
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 
-A criptografia de dados para o Banco de Dados do Azure para MySQL fornece os seguintes benefícios:
+A criptografia de dados com chaves gerenciadas pelo cliente do banco de dados do Azure para MySQL oferece os seguintes benefícios:
 
 * O acesso a dados é totalmente controlado por você pela capacidade de remover a chave e tornar o banco de dados inacessível 
 * Controle total sobre o ciclo de vida da chave, incluindo a rotação da chave para se alinhar com as políticas corporativas
@@ -49,8 +49,8 @@ As DEKs, criptografadas com as KEKs, são armazenadas separadamente. Somente uma
 Para que um servidor MySQL use chaves gerenciadas pelo cliente armazenadas no Key Vault para criptografia da DEK, um administrador do Key Vault fornece os seguintes direitos de acesso ao servidor:
 
 * **obter**: para recuperar a parte pública e as propriedades da chave no Key Vault.
-* **wrapKey**: para poder criptografar a DEK.
-* **unwrapKey**: para poder descriptografar a DEK.
+* **wrapKey**: para poder criptografar a DEK. O DEK criptografado é armazenado no banco de dados do Azure para MySQL.
+* **unwrapKey**: para poder descriptografar a DEK. O banco de dados do Azure para MySQL precisa do DEK descriptografado para criptografar/descriptografar os dados
 
 O administrador do cofre de chaves também pode [habilitar o registro em log de eventos de auditoria do Key Vault](../azure-monitor/insights/key-vault-insights-overview.md), para que eles possam ser auditados posteriormente.
 
@@ -60,16 +60,16 @@ Quando o servidor é configurado para usar a chave gerenciada pelo cliente armaz
 
 Veja a seguir os requisitos para configurar o Key Vault:
 
-* O Key Vault e o Banco de Dados do Azure para MySQL precisam pertencer ao mesmo locatário do Azure AD (Azure Active Directory). Não há suporte para interações do servidor e do Key Vault entre locatários. A movimentação de recursos posteriormente exige que você reconfigure a criptografia de dados.
+* O Key Vault e o Banco de Dados do Azure para MySQL precisam pertencer ao mesmo locatário do Azure AD (Azure Active Directory). Não há suporte para interações do servidor e do Key Vault entre locatários. Mover Key Vault recurso posteriormente requer que você reconfigure a criptografia de dados.
 * Habilite o recurso de exclusão reversível no cofre de chaves para proteger contra perda de dados em caso de exclusão acidental da chave (ou do cofre de chaves). Os recursos excluídos com a exclusão reversível são retidos por 90 dias, a menos que o usuário os recupere ou limpe pelo. As ações de recuperação e limpeza têm suas próprias permissões associadas em uma política de acesso do Key Vault. O recurso de exclusão reversível está desativado por padrão, mas você pode habilitá-lo por meio do PowerShell ou da CLI do Azure (observe que não é possível habilitá-lo por meio do portal do Azure).
-* Conceda o acesso do Banco de Dados do Azure para MySQL ao cofre de chaves com as permissões get, wrapKey e unwrapKey usando a identidade gerenciada exclusiva. No portal do Azure, a identidade exclusiva é criada automaticamente quando a criptografia de dados é habilitada no MySQL. Confira[Configurar a criptografia de dados para MySQL](howto-data-encryption-portal.md) para obter instruções passo a passo quando estiver usando o portal do Azure.
+* Conceda o acesso do Banco de Dados do Azure para MySQL ao cofre de chaves com as permissões get, wrapKey e unwrapKey usando a identidade gerenciada exclusiva. No portal do Azure, a identidade exclusiva do ' serviço ' é criada automaticamente quando a criptografia de dados é habilitada no MySQL. Confira[Configurar a criptografia de dados para MySQL](howto-data-encryption-portal.md) para obter instruções passo a passo quando estiver usando o portal do Azure.
 
 Veja a seguir os requisitos para configurar a chave gerenciada pelo cliente:
 
 * A chave gerenciada pelo cliente a ser usada para criptografar a DEK só pode ser assimétrica, RSA 2048.
 * A data de ativação da chave (se definida) precisa ser uma data e uma hora no passado. A data de validade (se definida) precisa ser uma data e hora no futuro.
 * A chave precisa estar no estado *Habilitado*.
-* Se você estiver importando uma chave existente no cofre de chaves, certifique-se de fornecê-la nos formatos de arquivo com suporte (`.pfx`, `.byok`, `.backup`).
+* Se você estiver [importando uma chave existente](https://docs.microsoft.com/rest/api/keyvault/ImportKey/ImportKey) para o cofre de chaves, certifique-se de fornecê-la nos formatos de arquivo com suporte ( `.pfx` , `.byok` , `.backup` ).
 
 ## <a name="recommendations"></a>Recomendações
 

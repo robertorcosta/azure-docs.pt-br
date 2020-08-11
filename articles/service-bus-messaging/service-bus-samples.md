@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: article
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: beafd0d49e8fccaef4ccc043d198875b9f1b1ebd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 750ee2f05e81fe18560a20227aefb52ca343e07b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341020"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067521"
 ---
 # <a name="service-bus-messaging-samples"></a>Exemplos de mensagens do Barramento de Serviço
 Os exemplos de mensagens do Barramento de Serviço demonstram os principais recursos de [mensagens do Barramento de Serviço](https://azure.microsoft.com/services/service-bus/). No momento, você pode encontrar os exemplos nos seguintes locais:
@@ -30,5 +30,4 @@ Além disso, o [Explorer do Barramento de Serviço](https://github.com/paolosalv
 Confira os tópicos a seguir para obter visões gerais conceituais do Barramento de Serviço.
 
 * [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
-* [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
-
+* [Arquitetura do Barramento de Serviço](./service-bus-messaging-overview.md)

@@ -3,12 +3,12 @@ title: Barramento de Serviço do Azure com o .NET e AMQP 1.0 | Microsoft Docs
 description: Este artigo descreve como usar o barramento de serviço do Azure de um aplicativo .NET usando o AMQP (protocolo de enfileiramento de mensagens avançado).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: d969607a28759af3b6ee36d79638bb27d0d53808
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a67ab74efc700e16f5b1689e9cc1f459ecf14bd
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340186"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067096"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Usar o Barramento de Serviço do .NET com AMQP 1.0
 
@@ -52,14 +52,14 @@ Para facilitar a interoperabilidade com clientes não .NET, use somente tipos .N
 
 | Tipo de objeto de corpo .NET | Tipo do AMQP mapeado | Tipo de seção de corpo do AMQP |
 | --- | --- | --- |
-| bool |booleano |Valor do AMQP |
+| bool |boolean |Valor do AMQP |
 | byte |ubyte |Valor do AMQP |
 | ushort |ushort |Valor do AMQP |
 | uint |uint |Valor do AMQP |
 | ulong |ulong |Valor do AMQP |
 | sbyte |byte |Valor do AMQP |
 | short |short |Valor do AMQP |
-| INT |INT |Valor do AMQP |
+| int |int |Valor do AMQP |
 | long |long |Valor do AMQP |
 | FLOAT |FLOAT |Valor do AMQP |
 | double |double |Valor do AMQP |
@@ -70,12 +70,12 @@ Para facilitar a interoperabilidade com clientes não .NET, use somente tipos .N
 | byte[] |binary |Valor do AMQP |
 | string |string |Valor do AMQP |
 | System.Collections.IList |list |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. |
-| System.Array |matriz |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. |
-| System.Collections.IDictionary |map |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. Observação: apenas as chaves de cadeia de caracteres são suportadas. |
+| System.Array |array |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. |
+| System.Collections.IDictionary |mapa |Valor AMQP: os itens contidos na coleção só podem ser aqueles definidos nesta tabela. Observação: apenas as chaves de cadeia de caracteres são suportadas. |
 | Uri |Cadeia de caracteres descrita (consulte a tabela a seguir) |Valor do AMQP |
 | DateTimeOffset |Longo descrito (consulte a tabela a seguir) |Valor do AMQP |
 | TimeSpan |Longo descrito (consulte a seguir) |Valor do AMQP |
-| STREAM |binary |Dados do AMQP (podem ser múltiplos). As seções de Dados contêm os bytes brutos lidos do objeto Stream. |
+| Fluxo |binary |Dados do AMQP (podem ser múltiplos). As seções de Dados contêm os bytes brutos lidos do objeto Stream. |
 | Outro Objeto |binary |Dados do AMQP (podem ser múltiplos). Contém o binário serializado do objeto que usa o DataContractSerializer ou um serializador fornecido pelo aplicativo. |
 
 | Tipo .NET | Tipo descrito do AMQP mapeado | Observações |
@@ -109,7 +109,7 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 * [Guia do protocolo AMQP 1.0]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
-[DataContractSerializer]: https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx
+[DataContractSerializer]: /dotnet/api/system.runtime.serialization.datacontractserializer?view=netcore-3.1
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azureservicebus-4.0.0
 [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory.acceptmessagesession?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactory_AcceptMessageSession
 [OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
@@ -117,4 +117,3 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 [Azure portal]: https://portal.azure.com
 [Visão geral do Barramento de Serviço para AMQP]: service-bus-amqp-overview.md
 [Guia do protocolo AMQP 1.0]: service-bus-amqp-protocol-guide.md
-
