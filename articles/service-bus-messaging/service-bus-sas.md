@@ -3,12 +3,12 @@ title: Controle de acesso do barramento de serviço do Azure com assinaturas de 
 description: Visão geral da controle de acesso do Barramento de Serviço usando a visão geral de Assinaturas de Acesso Compartilhado, detalhes sobre a autenticação SAS com o Barramento de Serviço do Azure.
 ms.topic: article
 ms.date: 07/30/2020
-ms.openlocfilehash: b75f1ec3a1aac36124287523140c24d468329aaa
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 8e48858fd76bcf4667cfff1237f49597a477b3e8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460687"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066178"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controle de acesso do Barramento de Serviço com Assinaturas de Acesso Compartilhado
 
@@ -27,7 +27,7 @@ SAS protege o acesso ao Barramento de Serviço com base nas regras de autorizaç
 
 Assinaturas de Acesso Compartilhado são um mecanismo de autorização baseada em declarações usando tokens simples. Usando SAS, chaves nunca são passadas na conexão. As chaves são usadas para assinar criptograficamente informações que posteriormente podem ser verificadas pelo serviço. A SAS pode ser usada como esquema de nome de usuário e senha no qual o cliente está em posse imediata de um nome de regra de autorização e uma chave correspondente. A SAS também pode ser usada como modelo de segurança federada, no qual o cliente recebe um token de acesso de tempo limitado e assinado de um serviço de token de segurança sem nunca ter posse da chave de assinatura.
 
-A autenticação de SAS no Barramento de Serviço está configurada com [Regras de Autorização de Acesso Compartilhado](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) designadas com direitos de acesso associados e um par de chaves de criptografia primário e secundário. As chaves são valores de 256 bits na representação Base64. Você pode configurar regras no nível de namespace, em [retransmissões](../service-bus-relay/relay-what-is-it.md) de Barramento de Serviço, [filas](service-bus-messaging-overview.md#queues) e [tópicos](service-bus-messaging-overview.md#topics).
+A autenticação de SAS no Barramento de Serviço está configurada com [Regras de Autorização de Acesso Compartilhado](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) designadas com direitos de acesso associados e um par de chaves de criptografia primário e secundário. As chaves são valores de 256 bits na representação Base64. Você pode configurar regras no nível de namespace, em [retransmissões](../azure-relay/relay-what-is-it.md) de Barramento de Serviço, [filas](service-bus-messaging-overview.md#queues) e [tópicos](service-bus-messaging-overview.md#topics).
 
 O token de [Assinatura de Acesso Compartilhado](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) contém o nome da regra de autorização escolhida, o URI do recurso que deve ser acessado, uma expiração instantânea e uma assinatura criptográfica HMAC-SHA256 calculada com esses campos usando a chave de criptografia primária ou secundária da regra de autorização escolhida.
 
@@ -84,7 +84,7 @@ O token contém os valores não hash para que o destinatário possa recalcular o
 
 O URI do recurso é o URI completo do recurso do Barramento de Serviço ao qual o acesso é solicitado. Por exemplo, `http://<namespace>.servicebus.windows.net/<entityPath>` ou `sb://<namespace>.servicebus.windows.net/<entityPath>`; ou seja, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
 
-**O URI deve ser [codificado por percentual](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
+**O URI deve ser [codificado por percentual](/dotnet/api/system.web.httputility.urlencode?view=netcore-3.1).**
 
 A regra de autorização de acesso compartilhado usada para assinar deve ser configurada na entidade especificada por esse URI ou por um de seus pais hierárquicos. Por exemplo, `http://contoso.servicebus.windows.net/contosoTopics/T1` ou `http://contoso.servicebus.windows.net` no exemplo anterior.
 

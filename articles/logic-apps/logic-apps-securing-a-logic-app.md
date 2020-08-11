@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 07/03/2020
-ms.openlocfilehash: b20cb074a21196467c0264247e8f5d885d7956a0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.date: 08/11/2020
+ms.openlocfilehash: e7199b6d54a0150845bfc09c38e002e6cc298ee7
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423296"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066722"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
@@ -110,45 +110,9 @@ No corpo, inclua a propriedade `KeyType` como `Primary` ou `Secondary`. Essa pro
 
 ### <a name="enable-azure-active-directory-oauth"></a>Habilitar o OAuth do Azure Active Directory
 
-Se seu aplicativo lógico começar com um [gatilho de solicitação](../connectors/connectors-native-reqres.md), você poderá habilitar [Azure Active Directory autenticação aberta](../active-directory/develop/index.yml) (Azure ad OAuth) criando uma política de autorização para chamadas de entrada para o gatilho de solicitação. Antes de habilitar essa autenticação, revise estas considerações:
+Se seu aplicativo lógico começar com um [gatilho de solicitação](../connectors/connectors-native-reqres.md), você poderá habilitar [Azure Active Directory autenticação aberta](../active-directory/develop/index.yml) (Azure ad OAuth) definindo ou adicionando uma política de autorização para chamadas de entrada para o gatilho de solicitação. Quando seu aplicativo lógico recebe uma solicitação de entrada que inclui um token de autenticação, os aplicativos lógicos do Azure comparam as declarações do token com as declarações em cada política de autorização. Se houver uma correspondência entre as declarações do token e todas as declarações em pelo menos uma política, a autorização terá sucesso na solicitação de entrada. O token pode ter mais declarações do que o número especificado pela política de autorização.
 
-* Uma chamada de entrada para seu aplicativo lógico pode usar apenas um esquema de autorização, o OAuth do Azure AD ou [SAS (Assinaturas de Acesso Compartilhado)](#sas). Somente esquemas de autorização de [tipo de portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) têm suporte para tokens OAuth, que têm suporte apenas para o gatilho de solicitação.
-
-* Seu aplicativo lógico é limitado a um número máximo de políticas de autorização. Cada política de autorização também tem um número máximo de [declarações](../active-directory/develop/developer-glossary.md#claim). Para obter mais informações, confira [Limites e configuração para Aplicativos Lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
-
-* Uma política de autorização deve incluir pelo menos a declaração do **emissor** , que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` (OAuth v2) como a ID do emissor do Azure AD. Para obter mais informações sobre tokens de acesso, consulte [tokens de acesso da plataforma de identidade da Microsoft](../active-directory/develop/access-tokens.md).
-
-Para habilitar o OAuth do Azure AD, siga estas etapas a fim de adicionar uma ou mais políticas de autorização ao seu aplicativo lógico.
-
-1. No [portal do Azure](https://portal.microsoft.com), encontre e abra seu aplicativo lógico no Designer de Aplicativo Lógico.
-
-1. No menu do aplicativo lógico, em **Configurações**, selecione **Autorização**. Depois que o painel Autorização for aberto, selecione **Adicionar política**.
-
-   ![Selecione "Autorização" > "Adicionar política"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
-
-1. Forneça informações sobre a política de autorização especificando os [tipos de declaração](../active-directory/develop/developer-glossary.md#claim) e os valores que seu aplicativo lógico espera no token de autenticação apresentado por cada chamada de entrada para o gatilho de solicitação:
-
-   ![Fornecer informações para a política de autorização](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
-
-   | Propriedade | Obrigatório | Descrição |
-   |----------|----------|-------------|
-   | **Nome da política** | Sim | O nome que você deseja usar para a política de autorização |
-   | **Declarações** | Sim | Os tipos de declaração e os valores que seu aplicativo lógico aceita de chamadas de entrada. Estes são os tipos de declaração disponíveis: <p><p>- **Emissor** <br>- **Público-alvo** <br>- **Assunto** <br>- **ID JWT** (ID do Token Web JSON) <p><p>No mínimo, a lista de **declarações** deve incluir a declaração do **emissor** , que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` como a ID do emissor do Azure AD. Para mais informações sobre esses tipos de declaração, confira [Declarações nos tokens de segurança do Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Você também pode especificar seu tipo e valor de declaração. |
-   |||
-
-1. Para adicionar outra declaração, selecione uma destas opções:
-
-   * Para adicionar outro tipo de declaração, selecione **Adicionar declaração padrão**, selecione o tipo e especifique o valor.
-
-   * Para adicionar sua declaração, selecione **Adicionar declaração personalizada** e especifique o valor.
-
-1. Para adicionar outra política de autorização, selecione **Adicionar política**. Repita as etapas anteriores para configurar a política.
-
-1. Quando terminar, selecione **Salvar**.
-
-Seu aplicativo lógico agora está configurado para usar o OAuth do Azure AD a fim de autorizar solicitações de entrada. Quando seu aplicativo lógico recebe uma solicitação de entrada que inclui um token de autenticação, os aplicativos lógicos do Azure comparam as declarações do token com as declarações em cada política de autorização. Se houver uma correspondência entre as declarações do token e todas as declarações em pelo menos uma política, a autorização terá sucesso na solicitação de entrada. O token pode ter mais declarações do que o número especificado pela política de autorização.
-
-Por exemplo, suponha que seu aplicativo lógico tenha uma política de autorização que exija dois tipos de declaração, Emissor e Público. Este exemplo de [token de acesso](../active-directory/develop/access-tokens.md) decodificado inclui ambos os tipos de declaração:
+Por exemplo, suponha que seu aplicativo lógico tenha uma política de autorização que exija dois tipos de declaração, **emissor** e **público**. Este exemplo de [token de acesso](../active-directory/develop/access-tokens.md) decodificado inclui ambos os tipos de declaração:
 
 ```json
 {
@@ -191,6 +155,93 @@ Por exemplo, suponha que seu aplicativo lógico tenha uma política de autoriza�
 }
 ```
 
+#### <a name="considerations-for-enabling-azure-oauth"></a>Considerações para habilitar o Azure OAuth
+
+Antes de habilitar essa autenticação, revise estas considerações:
+
+* Uma chamada de entrada para seu aplicativo lógico pode usar apenas um esquema de autorização, o OAuth do Azure AD ou [SAS (Assinaturas de Acesso Compartilhado)](#sas). Somente esquemas de autorização de [tipo de portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) têm suporte para tokens OAuth, que têm suporte apenas para o gatilho de solicitação.
+
+* Seu aplicativo lógico é limitado a um número máximo de políticas de autorização. Cada política de autorização também tem um número máximo de [declarações](../active-directory/develop/developer-glossary.md#claim). Para obter mais informações, confira [Limites e configuração para Aplicativos Lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
+
+* Uma política de autorização deve incluir pelo menos a declaração do **emissor** , que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` (OAuth v2) como a ID do emissor do Azure AD. Para obter mais informações sobre tokens de acesso, consulte [tokens de acesso da plataforma de identidade da Microsoft](../active-directory/develop/access-tokens.md).
+
+<a name="define-authorization-policy-portal"></a>
+
+#### <a name="define-authorization-policy-in-azure-portal"></a>Definir a política de autorização no portal do Azure
+
+Para habilitar o OAuth do Azure AD para seu aplicativo lógico no portal do Azure, siga estas etapas para adicionar uma ou mais políticas de autorização ao seu aplicativo lógico:
+
+1. No [portal do Azure](https://portal.microsoft.com), encontre e abra seu aplicativo lógico no Designer de Aplicativo Lógico.
+
+1. No menu do aplicativo lógico, em **Configurações**, selecione **Autorização**. Depois que o painel Autorização for aberto, selecione **Adicionar política**.
+
+   ![Selecione "Autorização" > "Adicionar política"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
+
+1. Forneça informações sobre a política de autorização especificando os [tipos de declaração](../active-directory/develop/developer-glossary.md#claim) e os valores que seu aplicativo lógico espera no token de autenticação apresentado por cada chamada de entrada para o gatilho de solicitação:
+
+   ![Fornecer informações para a política de autorização](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
+
+   | Propriedade | Obrigatório | Descrição |
+   |----------|----------|-------------|
+   | **Nome da política** | Sim | O nome que você deseja usar para a política de autorização |
+   | **Declarações** | Sim | Os tipos de declaração e os valores que seu aplicativo lógico aceita de chamadas de entrada. Estes são os tipos de declaração disponíveis: <p><p>- **Emissor** <br>- **Público-alvo** <br>- **Assunto** <br>- **ID JWT** (ID do Token Web JSON) <p><p>No mínimo, a lista de **declarações** deve incluir a declaração do **emissor** , que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` como a ID do emissor do Azure AD. Para mais informações sobre esses tipos de declaração, confira [Declarações nos tokens de segurança do Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Você também pode especificar seu tipo e valor de declaração. |
+   |||
+
+1. Para adicionar outra declaração, selecione uma destas opções:
+
+   * Para adicionar outro tipo de declaração, selecione **Adicionar declaração padrão**, selecione o tipo e especifique o valor.
+
+   * Para adicionar sua declaração, selecione **Adicionar declaração personalizada** e especifique o valor.
+
+1. Para adicionar outra política de autorização, selecione **Adicionar política**. Repita as etapas anteriores para configurar a política.
+
+1. Quando terminar, selecione **Salvar**.
+
+<a name="define-authorization-policy-template"></a>
+
+#### <a name="define-authorization-policy-in-azure-resource-manager-template"></a>Definir a política de autorização no modelo de Azure Resource Manager
+
+Para habilitar o OAuth do Azure AD no modelo ARM para implantar seu aplicativo lógico, na `properties` seção para a [definição de recurso do aplicativo lógico](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition), adicione um `accessControl` objeto, se não houver nenhum, que contenha um `triggers` objeto. No `triggers` objeto, adicione um `openAuthenticationPolicies` objeto em que você define uma ou mais políticas de autorização seguindo esta sintaxe:
+
+```json
+"resources": [
+   {
+      // Start logic app resource definition
+      "properties": {
+         "state": "<Enabled-or-Disabled>",
+         "definition": {<workflow-definition>},
+         "parameters": {<workflow-definition-parameter-values>},
+         "accessControl": {
+            "triggers": {
+               "openAuthenticationPolicies": {
+                  "policies": {
+                     "<policy-name>": {
+                        "type": "AAD",
+                        "claims": [
+                           {
+                              "name": "<claim-name>",
+                              "values": "<claim-value>"
+                           }
+                        ]
+                     }
+                  }
+               }
+            },
+         },
+      },
+      "name": "[parameters('LogicAppName')]",
+      "type": "Microsoft.Logic/workflows",
+      "location": "[parameters('LogicAppLocation')]",
+      "apiVersion": "2016-06-01",
+      "dependsOn": [
+      ]
+   }
+   // End logic app resource definition
+],
+```
+
+Para obter mais informações sobre a `accessControl` seção, consulte [restringir os intervalos de IP de entrada no modelo de Azure Resource Manager](#restrict-inbound-ip-template) e a referência de modelo de fluxos de [trabalho Microsoft. Logic](/templates/microsoft.logic/2019-05-01/workflows).
+
 <a name="restrict-inbound-ip"></a>
 
 ### <a name="restrict-inbound-ip-addresses"></a>Restringir endereços IP de entrada
@@ -213,6 +264,8 @@ Se você quer que seu aplicativo lógico seja acionado apenas como um aplicativo
 
 > [!NOTE]
 > Independentemente do endereço IP, você ainda pode executar um aplicativo lógico que tenha um gatilho baseado em solicitação usando a [API REST dos aplicativos lógicos: gatilhos de fluxo de trabalho –](/rest/api/logic/workflowtriggers/run) solicitação de execução ou usando o gerenciamento de API. Porém, esse cenário ainda requer [autenticação](../active-directory/develop/authentication-vs-authorization.md) em relação à API REST do Azure. Todos os eventos aparecem no Log de Auditoria do Azure. Verifique se você definiu as políticas de controle de acesso de forma adequada.
+
+<a name="restrict-inbound-ip-template"></a>
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Restringir intervalos de IP de entrada no modelo do Azure Resource Manager
 

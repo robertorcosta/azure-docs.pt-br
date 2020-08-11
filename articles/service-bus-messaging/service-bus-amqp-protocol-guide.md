@@ -3,12 +3,12 @@ title: AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eve
 description: Guia de protocolo para expressões e a descrição do AMQP 1.0 no Barramento de Serviço e nos Hubs de Eventos do Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5957e2d36b57be7db1af279736e8859d1a69b66b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ffccd49d37dbf2a8fc404e9895b648e53007675c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511306"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064529"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
 
@@ -73,7 +73,7 @@ As conexões, os canais e as sessões são efêmeros. Se a conexão subjacente f
 
 ### <a name="amqp-outbound-port-requirements"></a>Requisitos de porta de saída do AMQP
 
-Os clientes que usam conexões AMQP sobre TCP exigem que as portas 5671 e 5672 sejam abertas no firewall local. Junto com essas portas, pode ser necessário abrir portas adicionais se o recurso [EnableLinkRedirect](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) estiver habilitado. `EnableLinkRedirect`é um novo recurso de mensagens que ajuda a ignorar um salto durante o recebimento de mensagens, ajudando a aumentar a taxa de transferência. O cliente começaria a se comunicar diretamente com o serviço de back-end por meio do intervalo de portas 104XX, conforme mostrado na imagem a seguir. 
+Os clientes que usam conexões AMQP sobre TCP exigem que as portas 5671 e 5672 sejam abertas no firewall local. Junto com essas portas, pode ser necessário abrir portas adicionais se o recurso [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) estiver habilitado. `EnableLinkRedirect`é um novo recurso de mensagens que ajuda a ignorar um salto durante o recebimento de mensagens, ajudando a aumentar a taxa de transferência. O cliente começaria a se comunicar diretamente com o serviço de back-end por meio do intervalo de portas 104XX, conforme mostrado na imagem a seguir. 
 
 ![Lista de portas de destino][4]
 
@@ -212,7 +212,7 @@ Toda propriedade que o aplicativo precisa definir deve ser mapeada para o mapa d
 | --- | --- | --- |
 | durável |- |- |
 | priority |- |- |
-| ttl |Vida útil desta mensagem |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| ttl |Vida útil desta mensagem |[timeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | primeiro comprador |- |- |
 | Contagem de entrega |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
@@ -378,7 +378,7 @@ A mensagem de resposta tem os seguintes valores de *application-properties*
 
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| status-code |Não |INT |Código de resposta HTTP **[RFC2616]**. |
+| status-code |Não |int |Código de resposta HTTP **[RFC2616]**. |
 | status-description |Sim |string |A descrição do status. |
 
 O cliente pode chamar *put-token* repetidamente e para qualquer entidade na infraestrutura de mensagens. Os tokens estão no escopo do cliente atual e ancorados na conexão atual, o que significa que o servidor cancela todos os tokens retidos quando a conexão cair.
@@ -410,7 +410,7 @@ Para saber mais sobre o AMQP, confira os seguintes links:
 
 * [Visão geral do Barramento de Serviço para AMQP]
 * [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]
-* [AMQP no Barramento de Serviço para Windows Server]
+* [AMQP no barramento de serviço para Windows Server]
 
 [this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp-protocol-guide/amqp1.png
@@ -419,5 +419,5 @@ Para saber mais sobre o AMQP, confira os seguintes links:
 [4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
 
 [Visão geral do Barramento de Serviço para AMQP]: service-bus-amqp-overview.md
-[Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]: service-bus-partitioned-queues-and-topics-amqp-overview.md
-[AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+[Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]: 
+[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)

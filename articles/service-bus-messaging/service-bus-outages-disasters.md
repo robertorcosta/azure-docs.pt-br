@@ -3,12 +3,12 @@ title: Isolar aplicativos do barramento de serviço do Azure contra interrupçõ
 description: Este artigo fornece técnicas para proteger aplicativos contra uma potencial interrupção do barramento de serviço do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e6dba5e6cf4700dfab354a434ac4d48f9a95b76a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f3ff89e3ec59ad4445ab0b7ee7eeb45d18fa3b8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339664"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065617"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço
 
@@ -72,7 +72,7 @@ Quando a replicação passiva for usada, as mensagens de cenário a seguir poder
 O exemplo [Replicação geográfica com Barramento de Serviço Standard][Geo-replication with Service Bus Standard Tier] demonstra a replicação passiva de entidades de mensagens.
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Protegendo pontos de extremidade de retransmissão contra interrupções ou desastres
-A replicação geográfica de pontos de extremidade de [retransmissão do Azure](../service-bus-relay/relay-what-is-it.md) permite que um serviço que expõe um ponto final de retransmissão seja acessível na presença de interrupções do barramento de serviço. Para obter a replicação geográfica, o serviço deverá criar dois pontos de extremidade de retransmissão em namespaces diferentes. Os namespaces devem residir em datacenters diferentes e os dois pontos de extremidade devem ter nomes diferentes. Por exemplo, um ponto de extremidade primário pode ser acessado em **contosoPrimario.servicebus.windows.net/meuServiçoPrimario**, enquanto o seu equivalente secundário pode ser acessado em **contosoSecundario.servicebus.windows.net/meuServiçoSecundario**.
+A replicação geográfica de pontos de extremidade de [retransmissão do Azure](../azure-relay/relay-what-is-it.md) permite que um serviço que expõe um ponto final de retransmissão seja acessível na presença de interrupções do barramento de serviço. Para obter a replicação geográfica, o serviço deverá criar dois pontos de extremidade de retransmissão em namespaces diferentes. Os namespaces devem residir em datacenters diferentes e os dois pontos de extremidade devem ter nomes diferentes. Por exemplo, um ponto de extremidade primário pode ser acessado em **contosoPrimario.servicebus.windows.net/meuServiçoPrimario**, enquanto o seu equivalente secundário pode ser acessado em **contosoSecundario.servicebus.windows.net/meuServiçoSecundario**.
 
 O serviço escuta em ambos os pontos de extremidade e um cliente pode invocar o serviço por meio de um dos pontos de extremidade. Um aplicativo cliente escolhe aleatoriamente uma das retransmissões como o ponto de extremidade primário e envia a sua solicitação ao ponto de extremidade ativo. Se a operação falhar com um código de erro, essa falha indicará que o ponto de extremidade de retransmissão não está disponível. O aplicativo abre um canal para o ponto de extremidade de backup e emite a solicitação novamente. Nesse ponto, os pontos de extremidade ativo e o de backup alternam as funções: o aplicativo cliente considera o ponto de extremidade ativo antigo como o novo ponto de extremidade de backup e o ponto de extremidade de backup antigo como o novo ponto de extremidade ativo. Se ambas as operações de envio falharem, as funções das duas entidades permanecerão inalteradas e um erro será retornado.
 
@@ -81,7 +81,7 @@ Para saber mais sobre a recuperação de desastres, confira estes artigos:
 
 * [Recuperação de desastre em área geográfica do Barramento de Serviço do Azure](service-bus-geo-dr.md)
 * [Continuidade dos negócios no Banco de dados SQL do Azure][Azure SQL Database Business Continuity]
-* [Desenvolvimento de aplicativos resilientes para o Azure][Azure resiliency technical guidance]
+* [Como desenvolver aplicativos resilientes do Azure][Azure resiliency technical guidance]
 
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md
 [Partitioned messaging entities]: service-bus-partitioning.md

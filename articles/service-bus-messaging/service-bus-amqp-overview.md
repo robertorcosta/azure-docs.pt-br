@@ -3,15 +3,15 @@ title: Visão geral do AMQP 1,0 no barramento de serviço do Azure
 description: Saiba como o barramento de serviço do Azure dá suporte a Advanced Message Queuing Protocol (AMQP), um protocolo padrão aberto.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 1113ffd268c991ba8a9c8f574b90d555a81ae840
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c91c7965b94216f3f3bcb47e0cb652ce22a0217a
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083864"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066331"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Suporte ao AMQP 1.0 no Barramento de Serviço
-O serviço de nuvem do Barramento de Serviço do Azure e o [Barramento de Serviço para o Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) local oferecem suporte ao AMQP (Advanced Message Queueing Protocol) 1.0. O AMQP permite que você crie várias plataformas, aplicativos híbridos usando um protocolo de padrão aberto. Você pode criar aplicativos que usam componentes que são criados usando estruturas e linguagens diferentes e que são executados em sistemas operacionais diferentes. Todos esses componentes podem se conectar ao Service Bus e perfeitamente trocam mensagens de negócios estruturados com eficiência e fidelidade total.
+O serviço de nuvem do Barramento de Serviço do Azure e o [Barramento de Serviço para o Windows Server (Service Bus 1.1)](/previous-versions/service-bus-archive/dn282144(v=azure.100)) local oferecem suporte ao AMQP (Advanced Message Queueing Protocol) 1.0. O AMQP permite que você crie várias plataformas, aplicativos híbridos usando um protocolo de padrão aberto. Você pode criar aplicativos que usam componentes que são criados usando estruturas e linguagens diferentes e que são executados em sistemas operacionais diferentes. Todos esses componentes podem se conectar ao Service Bus e perfeitamente trocam mensagens de negócios estruturados com eficiência e fidelidade total.
 
 ## <a name="introduction-what-is-amqp-10-and-why-is-it-important"></a>Introdução: O que é AMQP 1.0 e por que é importante?
 Tradicionalmente, os produtos de middleware orientados à mensagens têm usado protocolos proprietários para comunicação entre os aplicativos cliente e os agentes. Isso significa que, depois que você selecionou agente de mensagens de um determinado fornecedor, é necessário usar bibliotecas do fornecedor para conectar os aplicativos de cliente para esse agente. Isso resulta em um grau de dependência desse fornecedor, uma vez que a portabilidade de um aplicativo para um produto diferente exige a recodificação de todos os aplicativos conectados. 
@@ -60,7 +60,7 @@ O diagrama a seguir ilustra um exemplo de implantação no qual clientes Java em
 
 Neste momento, as seguintes bibliotecas de cliente são conhecidas para trabalhar com o Service Bus:
 
-| Language | Biblioteca |
+| Idioma | Biblioteca |
 | --- | --- |
 | Java |Cliente do Apache Qpid Java Message Service (JMS)<br/>Cliente Java IIT Software SwiftMQ |
 | C |Apache Qpid Proton-C |
@@ -80,10 +80,10 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 * [Usando o Barramento de Serviço do .NET com AMQP]
 * [Usando o Barramento de Serviço do Java com AMQP]
 * [Instalando o Apache Qpid Proton-C em uma VM Linux do Azure]
-* [AMQP no Barramento de Serviço para Windows Server]
+* [AMQP no barramento de serviço para Windows Server]
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
 [Usando o Barramento de Serviço do .NET com AMQP]: service-bus-amqp-dotnet.md
-[Usando o Barramento de Serviço do Java com AMQP]: service-bus-amqp-java.md
-[Instalando o Apache Qpid Proton-C em uma VM Linux do Azure]: service-bus-amqp-apache.md
-[AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+[Usando o Barramento de Serviço do Java com AMQP]: ./service-bus-java-how-to-use-jms-api-amqp.md
+[Instalando o Apache Qpid Proton-C em uma VM Linux do Azure]: 
+[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)

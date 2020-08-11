@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 6532ec33d930ab42a9aa04a92d84ab795f32ebd6
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 079e3f9219d649d9740d38a8a8452e51b9d84acf
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034776"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066399"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Criptografia dupla da infraestrutura do banco de dados do Azure para MySQL
 
@@ -32,11 +32,11 @@ A implementação nas camadas de infraestrutura também dá suporte a uma divers
 > [!NOTE]
 > Usar a criptografia dupla de infraestrutura terá impacto no desempenho no banco de dados do Azure para o servidor MySQL devido ao processo de criptografia adicional.
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 
 A criptografia dupla de infraestrutura para o banco de dados do Azure para MySQL oferece os seguintes benefícios:
 
-1. **Adição de diversidade de implementação de criptografia** – a mudança planejada para a criptografia baseada em hardware irá mais diversificar as implementações fornecendo uma implementação baseada em hardware além da implementação baseada em software.
+1. **Diversidade adicional de implementação de criptografia** – a mudança planejada para a criptografia baseada em hardware irá mais diversificar as implementações fornecendo uma implementação baseada em hardware além da implementação baseada em software.
 2. **Erros de implementação** -duas camadas de criptografia na camada de infraestrutura protege contra erros no cache ou no gerenciamento de memória em camadas mais altas que expõem dados em texto sem formatação. Além disso, as duas camadas também garantem erros na implementação da criptografia em geral.
 
 A combinação delas fornece proteção forte contra ameaças comuns e pontos fracos usados para a criptografia de ataques.
@@ -54,7 +54,7 @@ Os recursos de criptografia fornecidos pelo banco de dados do Azure para MySQL p
 |       |                    |                                  |                                              |
 
 > [!Important]
-> - O cenário 2 e 4 terá um impacto significativo no desempenho no banco de dados do Azure para o servidor MySQL devido à camada adicional de criptografia de infraestrutura.
+> - O cenário 2 e 4 podem introduzir uma queda de 5-10% na taxa de transferência com base no tipo de carga de trabalho para o servidor do banco de dados do Azure para MySQL devido à camada adicional de criptografia de infraestrutura.
 > - A configuração da criptografia dupla de infraestrutura para o banco de dados do Azure para MySQL só é permitida durante a criação do servidor. Depois que o servidor for provisionado, você não poderá alterar a criptografia de armazenamento. No entanto, você ainda pode habilitar a criptografia de dados usando chaves gerenciadas pelo cliente para o servidor criado com/sem criptografia dupla de infraestrutura.
 
 ## <a name="limitations"></a>Limitações

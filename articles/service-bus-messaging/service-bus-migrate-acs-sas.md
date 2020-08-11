@@ -3,16 +3,16 @@ title: Barramento de serviço do Azure – migrar para autorização de assinatu
 description: Saiba mais sobre como migrar do serviço de controle de acesso Azure Active Directory para a autorização de assinatura de acesso compartilhado.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9ef6eda205af150a20236da68e1b6b1dbf91059e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8cd12ac97020417f9958beded1fd198dd485fff
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340109"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064614"
 ---
 # <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Barramento de serviço-migrar do serviço de controle de acesso Azure Active Directory para autorização de assinatura de acesso compartilhado
 
-Anteriormente, os aplicativos do Barramento de Serviço podiam usar dois modelos de autorização diferentes: o modelo do token [SAS (Assinatura de Acesso Compartilhado)](service-bus-sas.md) fornecido diretamente pelo Barramento de Serviço, e um modelo federado no qual o gerenciamento de regras de autorização era feito internamente pelo ACS (Serviço de Controle de Acesso) do [Azure Active Directory](/azure/active-directory/), e os tokens obtidos do ACS eram passados para o Barramento de Serviço para autorização do acesso aos recursos desejados.
+Anteriormente, os aplicativos do Barramento de Serviço podiam usar dois modelos de autorização diferentes: o modelo do token [SAS (Assinatura de Acesso Compartilhado)](service-bus-sas.md) fornecido diretamente pelo Barramento de Serviço, e um modelo federado no qual o gerenciamento de regras de autorização era feito internamente pelo ACS (Serviço de Controle de Acesso) do [Azure Active Directory](../active-directory/index.yml), e os tokens obtidos do ACS eram passados para o Barramento de Serviço para autorização do acesso aos recursos desejados.
 
 O modelo de autorização do ACS foi substituído há tempos pela [autorização SAS](service-bus-authentication-and-authorization.md) como o modelo preferido e toda a documentação, diretrizes e exemplos usam exclusivamente SAS hoje em dia. Além disso, não é mais possível criar novos namespaces do Barramento de Serviço emparelhados com o ACS.
 
@@ -56,4 +56,3 @@ Para saber mais sobre a autenticação do Barramento de Serviço, confira os tó
 
 * [Autenticação e autorização do Barramento de Serviço](service-bus-authentication-and-authorization.md)
 * [Autenticação do Barramento de Serviço com Assinaturas de Acesso Compartilhado](service-bus-sas.md)
-

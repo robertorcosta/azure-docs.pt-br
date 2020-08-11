@@ -3,12 +3,12 @@ title: Operações de solicitação/resposta do AMQP 1,0 no barramento de servi�
 description: Este artigo define a lista de operações baseadas em solicitação/resposta AMQP no Barramento de Serviço do Microsoft Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 82eb968cc952fab6e828c8b98f4ec2ba569b4441
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b845f4086ee1ac4fe868571c1754caf6d29b9021
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337839"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064407"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 no Barramento de Serviço do Microsoft Azure: operações baseadas em solicitação-resposta
 
@@ -142,7 +142,7 @@ A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|INT|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha.|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha.|  
 |statusDescription|Cadeia de caracteres|No|A descrição do status.|  
   
 O corpo da mensagem de resposta deve consistir em uma seção amqp-value que contém um mapa com as seguintes entradas:  
@@ -169,7 +169,7 @@ O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value*
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |`from-sequence-number`|long|Sim|Número de sequência do qual a espiada será iniciada.|  
-|`message-count`|INT|Sim|Número máximo de mensagens a serem espiadas.|  
+|`message-count`|int|Sim|Número máximo de mensagens a serem espiadas.|  
   
 #### <a name="response"></a>Resposta  
 
@@ -177,7 +177,7 @@ A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|INT|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: sem conteúdo – não há mais mensagens|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: sem conteúdo – não há mais mensagens|  
 |statusDescription|Cadeia de caracteres|No|A descrição do status.|  
   
 O corpo da mensagem de resposta deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
@@ -227,7 +227,7 @@ A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|INT|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha.|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha.|  
 |statusDescription|Cadeia de caracteres|No|A descrição do status.|  
   
 O corpo da mensagem de resposta deve consistir em uma seção **AMQP-Value** que contém um mapa com as seguintes entradas:  
@@ -261,7 +261,7 @@ A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|INT|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha.|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha.|  
 |statusDescription|Cadeia de caracteres|No|A descrição do status.|   
   
 ## <a name="session-operations"></a>Operações da sessão  
@@ -291,7 +291,7 @@ A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|INT|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: sem conteúdo – não há mais mensagens|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: sem conteúdo – não há mais mensagens|  
 |statusDescription|Cadeia de caracteres|No|A descrição do status.|  
   
 O corpo da mensagem de resposta deve consistir em uma seção **AMQP-Value** que contém um mapa com as seguintes entradas:  
@@ -318,7 +318,7 @@ O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value*
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |from-sequence-number|long|Sim|Número de sequência do qual a espiada será iniciada.|  
-|message-count|INT|Sim|Número máximo de mensagens a serem espiadas.|  
+|message-count|int|Sim|Número máximo de mensagens a serem espiadas.|  
 |session-id|string|Sim|ID da sessão.|  
   
 #### <a name="response"></a>Resposta  
@@ -327,7 +327,7 @@ A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|INT|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: sem conteúdo – não há mais mensagens|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: sem conteúdo – não há mais mensagens|  
 |statusDescription|Cadeia de caracteres|No|A descrição do status.|  
   
 O corpo da mensagem de resposta deve consistir em uma seção **AMQP-Value** que contém um mapa com as seguintes entradas:  
@@ -368,7 +368,7 @@ A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|INT|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
 |statusDescription|Cadeia de caracteres|No|A descrição do status.|  
   
 ### <a name="get-session-state"></a>Obter Estado de Sessão  
@@ -396,7 +396,7 @@ A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|INT|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
 |statusDescription|Cadeia de caracteres|No|A descrição do status.|  
   
 O corpo da mensagem de resposta deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
@@ -423,8 +423,8 @@ O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value*
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |last-updated-time|timestamp|Sim|Um filtro para incluir apenas as sessões atualizadas após determinado tempo.|  
-|skip|INT|Sim|Ignore um número de sessões.|  
-|top|INT|Sim|Número máximo de sessões.|  
+|skip|int|Sim|Ignore um número de sessões.|  
+|top|int|Sim|Número máximo de sessões.|  
   
 #### <a name="response"></a>Resposta  
 
@@ -432,14 +432,14 @@ A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|INT|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: sem conteúdo – não há mais mensagens|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – tem mais mensagens<br /><br /> 204: sem conteúdo – não há mais mensagens|  
 |statusDescription|Cadeia de caracteres|No|A descrição do status.|  
   
 O corpo da mensagem de resposta deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|skip|INT|Sim|Número de sessões ignoradas se o código de status for 200.|  
+|skip|int|Sim|Número de sessões ignoradas se o código de status for 200.|  
 |sessions-ids|Matriz de cadeias de caracteres|Sim|Matriz de IDs de sessão se o código de status for 200.|  
   
 ## <a name="rule-operations"></a>Operações de regra  
@@ -460,15 +460,15 @@ O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value*
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
 |rule-name|string|Sim|Nome da regra, não incluindo nomes de tópico e assinatura.|  
-|rule-description|map|Sim|Descrição da regra, conforme especificado na próxima seção.|  
+|rule-description|mapa|Sim|Descrição da regra, conforme especificado na próxima seção.|  
   
 O mapa de **Descrição de regra** deve incluir as entradas a seguir, onde **SQL-Filter** e **correlação-Filter** são mutuamente exclusivos:  
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|sql-filter|map|Sim|`sql-filter`, conforme especificado na próxima seção.|  
-|correlation-filter|map|Sim|`correlation-filter`, conforme especificado na próxima seção.|  
-|sql-rule-action|map|Sim|`sql-rule-action`, conforme especificado na próxima seção.|  
+|sql-filter|mapa|Sim|`sql-filter`, conforme especificado na próxima seção.|  
+|correlation-filter|mapa|Sim|`correlation-filter`, conforme especificado na próxima seção.|  
+|sql-rule-action|mapa|Sim|`sql-rule-action`, conforme especificado na próxima seção.|  
   
 O mapa sql-filter deve incluir as seguintes entradas:  
   
@@ -488,7 +488,7 @@ O mapa **correlação-filtro** deve incluir pelo menos uma das seguintes entrada
 |session-id|Cadeia de caracteres|No||  
 |reply-to-session-id|Cadeia de caracteres|No||  
 |content-type|Cadeia de caracteres|No||  
-|properties|map|Não|É mapeado para [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) do Barramento de Serviço.|  
+|properties|mapa|Não|É mapeado para [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) do Barramento de Serviço.|  
   
 O mapa **SQL-Rule-Action** deve incluir as seguintes entradas:  
   
@@ -502,7 +502,7 @@ A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|INT|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
 |statusDescription|Cadeia de caracteres|No|A descrição do status.|  
   
 ### <a name="remove-rule"></a>Remover Regra  
@@ -528,7 +528,7 @@ A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|INT|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
 |statusDescription|Cadeia de caracteres|No|A descrição do status.|  
   
 ### <a name="get-rules"></a>Obter regras
@@ -546,8 +546,8 @@ O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value*
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|top|INT|Sim|O número de regras para buscar na página.|  
-|skip|INT|Sim|O número de regras a serem ignoradas. Define o índice inicial (+ 1) na lista de regras. | 
+|top|int|Sim|O número de regras para buscar na página.|  
+|skip|int|Sim|O número de regras a serem ignoradas. Define o índice inicial (+ 1) na lista de regras. | 
 
 #### <a name="response"></a>Resposta
 
@@ -555,7 +555,7 @@ O mensagem de resposta inclui as seguintes propriedades:
 
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|INT|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
 |regras| matriz de mapa|Sim|Matriz de regras. Cada regra é representada por um mapa.|
 
 Cada entrada de mapa na matriz inclui as seguintes propriedades:
@@ -599,7 +599,7 @@ Cada entrada de mapa na matriz inclui as seguintes propriedades:
 | 5 | string | ID da sessão |
 | 6 | string | ID da Sessão Responder Para|
 | 7 | string | Tipo de conteúdo |
-| 8 | Mapear | Mapa de propriedades de aplicativo definido |
+| 8 | Mapeamento | Mapa de propriedades de aplicativo definido |
 
 `ruleAction` pode ser de qualquer um dos seguintes tipos:
 
@@ -638,7 +638,7 @@ A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|INT|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
 |statusDescription|Cadeia de caracteres|No|A descrição do status.|  
   
 O corpo da mensagem de resposta deve consistir em uma seção **AMQP-Value** que contém um **mapa** com as seguintes entradas:  
@@ -675,7 +675,7 @@ O corpo da mensagem de solicitação deve consistir em uma seção **AMQP-Value*
 |lock-tokens|matriz de uuid|Sim|Tokens de bloqueio de mensagem para atualizar o status de disposição.|  
 |deadletter-reason|Cadeia de caracteres|No|Pode ser definido se o status de disposição é definido como **suspenso**.|  
 |deadletter-description|Cadeia de caracteres|No|Pode ser definido se o status de disposição é definido como **suspenso**.|  
-|properties-to-modify|map|Não|Lista de propriedades de mensagem agenciada do Barramento de Serviço a serem modificadas.|  
+|properties-to-modify|mapa|Não|Lista de propriedades de mensagem agenciada do Barramento de Serviço a serem modificadas.|  
   
 #### <a name="response"></a>Resposta  
 
@@ -683,7 +683,7 @@ A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:
   
 |Chave|Tipo de valor|Obrigatório|Conteúdo de valor|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|INT|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
+|statusCode|int|Sim|Código de resposta HTTP [RFC2616]<br /><br /> 200: OK – êxito; caso contrário, falha|  
 |statusDescription|Cadeia de caracteres|No|A descrição do status.|
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -696,4 +696,4 @@ Para saber mais sobre o AMQP e o Barramento de Serviço, visite os seguintes lin
 
 [Visão geral do Barramento de Serviço para AMQP]: service-bus-amqp-overview.md
 [Guia do protocolo AMQP 1.0]: service-bus-amqp-protocol-guide.md
-[AMQP no Barramento de Serviço para Windows Server]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)
+[AMQP no Barramento de Serviço para Windows Server]: /previous-versions/service-bus-archive/dn282144(v=azure.100)

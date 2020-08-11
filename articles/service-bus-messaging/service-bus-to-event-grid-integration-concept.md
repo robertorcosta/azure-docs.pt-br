@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0d9c9c061e31ac4d3eba8d31352253bb25b62a9b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 641cae751b0b87d93235e1272bc5f46f7797d834
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503286"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065107"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Visão geral da integração do Barramento de Serviço com a Grade de Eventos
 
@@ -41,9 +41,9 @@ Hoje, o Barramento de Serviço envia eventos para dois cenários:
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
 * DeadletterMessagesAvailable
 
-Além disso, o Barramento de Serviço usa a segurança padrão da Grade de Eventos e [mecanismos de autenticação](https://docs.microsoft.com/azure/event-grid/security-authentication).
+Além disso, o Barramento de Serviço usa a segurança padrão da Grade de Eventos e [mecanismos de autenticação](../event-grid/security-authentication.md).
 
-Para saber mais, confira [Esquemas de evento da Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/event-schema).
+Para saber mais, confira [Esquemas de evento da Grade de Eventos do Azure](../event-grid/event-schema.md).
 
 #### <a name="active-messages-available-event"></a>Evento Mensagens Ativas Disponíveis
 
@@ -132,7 +132,7 @@ Para criar uma nova assinatura da Grade de Eventos, faça o seguinte:
 
 ## <a name="azure-cli-instructions"></a>Instruções da CLI do Azure
 
-Primeiro, certifique-se de que tenha a CLI do Azure versão 2.0 ou posterior instalada. [Baixe o instalador](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Selecione **Windows + X**e, em seguida, abra um novo console do PowerShell com permissões de administrador. Como alternativa, use um shell de comando dentro do Portal do Azure.
+Primeiro, certifique-se de que tenha a CLI do Azure versão 2.0 ou posterior instalada. [Baixe o instalador](/cli/azure/install-azure-cli?view=azure-cli-latest). Selecione **Windows + X**e, em seguida, abra um novo console do PowerShell com permissões de administrador. Como alternativa, use um shell de comando dentro do Portal do Azure.
 
 Execute o seguinte código:
 
@@ -150,7 +150,7 @@ Se você estiver usando o BASH
 
 ## <a name="powershell-instructions"></a>Instruções do PowerShell
 
-Verifique se o Azure PowerShell está instalado. [Baixe o instalador](https://docs.microsoft.com/powershell/azure/install-Az-ps). Selecione **Windows + X** e abra um novo console do PowerShell com permissões de Administrador. Como alternativa, use um shell de comando dentro do Portal do Azure.
+Verifique se o Azure PowerShell está instalado. [Baixe o instalador](/powershell/azure/install-Az-ps). Selecione **Windows + X** e abra um novo console do PowerShell com permissões de Administrador. Como alternativa, use um shell de comando dentro do Portal do Azure.
 
 ```powershell-interactive
 Connect-AzAccount
@@ -171,10 +171,10 @@ Daqui em diante, você poderá explorar as outras opções de instalação ou te
 ## <a name="next-steps"></a>Próximas etapas
 
 * Obter [exemplos](service-bus-to-event-grid-integration-example.md) de Barramento de Serviço e da Grade de Eventos.
-* Saiba mais sobre a [grade de eventos](https://docs.microsoft.com/azure/event-grid/).
-* Saiba mais sobre [Funções do Azure](https://docs.microsoft.com/azure/azure-functions/).
-* Saiba mais sobre o [Aplicativos Lógicos](https://docs.microsoft.com/azure/logic-apps/).
-* Saiba mais sobre o [Barramento de Serviço](https://docs.microsoft.com/azure/service-bus/).
+* Saiba mais sobre a [grade de eventos](../event-grid/index.yml).
+* Saiba mais sobre [Funções do Azure](../azure-functions/index.yml).
+* Saiba mais sobre o [Aplicativos Lógicos](../logic-apps/index.yml).
+* Saiba mais sobre o [Barramento de Serviço](/azure/service-bus/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [aprimora]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

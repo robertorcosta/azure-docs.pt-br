@@ -6,21 +6,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/21/2020
+ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8d8b558ebc49a009548afe9a8527985b9e4f5c75
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: f79b198b512547b1d93fbbd458af8251b109e62f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057124"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066654"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Habilitar e gerenciar a exclusão reversível para contêineres (visualização)
 
 A exclusão reversível de contêiner (versão prévia) protege seus dados contra acidentalmente ou excluídos de modo acidental ou excluído. Quando a exclusão reversível de contêiner está habilitada para uma conta de armazenamento, um contêiner e seu conteúdo podem ser recuperados após serem excluídos, dentro de um período de retenção especificado por você.
 
-Se houver uma possibilidade de que seus dados possam ser acidentalmente modificados ou excluídos por um aplicativo ou outro usuário da conta de armazenamento, a Microsoft recomenda ativar a exclusão reversível de contêiner. Este artigo mostra como habilitar a exclusão reversível para contêineres. Para obter mais detalhes sobre a exclusão reversível de contêiner, consulte [exclusão reversível para contêineres (versão prévia)](soft-delete-container-overview.md).
+Se houver uma possibilidade de que seus dados possam ser acidentalmente modificados ou excluídos por um aplicativo ou outro usuário da conta de armazenamento, a Microsoft recomenda ativar a exclusão reversível de contêiner. Este artigo mostra como habilitar a exclusão reversível para contêineres. Para obter mais detalhes sobre exclusão reversível de contêiner, incluindo como registrar-se para a versão prévia, consulte [exclusão reversível para contêineres (versão prévia)](soft-delete-container-overview.md).
 
 Para proteção de dados de ponta a ponta, a Microsoft recomenda que você também habilite a exclusão reversível para BLOBs e controle de versão de BLOB (visualização). Para saber como habilitar também a exclusão reversível para BLOBs, consulte [habilitar e gerenciar a exclusão reversível para BLOBs](soft-delete-blob-enable.md). Para saber como habilitar o controle de versão de BLOB, consulte [controle de versão de BLOB (visualização)](versioning-overview.md).
 

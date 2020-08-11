@@ -3,18 +3,18 @@ title: Métricas do Barramento de Serviço no Azure Monitor | Microsoft Docs
 description: Este artigo explica como usar o Azure Monitor para monitorar entidades do barramento de Serviço (filas, tópicos e assinaturas).
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: c4bf33fc7aa21be150a1ee0d6c65df84a391565e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3081b46bebdba8e83e5584178b37aab2dffee599
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089678"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065005"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas do Barramento de Serviço do Azure no Azure Monitor
 
 As métricas do Barramento de Serviço fornecem o estado dos recursos na sua assinatura do Azure. Com um amplo conjunto de dados de métricas, você pode avaliar a integridade geral dos seus recursos de Barramento de Serviço não apenas no nível de namespace, mas também no nível de entidade. Essas estatísticas podem ser importantes, pois elas ajudam você a monitorar o estado do Barramento de Serviço. As métricas também podem ajudar a solucionar problemas de causa raiz sem a necessidade de entrar em contato com o suporte do Azure.
 
-O Azure Monitor fornece interfaces de usuário unificadas para monitoramento entre os diferentes serviços do Azure. Para obter mais informações, consulte [Monitoramento no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) e o exemplo [Recuperar métricas do Azure Monitor com o .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) no GitHub.
+O Azure Monitor fornece interfaces de usuário unificadas para monitoramento entre os diferentes serviços do Azure. Para obter mais informações, consulte [Monitoramento no Microsoft Azure](../azure-monitor/overview.md) e o exemplo [Recuperar métricas do Azure Monitor com o .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) no GitHub.
 
 > [!IMPORTANT]
 > Quando não houver nenhuma interação com uma entidade por 2 horas, as métricas começarão a mostrar "0" como um valor até que a entidade não esteja mais ociosa.
@@ -147,7 +147,7 @@ O Barramento de Serviço do Azure dá suporte às seguintes dimensões para mét
     2. Insira uma **descrição** para o alerta.
     3. Selecione a **gravidade** do alerta. 
 
-        ![Detalhes do alerta](./media/service-bus-metrics-azure-monitor/alert-details.png)
+        ![Detalhes do Alerta](./media/service-bus-metrics-azure-monitor/alert-details.png)
 1. Na página **Criar regra**, expanda **Definir grupo de ações**, selecione **Novo grupo de ações** e realize as seguintes ações em **Adicionar página de grupo de ações**. 
     1. Insira um nome para o grupo de ações.
     2. Insira um nome curto para o grupo de ações. 
@@ -169,9 +169,7 @@ O Barramento de Serviço do Azure dá suporte às seguintes dimensões para mét
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira a [Visão geral do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+Confira a [Visão geral do Azure Monitor](../azure-monitor/overview.md).
 
 [1]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor1.png
 [2]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor2.png
-
-

@@ -4,14 +4,14 @@ description: Saiba como usar portal do Azure ou CLI para criar, exibir e gerenci
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/11/2020
 ms.subservice: alerts
-ms.openlocfilehash: 8afe62173dc0e90783c494fa51994e9ebac506f3
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 7b5332f68bb35e3c9b9ed82bb7bed2908e744e9f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042727"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065855"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor
 
@@ -140,8 +140,17 @@ As seções anteriores descreveram como criar, exibir e gerenciar regras de aler
 As regras de alerta de métrica têm cmdlets dedicados do PowerShell disponíveis:
 
 - [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2): cria uma nova regra de alerta de métrica ou atualiza uma existente.
-- [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2): Obtém uma ou mais regras de alerta de métrica.
-- [Remove-AzMetricAlertRuleV2](/powershell/module/az.monitor/remove-azmetricalertrulev2): Remove uma regra de alerta de métrica.
+- [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2): Obtenha uma ou mais regras de alerta de métrica.
+- [Remove-AzMetricAlertRuleV2](/powershell/module/az.monitor/remove-azmetricalertrulev2): exclui uma regra de alerta de métrica.
+
+## <a name="with-rest-api"></a>Com a API REST
+
+- [Criar ou atualizar](/rest/api/monitor/metricalerts/createorupdate): Crie uma nova regra de alerta de métrica ou atualize uma existente.
+- [Get](/rest/api/monitor/metricalerts/get): obter uma regra de alerta de métrica específica.
+- [Listar por grupo de recursos](/rest/api/monitor/metricalerts/listbyresourcegroup): Obtenha uma lista de regras de alerta de métrica em um grupo de recursos específico.
+- [Listar por assinatura](/rest/api/monitor/metricalerts/listbysubscription): Obtenha uma lista de regras de alerta de métrica em uma assinatura específica.
+- [Atualizar](/rest/api/monitor/metricalerts/update): atualizar uma regra de alerta de métrica.
+- [Excluir](/rest/api/monitor/metricalerts/delete): excluir uma regra de alerta de métrica.
 
 ## <a name="next-steps"></a>Próximas etapas
 

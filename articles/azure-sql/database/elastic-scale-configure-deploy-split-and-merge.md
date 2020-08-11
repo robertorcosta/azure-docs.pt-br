@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 200a6b1bc2f960555fae1d910dfebde66628d13a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cd03814e1590abebb74db490a2692d492a9207d
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84031967"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064937"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implantar um serviço de mesclagem dividida para mover dados entre bancos de dados compartilhados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ Os arquivos são colocados em um diretório chamado **Microsoft.Azure.SqlDatabas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Crie um banco de dados do banco de dados SQL do Azure que será usado como o banco de dados de status de divisão/mesclagem. Vá para o [Portal do Azure](https://portal.azure.com). Crie um novo **banco de dados SQL**. Nomeie o banco de dados e crie um novo administrador e uma senha. Certifique-se de registrar o nome e a senha para uso posterior.
+1. Crie um banco de dados do banco de dados SQL do Azure que será usado como o banco de dados de status de divisão/mesclagem. Vá para o [portal do Azure](https://portal.azure.com). Crie um novo **banco de dados SQL**. Nomeie o banco de dados e crie um novo administrador e uma senha. Certifique-se de registrar o nome e a senha para uso posterior.
 
 1. Verifique se o servidor permite que os serviços do Azure se conectem a ele. No portal, em **Configurações de Firewall**, verifique se a configuração **Permitir acesso aos Serviços do Azure** foi definida como **Ativada**. Clique no botão “Salvar”.
 
@@ -108,7 +108,7 @@ Execute o seguinte comando na mesma janela onde o makecert foi executado; use a 
 
 ### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Carregue o arquivo PFX para o serviço de nuvem
 
-1. Vá para o [Portal do Azure](https://portal.azure.com).
+1. Vá para o [portal do Azure](https://portal.azure.com).
 2. Selecione **Serviços de Nuvem**.
 3. Selecione o serviço de nuvem criado anteriormente para o serviço de Divisão/Mesclagem.
 4. Clique em **Certificados** no menu superior.
@@ -173,6 +173,9 @@ Determine o ponto de extremidade da web do serviço de Divisão-Mesclagem. Encon
 ### <a name="test-with-powershell-scripts"></a>Testes com scripts do PowerShell
 
 A implantação e sue ambiente podem ser testados, executando os scripts de exemplo do PowerShell incluídos.
+
+> [!IMPORTANT]
+> Os scripts de exemplo são executados no PowerShell 5,1. No momento, eles não são executados no PowerShell 6 ou posterior.
 
 Os arquivos de script incluídos são:
 

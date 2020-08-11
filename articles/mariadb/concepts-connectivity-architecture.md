@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: d082417fc5b4df7540973d5f6e146030aaad5380
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c3f557c757a46252b9fa0416cc62a827b233f1b2
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107182"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065345"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Arquitetura de conectividade no banco de dados do Azure para MariaDB
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para MariaDB e também como o tráfego é direcionado para a instância do banco de dados do Azure para MariaDB de clientes dentro e fora do Azure.
@@ -34,7 +34,7 @@ A tabela a seguir lista os IPs primários e secundários do banco de dados do Az
 | Central2 da Austrália     | 20.36.113.0   |
 | Leste da Austrália | 13.75.149.87, 40.79.161.1     |
 | Sudeste da Austrália |191.239.192.109, 13.73.109.251   |
-| Sul do Brasil | 104.41.11.5, 191.233.201.8, 191.233.200.16  |
+| Brazil South | 104.41.11.5, 191.233.201.8, 191.233.200.16  |
 | Canadá Central |40.85.224.249  |
 | Leste do Canadá | 40.86.226.166    |
 | Centro dos EUA | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38     |
@@ -52,7 +52,7 @@ A tabela a seguir lista os IPs primários e secundários do banco de dados do Az
 | Centro da Índia | 104.211.96.159     |
 | Sul da Índia | 104.211.224.146  |
 | Oeste da Índia | 104.211.160.80    |
-| Leste do Japão | 13.78.61.196, 191.237.240.43  |
+| Japan East | 13.78.61.196, 191.237.240.43  |
 | Oeste do Japão | 104.214.148.156, 191.238.68.11, 40.74.96.6, 40.74.96.7    |
 | Coreia Central | 52.231.32.42   |
 | Sul da Coreia | 52.231.200.86    |
@@ -67,8 +67,8 @@ A tabela a seguir lista os IPs primários e secundários do banco de dados do Az
 | Sul do Reino Unido | 51.140.184.11   |
 | Oeste do Reino Unido | 51.141.8.11  |
 | Centro-Oeste dos EUA | 13.78.145.25     |
-| Europa Ocidental | 40.68.37.158, 191.237.232.75, 13.69.105.208  |
-| Oeste dos EUA | 104.42.238.205, 23.99.34.75  |
+| Europa Ocidental | 40.68.37.158, 191.237.232.75, 13.69.105.208, 104.40.169.187  |
+| Oeste dos EUA | 104.42.238.205, 23.99.34.75, 13.86.216.212, 13.86.217.212 |
 | Oeste dos EUA 2 | 13.66.226.202  |
 ||||
 

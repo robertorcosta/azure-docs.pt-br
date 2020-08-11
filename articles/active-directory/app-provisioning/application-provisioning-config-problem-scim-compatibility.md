@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/05/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: da458b8aaf1ace7b87e98ded59a4bf90e4158e0f
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 39a4cbd5ffd04aa3346b1ce4f3b73576b92c4d3b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054079"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065481"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conhecidos e as resoluções em conformidade com o protocolo SCIM 2.0 do serviço de Provisionamento de Usuário do Microsoft Azure Active Directory
 
@@ -43,14 +43,14 @@ Na tabela a seguir, qualquer item marcado como Fixed significa que o comportamen
 | Os atributos de extensão usam ponto de notação "." antes de nomes de atributo, em vez de notação de dois pontos “:” |  Sim  | 18 de dezembro de 2018  | fazer downgrade para customappSSO |
 | As solicitações de patch para atributos com vários valores contêm a sintaxe de filtro de caminho inválido | Sim  |  18 de dezembro de 2018  | fazer downgrade para customappSSO |
 | As solicitações de criação de grupo contêm um URI de esquema inválido | Sim  |  18 de dezembro de 2018  |  fazer downgrade para customappSSO |
-| Atualizar o comportamento do PATCH para garantir a conformidade | Não | TBD| usar sinalizador de visualização |
+| Atualizar o comportamento do PATCH para garantir a conformidade (por exemplo, ativo como booliano e remoções de associação de grupo adequadas) | Não | TBD| usar sinalizador de visualização |
 
 ## <a name="flags-to-alter-the-scim-behavior"></a>Sinalizadores para alterar o comportamento de SCIM
 Use os sinalizadores abaixo na URL do locatário do seu aplicativo para alterar o comportamento padrão do cliente do SCIM.
 
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="SCIM sinalizadores para o comportamento posterior.":::
 
-* Use a URL a seguir para atualizar o comportamento do PATCH e garantir a conformidade do SCIM. Esse comportamento está disponível no momento apenas ao usar o sinalizador, mas se tornará o comportamento padrão nos próximos meses.
+* Use a URL a seguir para atualizar o comportamento do PATCH e garantir a conformidade do SCIM (por exemplo, ativo como booliano e remoções de associação de grupo adequadas). Esse comportamento está disponível no momento apenas ao usar o sinalizador, mas se tornará o comportamento padrão nos próximos meses.
   * **URL (compatível com scim):** AzureAdScimPatch062020
   * **Referências de RFC SCIM:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2

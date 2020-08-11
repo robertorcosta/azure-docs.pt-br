@@ -3,12 +3,12 @@ title: Autenticação e Autorização do Barramento de Serviço do Azure | Micro
 description: Autentique aplicativos no Barramento de Serviço com a autenticação SAS (Assinatura de Acesso Compartilhado).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 56461c13cf6589b5f66f05837e1bcaa6a49a58c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d5d0ed03c869bd574e4cfaa52ac7b62e8cb7fb98
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337726"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066852"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Autenticação e autorização do Barramento de Serviço
 Há duas maneiras de autenticar e autorizar o acesso aos recursos do barramento de serviço do Azure: diretório de atividades do Azure (Azure AD) e SAS (assinaturas de acesso compartilhado). Este artigo fornece detalhes sobre como usar esses dois tipos de mecanismos de segurança. 
@@ -30,7 +30,7 @@ Para obter mais informações sobre como autenticar com o Azure AD, consulte os 
 ## <a name="shared-access-signature"></a>Assinatura de acesso compartilhado
 A [autenticação SAS](service-bus-sas.md) permite que você conceda a um usuário o acesso aos recursos do Barramento de Serviço, com direitos específicos. A autenticação SAS no Barramento de Serviço envolve a configuração de uma chave criptográfica com direitos associados em um recurso do Barramento de Serviço. Os clientes podem obter acesso a esse recurso apresentando um token SAS que consiste em acessar o URI de recurso e assinar uma expiração com a tecla configurada.
 
-É possível configurar chaves para SAS em um namespace do Barramento de Serviço. A chave se aplica a todas as entidades de mensagens nesse namespace. Também é possível configurar chaves em tópicos e filas do Barramento de Serviço. Também há suporte para SAS na [Retransmissão do Azure](../service-bus-relay/relay-authentication-and-authorization.md).
+É possível configurar chaves para SAS em um namespace do Barramento de Serviço. A chave se aplica a todas as entidades de mensagens nesse namespace. Também é possível configurar chaves em tópicos e filas do Barramento de Serviço. Também há suporte para SAS na [Retransmissão do Azure](../azure-relay/relay-authentication-and-authorization.md).
 
 Para usar a SAS, você pode configurar um objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) em um namespace, uma fila ou um tópico. Essa regra consiste nos seguintes elementos:
 
@@ -46,7 +46,7 @@ Para acessar uma entidade, o cliente requer um token SAS gerado usando uma deter
 O suporte à autenticação SAS para o Barramento de Serviço está incluído no .NET SDK do Azure versão 2.0 e posterior. A SAS dá suporte a uma [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Todas as APIs que aceitam uma cadeia de conexão como parâmetro incluem suporte para cadeias de conexão SAS.
 
 > [!IMPORTANT]
-> Se você estiver usando o controle de acesso Azure Active Directory (também conhecido como serviço de controle de acesso ou ACS) com o barramento de serviço, observe que o suporte para esse método agora é limitado e você deve [migrar seu aplicativo para usar SAS](service-bus-migrate-acs-sas.md) ou usar a autenticação OAuth 2,0 com o Azure AD (recomendado). Para obter mais informações sobre a substituição do ACS, consulte [esta postagem no blog](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/).
+> Se você estiver usando o controle de acesso Azure Active Directory (também conhecido como serviço de controle de acesso ou ACS) com o barramento de serviço, observe que o suporte para esse método agora é limitado e você deve [migrar seu aplicativo para usar SAS](service-bus-migrate-acs-sas.md) ou usar a autenticação OAuth 2,0 com o Azure AD (recomendado). Para obter mais informações sobre a substituição do ACS, consulte [esta postagem no blog](/archive/blogs/servicebus/upcoming-changes-to-acs-enabled-namespaces).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre como autenticar com o Azure AD, consulte os seguintes artigos:

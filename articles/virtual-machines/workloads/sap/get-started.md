@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a882e3a21d5e1e99f6f9154fd2162071752b4499
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 6151bb915298cc4f771b6d49628f39c8d27b62b4
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800341"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064359"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 
@@ -45,6 +45,7 @@ Se você tem tiver perguntas específicas, vamos encaminhá-lo a documentos ou f
     - [Cenários com suporte para Instâncias Grandes do HANA](./hana-supported-scenario.md)
 - Quais Serviços do Azure, tipos de VM do Azure e serviços de armazenamento do Azure estão disponíveis nas diferentes regiões do Azure, confira o site [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) 
 - Os quadros de HA de terceiros funcionam, além do Windows e do pacemaker, com suporte? Verifique a parte inferior da [Nota de suporte da SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533)
+- Qual armazenamento do Azure é melhor para o meu cenário? Ler [tipos de armazenamento do Azure para carga de trabalho do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage)
 
  
 ## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA no Azure (Instâncias Grandes)
@@ -59,23 +60,7 @@ Esta seção da documentação aborda diferentes aspectos do SAP HANA. Como pré
  
 
 ## <a name="sap-netweaver-deployed-on-azure-virtual-machines"></a>SAP NetWeaver implantado em máquinas virtuais do Azure
-Essa seção apresenta a documentação de planejamento e implantação para o SAP NetWeaver e o Business One no Azure. A documentação se concentra nas noções básicas e no uso de bancos de dados não HANA com uma carga de trabalho do SAP no Azure. Os documentos e os artigos para alta disponibilidade também são a base para a alta disponibilidade do HANA no Azure, como:
-
-- [Guia de planejamento do Azure](./planning-guide.md). 
-- [SAP Business One em máquinas virtuais do Microsoft Azure](./business-one-azure.md)
-- [Proteger uma implantação de aplicativo SAP NetWeaver de várias camadas usando o Site Recovery](../../../site-recovery/site-recovery-sap.md)
-- [Conector SAP LaMa para o Azure](./lama-installation.md)
-
-Para obter informações sobre bancos de dados não HANA em uma carga de trabalho do SAP no Azure, confira:
-
-- [Considerações para Implantação do DBMS de Máquinas Virtuais do Azure para carga de trabalho do SAP](./dbms_guide_general.md)
-- [Implantação do DBMS de Máquinas de Virtuais do SQL Server Azure para NetWeaver do SAP](./dbms_guide_sqlserver.md)
-- [Implantação do DBMS de Máquinas Virtuais do Oracle Azure para carga de trabalho do SAP](./dbms_guide_oracle.md)
-- [Implantação do DBMS de Máquinas Virtuais do IBM DB2 Azure para carga de trabalho do SAP](./dbms_guide_ibm.md)
-- [Implantação do DBMS de Máquinas Virtuais do SAP ASE Azure para carga de trabalho do SAP](./dbms_guide_sapase.md)
-- [Implantação do SAP MaxDB, do Live Cache e do Content Server em VMs do Azure](./dbms_guide_maxdb.md)
-
-Para obter informações sobre bancos de dados SAP HANA no Azure, confira a seção "SAP HANA em máquinas virtuais do Azure".
+Essa seção apresenta a documentação de planejamento e implantação para o SAP NetWeaver e o Business One no Azure. A documentação se concentra nas noções básicas e no uso de bancos de dados não HANA com uma carga de trabalho do SAP no Azure. Os documentos e artigos para alta disponibilidade também são a base para a alta disponibilidade do HANA no Azure
 
 Para obter informações sobre a alta disponibilidade de uma carga de trabalho do SAP no Azure, confira:
 
@@ -104,6 +89,7 @@ Para obter informações sobre a integração dos serviços do Azure em componen
 
 ## <a name="change-log"></a>Log de alterações
 
+- 08/10/2020: introdução ao custo SAP HANA configuração de armazenamento em [SAP Hana configurações de armazenamento de máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) e fazer algumas atualizações [nas cargas de trabalho do SAP no Azure: lista de verificação de planejamento e implantação](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
 - 08/04/2020: alterar na [configuração do pacemaker no SLES no Azure](./high-availability-guide-suse-pacemaker.md) e [Configurar o pacemaker no RHEL no Azure](./high-availability-guide-rhel-pacemaker.md) para enfatizar a importância da resolução de nomes confiável para clusters do pacemaker
 - 08/04/2020: alteração no [SAP NW ha no WFCS com compartilhamento de arquivos](./sap-high-availability-installation-wsfc-file-share.md), [SAP NW ha no WFCS com disco compartilhado](./sap-high-availability-installation-wsfc-shared-disk.md), [ha para SAP NW em VMs do Azure](./high-availability-guide.md), [ha para SAP NW em VMs do Azure no SLES](./high-availability-guide-suse.md), [ha para SAP NW em VMs do Azure no SLES com seja](./high-availability-guide-suse-netapp-files.md), [ha para SAP NW em VMs do Azure no guia de vários SID do SLES](./high-availability-guide-suse-multi-sid.md), [alta disponibilidade para SAP NetWeaver em VMs do Azure no RHEL](./high-availability-guide-rhel.md), [ha para SAP NW em VMs do Azure no RHEL com seja](./high-availability-guide-rhel-netapp-files.md) e [ha para SAP NW em VMs do Azure no RHEL multi-Sid](./high-availability-guide-rhel-multi-sid.md) para esclarecer o uso do parâmetro`enque/encni/set_so_keepalive`
 - 07/23/2020: foi adicionado o artigo [salvar em SAP Hana em instâncias grandes com um Azure reserva](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) explicando o que você precisa saber antes de comprar uma reserva de SAP Hana em instâncias grandes e como fazer a compra

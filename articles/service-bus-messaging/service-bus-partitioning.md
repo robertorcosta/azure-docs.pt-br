@@ -3,12 +3,12 @@ title: Criar tópicos e filas particionados do Barramento de Serviço | Microsof
 description: Descreve como particionar filas e tópicos do Barramento de Serviço usando vários agentes de mensagem.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6ea0bee255f489355056f91d82195382153786bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c43d8d560ddede021b70b0cdc167f42052904b0b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339633"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064852"
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
@@ -19,7 +19,7 @@ O Barramento de Serviço do Azure emprega vários agentes de mensagens para proc
  
 Não é possível alterar a opção de particionamento em uma fila ou um tópico existente; você pode definir a opção apenas quando cria a entidade.
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Cada fila ou tópico particionado consiste em várias partições. Cada partição é armazenada em um repositório de mensagens diferente e manipulada por um agente de mensagens diferente. Quando uma mensagem é enviada a uma fila ou tópico particionado, o barramento de serviço atribui a mensagem a uma das partições. A seleção é feita aleatoriamente pelo Barramento de Serviço ou por uma chave de partição que pode ser especificada pelo remetente.
 
@@ -149,4 +149,4 @@ Leia sobre os conceitos básicos da especificação de mensagens AMQP 1.0 no [gu
 [QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
 [TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablepartitioning
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-amqp-protocol-guide.md

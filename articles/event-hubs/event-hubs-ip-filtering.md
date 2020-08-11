@@ -3,12 +3,12 @@ title: Regras de firewall dos Hubs de Eventos do Azure| Microsoft Docs
 description: Use as Regras de firewall para permitir conexões de endereços IP específicos com os Hubs de Eventos do Azure.
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: b59c34e80fb08e35a9ed8b1b3e406e2e63517877
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7870260b77785af59f4f186274775067f2292ef6
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836812"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066042"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Permitir acesso aos namespaces dos hubs de eventos do Azure de intervalos ou endereços IP específicos
 Por padrão, os namespaces dos Hubs de Eventos são acessíveis da Internet, desde que a solicitação acompanhe autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -18,9 +18,9 @@ Esse recurso é útil em cenários nos quais os Hubs de Eventos do Azure devem s
 >[!WARNING]
 > Habilitar filtragem de IP pode impedir que outros serviços do Azure interajam com os Hubs de Eventos.
 >
-> Não há suporte para serviços confiáveis da Microsoft quando as Redes Virtuais são implementadas.
+> Os serviços confiáveis da Microsoft não têm suporte quando a filtragem de IP é implementada.
 >
-> Cenários comuns do Azure que não funcionam com Redes Virtuais (observe que a lista **NÃO** é exaustiva):
+> Cenários comuns do Azure que não funcionam com a filtragem de IP (Observe que a lista **não** é exaustiva) –
 > - Stream Analytics do Azure
 > - Rotas do Hub IoT do Azure
 > - Device Explorer do Azure IoT

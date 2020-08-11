@@ -3,12 +3,12 @@ title: Guia de solução de problemas do barramento de serviço do Azure | Micro
 description: Este artigo fornece uma lista de exceções de mensagens do barramento de serviço do Azure e ações sugeridas a serem executadas quando a exceção ocorre.
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 6071aae85daa1852c9384656d7caf5e2deffd84e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 822a97a230a8646ddadde21eedc6c23d5e3efbd6
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071307"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067045"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guia de solução de problemas do barramento de serviço do Azure
 Este artigo fornece dicas de solução de problemas e recomendações para alguns problemas que você pode ver ao usar o barramento de serviço do Azure. 
@@ -80,7 +80,7 @@ Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perfor
 A identidade não tem permissões para acessar o tópico do barramento de serviço. 
 
 ### <a name="resolution"></a>Resolução
-Para resolver esse erro, instale a biblioteca [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) .  Para obter mais informações, consulte [autenticação de desenvolvimento local](..\key-vault\service-to-service-authentication.md#local-development-authentication). 
+Para resolver esse erro, instale a biblioteca [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) .  Para obter mais informações, consulte [autenticação de desenvolvimento local](../key-vault/general/service-to-service-authentication.md#local-development-authentication). 
 
 Para saber como atribuir permissões a funções, consulte [autenticar uma identidade gerenciada com Azure Active Directory para acessar os recursos do barramento de serviço do Azure](service-bus-managed-service-identity.md).
 
@@ -101,5 +101,4 @@ Abra uma nova conexão com o namespace do barramento de serviço para enviar mai
 Veja os artigos a seguir: 
 
 - [Azure Resource Manager exceções](service-bus-resource-manager-exceptions.md). Exceções de lista de ti geradas ao interagir com o barramento de serviço do Azure usando Azure Resource Manager (por meio de modelos ou chamadas diretas).
-- [Exceções de mensagens](service-bus-messaging-exceptions.md). Ele fornece uma lista de exceções geradas pelo .NET Framework para o barramento de serviço do Azure. 
-
+- [Exceções de mensagens](service-bus-messaging-exceptions.md). Ele fornece uma lista de exceções geradas pelo .NET Framework para o barramento de serviço do Azure.

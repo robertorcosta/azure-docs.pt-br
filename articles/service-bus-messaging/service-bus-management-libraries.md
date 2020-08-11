@@ -4,12 +4,12 @@ description: Este artigo explica como usar as bibliotecas de gerenciamento do ba
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 042edcd1851f86dd2a660673bc87884b68410bfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63a8f0f8ef299f9d27d3c1be2746052536c4e5e8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341714"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066161"
 ---
 # <a name="service-bus-management-libraries"></a>Bibliotecas de gerenciamento do Barramento de Serviço
 
@@ -26,11 +26,11 @@ As bibliotecas de gerenciamento do Barramento de Serviço do Azure podem provisi
 
 Para começar a usar as bibliotecas de gerenciamento do Barramento de Serviço, você deve se autenticar com o serviço Azure Active Directory (Azure AD). O Microsoft Azure Active Directory exige que você autentique como uma entidade de serviço que forneça acesso aos recursos do Azure. Para saber mais sobre como criar uma entidade de serviço, veja um dos seguintes artigos:  
 
-* [Use o portal do Azure para criar Active Directory aplicativo e entidade de serviço que possa acessar recursos](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
-* [Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Usar a CLI do Azure para criar uma entidade de serviço a fim de acessar recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Use o portal do Azure para criar Active Directory aplicativo e entidade de serviço que possa acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+* [Usar a CLI do Azure para criar uma entidade de serviço a fim de acessar recursos](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 
-Estes tutoriais fornecem uma `AppId` (ID do Cliente), `TenantId` e `ClientSecret` (chave de autenticação), todas usadas para autenticação pelas bibliotecas de gerenciamento. Você deve ter pelo menos permissões de proprietário ou [**colaborador**](/azure/role-based-access-control/built-in-roles#contributor) de [**dados do barramento de serviço do Azure**](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) para o grupo de recursos no qual você deseja executar.
+Estes tutoriais fornecem uma `AppId` (ID do Cliente), `TenantId` e `ClientSecret` (chave de autenticação), todas usadas para autenticação pelas bibliotecas de gerenciamento. Você deve ter pelo menos permissões de proprietário ou [**colaborador**](../role-based-access-control/built-in-roles.md#contributor) de [**dados do barramento de serviço do Azure**](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) para o grupo de recursos no qual você deseja executar.
 
 ## <a name="programming-pattern"></a>Padrão de programação
 

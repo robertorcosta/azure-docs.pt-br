@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/21/2020
+ms.date: 8/10/2020
 ms.author: yohaddad
-ms.openlocfilehash: 04e75d108b9f518311ad19b2f9027dd0ad7e9e88
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e14295842413464ed9faced59c8bb897f192a511
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002872"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067011"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] específica na qual foram introduzidas.
@@ -76,24 +76,22 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 
 ## <a name="june-2020-guest-os"></a>SO convidado de junho de 2020
->[!NOTE]
->Atualmente, o SO convidado de junho está sendo distribuído para VMs de serviço de nuvem configuradas para atualizações automáticas. Quando a distribuição estiver concluída, essa versão será disponibilizada para atualizações manuais por meio do portal do Azure e dos arquivos de configuração. Os seguintes patches estão incluídos no SO convidado de abril. Esta lista está sujeita a alterações.
 
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 20-06  |  [4561603]  |  Internet Explorer  |  2,99, 3,86, 4,79  |  9 de junho de 2020  |
-|  Rel 20-06  |  [4561616]  |  Atualização cumulativa mais recente (LCU)  |  5.44  |  9 de junho de 2020  |
-|  Rel 20-06  |  [4561608]  |  Atualização cumulativa mais recente (LCU)  |  6.20  |  9 de junho de 2020  |
-|  Rel 20-06  |  [4562030]  |  Atualização da pilha de manutenção  |  2,99  |  9 de junho de 2020  |
-|  Rel 20-06  |  [4561643]  |  Rollup mensal  |  2,99  |  9 de junho de 2020  |
-|  Rel 20-06  |  [4562252]  |  Atualização da pilha de manutenção  |  3,86  |  9 de junho de 2020  |
-|  Rel 20-06  |  [4561612]  |  Rollup mensal  |  3,86  |  9 de junho de 2020  |
-|  Rel 20-06  |  [4561600]  |  Piscando  |  3,86, 4,79, 5,44, 6,20  |  9 de junho de 2020  |
-|  Rel 20-06  |  [4562253]  |  Atualização da pilha de manutenção  |  4,79  |  9 de junho de 2020  |
-|  Rel 20-06  |  [4561666]  |  Rollup mensal  |  4,79  |  9 de junho de 2020  |
-|  Rel 20-06  |  [4562561]  |  Atualização da pilha de manutenção  |  5.44  |  9 de junho de 2020  |
-|  Rel 20-06  |  [4562562]  |  Atualização da pilha de manutenção  |  6.20  |  9 de junho de 2020  |
+|  Rel 20-06  |  [4561603]  |  Internet Explorer  |  [2,99], [3,86], [4,79]  |  9 de junho de 2020  |
+|  Rel 20-06  |  [4561616]  |  Atualização cumulativa mais recente (LCU)  |  [5.44]  |  9 de junho de 2020  |
+|  Rel 20-06  |  [4561608]  |  Atualização cumulativa mais recente (LCU)  |  [6.20]  |  9 de junho de 2020  |
+|  Rel 20-06  |  [4562030]  |  Atualização da pilha de manutenção  |  [2,99]  |  9 de junho de 2020  |
+|  Rel 20-06  |  [4561643]  |  Rollup mensal  |  [2,99]  |  9 de junho de 2020  |
+|  Rel 20-06  |  [4562252]  |  Atualização da pilha de manutenção  |  [3,86]  |  9 de junho de 2020  |
+|  Rel 20-06  |  [4561612]  |  Rollup mensal  |  [3,86]  |  9 de junho de 2020  |
+|  Rel 20-06  |  [4561600]  |  Piscando  |  [3,86], [4,79], [5,44], [6,20]  |  9 de junho de 2020  |
+|  Rel 20-06  |  [4562253]  |  Atualização da pilha de manutenção  |  [4,79]  |  9 de junho de 2020  |
+|  Rel 20-06  |  [4561666]  |  Rollup mensal  |  [4,79]  |  9 de junho de 2020  |
+|  Rel 20-06  |  [4562561]  |  Atualização da pilha de manutenção  |  [5.44]  |  9 de junho de 2020  |
+|  Rel 20-06  |  [4562562]  |  Atualização da pilha de manutenção  |  [6.20]  |  9 de junho de 2020  |
 
 
 
@@ -109,6 +107,11 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [4561666]: https://support.microsoft.com/kb/4561666
 [4562561]: https://support.microsoft.com/kb/4562561
 [4562562]: https://support.microsoft.com/kb/4562562
+[2,99]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3,86]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4,79]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.44]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.20]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="may-2020-guest-os"></a>SO convidado de maio de 2020

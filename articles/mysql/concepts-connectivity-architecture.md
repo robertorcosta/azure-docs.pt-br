@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: f4d90693f2cd3bdd440b7cb914e7fc037103d362
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 440007767835de4641fb828b41d572f35997acd2
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120986"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064461"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitetura de conectividade no banco de dados do Azure para MySQL
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para MySQL e também como o tráfego é direcionado para a instância do banco de dados do Azure para MySQL de clientes dentro e fora do Azure.
@@ -41,7 +41,7 @@ A tabela a seguir lista os IPs primários e secundários do banco de dados do Az
 | Norte da China | 139.219.15.17    |
 | Norte da China 2 | 40.73.50.0     |
 | Leste da Ásia | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
-| East US | 40.121.158.30, 191.238.6.43, 40.71.8.203, 40.71.83.113 |
+| Leste dos EUA | 40.121.158.30, 191.238.6.43, 40.71.8.203, 40.71.83.113 |
 | Leste dos EUA 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  |
 | França Central | 40.79.137.0, 40.79.129.1  |
 | Sul da França | 40.79.177.0     |
@@ -58,15 +58,15 @@ A tabela a seguir lista os IPs primários e secundários do banco de dados do Az
 | Norte da Europa | 40.113.93.91, 191.235.193.75, 52.138.224.6, 52.138.224.7    |
 | Norte da África do Sul  | 102.133.152.0    |
 | Oeste da África do Sul | 102.133.24.0   |
-| South Central US |13.66.62.124, 23.98.162.75, 104.214.16.39, 20.45.120.0   |
+| Centro-Sul dos Estados Unidos |13.66.62.124, 23.98.162.75, 104.214.16.39, 20.45.120.0   |
 | Sudeste da Ásia | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
 | EAU Central | 20.37.72.64  |
 | Norte dos EAU | 65.52.248.0    |
 | Sul do Reino Unido | 51.140.184.11   |
 | Oeste do Reino Unido | 51.141.8.11  |
 | Centro-Oeste dos EUA | 13.78.145.25     |
-| West Europe | 40.68.37.158, 191.237.232.75, 13.69.105.208  |
-| Oeste dos EUA | 104.42.238.205, 23.99.34.75  |
+| Europa Ocidental | 40.68.37.158, 191.237.232.75, 13.69.105.208 ,104.40.169.187 |
+| Oeste dos EUA | 104.42.238.205, 23.99.34.75 ,13.86.216.212, 13.86.217.212 |
 | Oeste dos EUA 2 | 13.66.226.202  |
 ||||
 

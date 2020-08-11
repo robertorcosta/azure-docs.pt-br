@@ -3,12 +3,12 @@ title: Autenticar um aplicativo para acessar entidades do barramento de serviço
 description: Este artigo fornece informações sobre como autenticar um aplicativo com Azure Active Directory para acessar entidades do barramento de serviço do Azure (filas, tópicos, etc.)
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 1d18772dfa9cf444dc55d5e4cef6f31dd6c0d669
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b12f2f294a66159a7035240c361ab93f9f84718e
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006257"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064818"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticar e autorizar um aplicativo com Azure Active Directory para acessar entidades do barramento de serviço do Azure
 O barramento de serviço do Azure dá suporte ao uso de Azure Active Directory (AD do Azure) para autorizar solicitações para entidades do barramento de serviço (filas, tópicos, assinaturas ou filtros). Com o Azure AD, você pode usar o Azure RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança, que pode ser um usuário, grupo ou entidade de serviço de aplicativo. Para saber mais sobre funções e atribuições de função, confira [noções básicas sobre as diferentes funções](../role-based-access-control/overview.md).
@@ -102,7 +102,7 @@ Depois de registrar seu aplicativo, você verá a ID do **aplicativo (cliente)**
 
 ![ID do aplicativo registrado](./media/authenticate-application/application-id.png)
 
-Para obter mais informações sobre como registrar um aplicativo no Azure AD, consulte [Integrando aplicativos com o Azure Active Directory](../active-directory/develop/quickstart-v2-register-an-app.md).
+Para obter mais informações sobre como registrar um aplicativo no Azure AD, consulte [Integrando aplicativos com o Azure Active Directory](../active-directory/develop/quickstart-register-app.md).
 
 > [!IMPORTANT]
 > Anote a **tenantid** e a **ApplicationId**. Você precisará desses valores para executar o aplicativo.

@@ -3,12 +3,12 @@ title: Logs de diagnóstico do barramento de serviço do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral de todos os logs operacionais e de diagnóstico que estão disponíveis para o barramento de serviço do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: eeaa7e92488fd59994fc07ea0081b0f00c8768df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f227f5a988ccd51425b4f43e87b4ed4d9af74e1f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337532"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064427"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Habilitar logs de diagnóstico para o barramento de serviço
 
@@ -97,11 +97,11 @@ Os logs operacionais são desabilitados por padrão. Para habilitar os logs de d
 
     ![O painel "configurações de diagnóstico"](./media/service-bus-diagnostic-logs/image3.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 As novas configurações terão efeito em aproximadamente dez minutos. Os logs aparecerão no destino de arquivamento configurado, no painel **Logs de diagnóstico**.
 
-Para obter mais informações sobre como definir configurações de diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+Para obter mais informações sobre como definir configurações de diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6ffbd23dccd7bac03e849241866416ac07af4a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5734cb76e4ed018778c6858597ec8efe3019bf9
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035410"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065974"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Proteger contas de usuário contra ataques com bloqueio inteligente de Azure Active Directory
 
@@ -24,7 +24,7 @@ O bloqueio inteligente ajuda a bloquear atores ruins que tentam adivinhar as sen
 
 ## <a name="how-smart-lockout-works"></a>Como o bloqueio inteligente funciona
 
-Por padrão, o bloqueio inteligente bloqueia a conta de tentativas de login por um minuto após 10 tentativas malsucedidas. A conta é bloqueada novamente após cada tentativa de entrada com falha subsequente durante um minuto na primeira vez, e tempos mais longos em tentativas subsequentes.
+Por padrão, o bloqueio inteligente bloqueia a conta de tentativas de login por um minuto após 10 tentativas malsucedidas. A conta é bloqueada novamente após cada tentativa de entrada com falha subsequente durante um minuto na primeira vez, e tempos mais longos em tentativas subsequentes. Para minimizar as maneiras como um invasor pode contornar esse comportamento, não divulgamos a taxa na qual o período de bloqueio cresce em tentativas de entrada malsucedidas adicionais.
 
 O bloqueio inteligente rastreia os últimos três hashes de senha incorreta para evitar o incremento do contador de bloqueio para a mesma senha. Se alguém inserir a mesma senha inadequada várias vezes, esse comportamento não fará com que a conta seja bloqueada.
 

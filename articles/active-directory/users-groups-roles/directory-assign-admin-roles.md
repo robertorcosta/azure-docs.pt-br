@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ae598fb9e4018369230de5fadcf173a3df9fb4c
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 09050bc6895076994baf1c98c65aa87672a5652e
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87551686"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066059"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -545,11 +545,11 @@ Pode criar e gerenciar todos os aspectos de registros de aplicativo e aplicativo
 | microsoft.directory/appRoleAssignments/update | Atualize o appRoleAssignments no Active Directory do Azure. |
 | microsoft.directory/appRoleAssignments/delete | Exclua appRoleAssignments em Azure Active Directory. |
 | microsoft.directory/auditLogs/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em auditLogs no Azure Active Directory. |
-| microsoft.directory/connectorGroups/everything/read | Leia as propriedades do grupo de conectores do proxy de aplicativo no Azure Active Directory. |
-| microsoft.directory/connectorGroups/everything/update | Atualize todas as propriedades do grupo de conectores do proxy de aplicativo no Azure Active Directory. |
+| Microsoft. Directory/connectorGroups/myproperties/Read | Leia as propriedades do grupo de conectores do proxy de aplicativo no Azure Active Directory. |
+| Microsoft. Directory/connectorGroups/myproperties/Update | Atualize todas as propriedades do grupo de conectores do proxy de aplicativo no Azure Active Directory. |
 | microsoft.directory/connectorGroups/create | Crie grupos de conectores do proxy de aplicativo no Azure Active Directory. |
 | microsoft.directory/connectorGroups/delete | Exclua grupos de conectores do proxy de aplicativo no Azure Active Directory. |
-| microsoft.directory/connectors/everything/read | Leia todas as propriedades do conector do proxy de aplicativo no Azure Active Directory. |
+| Microsoft. Directory/Connectors/myproperties/Read | Leia todas as propriedades do conector do proxy de aplicativo no Azure Active Directory. |
 | microsoft.directory/connectors/create | Crie conectores do proxy de aplicativo no Azure Active Directory. |
 | microsoft.directory/policies/applicationConfiguration/basic/read | Ler policies.applicationConfiguration property em Azure Active Directory. |
 | microsoft.directory/policies/applicationConfiguration/basic/update | Atualize policies.applicationConfiguration property em Azure Active Directory. |
@@ -1426,7 +1426,6 @@ Pode gerenciar os serviços de nuvem dos aplicativos do Office, incluindo o gere
 | microsoft.office365.messageCenter/messages/read | Ler mensagens em microsoft.office365.messageCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
-| Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
 | microsoft.office365.userCommunication/allEntities/allTasks | Ler e atualizar a visibilidade das mensagens sobre novidades. |
 | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
