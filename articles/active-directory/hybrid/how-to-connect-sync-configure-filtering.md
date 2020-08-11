@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 753e00ef5f015c554e49d7326120d29f5c5da4a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1879df40122549ddc4c57557017fa2c84c883368
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357759"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88061499"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
 Com a filtragem, você pode controlar quais objetos do seu diretório local devem aparecer no Azure Active Directory (Azure AD). A configuração padrão obtém todos os objetos em todos os domínios nas florestas configuradas. Em geral, essa é a configuração recomendada. Os usuários que utilizarem cargas de trabalho do Office 365, como o Exchange Online e o Skype for Business, receberão uma Lista de Endereços Global completa para poderem enviar emails e fazer chamadas para todos. Com a configuração padrão, eles teriam a mesma experiência de uma implementação local do Exchange ou do Lync.
@@ -47,7 +47,7 @@ Como a filtragem pode remover muitos objetos ao mesmo tempo, certifique-se de qu
 
 Para que você não exclua muitos objetos por acidente, o recurso “[impedir exclusões acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md)” está ativado por padrão. Se você excluir muitos objetos devido à filtragem (500, por padrão), precisará seguir as etapas deste artigo para permitir que as exclusões passem para o Azure AD.
 
-Se você usar uma build anterior à de novembro de 2015([1.0.9125](reference-connect-version-history.md#1091250)), alterar a configuração de filtro e usar a sincronização de senha, precisará disparar uma sincronização completa de todas as senhas depois de concluir a configuração. Para obter as etapas para disparar uma sincronização de senhas completa, consulte [Disparar uma sincronização completa de todas as senhas](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Se você estiver usando a versão 1.0.9125 ou uma versão posterior, a ação da **sincronização completa** normal, também avalia se as senhas precisam ser sincronizadas e esta etapa adicional não será mais necessária.
+Se você usar uma build anterior à de novembro de 2015([1.0.9125](reference-connect-version-history.md)), alterar a configuração de filtro e usar a sincronização de senha, precisará disparar uma sincronização completa de todas as senhas depois de concluir a configuração. Para obter as etapas para disparar uma sincronização de senhas completa, consulte [Disparar uma sincronização completa de todas as senhas](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Se você estiver usando a versão 1.0.9125 ou uma versão posterior, a ação da **sincronização completa** normal, também avalia se as senhas precisam ser sincronizadas e esta etapa adicional não será mais necessária.
 
 Se objetos de **usuário** tiverem sido excluídos acidentalmente do Azure AD devido a um erro de filtragem, você pode recriar os objetos de usuário no Azure AD, removendo as configurações de filtragem. Em seguida, você pode sincronizar os diretórios novamente. Essa ação restaura os usuários da lixeira no Azure AD. Contudo, não é possível cancelar a exclusão de outros tipos de objeto. Por exemplo, se você excluir acidentalmente um grupo de segurança usado para criar a ACL de um recurso, o grupo e suas ACLs não poderão ser recuperados.
 
@@ -144,7 +144,7 @@ Se você tiver atualizado o filtro de domínio, também precisará atualizar os 
 3. Para cada perfil, ajuste os domínios **adicionados** e **removidos**.
     1. Para cada um dos cinco perfis, execute as seguintes etapas para cada domínio **adicionado**:
         1. Selecione o perfil de execução e clique em **Nova Etapa**.
-        2. Na página **Configurar Etapa**, no menu suspenso **Tipo**, selecione o tipo de etapa com o mesmo nome do perfil que você está configurando. Clique em **Avançar**.  
+        2. Na página **Configurar Etapa**, no menu suspenso **Tipo**, selecione o tipo de etapa com o mesmo nome do perfil que você está configurando. Em seguida, clique em **Próximo**.  
         ![Perfis de execução do conector 2](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep1.png)  
         3. Na página **Configuração do Conector**, no menu suspenso **Partição**, selecione o nome do domínio que você adicionou ao filtro de domínio.  
         ![Perfis de execução do conector 3](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep2.png)  
@@ -202,7 +202,7 @@ Você pode configurar o mecanismo de sincronização para não sincronizar novas
 Com essa configuração, uma nova UO que foi criada em ManagedObjects não será sincronizada.
 
 ## <a name="attribute-based-filtering"></a>Filtragem baseada em atributo
-Verifique se você está usando a versão de novembro de 2015 ([1.0.9125](reference-connect-version-history.md#1091250)) ou uma versão posterior para que estas etapas funcionem.
+Verifique se você está usando a versão de novembro de 2015 ([1.0.9125](reference-connect-version-history.md)) ou uma versão posterior para que estas etapas funcionem.
 
 > [!IMPORTANT]
 >A Microsoft recomenda não alterar as regras padrão criadas pelo **Azure AD Connect**. Se você quiser modificar a regra, clone-a e desabilite a regra original. Faça alterações somente na regra clonada. Observe que ao fazer isso (desabilitar a regra original), você perderá as correções de bugs ou os recursos habilitados por meio dessa regra.
@@ -279,7 +279,7 @@ Neste exemplo, você altera a filtragem para que somente usuários com emails e 
 5. No pop-up, responda **Sim** para criar uma cópia da regra.
 6. Na página **Descrição**, altere **Precedência** para um valor não usado, por exemplo, 50.
 7. Clique em **Filtro de escopo** na barra de navegação à esquerda e clique em **Adicionar cláusula**. Em **Atributo**, selecione **mail**. Em **Operador**, selecione **ENDSWITH**. Em **valor**, digite ** \@ contoso.com**e clique em **Adicionar cláusula**. Em **Atributo**, selecione **userPrincipalName**. Em **Operador**, selecione **ENDSWITH**. Em **valor**, digite ** \@ contoso.com**.
-8. Clique em **Save** (Salvar).
+8. Clique em **Salvar**.
 9. Para concluir a configuração, você precisa executar uma **sincronização completa**. Continue lendo a seção [aplicar e verificar as alterações](#apply-and-verify-changes).
 
 ## <a name="apply-and-verify-changes"></a>Aplicar e verificar as alterações
