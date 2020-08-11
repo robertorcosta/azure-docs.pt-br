@@ -4,12 +4,12 @@ description: Saiba como configurar um aplicativo ASP.NET no serviço Azure App. 
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 1aeb243b3ff4a1e6bd2ae984510d2ec709776fa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53654520ea20bd8ee797de61449a616eadd001a5
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907858"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080140"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Configurar um aplicativo ASP.NET para o serviço Azure App
 
@@ -18,7 +18,7 @@ ms.locfileid: "84907858"
 
 Os aplicativos ASP.NET devem ser implantados no serviço Azure App como binários compilados. A ferramenta de publicação do Visual Studio cria a solução e implanta os binários compilados diretamente, enquanto o mecanismo de implantação do serviço de aplicativo implanta o repositório de código primeiro e, em seguida, compila os binários.
 
-Este guia fornece os principais conceitos e instruções para desenvolvedores de ASP.NET. Se você nunca usou Azure App serviço, siga o tutorial [ASP.net início rápido](app-service-web-get-started-dotnet-framework.md) e [ASP.NET com Banco de dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md) primeiro.
+Este guia fornece os principais conceitos e instruções para desenvolvedores de ASP.NET. Se você nunca usou Azure App serviço, siga o tutorial [ASP.net início rápido](quickstart-dotnet-framework.md) e [ASP.NET com Banco de dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md) primeiro.
 
 ## <a name="show-supported-net-framework-runtime-versions"></a>Mostrar versões de tempo de execução .NET Framework com suporte
 

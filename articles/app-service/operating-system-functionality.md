@@ -5,18 +5,18 @@ ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11798db483f0ba370f73340489c17f38c87ede41
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74671619"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080191"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operacional no Serviço de Aplicativo do Azure
 Este artigo descreve a funcionalidade do sistema operacional de linha de base comum disponível a todos os aplicativos Windows em execução no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Essa funcionalidade inclui acesso a arquivos, redes e registros, além de logs de diagnóstico e eventos. 
 
 > [!NOTE] 
-> [Aplicativos Linux](containers/app-service-linux-intro.md) no Serviço de Aplicativo são executados em seus próprios contêineres. Nenhum acesso ao sistema operacional do host é permitido, você tem acesso à raiz para o contêiner. Da mesma forma, para [aplicativos em execução em contêineres do Windows](app-service-web-get-started-windows-container.md), você tem acesso administrativo ao contêiner, mas nenhum acesso ao sistema operacional do host. 
+> [Aplicativos Linux](overview.md#app-service-on-linux) no Serviço de Aplicativo são executados em seus próprios contêineres. Nenhum acesso ao sistema operacional do host é permitido, você tem acesso à raiz para o contêiner. Da mesma forma, para [aplicativos em execução em contêineres do Windows](quickstart-custom-container.md?pivots=container-windows), você tem acesso administrativo ao contêiner, mas nenhum acesso ao sistema operacional do host. 
 >
 
 <a id="tiers"></a>
@@ -60,7 +60,7 @@ Basicamente, o Serviço de Aplicativo é um serviço em execução na infraestru
 
 <a id="NetworkDrives"></a>
 
-### <a name="network-drives-aka-unc-shares"></a>Unidades de rede (também conhecidas como compartilhamentos UNC)
+### <a name="network-drives-unc-shares"></a>Unidades de rede (compartilhamentos UNC)
 Um dos aspectos exclusivos do Serviço de Aplicativo que simplifica a implantação e a manutenção de aplicativos é que todo o conteúdo do usuário é armazenado em um conjunto de compartilhamentos UNC. Esse modelo mapeia bem para o padrão comum de armazenamento de conteúdo usado por ambientes de hospedagem na Web local com vários servidores com balanceamento de carga. 
 
 Dentro do Serviço de Aplicativo, existem vários compartilhamentos UNC criados em cada datacenter. Uma porcentagem do conteúdo do usuário para todos os clientes em cada data center é alocada para cada compartilhamento UNC. Além disso, todo o conteúdo de arquivo de uma assinatura do cliente única é sempre colocado no mesmo compartilhamento UNC. 

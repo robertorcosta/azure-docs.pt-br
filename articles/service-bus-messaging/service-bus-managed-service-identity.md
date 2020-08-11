@@ -3,12 +3,12 @@ title: Identidades gerenciadas para recursos do Azure com Barramento de Serviço
 description: Este artigo descreve como usar identidades gerenciadas para acessar as entidades do barramento de serviço do Azure (filas, tópicos e assinaturas).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: b33f4e9b38d55ef3ed709df8d09f1ffd62a8bca8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 1deb3bdf823f1554e302bb35baabe444223f9008
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066280"
+ms.locfileid: "88079851"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticar uma identidade gerenciada com Azure Active Directory para acessar recursos do barramento de serviço do Azure
 [Identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) é um recurso do Azure que permite criar uma identidade segura associada à implantação na qual o código do aplicativo é executado. Em seguida, você pode associar essa identidade a funções de controle de acesso que concedem permissões personalizadas para acessar os recursos do Azure específicos que seu aplicativo precisa.
@@ -79,7 +79,7 @@ Para obter mais informações sobre como atribuir funções do Azure, consulte [
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Usar Barramento de Serviço com identidades gerenciadas para recursos do Azure
 Para usar o barramento de serviço com identidades gerenciadas, você precisa atribuir a identidade a função e o escopo apropriado. O procedimento nesta seção usa um aplicativo simples que é executado em uma identidade gerenciada e acessa os recursos do barramento de serviço.
 
-Aqui, estamos usando um aplicativo Web de exemplo hospedado no [serviço Azure app](https://azure.microsoft.com/services/app-service/). Para obter as instruções passo a passo para criar um aplicativo Web, consulte [criar um ASP.NET Core aplicativo Web no Azure](../app-service/app-service-web-get-started-dotnet.md)
+Aqui, estamos usando um aplicativo Web de exemplo hospedado no [serviço Azure app](https://azure.microsoft.com/services/app-service/). Para obter as instruções passo a passo para criar um aplicativo Web, consulte [criar um ASP.NET Core aplicativo Web no Azure](../app-service/quickstart-dotnetcore.md)
 
 Depois que o aplicativo for criado, siga estas etapas: 
 

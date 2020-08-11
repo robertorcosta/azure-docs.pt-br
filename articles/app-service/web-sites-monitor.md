@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d83aae778c940958d545a9402b09d24a55b1c5a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5507e6f97211f209eb559ff7491f22bdf1a00e54
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482676"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079664"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorar aplicativos no Serviço de Aplicativo do Azure
 O [serviço de Azure app](https://go.microsoft.com/fwlink/?LinkId=529714) fornece funcionalidade de monitoramento interna para aplicativos Web, móveis e aplicativos de API no [portal do Azure](https://portal.azure.com).
@@ -37,7 +37,7 @@ As cotas para aplicativos Gratuitos ou Compartilhados são:
 | **CPU (Dia)** | A quantidade total de CPU permitida para esse aplicativo em um dia. Essa cota é definida novamente a cada 24 horas, à meia-noite UTC. |
 | **Memória** | A quantidade total de memória permitida para esse aplicativo. |
 | **Largura de banda** | A quantidade total de largura de banda de saída permitida para esse aplicativo em um dia. Essa cota é definida novamente a cada 24 horas, à meia-noite UTC. |
-| **Sistema de arquivos** | A quantidade total de armazenamento permitida. |
+| **WPD** | A quantidade total de armazenamento permitida. |
 
 A única cota aplicável a aplicativos hospedados em *Basic*, *Standard*e *Premium* é FileSystem.
 
@@ -64,19 +64,23 @@ Aumente ou remova cotas de seu aplicativo atualizando seu Plano do Serviço de A
 > [!IMPORTANT]
 > O **tempo médio de resposta** será preterido para evitar confusão com agregações de métricas. Use o **tempo de resposta** como uma substituição.
 
+> [!NOTE]
+> As métricas para um aplicativo incluem as solicitações para o site do SCM do aplicativo (kudu).  Isso inclui solicitações para exibir o logstream do site usando kudu.  As solicitações Logstream podem abranger vários minutos, o que afetará as métricas de tempo de solicitação.  Os usuários devem estar cientes dessa relação ao usar essas métricas com a lógica de dimensionamento automático.
+> 
+
 Métricas fornecem informações sobre o aplicativo ou sobre o comportamento do Plano do Serviço de Aplicativo.
 
 Para um aplicativo, as métricas disponíveis são:
 
 | Métrica | Descrição |
 | --- | --- |
-| **Tempo de Resposta** | O tempo necessário para o aplicativo atender solicitações, em segundos. |
+| **Tempo de resposta** | O tempo necessário para o aplicativo atender solicitações, em segundos. |
 | **Tempo médio de resposta (preterido)** | O tempo médio necessário para o aplicativo atender solicitações, em segundos. |
 | **Conjunto de trabalho de memória média** | A quantidade média de memória usada pelo aplicativo em megabytes (MiB). |
 | **Conexões** | O número de soquetes associados existentes na área restrita (w3wp.exe e seus processos filho).  Um soquete associado é criado chamando APIs bind()/connect() e permanece até que seja fechado com CloseHandle()/closesocket(). |
 | **Tempo de CPU** | A quantidade de CPU consumida pelo aplicativo em segundos. Para obter mais informações sobre essa métrica, consulte [CPU time vs CPU Percentage](#cpu-time-vs-cpu-percentage). |
 | **Assemblies Atuais** | O número atual de Assemblies carregados em todos os AppDomains nesse aplicativo. |
-| **Entrada de Dados** | A quantidade de largura de banda de entrada consumida pelo aplicativo em MiB. |
+| **Dados em** | A quantidade de largura de banda de entrada consumida pelo aplicativo em MiB. |
 | **Saída de dados** | A quantidade de largura de banda de saída consumida pelo aplicativo em MiB. |
 | **Uso do sistema de arquivos** | Porcentagem da cota do sistema de arquivos consumida pelo aplicativo. |
 | **Coletas de lixo da Ger 0** | O número de vezes que os objetos da geração 0 são coletados como lixo desde o início do processo do aplicativo. As coletas de lixo de geração superior incluem todas as coletas da geração inferior.|
@@ -89,8 +93,8 @@ Para um aplicativo, as métricas disponíveis são:
 | **Http 403** | A contagem de solicitações que resultam em um código de status HTTP 403. |
 | **Http 404** | A contagem de solicitações que resultam em um código de status HTTP 404. |
 | **Http 406** | A contagem de solicitações que resultam em um código de status HTTP 406. |
-| **Http 4xx** | A contagem de solicitações que resultam em um código de status HTTP ≥ 400, mas < 500. |
-| **Erros do Servidor Http** | A contagem de solicitações que resultam em um código de status HTTP ≥ 500, mas < 600. |
+| **4xx http** | A contagem de solicitações que resultam em um código de status HTTP ≥ 400, mas < 500. |
+| **Erros do servidor http** | A contagem de solicitações que resultam em um código de status HTTP ≥ 500, mas < 600. |
 | **E/S de outros bytes por segundo** | A taxa na qual o processo do aplicativo está emitindo bytes para operações de e/s que não envolvem dados, como operações de controle.|
 | **E/S de outras operações por segundo** | A taxa na qual o processo do aplicativo está emitindo operações de e/s que não são operações de leitura ou gravação.|
 | **E/S de bytes de leitura por segundo** | A taxa na qual o processo do aplicativo está lendo bytes das operações de E/S.|
@@ -116,10 +120,10 @@ Para um Plano do Serviço de Aplicativo, as métricas disponíveis são:
 | --- | --- |
 | **Percentual de CPU** | A média de CPU usada em todas as instâncias do plano. |
 | **Porcentagem de memória** | A média de memória usada em todas as instâncias do plano. |
-| **Entrada de Dados** | A média de largura de banda de entrada usada em todas as instâncias do plano. |
+| **Dados em** | A média de largura de banda de entrada usada em todas as instâncias do plano. |
 | **Saída de dados** | A média de largura de banda de saída usada em todas as instâncias do plano. |
-| **Tamanho da fila do disco** | O número médio de solicitações de leitura e gravação enfileiradas no armazenamento. Um comprimento de fila de disco alto é uma indicação de um aplicativo que pode estar causando lentidão devido à e/s excessiva de disco. |
-| **Tamanho da Fila de Http** | O número médio de solicitações HTTP que tiveram de esperar na fila antes de serem atendidas. Um tamanho de fila HTTP alto ou crescente é um sintoma de um plano sob carga pesada. |
+| **Comprimento da fila de disco** | O número médio de solicitações de leitura e gravação enfileiradas no armazenamento. Um comprimento de fila de disco alto é uma indicação de um aplicativo que pode estar causando lentidão devido à e/s excessiva de disco. |
+| **Comprimento da fila http** | O número médio de solicitações HTTP que tiveram de esperar na fila antes de serem atendidas. Um tamanho de fila HTTP alto ou crescente é um sintoma de um plano sob carga pesada. |
 
 ### <a name="cpu-time-vs-cpu-percentage"></a>Tempo de CPU versus porcentagem de CPU
 <!-- To do: Fix Anchor (#CPU-time-vs.-CPU-percentage) -->

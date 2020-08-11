@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 074171d658eb4e1e029652c9c0851e082ba043fe
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: d5497f50f9e868338541143a18ab0c83f32c1d1b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053432"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080517"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento de máquina virtual do SAP HANA no Azure
 
@@ -133,7 +133,7 @@ Especialmente em sistemas DBMS menores em que sua carga de trabalho está lidand
 > Certificação do SAP HANA para máquinas virtuais da série M do Azure é exclusivamente com o Acelerador de gravação do Azure para o **hana/log** volume. Como resultado, as implantações de SAP HANA de cenário de produção em máquinas virtuais da série M do Azure devem ser configurados com o Acelerador de gravação do Azure para o **hana/log** volume.  
 
 > [!NOTE]
-> Em cenários que envolvem o armazenamento Premium do Azure, estamos implementando recursos de intermitência na configuração. Como você está usando as ferramentas de teste de armazenamento de qualquer forma ou formulário, mantenha o modo como o [Azure Premium Disk Burst](../../linux/disk-bursting.md) funciona em mente. Executando os testes de armazenamento fornecidos por meio da ferramenta SAP HWCCT ou HCMT, não estamos esperando que todos os testes passem os critérios, já que alguns dos testes excederão os créditos de intermitência que você pode acumular. Especialmente quando todos os testes são executados sequencialmente sem interrupção.
+> Em cenários que envolvem o armazenamento Premium do Azure, estamos implementando recursos de intermitência na configuração. Como você está usando as ferramentas de teste de armazenamento de qualquer forma ou formulário, mantenha o [funcionamento do Azure Premium Disk Burst](../../linux/disk-bursting.md) em mente. Executando os testes de armazenamento fornecidos por meio da ferramenta SAP HWCCT ou HCMT, não estamos esperando que todos os testes passem os critérios, já que alguns dos testes excederão os créditos de intermitência que você pode acumular. Especialmente quando todos os testes são executados sequencialmente sem interrupção.
 
 
 > [!NOTE]

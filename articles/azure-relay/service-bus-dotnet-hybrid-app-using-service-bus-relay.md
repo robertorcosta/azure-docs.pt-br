@@ -3,12 +3,12 @@ title: Aplicativo híbrido local/na nuvem (.NET) de retransmissão do Azure Wind
 description: Saiba como expor um serviço WCF local a um aplicativo Web na nuvem usando a Retransmissão do Azure
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 78d250eb2572f137df4bcfd40c5c85cee9fb61dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9ac01beb28b1246122f437bcf1c7a7be7a1dfd9
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314401"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079953"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Expor um serviço WCF local a um aplicativo Web na nuvem usando a Retransmissão do Azure
 
@@ -244,7 +244,7 @@ Nesta seção, você criará um aplicativo ASP.NET simples que exibe os dados re
     ![Especificar a autenticação][18]
 
 1. De volta ao **criar um novo aplicativo Web ASP.net**, selecione **criar** para criar o aplicativo MVC.
-1. Configurar recursos do Azure para um novo aplicativo Web. Siga as etapas em [publicar seu aplicativo Web](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard). Em seguida, retorne a este tutorial e continue para a próxima etapa.
+1. Configurar recursos do Azure para um novo aplicativo Web. Siga as etapas em [publicar seu aplicativo Web](../app-service/quickstart-dotnet-framework.md#launch-the-publish-wizard). Em seguida, retorne a este tutorial e continue para a próxima etapa.
 1. Em **Gerenciador de soluções**, clique com o botão direito do mouse em **modelos** e selecione **Adicionar**  >  **classe**.
 1. Nomeie a classe *Product.cs*e selecione **Adicionar**.
 
@@ -427,7 +427,7 @@ Feche os dois aplicativos antes de prosseguir para a próxima seção.
 
 A próxima etapa é republicar o front-end **portaldeprodutos** do aplicativo Web do Azure:
 
-1. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto **Portaldeprodutos** e selecione **publicar**. Na página **publicar** , selecione **publicar**.
+1. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto **Portaldeprodutos** e selecione **publicar**. Na página **Publicar**, selecione **Publicar**.
 
    > [!NOTE]
    > Você verá uma mensagem de erro na janela do navegador quando o projeto Web **PortalDeProdutos** for iniciado automaticamente após a implantação. Isso é esperado e ocorre porque o aplicativo **ServidorDeProdutos** não está sendo executado ainda.
@@ -449,7 +449,7 @@ A próxima etapa é republicar o front-end **portaldeprodutos** do aplicativo We
 1. Selecione **arquivo**  >  **salvar tudo**.
 1. Selecione **criar**  >  **solução de recompilação**.
 
-## <a name="run-the-application"></a>Execute o aplicativo
+## <a name="run-the-application"></a>Executar o aplicativo
 
 Selecione F5 para compilar e executar o aplicativo. O servidor local, que é o aplicativo de console do **servidordeprodutos** , deve iniciar primeiro e, em seguida, o aplicativo **portaldeprodutos** deve ser iniciado em uma janela do navegador, como mostrado aqui:
 

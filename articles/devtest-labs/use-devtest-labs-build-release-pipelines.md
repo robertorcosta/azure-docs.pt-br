@@ -3,12 +3,12 @@ title: Usar o DevTest Labs no build do Azure Pipelines e em pipelines de lançam
 description: Saiba como usar Azure DevTest Labs em pipelines de Build e versão do Azure Pipelines.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 71af1e0dfe205fe1028f7b82b41f3ed38ebefd3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d04ed5dd7bebac0c8f24deb9145c3d2e4b77122e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483067"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080327"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Usar o DevTest Labs no build do Azure Pipelines e em pipelines de lançamento
 Este artigo fornece informações sobre como os DevTest Labs podem ser usados em pipelines de Build e versão Azure Pipelines. 
@@ -26,7 +26,7 @@ Depois que a compilação for concluída com êxito, o **pipeline de lançamento
 
 Uma das instalações necessárias é que todas as informações necessárias para recriar o ecossistema testado estão disponíveis nos artefatos de compilação, incluindo a configuração dos recursos do Azure. Como os recursos do Azure incorrem em um custo quando usados, as empresas desejam controlar ou controlar o uso desses recursos. Em algumas situações, Azure Resource Manager modelos usados para criar e configurar os recursos podem ser gerenciados por outro departamento como ele. E esses modelos podem ser armazenados em um repositório diferente. Ele leva a uma situação interessante em que uma compilação será criada e testada, e o código e a configuração precisarão ser armazenados nos artefatos de compilação para recriar corretamente o sistema em produção. 
 
-Usando o DevTest Labs durante a fase de compilação/teste, você pode adicionar Azure Resource Manager modelos e arquivos de suporte às fontes de compilação, de modo que durante a fase de lançamento, a configuração exata usada para testar é implantada na produção. A tarefa **criar ambiente de Azure DevTest Labs** com a configuração apropriada salvará os modelos do Resource Manager nos artefatos de compilação. Para este exemplo, você usará o código do [tutorial: criar um aplicativo Web do .NET Core e do banco de dados SQL no serviço Azure app](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)para implantar e testar o aplicativo Web no Azure.
+Usando o DevTest Labs durante a fase de compilação/teste, você pode adicionar Azure Resource Manager modelos e arquivos de suporte às fontes de compilação, de modo que durante a fase de lançamento, a configuração exata usada para testar é implantada na produção. A tarefa **criar ambiente de Azure DevTest Labs** com a configuração apropriada salvará os modelos do Resource Manager nos artefatos de compilação. Para este exemplo, você usará o código do [tutorial: criar um aplicativo Web do .NET Core e do banco de dados SQL no serviço Azure app](../app-service/tutorial-dotnetcore-sqldb-app.md)para implantar e testar o aplicativo Web no Azure.
 
 ![Fluxo geral](./media/use-devtest-labs-build-release-pipelines/overall-flow.png)
 
@@ -40,7 +40,7 @@ Há alguns itens que precisam ser criados antecipadamente:
 O pipeline de compilação criará um ambiente do DevTest Labs e implantará o código para teste.
 
 ## <a name="set-up-a-build-pipeline"></a>Configurar um pipeline de compilação
-Em Azure Pipelines, crie um pipeline de compilação usando o código do [tutorial: criar um aplicativo Web .NET Core e do banco de dados SQL no serviço Azure app](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md). Use o modelo **ASP.NET Core** , que preencherá a tarefa necessária para compilar, testar e publicar o código.
+Em Azure Pipelines, crie um pipeline de compilação usando o código do [tutorial: criar um aplicativo Web .NET Core e do banco de dados SQL no serviço Azure app](../app-service/tutorial-dotnetcore-sqldb-app.md). Use o modelo **ASP.NET Core** , que preencherá a tarefa necessária para compilar, testar e publicar o código.
 
 ![Selecione o modelo ASP.NET](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 

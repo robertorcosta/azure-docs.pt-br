@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0407bde00c703663227230a0b6ff2de287f6650c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 9359fe07818b3c5fbc08082cdf1f96195a7836ab
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007056"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080602"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Criar um aplicativo Web em um Ambiente do Serviço de Aplicativo v1
 
@@ -24,7 +24,7 @@ ms.locfileid: "88007056"
 Este tutorial mostra como criar aplicativos Web e planos do Serviço de Aplicativo em um [Ambiente do Serviço de Aplicativo v1](app-service-app-service-environment-intro.md) (ASE). 
 
 > [!NOTE]
-> Se você quiser saber como criar um aplicativo Web mas se não precisar fazê-lo em um Ambiente de Serviço de Aplicativo, consulte [Criar um aplicativo Web .NET](../app-service-web-get-started-dotnet.md) ou um dos tutoriais relacionados para outras linguagens e estruturas.
+> Se você quiser saber como criar um aplicativo Web mas se não precisar fazê-lo em um Ambiente de Serviço de Aplicativo, consulte [Criar um aplicativo Web .NET](../quickstart-dotnetcore.md) ou um dos tutoriais relacionados para outras linguagens e estruturas.
 > 
 > 
 

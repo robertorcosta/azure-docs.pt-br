@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: dapine
-ms.openlocfilehash: 6f5df14d9488f8ccb1f93c2a16ba52998f25e268
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: db1b88b9c22012cb4e6b5025dda31432c9278ff8
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876573"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080891"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais de Serviços Cognitivos do Azure
 
@@ -40,10 +40,9 @@ As regras de rede são impostas em todos os protocolos de rede para serviços co
 
 ## <a name="supported-regions-and-service-offerings"></a>Regiões e ofertas de serviço com suporte
 
-Os serviços cognitivas listados abaixo dão suporte a redes virtuais em nuvem comercial e US Gov nuvem. Se o serviço não estiver listado aqui, ele ainda não dá suporte a redes virtuais.
+As redes virtuais (VNETs) têm suporte em [regiões em que os serviços cognitivas estão disponíveis](https://azure.microsoft.com/global-infrastructure/services/). Se o serviço cognitiva não estiver listado, ele não oferece suporte a redes virtuais no momento.
 
 > [!div class="checklist"]
-
 > * [Detector de Anomalias](./anomaly-detector/index.yml)
 > * [Pesquisa Visual Computacional](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
@@ -59,8 +58,8 @@ Os serviços cognitivas listados abaixo dão suporte a redes virtuais em nuvem c
 ## <a name="service-tags"></a>Marcas de serviço
 
 Serviços cognitivas dão suporte a marcas de serviço para configuração de regras de rede. Os serviços listados abaixo estão incluídos na marca de serviço **CognitiveServicesManagement** .
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * [Detector de Anomalias](./anomaly-detector/index.yml)
 > * [Pesquisa Visual Computacional](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)

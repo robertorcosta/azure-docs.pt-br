@@ -3,12 +3,12 @@ title: Perguntas frequentes (FAQ) sobre o Barramento de Serviço | Microsoft Doc
 description: Este artigo fornece respostas para algumas das perguntas frequentes sobre o barramento de serviço do Azure.
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 04ff12d28be1dd232c5666b17d8a121f8020ca89
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e098b05dba25a51d5d6ef7c50a1b73730828357a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371236"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080806"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Barramento de serviço do Azure-perguntas frequentes (FAQ)
 
@@ -57,7 +57,7 @@ Para localizar os endereços IP corretos a serem adicionados à lista de permiss
 1. Execute o seguinte comando de um prompt de comando: 
 
     ```
-    nslookup <YourNamespaceName>.cloudapp.net
+    nslookup <YourNamespaceName>.servicebus.windows.net
     ```
 2. Anote o endereço IP retornado em `Non-authoritative answer`. Esse endereço IP é estático. Ele só mudaria se você restaurasse o namespace em um cluster diferente.
 
@@ -66,7 +66,7 @@ Se você usar a redundância de zona para seu namespace, precisará executar alg
 1. Primeiro, execute nslookup no namespace.
 
     ```
-    nslookup <yournamespace>.cloudapp.net
+    nslookup <yournamespace>.servicebus.windows.net
     ```
 2. Anote o nome na seção **resposta não autoritativa**, que está em um dos seguintes formatos: 
 

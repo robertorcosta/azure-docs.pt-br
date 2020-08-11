@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: aae0ed4efa7f96ab6258dbf0ce4c34a6879ecbc2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d91fd15d7f1f5d2bb1bd97b5a28ef56f09797140
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832800"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080310"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para desenvolvedores do Azure
 
@@ -64,7 +64,7 @@ O Serviço de Aplicativo foi projetado com o DevOps em mente. Ele dá suporte a 
 
 > **Quando usar**: Use o serviço de aplicativo quando estiver migrando aplicativos Web existentes para o Azure e quando precisar de uma plataforma de hospedagem totalmente gerenciada para seus aplicativos Web. Al´me disso, é possível utilizar o Serviço de Aplicativo quando precisar dar suporte a clientes móveis ou expor APIs REST com seu aplicativo.
 >
-> **Introdução**: O Serviço de Aplicativo facilita a criação e implantação de seu primeiro [aplicativo Web](../../app-service/app-service-web-get-started-dotnet.md), [aplicativo móvel](../../app-service-mobile/app-service-mobile-ios-get-started.md) ou [aplicativo de API](../../app-service/app-service-web-tutorial-rest-api.md).
+> **Introdução**: O Serviço de Aplicativo facilita a criação e implantação de seu primeiro [aplicativo Web](../../app-service/quickstart-dotnetcore.md), [aplicativo móvel](../../app-service-mobile/app-service-mobile-ios-get-started.md) ou [aplicativo de API](../../app-service/app-service-web-tutorial-rest-api.md).
 >
 > **Experimente agora**: o Serviço de Aplicativo permite que você forneça um aplicativo de curta duração para experimentar a plataforma sem precisar inscrever-se em uma conta do Azure. Experimente a plataforma e [crie seu aplicativo do Serviço de Aplicativo do Azure](https://tryappservice.azure.com/).
 
@@ -307,7 +307,7 @@ Quando você permite o acesso aos recursos do Azure, é sempre uma prática reco
 
   > **Quando utilizar**: ao gerenciar programaticamente recursos do Azure ou conceder acesso para aplicativos. Para obter mais informações, consulte [Criar entidade de serviço e aplicativo do Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-#### <a name="tags"></a>Marcas
+#### <a name="tags"></a>Marcações
 
 O Azure Resource Manager permite atribuir marcas personalizadas para recursos individuais. As marcas, que são pares chave-valor, podem ser úteis quando for necessário organizar recursos para cobrança ou monitoramento. As marcas fornecem uma maneira de rastrear recursos em vários grupos de recursos. Você pode atribuir marcas das seguintes maneiras:
 

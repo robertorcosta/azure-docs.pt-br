@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 0e6229e38674651f3db068d30f68ef4c7e293c0a
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 7f5ce25edfc4c3afd8a30528396f1f285b9af571
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386836"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080687"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é o Sincronização de Dados SQL para o Azure?
 
@@ -68,7 +68,7 @@ A sincronização de dados não é a solução preferida para os seguintes cená
 
 
 
-## <a name="how-it-works"></a>Como isso funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 - **Controle de alterações de dados:** A Sincronização de Dados controla alterações usando os gatilhos inserir, atualizar e excluir. As alterações são registradas em uma tabela secundária do banco de dados do usuário. Observe que BULK INSERT não dispara gatilhos por padrão. Se FIRE_TRIGGERS não for especificado, nenhum gatilho de inserção será executado. Adicionar a opção de FIRE_TRIGGERS para a Sincronização de dados rastrear essas inserções. 
 - **Sincronizando dados:** A sincronização de dados é projetada em um modelo de Hub e spoke. O Hub é sincronizado com cada membro individualmente. As alterações do hub são baixadas para o membro e, em seguida, as alterações do membro são carregadas no Hub.
@@ -131,6 +131,7 @@ Provisionamento e desprovisionamento durante a criação do grupo de sincroniza�
 ### <a name="general-limitations"></a>Limitações gerais
 
 - Uma tabela não pode ter uma coluna de identidade que não seja a chave primária.
+- Uma tabela deve ter um índice clusterizado para usar a sincronização de dados.
 - Uma chave primária não pode ter os seguintes tipos de dados: sql_variant, binary, varbinary, Image, XML.
 - Tenha cuidado ao usar os seguintes tipos de dados como uma chave primária, porque a precisão com suporte é apenas para o segundo: time, datatime, datetime2 e datetimeoffset.
 - Os nomes de objetos (bancos de dados, tabelas e colunas) não podem conter o ponto de caracteres imprimíveis (.), colchete esquerdo ([) ou colchete direito (]).

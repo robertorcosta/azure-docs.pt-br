@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/15/2020
-ms.openlocfilehash: c59e8c9e4c756a44d7507fca328aa691ecb184da
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 48eb8674a7d3f0fbeb8cc012debfc8a08752d5ff
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447308"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080857"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorado pelo Azure Monitor?
 Este artigo descreve os diferentes aplicativos e serviços monitorados pelo Azure Monitor. 
@@ -141,34 +141,34 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Link Privado | Não | Não | Não |  |
 |Plataforma de comunicação do spool do projeto | Não | Não | Não |  |
 |Red Hat OpenShift | Não | Não | Não |  |
-|Cache Redis | Yes | Sim | [Sim](insights/redis-cache-insights-overview.md) | |
-|Resource Graph | No | No | No |  |
+|Cache Redis | Sim | Sim | [Sim](insights/redis-cache-insights-overview.md) | |
+|Resource Graph | Não | Não | Não |  |
 |Gerenciador de Recursos | Não | Não | Não |  |
 |Pesquisa de varejo – por Bing | Não | Não | Não |  |
-|Search | Yes | Yes | Não |  |
+|Search | Sim | Sim | Não |  |
 |Barramento de Serviço | Sim | Sim | Não |  |
-|Service Fabric | No | Sim | Não | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho.  |
-|Portal de inscrição | No | Não | No |  |
-|Site Recovery | Não | Yes | Não |  |
-|Spring Cloud Service | Não | No | Não |  |
-|SQL Data Warehouse | Yes | Yes | Não |  |
+|Service Fabric | Não | Sim | Não | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho.  |
+|Portal de inscrição | Não | Não | Não |  |
+|Site Recovery | Não | Sim | Não |  |
+|Spring Cloud Service | Não | Não | Não |  |
+|SQL Data Warehouse | Sim | Sim | Não |  |
 |Banco de Dados SQL | Sim | Sim | Não |  |
 |SQL Server Stretch Database | Sim | Sim | Não |  |
-|Pilha | No | No | Não |  |
-|Armazenamento | Yes | Não | [Sim](insights/storage-insights-overview.md) |  |
-|Cache de Armazenamento | No | Não | No |  |
+|Pilha | Não | Não | Não |  |
+|Armazenamento | Sim | Não | [Sim](insights/storage-insights-overview.md) |  |
+|Cache de Armazenamento | Não | Não | Não |  |
 |Serviços de sincronização de armazenamento | Não | Não | Não |  |
-|Stream Analytics | Yes | Yes | Não |  |
+|Stream Analytics | Sim | Sim | Não |  |
 |Time Series Insights | Sim | Sim | Não |  |
-|TINA | No | No | Não |  |
-|Gerenciador de Tráfego | Yes | Yes | Não |  |
-|Impressão Universal | No | No | Não |  |
+|TINA | Não | Não | Não |  |
+|Gerenciador de Tráfego | Sim | Sim | Não |  |
+|Impressão Universal | Não | Não | Não |  |
 |Conjuntos de Dimensionamento de Máquinas Virtuais | Não | Sim | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho. |
 |Máquinas Virtuais | Sim | Sim | [Sim](insights/vminsights-overview.md) | Agente necessário para monitorar o sistema operacional convidado e os fluxos de trabalho. |
 |Rede Virtual | Sim | Sim | [Sim](insights/network-insights-overview.md) |  |
-|Rede virtual – logs de fluxo NSG | No | Sim | Não |  |
+|Rede virtual – logs de fluxo NSG | Não | Sim | Não |  |
 |Gateway de VPN | Sim | Sim | Não |  |
-|Área de Trabalho Virtual do Windows | Não | No | Não |  |
+|Área de Trabalho Virtual do Windows | Não | Não | Não |  |
 
 
 ## <a name="product-integrations"></a>Integrações de produto
@@ -220,7 +220,7 @@ O Azure Monitor pode coletar dados de recursos fora do Azure usando os métodos 
 | Recurso | Método |
 |:---|:---|
 | Aplicativos | Monitore aplicativos Web fora do Azure usando o Application Insights. Confira [O que é o Application Insights?](./app/app-insights-overview.md). |
-| Máquinas virtuais | Use o agente do Log Analytics para coletar dados do sistema operacional convidado de máquinas virtuais em outros ambientes de nuvem ou locais. Confira [Coletar dados de log com o agente do Log Analytics](platform/log-analytics-agent.md). |
+| Máquinas virtuais | Use agentes para coletar dados do sistema operacional convidado de máquinas virtuais em outros ambientes de nuvem ou locais. Consulte [visão geral dos agentes de Azure monitor](platform/agents-overview.md). |
 | Cliente da API REST | As APIs separadas estão disponíveis para gravar dados nos logs e nas métricas do Azure Monitor de qualquer cliente da API REST. Confira [Enviar dados de log para o Azure Monitor com a API do coletor de dados HTTP](platform/data-collector-api.md) para logs e [Enviar métricas personalizadas de um recurso do Azure para o repositório de métricas do Azure Monitor usando uma API REST](platform/metrics-store-custom-rest-api.md) para métricas. |
 
 

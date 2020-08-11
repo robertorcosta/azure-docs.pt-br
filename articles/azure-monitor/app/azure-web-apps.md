@@ -4,12 +4,12 @@ description: Monitoramento do desempenho de aplicativos para serviços de aplica
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6c0d99e89e17c2aad3c7dcfe0056b597aa88d2a2
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: d30d5fa8532b9bdec2b231daf9a59732dc1ebce8
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876386"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079681"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorar o desempenho do Serviço de Aplicativo do Azure
 
@@ -377,7 +377,7 @@ Abaixo está nosso guia de solução de problemas passo a passo para o monitoram
 
 A tabela a seguir fornece uma explicação mais detalhada do que esses valores significam, suas causas subjacentes e correções recomendadas:
 
-|Valor do problema|Explicação|Correção
+|Valor do problema|Explicação|Fix
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Esse valor indica que a extensão detectou que algum aspecto do SDK já está presente no aplicativo e será retirada. Pode ser devido a uma referência a `System.Diagnostics.DiagnosticSource` , `Microsoft.AspNet.TelemetryCorrelation` ou`Microsoft.ApplicationInsights`  | Remova as referências. Algumas dessas referências são adicionadas por padrão de determinados modelos do Visual Studio, e as versões mais antigas do Visual Studio podem adicionar referências ao `Microsoft.ApplicationInsights` .
 |`AppAlreadyInstrumented:true` | Se o aplicativo estiver direcionando o .NET Core 2,1 ou 2,2 e se referir a [Microsoft. AspNetCore. All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) metapackage, ele levará em Application insights e a extensão será retirada. | Os clientes no .NET Core 2.1, 2.2 são [recomendados](https://github.com/aspnet/Announcements/issues/287) a usar o meta-Package Microsoft. AspNetCore. app em vez disso.|
@@ -401,7 +401,7 @@ Para obter as informações mais recentes sobre a extensão/agente de Applicatio
 
 Quando você cria um aplicativo Web com os `ASP.NET` tempos de execução do ou `.NET Core` no Azure app Services, ele implanta uma única página HTML estática como um site inicial. A página da Web estática também carrega um site gerenciado do .NET no IIS. Isso permite o teste do monitoramento do lado do servidor sem código, mas não dá suporte ao monitoramento automático do lado do cliente.
 
-Se você quiser testar o monitoramento do lado do cliente e do servidor sem código para ASP.NET ou ASP.NET Core em um aplicativo Web do Azure App Services, recomendamos seguir os guias oficiais para [criar um aplicativo Web do ASP.NET Core](../../app-service/app-service-web-get-started-dotnet.md) e [criar um aplicativo Web do ASP.NET Framework](../../app-service/app-service-web-get-started-dotnet-framework.md) e, em seguida, usar as instruções no artigo atual para habilitar o monitoramento.
+Se você quiser testar o monitoramento do lado do cliente e do servidor sem código para ASP.NET ou ASP.NET Core em um aplicativo Web do Azure App Services, recomendamos seguir os guias oficiais para [criar um aplicativo Web do ASP.NET Core](../../app-service/quickstart-dotnetcore.md) e [criar um aplicativo Web do ASP.NET Framework](../../app-service/quickstart-dotnet-framework.md) e, em seguida, usar as instruções no artigo atual para habilitar o monitoramento.
 
 ### <a name="php-and-wordpress-are-not-supported"></a>Não há suporte para PHP e WordPress
 

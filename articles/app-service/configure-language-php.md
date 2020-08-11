@@ -1,23 +1,26 @@
 ---
-title: Configurar aplicativos PHP do Windows
-description: Saiba como configurar um aplicativo PHP nas instâncias nativas do Windows do serviço de aplicativo. Este artigo mostra as tarefas de configuração mais comuns.
+title: Configurar aplicativos de PHP
+description: Saiba como configurar um aplicativo PHP nas instâncias nativas do Windows ou em um contêiner PHP predefinido, no serviço Azure App. Este artigo mostra as tarefas de configuração mais comuns.
 ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 1eb4e9d349fdd0097cbde4e4cef3d5c61a167193
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+zone_pivot_groups: app-service-platform-windows-linux
+ms.openlocfilehash: 306afb2bfba7c222798bbfd1bef334387b6f9771
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907855"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080072"
 ---
-# <a name="configure-a-windows-php-app-for-azure-app-service"></a>Configurar um aplicativo PHP do Windows para o serviço Azure App
+# <a name="configure-a-php-app-for-azure-app-service"></a>Configurar um aplicativo PHP para Azure App serviço
 
-Este guia mostra como configurar seus aplicativos Web PHP, back-ends móveis e aplicativos de API no serviço Azure App. Este guia se aplica a aplicativos hospedados na plataforma Windows. Para obter informações sobre aplicativos do Linux, consulte [configurar um aplicativo do Linux php para Azure app serviço](containers/configure-language-php.md).
+Este guia mostra como configurar seus aplicativos Web PHP, back-ends móveis e aplicativos de API no serviço Azure App.
 
-Este guia fornece os principais conceitos e instruções para desenvolvedores de PHP que implantam aplicativos no serviço de aplicativo. Se você nunca usou o Serviço de Aplicativo do Azure, siga o [Início rápido do PHP](app-service-web-get-started-php.md) e o [tutorial de PHP com MySQL](app-service-web-tutorial-php-mysql.md) primeiro.
+Este guia fornece os principais conceitos e instruções para desenvolvedores de PHP que implantam aplicativos no serviço de aplicativo. Se você nunca usou o Serviço de Aplicativo do Azure, siga o [Início rápido do PHP](quickstart-php.md) e o [tutorial de PHP com MySQL](tutorial-php-mysql-app.md) primeiro.
 
 ## <a name="show-php-version"></a>Mostrar a versão do PHP
+
+::: zone pivot="platform-windows"  
 
 Para mostrar a versão atual do PHP, execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
 
@@ -31,13 +34,47 @@ Para mostrar todas as versões do PHP compatíveis, execute o seguinte comando n
 az webapp list-runtimes | grep php
 ```
 
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+Para mostrar a versão atual do PHP, execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
+```
+
+Para mostrar todas as versões do PHP compatíveis, execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp list-runtimes --linux | grep PHP
+```
+
+::: zone-end
+
 ## <a name="set-php-version"></a>Definir a versão do PHP
+
+::: zone pivot="platform-windows"  
 
 Execute o seguinte comando no [Cloud Shell](https://shell.azure.com) para definir a versão do PHP como 7,4:
 
 ```azurecli-interactive
 az webapp config set --name <app-name> --resource-group <resource-group-name> --php-version 7.4
 ```
+
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+Execute o seguinte comando no [Cloud Shell](https://shell.azure.com) para definir a versão do PHP como 7.2:
+
+```azurecli-interactive
+az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "PHP|7.2"
+```
+
+::: zone-end
+
+::: zone pivot="platform-windows"  
 
 ## <a name="run-composer"></a>Executar o Composer
 
@@ -157,6 +194,41 @@ if [ -e "$DEPLOYMENT_TARGET/Gruntfile.js" ]; then
 fi
 ```
 
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+## <a name="customize-build-automation"></a>Personalizar a automação de build
+
+Se você implantar seu aplicativo usando pacotes Git ou zip com a automação de build ativada, a automação de build do Serviço de Aplicativo percorrerá a seguinte sequência:
+
+1. Executar script personalizado se especificado por `PRE_BUILD_SCRIPT_PATH`.
+1. Execute `php composer.phar install`.
+1. Executar script personalizado se especificado por `POST_BUILD_SCRIPT_PATH`.
+
+`PRE_BUILD_COMMAND` e `POST_BUILD_COMMAND` são variáveis de ambiente vazias por padrão. Para executar comandos pré-build, defina `PRE_BUILD_COMMAND`. Para executar comandos pós-build, defina `POST_BUILD_COMMAND`.
+
+O exemplo a seguir especifica as duas variáveis para uma série de comandos, separados por vírgulas.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+Para obter variáveis de ambiente adicionais para personalizar a automação de build, confira [Configuração do Oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+
+Para obter mais informações sobre como o Serviço de Aplicativo executa e compila aplicativos de PHP no Linux, confira a [Documentação do Oryx: Como aplicativos PHP são detectados e compilados](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/php.md).
+
+## <a name="customize-start-up"></a>Personalizar a inicialização
+
+Por padrão, o contêiner de PHP interno executa o servidor Apache. Na inicialização, ele executa `apache2ctl -D FOREGROUND"`. Se desejar, você poderá executar um comando diferente na inicialização. Para isso, execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
+```
+
+::: zone-end
+
 ## <a name="access-environment-variables"></a>Acessar variáveis de ambiente
 
 No Serviço de Aplicativo, você pode [definir configurações de aplicativo](configure-common.md#configure-app-settings) fora do código do aplicativo. Em seguida, pode acessá-las usando o padrão [getenv()](https://secure.php.net/manual/function.getenv.php). Por exemplo, para acessar uma configuração de aplicativo chamada `DB_HOST`, use o seguinte código:
@@ -167,6 +239,8 @@ getenv("DB_HOST")
 
 ## <a name="change-site-root"></a>Alterar raiz do site
 
+::: zone pivot="platform-windows"  
+
 A estrutura da Web de sua escolha pode usar um subdiretório como a raiz do site. Por exemplo, [Laravel](https://laravel.com/), usa o *público/* subdiretório como a raiz do site.
 
 Para personalizar a raiz do site, defina o caminho do aplicativo virtual para o aplicativo usando o [`az resource update`](/cli/azure/resource#az-resource-update) comando. O exemplo a seguir define a raiz do site para o *público/* subdiretório em seu repositório. 
@@ -176,6 +250,26 @@ az resource update --name web --resource-group <group-name> --namespace Microsof
 ```
 
 Por padrão, o Serviço de Aplicativo do Azure aponta o caminho do aplicativo virtual raiz ( _/_ ) para o diretório raiz dos arquivos de aplicativo implantados (_sites\wwwroot_).
+
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+A estrutura da Web de sua escolha pode usar um subdiretório como a raiz do site. Por exemplo, a [Laravel](https://laravel.com/), usa o subdiretório `public/` como raiz do site.
+
+A imagem do PHP padrão para o Serviço de Aplicativo usa o Apache e não permite a personalização da raiz do site para seu aplicativo. Para contornar essa limitação, adicione um arquivo *.htaccess* à raiz do repositório com o seguinte conteúdo:
+
+```
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{REQUEST_URI} ^/$
+    RewriteRule ^(.*)$ /public/$1 [NC,L,QSA]
+</IfModule>
+```
+
+Se você preferir não usar a regeneração de *.htaccess*, implante seu aplicativo Laravel com uma [imagem personalizada do Docker](quickstart-custom-container.md).
+
+::: zone-end
 
 ## <a name="detect-https-session"></a>Detectar sessão HTTPS
 
@@ -199,6 +293,8 @@ Se você precisar fazer alterações na instalação do PHP, altere qualquer uma
 
 ### <a name="customize-non-php_ini_system-directives"></a><a name="Customize-non-PHP_INI_SYSTEM directives"></a>Personalizar diretivas diferentes de PHP_INI_SYSTEM
 
+::: zone pivot="platform-windows"  
+
 Para personalizar as diretivas PHP_INI_USER, PHP_INI_PERDIR e PHP_INI_ALL (consulte as [diretivasphp.ini](https://www.php.net/manual/ini.list.php)), adicione um `.user.ini` arquivo ao diretório raiz do seu aplicativo.
 
 Adicione as definições de configuração ao arquivo `.user.ini` usando a mesma sintaxe que você usaria em um arquivo `php.ini`. Por exemplo, se você quisesse ativar a configuração `display_errors` e definir a configuração `upload_max_filesize` para 10M, o arquivo `.user.ini` conteria este texto:
@@ -216,7 +312,33 @@ Reimplante seu aplicativo com as alterações e reinicie-o.
 
 Como alternativa ao uso de um `.user.ini` arquivo, você pode usar [ini_set ()](https://www.php.net/manual/function.ini-set.php) em seu aplicativo para personalizar essas diretivas não PHP_INI_SYSTEM.
 
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+Para personalizar as diretivas PHP_INI_USER, PHP_INI_PERDIR e PHP_INI_ALL (consulte [diretivas php.ini](https://www.php.net/manual/ini.list.php)), adicione um arquivo *.htaccess* ao diretório raiz do seu aplicativo.
+
+No arquivo *.htaccess*, adicione as diretivas usando a sintaxe `php_value <directive-name> <value>`. Por exemplo:
+
+```
+php_value upload_max_filesize 1000M
+php_value post_max_size 2000M
+php_value memory_limit 3000M
+php_value max_execution_time 180
+php_value max_input_time 180
+php_value display_errors On
+php_value upload_max_filesize 10M
+```
+
+Reimplante seu aplicativo com as alterações e reinicie-o. Se você implantá-lo com Kudu (por exemplo, usando [Git](deploy-local-git.md)), ele será automaticamente reiniciado após a implantação.
+
+Como alternativa ao uso do *.htaccess*, você pode usar [ini_set()](https://www.php.net/manual/function.ini-set.php) em seu aplicativo para personalizar essas diretivas que não são PHP_INI_SYSTEM.
+
+::: zone-end
+
 ### <a name="customize-php_ini_system-directives"></a><a name="customize-php_ini_system-directives"></a>Personalizar diretivas PHP_INI_SYSTEM
+
+::: zone pivot="platform-windows"  
 
 Para personalizar diretivas PHP_INI_SYSTEM (consulte [diretivas php.ini](https://www.php.net/manual/ini.list.php)), você não pode usar a abordagem do *.htaccess*. O Serviço de Aplicativo oferece um mecanismo separado usando a configuração `PHP_INI_SCAN_DIR` do aplicativo.
 
@@ -240,7 +362,43 @@ echo "expose_php = Off" >> ini/setting.ini
 
 Para que as alterações entrem em vigor, reinicie o aplicativo.
 
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+Para personalizar diretivas PHP_INI_SYSTEM (consulte [diretivas php.ini](https://www.php.net/manual/ini.list.php)), você não pode usar a abordagem do *.htaccess*. O Serviço de Aplicativo oferece um mecanismo separado usando a configuração `PHP_INI_SCAN_DIR` do aplicativo.
+
+Primeiro, execute o seguinte comando no [Cloud Shell](https://shell.azure.com) para adicionar uma configuração de aplicativo chamada `PHP_INI_SCAN_DIR`:
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_INI_SCAN_DIR="/usr/local/etc/php/conf.d:/home/site/ini"
+```
+
+`/usr/local/etc/php/conf.d` é o diretório padrão em que o *php.ini* existe. `/home/site/ini` é o diretório personalizado no qual você adicionará um arquivo *.ini* personalizado. Separe os valores com um `:`.
+
+Navegue até a sessão SSH da Web com seu contêiner do Linux (`https://<app-name>.scm.azurewebsites.net/webssh/host`).
+
+Crie um diretório em `/home/site` chamado `ini` e, em seguida, crie um arquivo *.ini* no diretório `/home/site/ini` (por exemplo, *settings.ini)* com as diretivas que você deseja personalizar. Use a mesma sintaxe que você usaria em um arquivo *php.ini*. 
+
+> [!TIP]
+> Nos contêineres internos do Linux no Serviço de Aplicativo, */home* é usado como armazenamento compartilhado persistente. 
+>
+
+Por exemplo, para alterar o valor de [expose_php](https://php.net/manual/ini.core.php#ini.expose-php) execute os seguintes comandos:
+
+```bash
+cd /home/site
+mkdir ini
+echo "expose_php = Off" >> ini/setting.ini
+```
+
+Para que as alterações entrem em vigor, reinicie o aplicativo.
+
+::: zone-end
+
 ## <a name="enable-php-extensions"></a>Habilitar extensões PHP
+
+::: zone pivot="platform-windows"  
 
 As instalações internas do PHP contêm as extensões usadas com mais frequência. Você pode habilitar outras extensões da mesma forma que [personaliza as diretivas do php.ini](#customize-php_ini_system-directives).
 
@@ -263,11 +421,48 @@ zend_extension=d:\home\site\wwwroot\bin\xdebug.so
 
 Para que as alterações entrem em vigor, reinicie o aplicativo.
 
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+As instalações internas do PHP contêm as extensões usadas com mais frequência. Você pode habilitar outras extensões da mesma forma que [personaliza as diretivas do php.ini](#customize-php_ini_system-directives).
+
+> [!NOTE]
+> A melhor maneira de ver a versão do PHP e a configuração *php.ini* atual é chamar [phpinfo()](https://php.net/manual/function.phpinfo.php) em seu aplicativo.
+>
+
+Para habilitar extensões adicionais, siga estas etapas:
+
+Adicione um diretório `bin` ao diretório raiz do seu aplicativo e coloque os arquivos de extensão `.so` nele (por exemplo, *mongodb.so*). Verifique se as extensões são compatíveis com a versão do PHP no Azure e também com nts (non-thread-safe) e VC9.
+
+Implante suas alterações.
+
+Siga as etapas em [Personalizar diretivas PHP_INI_SYSTEM](#customize-php_ini_system-directives) e adicione as extensões ao arquivo personalizado *.ini* com as diretivas [extension](https://www.php.net/manual/ini.core.php#ini.extension) ou [zend_extension](https://www.php.net/manual/ini.core.php#ini.zend-extension).
+
+```ini
+extension=/home/site/wwwroot/bin/mongodb.so
+zend_extension=/home/site/wwwroot/bin/xdebug.so
+```
+
+Para que as alterações entrem em vigor, reinicie o aplicativo.
+
+::: zone-end
+
 ## <a name="access-diagnostic-logs"></a>Acessar logs de diagnóstico
+
+::: zone pivot="platform-windows"  
 
 Use o utilitário [error_log ()](https://php.net/manual/function.error-log.php) padrão para fazer seus logs de diagnóstico aparecerem no serviço Azure app.
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
+
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+[!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-linux-no-h.md)]
+
+::: zone-end
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
@@ -275,11 +470,26 @@ Quando um aplicativo PHP que esteja funcionando se comporta de maneira diferente
 
 - [Acessar o fluxo de log](#access-diagnostic-logs).
 - Teste o aplicativo localmente no modo de produção. O serviço de aplicativo executa seu aplicativo no modo de produção, portanto, você precisa certificar-se de que seu projeto funciona como esperado no modo de produção localmente. Por exemplo:
+    - Dependendo do *composer.json*, diferentes pacotes podem ser instalados para o modo de produção (`require` versus `require-dev`).
     - Determinadas estruturas da Web podem implantar arquivos estáticos de maneira diferente no modo de produção.
     - Determinadas estruturas da Web podem usar scripts de inicialização personalizados ao serem executados no modo de produção.
 - Execute seu aplicativo no Serviço de Aplicativo no modo de depuração. Por exemplo, no [Laravel](https://meanjs.org/), você pode configurar seu aplicativo para gerar mensagens de depuração em produção [definindo a configuração do aplicativo `APP_DEBUG` como `true`](configure-common.md#configure-app-settings).
 
+::: zone pivot="platform-linux"
+
+[!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
+
+::: zone-end
+
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: Aplicativo PHP com o MySQL](app-service-web-tutorial-php-mysql.md)
+> [Tutorial: Aplicativo PHP com o MySQL](tutorial-php-mysql-app.md)
+
+::: zone pivot="platform-linux"
+
+> [!div class="nextstepaction"]
+> [Perguntas frequentes sobre o Serviço de Aplicativo no Linux](faq-app-service-linux.md)
+
+::: zone-end
+

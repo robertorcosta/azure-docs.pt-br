@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: c8e0b476c50378bde00e01a39985fbcc188f04ed
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 8362cc3b8f8477f77d8ec672144e7c68d2e3434d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562371"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080721"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticação e autorização no serviço Azure App e Azure Functions
 
@@ -56,7 +56,7 @@ O módulo de autenticação e autorização é executado em um contêiner separa
 
 ### <a name="userapplication-claims"></a>Declarações de usuário/aplicativo
 
-Para todas as estruturas de linguagem, o serviço de aplicativo faz as declarações no token de entrada (seja por meio de um usuário final autenticado ou um aplicativo cliente) disponíveis para seu código injetando-as nos cabeçalhos de solicitação. Para aplicativos ASP.NET 4.6, o Serviço de Aplicativo preenche [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) com as declarações do usuário autenticado, de modo que seja possível seguir o padrão de código .NET Standard, incluindo o atributo `[Authorize]`. Da mesma forma, para aplicativos PHP, o Serviço de Aplicativo preenche a variável `_SERVER['REMOTE_USER']`. Para aplicativos Java, as declarações podem [ser acessadas do servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
+Para todas as estruturas de linguagem, o serviço de aplicativo faz as declarações no token de entrada (seja por meio de um usuário final autenticado ou um aplicativo cliente) disponíveis para seu código injetando-as nos cabeçalhos de solicitação. Para aplicativos ASP.NET 4.6, o Serviço de Aplicativo preenche [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) com as declarações do usuário autenticado, de modo que seja possível seguir o padrão de código .NET Standard, incluindo o atributo `[Authorize]`. Da mesma forma, para aplicativos PHP, o Serviço de Aplicativo preenche a variável `_SERVER['REMOTE_USER']`. Para aplicativos Java, as declarações podem [ser acessadas do servlet Tomcat](configure-language-java.md#authenticate-users-easy-auth).
 
 Por [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` o não é populado para o código .net, mas você ainda pode encontrar as declarações do usuário nos cabeçalhos da solicitação ou obter o `ClaimsPrincipal` objeto do contexto da solicitação ou mesmo por meio de um parâmetro de associação. Consulte [trabalhando com identidades de cliente](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) para obter mais informações.
 
@@ -149,7 +149,7 @@ Com essa opção, você não precisa gravar nenhum código de autenticação no 
 
 ## <a name="more-resources"></a>Mais recursos
 
-[Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure (Windows)](app-service-web-tutorial-auth-aad.md)  
+[Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure (Windows)](tutorial-auth-aad.md)  
 [Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure para Linux](containers/tutorial-auth-aad.md)  
 [Personalizar a autenticação e a autorização no serviço](app-service-authentication-how-to.md) 
  de aplicativo [Integração do .NET Core do Azure AppService EasyAuth (terceiros)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) 

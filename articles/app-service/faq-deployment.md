@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 25f43051f11d42c4f8565039d3168f2ae162eb37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 163a6940e50d1f8beacc23855fd1e6f9daad0085
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74671679"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080466"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre implantação de Aplicativos Web no Azure
 
@@ -40,7 +40,7 @@ Para resolver esse erro, atualize para o [último SDK](https://azure.microsoft.c
 ## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>Como fazer para implantar um aplicativo ASP.NET por meio do Visual Studio no Serviço de Aplicativo?
 <a id="deployasp"></a>
 
-O tutorial [criar seu primeiro aplicativo web ASP.net no Azure em cinco minutos](app-service-web-get-started-dotnet.md) mostra como implantar um aplicativo Web ASP.net em um aplicativo Web no serviço de aplicativo usando o Visual Studio.
+O tutorial [criar seu primeiro aplicativo web ASP.net no Azure em cinco minutos](quickstart-dotnetcore.md) mostra como implantar um aplicativo Web ASP.net em um aplicativo Web no serviço de aplicativo usando o Visual Studio.
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>Quais são os diferentes tipos de credenciais de implantação?
 
@@ -86,7 +86,7 @@ Você tem duas opções para usar a implantação contínua com o Azure DevOps:
 *   Use um projeto Git. Conecte-se por meio do serviço de aplicativo usando o centro de implantação.
 *   Use um projeto TFVC (Controle de Versão do Team Foundation). Implante usando o agente de build do Serviço de Aplicativo.
 
-A implantação contínua de código para essas duas opções depende dos fluxos de trabalho existentes do desenvolvedor e dos procedimentos de check-in. Para obter mais informações, confira estes tópicos: 
+A implantação contínua de código para essas duas opções depende dos fluxos de trabalho existentes do desenvolvedor e dos procedimentos de check-in. Para obter mais informações, consulte estes artigos: 
 
 *   [Implementar a implantação contínua do aplicativo em um site do Azure](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
 *   [Configurar uma organização do Azure DevOps para que ela possa implantar em um aplicativo Web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)

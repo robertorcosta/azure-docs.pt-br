@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 5b454c324d475eb4f692e1715cb2ea45105f78e1
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: afffdd0267cde8ffc841587748e51dd27e021369
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056917"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079579"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar o acesso a um espaço de trabalho do Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -142,7 +142,7 @@ A tabela a seguir é um resumo de Azure Machine Learning atividades e as permiss
 | Enviando qualquer tipo de execução | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
 | Publicando um ponto de extremidade de pipeline | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Implantando um modelo registrado em um recurso AKS/ACI | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
-| Pontuação em relação a um ponto de extremidade AKS implantado | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (quando você não estiver usando a autenticação do AAD) ou `"/workspaces/read"` (quando estiver usando a autenticação de token) |
+| Pontuação em relação a um ponto de extremidade AKS implantado | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (quando você não estiver usando Azure Active Directory autenticação) ou `"/workspaces/read"` (quando estiver usando a autenticação de token) |
 | Acessando o armazenamento usando blocos de anotações interativos | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
 | Criar nova função personalizada | Proprietário, colaborador ou função personalizada que permite`Microsoft.Authorization/roleDefinitions/write` | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`/workspaces/computes/write` |
 
@@ -374,10 +374,14 @@ Eles também podem ser encontrados na lista de [operações do provedor de recur
 Aqui estão algumas coisas que você deve conhecer enquanto usa o controle de acesso baseado em função do Azure (RBAC do Azure):
 
 - Quando você cria um recurso no Azure, digamos um espaço de trabalho, você não é diretamente o proprietário do espaço de trabalho. Sua função é herdada da função de escopo mais alta na qual você está autorizado nessa assinatura. Como exemplo, se você for um administrador de rede e tiver as permissões para criar um espaço de trabalho Machine Learning, a função de administrador de rede será atribuída a esse espaço de trabalho e não à função proprietário.
-- Quando há duas atribuições de função para o mesmo usuário do AAD com seções conflitantes de ações/não ações, suas operações listadas em ações de uma função podem não ter efeito se elas também estiverem listadas como ações em outra função. Para saber mais sobre como o Azure analisa as atribuições de função, leia [como o RBAC do Azure determina se um usuário tem acesso a um recurso](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
-- Para implantar seus recursos de computação dentro de uma VNet, você precisa ter permissões explicitamente para "Microsoft. Network/virtualNetworks/Join/Action" nesse recurso de VNet.
-- Às vezes, pode levar até 1 hora para que as atribuições de nova função entrem em vigor nas permissões armazenadas em cache em toda a pilha.
+- Quando há duas atribuições de função para o mesmo Azure Active Directory usuário com seções conflitantes de ações/não ações, suas operações listadas em não ações de uma função podem não entrar em vigor se também estiverem listadas como ações em outra função. Para saber mais sobre como o Azure analisa as atribuições de função, leia [como o RBAC do Azure determina se um usuário tem acesso a um recurso](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
+- Para implantar seus recursos de computação dentro de uma VNet, você precisa ter permissões explicitamente para as seguintes ações:
+    - "Microsoft. Network/virtualNetworks/Join/Action" no recurso de VNet.
+    - "Microsoft. Network/virtualNetworks/sub-rede/junção/ação" no recurso de sub-rede.
+    
+    Para obter mais informações sobre o RBAC com rede, consulte [funções internas de rede](/azure/role-based-access-control/built-in-roles#networking).
 
+- Às vezes, pode levar até 1 hora para que as atribuições de nova função entrem em vigor nas permissões armazenadas em cache em toda a pilha.
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>Q. Quais permissões eu preciso para usar uma identidade gerenciada atribuída pelo usuário com meus clusters do Amlcompute?
 

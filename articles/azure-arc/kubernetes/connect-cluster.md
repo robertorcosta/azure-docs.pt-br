@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Conectar um cluster do Kubernetes habilitado para o Azure Arc com o Azure Arc
 keywords: Kubernetes, Arc, Azure, K8s, containers
 ms.custom: references_regions
-ms.openlocfilehash: 2c5e697f3dd67087582118fb6a6e083feecf549f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 761263a4cb8c83475142c2afcc39695bb84d46cd
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050083"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080483"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Conectar um cluster do Kubernetes habilitado para o Azure Arc (versão prévia)
 
@@ -172,6 +172,41 @@ Você também pode exibir esse recurso no [portal do Azure](https://portal.azure
 > [!NOTE]
 > Depois de integrar o cluster, ele leva cerca de 5 a 10 minutos para que os metadados do cluster (versão do cluster, versão do agente, número de nós) apareçam na página Visão geral do recurso kubernetes habilitado para o Azure Arc no portal do Azure.
 
+## <a name="connect-using-an-outbound-proxy-server"></a>Conectar-se usando um servidor proxy de saída
+
+Se o cluster estiver protegido por um servidor proxy de saída, CLI do Azure e os agentes kubernetes habilitados para Arc precisarão rotear suas solicitações por meio do servidor proxy de saída. A configuração a seguir ajuda a conseguir isso:
+
+1. Verifique a versão da `connectedk8s` extensão instalada em seu computador executando este comando:
+
+    ```bash
+    az -v
+    ```
+
+    Você precisa da `connectedk8s` versão de extensão >= 0.2.3 para configurar agentes com proxy de saída. Se você tiver a versão < 0.2.3 em seu computador, siga as [etapas de atualização](#before-you-begin) para obter a versão mais recente da extensão em seu computador.
+
+2. Defina as variáveis de ambiente necessárias para CLI do Azure:
+
+    ```bash
+    export HTTP_PROXY=<proxy-server-ip-address>:<port>
+    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+    ```
+
+3. Execute o comando Connect com os parâmetros de proxy especificados:
+
+    ```bash
+    az connectedk8s connect -n <cluster-name> -g <resource-group> \
+    --proxy-https https://<proxy-server-ip-address>:<port> \
+    --proxy-http http://<proxy-server-ip-address>:<port> \
+    --proxy-skip-range <excludedIP>,<excludedCIDR>
+    ```
+
+> [!NOTE]
+> 1. Especificar excludedCIDR sob--proxy-Skip-Range é importante para garantir que a comunicação no cluster não seja interrompida para os agentes.
+> 2. Atualmente, a especificação de proxy acima é aplicada somente para agentes Arc e não para o pods de fluxo usado em sourceControlConfiguration. A equipe de kubernetes habilitada para Arc está trabalhando ativamente nesse recurso e estará disponível em breve.
+
+## <a name="azure-arc-agents-for-kubernetes"></a>Agentes do Azure Arc para Kubernetes
+
 O Kubernetes habilitado para Azure Arc implanta alguns operadores no namespace `azure-arc`. Você pode exibir essas implantações e pods aqui:
 
 ```console
@@ -199,8 +234,6 @@ pod/flux-logs-agent-7c489f57f4-mwqqv            2/2     Running  0       16h
 pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
-
-## <a name="azure-arc-agents-for-kubernetes"></a>Agentes do Azure Arc para Kubernetes
 
 O Kubernetes habilitado para Azure Arc consiste em alguns agentes (operadores) que são executados no cluster implantado no namespace `azure-arc`.
 

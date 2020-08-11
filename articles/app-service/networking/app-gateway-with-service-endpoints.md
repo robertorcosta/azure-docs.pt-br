@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 5e32baa10e98f0f57a861f8cebfb7506ad615631
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bedd8d9ab0b879886042de3dc2fcff7f7b36f2f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74980056"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080925"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integração do gateway de aplicativo com pontos de extremidade de serviço
 Há três variações do serviço de aplicativo que exigem uma configuração um pouco diferente da integração com Aplicativo Azure gateway. As variações incluem o serviço de aplicativo regular, também conhecido como ILB (multilocatário, Load Balancer interno) Ambiente do Serviço de Aplicativo (ASE) e ASE externo. Este artigo explicará como configurá-lo com o serviço de aplicativo (multilocatário) e discutirá considerações sobre o ILB e o ASE externo.
@@ -33,7 +33,7 @@ Há duas partes nessa configuração além da criação do serviço de aplicativ
 
 ## <a name="using-azure-portal"></a>Usando o Portal do Azure
 Com portal do Azure, siga quatro etapas para provisionar e configurar a instalação. Se você tiver recursos existentes, poderá ignorar as primeiras etapas.
-1. Criar um serviço de aplicativo usando um dos guias de início rápido na documentação do serviço de aplicativo, por exemplo [.NET Core início rápido](../../app-service/app-service-web-get-started-dotnet.md)
+1. Criar um serviço de aplicativo usando um dos guias de início rápido na documentação do serviço de aplicativo, por exemplo [.NET Core início rápido](../quickstart-dotnetcore.md)
 2. Crie um gateway de aplicativo usando o [início rápido do portal](../../application-gateway/quick-create-portal.md), mas ignore a seção Adicionar destinos de back-end.
 3. Configure o [serviço de aplicativo como um back-end no gateway de aplicativo](../../application-gateway/configure-web-app-portal.md), mas ignore a seção de acesso restrito.
 4. Por fim, crie a [restrição de acesso usando pontos de extremidade de serviço](../../app-service/app-service-ip-restrictions.md#service-endpoints).
