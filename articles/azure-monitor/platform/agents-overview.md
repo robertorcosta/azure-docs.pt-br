@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/14/2020
-ms.openlocfilehash: c6aea3be5782c967c5816a1e40dc5443306671b3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/05/2020
+ms.openlocfilehash: e6a4c7fe739bd517646f8401e5c812a557441e9f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445289"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88076890"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes de Azure Monitor
 
@@ -29,22 +29,37 @@ As tabelas a seguir fornecem uma comparação rápida dos agentes de Azure Monit
 
 ### <a name="windows-agents"></a>Agentes do Windows
 
-| | Diagnóstico<br>extensão (WAD) | Log Analytics<br>agente | Dependência<br>agente |
-|:---|:---|:---|:---|
-| **Ambientes com suporte** | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | 
-| **Requisitos do agente**  | Nenhum | Nenhum | Requer agente de Log Analytics |
-| **Dados coletados** | Logs de eventos<br>eventos ETW<br>Desempenho<br>Logs baseados em arquivo<br>Logs IIS<br>Logs do aplicativo .NET<br>Despejos de memória<br>Logs de diagnóstico do agente | Logs de eventos<br>Desempenho<IIS logs><br>Logs baseados em arquivo<br>Insights e soluções<br>Outros serviços | Detalhes e dependências do processo<br>Métricas de conexão de rede |
-| **Dados enviados para** | Armazenamento do Azure<br>Métricas do Azure Monitor<br>Hub de evento | Logs do Azure Monitor | Logs do Azure Monitor |
+| | Agente de Azure Monitor (versão prévia) | Diagnósticos<br>extensão (WAD) | Log Analytics<br>agente | Dependência<br>agente |
+|:---|:---|:---|:---|:---|
+| **Ambientes com suporte** | Azure<br>Outra nuvem<br>Local | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | 
+| **Requisitos do agente**  | Nenhum | Nenhum | Nenhum | Requer agente de Log Analytics |
+| **Dados coletados** | Logs de eventos<br>Desempenho | Logs de eventos<br>eventos ETW<br>Desempenho<br>Logs baseados em arquivo<br>Logs IIS<br>Logs do aplicativo .NET<br>Despejos de memória<br>Logs de diagnóstico do agente | Logs de eventos<br>Desempenho<IIS logs><br>Logs baseados em arquivo<br>Insights e soluções<br>Outros serviços | Detalhes e dependências do processo<br>Métricas de conexão de rede |
+| **Dados enviados para** | Logs do Azure Monitor<br>Métricas do Azure Monitor<br>Armazenamento do Azure<br>Hub de evento | Armazenamento do Azure<br>Métricas do Azure Monitor<br>Hub de evento | Logs do Azure Monitor | Logs do Azure Monitor |
 
 
 ### <a name="linux-agents"></a>Agentes do Linux
 
-| | Diagnóstico<br>extensão (LAD) | Telegraf<br>agente | Log Analytics<br>agente | Dependência<br>agente |
-|:---|:---|:---|:---|:---|
-| **Ambientes com suporte** | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local |
-| **Requisitos do agente**  | Nenhum | Nenhum | Nenhum | Requer agente de Log Analytics |
-| **Dados coletados** | syslog<br>Desempenho | Desempenho | syslog<br>Desempenho| Detalhes e dependências do processo<br>Métricas de conexão de rede |
-| **Dados enviados para** | Armazenamento do Azure<br>Hub de evento | Métricas do Azure Monitor | Logs do Azure Monitor | Logs do Azure Monitor |
+| | Agente de Azure Monitor (versão prévia) | Diagnósticos<br>extensão (LAD) | Telegraf<br>agente | Log Analytics<br>agente | Dependência<br>agente |
+|:---|:---|:---|:---|:---|:---|
+| **Ambientes com suporte** | Azure | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local |
+| **Requisitos do agente**  | Nenhum | Nenhum | Nenhum | Nenhum | Requer agente de Log Analytics |
+| **Dados coletados** | syslog<br>Desempenho | syslog<br>Desempenho | Desempenho | syslog<br>Desempenho| Detalhes e dependências do processo<br>Métricas de conexão de rede |
+| **Dados enviados para** | Logs do Azure Monitor<br>Armazenamento do Azure<br>Métricas do Azure Monitor<br>Hub de evento | Armazenamento do Azure<br>Hub de evento | Métricas do Azure Monitor | Logs do Azure Monitor | Logs do Azure Monitor |
+
+## <a name="azure-monitor-agent-preview"></a>Agente de Azure Monitor (versão prévia)
+O [agente de Azure monitor](azure-monitor-agent-overview.md) está atualmente em visualização e substituirá o agente de log Analytics, a extensão de diagnóstico e o agente Telegraf para máquinas virtuais Windows e Linux. Ele pode enviar dados para os logs de Azure Monitor e Azure Monitor métricas e usa [as regras de coleta de dados (DCR)](data-collection-rule-overview.md) , que fornecem um método mais escalonável de configurar a coleta e os destinos de dados para cada agente.
+
+Use o agente de Azure Monitor se você precisar:
+
+- Coletar logs e métricas de convidado de qualquer máquina virtual no Azure, em outras nuvens ou localmente. (Azure somente em versão prévia.)
+- Envie dados para Azure Monitor logs e métricas de Azure Monitor para análise com Azure Monitor. 
+- Envie dados para o armazenamento do Azure para arquivamento.
+- Envie dados para ferramentas de terceiros usando [hubs de eventos do Azure](diagnostics-extension-stream-event-hubs.md).
+- Gerencie a segurança de suas máquinas virtuais usando a [central de segurança do Azure](../../security-center/security-center-intro.md) ou o [Azure Sentinel](../../sentinel/overview.md). (Não disponível na versão prévia.)
+
+As limitações do agente de Azure Monitor incluem:
+
+- Atualmente em visualização pública. Consulte [limitações atuais](azure-monitor-agent-overview.md#current-limitations) para obter uma lista de limitações durante a visualização pública.
 
 ## <a name="log-analytics-agent"></a>Agente do Log Analytics
 

@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Descreve os processos que o Power Azure Dev Spaces e como funciona o roteamento
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres
-ms.openlocfilehash: 8677284d61a0a08a3262c26d6307399922dab4be
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19a55f37725464da73e93877d9c5238f3ebaced1
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512462"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077658"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Como funciona o roteamento com Azure Dev Spaces
 
@@ -49,7 +49,7 @@ Todos os outros tráfegos TCP que não são HTTP passam pelo controlador de entr
 
 ## <a name="sharing-a-dev-space"></a>Compartilhando um espaço de desenvolvimento
 
-Ao trabalhar com uma equipe, você pode [compartilhar um espaço de desenvolvimento em toda a equipe](how-to/share-dev-spaces.md) e criar espaços de desenvolvimento derivados. Um espaço de desenvolvimento pode ser usado por qualquer pessoa com acesso de colaborador ao grupo de recursos do espaço de desenvolvimento.
+Ao trabalhar com uma equipe, você pode compartilhar um espaço de desenvolvimento em toda a equipe e criar espaços de desenvolvimento derivados. Um espaço de desenvolvimento pode ser usado por qualquer pessoa com acesso de colaborador ao grupo de recursos do espaço de desenvolvimento.
 
 Você também pode criar um novo espaço de desenvolvimento que é derivado de outro espaço de desenvolvimento. Quando você cria um espaço de desenvolvimento derivado, o rótulo *azds.Io/Parent-Space=Parent-Space-Name* é adicionado ao namespace do espaço de desenvolvimento derivado. Além disso, todos os aplicativos do espaço de desenvolvimento pai são compartilhados com o espaço de desenvolvimento derivado. Se você implantar uma versão atualizada de um aplicativo no espaço de desenvolvimento derivado, ele só existirá no espaço de desenvolvimento derivado e o espaço de desenvolvimento pai permanecerá inalterado. Você pode ter um máximo de três níveis de espaços de desenvolvimento derivados ou espaços *avôs* .
 

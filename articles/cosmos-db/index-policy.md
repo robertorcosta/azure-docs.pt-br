@@ -4,18 +4,18 @@ description: Saiba como configurar e alterar a política de indexação padrão 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 08/11/2020
 ms.author: tisande
-ms.openlocfilehash: e3981e828e7ffe401be3b72f68185c272ab11645
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: e1254b31bffa72918b46c550e8354bd1c2195dfb
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760814"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077587"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 
-No Azure Cosmos DB, cada contêiner tem uma política de indexação que determina como os itens do contêiner devem ser indexados. A política de indexação padrão para contêineres recém-criados indexa cada propriedade de cada item, impondo índices de intervalo para qualquer cadeia de caracteres ou número e índices espaciais para qualquer objeto geojson do tipo Point. Isso permite que você obtenha alto desempenho de consulta sem precisar pensar na indexação e no gerenciamento de índice antecipadamente.
+No Azure Cosmos DB, cada contêiner tem uma política de indexação que determina como os itens do contêiner devem ser indexados. A política de indexação padrão para contêineres recém-criados indexa cada propriedade de cada item e impõe índices de intervalo para qualquer cadeia de caracteres ou número. Isso permite que você obtenha alto desempenho de consulta sem precisar pensar na indexação e no gerenciamento de índice antecipadamente.
 
 Em algumas situações, talvez você queira substituir esse comportamento automático para atender melhor às suas necessidades. Você pode personalizar a política de indexação de um contêiner definindo seu *modo de indexação*e incluir ou excluir os *caminhos de propriedade*.
 
@@ -101,7 +101,7 @@ Consulte [esta seção](how-to-manage-indexing-policy.md#indexing-policy-example
 
 Se os caminhos incluídos e os caminhos excluídos tiverem um conflito, o caminho mais preciso terá precedência.
 
-Este é um exemplo:
+Veja um exemplo:
 
 **Caminho incluído**:`/food/ingredients/nutrition/*`
 

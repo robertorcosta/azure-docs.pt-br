@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres do VMware/físico no Az
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidor físico para o Azure usando Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 595f12f9204dff58af0bfebb60402cc89ffb386a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7bb4422eb17353dc4e1895de8dcb2c427c6d0d15
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826238"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079392"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -168,6 +168,9 @@ BTRFS | O BTRFS tem suporte do [pacote cumulativo de atualizações 34](https://
 --- | ---
 Redimensionar o disco na VM replicada | Com suporte na VM de origem antes do failover, diretamente nas propriedades da VM. Não é necessário desabilitar/reabilitar a replicação.<br/><br/> Se você alterar a VM de origem após o failover, as alterações não serão capturadas.<br/><br/> Se você alterar o tamanho do disco na VM do Azure após o failover, ao fazer failback, Site Recovery criará uma nova VM com as atualizações.
 Adicionar disco na VM replicada | Não há suporte.<br/> Desabilite a replicação da VM, adicione o disco e, em seguida, habilite novamente a replicação.
+
+> [!NOTE]
+> Não há suporte para alterações na identidade do disco. Por exemplo, se o particionamento de disco tiver sido alterado de GPT para MBR ou vice-versa, isso irá alterar a identidade do disco. Nesse cenário, a replicação será interrompida e uma nova configuração será necessária. 
 
 ## <a name="network"></a>Rede
 

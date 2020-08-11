@@ -3,12 +3,12 @@ title: Barramento de serviço do Azure – suspender entidades de mensagens
 description: Este artigo explica como suspender e reativar temporariamente as entidades de mensagem do barramento de serviço do Azure (filas, tópicos e assinaturas).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: da7c25c8ef9f3daa32984ac26aa62710ab775951
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2dad0b774f271ed719ca09b1e749559d5e1868bd
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038130"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078846"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspender e reativar as entidades de mensagens (desabilitar)
 
@@ -18,9 +18,11 @@ A suspensão de uma entidade normalmente é feita por razões administrativas ur
 
 Uma suspensão ou reativação pode ser executada pelo usuário ou pelo sistema. O sistema suspende entidades apenas por razões administrativas graves como atingir a limite de gastos de assinatura. As entidades desabilitadas pelo sistema não podem ser reativadas pelo usuário, mas serão restauradas quando a causa a suspensão tiver sido resolvida.
 
-No portal, a seção de **Propriedades** para a respectiva entidade permite alterar o estado; a captura de tela a seguir mostra a alternância de uma fila:
+No portal, a seção de **visão geral** para a respectiva entidade permite alterar o estado; o estado atual é exibido em **status** como um hiperlink.
 
-![Captura de tela do recurso do barramento de serviço com a configuração Propriedades realçada e a opção estado da fila definida como ativa e contornada em vermelho.][1]
+A captura de tela a seguir mostra os Estados disponíveis para os quais a entidade pode ser alterada selecionando o hiperlink: 
+
+![Captura de tela do recurso de barramento de serviço em visão geral para alterar a opção de estado de entidade.][1]
 
 O portal permite apenas desabilitar completamente filas. Você também pode desabilitar as operações de envio e recebimento separadamente usando as APIs de Barramento de Serviço [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) no SDK do .NET Framework, ou com um modelo do Azure Resource Manager por meio da CLI do Azure ou o Azure PowerShell.
 
@@ -55,5 +57,5 @@ Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguin
 * [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Como usar tópicos e assinaturas do Barramento de Serviço](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
-[1]: ./media/entity-suspend/queue-disable.png
+[1]: ./media/entity-suspend/entity-state-change.png
 

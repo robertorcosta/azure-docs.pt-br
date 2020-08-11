@@ -4,12 +4,12 @@ description: Use o comando AZ ACR Pack Build para criar uma imagem de contêiner
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 1892f4c20eb75e5e95140c829c49a708a81c2184
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: f99175165e01a9287a66c59957fc7a239b00393a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408009"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077213"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Criar e enviar por push uma imagem de um aplicativo usando um Buildpack nativo de nuvem
 
@@ -96,7 +96,7 @@ Navegue até `localhost:8080` em seu navegador favorito para ver o aplicativo We
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de criar e enviar por push uma imagem de contêiner com `az acr pack build` o, você pode implantá-la como qualquer imagem para um destino de sua escolha. As opções de implantação do Azure incluem executá-lo no [serviço de aplicativo](../app-service/containers/tutorial-custom-docker-image.md) ou no [serviço kubernetes do Azure](../aks/tutorial-kubernetes-deploy-cluster.md), entre outros.
+Depois de criar e enviar por push uma imagem de contêiner com `az acr pack build` o, você pode implantá-la como qualquer imagem para um destino de sua escolha. As opções de implantação do Azure incluem executá-lo no [serviço de aplicativo](../app-service/tutorial-custom-container.md) ou no [serviço kubernetes do Azure](../aks/tutorial-kubernetes-deploy-cluster.md), entre outros.
 
 Para obter mais informações sobre recursos de tarefas de ACR, consulte [automatizar compilações de imagem de contêiner e manutenção com tarefas ACR](container-registry-tasks-overview.md).
 

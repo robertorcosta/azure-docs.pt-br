@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68d40e9dbc2c4da6b298f7245318c95de983edcc
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 65aed14ec7f644f2792aaecde5c8bccfffdd8081
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530139"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078437"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Usar grupos de nuvem para gerenciar atribuições de função no Azure Active Directory (versão prévia)
 
@@ -53,7 +53,7 @@ Projetamos como os grupos são atribuídos às funções para evitar que o tipo 
 Os cenários a seguir não têm suporte no momento:  
 
 - Atribuir grupos de nuvem a funções personalizadas do Azure AD
-- Atribua grupos de nuvem a funções do Azure AD (internas ou personalizadas) em uma unidade administrativa.
+- Atribua grupos de nuvem a funções do Azure AD (internas ou personalizadas) em uma unidade administrativa ou escopo de aplicativo.
 - Atribuir grupos locais a funções do Azure AD (interno ou personalizado)
 
 ## <a name="known-issues"></a>Problemas conhecidos

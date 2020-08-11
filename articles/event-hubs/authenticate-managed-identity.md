@@ -3,12 +3,12 @@ title: Autenticação de uma identidade gerenciada com o Azure Active Directory
 description: Este artigo fornece informações sobre como autenticar uma identidade gerenciada com Azure Active Directory para acessar os recursos dos hubs de eventos do Azure
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 707c93d1f104dcc2982999c4e7461947280918ef
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c74e49eff8233d9918fcdb55e6fa2ad8d7517f6f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534406"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079134"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma identidade gerenciada com Azure Active Directory para acessar recursos de hubs de eventos
 Os hubs de eventos do Azure dão suporte à autenticação Azure Active Directory (Azure AD) com [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md). Identidades gerenciadas para recursos do Azure podem autorizar o acesso a recursos de hubs de eventos usando as credenciais do Azure AD de aplicativos em execução em VMs (máquinas virtuais) do Azure, aplicativos de funções, conjuntos de dimensionamento de máquinas virtuais e outros serviços. Usando identidades gerenciadas para recursos do Azure junto com a autenticação do Azure AD, você pode evitar o armazenamento de credenciais com seus aplicativos que são executados na nuvem.
@@ -32,7 +32,7 @@ Para obter mais informações sobre como atribuir funções do Azure, consulte [
 ## <a name="use-event-hubs-with-managed-identities"></a>Usar os Hubs de Eventos com identidades gerenciadas
 Para usar os hubs de eventos com identidades gerenciadas, você precisa atribuir a identidade a função e o escopo apropriado. O procedimento nesta seção usa um aplicativo simples que é executado sob uma identidade gerenciada e acessa recursos de hubs de eventos.
 
-Aqui, estamos usando um aplicativo Web de exemplo hospedado no [serviço Azure app](https://azure.microsoft.com/services/app-service/). Para obter as instruções passo a passo para criar um aplicativo Web, consulte [criar um ASP.NET Core aplicativo Web no Azure](../app-service/app-service-web-get-started-dotnet.md)
+Aqui, estamos usando um aplicativo Web de exemplo hospedado no [serviço Azure app](https://azure.microsoft.com/services/app-service/). Para obter as instruções passo a passo para criar um aplicativo Web, consulte [criar um ASP.NET Core aplicativo Web no Azure](../app-service/quickstart-dotnetcore.md)
 
 Depois que o aplicativo for criado, siga estas etapas: 
 

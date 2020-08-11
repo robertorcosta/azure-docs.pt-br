@@ -4,12 +4,12 @@ description: Saiba como personalizar o recurso de autenticação e autorização
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 32b7db234cd91aaf9fa5fcfa9b35679d32561474
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: d69a75092f4ede5d5467357a7ac254be6e7c379b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042608"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078386"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado de autenticação e autorização no Serviço de Aplicativo do Azure
 
@@ -17,8 +17,7 @@ Este artigo mostra como personalizar a [autenticação e a autorização integra
 
 Para começar rapidamente, veja um dos seguintes tutoriais:
 
-* [Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure (Windows)](app-service-web-tutorial-auth-aad.md)
-* [Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure para Linux](containers/tutorial-auth-aad.md)
+* [Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure](tutorial-auth-aad.md)
 * [Como configurar seu aplicativo para usar o logon do Azure Active Directory](configure-authentication-provider-aad.md)
 * [Como configurar seu aplicativo para usar o logon do Facebook](configure-authentication-provider-facebook.md)
 * [Como configurar seu aplicativo para usar o logon do Google](configure-authentication-provider-google.md)
@@ -533,5 +532,4 @@ Execute esse comando a partir do [Azure Cloud Shell](../cloud-shell/overview.md)
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: autenticar e autorizar usuários de ponta a ponta (Windows)](app-service-web-tutorial-auth-aad.md) 
->  [Tutorial: autenticar e autorizar usuários de ponta a ponta (Linux)](containers/tutorial-auth-aad.md)
+> [Tutorial: autenticar e autorizar usuários de ponta a ponta](tutorial-auth-aad.md)

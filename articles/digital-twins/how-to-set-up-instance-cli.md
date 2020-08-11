@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 50a7fe866d236a7edb30b3cae5ef076d3ebbca56
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 3c7e4887610f30113b81421396500416d04c5e5e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009708"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078471"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (CLI)
 
@@ -63,10 +63,10 @@ Agora você tem uma instância de gêmeos digital do Azure pronta para uso. Em s
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-Use o comando a seguir para atribuir a função (deve ser executada por um usuário com [permissões suficientes](#prerequisites-permission-requirements) na assinatura do Azure):
+Use o comando a seguir para atribuir a função (deve ser executada por um usuário com [permissões suficientes](#prerequisites-permission-requirements) na assinatura do Azure). O comando exige que você passe o *nome UPN* na conta do Azure ad para o usuário que deve receber a função. Na maioria dos casos, isso corresponderá ao email do usuário na conta do Azure AD.
 
 ```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-email-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
 O resultado desse comando são informações de saída sobre a atribuição de função que foi criada.
@@ -74,13 +74,13 @@ O resultado desse comando são informações de saída sobre a atribuição de f
 > [!NOTE]
 > Se esse comando retornar um erro dizendo que a CLI **não pode localizar a entidade de serviço ou usuário no banco de dados de grafo**:
 >
-> Use a ID de *objeto* do usuário em vez de seu email. Isso pode acontecer para usuários em contas pessoais da [Microsoft (MSAS)](https://account.microsoft.com/account). 
+> Em vez disso, atribua a função usando a *ID de objeto* do usuário. Isso pode acontecer para usuários em contas pessoais da [Microsoft (MSAS)](https://account.microsoft.com/account). 
 >
 > Use a [página portal do Azure de Azure Active Directory usuários](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) para selecionar a conta de usuário e abrir seus detalhes. Copie o *ObjectID*do usuário:
 >
 > :::image type="content" source="media/includes/user-id.png" alt-text="Exibição da página do usuário no portal do Azure realçando o GUID no campo ' ID do objeto '" lightbox="media/includes/user-id.png":::
 >
-> Em seguida, repita o comando da lista de atribuição de função usando a *ID de objeto* do usuário no lugar do email.
+> Em seguida, repita o comando da lista de atribuição de função usando a *ID de objeto* do usuário para o `assignee` parâmetro acima.
 
 ### <a name="verify-success"></a>Verificar êxito
 

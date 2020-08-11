@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 5d5348f8abe8d30c7f23882974b8c121af39636c
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: cdbce7c11bc3184b624fa00f3ac33db7ad8730d8
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448154"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077418"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurar seu aplicativo do Serviço de Aplicativo ou do Azure Functions aplicativo para usar o logon do Azure AD
 
@@ -157,7 +157,7 @@ Você já configurou um aplicativo cliente daemon que pode acessar seu aplicativ
 ## <a name="next-steps"></a><a name="related-content"> </a>Próximas etapas
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
-* [Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure](app-service-web-tutorial-auth-aad.md)
+* [Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure](tutorial-auth-aad.md)
 <!-- URLs. -->
 
 [Azure portal]: https://portal.azure.com/

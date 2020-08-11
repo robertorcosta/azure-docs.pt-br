@@ -13,16 +13,17 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: d25c2e2603f36ff090d01f235a4c8e4a1ae12605
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: d6b6e300a3bd799e94405af143d84cf9fdd8d4c1
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552842"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077128"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Tempos de vida de token configuráveis na plataforma Microsoft Identity (versão prévia)
 
-Você pode especificar o tempo de vida de um token emitido pela plataforma de identidade da Microsoft. Configure os tempos de vida de token de todos os aplicativos em uma organização, para um aplicativo multilocatário (várias organizações) ou para uma entidade de serviço específica em sua organização.
+Você pode especificar o tempo de vida de um token emitido pela plataforma de identidade da Microsoft. Configure os tempos de vida de token de todos os aplicativos em uma organização, para um aplicativo multilocatário (várias organizações) ou para uma entidade de serviço específica em sua organização. 
+> Observe que, no momento, não damos suporte à configuração de tempos de vida do token para entidades de serviço de identidade gerenciadas.
 
 > [!IMPORTANT]
 > Depois de ouvir os clientes durante a versão prévia, implementamos os [recursos de gerenciamento de sessão de autenticação](https://go.microsoft.com/fwlink/?linkid=2083106) no acesso condicional do Azure AD. Você pode usar esse novo recurso para configurar tempos de vida de token de atualização definindo a frequência de entrada. Após 30 de maio de 2020, nenhum novo locatário será capaz de usar a política de tempo de vida de token configurável para configurar os tokens de sessão e de atualização. A reprovação ocorrerá em vários meses depois disso, o que significa que vamos parar de respeitar as políticas existentes de tokens de atualização e de sessão. Você ainda pode configurar tempos de vida de token de acesso após a reprovação.

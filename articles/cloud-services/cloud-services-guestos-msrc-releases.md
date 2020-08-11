@@ -10,21 +10,21 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/10/2020
+ms.date: 8/11/2020
 ms.author: yohaddad
-ms.openlocfilehash: e14295842413464ed9faced59c8bb897f192a511
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: a8755c593f4009d4cacc3d411eb1bc1cb8ddc50d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067011"
+ms.locfileid: "88079151"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] específica na qual foram introduzidas.
 
 ## <a name="july-2020-guest-os"></a>SO convidado de julho de 2020
 >[!NOTE]
->Atualmente, o SO convidado de julho está sendo distribuído para VMs de serviço de nuvem configuradas para atualizações automáticas. Quando a distribuição estiver concluída, essa versão será disponibilizada para atualizações manuais por meio do portal do Azure e dos arquivos de configuração. Os seguintes patches estão incluídos no SO convidado de abril. Esta lista está sujeita a alterações.
+>Atualmente, o SO convidado de julho está sendo distribuído para VMs de serviço de nuvem configuradas para atualizações automáticas. Quando a distribuição estiver concluída, essa versão será disponibilizada para atualizações manuais por meio do portal do Azure e dos arquivos de configuração. Os patches a seguir estão incluídos no SO convidado de julho. Esta lista está sujeita a alterações.
 
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
