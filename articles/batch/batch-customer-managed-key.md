@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 77c0489838685d65d7579f37d6a6cb922af509f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2af82233013f064b185aefde3f2e1710bd86ed43
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062529"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053738"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configurar chaves gerenciadas pelo cliente para sua conta do lote do Azure com Azure Key Vault e identidade gerenciada
 
@@ -82,7 +82,7 @@ No campo **selecionar** , em **principal**, preencha o `principalId` que você r
 
 ### <a name="generate-a-key-in-azure-key-vault"></a>Gerar uma chave no Azure Key Vault
 
-Na portal do Azure, vá para a instância de Key Vault na seção **chave** , selecione **gerar/importar**. Selecione o **tipo de chave** a ser `RSA` e o tamanho da **chave** como `2048` .
+Na portal do Azure, vá para a instância de Key Vault na seção **chave** , selecione **gerar/importar**. Selecione o **tipo de chave** a ser `RSA` e o tamanho da **chave RSA** para que sejam pelo menos `2048` bits. `EC`Atualmente, não há suporte para tipos de chave como uma chave gerenciada pelo cliente em uma conta do lote.
 
 ![Criar uma chave](./media/batch-customer-managed-key/create-key.png)
 
@@ -114,7 +114,7 @@ Ao criar uma nova versão de uma chave, atualize a conta do lote para usar a nov
 
 1. Navegue até sua conta do lote em portal do Azure e exiba as configurações de criptografia.
 2. Insira o URI para a nova versão de chave. Como alternativa, você pode selecionar o cofre de chaves e a chave novamente para atualizar a versão.
-3. Salve as alterações.
+3. Salve suas alterações.
 
 Você também pode usar CLI do Azure para atualizar a versão.
 
@@ -130,7 +130,7 @@ Para alterar a chave usada para criptografia em lote, siga estas etapas:
 
 1. Navegue até sua conta do lote e exiba as configurações de criptografia.
 2. Insira o URI para a nova chave. Como alternativa, você pode selecionar o cofre de chaves e escolher uma nova chave.
-3. Salve as alterações.
+3. Salve suas alterações.
 
 Você também pode usar CLI do Azure para usar uma chave diferente.
 
@@ -142,6 +142,7 @@ az batch account set \
 ```
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
   * **Há suporte para chaves gerenciadas pelo cliente para contas do lote existentes?** Não. As chaves gerenciadas pelo cliente só têm suporte para novas contas do lote.
+  * **Posso selecionar os tamanhos de chave RSA com mais de 2048 bits?** Sim, `3072` também há suporte para os tamanhos de chave RSA e `4096` bits.
   * **Quais operações estão disponíveis depois que uma chave gerenciada pelo cliente é revogada?** A única operação permitida será a exclusão da conta se o lote perder o acesso à chave gerenciada pelo cliente.
   * **Como devo restaurar o acesso à minha conta do lote se eu excluir acidentalmente a chave de Key Vault?** Como a proteção de limpeza e a exclusão reversível estão habilitadas, você pode restaurar as chaves existentes. Para obter mais informações, consulte [recuperar um Azure Key Vault](../key-vault/general/soft-delete-cli.md#recovering-a-key-vault).
   * **Posso desabilitar chaves gerenciadas pelo cliente?** Você pode definir o tipo de criptografia da conta do lote de volta para "chave gerenciada da Microsoft" a qualquer momento. Depois disso, você é livre para excluir ou alterar a chave.

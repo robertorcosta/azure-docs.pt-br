@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 07e265710c69c2ed72df520bf090b7c7d86c8097
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e6ae39fea8c3839208fc366ba0ce8d69799357d2
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503762"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056713"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Criar uma conta que dê suporte a chaves gerenciadas pelo cliente para tabelas e filas
 
@@ -40,7 +40,7 @@ Para se registrar para usar a chave de criptografia da conta com o armazenamento
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para se registrar no PowerShell, chame o comando [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
+Para se registrar no PowerShell, chame o comando [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) .
 
 ```powershell
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `

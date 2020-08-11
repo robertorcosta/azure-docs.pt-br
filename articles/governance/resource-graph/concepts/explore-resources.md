@@ -1,14 +1,14 @@
 ---
 title: Explore os recursos do Azure
 description: Aprenda a usar a linguagem de consulta do Resource Graph para explorar seus recursos e descobrir como eles estão conectados.
-ms.date: 05/20/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 33bf457a57f7e62b9c99471bcb7676f62046f61d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2dcd27380cb67213c3c2c7a5776243b5e9a2e37f
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654493"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056577"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Explore seus recursos do Azure com o Gráfico de Recursos
 
@@ -207,8 +207,8 @@ Resources
 | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'
 ```
 
-Antes de executar a consulta, como sabemos que o **tipo** deve ser agora **Microsoft.Compute / disks**?
-Se você olhar para o ID completo, você verá **/providers/Microsoft.Compute/disks/** como parte da cadeia de caracteres. Esse fragmento de cadeia de caracteres fornece uma dica sobre o tipo de pesquisa. Um método alternativo seria remover o limite por tipo e, em vez disso, pesquisar apenas pelo campo ID. Como o ID é exclusivo, apenas um registro seria retornado e a propriedade **tipo** nele fornece esse detalhe.
+Antes de executar a consulta, como sabemos que o **tipo** deve ser agora **Microsoft.Compute / disks**? Se você olhar para o ID completo, você verá **/providers/Microsoft.Compute/disks/** como parte da cadeia de caracteres.
+Esse fragmento de cadeia de caracteres fornece uma dica sobre o tipo de pesquisa. Um método alternativo seria remover o limite por tipo e, em vez disso, pesquisar apenas pelo campo ID. Como o ID é exclusivo, apenas um registro seria retornado e a propriedade **tipo** nele fornece esse detalhe.
 
 > [!NOTE]
 > Para este exemplo funcionar, você deve substituir o campo ID por um resultado de seu próprio ambiente.

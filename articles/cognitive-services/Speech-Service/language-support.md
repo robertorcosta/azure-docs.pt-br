@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: c01e543b251020581d96d61434d0b3309535ef0c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 19f4e7b340f0b1ceb64d04a2704a4f6667e1e14a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902038"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053568"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Idiomas compatíveis e suporte de voz para o serviço de Fala
 
@@ -361,20 +361,20 @@ Veja na tabela a seguir os idiomas com suporte para as várias APIs de Reconheci
 | Local | Linguagem | Verificação dependente do texto | Verificação independente do texto | Identificação independente do texto |
 |----|----|----|----|----|
 | pt-BR | Inglês (EUA) | sim | sim | sim |
-|zh-CN  |Chinês (mandarim, simplificado)|    n/d|    sim|    sim|
-|de-DE  |Alemão (Alemanha)   |n/d    |sim    |sim|
-|en-GB  |Inglês (Reino Unido)   |n/d    |sim    |sim|
-|fr-FR  |Francês (França)    |n/d    |sim    |sim|
-|en-AU  |Inglês (Austrália)    |n/d    |sim    |sim|
-|en-CA  |Inglês (Canadá)   |n/d|   sim|    sim|
-|fr-CA  |Francês (Canadá)    |n/d    |sim|   sim|
-|it-IT  |Italiano|   n/d |sim|   sim|
-|es-ES| Espanhol (Espanha) |n/d    |sim|   sim|
-|es-MX  |Espanhol (México)   |n/d|   sim|    sim|
-|ja-JP| Japonês    |n/d    |sim    |sim|
-|pt-BR| Português (Brasil)|    n/d|    sim|    sim|
+|zh-CN    |Chinês (mandarim, simplificado)|    n/d|    sim|    sim|
+|de-DE    |Alemão (Alemanha)    |n/d    |sim    |sim|
+|en-GB    |Inglês (Reino Unido)    |n/d    |sim    |sim|
+|fr-FR    |Francês (França)    |n/d    |sim    |sim|
+|en-AU    |Inglês (Austrália)    |n/d    |sim    |sim|
+|en-CA    |Inglês (Canadá)    |n/d|    sim|    sim|
+|fr-CA    |Francês (Canadá)    |n/d    |sim|    sim|
+|it-IT    |Italiano|    n/d    |sim|    sim|
+|es-ES|    Espanhol (Espanha)    |n/d    |sim|    sim|
+|es-MX    |Espanhol (México)    |n/d|    sim|    sim|
+|ja-JP|    Japonês    |n/d    |sim    |sim|
+|pt-BR|    Português (Brasil)|    n/d|    sim|    sim|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obter sua assinatura de avaliação do serviço de Fala](https://azure.microsoft.com/try/cognitive-services/)
+* [Criar uma conta gratuita do Azure](https://azure.microsoft.com/free/cognitive-services/)
 * [Veja como reconhecer fala em C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

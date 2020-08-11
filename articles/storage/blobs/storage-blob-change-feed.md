@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: d464897c031522b2227c682f9581f0d34c8db64b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 09a97897ca7e3984c7003c1dbbca65cddaec1ee6
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518734"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055408"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Suporte ao feed de alterações no Armazenamento de Blobs do Azure (versão prévia)
 
 A finalidade do feed de alterações é fornecer logs de transação de todas as alterações que ocorrem nos BLOBs e nos metadados de BLOB em sua conta de armazenamento. O feed de alterações fornece o log **ordenado**, **garantido**, **durável**, **imutável**e **somente leitura** dessas alterações. Os aplicativos cliente podem ler esses logs a qualquer momento, seja no streaming ou no modo de lote. O feed de alterações permite que você crie soluções eficientes e escalonáveis que processam eventos de alteração que ocorrem em sua conta de armazenamento de BLOBs a um custo baixo.
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 O feed de alterações é armazenado como [BLOBs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) em um contêiner especial em sua conta de armazenamento em custo de [preço de blob](https://azure.microsoft.com/pricing/details/storage/blobs/) padrão. Você pode controlar o período de retenção desses arquivos com base em seus requisitos (consulte as [condições](#conditions) da versão atual). Os eventos de alteração são anexados ao feed de alterações como registros na especificação de formato [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) : um formato compacto, rápido e binário que fornece estruturas de dados avançadas com esquema embutido. Esse formato é amplamente usado no ecossistema do Hadoop, pelo Stream Analytics e pelo Azure Data Factory.
 
@@ -71,7 +71,7 @@ Habilite o feed de alterações em sua conta de armazenamento usando portal do A
 
 4. Escolha o botão **salvar** para confirmar as configurações de **proteção de dados** .
 
-    ![Captura de tela que mostra as configurações de proteção de dados.](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+    ![Captura de tela que mostra as configurações de proteção de dados.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

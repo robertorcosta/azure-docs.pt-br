@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: 33e7a97f4b82bd3d7e82532fe2f0a5e3d80c73f5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ca106625acf28aded0009fd09022843f1016faf3
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006784"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056135"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Atualizar uma oferta existente no Marketplace comercial
 
 Você pode exibir suas ofertas existentes na guia **visão geral** do [portal do Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) no Partner Center.
 
-Para atualizar uma oferta existente que está atualmente ativa no Marketplace:
+Para atualizar uma oferta existente que está atualmente ativa no mercado comercial:
 
 1. Selecione o nome da oferta que você deseja atualizar. O status da oferta pode ser listado como **Visualização**, **dinâmico**, **publicação em andamento**, **rascunho**, **atenção necessária**ou **não disponível** (se você optou anteriormente por parar de vender a oferta). Depois de selecionada, a página **visão geral da oferta** para essa oferta será aberta.
 2. Selecione **Atualizar** no cartão na página Visão geral da oferta ou no item de menu no painel de navegação esquerdo para a área que você deseja atualizar. Talvez você queira atualizar a **configuração da oferta**, **Propriedades**, **lista de ofertas**, **Visualização**, **configuração técnica**, **visão geral do plano**ou **Test Drive**.
@@ -74,7 +74,7 @@ Agora que você ocultou o plano com o preço antigo, crie uma cópia desse plano
 1. Selecione **Salvar rascunho**.
 1. Depois de concluir todas as seções necessárias para o novo plano, selecione **revisar e publicar**. Isso enviará sua oferta para revisão e publicação. Leia [revisar e publicar uma oferta no Marketplace comercial](../review-publish-offer.md) para obter mais detalhes.
 
-## <a name="compare-changes-to-marketplace-offers"></a>Comparar alterações a ofertas do Marketplace
+## <a name="compare-changes-to-commercial-marketplace-offers"></a>Comparar alterações a ofertas do Marketplace comercial
 
 Você pode auditar as alterações feitas em uma oferta [publicada](#compare-changes-to-published-offer) ou de [Visualização](#compare-changes-to-a-preview-offer) antes de torná-las ao vivo usando **comparar**.
 
@@ -161,11 +161,13 @@ Se você quiser publicar a oferta em um momento posterior, será necessário ini
 
 ## <a name="stop-selling-an-offer-or-plan"></a>Pare de vender uma oferta ou um plano
 
+Por vários motivos, você pode decidir remover sua listagem de oferta do Microsoft Commercial Marketplace. A remoção da oferta garante que novos clientes não possam mais comprar ou implantar sua oferta, mas não têm impacto sobre os clientes existentes.
+
 Para parar de vender uma oferta depois de publicá-la, selecione **parar de vender** na página **visão geral da oferta** .
 
-Depois de confirmar que deseja parar de vender a oferta, em algumas horas ela não estará mais visível no Marketplace e nenhum novo cliente poderá baixá-la.
+Depois de confirmar que deseja parar de vender a oferta, em algumas horas ela não estará mais visível no mercado comercial e nenhum novo cliente poderá baixá-la.
 
-Para parar de vender um plano, selecione **parar de vender** na página **visão geral do plano** . A opção de parar de vender um plano só estará disponível se você tiver mais de um plano na oferta. Você pode optar por parar de vender um plano sem afetar outros planos dentro de sua oferta. Depois de confirmar que deseja parar de vender o plano, você deve republicar a oferta para que a alteração entre em vigor. Depois que a oferta for republicada, o plano não estará mais visível no Marketplace e nenhum novo cliente poderá baixá-lo.
+Para parar de vender um plano, selecione **parar de vender** na página **visão geral do plano** . A opção de parar de vender um plano só estará disponível se você tiver mais de um plano na oferta. Você pode optar por parar de vender um plano sem afetar outros planos dentro de sua oferta. Depois de confirmar que deseja parar de vender o plano, você deve republicar a oferta para que a alteração entre em vigor. Depois que a oferta for republicada, o plano não estará mais visível no mercado comercial e nenhum novo cliente poderá baixá-lo.
 
 Todos os clientes que já adquiriram a oferta ou o plano ainda podem usá-lo. Eles podem baixá-lo novamente, mas eles não receberão atualizações se você atualizar e publicar novamente a oferta ou o plano mais tarde.
 

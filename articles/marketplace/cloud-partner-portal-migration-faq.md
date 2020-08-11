@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 59f66b88c998a78f5bd3ccf3757cb791aea2521b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fe909ba25191aa21e8a5bfa51c72690fd9c402eb
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279297"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056543"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Perguntas frequentes sobre a transição do Portal do Cloud Partner para o Partner Center
 
@@ -143,7 +143,7 @@ As atualizações que você não publica são salvas como rascunhos. Continue a 
 
 ### <a name="enhanced-preview-options"></a>Opções de visualização avançada
 
-O Partner Center inclui um recurso [comparar](partner-center-portal/update-existing-offer.md#compare-changes-to-marketplace-offers) com opções de filtragem aprimoradas. Isso lhe dá a capacidade de comparar com as versões de visualização e dinâmica da oferta.
+O Partner Center inclui um recurso [comparar](partner-center-portal/update-existing-offer.md#compare-changes-to-commercial-marketplace-offers) com opções de filtragem aprimoradas. Isso lhe dá a capacidade de comparar com as versões de visualização e dinâmica da oferta.
 
 [![Captura de tela mostra o recurso de comparação do Partner Center.](media/cpp-pc-faq/compare.png "Mostra o recurso de comparação do Partner Center")](media/cpp-pc-faq/compare.png#lightbox)
 

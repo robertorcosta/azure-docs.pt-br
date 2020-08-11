@@ -9,19 +9,19 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 07/27/2020
-ms.openlocfilehash: b3abda9787654734b24cc27987921ef40d8070fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2c8aa39b6819e135181e2d153825e89686359538
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293931"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053755"
 ---
 # <a name="create-azure-ad-guest-users-and-set-as-an-azure-ad-admin"></a>Criar usuários convidados do Azure AD e definir como um administrador do Azure AD
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 > [!NOTE]
-> Este artigo está em **Visualização pública**.
+> Esse artigo está em **versão prévia pública**.
 
 Os usuários convidados no Azure Active Directory (AD do Azure) são usuários que foram importados para o Azure AD atual de outros diretórios ativos do Azure ou fora dele. Por exemplo, os usuários convidados podem incluir usuários de outros diretórios ativos do Azure ou de contas como * \@ Outlook.com*, * \@ hotmail.com*, * \@ Live.com*ou * \@ gmail.com*. Este artigo demonstrará como criar um usuário convidado do Azure AD e definirá esse usuário como um administrador do Azure AD para o servidor lógico do SQL do Azure, sem a necessidade de fazer com que o usuário convidado faça parte de um grupo dentro do Azure AD.
 
@@ -103,7 +103,7 @@ Siga estas etapas para definir um usuário convidado do Azure AD como o administ
 1. Execute o seguinte comando do PowerShell para adicionar o usuário convidado como o administrador do Azure AD para seu servidor lógico do SQL do Azure:
 
     - Substitua `<ResourceGroupName>` pelo nome do grupo de recursos do Azure que contém o servidor lógico do SQL do Azure.
-    - Substitua `<ServerName>` pelo nome do servidor lógico do SQL do Azure. Se o nome do servidor for `myserver.database.windows.net` , substitua `<Server Name>` por `myserver` .
+    - Substitua `<ServerName>` pelo nome do servidor lógico do SQL do Azure. Se o nome do servidor for `myserver.database.windows.net`, substitua `<Server Name>` por `myserver`.
     - Substitua `<DisplayNameOfGuestUser>` pelo seu nome de usuário convidado.
 
     ```powershell
@@ -133,9 +133,9 @@ Siga estas etapas para definir um usuário convidado do Azure AD como o administ
 
 ## <a name="limitations"></a>Limitações
 
-Há uma limitação no portal do Azure que impede a seleção de um usuário convidado do Azure AD como o administrador do Azure AD para o banco de dados SQL, SQL Instância Gerenciada e Azure Synapse. Para contas de convidado fora do Azure AD, como * \@ Outlook.com*, * \@ hotmail.com*, * \@ Live.com*ou * \@ gmail.com*, o seletor de administrador do AD mostra essas contas, mas elas ficam esmaecidas e não podem ser selecionadas. Use os comandos do [PowerShell ou da CLI](#setting-a-guest-user-as-an-azure-ad-admin) listados acima para definir o administrador do Azure AD. Como alternativa, um grupo do Azure AD que contém o usuário convidado pode ser definido como o administrador do Azure AD para o servidor lógico do SQL.
+Há uma limitação no portal do Azure que impede a seleção de um usuário convidado do Azure AD como o administrador do Azure AD para SQL Instância Gerenciada. Para contas de convidado fora do Azure AD, como * \@ Outlook.com*, * \@ hotmail.com*, * \@ Live.com*ou * \@ gmail.com*, o seletor de administrador do AD mostra essas contas, mas elas ficam esmaecidas e não podem ser selecionadas. Use os comandos do [PowerShell ou da CLI](#setting-a-guest-user-as-an-azure-ad-admin) listados acima para definir o administrador do Azure AD. Como alternativa, um grupo do Azure AD que contém o usuário convidado pode ser definido como o administrador do Azure AD para o Instância Gerenciada do SQL.
 
-Essa funcionalidade será habilitada para o banco de dados SQL e o Azure Synapse antes da disponibilidade geral desse recurso.
+Essa funcionalidade será habilitada para o SQL Instância Gerenciada antes da disponibilidade geral desse recurso.
 
 ## <a name="next-steps"></a>Próximas etapas
 

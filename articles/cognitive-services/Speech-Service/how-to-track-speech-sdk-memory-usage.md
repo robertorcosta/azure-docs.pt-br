@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rhurey
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: da5103317a2215aca68cec14ba8a0951258c9b89
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a6be6ca00b2bc5d7b35fb71437809754f129df96
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75456427"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054628"
 ---
 # <a name="how-to-track-speech-sdk-memory-usage"></a>Como controlar o uso de memória do SDK de fala
 
@@ -40,7 +40,7 @@ Aqui está um log de exemplo:
 
 Você tem a opção de criar um limite de aviso e, se esse limite for excedido (supondo que o log esteja habilitado), uma mensagem de aviso será registrada. A mensagem de aviso contém um despejo de todos os objetos em existência junto com sua contagem. Essas informações podem ser usadas para entender melhor os problemas. 
 
-Para habilitar um limite de aviso, ele deve ser especificado em `SpeechConfig` um objeto. Esse objeto é verificado quando um novo reconhecedor é criado. Nos exemplos a seguir, vamos supor que você criou uma instância do `SpeechConfig` chamada: `config`
+Para habilitar um limite de aviso, ele deve ser especificado em um `SpeechConfig` objeto. Esse objeto é verificado quando um novo reconhecedor é criado. Nos exemplos a seguir, vamos supor que você criou uma instância do `SpeechConfig` chamada `config` :
 
 ::: zone pivot="programming-language-csharp"
 
@@ -69,7 +69,7 @@ config.setProperty("SPEECH-ObjectCountWarnThreshold", "10000");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name(“SPEECH-ObjectCountWarnThreshold", "10000")?
+speech_config.set_property_by_name("SPEECH-ObjectCountWarnThreshold", "10000")?
 ```
 
 ::: zone-end
@@ -102,7 +102,7 @@ class Microsoft::CognitiveServices::Speech::Impl::ISpxAudioConfig 0
 class Microsoft::CognitiveServices::Speech::Impl::ISpxSpeechConfig 0
 ```
 
-Para habilitar um limite de erro, ele deve ser especificado em `SpeechConfig` um objeto. Esse objeto é verificado quando um novo reconhecedor é criado. Nos exemplos a seguir, vamos supor que você criou uma instância do `SpeechConfig` chamada: `config`
+Para habilitar um limite de erro, ele deve ser especificado em um `SpeechConfig` objeto. Esse objeto é verificado quando um novo reconhecedor é criado. Nos exemplos a seguir, vamos supor que você criou uma instância do `SpeechConfig` chamada `config` :
 
 ::: zone pivot="programming-language-csharp"
 
@@ -131,7 +131,7 @@ config.setProperty("SPEECH-ObjectCountErrorThreshold", "10000");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name(“SPEECH-ObjectCountErrorThreshold", "10000")?
+speech_config.set_property_by_name("SPEECH-ObjectCountErrorThreshold", "10000")?
 ```
 
 ::: zone-end
@@ -149,5 +149,4 @@ speech_config.set_property_by_name(“SPEECH-ObjectCountErrorThreshold", "10000"
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obtenha sua assinatura de avaliação do serviço de fala](get-started.md)
-* [Saiba como reconhecer a fala usando um microfone](quickstarts/speech-to-text-from-microphone.md)
+* [Saiba mais sobre o SDK de fala](speech-sdk.md)

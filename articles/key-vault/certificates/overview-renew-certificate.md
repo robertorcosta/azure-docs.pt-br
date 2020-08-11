@@ -10,18 +10,21 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: c6999b67a5c0a0f4ca7cb943ae8de3afd8b6a11e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41085ee629189c32c1bc7196f23805c9c48d154a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095743"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056271"
 ---
 # <a name="about-azure-key-vault-certificate-renewal"></a>Sobre a renovação de certificado Azure Key Vault
 
 O Azure Key Vault permite que você provisione, gerencie e implante facilmente certificados digitais para sua rede e habilite comunicações seguras para aplicativos. Para obter mais informações gerais sobre certificados, consulte [certificados de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates)
 
 Ter um certificado de curta duração ou aumentar a frequência da rotação do certificado limita o escopo do adversário quanto a danos.
+
+## <a name="certificate-expiration-notifications"></a>Notificações de expiração do certificado
+Primeiro, certifique-se de adicionar o contato de certificado ao seu Key Vault para ser notificado quando os certificados estiverem prestes a expirar (por exemplo, usando o PowerShell [Add-AzureKeyVaultCertificateContact](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0)) segundo, configure quando você deseja ser notificado sobre a expiração do certificado. Para configurar a ação de tempo de vida, siga [aqui](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate)
 
 Há três categorias de criação de certificado no Key Vault. Este guia ajudará você a entender como a renovação de certificados pode ser obtida.
 -   Certificados criados com AC integrada (DigiCert ou GlobalSign)
@@ -55,6 +58,10 @@ Boa notícia novamente! Os cofres de chaves do Azure também cuidam da renovaç�
 
 ### <a name="troubleshoot"></a>Solucionar problemas
 Se o certificado emitido estiver no status ' desabilitado ' na portal do Azure, prossiga para exibir a operação de certificado para exibir a mensagem de erro para esse certificado.
+
+### <a name="frequently-asked-questions"></a>Perguntas frequentes
+As marcas serão replicadas após a renovação automática do certificado?
+Não, as marcas não seriam replicadas, a menos que o usuário copie manualmente as marcas.
 
 ### <a name="see-also"></a>Consulte Também
 *   [Como integrar o Key Vault à autoridade de certificação DigiCert](how-to-integrate-certificate-authority.md)

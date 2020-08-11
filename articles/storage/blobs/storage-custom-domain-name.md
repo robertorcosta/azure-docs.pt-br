@@ -9,18 +9,18 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 95fd62584ef73f3f2f198c84913652f460fc5b1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 903413b6ca00600e15ac3af0a93b98a8d67a1c28
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465517"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053619"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mapear um domínio personalizado para um ponto de extremidade do armazenamento de BLOBs do Azure
 
 Você pode mapear um domínio personalizado para um ponto de extremidade de serviço BLOB ou um ponto de extremidade de [site estático](storage-blob-static-website.md) . 
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
 > Esse mapeamento funciona apenas para subdomínios (por exemplo: `www.contoso.com` ). Se desejar que o ponto de extremidade da Web esteja disponível no domínio raiz (por exemplo: `contoso.com` ), você precisará usar a CDN do Azure. Para obter diretrizes, consulte a seção [mapear um domínio personalizado com https habilitado](#enable-https) deste artigo. Como você vai para essa seção deste artigo para habilitar o domínio raiz do seu domínio personalizado, a etapa dentro dessa seção para habilitar HTTPS é opcional. 

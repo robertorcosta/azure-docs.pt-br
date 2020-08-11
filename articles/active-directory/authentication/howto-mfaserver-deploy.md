@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c32867313a0adf1967cb55cb78c42cc1b4e5758
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc4bd817fda762e62e791542aea2df65deb0dae3
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80653117"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054044"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introdução ao Servidor de Autenticação Multifator do Azure
 
@@ -54,7 +54,7 @@ Verifique se o servidor que você está usando para a Autenticação Multifator 
 | Requisitos do Servidor de Autenticação Multifator do Azure | Descrição |
 |:--- |:--- |
 | Hardware |<li>200 MB de espaço em disco rígido</li><li>processador compatível com x32 ou x64</li><li>1 GB ou mais de RAM</li> |
-| Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008 SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003 SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, todas as edições</li><li>Windows 8, todas as edições</li><li>Windows 7, todas as edições</li><li>Windows Vista, todas as edições, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 ou superior se estiver instalando o portal do usuário ou o SDK do serviço Web</li> |
+| Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008/R2 (somente com [ESU](https://docs.microsoft.com/lifecycle/faq/extended-security-updates) )</li><li>Windows 10</li><li>Windows 8.1, todas as edições</li><li>Windows 8, todas as edições</li><li>Windows 7, todas as edições (somente com [ESU](https://docs.microsoft.com/lifecycle/faq/extended-security-updates) )</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 ou superior se estiver instalando o portal do usuário ou o SDK do serviço Web</li> |
 | Permissões | Conta de Administrador Corporativo ou de Administrador de Domínio para registrar-se no Active Directory |
 
 ### <a name="azure-mfa-server-components"></a>Componentes do servidor MFA do Azure
@@ -81,15 +81,27 @@ Se os firewalls de saída forem restritos na porta 443, abra os seguintes interv
 |:---: |:---: |:---: |
 | 134.170.116.0/25 |255.255.255.128 |134.170.116.1 – 134.170.116.126 |
 | 134.170.165.0/25 |255.255.255.128 |134.170.165.1 – 134.170.165.126 |
-| 70.37.154.128/25 |255.255.255.128 |70.37.154.129 – 70.37.154.254 |
+| 70.37.154.128/25 |255.255.255.128 |70.37.154.129 – 70.37.154.254   |
+| 52.251.8.48/28   | 255.255.255.240 | 52.251.8.48 - 52.251.8.63     |
+| 52.247.73.160/28 | 255.255.255.240 | 52.247.73.160 - 52.247.73.175 |
+| 52.159.5.240/28  | 255.255.255.240 | 52.159.5.240 - 52.159.5.255   |
+| 52.159.7.16/28   | 255.255.255.240 | 52.159.7.16 - 52.159.7.31     |
+| 52.250.84.176/28 | 255.255.255.240 | 52.250.84.176 - 52.250.84.191 |
+| 52.250.85.96/28  | 255.255.255.240 | 52.250.85.96 - 52.250.85.111  |
 
 Se você não estiver usando o recurso de Confirmação de Eventos e os usuários não estiverem usando aplicativos móveis para verificar com dispositivos na rede corporativa, só precisará dos seguintes intervalos:
 
 | Subrede de IP | Máscara de rede | Intervalo IP |
 |:---: |:---: |:---: |
-| 134.170.116.72/29 |255.255.255.248 |134.170.116.72 – 134.170.116.79 |
-| 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
-| 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
+| 134.170.116.72/29 |255.255.255.248 |134.170.116.72 – 134.170.116.79|
+| 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79|
+| 70.37.154.200/29 |255.255.255.248  |70.37.154.201 – 70.37.154.206  |
+| 52.251.8.48/28   | 255.255.255.240 | 52.251.8.48 - 52.251.8.63     |
+| 52.247.73.160/28 | 255.255.255.240 | 52.247.73.160 - 52.247.73.175 |
+| 52.159.5.240/28  | 255.255.255.240 | 52.159.5.240 - 52.159.5.255   |
+| 52.159.7.16/28   | 255.255.255.240 | 52.159.7.16 - 52.159.7.31     |
+| 52.250.84.176/28 | 255.255.255.240 | 52.250.84.176 - 52.250.84.191 |
+| 52.250.85.96/28  | 255.255.255.240 | 52.250.85.96 - 52.250.85.111  |
 
 ## <a name="download-the-mfa-server"></a>Baixar o Servidor MFA
 

@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 06/25/2020
-ms.openlocfilehash: b7d7ec95d2227076ff7b7a95ce6e72fffc840975
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7194e4553386c25691bb3ede8096da7fb63c5dc0
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073349"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055183"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>O que é o Azure SQL Instância Gerenciada?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Parte da família de produtos SQL do Azure, o Azure SQL Instância Gerenciada é o serviço de banco de dados de nuvem inteligente e escalonável que combina a mais ampla compatibilidade de mecanismo de banco de dados SQL Server com todos os benefícios de uma plataforma totalmente gerenciada e verde como um serviço. O SQL Instância Gerenciada tem quase 100% de compatibilidade com o mecanismo de banco de dados mais recente do SQL Server (Enterprise Edition), fornecendo uma implementação de [rede virtual nativa (VNet)](../../virtual-network/virtual-networks-overview.md) que aborda questões de segurança comuns e um [modelo de negócios](https://azure.microsoft.com/pricing/details/sql-database/) favorável para clientes existentes do SQL Server. O SQL Instância Gerenciada permite que os clientes existentes do SQL Server migrem e shiftem seus aplicativos locais para a nuvem com alterações mínimas de aplicativos e bancos de dados. Ao mesmo tempo, o SQL Instância Gerenciada preserva todos os recursos de PaaS (patches automáticos e atualizações de versão, [backups automatizados](../database/automated-backups-overview.md), [alta disponibilidade](../database/high-availability-sla.md)) que reduzem drasticamente a sobrecarga de gerenciamento e o TCO.
+O Azure SQL Instância Gerenciada é o serviço de banco de dados de nuvem inteligente e escalonável que combina a mais ampla compatibilidade de mecanismo de banco de dados SQL Server com todos os benefícios de uma plataforma como serviço totalmente gerenciada e verde. O SQL Instância Gerenciada tem quase 100% de compatibilidade com o mecanismo de banco de dados mais recente do SQL Server (Enterprise Edition), fornecendo uma implementação de [rede virtual nativa (VNet)](../../virtual-network/virtual-networks-overview.md) que aborda questões de segurança comuns e um [modelo de negócios](https://azure.microsoft.com/pricing/details/sql-database/) favorável para clientes existentes do SQL Server. O SQL Instância Gerenciada permite que os clientes existentes do SQL Server migrem e shiftem seus aplicativos locais para a nuvem com alterações mínimas de aplicativos e bancos de dados. Ao mesmo tempo, o SQL Instância Gerenciada preserva todos os recursos de PaaS (patches automáticos e atualizações de versão, [backups automatizados](../database/automated-backups-overview.md), [alta disponibilidade](../database/high-availability-sla.md)) que reduzem drasticamente a sobrecarga de gerenciamento e o TCO.
 
 > [!IMPORTANT]
 > Para obter uma lista de regiões em que o SQL Instância Gerenciada está disponível no momento, consulte [regiões com suporte](resource-limits.md#supported-regions).
@@ -192,7 +192,7 @@ A abordagem de migração aproveita backups do SQL para o Armazenamento de Blobs
 
 ### <a name="database-migration-service"></a>Serviço de Migração de Banco de Dados
 
-O serviço de migração de banco de dados do Azure é um serviço totalmente gerenciado projetado para permitir migrações diretas de várias fontes de banco de dados para plataformas de data do Azure com tempo de inatividade Esse serviço simplifica as tarefas necessárias para mover bancos de dados de terceiros e de SQL Server existentes para o Azure SQL Database, Azure SQL Instância Gerenciada e SQL Server na VM do Azure. Veja [como migrar seu banco de dados local para o SQL instância gerenciada usando o serviço de migração de banco de dados](https://aka.ms/migratetoMIusingDMS).
+O Serviço de Migração de Banco de Dados do Azure é um serviço totalmente gerenciado projetado para permitir migrações perfeitas de várias fontes de banco de dados para plataformas de dados do Azure com um tempo de inatividade mínimo. Esse serviço simplifica as tarefas necessárias para mover bancos de dados de terceiros e de SQL Server existentes para o Azure SQL Database, Azure SQL Instância Gerenciada e SQL Server na VM do Azure. Veja [como migrar seu banco de dados local para o SQL instância gerenciada usando o serviço de migração de banco de dados](https://aka.ms/migratetoMIusingDMS).
 
 ## <a name="sql-features-supported"></a>Recursos do SQL com suporte
 

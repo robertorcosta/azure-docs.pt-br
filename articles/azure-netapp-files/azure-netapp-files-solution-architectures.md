@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 19e02012c31246b3b6b4636ef61154fbade347ce
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 48e3f895fb123429f1bedd106bd92113533c84ae
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494614"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055795"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquiteturas da solução usando o Azure NetApp Files
 Este artigo fornece referências a práticas recomendadas que podem ajudá-lo a entender as arquiteturas de solução para usar o Azure NetApp Files.  
@@ -44,8 +44,8 @@ Esta seção fornece referências para aplicativos do Windows e soluções de SQ
 
 ### <a name="file-sharing-and-global-file-caching"></a>Compartilhamento de arquivos e cache de arquivos global
 
-* [Implantação do Talon/Azure NetApp Files](https://youtu.be/91LKb1qsLIM)
 * [Compilar seu próprio NFS do Azure? Compartilhamentos de arquivos do Linux extrair na nuvem](https://cloud.netapp.com/blog/ma-anf-blg-build-your-own-linux-nfs-file-shares)
+* [Implantação de Azure NetApp Files/cache de arquivos global](https://youtu.be/91LKb1qsLIM)
 
 ### <a name="sql-server"></a>SQL Server
 

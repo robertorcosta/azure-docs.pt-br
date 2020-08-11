@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9658175b0d42db9acfc94d39e4ab226bfe2cfc4b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ee49ae905622b4b76d782f6a31e0c2333b6d54be
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187312"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055285"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gerenciar variáveis na Automação do Azure
 
@@ -30,7 +30,7 @@ As variáveis de automação são úteis para os seguintes cenários:
 
 A Automação do Azure persiste variáveis e as disponibiliza mesmo quando um runbook ou uma configuração DSC falha. Esse comportamento permite que um runbook ou uma configuração DSC defina um valor que será usado por outro runbook ou pelo mesmo runbook ou configuração DSC na próxima vez em que for executado.
 
-A Automação do Azure armazena cada variável criptografada com segurança. Ao criar uma variável, você pode especificar sua criptografia e armazenamento pela Automação do Azure como um ativo protegido. 
+A Automação do Azure armazena cada variável criptografada com segurança. Ao criar uma variável, você pode especificar sua criptografia e armazenamento pela automação do Azure como um ativo seguro. Depois de criar a variável, você não pode alterar seu status de criptografia sem recriar a variável. Uma recomendação da central de segurança do Azure é criptografar todas as variáveis de automação do Azure, conforme descrito em [variáveis de conta de automação devem ser criptografados](../../security-center/recommendations-reference.md#recs-computeapp). 
 
 >[!NOTE]
 >Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta da Automação do Azure. A Automação do Azure armazena a chave no Key Vault gerenciado pelo sistema. Antes de armazenar um ativo seguro, a Automação do Azure carrega a chave do Key Vault e depois a usa para criptografar o ativo. 

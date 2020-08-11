@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: genli
-ms.openlocfilehash: 6010c67b531d0f1ebb0ed836062cd5e323e5474c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b5124a0336773412ae9c36a32a0f6f86da62a31
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083507"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056237"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou VHDX do Windows para carregar no Azure
 
@@ -488,6 +488,7 @@ Em particular, o Sysprep exige que as unidades sejam totalmente descriptografada
 
 1. Entre na VM Windows.
 1. Execute uma sessão do PowerShell como administrador.
+1. Exclua o diretório Panther (C:\Windows\Panther).
 1. Altere o diretório para `%windir%\system32\sysprep` . Em seguida, execute `sysprep.exe`.
 1. Na caixa de diálogo **ferramenta de preparação do sistema** , selecione entrar na **experiência de uso inicial do sistema (OOBE)** e verifique se a caixa de seleção **generalizar** está selecionada.
 

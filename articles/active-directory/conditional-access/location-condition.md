@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 091555bac780f3abc7089d6214d0f9a8cfbf98cd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 08e236d798f700a3c48dd41ba61941bc0037d613
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518429"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055370"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Usando a condição de localização em uma política de acesso condicional 
 
@@ -190,7 +190,7 @@ Quando você cria ou atualiza localizações nomeadas, para atualizações em ma
 
 Quando você usa um proxy ou solução VPN hospedado na nuvem, o endereço IP que o Microsoft Azure AD usa ao avaliar uma política é o endereço IP do proxy. O cabeçalho de X-Forwarded-For (XFF) que contém o endereço IP público dos usuários não é usado porque não há validações que venham de uma fonte confiável, portanto apresentaria um método para simular um endereço IP.
 
-Quando um proxy na nuvem está em uso, uma política que é usada para solicitar um dispositivo ingressado no domínio pode ser usada, ou a declaração corpnet interna do AD FS.
+Quando um proxy de nuvem está em vigor, uma política usada para exigir um dispositivo ingressado no Azure AD híbrido pode ser usada ou a declaração interna corpnet de AD FS.
 
 ### <a name="api-support-and-powershell"></a>Suporte à API e PowerShell
 

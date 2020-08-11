@@ -3,14 +3,14 @@ title: Dimensionar um tipo de nó do Azure Service Fabric
 description: Aprenda como dimensionar um cluster do Microsoft Azure Service Fabric adicionando um conjunto de dimensionamento de máquinas virtuais.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: a42e33fa87b6cf7966368481ef6d3920511919e3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a8a8a432d4a11427f2c4f545a0907540af3112bc
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260455"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056475"
 ---
-# <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Dimensionar um tipo de nó primário do cluster do Service Fabric
+# <a name="scale-up-a-service-fabric-cluster-primary-node-type-by-adding-a-virtual-machine-scale-set"></a>Escalar verticalmente um tipo de nó primário de Cluster Service Fabric adicionando um conjunto de dimensionamento de máquinas virtuais
 Este artigo descreve como dimensionar um tipo de nó primário de cluster do Service Fabric aumentando os recursos da máquina virtual. Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você usa para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Então, cada tipo de nó pode ser gerenciado separadamente. Após criar um cluster do Service Fabric, será possível dimensionar verticalmente um tipo de nó de cluster (alterar os recursos dos nós) ou atualizar o sistema operacional das VMs do tipo de nó.  É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
 
 > [!WARNING]

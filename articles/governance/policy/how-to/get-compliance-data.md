@@ -1,14 +1,14 @@
 ---
 title: Obter dados de conformidade da política
 description: Efeitos e avaliações do Azure Policy determinam a conformidade. Saiba como obter os detalhes de conformidade dos seus recursos do Azure.
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.topic: how-to
-ms.openlocfilehash: 8da1876842e89e806b61bba611db74795a6710d1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7795bba9fec79ee13600d9c72f68e9c763b169e4
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521527"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054645"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obter dados de conformidade de recursos do Azure
 
@@ -34,7 +34,7 @@ As avaliações de políticas atribuídas e iniciativas ocorrem como resultado d
 
 - Uma política ou iniciativa já atribuída a um escopo foi atualizada. O ciclo de avaliação e o tempo desse cenário são iguais aos de uma nova atribuição a um escopo.
 
-- Um recurso é implantado em um escopo com uma atribuição por meio de Azure Resource Manager, REST, CLI do Azure ou Azure PowerShell. Nesse cenário, o evento de efeito (anexar, auditar, negar, implantar) e as informações de status compatíveis com o recurso individual ficam disponíveis no portal e nos SDKs por volta de 15 minutos depois. Este evento não causa uma avaliação de outros recursos.
+- Um recurso é implantado ou atualizado dentro de um escopo com uma atribuição via Azure Resource Manager, API REST ou um SDK com suporte. Nesse cenário, o evento de efeito (anexar, auditar, negar, implantar) e as informações de status compatíveis com o recurso individual ficam disponíveis no portal e nos SDKs por volta de 15 minutos depois. Este evento não causa uma avaliação de outros recursos.
 
 - Ciclo de avaliação de conformidade padrão. Uma vez a cada 24 horas, as atribuições são automaticamente reavaliadas. Uma política ou iniciativa de muitos recursos pode demorar, portanto, não há uma expectativa predefinida de quando o ciclo de avaliação é concluído. Após a conclusão, os resultados de conformidade atualizados estarão disponíveis no Portal e nos SDKs.
 

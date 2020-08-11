@@ -4,14 +4,14 @@ description: Saiba como dimensionar um Cluster Service Fabric adicionando um tip
 ms.topic: article
 ms.date: 08/06/2020
 ms.author: pepogors
-ms.openlocfilehash: 5cabe7e377c29812252074336d7c5e9c9d3ba259
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: eecf398359470f6e5e151c53eb63b3cb56efbe39
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031959"
+ms.locfileid: "88056747"
 ---
-# <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Dimensionar um tipo de nó primário do cluster do Service Fabric
+# <a name="scale-up-a-service-fabric-cluster-primary-node-type-by-adding-a-node-type"></a>Escalar verticalmente um tipo de nó primário de Cluster Service Fabric adicionando um tipo de nó
 Este artigo descreve como escalar verticalmente um tipo de nó primário de Cluster Service Fabric adicionando um tipo de nó adicional ao cluster. Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você usa para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Então, cada tipo de nó pode ser gerenciado separadamente.
 
 Os modelos de exemplo no tutorial a seguir podem ser encontrados aqui: [Service Fabric exemplos de dimensionamento de tipo de nó primário](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Primary-NodeType-Scaling-Sample)

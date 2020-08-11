@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cd8771afdc9c4462faaff758ffdd073382f69f53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24118e6ae5c31399ce5d33361dd60e3a08424681
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550983"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055761"
 ---
 # <a name="blob-snapshots"></a>Instantâneos de BLOB
 
@@ -33,7 +33,7 @@ O instantâneo de um blob é idêntico ao respectivo blob de base, exceto pelo f
 > Todos os instantâneos compartilham o URI do blob de base. A única diferença entre o blob de base e o instantâneo é o acréscimo do valor **DateTime** .
 >
 
-Um blob pode ter qualquer número de instantâneos. Os instantâneos persistem até serem explicitamente excluídos, o que significa que um instantâneo não pode sobreviver além seu blob de base. Você pode enumerar os instantâneos associados ao blob de base para acompanhar seus instantâneos atuais.
+Um blob pode ter qualquer número de instantâneos. Os instantâneos persistem até serem explicitamente excluídos, independentemente ou como parte da operação de exclusão de BLOB para o blob de base. Você pode enumerar os instantâneos associados ao blob de base para acompanhar seus instantâneos atuais.
 
 Quando você cria um instantâneo de um blob, as propriedades do sistema são copiadas para o instantâneo com os mesmos valores. Os metadados do blob de base também são copiados no instantâneo, a menos que você especifique metadados separados para o instantâneo ao criá-lo. Depois de criar um instantâneo, você pode lê-lo, copiá-lo ou excluí-lo, mas não é possível modificá-lo.
 

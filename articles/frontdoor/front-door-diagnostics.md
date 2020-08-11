@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: f57c0353989cfcf924042d202bd80a57b476507b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 249b2406f048709fd7e4f76f8272b3158708e5bb
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322303"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056424"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitoramento de métricas e logs na porta frontal do Azure
 
@@ -50,7 +50,7 @@ Os logs de atividade fornecem informações sobre as operações realizadas na p
 Acesse os logs de atividade em sua porta de front-end ou todos os logs dos recursos do Azure no Azure Monitor. Para exibir logs de atividade:
 
 1. Selecione sua instância de porta frontal.
-2. Selecione **log de atividades**.
+2. Selecione **Log de atividades**.
 
     ![Log de atividades](./media/front-door-diagnostics/activity-log.png)
 
@@ -73,7 +73,7 @@ Para configurar os logs de diagnóstico para sua porta frontal:
 
 Atualmente, a porta frontal fornece logs de diagnóstico (em lote). Os logs de diagnóstico fornecem solicitações de API individuais com cada entrada com o seguinte esquema:
 
-| Property  | Descrição |
+| Propriedade  | Descrição |
 | ------------- | ------------- |
 | BackendHostname | Se a solicitação estava sendo encaminhada para um back-end, esse campo representa o nome do host do back-end. Esse campo ficará em branco se a solicitação tiver sido redirecionada ou encaminhada para um cache regional (quando o Caching estiver habilitado para a regra de roteamento). |
 | CacheStatus | Para cenários de cache, esse campo define o impacto/perda do cache no POP |
@@ -91,7 +91,7 @@ Atualmente, a porta frontal fornece logs de diagnóstico (em lote). Os logs de d
 | RulesEngineMatchNames | Os nomes das regras que a solicitação correspondeu. |
 | SecurityProtocol | A versão do protocolo TLS/SSL usada pela solicitação ou NULL se não houver criptografia. |
 | SentToOriginShield | Campo booliano que representa se houve uma perda de cache no primeiro ambiente e a solicitação foi enviada para o cache regional. Ignore este campo se a regra de roteamento for um redirecionamento ou quando o cache não estiver habilitado. |
-| TimeTaken | O período de tempo que a ação tomou em milissegundos. |
+| TimeTaken | O período de tempo do primeiro byte de solicitação na porta frontal até o último byte de resposta, em segundos. |
 | TrackingReference | A cadeia de caracteres de referência exclusiva que identifica uma solicitação atendida pela Front Door, também enviada como o cabeçalho X-Azure-Ref para o cliente. Necessário para pesquisar detalhes nos logs de acesso para uma solicitação específica. |
 | UserAgent | O tipo de navegador que o cliente usou. |
 

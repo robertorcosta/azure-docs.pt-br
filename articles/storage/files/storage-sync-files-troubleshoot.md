@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: d268358f2f80cc9d347fa722d5027e1a87894b20
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d266583a2bd73c92a58fad1882a1c572ed4f3769
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034389"
+ms.locfileid: "88056254"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -47,7 +47,7 @@ Depois de criar um ponto de extremidade de servidor no Windows Server 2012 R2, o
 letradaunidade:\ não está acessível.  
 O parâmetro está incorreto.
 
-Para resolver, instale as atualizações mais recentes do Windows Server 2012 R2 e reinicie o servidor.
+Para resolver esse problema, instale o [KB2919355](https://support.microsoft.com/help/2919355/windows-rt-8-1-windows-8-1-windows-server-2012-r2-update-april-2014) e reinicie o servidor. Se essa atualização não for instalada porque uma atualização posterior já está instalada, vá para Windows Update, instale as atualizações mais recentes do Windows Server 2012 R2 e reinicie o servidor.
 
 <a id="server-registration-missing-subscriptions"></a>**O Registro de Servidor não lista todas as Assinaturas do Azure**  
 Ao registrar um servidor usando o ServerRegistration.exe, as assinaturas estão ausentes quando você clica na lista suspensa da Assinatura do Azure.
@@ -338,7 +338,7 @@ Para ver esses erros, execute o script do PowerShell **FileSyncErrorsReport.ps1*
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | O arquivo não pode ser sincronizado porque o número máximo de arquivos de conflito foi atingido. A Sincronização de Arquivos do Azure dá suporte a 100 arquivos de conflito por arquivo. Para saber mais sobre conflitos de arquivo, confira as [perguntas frequentes](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution) da Sincronização de Arquivos do Azure. | Para resolver esse problema, reduza o número de arquivos com conflito. O arquivo será sincronizado assim que o número de arquivos com conflito for menor que 100. |
 
 #### <a name="handling-unsupported-characters"></a>Manipulando Caracteres Não Suportados
-Se o script **FileSyncErrorsReport.ps1** do PowerShell mostrar falhas devido a caracteres incompatíveis (código de erro 0x8007007b ou 0x80c80255), será preciso remover ou renomear os caracteres conflitantes dos respectivos nomes de arquivo. PowerShell provavelmente será impresso esses caracteres como pontos de interrogação ou retângulos vazios, pois a maior parte desses caracteres não têm nenhuma codificação de visual padrão. Uma [Ferramenta de Avaliação](storage-sync-files-planning.md#evaluation-cmdlet) pode ser usada para identificar os caracteres sem suporte.
+Se o script do **FileSyncErrorsReport.ps1** PowerShell mostrar erros de sincronização por item devido a caracteres sem suporte (código de erro 0x8007007b ou 0x80c80255), você deverá remover ou renomear os caracteres com falha dos respectivos nomes de arquivo. PowerShell provavelmente será impresso esses caracteres como pontos de interrogação ou retângulos vazios, pois a maior parte desses caracteres não têm nenhuma codificação de visual padrão. Uma [Ferramenta de Avaliação](storage-sync-files-planning.md#evaluation-cmdlet) pode ser usada para identificar os caracteres sem suporte. Se o conjunto de seus conjuntos de um tiver vários arquivos com caracteres inválidos, use o script [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) para renomear os arquivos que contêm caracteres sem suporte.
 
 A tabela abaixo contém todos os caracteres unicode que o Azure File Sync ainda não suporta.
 

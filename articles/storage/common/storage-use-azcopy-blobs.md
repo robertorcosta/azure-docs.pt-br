@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: bcb4563f7106161920b89897b706b05d2f819938
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f4bf3974cd561626c280dc65aa5fc78d0c9a159b
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282442"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056492"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferir dados com o armazenamento de BLOBs e AzCopy
 
@@ -52,7 +52,7 @@ Você pode usar o comando [azcopy Copy](storage-ref-azcopy-copy.md) para carrega
 Esta seção contém os seguintes exemplos:
 
 > [!div class="checklist"]
-> * Fazer upload de um arquivo
+> * Carregar um arquivo
 > * Carregar um diretório
 > * Carregar o conteúdo de um diretório 
 > * Carregar arquivos específicos
@@ -67,7 +67,7 @@ Esta seção contém os seguintes exemplos:
 > 
 > Para obter uma lista completa, consulte [Opções](storage-ref-azcopy-copy.md#options).
 
-### <a name="upload-a-file"></a>Fazer upload de um arquivo
+### <a name="upload-a-file"></a>Carregar um arquivo
 
 |    |     |
 |--------|-----------|
@@ -283,7 +283,7 @@ Esses exemplos também funcionam com contas que têm um namespace hierárquico. 
 >
 > |Cenário|Sinalizador|
 > |---|---|
-> |Copie arquivos como BLOBs de acréscimo ou BLOBs de página.|**--tipo** = \[ de BLOB BlockBlob \| PageBlob \| AppendBlob\]|
+> |Copie blobs como bloco, página ou BLOBs de acréscimo.|**--tipo** = \[ de BLOB BlockBlob \| PageBlob \| AppendBlob\]|
 > |Copie para uma camada de acesso específica (como a camada de arquivo morto).|**--bloco-blob-camada** = \[ Nenhum \| \| arquivo frio \| quente\]|
 > |Descompacte arquivos automaticamente.|**--descompactar** = \[ \|desinflar gzip\]|
 > 

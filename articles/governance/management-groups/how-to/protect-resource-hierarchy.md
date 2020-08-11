@@ -1,18 +1,18 @@
 ---
 title: Como proteger sua hierarquia de recursos – Governança do Azure
 description: Saiba como proteger sua hierarquia de recursos com configurações de hierarquia que incluem a definição do grupo de gerenciamento padrão.
-ms.date: 05/21/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: cdaad59d136e89c595a6a42a9760c73523a977c0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2dd6791e152ba3ef02f6e6f710589cbe7d3442bc
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422820"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056611"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Como proteger a hierarquia de recursos
 
-Seus recursos, grupos de recursos, assinaturas, grupos de gerenciamento e locatários compõem sua hierarquia de recursos. As configurações no grupo de gerenciamento raiz, como funções personalizadas do Azure ou atribuições de política de Azure Policy, podem afetar cada recurso em sua hierarquia de recursos. É importante proteger a hierarquia de recursos contra alterações que possam afetar negativamente todos os recursos.
+Seus recursos, grupos de recursos, assinaturas, grupos de gerenciamento e locatários compõem sua hierarquia de recursos. As configurações no grupo de gerenciamento raiz, como funções personalizadas do Azure ou atribuições de política de Azure Policy, podem afetar todos os recursos em sua hierarquia de recursos. É importante proteger a hierarquia de recursos contra alterações que possam afetar negativamente todos os recursos.
 
 Os grupos de gerenciamento agora têm configurações de hierarquia que permitem ao administrador de locatários controlar esses comportamentos. Este artigo aborda cada uma das configurações de hierarquia disponíveis e como defini-las.
 

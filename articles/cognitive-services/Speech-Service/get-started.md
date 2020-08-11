@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: 4604bfe7c815f79733f99a1a3727e4c68527e7ec
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5dc1f8ed31c8d7199a31643a76e611d828da77ac
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80656138"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056458"
 ---
-# <a name="try-the-speech-service-for-free"></a>Experimente o serviço de fala gratuitamente ' '
+# <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Fala gratuitamente
 
 Neste artigo, você escolhe uma opção para testar facilmente o serviço de fala gratuitamente para que você possa descobrir o que o serviço pode fazer e decidir se ele é adequado para suas necessidades. Escolha uma das duas opções a seguir, dependendo da sua situação e do caso de uso:
 
@@ -96,5 +96,5 @@ Para alternar de uma assinatura para outra, por exemplo, quando a avaliação gr
 Conclua um de nossos inícios rápidos de 10 minutos ou confira nossas amostras de SDK:
 
 > [!div class="nextstepaction"]
-> [Início rápido: reconhecer fala em exemplos do SDK de fala em C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
-> [Speech SDK samples](speech-sdk.md#sample-source-code)
+> [Início rápido: reconhecer a fala com a CLI](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programmer-tool-spx) 
+>  de fala [Exemplos do SDK de fala](speech-sdk.md#sample-source-code)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/21/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 44d58b4e68e9f846b6bdb87765e96bcab90274a3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0309f4d07056e3986138139e10ab29faa675cfcd
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083592"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056071"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com o Azure Data Lake Storage Gen2 | Microsoft Docs
 
@@ -54,8 +54,6 @@ Estas APIs REST de Blob não são compatíveis:
 * [OBter Intervalos de Página](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
 * [Blob de Cópia Incremental](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
 * [Colocar Página da URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
-* [Colocar Blob (Acrescentar)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Acrescentar Bloco](https://docs.microsoft.com/rest/api/storageservices/append-block)
 * [Acrescentar Bloco da URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
 
 Discos de VM não gerenciados não são compatíveis com contas que têm um namespace hierárquico. Se você desejar habilitar um namespace hierárquico em uma conta de armazenamento, coloque os discos de VM não gerenciados em uma conta de armazenamento que não tenha o recurso de namespace hierárquico habilitado.

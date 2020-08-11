@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 8f22b1ff97826dc318794aca58973b1276e74209
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a82f3c347c75d658e3e7ec52d51107f5a240ee5b
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79087865"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056509"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para trabalhos do Azure Stream Analytics
 
@@ -142,11 +142,11 @@ As alterações principais a seguir são apresentadas no nível de compatibilida
 
 **nível de 1,1:** CREATE TABLE permite que você especifique um esquema forte. O mecanismo do Stream Analytics valida que os dados estão em conformidade com este esquema. Com esse modelo, o comando pode filtrar eventos com valores NaN.
 
-### <a name="disable-automatic-upcast-for-datetime-strings-in-json"></a>Desabilitar o upcast automático para cadeias de caracteres DateTime em JSON
+### <a name="disable-automatic-conversion-of-datetime-strings-to-datetime-type-at-ingress-for-json"></a>Desabilitar a conversão automática de cadeias de caracteres DateTime para o tipo DateTime na entrada para JSON
 
-**nível de 1,0:** O analisador JSON fazer automaticamente upcast de valores de cadeia de caracteres com informações de data/hora/zona para o tipo DateTime e, em seguida, converta-o em UTC. Esse comportamento resultou na perda das informações de fuso horário.
+**nível de 1,0:** O analisador JSON converteria automaticamente os valores de cadeia de caracteres com informações de data/hora/zona no tipo DATETIME na entrada para que o valor perca imediatamente sua formatação original e as informações de fuso horário. Como isso é feito na entrada, mesmo que esse campo não tenha sido usado na consulta, ele é convertido em DateTime UTC.
 
-**nível de 1,1:** Não há mais nenhum upcast automático de valores de cadeia de caracteres com informações de data/hora/zona para o tipo DateTime. Dessa forma, as informações de fuso horário são mantidas.
+**nível de 1,1:** Não há conversão automática de valores de cadeia de caracteres com informações de data/hora/zona para o tipo DATETIME. Como resultado, as informações de fuso horário e a formatação original são mantidas. No entanto, se o campo NVARCHAR (MAX) for usado na consulta como parte de uma expressão DATETIME (função DATEADD, por exemplo), ele será convertido para o tipo DATETIME para executar a computação e perderá seu formato original.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2020
 ms.author: memildin
-ms.openlocfilehash: 767ad928779743ec28dbe3da8be6154a1fe0b0ab
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 718f9a29b70dab34269c959ccd62452e56a32d72
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042302"
+ms.locfileid: "88056594"
 ---
 # <a name="azure-container-registry-image-scanning-by-security-center"></a>Verificação de imagem do registro de contêiner do Azure por central de segurança
 
@@ -31,7 +31,7 @@ Se você estiver na camada Standard da central de segurança do Azure, poderá a
 |----|:----|
 |Estado da versão:|Disponibilidade Geral|
 |Refere|Camada padrão|
-|Registros e imagens com suporte:|![Sim ](./media/icons/yes-icon.png) registros de ACR hospedados pelo Linux que são acessíveis pela Internet pública e fornecem acesso ao shell.<br>![Não há ](./media/icons/yes-icon.png) registros de ACR hospedados pelo Windows.<br>![Nenhum ](./media/icons/yes-icon.png) registro ' particular '-a central de segurança exige que seus registros sejam acessíveis pela Internet pública. A central de segurança não pode se conectar ou verificar registros com acesso limitado com um firewall, um ponto de extremidade de serviço ou pontos de extremidades privados, como o link privado do Azure.<br>![Não há imagens de super nada, como imagens de ](./media/icons/yes-icon.png) [rascunho do Docker](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que contenham apenas um aplicativo e suas dependências de tempo de execução sem um Gerenciador de pacotes, Shell ou sistema operacional.|
+|Registros e imagens com suporte:|![Sim ](./media/icons/yes-icon.png) registros de ACR hospedados pelo Linux que são acessíveis pela Internet pública e fornecem acesso ao shell.<br>![Não há ](./media/icons/no-icon.png) registros de ACR hospedados pelo Windows.<br>![Nenhum ](./media/icons/no-icon.png) registro ' particular '-a central de segurança exige que seus registros sejam acessíveis pela Internet pública. A central de segurança não pode se conectar ou verificar registros com acesso limitado com um firewall, um ponto de extremidade de serviço ou pontos de extremidades privados, como o link privado do Azure.<br>![Não há imagens de super nada, como imagens de ](./media/icons/no-icon.png) [rascunho do Docker](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que contenham apenas um aplicativo e suas dependências de tempo de execução sem um Gerenciador de pacotes, Shell ou sistema operacional.|
 |Funções e permissões necessárias:|**Leitor de segurança** e [função de leitor do registro de contêiner do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
 |||

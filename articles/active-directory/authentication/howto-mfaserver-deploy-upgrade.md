@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f242b4a7e984ceeb183547cb3a949927f3c91da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebe40cd68074d4857b9869f29173ec3e6f78379d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80653110"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053993"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Atualizar para o último Servidor de Autenticação Multifator do Azure
 
@@ -41,7 +41,7 @@ Etapas rápidas de atualização:
 4. Execute o novo instalador em cada Servidor MFA. Atualize os servidores subordinados primeiro, pois eles poderão ler o arquivo de dados antigo que está sendo replicado pelo mestre.
 
    > [!NOTE]
-   > Ao atualizar um servidor, será necessário removê-lo de qualquer balanceamento de carga ou compartilhamento de tráfego que tenha com outros Servidores de MFA.
+   > Ao atualizar um servidor, ele deve ser removido de qualquer balanceamento de carga ou compartilhamento de tráfego com outros servidores MFA.
    >
    > Não é necessário desinstalar o Servidor MFA atual antes de executar o instalador. O instalador executa uma atualização in-loco. O caminho de instalação é obtido do Registro da instalação anterior, para que ele seja instalado no mesmo local (por exemplo, C:\Program Files\Servidor de Autenticação Multifator).
   

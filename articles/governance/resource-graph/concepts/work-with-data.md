@@ -1,14 +1,14 @@
 ---
 title: Trabalhar com grandes conjuntos de dados
 description: Entenda como obter, formatar, paginar e ignorar registros em grandes conjuntos de dados enquanto estiver trabalhando com o Azure Resource Graph.
-ms.date: 03/20/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4b45a28a5dbd2ebc233bcf9a6808cb7d7cd6d8c8
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 77ec7cc342672becddcbca7e6173eb1968519f02
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681076"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056399"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhando com grandes conjuntos de dados de recurso do Azure
 
@@ -63,10 +63,10 @@ Na [API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/res
 
 ## <a name="paging-results"></a>Resultados da paginação
 
-Quando é necessário dividir um conjunto de resultados em conjuntos de registros menores para processamento ou porque um conjunto de resultados excede o valor máximo permitido de _1000_ registros retornados, use paginação. O **QueryResponse** da [API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) fornece valores para indicar se um conjunto de resultados foi subdividido: **resultTruncated** e **$skipToken**.
-**resultTruncated** é um valor booliano que informa ao consumidor se existem registros adicionais não retornados na resposta. Essa condição também pode ser identificada quando a propriedade **count** é menor do que a propriedade **totalRecords**. **totalRecords** define quantos registros correspondem à consulta.
+Quando é necessário dividir um conjunto de resultados em conjuntos de registros menores para processamento ou porque um conjunto de resultados excede o valor máximo permitido de _1000_ registros retornados, use paginação. O QueryResponse da [API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) 
+ **QueryResponse** fornece valores para indicar que um conjunto de resultados foi dividido: **resultTruncated** e **$skipToken**. **resultTruncated** é um valor booliano que informa ao consumidor se existem registros adicionais não retornados na resposta. Essa condição também pode ser identificada quando a propriedade **count** é menor do que a propriedade **totalRecords**. **totalRecords** define quantos registros correspondem à consulta.
 
- O valor de **resultTruncated** é **true** quando a paginação está desabilitada ou não é possível devido à ausência da coluna `id` ou quando há menos recursos disponíveis do que uma consulta está solicitando. Quando **resultTruncated** é **true**, a propriedade **$skipToken** não é definida.
+ **resultTruncated** é **true** quando a paginação está desabilitada ou não é possível porque nenhuma `id` coluna ou quando há menos recursos disponíveis do que uma consulta está solicitando. Quando **resultTruncated** é **true**, a propriedade **$skipToken** não é definida.
 
 Os exemplos a seguir mostram como **ignorar** os primeiros 3000 registros e retornar os **primeiros** 1000 registros depois dos registros ignorados com a CLI do Azure e o Azure PowerShell:
 

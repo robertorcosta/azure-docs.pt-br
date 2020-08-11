@@ -16,19 +16,19 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaeaa8625a5bdb5bbf8ce76a68e616a913da5655
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: c2b65f8cd22e72e0ba90918121a02d66fe6bf3e7
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146990"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053041"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: agendador
 Este tópico descreve o Agendador interno no Azure AD Connect sincronização (mecanismo de sincronização).
 
 Esse recurso foi introduzido com a compilação 1.1.105.0 (lançada em fevereiro de 2016).
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 A sincronização do Azure AD Connect sincroniza mudanças ocorridas em seu diretório local usando um agendador. Há dois processos de agendador, um para sincronização de senha e outro para sincronização de atributo/objeto e tarefas de manutenção. Este tópico aborda a última opção.
 
 Em versões anteriores, o agendador de objetos e atributos era separado do mecanismo de sincronização. Ele usava o agendador de tarefas do Windows ou um serviço do Windows separado para disparar o processo de sincronização. O agendador faz parte dos recursos internos nas versões 1.1 do mecanismo de sincronização e permite alguma personalização. A frequência de sincronização do novo padrão é de 30 minutos.
@@ -171,7 +171,7 @@ Se um ciclo de sincronização estiver em execução, você não poderá alterar
 O agendador ainda está ativo e será iniciado novamente na próxima oportunidade.
 
 ## <a name="custom-scheduler"></a>Agendador personalizado
-Os cmdlets documentados nesta seção só estão disponíveis no build [1.1.130.0](reference-connect-version-history.md#111300) e posteriores.
+Os cmdlets documentados nesta seção só estão disponíveis no build [1.1.130.0](reference-connect-version-history.md) e posteriores.
 
 Se o agendador interno não atender às suas necessidades, você poderá fazer o agendamento dos Conectores usando o PowerShell.
 

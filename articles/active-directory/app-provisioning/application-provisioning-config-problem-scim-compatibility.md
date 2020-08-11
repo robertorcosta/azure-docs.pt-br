@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/05/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: c54478282cb1106ae95fe1c9e3fbb15e9c37bbf9
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: da458b8aaf1ace7b87e98ded59a4bf90e4158e0f
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808568"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054079"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conhecidos e as resoluções em conformidade com o protocolo SCIM 2.0 do serviço de Provisionamento de Usuário do Microsoft Azure Active Directory
 
@@ -50,36 +50,102 @@ Use os sinalizadores abaixo na URL do locatário do seu aplicativo para alterar 
 
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="SCIM sinalizadores para o comportamento posterior.":::
 
-* Atualizar o comportamento do PATCH para garantir a conformidade
+* Use a URL a seguir para atualizar o comportamento do PATCH e garantir a conformidade do SCIM. Esse comportamento está disponível no momento apenas ao usar o sinalizador, mas se tornará o comportamento padrão nos próximos meses.
+  * **URL (compatível com scim):** AzureAdScimPatch062020
   * **Referências de RFC SCIM:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2
-  * **URL (compatível com scim):** AzureAdScimPatch062020
   * **Comportamento**
-    * Remoções de associação de grupo em conformidade:
   ```json
+   PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
    {
-     "schemas":
-      ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-     "Operations":[{
-       "op":"remove",
-       "path":"members[value eq \"2819c223-7f76-...413861904646\"]"
-     }]
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "remove",
+            "path": "members[value eq \"16b083c0-f1e8-4544-b6ee-27a28dc98761\"]"
+        }
+    ]
    }
+
+    PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
+    {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "add",
+            "path": "members",
+            "value": [
+                {
+                    "value": "10263a6910a84ef9a581dd9b8dcc0eae"
+                }
+            ]
+        }
+    ]
+    } 
+
+    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
+    {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "replace",
+            "path": "emails[type eq \"work\"].value",
+            "value": "someone@contoso.com"
+        },
+        {
+            "op": "replace",
+            "path": "emails[type eq \"work\"].primary",
+            "value": true
+        },
+        {
+            "op": "replace",
+            "value": {
+                "active": false,
+                "userName": "someone"
+            }
+        }
+    ]
+    }
+
+    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
+    {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "replace",
+            "path": "active",
+            "value": false
+        }
+    ]
+    }
+
+    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
+    {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "add",
+            "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department",
+            "value": "Tech Infrastructure"
+        }
+    ]
+    }
+   
   ```
-  * **URL (não compatível com scim):** AzureAdScimPatch2017
-  * **Comportamento**
-    * Remoções de associação de grupo não compatível:
-   ```json
-   {
-     "schemas":
-     ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-     "Operations":[{
-       "op":"Remove",  
-       "path":"members",
-       "value":[{"value":"2819c223-7f76-...413861904646"}]
-     }]
-   }
-   ```
+
+  * **URL de downgrade:** Depois que o novo comportamento em conformidade com o SCIM se tornar o padrão no aplicativo inexistente na Galeria, você poderá usar a seguinte URL para reverter para o comportamento antigo em conformidade não SCIM: AzureAdScimPatch2017
+  
+
 
 ## <a name="upgrading-from-the-older-customappsso-job-to-the-scim-job"></a>Atualizando do trabalho customappsso mais antigo para o trabalho SCIM
 Seguir as etapas abaixo excluirá seu trabalho customappsso existente e criará um novo trabalho do SCIM. 
@@ -139,4 +205,3 @@ Seguir as etapas abaixo excluirá seu trabalho customappsso existente e criará 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre o provisionamento e desprovisionamento para aplicativos SaaS](user-provisioning.md)
-

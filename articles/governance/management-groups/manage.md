@@ -1,14 +1,14 @@
 ---
 title: Como trabalhar com seus grupos de gerenciamento – Governança do Azure
 description: Saiba como visualizar, manter, atualizar e excluir sua hierarquia de grupos de gerenciamento.
-ms.date: 04/15/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: c5a0269935daedb3be478cc27d5ecaf87f3c97f7
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 43837dcaed9b9628573ee92244ede542107155f9
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535001"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055132"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerenciar seus recursos com grupos de gerenciamento
 
@@ -65,9 +65,7 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 Para a exclusão de um grupo de gerenciamento, os seguintes requisitos deverão ser atendidos:
 
-1. Não existem grupos de gerenciamento filhos ou assinaturas no grupo de gerenciamento.
-
-   - Para mover uma assinatura ou um grupo de gerenciamento para outro, confira [Mover grupos de gerenciamento e assinaturas na hierarquia](#moving-management-groups-and-subscriptions).
+1. Não existem grupos de gerenciamento filhos ou assinaturas no grupo de gerenciamento. Para mover uma assinatura ou grupo de gerenciamento para outro grupo de gerenciamento, consulte [movendo grupos de gerenciamento e assinaturas na hierarquia](#moving-management-groups-and-subscriptions).
 
 1. Você precisa de permissões de gravação no grupo de gerenciamento ("Proprietário", ou "Colaborador" ou "Colaborador do Grupo de Gerenciamento"). Para ver quais permissões você tem, selecione o grupo de gerenciamento e, em seguida, selecione **IAM**. Para saber mais sobre as funções do Azure, consulte  
    [Gerenciar o acesso e as permissões com RBAC](../../role-based-access-control/overview.md).
@@ -200,7 +198,7 @@ az account management-group show --name 'Contoso' -e -r
 
 Um motivo para criar um grupo de gerenciamento é agrupar assinaturas. Somente grupos de gerenciamento e assinaturas podem ser tornados filhos de outro grupo de gerenciamento. Uma assinatura movida para um grupo de gerenciamento herda todos os acessos e políticas de usuário do grupo de gerenciamento pai
 
-Ao mover um grupo de gerenciamento ou uma assinatura para ser um filho de outro grupo de gerenciamento, três regras precisam ser avaliadas como verdadeiras.
+Ao mover um grupo de gerenciamento ou uma assinatura para ser um filho de outro grupo de gerenciamento, três regras precisam ser avaliadas como true.
 
 Se você estiver executando a ação de mover, precisará de: 
 

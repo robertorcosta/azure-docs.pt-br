@@ -16,15 +16,15 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 749c97549661f2b2d647f8f7ba718d7696ef8355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcc6de1ce50e86f177023a0a66c436633c8d502c
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359000"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053279"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Atualização automática
-Esse recurso foi introduzido com a build [1.1.105.0 (lançada em fevereiro de 2016)](reference-connect-version-history.md#111050).  Esse recurso foi atualizado na [build 1.1.561](reference-connect-version-history.md#115610) e agora dá suporte a cenários adicionais que anteriormente não tinham suporte.
+Esse recurso foi introduzido com a build [1.1.105.0 (lançada em fevereiro de 2016)](reference-connect-version-history.md).  Esse recurso foi atualizado na [build 1.1.561](reference-connect-version-history.md) e agora dá suporte a cenários adicionais que anteriormente não tinham suporte.
 
 ## <a name="overview"></a>Visão geral
 Verificar se a instalação do Azure AD Connect está sempre atualizada nunca foi tão fácil após o lançamento do recurso de **atualização automática** . Esse recurso é habilitado por padrão para instalações rápidas e atualizações de DirSync. Quando uma nova versão for lançada, a instalação será atualizada automaticamente.

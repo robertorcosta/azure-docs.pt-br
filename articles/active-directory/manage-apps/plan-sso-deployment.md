@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0ee138ac41557554ae4b8fde8c9178336fd8d5db
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 85ec94ccf853d4f8b02a14ba08e9515170b36b5e
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387771"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054793"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planejar uma implantação de logon único
 
@@ -32,7 +32,7 @@ Muitas organizações contam com aplicativos SaaS (software como serviço), como
 
 O Azure Marketplace tem mais de 3000 aplicativos com conexões de SSO previamente integradas, facilitando sua integração em seu locatário.
 
-## <a name="licensing"></a>Licenciamento
+## <a name="licensing"></a>Licenças
 
 - **Licenciamento do Azure ad** -o SSO para aplicativos SaaS previamente integrados é gratuito. No entanto, o número de objetos em seu diretório e os recursos que você deseja implantar podem exigir licenças adicionais. Para obter uma lista completa dos requisitos de licença, consulte [preços de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 - **Licenciamento de aplicativos** – você precisará das licenças apropriadas para seus aplicativos SaaS atenderem às suas necessidades de negócios. Trabalhe com o proprietário do aplicativo para determinar se os usuários atribuídos ao aplicativo têm as licenças apropriadas para suas funções no aplicativo. Se o Azure AD gerenciar o provisionamento automático com base em funções, as funções atribuídas no Azure AD deverão ser alinhadas com o número de licenças de Propriedade do aplicativo. O número inadequado de licenças pertencentes ao aplicativo pode levar a erros durante o provisionamento/atualização de um usuário.
@@ -324,3 +324,5 @@ Os links a seguir apresentam cenários de solução de problemas. Talvez você q
 [Acesso SSO](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 [Tutorial do SSO de aplicativo](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+
+[Download do White Paper-plano de implantação de logon único](https://aka.ms/SSODeploymentPlan)

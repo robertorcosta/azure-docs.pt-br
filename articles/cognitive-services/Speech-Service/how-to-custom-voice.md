@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 2aacf8881a57f0677177cd341a0ddc63224b26b6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 272367d5311952b45c73febe0e05b1ec2d225261
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402046"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056679"
 ---
 # <a name="get-started-with-custom-voice"></a>Introdução à Voz Personalizada
 
@@ -56,7 +56,7 @@ Depois de criar uma conta do Azure e uma assinatura do serviço de fala, você p
 4. Se você quiser mudar para outra assinatura de fala, use o ícone de engrenagem localizado na navegação superior.
 
 > [!NOTE]
-> O serviço de voz personalizado não dá suporte à chave de avaliação gratuita de 30 dias. Você deve ter uma chave F0 ou S0 criada no Azure antes de poder usar o serviço.
+> Você deve ter uma chave F0 ou S0 criada no Azure antes de poder usar o serviço.
 
 ## <a name="how-to-create-a-project"></a>Como criar um projeto
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: 7a5e6bd262a1772356653eaaff7688ade9b4bfb7
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 47448a97c89b1feddfc43da300cb53fd65eaff05
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041777"
+ms.locfileid: "88056645"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: habilitar o bot para voz usando o SDK de fala
 
@@ -60,7 +60,7 @@ Veja o que você precisará para concluir este tutorial:
 - Um PC com Windows 10 com um microfone de trabalho e alto-falantes (ou fones de ouvido)
 - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) ou superior, com a **ASP.net e** a carga de trabalho de desenvolvimento Web instaladas
 - [.NET Framework tempo de execução 4.6.1](https://dotnet.microsoft.com/download) ou superior
-- Uma conta do Azure. [Inscreva-se gratuitamente](https://azure.microsoft.com/free/ai/).
+- Uma conta do Azure. [Inscreva-se gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
 - Uma conta do [GitHub](https://github.com/)
 - [Git para Windows](https://git-scm.com/download/win)
 
@@ -83,7 +83,6 @@ Se você quiser usar uma região diferente para este tutorial, esses fatores pod
 
 * Certifique-se de usar uma [região do Azure com suporte](regions.md#voice-assistants).
 * O canal de fala de linha direta usa o serviço de conversão de texto em fala, que tem vozes padrão e neural. As vozes neurais são [limitadas a regiões específicas do Azure](regions.md#standard-and-neural-voices).
-* As chaves de avaliação gratuitas podem ser restritas a uma região específica.
 
 Para obter mais informações sobre regiões, consulte [locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/).
 
@@ -227,7 +226,7 @@ Você precisará fazer uma pequena alteração de configuração para que o bot 
 2. No painel de navegação à esquerda, em **configurações**, clique em **configuração**.
 3. Selecione a guia **configurações gerais** .
 4. Localize a alternância para **Web Sockets** e defina-a como **ativado**.
-5. Clique em **Save** (Salvar).
+5. Clique em **Salvar**.
 
 > [!TIP]
 > Você pode usar os controles na parte superior da página Azure App serviço para parar ou reiniciar o serviço. Isso pode ser útil ao solucionar problemas.
@@ -291,11 +290,11 @@ Agora é hora de registrar seu bot com o canal de fala de linha direta. Esse can
    * Examine o texto na página intitulada **Configurar a Direct line Speech**e, em seguida, expanda o menu suspenso **conta de serviço cognitiva** .
    * Selecione o recurso de fala que você criou anteriormente (por exemplo, **SpeechEchoBotTutorial-Speech**) no menu para associar o bot à sua chave de assinatura de fala.
    * Ignore o restante dos campos opcionais.
-   * Clique em **Save** (Salvar).
+   * Clique em **Salvar**.
 
 1. Na navegação de **Gerenciamento de bot** , clique em **configurações**.
    * Marque a caixa rotulada **habilitar ponto de extremidade de streaming**. Isso é necessário para criar um protocolo de comunicação criado com base em soquetes da Web entre o bot e o canal de fala de linha direta.
-   * Clique em **Save** (Salvar).
+   * Clique em **Salvar**.
 
 > [!TIP]
 > Se você quiser saber mais, veja [conectar um bot à Direct line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). Esta página inclui informações adicionais e problemas conhecidos.

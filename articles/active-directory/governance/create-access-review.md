@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/29/2020
+ms.date: 08/09/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cf82080a54075353d2ff1d98a2ea19fc6a96dc7
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9bb290106c5ceafe8c636bbeeab38b74ea475eb4
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86204014"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056183"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Criar uma revisão de acesso de grupos e aplicativos nas revisões de acesso do Azure AD
 
@@ -93,7 +93,7 @@ Para obter mais informações, veja [Requisitos de licença](access-reviews-over
 
     ![Criar uma revisão de acesso-após as configurações de conclusão](./media/create-access-review/upon-completion-settings.png)
 
-1. Se você quiser remover automaticamente, acesse os usuários que foram negados, defina **aplicar resultados de aplicação automática para recurso** a ser **habilitado**. Se você deseja aplicar manualmente os resultados quando a revisão for concluída, defina a opção para **Desabilitar**.
+1. Se você quiser remover automaticamente o acesso para usuários que foram negados, defina **Resultados de aplicação automática ao recurso** para **Habilitar**. Se você deseja aplicar manualmente os resultados quando a revisão for concluída, defina a opção para **Desabilitar**.
 
 1. Use a lista **Se o revisor não responder** para especificar o que acontece para usuários que não foram examinados pelo revisor dentro do período de revisão. Essa configuração não afeta os usuários que foram revisados pelos revisores manualmente. Se a decisão do revisor final for negar o acesso do usuário será removido.
 
