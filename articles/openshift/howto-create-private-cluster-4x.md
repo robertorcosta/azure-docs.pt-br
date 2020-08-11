@@ -8,12 +8,12 @@ author: ms-jasondel
 ms.author: jasondel
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 581587382c3bfd03ed329672e5c6ca065554d1c7
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: c196d48d22a2bd714c4b6252ad927d18790f4674
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83727434"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056764"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Criar um cluster privado do Red Hat OpenShift 4 no Azure
 
@@ -23,24 +23,9 @@ Neste artigo, você vai preparar seu ambiente para criar clusters privados do Re
 > * Configurar os pré-requisitos e criar a rede virtual e as sub-redes necessárias
 > * Implantar um cluster com um ponto de extremidade privado do servidor de API e um controlador de entrada privado
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.75 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando o CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Antes de começar
-
-### <a name="install-the-az-aro-extension"></a>Instale a extensão "az aro"
-A extensão `az aro` permite que você crie, acesse e exclua clusters do Red Hat OpenShift no Azure diretamente da linha de comando usando o CLI do Azure.
-
-Para instalar a extensão `az aro`, execute o comando a seguir.
-
-```azurecli-interactive
-az extension add -n aro --index https://az.aroapp.io/stable
-```
-
-Se você já tiver a extensão instalada, poderá atualizá-la executando o comando a seguir.
-
-```azurecli-interactive
-az extension update -n aro --index https://az.aroapp.io/stable
-```
 
 ### <a name="register-the-resource-provider"></a>Registre o provedor de recursos
 
@@ -48,21 +33,6 @@ Em seguida, você precisa registrar o provedor de recursos `Microsoft.RedHatOpen
 
 ```azurecli-interactive
 az provider register -n Microsoft.RedHatOpenShift --wait
-```
-
-Verifique se a extensão está registrada.
-
-```azurecli-interactive
-az -v
-```
-
-  Você deverá receber uma saída semelhante à abaixo.
-
-```output
-...
-Extensions:
-aro                                1.0.0
-...
 ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Obter um segredo de pull do Red Hat (opcional)
@@ -77,7 +47,7 @@ Um segredo de pull do Red Hat permite que o cluster acesse registros de contêin
 
 Mantenha o arquivo `pull-secret.txt` salvo em algum lugar seguro; ele será usado em cada criação de cluster.
 
-Ao executar o comando `az aro create`, você pode fazer referência ao segredo de pull usando o parâmetro `--pull-secret @pull-secret.txt`. Execute `az aro create` no diretório em que você armazenou o arquivo `pull-secret.txt`. Caso contrário, substitua `@pull-secret.txt` por `@<path-to-my-pull-secret-file`.
+Quando executar o comando `az aro create`, você pode fazer referência ao segredo de pull usando o parâmetro `--pull-secret @pull-secret.txt`. Execute `az aro create` no diretório em que você armazenou o arquivo `pull-secret.txt`. Caso contrário, substitua `@pull-secret.txt` por `@<path-to-my-pull-secret-file`.
 
 Se você estiver copiando o segredo de pull ou fazendo referência a ele em outros scripts, o segredo de pull deverá ser formatado como uma cadeia de caracteres JSON válida.
 
@@ -262,7 +232,7 @@ apiServer=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query apiserverProfile.u
 >[!IMPORTANT]
 > Para se conectar a um cluster privado do Red Hat OpenShift no Azure, você precisará executar a etapa a seguir de um host que esteja na rede virtual criada ou em uma rede virtual [emparelhada](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) com a rede virtual na qual o cluster foi implantado.
 
-Faça logon no servidor de API do cluster OpenShift usando o comando a seguir. Substitua **\<senha do kubeadmin>** pela senha que você acabou de recuperar.
+Faça logon no servidor de API do cluster OpenShift usando o comando a seguir. Substitua **\<kubeadmin password>** pela senha que você acabou de recuperar.
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>

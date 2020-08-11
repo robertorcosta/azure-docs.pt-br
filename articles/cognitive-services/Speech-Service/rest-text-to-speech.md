@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 0f43d1f780f838fdc49eb055536204026edcc729
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6fafb668ecc2ae36dbe5a6bbc3d1e1d501545b50
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079232"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056798"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST conversão de texto em fala
 
@@ -56,14 +56,14 @@ O `voices/list` ponto de extremidade permite obter uma lista completa de vozes p
 | Coreia Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-Norte dos EUA | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Norte da Europa | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centro-Sul dos Estados Unidos | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sudeste Asiático | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sul do Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa Ocidental | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste dos EUA | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste dos EUA 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
-### <a name="request-headers"></a>Cabeçalhos da solicitação
+### <a name="request-headers"></a>Cabeçalhos de solicitação
 
 Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de conversão de texto em fala.
 
@@ -163,7 +163,7 @@ Essas regiões são suportadas para text-to-speech usando a API REST. Certifique
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-### <a name="request-headers"></a>Cabeçalhos da solicitação
+### <a name="request-headers"></a>Cabeçalhos de solicitação
 
 Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de conversão de texto em fala.
 
@@ -241,6 +241,6 @@ Se o status HTTP for `200 OK`, o corpo da resposta conterá um arquivo de áudio
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services)
+- [Criar uma conta gratuita do Azure](https://azure.microsoft.com/free/cognitive-services/)
 - [Síntese assíncrona para áudio de forma longa](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
 - [Introdução à Voz Personalizada](how-to-custom-voice.md)

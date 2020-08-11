@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: d4fed878e2c0b1430e963f43743fd772493d3270
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e521711cdf488f00b56e2805ee0aaa6ee8412958
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471737"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056951"
 ---
 # <a name="caching-with-azure-front-door"></a>Caching com a porta frontal do Azure
 O documento a seguir especifica o comportamento do Azure Front Door Service com as regras de roteamento que tem o cache habilitado. A porta frontal é uma CDN (rede de distribuição de conteúdo) moderna e, assim, com a aceleração de site dinâmica e o balanceamento de carga, ele também dá suporte a comportamentos de cache, assim como qualquer outra CDN.
@@ -111,6 +111,12 @@ Cabeçalhos de resposta de controle de cache que indicam que a resposta não ser
 Os seguintes cabeçalhos de solicitação não serão encaminhados para um back-end ao usar o cache.
 - Content-Length
 - Transfer-Encoding
+
+## <a name="cache-duration"></a>Duração do cache
+
+A duração do cache pode ser configurada no designer de porta frontal e no mecanismo de regras. A duração do cache definida no designer de frontdoor é a duração mínima do cache. Essa substituição não funcionará se o cabeçalho de controle de cache da origem tiver um TTL maior do que o valor de substituição. 
+
+A duração do cache definida por meio do mecanismo de regras é uma substituição de cache verdadeira, o que significa que ele usará o valor de substituição, independentemente do cabeçalho de resposta da origem.
 
 ## <a name="next-steps"></a>Próximas etapas
 

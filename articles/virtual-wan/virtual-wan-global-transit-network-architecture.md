@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78656b4789ea03601bc12579c391292e2f9ead9a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: c0ab2b2f61c4aa7a83d82b0300bb28cae91992d2
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856380"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056883"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura de rede de trânsito global e WAN virtual
 
@@ -132,6 +132,9 @@ O [Gerenciador de firewall do Azure](https://go.microsoft.com/fwlink/?linkid=210
 ![Hub virtual protegido com o Firewall do Azure](./media/virtual-wan-global-transit-network-architecture/figure5.png)
 
 **Figura 5: Hub virtual protegido com o Firewall do Azure**
+
+> [!NOTE]
+> Não há suporte para o Inter-Hub com o firewall no momento. O tráfego entre hubs moverá o bypass diretamente do firewall do Azure em cada Hub.
 
 O Firewall do Azure para a WAN virtual dá suporte aos seguintes caminhos de conectividade de trânsito seguro global. As letras entre parênteses são mapeadas para a Figura 5.
 

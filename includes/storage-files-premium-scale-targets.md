@@ -2,14 +2,14 @@
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 06/07/2019
+ms.date: 08/10/2020
 ms.author: rogarana
-ms.openlocfilehash: c2bd10ab4c98fe2e77332c3cc2566ab2f0c7ad42
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d704c6026e9d007a7365a3b72649ca509585da4d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841905"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88057830"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>Limites de nível de compartilhamento de arquivo Premium adicionais
 
@@ -23,11 +23,11 @@ ms.locfileid: "87841905"
 
 #### <a name="file-level-limits"></a>Limites de nível de arquivo
 
-|Área  |Arquivo Premium  |Arquivo padrão |
+|Área  |Arquivo padrão  |Arquivo Premium  |
 |---------|---------|---------|
-|Tamanho                  |4 TiB         |1 TiB|
-|IOPS máxima por arquivo     |5\.000         |1,000|
-|Identificadores simultâneos    |2\.000         |2\.000|
-|Saída  |300 MiB/s|      Consulte valores de taxa de transferência de arquivo padrão|
-|Entrada  |200 MiB/segundo| Consulte valores de taxa de transferência de arquivo padrão|
-|Taxa de transferência| Consulte valores de entrada/saída do arquivo Premium| Até 60 MiB/s|
+|Tamanho     |1 TiB         |4 TiB         |
+|IOPS máxima por arquivo      |1,000         |5\.000         |
+|Identificadores simultâneos     |2\.000         |2\.000         |
+|Saída     |Consulte valores de taxa de transferência de arquivo padrão         |300 MiB/s         |
+|Entrada     |Consulte valores de taxa de transferência de arquivo padrão         |200 MiB/segundo         |
+|Taxa de transferência     |Até 60 MiB/s         |Consulte valores de entrada/saída do arquivo Premium         |
