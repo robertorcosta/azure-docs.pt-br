@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 1caddf2fba8544bfbb1108865a459f4166af680b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: c394a3e84982db31b5727d170c143e9c07636d62
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846064"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121061"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicativo da área de trabalho que chama as APIs Web: Adquirir um token
 
@@ -175,7 +175,7 @@ catch(MsalUiRequiredException)
 
 ### <a name="mandatory-parameters"></a>Parâmetros obrigatórios
 
-`AcquireTokenInteractive` tem apenas um parâmetro obrigatório, ``scopes``, o qual contém uma enumeração de cadeias de caracteres que definem os escopos para os quais um token é necessário. Caso o token seja para o Microsoft Graph, os escopos necessários poderão ser encontrados na referência de API de cada API do Microsoft Graph na seção chamada "Permissões". Por exemplo, para [listar os contatos do usuário](https://docs.microsoft.com/graph/api/user-list-contacts), o escopo "User.Read", "Contacts.Read" deve ser usado. Para obter mais informações, confira [Referência de permissões do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+`AcquireTokenInteractive` tem apenas um parâmetro obrigatório, ``scopes``, o qual contém uma enumeração de cadeias de caracteres que definem os escopos para os quais um token é necessário. Caso o token seja para o Microsoft Graph, os escopos necessários poderão ser encontrados na referência de API de cada API do Microsoft Graph na seção chamada "Permissões". Por exemplo, para [listar os contatos do usuário](/graph/api/user-list-contacts), o escopo "User.Read", "Contacts.Read" deve ser usado. Para obter mais informações, confira [Referência de permissões do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
 No Android, você também precisa especificar a atividade pai usando `.WithParentActivityOrWindow`, conforme mostrado, de modo que o token volte para essa atividade pai após a interação. Caso não o especifique, uma exceção será gerada ao chamar `.ExecuteAsync()`.
 
@@ -278,7 +278,7 @@ A equipe do MSAL.NET reescreveu os testes da interface do usuário para usar ess
 
 ##### <a name="provide-a-great-experience-with-systemwebviewoptions"></a>Ofereça uma ótima experiência com o SystemWebViewOptions
 
-No MSAL.NET 4.1 [`SystemWebViewOptions`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet), você pode especificar:
+No MSAL.NET 4.1 [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet), você pode especificar:
 
 - O URI a ser acessado (`BrowserRedirectError`) ou o fragmento HTML a ser exibido (`HtmlMessageError`) em caso de erros de entrada ou de consentimento no navegador da Web do sistema.
 - O URI a ser acessado (`BrowserRedirectSuccess`) ou o fragmento HTML a ser exibido (`HtmlMessageSuccess`) em caso de entrada ou de consentimento bem-sucedidos.
@@ -433,13 +433,13 @@ Para conectar um usuário de domínio em um domínio ou em um computador ingress
   - Ou, o administrador de locatários deve ter consentido o uso do aplicativo anteriormente para todos os usuários no locatário.
   - Em outras palavras:
     - Ou você, como desenvolvedor, selecionou o botão **Concessão** no portal do Azure por conta própria.
-    - Ou, um administrador de locatários selecionou o botão **Conceder/revogar consentimento do administrador para {domínio de locatário}** na guia **Permissões de API** do registro do aplicativo. Para obter mais informações, consulte [Adicionar permissões para acessar APIs Web](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis).
-    - Ou, você forneceu uma forma de os usuários consentirem com o aplicativo. Para obter mais informações, consulte [Solicitar consentimento de usuário individual](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent).
-    - Ou, você forneceu uma forma de o administrador do locatário consentir com o aplicativo. Para obter mais informações, consulte [Consentimento do administrador](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant).
+    - Ou, um administrador de locatários selecionou o botão **Conceder/revogar consentimento do administrador para {domínio de locatário}** na guia **Permissões de API** do registro do aplicativo. Para obter mais informações, consulte [Adicionar permissões para acessar APIs Web](./quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+    - Ou, você forneceu uma forma de os usuários consentirem com o aplicativo. Para obter mais informações, consulte [Solicitar consentimento de usuário individual](./v2-permissions-and-consent.md#requesting-individual-user-consent).
+    - Ou, você forneceu uma forma de o administrador do locatário consentir com o aplicativo. Para obter mais informações, consulte [Consentimento do administrador](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
 - Esse fluxo está habilitado para aplicativos de área de trabalho .NET, .NET Core e UWP.
 
-Para obter mais informações sobre consentimento, consulte [Permissões e consentimentos da plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+Para obter mais informações sobre consentimento, consulte [Permissões e consentimentos da plataforma de identidade da Microsoft](./v2-permissions-and-consent.md).
 
 ### <a name="learn-how-to-use-it"></a>Saiba como usá-lo
 

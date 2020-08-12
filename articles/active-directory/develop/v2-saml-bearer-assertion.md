@@ -9,15 +9,15 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.author: ryanwi
-ms.reviewer: hirsin
+ms.author: kenwith
+ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: 1cd79b1f9e4cd3afadee250da0c184c0c5b8ac07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0db5bec00ce864536b3559eda160acdada5e157
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886170"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114686"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plataforma de identidade da Microsoft e fluxo de declaração de portador SAML do OAuth 2.0
 O fluxo de declaração do portador SAML do OAuth 2.0 permite solicitar um token de acesso OAuth usando uma declaração SAML quando um cliente precisa usar uma relação de confiança existente. A assinatura aplicada à declaração SAML fornece autenticação do aplicativo autorizado. Uma declaração SAML é um token de segurança XML emitido por um provedor de identidade e consumido por um provedor de serviços. O provedor de serviços depende do conteúdo para identificar a entidade da declaração para fins relacionados à segurança.
@@ -37,7 +37,7 @@ Agora vamos entender como podemos realmente efetuar fetch da declaração SAML d
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Estabelecer uma relação de confiança entre o servidor/o ambiente de autorização (Microsoft 365) e o provedor de identidade ou o emissor da declaração de portador SAML 2.0 (ADFS). Para configurar o ADFS para logon único e como um provedor de identidade, veja [este artigo](https://blogs.technet.microsoft.com/canitpro/2015/09/11/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365/).
+Estabelecer uma relação de confiança entre o servidor/o ambiente de autorização (Microsoft 365) e o provedor de identidade ou o emissor da declaração de portador SAML 2.0 (ADFS). Para configurar o ADFS para logon único e como um provedor de identidade, veja [este artigo](/archive/blogs/canitpro/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365).
 
 Registrar o aplicativo no [portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade):
 1. Entre na [folha de registro de aplicativo do portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) (observe que estamos usando os pontos de extremidade v2.0 da API do Graph e, portanto, precisamos registrar o aplicativo nesse portal. Caso contrário, poderíamos ter usado os registros no Azure Active Directory). 

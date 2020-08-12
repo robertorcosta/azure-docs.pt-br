@@ -11,22 +11,21 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: 2735403ff02914213d68db27e2635e7329261f5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9b84f2eace9ec268c6ff0942d19b47402e19bde
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80883883"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120721"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Como selecionar permissões para uma API 
 
 ## <a name="recommended-documents"></a>Documentos recomendados
 
-- Saiba mais sobre como aplicativos cliente usam [solicitações de permissão delegada e de aplicativo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#permissions) para acessar recursos.
-- Veja instruções passo a passo sobre como [configurar solicitações de permissão de um aplicativo cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
-- Para se aprofundar, saiba como os aplicativos de recursos expõem [escopos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#scopes) e [funções de aplicativo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#roles) a aplicativos cliente, que se manifestam como permissões delegadas e de aplicativo, respectivamente, no portal do Azure. 
+- Saiba mais sobre como aplicativos cliente usam [solicitações de permissão delegada e de aplicativo](./developer-glossary.md#permissions) para acessar recursos.
+- Veja instruções passo a passo sobre como [configurar solicitações de permissão de um aplicativo cliente](./quickstart-register-app.md)
+- Para se aprofundar, saiba como os aplicativos de recursos expõem [escopos](./developer-glossary.md#scopes) e [funções de aplicativo](./developer-glossary.md#roles) a aplicativos cliente, que se manifestam como permissões delegadas e de aplicativo, respectivamente, no portal do Azure. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 [StackOverflow do AzureAD](https://stackoverflow.com/questions/tagged/azure-active-directory)
-

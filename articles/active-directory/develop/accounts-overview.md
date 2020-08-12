@@ -11,14 +11,14 @@ ms.workload: identity
 ms.devlang: java
 ms.date: 09/14/2019
 ms.author: shoatman
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
-ms.openlocfilehash: d0497ad68e7b29e6d8c83dd860ba8f509e229579
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 404ffbc09a69b623a421bd0c01550d72e5c03158
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77611865"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115978"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Contas e perfis de locatário (Android)
 
@@ -69,7 +69,7 @@ No diagrama acima:
   - Um perfil de locatário `tom@live.com` existe em cada um desses locatários.
 - As informações sobre Tom e Bob em outros locatários podem ser diferentes daquelas no sistema de registro. Eles podem diferir por atributos como cargo, local do escritório e assim por diante. Eles podem ser membros de grupos e/ou funções dentro de cada organização (Azure Active Directory locatário). Nós nos referimos a essas informações como bob@contoso.com perfil de locatário.
 
-No diagrama, bob@contoso.com e tom@live.com têm acesso a recursos em locatários Azure Active Directory diferentes. Para obter mais informações, consulte [adicionar Azure Active Directory usuários de colaboração B2B no portal do Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+No diagrama, bob@contoso.com e tom@live.com têm acesso a recursos em locatários Azure Active Directory diferentes. Para obter mais informações, consulte [adicionar Azure Active Directory usuários de colaboração B2B no portal do Azure](../external-identities/add-users-administrator.md).
 
 ## <a name="accounts-and-single-sign-on-sso"></a>Contas e logon único (SSO)
 
@@ -118,10 +118,10 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 ```
 
 > [!TIP]
-> Para ver uma lista de declarações disponíveis no objeto Account, consulte [declarações em um id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#claims-in-an-id_token)
+> Para ver uma lista de declarações disponíveis no objeto Account, consulte [declarações em um id_token](./id-tokens.md#claims-in-an-id_token)
 
 > [!TIP]
-> Para incluir declarações adicionais em seu id_token, consulte a documentação de declarações opcionais em [como fornecer declarações opcionais para seu aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims)
+> Para incluir declarações adicionais em seu id_token, consulte a documentação de declarações opcionais em [como fornecer declarações opcionais para seu aplicativo do Azure ad](./active-directory-optional-claims.md)
 
 ### <a name="access-tenant-profile-claims"></a>Acessar declarações de perfil de locatário
 

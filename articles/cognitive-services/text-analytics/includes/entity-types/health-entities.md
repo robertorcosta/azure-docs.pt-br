@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: 4ac65e85e05f408b8d2f37a1d6845dc9e28e2bab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6880391fb54791fe5f597de2305d24f8c0e47ec6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373056"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88122520"
 ---
 ## <a name="health-entity-categories"></a>Categorias de entidades de integridade:
 
@@ -23,46 +23,55 @@ As categorias de entidade a seguir são retornadas pelo [análise de texto para 
 
 |Categoria  |Descrição   |
 |----------|--------------|
-| IDADE | Paralisa. |
-| BODY_STRUCTURE | Partes do corpo humano, incluindo sensoriais e outras estruturas. | 
-| CONDITION_QUALIFIER | Níveis de condição como *leve*, *estendido*ou *difuso*. | 
-| CORRETO | Condições médicas. Por exemplo, a *hipertensão* . | 
-| DIREÇÃO | Direções como *esquerda* ou *anterior*. | 
-| DOSAGE | Tamanho ou quantidade de um medicamentos.  | 
-| EXAMINATION_NAME | Um método ou procedimento de exame. | 
-| EXAMINATION_RELATION | uma associação entre uma unidade de medida e um exame.  | 
-| EXAMINATION_UNIT | Uma unidade de medida para um exame. | 
-| EXAMINATION_VALUE | O valor da unidade de medida de exame. | 
-| FAMILY_RELATION | Uma relação familial, como *irmã*.  | 
-| FREQUÊNCIA | Frequências.   | 
-| SEXO | Gêneros. | 
-| GENE | Uma entidade de Gene, como *TP53*.   | 
-| MEDICATION_CLASS | Classes medicamentos. Por exemplo, *antibióticos*.  | 
-| MEDICATION_NAME  | Genérico e marca nomeada medicamentos.| 
-| ROUTE_OR_MODE  | Método de administração de medicamentos. | 
-| SYMPTOM_OR_SIGN  | Sintomas de doença. | 
-| TIME  | Maior. Por exemplo, "8 anos" ou "2: às 9h30 esta manhã" |
-| TREATMENT_NAME  | Nomes de tratamento. | 
-| VARIANT  | Uma variante genética da entidade gene | 
+| Idade | Paralisa. Por exemplo, *30 anos de idade*. |
+| AdministrativeEvent | Um evento administrativo. |
+| BodyStructure | Partes do corpo humano, incluindo sensoriais e outras estruturas. Por exemplo, *ARM*ou *coração*. | 
+| CareEnvironment | O ambiente no qual o cuidado ou o tratamento é administrado. Por exemplo, *sala de emergência* | 
+| ConditionQualifier | Níveis de condição. Por exemplo *leve*, *estendido*ou *difuso*. | 
+| Diagnóstico | Condições médicas. Por exemplo, a *hipertensão*. | 
+| Direção | Instruções. Por exemplo, *Left* ou *anterior*. | 
+| Dosage | Tamanho ou quantidade de um medicamentos. Por exemplo, *25mg*.  | 
+| Examename | Um método ou procedimento de exame. Por exemplo *, X-Ray*. | 
+| RelationalOperator | Um operador que define uma relação entre duas entidades. Por exemplo, *menor que*ou `>=` .  | 
+| MeasurementUnit | Uma unidade de medida (como uma porcentagem). | 
+| Medidavalue | O valor numérico de uma unidade de medida. | 
+| FamilyRelation | Uma relação familial. Por exemplo, *irmã*.  | 
+| Frequência | Frequências.   | 
+| Sexo | Gêneros. | 
+| Gene | Uma entidade de Gene, como *TP53*.   | 
+| HealthcareProfession | Método de administração de medicamentos. Por exemplo, *administração oral*. | 
+| MedicationClass | Classes medicamentos. Por exemplo, *antibióticos*.  | 
+| MedicationForm | Uma forma de medicamentos. Por exemplo, *cápsula*. | 
+| MedicationName  | Genérico e marca nomeada medicamentos. Por exemplo, *Ibuprofen*. | 
+| MedicationRoute | Método de administração de medicamentos. Por exemplo, *administração oral*. | 
+| SymptomOrSign  | Sintomas de doença. Por exemplo, *Throat*. | 
+| Hora | Maior. Por exemplo, *8 anos* ou *2: às 9h30 esta manhã* |
+| Tratamentos  | Nomes de tratamento. Por exemplo, *terapia*. | 
+| Variante | Uma variante genética da entidade Gene. | 
 
 ### <a name="relation-extraction"></a>Extração de relações
 
 A extração de relações identifica conexões significativas entre os conceitos mencionados no texto. Por exemplo, uma relação "hora da condição" é encontrada pela Associação de um nome de condição com um horário. Análise de Texto para integridade pode identificar as seguintes relações:
 
-* DIRECTION_OF_BODY_STRUCTURE  
-* TIME_OF_CONDITION
-* QUALIFIER_OF_CONDITION  
-* DOSAGE_OF_MEDICATION 
-* FORM_OF_MEDICATION  
-* ROUTE_OR_MODE_OF_MEDICATION   
-* STRENGTH_OF_MEDICATION 
-* ADMINISTRATION_RATE_OF_MEDICATION   
-* FREQUENCY_OF_MEDICATION 
-* TIME_OF_MEDICATION 
-* TIME_OF_TREATMENT 
-* FREQUENCY_OF_TREATMENT  
-* VALUE_OF_EXAMINATION
-* UNIT_OF_EXAMINATION 
-* RELATION_OF_EXAMINATION 
-* TIME_OF_EXAMINATION  
-* ABREVIAÇÃO 
+|Categoria  |Descrição   |
+|----------|--------------|
+| DirectionOfBodyStructure | Direção de uma estrutura de corpo. |
+| DirectionOfCondition | Direção de uma condição. |
+| DirectionOfExamination | Direção de um exame. |
+| DirectionOfTreatment | Direção de um tratamento. |
+| TimeOfCondition | O tempo associado ao início de uma condição. |
+| QualifierOfCondition | O qualificador associado para uma condição. |
+| DosageOfMedication | Um dosage de medicamentos. |
+| FormOfMedication | Uma forma de medicamentos. |
+| RouteOfMedication | Uma rota ou modo de consumo de uma medicina. Por exemplo, *verbal*. |
+| FrequencyOfMedication | A frequência com que um medicamentos é consumido. | 
+| ValueOfCondition | Um valor numérico associado a uma condição. |
+| UnitOfCondition | Uma unidade (como hora) associada a uma condição. |
+| TimeOfMedication | A hora em que um medicamentos foi consumido. |
+| TimeOfTreatment | A hora em que um tratamento foi administrado. | 
+| FrequencyOfTreatment | A frequência com que um tratamento é administrado. |
+| ValueOfExamination | Um valor numérico associado a um exame. | 
+| UnitOfExamination | Uma unidade (como uma porcentagem) associada a um exame. |
+| RelationOfExamination | Uma relação entre uma entidade e um exame. | 
+| TimeOfExamination | O tempo associado a um exame. |
+| Abreviação | Uma abreviação.  | 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: b6111529d1a3d37f08b29fb5c0751fb6a49acea5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 40ea8c3d070d8895a6da063789279895f52189e3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054061"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116760"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quais métodos de autenticação e verificação estão disponíveis no Azure Active Directory?
 
@@ -45,6 +45,8 @@ A seguinte tabela descreve quais métodos estão disponíveis para autenticaçã
 | [Perguntas de segurança](#security-questions) | Não | Somente SSPR |
 | [Endereço de email](#email-address) | Não | Somente SSPR |
 | [Senhas de aplicativo](#app-passwords) | Não | MFA somente em determinados casos |
+
+Esses métodos de autenticação podem ser configurados no portal do Azure e cada vez mais, usando a [API REST Microsoft Graph beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 Este artigo descreve esses diferentes métodos de autenticação e verificação disponíveis no Azure AD e as limitações ou restrições específicas.
 
@@ -297,6 +299,8 @@ Para começar, confira o [tutorial da SSPR (redefinição de senha por autoatend
 Para saber mais sobre os conceitos de SSPR, confira [Como funciona a redefinição de senha self-service do Azure AD][concept-sspr].
 
 Para saber mais sobre conceitos de MFA, confira [Como funciona como a Autenticação Multifator do Azure][concept-mfa].
+
+Saiba mais sobre como configurar métodos de autenticação usando a [API REST do Microsoft Graph versão beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

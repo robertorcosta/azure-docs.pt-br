@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c27938227a13934de11dd6e88d58138c46c3f58e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60c61ff4753413d2241820400dcbc899e925eecc
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204619"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120942"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Manipular exceções e erros da MSAL
 
@@ -236,7 +236,7 @@ Na MSAL para Python, a maioria dos erros é transmitida como um valor de retorno
 * Uma resposta bem-sucedida contém a chave `"access_token"`. O formato da resposta é definido pelo protocolo OAuth2. Para obter mais informações, consulte [5.1 Resposta bem-sucedida](https://tools.ietf.org/html/rfc6749#section-5.1).
 * Uma resposta de erro contém `"error"` e, geralmente, `"error_description"`. O formato da resposta é definido pelo protocolo OAuth2. Para obter mais informações, consulte [5.2 Resposta de erro](https://tools.ietf.org/html/rfc6749#section-5.2).
 
-Quando um erro é retornado, a chave `"error_description"` conterá uma mensagem legível, a qual, por sua vez, normalmente contém um código de erro da plataforma de identidade da Microsoft. Para obter detalhes sobre os diversos códigos de erro, consulte [Códigos de erro de autenticação e autorização](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes).
+Quando um erro é retornado, a chave `"error_description"` conterá uma mensagem legível, a qual, por sua vez, normalmente contém um código de erro da plataforma de identidade da Microsoft. Para obter detalhes sobre os diversos códigos de erro, consulte [Códigos de erro de autenticação e autorização](./reference-aadsts-error-codes.md).
 
 Na MSAL para Python, as exceções são raras, porque a maioria dos erros é tratada retornando um valor de erro. A exceção `ValueError` só é gerada quando houver um problema com o modo como você está tentando usar a biblioteca, por exemplo, quando os parâmetros da API estão malformados.
 

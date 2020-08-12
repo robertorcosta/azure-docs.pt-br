@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: cc78df7ea904bf85f5f2561319e6fc773244e971
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 912cf31e29854e9fcd54bbc358bb954c0d7bf389
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005206"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116692"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Perguntas frequentes (FAQs) sobre os serviços de domínio do Azure Active Directory (AD)
 
@@ -117,7 +117,11 @@ Não. O esquema é administrado pela Microsoft para o domínio gerenciado. As ex
 Sim. Os membros do grupo de *Administradores do AAD DC* recebem privilégios de *administrador de DNS* para modificar os registros DNS no domínio gerenciado. Esses usuários podem usar o console do Gerenciador DNS em um computador que executa o Windows Server ingressado no domínio gerenciado para gerenciar o DNS. Para usar o console do Gerenciador DNS, instale as *Ferramentas do servidor DNS*, que faz parte do *ferramentas de administração de servidor remoto* recurso opcional no servidor. Para obter mais informações, consulte [administrar o DNS em um domínio gerenciado Azure AD Domain Services](manage-dns.md).
 
 ### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>Qual é a política de tempo de vida da senha em um domínio gerenciado?
-O tempo de vida da senha padrão em um domínio gerenciado dos Azure AD Domain Services é de 90 dias. Esse tempo de vida de senha não está sincronizado com o tempo de vida de senha configurado no Azure AD. Portanto, você pode ter uma situação em que as senhas dos usuários expiram no seu domínio gerenciado, mas ainda são válidas no Azure AD. Em tais cenários, os usuários precisam alterar sua senha no Azure AD e a nova senha será sincronizada com seu domínio gerenciado. Além disso, os atributos de *senha-não expirar* e *usuário-deve-alterar-senha-at-login* para contas de usuário não são sincronizados com o domínio gerenciado.
+O tempo de vida da senha padrão em um domínio gerenciado dos Azure AD Domain Services é de 90 dias. Esse tempo de vida de senha não está sincronizado com o tempo de vida de senha configurado no Azure AD. Portanto, você pode ter uma situação em que as senhas dos usuários expiram no seu domínio gerenciado, mas ainda são válidas no Azure AD. Em tais cenários, os usuários precisam alterar sua senha no Azure AD e a nova senha será sincronizada com seu domínio gerenciado. Se desejar alterar o tempo de vida da senha padrão em um domínio gerenciado, você poderá [criar e configurar políticas de senha personalizadas.](password-policy.md)
+
+Além disso, a política de senha do Azure AD para *DisablePasswordExpiration* é sincronizada com um domínio gerenciado. Quando *DisablePasswordExpiration* é aplicado a um usuário no Azure AD, o valor *userAccountControl* para o usuário sincronizado no domínio gerenciado tem *DONT_EXPIRE_PASSWORD* aplicado.
+
+Quando os usuários redefinem sua senha no Azure AD, o atributo *forceChangePasswordNextSignIn = true* é aplicado. Um domínio gerenciado sincroniza esse atributo do Azure AD. Quando o domínio gerenciado detecta *forceChangePasswordNextSignIn* é definido para um usuário sincronizado do Azure AD, o atributo *pwdLastSet* no domínio gerenciado é definido como *0*, o que invalida a senha definida no momento.
 
 ### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>O Azure AD Domain Services fornece proteção de bloqueio de conta para o AD?
 Sim. Cinco tentativas de senha inválida em dois minutos no domínio gerenciado fazem com que uma conta de usuário seja bloqueada por 30 minutos. Depois de 30 minutos, a conta do usuário será desbloqueada automaticamente. Tentativas de senha inválidas no domínio gerenciado não bloqueiam a conta de usuário no Azure AD. A conta de usuário é bloqueada somente no domínio gerenciado do Azure AD Domain Services. Para obter mais informações, consulte [políticas de bloqueio de senha e conta em domínios gerenciados](password-policy.md).

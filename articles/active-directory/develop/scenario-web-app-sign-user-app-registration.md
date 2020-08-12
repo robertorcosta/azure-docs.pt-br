@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 1adff446e6d41e30db109d0871811dc651f1f4f5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b16ee98b44e52482423229a0940c8927a94d4c83
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026230"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118664"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicativo Web que assina usuários: registro de aplicativo
 
@@ -41,7 +41,7 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
 > O portal a ser usado é diferente dependendo se o aplicativo é executado no Microsoft Azure nuvem pública ou em uma nuvem nacional ou soberanas. Para obter mais informações, consulte [nuvens nacionais](./authentication-national-cloud.md#app-registration-endpoints).
 
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante, ou uma conta pessoal da Microsoft. Como alternativa, entre no [portal do Azure de escolha](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#app-registration-endpoints) para a nuvem nacional.
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante, ou uma conta pessoal da Microsoft. Como alternativa, entre no [portal do Azure de escolha](./authentication-national-cloud.md#app-registration-endpoints) para a nuvem nacional.
 2. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito. Em seguida, defina a sessão do portal para o locatário do Azure Active Directory (Azure AD) desejado.
 3. No painel esquerdo, selecione o serviço **Azure Active Directory** e, em seguida, selecione **registros de aplicativo**  >  **novo registro**.
 
@@ -119,7 +119,7 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
 > - MyOrg (contas neste diretório organizacional somente)
 > - AnyOrg (contas em qualquer diretório organizacional)
 >
-> Você pode criar um aplicativo que conecte usuários com suas contas pessoais da Microsoft (por exemplo, Skype, Xbox ou Outlook.com). Primeiro, crie um aplicativo multilocatário. Os tipos de conta com suporte são contas em qualquer diretório organizacional. Em seguida, altere a [`accessTokenAcceptedVersion`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) propriedade para **2** e a [`signInAudience`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#signinaudience-attribute) propriedade para `AzureADandPersonalMicrosoftAccount` no [manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) do portal do Azure. Para obter mais informações, consulte a [etapa 1,3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) no tutorial de ASP.NET Core. Você pode generalizar essa etapa para aplicativos Web em qualquer idioma.
+> Você pode criar um aplicativo que conecte usuários com suas contas pessoais da Microsoft (por exemplo, Skype, Xbox ou Outlook.com). Primeiro, crie um aplicativo multilocatário. Os tipos de conta com suporte são contas em qualquer diretório organizacional. Em seguida, altere a [`accessTokenAcceptedVersion`](./reference-app-manifest.md#accesstokenacceptedversion-attribute) propriedade para **2** e a [`signInAudience`](./reference-app-manifest.md#signinaudience-attribute) propriedade para `AzureADandPersonalMicrosoftAccount` no [manifesto do aplicativo](./reference-app-manifest.md) do portal do Azure. Para obter mais informações, consulte a [etapa 1,3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) no tutorial de ASP.NET Core. Você pode generalizar essa etapa para aplicativos Web em qualquer idioma.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,12 +12,12 @@ ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2fe41cdc6fa1adef96568981df5bb13129fe900f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0c5abf345fda9db4cc5123360245e42ea0ef40e1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026723"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115026"
 ---
 # <a name="whats-new-for-authentication"></a>Quais são as novidades para autenticação?
 
@@ -49,7 +49,7 @@ Nenhum agendado neste momento.  Veja abaixo as alterações que estão no ou que
 
 Em 1 de junho de 2018, a autoridade de Azure Active Directory oficial (AAD) para o Azure governamental mudou de `https://login-us.microsoftonline.com` para `https://login.microsoftonline.us` . Essa alteração também é aplicada a Microsoft 365 GCC High e DoD, que o AAD do Azure governamental também Services. Se você possui um aplicativo dentro de um locatário do governo dos EUA, você deve atualizar seu aplicativo para conectar usuários no `.us` ponto de extremidade.  
 
-A partir de 1º de maio, o Azure AD começará a impor a alteração do ponto de extremidade, bloqueando os usuários do governo de entrar em aplicativos hospedados em locatários do governo dos EUA usando o ponto de extremidade público ( `microsoftonline.com` ).  Os aplicativos impactados começarão a ver um erro `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint` . Esse erro indica que o aplicativo está tentando entrar em um usuário do governo dos EUA no ponto de extremidade de nuvem pública. Se seu aplicativo estiver em um locatário de nuvem pública e pretende oferecer suporte a usuários do governo dos EUA, você precisará [atualizar seu aplicativo para dar suporte a eles explicitamente](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Isso pode exigir a criação de um novo registro de aplicativo na nuvem do governo dos EUA. 
+A partir de 1º de maio, o Azure AD começará a impor a alteração do ponto de extremidade, bloqueando os usuários do governo de entrar em aplicativos hospedados em locatários do governo dos EUA usando o ponto de extremidade público ( `microsoftonline.com` ).  Os aplicativos impactados começarão a ver um erro `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint` . Esse erro indica que o aplicativo está tentando entrar em um usuário do governo dos EUA no ponto de extremidade de nuvem pública. Se seu aplicativo estiver em um locatário de nuvem pública e pretende oferecer suporte a usuários do governo dos EUA, você precisará [atualizar seu aplicativo para dar suporte a eles explicitamente](./authentication-national-cloud.md). Isso pode exigir a criação de um novo registro de aplicativo na nuvem do governo dos EUA. 
 
 A imposição dessa alteração será feita usando uma distribuição gradual com base na frequência com que os usuários da nuvem do governo dos EUA entram na assinatura dos aplicativos de aplicativo em usuários do governo dos EUA que raramente verão a aplicação primeiro, e os aplicativos frequentemente usados pelos usuários do governo dos EUA terão a aplicação aplicada. Esperamos que a imposição seja concluída em todos os aplicativos em junho de 2020. 
 
@@ -98,7 +98,7 @@ Quando uma resposta de autenticação é enviada do login.microsoftonline.com pa
 
 **Pontos de extremidade afetados**: v1.0 e v2.0
 
-**Protocolo afetado**: a postagem em qualquer lugar é usada ([credenciais do cliente](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), resgate de [código de autorização](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [obo](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)e resgate de [token de atualização](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
+**Protocolo afetado**: a postagem em qualquer lugar é usada ([credenciais do cliente](./v2-oauth2-client-creds-grant-flow.md), resgate de [código de autorização](./v2-oauth2-auth-code-flow.md), [ROPC](./v2-oauth-ropc.md), [obo](./v2-oauth2-on-behalf-of-flow.md)e resgate de [token de atualização](./v2-oauth2-auth-code-flow.md#refresh-the-access-token))
 
 A partir da semana de 9/2, as solicitações de autenticação que usam o método POST serão validadas usando padrões de HTTP mais estritos.  Especificamente, espaços e aspas duplas (") não serão mais removidos dos valores do formulário de solicitação. Não se espera que essas alterações interrompam os clientes existentes e garantirão que as solicitações enviadas ao Azure AD sejam manipuladas de forma confiável a cada vez. No futuro (veja acima), planejamos rejeitar ainda mais parâmetros duplicados e ignorar a BOM em solicitações.
 
@@ -113,9 +113,9 @@ Hoje, `?e=    "f"&g=h` o é analisado de `?e=f&g=h` forma idêntica `e`  ==  `f`
 
 **Data de efetivação**: 26 de julho de 2019
 
-**Pontos de extremidade afetados**: [v 1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) e [v 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+**Pontos de extremidade afetados**: [v 1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) e [v 2.0](./v2-oauth2-client-creds-grant-flow.md)
 
-**Protocolo afetado**: [credenciais de cliente (tokens somente de aplicativo)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+**Protocolo afetado**: [credenciais de cliente (tokens somente de aplicativo)](../azuread-dev/v1-oauth2-client-creds-grant-flow.md)
 
 Uma alteração de segurança entrou em 26 de julho que altera a maneira como os tokens somente de aplicativo (por meio da concessão de credenciais de cliente) são emitidos. Anteriormente, os aplicativos eram autorizados a obter tokens para chamar qualquer outro aplicativo, independentemente da presença no locatário ou das funções consentidas para esse aplicativo.  Esse comportamento foi atualizado para que, para recursos (às vezes chamados de APIs da Web) definido como um único locatário (o padrão), o aplicativo cliente deve existir dentro do locatário do recurso.  Observe que o consentimento existente entre o cliente e a API ainda não é necessário, e os aplicativos ainda devem estar fazendo suas próprias verificações de autorização para garantir que uma `roles` declaração esteja presente e contenha o valor esperado para a API.
 

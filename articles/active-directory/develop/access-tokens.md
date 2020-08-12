@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 75c211ea61359c244c6280b9664a4f412b3d2279
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afa9c6a508e0215b905a39a430cb64161575b748
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552010"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115998"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acesso da plataforma de identidade da Microsoft
 
@@ -100,7 +100,7 @@ As declarações estão presentes somente se existe um valor para preenchê-lo. 
 | `name` | String | Fornece um valor legível por humanos que identifica a entidade do token. Não há garantia de que o valor seja exclusivo. Ele é mutável e foi projetado para ser usado apenas para fins de exibição. O escopo `profile` é necessário para receber essa declaração. |
 | `scp` | Cadeia de caracteres, uma lista de escopos separados por espaços | O conjunto de escopos expostos pelo aplicativo para o qual o aplicativo cliente solicitou (e recebeu) o consentimento. O aplicativo deve verificar se os escopos são escopos válidos expostos pelo aplicativo e tomar decisões de autorização de acordo com o valor desses escopos. Incluído apenas para [tokens de usuário](#user-and-application-tokens). |
 | `roles` | Matriz de cadeias de caracteres, uma lista de permissões | O conjunto de permissões expostas pelo aplicativo que o aplicativo ou usuário solicitante recebeu permissão para chamar. Em [tokens de aplicativo](#user-and-application-tokens), isso é usado durante o fluxo de credenciais do cliente ([v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) no lugar dos escopos do usuário.  Para [tokens de usuário](#user-and-application-tokens), isso é populado com as funções às quais o usuário foi atribuído no aplicativo de destino. |
-| `wids` | Matriz de GUIDs [RoleTemplateID](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids) | Denota as funções de todo o locatário atribuídas a esse usuário, da seção de funções presentes na [página funções de administrador](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids).  Esta declaração é configurada por aplicativo, por meio da propriedade `groupMembershipClaims` do [manifesto do aplicativo](reference-app-manifest.md).  É necessário configurá-la como "All" or "DirectoryRole".  Pode não estar presente em tokens obtidos por meio do fluxo implícito devido a problemas de comprimento do token. |
+| `wids` | Matriz de GUIDs [RoleTemplateID](../users-groups-roles/directory-assign-admin-roles.md#role-template-ids) | Denota as funções de todo o locatário atribuídas a esse usuário, da seção de funções presentes na [página funções de administrador](../users-groups-roles/directory-assign-admin-roles.md#role-template-ids).  Esta declaração é configurada por aplicativo, por meio da propriedade `groupMembershipClaims` do [manifesto do aplicativo](reference-app-manifest.md).  É necessário configurá-la como "All" or "DirectoryRole".  Pode não estar presente em tokens obtidos por meio do fluxo implícito devido a problemas de comprimento do token. |
 | `groups` | Matriz JSON de GUIDs | Fornece IDs de objetos que representam as associações de grupo do assunto. Esses valores são exclusivos (consulte a ID de objeto) e podem ser usados com segurança para gerenciar o acesso, como a imposição da autorização para acessar um recurso. Os grupos incluídos na declaração dos grupos são configurados por aplicativo, por meio da propriedade `groupMembershipClaims` do [manifesto do aplicativo](reference-app-manifest.md). Um valor nulo exclui todos os grupos; já um valor "SecurityGroup" inclui somente os membros do grupo de segurança do Active Directory, enquanto um valor "All" inclui tanto grupos de segurança quanto listas de distribuição do Office 365. <br><br>Consulte a declaração `hasgroups` abaixo para obter detalhes de como usar a declaração `groups` com a concessão implícita. <br>Para outros fluxos, se o número de grupos a que o usuário pertence ultrapassar determinado limite (150 para SAML, 200 para JWT), uma declaração excedente será adicionada às fontes de declaração que apontam para o ponto de extremidade do Microsoft Graph que contém a lista de grupos do usuário. |
 | `hasgroups` | Boolean | Se houver algum, sempre `true`, indicando que o usuário pertence a pelo menos um grupo. Usado no lugar da declaração `groups` de JWTs em fluxos de concessão implícitos se a declaração completa de grupos ultrapassar o fragmento de URI para além dos limites de extensão da URL (atualmente, 6 ou mais grupos). Indica que o cliente deve usar a API do Microsoft Graph para determinar os grupos do usuário (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`). |
 | `groups:src1` | Objeto JSON | Para solicitações de token sem limite de tamanho (consulte `hasgroups` acima), mas ainda muito grandes para o token, será incluído um link para a lista completa de grupos do usuário. Para JWTs na forma de declaração distribuída, para SAML como uma nova declaração no lugar da declaração `groups`. <br><br>**Valor de exemplo de JWT**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
@@ -142,7 +142,7 @@ As declarações a seguir serão incluídas nos tokens v1.0, se aplicável, mas 
 | Declaração | Formatar | Descrição |
 |-----|--------|-------------|
 | `ipaddr`| String | O endereço IP por meio do qual o usuário se autenticou. |
-| `onprem_sid`| Cadeia de caracteres, em [formato SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Nos casos em que o usuário tem uma autenticação local, essa declaração fornece o SID. Você pode usar `onprem_sid` para autorização em aplicativos herdados.|
+| `onprem_sid`| Cadeia de caracteres, em [formato SID](/windows/desktop/SecAuthZ/sid-components) | Nos casos em que o usuário tem uma autenticação local, essa declaração fornece o SID. Você pode usar `onprem_sid` para autorização em aplicativos herdados.|
 | `pwd_exp`| int, um carimbo de data/hora UNIX | Indica quando a senha do usuário expira. |
 | `pwd_url`| String | Uma URL para a qual os usuários podem ser enviados para redefinir suas senhas. |
 | `in_corp`| booleano | Indica se o cliente está se conectando da rede corporativa. Se não estiver, a declaração não será incluída. |
@@ -171,7 +171,7 @@ As identidades da Microsoft podem ser autenticadas em uma variedade de maneiras,
 
 Para validar um id_token ou access_token, o aplicativo deverá validar a assinatura e as declarações do token. Para validar os tokens de acesso, o aplicativo também deve validar o emissor, o público-alvo e os tokens de assinatura. Estes precisam ser validados em relação aos valores no documento de descoberta OpenID. Por exemplo, a versão independente de locatário do documento está localizada em [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
-O middleware do Azure AD tem funcionalidades internas para validar os tokens de acesso e você pode navegar pelas nossas [amostras](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) para encontrar uma na linguagem de sua escolha.
+O middleware do Azure AD tem funcionalidades internas para validar os tokens de acesso e você pode navegar pelas nossas [amostras](../azuread-dev/sample-v1-code.md) para encontrar uma na linguagem de sua escolha.
 
 Fornecemos bibliotecas e exemplos de código que mostram como manipular a validação de token. As informações abaixo são fornecidas para aqueles que desejam entender o processo subjacente. Também há várias bibliotecas de software livre de terceiros disponíveis para validação de JWT – há, pelo menos, uma opção para quase todas as linguagens e plataformas. Para obter mais informações sobre bibliotecas de autenticação do Azure AD e exemplos de código, confira [bibliotecas de autenticação v1.0](../azuread-dev/active-directory-authentication-libraries.md) e [bibliotecas de autenticação v2.0](reference-v2-libraries.md).
 
@@ -224,13 +224,13 @@ A lógica de negócios do aplicativo determinará esta etapa; alguns métodos co
 * Valide o status de autenticação do cliente que fez a chamada usando `appidacr` – ele não deve ser 0 se os clientes públicos não têm permissão para chamar a API.
 * Verifique em uma lista das últimas declarações `nonce` para confirmar se o token não está sendo reproduzido.
 * Verifique se o `tid` corresponde a um locatário que tem permissão para chamar sua API.
-* Use a declaração `acr` para verificar se o usuário realizou a MFA. Isso deve ser imposto por meio do [acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+* Use a declaração `acr` para verificar se o usuário realizou a MFA. Isso deve ser imposto por meio do [acesso condicional](../conditional-access/overview.md).
 * Se você solicitou as declarações `roles` ou `groups` no token de acesso, verifique se o usuário está no grupo com permissão para executar essa ação.
   * Para os tokens recuperados usando o fluxo implícito, provavelmente, você precisará conferir o [Microsoft Graph](https://developer.microsoft.com/graph/) para esses dados, pois eles costumam ser muito grandes para se ajustarem ao token.
 
 ## <a name="user-and-application-tokens"></a>Tokens de usuário e aplicativo
 
-Seu aplicativo pode receber tokens para o usuário (o fluxo geralmente é discutido) ou diretamente de um aplicativo (por meio do [fluxo de credenciais do cliente](v1-oauth2-client-creds-grant-flow.md)). Esses tokens somente de aplicativo indicam que essa chamada é proveniente de um aplicativo e não tem nenhum usuário dando suporte a ela. Esses tokens são manipulados basicamente da mesma forma:
+Seu aplicativo pode receber tokens para o usuário (o fluxo geralmente é discutido) ou diretamente de um aplicativo (por meio do [fluxo de credenciais do cliente](../azuread-dev/v1-oauth2-client-creds-grant-flow.md)). Esses tokens somente de aplicativo indicam que essa chamada é proveniente de um aplicativo e não tem nenhum usuário dando suporte a ela. Esses tokens são manipulados basicamente da mesma forma:
 
 * Use `roles` para ver as permissões que foram concedidas ao assunto do token (a entidade de serviço, em vez de um usuário, neste caso).
 * Use `oid` ou `sub` para validar que a entidade de serviço de chamada é a esperada.
@@ -256,14 +256,14 @@ Com a [configuração de tempo de vida do token](active-directory-configurable-t
 
 Os tokens de atualização podem ser revogados pelo servidor devido a uma alteração nas credenciais, ao uso ou à ação do administrador.  Os tokens de atualização se enquadram em duas classes – aqueles emitidos para clientes confidenciais (a coluna mais à direita) e aqueles emitidos para clientes públicos (todas as outras colunas).   
 
-| Alteração | Cookie baseado em senha | Token baseado em senha | Cookie não baseado em senha | Token não baseados em senha | Token de cliente confidencial |
+| Alterar | Cookie baseado em senha | Token baseado em senha | Cookie não baseado em senha | Token não baseados em senha | Token de cliente confidencial |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
 | A senha expira | Permanece ativo | Permanece ativo | Permanece ativo | Permanece ativo | Permanece ativo |
 | Senha alterada pelo usuário | Revogado | Revogado | Permanece ativo | Permanece ativo | Permanece ativo |
 | Usuário faz SSPR | Revogado | Revogado | Permanece ativo | Permanece ativo | Permanece ativo |
 | Administrador redefine senha | Revogado | Revogado | Permanece ativo | Permanece ativo | Permanece ativo |
-| Usuário revoga seus tokens de atualização [por meio do PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revogado | Revogado | Revogado | Revogado | Revogado |
-| O administrador revoga todos os tokens de atualização do usuário [por meio do PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revogado | Revogado |Revogado | Revogado | Revogado |
+| Usuário revoga seus tokens de atualização [por meio do PowerShell](/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revogado | Revogado | Revogado | Revogado | Revogado |
+| O administrador revoga todos os tokens de atualização do usuário [por meio do PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revogado | Revogado |Revogado | Revogado | Revogado |
 | Logout único ([v1.0](../azuread-dev/v1-protocols-openid-connect-code.md#single-sign-out), [v2.0](v2-protocols-oidc.md#single-sign-out)) na Web | Revogado | Permanece ativo | Revogado | Permanece ativo | Permanece ativo |
 
 > [!NOTE]

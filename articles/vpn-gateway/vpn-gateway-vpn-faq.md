@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: yushwang
-ms.openlocfilehash: 027047a212df72479a4f1b2511729365f3fa09e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5d66e79e79edd98f3192d0187d6f0454c3aeffa
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708919"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121469"
 ---
 # <a name="vpn-gateway-faq"></a>Perguntas frequentes de gateway de VPN
 
@@ -126,6 +126,10 @@ Estamos limitados ao uso de PSK (chaves pré-compartilhadas) para autenticação
 ### <a name="can-i-configure-force-tunneling"></a>Posso configurar o Túnel Forçado?
 
 Sim. Confira [Configurar o túnel forçado](vpn-gateway-about-forced-tunneling.md).
+
+### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>Posso usar NAT-T em minhas conexões VPN?
+
+Sim, há suporte para o NAT Traversal (NAT-T). O gateway de VPN do Azure não executará nenhuma funcionalidade semelhante a NAT nos pacotes internos de/para os túneis IPsec.  Nessa configuração, verifique se o dispositivo local inicia o túnel IPSec.
 
 ### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>Posso configurar meu próprio servidor de VPN no Azure e usá-lo para me conectar à minha rede local?
 
