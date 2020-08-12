@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: 706ae5a6c93468da9a65293c1bb4eefb136b938d
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 49984349ce8d9d1bc43778c0042dd21485eded15
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553267"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829672"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Criar painéis de KPI personalizados usando o Azure Application Insights
 
@@ -34,7 +34,7 @@ Para concluir este tutorial:
 - Implante um aplicativo .NET para Azure e [habilite o SDK do Application Insights](../app/asp-net.md).
 
 > [!NOTE]
-> As permissões necessárias para trabalhar com painéis são discutidas no artigo sobre [Noções básicas do controle de acesso para painéis](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboard-share-access#understanding-access-control-for-dashboards).
+> As permissões necessárias para trabalhar com painéis são discutidas no artigo sobre [Noções básicas do controle de acesso para painéis](../../azure-portal/azure-portal-dashboard-share-access.md#understanding-access-control-for-dashboards).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
@@ -131,4 +131,3 @@ Agora que você aprendeu a criar painéis personalizados, dê uma olhada no rest
 
 > [!div class="nextstepaction"]
 > [Diagnóstico profundo](../app/devops.md)
-

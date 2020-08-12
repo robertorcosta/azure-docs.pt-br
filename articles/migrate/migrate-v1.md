@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2defb00827e6f3ccf49c336007198b7d9ac176f6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bb4cfcd48608f90898648450a20d246f9fde002b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306104"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835996"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior das Migrações para Azure
 
@@ -101,7 +101,7 @@ A preparação leva em consideração uma série de propriedades da VM para iden
 --- | --- | ---
 **Tempo de inicialização** | BIOS com suporte. UEFI sem suporte. | Condicionalmente pronto se o tipo de inicialização for UEFI.
 **Núcleos** | Núcleo dos computadores < = o número máximo de núcleos (128) com suporte para uma VM do Azure.<br/><br/> Se o histórico de desempenho estiver disponível, as Migrações para Azure considerarão os núcleos utilizados.<br/>Se um fator de conforto for especificado nas configurações de avaliação, o número de núcleos utilizados será multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, as Migrações para Azure usarão os núcleos alocados, sem aplicar o fator de conforto. | Pronto, se for menor que ou igual aos limites.
-**Memória** | O tamanho da memória do computador < = a memória máxima (3892 GB no Azure M series Standard_M128m&nbsp;<sup>2</sup>) para uma VM do Azure. [Saiba mais](../virtual-machines/windows/sizes.md).<br/><br/> Se o histórico de desempenho estiver disponível, as Migrações para Azure considerarão a memória utilizada.<br/><br/>Se um fator de conforto for especificado, a memória utilizada será multiplicada pelo fator de conforto.<br/><br/> Se não houver histórico, a memória alocada será usada sem a aplicação do fator de conforto.<br/><br/> | Se estiver pronto dentro dos limites.
+**Memória** | O tamanho da memória do computador < = a memória máxima (3892 GB no Azure M series Standard_M128m&nbsp;<sup>2</sup>) para uma VM do Azure. [Saiba mais](../virtual-machines/sizes.md).<br/><br/> Se o histórico de desempenho estiver disponível, as Migrações para Azure considerarão a memória utilizada.<br/><br/>Se um fator de conforto for especificado, a memória utilizada será multiplicada pelo fator de conforto.<br/><br/> Se não houver histórico, a memória alocada será usada sem a aplicação do fator de conforto.<br/><br/> | Se estiver pronto dentro dos limites.
 **Disco de armazenamento** | O tamanho alocado de um disco deve ser de 4 TB (4096 GB) ou menos.<br/><br/> O número de discos anexados à máquina deve ser de 65 ou menos, incluindo o disco do sistema operacional. | Se estiver pronto dentro dos limites.
 **Rede** | Um computador deve ter 32 NICs ou menos conectados a ele. | Se estiver pronto dentro dos limites.
 
@@ -263,7 +263,7 @@ Para computadores monitorados pelo System Center Operations Manager 2012 R2 ou p
     ```sh InstallDependencyAgent-Linux64.bin```
 
 - Saiba mais sobre o [Suporte do Dependency Agent](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) para os sistemas operacionais Windows e Linux.
-- [Saiba mais](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) sobre como você pode usar scripts para instalar o Dependency agent.
+- [Saiba mais](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent) sobre como você pode usar scripts para instalar o Dependency agent.
 
 >[!NOTE]
 > O artigo Azure Monitor para VMs referenciado para fornecer uma visão geral dos pré-requisitos e métodos do sistema para implantar o Dependency Agent também é aplicável à solução Mapa do Serviço.

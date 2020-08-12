@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: d74994609799c155453f0c7cac887f2e033ea90b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 11e5d4e31f388dcffe7f1292afa223562d44b20a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087275"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832290"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>Início Rápido: Criar uma máquina virtual do Windows usando um modelo do Resource Manager
 
@@ -63,7 +63,7 @@ Vários recursos do Azure estão definidos no modelo:
     - **Senha do administrador**: forneça uma senha a ser usada para a conta do administrador. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm).
     - **Prefixo do rótulo DNS**: insira um identificador exclusivo a ser usado como parte do rótulo DNS.
     - **Versão do sistema operacional Windows**: selecione qual versão do Windows você deseja executar na VM.
-    - **Tamanho da VM**: selecione o [tamanho](sizes.md) a ser usado para a VM.
+    - **Tamanho da VM**: selecione o [tamanho](../sizes.md) a ser usado para a VM.
     - **Local**: o padrão será o mesmo local que o grupo de recursos, se ele já existir.
 1. Selecione **Examinar + criar**. Após a conclusão da validação, selecione **Criar** para criar e implantar a VM.
 

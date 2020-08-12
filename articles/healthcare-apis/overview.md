@@ -2,18 +2,18 @@
 title: O que é a API do Azure para FHIR? - API do Azure para FHIR
 description: A API do Azure para FHIR permite a troca rápida de dados por meio de APIs do FHIR. Ingira, gerencie e mantenha as informações de integridade protegidas PHI com um serviço de nuvem gerenciado.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 08/03/2020
-ms.author: mihansen
-ms.openlocfilehash: 6673759afb605184e3e80bb0e6bc438814a6fbe7
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.author: matjazl
+ms.openlocfilehash: 78dec9180da2a78903ae5d5e87bca515b212f167
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553097"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843429"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>O que é a API do Azure para FHIR&reg;?
 
