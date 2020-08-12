@@ -90,6 +90,8 @@
           href: managed-identity.md
         - name: Usar uma política de controle de acesso
           href: group-permissions-for-apps.md
+        - name: Solução de problemas de acesso
+          href: troubleshooting-access-issues.md
     - name: Desenvolver
       items:
         - name: Guia do desenvolvedor do Cofre da Chave do Azure

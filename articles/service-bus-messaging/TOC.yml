@@ -281,9 +281,9 @@
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=enterprise-integration'
     - name: Blog
-      href: 'https://blogs.msdn.microsoft.com/servicebus/'
+      href: /archive/blogs/servicebus/
     - name: Página de perguntas de P e R da Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-service-bus.html'
+      href: /answers/topics/azure-service-bus.html
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/service-bus/'
     - name: Calculadora de preço
