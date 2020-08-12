@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: feb7c4a4417d64e039793bd96141c965f6437414
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e09ad2991d552cb9886911ac75ea23c690204a71
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050921"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116641"
 ---
 # <a name="enforce-on-premises-azure-ad-password-protection-for-active-directory-domain-services"></a>Impor a proteção de senha do Azure AD local para Active Directory Domain Services
 
@@ -87,6 +87,9 @@ Os componentes locais de proteção de senha do Azure AD funcionam da seguinte m
 A implantação da proteção de senha do Azure AD em uma floresta AD DS requer o registro dessa floresta com o Azure AD. Cada serviço de proxy implantado também deve ser registrado com o Azure AD. Esses registros de floresta e proxy são associados a um locatário específico do Azure AD, que é identificado implicitamente pelas credenciais que são usadas durante o registro.
 
 A floresta AD DS e todos os serviços de proxy implantados em uma floresta devem ser registrados com o mesmo locatário. Não há suporte para ter uma floresta AD DS ou quaisquer serviços de proxy na floresta que estão sendo registrados em locatários diferentes do Azure AD. Os sintomas de tal implantação mal configurada incluem a incapacidade de baixar políticas de senha.
+
+> [!NOTE]
+> Os clientes que têm vários locatários do Azure AD devem, portanto, escolher um locatário distinto para registrar cada floresta para fins de proteção de senha do Azure AD.
 
 ## <a name="download"></a>Baixar
 

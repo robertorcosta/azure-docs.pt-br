@@ -8,16 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 9b76dac0734985b01a4a73ad4fc7f2a5f35838db
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 71cbf03a36dd95eb66c3dcbaffbf4b63d889f507
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986892"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121571"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Como usar Análise de Texto para integridade (versão prévia)
+
+> [!NOTE]
+> O Análise de Texto para o contêiner de integridade foi atualizado recentemente. Consulte [o que há de novo](../whats-new.md) para obter mais informações sobre as alterações recentes. Lembre-se de efetuar pull do contêiner mais recente para usar as atualizações listadas.
 
 > [!IMPORTANT] 
 > O Análise de Texto for Health é uma funcionalidade de visualização fornecida "no estado em que se encontra" e "com todas as falhas". Dessa forma, o **análise de texto para integridade (versão prévia) não deve ser implementado ou implantado em nenhum uso de produção.** A Análise de Texto para a integridade não é pretendida ou disponibilizada para uso como um dispositivo médico, suporte clínico, ferramenta de diagnóstico ou outra tecnologia destinada a ser usada no diagnóstico, remediação, redução, tratamento ou prevenção de doenças ou outras condições, e nenhuma licença ou direito é concedido pela Microsoft para usar esse recurso para tais finalidades. Essa funcionalidade não foi projetada ou destinada a ser implementada ou implantada como um substituto para consultoria Médica profissional ou opinião de saúde, diagnóstico, tratamento ou julgamento clínico de um profissional de saúde, e não deve ser usada como tal. O cliente é exclusivamente responsável por qualquer uso de Análise de Texto para fins de integridade. A Microsoft não garante que Análise de Texto de saúde ou qualquer material fornecido em conexão com a capacidade seja suficiente para qualquer finalidade médica ou atenda aos requisitos de saúde ou médicos de qualquer pessoa. 
@@ -229,7 +232,7 @@ O contêiner fornece APIs de ponto de extremidade de previsão de consulta basea
 Use a solicitação de ondulação de exemplo abaixo para enviar uma consulta ao contêiner que você implantou, substituindo a `serverURL` variável pelo valor apropriado.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.0-preview.1/domains/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 
@@ -269,8 +272,8 @@ O JSON a seguir é um exemplo da Análise de Texto para o corpo da resposta da A
                     "offset": 17,
                     "length": 11,
                     "text": "itchy sores",
-                    "type": "SYMPTOM_OR_SIGN",
-                    "score": 0.97,
+                    "category": "SymptomOrSign",
+                    "ConfidenceScore": 1.0,
                     "isNegated": false
                 }
             ]
@@ -283,8 +286,8 @@ O JSON a seguir é um exemplo da Análise de Texto para o corpo da resposta da A
                     "offset": 11,
                     "length": 4,
                     "text": "50mg",
-                    "type": "DOSAGE",
-                    "score": 1.0,
+                    "category": "Dosage",
+                    "ConfidenceScore": 1.0,
                     "isNegated": false
                 },
                 {
@@ -292,8 +295,8 @@ O JSON a seguir é um exemplo da Análise de Texto para o corpo da resposta da A
                     "offset": 16,
                     "length": 8,
                     "text": "benadryl",
-                    "type": "MEDICATION_NAME",
-                    "score": 0.99,
+                    "category": "MedicationName",
+                    "ConfidenceScore": 1.0,
                     "isNegated": false,
                     "links": [
                         {
@@ -339,50 +342,35 @@ O JSON a seguir é um exemplo da Análise de Texto para o corpo da resposta da A
                     "offset": 32,
                     "length": 11,
                     "text": "twice daily",
-                    "type": "FREQUENCY",
-                    "score": 1.0,
+                    "category": "Frequency",
+                    "ConfidenceScore": 1.0,
                     "isNegated": false
                 }
             ],
             "relations": [
                 {
-                    "relationType": "DOSAGE_OF_MEDICATION",
-                    "score": 1.0,
-                    "entities": [
-                        {
-                            "id": "0",
-                            "role": "ATTRIBUTE"
-                        },
-                        {
-                            "id": "1",
-                            "role": "ENTITY"
-                        }
-                    ]
+                    "relationType": "DosageOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/0",
+                    "target": "#/documents/1/entities/1"
                 },
                 {
-                    "relationType": "FREQUENCY_OF_MEDICATION",
-                    "score": 1.0,
-                    "entities": [
-                        {
-                            "id": "1",
-                            "role": "ENTITY"
-                        },
-                        {
-                            "id": "2",
-                            "role": "ATTRIBUTE"
-                        }
-                    ]
+                    "relationType": "FrequencyOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/2",
+                    "target": "#/documents/1/entities/1"
                 }
             ]
         }
     ],
     "errors": [],
-    "modelVersion": "2020-05-08"
+    "modelVersion": "2020-07-24"
 }
 ```
 
-> [!NOTE] 
-> Com a detecção de negação, em alguns casos, um único termo de negação pode abordar vários termos ao mesmo tempo. A negação de uma entidade reconhecida é representada na saída JSON pelo valor booliano do `isNegated` sinalizador:
+### <a name="negation-detection-output"></a>Saída de detecção de negação
+
+Ao usar a detecção de negação, em alguns casos um único termo de negação pode abordar vários termos ao mesmo tempo. A negação de uma entidade reconhecida é representada na saída JSON pelo valor booliano do `isNegated` sinalizador:
 
 ```json
 {
@@ -390,7 +378,7 @@ O JSON a seguir é um exemplo da Análise de Texto para o corpo da resposta da A
   "offset": 90,
   "length": 10,
   "text": "chest pain",
-  "type": "SYMPTOM_OR_SIGN",
+  "category": "SymptomOrSign",
   "score": 0.9972,
   "isNegated": true,
   "links": [
@@ -403,6 +391,33 @@ O JSON a seguir é um exemplo da Análise de Texto para o corpo da resposta da A
       "id": "0000023593"
     },
     ...
+```
+
+### <a name="relation-extraction-output"></a>Saída de extração de relação
+
+A saída de extração de relação contém referências de URI para a *origem* da relação e seu *destino*. As entidades com a função de relação de `ENTITY` são atribuídas ao `target` campo. As entidades com a função de relação de `ATTRIBUTE` são atribuídas ao `source` campo. As relações de abreviação contêm bidirecional `source` e `target` campos e `bidirectional` serão definidas como `true` . 
+
+```json
+"relations": [
+  {
+      "relationType": "DosageOfMedication",
+      "score": 1.0,
+      "bidirectional": false,
+      "source": "#/documents/2/entities/0",
+      "target": "#/documents/2/entities/1",
+      "entities": [
+          {
+              "id": "0",
+              "role": "ATTRIBUTE"
+          },
+          {
+              "id": "1",
+              "role": "ENTITY"
+          }
+      ]
+  },
+...
+]
 ```
 
 ## <a name="see-also"></a>Confira também

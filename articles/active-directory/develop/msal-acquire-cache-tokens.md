@@ -13,12 +13,12 @@ ms.date: 05/28/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bdf9c1ce36921076ab79b2ca501bf008eddfe375
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47af4015fa5c6d9a73ee597146890a29b4b9ef9d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194042"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119888"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquirir e armazenar tokens em cache usando a MSAL (biblioteca de autenticação da Microsoft)
 
@@ -30,7 +30,7 @@ Também é possível limpar o cache do token removendo as contas do cache. No en
 
 ## <a name="scopes-when-acquiring-tokens"></a>Escopos ao adquirir tokens
 
-[Escopos](v2-permissions-and-consent.md) são as permissões que uma API Web expõe para a qual os aplicativos cliente podem solicitar acesso. Os aplicativos cliente solicitam o consentimento do usuário para esses escopos quando fazem solicitações de autenticação para obter tokens para acessar as APIs da Web. A MSAL permite que você obtenha tokens para acessar o Azure AD para desenvolvedores (v1.0) e APIs da plataforma de identidade da Microsoft (v2.0). O protocolo v2.0 usa escopos em vez de recursos nas solicitações. Confira mais informações na [comparação entre a v1.0 e a v2.0](active-directory-v2-compare.md). Com base na configuração da API Web da versão do token que ela aceita, o ponto de extremidade da v2.0 retorna o token de acesso à MSAL.
+[Escopos](v2-permissions-and-consent.md) são as permissões que uma API Web expõe para a qual os aplicativos cliente podem solicitar acesso. Os aplicativos cliente solicitam o consentimento do usuário para esses escopos quando fazem solicitações de autenticação para obter tokens para acessar as APIs da Web. A MSAL permite que você obtenha tokens para acessar o Azure AD para desenvolvedores (v1.0) e APIs da plataforma de identidade da Microsoft (v2.0). O protocolo v2.0 usa escopos em vez de recursos nas solicitações. Confira mais informações na [comparação entre a v1.0 e a v2.0](../azuread-dev/azure-ad-endpoint-comparison.md). Com base na configuração da API Web da versão do token que ela aceita, o ponto de extremidade da v2.0 retorna o token de acesso à MSAL.
 
 Vários métodos de aquisição de token do MSAL exigem um `scopes` parâmetro. O `scopes` parâmetro é uma lista de cadeias de caracteres que declaram as permissões desejadas e os recursos solicitados. Os escopos bem conhecidos são as [permissões de Microsoft Graph](/graph/permissions-reference).
 

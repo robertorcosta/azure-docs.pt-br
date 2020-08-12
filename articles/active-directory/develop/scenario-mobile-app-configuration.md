@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 78e3bbfe910ebc3d7f21167c2a15f0c255fdc8ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fe084d931ee735f9eaecc58ca5445ae56a951cc
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84904789"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121044"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configurar um aplicativo móvel que chama APIs da Web
 
@@ -102,9 +102,9 @@ var pca = PublicClientApplicationBuilder
 
 ##### <a name="find-more-app-building-parameters"></a>Encontrar mais parâmetros de criação de aplicativos
 
-Para obter uma lista de todos os métodos disponíveis no `PublicClientApplicationBuilder` , consulte a [lista de métodos](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
+Para obter uma lista de todos os métodos disponíveis no `PublicClientApplicationBuilder` , consulte a [lista de métodos](/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
 
-Para obter uma descrição de todas as opções que são expostas no `PublicClientApplicationOptions` , consulte a [documentação de referência](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions).
+Para obter uma descrição de todas as opções que são expostas no `PublicClientApplicationOptions` , consulte a [documentação de referência](/dotnet/api/microsoft.identity.client.publicclientapplicationoptions).
 
 ## <a name="tasks-for-xamarin-ios"></a>Tarefas para o Xamarin iOS
 
@@ -218,7 +218,7 @@ Para definir a janela de objeto, siga estas etapas:
 
     `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker."`
 
-1. Na `AcquireTokenInteractive` chamada, use `.WithParentActivityOrWindow(App.RootViewController)` . Passe a referência à janela de objeto que você usará. Aqui está um exemplo:
+1. Na `AcquireTokenInteractive` chamada, use `.WithParentActivityOrWindow(App.RootViewController)` . Passe a referência à janela de objeto que você usará. Veja um exemplo:
 
     Em `App.cs`:
     ```csharp

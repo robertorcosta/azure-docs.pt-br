@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/06/2020
-ms.openlocfilehash: 23b749a45e130e99b660cd5bc56349732159e340
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 17d6137dd243c3bce011a1841ea9bca64e0b64ba
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905489"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120755"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conhecidos e solução de problemas no Azure Machine Learning
 
@@ -302,6 +302,47 @@ time.sleep(600)
     ```
     displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
     ```
+* **automl_setup falha**: 
+    * No Windows, execute automl_setup de um prompt do Anaconda. Para instalar o Miniconda, clique [aqui](https://docs.conda.io/en/latest/miniconda.html).
+    * Verifique se o Conda 64-bit está instalado, em vez de 32 bits executando o `conda info` comando. O `platform` deve ser `win-64` para Windows ou `osx-64` para Mac.
+    * Verifique se o Conda 4.4.10 ou posterior está instalado. Você pode verificar a versão com o comando `conda -V` . Se você tiver uma versão anterior instalada, poderá atualizá-la usando o comando: `conda update conda` .
+    * Linux`gcc: error trying to exec 'cc1plus'`
+      *  Se o `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` erro for encontrado, instale o princípios de Build usando o comando de uso `sudo apt-get install build-essential` .
+      * Passe um novo nome como o primeiro parâmetro para automl_setup para criar um novo ambiente Conda. Exibir ambientes Conda existentes usando `conda env list` e removê-los com o `conda env remove -n <environmentname>` .
+      
+* **automl_setup_linux. sh falhará**: se automl_setup_linus. sh falhar em Ubuntu Linux com o erro:`unable to execute 'gcc': No such file or directory`-
+  1. Verifique se as portas de saída 53 e 80 estão habilitadas. Em uma VM do Azure, você pode fazer isso no portal do Azure selecionando a VM e clicando em rede.
+  2. Execute o comando: `sudo apt-get update`
+  3. Execute o comando: `sudo apt-get install build-essential --fix-missing`
+  4. Executar `automl_setup_linux.sh` novamente
+
+* **Configuration. ipynb falha**:
+  * Para Conda locais, primeiro certifique-se de que automl_setup tenha susccessfully executado.
+  * Verifique se o subscription_id está correto. Localize o subscription_id no portal do Azure selecionando todos os serviços e, em seguida, assinaturas. Os caracteres "<" e ">" não devem ser incluídos no valor de subscription_id. Por exemplo, `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` tem o formato válido.
+  * Verifique se o acesso de colaborador ou proprietário à assinatura.
+  * Verifique se a região é uma das regiões com suporte:,,,,,, `eastus2` `eastus` `westcentralus` `southeastasia` `westeurope` `australiaeast` `westus2` , `southcentralus` .
+  * Verifique o acesso à região usando o portal do Azure.
+  
+* **falha ao importar AutoMLConfig**: houve alterações de pacote na versão do Machine Learning automatizada 1.0.76, que requer que a versão anterior seja desinstalada antes de atualizar para a nova versão. Se o `ImportError: cannot import name AutoMLConfig` for encontrado após a atualização de uma versão do SDK antes de v 1.0.76 para v 1.0.76 ou posterior, resolva o erro executando: `pip uninstall azureml-train automl` e, em seguida `pip install azureml-train-auotml` . O script automl_setup. cmd faz isso automaticamente. 
+
+* **espaço de trabalho. from_config falha**: se as chamadas WS = workspace. from_config () ' falharem-
+  1. Verifique se o bloco de anotações Configuration. ipynb foi executado com êxito.
+  2. Se o bloco de anotações estiver sendo executado de uma pasta que não está sob a pasta em que o `configuration.ipynb` foi executado, copie a pasta aml_config e o config.jsde arquivo que ele contém para a nova pasta. Espaço de trabalho. from_config lê o config.jsem para a pasta do bloco de anotações ou sua pasta pai.
+  3. Se uma nova assinatura, um grupo de recursos, um espaço de trabalho ou uma região estiver sendo usada, certifique-se de executar o `configuration.ipynb` bloco de anotações novamente. Alterar config.jsdiretamente só funcionará se o espaço de trabalho já existir no grupo de recursos especificado na assinatura especificada.
+  4. Se você quiser alterar a região, altere o espaço de trabalho, o grupo de recursos ou a assinatura. `Workspace.create`não criará ou atualizará um espaço de trabalho se ele já existir, mesmo se a região especificada for diferente.
+  
+* **Falha no bloco de anotações de exemplo**: se um bloco de anotações de exemplo falhar com um erro de que a prepert, o método ou a biblioteca não existe:
+  * Verifique se o kernel correctcorrect foi selecionado no notebook jupyter. O kernel é exibido no canto superior direito da página do bloco de anotações. O padrão é azure_automl. Observe que o kernel é salvo como parte do bloco de anotações. Portanto, se você alternar para um novo ambiente Conda, terá que selecionar o novo kernel no bloco de anotações.
+      * Por Azure Notebooks, ele deve ser Python 3,6. 
+      * Para ambientes Conda locais, ele deve ser o nome do Conda envioronment que você especificou em automl_setup.
+  * Verifique se o notebook é para a versão do SDK que você está usando. Você pode verificar a versão do SDK executando `azureml.core.VERSION` em uma célula do jupyter notebook. Você pode baixar a versão anterior dos blocos de anotações de exemplo do GitHub clicando no `Branch` botão, selecionando a `Tags` guia e, em seguida, selecionando a versão.
+
+* **Falha na importação do numpy no Windows**: alguns ambientes do Windows veem um erro ao carregar o numpy com a versão mais recente do Python 3.6.8. Se você vir esse problema, tente com a versão 3.6.7 do Python.
+
+* **Falha na importação do numpy**: Verifique a versão do tensorflow no ambiente de Conda do ml automatizado. As versões com suporte são < 1,13. Desinstalar o tensorflow do ambiente se a versão for >= 1,13, você poderá verificar a versão do tensorflow e desinstalar da seguinte maneira-
+  1. Inicie um shell de comando, ative o ambiente Conda onde os pacotes de ml automatizados são instalados.
+  2. Insira `pip freeze` e procure `tensorflow` , se encontrado, a versão listada deve ser < 1,13
+  3. Se a versão listada não for uma versão com suporte, `pip uninstall tensorflow` no Shell de comando e digite y para confirmação.
 
 ## <a name="deploy--serve-models"></a>Implantar e fornecer modelos
 

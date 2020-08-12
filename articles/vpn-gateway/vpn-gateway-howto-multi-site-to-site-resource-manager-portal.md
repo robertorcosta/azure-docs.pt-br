@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5a74f1ca8d1055885561a35dbd18899193d3924d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0561be00f50dad0fe89ca47428802f45ee44f50d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984148"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121418"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Adicione uma conexão Site a Site a uma rede virtual com uma conexão de gateway de VPN existente
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Portal do Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (clássico)](vpn-gateway-multi-site.md)
 >
 > 
@@ -43,7 +43,7 @@ Verifique os itens a seguir:
 * O gateway de rede virtual para sua VNet é RouteBased. Se você tiver um gateway de VPN PolicyBased, deverá excluir o gateway de rede virtual e criar um novo gateway de VPN como RouteBased.
 * Nenhum dos intervalos de endereço se sobrepõe a qualquer uma das VNets a que essa VNet está se conectando.
 * Você possui um dispositivo VPN compatível e alguém que possa configurá-lo. Confira [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md). Se você não estiver familiarizado com a configuração de seu dispositivo VPN ou se não estiver familiarizado com os intervalos de endereços IP localizados em sua configuração de rede local, será necessário coordenar com alguém que possa fornecer os detalhes para você.
-* Você possui um endereço IP público voltado para o exterior para seu dispositivo VPN. Esse endereço IP não pode estar localizado atrás de um NAT.
+* Você possui um endereço IP público voltado para o exterior para seu dispositivo VPN.
 
 ## <a name="part-1---configure-a-connection"></a><a name="part1"></a>Parte 1 - Configurar uma conexão
 1. Em um navegador, navegue até a [portal do Azure](https://portal.azure.com) e, se necessário, entre com sua conta do Azure.
@@ -57,7 +57,7 @@ Verifique os itens a seguir:
 5. Na página **Adicionar conexão**, preencha os seguintes campos:
    
    * **Nome:** o nome que deseja dar ao site para o qual você está criando a conexão.
-   * **Tipo de conexão:** selecione **Site a site (IPsec)**.
+   * **Tipo de conexão:** Selecione **site a site (IPSec)**.
      
      ![Página Adicionar conexão](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Página Adicionar conexão")<br>
 

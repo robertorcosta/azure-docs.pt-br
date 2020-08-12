@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a6af1a78582ebf62aed82bad8fa06cac37f511ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f98be2ef6a82c099425655fd7e5d25a4358844bf
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80982575"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115434"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Plug-in do SSO corporativo da Microsoft para dispositivos Apple (versão prévia)
 
@@ -70,7 +70,7 @@ Use os seguintes parâmetros para configurar o plug-in Microsoft Enterprise SSO 
   - `https://login.usgovcloudapi.net`
   - `https://login-us.microsoftonline.com`
 
-Você pode usar Microsoft Intune como seu serviço de MDM para facilitar a configuração do plug-in do SSO corporativo da Microsoft. Para obter mais informações, consulte a [documentação de configuração do Intune](https://docs.microsoft.com/intune/configuration/ios-device-features-settings).
+Você pode usar Microsoft Intune como seu serviço de MDM para facilitar a configuração do plug-in do SSO corporativo da Microsoft. Para obter mais informações, consulte a [documentação de configuração do Intune](/intune/configuration/ios-device-features-settings).
 
 ## <a name="using-the-sso-extension-in-your-application"></a>Usando a extensão de SSO em seu aplicativo
 

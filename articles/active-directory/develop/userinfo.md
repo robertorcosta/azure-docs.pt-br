@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 08386e2c54a45fe4a6e35ce6d7ebb51145827a6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59e811b7813ef94682896e0f95e971ca0094ef65
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84268434"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119633"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Ponto de extremidade de UserInfo da plataforma de identidade da Microsoft
 
@@ -34,7 +34,7 @@ Como parte da especificação do OpenID Connect, o ponto de extremidade de UserI
 
 As informações disponíveis no token de ID que seu aplicativo pode receber são um superconjunto das informações que ele pode obter do ponto de extremidade de UserInfo.  Como você pode obter um token de ID ao mesmo tempo que obtém um token para chamar o ponto de extremidade de UserInfo, sugerimos que você use esse token de ID para obter informações sobre o usuário em vez de chamar o ponto de extremidade de UserInfo.  O uso do token de ID eliminará uma a duas solicitações de rede do início do aplicativo, reduzindo a latência em seu aplicativo.
 
-Se você precisar de mais detalhes sobre o usuário, deverá chamar a [ `/user` API de Microsoft Graph](https://docs.microsoft.com/graph/api/user-get) para obter informações como o número do escritório ou o cargo.   Você também pode usar [declarações opcionais](active-directory-optional-claims.md) para incluir informações adicionais do usuário em seus tokens de ID e de acesso.
+Se você precisar de mais detalhes sobre o usuário, deverá chamar a [ `/user` API de Microsoft Graph](/graph/api/user-get) para obter informações como o número do escritório ou o cargo.   Você também pode usar [declarações opcionais](active-directory-optional-claims.md) para incluir informações adicionais do usuário em seus tokens de ID e de acesso.
 
 ## <a name="calling-the-userinfo-endpoint"></a>Chamando o ponto de extremidade de UserInfo
 

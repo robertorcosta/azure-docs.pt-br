@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 2da2755af4b44c0b17550676845c38c1a93cf801
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: ac438b42f25fc82a0a5dd5384205e809e45ff57a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845180"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120078"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Um aplicativo Web que chama as APIs Web: Configuração do código
 
@@ -61,7 +61,7 @@ public void ConfigureServices(IServiceCollection services)
 Se você estiver interessado em entender mais sobre o cache de token, consulte [Opções de serialização de cache de token](#token-cache)
 
 > [!NOTE]
-> Para entender totalmente os exemplos de código aqui, você precisa estar familiarizado com os [conceitos básicos do ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals)e, particularmente, com a [injeção de dependência](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) e as [opções](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).
+> Para entender totalmente os exemplos de código aqui, você precisa estar familiarizado com os [conceitos básicos do ASP.NET Core](/aspnet/core/fundamentals)e, particularmente, com a [injeção de dependência](/aspnet/core/fundamentals/dependency-injection) e as [opções](/aspnet/core/fundamentals/configuration/options).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -268,7 +268,7 @@ O uso de asserções de cliente é um cenário avançado, detalhado na [Declara�
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-O tutorial do ASP.NET Core usa injeção de dependência para permitir que você decida a implementação do cache de token no arquivo Startup.cs para seu aplicativo. O Microsoft.Identity.Web vem com serializadores pré-criados de cache de token descritos na [Serialização de cache de token](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application). Uma possibilidade interessante é escolher os [caches de memória distribuída](https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache) do ASP.NET Core:
+O tutorial do ASP.NET Core usa injeção de dependência para permitir que você decida a implementação do cache de token no arquivo Startup.cs para seu aplicativo. O Microsoft.Identity.Web vem com serializadores pré-criados de cache de token descritos na [Serialização de cache de token](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application). Uma possibilidade interessante é escolher os [caches de memória distribuída](/aspnet/core/performance/caching/distributed#distributed-memory-cache) do ASP.NET Core:
 
 ```csharp
 // Use a distributed token cache by adding:

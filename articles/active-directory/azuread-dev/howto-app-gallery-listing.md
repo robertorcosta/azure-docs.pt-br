@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0ae99ba6540250d18c0bb5f6365e2ed3b9939ac9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcb8f709bc75fdf9fe80ee26497acb78cc023327
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85383862"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116335"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar seu aplicativo na galeria de aplicativos do Azure Active Directory
 
@@ -99,7 +99,7 @@ Para listar um aplicativo na galeria de aplicativos do Azure Active Directory, p
     * Se você quiser adicionar seu aplicativo para listar na Galeria usando o OpenID Connect, selecione **OpenID connect & OAuth 2,0** , conforme mostrado.
     * Se você tiver problemas com o Access, entre em contato com a [equipe de integração de SSO do Azure ad](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-- **Saml 2,0** ou **WS-alimentado**: se seu aplicativo der suporte a SAML 2,0, você poderá integrá-lo diretamente com um locatário do Azure ad seguindo as [instruções para adicionar um aplicativo personalizado](../active-directory-saas-custom-apps.md).
+- **Saml 2,0** ou **WS-alimentado**: se seu aplicativo der suporte a SAML 2,0, você poderá integrá-lo diretamente com um locatário do Azure ad seguindo as [instruções para adicionar um aplicativo personalizado](../manage-apps/view-applications-portal.md).
 
   ![Listando um aplicativo SAML 2,0 ou WS-enalimentado na Galeria](./media/howto-app-gallery-listing/saml.png)
 

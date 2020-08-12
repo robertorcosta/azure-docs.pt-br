@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e758c69f91fb60a83dfcc119b2c7f7aba44384ca
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: e210c19f40ed77bd7c1bc1dcfc2f2787e3ea2087
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054654"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120279"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrar aplicativos para MSAL.NET
 
@@ -37,7 +37,7 @@ Este artigo descreve as diferenças entre a biblioteca de autenticação da Micr
 
 Na maioria dos casos, convém usar a MSAL.NET e o ponto de extremidade da plataforma de identidade da Microsoft, que é a última geração de bibliotecas de autenticação da Microsoft. Ao usar a MSAL.NET, você adquire tokens para que os usuários acessem seu aplicativo por meio do Azure AD (contas corporativas e de estudante), conta Microsoft (pessoal) (MSA) ou Azure AD B2C.
 
-Se já estiver familiarizado com o ponto de extremidade do Azure AD para desenvolvedores (v1.0) (e a ADAL.NET), leia o artigo  [Qual é a diferença entre o ponto de extremidade da plataforma (v2.0) da identidade da Microsoft?](active-directory-v2-compare.md).
+Se já estiver familiarizado com o ponto de extremidade do Azure AD para desenvolvedores (v1.0) (e a ADAL.NET), leia o artigo  [Qual é a diferença entre o ponto de extremidade da plataforma (v2.0) da identidade da Microsoft?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 No entanto, ainda será necessário usar a ADAL.NET se o aplicativo precisar conectar usuários com versões anteriores dos [Serviços de Federação do Active Directory (AD FS)](/windows-server/identity/active-directory-federation-services). Para obter mais informações, consulte [suporte do ADFS](https://aka.ms/msal-net-adfs-support).
 
@@ -161,7 +161,7 @@ Para obter mais informações sobre tokens v1.0 e v2.0, consulte [Tokens de aces
 
 ## <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Escopos para uma API Web aceitando tokens v 1.0
 
-As permissões do OAuth2 são escopos de permissão que um aplicativo de API Web v1.0 (recurso) expõe a aplicativos cliente. Os escopos de permissões podem ser concedidos a aplicativos cliente durante o consentimento. Consulte a seção sobre oauth2Permissions no [manifesto do aplicativo do Azure Active Directory](active-directory-application-manifest.md).
+As permissões do OAuth2 são escopos de permissão que um aplicativo de API Web v1.0 (recurso) expõe a aplicativos cliente. Os escopos de permissões podem ser concedidos a aplicativos cliente durante o consentimento. Consulte a seção sobre oauth2Permissions no [manifesto do aplicativo do Azure Active Directory](./reference-app-manifest.md).
 
 ### <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Escopos para solicitar acesso a permissões específicas do OAuth2 de um aplicativo v1.0
 

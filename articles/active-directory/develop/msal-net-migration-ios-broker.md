@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: de259daa7fd27cc4f138c294a7f347502ca482a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75b6559117420ad75b79c58b219400690b25b4cb
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77185820"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117865"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrar aplicativos iOS que usam Microsoft Authenticator de ADAL.NET para MSAL.NET
 
@@ -28,7 +28,7 @@ Por onde você deve começar? Este artigo ajuda você a migrar seu aplicativo Xa
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que você já tenha um aplicativo Xamarin iOS integrado ao agente do iOS. Se você não fizer isso, mova diretamente para MSAL.NET e comece a implementação do agente. Para obter informações sobre como invocar o agente do iOS no MSAL.NET com um novo aplicativo, consulte [esta documentação](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS#why-use-brokers-on-xamarinios-and-xamarinandroid-applications).
 
-## <a name="background"></a>Tela de fundo
+## <a name="background"></a>Segundo plano
 
 ### <a name="what-are-brokers"></a>O que são agentes?
 
@@ -38,7 +38,7 @@ Eles permitem:
 
 - Logon único.
 - Identificação do dispositivo, que é exigido por algumas [políticas de acesso condicional](../conditional-access/overview.md). Para obter mais informações, consulte [Gerenciamento de dispositivos](../conditional-access/concept-conditional-access-conditions.md#device-platforms).
-- Verificação de identificação do aplicativo, que também é necessária em alguns cenários empresariais. Para obter mais informações, consulte [Gerenciamento de aplicativo móvel (MAM) do Intune](https://docs.microsoft.com/intune/mam-faq).
+- Verificação de identificação do aplicativo, que também é necessária em alguns cenários empresariais. Para obter mais informações, consulte [Gerenciamento de aplicativo móvel (MAM) do Intune](/intune/mam-faq).
 
 ## <a name="migrate-from-adal-to-msal"></a>Migrar do ADAL para o MSAL
 
@@ -241,4 +241,4 @@ Para obter mais informações sobre como registrar o URI de redirecionamento no 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre [Considerações específicas do Xamarin Ios com o MSAL.net](msal-net-xamarin-ios-considerations.md). 
+Saiba mais sobre [Considerações específicas do Xamarin Ios com o MSAL.net](msal-net-xamarin-ios-considerations.md).

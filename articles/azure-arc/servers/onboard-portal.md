@@ -1,20 +1,15 @@
 ---
 title: Conectar computadores híbridos ao Azure por meio do portal do Azure
 description: Neste artigo, você aprenderá a instalar o agente e a conectar computadores ao Azure usando o Azure Arc para servidores (versão prévia) no portal do Azure.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ms.date: 08/07/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: f88fc4a1fd5c44b515ab44b604ebf9a885165ddc
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 08f2563aaa67cdd45760af34ef3bef3e8e472ae7
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007992"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120976"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Conectar computadores híbridos ao Azure por meio do portal do Azure
 

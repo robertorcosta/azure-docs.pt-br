@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 7a44e9c6b0545bce83f17c3bf85149d4ebe95dc1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f382e3cf0f5d2d60c2868c6698b1ea901fbac023
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955668"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121435"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Perguntas frequentes sobre SQL Server em VMs do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -162,7 +162,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
 
 1. **Posso instalar uma segunda instância do SQL Server na mesma VM? Posso alterar os recursos instalados da instância padrão?**
 
-   Sim. A mídia de instalação do SQL Server está localizada em uma pasta na unidade **C** . Execute **Setup.exe** nessa localização para adicionar novas instâncias do SQL Server ou para alterar outros recursos instalados do SQL Server no computador. Observe que alguns recursos, como o Backup Automatizado, a Aplicação Automatizada de Patches e a Integração do Azure Key Vault, funcionam apenas na instância padrão ou em uma instância nomeada devidamente configurada (confira a Pergunta 3). 
+   Sim. A mídia de instalação do SQL Server está localizada em uma pasta na unidade **C** . Execute **Setup.exe** nessa localização para adicionar novas instâncias do SQL Server ou para alterar outros recursos instalados do SQL Server no computador. Observe que alguns recursos, como o Backup Automatizado, a Aplicação Automatizada de Patches e a Integração do Azure Key Vault, funcionam apenas na instância padrão ou em uma instância nomeada devidamente configurada (confira a Pergunta 3). Os clientes que usam [o Software Assurance por meio da benefício híbrido do Azure](licensing-model-azure-hybrid-benefit-ahb-change.md) ou do modelo de licenciamento **pago conforme o uso** podem instalar várias instâncias de SQL Server na máquina virtual sem incorrer em custos de licenciamento extras. Instâncias SQL Server adicionais podem restringir os recursos do sistema, a menos que sejam configurados corretamente. 
 
 1. **Posso desinstalar a instância padrão do SQL Server?**
 

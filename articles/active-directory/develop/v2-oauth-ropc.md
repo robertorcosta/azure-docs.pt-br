@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bfc6b6fa6a2af8750c868aaacb289d39306ce06e
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 24d50635efb4d7fe18db9836311cf0a85dfcc734
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770969"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118613"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidade da Microsoft e concessão de credenciais de senha de proprietário do recurso do OAuth 2.0
 
@@ -33,7 +33,7 @@ A plataforma de identidade da Microsoft oferece suporte à concessão de [ROPC (
 > * Contas pessoais são convidadas a um locatário Azure AD não é possível usar ROPC.
 > * Contas que não têm senhas não podem entrar por meio de ROPC. Para este cenário, recomendamos que você use um fluxo diferente para seu aplicativo em vez disso.
 > * Se os usuários precisarem usar a [MFA (autenticação multifator)](../authentication/concept-mfa-howitworks.md) para fazer logon no aplicativo, eles serão bloqueados em vez disso.
-> * Não há suporte para ROPC em cenários de [federação de identidade híbrida](/azure/active-directory/hybrid/whatis-fed) (por exemplo, Azure AD e ADFS usados para autenticar contas locais). Se os usuários forem redirecionados de página inteira para um provedor de identidade local, o Azure AD não poderá testar o nome de usuário e a senha nesse provedor de identidade. [No entanto, há suporte para a autenticação de passagem](/azure/active-directory/hybrid/how-to-connect-pta) com ROPC.
+> * Não há suporte para ROPC em cenários de [federação de identidade híbrida](../hybrid/whatis-fed.md) (por exemplo, Azure AD e ADFS usados para autenticar contas locais). Se os usuários forem redirecionados de página inteira para um provedor de identidade local, o Azure AD não poderá testar o nome de usuário e a senha nesse provedor de identidade. [No entanto, há suporte para a autenticação de passagem](../hybrid/how-to-connect-pta.md) com ROPC.
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 
@@ -113,4 +113,4 @@ Se o usuário não tiver fornecido o nome de usuário ou a senha corretos, ou se
 ## <a name="learn-more"></a>Saiba mais
 
 * Experimente ROPC por conta própria usando o [aplicativo de console de exemplo](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
-* Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da plataforma de identidade da Microsoft](active-directory-v2-limitations.md).
+* Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da plataforma de identidade da Microsoft](../azuread-dev/azure-ad-endpoint-comparison.md).

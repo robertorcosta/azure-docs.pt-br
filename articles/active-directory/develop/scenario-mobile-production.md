@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 28ace84f9a80b71209d7963d02b66317292b151b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1a7407c947c1c5bae1eed00acb0f216722f3d09
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80882532"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121027"
 ---
 # <a name="prepare-mobile-apps-for-production"></a>Preparar aplicativos móveis para produção
 
@@ -36,7 +36,7 @@ Para cada tipo de MSAL (biblioteca de autenticação da Microsoft), você pode e
 
 ## <a name="mitigate-and-investigate-issues"></a>Atenuar e investigar problemas
 
-Para diagnosticar melhor os problemas em seu aplicativo, colete dados. Para obter informações sobre os tipos de dados que você pode coletar, consulte [Logging in MSAL Applications](https://docs.microsoft.com/azure/active-directory/develop/msal-logging).
+Para diagnosticar melhor os problemas em seu aplicativo, colete dados. Para obter informações sobre os tipos de dados que você pode coletar, consulte [Logging in MSAL Applications](./msal-logging.md).
 
 Aqui estão algumas sugestões para a coleta de dados:
 

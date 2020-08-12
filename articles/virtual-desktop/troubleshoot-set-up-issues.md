@@ -3,15 +3,15 @@ title: Criação do pool de hosts do Windows Virtual Desktop Environment-Azure
 description: Como solucionar e resolver problemas de locatário e pool de hosts durante a instalação de um ambiente de área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 01/08/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 064cdc0189f6b85fa0e5872f49759c2ec67472e6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 4d504c46288ebe2a8112586ce6be6449178df16a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006155"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121367"
 ---
 # <a name="host-pool-creation"></a>Criação do pool de host
 
@@ -252,6 +252,12 @@ the VM.\\\"
 **Causa:** Esse erro ocorre devido a uma rota estática, regra de firewall ou NSG que bloqueia o download do arquivo zip vinculado ao modelo de Azure Resource Manager.
 
 **Correção:** Remova a rota estática de bloqueio, a regra de firewall ou NSG. Opcionalmente, abra o arquivo JSON do modelo de Azure Resource Manager em um editor de texto, leve o link para o arquivo zip e baixe o recurso para um local permitido.
+
+### <a name="error-cant-delete-a-session-host-from-the-host-pool-after-deleting-the-vm"></a>Erro: não é possível excluir um host de sessão do pool de hosts após excluir a VM
+
+**Causa:** Você precisa excluir o host da sessão antes de excluir a VM.
+
+**Correção:** Coloque o host de sessão no modo de descarga, desconecte todos os usuários do host de sessão e, em seguida, exclua o host.
 
 ## <a name="next-steps"></a>Próximas etapas
 

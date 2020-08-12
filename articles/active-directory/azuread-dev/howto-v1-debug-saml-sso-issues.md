@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
 ROBOTS: NOINDEX
-ms.openlocfilehash: bbd622ccb7aeecfff4d3dc744623105a593e6a67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f1829127d1eaf65be586ddff3fb2615cae72c5d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85383573"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116131"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depurar o logon único baseado em SAML para aplicativos no Azure Active Directory
 
@@ -104,4 +104,4 @@ Para resolver o erro, siga estas etapas:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que o logon único está funcionando para seu aplicativo, você pode [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS](../manage-apps/user-provisioning.md) ou começar a usar o [acesso condicional](../conditional-access/app-based-conditional-access.md).
+Agora que o logon único está funcionando para seu aplicativo, você pode [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS](../app-provisioning/user-provisioning.md) ou começar a usar o [acesso condicional](../conditional-access/app-based-conditional-access.md).

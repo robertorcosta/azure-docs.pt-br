@@ -12,19 +12,19 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2d18a50a21c41830796c913a424707897d277218
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b00d4be72aaed980e2604291d8c67c9fec0fb25b
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026757"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115094"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro de autorização e autenticação do Azure AD
 
 Procurando informações sobre os códigos de erro AADSTS que são retornados do serviço de token de segurança (STS) do Azure Active Directory (Azure AD)? Leia este documento para encontrar descrições de erros, correções e algumas sugestões sugeridas do AADSTS.
 
 > [!NOTE]
-> Esta informação é preliminar e está sujeita a alterações. Tem alguma dúvida ou não consegue encontrar o que está procurando? Crie um problema no GitHub ou consulte [Suporte e opções de ajuda para desenvolvedores](active-directory-develop-help-support.md) para aprender sobre outras maneiras de obter ajuda e suporte.
+> Esta informação é preliminar e está sujeita a alterações. Tem alguma dúvida ou não consegue encontrar o que está procurando? Crie um problema no GitHub ou consulte [Suporte e opções de ajuda para desenvolvedores](./developer-support-help-options.md) para aprender sobre outras maneiras de obter ajuda e suporte.
 >
 > Esta documentação é fornecida para diretrizes de desenvolvedor e administrador, mas nunca deve ser usada pelo próprio cliente. Os códigos de erro estão sujeitos a alterações a qualquer momento para fornecer mensagens de erro mais granulares que se destinam a ajudar o desenvolvedor durante a criação de seu aplicativo. Os aplicativos que usam uma dependência de texto ou números de código de erro serão quebrados ao longo do tempo.
 
@@ -95,7 +95,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS50000 | TokenIssuanceError - há um problema com o serviço de logon. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para resolver esse problema. |
 | AADSTS50001 | InvalidResource - O recurso está desabilitado ou não existe. Verifique o código do seu aplicativo para garantir que você especificou o URL exato do recurso que você está tentando acessar.  |
 | AADSTS50002 | NotAllowedTenant - O login falhou devido a um acesso de proxy restrito no locatário. Se essa for a própria política de locatário, você poderá alterar suas configurações de locatário restrito para corrigir esse problema. |
-| AADSTS50003 | MissingSigningKey - O logon falhou devido a uma chave de assinatura ou certificado ausente. Isso pode ter ocorrido porque não havia uma chave de assinatura configurada no aplicativo. Confira as resoluções descritas em [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured) . Se você ainda encontrar problemas, entre em contato com o proprietário do aplicativo ou com um administrador do aplicativo. |
+| AADSTS50003 | MissingSigningKey - O logon falhou devido a uma chave de assinatura ou certificado ausente. Isso pode ter ocorrido porque não havia uma chave de assinatura configurada no aplicativo. Confira as resoluções descritas em [.. /Manage-apps/application-Sign-in-problem-Federated-SSO-Gallery.MD # certificado-ou-chave não configurado](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#certificate-or-key-not-configured). Se você ainda encontrar problemas, entre em contato com o proprietário do aplicativo ou com um administrador do aplicativo. |
 | AADSTS50005 | DevicePolicyError-o usuário tentou fazer logon em um dispositivo de uma plataforma que atualmente não tem suporte por meio da política de acesso condicional. |
 | AADSTS50006 | InvalidSignature - Falha na verificação da assinatura devido a uma assinatura inválida. |
 | AADSTS50007 | PartnerEncryptionCertificateMissing - O certificado de criptografia de parceiro não foi encontrado para este aplicativo. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com a Microsoft para obter esse fixo. |
@@ -139,7 +139,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS50089 | O token de fluxo expirou – Falha na autenticação. Peça que o usuário tente fazer login novamente com username -password. |
 | AADSTS50097 | DeviceAuthenticationRequired - A autenticação do dispositivo é necessária. |
 | AADSTS50099 | PKeyAuthInvalidJwtUnauthorized - A assinatura do JWT é inválida. |
-| AADSTS50105 | EntitlementGrantsNotFound - O usuário conectado não está atribuído a uma função para o aplicativo conectado. Assign the user  to the app. Para obter mais informações: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role) . |
+| AADSTS50105 | EntitlementGrantsNotFound - O usuário conectado não está atribuído a uma função para o aplicativo conectado. Assign the user  to the app. Para obter mais informações:[.. /Manage-apps/application-Sign-in-problem-Federated-SSO-Gallery.MD # usuário-não atribuído-a-função](../manage-apps/application-sign-in-problem-federated-sso-gallery.md#user-not-assigned-a-role). |
 | AADSTS50107 | InvalidRealmUri - O objeto de região de federação solicitado não existe. Entre em contato com o administrador de locatário. |
 | AADSTS50120 | ThresholdJwtInvalidJwtFormat - problema com cabeçalho JWT. Entre em contato com o administrador de locatário. |
 | AADSTS50124 | ClaimsTransformationInvalidInputParameter - Claims Transformation contém um parâmetro de entrada inválido. Entre em contato com o administrador de locatário para atualizar a política. |
@@ -177,7 +177,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS51000 | RequiredFeatureNotEnabled - O recurso está desativado. |
 | AADSTS51001 | DomainHintMustbePresent - A dica de domínio deve estar presente com o identificador de segurança local ou o UPN local. |
 | AADSTS51004 | UserAccountNotInDirectory - a conta de usuário não existe no diretório. |
-| AADSTS51005 | TemporaryRedirect - Equivalente ao status HTTP 307, que indica que as informações solicitadas estão localizadas no URI especificado no cabeçalho do local. Quando você receber esse status, siga o cabeçalho de local associado à resposta. Quando o método de solicitação original era POST, a solicitação redirecionada também usa o método POST. |
+| AADSTS51005 | TemporaryRedirect - Equivalente ao status HTTP 307, que indica que as informações solicitadas estão localizadas no URI especificado no cabeçalho do local. Quando você receber esse status, siga o cabeçalho de local associado à resposta. Quando o método de solicitação original era POST, a solicitação redirecionada também usará o método POST. |
 | AADSTS51006 | ForceReauthDueToInsufficientAuth - a autenticação integrada do Windows é necessária. Usuário que efetuou login usando um token de sessão que não possui a declaração de autenticação integrada do Windows. Solicite ao usuário que efetue login novamente. |
 | AADSTS52004 | DelegationDoesNotExistForLinkedIn - O usuário não forneceu consentimento para acessar recursos do LinkedIn. |
 | AADSTS53000 | DeviceNotCompliant-a política de acesso condicional requer um dispositivo em conformidade e o dispositivo não é compatível. O usuário deve inscrever seu dispositivo em um provedor de MDM aprovado, como o Intune. |
@@ -188,7 +188,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - O usuário ou administrador não consentiu em usar o aplicativo com o ID X. Envie uma solicitação de autorização interativa para esse usuário e recurso. |
 | AADSTS65004 | UserDeclinedConsent - O usuário recusou o consentimento para acessar o aplicativo. Peça que o usuário tente entrar novamente e dê consentimento ao aplicativo|
-| AADSTS65005 | Configuração incorreta - A lista de acesso de recursos necessária ao aplicativo não contém aplicativos detectáveis pelo recurso ou O aplicativo cliente solicitou acesso ao recurso, que não foi especificado em sua lista de acesso a recursos necessária ou Serviço de gráfico retornou solicitação incorreta ou recurso não encontrado. Se o aplicativo dá suporte a SAML, você pode ter configurado o aplicativo com o identificador incorreto (entidade). Experimente a resolução listada para SAML usando o link abaixo:[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
+| AADSTS65005 | Configuração incorreta - A lista de acesso de recursos necessária ao aplicativo não contém aplicativos detectáveis pelo recurso ou O aplicativo cliente solicitou acesso ao recurso, que não foi especificado em sua lista de acesso a recursos necessária ou Serviço de gráfico retornou solicitação incorreta ou recurso não encontrado. Se o aplicativo dá suporte a SAML, você pode ter configurado o aplicativo com o identificador incorreto (entidade). Experimente a resolução listada para SAML usando o link abaixo:[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](../manage-apps/application-sign-in-problem-federated-sso-gallery.md?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
 | AADSTS650052 | O aplicativo precisa de acesso a um serviço `(\"{name}\")` que sua organização `\"{organization}\"` não assinou nem ativou. Entre em contato com seu administrador de ti para examinar a configuração de suas assinaturas de serviço. |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - Falha na autenticação. O token de atualização não é válido. O erro pode ser devido aos seguintes motivos:<ul><li>O cabeçalho de vinculação de token está vazio</li><li>Token binding hash não corresponde</li></ul> |
@@ -250,7 +250,7 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 | AADSTS90043 | NationalCloudAuthCodeRedirection - O recurso está desativado. |
 | AADSTS90051 | InvalidNationalCloudId - O identificador nacional da nuvem contém um identificador de nuvem inválido. |
 | AADSTS90055 | TenantThrottlingError - Há muitas solicitações recebidas. Esta exceção é lançada para inquilinos bloqueados. |
-| AADSTS90056 | BadResourceRequest - Para resgatar o código de um token de acesso, o aplicativo deve enviar uma solicitação POST para o endpoint `/token`. Além disso, antes disso, você deve fornecer um código de autorização e enviá-lo na solicitação POST para o nó de extremidade `/token`. Consulte este artigo para obter uma visão geral do fluxo de código de autorização do OAuth 2,0: [https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) . Direcione o usuário para o terminal `/authorize`, que retornará um código_de_ativação. Ao postar uma solicitação para o endpoint `/token`, o usuário obtém o token de acesso. Faça logon no portal do Azure e verifique **Registros do aplicativo> Endpoints** para confirmar se os dois pontos de extremidade foram configurados corretamente. |
+| AADSTS90056 | BadResourceRequest - Para resgatar o código de um token de acesso, o aplicativo deve enviar uma solicitação POST para o endpoint `/token`. Além disso, antes disso, você deve fornecer um código de autorização e enviá-lo na solicitação POST para o nó de extremidade `/token`. Consulte este artigo para obter uma visão geral do fluxo de código de autorização do OAuth 2,0: [.. /azuread-dev/v1-Protocols-OAuth-Code.MD](../azuread-dev/v1-protocols-oauth-code.md). Direcione o usuário para o terminal `/authorize`, que retornará um código_de_ativação. Ao postar uma solicitação para o endpoint `/token`, o usuário obtém o token de acesso. Faça logon no portal do Azure e verifique **Registros do aplicativo> Endpoints** para confirmar se os dois pontos de extremidade foram configurados corretamente. |
 | AADSTS90072 | PassThroughUserMfaError - A conta externa com a qual o usuário se conecta não existe no locatário em que eles se conectaram; Assim, o usuário não pode satisfazer os requisitos de MFA para o locatário. A conta deve ser adicionada como um usuário externo no inquilino primeiro. Saia e faça login com uma conta de usuário diferente do AD do Azure. |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid - Ocorreu um erro quando o serviço tentou processar uma mensagem do WS-Federation. A mensagem não é válida. |
 | AADSTS90082 | OrgIdWsFederationNotSupported - A política de autenticação selecionada para a solicitação não é atualmente suportada. |
@@ -324,4 +324,4 @@ Pesquise na parte numérica do código de erro retornado.  Por exemplo, se você
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Tem alguma dúvida ou não consegue encontrar o que está procurando? Crie um problema no GitHub ou consulte [Suporte e opções de ajuda para desenvolvedores](active-directory-develop-help-support.md) para aprender sobre outras maneiras de obter ajuda e suporte.
+* Tem alguma dúvida ou não consegue encontrar o que está procurando? Crie um problema no GitHub ou consulte [Suporte e opções de ajuda para desenvolvedores](./developer-support-help-options.md) para aprender sobre outras maneiras de obter ajuda e suporte.

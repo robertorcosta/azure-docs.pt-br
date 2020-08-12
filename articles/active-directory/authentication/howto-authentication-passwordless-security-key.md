@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 300bb317d521ac9202fdd1a02328f844110a48e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f17a634a9bc3b410eec8ed6e868d454dc9ecee6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550413"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116590"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Habilitar entrada de chave de segurança sem senha (versão prévia)
 
@@ -30,7 +30,7 @@ Este documento se concentra na habilitação da autenticação com senha baseada
 ## <a name="requirements"></a>Requisitos
 
 - [Autenticação Multifator do Azure](howto-mfa-getstarted.md)
-- [Visualização do registro de informações de segurança combinadas](concept-registration-mfa-sspr-combined.md)
+- Habilitar a [visualização de registro de informações de segurança combinadas](concept-registration-mfa-sspr-combined.md)
 - [Chaves de segurança FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatíveis
 - Webauthn requer o Windows 10 versão 1809 ou superior * *
 

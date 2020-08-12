@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 06e1abc4f863674cc67c1a78a9f2f626565d296f
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c8f9bc283d88121ad4b6144b8ac9463510349212
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828924"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117219"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos
 
@@ -178,7 +178,7 @@ Se você optar por não usar um certificado, poderá criar um novo segredo do ap
    ![Copiar o valor do segredo porque você não pode recuperá-lo mais tarde](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Configurar políticas de acesso em recursos
-Tenha em mente que talvez seja necessário configurar permissões adicionais em recursos que seu aplicativo precisa acessar. Por exemplo, você também deve [atualizar as políticas de acesso de um cofre de chaves](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) para dar ao aplicativo acesso a chaves, segredos ou certificados.  
+Tenha em mente que talvez seja necessário configurar permissões adicionais em recursos que seu aplicativo precisa acessar. Por exemplo, você também deve [atualizar as políticas de acesso de um cofre de chaves](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) para dar ao aplicativo acesso a chaves, segredos ou certificados.  
 
 1. No [portal do Azure](https://portal.azure.com), navegue até o cofre de chaves e selecione **políticas de acesso**.  
 1. Selecione **Adicionar política de acesso**e, em seguida, selecione as permissões de chave, segredo e certificado que você deseja conceder ao seu aplicativo.  Selecione a entidade de serviço que você criou anteriormente.

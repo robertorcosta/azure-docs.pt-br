@@ -13,12 +13,12 @@ ms.date: 06/22/2018
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: 59ba97ccc0bc4a1a273873d638ef3f519b91e530
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bab21bfc6dba6e9cd35c8053e943cb76339e2254
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284431"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114958"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Referência de token SAML do Azure AD
 
@@ -154,7 +154,7 @@ Este é um exemplo de um token SAML típico.
 
 ## <a name="related-content"></a>Conteúdo relacionado
 
-* Consulte o [recurso de política](https://docs.microsoft.com/graph/api/resources/policy?view=graph-rest-beta)para saber mais sobre como gerenciar a política de tempo de vida de token usando a API de Microsoft Graph.
+* Consulte o [recurso de política](/graph/api/resources/policy?view=graph-rest-beta)para saber mais sobre como gerenciar a política de tempo de vida de token usando a API de Microsoft Graph.
 * Para obter mais informações e exemplos sobre como gerenciar as políticas por meio de cmdlets do PowerShell, incluindo exemplos, consulte [Tempos de vida de token configuráveis no AD do Azure](../develop/active-directory-configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json). 
 * Adicione [declarações opcionais e personalizadas](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para os tokens do aplicativo.
 * Use o [Logon Único (SSO) com SAML](single-sign-on-saml-protocol.md).

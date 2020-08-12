@@ -3,15 +3,15 @@ title: Perguntas frequentes sobre área de trabalho virtual do Windows-Azure
 description: Perguntas frequentes e práticas recomendadas para a área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e0e7084a00439fd9096367578f983e6b6acd1df5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 058c5778c116a9e8368049bf30046aa6b7634163
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007481"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121112"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Perguntas frequentes da Área de Trabalho Virtual do Windows
 
@@ -47,8 +47,6 @@ Para restringir um administrador a gerenciar apenas sessões de usuário, como e
 Quando um usuário é atribuído a um grupo de aplicativos, o serviço faz uma simples atribuição de função do Azure. Como resultado, o Azure Active Directory do usuário (AD) e o Azure AD do grupo de aplicativos devem estar no mesmo local. Todos os objetos de serviço, como pools de hosts, grupos de aplicativos e espaços de trabalho, também devem estar no mesmo Azure AD que o usuário.
 
 Você pode criar VMs (máquinas virtuais) em um Azure AD diferente, contanto que sincronize o Active Directory com o Azure AD do usuário na mesma rede virtual (VNET).
-
-O Azure Lighthouse não dá suporte completo ao gerenciamento do ambiente de área de trabalho virtual do Windows. Como o Lighthouse atualmente não dá suporte ao gerenciamento de usuários de locatários do Azure AD, os clientes do Lighthouse ainda precisam entrar no Azure AD que os clientes usam para gerenciar usuários.
 
 ## <a name="what-are-location-restrictions"></a>O que são restrições de local?
 
@@ -132,3 +130,11 @@ Esses fatores podem afetar o limite de escala para pools de hosts:
 - Há restrições quanto à quantidade de núcleos que você pode criar por região e por assinatura. Por exemplo, se você tiver uma assinatura Enterprise Agreement, poderá criar núcleos de 350. Você precisará dividir 350 pelo número padrão de núcleos por VM ou seu próprio limite de núcleos para determinar quantas VMs você pode criar cada vez que executar o modelo. Saiba mais em [limites de máquinas virtuais-Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
 
 - O nome do prefixo da VM e o número de VMs têm menos de 15 caracteres. Para saber mais, consulte [regras e restrições de nomenclatura para recursos do Azure](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
+
+## <a name="can-i-manage-windows-virtual-desktop-environments-with-azure-lighthouse"></a>Posso gerenciar ambientes de área de trabalho virtual do Windows com o Azure Lighthouse?
+
+O Azure Lighthouse não dá suporte completo ao gerenciamento de ambientes de área de trabalho virtual do Windows. Como o Lighthouse atualmente não dá suporte ao gerenciamento de usuários de locatários do Azure AD, os clientes do Lighthouse ainda precisam entrar no Azure AD que os clientes usam para gerenciar usuários.
+
+Você também não pode usar as assinaturas do CSP sandbox com o serviço de área de trabalho virtual do Windows. Para saber mais, consulte [conta da área restrita da integração](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
+
+Por fim, se você habilitou o provedor de recursos da conta do proprietário do CSP, as contas de cliente do CSP não poderão modificar o provedor de recursos.

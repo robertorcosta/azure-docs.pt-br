@@ -1,5 +1,5 @@
 ---
-title: Criar e gerenciar trabalhos de banco de dados elástico com Transact-SQL (T-SQL)
+title: Criar e gerenciar trabalhos de banco de dados elástico (versão prévia) com Transact-SQL (T-SQL)
 description: Execute scripts em vários bancos de dados com o agente do Trabalho de Banco de Dados Elástico usando o T-SQL (Transact-SQL).
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: c91f96afefe924856b7416844d37c4d7a13c794b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 339b66310d75e228bc6107635ac39b8d27d774c1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84031097"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119106"
 ---
-# <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Usar o T-SQL (Transact-SQL) para criar e gerenciar trabalhos de Banco de Dados Elástico
+# <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Usar o Transact-SQL (T-SQL) para criar e gerenciar trabalhos de banco de dados elástico (visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Este artigo fornece muitos cenários de exemplo para começar a trabalhar com trabalhos elásticos usando o T-SQL.
@@ -1204,7 +1204,7 @@ GO
 
 As seguintes exibições estão disponíveis no [banco de dados de trabalhos](job-automation-overview.md#job-database).
 
-|Exibir  |Descrição  |
+|Visualizar  |Descrição  |
 |---------|---------|
 |[job_executions](#job_executions-view)     |  Mostra o histórico de execução de trabalho.      |
 |[sejam](#jobs-view)     |   Mostra todos os trabalhos.      |
@@ -1252,7 +1252,7 @@ Mostra todos os trabalhos.
 |**job_name** | nvarchar(128) | Nome do trabalho.|
 |**job_id**| UNIQUEIDENTIFIER |A ID exclusiva do trabalho.|
 |**job_version** |INT |Versão do trabalho (atualizada automaticamente sempre que o trabalho é modificado).|
-|**ndescrição** |nvarchar(512)| Descrição do trabalho. Bit habilitado: indica se o trabalho está habilitado ou desabilitado. 1 indica trabalhos habilitados e 0 indica trabalhos desabilitados.|
+|**descrição** |nvarchar(512)| Descrição do trabalho. Bit habilitado: indica se o trabalho está habilitado ou desabilitado. 1 indica trabalhos habilitados e 0 indica trabalhos desabilitados.|
 |**schedule_interval_type**|nvarchar (50) |Valor que indica quando o trabalho deve ser executado:'Once', 'Minutes', 'Hours', 'Days', 'Weeks', 'Months'
 |**schedule_interval_count**|INT|O número de períodos de schedule_interval_type que devem ocorrer entre cada execução do trabalho.|
 |**schedule_start_time**|Datetime2 (7)|Data e hora em que a última execução do trabalho foi iniciada.|

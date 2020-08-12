@@ -13,12 +13,12 @@ ms.date: 04/24/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bb5950360734bc46923ef18424e3ad1ce275ad7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d244bbbe96bcea45da5c0860e4af52409123fb7f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652680"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118681"
 ---
 # <a name="considerations-for-using-xamarin-android-with-msalnet"></a>Considerações sobre o uso do Xamarin Android com MSAL.NET
 Este artigo discute o que você deve considerar ao usar o Xamarin Android com a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
@@ -56,7 +56,7 @@ var pca = PublicClientApplicationBuilder
 ## <a name="ensure-that-control-returns-to-msal"></a>Verifique se o controle retorna ao MSAL 
 Quando a parte interativa do fluxo de autenticação terminar, verifique se o controle volta para MSAL. No Android, substitua o `OnActivityResult` método de `Activity` . Em seguida, chame o `SetAuthenticationContinuationEventArgs` método da `AuthenticationContinuationHelper` classe MSAL. 
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ```csharp
 protected override void OnActivityResult(int requestCode, 
@@ -92,7 +92,7 @@ O arquivo de *AndroidManifest.xml* deve conter os seguintes valores:
 
 Substitua o nome do pacote que você registrou no portal do Azure para o `android:host=` valor. Substitua o hash de chave que você registrou no portal do Azure para o `android:path=` valor. O hash de assinatura *não* deve ser codificado em URL. Verifique se uma barra () à esquerda `/` é exibida no início do hash de assinatura.
 
-Como alternativa, [crie a atividade em código](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) em vez de editar manualmente *AndroidManifest.xml*. Para criar a atividade no código, primeiro crie uma classe que inclua o `Activity` atributo e o `IntentFilter` atributo. 
+Como alternativa, [crie a atividade em código](/xamarin/android/platform/android-manifest#the-basics) em vez de editar manualmente *AndroidManifest.xml*. Para criar a atividade no código, primeiro crie uma classe que inclua o `Activity` atributo e o `IntentFilter` atributo. 
 
 Aqui está um exemplo de uma classe que representa os valores do arquivo XML:
 

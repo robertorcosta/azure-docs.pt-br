@@ -3,15 +3,15 @@ title: Problemas de diagnóstico da Área de Trabalho Virtual do Windows - Azure
 description: Como usar o recurso de diagnóstico da Área de Trabalho Virtual do Windows para diagnosticar problemas.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a985ce4f93b04e4065b5189b2a406b54729720c3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 50fe1eb6e5aed551b56bcd1526daa5d441185501
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005089"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121401"
 ---
 # <a name="identify-and-diagnose-windows-virtual-desktop-issues"></a>Identificar e diagnosticar problemas de área de trabalho virtual do Windows
 
@@ -60,6 +60,14 @@ A tabela a seguir lista os erros comuns que os administradores podem encontrar.
 |8|ConnectionBroken|A conexão entre o cliente e o gateway ou o servidor caiu. Nenhuma ação necessária, a menos que isso ocorra inesperadamente.|
 |14|UnexpectedNetworkDisconnect|A conexão com a rede caiu. Peça ao usuário para se conectar novamente.|
 |24|ReverseConnectFailed|A máquina virtual do host não tem uma linha de visão direta para o gateway de área de trabalho remota. Verifique se o endereço IP do gateway pode ser resolvido.|
+
+## <a name="error-cant-add-user-assignments-to-an-app-group"></a>Erro: não é possível adicionar atribuições de usuário a um grupo de aplicativos
+
+Depois de atribuir um usuário a um grupo de aplicativos, o portal do Azure exibe um aviso que indica "fim da sessão" ou "problemas de autenticação-extensão Microsoft_Azure_WVD". A página de atribuição não é carregada e, depois disso, as páginas param de carregar em toda a portal do Azure (por exemplo, Azure Monitor, Log Analytics, integridade do serviço e assim por diante).
+
+**Causa:** Há um problema com a política de acesso condicional. O portal do Azure está tentando obter um token para Microsoft Graph, que é dependente do SharePoint Online. O cliente tem uma política de acesso condicional chamada "termos de uso de armazenamento de dados do Microsoft Office 365" que exige que os usuários aceitem os termos de uso para acessar o armazenamento de dados. No entanto, eles ainda não entraram, portanto, o portal do Azure não pode obter o token.
+
+**Correção:** Antes de entrar no portal do Azure, o administrador primeiro precisa entrar no SharePoint e aceitar os termos de uso. Depois disso, eles devem ser capazes de entrar no portal do Azure como o normal.
 
 ## <a name="next-steps"></a>Próximas etapas
 
