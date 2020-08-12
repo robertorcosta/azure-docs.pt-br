@@ -6,12 +6,12 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: e06a2eac5387cd02e95d8252ae04edc356683ed9
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
-ms.translationtype: HT
+ms.openlocfilehash: 7a115de449588ea69951e6d997aa5332e5d55ad1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028243"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119514"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Usar o Emulador do Azure Cosmos para desenvolvimento e teste locais
 
@@ -507,6 +507,8 @@ Use as dicas a seguir para ajudar a solucionar problemas encontrados com o emula
 - Se encontrar um problema de conectividade, [colete os arquivos de rastreamento](#trace-files), compacte-os e abra um tíquete de suporte no [portal do Azure](https://portal.azure.com).
 
 - Se você receber uma mensagem de **Serviço Indisponível**, o emulador poderá estar falhando em inicializar a pilha de rede. Verifique se você tem o cliente seguro Pulse ou o cliente de redes Juniper instalado, uma vez que seus drivers de filtro de rede podem causar o problema. Desinstalar os drivers de filtro de rede de terceiros geralmente corrige o problema. Como alternativa, inicie o emulador com /DisableRIO, que mudará a comunicação de rede do emulador para Winsock regular. 
+
+- Se você encontrar **"proibido", "mensagem": "a solicitação está sendo feita com um protocolo de criptografia proibido em trânsito ou codificação. Verificar a configuração de protocolo mínimo permitido por SSL/TLS da conta...** problemas de conectividade, isso pode ser causado por alterações globais no sistema operacional (por exemplo, Insider Preview versão 20170) ou as configurações do navegador que habilitam o TLS 1,3 como padrão. Pode ocorrer um erro semelhante ao usar o SDK para executar uma solicitação no emulador Cosmos, como **Microsoft.Azure.Documents.DocumentClientException: a solicitação está sendo feita com uma criptografia proibida no protocolo de trânsito ou na codificação. Verifique a configuração de protocolo mínimo permitido por SSL/TLS**. Isso é esperado no momento, pois o emulador Cosmos só aceita e funciona com o protocolo TLS 1,2. A solução recomendada é alterar as configurações e usar o padrão para TLS 1,2; por exemplo, no Gerenciador do IIS, navegue até "sites"-> "sites padrão" e localize as "ligações do site" para a porta 8081 e edite-as para desabilitar o TLS 1,3. Uma operação semelhante pode ser executada para o navegador da Web por meio das opções de "configurações".
 
 - Enquanto o emulador é executado, se o computador entrar em modo de suspensão ou executar atualizações do sistema operacional, talvez você veja uma mensagem **O serviço não disponível no momento**. Reinicie os dados do emulador clicando com o botão direito do mouse no ícone que aparece na bandeja de notificação do Windows e selecione **Redefinir dados**.
 

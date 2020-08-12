@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 8/7/2020
-ms.openlocfilehash: 518d3880a740de2cda4f01e362d8a5ef7865b361
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 7697ba514b74935f8da6d71cdfb380e704d66f56
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037296"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121350"
 ---
 # <a name="azure-sql-database-serverless"></a>Banco de Dados SQL do Azure sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -119,7 +119,7 @@ Os recursos a seguir não oferecem suporte à pausa automática, mas oferecem su
 - Replicação geográfica (replicação geográfica ativa e grupos de failover automático).
 - LTR (retenção de backup de longo prazo).
 - O banco de dados de sincronização usado na sincronização de dados SQL.  Ao contrário dos bancos de dados de sincronização, os bancos de dados de hub e de membros dão suporte à pausa automática.
-- O banco de dados de trabalho usado em trabalhos elásticos.
+- O banco de dados de trabalho usado em trabalhos elásticos (visualização).
 
 A pausa automática é impedida temporariamente durante a implantação de algumas atualizações de serviço que exigem que o banco de dados esteja online.  Nesses casos, a pausa automática será permitida novamente após a conclusão da atualização do serviço.
 

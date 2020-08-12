@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 9503abf147ee89ec03e7e1317df823426ea37b1c
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5c253abf0fa6ae95dff178847209be407fb5bca5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87758876"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120823"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implantar um modelo em um cluster do serviço kubernetes do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ O cluster AKS e o espaço de trabalho AML podem estar em grupos de recursos dife
 > O processo de criação ou anexo é uma tarefa ocasional. Depois que um cluster AKS estiver conectado ao espaço de trabalho, você poderá usá-lo para implantações. Você pode desanexar ou excluir o cluster AKS se não precisar mais dele. Depois de desanexado ou excluído, você não poderá mais implantar no cluster.
 
 > [!IMPORTANT]
-> É altamente recomendável depurar localmente antes de implantar no serviço Web, para obter mais informações, consulte [depurar localmente](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
+> Recomendamos que você depure localmente antes de implantar no serviço Web. Para obter mais informações, consulte [depurar localmente](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
 >
 > Você também pode consultar a Azure Machine Learning- [implantar no bloco de anotações local](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
@@ -109,6 +109,13 @@ from azureml.core.compute import AksCompute, ComputeTarget
 # For example, to create a dev/test cluster, use:
 # prov_config = AksCompute.provisioning_configuration(cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
 prov_config = AksCompute.provisioning_configuration()
+# Example configuration to use an existing virtual network
+# prov_config.vnet_name = "mynetwork"
+# prov_config.vnet_resourcegroup_name = "mygroup"
+# prov_config.subnet_name = "default"
+# prov_config.service_cidr = "10.0.0.0/16"
+# prov_config.dns_service_ip = "10.0.0.10"
+# prov_config.docker_bridge_cidr = "172.17.0.1/16"
 
 aks_name = 'myaks'
 # Create the cluster
@@ -267,7 +274,7 @@ Para obter informações sobre como usar VS Code, consulte [implantar no AKs por
 
 ### <a name="understand-the-deployment-processes"></a>Entender os processos de implantação
 
-A palavra "implantação" é usada em kubernetes e em Azure Machine Learning. "Implantação" tem significados muito diferentes nesses dois contextos. No kubernetes, uma `Deployment` é uma entidade concreta, especificada com um arquivo YAML declarativo. Um kubernetes `Deployment` tem um ciclo de vida definido e relações concretas com outras entidades kubernetes, como `Pods` e `ReplicaSets` . Você pode aprender sobre o kubernetes de documentos e vídeos em [o que é o kubernetes?](https://aka.ms/k8slearning).
+A palavra "implantação" é usada em kubernetes e em Azure Machine Learning. "Implantação" tem significados diferentes nesses dois contextos. No kubernetes, uma `Deployment` é uma entidade concreta, especificada com um arquivo YAML declarativo. Um kubernetes `Deployment` tem um ciclo de vida definido e relações concretas com outras entidades kubernetes, como `Pods` e `ReplicaSets` . Você pode aprender sobre o kubernetes de documentos e vídeos em [o que é o kubernetes?](https://aka.ms/k8slearning).
 
 No Azure Machine Learning, a "implantação" é usada no sentido mais geral de disponibilizar e limpar os recursos do projeto. As etapas que Azure Machine Learning consideram parte da implantação são:
 

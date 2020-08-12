@@ -13,12 +13,12 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8895e52209622025f943aaa6a4261b68a7e2899c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1075cce9b9e3bc3267756bba84691788293fa8d2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034832"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116285"
 ---
 # <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Diretrizes para desenvolvedores para o Azure Active Directory recurso de acesso condicional
 
@@ -90,7 +90,7 @@ Os desenvolvedores podem aceitar esse desafio e acrescentá-lo em uma nova solic
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-O acesso condicional do Azure Active Directory é um recurso incluído no [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Você pode saber mais sobre os requisitos de licenciamento no [relatório de uso não licenciado](../active-directory-conditional-access-unlicensed-usage-report.md). Os desenvolvedores podem ingressar no [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), que inclui uma assinatura gratuita para o Enterprise Mobility Suite que, por sua vez, inclui o Azure AD Premium.
+O acesso condicional do Azure Active Directory é um recurso incluído no [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md). Você pode saber mais sobre os requisitos de licenciamento no [relatório de uso não licenciado](../reports-monitoring/overview-reports.md). Os desenvolvedores podem ingressar no [Microsoft Developer Network](/), que inclui uma assinatura gratuita para o Enterprise Mobility Suite que, por sua vez, inclui o Azure AD Premium.
 
 ### <a name="considerations-for-specific-scenarios"></a>Considerações para cenários específicos
 
@@ -177,7 +177,7 @@ Para testar esse cenário, veja nosso [exemplo de código Em nome de SPA JS](htt
 
 ## <a name="see-also"></a>Confira também
 
-* Para saber mais sobre os recursos, confira [Acesso condicional no Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+* Para saber mais sobre os recursos, confira [Acesso condicional no Azure Active Directory](../conditional-access/overview.md).
 * Para obter mais exemplos de código do Azure AD, confira o [Repositório de exemplos de código do GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory).
 * Para saber mais sobre SDKs da ADAL e como acessar a documentação de referência, confira o [guia da biblioteca](active-directory-authentication-libraries.md).
 * Para saber mais sobre cenários de multilocatários, confira [Como conectar usuários usando o padrão de multilocatário](../develop/howto-convert-app-to-be-multi-tenant.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).

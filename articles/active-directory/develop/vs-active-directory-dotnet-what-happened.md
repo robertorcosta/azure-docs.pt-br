@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: b6a364cbd29c3273466bee15b9a54e097497a8e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc23a61c88337c152a764cc0ec90ddbbad25cef1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479106"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114720"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu com meu projeto do MVC (serviço conectado do Active Directory do Azure do Visual Studio)?
 
@@ -162,5 +162,5 @@ Ao adicionar o serviço conectado, o Visual Studio 2015 faz backup dos arquivos 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Cenários de autenticação do Azure Active Directory](authentication-scenarios.md)
+- [Cenários de autenticação do Azure Active Directory](./authentication-vs-authorization.md)
 - [Adicionar entrada com a Microsoft para um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md)

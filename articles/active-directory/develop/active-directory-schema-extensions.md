@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: cd21ef8d697570afb2109bb56d552284c03fd9a2
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 4450b0bcc06b048fd9ad42d2a7bf1c588816eae7
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552774"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115604"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Usando atributos de extensão de esquema de diretório em declarações
 
@@ -34,7 +34,7 @@ O identificador de um atributo de extensão de esquema de diretório está no fo
 ## <a name="registering-and-using-directory-schema-extensions"></a>Registrando e usando extensões de esquema de diretório
 Os atributos de extensão do esquema de diretório podem ser registrados e preenchidos de uma das duas maneiras:
 
-- Ao configurar o AD Connect para criá-los e sincronizar dados neles no AD local. Consulte [Azure ad Connect as extensões de diretório de sincronização](/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions).
+- Ao configurar o AD Connect para criá-los e sincronizar dados neles no AD local. Consulte [Azure ad Connect as extensões de diretório de sincronização](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
 - Usando Microsoft Graph para registrar, definir os valores de e ler de atributos de extensão do esquema de diretório [extensões de esquema de diretório | Conceitos de API do Graph](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) e/ou PowerShell + [Gerenciando atributos de extensão com cmdlets do PowerShell do AzureAD](/powershell/azure/active-directory/using-extension-attributes-sample?view=azureadps-2.0).
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-with-ad-connect"></a>Emitindo declarações com dados de atributos de extensão de esquema de diretório criados com o AD Connect

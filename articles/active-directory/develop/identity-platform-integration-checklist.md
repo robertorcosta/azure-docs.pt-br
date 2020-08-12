@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 9a1f86a78eaac96f2a6202b4ec29e99a0a978ff1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 036c40395e5da5ebc09a87e420893d7dbd2ec668
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554374"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116794"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Práticas recomendadas e recomendações da plataforma Microsoft Identity
 
@@ -25,12 +25,12 @@ Este artigo destaca as práticas recomendadas, recomendações e supervisões co
 
 Se você estiver apenas começando, confira a [documentação da plataforma de identidade da Microsoft](index.yml) para saber mais sobre noções básicas de autenticação, cenários de aplicativos na plataforma de identidade da Microsoft e muito mais.
 
-Use a seguinte lista de verificação para garantir que seu aplicativo seja efetivamente integrado à [plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
+Use a seguinte lista de verificação para garantir que seu aplicativo seja efetivamente integrado à [plataforma de identidade da Microsoft](./index.yml).
 
 > [!TIP]
 > O *Assistente de integração* no portal do Azure pode ajudá-lo a aplicar muitas dessas práticas recomendadas e recomendações. Selecione qualquer um dos seus [registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) no portal do Azure e, em seguida, selecione o item de menu assistente de **integração (versão prévia)** para começar a usar o assistente.
 
-## <a name="basics"></a>Noções básicas
+## <a name="basics"></a>Básico
 
 ![caixa ](./media/active-directory-integration-checklist/checkbox-two.svg) de seleção ler e entender as [políticas da plataforma Microsoft](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Verifique se seu aplicativo segue os termos descritos como foram projetados para proteger os usuários e a plataforma.
 
@@ -58,9 +58,9 @@ Use a seguinte lista de verificação para garantir que seu aplicativo seja efet
 
 ![a caixa de seleção ](./media/active-directory-integration-checklist/checkbox-two.svg) vai além do nome de usuário/senha. Não use o [ROPC (fluxo de credenciais de senha) do proprietário do recurso](v2-oauth-ropc.md), que lida diretamente com as senhas dos usuários. Esse fluxo requer um alto grau de confiança e exposição do usuário e deve ser usado somente quando outros fluxos mais seguros não podem ser usados. Esse fluxo ainda é necessário em alguns cenários (como DevOps), mas lembre-se de que seu uso imporá restrições ao aplicativo.  Para abordagens mais modernas, leia [fluxos de autenticação e cenários de aplicativos](authentication-flows-app-scenarios.md).
 
-![caixa de seleção ](./media/active-directory-integration-checklist/checkbox-two.svg) proteger e gerenciar suas credenciais de aplicativo confidenciais para aplicativos Web, APIs da Web e aplicativos de daemon. Use [credenciais de certificado](active-directory-certificate-credentials.md), não credenciais de senha (segredos de cliente). Se você precisar usar uma credencial de senha, não a defina manualmente. Não armazene credenciais no código ou na configuração e nunca permita que elas sejam manipuladas por seres humanos. Se possível, use [identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) ou [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) para armazenar e girar suas credenciais regularmente.
+![caixa de seleção ](./media/active-directory-integration-checklist/checkbox-two.svg) proteger e gerenciar suas credenciais de aplicativo confidenciais para aplicativos Web, APIs da Web e aplicativos de daemon. Use [credenciais de certificado](active-directory-certificate-credentials.md), não credenciais de senha (segredos de cliente). Se você precisar usar uma credencial de senha, não a defina manualmente. Não armazene credenciais no código ou na configuração e nunca permita que elas sejam manipuladas por seres humanos. Se possível, use [identidades gerenciadas para recursos do Azure](../managed-identities-azure-resources/overview.md) ou [Azure Key Vault](../../key-vault/general/basic-concepts.md) para armazenar e girar suas credenciais regularmente.
 
-![caixa ](./media/active-directory-integration-checklist/checkbox-two.svg) de seleção Verifique se seu aplicativo solicita as permissões de privilégios mínimos. Solicite apenas permissões que seu aplicativo precisa, e somente quando você precisar deles. Entenda os diferentes [tipos de permissões](v2-permissions-and-consent.md#permission-types). Use permissões de aplicativo somente se necessário; Use permissões delegadas sempre que possível. Para obter uma lista completa de permissões de Microsoft Graph, consulte esta [referência de permissões](https://docs.microsoft.com/graph/permissions-reference).
+![caixa ](./media/active-directory-integration-checklist/checkbox-two.svg) de seleção Verifique se seu aplicativo solicita as permissões de privilégios mínimos. Solicite apenas permissões que seu aplicativo precisa, e somente quando você precisar deles. Entenda os diferentes [tipos de permissões](v2-permissions-and-consent.md#permission-types). Use permissões de aplicativo somente se necessário; Use permissões delegadas sempre que possível. Para obter uma lista completa de permissões de Microsoft Graph, consulte esta [referência de permissões](/graph/permissions-reference).
 
 ![caixa de seleção](./media/active-directory-integration-checklist/checkbox-two.svg) Se você estiver protegendo uma API usando a plataforma de identidade da Microsoft, pense cuidadosamente nas permissões que ele deve expor. Considere qual é a granularidade certa para sua solução e quais permissões exigem o consentimento do administrador. Verifique as permissões esperadas nos tokens de entrada antes de tomar decisões de autorização.
 
@@ -68,7 +68,7 @@ Use a seguinte lista de verificação para garantir que seu aplicativo seja efet
 
 ![](./media/active-directory-integration-checklist/checkbox-two.svg)a caixa de seleção usa soluções de autenticação modernas (OAuth 2,0, [OpenID Connect](v2-protocols-oidc.md)) para conectar usuários com segurança.
 
-![a caixa de seleção ](./media/active-directory-integration-checklist/checkbox-two.svg) não programa diretamente em protocolos como o OAuth 2,0 e o Open ID. Em vez disso, aproveite a [MSAL (biblioteca de autenticação da Microsoft)](msal-overview.md). As bibliotecas MSAL encapsulam com segurança protocolos de segurança em uma biblioteca fácil de usar e você obtém suporte interno para cenários de [acesso condicional](/azure/active-directory/conditional-access/overview) , [SSO (logon único)](/azure/active-directory/manage-apps/what-is-single-sign-on)de todo o dispositivo e suporte interno a cache de tokens. Para obter mais informações, consulte a lista de [bibliotecas de clientes](reference-v2-libraries.md#microsoft-supported-client-libraries) e [bibliotecas de middleware](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) com suporte da Microsoft e a lista de bibliotecas de clientes de terceiros [compatíveis](reference-v2-libraries.md#compatible-client-libraries).<br/><br/>Se você precisar distribuir o código para os protocolos de autenticação, deverá seguir uma metodologia como o [Microsoft SDL](https://www.microsoft.com/sdl/default.aspx). Preste muita atenção às considerações de segurança nas especificações de padrões para cada protocolo.
+![a caixa de seleção ](./media/active-directory-integration-checklist/checkbox-two.svg) não programa diretamente em protocolos como o OAuth 2,0 e o Open ID. Em vez disso, aproveite a [MSAL (biblioteca de autenticação da Microsoft)](msal-overview.md). As bibliotecas MSAL encapsulam com segurança protocolos de segurança em uma biblioteca fácil de usar e você obtém suporte interno para cenários de [acesso condicional](../conditional-access/overview.md) , [SSO (logon único)](../manage-apps/what-is-single-sign-on.md)de todo o dispositivo e suporte interno a cache de tokens. Para obter mais informações, consulte a lista de [bibliotecas de clientes](reference-v2-libraries.md#microsoft-supported-client-libraries) e [bibliotecas de middleware](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) com suporte da Microsoft e a lista de bibliotecas de clientes de terceiros [compatíveis](reference-v2-libraries.md#compatible-client-libraries).<br/><br/>Se você precisar distribuir o código para os protocolos de autenticação, deverá seguir uma metodologia como o [Microsoft SDL](https://www.microsoft.com/sdl/default.aspx). Preste muita atenção às considerações de segurança nas especificações de padrões para cada protocolo.
 
 ![caixa ](./media/active-directory-integration-checklist/checkbox-two.svg) de seleção migrar aplicativos existentes da [Adal (biblioteca de autenticação Azure Active Directory)](../azuread-dev/active-directory-authentication-libraries.md) para a [biblioteca de autenticação da Microsoft](msal-overview.md). A MSAL é a mais recente solução de plataforma de identidade da Microsoft e é preferida à ADAL. Ele está disponível em .NET, JavaScript, Android, iOS, macOS e também está em visualização pública para Python e Java. Leia mais sobre como migrar aplicativos [Adal.net](msal-net-migration.md), [ADAL.js](msal-compare-msal-js-and-adal-js.md)e [Adal.net e Ios Broker](msal-net-migration-ios-broker.md) .
 

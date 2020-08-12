@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 6050bdc8c2600998b9804b04b62102e74612719f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13923596b7ad0f6d3fdef24e847f469645b448ee
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77085183"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119922"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrar aplicativos para o MSAL para iOS e macOS
 
@@ -45,7 +45,7 @@ A plataforma de identidade da Microsoft tem algumas diferenças importantes com 
 * O ponto de extremidade do Azure Active Directory v 1.0 requer que todas as permissões sejam declaradas com antecedência durante o registro do aplicativo. Isso significa que essas permissões são estáticas.
 * A plataforma Microsoft Identity permite que você solicite permissões dinamicamente. Os aplicativos podem solicitar permissões apenas conforme necessário e solicitar mais como o aplicativo precisa delas.
 
-Para obter mais informações sobre as diferenças entre o Azure Active Directory v 1.0 e a plataforma de identidade da Microsoft, consulte [por que atualizar para a plataforma Microsoft Identity (v 2.0)?](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison).
+Para obter mais informações sobre as diferenças entre o Azure Active Directory v 1.0 e a plataforma de identidade da Microsoft, consulte [por que atualizar para a plataforma Microsoft Identity (v 2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 ## <a name="adal-and-msal-library-differences"></a>Diferenças de biblioteca ADAL e MSAL
 
@@ -77,7 +77,7 @@ Esse é o escopo interno para cada aplicativo. Ele se refere à lista estática 
 
 Para usar o `/.default` escopo, acrescente `/.default` ao identificador de recurso. Por exemplo: `https://graph.microsoft.com/.default`. Se o recurso terminar com uma barra ( `/` ), você ainda deverá acrescentar `/.default` , incluindo a barra de avanço à esquerda, resultando em um escopo que tem uma barra dupla de avanço ( `//` ).
 
-Você pode ler mais informações sobre como usar o escopo "/.default" [aqui](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope)
+Você pode ler mais informações sobre como usar o escopo "/.default" [aqui](./v2-permissions-and-consent.md#the-default-scope)
 
 ### <a name="supporting-different-webview-types--browsers"></a>Suporte a diferentes tipos de WebView & navegadores
 
@@ -207,7 +207,7 @@ O MSAL no iOS também dá suporte a dois outros tipos de SSO:
 
 ## <a name="intune-mam-sdk"></a>SDK do MAM do Intune
 
-O [SDK do MAM do Intune](https://docs.microsoft.com/intune/app-sdk-get-started) dá suporte a MSAL para Ios a partir da versão [11.1.2](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios/releases/tag/11.1.2)
+O [SDK do MAM do Intune](/intune/app-sdk-get-started) dá suporte a MSAL para Ios a partir da versão [11.1.2](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios/releases/tag/11.1.2)
 
 ## <a name="msal-and-adal-in-the-same-app"></a>MSAL e ADAL no mesmo aplicativo
 

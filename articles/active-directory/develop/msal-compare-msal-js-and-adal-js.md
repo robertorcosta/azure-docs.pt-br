@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 7238a78279528b4522d09178d00bf916f14bad88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d91514af9aea3dd7ea13b94681fbb27c53772fe
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76696411"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120891"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Diferenças entre a MSAL para JS e a ADAL para JS
 
@@ -30,7 +30,7 @@ Este artigo descreve como escolher entre a Biblioteca de Autenticação da Micro
 
 Na maioria dos casos, convém usar a plataforma de identidade da Microsoft e a MSAL.js, que é a geração mais recente das bibliotecas de autenticação da Microsoft. Ao usar a MSAL.js, você adquire tokens para que os usuários entrem em seu aplicativo com o Azure AD (contas corporativas e de estudante), contas da Microsoft (MSA) (pessoais) ou o Azure AD B2C.
 
-Se você já estiver familiarizado com o ponto de extremidade v1.0 (e ADAL.js), talvez queira ler [O que há de diferente no ponto de extremidade v2.0?](active-directory-v2-compare.md).
+Se você já estiver familiarizado com o ponto de extremidade v1.0 (e ADAL.js), talvez queira ler [O que há de diferente no ponto de extremidade v2.0?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 No entanto, você ainda precisará usar a ADAL.js se seu aplicativo precisar conectar os usuários com versões anteriores dos [Serviços de Federação do Active Directory (AD FS)](/windows-server/identity/active-directory-federation-services).
 
@@ -96,4 +96,4 @@ Na v2.0, ao usar a autoridade `https://login.microsoftonline.com/common`, você 
     ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações, confira a [comparação entre a v1.0 e a v2.0](active-directory-v2-compare.md).
+Para obter mais informações, confira a [comparação entre a v1.0 e a v2.0](../azuread-dev/azure-ad-endpoint-comparison.md).

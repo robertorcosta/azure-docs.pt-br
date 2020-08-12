@@ -13,12 +13,12 @@ ms.date: 11/30/2018
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: e706c0eeb848b6cd14a3c14de821ca59a9c52ee9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe321de279397d24e0926cf1ef26a1d66adac8c4
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611357"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117304"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Estrutura de consentimento do Azure Active Directory
 
@@ -28,7 +28,7 @@ A estrutura se baseia em um usuário ou administrador que dá autorização a um
 
 A estrutura de consentimento foi criada com base no OAuth 2.0 e seus vários fluxos, como concessão de código de autorização e concessão de credenciais de cliente, usando clientes públicos ou confidenciais. Com o OAuth 2.0, o Azure AD permite criar muitos tipos diferentes de aplicativo cliente, como em um telefone, tablet, servidor ou um aplicativo Web, assim como obter acesso aos recursos necessários.
 
-Para saber mais sobre como usar a estrutura de consentimento com concessões de autorização do OAuth2.0, confira [Autorizar o acesso a aplicativos Web usando OAuth 2.0 e Azure AD](v2-oauth2-auth-code-flow.md) e [Cenários de autenticação do Azure AD](authentication-scenarios.md). Para saber mais sobre como obter acesso autorizado ao Office 365 por meio do Microsoft Graph, veja [Autenticação do aplicativo com o Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
+Para saber mais sobre como usar a estrutura de consentimento com concessões de autorização do OAuth2.0, confira [Autorizar o acesso a aplicativos Web usando OAuth 2.0 e Azure AD](v2-oauth2-auth-code-flow.md) e [Cenários de autenticação do Azure AD](./authentication-vs-authorization.md). Para saber mais sobre como obter acesso autorizado ao Office 365 por meio do Microsoft Graph, veja [Autenticação do aplicativo com o Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
 
 ## <a name="consent-experience---an-example"></a>Experiência de consentimento, um exemplo
 
@@ -65,4 +65,4 @@ As etapas a seguir mostram como a experiência de consentimento funciona para o 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Veja [como converter um aplicativo em multilocatário](howto-convert-app-to-be-multi-tenant.md)
-* Para se aprofundar, veja [como o consentimento tem suporte na camada de protocolo OAuth 2.0 durante o fluxo de concessão de código de autorização.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)
+* Para se aprofundar, veja [como o consentimento tem suporte na camada de protocolo OAuth 2.0 durante o fluxo de concessão de código de autorização.](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code)

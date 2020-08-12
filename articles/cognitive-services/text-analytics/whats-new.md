@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 67850490a3c1d972d4d03eec545068b1d9eb9fff
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 95e9b208159e9af41563f12ce8af7892e13f6629
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986291"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121843"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
@@ -23,9 +23,45 @@ O API de Análise de Texto é atualizado em uma base contínua. Para se manter a
 
 ## <a name="august-2020"></a>Agosto de 2020
 
+### <a name="general-api-updates"></a>Atualizações de API gerais
+
 * Versão `2020-07-01` do modelo para v3 `/keyphrases` `/pii` e pontos de `/languages` extremidade, que adiciona:
     * [Categorias de entidades](named-entity-types.md?tabs=personal) específicas do governo e do país adicionais para reconhecimento de entidade nomeada.
 * Um erro HTTP 400 agora será retornado para solicitações de API v3 que excedem os [limites de dados](concepts/data-limits.md)publicados. 
+
+### <a name="text-analytics-for-health-container-august-updates"></a>Análise de Texto para atualizações de agosto do contêiner de integridade
+
+As atualizações a seguir são específicas para a versão de agosto do Análise de Texto apenas para o contêiner de integridade.
+
+* Nova versão de modelo para Análise de Texto para integridade:`2020-07-24`
+* Nova URL para enviar Análise de Texto para solicitações de integridade:`http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` 
+
+As seguintes propriedades na resposta JSON foram alteradas:
+
+* `type` foi renomeado para `category` 
+* `score` foi renomeado para `confidenceScore`
+* As entidades no `category` campo da saída JSON agora estão no caso do Pascal. As seguintes entidades foram renomeadas:
+    * `EXAMINATION_RELATION` foi renomeado para `RelationalOperator`.
+    * `EXAMINATION_UNIT` foi renomeado para `MeasurementUnit`.
+    * `EXAMINATION_VALUE` foi renomeado para `MeasurementValue`.
+    * `ROUTE_OR_MODE`foi renomeado `MedicationRoute` .
+    * A entidade relacional foi `ROUTE_OR_MODE_OF_MEDICATION` renomeada para `RouteOfMedication` .
+
+As seguintes entidades foram adicionadas:
+
+* NER
+    * `AdministrativeEvent`
+    * `CareEnvironment`
+    * `HealthcareProfession`
+    * `MedicationForm` 
+
+* Extração de relações
+    * `DirectionOfCondition`
+    * `DirectionOfExamination`
+    * `DirectionOfTreatment`
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre o Análise de Texto para o contêiner de integridade](how-tos/text-analytics-for-health.md)
 
 ## <a name="july-2020"></a>Julho de 2020 
 
@@ -39,10 +75,6 @@ O contêiner oferece os seguintes recursos:
 * Extração de relações
 * Vinculação de entidade
 * Negação
-
-
-> [!div class="nextstepaction"]
-> [Saiba mais sobre o Análise de Texto para o contêiner de integridade](how-tos/text-analytics-for-health.md)
 
 ## <a name="may-2020"></a>Maio de 2020
 

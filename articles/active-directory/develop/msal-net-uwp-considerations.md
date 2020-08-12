@@ -13,12 +13,12 @@ ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 0654bce86cf5fb0b5bd117e444721e95f137dd47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 502bbe65cdc0aef768ff4f017b1f6a920815b001
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652688"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118851"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>Considerações sobre o uso de Plataforma Universal do Windows com MSAL.NET
 Os desenvolvedores de aplicativos que usam o Plataforma Universal do Windows (UWP) com MSAL.NET devem considerar os conceitos apresentados neste artigo.
@@ -56,7 +56,7 @@ Você pode evitar esse problema verificando se o WAB (o componente subjacente do
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\authhost.exe\EnablePrivateNetwork = 00000001
 ```
 
-Para obter mais informações, consulte [agente de autenticação da Web-Fiddler](https://docs.microsoft.com/windows/uwp/security/web-authentication-broker#fiddler).
+Para obter mais informações, consulte [agente de autenticação da Web-Fiddler](/windows/uwp/security/web-authentication-broker#fiddler).
 
 ## <a name="next-steps"></a>Próximas etapas
 Os exemplos a seguir fornecem mais informações.

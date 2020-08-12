@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 3aac63369dffa5b8ba0b9e55b5063ad8136c95cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea5cc53d909ed090e152af84da49c8e87907f6bf
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82883219"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120602"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Usar o MSAL.NET para conectar usuários com identidades sociais
 
@@ -134,7 +134,7 @@ Usando o nome de usuário/senha em um fluxo ROPC, você sacrifica várias coisas
 
 ### <a name="configure-the-ropc-flow-in-azure-ad-b2c"></a>Configurar o fluxo ROPC no Azure AD B2C
 
-Em seu locatário do Azure AD B2C, crie um novo fluxo de usuário e selecione **entrar usando ROPC** para habilitar o ROPC para o fluxo do usuário. Para obter mais informações, consulte [Configurar o fluxo de credenciais de senha do proprietário do recurso](/azure/active-directory-b2c/configure-ropc).
+Em seu locatário do Azure AD B2C, crie um novo fluxo de usuário e selecione **entrar usando ROPC** para habilitar o ROPC para o fluxo do usuário. Para obter mais informações, consulte [Configurar o fluxo de credenciais de senha do proprietário do recurso](../../active-directory-b2c/configure-ropc.md).
 
 `IPublicClientApplication`contém o `AcquireTokenByUsernamePassword` método:
 
@@ -182,7 +182,7 @@ Um sintoma desse cenário é que MSAL.NET retorna `Missing from the token respon
 
 A solução alternativa sugerida é usar o [cache pela política](#acquire-a-token-to-apply-a-policy) descrita anteriormente.
 
-Como alternativa, você pode usar a `tid` declaração se estiver usando [políticas personalizadas](../../active-directory-b2c/custom-policy-get-started.md) no Azure ad B2C. Políticas personalizadas podem retornar declarações adicionais para seu aplicativo usando a [transformação declarações](/azure/active-directory-b2c/claims-transformation-technical-profile).
+Como alternativa, você pode usar a `tid` declaração se estiver usando [políticas personalizadas](../../active-directory-b2c/custom-policy-get-started.md) no Azure ad B2C. Políticas personalizadas podem retornar declarações adicionais para seu aplicativo usando a [transformação declarações](../../active-directory-b2c/claims-transformation-technical-profile.md).
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigação para "ausente da resposta do token"
 

@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6fc4de3ef934e2d1b9dcff46c78f45e7d0f3b6d8
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f746cc654934464d907c6ad669eb7470e4dcaeeb
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845452"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117729"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chamadas de serviço a serviço que usam a identidade do usuário delegado no fluxo On-Behalf-Of
 
@@ -264,7 +264,7 @@ A resposta contém um token SAML codificado em Base64url e UTF8.
 - **SubjectConfirmationData para uma declaração SAML é originado de uma chamada OBO**: se o aplicativo de destino exigir um valor de destinatário em **SubjectConfirmationData**, o valor deverá ser uma URL de Resposta sem curinga na configuração do aplicativo de recurso.
 - **O nó SubjectConfirmationData**: o nó não pode conter um atributo **InResponseTo**, pois não faz parte de uma resposta SAML. O aplicativo que recebe o token SAML precisa ser capaz de aceitar a declaração SAML sem um atributo **InResponseTo**.
 
-- **Consent**: o consentimento deve ser concedido para receber um token SAML contendo dados de usuário em um fluxo OAuth. Para obter informações sobre permissões e sobre como obter consentimento do administrador, confira [Permissões e consentimento no ponto de extremidade v1.0 do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent).
+- **Consent**: o consentimento deve ser concedido para receber um token SAML contendo dados de usuário em um fluxo OAuth. Para obter informações sobre permissões e sobre como obter consentimento do administrador, confira [Permissões e consentimento no ponto de extremidade v1.0 do Azure Active Directory](./v1-permissions-consent.md).
 
 ### <a name="response-with-saml-assertion"></a>Resposta com declaração SAML
 

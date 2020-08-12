@@ -1,5 +1,5 @@
 ---
-title: Migrar para novos trabalhos de banco de dados elástico
+title: Migrar para novos trabalhos de banco de dados elástico (versão prévia)
 description: Migrar para os novos trabalhos de Banco de Dados Elástico.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: johnpaulkee
 ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: bb5f7c441ae25e24857d0709b32e17931c3c63a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1f9e392ddb7b5a79b01459925fe711707db97b5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84038367"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121180"
 ---
-# <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrar para os novos trabalhos de Banco de Dados Elástico
+# <a name="migrate-to-the-new-elastic-database-jobs-preview"></a>Migrar para o novo trabalhos de Banco de Dados Elástico (versão prévia)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Uma versão atualizada dos [trabalhos de Banco de Dados Elástico](elastic-jobs-overview.md) está disponível.

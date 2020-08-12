@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 001de375edab7505ed4687d848aca0ad0965dbfb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c6e59ab0432ad2b7bdccb5ce9916e85eb6d95048
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034900"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116386"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Por que atualizar para plataforma de identidade da Microsoft (v2.0)?
 
@@ -33,9 +33,9 @@ Ao desenvolver um novo aplicativo, é importante conhecer as diferenças entre o
 
 * O ponto de extremidade v1.0 permite que apenas contas do trabalho e da escola entrem no seu aplicativo (Azure AD)
 * O ponto de extremidade da plataforma de identidade da Microsoft permite contas corporativas e de estudante do Azure AD e do MSA (contas pessoais da Microsoft), como hotmail.com, outlook.com e msn.com, para entrar.
-* Os dois pontos de extremidade também aceitam entradas de *[usuários convidados](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* de um diretório do Azure ad para aplicativos configurados como *[locatário único](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* ou para aplicativos *multilocatários* configurados para apontarem para o ponto de extremidade específico do locatário ( `https://login.microsoftonline.com/{TenantId_or_Name}` ).
+* Os dois pontos de extremidade também aceitam entradas de *[usuários convidados](../external-identities/what-is-b2b.md)* de um diretório do Azure ad para aplicativos configurados como *[locatário único](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* ou para aplicativos *multilocatários* configurados para apontarem para o ponto de extremidade específico do locatário ( `https://login.microsoftonline.com/{TenantId_or_Name}` ).
 
-O ponto de extremidade da plataforma de identidade da Microsoft permite que você escreva aplicativos que aceitem entradas de contas pessoais da Microsoft e contas corporativas e de estudante. Isso lhe dá a capacidade de escrever seu aplicativo completamente independente de conta. Por exemplo, se seu aplicativo chamar o [Microsoft Graph](https://graph.microsoft.io), alguns recursos e dados adicionais estarão disponíveis para contas de trabalho, como seus sites do SharePoint ou dados do Diretório. Mas, para muitas ações, como [a leitura de um e-mail de um usuário](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0), o mesmo código pode acessar o e-mail para contas pessoais e de trabalho e escola.
+O ponto de extremidade da plataforma de identidade da Microsoft permite que você escreva aplicativos que aceitem entradas de contas pessoais da Microsoft e contas corporativas e de estudante. Isso lhe dá a capacidade de escrever seu aplicativo completamente independente de conta. Por exemplo, se seu aplicativo chamar o [Microsoft Graph](https://graph.microsoft.io), alguns recursos e dados adicionais estarão disponíveis para contas de trabalho, como seus sites do SharePoint ou dados do Diretório. Mas, para muitas ações, como [a leitura de um e-mail de um usuário](/graph/api/user-list-messages?view=graph-rest-1.0), o mesmo código pode acessar o e-mail para contas pessoais e de trabalho e escola.
 
 Para o ponto de extremidade da plataforma Microsoft Identity, você pode usar a MSAL (biblioteca de autenticação da Microsoft) para obter acesso aos mundos do consumidor, da educação e da empresa. O ponto de extremidade do Azure AD v1.0 aceita logins apenas de contas do trabalho e da escola.
 
@@ -141,7 +141,7 @@ Registros de aplicativo que dão suporte ao trabalho e contas de estudante e con
 
 ### <a name="restrictions-on-redirect-urls"></a>Restrições em URLs de redirecionamento
 
-Para obter as informações mais atualizadas sobre restrições em URLs de redirecionamento para aplicativos que são registrados para a plataforma de identidade da Microsoft, consulte [redirecionar restrições de URL/resposta e limitações](https://docs.microsoft.com/azure/active-directory/develop/reply-url) na documentação da plataforma Microsoft Identity.
+Para obter as informações mais atualizadas sobre restrições em URLs de redirecionamento para aplicativos que são registrados para a plataforma de identidade da Microsoft, consulte [redirecionar restrições de URL/resposta e limitações](../develop/reply-url.md) na documentação da plataforma Microsoft Identity.
 
 Para saber como registrar um aplicativo para uso com a plataforma de identidade da Microsoft, consulte [registrar um aplicativo usando a nova experiência de registros de aplicativo](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 

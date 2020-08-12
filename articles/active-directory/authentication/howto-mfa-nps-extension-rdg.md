@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21b8748cf74a5061e9dfa154047f867df4cb5428
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: d6ede429de686dd005785b44cf5c6d9571aac5a2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848740"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117015"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a infraestrutura do seu Gateway de Área de Trabalho Remota usando a extensão do Servidor de Políticas de Rede (NPS) e o Azure AD
 
@@ -110,6 +110,11 @@ Siga as etapas em [Guia de introdução à Autenticação Multifator do Azure na
 Depois que uma conta tiver sido habilitada para MFA, não será possível entrar nos recursos controlados pela política de MFA até que você tenha configurado com êxito um dispositivo confiável a ser usado para o segundo fator de autenticação e autenticar-se usando a verificação em duas etapas.
 
 Siga as etapas em [O que a Autenticação Multifator do Azure significa para mim?](../user-help/multi-factor-authentication-end-user.md) para compreender e configurar corretamente os dispositivos para MFA com sua conta de usuário.
+
+> [!IMPORTANT]
+> O comportamento de entrada para Área de Trabalho Remota gateway não fornece a opção de inserir um código de verificação com a autenticação multifator do Azure. Uma conta de usuário deve ser configurada para verificação de telefone ou o aplicativo Microsoft Authenticator com notificações por push.
+>
+> Se um desses dois métodos de autenticação não estiver configurado para um usuário, ele não poderá concluir o desafio da autenticação multifator do Azure e entrar no gateway de Área de Trabalho Remota.
 
 ## <a name="install-and-configure-nps-extension"></a>Instalar e configurar a extensão do NPS
 

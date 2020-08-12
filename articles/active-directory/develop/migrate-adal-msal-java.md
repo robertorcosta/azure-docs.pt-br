@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 3b775d88409a03f6de54b9db3ab62d6988c5bddd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ec4103251d27114b8fe40101c0e78c259106a440
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313040"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120874"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guia de migração do ADAL para o MSAL para Java
 
@@ -37,15 +37,15 @@ MSAL para Java é a biblioteca de autenticação que recomendamos que você use 
 
 ## <a name="differences"></a>Diferenças
 
-Se você esteve trabalhando com o ponto de extremidade do Azure AD para desenvolvedores (v 1.0) (e ADAL4J), talvez queira ler [o que há de diferente no ponto de extremidade da plataforma Microsoft Identity (v 2.0)?](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison).
+Se você esteve trabalhando com o ponto de extremidade do Azure AD para desenvolvedores (v 1.0) (e ADAL4J), talvez queira ler [o que há de diferente no ponto de extremidade da plataforma Microsoft Identity (v 2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 ## <a name="scopes-not-resources"></a>Escopos não recursos
 
-O ADAL4J adquire tokens para recursos, enquanto MSAL para Java adquire tokens para escopos. Um número de MSAL para classes Java requer um parâmetro de escopos. Esse parâmetro é uma lista de cadeias de caracteres que declaram as permissões e os recursos desejados que são solicitados. Consulte [escopos de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference) para ver os escopos de exemplo.
+O ADAL4J adquire tokens para recursos, enquanto MSAL para Java adquire tokens para escopos. Um número de MSAL para classes Java requer um parâmetro de escopos. Esse parâmetro é uma lista de cadeias de caracteres que declaram as permissões e os recursos desejados que são solicitados. Consulte [escopos de Microsoft Graph](/graph/permissions-reference) para ver os escopos de exemplo.
 
 Você pode adicionar o `/.default` sufixo de escopo ao recurso para ajudar a migrar seus aplicativos do ponto de extremidade v 1.0 (Adal) para o ponto de extremidade da plataforma de identidade da Microsoft (MSAL). Por exemplo, para o valor do recurso de `https://graph.microsoft.com` , o valor de escopo equivalente é `https://graph.microsoft.com/.default` .  Se o recurso não estiver no formato de URL, mas uma ID de recurso do formulário `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` , você ainda poderá usar o valor de escopo como `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
-Para obter mais detalhes sobre os diferentes tipos de escopos, consulte [permissões e consentimento na plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) e os [escopos para uma API Web aceitando os artigos de tokens v 1.0](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes) .
+Para obter mais detalhes sobre os diferentes tipos de escopos, consulte [permissões e consentimento na plataforma de identidade da Microsoft](./v2-permissions-and-consent.md) e os [escopos para uma API Web aceitando os artigos de tokens v 1.0](./msal-v1-app-scopes.md) .
 
 ## <a name="core-classes"></a>Classes de núcleo
 
@@ -86,9 +86,9 @@ Se você usar a `https://login.microsoftonline.com/common` autoridade na v 2.0, 
 
 O ponto de extremidade v1.0 (usado pela ADAL) só emite tokens v1.0.
 
-O ponto de extremidade v 2.0 (usado por MSAL) pode emitir tokens v 1.0 e v 2.0. Uma propriedade do manifesto do aplicativo da API Web permite que os desenvolvedores escolham qual versão do token é aceita. Consulte `accessTokenAcceptedVersion` na documentação de referência do [manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) .
+O ponto de extremidade v 2.0 (usado por MSAL) pode emitir tokens v 1.0 e v 2.0. Uma propriedade do manifesto do aplicativo da API Web permite que os desenvolvedores escolham qual versão do token é aceita. Consulte `accessTokenAcceptedVersion` na documentação de referência do [manifesto do aplicativo](./reference-app-manifest.md) .
 
-Para obter mais informações sobre tokens v 1.0 e v 2.0, consulte [Azure Active Directory tokens de acesso](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
+Para obter mais informações sobre tokens v 1.0 e v 2.0, consulte [Azure Active Directory tokens de acesso](./access-tokens.md).
 
 ## <a name="adal-to-msal-migration"></a>Migração de ADAL para MSAL
 

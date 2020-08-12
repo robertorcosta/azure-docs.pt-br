@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: ee79333e1092cfcf2cd35e408f86dcfc9e1327cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c76aabbfce02d7e2bd8361dc99b4ba20d1f62f15
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479004"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114482"
 ---
 # <a name="get-started-with-azure-active-directory-webapi-projects"></a>Introdução ao Azure Active Directory (projetos WebApi)
 
@@ -33,5 +33,5 @@ Todos os controladores em seu projeto foram marcados com o `[Authorize]` atribut
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Cenários de autenticação do Azure Active Directory](authentication-scenarios.md)
+- [Cenários de autenticação do Azure Active Directory](./authentication-vs-authorization.md)
 - [Adicionar entrada com a Microsoft para um aplicativo Web ASP.NET](quickstart-v2-aspnet-webapp.md)

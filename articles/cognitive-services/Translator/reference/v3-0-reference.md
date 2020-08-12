@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 4/17/2020
+ms.date: 8/11/2020
 ms.author: swmachan
-ms.openlocfilehash: 2ddc3921c77f8861761ea37b8783e220c1242b97
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6b211dd8ca735ea9ee4a5209aa6030398cca472e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592263"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121010"
 ---
 # <a name="translator-v30"></a>Tradutor v 3.0
 
-## <a name="whats-new"></a>Quais são as novidades?
+## <a name="whats-new"></a>Novidades
 
 A versão 3 do tradutor fornece uma API da Web moderna baseada em JSON. Ela melhora o uso e o desempenho por meio da consolidação dos recursos existentes em menos operações, além de fornecer novos recursos.
 
@@ -147,11 +147,11 @@ Um token de autenticação é válido por 10 minutos. O token deve ser reutiliza
 
 ## <a name="virtual-network-support"></a>Suporte para Rede Virtual
 
-O serviço Tradutor agora está disponível com recursos de rede virtual em regiões limitadas (,,,, `WestUS2` `EastUS` `SouthCentralUS` `WestUS` `CentralUSEUAP` , `global` ). Para habilitar a rede virtual, consulte [Configurando redes virtuais de serviços cognitivas do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+O serviço do tradutor agora está disponível com recursos de rede virtual (VNET) em todas as regiões da nuvem pública do Azure. Para habilitar a rede virtual, consulte [Configurando redes virtuais de serviços cognitivas do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
 Depois de ativar esse recurso, você deve usar o ponto de extremidade personalizado para chamar o tradutor. Você não pode usar o ponto de extremidade do tradutor global ("api.cognitive.microsofttranslator.com") e não pode autenticar com um token de acesso.
 
-Você pode encontrar o ponto de extremidade personalizado depois de criar o [recurso de Tradutor](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
+Você pode encontrar o ponto de extremidade personalizado depois de criar um [recurso de Tradutor](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) e permitir o acesso de redes selecionadas e pontos de extremidade privados.
 
 |Cabeçalhos|Descrição|
 |:-----|:----|

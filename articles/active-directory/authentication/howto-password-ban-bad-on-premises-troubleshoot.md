@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79ebf543a3880a4f2c8ee8c0d706c268ef3f08d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 25199aeb7a3ed6332e74ad05835a8c4fca763c00
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035478"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116454"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Solução de problemas: proteção de senha do Azure AD local
 
@@ -72,7 +72,20 @@ A proteção por senha do Azure AD tem uma dependência crítica da funcionalida
 
    Uma correção de segurança KDS foi introduzida no Windows Server 2016 que modifica o formato dos buffers criptografados KDS; às vezes, esses buffers falharão ao descriptografar no Windows Server 2012 e no Windows Server 2012 R2. A direção inversa é um problema-os buffers que são criptografados KDS no Windows Server 2012 e no Windows Server 2012 R2 sempre serão descriptografados com êxito no Windows Server 2016 e posterior. Se os controladores de domínio em seus domínios de Active Directory estiverem executando uma combinação desses sistemas operacionais, falhas ocasionais de descriptografia de proteção de senha do Azure AD poderão ser relatadas. Não é possível prever com precisão o tempo ou os sintomas dessas falhas devido à natureza da correção de segurança e, Considerando que ela não é determinística, qual agente de DC da proteção de senha do Azure AD em que controlador de domínio criptografará os dados em um determinado momento.
 
-   A Microsoft está investigando uma correção para esse problema, mas nenhum ETA está disponível ainda. Enquanto isso, não há nenhuma solução alternativa para esse problema além de não executar uma combinação desses sistemas operacionais incompatíveis em seus domínios de Active Directory. Em outras palavras, você deve executar somente controladores de domínio do Windows Server 2012 e do Windows Server 2012 R2 ou deve executar somente os controladores de domínio do Windows Server 2016 e superior.
+   Não há nenhuma solução alternativa para esse problema além de não executar uma combinação desses sistemas operacionais incompatíveis em seus domínios de Active Directory. Em outras palavras, você deve executar somente controladores de domínio do Windows Server 2012 e do Windows Server 2012 R2 ou deve executar somente os controladores de domínio do Windows Server 2016 e superior.
+
+## <a name="dc-agent-thinks-the-forest-has-not-been-registered"></a>O agente de DC pensa que a floresta não foi registrada
+
+O sintoma desse problema é de 30016 eventos sendo registrados no canal DC Agent\Admin que diz em parte:
+
+```text
+The forest has not been registered with Azure. Password policies cannot be downloaded from Azure unless this is corrected.
+```
+
+Há duas causas possíveis para esse problema.
+
+1. Na verdade, a floresta não foi registrada. Para resolver o problema, execute o comando Register-AzureADPasswordProtectionForest conforme descrito nos requisitos de [implantação](howto-password-ban-bad-on-premises-deploy.md).
+1. A floresta foi registrada, mas o agente de DC não pode descriptografar os dados de registro da floresta. Esse caso tem a mesma causa raiz que o problema #2 listado acima em [agente DC não pode criptografar ou descriptografar arquivos de política de senha](howto-password-ban-bad-on-premises-troubleshoot.md#dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files). Uma maneira fácil de confirmar essa teoria é que você verá esse erro somente em agentes de DC em execução nos controladores de domínio do Windows Server 2012 ou do Windows Server 2012R2, enquanto os agentes de DC em execução no Windows Server 2016 e controladores de domínio posteriores são bem. A solução alternativa é a mesma: atualizar todos os controladores de domínio para o Windows Server 2016 ou posterior.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Senhas fracas estão sendo aceitas, mas não devem ser
 

@@ -7,12 +7,12 @@ ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: a0469feed391025f8dd50a7f8b11b96265b0df29
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 09442e01fa160d3851169a51230fa4cbef7e0980
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987402"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118562"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout"></a>Diagnosticar e solucionar problemas Azure Cosmos DB tempo limite de solicitação do SDK do .NET
 O erro HTTP 408 ocorrerá se o SDK não puder concluir a solicitação antes de o tempo limite ser atingido.
@@ -51,6 +51,9 @@ Se você estiver executando em VMs do Azure, siga o [Guia de esgotamento de port
 Se você estiver executando o serviço Azure App, siga o [Guia de solução de problemas de erros de conexão](../app-service/troubleshoot-intermittent-outbound-connection-errors.md#cause) e use o diagnóstico do serviço de [aplicativo](https://azure.github.io/AppService/2018/03/01/Deep-Dive-into-TCP-Connections-in-App-Service-Diagnostics.html).
 
 #### <a name="solution-3"></a>Solução 3:
+Se você estiver executando o Azure Functions, verifique se está seguindo a [recomendação Azure Functions](../azure-functions/manage-connections.md#static-clients) de manter clientes singleton/estáticos para todos os serviços envolvidos (incluindo Cosmos DB) e verificar os [limites de serviço](../azure-functions/functions-scale.md#service-limits) com base no tipo e no tamanho de sua hospedagem de aplicativo de funções.
+
+#### <a name="solution-4"></a>Solução 4:
 Se você usar um proxy HTTP, certifique-se que pode suportar o número de conexões configuradas no SDK `ConnectionPolicy`.
 Caso contrário, você enfrentará problemas de conexão.
 

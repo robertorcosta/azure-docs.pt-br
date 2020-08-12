@@ -2,22 +2,22 @@
 title: Protocolo SAML de saída única do Azure
 description: Este artigo descreve o protocolo SAML de Logout Único no Azure Active Directory
 services: active-directory
-author: rwike77
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/19/2017
-ms.author: ryanwi
+ms.author: kenwith
 ms.custom: aaddev
-ms.reviewer: hirsin
-ms.openlocfilehash: dbe21d020d5d01f24913b95587721403fa218cc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: paulgarn
+ms.openlocfilehash: 1d09355993af96e9e0cd334c57174cdaa771b388
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80881258"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118256"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocolo SAML de Logout Único
 
@@ -42,7 +42,7 @@ O elemento `LogoutRequest` enviado ao Azure AD requer os seguintes atributos:
 
 * `ID` - isso identifica a solicitação de saída. O valor de `ID` não deve começar com um número. A prática comum é acrescentar **id** à representação de cadeia de caracteres de um GUID.
 * `Version` - Defina o valor desse elemento como **2.0**. Esse valor é necessário.
-* `IssueInstant` - esta é uma cadeia de caracteres `DateTime` com um valor de UTC (Tempo Universal Coordenado) e [formato de ida e volta ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). O Microsoft Azure Active Directory espera um valor desse tipo, mas não é obrigatório.
+* `IssueInstant` - esta é uma cadeia de caracteres `DateTime` com um valor de UTC (Tempo Universal Coordenado) e [formato de ida e volta ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). O Microsoft Azure Active Directory espera um valor desse tipo, mas não é obrigatório.
 
 ### <a name="issuer"></a>Emissor
 O elemento `Issuer` em uma `LogoutRequest` deve corresponder exatamente a um do **ServicePrincipalNames** no serviço de nuvem no Azure AD. Normalmente, isso é definido como o **URI da ID do aplicativo** que é especificado durante o registro do aplicativo.

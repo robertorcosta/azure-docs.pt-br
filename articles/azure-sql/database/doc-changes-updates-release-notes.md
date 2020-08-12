@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: af19b72846c78ef80ba170b6d6e0cec97fa2b96e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e1e6c9254c3906b79c3a20de4672dff1b9ac6c63
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533352"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121452"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>O que há de novo no banco de dados SQL do Azure & SQL Instância Gerenciada?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -36,7 +36,7 @@ Considere que se trata de um trabalho em andamento e nem todos os artigos foram 
 Esta tabela fornece uma comparação rápida para a alteração na terminologia: 
 
 
-|**Novo termo**  | **Termo anterior**  |**Explicação** |
+|**Termo novo**  | **Termo anterior**  |**Explicação** |
 |---------|---------|---------|
 |**Instância Gerenciada do SQL do Azure** | *Instância gerenciada* do banco de dados SQL do Azure| O Azure SQL Instância Gerenciada é seu próprio produto na família SQL do Azure, em vez de apenas uma opção de implantação no banco de dados SQL do Azure. | 
 |**Banco de Dados SQL do Azure**|Banco de dados *individual* do banco de dados SQL do Azure| A menos que seja especificado explicitamente de outra forma, o nome do produto banco de dados SQL do Azure inclui bancos e dados individuais implantados em um pool elástico. |
@@ -52,7 +52,7 @@ Esta tabela fornece uma comparação rápida para a alteração na terminologia:
 | ---| --- |
 | Recuperação acelerada do banco de dados com pools elásticos e bancos de dados individuais | Para obter mais informações, confira [Recuperação acelerada de banco de dados](../accelerated-database-recovery.md).|
 | Descoberta e classificação de dados  |Para obter informações, consulte [Azure SQL Database e Azure Synapse Analytics data discovery & classificação](data-discovery-and-classification-overview.md).|
-| Trabalhos de banco de dados elástico | Para obter mais informações, consulte [Criar, configurar e gerenciar trabalhos elásticos](elastic-jobs-overview.md). |
+| Trabalhos de banco de dados elástico (visualização) | Para obter mais informações, consulte [Criar, configurar e gerenciar trabalhos elásticos](elastic-jobs-overview.md). |
 | Consultas elásticas | Para obter mais informações, consulte [Visão geral de consulta elástica](elastic-query-overview.md). |
 | Transações elásticas | [Transações distribuídas entre bancos de dados na nuvem](elastic-transactions-overview.md). |
 | Editor de consultas no Portal do Azure |Para obter mais informações, confira como [Usar o editor de consultas SQL do portal do Azure para se conectar e consultar dados](connect-query-portal.md).|

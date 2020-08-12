@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: ca164b6ad6b5333c662a6632b27f658ab479231c
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 655486d8273719e89187ebac0992cf83904d9b98
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067623"
+ms.locfileid: "88120636"
 ---
 # <a name="hyperscale-service-tier"></a>Tipo de serviço de Hiperescala
 
@@ -105,7 +105,9 @@ O armazenamento do Azure contém todos os arquivos de dados em um banco de dado.
 
 ## <a name="backup-and-restore"></a>Backup e restauração
 
-Os backups são baseados em instantâneo de arquivo e, portanto, são quase instantâneos. O armazenamento e a separação de computação permitem o envio por push da operação de backup/restauração para a camada de armazenamento para reduzir a carga de processamento na réplica de computação primária. Como resultado, o backup do banco de dados não afeta o desempenho do nó de computação primário. Da mesma forma, restaurações são feitas revertendo para instantâneos de arquivo e, como tal, não são um tamanho de operação de dados. Restore é uma operação em tempo constante e até mesmo bancos de dados com vários terabytes podem ser restaurados em minutos, em vez de horas ou dias. A criação de novos bancos de dados por meio da restauração de um backup existente também aproveita esse recurso: a criação de cópias para fins de desenvolvimento ou teste, até mesmo de bancos de dados de tamanho de terabyte, é factível em minutos.
+Os backups são baseados em instantâneo de arquivo e, portanto, são quase instantâneos. O armazenamento e a separação de computação permitem o envio por push da operação de backup/restauração para a camada de armazenamento para reduzir a carga de processamento na réplica de computação primária. Como resultado, o backup do banco de dados não afeta o desempenho do nó de computação primário. Da mesma forma, a PITR (recuperação pontual) é feita revertendo para os instantâneos de arquivo e, como tal, não é um tamanho de operação de dados. A restauração de um banco de dados de hiperescala na mesma região do Azure é uma operação em tempo constante, e até mesmo bancos de dados com vários terabytes podem ser restaurados em minutos, em vez de horas ou dias. A criação de novos bancos de dados por meio da restauração de um backup existente também aproveita esse recurso: a criação de cópias para fins de desenvolvimento ou teste, até mesmo de bancos de dados de tamanho de terabyte, é factível em minutos.
+
+Para a restauração geográfica de bancos de dados de hiperescala, confira [restaurando um gráfico de hiperescala para uma região diferente](#restoring-a-hyperscale-database-to-a-different-region).
 
 ## <a name="scale-and-performance-advantages"></a>Vantagens de desempenho e escala
 
@@ -156,7 +158,7 @@ Para SLA de hiperescala, consulte [SLA para o banco de dados SQL do Azure](https
 
 ## <a name="disaster-recovery-for-hyperscale-databases"></a>Recuperação de desastre para bancos de dados de hiperescala
 
-### <a name="restoring-a-hyperscale-database-to-a-different-geography"></a>Restaurando um banco de dados de hiperescala para uma geografia diferente
+### <a name="restoring-a-hyperscale-database-to-a-different-region"></a>Restaurando um banco de dados de hiperescala para uma região diferente
 
 Se você precisar restaurar um banco de dados de hiperescala no banco de dados SQL do Azure para uma região que não seja a que está hospedada no momento, como parte de uma operação de recuperação de desastres ou de análise, realocação ou qualquer outro motivo, o método principal é fazer uma restauração geográfica do banco de dados. Isso envolve exatamente as mesmas etapas que você usaria para restaurar qualquer outro banco de dados no banco de dados SQL para uma região diferente:
 
