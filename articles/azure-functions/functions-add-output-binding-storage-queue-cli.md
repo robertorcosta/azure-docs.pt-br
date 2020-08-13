@@ -3,14 +3,14 @@ title: Conectar o Azure Functions ao armazenamento do Azure usando ferramentas d
 description: Saiba como conectar o Azure Functions a uma fila de armazenamento do Azure adicionando uma associação de saída ao seu projeto de linha de comando.
 ms.date: 02/07/2020
 ms.topic: quickstart
-ms.custom: tracking-python
+ms.custom: devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 8a5f9cd42d13b7cfb4bc6e95809112a3b7045fe4
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 3e84db3aa13ae77f931a46683f0c5e4572f6ce44
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560094"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852626"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Conectar o Azure Functions ao armazenamento do Azure usando ferramentas de linha de comando
 
