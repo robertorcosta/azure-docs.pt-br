@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: c5d52a78dec31dd796929b141556d6da10044099
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 420ca9ff6a3ccc0e0bb76887e777f05dd955e97b
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031475"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166681"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicativo do Azure
 
@@ -315,6 +315,8 @@ A configuração técnica define os detalhes (ID do locatário e ID do aplicativ
 ## <a name="plan-overview"></a>Visão geral do plano
 
 Esta guia permite que você forneça opções de plano diferentes na mesma oferta. Esses planos (anteriormente chamados de SKUs) podem diferir em termos de tipo de plano (modelo de solução versus aplicativo gerenciado), monetização ou público. Configure pelo menos um plano para poder vender sua oferta no Marketplace.
+
+Você pode criar até 100 planos para cada oferta: até 45 deles podem ser privados. Saiba mais sobre planos privados em [ofertas privadas no Microsoft Commercial Marketplace](../private-offers.md).
 
 Depois de criado, você verá nomes, IDs, modelos de preços, disponibilidade (pública ou privada), status de publicação atual e ações disponíveis do seu plano.
 

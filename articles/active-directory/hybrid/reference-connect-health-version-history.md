@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 03/20/2019
+ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31388f27eddcef2c75d4ad4d2030655b35f6aa1c
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 2cb5902e3bc8bbed63d7a6e074ece824e16c5609
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446959"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165151"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: histórico de lançamento de versão
 A equipe do Active Directory do Azure atualiza regularmente o Azure AD Connect Health com novos recursos e funcionalidades. Este artigo lista as versões e os recursos que foram lançados.  
@@ -31,6 +31,14 @@ A equipe do Active Directory do Azure atualiza regularmente o Azure AD Connect H
 >
 
 O Azure Active Directory Connect Health para sincronização é integrado com a instalação do Azure AD Connect. Leia mais sobre o [histórico de versão do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history) Para comentários sobre os recursos, vote em [canal Connnect Health User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
+
+## <a name="april-2020"></a>Abril de 2020
+**Atualização do agente**
+
+- Agente de Azure AD Connect Health para AD FS (versão 3.1.77.0)
+
+   1.   Correção de bug para o alerta "nome da entidade de serviço (SPN) inválido para AD FS serviço", para o qual o alerta foi relatado incorretamente.
+
 
 ## <a name="july-2019"></a>Julho de 2019
 **Atualização do agente**

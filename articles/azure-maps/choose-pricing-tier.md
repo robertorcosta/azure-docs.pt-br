@@ -3,17 +3,17 @@ title: Escolha o tipo de preço certo para mapas de Microsoft Azure
 description: Saiba mais sobre os tipos de preço do Azure Maps. Veja quais recursos são oferecidos em quais camadas e veja as principais considerações para escolher um tipo de preço.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/27/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 30507b289a0ae4f831c8bcf4e038049301da7981
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3603a4f5d103987b25bd5f976b89f943f98565a8
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036769"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163978"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Escolha a camada de preços certa no Azure Mapas
 
@@ -47,6 +47,7 @@ Se as APIs geoespaciais principais atenderem aos seus requisitos de serviço, es
 | Dados do Azure Maps (versão prévia)                |                     | ✓        |
 | Mobilidade (visualização)                       |                     | ✓        |
 | Clima (visualização)                        |✓                    |✓        |
+|  Criador (versão prévia)                         |                   |✓        |
 
 Considere estes pontos adicionais:
 

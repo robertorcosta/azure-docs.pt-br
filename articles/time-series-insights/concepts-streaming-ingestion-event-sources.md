@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 9ef87027bcda6c645d1239598c849f57fb0c8992
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/12/2020
+ms.openlocfilehash: 6524128cb5bccfefe37d605b406210a91e78cac8
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491962"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163961"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights origens de eventos do Gen2
 
@@ -33,34 +33,34 @@ Quando você conecta uma origem de evento, seu ambiente de Azure Time Series Ins
 
 > [!IMPORTANT]
 >
-> * Você pode experimentar alta latência inicial ao anexar uma origem do evento ao seu ambiente Azure Time Series Insights Gen2.
-> A latência de origem do evento depende do número de eventos atualmente no Hub IoT ou no Hub de Eventos.
-> * A alta latência diminuirá após os dados de origem do evento serem ingeridos pela primeira vez. Envie um tíquete de suporte pelo portal do Azure se você tiver uma alta latência contínua.
+> - Você pode experimentar alta latência inicial ao anexar uma origem do evento ao seu ambiente Azure Time Series Insights Gen2.
+> - A latência de origem do evento depende do número de eventos atualmente no Hub IoT ou no Hub de Eventos.
+> - A alta latência diminuirá após os dados de origem do evento serem ingeridos pela primeira vez. Envie um tíquete de suporte pelo portal do Azure se você tiver uma alta latência contínua.
 
 ## <a name="streaming-ingestion-best-practices"></a>Práticas recomendadas de ingestão de streaming
 
-* Sempre crie um grupo de consumidores exclusivo para seu ambiente de Azure Time Series Insights Gen2 para consumir dados da origem do evento. Reutilizar grupos de consumidores pode causar desconexões aleatórias e pode resultar em perda de dados.
+- Sempre crie um grupo de consumidores exclusivo para seu ambiente de Azure Time Series Insights Gen2 para consumir dados da origem do evento. Reutilizar grupos de consumidores pode causar desconexões aleatórias e pode resultar em perda de dados.
 
-* Configure o ambiente do Azure Time Series Insights Gen2 e o Hub IoT e/ou hubs de eventos na mesma região do Azure. Embora seja possível configurar uma origem de evento em uma região separada, esse cenário não tem suporte e não podemos garantir a alta disponibilidade.
+- Configure o ambiente do Azure Time Series Insights Gen2 e o Hub IoT e/ou hubs de eventos na mesma região do Azure. Embora seja possível configurar uma origem de evento em uma região separada, esse cenário não tem suporte e não podemos garantir a alta disponibilidade.
 
-* Não ultrapasse o limite de taxa de [transferência](./concepts-streaming-ingress-throughput-limits.md) do seu ambiente ou por limite de partição.
+- Não ultrapasse o limite de taxa de [transferência](./concepts-streaming-ingress-throughput-limits.md) do seu ambiente ou por limite de partição.
 
-* Configure um [alerta](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency?branch=pr-en-us-117938#monitor-latency-and-throttling-with-alerts) de latência para ser notificado se o seu ambiente estiver enfrentando problemas de processamento de dados.
+- Configure um [alerta](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) de latência para ser notificado se o seu ambiente estiver enfrentando problemas de processamento de dados.
 
-* Use a ingestão de streaming somente para dados quase em tempo real e recentes, não há suporte para streaming de dados históricos.
+- Use a ingestão de streaming somente para dados quase em tempo real e recentes, não há suporte para streaming de dados históricos.
 
-* Entenda como as propriedades serão escapadas e [dados JSON mesclados e armazenados.](./concepts-json-flattening-escaping-rules.md)
+- Entenda como as propriedades serão escapadas e [dados JSON mesclados e armazenados.](./concepts-json-flattening-escaping-rules.md)
 
-* Siga o princípio de privilégios mínimos ao fornecer cadeias de conexão de origem de evento. Para os hubs de eventos, configure uma política de acesso compartilhado somente com a Declaração *Enviar* e para o Hub IOT, use somente a permissão de *conexão de serviço* .
+- Siga o princípio de privilégios mínimos ao fornecer cadeias de conexão de origem de evento. Para os hubs de eventos, configure uma política de acesso compartilhado somente com a Declaração *Enviar* e para o Hub IOT, use somente a permissão de *conexão de serviço* .
 
 ### <a name="historical-data-ingestion"></a>Ingestão de dados históricos
 
 No momento, não há suporte para o uso do pipeline de streaming para importar dados históricos no Azure Time Series Insights Gen2. Se você precisar importar dados passados para o seu ambiente, siga as diretrizes abaixo:
 
-* Não transmita dados dinâmicos e históricos em paralelo. A ingestão de dados fora de ordem resultará em um desempenho de consulta degradado.
-* Ingira dados históricos ordenados por tempo para obter um melhor desempenho.
-* Fique dentro dos limites da taxa de transferência de ingestão abaixo.
-* Desabilite o Armazenamento Warm se os dados forem mais antigos do que o período de retenção do Armazenamento Warm.
+- Não transmita dados dinâmicos e históricos em paralelo. A ingestão de dados fora de ordem resultará em um desempenho de consulta degradado.
+- Ingira dados históricos ordenados por tempo para obter um melhor desempenho.
+- Fique dentro dos limites da taxa de transferência de ingestão abaixo.
+- Desabilite o Armazenamento Warm se os dados forem mais antigos do que o período de retenção do Armazenamento Warm.
 
 ## <a name="event-source-timestamp"></a>Carimbo de hora da origem do evento
 
@@ -82,10 +82,6 @@ O deslocamento de fuso horário deve ser formatado como um dos seguintes:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Leia as [regras de saída e mesclagem JSON](./concepts-json-flattening-escaping-rules.md) para entender como os eventos serão armazenados. 
+- Leia as [regras de saída e mesclagem JSON](./concepts-json-flattening-escaping-rules.md) para entender como os eventos serão armazenados.
 
-* Entenda as limitações de [taxa de transferência](./concepts-streaming-ingress-throughput-limits.md) do seu ambiente
-
-
-
-
+- Entenda as limitações de [taxa de transferência](./concepts-streaming-ingress-throughput-limits.md) do seu ambiente

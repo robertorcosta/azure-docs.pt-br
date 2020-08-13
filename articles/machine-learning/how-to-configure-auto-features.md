@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 8e3657128ddcff7f9436398ac4bcc6e220b86168
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 94595bac2febdef1d3739703f0fa49c9ef15f218
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552468"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166613"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Personalização no Machine Learning automatizado
 
@@ -47,7 +47,7 @@ A tabela a seguir mostra as configurações aceitas para `featurization` na [cla
 
 |Configuração do personalização | Descrição|
 ------------- | ------------- |
-|`"featurization": 'auto'`| Especifica que, como parte do pré-processamento, [as etapas de guardrails e personalização de dados](#featurization) são feitas automaticamente. Essa é a configuração padrão.|
+|`"featurization": 'auto'`| Especifica que, como parte do pré-processamento, [as etapas de guardrails e personalização de dados](#featurization) são feitas automaticamente. Esta é a configuração padrão.|
 |`"featurization": 'off'`| Especifica que as etapas do personalização não devem ser feitas automaticamente.|
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Especifica que as etapas de personalização personalizadas devem ser usadas. [Saiba como personalizar a definição de recursos](#customize-featurization).|
 
@@ -106,7 +106,7 @@ Verificador de integridade|Status|Condição&nbsp;para&nbsp;gatilho
 **Imputação de valores de recurso ausente** |Aprovado <br><br><br> Concluído| Não foram detectados valores de recursos ausentes em seus dados de treinamento. Saiba mais sobre [imputação de valor ausente.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Valores de recursos ausentes foram detectados em seus dados de treinamento e foram imputadosdos.
 **Tratamento de recursos de alta cardinalidade** |Aprovado <br><br><br> Concluído| Suas entradas foram analisadas e nenhum recurso de alta cardinalidade foi detectado. <br><br> Os recursos de alta cardinalidade foram detectados nas suas entradas e foram manipulados.
 **Tratamento de divisão de validação** |Concluído| A configuração de validação foi definida como `'auto'` e os dados de treinamento continham *menos de 20.000 linhas*. <br> Cada iteração do modelo treinado foi validada usando a validação cruzada. Saiba mais sobre [os dados de validação](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data). <br><br> A configuração de validação foi definida como `'auto'` e os dados de treinamento continham *mais de 20.000 linhas*. <br> Os dados de entrada foram divididos em um conjunto de dados de treinamento e um conjunto de dados de validação para a validação do modelo.
-**Detecção de equilíbrio de classe** |Aprovado <br><br><br><br><br> Alertado <br><br><br><br> Concluído| Suas entradas foram analisadas, e todas as classes estão equilibradas nos dados de treinamento. Um conjunto de um DataSet é considerado como balanceado se cada classe tem uma boa representação no DataSet, conforme medido por número e proporção de amostras. <br><br> Foram detectadas classes desequilibradas nas suas entradas. Para corrigir a tendência do modelo, corrija o problema de balanceamento. Saiba mais sobre [dados desequilibrados](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data). <br><br> As classes desbalanceadas foram detectadas nas suas entradas e a lógica de varredura determinou para aplicar o balanceamento.
+**Detecção de equilíbrio de classe** |Aprovado <br><br>Alertado <br><br>Concluído | Suas entradas foram analisadas, e todas as classes estão equilibradas nos dados de treinamento. Um conjunto de um DataSet é considerado como balanceado se cada classe tem uma boa representação no DataSet, conforme medido por número e proporção de amostras. <br><br><br> Foram detectadas classes desequilibradas nas suas entradas. Para corrigir a tendência do modelo, corrija o problema de balanceamento. Saiba mais sobre [dados desequilibrados](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).<br><br><br> As classes desbalanceadas foram detectadas nas suas entradas e a lógica de varredura determinou para aplicar o balanceamento.
 **Detecção de problemas de memória** |Aprovado <br><br><br><br> Concluído |<br> Os valores selecionados (Horizonte, retardo, janela sem interrupção) foram analisados e nenhum problema potencial de memória insuficiente foi detectado. Saiba mais sobre [as configurações de previsão](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment)de série temporal. <br><br><br>Os valores selecionados (Horizonte, retardo, janela sem interrupção) foram analisados e, potencialmente, farão com que o teste fique sem memória. As configurações de atraso ou janela de rolagem foram desativadas.
 **Detecção de frequência** |Aprovado <br><br><br><br> Concluído |<br> A série temporal foi analisada e todos os pontos de dados estão alinhados com a frequência detectada. <br> <br> A série temporal foi analisada e os pontos de dados que não se alinham com a frequência detectada foram detectados. Esses pontos de dados foram removidos do conjunto de dados. Saiba mais sobre [a preparação de dados para a previsão de série temporal](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
 

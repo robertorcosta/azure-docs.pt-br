@@ -15,16 +15,16 @@ ms.date: 11/08/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94c434a2892060acfdd56c496a31e41597c21357
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31235936109361f0f15a071346baee128060375a
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763424"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164978"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Como implantar a extensão do painel de acesso para o Internet Explorer usando a política de grupo
 
-Este tutorial mostra como usar a política de grupo para instalar remotamente a extensão do Painel de Acesso para o Internet Explorer nos computadores dos usuários. Essa extensão é necessária para os usuários do Internet Explorer que precisam entrar em aplicativos configurados usando o [logon único baseado em senha](what-is-single-sign-on.md#password-based-sso).
+Este tutorial mostra como usar a política de grupo para instalar remotamente a extensão do Painel de Acesso para o Internet Explorer nos computadores dos usuários. Essa extensão é necessária para os usuários do Internet Explorer que precisam entrar em aplicativos configurados usando o [logon único baseado em senha](sso-options.md#password-based-sso).
 
 É recomendável que administradores automatizem a implantação dessa extensão. Caso contrário, os usuários terão de baixar e instalar a extensão por conta própria, o que poderá causar erros do usuário e que exigirá permissões de administrador. Este tutorial apresenta um método de automatização de implantações de software usando a política de grupo. [Saiba mais sobre a política de grupo.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 

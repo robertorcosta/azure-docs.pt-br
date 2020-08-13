@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
-ms.openlocfilehash: f58232eac6727f10fdccb32e7795bf12a93b7cbb
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 08d3c61ca4b5988847676b12478a5865ac319d37
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405510"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164194"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Personalizar o CoreDNS com o Serviço de Kubernetes do Azure
 
@@ -22,7 +22,7 @@ Como o AKS é um serviço gerenciado, você não pode modificar a configuração
 Este artigo mostra como usar o ConfigMaps para as opções básicas de personalização do CoreDNS no AKS. Essa abordagem difere da configuração do CoreDNS em outros contextos, como o uso do corefile. Verifique a versão do CoreDNS que você está executando, pois os valores de configuração podem ser alterados entre as versões.
 
 > [!NOTE]
-> `kube-dns`ofereciam diferentes [Opções de personalização][kubednsblog] por meio de um mapa de configuração do kubernetes. CoreDNS **não** é compatível com versões anteriores com Kube-DNS. Todas as personalizações que você usou anteriormente devem ser atualizadas para uso com CoreDNS.
+> `kube-dns` ofereciam diferentes [Opções de personalização][kubednsblog] por meio de um mapa de configuração do kubernetes. CoreDNS **não** é compatível com versões anteriores com Kube-DNS. Todas as personalizações que você usou anteriormente devem ser atualizadas para uso com CoreDNS.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -53,6 +53,9 @@ data:
         forward .  /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
     }
 ```
+
+> [!IMPORTANT]
+> Se você redirecionar para um servidor DNS, como o IP do serviço CoreDNS, esse servidor DNS deverá ser capaz de resolver o nome de domínio regravado.
 
 Crie o ConfigMap usando o comando [kubectl Apply ConfigMap][kubectl-apply] e especifique o nome do seu manifesto YAML:
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
 ms.date: 07/08/2020
-ms.openlocfilehash: 828c8a33315f5a76eea780705e2cdf3c2871bd14
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cc4c39cf26f3ab8d1037222f967789bfbeca05ba
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012800"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166749"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>O que são ambientes Azure Machine Learning?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -94,7 +94,7 @@ Para determinar se deve reutilizar uma imagem armazenada em cache ou criar uma n
  * Lista de pacotes do Python na definição de Conda
  * Lista de pacotes na definição do Spark 
 
-O hash não depende do nome do ambiente ou da versão – se você renomear seu ambiente ou criar um novo ambiente com as propriedades e os pacotes exatos de um existente, o valor de hash permanecerá o mesmo. No entanto, as alterações de definição de ambiente, como adicionar ou remover um pacote Python ou alterar a versão do pacote, fazem com que o valor de hash seja alterado. É importante observar que qualquer alteração em um ambiente organizado invalidará o hash e resultará em um novo ambiente "não organizado".
+O hash não depende do nome do ambiente ou da versão – se você renomear seu ambiente ou criar um novo ambiente com as propriedades e os pacotes exatos de um existente, o valor de hash permanecerá o mesmo. No entanto, as alterações de definição de ambiente, como adicionar ou remover um pacote Python ou alterar a versão do pacote, fazem com que o valor de hash seja alterado. Alterar a ordem das dependências ou dos canais em um ambiente resultará em um novo ambiente e, portanto, exigirá uma nova compilação de imagem. É importante observar que qualquer alteração em um ambiente organizado invalidará o hash e resultará em um novo ambiente "não organizado".
 
 O valor de hash calculado é comparado àqueles no espaço de trabalho e no ACR global (ou no destino de computação para execuções locais). Se houver uma correspondência, a imagem armazenada em cache será puxada, caso contrário, uma compilação de imagem será disparada. A duração para efetuar pull de uma imagem armazenada em cache inclui o tempo de download, enquanto a duração para efetuar pull de uma imagem criada recentemente inclui o tempo de compilação e o tempo de download. 
 
@@ -105,7 +105,7 @@ O diagrama a seguir mostra três definições de ambiente. Dois deles têm difer
 >[!IMPORTANT]
 > Se você criar um ambiente com uma dependência de pacote desafixada, por exemplo ```numpy``` , esse ambiente continuará usando a versão do pacote instalada _no momento da criação do ambiente_. Além disso, qualquer ambiente futuro com definição correspondente continuará usando a versão antiga. 
 
-Para atualizar o pacote, especifique um número de versão para forçar a recompilação da imagem, por exemplo ```numpy==1.18.1``` . Serão instaladas novas dependências, incluindo aquelas aninhadas que podem interromper um cenário de trabalho anterior.
+Para atualizar o pacote, especifique um número de versão para forçar a recompilação da imagem, por exemplo ```numpy==1.18.1``` . Serão instaladas novas dependências, incluindo aquelas aninhadas que podem interromper um cenário de trabalho anterior. 
 
 > [!WARNING]
 >  O método [Environment. Build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace--image-build-compute-none-) recriará a imagem armazenada em cache, com possível efeito colateral de atualização de pacotes desafixados e interrupção de reprodução para todas as definições de ambiente correspondentes à imagem armazenada em cache.

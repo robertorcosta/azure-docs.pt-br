@@ -4,19 +4,19 @@ description: Configure uma API Web a ser usada em um fluxo de usuário.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: how-to
+ms.topic: article
 ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88270d51bf50b2b175d9d8761685a8a2a8ae19b1
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 5f241fd038d0d7309d8e1e5578dd77f950261b68
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907939"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165168"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adicionar um conector de API a um fluxo de usuário
 
@@ -38,20 +38,54 @@ Para usar um [conector de API](api-connectors-overview.md), primeiro crie o cone
    - Somente a autenticação básica tem suporte no momento. Se você quiser usar uma API sem autenticação básica para fins de desenvolvimento, basta inserir um **nome de usuário** e **senha** fictícios que sua API pode ignorar. Para usar com uma função do Azure com uma chave de API, você pode incluir o código como um parâmetro de consulta na **URL do ponto de extremidade** (por exemplo, https []() ://contoso.azurewebsites.NET/API/Endpoint<b>? Code = 0123456789</b>).
 
    ![Adicionar um novo conector de API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
+8. Selecione **Salvar**.
 
-8. Selecione as declarações que você deseja enviar para a API.
-9. Selecione as declarações que você planeja receber da API.
-
-   <!-- ![Set API connector claims](./media/self-service-sign-up-add-api-connector/api-connector-claims.png) -->
-
-10. Selecione **Salvar**.
-
-### <a name="selection-of-claims-to-send-and-claims-to-receive"></a>Seleção de ' claims to send ' e ' claims to Receive '
 > [!IMPORTANT]
-> Você pode ver todas as declarações selecionadas por padrão, conforme ilustrado abaixo. Todos os conectores de API serão atualizados para se comportarem dessa forma. Sua API receberá todas as declarações disponíveis e poderá enviar de volta qualquer declaração com suporte sem configurá-las na definição do conector de API. 
+> Anteriormente, era necessário configurar quais atributos de usuário enviar à API (' claims to send ') e quais atributos de usuário aceitar da API (' claims to Receive '). Agora, todos os atributos de usuário são enviados por padrão se eles tiverem um valor e qualquer atributo de usuário puder ser retornado pela API em uma resposta de ' continuação '.
 
-![Definir declarações do conector de API](./media/self-service-sign-up-add-api-connector/api-connector-claims-new.png)
+## <a name="the-request-sent-to-your-api"></a>A solicitação enviada à sua API
+Um conector de API se materializa como uma solicitação **http post** , enviando atributos de usuário (' declarações ') como pares de chave-valor em um corpo JSON. Os atributos são serializados da mesma forma para [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0#properties) Propriedades de usuário. 
 
+**Solicitação de exemplo**
+```http
+POST <API-endpoint>
+Content-type: application/json
+
+{
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [ //Sent for Google and Facebook identity providers
+     {
+     "signInType":"federated",
+     "issuer":"facebook.com",
+     "issuerAssignedId":"0123456789"
+     }
+ ],
+ "displayName": "John Smith",
+ "givenName":"John",
+ "surname":"Smith",
+ "jobTitle":"Supplier",
+ "streetAddress":"1000 Microsoft Way",
+ "city":"Seattle",
+ "postalCode": "12345",
+ "state":"Washington",
+ "country":"United States",
+ "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
+ "ui_locales":"en-US"
+}
+```
+
+Somente as propriedades de usuário e os atributos personalizados listados na **Azure Active Directory**  >  experiência de atributos de usuário personalizados de**identidades externas**  >  **Custom user attributes** estão disponíveis para serem enviados na solicitação.
+
+Existem atributos personalizados no formato **de \<extensions-app-id> _AttributeName extension_** no diretório. Sua API deve esperar receber declarações nesse mesmo formato serializado. Para obter mais informações sobre atributos personalizados, consulte [definir atributos personalizados para fluxos de inscrição de autoatendimento](user-flow-add-custom-attributes.md).
+
+Além disso, a Declaração **localidades da interface do usuário (' ui_locales ')** é enviada por padrão em todas as solicitações. Ele fornece a localidade de um usuário, conforme configurado em seu dispositivo, que pode ser usado pela API para retornar respostas internacionalizadas.
+
+> [!IMPORTANT]
+> Se uma declaração a ser enviada não tiver um valor no momento em que o ponto de extremidade de API for chamado, a declaração não será enviada para a API. Sua API deve ser projetada para verificar explicitamente o valor esperado.
+
+> [!TIP] 
+> [**identidades (' identidades ')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) e as declarações de **endereço de email (' email ')** podem ser usadas pela sua API para identificar um usuário antes que eles tenham uma conta em seu locatário. A declaração ' Identities ' é enviada quando um usuário é autenticado com um provedor de identidade, como Google ou Facebook. ' email ' é sempre enviado.
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Habilitar o conector de API em um fluxo de usuário
 
@@ -70,13 +104,72 @@ Siga estas etapas para adicionar um conector de API a um fluxo de usuário de in
 
 6. Selecione **Salvar**.
 
-Saiba mais sobre [onde você pode habilitar um conector de API em um fluxo de usuário](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow).
+## <a name="after-signing-in-with-an-identity-provider"></a>Depois de entrar com um provedor de identidade
 
-## <a name="request-sent-to-the-api"></a>Solicitação enviada para a API
+Um conector de API nesta etapa no processo de inscrição é invocado imediatamente depois que o usuário é autenticado com um provedor de identidade (Google, Facebook, Azure AD). Esta etapa precede a ***página coleção de atributos***, que é o formulário apresentado ao usuário para coletar atributos de usuário. 
 
-Um conector de API se materializa como uma solicitação HTTP POST, enviando declarações selecionadas como pares chave-valor em um corpo JSON. A resposta também deve ter o cabeçalho HTTP `Content-Type: application/json` . Os atributos são serializados da mesma forma para Microsoft Graph atributos de usuário. <!--# TODO: Add link to MS Graph or create separate reference.-->
+<!-- The following are examples of API connector scenarios you may enable at this step:
+- Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
+- Validate whether the user is included in an allow or deny list, and control whether they can continue with the sign-up flow. -->
 
-### <a name="example-request"></a>Solicitação de exemplo
+### <a name="example-request-sent-to-the-api-at-this-step"></a>Exemplo de solicitação enviada para a API nesta etapa
+```http
+POST <API-endpoint>
+Content-type: application/json
+
+{
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [ //Sent for Google and Facebook identity providers
+     {
+     "signInType":"federated",
+     "issuer":"facebook.com",
+     "issuerAssignedId":"0123456789"
+     }
+ ],
+ "displayName": "John Smith",
+ "givenName":"John",
+ "lastName":"Smith",
+ "ui_locales":"en-US"
+}
+```
+
+As declarações exatas enviadas para a API dependem de quais informações são fornecidas pelo provedor de identidade. ' email ' é sempre enviado.
+
+### <a name="expected-response-types-from-the-web-api-at-this-step"></a>Tipos de resposta esperados da API Web nesta etapa
+
+Quando a API Web recebe uma solicitação HTTP do Azure AD durante um fluxo de usuário, ela pode retornar essas respostas:
+
+- Resposta de continuação
+- Resposta de bloqueio
+
+#### <a name="continuation-response"></a>Resposta de continuação
+
+Uma resposta de continuação indica que o fluxo do usuário deve continuar para a próxima etapa: a página coleção de atributos.
+
+Em uma resposta de continuação, a API pode retornar declarações. Se uma declaração for retornada pela API, a declaração fará o seguinte:
+
+- Preenche previamente o campo de entrada na página coleção de atributos.
+
+Consulte um exemplo de uma [resposta de continuação](#example-of-a-continuation-response).
+
+#### <a name="blocking-response"></a>Resposta de bloqueio
+
+Uma resposta de bloqueio sai do fluxo do usuário. Ele pode ser emitido intencionalmente pela API para interromper a continuação do fluxo do usuário, exibindo uma página de bloco para o usuário. A página bloco exibe o `userMessage` fornecido pela API.
+
+Consulte um exemplo de uma [resposta de bloqueio](#example-of-a-blocking-response).
+
+## <a name="before-creating-the-user"></a>Antes de criar o usuário
+
+Um conector de API nesta etapa no processo de inscrição é invocado após a página de coleção de atributos, se um for incluído. Essa etapa é sempre invocada antes de uma conta de usuário ser criada no Azure AD. 
+
+<!-- The following are examples of scenarios you might enable at this point during sign-up: -->
+<!-- 
+- Validate user input data and ask a user to resubmit data.
+- Block a user sign-up based on data entered by the user.
+- Perform identity verification.
+- Query external systems for existing data about the user and overwrite the user-provided value. -->
+
+### <a name="example-request-sent-to-the-api-at-this-step"></a>Exemplo de solicitação enviada para a API nesta etapa
 
 ```http
 POST <API-endpoint>
@@ -92,41 +185,52 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
- "postalCode": "33971",
+ "givenName":"John",
+ "surname":"Smith",
+ "jobTitle":"Supplier",
+ "streetAddress":"1000 Microsoft Way",
+ "city":"Seattle",
+ "postalCode": "12345",
+ "state":"Washington",
+ "country":"United States",
  "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
  "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
+As declarações exatas enviadas para a API dependem de quais informações são coletadas do usuário ou são fornecidas pelo provedor de identidade.
 
-A declaração de **localidades da interface do usuário (' ui_locales ')** é enviada por padrão em todas as solicitações. Ele fornece a localidade de um usuário e pode ser usado pela API para retornar respostas internacionalizadas. Ele não aparece no painel de configuração de API.
-
-Se uma declaração a ser enviada não tiver um valor no momento em que o ponto de extremidade de API for chamado, a declaração não será enviada para a API.
-
-Atributos personalizados podem ser criados para o usuário usando o formato de ** \<extensions-app-id> _AttributeName extension_** . Sua API deve esperar receber declarações nesse mesmo formato serializado. Sua API pode retornar declarações com ou sem o `<extensions-app-id>` . Para obter mais informações sobre atributos personalizados, consulte [definir atributos personalizados para fluxos de inscrição de autoatendimento](user-flow-add-custom-attributes.md).
-
-> [!TIP] 
-> as declarações de [**identidades (' identidades ')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) e de **endereço de email (' email ')** podem ser usadas para identificar um usuário antes de terem uma conta em seu locatário. A declaração ' Identities ' é enviada quando um usuário é autenticado com um Google ou Facebook e ' email ' é sempre enviado.
-
-## <a name="expected-response-types-from-the-web-api"></a>Tipos de resposta esperados da API Web
+### <a name="expected-response-types-from-the-web-api-at-this-step"></a>Tipos de resposta esperados da API Web nesta etapa
 
 Quando a API Web recebe uma solicitação HTTP do Azure AD durante um fluxo de usuário, ela pode retornar essas respostas:
 
-- [Resposta de continuação](#continuation-response)
-- [Resposta de bloqueio](#blocking-response)
-- [Validação-resposta de erro](#validation-error-response)
+- Resposta de continuação
+- Resposta de bloqueio
+- Resposta de validação
 
-### <a name="continuation-response"></a>Resposta de continuação
+#### <a name="continuation-response"></a>Resposta de continuação
 
-Uma resposta de continuação indica que o fluxo do usuário deve continuar para a próxima etapa. Em uma resposta de continuação, a API pode retornar declarações.
+Uma resposta de continuação indica que o fluxo do usuário deve continuar para a próxima etapa: criar o usuário no diretório.
 
-Se uma declaração for retornada pela API e for selecionada como uma **declaração para receber**, a declaração fará o seguinte:
+Em uma resposta de continuação, a API pode retornar declarações. Se uma declaração for retornada pela API, a declaração fará o seguinte:
 
-- Preenche previamente os campos de entrada na página de coleção de atributos se o conector da API for invocado antes da página ser apresentada.
-- Substitui qualquer valor que já tenha sido atribuído à declaração.
-- Atribui um valor à declaração se ela era nula anteriormente.
+- Substitui qualquer valor que já tenha sido atribuído à declaração da página de coleção de atributos.
 
-#### <a name="example-of-a-continuation-response"></a>Exemplo de uma resposta de continuação
+Consulte um exemplo de uma [resposta de continuação](#example-of-a-continuation-response).
+
+#### <a name="blocking-response"></a>Resposta de bloqueio
+Uma resposta de bloqueio sai do fluxo do usuário. Ele pode ser emitido intencionalmente pela API para interromper a continuação do fluxo do usuário, exibindo uma página de bloco para o usuário. A página bloco exibe o `userMessage` fornecido pela API.
+
+Consulte um exemplo de uma [resposta de bloqueio](#example-of-a-blocking-response).
+
+### <a name="validation-error-response"></a>Validação-resposta de erro
+ Quando a API responde com uma resposta de erro de validação, o fluxo do usuário permanece na página coleção de atributos e um `userMessage` é exibido para o usuário. O usuário pode editar e reenviar o formulário. Esse tipo de resposta pode ser usado para validação de entrada.
+
+Consulte um exemplo de uma [resposta de erro de validação](#example-of-a-validation-error-response).
+
+## <a name="example-responses"></a>Respostas de exemplo
+
+### <a name="example-of-a-continuation-response"></a>Exemplo de uma resposta de continuação
 
 ```http
 HTTP/1.1 200 OK
@@ -140,18 +244,14 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro                                          | Type              | Necessária | Descrição                                                                                                                                                                                                                                                                            |
+| Parâmetro                                          | Type              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | String            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
 | ação                                             | String            | Sim      | O valor precisa ser `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores podem ser armazenados no diretório se forem selecionados como uma **declaração para receber** na configuração do conector de API e nos **atributos de usuário** para um fluxo de usuário. Os valores podem ser retornados no token, se selecionado como uma **declaração de aplicativo**.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A declaração retornada não precisa conter `_<extensions-app-id>_` . Os valores serão armazenados no diretório se forem selecionados como uma **declaração para receber** na configuração do conector de API e no **atributo de usuário** para um fluxo de usuário. Atributos personalizados não podem ser enviados de volta no token. |
 
-### <a name="blocking-response"></a>Resposta de bloqueio
-
-Uma resposta de bloqueio sai do fluxo do usuário. Ele pode ser emitido intencionalmente pela API para interromper a continuação do fluxo do usuário, exibindo uma página de bloco para o usuário. A página bloco exibe o `userMessage` fornecido pela API.
-
-Exemplo de resposta de bloqueio:
+### <a name="example-of-a-blocking-response"></a>Exemplo de uma resposta de bloqueio
 
 ```http
 HTTP/1.1 200 OK
@@ -166,22 +266,18 @@ Content-type: application/json
 
 ```
 
-| Parâmetro   | Type   | Necessária | Descrição                                                                |
+| Parâmetro   | Type   | Obrigatório | Descrição                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | String | Sim      | A versão da API.                                                    |
 | ação      | String | Sim      | O valor deve ser`ShowBlockPage`                                              |
 | userMessage | String | Sim      | Mensagem a ser exibida ao usuário.                                            |
 | code        | String | Não       | Código do erro. Pode ser usado para fins de depuração. Não são exibidos para o usuário. |
 
-#### <a name="end-user-experience-with-a-blocking-response"></a>Experiência do usuário final com uma resposta de bloqueio
+**Experiência do usuário final com uma resposta de bloqueio**
 
 ![Exemplo de página de bloco](./media/api-connectors-overview/blocking-page-response.png)
 
-### <a name="validation-error-response"></a>Validação-resposta de erro
-
-Uma chamada à API chamada após uma página de coleção de atributos pode retornar uma resposta de erro de validação. Ao fazer isso, o fluxo do usuário permanece na página coleção de atributos e o `userMessage` é exibido para o usuário. O usuário pode editar e reenviar o formulário. Esse tipo de resposta pode ser usado para validação de entrada.
-
-#### <a name="example-of-a-validation-error-response"></a>Exemplo de uma resposta de erro de validação
+### <a name="example-of-a-validation-error-response"></a>Exemplo de uma resposta de erro de validação
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -196,7 +292,7 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro   | Type    | Necessária | Descrição                                                                |
+| Parâmetro   | Type    | Obrigatório | Descrição                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | String  | Sim      | A versão da API.                                                    |
 | ação      | String  | Sim      | O valor precisa ser `ValidationError`.                                           |
@@ -204,12 +300,12 @@ Content-type: application/json
 | userMessage | String  | Sim      | Mensagem a ser exibida ao usuário.                                            |
 | code        | String  | Não       | Código do erro. Pode ser usado para fins de depuração. Não são exibidos para o usuário. |
 
-#### <a name="end-user-experience-with-a-validation-error-response"></a>Experiência do usuário final com uma resposta de erro de validação
+**Experiência do usuário final com uma resposta de erro de validação**
 
 ![Página de validação de exemplo](./media/api-connectors-overview/validation-error-postal-code.png)
 
-### <a name="integration-with-azure-functions"></a>Integração com o Azure Functions
-Você pode usar um gatilho HTTP em Azure Functions como uma maneira simples de criar uma API para usar com o conector de API. Você usa a função do Azure para, [por exemplo](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), executar a lógica de validação e limitar as entradas a domínios específicos. Você também pode chamar e invocar outras APIs da Web, lojas de usuários e outros serviços de nuvem.
+## <a name="using-azure-functions"></a>Usando o Azure Functions
+Você pode usar um gatilho HTTP em Azure Functions como uma maneira simples de criar um ponto de extremidade de API para usar com o conector de API. Você usa a função do Azure para, [por exemplo](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), executar a lógica de validação e limitar as entradas a domínios específicos. Você também pode chamar e invocar outras APIs da Web, lojas de usuários e outros serviços de nuvem do Azure function para cenários extensos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

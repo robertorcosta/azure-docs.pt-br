@@ -4,19 +4,19 @@ description: Adicionar conectores de API para fluxos de trabalho de aprovação 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: how-to
+ms.topic: article
 ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d1a4495b1d637b1cf8592f8c17e63ad456ea3c4
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: d664d7cd169593924917bb02a0220e4047eb0cdb
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907936"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165219"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Adicionar um fluxo de trabalho de aprovação personalizado à inscrição de autoatendimento
 
@@ -65,7 +65,7 @@ Em seguida, você [criará os conectores de API](self-service-sign-up-add-api-co
 
   ![Verificar configuração do conector de API de status de aprovação](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
-- **Solicitação de aprovação** – envie uma chamada para o sistema de aprovação depois que um usuário concluir a página de coleção de atributos, mas antes de a conta de usuário ser criada, para solicitar aprovação. A solicitação de aprovação pode ser automaticamente concedida ou revisada manualmente. Exemplo de um conector de API de "solicitação de aprovação". Selecione as **declarações para enviar** que o sistema de aprovação precisa tomar uma decisão de aprovação.
+- **Solicitação de aprovação** – envie uma chamada para o sistema de aprovação depois que um usuário concluir a página de coleção de atributos, mas antes de a conta de usuário ser criada, para solicitar aprovação. A solicitação de aprovação pode ser automaticamente concedida ou revisada manualmente. Exemplo de um conector de API de "solicitação de aprovação". 
 
   ![Solicitar configuração do conector de API de aprovação](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
 
@@ -90,28 +90,33 @@ Agora você adicionará os conectores de API a um fluxo de usuário de inscriç�
 
 ## <a name="control-the-sign-up-flow-with-api-responses"></a>Controlar o fluxo de inscrição com respostas de API
 
-Seu sistema de aprovação pode usar os [tipos de resposta de API](self-service-sign-up-add-api-connector.md#expected-response-types-from-the-web-api) dos dois pontos de extremidade de API para controlar o fluxo de inscrição.
+Seu sistema de aprovação pode usar suas respostas quando chamado para controlar o fluxo de inscrição. 
 
 ### <a name="request-and-responses-for-the-check-approval-status-api-connector"></a>Solicitação e respostas para o conector de API "verificar status de aprovação"
 
 Exemplo da solicitação recebida pela API do conector de API "verificar status de aprovação":
 
 ```http
-POST <Approvals-API-endpoint>
+POST <API-endpoint>
 Content-type: application/json
 
 {
- "email": "johnsmith@outlook.com",
- "identities": [
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [ //Sent for Google and Facebook identity providers
      {
      "signInType":"federated",
      "issuer":"facebook.com",
      "issuerAssignedId":"0123456789"
      }
  ],
+ "displayName": "John Smith",
+ "givenName":"John",
+ "lastName":"Smith",
  "ui_locales":"en-US"
 }
 ```
+
+As declarações exatas enviadas para a API dependem de quais informações são fornecidas pelo provedor de identidade. ' email ' é sempre enviado.
 
 #### <a name="continuation-response-for-check-approval-status"></a>Resposta de continuação para "verificar status de aprovação"
 
@@ -169,12 +174,12 @@ Content-type: application/json
 Exemplo de uma solicitação HTTP recebida pela API do conector de API "solicitar aprovação":
 
 ```http
-POST <Approvals-API-endpoint>
+POST <API-endpoint>
 Content-type: application/json
 
 {
- "email": "johnsmith@outlook.com",
- "identities": [
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [ //Sent for Google and Facebook identity providers
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -182,11 +187,21 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
- "city": "Redmond",
- "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
+ "givenName":"John",
+ "surname":"Smith",
+ "jobTitle":"Supplier",
+ "streetAddress":"1000 Microsoft Way",
+ "city":"Seattle",
+ "postalCode": "12345",
+ "state":"Washington",
+ "country":"United States",
+ "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
+
+As declarações exatas enviadas para a API dependem de quais informações são coletadas do usuário ou são fornecidas pelo provedor de identidade.
 
 #### <a name="continuation-response-for-request-approval"></a>Resposta de continuação para "solicitação de aprovação"
 
@@ -257,7 +272,7 @@ Depois de obter a aprovação manual, o sistema de aprovação personalizado cri
 
 Se o usuário tiver entrado com uma conta do Google ou do Facebook, você poderá usar a [API de criação de usuário](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http).
 
-1. O sistema de aprovação recebe a solicitação HTTP do fluxo do usuário.
+1. O sistema de aprovação usa o recebe a solicitação HTTP do fluxo do usuário.
 
 ```http
 POST <Approvals-API-endpoint>

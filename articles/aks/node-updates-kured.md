@@ -5,12 +5,12 @@ description: Saiba como atualizar nós do Linux e reinicializá-los automaticame
 services: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.openlocfilehash: 955e5323769a7b9bf80413c045aaa3d55547eb02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35c9e76c234e4b09fbb090eda363506ee3e11130
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82208067"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164233"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Aplicar atualizações de segurança e kernel a nós do Linux no serviço kubernetes do Azure (AKS)
 
@@ -55,8 +55,8 @@ Não será possível permanecer na mesma versão do Kubernetes durante um evento
 Para implantar o `kured` daemonset, instale o seguinte gráfico oficial do Kured Helm. Isso cria uma função e uma função de cluster, associações e uma conta de serviço e, em seguida, implanta o Daemonset usando `kured` .
 
 ```console
-# Add the stable Helm repository
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+# Add the Kured Helm repository
+helm repo add kured https://weaveworks.github.io/kured
 
 # Update your local Helm chart repository cache
 helm repo update
@@ -65,7 +65,7 @@ helm repo update
 kubectl create namespace kured
 
 # Install kured in that namespace with Helm 3 (only on Linux nodes, kured is not working on Windows nodes)
-helm install kured stable/kured --namespace kured --set nodeSelector."beta\.kubernetes\.io/os"=linux
+helm install kured kured/kured --namespace kured --set nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 Também é possível configurar parâmetros adicionais para `kured`, como integração com Prometheus ou Slack. Para obter mais informações sobre parâmetros de configuração adicionais, consulte o [gráfico Kured Helm][kured-install].
@@ -107,7 +107,7 @@ Para clusters AKS que usam nós do Windows Server, consulte [atualizar um pool d
 
 <!-- LINKS - external -->
 [kured]: https://github.com/weaveworks/kured
-[kured-install]: https://hub.helm.sh/charts/stable/kured
+[kured-install]: https://github.com/weaveworks/kured/tree/master/charts/kured
 [kubectl-get-nodes]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->

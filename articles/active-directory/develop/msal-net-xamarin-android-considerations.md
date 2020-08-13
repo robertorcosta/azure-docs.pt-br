@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 04/24/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: d244bbbe96bcea45da5c0860e4af52409123fb7f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 601a501114d754dc82991a3c19b977c0c63c5bc0
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118681"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165729"
 ---
 # <a name="considerations-for-using-xamarin-android-with-msalnet"></a>Considerações sobre o uso do Xamarin Android com MSAL.NET
 Este artigo discute o que você deve considerar ao usar o Xamarin Android com a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).

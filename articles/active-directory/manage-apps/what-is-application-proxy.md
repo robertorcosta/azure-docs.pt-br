@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4d9583e08591e8ea5792aad28e247dff178f1c08
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 68ccf3518a7011c0c39003d8e447a4e1d233fd91
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080653"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164573"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Usar o Proxy de Aplicativo do Azure AD para publicar aplicativos locais para usuários remotos
 
@@ -99,7 +99,7 @@ O Proxy de Aplicativo também é compatível com os seguintes protocolos de aute
 * [**Autenticação baseada em senha ou formulários**](application-proxy-configure-single-sign-on-password-vaulting.md). Com esse método de autenticação, os usuários entram no aplicativo com um nome de usuário e uma senha na primeira vez que o acessam. Após o primeiro logon, o Azure AD fornece o nome de usuário e a senha ao aplicativo. Nesse cenário, a autenticação é manipulada pelo Azure AD.
 * [**Autenticação de SAML**](application-proxy-configure-single-sign-on-on-premises-apps.md). O logon único baseado em SAML é compatível com aplicativos que usam protocolos SAML 2.0 ou WS-Federation. Com o logon único SAML, o Azure AD realiza a autenticação do aplicativo usando a conta do Azure AD do usuário.
 
-Para obter mais informações sobre métodos com suporte, consulte [Escolhendo um método de logon único](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
+Para obter mais informações sobre métodos com suporte, consulte [Escolhendo um método de logon único](sso-options.md#choosing-a-single-sign-on-method).
 
 ### <a name="security-benefits"></a>Benefícios de segurança
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 6ed9d5eb8d230b05a090424d6105865acae69e61
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 96ebfecf01ff147a874674861c7cb64cb3725d52
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019345"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164913"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Acesso remoto a aplicativos locais por meio do Azure Proxy de Aplicativo do AD
 
@@ -41,7 +41,7 @@ O Proxy de Aplicativo funciona com:
 * Aplicativos hospedados atrás de um [Gateway de área de trabalho remota](application-proxy-integrate-with-remote-desktop-services.md)
 * Aplicativos cliente avançados integrados com a MSAL (Biblioteca de Autenticação da Microsoft)
 
-O Proxy de Aplicativo é compatível com o logon único. Para obter mais informações sobre métodos com suporte, consulte [Escolhendo um método de logon único](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
+O Proxy de Aplicativo é compatível com o logon único. Para obter mais informações sobre métodos com suporte, consulte [Escolhendo um método de logon único](sso-options.md#choosing-a-single-sign-on-method).
 
 O proxy de aplicativo é recomendado para conceder aos usuários remotos acesso a recursos internos. O proxy de aplicativo substitui a necessidade de um proxy reverso ou VPN. Ele não se destina a usuários internos na rede corporativa.  Esses usuários que desnecessariamente usam o proxy de aplicativo podem introduzir problemas de desempenho inesperados e indesejáveis.
 

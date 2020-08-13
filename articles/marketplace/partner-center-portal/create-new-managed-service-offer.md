@@ -7,12 +7,12 @@ ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 08/07/2020
-ms.openlocfilehash: f58ec53d1c4f3ad95993fd2faff44f7164c4beeb
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4d2a884bd6fd4cb62aa7cae5f3e53b865082fde8
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036599"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166596"
 ---
 # <a name="create-a-managed-service-offer"></a>Criar uma oferta de serviço gerenciado
 
@@ -175,6 +175,8 @@ Selecione **Salvar rascunho** antes de continuar.
 ## <a name="plan-overview"></a>Visão geral do plano
 
 Cada oferta deve ter um ou mais planos (anteriormente chamados de SKUs). Você pode adicionar vários planos para dar suporte a diferentes conjuntos de recursos com preços diferentes ou para personalizar um plano específico para um público seleto de clientes específicos. Os clientes podem ver os planos disponíveis para eles na oferta pai.
+
+Você pode criar até 100 planos para cada oferta: até 45 deles podem ser privados. Saiba mais sobre planos privados em [ofertas privadas no Microsoft Commercial Marketplace](../private-offers.md).
 
 Na página **Visão geral do plano**, selecione **+ Criar novo plano**. Em seguida, insira uma **ID de plano** e um **Nome de plano**. Ambos os valores podem conter apenas caracteres alfanuméricos minúsculos, traços e sublinhados, com um máximo de 50 caracteres. Esses valores podem ser visíveis para os clientes e não podem ser alterados depois que você publicar a oferta.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 77cc63945e5cfc612c074e75e38365ada26073ea
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4b1c2ea437168d00823bc5527eaeda33db6ae733
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032774"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166732"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Criar uma oferta de contêiner do Azure no Azure Marketplace
 
@@ -252,9 +252,11 @@ Adicione pelo menos uma ID da assinatura do Azure, seja individualmente (até 10
 
 Selecione **Salvar rascunho** antes de continuar.
 
-### <a name="plan-overview"></a>Visão geral do plano
+## <a name="plan-overview"></a>Visão geral do plano
 
 Essa guia permite que você forneça opções de plano diferentes na mesma oferta. Os planos (anteriormente chamados de SKUs) podem diferir em termos de quais nuvens estão disponíveis, como nuvens globais, nuvens governamentais e a imagem referenciada pelo plano. Para listar sua oferta no marketplace comercial, você deve configurar pelo menos um plano.
+
+Você pode criar até 100 planos para cada oferta: até 45 deles podem ser privados. Saiba mais sobre planos privados em [ofertas privadas no Microsoft Commercial Marketplace](../private-offers.md).
 
 Depois de criar seus planos, a guia **Visão geral do plano** exibe:
 
@@ -269,7 +271,7 @@ As ações disponíveis no painel Visão geral do plano variam de acordo com o s
 - **Excluir rascunho** – se o status de plano for um rascunho.
 - **Interromper plano de venda** – se o status do plano for publicado e ativo.
 
-#### <a name="create-new-plan"></a>Criar novo plano
+### <a name="create-new-plan"></a>Criar novo plano
 
 Selecione **Criar novo plano**. A caixa de diálogo **Novo plano** é exibida.
 
@@ -301,7 +303,7 @@ Os serviços do Azure Governamental manipulam os dados que estão sujeitos a det
 
 Para exibir certificações desses programas, você pode fornecer até 100 links que as descrevem. Podem ser links diretos para suas listagens no programa ou para seu próprio site. Esses links são visíveis somente para clientes do Azure Governamental.
 
-## <a name="plan-listing"></a>Listagem de planos
+### <a name="plan-listing"></a>Listagem de planos
 
 Essa guia exibe informações específicas de cada plano diferente presente na oferta atual.
 
@@ -331,7 +333,7 @@ A imagem a seguir mostra os detalhes do plano no portal do Azure:
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Ilustra os detalhes do plano no portal do Azure.":::
 
-## <a name="plan-availability"></a>Disponibilidade do plano
+### <a name="plan-availability"></a>Disponibilidade do plano
 
 Caso queira ocultar sua oferta publicada para que os clientes não possam pesquisá-la, navegar por ela ou comprá-la no marketplace, marque a caixa de seleção **Ocultar plano** na guia **Disponibilidade**.
 
