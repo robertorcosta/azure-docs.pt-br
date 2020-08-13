@@ -1,6 +1,6 @@
 ---
 title: Visão geral da solução Azure VMware por CloudSimple nós
-description: Saiba mais sobre os nós e conceitos do CloudSimple.
+description: Saiba mais sobre os conceitos de CloudSimple, incluindo nós, nós provisionados, uma nuvem privada e solução VMware por SKUs de nós CloudSimple.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 65afe26a98a53b00b72a1ea2b49799db2049b727
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7de4b5faa997d909089daedab7e48e5d5a6de2e7
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024918"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140829"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Visão geral dos nós do CloudSimple
 
@@ -45,7 +45,7 @@ Os seguintes tipos de nós estão disponíveis para provisionamento ou reserva.
 | Disco de capacidade | 5,625 TB brutos                | 11,25 TB brutos                | 15,36 TB brutos                |
 | Tipo de armazenamento  | Todos os flash                   | Todos os flash                   | Todos os flash                   |
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 
 Os limites de nó a seguir se aplicam a nuvens privadas.
 

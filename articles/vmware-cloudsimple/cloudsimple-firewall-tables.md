@@ -1,6 +1,6 @@
 ---
 title: Solução do Azure VMware por tabelas CloudSimple-firewall
-description: Saiba mais sobre as tabelas de firewall e as regras de firewall da nuvem privada do CloudSimple.
+description: Saiba mais sobre as tabelas de firewall e as regras de firewall de nuvem privada do CloudSimple, incluindo as regras padrão criadas em cada tabela de firewall.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 89bef6cef48f2b972aa3f931008b0db84431b832
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c44c39f66a0a0161eea8a7e9656bbe0e3d1015c
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025037"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140863"
 ---
 # <a name="firewall-tables-overview"></a>Visão geral das tabelas de firewall
 
@@ -23,10 +23,10 @@ Uma tabela de firewall lista regras para filtrar o tráfego de rede de e para re
 
 A tabela a seguir descreve os parâmetros em uma regra de firewall.
 
-| Property | Detalhes |
+| Propriedade | Detalhes |
 | ---------| --------|
 | **Nome** | Um nome que identifica exclusivamente a regra de firewall e sua finalidade. |
-| **Priority** | Um número entre 100 e 4096, com 100 sendo a prioridade mais alta. As regras são processadas em ordem de prioridade. Quando o tráfego encontra uma correspondência de regra, o processamento da regra é interrompido. Como resultado, as regras com prioridades mais baixas que têm os mesmos atributos que as regras com prioridades mais altas não são processadas.  Tome cuidado para evitar regras conflitantes. |
+| **Prioridade** | Um número entre 100 e 4096, com 100 sendo a prioridade mais alta. As regras são processadas em ordem de prioridade. Quando o tráfego encontra uma correspondência de regra, o processamento da regra é interrompido. Como resultado, as regras com prioridades mais baixas que têm os mesmos atributos que as regras com prioridades mais altas não são processadas.  Tome cuidado para evitar regras conflitantes. |
 | **Rastreamento de estado** | O rastreamento pode ser sem estado (nuvem privada, Internet ou VPN) ou com estado (IP público).  |
 | **Protocolo** | As opções incluem any, TCP ou UDP. Se você precisar de ICMP, use any. |
 | **Direção** | Se a regra se aplica ao tráfego de entrada ou de saída. |
@@ -45,7 +45,7 @@ Regras adicionais podem ser necessárias para o fluxo de tráfego na direção i
 * Sub-rede local e uma sub-rede de nuvem privada
 * Tráfego de Internet das nuvens privadas
 
-### <a name="stateful"></a>Monitoração de estado
+### <a name="stateful"></a>Com estado
 
  Uma regra com estado está ciente das conexões que passam por ela. Um registro de fluxo é criado para as conexões existentes. A comunicação é permitida ou negada com base no estado de conexão do registro de fluxo.  Use esse tipo de regra para endereços IP públicos para filtrar o tráfego da Internet.
 
@@ -55,8 +55,8 @@ As regras padrão a seguir são criadas em cada tabela de firewall.
 
 |Prioridade|Nome|Rastreamento de estado|Direção|Tipo de Tráfego|Protocolo|Origem|Porta de origem|Destino|Porta de destino|Ação|
 |--------|----|--------------|---------|------------|--------|------|-----------|-----------|----------------|------|
-|65000|permitir-tudo para a Internet|Monitoração de estado|Saída|IP público ou tráfego de Internet|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Allow|
-|65001|negar-tudo-da-Internet|Monitoração de estado|Entrada|IP público ou tráfego de Internet|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Negar|
+|65000|permitir-tudo para a Internet|Com estado|Saída|IP público ou tráfego de Internet|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Allow|
+|65001|negar-tudo-da-Internet|Com estado|Entrada|IP público ou tráfego de Internet|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Negar|
 |65002|permitir-tudo para a intranet|Sem estado|Saída|Tráfego interno ou VPN da nuvem privada|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Allow|
 |65003|permitir-tudo-da-intranet|Sem estado|Entrada|Tráfego interno ou VPN da nuvem privada|Todos|Qualquer|Qualquer|Qualquer|Qualquer|Allow|
 
