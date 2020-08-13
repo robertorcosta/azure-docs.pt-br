@@ -6,12 +6,12 @@ author: spelluru
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 8f947489c2298e580ae455763709df1734687130
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 0909fd95238051a6a50e582cb2543dd3bdd307bf
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85337055"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067283"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Tutorial: Responder a eventos do Barramento de Serviço do Azure recebidos por meio da Grade de Eventos do Azure usando o Azure Functions e os Aplicativos Lógicos do Azure
 Neste tutorial, você aprenderá a responder a eventos do Barramento de Serviço do Azure que são recebidos por meio da Grade de Eventos do Azure usando o Azure Functions e os Aplicativos Lógicos do Azure. 
@@ -355,10 +355,10 @@ Nesta seção, você aprenderá como receber e processar mensagens depois de rec
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a [Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/).
-* Saiba mais sobre o [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
-* Saiba mais sobre o [recurso de Aplicativos Lógicos do Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/logic-apps/).
-* Saiba mais sobre o [Barramento de Serviço do Azure](https://docs.microsoft.com/azure/service-bus/).
+* Saiba mais sobre a [Grade de Eventos do Azure](../event-grid/index.yml).
+* Saiba mais sobre o [Azure Functions](../azure-functions/index.yml).
+* Saiba mais sobre o [recurso de Aplicativos Lógicos do Serviço de Aplicativo do Azure](../logic-apps/index.yml).
+* Saiba mais sobre o [Barramento de Serviço do Azure](/azure/service-bus/).
 
 
 [2]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid2.png

@@ -8,29 +8,29 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: bc013469610d5535c89870947fe094da93660012
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: abd322ce7f89be70cb7caf52b3155ba4be904ac9
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73488430"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080242"
 ---
 # <a name="app-service-documentation"></a>Documentação do Serviço de Aplicativo
 O Serviço de Aplicativo do Azure permite criar e hospedar aplicativos Web na linguagem de programação de sua escolha, sem gerenciamento de infra-estrutura nem runtime de estrutura da Web ou linguagem. Ele oferece dimensionamento automático e alta disponibilidade, compatível com Windows e Linux, e permite implantações automatizadas do GitHub, Azure DevOps Services ou qualquer repositório Git. Saiba como usar o Serviço de Aplicativo do Azure com nossos inícios rápidos, tutoriais e exemplos.
 
 ## <a name="windows-linux-and-docker"></a>Windows, Linux e Docker
-[Aplicativos Web](/app-service/overview) é o Serviço de Aplicativo principal de oferta para a criação e hospedagem de aplicativos da Web usando os ambientes do Windows. Os desenvolvedores que preferem ambientes Linux podem escolher o [Serviço de Aplicativo para Linux](/app-service/containers/app-service-linux-intro). Os desenvolvedores também podem implantar imagens do Docker diretamente no Serviço de Aplicativo para Linux para implantar os runtimes/estruturas personalizados.
+[Aplicativos Web](/app-service/overview) é o Serviço de Aplicativo principal de oferta para a criação e hospedagem de aplicativos da Web usando os ambientes do Windows. Os desenvolvedores que preferem ambientes Linux podem escolher o [Serviço de Aplicativo para Linux](/app-service/overview#app-service-on-linux). Os desenvolvedores também podem implantar imagens do Docker diretamente no Serviço de Aplicativo para Linux para implantar os runtimes/estruturas personalizados.
 
 ## <a name="5-minute-quickstarts"></a>Guias de início rápido de 5 minutos
 
 Saiba como implantar seu primeiro aplicativo para a nuvem usando o Serviço de Aplicativo para Aplicativos Web:
 
-- [.NET](/azure/app-service/app-service-web-get-started-dotnet)
-- [Node.js](/azure/app-service/app-service-web-get-started-nodejs)
-- [PHP](/azure/app-service/app-service-web-get-started-php)
-- [Java](/azure/app-service/app-service-web-get-started-java)
-- [Python](/azure/app-service/containers/quickstart-python)
-- [HTML](/azure/app-service/app-service-web-get-started-html)
+- [.NET](/azure/app-service/quickstart-dotnetcore)
+- [Node.js](/azure/app-service/quickstart-nodejs)
+- [PHP](/azure/app-service/quickstart-php)
+- [Java](/azure/app-service/quickstart-java)
+- [Python](/azure/app-service/quickstart-python)
+- [HTML](/azure/app-service/quickstart-html)
 
 ## <a name="step-by-step-tutorials"></a>Tutoriais passo a passo
 
@@ -38,9 +38,9 @@ Saiba como implantar, gerenciar e monitorar aplicativos Web seguros no Azure.
 
 - Crie um aplicativo usando:
   - [.NET com banco de dados SQL do Azure](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
-  - [Node.js com o MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+  - [Node.js com o MongoDB](/azure/app-service/tutorial-nodejs-mongodb-app)
   - [Java com MySQL](/app-service/app-service-web-tutorial-java-mysql)
-  - [Python com PostgreSQL](/app-service/containers/tutorial-python-postgresql-app)
+  - [Python com PostgreSQL](/app-service/tutorial-python-postgresql-app)
 - [Mapear um domínio personalizado existente para seu aplicativo ](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Associar um certificado SSL ao seu aplicativo](/azure/app-service/configure-ssl-bindings)
 

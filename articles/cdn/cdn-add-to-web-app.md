@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 18054e47a987a7e79e9083b6f7a2f20b059c7f28
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 470324799cd157c8b33311e1cae8b5b698433e1f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81254600"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079902"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Adicionar o CDN do Azure para um aplicativo Web do Serviço de Aplicativo do Azure
 
@@ -49,7 +49,7 @@ Para concluir este tutorial:
 
 ## <a name="create-the-web-app"></a>Criar o aplicativo Web
 
-Para criar o aplicativo Web com que você trabalhará, execute o [Início rápido HTML estático](../app-service/app-service-web-get-started-html.md) na etapa **Navegar até o aplicativo**.
+Para criar o aplicativo Web com que você trabalhará, execute o [Início rápido HTML estático](../app-service/quickstart-html.md) na etapa **Navegar até o aplicativo**.
 
 ## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
 
@@ -60,7 +60,7 @@ Se você quiser otimizar seu ponto de extremidade de CDN para aceleração de si
 
 ## <a name="create-a-cdn-profile-and-endpoint"></a>Como criar um perfil do CDN e um ponto de extremidade
 
-No painel de navegação esquerdo, selecione **Serviços de aplicativos** e, em seguida, selecione o aplicativo que você criou no [Início rápido do HTML estático](../app-service/app-service-web-get-started-html.md).
+No painel de navegação esquerdo, selecione **Serviços de aplicativos** e, em seguida, selecione o aplicativo que você criou no [Início rápido do HTML estático](../app-service/quickstart-html.md).
 
 ![Selecione o aplicativo de serviço de aplicativo no portal](media/cdn-add-to-web-app/portal-select-app-services.png)
 

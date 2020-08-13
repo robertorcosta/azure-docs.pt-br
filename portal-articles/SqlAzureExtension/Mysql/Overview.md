@@ -8,12 +8,12 @@ ms.service: mysql
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
-ms.openlocfilehash: 2ff389f52da0db4e394e8f6a6c37955a5f0c3861
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1087f4965145df62c1c7138e7aa7072d09c655ca
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "64691369"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077094"
 ---
 # <a name="azure-database-for-mysql-documentation"></a>Banco de Dados do Azure para obter a documentação do MySQL
 
@@ -30,8 +30,8 @@ Aprenda como criar um banco de dados MySQL no Azure com:
 
 Aprenda a estruturar seu banco de dados e desenvolver aplicativos:
 
-- Projete um banco de dados: [portal do Azure](/azure/mysql/tutorial-design-database-using-portal) |  [CLI do Azure](/azure/mysql/tutorial-design-database-using-cli)
-- Criar um Aplicativo Web: [Wordpress - Portal](https://portal.azure.com/#create/WordPress.WordPress) |  [PHP - CLI do Azure](/azure/app-service/app-service-web-tutorial-php-mysql?toc=%2fazure%2fmysql%2ftoc.json)
+- Criar um banco de dados: [Portal do Azure](/azure/mysql/tutorial-design-database-using-portal) |  [CLI do Azure](/azure/mysql/tutorial-design-database-using-cli)
+- Criar um aplicativo Web: [Wordpress – Portal](https://portal.azure.com/#create/WordPress.WordPress) |  [PHP – CLI do Azure](/azure/app-service/tutorial-php-mysql-app?toc=%2fazure%2fmysql%2ftoc.json)
 
 ## <a name="samples"></a>Exemplos 
 

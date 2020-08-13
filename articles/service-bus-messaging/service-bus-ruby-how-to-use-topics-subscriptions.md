@@ -6,12 +6,12 @@ documentationcenter: ruby
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: ef4bb8ba724a8ae1f708ab80a770a521f7879685
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: aba326a63558632bee3bf0c48d34e471bbe30886
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85336726"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067555"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Início Rápido: Como usar tópicos e assinaturas do Barramento de Serviço com Ruby
  
@@ -62,7 +62,7 @@ As assinaturas do tópico também são criadas com o objeto **Azure::ServiceBusS
 
 Por padrão, as assinaturas são persistentes. Elas continuarão existindo até que elas ou o tópico ao qual estão associadas sejam excluídos. Se seu aplicativo contiver a lógica para criar uma assinatura, ele deve primeiro verificar se a assinatura já existe usando o método getSubscription.
 
-Exclua as assinaturas automaticamente definindo a [propriedade AutoDeleteOnIdle](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle).
+Exclua as assinaturas automaticamente definindo a [propriedade AutoDeleteOnIdle](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
 Se nenhum filtro for especificado quando uma nova assinatura for criada, o filtro **MatchAll** (padrão) será utilizado. Quando o filtro **MatchAll** é usado, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada "all-messages" e usa o filtro padrão **MatchAll**.
@@ -150,7 +150,7 @@ Também há um tempo limite associado a uma mensagem bloqueada na assinatura e, 
 Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método `delete_subscription_message()` seja chamado, a mensagem será fornecida novamente ao aplicativo quando ele for reiniciado. Isso é frequentemente chamado de *processamento de pelo menos uma vez*, ou seja, cada mensagem será processada pelo menos uma vez, mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Essa lógica normalmente acontece usando a propriedade `message_id` da mensagem, que permanecerá constante nas tentativas de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Excluir tópicos e assinaturas
-Os tópicos e as assinaturas são persistentes, a menos que a [propriedade AutoDeleteOnIdle](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle) seja definida. Eles podem ser excluídos por meio do [portal do Azure][Azure portal] ou de maneira programática. O exemplo a seguir demonstra como excluir o tópico denominado `test-topic`.
+Os tópicos e as assinaturas são persistentes, a menos que a [propriedade AutoDeleteOnIdle](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle) seja definida. Eles podem ser excluídos por meio do [portal do Azure][Azure portal] ou de maneira programática. O exemplo a seguir demonstra como excluir o tópico denominado `test-topic`.
 
 ```ruby
 azure_service_bus_service.delete_topic("test-topic")

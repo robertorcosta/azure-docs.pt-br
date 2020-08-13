@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: spelluru
 ms.author: spelluru
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cdbde84780ed7c64f9ad3f4284a74261d2f4a728
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2526559a8b88309c098e59e8cc6d0ffd2793984f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500446"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067572"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: Atualizar o estoque usando a CLI e tópicos/assinaturas
 
@@ -36,7 +36,7 @@ Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita][
 Para desenvolver um aplicativo de Barramento de Serviço com Java, você deve ter o seguinte instalado:
 
 - [Java Development Kit](https://aka.ms/azure-jdks), última versão.
-- [CLI do Azure](https://docs.microsoft.com/cli/azure)
+- [CLI do Azure](/cli/azure)
 - [Apache Maven](https://maven.apache.org), versão 3.0 ou posterior.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]

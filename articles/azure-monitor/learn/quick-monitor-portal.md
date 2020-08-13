@@ -7,18 +7,18 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: 074010a2f3b1f4f4a58b3c4727bf4eed28402e0a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ed7cec34b4bca1882d069997d4f89677cda32447
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82142628"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080942"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Começar a monitorar o aplicativo Web ASP.NET
 
 Com o Azure Application Insights, você pode monitorar facilmente o aplicativo Web quanto à sua disponibilidade, desempenho e uso.  Você também pode identificar e diagnosticar erros rapidamente em seu aplicativo sem esperar que um usuário os relate.  Com as informações coletadas do Application Insights sobre o desempenho e a eficiência do seu aplicativo, você pode fazer escolhas informadas para manter e aprimorar seu aplicativo.
 
-Este guia de início rápido mostra como adicionar o Application Insights a um aplicativo Web ASP.NET existente e começar a analisar as estatísticas em tempo real, que é apenas um dos vários métodos que você pode usar para analisar o aplicativo. Se você não tiver um aplicativo Web ASP.NET, poderá criar um seguindo o [guia de início rápido Criar um Aplicativo Web ASP.NET](../../app-service/app-service-web-get-started-dotnet-framework.md).
+Este guia de início rápido mostra como adicionar o Application Insights a um aplicativo Web ASP.NET existente e começar a analisar as estatísticas em tempo real, que é apenas um dos vários métodos que você pode usar para analisar o aplicativo. Se você não tiver um aplicativo Web ASP.NET, poderá criar um seguindo o [guia de início rápido Criar um Aplicativo Web ASP.NET](../../app-service/quickstart-dotnet-framework.md).
 
 ## <a name="prerequisites"></a>Prerequisites
 Para concluir este guia de início rápido:
@@ -76,7 +76,7 @@ Agora você pode abrir o Application Insights no Portal do Azure para exibir vá
 
     ![Live Stream](media/quick-monitor-portal/7livemetrics.png)
 
-    Se você está pronto para hospedar seu aplicativo no Azure, você pode publicá-lo agora. Siga as etapas descritas no [Guia de início rápido criar um aplicativo Web ASP.NET](../../app-service/app-service-web-get-started-dotnet.md#update-the-app-and-redeploy).
+    Se você está pronto para hospedar seu aplicativo no Azure, você pode publicá-lo agora. Siga as etapas descritas no [Guia de início rápido criar um aplicativo Web ASP.NET](../../app-service/quickstart-dotnetcore.md#update-the-app-and-redeploy).
 
 5. Se você usar o Visual Studio para adicionar o monitoramento do Application Insights, você pode adicionar automaticamente o monitoramento do lado do cliente. Para adicionar manualmente o monitoramento no lado do cliente manualmente para um aplicativo adicione o seguinte JavaScript ao seu aplicativo:
 
