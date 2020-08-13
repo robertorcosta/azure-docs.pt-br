@@ -6,17 +6,17 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: dcb3afd14a7355a08291cd8553d5050d96919aec
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 345d4fe218f5eed433204622bd47481628ec810f
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801420"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874054"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introdução às consultas de log no Azure Monitor
 
 > [!NOTE]
-> Você poderá trabalhar com este exercício em seu próprio ambiente se estiver coletando dados de pelo menos uma máquina virtual. Caso contrário, use nosso [Ambiente de demonstração](https://portal.loganalytics.io/demo), que inclui muitos dados de exemplo.  Se você já sabe como consultar em KQL, mas precisa apenas criar rapidamente consultas úteis com base em tipos de recurso, confira o [painel de consultas de exemplo salvas](saved-queries.md).
+> Você poderá trabalhar com este exercício em seu próprio ambiente se estiver coletando dados de pelo menos uma máquina virtual. Caso contrário, use nosso [Ambiente de demonstração](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), que inclui muitos dados de exemplo.  Se você já sabe como consultar em KQL, mas precisa apenas criar rapidamente consultas úteis com base em tipos de recurso, confira o [painel de consultas de exemplo salvas](saved-queries.md).
 
 Neste tutorial, você aprenderá a escrever consultas de log no Azure Monitor. Ele irá ensiná-lo como para:
 

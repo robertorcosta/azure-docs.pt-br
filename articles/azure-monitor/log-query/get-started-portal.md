@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 522a13c6de87dd8074b76f95670baf79fc96d419
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8917c73474b81ee76e6acdf8c6f274e962ee1215
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075343"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874224"
 ---
 # <a name="tutorial-get-started-with-log-analytics-queries"></a>Tutorial: Introdução às consultas no Log Analytics
 
@@ -32,7 +32,7 @@ Para obter um tutorial detalhado sobre como escrever consultas de log, confira [
 ## <a name="open-log-analytics"></a>Abrir Log Analytics
 Para usar o Log Analytics, você precisa estar conectado a uma conta do Azure. Se você ainda não tiver uma conta do Azure, poderá [criar uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Para concluir a maioria das etapas deste tutorial, você pode usar [este ambiente de demonstração](https://portal.loganalytics.io/demo), que inclui muitos dados de exemplo. Com o ambiente de demonstração, você não poderá salvar consultas nem fixar resultados em um painel.
+Para concluir a maioria das etapas deste tutorial, você pode usar [este ambiente de demonstração](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), que inclui muitos dados de exemplo. Com o ambiente de demonstração, você não poderá salvar consultas nem fixar resultados em um painel.
 
 Se estiver usando o Azure Monitor para coletar dados de log em pelo menos um recurso do Azure, você também poderá usar seu próprio ambiente. Para abrir um workspace do Log Analytics, na navegação à esquerda do Azure Monitor, selecione **Logs**. 
 

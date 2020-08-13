@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 2b46e115b6360b161a1b2ad9b176f3afbfaf27d0
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 8ff353c5386f7ad5f30144ca50740c751b81ffc5
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86277827"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87910701"
 ---
 [Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Exemplos](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
@@ -168,7 +168,7 @@ Use o Reconhecimento de Formulários para reconhecer tabelas, linhas e palavras 
 Para reconhecer o conteúdo de um arquivo em um URI especificado, use o método **StartRecognizeContentFromUri**.
 
 ```csharp
-private static async Task<Guid> GetContent(
+private static async Task GetContent(
     FormRecognizerClient recognizerClient, string invoiceUri)
 {
     Response<FormPageCollection> formPages = await recognizerClient
@@ -214,7 +214,7 @@ Esta seção demonstra como reconhecer e extrair campos comuns de recibos dos EU
 Para reconhecer recibos de um URI, use o método **StartRecognizeReceiptsFromUri**. O valor retornado é uma coleção de objetos **RecognizedReceipt**: um para cada página no documento enviado. O código a seguir processa um recibo no URI fornecido e imprime os valores e os campos principais no console.
 
 ```csharp
-private static async Task<Guid> AnalyzeReceipt(
+private static async Task AnalyzeReceipt(
     FormRecognizerClient recognizerClient, string receiptUri)
 {
     RecognizedReceiptCollection receipts = await recognizerClient.StartRecognizeReceiptsFromUri(new Uri(receiptUri))
@@ -406,10 +406,10 @@ Você usará o método **StartRecognizeCustomFormsFromUri**. O valor retornado �
 ```csharp
 // Analyze PDF form data
 private static async Task AnalyzePdfForm(
-    FormRecognizerClient formClient, Guid modelId, string pdfFormFile)
+    FormRecognizerClient recognizerClient, Guid modelId, string formUrl)
 {    
     Response<IReadOnlyList<RecognizedForm>> forms = await recognizerClient
-        .StartRecognizeCustomFormsFromUri(modelId, new Uri(formUri))
+        .StartRecognizeCustomFormsFromUri(modelId.ToString(), new Uri(formUrl))
         .WaitForCompletionAsync();
 ```
 

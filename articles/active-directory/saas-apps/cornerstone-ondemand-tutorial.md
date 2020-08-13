@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34a92a11880d61ff3e75e0b2a982b6375841b4b7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b0fb9f10dbe9b5018ce0a5d02bcb668b09cd5e5a
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76983513"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902273"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-ondemand"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Cornerstone OnDemand
 
@@ -38,6 +38,9 @@ Para começar, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 * Assinatura habilitada para SSO (logon único) do Cornerstone OnDemand.
+
+> [!NOTE]
+> Essa integração também está disponível para uso do ambiente de Nuvem do Governo dos EUA do Azure AD. Encontre esse aplicativo na Galeria de Aplicativos de Nuvem do Governo dos EUA do Azure AD e configure-o da mesma forma que na nuvem pública.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -138,7 +141,7 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no Cornerstone
 
 **Se você precisar criar o usuário manualmente, execute as seguintes etapas:**
 
-Para configurar o provisionamento de usuário, envie as informações (por exemplo: Nome, Email) sobre o usuário do Azure AD que você deseja provisionar à [equipe de suporte do Cornerstone OnDemand](mailto:moreinfo@csod.com).
+Para configurar o provisionamento de usuário, envie as informações (por exemplo: Nome, Email) sobre o usuário do Azure AD que você deseja provisionar para a [equipe de suporte do Cornerstone OnDemand](mailto:moreinfo@csod.com).
 
 >[!NOTE]
 >É possível usar qualquer outra ferramenta de criação da conta de usuário do Cornerstone OnDemand ou APIs fornecidas pelo Cornerstone OnDemand para provisionar as contas de usuário do Azure AD.

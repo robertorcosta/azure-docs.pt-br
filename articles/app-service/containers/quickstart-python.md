@@ -1,0 +1,257 @@
+---
+title: 'Início Rápido: Criar um aplicativo Python do Linux'
+description: Comece a usar os aplicativos do Linux no Serviço de Aplicativo do Azure implantando seu primeiro aplicativo Python em um contêiner do Linux no Serviço de Aplicativo.
+ms.topic: quickstart
+ms.date: 06/30/2020
+ms.custom: seo-python-october2019, cli-validate, devx-track-python
+ms.openlocfilehash: 804ed6084454a70fa6fc4edff9a0579e43a3a872
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853476"
+---
+# <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Início Rápido: Criar um aplicativo Python no Serviço de Aplicativo do Azure no Linux
+
+Neste Início Rápido, você implantará um aplicativo Web Python no [Serviço de Aplicativo no Linux](app-service-linux-intro.md), um serviço de hospedagem Web do Azure que é altamente escalonável e conta com aplicação automática de patch. Você usa a [CLI (interface de linha de comando) local do Azure](/cli/azure/install-azure-cli) em um computador Mac, Linux ou Windows. O aplicativo Web que você configura usa uma camada de Serviço de Aplicativo gratuita, portanto, os procedimentos neste artigo não resultam em custos para você.
+
+Se preferir implantar aplicativos por meio de um IDE, confira [Implantar aplicativos Python no Serviço de Aplicativo por meio do Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01).
+
+## <a name="set-up-your-initial-environment"></a>Configurar o seu ambiente inicial
+
+Antes de começar, você deverá ter o seguinte:
+
+1. Tenha uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+1. Instale o <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 ou mais recente</a>.
+1. Instale a <a href="/cli/azure/install-azure-cli" target="_blank">CLI do Azure</a> 2.0.80 ou superior, com a qual você executa comandos em qualquer shell para provisionar e configurar os recursos do Azure.
+
+Abra uma janela de terminal e verifique se sua versão do Python é 3.6 ou superior:
+
+# <a name="bash"></a>[Bash](#tab/bash)
+
+```bash
+python3 --version
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```cmd
+py -3 --version
+```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+```cmd
+py -3 --version
+```
+
+---
+
+Verifique se a sua versão da CLI do Azure é 2.0.80 ou superior:
+
+```azurecli
+az --version
+```
+
+Em seguida, entre no Azure por meio da CLI:
+
+```azurecli
+az login
+```
+
+Esse comando abre um navegador para coletar suas credenciais. Quando o comando for concluído, ele mostrará a saída JSON que contém informações sobre as suas assinaturas.
+
+Depois de conectado, você poderá executar os comandos do Azure com a CLI do Azure para trabalhar com recursos na sua assinatura.
+
+## <a name="clone-the-sample"></a>Clonar o exemplo
+
+Clone o repositório de exemplo com o comando a seguir. ([Instale o Git](https://git-scm.com/downloads) se você ainda não o tiver.)
+
+```terminal
+git clone https://github.com/Azure-Samples/python-docs-hello-world
+```
+
+Em seguida, acesse esta pasta:
+
+```terminal
+cd python-docs-hello-world
+```
+
+O código de exemplo contém um arquivo *application.py*, que diz ao Serviço de Aplicativo que o código contém um aplicativo Flask. Para obter mais informações, consulte [Personalizações e o processo de inicialização do contêiner](how-to-configure-python.md).
+
+## <a name="run-the-sample"></a>Execute o exemplo
+
+# <a name="bash"></a>[Bash](#tab/bash)
+
+Primeiro crie um ambiente virtual e instale dependências:
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+Em seguida, defina a variável de ambiente `FLASK_APP` como o módulo de entrada do aplicativo e execute o servidor de desenvolvimento Flask:
+
+```
+export FLASK_APP=application.py
+flask run
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Primeiro crie um ambiente virtual e instale dependências:
+
+```powershell
+py -3 -m venv env
+env\scripts\activate
+pip install -r requirements.txt
+```
+
+Em seguida, defina a variável de ambiente `FLASK_APP` como o módulo de entrada do aplicativo e execute o servidor de desenvolvimento Flask:
+
+```powershell
+Set-Item Env:FLASK_APP ".\application.py"
+flask run
+```
+
+# <a name="cmd"></a>[Cmd](#tab/cmd)
+
+Primeiro crie um ambiente virtual e instale dependências:
+
+```cmd
+py -3 -m venv env
+env\scripts\activate
+pip install -r requirements.txt
+```
+
+Em seguida, defina a variável de ambiente `FLASK_APP` como o módulo de entrada do aplicativo e execute o servidor de desenvolvimento Flask:
+
+```cmd
+SET FLASK_APP=application.py
+flask run
+```
+
+---
+
+Abra um navegador da Web e vá até o aplicativo de exemplo em `http://localhost:5000/`. O aplicativo exibe a mensagem **Olá, Mundo!** .
+
+![Executar um aplicativo Python de exemplo localmente](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
+
+Na janela do terminal, pressione **Ctrl**+**C** para sair do servidor de desenvolvimento Flask.
+
+## <a name="deploy-the-sample"></a>Implantar o exemplo
+
+Implante o código em sua pasta local (*python-docs-hello-world*) usando o comando `az webapp up`:
+
+```azurecli
+az webapp up --sku F1 -n <app-name>
+```
+
+- Se o comando `az` não for reconhecido, verifique se você tem a CLI do Azure instalada, conforme descrito em [Configurar seu ambiente inicial](#set-up-your-initial-environment).
+- Substitua `<app_name>` por um nome que seja exclusivo em todo o Azure (*os caracteres válidos são `a-z`, `0-9` e `-`* ). Um bom padrão é usar uma combinação do nome da empresa e um identificador de aplicativo.
+- O argumento `--sku F1` cria o aplicativo Web no tipo de preço Gratuito. Omita esse argumento para usar um nível Premium mais rápido, o que incorre em um custo por hora.
+- Também existe a opção de incluir o argumento `-l <location-name>` em que `<location_name>` é uma região do Azure como **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia** e assim por diante. Você pode recuperar uma lista de regiões permitidas para sua conta do Azure executando o comando [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations).
+
+O comando pode demorar um pouco para ser concluído. Durante a execução, ele fornece mensagens sobre como criar o grupo de recursos, o plano do Serviço de Aplicativo e o aplicativo de hospedagem, configurar o registro em log e executar a implantação ZIP. Em seguida, ele fornece a mensagem "Você pode iniciar o aplicativo em http://&lt;nome-do-aplicativo&gt;.azurewebsites.net", que é a URL do aplicativo no Azure.
+
+![Exemplo de saída do comando az webapp up](./media/quickstart-python/az-webapp-up-output.png)
+
+[!INCLUDE [AZ Webapp Up Note](../../../includes/app-service-web-az-webapp-up-note.md)]
+
+## <a name="browse-to-the-app"></a>Navegar até o aplicativo
+
+Navegue até o aplicativo implantado no navegador da Web na URL `http://<app-name>.azurewebsites.net`.
+
+O código de exemplo Python está executando um contêiner Linux no Serviço de Aplicativo usando uma imagem interna.
+
+![Executar um aplicativo Python de exemplo no Azure](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
+
+**Parabéns!** Você implantou seu aplicativo Python no Serviço de Aplicativo no Linux.
+
+## <a name="redeploy-updates"></a>Reimplantar atualizações
+
+No seu editor de código favorito, abra *application.py* e atualize a função `hello` conforme segue. Essa alteração adiciona uma instrução `print` para gerar o log de saída com o qual você trabalha na próxima seção. 
+
+```python
+def hello():
+    print("Handling request to home page.")
+    return "Hello Azure!"
+```
+
+Salve suas alterações e saia do editor. 
+
+Reimplante o aplicativo usando o comando `az webapp up` novamente:
+
+```azurecli
+az webapp up
+```
+
+Esse comando usa valores armazenados em cache localmente no arquivo *.azure/config*, incluindo o nome do aplicativo, o grupo de recursos e o plano do Serviço de Aplicativo.
+
+Depois que a implantação for concluída, volte para a janela do navegador aberta em `http://<app-name>.azurewebsites.net`. Atualize a página, que deve exibir a mensagem modificada:
+
+![Executar um aplicativo Python de exemplo atualizado no Azure](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
+
+> [!TIP]
+> O Visual Studio Code fornece extensões poderosas para o Python e o Serviço de Aplicativo do Azure, que simplificam o processo de implantação de aplicativos Web do Python no Serviço de Aplicativo. Para obter mais informações, confira [Implantar aplicativos Python no Serviço de Aplicativo por meio do Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
+
+## <a name="stream-logs"></a>Transmitir logs
+
+Você pode acessar os logs do console gerados de dentro do aplicativo e do contêiner no qual ele é executado. Os logs incluem todas as saídas geradas usando instruções `print`.
+
+Para transmitir logs, execute o seguinte comando:
+
+```azurecli
+az webapp log tail
+```
+
+Atualize o aplicativo no navegador para gerar logs de console, que incluem mensagens que descrevem solicitações HTTP para o aplicativo. Se nenhuma saída for exibida imediatamente, tente novamente em 30 segundos.
+
+Você também pode inspecionar os arquivos de log do navegador em `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
+
+Para interromper o streaming de log a qualquer momento, digite **Ctrl**+**C**.
+
+## <a name="manage-the-azure-app"></a>Gerenciar o aplicativo do Azure
+
+Acesse o <a href="https://portal.azure.com" target="_blank">portal do Azure</a> para gerenciar o aplicativo que você criou. Pesquise e selecione **Serviços de Aplicativos**.
+
+![Navegar para os Serviços de Aplicativos no portal do Azure](./media/quickstart-python/navigate-to-app-services-in-the-azure-portal.png)
+
+Selecione o nome do seu aplicativo do Azure.
+
+![Navegue até o aplicativo Python nos Serviços de Aplicativos no portal do Azure](./media/quickstart-python/navigate-to-app-in-app-services-in-the-azure-portal.png)
+
+A seleção do aplicativo abre a página **Visão geral** dele, em que você pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir.
+
+![Gerencie seu aplicativo Python na página Visão geral no portal do Azure](./media/quickstart-python/manage-an-app-in-app-services-in-the-azure-portal.png)
+
+O menu de Serviço de Aplicativo fornece páginas diferentes para configurar seu aplicativo.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Nas etapas anteriores, você criou os recursos do Azure em um grupo de recursos. O grupo de recursos tem um nome como "appsvc_rg_Linux_CentralUS", dependendo da sua localização. Se você usar uma SKU do Serviço de Aplicativo diferente do nível F1 gratuito, esses recursos incorrerão em custos contínuos (confira [Preço do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/linux/)).
+
+Se você achar que não precisará desses recursos no futuro, exclua o grupo de recursos executando o seguinte comando:
+
+```azurecli
+az group delete
+```
+
+O comando usa o nome do grupo de recursos armazenado em cache no arquivo *.azure/config*.
+
+O comando pode demorar um minuto para ser concluído.
+
+## <a name="next-steps"></a>Próximas etapas
+
+> [!div class="nextstepaction"]
+> [Tutorial: Aplicativo Web Python (Django) com PostgreSQL](tutorial-python-postgresql-app.md)
+
+> [!div class="nextstepaction"]
+> [Adicionar entrada do usuário a um aplicativo Web Python](../../active-directory/develop/quickstart-v2-python-webapp.md)
+
+> [!div class="nextstepaction"]
+> [Configurar o aplicativo Python](how-to-configure-python.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Executar o aplicativo Python em um contêiner personalizado](tutorial-custom-docker-image.md)

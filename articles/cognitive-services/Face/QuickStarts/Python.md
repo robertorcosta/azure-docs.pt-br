@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: tracking-python
-ms.openlocfilehash: d13d349978df30b3e2aa7a8646223c37ba272241
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.custom: devx-track-python
+ms.openlocfilehash: 4fa0603868f1cc8bb2c879dbac7811ebbe6bf0dd
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84985640"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87875108"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Início Rápido: Detectar rostos em uma imagem com a API REST de Detecção Facial e Python
 
