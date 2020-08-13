@@ -1,19 +1,17 @@
 ---
 title: Portal do Azure do pool de host da Área de Trabalho Virtual do Windows – Azure
 description: Como criar um pool de host da Área de Trabalho Virtual do Windows usando o portal do Azure.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e27bbdcec9b0c9e2bcabf4228a19d87e263d60f4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c9a421e15f3561bb4de7f528ab1c707a0251dfe5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291442"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002662"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar um pool de host com o portal do Azure
 
@@ -61,7 +59,7 @@ Para começar a criar seu pool de host:
 6. Insira um nome exclusivo para seu pool de host.
 
 7. No campo Localização, selecione a região em que você deseja criar o pool de host no menu suspenso.
-   
+
    Os metadados para esse pool de host e seus objetos relacionados serão armazenados na geografia do Azure associada às regiões que você selecionou. Escolha as regiões dentro da geografia em que você deseja que os metadados de serviço sejam armazenados.
 
      > [!div class="mx-imgBorder"]
@@ -140,7 +138,7 @@ Para configurar sua máquina virtual dentro do processo de configuração do poo
 
     > [!div class="mx-imgBorder"]
     > ![Uma captura de tela da página do grupo de segurança que mostra uma lista de portas disponíveis em um menu suspenso.](media/available-ports.png)
-    
+
     Se você escolher **Avançado**, selecione um grupo de segurança de rede existente que você já configurou.
 
 10. Depois disso, selecione se deseja que as máquinas virtuais sejam ingressadas em um domínio específico e em uma unidade organizacional. Se você escolher **Sim**, especifique o domínio para ingressar. Você também pode adicionar uma unidade organizacional específica na qual deseja que as máquinas virtuais estejam.
@@ -153,7 +151,7 @@ Com isso, estamos prontos para iniciar a próxima fase de configuração do pool
 
 ## <a name="workspace-information"></a>Informações do workspace
 
-O processo de instalação do pool de host cria um grupo de aplicativos de desktop por padrão. Para que o pool de host funcione como pretendido, você precisará publicar esse grupo de aplicativos para usuários ou grupos de usuários e registrar o grupo de aplicativos em um workspace. 
+O processo de instalação do pool de host cria um grupo de aplicativos de desktop por padrão. Para que o pool de host funcione como pretendido, você precisará publicar esse grupo de aplicativos para usuários ou grupos de usuários e registrar o grupo de aplicativos em um workspace.
 
 Para registrar o grupo de aplicativos da área de trabalho em um workspace:
 
@@ -167,10 +165,10 @@ Para registrar o grupo de aplicativos da área de trabalho em um workspace:
 
     Aqui, você pode adicionar marcas para que possa agrupar os objetos a metadados para facilitar o trabalho dos administradores.
 
-4. Quando terminar, selecione **Review + create**. 
+4. Quando terminar, selecione **Review + create**.
 
      >[!NOTE]
-     >O processo de examinar + criar validação não verifica se a sua senha cumpre os padrões de segurança ou se sua arquitetura está correta, portanto, você precisará verificar se há algum problema com algum desses itens. 
+     >O processo de examinar + criar validação não verifica se a sua senha cumpre os padrões de segurança ou se sua arquitetura está correta, portanto, você precisará verificar se há algum problema com algum desses itens.
 
 5. Examine as informações sobre sua implantação para verificar se tudo está correto. Quando terminar, selecione **Criar**. Isso inicia o processo de implantação, que cria os seguintes objetos:
 

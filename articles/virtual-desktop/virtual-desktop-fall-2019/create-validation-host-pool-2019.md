@@ -1,19 +1,17 @@
 ---
 title: Atualizações de serviço do pool de host da Área de Trabalho Virtual do Windows (clássica) – Azure
 description: Como criar um pool de host de validação para monitorar atualizações de serviço antes de distribuir atualizações para a produção.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 448f02990798869e3dd5a804d1b0e0038b810a24
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f5a8d925a9875187358dc96b1770916974d1c6bd
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288664"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007124"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates-in-windows-virtual-desktop-classic"></a>Tutorial: Criar um pool de host para validar atualizações de serviço no Área de Trabalho Virtual do Windows (clássica)
 
@@ -60,12 +58,12 @@ Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool"
 Os resultados do cmdlet devem ser semelhantes a esta saída:
 
 ```
-    TenantName          : contoso 
+    TenantName          : contoso
     TenantGroupName     : Default Tenant Group
     HostPoolName        : contosoHostPool
     FriendlyName        :
     Description         :
-    Persistent          : False 
+    Persistent          : False
     CustomRdpProperty    : use multimon:i:0;
     MaxSessionLimit     : 10
     LoadBalancerType    : BreadthFirst
@@ -79,7 +77,7 @@ As atualizações de serviço acontecem mensalmente. Se houver grandes problemas
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você criou um pool de hosts de validação, você pode aprender a usar a Integridade do Serviço do Azure para monitorar a implantação de Área de Trabalho Virtual do Windows. 
+Agora que você criou um pool de hosts de validação, você pode aprender a usar a Integridade do Serviço do Azure para monitorar a implantação de Área de Trabalho Virtual do Windows.
 
 > [!div class="nextstepaction"]
 > [Configurar alertas de serviço](set-up-service-alerts-2019.md)

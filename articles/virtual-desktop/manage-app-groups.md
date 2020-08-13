@@ -1,19 +1,17 @@
 ---
 title: Gerenciar grupos de aplicativos para o portal da Área de Trabalho Virtual do Windows – Azure
 description: Como gerenciar grupos de aplicativos da Área de Trabalho Virtual do Windows com o portal do Azure.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5b0269b80cb879923f9f00861494915b6abe103e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6baada4c3b376b936f693d45e39e5887e77ef54b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283394"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010082"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Tutorial: Gerenciar grupos de aplicativos com o portal do Azure
 
@@ -49,16 +47,16 @@ Se você já tiver criado um pool de host e VMs de host de sessão usando o port
     > ![Uma captura de tela da guia Noções Básicas no portal do Azure.](media/basics-tab.png)
 
 6. Se você quiser adicionar grupos de aplicativos ao seu pool de host, selecione **Pools de host** no menu no lado esquerdo da tela.
-   
+
     Em seguida, selecione o nome do pool de host ao qual você deseja adicionar grupos de aplicativos.
-   
+
     Depois disso, selecione **Grupos de aplicativos** no menu no lado esquerdo da tela e, em seguida, selecione **+ Adicionar**.
 
     Por fim, selecione o grupo de assinaturas e o grupo de recursos para o qual você deseja criar o grupo de aplicativos. Você pode selecionar o nome de um grupo de recursos existente no menu suspenso ou selecionar **Criar** para criar um.
 
       >[!NOTE]
       >Quando você adiciona grupos de aplicativos ao seu pool de host, o pool de host que está relacionado ao grupo de aplicativos já está selecionado porque você navegou dele.
-      > 
+      >
       > [!div class="mx-imgBorder"]
       >![Uma captura de tela da guia Noções Básicas com o pool de host pré-selecionado.](media/host-pool-selected.png)
 
@@ -80,7 +78,7 @@ Se você já tiver criado um pool de host e VMs de host de sessão usando o port
 
 12.  Selecione a guia **Aplicativos** e, em seguida, selecione **+Adicionar aplicativos**.
 
-13.  Para adicionar um aplicativo do menu iniciar: 
+13.  Para adicionar um aplicativo do menu iniciar:
 
       - Acesse **Origem do aplicativo** e selecione **menu Iniciar** no menu suspenso. Em seguida, vá para **Aplicativo** e escolha o aplicativo no menu suspenso.
 
@@ -111,7 +109,7 @@ Se você já tiver criado um pool de host e VMs de host de sessão usando o port
 16.  Se você quiser registrar o grupo de aplicativos em um workspace, vá para **Registrar grupo de aplicativos** e selecione **Sim**. Se você preferir registrar o grupo de aplicativos depois, selecione **Não**.
 
 17.  Se você selecionar **Sim**, poderá selecionar um workspace existente para registrar seu grupo de aplicativos.
-       
+
        >[!NOTE]
        >Você só pode registrar o grupo de aplicativos em workspaces criados na mesma localização que o pool de host. Além disso, Se você tiver registrado anteriormente outro grupo de aplicativos do mesmo pool de host que o novo grupo de aplicativos em um workspace, ele será selecionado e você não poderá editá-lo. Todos os grupos de aplicativos de um pool de host devem ser registrados no mesmo workspace.
 

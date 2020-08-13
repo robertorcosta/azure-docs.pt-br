@@ -4,15 +4,15 @@ description: Saiba mais sobre a sintaxe e os recursos compatíveis da API do Azu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 07/15/2020
+ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: bd59b27b5af92d7aa90851c592ba4de495e41283
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2b389b71e15edcf0558b2ce60290c1ad7b171eab
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076830"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030531"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API do Azure Cosmos DB para MongoDB (versão 3.6): sintaxe e recursos compatíveis
 
@@ -495,10 +495,10 @@ $nearSphere |  Sim |
 $geometry |  Sim |
 $minDistance | Sim |
 $maxDistance | Sim |
-$center | Sim |
-$centerSphere | Sim |
-$box | Sim |
-$polygon |  Sim |
+$center | Não |
+$centerSphere | Não |
+$box | Não |
+$polygon |  Não |
 
 ## <a name="cursor-methods"></a>Métodos de cursor
 

@@ -1,7 +1,7 @@
 ---
 title: Tutorial – Simule uma falha na leitura de dados da região primária
 titleSuffix: Azure Storage
-description: Simule um erro na leitura de dados da região primária quando a conta de armazenamento estiver configurada para RA-GZRS (armazenamento com redundância de zona geográfica com acesso de leitura). Depois que o erro ocorrer, leia os dados da região secundária.
+description: Simule um erro na leitura de dados da região primária quando a conta de armazenamento estiver configurada para RA-GZRS (armazenamento com redundância de zona geográfica com acesso de leitura).
 services: storage
 author: tamram
 ms.service: storage
@@ -11,12 +11,12 @@ ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a9aa58ec990170df99f330f67991fff7b61c2b49
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 59eb826d8d17ed2adb3027f0aab11a6933b47ae5
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429848"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905730"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Tutorial: Simule uma falha na leitura de dados da região primária
 
