@@ -7,13 +7,13 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: tracking-python
-ms.openlocfilehash: 4c490d252fa1153324df62a6119ae6bdc548c331
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: devx-track-python
+ms.openlocfilehash: f6d1b25cb502b8cb208ba5b59c91667e03c77778
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341028"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064376"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Início Rápido: Usar tópicos e assinaturas do Barramento de Serviço com Python
 
@@ -176,7 +176,7 @@ A exclusão de um tópico exclui todas as assinaturas para o tópico. Você tamb
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
-Por padrão, os tópicos e as assinaturas são persistentes e existem até você excluí-los. Para excluir assinaturas automaticamente após um determinado período decorrido, você pode definir o parâmetro [auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) na assinatura. 
+Por padrão, os tópicos e as assinaturas são persistentes e existem até você excluí-los. Para excluir assinaturas automaticamente após um determinado período decorrido, você pode definir o parâmetro [auto_delete_on_idle](/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) na assinatura. 
 
 > [!TIP]
 > É possível gerenciar os recursos do Barramento de Serviço com o [Gerenciador de Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador de Barramento de Serviço permite que você se conecte a um namespace do Barramento de Serviço e administre facilmente as entidades de mensagens. A ferramenta fornece recursos avançados, como a funcionalidade de importação/exportação e a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
@@ -192,4 +192,4 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
 [Azure Python package]: https://pypi.python.org/pypi/azure
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
-[Service Bus quotas]: service-bus-quotas.md 
+[Service Bus quotas]: service-bus-quotas.md
