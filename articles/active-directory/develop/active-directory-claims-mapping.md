@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/06/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 8923cb19c24b0e392026dc0f4b8f67c31956894a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d518dcf833a49e32d72938a31da412d53cc40037
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115927"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141526"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como fazer: personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
 
@@ -329,7 +329,7 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 | Usuário | facsimiletelephonenumber | Número de telefone de fax |
 | Usuário | assignedroles | lista de funções de aplicativo atribuídas ao usuário|
 | aplicativo, recurso, público-alvo | displayname | Nome de exibição |
-| aplicativo, recurso, público-alvo | objected | ObjectID |
+| aplicativo, recurso, público-alvo | objectid | ObjectID |
 | aplicativo, recurso, público-alvo | marcas | Marcação da entidade de serviço |
 | Empresa | tenantcountry | País/região do locatário |
 

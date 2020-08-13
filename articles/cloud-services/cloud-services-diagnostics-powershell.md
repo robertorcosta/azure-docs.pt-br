@@ -1,6 +1,6 @@
 ---
 title: Habilitar o diagnóstico nos Serviços de Nuvem do Azure usando o PowerShell | Microsoft Docs
-description: Saiba como habilitar o diagnóstico nos serviços de nuvem usando o PowerShell
+description: Saiba como usar o PowerShell para habilitar a coleta de dados de diagnóstico de um serviço de nuvem do Azure com a extensão Diagnóstico do Azure.
 services: cloud-services
 documentationcenter: .net
 author: tgore03
@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: tagore
-ms.openlocfilehash: 02f63af9c34424ed83ba01424c832334639f46c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e3c4beac5bd88ba0bbefa91fc83976416b24d2fc
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092670"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141067"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Habilitar o diagnóstico nos Serviços de Nuvem do Azure usando o PowerShell
 Você pode coletar dados de diagnóstico, como logs de aplicativo, contador de desempenho, etc., a partir de um Serviço de Nuvem usando a extensão de Diagnóstico do Azure. Este artigo descreve como habilitar a extensão de Diagnóstico do Azure para um Serviço de Nuvem usando o PowerShell.  Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/) para os pré-requisitos necessários para este artigo.

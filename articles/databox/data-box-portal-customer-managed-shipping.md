@@ -2,18 +2,18 @@
 title: Remessa autogerenciada do Microsoft Azure Data Box | Microsoft Docs em dados
 description: Descreve o fluxo de trabalho de remessa autogerenciada para dispositivos Azure Data Box
 services: databox
-author: priestlg
+author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 05/20/2020
-ms.author: v-grpr
-ms.openlocfilehash: 99c7021744467484656c52cf72378c6f553c3913
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/12/2020
+ms.author: alkohli
+ms.openlocfilehash: cfa2dee41f07e273d933da356f74063453cb1775
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608580"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142529"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Use a remessa autogerenciada para Azure Data Box no portal do Azure
 
@@ -28,6 +28,8 @@ A remessa autogerenciada está disponível como uma opção quando você [solici
 * Japão
 * Singapura
 * Coreia do Sul
+* Índia
+* África do Sul
 
 ## <a name="use-self-managed-shipping"></a>Usar remessa autogerenciada
 
@@ -49,7 +51,7 @@ Ao fazer o pedido do Data Box, você pode escolher a opção de remessa autogere
 
 5. Siga as instruções em **Agendar a retirada do Azure**.
 
-   Antes de obter seu código de autorização, você deve enviar por email para [adbops@microsoft.com](mailto:adbops@microsoft.com), com o objetivo de agendar a retirada do dispositivo do datacenter da sua região.
+   Para obter seu código de autorização, envie um email para [adbops@microsoft.com](mailto:adbops@microsoft.com) a fim de agendar a retirada do dispositivo do datacenter da sua região.
 
    ![Agendar retirada](media\data-box-portal-customer-managed-shipping\data-box-portal-schedule-pickup-email-01.png)
 
@@ -61,7 +63,7 @@ Ao fazer o pedido do Data Box, você pode escolher a opção de remessa autogere
 
    Você também precisa fornecer detalhes de quem vai para o datacenter para retirada. Você ou o ponto de contato deve estar com uma ID de foto oficial que será validada no datacenter.
 
-   Além disso, a pessoa que retirará o dispositivo também precisa ter o **Código de autorização**. O código de autorização é validado no datacenter na hora da retirada.
+   Além disso, a pessoa que está pegando o dispositivo também precisa ter o **Código de autorização**. O código de autorização é validado no datacenter na hora da retirada.
 
 7. Seu pedido será movido automaticamente para o estado **Retirado** depois que o dispositivo tiver sido obtido do datacenter.
 

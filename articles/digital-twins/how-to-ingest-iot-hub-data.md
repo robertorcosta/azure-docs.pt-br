@@ -2,273 +2,246 @@
 title: Ingerir telemetria do Hub IoT
 titleSuffix: Azure Digital Twins
 description: Consulte como ingerir mensagens de telemetria do dispositivo do Hub IoT.
-author: cschormann
-ms.author: cschorm
-ms.date: 3/17/2020
+author: alexkarcher-msft
+ms.author: alkarche
+ms.date: 8/11/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7c73f007f85a963a09de4e05222082fd52f784c0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 5209ffb0328e90fb2ca9b91773cbf18dd4ed2916
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131558"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163587"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingerir telemetria do Hub IoT no gêmeos digital do Azure
 
 O Azure digital gêmeos é orientado com dados de dispositivos IoT e outras fontes. Uma fonte comum de dados de dispositivo a ser usada no Azure digital gêmeos é o [Hub IOT](../iot-hub/about-iot-hub.md).
 
-Durante a visualização, o processo de ingestão de dados no Azure digital gêmeos é configurar um recurso de computação externo, como uma [função do Azure](../azure-functions/functions-overview.md), que recebe os dados e usa as [APIs do DigitalTwins](how-to-use-apis-sdks.md) para definir propriedades ou disparar eventos de telemetria em [gêmeos digital](concepts-twins-graph.md) adequadamente. 
+O processo para ingerir dados no Azure digital gêmeos é configurar um recurso de computação externo, como uma [função do Azure](../azure-functions/functions-overview.md), que recebe os dados e usa as [APIs do DigitalTwins](how-to-use-apis-sdks.md) para definir propriedades ou disparar eventos de telemetria em [gêmeos digital](concepts-twins-graph.md) adequadamente. 
 
 Este documento de instruções orienta o processo de gravação de uma função do Azure que pode incluir telemetria do Hub IoT.
-
-## <a name="example-telemetry-scenario"></a>Cenário de telemetria de exemplo
-
-Este "como" descreve como enviar mensagens do Hub IoT para o Azure digital gêmeos usando uma função do Azure. Há muitas configurações possíveis e estratégias de correspondência que você pode usar para isso, mas o exemplo deste artigo contém as seguintes partes:
-* Um dispositivo de termômetro no Hub IoT, com uma ID de dispositivo conhecida.
-* Um teledigital para representar o dispositivo, com uma ID correspondente
-* Uma teledigital que representa uma sala
-
-> [!NOTE]
-> Este exemplo usa uma correspondência de ID direta entre a ID do dispositivo e uma ID de mesa digital correspondente, mas é possível fornecer mapeamentos mais sofisticados do dispositivo para seu número de mesa (como com uma tabela de mapeamento).
-
-Sempre que um evento de telemetria de temperatura é enviado pelo dispositivo de termômetro, a propriedade de *temperatura* da *sala de espaço* é atualizada. Para fazer isso acontecer, você mapeará de um evento de telemetria em um dispositivo para um setter de propriedade na folha de dispositivos digitais. Você usará as informações de topologia do [grafo de entrelaçamento](concepts-twins-graph.md) para localizar a *sala* e, em seguida, poderá definir a propriedade de pressione. Em outros cenários, os usuários talvez queiram definir uma propriedade no conjunto de entrelaças correspondente (neste exemplo, o conjunto de entrelaçar com a ID de *123*). O Azure digital gêmeos oferece muita flexibilidade para decidir como os dados de telemetria são mapeados no gêmeos. 
-
-Este cenário é descrito em um diagrama abaixo:
-
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Um dispositivo de Hub IoT envia telemetria de temperatura por meio de tópicos do Hub IoT, da grade de eventos ou do sistema para uma função do Azure, que atualiza uma propriedade de temperatura em gêmeos no Azure digital gêmeos." border="false":::
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de continuar com este exemplo, você precisará concluir os seguintes pré-requisitos.
-1. Crie um Hub IoT. Consulte a seção *criar um hub IOT* deste [início rápido do Hub IOT](../iot-hub/quickstart-send-telemetry-cli.md) para obter instruções.
-2. Crie pelo menos uma função do Azure para processar eventos do Hub IoT. Consulte [*como: configurar uma função do Azure para processar dados*](how-to-create-azure-function.md) para criar uma função básica do Azure que pode se conectar ao Azure digital gêmeos e chamar funções da API gêmeos do Azure digital. O restante deste "como" será criado nessa função.
-3. Configure um destino de evento para dados de Hub. Na [portal do Azure](https://portal.azure.com/), navegue até a instância do Hub IOT. Em *eventos*, crie uma assinatura para sua função do Azure. 
+* **Um hub IOT**. Consulte a seção *criar um hub IOT* deste [início rápido do Hub IOT](../iot-hub/quickstart-send-telemetry-cli.md) para obter instruções.
+* **Uma função do Azure** com as permissões corretas para chamar sua instância de cópia digital. Consulte [*como: configurar uma função do Azure para processar dados*](how-to-create-azure-function.md) para obter instruções. 
+* **Uma instância digital gêmeos** que receberá a telemetria do dispositivo. Consulte [ *como: configurar uma instância e autenticação do gêmeos digital do Azure*](./how-to-set-up-instance-portal.md) 
 
-    :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Portal do Azure: adicionar uma assinatura de evento":::
+### <a name="example-telemetry-scenario"></a>Cenário de telemetria de exemplo
 
-4. Na página *criar assinatura de evento* , preencha os campos da seguinte maneira:
-   * Em *detalhes da assinatura de evento*, nomeie a assinatura como você deseja
-   * Em *tipos de evento*, escolha *telemetria do dispositivo* como o tipo de evento para filtrar
-      - Adicione filtros a outros tipos de evento, se desejar.
-   * Em *detalhes do ponto de extremidade*, selecione sua função do Azure como um ponto de extremidade
+Este "como" descreve como enviar mensagens do Hub IoT para o Azure digital gêmeos usando uma função do Azure. Há muitas configurações possíveis e estratégias de correspondência que você pode usar para isso, mas o exemplo deste artigo contém as seguintes partes:
+* Um dispositivo de termômetro no Hub IoT, com uma ID de dispositivo conhecida.
+* Um teledigital para representar o dispositivo, com uma ID correspondente
 
-## <a name="create-an-azure-function-in-visual-studio"></a>Criar uma função do Azure no Visual Studio
+> [!NOTE]
+> Este exemplo usa uma correspondência de ID direta entre a ID do dispositivo e uma ID de mesa digital correspondente, mas é possível fornecer mapeamentos mais sofisticados do dispositivo para seu número de mesa (como com uma tabela de mapeamento).
+
+Sempre que um evento de telemetria de temperatura é enviado pelo dispositivo de termômetro, a propriedade de *temperatura* da folha de atualização digital deve ser atualizada. Este cenário é descrito em um diagrama abaixo:
+
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Um diagrama que mostra um gráfico de fluxo. No gráfico, um dispositivo de Hub IoT envia a telemetria de temperatura por meio do Hub IoT para uma função do Azure, que atualiza uma propriedade de temperatura em um gêmeos no Azure digital." border="false":::
+
+## <a name="add-a-model-and-twin"></a>Adicionar um modelo e um "r"
+
+Você precisará de um entrelaçamento para atualizar com as informações do Hub IoT.
+
+O modelo tem a seguinte aparência:
+```JSON
+{
+  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Temperature",
+      "schema": "double"
+    }
+  ]
+}
+```
+
+Para **carregar esse modelo em sua instância do gêmeos**, abra o CLI do Azure e execute o seguinte comando:
+```azurecli-interactive
+az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
+```
+
+Em seguida, você precisará **criar um pressione 1 usando esse modelo**. Use o comando a seguir para criar um conjunto de entrelaçar e definir 0,0 como um valor de temperatura inicial.
+```azurecli-interactive
+az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
+```
+
+A saída de um comando MyCreate com êxito deve ser assim:
+```json
+{
+  "$dtId": "thermostat67",
+  "$etag": "W/\"0000000-9735-4f41-98d5-90d68e673e15\"",
+  "$metadata": {
+    "$model": "dtmi:contosocom:DigitalTwins:Thermostat;1",
+    "Temperature": {
+      "ackCode": 200,
+      "ackDescription": "Auto-Sync",
+      "ackVersion": 1,
+      "desiredValue": 0.0,
+      "desiredVersion": 1
+    }
+  },
+  "Temperature": 0.0
+}
+```
+
+## <a name="create-an-azure-function"></a>Criar uma função do Azure
 
 Esta seção usa as mesmas etapas de inicialização do Visual Studio e o esqueleto do Azure function de [*como: configurar uma função do Azure para processar dados*](how-to-create-azure-function.md). O esqueleto manipula a autenticação e cria um cliente de serviço, pronto para processar dados e chamar as APIs do Azure digital gêmeos em resposta. 
 
-O coração da função de esqueleto é:
-
-```csharp
-namespace FunctionSample
-{
-    public static class FooFunction
-    {
-        const string adtAppId = "https://digitaltwins.azure.net";
-        private static string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
-        private static HttpClient httpClient = new HttpClient();
-
-        [FunctionName("Foo")]
-        public static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
-        {
-            DigitalTwinsClient client = null;
-            try
-            {
-                ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
-                DigitalTwinsClientOptions opts = 
-                    new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
-                client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
-                                                
-                log.LogInformation($"ADT service client connection created.");
-            }
-            catch (Exception e)
-            {
-                log.LogError($"ADT service client connection failed. " + e.ToString());
-                return;
-            }
-            log.LogInformation(eventGridEvent.Data.ToString());
-        }
-    }
-}
-```
-
 Nas etapas a seguir, você adicionará um código específico a ele para processar eventos de telemetria IoT do Hub IoT.  
 
-## <a name="add-telemetry-processing"></a>Adicionar processamento de telemetria
-
+### <a name="add-telemetry-processing"></a>Adicionar processamento de telemetria
+    
 Os eventos de telemetria vêm na forma de mensagens do dispositivo. A primeira etapa da adição do código de processamento de telemetria é a extração da parte relevante desta mensagem de dispositivo do evento de grade de eventos. 
 
-Dispositivos diferentes podem estruturar suas mensagens de forma diferente, portanto, o código dessa etapa depende do dispositivo conectado. 
+Dispositivos diferentes podem estruturar suas mensagens de forma diferente, portanto, o código **dessa etapa depende do dispositivo conectado.** 
 
-O código a seguir mostra um exemplo de um dispositivo simples que envia telemetria como JSON. O exemplo extrai a ID do dispositivo que enviou a mensagem, bem como o valor de temperatura.
+O código a seguir mostra um exemplo de um dispositivo simples que envia telemetria como JSON. Este exemplo é explorado completamente no [*tutorial: conectar uma solução de ponta a ponta*](./tutorial-end-to-end.md). O código a seguir localiza a ID do dispositivo que enviou a mensagem, bem como o valor de temperatura.
 
 ```csharp
-JObject job = eventGridEvent.Data as JObject;
-string devid = (string)job["systemProperties"].ToObject<JObject>().Property("IoT-hub-connection-device-ID").Value;
-double temp = (double)job["body"].ToObject<JObject>().Property("temperature").Value;
+JObject deviceMessage = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
+string deviceId = (string)deviceMessage["systemProperties"]["iothub-connection-device-id"];
+var temperature = deviceMessage["body"]["Temperature"];
 ```
 
-Lembre-se de que a finalidade deste exercício é atualizar a temperatura de uma *sala* no grafo de entrelaçamento. Isso significa que nosso destino da mensagem não é o email digital que está associado a esse dispositivo, mas a *sala* é o seu pai. Você pode encontrar o myparent usando o valor da ID do dispositivo que você extraiu da mensagem de telemetria usando o código acima.
-
-Para fazer isso, use as APIs do gêmeos digital do Azure para acessar as relações de entrada para o dispositivo que representa o "(que, nesse caso, tem a mesma ID do dispositivo). Na relação de entrada, você pode encontrar a ID do pai com o trecho de código abaixo.
-
-O trecho de código a seguir mostra como recuperar relações de entrada de um "/".
+O exemplo de código a seguir usa a ID e o valor de temperatura e as usa para "patch" (fazer atualizações) que se ocupam.
 
 ```csharp
-AsyncPageable<IncomingRelationship> res = client.GetIncomingRelationshipsAsync(twin_id);
-await foreach (IncomingRelationship irel in res)
-{
-    Log.Ok($"Relationship: {irel.RelationshipName} from {irel.SourceId} | {irel.RelationshipId}");
-}
-```
-
-O pai de seu FileUp está na propriedade *SourceID* da relação.
-
-É bastante comum que um modelo de um matreme representando um dispositivo tenha apenas uma única relação de entrada. Nesse caso, você pode escolher a primeira relação (e somente) retornada. Se seus modelos permitirem vários tipos de relações com esse '/', talvez seja necessário especificar mais para escolher entre várias relações de entrada. Uma maneira comum de fazer isso é escolher a relação por `RelationshipName` . 
-
-Depois que você tiver a ID do pai de '//' que representa a *sala*, poderá "patch" (fazer atualizações) que se entrelaçar. Para fazer isso, use o seguinte código:
-
-```csharp
-UpdateOperationsUtility uou = new UpdateOperationsUtility();
-uou.AppendAddOp("/Temperature", temp);
-try
-{
-    await client.UpdateDigitalTwinAsync(twin_id, uou.Serialize());
-    Log.Ok($"Twin '{twin_id}' updated successfully!");
-}
+//Update twin using device temperature
+var uou = new UpdateOperationsUtility();
+uou.AppendReplaceOp("/Temperature", temperature.Value<double>());
+await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
 ...
 ```
 
-### <a name="full-azure-function-code"></a>Código de função do Azure completo
+### <a name="update-your-azure-function-code"></a>Atualizar seu código de função do Azure
 
-Usando o código dos exemplos anteriores, aqui está a função inteira do Azure no contexto:
+Agora que você entendeu o código dos exemplos anteriores, abra o Visual Studio e substitua o código da função do Azure por este código de exemplo.
 
 ```csharp
-[FunctionName("ProcessHubToDTEvents")]
-public async void Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
+using System;
+using System.Net.Http;
+using Azure.Core.Pipeline;
+using Azure.DigitalTwins.Core;
+using Azure.DigitalTwins.Core.Serialization;
+using Azure.Identity;
+using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+namespace IotHubtoTwins
 {
-    // After this is deployed, in order for this function to be authorized on Azure Digital Twins APIs,
-    // you'll need to turn the Managed Identity Status to "On", 
-    // grab the Object ID of the function, and assign the "Azure Digital Twins Owner (Preview)" role to this function identity.
+    public class IoTHubtoTwins
+    {
+        private static readonly string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
+        private static readonly HttpClient httpClient = new HttpClient();
 
-    DigitalTwinsClient client = null;
-    //log.LogInformation(eventGridEvent.Data.ToString());
-    // Authenticate on Azure Digital Twins APIs
-    try
-    {
-        
-        ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
-        client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
-        log.LogInformation($"ADT service client connection created.");
-    }
-    catch (Exception e)
-    {
-        log.LogError($"ADT service client connection failed. " + e.ToString());
-        return;
-    }
-
-    if (client != null)
-    {
-        try
+        [FunctionName("IoTHubtoTwins")]
+        public async void Run([EventGridTrigger] EventGridEvent eventGridEvent, ILogger log)
         {
-            if (eventGridEvent != null && eventGridEvent.Data != null)
+            if (adtInstanceUrl == null) log.LogError("Application setting \"ADT_SERVICE_URL\" not set");
+
+            try
             {
-                #region Open this region for message format information
-                // Telemetry message format
-                //{
-                //  "properties": { },
-                //  "systemProperties": 
-                // {
-                //    "iothub-connection-device-id": "thermostat1",
-                //    "iothub-connection-auth-method": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-                //    "iothub-connection-auth-generation-id": "637199981642612179",
-                //    "iothub-enqueuedtime": "2020-03-18T18:35:08.269Z",
-                //    "iothub-message-source": "Telemetry"
-                //  },
-                //  "body": "eyJUZW1wZXJhdHVyZSI6NzAuOTI3MjM0MDg3MTA1NDg5fQ=="
-                //}
-                #endregion
-
-                // Reading deviceId from message headers
-                log.LogInformation(eventGridEvent.Data.ToString());
-                JObject job = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
-                string deviceId = (string)job["systemProperties"]["iothub-connection-device-id"];
-                log.LogInformation($"Found device: {deviceId}");
-
-                // Extracting temperature from device telemetry
-                byte[] body = System.Convert.FromBase64String(job["body"].ToString());
-                var value = System.Text.ASCIIEncoding.ASCII.GetString(body);
-                var bodyProperty = (JObject)JsonConvert.DeserializeObject(value);
-                var temperature = bodyProperty["Temperature"];
-                log.LogInformation($"Device Temperature is:{temperature}");
-
-                // Update device Temperature property
-                await AdtUtilities.UpdateTwinProperty(client, deviceId, "/Temperature", temperature, log);
-
-                // Find parent using incoming relationships
-                string parentId = await AdtUtilities.FindParent(client, deviceId, "contains", log);
-                if (parentId != null)
+                //Authenticate with Digital Twins
+                ManagedIdentityCredential cred = new ManagedIdentityCredential("https://digitaltwins.azure.net");
+                DigitalTwinsClient client = new DigitalTwinsClient(
+                    new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions 
+                    { Transport = new HttpClientTransport(httpClient) });
+                log.LogInformation($"ADT service client connection created.");
+            
+                if (eventGridEvent != null && eventGridEvent.Data != null)
                 {
-                    await AdtUtilities.UpdateTwinProperty(client, parentId, "/Temperature", temperature, log);
-                }
+                    log.LogInformation(eventGridEvent.Data.ToString());
 
+                    // Reading deviceId and temperature for IoT Hub JSON
+                    JObject deviceMessage = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
+                    string deviceId = (string)deviceMessage["systemProperties"]["iothub-connection-device-id"];
+                    var temperature = deviceMessage["body"]["Temperature"];
+                    
+                    log.LogInformation($"Device:{deviceId} Temperature is:{temperature}");
+
+                    //Update twin using device temperature
+                    var uou = new UpdateOperationsUtility();
+                    uou.AppendReplaceOp("/Temperature", temperature.Value<double>());
+                    await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
+                }
+            }
+            catch (Exception e)
+            {
+                log.LogError($"Error in ingest function: {e.Message}");
             }
         }
-        catch (Exception e)
-        {
-            log.LogError($"Error in ingest function: {e.Message}");
-        }
     }
 }
 ```
 
-A função do utilitário para localizar as relações de entrada:
-```csharp
-public static async Task<string> FindParent(DigitalTwinsClient client, string child, string relname, ILogger log)
+## <a name="connect-your-function-to-iot-hub"></a>Conectar sua função ao Hub IoT
+
+1. Configure um destino de evento para dados de Hub. Na [portal do Azure](https://portal.azure.com/), navegue até a instância do Hub IOT. Em **eventos**, crie uma assinatura para sua função do Azure. 
+
+    :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Captura de tela da portal do Azure que mostra a adição de uma assinatura de evento.":::
+
+2. Na página **criar assinatura de evento** , preencha os campos da seguinte maneira:
+    1. Em **nome**, nomeie a assinatura como você deseja.
+    2. Em **esquema de evento**, escolha **esquema de grade de eventos**.
+    3. Em **nome do tópico do sistema**, escolha um nome exclusivo.
+    4. Em **tipos de evento**, escolha **telemetria do dispositivo** como o tipo de evento para filtrar.
+    5. Em **detalhes do ponto de extremidade**, selecione sua função do Azure como um ponto de extremidade.
+
+    :::image type="content" source="media/how-to-ingest-iot-hub-data/event-subscription-2.png" alt-text="Captura de tela da portal do Azure que mostra os detalhes da assinatura do evento":::
+
+## <a name="send-simulated-iot-data"></a>Enviar dados de IoT simulados
+
+Para testar sua nova função de entrada, use o simulador de dispositivo do [*tutorial: conectar uma solução de ponta a ponta*](./tutorial-end-to-end.md). Esse tutorial é orientado por um projeto de exemplo escrito em C#. O código de exemplo está localizado aqui: [exemplos de gêmeos digitais do Azure](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Você usará o projeto **DeviceSimulator** nesse repositório.
+
+No tutorial de ponta a ponta, conclua as seguintes etapas:
+1. [*Registrar o dispositivo simulado no Hub IoT*](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
+2. [*Configurar e executar a simulação*](./tutorial-end-to-end.md#configure-and-run-the-simulation)
+
+## <a name="validate-your-results"></a>Validar seus resultados
+
+Ao executar o simulador de dispositivo acima, o valor de temperatura de sua digital de los será alterado. No CLI do Azure, execute o comando a seguir para ver o valor de temperatura.
+
+```azurecli-interactive
+az dt twin query -q "select * from digitaltwins" -n {digital_twins_instance_name}
+```
+
+A saída deve conter um valor de temperatura como este:
+
+```json
 {
-    // Find parent using incoming relationships
-    try
+  "result": [
     {
-        AsyncPageable<IncomingRelationship> rels = client.GetIncomingRelationshipsAsync(child);
-
-        await foreach (IncomingRelationship ie in rels)
-        {
-            if (ie.RelationshipName == relname)
-                return (ie.SourceId);
+      "$dtId": "thermostat67",
+      "$etag": "W/\"0000000-1e83-4f7f-b448-524371f64691\"",
+      "$metadata": {
+        "$model": "dtmi:contosocom:DigitalTwins:Thermostat;1",
+        "Temperature": {
+          "ackCode": 200,
+          "ackDescription": "Auto-Sync",
+          "ackVersion": 1,
+          "desiredValue": 69.75806974934324,
+          "desiredVersion": 1
         }
+      },
+      "Temperature": 69.75806974934324
     }
-    catch (RequestFailedException exc)
-    {
-        log.LogInformation($"*** Error in retrieving parent:{exc.Status}:{exc.Message}");
-    }
-    return null;
+  ]
 }
 ```
 
-E a função do utilitário para corrigir a atualização de entrelaçamento:
-```csharp
-public static async Task UpdateTwinProperty(DigitalTwinsClient client, string twinId, string propertyPath, object value, ILogger log)
-{
-    // If the twin does not exist, this will log an error
-    try
-    {
-        // Update twin property
-        UpdateOperationsUtility uou = new UpdateOperationsUtility();
-        uou.AppendAddOp(propertyPath, value);
-        await client.UpdateDigitalTwinAsync(twinId, uou.Serialize());
-    }
-    catch (RequestFailedException exc)
-    {
-        log.LogInformation($"*** Error:{exc.Status}/{exc.Message}");
-    }
-}
-```
-
-Agora você tem uma função do Azure que é equipada para ler e interpretar os dados do cenário provenientes do Hub IoT.
-
-## <a name="debug-azure-function-apps-locally"></a>Depurar aplicativos de funções do Azure localmente
-
-É possível depurar o Azure Functions com um gatilho de grade de eventos localmente. Para obter mais informações sobre isso, consulte [*depurar o gatilho de grade de eventos localmente*](../azure-functions/functions-debug-event-grid-trigger-local.md).
+Para ver a alteração do valor, execute repetidamente o comando de consulta acima.
 
 ## <a name="next-steps"></a>Próximas etapas
 

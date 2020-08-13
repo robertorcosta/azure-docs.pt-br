@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 578560eccb13ff4b9169e11b0674859acc1fc901
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: efa4ca24dadb2fb5d347d79de20eebfacc9a58e0
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285859"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142172"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para continuidade dos negócios e recuperação de desastres no Serviço de Kubernetes do Azure (AKS)
 
@@ -93,7 +93,7 @@ A replicação geográfica é um recurso de registros de contêiner de SKU *Prem
 
 O estado pode ser externo ou colocado em um código que manipule o estado. Normalmente, você externamente o estado usando um banco de dados ou outro armazenamento que é executado em máquinas diferentes na rede ou que é executado fora do processo no mesmo computador.
 
-Os contêineres e os microserviços são mais resilientes quando os processos executados dentro deles não mantêm o estado. Como os aplicativos quase sempre contêm algum estado, use uma solução PaaS, como o banco de dados do Azure para MySQL, o banco de dados do Azure para PostgreSQL ou o banco de dados SQL do Azure.
+Os contêineres e os microserviços são mais resilientes quando os processos executados dentro deles não mantêm o estado. Como os aplicativos quase sempre contêm algum estado, use uma solução PaaS, como Azure Cosmos DB, banco de dados do Azure para PostgreSQL, banco de dados do Azure para MySQL ou banco de dados SQL do Azure.
 
 Para criar aplicativos portáteis, consulte as seguintes diretrizes:
 

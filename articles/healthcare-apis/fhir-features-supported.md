@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 1cb3af32f1ad16218c82f91c3f28d4f4ab47e677
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0a24339d728c43817b6a7ae6eac8782ad0e27b09
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843497"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142512"
 ---
 # <a name="features"></a>Recursos
 
@@ -103,7 +103,7 @@ Todos os tipos de parâmetro de pesquisa têm suporte.
 | `_count`                | Sim       | Sim       | Sim       |         |
 | `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count` é compatível |
 | `_include`              | Não        | Sim       | Não        |         |
-| `_revinclude`           | Não        | Não        | Não        |         |
+| `_revinclude`           | Não        | Sim       | Não        | Os itens incluídos são limitados a 100. |
 | `_contained`            | Não        | Não        | Não        |         |
 | `_elements`             | Não        | Não        | Não        |         |
 
@@ -115,7 +115,7 @@ Atualmente, o código-fonte aberto do servidor FHIR inclui uma implementação p
 
 Cosmos DB é um banco de dados multimodelo distribuído globalmente (API do SQL, API do MongoDB, etc.). Ele dá suporte a diferentes [níveis de consistência](../cosmos-db/consistency-levels.md). O modelo de implantação padrão configura o servidor FHIR com `Strong` consistência, mas a política de consistência pode ser modificada (geralmente relaxada) em uma solicitação pela base da solicitação usando o `x-ms-consistency-level` cabeçalho de solicitação.
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em funções
+## <a name="role-based-access-control"></a>Controle de acesso baseado em função
 
 O servidor FHIR usa [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para controle de acesso. Especificamente, o RBAC (controle de acesso baseado em função) é imposto, se o `FhirServer:Security:Enabled` parâmetro de configuração for definido como `true` , e todas as solicitações (exceto `/metadata` ) para o servidor FHIR devem ter o `Authorization` cabeçalho de solicitação definido como `Bearer <TOKEN>` . O token deve conter uma ou mais funções, conforme definido na `roles` declaração. Uma solicitação será permitida se o token contiver uma função que permita a ação especificada no recurso especificado.
 

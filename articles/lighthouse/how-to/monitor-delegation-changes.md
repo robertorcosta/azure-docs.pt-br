@@ -3,12 +3,12 @@ title: Monitorar alterações de delegação no seu locatário de gerenciamento
 description: Saiba como monitorar a atividade de delegação de locatários do cliente para seu locatário de gerenciamento.
 ms.date: 08/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 9842ad91c059fe4da70221d8c7c5570084bcc6b9
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 63b8ec60ecf2f2e5655e3253db7aef01c003fc63
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119004"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163332"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorar alterações de delegação no seu locatário de gerenciamento
 
@@ -173,6 +173,9 @@ Os usuários que receberam a função interna de leitor de monitoramento do Azur
 1. Verifique se a **atividade de diretório** está selecionada no filtro próximo à parte superior da tela.
 
 Uma lista de alterações de delegação será exibida. Você pode selecionar **Editar colunas** para mostrar ou ocultar o **status**, **a categoria de evento**, a **hora**, o carimbo de **data/hora**, a **assinatura**, o **evento iniciado por**, o **grupo de recursos**, o tipo de **recurso**e os valores de **recurso** .
+
+> [!TIP]
+> Embora possamos nos referimos a provedores de serviços e clientes neste tópico, as [empresas que gerenciam vários locatários](../concepts/enterprise.md) podem usar os mesmos processos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

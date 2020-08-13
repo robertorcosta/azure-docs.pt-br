@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 79b9be504639b35c7c15d427bd7766ed2dd15535
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: dfccc274ef920c59d39c160055ab27a6900c839c
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121078"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141271"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Obter um token para um aplicativo móvel que chama APIs da Web
 
@@ -209,7 +209,7 @@ catch(MsalUiRequiredException)
 
 `AcquireTokenInteractive`tem apenas um parâmetro obrigatório: `scopes` . O `scopes` parâmetro enumera cadeias de caracteres que definem os escopos para os quais um token é necessário. Se o token for para Microsoft Graph, você poderá encontrar os escopos necessários na referência de API de cada API Microsoft Graph. Na referência, vá para a seção "permissões".
 
-Por exemplo, para [listar os contatos do usuário](/graph/api/user-list-contacts), use o escopo "User. Read", "Contacts. Read". Para obter mais informações, confira [Referência de permissões do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+Por exemplo, para [listar os contatos do usuário](/graph/api/user-list-contacts), use o escopo "User. Read", "Contacts. Read". Para obter mais informações, confira [Referência de permissões do Microsoft Graph](/graph/permissions-reference).
 
 No Android, você pode especificar a atividade pai ao criar o aplicativo usando o `PublicClientApplicationBuilder` . Se você não especificar a atividade pai nesse momento, mais tarde poderá especificá-la usando `.WithParentActivityOrWindow` o como na seção a seguir. Se você especificar a atividade pai, o token retornará para essa atividade pai após a interação. Se você não especificá-lo, a `.ExecuteAsync()` chamada lançará uma exceção.
 

@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cb3bb363b1d6be72fe8941cad509b4c3525cfa15
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 54d92da469625a3b81d0027558ec14166d916b80
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169422"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163179"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
@@ -110,7 +110,7 @@ Em seguida, exponha a API adicionando um escopo:
 
 Em seguida, especifique que o aplicativo deve ser tratado como um cliente público:
 
-1. No menu à esquerda, em **gerenciar**, selecione **autenticação**.
+1. No menu à esquerda, em **Gerenciar**, selecione **Autenticação**.
 1. Em **Configurações avançadas**, habilite **Tratar aplicativo como um cliente público** (selecione **Sim**). Verifique se **"allowPublicClient": true** está definido no manifesto do aplicativo. 
 1. Clique em **Salvar**.
 
@@ -213,6 +213,6 @@ Como mencionado em [Pré-requisitos](#prerequisites), o Facebook *não* é neces
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Em seguida, tente adicionar o Azure AD (Azure Active Directory) como provedor de identidade. O arquivo base usado neste guia de introdução já contém uma parte do conteúdo de que você precisa para adicionar outros provedores de identidade como o Azure AD.
+Em seguida, tente adicionar o Azure AD (Azure Active Directory) como provedor de identidade. O arquivo base usado neste guia de introdução já contém uma parte do conteúdo de que você precisa para adicionar outros provedores de identidade como o Azure AD. Para obter informações sobre como configurar o Azure AD como um provedor de identidade, consulte [Configurar inscrição e entrada com uma conta de Azure Active Directory usando Active Directory B2C políticas personalizadas](identity-provider-azure-ad-single-tenant-custom.md). 
 
-Para obter informações sobre como configurar o Azure AD e o provedor de identidade, confira o artigo [Configurar inscrição e entrada com uma conta do Azure Active Directory usando políticas personalizadas do Active Directory B2C](identity-provider-azure-ad-single-tenant-custom.md).
+Visite nossa [Galeria de parceiros](partner-gallery.md) para saber mais sobre como implementar a integração de ISVs usando políticas personalizadas. 

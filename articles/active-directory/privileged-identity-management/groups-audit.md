@@ -14,12 +14,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9bbc90776ca007b84d5f67c50f8550ee9c881c7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 94dd5c2579eb7ce96dea70c6354df8ec84125bd9
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87506037"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141662"
 ---
 # <a name="audit-activity-history-for-privileged-access-group-assignments-preview-in-privileged-identity-management"></a>Histórico de atividades de auditoria para atribuições de grupo de acesso privilegiado (versão prévia) no Privileged Identity Management
 
@@ -36,7 +36,9 @@ A **auditoria de recursos** fornece uma exibição de todas as atividades associ
 
 1. Abra **Azure ad Privileged Identity Management**.
 
-1. Selecione **acesso privilegiado (versão prévia)**.
+1. Selecione **grupos de acesso privilegiado (versão prévia)**.
+
+1. Selecione o grupo de acesso privilegiado para o qual você deseja exibir o histórico de auditoria.
 
 1. Em **atividade**, selecione **recurso auditoria**.
 
@@ -46,15 +48,15 @@ A **auditoria de recursos** fornece uma exibição de todas as atividades associ
 
 ## <a name="view-my-audit"></a>Exibir minha auditoria
 
-A opção Minha auditoria permite que você exiba sua atividade de função pessoal.
+**Minha auditoria** permite que você exiba sua atividade de função pessoal para um grupo de acesso privilegiado.
 
 1. Abra **Azure ad Privileged Identity Management**.
 
-1. Selecione **acesso privilegiado (versão prévia)**.
+1. Selecione **grupos de acesso privilegiado (versão prévia)**.
 
-1. Selecione o membro ou grupo para o qual você deseja exibir o histórico de auditoria.
+1. Selecione o grupo de acesso privilegiado para o qual você deseja exibir o histórico de auditoria.
 
-1. Selecione **minha auditoria**.
+1. Em **atividade**, selecione **minha auditoria**.
 
 1. Filtre o histórico usando uma data predefinida ou um intervalo personalizado.
 

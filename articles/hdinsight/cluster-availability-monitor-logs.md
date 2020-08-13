@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 05/01/2020
-ms.openlocfilehash: 25bda7ed94eef20e22bcf717780d08a3ea5e6521
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/12/2020
+ms.openlocfilehash: 19e3f1a157ee2c042dfebfc96c9b51c3c4698ebc
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077211"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163723"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Como monitorar a disponibilidade do cluster com os logs de Azure Monitor no HDInsight
 
@@ -30,6 +30,8 @@ Na página de recursos do cluster HDInsight no portal, selecione **Azure monitor
 
 ![HDInsight Operations Management Suite](media/cluster-availability-monitor-logs/azure-portal-monitoring.png)
 
+Por padrão, isso instala o agente do OMS em todos os nós de cluster, exceto os nós de borda. Como nenhum agente do OMS está instalado em nós de borda de cluster, não há telemetria em nós de borda presentes em Log Analytics por padrão.
+
 ## <a name="query-metrics-and-logs-tables"></a>Consultar tabelas de métricas e logs
 
 Quando Azure Monitor integração de log estiver habilitada (isso pode levar alguns minutos), navegue até o recurso de **espaço de trabalho do log Analytics** e selecione **logs**.
@@ -46,7 +48,7 @@ Os logs listam várias consultas de exemplo, como:
 | Computadores não disponíveis           | Listar todos os computadores conhecidos que não enviaram uma pulsação nas últimas 5 horas |
 | Taxa de disponibilidade               | Calcular a taxa de disponibilidade de cada computador conectado                |
 
-Por exemplo, execute a consulta de exemplo **taxa de disponibilidade** selecionando **executar** na consulta, conforme mostrado na captura de tela acima. Isso mostrará a taxa de disponibilidade de cada nó no cluster como uma porcentagem. Se você tiver habilitado vários clusters HDInsight para enviar métricas para o mesmo espaço de trabalho Log Analytics, verá a taxa de disponibilidade para todos os nós nesses clusters exibidos.
+Por exemplo, execute a consulta de exemplo **taxa de disponibilidade** selecionando **executar** na consulta, conforme mostrado na captura de tela acima. Isso mostrará a taxa de disponibilidade de cada nó no cluster como uma porcentagem. Se você tiver habilitado vários clusters HDInsight para enviar métricas para o mesmo espaço de trabalho Log Analytics, verá a taxa de disponibilidade para todos os nós (excluindo nós de borda) nesses clusters exibidos.
 
 ![Consulta de exemplo ' taxa de disponibilidade ' de logs do espaço de trabalho Log Analytics](media/cluster-availability-monitor-logs/portal-availability-rate.png)
 
@@ -55,7 +57,7 @@ Por exemplo, execute a consulta de exemplo **taxa de disponibilidade** seleciona
 
 Você pode fixar essa tabela em um painel compartilhado clicando em **fixar** no canto superior direito. Se você não tiver nenhum Dashboard compartilhado gravável, poderá ver como criar um aqui: [criar e compartilhar painéis no portal do Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
 
-## <a name="azure-monitor-alerts"></a>Alertas de Azure Monitor
+## <a name="azure-monitor-alerts"></a>Alertas do Azure Monitor
 
 Você também pode configurar Azure Monitor alertas que serão disparados quando o valor de uma métrica ou os resultados de uma consulta atenderem a determinadas condições. Por exemplo, vamos criar um alerta para enviar um email quando um ou mais nós não enviar uma pulsação em 5 horas (ou seja, presume-se que não esteja disponível).
 

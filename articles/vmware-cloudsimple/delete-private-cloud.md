@@ -1,6 +1,6 @@
 ---
 title: Excluir uma solução do Azure VMware da nuvem privada CloudSimple
-description: Descreve como excluir uma nuvem privada do CloudSimple.
+description: Saiba como excluir uma nuvem privada do CloudSimple. Quando você exclui uma nuvem privada, todos os clusters serão excluídos.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/06/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6bc3e7030c500ea2d6072a1cce0f0b3d9fc62801
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11fda35f5b236a4930b3d90eb7e3a62ea60207cf
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024748"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142223"
 ---
 # <a name="delete-a-cloudsimple-private-cloud"></a>Excluir uma nuvem privada do CloudSimple
 

@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0ba348bc9c97ba8be415cac2e5fd7d102d850568
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 5a2acb08971bc0878c943047c42c9dc2a9525794
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117066"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141424"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como fazer: adicionar funções de aplicativo em seu aplicativo e recebê-las no token
 
@@ -30,7 +30,7 @@ Outra abordagem é usar os Grupos do Azure AD e as Declarações de grupo, confo
 
 ## <a name="declare-roles-for-an-application"></a>Declarar funções para um aplicativo
 
-Essas funções de aplicativo são definidas no [portal do Azure](https://portal.azure.com), no manifesto de registro do aplicativo.  Quando um usuário entra no aplicativo, o Azure AD emite uma declaração `roles` para cada função que o usuário recebeu, tanto para o usuário individualmente quanto no caso de funções provenientes de sua associação a um grupo.  A atribuição de usuários e grupos a funções pode ser feita por meio da interface do usuário do portal ou de maneira programática usando o [Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview).
+Essas funções de aplicativo são definidas no [portal do Azure](https://portal.azure.com), no manifesto de registro do aplicativo.  Quando um usuário entra no aplicativo, o Azure AD emite uma declaração `roles` para cada função que o usuário recebeu, tanto para o usuário individualmente quanto no caso de funções provenientes de sua associação a um grupo.  A atribuição de usuários e grupos a funções pode ser feita por meio da interface do usuário do portal ou de maneira programática usando o [Microsoft Graph](/graph/azuread-identity-access-management-concept-overview).
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Declarar funções de aplicativo usando o portal do Azure
 

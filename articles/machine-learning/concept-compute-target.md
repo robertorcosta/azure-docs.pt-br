@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: f8b532716e14a8a90b0be061f7d93abf43e55e38
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 27c129af9fbf3e76c6c57fbf084596876b51955b
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321982"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141918"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning? 
 
@@ -59,7 +59,7 @@ Você pode criar Azure Machine Learning instâncias de computação ou clusters 
 Quando criados, esses recursos de computação são automaticamente parte do seu espaço de trabalho, ao contrário de outros tipos de destinos de computação.
 
 
-|Funcionalidade  |Cluster de computação  |Instância de computação  |
+|Recurso  |Cluster de computação  |Instância de computação  |
 |---------|---------|---------|
 |Cluster único ou com vários nós     |    **&check;**       |         |
 |Dimensionamento a cada vez que você envia uma execução     |     **&check;**      |         |
@@ -85,7 +85,9 @@ Consulte a tabela a seguir para saber mais sobre as restrições e as séries co
 | D | Nenhum |
 | Dv2 | Nenhum |  
 | DSv2 | Nenhum |  
-| FSv2 | Nenhum |  
+| FSv2 | Nenhum | 
+| HBv2 | Requer aprovação |  
+| HCS | Requer aprovação |  
 | M | Requer aprovação |
 | NC | Nenhum |    
 | NCsv2 | Requer aprovação |

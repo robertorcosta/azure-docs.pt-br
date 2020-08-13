@@ -1,6 +1,6 @@
 ---
 title: Lista de atualizações aplicadas ao SO convidado do Azure | Microsoft Docs
-description: Lista de atualizações aplicadas a versões do SO convidado
+description: Este artigo lista as atualizações do Microsoft Security Response Center aplicadas a diferentes sistemas operacionais convidados do Azure. Veja se uma atualização se aplica ao sistema operacional convidado que você está usando.
 services: cloud-services
 documentationcenter: na
 author: yohaddad
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 8/11/2020
 ms.author: yohaddad
-ms.openlocfilehash: a8755c593f4009d4cacc3d411eb1bc1cb8ddc50d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 3fb9c863b94c65d7a4333d734648d308a904e355
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079151"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142342"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] específica na qual foram introduzidas.
@@ -119,7 +119,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2,98], [3,85], [4,78]  |  12 de maio de 2020  |
+|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2,98],  [3,85], [4,78]  |  12 de maio de 2020  |
 |  Rel 20-05  |  [4556813]  |  Atualização cumulativa mais recente (LCU)   |  [5.43]  |  12 de maio de 2020  |
 |  Rel 20-05  |  [4551853]  |  Atualização cumulativa mais recente (LCU)   |  [6.19]  |  12 de maio de 2020  |
 |  Rel 20-05  |  [4552940]  |  Rollup mensal   |  [2.98]  |  12 de maio de 2020  |

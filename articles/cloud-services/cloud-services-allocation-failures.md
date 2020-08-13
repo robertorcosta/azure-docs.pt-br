@@ -1,6 +1,6 @@
 ---
 title: Solução de problemas de falha na alocação do serviço de nuvem | Microsoft Docs
-description: Solução de problemas de falha de alocação ao implantar Serviços de Nuvem no Azure
+description: Solucione uma falha de alocação ao implantar os serviços de nuvem do Azure. Saiba como a alocação funciona e por que a alocação pode falhar.
 services: azure-service-management, cloud-services
 documentationcenter: ''
 author: simonxjx
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: ab6cc71478e80bc3ff9d81a3a91ce90fbb09adb3
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: cba3f47015072f16112ef981d2f59d0c73cb69c2
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921608"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142478"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Solução de problemas de falha de alocação ao implantar Serviços de Nuvem no Azure
 ## <a name="summary"></a>Resumo

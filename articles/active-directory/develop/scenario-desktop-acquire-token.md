@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c394a3e84982db31b5727d170c143e9c07636d62
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 300bc6acbe7821841b578dcc2166ecfc498ad750
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121061"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141288"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicativo da área de trabalho que chama as APIs Web: Adquirir um token
 
@@ -175,7 +175,7 @@ catch(MsalUiRequiredException)
 
 ### <a name="mandatory-parameters"></a>Parâmetros obrigatórios
 
-`AcquireTokenInteractive` tem apenas um parâmetro obrigatório, ``scopes``, o qual contém uma enumeração de cadeias de caracteres que definem os escopos para os quais um token é necessário. Caso o token seja para o Microsoft Graph, os escopos necessários poderão ser encontrados na referência de API de cada API do Microsoft Graph na seção chamada "Permissões". Por exemplo, para [listar os contatos do usuário](/graph/api/user-list-contacts), o escopo "User.Read", "Contacts.Read" deve ser usado. Para obter mais informações, confira [Referência de permissões do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+`AcquireTokenInteractive` tem apenas um parâmetro obrigatório, ``scopes``, o qual contém uma enumeração de cadeias de caracteres que definem os escopos para os quais um token é necessário. Caso o token seja para o Microsoft Graph, os escopos necessários poderão ser encontrados na referência de API de cada API do Microsoft Graph na seção chamada "Permissões". Por exemplo, para [listar os contatos do usuário](/graph/api/user-list-contacts), o escopo "User.Read", "Contacts.Read" deve ser usado. Para obter mais informações, confira [Referência de permissões do Microsoft Graph](/graph/permissions-reference).
 
 No Android, você também precisa especificar a atividade pai usando `.WithParentActivityOrWindow`, conforme mostrado, de modo que o token volte para essa atividade pai após a interação. Caso não o especifique, uma exceção será gerada ao chamar `.ExecuteAsync()`.
 

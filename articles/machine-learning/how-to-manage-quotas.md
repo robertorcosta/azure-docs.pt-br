@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: 4bd13adb9bb431749f1d0f52781ce22c832fc090
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: a9ae3d2789758d03405fb5be82181c799d1ea692
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846727"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141118"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gerenciar e aumentar cotas para recursos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -107,24 +107,26 @@ Para definir cotas no nível do workspace, acesse qualquer workspace em sua assi
 
 ## <a name="view-your-usage-and-quotas"></a>Exibir seu uso e cotas
 
-A Computação do Azure Machine Learning é gerenciada separadamente de outras cotas de recursos do Azure em sua assinatura. Para exibir essa cota, você precisa fazer busca detalhada nos serviços do Machine Learning.  
+Azure Machine Learning cota de computação em sua assinatura é gerenciada separadamente de outra cota de recursos do Azure. Para exibir essa cota, você precisa fazer busca detalhada nos serviços do Machine Learning.  
 
 1. No painel esquerdo, selecione **serviço do Machine Learning** e, em seguida, selecione qualquer workspace na lista mostrada.
 
-1. Na folha seguinte, na seção **Suporte + solução de problemas**, selecione **Uso + cotas** para exibir os limites de cota e o uso atual.
+2. Na folha seguinte, na seção **Suporte + solução de problemas**, selecione **Uso + cotas** para exibir os limites de cota e o uso atual.
 
-1. Selecione uma assinatura para exibir os limites de cota. Lembre-se de filtrar para a região em que você está interessado.
+3. Selecione uma assinatura para exibir os limites de cota. Lembre-se de filtrar para a região em que você está interessado.
 
-1. Agora você pode alternar entre uma exibição de nível de assinatura e uma exibição no nível do workspace:
-    + **Exibição de assinatura:** Exibe o uso da cota de núcleo por família de VM, expandindo-a por espaço de trabalho e expandindo-a ainda mais pelos nomes de cluster reais. Obtenha rapidamente os detalhes do uso principal de uma família de VMs específica para ver a divisão por espaços de trabalho e além dos clusters subjacentes para cada um desses espaços de trabalho. A convenção geral nessa exibição é (uso/cota), em que o uso é o número atual de núcleos escalados verticalmente e a cota é o número máximo lógico de núcleos para os quais o recurso pode ser escalado. Para cada **workspace**, a cota seria a cota de nível do workspace (conforme explicado acima) que denota o número máximo de núcleos que você pode escalar para uma família de VMs específica. Da mesma forma, para um **cluster**, a cota é, na verdade, os núcleos que correspondem ao número máximo de nós que o cluster pode escalar para ser definido pela propriedade max_nodes.
-
+4. Agora você pode alternar entre uma exibição de nível de assinatura e uma exibição no nível do workspace:
+    + **Exibição da assinatura:** Isso permite que você exiba o uso da cota de núcleos por família de VM, expandindo-a por workspace e expandindo-a ainda mais pelos nomes de cluster reais. Essa exibição é ideal para obter rapidamente os detalhes do uso de núcleo de uma família de VMs específica para ver a divisão por workspaces e além dos clusters subjacentes para cada um desses workspaces. A convenção geral nessa exibição é (uso/cota), em que o uso é o número atual de núcleos escalados verticalmente e a cota é o número máximo lógico de núcleos para os quais o recurso pode ser escalado. Para cada **workspace**, a cota seria a cota de nível do workspace (conforme explicado acima) que denota o número máximo de núcleos que você pode escalar para uma família de VMs específica. Da mesma forma, para um **cluster**, a cota é, na verdade, os núcleos que correspondem ao número máximo de nós que o cluster pode escalar para ser definido pela propriedade max_nodes.
+    
     + **Exibição do workspace:** Isso permite que você exiba o uso da cota de núcleo por workspace, expandindo-o por família de VM e expandindo-o ainda mais pelos nomes de cluster reais. Essa exibição é ideal para obter rapidamente os detalhes do uso de núcleo de um workspace específico para ver a divisão por famílias de VMs e além dos clusters subjacentes para cada uma dessas famílias.
 
 Por meio do portal do Azure, é fácil exibir sua cota para outros recursos do Azure, como Máquinas Virtuais, Armazenamento e Rede.
 
 1. No painel esquerdo, selecione **Todos os serviços** e, em seguida, selecione **Assinaturas** na categoria Geral.
 
-1. Na lista de assinaturas, selecione a assinatura cuja cota você está procurando.
+2. Na lista de assinaturas, selecione a assinatura cuja cota você está procurando.
+
+3. Selecione **uso + cotas** para exibir os limites de cota e o uso atuais. Use os filtros para selecionar o provedor e os locais. 
 
 ## <a name="request-quota-increases"></a>Solicitar aumentos de cota
 

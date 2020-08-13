@@ -4,18 +4,18 @@ description: Saiba como os planos do serviço de aplicativo funcionam no serviç
 keywords: serviço de aplicativo, serviço de aplicativo do azure, escala, escalonável, escalabilidade, plano de serviço de aplicativo, custo de serviço de aplicativo
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 93f823a623145f8dd8bf5118de973dfbc095bfb4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c6aa5200220c55407ade5910b4232fffed3ffe19
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068189"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141577"
 ---
 # <a name="azure-app-service-plan-overview"></a>Visão geral do plano do Serviço de Aplicativo do Azure
 
-No Serviço de Aplicativo, um aplicativo é executado em um _Plano de Serviço de Aplicativo_. Um plano de serviço de aplicativo define um conjunto de recursos de computação para um aplicativo Web ser executado. Esses recursos de computação são análogos ao [_farm de servidores_](https://wikipedia.org/wiki/Server_farm) na hospedagem na Web convencional. Um ou mais aplicativos podem ser configurados para ser executado nos mesmos recursos de computação (ou no mesmo plano de Serviço de Aplicativo).
+No serviço de aplicativo (aplicativos Web, aplicativos de API ou aplicativos móveis), um aplicativo sempre é executado em um _plano do serviço de aplicativo_. Além disso, [Azure Functions](../azure-functions/functions-scale.md#app-service-plan) também tem a opção de ser executada em um _plano do serviço de aplicativo_. Um plano de serviço de aplicativo define um conjunto de recursos de computação para um aplicativo Web ser executado. Esses recursos de computação são análogos ao [_farm de servidores_](https://wikipedia.org/wiki/Server_farm) na hospedagem na Web convencional. Um ou mais aplicativos podem ser configurados para ser executado nos mesmos recursos de computação (ou no mesmo plano de Serviço de Aplicativo).
 
 Quando você cria um plano de serviço de aplicativo em uma determinada região (por exemplo, Europa Ocidental), um conjunto de recursos de computação é criado para esse plano nessa região. Quaisquer aplicativos que você coloque nesse plano de serviço de aplicativo é executado nesses recursos de computação conforme definido pelo seu plano de serviço de aplicativo. Cada plano de serviço de aplicativo define:
 

@@ -3,12 +3,12 @@ title: Gerenciar espaços de trabalho do Azure Sentinel em escala
 description: Saiba como gerenciar efetivamente o Azure Sentinel em recursos de clientes delegados.
 ms.date: 06/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 70810ca54c62e73d5dec76495eb5179b84db60fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fc6d66a31ed46766bbe664fd8656792c97ff69fd
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105261"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163230"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gerenciar espaços de trabalho do Azure Sentinel em escala
 
@@ -17,6 +17,9 @@ Como um provedor de serviços, você pode ter integrado vários locatários de c
 O Azure Sentinel fornece análise de segurança e inteligência contra ameaças, fornecendo uma solução única para detecção de alertas, visibilidade de ameaças, busca proativa e resposta a ameaças. Com o Azure Lighthouse, você pode gerenciar vários espaços de trabalho do Azure Sentinel entre locatários em escala. Isso permite cenários como a execução de consultas em vários espaços de trabalho ou a criação de pastas de trabalho para visualizar e monitorar dados de suas fontes de dados conectadas para obter informações. O IP, como consultas e guias estratégicos, permanece no seu locatário de gerenciamento, mas pode ser usado para executar o gerenciamento de segurança nos locatários do cliente.
 
 Este tópico fornece uma visão geral de como usar o [Azure Sentinel](../../sentinel/overview.md) de uma maneira escalonável para visibilidade entre locatários e serviços de segurança gerenciados.
+
+> [!TIP]
+> Embora possamos nos referimos a provedores de serviços e clientes neste tópico, essa orientação também se aplica a [empresas que usam o Azure Lighthouse para gerenciar vários locatários](../concepts/enterprise.md).
 
 ## <a name="architectural-considerations"></a>Considerações sobre arquitetura
 

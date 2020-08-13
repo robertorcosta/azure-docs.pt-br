@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 44a2c0c1b4bc9b4e6fc1247497640b261d1d0fa1
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 58936066abcbe4c3f9fcfad78bf914c74079aa95
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387907"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141781"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurar chaves gerenciadas pelo cliente no Azure Sentinel
 
@@ -90,7 +90,7 @@ Após obter aprovação, será pedido que você forneça as seguintes informaç�
 
 -  ID do workspace na qual você deseja habilitar o CMK
 
--  URL do Key Vault: Copie o “Identificador de chave” da chave até a última barra:  
+-  URL de Key Vault: Copie o "identificador de chave" da chave até a última barra:  
     
 
     ![identificador da chave](./media/customer-managed-keys/key-identifier.png)

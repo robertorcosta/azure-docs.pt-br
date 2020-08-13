@@ -1,14 +1,14 @@
 ---
 title: Ofertas de serviço gerenciado no Azure Marketplace
-description: As ofertas de serviço gerenciado permitem que os provedores de serviços vendam ofertas de gerenciamento de recursos para clientes no Azure Marketplace.
+description: As ofertas de serviço gerenciado permitem que você venda ofertas de gerenciamento de recursos para clientes no Azure Marketplace.
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4f3813b7e2adabe5caaf0c7a5cbe8b15ed084730
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 6c3047cd95128f689e75d9c1f5fba5a39f86291c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406853"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163315"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Ofertas de serviço gerenciado no Azure Marketplace
 
@@ -18,7 +18,7 @@ Este artigo descreve o tipo de oferta de **serviço gerenciado** no [Azure Marke
 
 O serviço gerenciado oferece simplificar o processo de integração de clientes com o Azure Lighthouse. Quando um cliente adquire uma oferta no Azure Marketplace, ele pode especificar quais assinaturas e/ou grupos de recursos devem ser integrados.
 
-Depois disso, os usuários em sua organização poderão trabalhar nesses recursos de dentro do locatário da sua organização por meio do [Gerenciamento de recursos delegado do Azure](azure-delegated-resource-management.md), de acordo com o acesso que você definiu ao criar a oferta. Isso é feito por meio de um manifesto que especifica os usuários do Azure Active Directory (Azure AD), os grupos e as entidades de serviço que terão acesso aos recursos do cliente, juntamente com as funções que definem seu nível de acesso. Ao atribuir permissões a um grupo do Azure AD em vez de uma série de contas individuais de usuário ou de aplicativo, é possível adicionar ou remover usuários individuais quando seus requisitos de acesso mudam.
+Depois disso, os usuários em sua organização poderão trabalhar nesses recursos em seu locatário de gerenciamento por meio do [Gerenciamento de recursos delegado do Azure](azure-delegated-resource-management.md), de acordo com o acesso que você definiu ao criar a oferta. Isso é feito por meio de um manifesto que especifica os usuários do Azure Active Directory (Azure AD), os grupos e as entidades de serviço que terão acesso aos recursos do cliente, juntamente com as funções que definem seu nível de acesso. Ao atribuir permissões a um grupo do Azure AD em vez de uma série de contas individuais de usuário ou de aplicativo, é possível adicionar ou remover usuários individuais quando seus requisitos de acesso mudam.
 
 ## <a name="public-and-private-offers"></a>Ofertas públicas e privadas
 

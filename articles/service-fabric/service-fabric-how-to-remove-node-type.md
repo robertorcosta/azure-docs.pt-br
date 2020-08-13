@@ -4,14 +4,14 @@ description: Saiba como remover um tipo de nó de um cluster do Service Fabric e
 author: inputoutputcode
 manager: sridmad
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 08/11/2020
 ms.author: chrpap
-ms.openlocfilehash: 6cc7cbcc8344c5015d60d9721c682b6a856cbb6e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ede999bee9ce1a4a9dd10652a2c52a840d5b24be
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247227"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163570"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Como remover um tipo de nó Service Fabric
 Este artigo descreve como dimensionar um cluster do Azure Service Fabric removendo um tipo de nó existente de um cluster. Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você usa para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Então, cada tipo de nó pode ser gerenciado separadamente. Depois de criar um cluster do Service Fabric, você pode dimensionar um cluster horizontalmente removendo um tipo de nó (conjunto de dimensionamento de máquinas virtuais) e todos os seus nós.  É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
@@ -59,7 +59,7 @@ Ao remover um tipo de nó que é Bronze, todos os nós no tipo de nó diminuem i
     - O cluster está íntegro.
     - Nenhum dos nós pertencentes ao tipo de nó são marcados como nó semente.
 
-4. Desabilite os dados para o tipo de nó.
+4. Desabilite cada nó no tipo de nó.
 
     Conecte-se ao cluster usando o PowerShell e, em seguida, execute a etapa a seguir.
     
@@ -98,8 +98,20 @@ Ao remover um tipo de nó que é Bronze, todos os nós no tipo de nó diminuem i
     ```
     
     Aguarde até que todos os nós do tipo de nó sejam marcados como inativos.
+
+6. Desalocar nós no conjunto de dimensionamento de máquinas virtuais original
     
-6. Remova os dados do tipo de nó.
+    Faça logon na assinatura do Azure em que o conjunto de dimensionamento foi implantado e remova o conjunto de dimensionamento de máquinas virtuais. 
+
+    ```powershell
+    $scaleSetName="myscaleset"
+    $scaleSetResourceType="Microsoft.Compute/virtualMachineScaleSets"
+    
+    Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceType -ResourceGroupName $resourceGroupName -Force
+    ```
+
+    
+7. Remova os dados do tipo de nó.
 
     Conecte-se ao cluster usando o PowerShell e, em seguida, execute a etapa a seguir.
     
@@ -117,7 +129,7 @@ Ao remover um tipo de nó que é Bronze, todos os nós no tipo de nó diminuem i
 
     Aguarde até que todos os nós sejam removidos do cluster. Os nós não devem ser exibidos em SFX.
 
-7. Remova o tipo de nó da seção Service Fabric.
+8. Remova o tipo de nó da seção Service Fabric.
 
     - Localize o modelo de Azure Resource Manager usado para implantação.
     - Localize a seção relacionada ao tipo de nó na seção Service Fabric.
@@ -165,7 +177,7 @@ Ao remover um tipo de nó que é Bronze, todos os nós no tipo de nó diminuem i
     Em seguida, valide isso:
     - Service Fabric recurso no portal mostra pronto.
 
-8. Remova todas as referências aos recursos relacionados ao tipo de nó.
+9. Remova todas as referências aos recursos relacionados ao tipo de nó do modelo ARM.
 
     - Localize o modelo de Azure Resource Manager usado para implantação.
     - Remova o conjunto de dimensionamento de máquinas virtuais e outros recursos relacionados ao tipo de nó do modelo.
@@ -173,6 +185,13 @@ Ao remover um tipo de nó que é Bronze, todos os nós no tipo de nó diminuem i
 
     Em seguida:
     - Aguarde a conclusão da implantação.
+    
+10. Remova os recursos relacionados ao tipo de nó que não estão mais em uso. Load Balancer de exemplo e IP público. 
+
+    - Para remover esses recursos, você pode usar o mesmo comando do PowerShell, conforme usado na etapa 6, especificando o tipo de recurso e a versão da API específicos. 
+
+> [!Note]
+> Essa etapa é opcional se o mesmo Load Balancer e o IP é reutilizado entre os tipos de nó.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre o cluster [características de durabilidade](./service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).

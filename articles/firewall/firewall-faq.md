@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: victorh
-ms.openlocfilehash: 1ba8977272817d41334ccf0d9ad01d4d751bfb17
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 1dc9521555f2eb158209b494e43fd815e6bab6e8
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041690"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141186"
 ---
 # <a name="azure-firewall-faq"></a>Perguntas frequentes do Firewall do Azure
 
@@ -95,8 +95,8 @@ Set-AzFirewall -AzureFirewall $azfw
 
 $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
-$publicip = Get-AzPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
-$azfw.Allocate($vnet,$publicip)
+$publicip = Get-AzPublicIpAddress -Name "Public IP Name" -ResourceGroupName "RG Name"
+$azfw.Allocate($vnet, $publicip)
 Set-AzFirewall -AzureFirewall $azfw
 ```
 
@@ -121,7 +121,7 @@ O Firewall do Azure não realiza SNAT (conversão de endereço de rede seguro) q
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>O túnel forçado/encadeamento é compatível com uma solução de virtualização da rede?
 
-O túnel forçado é compatível quando se cria um novo firewall. Não é possível configurar um firewall existente para túnel forçado. Para obter mais informações, confira [Túnel forçado do Firewall do Azure](forced-tunneling.md). 
+O túnel forçado é compatível quando se cria um novo firewall. Não é possível configurar um firewall existente para túnel forçado. Para obter mais informações, confira [Túnel forçado do Firewall do Azure](forced-tunneling.md).
 
 O Firewall do Azure deve ter conectividade direta com a Internet. Se seu AzureFirewallSubnet aprender uma rota padrão para sua rede local via BGP, você deve substituir isso por um UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta com a Internet.
 
@@ -194,7 +194,7 @@ $fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
 ## Or Update FQDNs and IpAddresses separately
 
 $fw = Get-AzFirewall -Name $firewallname -ResourceGroupName $RG
-$fw.ThreatIntelWhitelist.IpAddresses = @($fw.ThreatIntelWhitelist.IpAddresses + $ipaddresses )
+$fw.ThreatIntelWhitelist.IpAddresses = @($fw.ThreatIntelWhitelist.IpAddresses + $ipaddresses)
 $fw.ThreatIntelWhitelist.fqdns = @($fw.ThreatIntelWhitelist.fqdns + $fqdns)
 
 

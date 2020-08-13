@@ -1,24 +1,27 @@
 ---
 title: Azure Lighthouse e aplicativos gerenciados do Azure
-description: Azure Lighthouse e aplicativos gerenciados do Azure...
-ms.date: 05/01/2020
+description: Entenda como o Azure Lighthouse e os aplicativos gerenciados do Azure podem ajudar a habilitar cenários diferentes e como eles podem ser usados juntos.
+ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3e1477de18b24cf5099cd4479a82169e3ecada26
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 81ff61a6d1b7487d3da0643bac3987589de46c1e
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121598"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163417"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse e aplicativos gerenciados do Azure
 
 Os aplicativos gerenciados do Azure e o Azure Lighthouse funcionam habilitando um provedor de serviços para acessar os recursos que residem no locatário do cliente. Pode ser útil entender as diferenças no modo como funcionam e os cenários que eles ajudam a habilitar, além de como elas podem ser usadas juntas.
 
+> [!TIP]
+> Embora possamos nos referimos a provedores de serviços e clientes neste tópico, as [empresas que gerenciam vários locatários](enterprise.md) podem usar os mesmos processos e ferramentas.
+
 ## <a name="comparing-azure-lighthouse-and-azure-managed-applications"></a>Comparando o Azure Lighthouse e os aplicativos gerenciados do Azure
 
 ### <a name="azure-lighthouse"></a>Azure Lighthouse
 
-Com o [Azure Lighthouse](../overview.md), um provedor de serviços para executar uma ampla gama de tarefas de gerenciamento diretamente na assinatura de um cliente (ou grupo de recursos). Esse acesso é obtido por meio de uma projeção lógica, permitindo que os provedores de serviço entrem em seus próprios locatários e acessem os recursos que pertencem ao locatário do cliente. O cliente pode determinar quais assinaturas ou grupos de recursos delegar ao provedor de serviços, e o cliente mantém acesso completo a esses recursos. Eles também podem remover o acesso do provedor de serviços a qualquer momento.
+Com o [Azure Lighthouse](../overview.md), um provedor de serviços pode executar uma ampla gama de tarefas de gerenciamento diretamente na assinatura de um cliente (ou grupo de recursos). Esse acesso é obtido por meio de uma projeção lógica, permitindo que os provedores de serviço entrem em seus próprios locatários e acessem os recursos que pertencem ao locatário do cliente. O cliente pode determinar quais assinaturas ou grupos de recursos delegar ao provedor de serviços, e o cliente mantém acesso completo a esses recursos. Eles também podem remover o acesso do provedor de serviços a qualquer momento.
 
 Para usar o Azure Lighthouse, os clientes são integrados ao [Gerenciamento de recursos delegado do Azure](azure-delegated-resource-management.md) [implantando modelos de ARM](../how-to/onboard-customer.md) ou por meio de uma [oferta de serviço gerenciado no Azure Marketplace](managed-services-offers.md). Você pode acompanhar seu impacto nos compromissos do cliente [vinculando sua ID de parceiro](../../cost-management-billing/manage/link-partner-id.md).
 
