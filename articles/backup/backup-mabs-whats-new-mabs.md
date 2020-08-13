@@ -3,12 +3,12 @@ title: O que há de novo no Servidor de Backup do Azure
 description: O Servidor de Backup do Azure oferece recursos avançados de backup para proteger VMs, arquivos e pastas, cargas de trabalho e muito mais.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: d9d04d9f763549ce15e57f768432cd933cf1414c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a3ff38d9371ee9b95666ce638d0a6dc4b8822e20
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032435"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190837"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>O que há de novo no Backup do Microsoft Azure Server (MABS)
 
@@ -25,7 +25,7 @@ O MABS v2 apresentou [armazenamento de backup moderno](backup-mabs-add-storage.m
 
 Para obter a escala e o desempenho por MBS, é recomendável usar uma porcentagem pequena (4% do armazenamento geral) do SSD (armazenamento de flash) com o MABS v3 UR1 como um volume em camadas em combinação com o armazenamento de HDD do DPM. O MABS v3 UR1 com armazenamento em camadas fornece backups de 50-70% mais rápidos. Consulte o artigo do DPM [Configurar MBS com armazenamento em camadas](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) para obter as etapas para configurar o armazenamento em camadas.
 
-### <a name="support-for-refs-volumes-and-refs-volumes-with-deduplication-enabled"></a>Suporte para volumes ReFS e volumes ReFS com eliminação de duplicação habilitada
+### <a name="support-for-refs-volumes"></a>Suporte para volumes ReFS
 
 Com o MABS v3 UR1, você pode fazer backup dos volumes ReFS e das cargas de trabalho implantadas no volume ReFS. Você pode fazer backup das seguintes cargas de trabalho implantadas nos volumes ReFS:
 
@@ -36,6 +36,8 @@ Com o MABS v3 UR1, você pode fazer backup dos volumes ReFS e das cargas de trab
 
 >[!NOTE]
 > Há suporte para o backup de VMs do Hyper-V armazenadas em um volume ReFS com o MABS v3
+
+>FUNDAMENTAL Identificamos alguns problemas com o backup de volumes ReFS com eliminação de duplicação. Estamos trabalhando para corrigi-los e atualizaremos esta seção assim que tivermos uma correção disponível. Até lá, estamos removendo o suporte para backup de volumes ReFS com eliminação de duplicação de MABSv3 UR1.
 
 ### <a name="azure-vmware-solution-protection-support"></a>Suporte à proteção da solução Azure VMware
 

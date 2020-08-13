@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: 034e72238375750651a1374a94b844d36fd97d03
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: caad034c2cc3403bc88ee5f50d101702ec692c35
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166443"
+ms.locfileid: "88192248"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -67,7 +67,7 @@ Se você tiver scripts, consultas ou automaçãos referentes às recomendações
 
 |Política|Escopo|
 |----|:----|
-|**A avaliação de vulnerabilidade deve ser habilitada em máquinas virtuais**<br>ID da política: 501541f7-f7e7-4cd6-868C-4190fdad3ac9|Interno|
+|**A avaliação de vulnerabilidades deve estar habilitada nas máquinas virtuais**<br>ID da política: 501541f7-f7e7-4cd6-868C-4190fdad3ac9|Interno|
 |**Vulnerabilidades devem ser corrigidas por uma solução de avaliação de vulnerabilidade**<br>ID da política: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
 ||||
 

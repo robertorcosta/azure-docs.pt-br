@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 95e9b208159e9af41563f12ce8af7892e13f6629
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1a5f7dcd37a970d5e039ebc38f1059839424ff68
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121843"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192035"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
@@ -33,8 +33,8 @@ O API de Análise de Texto é atualizado em uma base contínua. Para se manter a
 
 As atualizações a seguir são específicas para a versão de agosto do Análise de Texto apenas para o contêiner de integridade.
 
-* Nova versão de modelo para Análise de Texto para integridade:`2020-07-24`
-* Nova URL para enviar Análise de Texto para solicitações de integridade:`http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` 
+* Nova versão de modelo para Análise de Texto para integridade: `2020-07-24`
+* Nova URL para enviar Análise de Texto para solicitações de integridade: `http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` (Observe que uma limpeza de cache do navegador será necessária para usar o aplicativo Web de demonstração incluído nesta nova imagem de contêiner)
 
 As seguintes propriedades na resposta JSON foram alteradas:
 
@@ -44,7 +44,7 @@ As seguintes propriedades na resposta JSON foram alteradas:
     * `EXAMINATION_RELATION` foi renomeado para `RelationalOperator`.
     * `EXAMINATION_UNIT` foi renomeado para `MeasurementUnit`.
     * `EXAMINATION_VALUE` foi renomeado para `MeasurementValue`.
-    * `ROUTE_OR_MODE`foi renomeado `MedicationRoute` .
+    * `ROUTE_OR_MODE` foi renomeado `MedicationRoute` .
     * A entidade relacional foi `ROUTE_OR_MODE_OF_MEDICATION` renomeada para `RouteOfMedication` .
 
 As seguintes entidades foram adicionadas:
@@ -82,7 +82,7 @@ O contêiner oferece os seguintes recursos:
 
 A API de análise de texto v3 já está disponível para o público geral com as seguintes atualizações:
 
-* Versão do modelo`2020-04-01`
+* Versão do modelo `2020-04-01`
 * Novos [limites de dados](concepts/data-limits.md) para cada recurso
 * [Suporte de idioma](language-support.md) atualizado para o [análise de sentimento (SA) v3](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * Ponto de extremidade separado para vinculação de entidade 
@@ -98,13 +98,13 @@ A API de análise de texto v3 já está disponível para o público geral com as
    * Evento-esportes
 
 As seguintes propriedades na resposta JSON foram adicionadas:
-   * `SentenceText`em Análise de Sentimento
-   * `Warnings`para cada documento 
+   * `SentenceText` em Análise de Sentimento
+   * `Warnings` para cada documento 
 
 Os nomes das seguintes propriedades na resposta JSON foram alterados, quando aplicável:
 
 * `score` foi renomeado para `confidenceScore`
-    * `confidenceScore`tem dois pontos decimais de precisão. 
+    * `confidenceScore` tem dois pontos decimais de precisão. 
 * `type` foi renomeado para `category`
 * `subtype` foi renomeado para `subcategory`
 

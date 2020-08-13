@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 ms.date: 08/12/2020
-ms.openlocfilehash: faef8c29b2a5e75745e36c5d826b4feee2d60a98
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e1a5cb4a5ce02954a14a6936ec14379701354a79
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88169112"
+ms.locfileid: "88191189"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manual iniciado pelo usuário no SQL Instância Gerenciada
 
@@ -31,6 +31,9 @@ Você pode considerar a execução de um [failover manual](../database/high-avai
 - Testar como o failover afeta as sessões de banco de dados existentes
 - Verificar se um failover muda de desempenho de ponta a ponta devido a alterações na latência de rede
 - Em alguns casos de degradações de desempenho de consulta, o failover manual pode ajudar a mitigar o problema de desempenho.
+
+> [!NOTE]
+> Garantir que seus aplicativos sejam resistentes a failover antes da implantação na produção ajudará a reduzir o risco de falhas de aplicativo na produção e contribuirá para a disponibilidade do aplicativo para seus clientes.
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Iniciar o failover manual no SQL Instância Gerenciada
 

@@ -1,6 +1,6 @@
 ---
 title: Noções básicas sobre a cobrança da Rede de Distribuição de Conteúdo do Azure
-description: Essas Perguntas Frequentes descrevem como a cobrança do Rede de Distribuição de Conteúdo do Azure funciona.
+description: Saiba mais sobre a estrutura de cobrança para o conteúdo hospedado pela rede de distribuição de conteúdo do Azure, incluindo regiões de cobrança, encargos de entrega e para gerenciar custos.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
-ms.openlocfilehash: f3240151937a8ad758e4afe765341261069fd60e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd6b4831b29a99ed6694f75e64202f339385b7ea
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254558"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191155"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Noções básicas sobre a cobrança da rede de distribuição de conteúdo do Azure
 
@@ -116,7 +116,7 @@ Se você usar um dos seguintes serviços do Azure como sua origem de CDN, não s
 - Azure Machine Learning 
 - Banco de Dados SQL do Azure
 - Instância Gerenciada do Azure SQL
-- Cache Redis do Azure
+- Cache do Azure para Redis
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>Como gerencio meus custos com mais eficiência?
 Defina a vida útil mais longa possível em seu conteúdo. 

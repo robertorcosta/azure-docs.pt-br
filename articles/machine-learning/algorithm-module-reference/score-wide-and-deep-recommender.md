@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/12/2020
-ms.openlocfilehash: df723824b2d80694913e32904ed81972381c5bcb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/12/2020
+ms.openlocfilehash: 43dca9cd9f9000faae701e618e9a5fdf21d31ee3
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536208"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192742"
 ---
 # <a name="score-wide-and-deep-recommender"></a>Pontuar o sistema de recomendação grande e profundo
 
@@ -33,7 +33,7 @@ Ao criar o último tipo de previsões, você pode operar no modo de *produção*
 
 - O **modo de avaliação** opera em um conjunto reduzido de usuários ou itens que podem ser avaliados e normalmente é usado durante a experimentação.
 
-Mais detalhes sobre o recomendador amplo e profundo e sua teoria subjacente podem ser encontrados no documento de pesquisa relevante: [Wide & Learning profundo para sistemas de recomendação](https://arxiv.org/pdf/1606.07792.pdf).  
+Mais detalhes sobre o recomendador amplo e profundo e sua teoria subjacente podem ser encontrados no documento de pesquisa relevante:  [Wide & Learning profundo para sistemas de recomendação](https://arxiv.org/pdf/1606.07792.pdf).  
 
 ## <a name="how-to-configure-score-wide-and-deep-recommender"></a>Como configurar a pontuação de largura e de recomendação profunda
 
@@ -147,9 +147,6 @@ O conjunto de pontos de Pontuação retornado pelo **recomendável de Pontuaçã
 
 - A primeira coluna contém os identificadores de usuário.
 - Várias colunas adicionais são geradas, dependendo do valor definido para o **número máximo de itens a ser recomendado para um usuário**. Cada coluna contém um item recomendado (por identificador). As recomendações são ordenadas por afinidade de usuário-item, com o item com a afinidade mais alta colocada na coluna, **Item 1**.
-
-> [!WARNING]
-> Este conjunto de classificação não pode ser avaliado usando o módulo [avaliar recomendador](evaluate-recommender.md) .
 
 ##  <a name="technical-notes"></a>Observações técnicas
 

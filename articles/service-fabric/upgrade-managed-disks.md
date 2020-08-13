@@ -3,12 +3,12 @@ title: Atualizar nós de cluster para usar o Azure Managed disks
 description: Veja como atualizar um cluster de Service Fabric existente para usar o Azure Managed disks com pouco ou nenhum tempo de inatividade do cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 10863626945483e21aa264e2b05e94a6f08a22f6
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 1ca85af86df28691e2194c40e1cdde1abd7c8a4d
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542834"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192307"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Atualizar nós de cluster para usar o Azure Managed disks
 
@@ -24,10 +24,13 @@ A estratégia geral para atualizar um Service Fabric nó de cluster para usar di
 
 Este artigo orientará você pelas etapas de atualização do tipo de nó primário de um cluster de exemplo para usar discos gerenciados, ao mesmo tempo em que evita qualquer tempo de inatividade do cluster (consulte a observação abaixo). O estado inicial do exemplo de cluster de teste consiste em um tipo de nó de [durabilidade prateada](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), apoiado por um único conjunto de dimensionamento com cinco nós.
 
+> [!NOTE]
+> As limitações de um balanceador de carga de SKU básico impedem que um conjunto de dimensionamento adicional seja adicionado. É recomendável usar o balanceador de carga SKU padrão em vez disso. Para obter mais informações, consulte [uma comparação entre as duas SKUs](/azure/load-balancer/skus).
+
 > [!CAUTION]
 > Você terá uma interrupção com esse procedimento somente se tiver dependências no DNS do cluster (por exemplo, ao acessar [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). A [prática recomendada de arquitetura para serviços de front-end](/azure/architecture/microservices/design/gateway) é ter algum tipo de [balanceador de carga](/azure/architecture/guide/technology-choices/load-balancing-overview) na frente de seus tipos de nó para tornar a troca de nó possível sem uma interrupção.
 
-Aqui estão os [modelos e cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) para Azure Resource Manager que usaremos para concluir o cenário de atualização. As alterações no modelo serão explicadas em [implantar um conjunto de dimensionamento atualizado para o tipo de nó primário](#deploy-an-upgraded-scale-set-for-the-primary-node-type) abaixo.
+Aqui estão os [modelos e cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) para Azure Resource Manager que usaremos para concluir o cenário de atualização. As alterações no modelo serão explicadas em [implantar um conjunto de dimensionamento atualizado para o tipo de nó primário](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  abaixo.
 
 ## <a name="set-up-the-test-cluster"></a>Configurar o cluster de teste
 
@@ -165,7 +168,7 @@ Aqui estão as modificações seção a seção do modelo de implantação de cl
 
 #### <a name="parameters"></a>Parâmetros
 
-Adicione um parâmetro para o nome da instância do novo conjunto de dimensionamento. Observe que `vmNodeType1Name` é exclusivo para o novo conjunto de dimensionamento, enquanto os valores de contagem e tamanho são idênticos ao conjunto de dimensionamento original.
+Adicione parâmetros para o nome da instância, a contagem e o tamanho do novo conjunto de dimensionamento. Observe que `vmNodeType1Name` é exclusivo para o novo conjunto de dimensionamento, enquanto os valores de contagem e tamanho são idênticos ao conjunto de dimensionamento original.
 
 **Arquivo de modelo**
 
@@ -174,7 +177,18 @@ Adicione um parâmetro para o nome da instância do novo conjunto de dimensionam
     "type": "string",
     "defaultValue": "NTvm2",
     "maxLength": 9
-}
+},
+"nt1InstanceCount": {
+    "type": "int",
+    "defaultValue": 5,
+    "metadata": {
+        "description": "Instance count for node type"
+    }
+},
+"vmNodeType1Size": {
+    "type": "string",
+    "defaultValue": "Standard_D2_v2"
+},
 ```
 
 **Arquivo de parâmetros**
@@ -182,6 +196,12 @@ Adicione um parâmetro para o nome da instância do novo conjunto de dimensionam
 ```json
 "vmNodeType1Name": {
     "value": "NTvm2"
+},
+"nt1InstanceCount": {
+    "value": 5
+},
+"vmNodeType1Size": {
+    "value": "Standard_D2_v2"
 }
 ```
 
@@ -199,13 +219,13 @@ Na seção modelo de implantação `variables` , adicione uma entrada para o poo
 
 Na seção *recursos* do modelo de implantação, adicione o novo conjunto de dimensionamento de máquinas virtuais, tendo em mente estas coisas:
 
-* O novo conjunto de dimensionamento faz referência ao novo tipo de nó:
+* O novo conjunto de dimensionamento faz referência ao mesmo tipo de nó que o original:
 
     ```json
-    "nodeTypeRef": "[parameters('vmNodeType1Name')]",
+    "nodeTypeRef": "[parameters('vmNodeType0Name')]",
     ```
 
-* O novo conjunto de dimensionamento faz referência ao mesmo endereço de back-end do balanceador de carga e à sub-rede que o original, mas usa um pool NAT de entrada do balanceador de carga diferente:
+* O novo conjunto de dimensionamento faz referência ao mesmo endereço e sub-rede de back-end do balanceador de carga (mas usa um pool NAT de entrada do balanceador de carga diferente):
 
    ```json
     "loadBalancerBackendAddressPools": [
@@ -236,33 +256,6 @@ Na seção *recursos* do modelo de implantação, adicione o novo conjunto de di
         "storageAccountType": "[parameters('storageAccountType')]"
     }
     ```
-
-Em seguida, adicione uma entrada à `nodeTypes` lista do recurso *Microsoft. perfabric/clusters* . Use os mesmos valores que a entrada de tipo de nó original, exceto para o `name` , que deve referenciar o novo tipo de nó (*vmNodeType1Name*).
-
-```json
-"nodeTypes": [
-    {
-        "name": "[parameters('vmNodeType0Name')]",
-        ...
-    },
-    {
-        "name": "[parameters('vmNodeType1Name')]",
-        "applicationPorts": {
-            "endPort": "[parameters('nt0applicationEndPort')]",
-            "startPort": "[parameters('nt0applicationStartPort')]"
-        },
-        "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
-        "durabilityLevel": "Silver",
-        "ephemeralPorts": {
-            "endPort": "[parameters('nt0ephemeralEndPort')]",
-            "startPort": "[parameters('nt0ephemeralStartPort')]"
-        },
-        "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
-        "isPrimary": true,
-        "vmInstanceCount": "[parameters('nt0InstanceCount')]"
-    }
-],
-```
 
 Depois de implementar todas as alterações em seus arquivos de modelo e de parâmetros, vá para a próxima seção para adquirir suas referências de Key Vault e implantar as atualizações no cluster.
 

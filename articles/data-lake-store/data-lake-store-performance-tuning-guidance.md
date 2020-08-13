@@ -1,17 +1,17 @@
 ---
 title: Ajuste de Azure Data Lake Storage Gen1 desempenho
-description: Descreve como ajustar Azure Data Lake Storage Gen1 para desempenho.
+description: Saiba como usar toda a taxa de transferência disponível em Azure Data Lake Storage Gen1 é importante para obter o melhor desempenho executando tantos leituras e gravações em paralelo possível.
 author: stewu
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 6b6dba101c7793198fe9d1e2bef1bcd99ddac618
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d18440b27d9429a2638a58be40e1ec583b9a85ad
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281728"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190244"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Ajustar Azure Data Lake Storage Gen1 para desempenho
 

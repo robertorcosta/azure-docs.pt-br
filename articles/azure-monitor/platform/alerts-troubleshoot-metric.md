@@ -4,14 +4,14 @@ description: Problemas comuns com Azure Monitor alertas de métrica e possíveis
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 08/09/2020
+ms.date: 08/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: c6b7d1fb28e81957ded56662a06946e56c3dc00e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1c1fe613721ea2bc2d4b9665d6da73b094487efc
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114890"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190667"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solucionando problemas em alertas de métrica Azure Monitor 
 
@@ -130,9 +130,9 @@ Para evitar a falha da implantação ao tentar validar as definições da métri
         }
 ```
 
-## <a name="export-the-arm-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exportar o modelo ARM de uma regra de alerta de métrica por meio do portal do Azure
+## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exportar o modelo de Azure Resource Manager de uma regra de alerta de métrica por meio do portal do Azure
 
-Exportar o modelo ARM de uma regra de alerta de métrica ajuda a entender sua sintaxe e propriedades JSON e pode ser usado para automatizar implantações futuras.
+Exportar o modelo do Resource Manager de uma regra de alerta de métrica ajuda a entender sua sintaxe e propriedades JSON e pode ser usado para automatizar implantações futuras.
 1. Navegue até a seção **grupos de recursos** no portal e selecione o grupo de recursos que contém a regra.
 2. Na seção visão geral, marque a caixa de seleção **Mostrar tipos ocultos** .
 3. No filtro de **tipo** , selecione *Microsoft. insights/metricalerts*.
@@ -207,7 +207,7 @@ Verifique se você está usando os comandos da CLI corretos para alertas de mét
 
    - Para uma métrica de plataforma: Verifique se você está usando o nome da **métrica** na [página Azure monitor métricas com suporte](./metrics-supported.md)e não o **nome de exibição da métrica**
 
-   - Para uma métrica personalizada: Verifique se a métrica já está sendo emitida (não é possível criar uma regra de alerta em uma métrica personalizada que ainda não exista) e que você está fornecendo o namespace da métrica personalizada (consulte um exemplo de modelo ARM [aqui](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
+   - Para uma métrica personalizada: Verifique se a métrica já está sendo emitida (não é possível criar uma regra de alerta em uma métrica personalizada que ainda não exista) e que você está fornecendo o namespace da métrica personalizada (consulte um exemplo de modelo do Resource Manager [aqui](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
 
 - Se você estiver criando [alertas de métricas em logs](./alerts-metric-logs.md), verifique se as dependências apropriadas estão incluídas. Confira o [modelo de exemplo](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
@@ -245,7 +245,7 @@ Considere as seguintes restrições ao usar dimensões em uma regra de alerta qu
 - Você só pode selecionar um valor por dimensão dentro de cada condição.
 - Você não pode usar a opção "selecionar todos os valores atuais e futuros" (selecione \* ).
 - Quando as métricas que são configuradas em condições diferentes dão suporte à mesma dimensão, um valor de dimensão configurado deve ser definido explicitamente da mesma forma para todas essas métricas (nas condições relevantes).
-Por exemplo:
+Por exemplo: 
     - Considere uma regra de alerta de métrica que é definida em uma conta de armazenamento e monitora duas condições:
         * Total de **transações** > 5
         * Média de **SuccessE2ELatency** > 250 MS

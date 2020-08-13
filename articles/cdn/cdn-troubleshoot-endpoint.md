@@ -1,6 +1,6 @@
 ---
 title: Solucionando problemas de pontos de extremidade da CDN do Azure-código de status 404
-description: Solucione problemas nos códigos de resposta 404 com pontos de extremidade da CDN do Azure.
+description: Saiba como solucionar problemas com pontos de extremidade de rede de distribuição de conteúdo do Azure que retornam códigos de status de resposta HTTP 404.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 6476993627708670a210cce50072f1b183d90a8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6ad0b8b37bd4f04c22ed52d4ac6717202f22889
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888674"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192483"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Solucionando problemas dos pontos de extremidade do Azure CDN que retornam o código de status 404
 Este artigo permite que você solucione problemas com pontos de extremidade de Rede de Distribuição de Conteúdo (CDN) do Microsoft Azure que retornam códigos de status de resposta HTTP 404.
@@ -51,7 +51,7 @@ Há várias causas possíveis, incluindo:
 ### <a name="check-the-origin-file"></a>Verificar o arquivo de origem
 Primeiro, verifique se o arquivo para cache está disponível no servidor de origem e está acessível publicamente na internet. A maneira mais rápida de fazer isso é abrir um navegador em uma sessão privada ou anônima e navegar diretamente até o arquivo. Digite ou cole a URL na caixa de endereço e verifique se isso resulta no arquivo esperado. Por exemplo, suponha que você tem um arquivo em uma conta de Armazenamento do Azure, acessível em https:\//cdndocdemo.blob.core.windows.net/publicblob/lorem.txt. Se você consegue carregar com êxito o conteúdo desse arquivo, ele está aprovado no teste.
 
-![Êxito!](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
+![Sucesso!](./media/cdn-troubleshoot-endpoint/cdn-origin-file.png)
 
 > [!WARNING]
 > Embora essa seja a maneira mais rápida e fácil de verificar se o arquivo está disponível publicamente, algumas configurações de rede em sua organização poderiam dar a impressão de que um arquivo está publicamente disponível quando, na verdade, só está visível para os usuários de sua rede (mesmo que ele esteja hospedado no Azure). Para garantir que este não seja o caso, teste o arquivo com um navegador externo, como um dispositivo móvel que não está conectado à rede de sua organização ou uma máquina virtual no Azure.

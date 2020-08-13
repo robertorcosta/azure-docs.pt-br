@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 08/12/2020
-ms.openlocfilehash: 33521a5aed38cacbc7ce87b4a2a917ade866e378
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 62dfa3214b86139a8f836b3d9bd72585653b7fa2
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142427"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189944"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para o banco de dados SQL do Azure e o SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -117,4 +117,5 @@ O banco de dados SQL do Azure e o Azure SQL Instância Gerenciada apresentam uma
 - Saiba mais sobre as [Zonas de Disponibilidade do Azure](../../availability-zones/az-overview.md)
 - Saiba mais sobre o [Service Fabric](../../service-fabric/service-fabric-overview.md)
 - Saiba mais sobre o [Gerenciador de Tráfego do Microsoft Azure](../../traffic-manager/traffic-manager-overview.md)
+- Saiba [como iniciar um failover manual no SQL instância gerenciada](../managed-instance/user-initiated-failover.md)
 - Para obter mais opções de alta disponibilidade e recuperação de desastres, consulte [Continuidade de negócios](business-continuity-high-availability-disaster-recover-hadr-overview.md)

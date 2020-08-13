@@ -1,14 +1,14 @@
 ---
 title: Práticas recomendadas
 description: Conheça as melhores práticas e dicas úteis para desenvolver sua solução de Lote do Azure.
-ms.date: 07/30/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 535deebd0ba683d9387408ad081d165a504c91d1
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 8f557403426fe4e37287acb681c91069e90fb926
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87474896"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191805"
 ---
 # <a name="azure-batch-best-practices"></a>Melhores práticas do Lote do Azure
 
@@ -56,6 +56,10 @@ As falhas de alocação de pool podem ocorrer a qualquer momento durante a prime
 É possível que os pools do Lote tenham eventos de tempo de inatividade no Azure. Tenha isso em mente ao planejar e desenvolver seu cenário ou fluxo de trabalho para o Lote.
 
 No caso de um nó falhar, o Lote tentará recuperar automaticamente esses nós de computação em seu nome. Isso pode disparar o reagendamento de qualquer tarefa em execução no nó recuperado. Consulte [Criação de repetições](#design-for-retries-and-re-execution) para saber mais sobre as tarefas interrompidas.
+
+### <a name="custom-image-pools"></a>Pools de imagens personalizadas
+
+Ao criar um pool no Lote do Azure usando a Configuração de Máquina Virtual, você especifica uma imagem de VM que fornece o sistema operacional para cada nó de computação no pool. Você pode criar o pool com uma imagem do Azure Marketplace com suporte ou pode [criar uma imagem personalizada com uma imagem da Galeria de imagens compartilhada](batch-sig-images.md). Embora você também possa usar uma [imagem gerenciada](batch-custom-images.md) para criar um pool de imagens personalizado, é recomendável criar imagens personalizadas usando a Galeria de imagens compartilhadas sempre que possível. O uso da Galeria de imagens compartilhadas ajuda você a provisionar pools mais rapidamente, dimensionar quantidades maiores de VMs e melhorar a confiabilidade ao provisionar VMs.
 
 ### <a name="third-party-images"></a>Imagens de terceiros
 

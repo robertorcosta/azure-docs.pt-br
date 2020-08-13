@@ -1,6 +1,6 @@
 ---
 title: Visão geral do controle de acesso no Data Lake Storage Gen1 | Microsoft Docs
-description: Compreenda como o controle de acesso funciona no Azure Data Lake Storage Gen1
+description: Saiba mais sobre os conceitos básicos do modelo de controle de acesso de Azure Data Lake Storage Gen1, que deriva do HDFS.
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11629338a808ae0f83ac513b6475dce7a53814da
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847820"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190161"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controle de acesso no Azure Data Lake Storage Gen1
 
@@ -297,6 +297,6 @@ Não, mas ACLs padrão pode ser usado para definir as ACLs de arquivos filho e r
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL usando listas de controle de acesso no Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)

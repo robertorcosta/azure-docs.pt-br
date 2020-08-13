@@ -3,20 +3,20 @@ title: Problemas conhecidos e soluções
 titleSuffix: Azure Machine Learning
 description: Obtenha ajuda para localizar e corrigir erros ou falhas no Azure Machine Learning. Saiba mais sobre problemas conhecidos, solução de problemas e soluções alternativas.
 services: machine-learning
-author: j-martens
-ms.author: jmartens
+author: likebupt
+ms.author: keli19
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 08/06/2020
-ms.openlocfilehash: 17d6137dd243c3bce011a1841ea9bca64e0b64ba
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.date: 08/13/2020
+ms.openlocfilehash: 71457be4e572a0e04dfffd0689bfbd458f7c2622
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120755"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190507"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conhecidos e solução de problemas no Azure Machine Learning
 
@@ -169,7 +169,7 @@ Para obter mais informações sobre solução de problemas, consulte [próximas 
   * Chrome (última versão)
   * Firefox (última versão)
 
-## <a name="set-up-your-environment"></a>Configure seu ambiente
+## <a name="set-up-your-environment"></a>Configurar seu ambiente
 
 * **Problemas ao criar AmlCompute**: há uma chance rara de que alguns usuários que criaram seu espaço de trabalho Azure Machine Learning do portal do Azure antes da versão GA talvez não possam criar AmlCompute nesse espaço de trabalho. Você pode gerar uma solicitação de suporte em relação ao serviço ou criar um novo espaço de trabalho por meio do portal ou do SDK para desbloquear-se imediatamente.
 
@@ -203,7 +203,7 @@ Se você estiver usando o compartilhamento de arquivos para outras cargas de tra
 |Ao revisar imagens, as imagens rotuladas recentemente não são mostradas.     |   Para carregar todas as imagens rotuladas, escolha o **primeiro** botão. O **primeiro** botão o levará de volta à frente da lista, mas carregará todos os dados rotulados.      |
 |Pressionar a tecla ESC enquanto rotular para detecção de objeto cria um rótulo de tamanho zero no canto superior esquerdo. O envio de rótulos nesse estado falha.     |   Exclua o rótulo clicando na marca de cruz ao lado dele.  |
 
-### <a name="data-drift-monitors"></a><a name="data-drift"></a>Monitores de descompasso de dados
+### <a name="data-drift-monitors"></a><a name="data-drift"></a> Monitores de descompasso de dados
 
 Limitações e problemas conhecidos para monitores de descompasso de dados:
 
@@ -248,6 +248,27 @@ No coletor de dados de modelo, pode levar até (mas geralmente menos de) 10 minu
 ```python
 import time
 time.sleep(600)
+```
+
+* **Log para pontos de extremidade em tempo real:**
+
+Os logs de pontos de extremidade em tempo real são dados do cliente. Para solução de problemas de ponto de extremidade em tempo real, você pode usar o código a seguir para habilitar logs. 
+
+Veja mais detalhes sobre como monitorar pontos de extremidade de serviço Web neste [artigo](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights#query-logs-for-deployed-models).
+
+```python
+from azureml.core import Workspace
+from azureml.core.webservice import Webservice
+
+ws = Workspace.from_config()
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+Se você tiver vários locatários, talvez seja necessário adicionar o seguinte código de autenticação antes `ws = Workspace.from_config()`
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in which your workspace resides")
 ```
 
 ## <a name="train-models"></a>Treinar modelos
@@ -306,11 +327,11 @@ time.sleep(600)
     * No Windows, execute automl_setup de um prompt do Anaconda. Para instalar o Miniconda, clique [aqui](https://docs.conda.io/en/latest/miniconda.html).
     * Verifique se o Conda 64-bit está instalado, em vez de 32 bits executando o `conda info` comando. O `platform` deve ser `win-64` para Windows ou `osx-64` para Mac.
     * Verifique se o Conda 4.4.10 ou posterior está instalado. Você pode verificar a versão com o comando `conda -V` . Se você tiver uma versão anterior instalada, poderá atualizá-la usando o comando: `conda update conda` .
-    * Linux`gcc: error trying to exec 'cc1plus'`
+    * Linux `gcc: error trying to exec 'cc1plus'`
       *  Se o `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` erro for encontrado, instale o princípios de Build usando o comando de uso `sudo apt-get install build-essential` .
       * Passe um novo nome como o primeiro parâmetro para automl_setup para criar um novo ambiente Conda. Exibir ambientes Conda existentes usando `conda env list` e removê-los com o `conda env remove -n <environmentname>` .
       
-* **automl_setup_linux. sh falhará**: se automl_setup_linus. sh falhar em Ubuntu Linux com o erro:`unable to execute 'gcc': No such file or directory`-
+* **automl_setup_linux. sh falhará**: se automl_setup_linus. sh falhar em Ubuntu Linux com o erro: `unable to execute 'gcc': No such file or directory`-
   1. Verifique se as portas de saída 53 e 80 estão habilitadas. Em uma VM do Azure, você pode fazer isso no portal do Azure selecionando a VM e clicando em rede.
   2. Execute o comando: `sudo apt-get update`
   3. Execute o comando: `sudo apt-get install build-essential --fix-missing`
@@ -329,7 +350,7 @@ time.sleep(600)
   1. Verifique se o bloco de anotações Configuration. ipynb foi executado com êxito.
   2. Se o bloco de anotações estiver sendo executado de uma pasta que não está sob a pasta em que o `configuration.ipynb` foi executado, copie a pasta aml_config e o config.jsde arquivo que ele contém para a nova pasta. Espaço de trabalho. from_config lê o config.jsem para a pasta do bloco de anotações ou sua pasta pai.
   3. Se uma nova assinatura, um grupo de recursos, um espaço de trabalho ou uma região estiver sendo usada, certifique-se de executar o `configuration.ipynb` bloco de anotações novamente. Alterar config.jsdiretamente só funcionará se o espaço de trabalho já existir no grupo de recursos especificado na assinatura especificada.
-  4. Se você quiser alterar a região, altere o espaço de trabalho, o grupo de recursos ou a assinatura. `Workspace.create`não criará ou atualizará um espaço de trabalho se ele já existir, mesmo se a região especificada for diferente.
+  4. Se você quiser alterar a região, altere o espaço de trabalho, o grupo de recursos ou a assinatura. `Workspace.create` não criará ou atualizará um espaço de trabalho se ele já existir, mesmo se a região especificada for diferente.
   
 * **Falha no bloco de anotações de exemplo**: se um bloco de anotações de exemplo falhar com um erro de que a prepert, o método ou a biblioteca não existe:
   * Verifique se o kernel correctcorrect foi selecionado no notebook jupyter. O kernel é exibido no canto superior direito da página do bloco de anotações. O padrão é azure_automl. Observe que o kernel é salvo como parte do bloco de anotações. Portanto, se você alternar para um novo ambiente Conda, terá que selecionar o novo kernel no bloco de anotações.

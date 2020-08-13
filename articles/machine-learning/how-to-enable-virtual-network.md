@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 16065b45a6afea25615b985d3c89445dee48bd1d
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 947f7afba6a8b40e9b1c71ac817239dd039539f7
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167718"
+ms.locfileid: "88192409"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento de rede durante o treinamento & inferência com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,6 +32,13 @@ Uma __rede virtual__ atua como um limite de segurança, isolando os recursos do 
 + Conhecimento geral de trabalho do [serviço da rede virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) e de [rede IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm).
 
 + Rede e sub-rede virtuais pré-existentes para usar com os recursos de computação.
+
++ Para implantar recursos em uma rede virtual ou sub-rede, sua conta de usuário deve ter permissões para as seguintes ações nos controles de acesso baseado em função (RBAC) do Azure:
+
+    - "Microsoft. Network/virtualNetworks/Join/Action" no recurso de rede virtual.
+    - "Microsoft. Network/virtualNetworks/sub-rede/junção/ação" no recurso de sub-rede.
+
+    Para obter mais informações sobre o RBAC com rede, consulte [funções internas de rede](/azure/role-based-access-control/built-in-roles#networking)
 
 ## <a name="private-endpoints"></a>Pontos de extremidade privados
 
@@ -79,7 +86,7 @@ O estúdio dá suporte à leitura de dados dos seguintes tipos de repositório d
 * Blob do Azure
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* Banco de Dados do SQL Azure
+* Banco de Dados SQL do Azure
 
 ### <a name="add-resources-to-the-virtual-network"></a>Adicionar recursos à rede virtual 
 
@@ -97,7 +104,7 @@ Depois de adicionar seu espaço de trabalho e a conta de serviço de armazenamen
 
 1. Para criar um novo repositório de armazenamento, selecione __+ novo repositório de armazenamento__. Para atualizar um existente, selecione o repositório de armazenamento e selecione __Atualizar credenciais__.
 
-1. Nas configurações do repositório de armazenamento, selecione __Sim__ para __permitir que o serviço de Azure Machine Learning acesse o armazenamento usando a identidade gerenciada do espaço de trabalho__.
+1. Nas configurações do repositório de armazenamento, selecione __Sim__ para  __permitir que o serviço de Azure Machine Learning acesse o armazenamento usando a identidade gerenciada do espaço de trabalho__.
 
 > [!NOTE]
 > Essas alterações podem levar até 10 minutos para entrar em vigor.
@@ -203,7 +210,7 @@ Por padrão, Azure Machine Learning executa as verificações de validade e cred
 - Armazenamento de Blobs do Azure
 - FileShare do Azure
 - PostgreSQL
-- Banco de Dados do SQL Azure
+- Banco de Dados SQL do Azure
 
 O exemplo de código a seguir cria um novo armazenamento de BLOBs e conjuntos do Azure `skip_validation=True` .
 

@@ -1,6 +1,6 @@
 ---
 title: Práticas recomendadas para usar o Key Vault-Azure Key Vault | Microsoft Docs
-description: Este documento explica algumas das práticas recomendadas para usar Key Vault
+description: Saiba mais sobre as práticas recomendadas para Azure Key Vault, incluindo o controle de acesso, quando usar cofres de chaves separados, backup, log e opções de recuperação.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 93ada332fdf9179cf0f582195779afc085416e1a
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: cec3ad4e113fd6ee3f4e30ad2a6877b886a958e0
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386224"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189892"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Práticas recomendadas para usar Key Vault
 

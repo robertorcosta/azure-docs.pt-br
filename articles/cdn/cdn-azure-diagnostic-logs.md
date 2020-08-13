@@ -1,7 +1,7 @@
 ---
 title: Logs de diagnóstico
 titleSuffix: Azure Content Delivery Network
-description: O cliente pode habilitar a análise de log para a CDN do Azure.
+description: Saiba como usar os logs de diagnóstico do Azure para salvar a análise principal, que permite exportar métricas de uso de seu ponto de extremidade de rede de distribuição de conteúdo do Azure.
 services: cdn
 author: asudbring
 manager: KumudD
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: dbaba67a163bb0f948de5ba2ebbdba5497ad5ff9
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 164560fff27adc2d4e63cc8471a26d1d710b89a5
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116973"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191281"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Logs de diagnóstico-rede de distribuição de conteúdo do Azure
 
@@ -71,7 +71,7 @@ Para usar uma conta de armazenamento para armazenar os logs, siga estas etapas:
 
     :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Logs de diagnóstico-armazenamento." border="true":::
 
-3. Clique em **Salvar**.
+3. Selecione **Salvar**.
 
 ### <a name="send-to-log-analytics"></a>Enviar para o Log Analytics
 
@@ -88,7 +88,7 @@ Para usar Log Analytics para os logs, siga estas etapas:
 
    :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Logs de diagnóstico-Log Analytics." border="true":::
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
 ### <a name="stream-to-an-event-hub"></a>Transmitir para um hub de eventos
 
@@ -105,7 +105,7 @@ Para usar um hub de eventos para os logs, siga estas etapas:
 
    :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Logs de diagnóstico-Hub de eventos." border="true":::
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
 
 ## <a name="enable-logging-with-powershell"></a>Habilitar o registro em log com o PowerShell
@@ -221,7 +221,7 @@ Para acessar o Core Analytics, é fornecido um código de exemplo para uma ferra
 
 Aqui está como você pode usar a ferramenta:
 
-1.  Visite o link do GitHub:[https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
+1.  Visite o link do GitHub: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
 2.  Baixe o código.
 3.  Siga as instruções a serem compiladas e configuradas.
 4.  Execute a ferramenta.

@@ -1,18 +1,18 @@
 ---
 title: 'Modelo do Azure ExpressRoute: criar um circuito do ExpressRoute'
-description: Criar, provisionar, excluir e desprovisionar um circuito do ExpressRoute.
+description: Saiba como criar um circuito do Azure ExpressRoute implantando um modelo de Azure Resource Manager usando Azure PowerShell.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: charwen
-ms.openlocfilehash: 336337c0860ba19095665310d2c797cf10ba183f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78318726a658b6e0dc966288f386c65ee4c6f0e4
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736298"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190454"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Criar um circuito do ExpressRoute usando Azure Resource Manager modelo
 
@@ -43,7 +43,7 @@ Para ver mais modelos relacionados, selecione [aqui](https://azure.microsoft.com
 
 Para criar um circuito de ExpressRoute implantando um modelo:
 
-1. Selecione **Testar** no seguinte bloco de código e, em seguida, siga as instruções para entrar no Azure Cloud Shell.
+1. Selecione **Experimente** no seguinte bloco de código e siga as instruções para entrar no Azure cloud Shell.
 
     ```azurepowershell-interactive
     $circuitName = Read-Host -Prompt "Enter a circuit name"

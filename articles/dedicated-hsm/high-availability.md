@@ -1,6 +1,6 @@
 ---
 title: Alta disponibilidade - HSM Dedicado do Azure | Microsoft Docs
-description: Exemplo de alta disponibilidade do HSM Dedicado do Azure e considerações básicas
+description: Saiba mais sobre as considerações básicas para a alta disponibilidade do HSM dedicada do Azure. Este artigo inclui um exemplo.
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 536ef62acad900090924598edfa45450b2a8c951
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f8fa2f12825fe88218fe7033a1721cb49fc7335
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70882258"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189850"
 ---
 # <a name="azure-dedicated-hsm-high-availability"></a>Alta disponibilidade do HSM Dedicado do Azure
 
@@ -25,7 +25,7 @@ O HSM Dedicado do Azure é sustentado pelos datacenters altamente disponíveis d
 
 ## <a name="high-availability-example"></a>Exemplo de alta disponibilidade
 
-Informações sobre como configurar dispositivos HSM para alta disponibilidade no nível do software estão no 'Guia de Administração do HSM da Rede Luna da Gemalto'. Este documento está disponível na [página HSM do Gemalto](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/).
+Informações sobre como configurar dispositivos HSM para alta disponibilidade no nível do software estão no 'Guia de Administração do HSM da Rede Luna da Gemalto'. Este documento está disponível na  [página HSM do Gemalto](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/).
 
 O diagrama a seguir mostra uma arquitetura altamente disponível. Ele usa vários dispositivos na região e vários dispositivos emparelhados em uma região separada. Essa arquitetura usa um mínimo de quatro dispositivos HSM e componentes de rede virtual.
 
@@ -39,7 +39,7 @@ Mais tópicos de nível de conceito:
 * [Arquitetura de implantação](deployment-architecture.md)
 * [Segurança física](physical-security.md)
 * [Rede](networking.md)
-* [Suporte](supportability.md)
+* [Capacidade de suporte](supportability.md)
 * [Monitoring](monitoring.md)
 
 Para obter detalhes específicos sobre a configuração de dispositivos HSM para alta disponibilidade, consulte o Portal de suporte ao cliente da Gemalto para os Guias do administrador e consulte a seção 6.

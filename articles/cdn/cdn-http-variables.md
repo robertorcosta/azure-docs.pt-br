@@ -1,6 +1,6 @@
 ---
 title: Variáveis HTTP para o mecanismo de regras de CDN do Azure |Microsoft Docs
-description: As variáveis HTTP permitem recuperar metadados de solicitação e resposta HTTP.
+description: Saiba mais sobre variáveis HTTP, que permitem obter metadados de solicitação e resposta HTTP para alguns recursos do mecanismo de regras. Use metadados para alterar uma solicitação/resposta.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: 6e601e3e06965faf8ec0fd238c54115570150b61
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a2d9fc98ba6f514afbd88e543a859a69e0fc6c6b
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203562"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192680"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variáveis HTTP para o mecanismo de regras de CDN do Azure
 As variáveis HTTP fornecem os meios através dos quais você pode recuperar metadados de solicitação e resposta HTTP. Esses metadados, em seguida, podem ser usados para alterar dinamicamente uma solicitação ou resposta. O uso de variáveis HTTP é restrito aos recursos de mecanismo de regras a seguir:
@@ -187,7 +187,7 @@ Neste cenário de exemplo, a variável *request_uri* é definida como:
 
 A tabela a seguir demonstra como funciona essa sintaxe.
 
-| Sintaxe de exemplo | Resultados | Descrição |
+| Sintaxe de exemplo | Resultados | Description |
 | ------------- | ------- | --- |
 | %{request_uri#/800001}/customerorigin | /customerorigin/myorigin/marketing/product.html?language=en-US | Como a variável inicia com o padrão, ela foi substituída. |
 | %{request_uri%html}htm | /800001/myorigin/marketing/product.html?language=en-US | Como a variável não termina com o padrão, não houve nenhuma alteração.|

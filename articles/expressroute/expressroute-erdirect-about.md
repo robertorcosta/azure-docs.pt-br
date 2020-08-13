@@ -1,18 +1,18 @@
 ---
 title: Sobre o Azure ExpressRoute Direct
-description: Esta página fornece uma visão geral do ExpressRoute Direct
+description: Saiba mais sobre os principais recursos do Azure ExpressRoute Direct e as informações necessárias para carregar o ExpressRoute Direct, como SKUs disponíveis e requisitos técnicos.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jaredro
-ms.openlocfilehash: f26fdd75e0a6c6228d329a8b9be4743072ae54c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0faa4992b025783e4e5448dcf04fcfa958ba5ed
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74083600"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192358"
 ---
 # <a name="about-expressroute-direct"></a>Sobre o ExpressRoute Direct
 

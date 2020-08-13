@@ -1,6 +1,6 @@
 ---
 title: Métodos de criação de certificado
-description: Maneiras de criar um certificado no Key Vault.
+description: Saiba mais sobre opções diferentes para criar ou importar um certificado de Key Vault no Azure Key Vault. Há várias maneiras de criar um certificado de Key Vault.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7450dd79247078afe02d1bb63727cfd260d674fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 312f04ff4b1d860724640dfc9e5ea9d75bb76bae
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81866247"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189973"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de criação de certificado
 
@@ -29,9 +29,9 @@ ms.locfileid: "81866247"
 
 As descrições a seguir correspondem às etapas indicadas em verde no diagrama anterior.
 
-1. No diagrama acima, o aplicativo está criando um certificado que internamente começa com a criação de uma chave em seu cofre de chaves.
+1. No diagrama acima, o aplicativo está criando um certificado que internamente começa com a criação de uma chave no cofre de chaves.
 2. O Key Vault devolve ao seu aplicativo uma Solicitação de Assinatura de Certificado (CSR)
-3. O aplicativo passa a CSR à sua autoridade de certificação escolhida.
+3. O aplicativo passa a CSR à sua AC escolhida.
 4. A AC escolhida responde com um certificado X509.
 5. Seu aplicativo conclui a criação do novo certificado com uma fusão do Certificado X509 da autoridade de certificação.
 
@@ -41,9 +41,9 @@ As descrições a seguir correspondem às etapas indicadas em verde no diagrama 
 
 As descrições a seguir correspondem às etapas indicadas em verde no diagrama anterior.
 
-1. No diagrama acima, o aplicativo está criando um certificado que internamente começa com a criação de uma chave em seu cofre de chaves.
+1. No diagrama acima, o aplicativo está criando um certificado que internamente começa com a criação de uma chave no cofre de chaves.
 2. Key Vault envia uma solicitação de certificado TLS/SSL para a autoridade de certificação.
-3. Seu aplicativo faz a apuração, em um processo de loop e espera, para seu Key Vault para a conclusão do certificado. A criação do certificado é concluída quando o Key Vault recebe a resposta da autoridade de certificação com o certificado x509.
+3. O aplicativo faz a sondagem, em um processo de loop e espera, no Key Vault para a conclusão do certificado. A criação do certificado é concluída quando o Key Vault recebe a resposta da autoridade de certificação com o certificado x509.
 4. A autoridade de certificação responde à solicitação de certificado TLS/SSL de Key Vault com um certificado TLS/SSL X. 509.
 5. A nova criação de certificado é concluída com a fusão do certificado TLS/SSL X. 509 para a autoridade de certificação.
 

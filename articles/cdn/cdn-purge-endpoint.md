@@ -1,6 +1,6 @@
 ---
 title: Limpar um ponto de extremidade da CDN do Azure | Microsoft Docs
-description: Saiba como limpar todo o conteúdo armazenado em cache de um ponto de extremidade da CDN do Azure.
+description: Saiba como limpar todo o conteúdo armazenado em cache de um ponto de extremidade de rede de distribuição de conteúdo do Azure. Os nós de Borda armazenam ativos em cache até que sua vida útil expire.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: allensu
-ms.openlocfilehash: 1946da6a18956b420684f4c2ffe86f35d0084eaf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc09c35ba5499c6e911ebd7dd23482ef30f931da
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887305"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192538"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Limpar um ponto de extremidade da CDN do Azure
 ## <a name="overview"></a>Visão geral
@@ -52,7 +52,7 @@ Este tutorial o orienta durante a limpeza de ativos de todos os nós de borda de
    > 
    > 
 4. Selecione os ativos que você deseja limpar dos nós de borda.  Para limpar todos os ativos, clique na caixa de seleção **Limpar todos** .  Caso contrário, digite o caminho de cada ativo que você quer limpar na caixa de texto **Caminho**. Veja abaixo os formatos com suporte no caminho.
-    1. **Limpeza de URL única**: Limpe o ativo individual ESPECIFICANDO a URL completa, com ou sem a extensão de arquivo, por exemplo, `/pictures/strasbourg.png` ;`/pictures/strasbourg`
+    1. **Limpeza de URL única**: Limpe o ativo individual ESPECIFICANDO a URL completa, com ou sem a extensão de arquivo, por exemplo, `/pictures/strasbourg.png` ; `/pictures/strasbourg`
     2. **Limpeza de caractere curinga**: o asterisco (\*) pode ser usado como um caractere curinga. Limpe todos os arquivos, pastas e subpastas em um ponto de extremidade com `/*` no caminho ou limpe todos os arquivos e subpastas em uma determinada pasta especificando a pasta seguida por `/*`, por exemplo, `/pictures/*`.  Observe que, no momento, a limpeza do caractere curinga não é compatível com a CDN do Azure do Akamai. 
     3. **Limpeza do domínio raiz**: limpe a raiz do ponto de extremidade com "/" no caminho.
    
@@ -73,7 +73,7 @@ Este tutorial o orienta durante a limpeza de ativos de todos os nós de borda de
 > 
 > 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 * [Pré-carregar ativos em um ponto de extremidade da CDN do Azure](cdn-preload-endpoint.md)
 * [Referência da API REST da CDN do Azure – limpar ou pré-carregar um ponto de extremidade](/rest/api/cdn/endpoints)
 
