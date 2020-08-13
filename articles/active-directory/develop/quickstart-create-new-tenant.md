@@ -12,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 19c94a4807b8958fa8b1ec46ccae660c7cbe92de
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: df873e49e1bc581a32bcb4e4b40b2b24db98cee5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256689"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120806"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Início Rápido: Configurar um locatário
 
@@ -72,5 +72,5 @@ Para começar a criar aplicativos que entram em contas sociais e locais, você p
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Registrar um aplicativo](quickstart-register-app.md) e integrar à plataforma de identidade da Microsoft. 
-* Aprenda as [noções básicas de autenticação](authentication-scenarios.md).
+* Aprenda as [noções básicas de autenticação](./authentication-vs-authorization.md).
 * Confira [Associar ou adicionar uma assinatura do Azure ao locatário Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) para obter detalhes sobre a relação entre assinaturas e um locatário do Azure AD.

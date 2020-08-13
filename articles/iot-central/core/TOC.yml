@@ -139,6 +139,8 @@
               href: howto-monitor-application-health.md
             - name: Sobre o seu aplicativo
               href: howto-get-app-info.md
+            - name: Girar certificados X.509
+              href: how-to-roll-x509-certificates.md
         - name: Gerenciar de outros locais
           items:
             - name: Gerenciar usando o portal do Azure

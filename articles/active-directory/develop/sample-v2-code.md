@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 981342db2de0585899ca068c7d7aab70fb303ad0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 142037366e9309f8087a2e42fa46cd0b4137f6b8
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445756"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119395"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Exemplos de código da plataforma de identidade da Microsoft (ponto de extremidade v2.0)
 
@@ -143,4 +143,4 @@ Para saber mais sobre [exemplos](https://github.com/microsoftgraph/msgraph-commu
 ## <a name="see-also"></a>Confira também
 
 - [Guia do desenvolvedor do Azure Active Directory (v1.0)](../azuread-dev/v1-overview.md)
-- [Conceito e referência da API do Microsoft Graph](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2Fbeta&view=graph-rest-beta)
+- [Conceito e referência da API do Microsoft Graph](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)

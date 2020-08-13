@@ -12,12 +12,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
-ms.openlocfilehash: 566893a9babc3f771e3198970e0a5ae97592e322
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: e34eeeca3b17087fb5bd43ae353e43b5ab355831
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231668"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119548"
 ---
 # <a name="microsoft-identity-platform-overview"></a>Visão geral da plataforma de identidade da Microsoft
 
@@ -59,7 +59,7 @@ Ao trabalhar com a plataforma de identidade da Microsoft para integrar a autenti
 
 Saiba como os principais conceitos de autenticação do Azure AD se aplicam à plataforma de identidade da Microsoft neste conjunto recomendado de artigos:
 
-- [Noções básicas de autenticação](authentication-scenarios.md)
+- [Noções básicas de autenticação](./authentication-vs-authorization.md)
 - [Aplicativo e entidades de serviço](app-objects-and-service-principals.md)
 - [Públicos-alvo](v2-supported-account-types.md)
 - [Permissões e consentimento](v2-permissions-and-consent.md)
@@ -71,7 +71,7 @@ Saiba como os principais conceitos de autenticação do Azure AD se aplicam à p
 
 [Azure AD B2C](../../active-directory-b2c/overview.md) – crie aplicativos voltados para o cliente nos quais seus usuários podem entrar usando as respectivas contas sociais, como Facebook ou Google, ou usando um endereço de email e senha.
 
-[Azure AD B2B](../b2b/what-is-b2b.md) – convide usuários externos em seu locatário do Azure AD como usuários "convidados" aos quais você pode atribuir permissões para autorização, enquanto eles usam as respectivas credenciais existentes para autenticação.
+[Azure AD B2B](../external-identities/what-is-b2b.md) – convide usuários externos em seu locatário do Azure AD como usuários "convidados" aos quais você pode atribuir permissões para autorização, enquanto eles usam as respectivas credenciais existentes para autenticação.
 
 > [!TIP]
 > Procurando documentação sobre a *plataforma de desenvolvedor do Azure Active Directory (v1.0)* ? Confira a [Visão geral do Azure Active Directory para desenvolvedores (v1.0)](../azuread-dev/v1-overview.md).

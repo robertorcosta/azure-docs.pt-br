@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: 9afb5b7602b220c25d919f8fe0773d5cfa143d89
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: a46cd1b916edeae8a24fb997db46e5a0651567cb
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991187"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115264"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: Entrada de usuários e chamada à API do Microsoft Graph em um aplicativo Android
 
@@ -483,7 +483,7 @@ O `"redirect_uri"` é pré-configurado para usar a chave de assinatura fornecida
 Experimente o tutorial[Conectar usuários e chamar o Microsoft Graph em um aplicativo Android](tutorial-v2-android.md) para obter um guia passo a passo para criar um aplicativo Android que obtenha um token de acesso e o utilize para chamar a API do Microsoft Graph.
 
 > [!div class="nextstepaction"]
-> [Tutorial Chamar a API do Graph para Android](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-android)
+> [Tutorial Chamar a API do Graph para Android](./tutorial-v2-android.md)
 
 ### <a name="msal-for-android-library-wiki"></a>MSAL para wiki da biblioteca do Android
 

@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: bd17c20707c3bf1a153e9209cd7e2ec279de0501
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 39062396e0076af5901f2fc7d76f5c989e2ccc3a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85554055"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115247"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Início Rápido: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -101,12 +101,12 @@ Em uma janela do terminal, navegue até a pasta que contém o exemplo de código
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
-> 1. Se você estiver criando um aplicativo para [nuvens nacionais do Azure AD](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints), substitua a linha que começa com 'let kGraphEndpoint' e 'let kAuthority' pelos pontos de extremidade corretos. Para acesso global, use valores padrão:
+> 1. Se você estiver criando um aplicativo para [nuvens nacionais do Azure AD](/graph/deployments#app-registration-and-token-service-root-endpoints), substitua a linha que começa com 'let kGraphEndpoint' e 'let kAuthority' pelos pontos de extremidade corretos. Para acesso global, use valores padrão:
 >     ```swift
 >     let kGraphEndpoint = "https://graph.microsoft.com/"
 >     let kAuthority = "https://login.microsoftonline.com/common"
 >     ```
-> 1. Outros pontos de extremidade estão documentados [aqui](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints). Por exemplo, para executar o início rápido com o Azure AD Alemanha, use o seguinte:
+> 1. Outros pontos de extremidade estão documentados [aqui](/graph/deployments#app-registration-and-token-service-root-endpoints). Por exemplo, para executar o início rápido com o Azure AD Alemanha, use o seguinte:
 >     ```swift
 >     let kGraphEndpoint = "https://graph.microsoft.de/"
 >     let kAuthority = "https://login.microsoftonline.de/common"
@@ -269,6 +269,6 @@ Experimente o tutorial para iOS e macOS para obter um guia passo a passo complet
 ### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Saiba como criar o aplicativo usado neste início rápido
 
 > [!div class="nextstepaction"]
-> [Tutorial sobre como chamar a API do Graph para iOS e macOS](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
+> [Tutorial sobre como chamar a API do Graph para iOS e macOS](./tutorial-v2-ios.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

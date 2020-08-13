@@ -12,12 +12,12 @@ ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0f712dbee6218ce8e012639b82a3a2ee7c177bb3
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 61a3884ce4d1075dbcac61a0c202c3a393d2d943
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84904755"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118137"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Conectar usuários e chamar o Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -149,7 +149,7 @@ var webViewParameters : MSALWebviewParameters?
 var currentAccount: MSALAccount?
 ```
 
-O único valor que você precisa modificar acima é o valor atribuído a `kClientID` para que ele seja a [ID do Aplicativo](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-id-client-id). Esse valor faz parte dos dados de Configuração da MSAL que você salvou durante a etapa no início deste tutorial para registrar o aplicativo no portal do Azure.
+O único valor que você precisa modificar acima é o valor atribuído a `kClientID` para que ele seja a [ID do Aplicativo](./developer-glossary.md#application-id-client-id). Esse valor faz parte dos dados de Configuração da MSAL que você salvou durante a etapa no início deste tutorial para registrar o aplicativo no portal do Azure.
 
 ## <a name="configure-xcode-project-settings"></a>Definir as configurações de projeto do Xcode
 
@@ -842,4 +842,4 @@ Após entrar, este aplicativo exibirá os dados retornados do ponto de extremida
 
 ## <a name="get-help"></a>Obter ajuda
 
-Visite [Ajuda e suporte](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options) se você tiver algum problema com este tutorial ou com a plataforma de identidade da Microsoft.
+Visite [Ajuda e suporte](./developer-support-help-options.md) se você tiver algum problema com este tutorial ou com a plataforma de identidade da Microsoft.

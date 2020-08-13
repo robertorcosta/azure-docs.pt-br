@@ -12,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 79983678d13b810a521a00ba2c1978de92a5029f
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 65fff06b4a2d28bbc276920ccbaba90d814d03f3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81309516"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115349"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Início Rápido: Registrar um aplicativo na plataforma de identidade da Microsoft
 
@@ -50,7 +50,7 @@ Seu aplicativo é integrado à plataforma de identidade da Microsoft registrando
     * Para aplicativos Web, informe a URL base do aplicativo. Por exemplo, `https://localhost:31544` pode ser uma URL para um aplicativo Web em execução no seu computador local. Os usuários usariam essa URL para entrar em um aplicativo cliente Web.
     * Para aplicativos cliente públicos, informe o URI usado pelo Azure AD para retornar respostas de token. Insira um valor específico para o aplicativo, por exemplo, `myapp://auth`.
 
-    Para obter exemplos de aplicativos Web ou aplicativos nativos, confira os guias de início rápido na [plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop).
+    Para obter exemplos de aplicativos Web ou aplicativos nativos, confira os guias de início rápido na [plataforma de identidade da Microsoft](./index.yml).
 
 1. Ao terminar, selecione **Registrar**.
 
@@ -70,7 +70,7 @@ O Azure AD atribui um aplicativo ou uma ID de cliente exclusiva ao seu aplicativ
 
 * Para gerenciar contas com suporte, confira [Início rápido: Modificar as contas que têm suporte de um aplicativo](quickstart-modify-supported-accounts.md).
 
-* Para criar um aplicativo e adicionar funcionalidade, confira os guias de início rápido na [plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop).
+* Para criar um aplicativo e adicionar funcionalidade, confira os guias de início rápido na [plataforma de identidade da Microsoft](./index.yml).
 
 * Saiba mais sobre os dois objetos do Azure AD que representam um aplicativo registrado e a relação entre eles, confira [Objetos de aplicativo e objetos de entidade de serviço](app-objects-and-service-principals.md).
 

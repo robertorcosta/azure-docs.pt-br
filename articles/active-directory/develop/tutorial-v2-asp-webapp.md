@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c0d8d2b009194b58c76dbd0a171f701f90df4086
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f62f6702b36915c6a6e1350072982e231cd9c07e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058284"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118222"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adicionar a entrada com a conta da Microsoft a um aplicativo Web ASP.NET
 
@@ -264,7 +264,7 @@ No Visual Studio, crie uma exibição para adicionar o botão Entrar e para exib
     ```
 
 ### <a name="more-information"></a>Mais informações
-Esta página adiciona um botão de conexão no formato SVG com uma tela de fundo preta:<br/>![Entrar com a Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para obter mais botões de entrada, acesse [Diretrizes de identidade visual](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Diretrizes de identidade Visual").
+Esta página adiciona um botão de conexão no formato SVG com uma tela de fundo preta:<br/>![Entrar com a Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para obter mais botões de entrada, acesse [Diretrizes de identidade visual](./howto-add-branding-in-azure-ad-apps.md "Diretrizes de identidade Visual").
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Adicionar um controlador para exibir as declarações do usuário
 Esse controlador demonstra os usos do atributo `[Authorize]` para proteger um controlador. Esse atributo restringe o acesso ao controlador permitindo apenas usuários autenticados. O seguinte código usa o atributo para exibir as declarações de usuário que foram recuperadas como parte da entrada:
@@ -403,7 +403,7 @@ Os aplicativos que se integram à plataforma de identidade da Microsoft seguem u
 - O desenvolvedor de aplicativos adiciona permissões extras que exigem o **consentimento do administrador**.
 - Ou o locatário está configurado (em **Aplicativos Empresariais – > Configurações de Usuário**), em que os usuários não podem fornecer consentimento aos aplicativos que acessam os dados da empresa em seu nome.
 
-Para obter mais informações, veja [Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+Para obter mais informações, veja [Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft](./v2-permissions-and-consent.md).
 
 ### <a name="view-application-results"></a>Veja os resultados de aplicativo
 
@@ -424,7 +424,7 @@ Depois de navegar para a exibição do controlador, você deverá visualizar uma
 |**Assunto** |Assunto |Uma cadeia de caracteres que identifica de maneira exclusiva o usuário na Web|
 |**ID do locatário** |Guid | Um **GUID** que representa de maneira exclusiva a organização do Azure AD do usuário|
 
-Além disso, você deverá ver uma tabela de todas as declarações que estão na solicitação de autenticação. Para obter mais informações, confira a [lista de declarações incluídas em um token de ID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Além disso, você deverá ver uma tabela de todas as declarações que estão na solicitação de autenticação. Para obter mais informações, confira a [lista de declarações incluídas em um token de ID](./id-tokens.md).
 
 ### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>Testar o acesso a um método que tenha um atributo Autorizar (opcional)
 
@@ -484,6 +484,6 @@ Saiba mais sobre os aplicativos Web chamando APIs Web com a plataforma de identi
 Saiba como criar aplicativos Web chamando o Microsoft Graph:
 
 > [!div class="nextstepaction"]
-> [Tutorial do Microsoft Graph ASP.NET](https://docs.microsoft.com/graph/tutorials/aspnet)
+> [Tutorial do Microsoft Graph ASP.NET](/graph/tutorials/aspnet)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
