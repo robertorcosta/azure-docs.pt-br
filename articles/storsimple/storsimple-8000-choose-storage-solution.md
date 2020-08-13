@@ -1,18 +1,18 @@
 ---
 title: Opções para transferência de dados para o Azure usando um dispositivo | Microsoft Docs
-description: Saiba como escolher o dispositivo certo para transferir dados para o Azure
+description: Saiba como escolher o dispositivo certo para a transferência de dados local para o Azure entre Data Box Edge, Sincronização de Arquivos do Azure e StorSimple 8000 Series.
 services: storsimple
 author: alkohli
 ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: dc7de4e69d42a2165f5845f3d8214975d67cdc3c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 903342230b28f8e4fbdcdfd93543e5a0aa54975e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203972"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183268"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Comparar opções de transferência de dados do StorSimple com a Sincronização de Arquivos do Azure e Data Box Edge 
 

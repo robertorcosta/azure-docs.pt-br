@@ -1,17 +1,17 @@
 ---
 title: Interface do usuário do Microsoft Azure StorSimple Gerenciador de Dados
-description: Descreve como usar a interface do usuário do serviço do Gerenciador de Dados do StorSimple
+description: Saiba como você pode usar a interface do usuário do Gerenciador de Dados do StorSimple para transformar os dados que residem nos dispositivos da série StorSimple 8000.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 00748cfa60882e49336c3a0ac3ecfdec389021ac
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5d6273cbef1664984d466fb15c7f02ca505b18e2
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496433"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184526"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gerenciar o serviço do Gerenciador de Dados do StorSimple no portal do Azure
 

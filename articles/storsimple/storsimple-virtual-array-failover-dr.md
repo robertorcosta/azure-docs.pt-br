@@ -1,6 +1,6 @@
 ---
 title: Failover e recuperação de desastre para o StorSimple virtual array
-description: Saiba mais sobre como realizar failover em sua StorSimple Virtual Array.
+description: Saiba mais sobre a recuperação de desastres para sua Microsoft Azure StorSimple matriz virtual, incluindo as etapas detalhadas para fazer failover para outra matriz virtual.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05f31993b7491dbfb0bff46c8fd2362b6bab0d4e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24eb03069689d6dc89d8e237e0e65c71af6c6173
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077783"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184713"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Failover de dispositivo e recuperação de desastre para o StorSimple Virtual Array via portal do Azure
 

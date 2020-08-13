@@ -1,6 +1,6 @@
 ---
 title: Implantar o StorSimple Virtual Array para o programa Cloud Solution Provider
-description: Uma visão geral sobre o StorSimple e o CSP para parceiros do StorSimple.
+description: Saiba como um parceiro CSP pode adicionar um cliente ou uma nova assinatura a um cliente existente e, em seguida, criar um serviço para implantar um StorSimple Virtual Array no CSP.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 7f1927a67127766c72be463c283225135b2a2aad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc0cf718ee51e23fb749bdf57d5344977de009d8
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77466902"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182214"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Implantar o StorSimple Virtual Array para o programa Cloud Solution Provider
 

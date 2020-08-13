@@ -1,17 +1,17 @@
 ---
 title: Alterar o caminho do blob do padrão
-description: Saiba como configurar uma função do Azure para renomear um caminho de arquivo de blob
+description: Saiba como configurar uma função do Azure para renomear um caminho de arquivo de blob padrão e mover os BLOBs para um local diferente.
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 92925fcf13f91364619262455579392a7457f6b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a7dab1129eb88d7e58bab8a827d745596bc218d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504824"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183710"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Alterar o caminho de blob padrão
 
@@ -25,7 +25,7 @@ Certifique-se de que você tenha uma definição de trabalho configurada correta
 
 Para criar uma função do Azure, realize as etapas a seguir:
 
-1. Vá para o [Portal do Azure](https://portal.azure.com/).
+1. Vá para o [portal do Azure](https://portal.azure.com/).
 
 2. Clique em **+ Criar um recurso**. Na caixa **Pesquisa**, digite **Aplicativo de funções** e pressione **Enter**. Selecione e clique em **Aplicativo de Funções** na lista de aplicativos exibidos.
 

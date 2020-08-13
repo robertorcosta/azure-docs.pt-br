@@ -1,6 +1,6 @@
 ---
 title: Visão geral do Gerenciador de Dados do Microsoft Azure StorSimple | Microsoft Docs
-description: Fornece uma visão geral do serviço Gerenciador de Dados do StorSimple
+description: Saiba mais sobre a solução de Gerenciador de Dados do StorSimple e como você pode usar esse serviço para escrever aplicativos que usam dados do StorSimple e outros serviços do Azure.
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: alkohli
-ms.openlocfilehash: 2ffe17bf7ef4f01c18d2c26f4a045add7302272d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d683f49cadb384ef59d3bae819156733691813cd
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67876112"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183489"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Visão geral da solução do Gerenciador de Dados do StorSimple
 

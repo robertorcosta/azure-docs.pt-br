@@ -1,17 +1,17 @@
 ---
 title: Especificações do Microsoft Azure FXT Edge Filer | Microsoft Docs
-description: Especificações físicas e ambientais para o hardware do Azure FXT Edge Filer
+description: Saiba mais sobre as especificações físicas e ambientais para Microsoft Azure hardware do FXT Edge Filer.
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 57e312df31682ea868443423f40d54369cab6699
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 30af35075c06585b9c490495e9897c145e9974d9
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231292"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184679"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Especificações do Azure FXT Edge Filer
 
@@ -34,9 +34,9 @@ Os números das unidades estão impressos no espaço entre elas. No Azure FXT Ed
 
 ![foto de um compartimento de disco rígido no gabinete do FXT mostrando os números das unidades e os rótulos de capacidade](media/fxt-drives-photo.png)
 
-| Números de unidade    |  Usar   |  Especificações |
+| Números de unidade    |  Use   |  Especificações |
 |------------------|--------|-----------------|
-| 0, 1             | SO     | SSD SATA de 480 GB |
+| 0, 1             | Sistema operacional     | SSD SATA de 480 GB |
 | 2, 3, 4, 5, 6, 7, 8, 9 | Dados   | FXT 6600:3,2 TB de SSD do NVMe <br> FXT 6400:1,6 TB de SSD do NVMe |
 
 

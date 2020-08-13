@@ -1,24 +1,24 @@
 ---
-title: Autorizar o acesso a dados de BLOB ou de fila com CLI do Azure
+title: Executar comandos de CLI do Azure com as credenciais do Azure AD para acessar dados de BLOB ou fila
 titleSuffix: Azure Storage
 description: Especifique como autorizar operações de dados em dados de BLOB ou de fila com o CLI do Azure. Você pode autorizar operações de dados usando as credenciais do Azure AD, com a chave de acesso da conta ou com um token de SAS (assinatura de acesso compartilhado).
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/26/2020
+ms.date: 08/12/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a656ccc56d198943c8631077466115eb6411a64a
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 5ab346af1516c29b1638811217b779e11f120043
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534882"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183387"
 ---
-# <a name="authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Autorizar o acesso a dados de BLOB ou de fila com CLI do Azure
+# <a name="run-azure-cli-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Executar comandos de CLI do Azure com as credenciais do Azure AD para acessar dados de BLOB ou fila
 
 O armazenamento do Azure fornece extensões para CLI do Azure que permitem especificar como você deseja autorizar operações em dados de BLOB ou de fila. Você pode autorizar operações de dados das seguintes maneiras:
 

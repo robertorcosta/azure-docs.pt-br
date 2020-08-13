@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e76468238a911c7a9e5543bf5063d1c7b6a8b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81f3f771987ce2ff11aab88a4d35df01b6c85941
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253317"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184339"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory termos de uso
 
@@ -102,14 +102,14 @@ Depois de ter finalizado seu documento de termos de uso, use o procedimento a se
    | Usuário | Primeira data de aceitação | Primeira data de expiração | Segunda data de expiração | Terceira data de expiração |
    | --- | --- | --- | --- | --- |
    | Alice | 1 de janeiro | 1 de fevereiro | 1 de março | 1 de abril |
-   | Roberto | 15 de janeiro | 1 de fevereiro | 1 de março | 1 de abril |
+   | Bob | 15 de janeiro | 1 de fevereiro | 1 de março | 1 de abril |
 
 1. Use a configuração **duração antes da reaceitação requer (dias)** para especificar o número de dias antes que o usuário precise aceitar os termos de uso novamente. Isso permite que os usuários sigam seu próprio cronograma. Por exemplo, se você definir a duração como **30** dias, segue como ocorreriam as expirações para dois usuários:
 
    | Usuário | Primeira data de aceitação | Primeira data de expiração | Segunda data de expiração | Terceira data de expiração |
    | --- | --- | --- | --- | --- |
    | Alice | 1 de janeiro | 31 de janeiro | 2 de março | 1 de abril |
-   | Roberto | 15 de janeiro | 14 de fevereiro | 16 de março | 15 de abril |
+   | Bob | 15 de janeiro | 14 de fevereiro | 16 de março | 15 de abril |
 
    É possível usar as configurações **Expirar consentimentos** e **Duração (dias) até exigir a nova aceitação** juntas, mas normalmente você usa uma ou a outra.
 
@@ -363,7 +363,7 @@ R: não, se um administrador editar os detalhes de um termo de uso (nome, nome d
 R: atualmente, você não pode atualizar um documento de termos de uso existente. Para alterar um documento de termos de uso, você precisará criar uma nova instância de termos de uso.
 
 **P: se os hiperlinks estiverem no documento PDF termos de uso, os usuários finais poderão clicar neles?**<br />
-R: Sim, os usuários finais podem selecionar hiperlinks para páginas adicionais, mas não há suporte para links para seções dentro do documento.
+R: Sim, os usuários finais podem selecionar hiperlinks para páginas adicionais, mas não há suporte para links para seções dentro do documento. Além disso, os hiperlinks em termos de uso de PDFs não funcionam quando acessados no portal de myapps/minha conta do Azure AD.
 
 **P: os termos de uso possuem suporte para vários idiomas?**<br />
 A: Sim. Atualmente, há 108 diferentes idiomas que um administrador pode configurar para um único termo de uso. Um administrador pode carregar vários documentos em PDF e marcar esses documentos com um idioma correspondente (até 108). Quando os usuários finais entram, examinamos a preferência de idioma do navegador deles e exibimos o documento correspondente. Se não houver nenhuma correspondência, exibimos o documento padrão, que é o primeiro documento carregado.
@@ -391,5 +391,5 @@ R: Termos de uso utiliza os seguintes pontos de extremidade para autenticação:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Guia de início rápido: Exigem termos de uso para ser aceito antes de acessar a aplicativos de nuvem](require-tou.md)
+- [Início Rápido: Exigir a aceitação dos termos de uso antes de acessar os aplicativos de nuvem](require-tou.md)
 - [Práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md)

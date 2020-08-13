@@ -1,17 +1,17 @@
 ---
 title: Abrir um tíquete de suporte para Microsoft Azure arquivo de borda do FXT Edge
-description: Procedimento para abrir um tíquete para obter ajuda com seu sistema de filer do Azure FXT Edge
+description: Abra um tíquete de suporte com o atendimento ao cliente da Microsoft e suporte para obter ajuda com seu sistema de filer do Azure FXT Edge.
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 292844f611008b6dafbed4e46cad07c45dbecc54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16b219afa329cc105fb70000d8a088d67883feed
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72255988"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184662"
 ---
 # <a name="open-a-support-ticket-for-the-azure-fxt-edge-filer"></a>Abrir um tíquete de suporte para o filer do Azure FXT Edge
 
@@ -31,7 +31,7 @@ Use o portal do Azure para abrir um tíquete de suporte com atendimento ao clien
     1. Em **serviço**, selecione **Azure FXT Edge arquivor**. Talvez seja necessário clicar no controle de filtro **todos os serviços** para localizá-lo. 
     1. Insira um **Resumo** e escolha o **tipo de problema**. 
     ![Captura de tela do formulário de solicitação de suporte em branco](media/fxt-support-populated.png) 
-    1. Clique em **Próximo** para continuar. 
+    1. Clique em **Avançar** para continuar. 
 1. Na guia **detalhes** , adicione mais informações sobre o problema e como contatá-lo. Você pode carregar um arquivo relacionado ao problema. 
 1. Em **revisão + criar**, verifique as informações e clique no botão **criar** para enviar sua solicitação.
 

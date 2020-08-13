@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: db2e493f04d74308b21e8a63222f26b1e2af8546
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e6f3a541f1e9dbca2c9949fb0c5cde28cd43e8e5
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038159"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182996"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Criar conjuntos de Azure Machine Learning de conjunto de os conjuntos de valores abertos do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -75,19 +75,21 @@ Quando você registra um conjunto de dados criado a partir de DataSets abertos, 
 
 ## <a name="create-datasets-with-the-studio"></a>Criar conjuntos de os com o estúdio
 
-Você também pode criar conjuntos de valores de conjuntos de os abertos com o [Azure Machine Learning Studio](https://ml.azure.com). Em seu espaço de trabalho, selecione a guia **conjuntos de valores** em **ativos**. No menu suspenso **criar conjunto** de linhas, selecione **de conjuntos de valores abertos**.
+Você também pode criar conjuntos de valores de conjuntos de os abertos com o [Azure Machine Learning Studio](https://ml.azure.com).
 
-![Abrir conjunto de um com a interface do usuário](./media/how-to-create-dataset-from-open-dataset/open-datasets-1.png)
+1. Em seu espaço de trabalho, selecione a guia **conjuntos de valores** em **ativos**. No menu suspenso **criar conjunto** de linhas, selecione **de conjuntos de valores abertos**.
 
-Selecione um conjunto de um DataSet selecionando seu bloco. (Você tem a opção de filtrar usando a barra de pesquisa.) Selecione **Avançar**.
+    ![Abrir conjunto de um com a interface do usuário](./media/how-to-create-dataset-from-open-dataset/open-datasets-1.png)
 
-![Escolher conjunto de um](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
+1. Selecione um conjunto de um DataSet selecionando seu bloco. (Você tem a opção de filtrar usando a barra de pesquisa.) Selecione **Avançar**.
 
-Escolha um nome sob o qual registrar o conjunto de dados e, opcionalmente, filtre-os usando os filtros disponíveis. Nesse caso, para o conjunto de data de feriados públicos, você filtra o período de tempo para um ano e o código do país apenas para os EUA. Selecione **Criar**.
+    ![Escolher conjunto de um](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-![Definir parâmetros de conjunto de DataSet e criar conjunto de um](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
+1. Escolha um nome sob o qual registrar o conjunto de dados e, opcionalmente, filtre-os usando os filtros disponíveis. Nesse caso, para o conjunto de data de **feriados públicos** , você filtra o período de tempo para um ano e o código do país apenas para os EUA. Selecione **Criar**.
 
-Agora, o conjunto de linhas está disponível em seu espaço de trabalho em **conjuntos**de os. Você pode usá-lo da mesma maneira que outros conjuntos de os que você criou.
+    ![Definir parâmetros de conjunto de DataSet e criar conjunto de um](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
+
+    Agora, o conjunto de linhas está disponível em seu espaço de trabalho em **conjuntos**de os. Você pode usá-lo da mesma maneira que outros conjuntos de os que você criou.
 
 
 ## <a name="access-datasets-for-your-experiments"></a>Acessar conjuntos de os seus experimentos

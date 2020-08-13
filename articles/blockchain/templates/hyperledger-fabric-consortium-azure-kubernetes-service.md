@@ -1,15 +1,15 @@
 ---
 title: O consórcio de malha de hiperrazãos no serviço de kubernetes do Azure (AKS)
 description: Como implantar e configurar a rede do consórcio do Fabric do Microsoft Azure no serviço kubernetes
-ms.date: 07/27/2020
+ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 4bc55090234a4ab33125ba43b8416de1eadb702f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: d6999b32224e6c41cdf9869554c884fc4779c217
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533420"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184203"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>O consórcio de malha de hiperrazãos no serviço de kubernetes do Azure (AKS)
 
@@ -350,10 +350,22 @@ Siga as etapas:
 No aplicativo de cliente de mesmo nível, execute o comando abaixo para criar uma instância de chaincode no canal.  
 
 ```bash
-./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>
 ```
 
 Passe o nome da função de instanciação e a lista de argumentos separados por espaço em `<instantiateFunc>` e, `<instantiateFuncArgs>` respectivamente. Por exemplo, em chaincode_example02. go chaincode, para instanciar o chaincode definido `<instantiateFunc>` como `init` e `<instantiateFuncArgs>` para "a" "2000" "b" "1000".
+
+Você também pode passar o arquivo JSON de configuração de coleções usando o `--collections-config` sinalizador. Ou defina os argumentos transitórios usando o `-t` sinalizador ao criar uma instância de um chaincode usado para transações privadas.
+
+Por exemplo: 
+
+```bash
+./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>
+./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath> -t <transientArgs>
+```
+
+O \<collectionConfigJSONFilePath\> é o caminho para o arquivo JSON que contém as coleções definidas para a instanciação de um chaincode de dados privados. Você pode encontrar um arquivo JSON de configuração de coleções de exemplo em relação ao diretório azhlfTool no seguinte caminho: `./samples/chaincode/src/private_marbles/collections_config.json` .
+Passe \<transientArgs\> como um JSON válido no formato de cadeia de caracteres. Escapar de qualquer caractere especial. Por exemplo: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
 > Execute o comando de uma vez em qualquer organização de mesmo nível no canal. Depois que a transação for enviada com êxito para o solicitante, o solicitante distribuirá essa transação para todas as organizações pares no canal. Portanto, o chaincode é instanciado em todos os nós de mesmo nível em todas as organizações pares no canal.  
@@ -377,8 +389,12 @@ Passe chamar o nome da função e a lista de argumentos separados por espaço em
 Execute o comando abaixo para consultar o chaincode:  
 
 ```bash
-./azhlf chaincode query -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>  
+./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
 ```
+Os colegas de endosso são os pontos em que o chaincode está instalado e é chamado para execução de transações. Você deve definir os \<endorsingPeers\> nomes de nó de par que o contém da organização par atual. Liste os pontos de endosso para determinada combinação de chaincode e canal, separados por espaços. Por exemplo, `-p "peer1" "peer3"`.
+
+Se você estiver usando o azhlfTool para instalar o chaincode, passe quaisquer nomes de nó de par como um valor para o argumento de ponto de endosso. O chaincode é instalado em todos os nós de mesmo nível para essa organização. 
+
 Passe o nome da função de consulta e a lista de argumentos separados por espaço em  `<queryFunction>`   e,  `<queryFuncArgs>`   respectivamente. Novamente, levando chaincode_example02. go chaincode como referência, para consultar o valor de "a" no estado do mundo definido  `<queryFunction>`   como  `query` e  `<queryArgs>` como "a".  
 
 ## <a name="troubleshoot"></a>Solucionar problemas

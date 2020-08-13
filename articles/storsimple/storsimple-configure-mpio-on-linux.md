@@ -1,18 +1,18 @@
 ---
 title: Configurar o MPIO no host Linux do StorSimple
-description: Configurar o MPIO no StorSimple conectado a um host Linux que esteja executando o CentOS 6.6
+description: Conheça as etapas necessárias para configurar a e/s de vários caminhos em seu servidor de host StorSimple Linux (CentOS 6,6).
 author: alkohli
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 05a67ab33c12e9f2bdbc0cd0098c39252db37e8e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 3ce84d3c03c2a24406629b8687c4fb8973809166
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187074"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183625"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurar o MPIO em um host do StorSimple executando o CentOS
 Este artigo explica as etapas necessárias para a configuração do Multipathing IO (MPIO) em seu servidor host do Centos 6.6. O servidor host está conectado ao dispositivo Microsoft Azure StorSimple para alta disponibilidade por meio de iniciadores iSCSI. Ele descreve detalhadamente a descoberta automática de dispositivos de vários caminhos e a configuração específica somente para volumes do StorSimple.
@@ -214,7 +214,7 @@ Os dispositivos multipath-supported podem ser automaticamente descobertos e conf
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Etapa 2: Configurar vários caminhos para volumes StorSimple
 Por padrão, todos os dispositivos estão na lista negra no arquivo multipath.conf e serão ignorados. Será necessário criar exceções de lista negra para permitir vários caminhos para volumes desde dispositivos StorSimple.
 
-1. Edite o arquivo `/etc/mulitpath.conf` . Tipo:
+1. Edite o arquivo `/etc/mulitpath.conf`. Tipo:
    
     `vi /etc/multipath.conf`
 1. Localize a seção blacklist_exceptions no arquivo multipath.conf. Seu dispositivo StorSimple precisa estar relacionado como uma exceção de lista negra nesta seção. Você pode retirar o comentário de linhas relevantes neste arquivo para modificá-lo como mostrado abaixo (use somente o modelo específico do dispositivo que você estiver usando):
@@ -235,7 +235,7 @@ Por padrão, todos os dispositivos estão na lista negra no arquivo multipath.co
 ### <a name="step-3-configure-round-robin-multipathing"></a>Etapa 3: Configurar vários caminhos de round robin
 Esse algoritmo de balanceamento de carga usa todos os vários caminhos disponíveis para o controlador ativo em um round robin balanceado.
 
-1. Edite o arquivo `/etc/multipath.conf` . Tipo:
+1. Edite o arquivo `/etc/multipath.conf`. Tipo:
    
     `vi /etc/multipath.conf`
 1. Na seção `defaults`, defina a `path_grouping_policy` como `multibus`. A `path_grouping_policy` especifica a política de agrupamento de caminho padrão a ser aplicada a vários caminhos não especificados. A seção de padrões terá a aparência mostrada abaixo.

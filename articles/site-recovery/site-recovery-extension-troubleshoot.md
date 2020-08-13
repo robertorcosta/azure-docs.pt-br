@@ -5,17 +5,20 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.openlocfilehash: 913f1f2a7a03c1abb83d8daa6d4b0c3f6e77e309
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: c1915d108bf9465d3e5b8d6a55053b583ee4f580
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133743"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184611"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Solucionar problemas de extensão de VM do Azure
 
 Este artigo fornece etapas de solução de problemas que podem ajudá-lo a resolver erros de Azure Site Recovery relacionados ao agente de VM e à extensão.
 
+## <a name="low-system-resources"></a>Recursos do sistema insuficientes
+
+Esse problema ocorre quando o sistema tem pouca memória disponível e não é capaz de alocar memória para a instalação do serviço de mobilidade. Certifique-se de que memória suficiente tenha sido liberada para que a instalação prossiga e seja concluída com êxito.
 
 ## <a name="azure-site-recovery-extension-time-out"></a>Tempo limite da extensão de Azure Site Recovery  
 
@@ -102,8 +105,8 @@ Desinstale a extensão e reinicie a operação novamente.
 Para desinstalar a extensão:
 
 1. Na [portal do Azure](https://portal.azure.com/), vá para a VM que está apresentando falha de backup.
-1. Escolha a opção **Configurações**.
-1. Selecione **extensões**.
+1. Selecione **Configurações**.
+1. Selecione **Extensões**.
 1. Selecione **Extensão Site Recovery**.
 1. Selecione **Desinstalar**.
 

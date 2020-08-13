@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 391a5f054c5d80b255fd333ea416900c8c5ab6d1
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: f6420683d22488abc66b387fd44cb74cc8f8b7bd
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135412"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184645"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs do Azure Monitor    
 
@@ -575,9 +575,9 @@ Para alertar se o volume de dados faturáveis ingerido nas últimas 24 horas foi
 - **Definir condição de alerta** especifica seu espaço de trabalho do Log Analytics como o destino do recurso.
 - **Critérios de alerta** especificam o seguinte:
    - **Nome do sinal** seleciona **Pesquisa de registro personalizada**
-   - **Pesquisar consulta** para `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . Se você quiser um diferentes 
+   - **Pesquisar consulta** para `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . 
    - A **Lógica de alerta** é **Baseada em** *número de resultados* e em se a **Condição** é *maior* que um **Limite**  de *0*
-   - **Período** de *1440* minutos e a **frequência de alerta** a cada *1440* minutos para executar uma vez por dia.
+   - **Período** de *1440* minutos e **frequência de alerta** a cada *1440* minutos para ser executado uma vez por dia.
 - **Definir os detalhes do alerta** especifica o seguinte:
    - **Nome** para o *volume de dados faturáveis maior que 50 GB em 24 horas*
    - A **Gravidade** como *Aviso*
@@ -604,7 +604,7 @@ Quando a coleta de dados é interrompida, o OperationStatus torna-se **Aviso**. 
 |Motivo para a interrupção da coleta| Solução| 
 |-----------------------|---------|
 |O limite diário do seu workspace foi atingido|Aguarde para a coleta ser reiniciada automaticamente ou aumente o limite diário de volume de dados descrito em Gerenciar o volume máximo de dados diário. A hora de redefinição de limite diário é mostrada na página de **limite diário** . |
-| Seu espaço de trabalho atingiu a [taxa de volume de ingestão de dados](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) | O limite de taxa de volume de ingestão padrão para os dados enviados dos recursos do Azure usando as configurações de diagnóstico é de aproximadamente 6 GB/min por espaço de trabalho. Esse é um valor aproximado, pois o tamanho real pode variar entre os tipos de dados, dependendo do tamanho do log e de sua taxa de compactação. Esse limite não se aplica aos dados enviados de agentes ou da API do coletor de dados. Se você enviar dados a uma taxa mais alta para um único espaço de trabalho, alguns dados serão descartados e um evento será enviado para a tabela de operações no seu espaço de trabalho a cada 6 horas, enquanto o limite continuará sendo excedido. Se o volume de ingestão continuar exceder o limite de taxa ou você estiver esperando contatá-lo em breve, poderá solicitar um aumento no espaço de trabalho enviando um email para LAIngestionRate@microsoft.com ou abrindo uma solicitação de suporte. O evento a ser procurado que indica que um limite de taxa de ingestão de dados pode ser encontrado pela consulta `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The rate of data crossed the threshold"` . |
+| Seu espaço de trabalho atingiu a [taxa de volume de ingestão de dados](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) | Um limite de taxa de volume de ingestão padrão de 500 MB (compactado) se aplica a espaços de trabalho, que é aproximadamente **6 GB/min** não compactados, o tamanho real pode variar entre os tipos de dados, dependendo do tamanho do log e de sua taxa de compactação. Esse limite se aplica a todos os dados ingeridos, se enviados de recursos do Azure usando [configurações de diagnóstico](diagnostic-settings.md), API do [coletor de dados](data-collector-api.md) ou agentes. Quando você envia dados para um espaço de trabalho em uma taxa de volume superior a 80% do limite configurado em seu espaço de trabalho, um evento é enviado para a tabela de *operações* no seu espaço de trabalho a cada 6 horas, enquanto o limite continua a ser excedido. Quando a taxa de volume ingerido é maior que o limite, alguns dados são descartados e um evento é enviado para a tabela de *operações* no seu espaço de trabalho a cada 6 horas, enquanto o limite continua a ser excedido. Se a taxa de volume de ingestão continuar excedendo o limite ou você estiver esperando contatá-lo em breve, você poderá solicitar para aumentá-lo em seu espaço de trabalho abrindo uma solicitação de suporte. Para ser notificado sobre esse evento em seu espaço de trabalho, crie uma [regra de alerta de log](alerts-log.md) usando a consulta a seguir com base de lógica de alerta no número de resultados mais rígidos que zero, período de avaliação de 5 minutos e frequência de 5 minutos. A taxa de volume de ingestão atingiu 80% do limite: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"` . Limite atingido na taxa de volume de ingestão: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed the threshold"` . |
 |Limite diário de tipo de preço gratuito herdado atingido |Aguarde até o dia seguinte para que a coleta seja reiniciada automaticamente ou altere para um tipo de preço pago.|
 |Assinatura do Azure está em um estado suspenso devido a:<br> A avaliação gratuita terminou<br> O Azure Pass expirou<br> Limite de gastos mensal atingido (por exemplo, em uma assinatura do MSDN ou do Visual Studio)|Converter para uma assinatura paga<br> Remova o limite ou espere o limite ser redefinido|
 

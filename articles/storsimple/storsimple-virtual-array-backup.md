@@ -1,6 +1,6 @@
 ---
 title: Tutorial de backup da Matriz Virtual do Microsoft Azure StorSimple | Microsoft Docs
-description: Descreve como fazer backup de volumes e compartilhamentos do StorSimple Virtual Array.
+description: Crie backups agendados e manuais para Microsoft Azure StorSimple matriz virtual e execute a recuperação em nível de item para restaurar um arquivo excluído em sua matriz virtual.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26bf018d8823495c00b09af3a40b39315dadb31c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41cb02e77fa77c5a7452c5e3e0d2080ee3d472d5
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513674"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183217"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Fazer backup de volumes ou compartilhamentos no StorSimple Virtual Array
 
