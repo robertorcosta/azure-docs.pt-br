@@ -1,18 +1,21 @@
 ---
 title: Exibir e gerenciar clientes e recursos delegados
-description: Como um provedor de serviços usando o Azure Lighthouse, você pode exibir todos os recursos e assinaturas do cliente delegado Acessando meus clientes na portal do Azure.
-ms.date: 07/06/2020
+description: Como um provedor de serviços ou uma empresa usando o Azure Lighthouse, você pode exibir todos os seus recursos e assinaturas delegados Acessando meus clientes na portal do Azure.
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: f509a91d71caa3ab1ec8282f4151556f7c10d52c
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 165110556282e90bbacf4ce3b3c59e34b203a528
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133281"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167191"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Exibir e gerenciar clientes e recursos delegados
 
-Provedores de serviço usando o [Azure Lighthouse](../overview.md) podem usar a página **meus clientes** no [portal do Azure](https://portal.azure.com) para exibir recursos e assinaturas de clientes delegados. Embora nos refiramos aqui aos provedores de serviços e clientes, as empresas que gerenciam vários locatários podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
+Provedores de serviço usando o [Azure Lighthouse](../overview.md) podem usar a página **meus clientes** no [portal do Azure](https://portal.azure.com) para exibir recursos e assinaturas de clientes delegados. 
+
+> [!TIP]
+> Embora possamos nos referir aos provedores de serviços e clientes aqui, as [empresas que gerenciam vários locatários](../concepts/enterprise.md) podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
 
 Para acessar a página **Meus clientes** no portal do Azure, selecione **Todos os serviços**, pesquise **Meus clientes** e selecione-o. Também é possível encontrá-lo inserindo "Meus clientes" na caixa de pesquisa próxima à parte superior do portal do Azure.
 
@@ -42,7 +45,7 @@ Os filtros na parte superior da página permitem que você classifique e agrupe 
 
 ## <a name="view-and-manage-delegations"></a>Exibir e gerenciar delegações
 
-As delegações mostram a assinatura/o grupo de recursos que foi delegado, junto com os usuários e permissões que têm acesso a ele. Para exibir essas informações, selecione **Delegações** no lado esquerdo da página **Meus clientes**.
+As delegações mostram a assinatura ou o grupo de recursos que foi delegado, junto com os usuários e permissões que têm acesso a ele. Para exibir essas informações, selecione **Delegações** no lado esquerdo da página **Meus clientes**.
 
 Os filtros na parte superior da página permitem que você classifique e agrupe suas informações de atribuição de acesso ou filtre por clientes, ofertas ou palavras-chave específicos.
 

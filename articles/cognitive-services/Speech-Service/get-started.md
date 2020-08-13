@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: 5dc1f8ed31c8d7199a31643a76e611d828da77ac
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c15601b4c58ce072881b3c244f10bc196bceb853
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056458"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167803"
 ---
 # <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Fala gratuitamente
 
@@ -87,7 +87,7 @@ Para alternar de uma assinatura para outra, por exemplo, quando a avaliação gr
 
 ## <a name="about-regions"></a>Sobre regiões
 
-- Se o aplicativo usar um [SDK de Fala](speech-sdk.md), forneça o código da região, como `westus`, ao criar uma configuração de fala.
+- Se seu aplicativo usar um [SDK de fala](speech-sdk.md), você fornecerá o identificador de região, como `westus` , ao criar uma configuração de fala.
 - Se o aplicativo usar uma das [APIs REST](rest-apis.md) do serviço de Fala, a região fará parte do URI do ponto de extremidade usado ao fazer solicitações.
 - As chaves criadas para uma região são válidas somente nessa região. A tentativa de usá-las com outras regiões resultará em erros de autenticação.
 

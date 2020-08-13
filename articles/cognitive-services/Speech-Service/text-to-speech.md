@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 1a8b458eb004b44d0045f36b18d88e11e019c4d2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 42d5ca12e91de5e0e906fb017183ea684b63b49c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399496"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167701"
 ---
 # <a name="what-is-text-to-speech"></a>O que é conversão de texto em fala?
 
@@ -41,13 +41,7 @@ A conversão de texto em fala do serviço de fala permite que seus aplicativos, 
 
 ## <a name="get-started"></a>Introdução
 
-O serviço de conversão de texto em fala está disponível por meio do [SDK de fala](speech-sdk.md). Há vários cenários comuns disponíveis como guias de início rápido, em várias linguagens e plataformas:
-
-* [Sintetizar fala em um arquivo de áudio](quickstarts/text-to-speech-audio-file.md)
-* [Sintetizar fala para um locutor](quickstarts/text-to-speech.md)
-* [Sintetizar de forma assíncrona o áudio de formato longo](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
-
-Se preferir, o serviço de conversão de texto em fala pode ser acessado via [REST](rest-text-to-speech.md).
+Consulte o guia de [início rápido](get-started-text-to-speech.md) para começar a usar o texto em fala. O serviço de conversão de texto em fala está disponível por meio do [SDK de fala](speech-sdk.md), da [API REST](rest-text-to-speech.md)e da [CLI de fala](spx-overview.md)
 
 ## <a name="sample-code"></a>Código de exemplo
 
@@ -65,7 +59,7 @@ Além das vozes padrão e neural, você pode criar e ajustar vozes personalizada
 Ao usar o serviço de conversão de texto em fala, você será cobrado por cada caractere convertido em fala, incluindo pontuação. Embora o documento SSML em si não seja Faturável, elementos opcionais usados para ajustar como o texto é convertido em fala, como fonemas e pitch, são contados como caracteres faturáveis. Aqui está uma lista do que é Faturável:
 
 - Texto passado para o serviço de conversão de texto em fala no corpo de SSML da solicitação
-- Todas as marcações dentro do campo de texto do corpo da solicitação no formato SSML, `<speak>` exceto `<voice>` para marcas e
+- Todas as marcações dentro do campo de texto do corpo da solicitação no formato SSML, exceto para `<speak>` `<voice>` marcas e
 - Letras, pontuação, espaços, tabulações, marcação e todos os caracteres de espaço em branco
 - Cada ponto de código definido no Unicode
 

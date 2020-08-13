@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 44602c65a08f2e76fa017022f6137a18481f2edd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbee9881addf66d762f1eadb837e5a4e41bf79de
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515368"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167888"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Desenvolvimento para o Arquivos do Azure com .NET
 
@@ -99,7 +99,7 @@ Em seguida, salve suas credenciais no arquivo do seu projeto `App.config` . Em *
 ```
 
 > [!NOTE]
-> A versão mais recente do emulador de armazenamento do Azure não dá suporte aos Arquivos do Azure. Sua cadeia de conexão deve ter como destino uma Conta de Armazenamento do Azure na nuvem para funcionar com os Arquivos do Azure.
+> A versão mais recente do emulador de armazenamento do Azure não dá suporte a arquivos do Azure. Sua cadeia de conexão deve ter como destino uma Conta de Armazenamento do Azure na nuvem para funcionar com os Arquivos do Azure.
 
 ## <a name="add-using-directives"></a>Adicionar diretivas using
 
@@ -487,7 +487,7 @@ Para obter mais informações sobre os arquivos do Azure, consulte os seguintes 
 ### <a name="conceptual-articles-and-videos"></a>Artigos e vídeos conceituais
 
 * [Arquivos do Azure: um sistema de arquivos SMB de nuvem ininterrupta para Windows e Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Usar o Arquivos do Azure com o Linux](storage-how-to-use-files-linux.md)
+* [Usar os Arquivos do Azure com o Linux](storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-file-storage"></a>Suporte de ferramentas para o armazenamento de arquivos
 
@@ -497,7 +497,7 @@ Para obter mais informações sobre os arquivos do Azure, consulte os seguintes 
 ### <a name="reference"></a>Referência
 
 * [APIs do Armazenamento do Azure para .NET](/dotnet/api/overview/azure/storage)
-* [API REST do serviço de arquivo](/rest/api/storageservices/File-Service-REST-API)
+* [API REST do serviço Arquivo](/rest/api/storageservices/File-Service-REST-API)
 
 ### <a name="blog-posts"></a>Postagens no blog
 

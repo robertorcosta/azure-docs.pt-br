@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
-ms.openlocfilehash: 23ce3272d99401340d784f88dd537baa55774a63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de8d1b7aba7763799228c831af61bf83a79937bb
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708817"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167939"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Referência de conteúdo do Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -75,6 +75,14 @@ Neste artigo, você pode encontrar uma referência de conteúdo para vários gui
 - [Armazenar eventos estendidos em um arquivo de evento](../database/xevent-code-event-file.md)
 - [Armazenar eventos estendidos em um buffer de anéis](../database/xevent-code-ring-buffer.md)
 
+### <a name="alerting"></a>Alertas
+
+- [Criar alertas na instância gerenciada](alerts-create.md)
+
+## <a name="operations"></a>Operações
+
+- [Failover manual iniciado pelo usuário no SQL Instância Gerenciada](user-initiated-failover.md)
+
 ## <a name="develop-applications"></a>Desenvolver aplicativos
 
 - [Conectividade](../database/connect-query-content-reference-guide.md#libraries)
@@ -99,8 +107,6 @@ Neste artigo, você pode encontrar uma referência de conteúdo para vários gui
 - [Padrões de design do SaaS](../database/saas-tenancy-app-design-patterns.md)
 - [Indexador de vídeo de SaaS](../database/saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [Segurança de aplicativo de SaaS](../database/saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
-
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

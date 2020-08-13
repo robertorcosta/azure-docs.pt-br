@@ -4,12 +4,12 @@ description: Sintomas, causas e resoluções para falhas do Backup do Azure rela
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 188eef5471e93661041dadfc93f561d2173ba7f2
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 274435a958820c3fd08fef4a61643a1d656e31e3
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809758"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167922"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha do Backup do Azure: problemas com o agente ou a extensão
 
@@ -23,7 +23,7 @@ As falhas de backup mais comuns podem ser autoresolvidas seguindo as etapas de s
 
 ### <a name="step-1-check-azure-vm-health"></a>Etapa 1: verificar a integridade da VM do Azure
 
-- **Verifique se o estado de provisionamento da VM do Azure está ' em execução '**: se o [estado de provisionamento da VM](../virtual-machines/windows/states-lifecycle.md#provisioning-states) estiver no estado **parado/desalocado/atualizando** , ele irá interferir na operação de backup. Abra *portal do Azure > VM > visão geral >* e verifique o status da VM para garantir que ela esteja **em execução** e repita a operação de backup.
+- **Verifique se o estado de provisionamento da VM do Azure está ' em execução '**: se o [estado de provisionamento da VM](../virtual-machines/states-lifecycle.md#provisioning-states) estiver no estado **parado/desalocado/atualizando** , ele irá interferir na operação de backup. Abra *portal do Azure > VM > visão geral >* e verifique o status da VM para garantir que ela esteja **em execução** e repita a operação de backup.
 - **Revisar atualizações ou reinicializações pendentes do so**: Verifique se não há nenhuma atualização do sistema operacional pendente ou reinicializações pendentes na VM.
 
 ### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>Etapa 2: verificar a integridade do serviço do agente convidado de VM do Azure
@@ -67,7 +67,7 @@ O backup do Azure usa a extensão de instantâneo da VM para obter um backup con
 - **Siga as diretrizes de práticas recomendadas de backup**: examine as [práticas recomendadas para habilitar o backup de VM do Azure](backup-azure-vms-introduction.md#best-practices).
 - **Examinar as diretrizes para discos criptografados**: se você estiver habilitando o backup para VMs com disco criptografado, certifique-se de ter fornecido todas as permissões necessárias. Para saber mais, confira [fazer backup e restaurar a VM do Azure criptografada](backup-azure-vms-encryption.md#encryption-support).
 
-## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - o agente de VM não pode se comunicar com o Backup do Azure
+## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable: o agente de VM não pode se comunicar com o Backup do Azure
 
 **Código de erro**: UserErrorGuestAgentStatusUnavailable <br>
 **Mensagem de erro**: o agente de VM não pode se comunicar com o backup do Azure<br>
@@ -101,7 +101,7 @@ Depois de registrar e agendar uma VM para o serviço de backup do Azure, o backu
 **Código de erro**: UserErrorVmProvisioningStateFailed<br>
 **Mensagem de erro**: a VM está em estado de provisionamento com falha<br>
 
-Esse erro ocorre quando uma das falhas de extensão coloca a VM em estado de falha no provisionamento.<br>**Abra portal do Azure > VM > configurações > extensões > status de extensões** e verifique se todas as extensões estão em estado de **provisionamento bem-sucedido** . Para saber mais, confira [Estados de provisionamento](../virtual-machines/windows/states-lifecycle.md#provisioning-states).
+Esse erro ocorre quando uma das falhas de extensão coloca a VM em estado de falha no provisionamento.<br>**Abra portal do Azure > VM > configurações > extensões > status de extensões** e verifique se todas as extensões estão em estado de **provisionamento bem-sucedido** . Para saber mais, confira [Estados de provisionamento](../virtual-machines/states-lifecycle.md#provisioning-states).
 
 - Se a extensão VMSnapshot estiver em um estado de falha, clique com o botão direito do mouse na extensão com falha e remova-a. Disparar um backup sob demanda. Essa ação reinstalará as extensões e executará o trabalho de backup.  <br>
 - Se qualquer outra extensão estiver em um estado de falha, ela poderá interferir no backup. Verifique se esses problemas de extensão foram resolvidos e repita a operação de backup.

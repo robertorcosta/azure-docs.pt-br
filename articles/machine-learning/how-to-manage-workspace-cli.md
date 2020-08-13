@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 6c2d1b3db422a40f7bcf237c292b48183d99962b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0eec9ce6b035b7bf3627c844abb97649ce972693
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121265"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167633"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um workspace para o Azure Machine Learning com a CLI do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -143,6 +143,9 @@ A saída desse comando é semelhante ao JSON a seguir:
 ```
 
 ### <a name="virtual-network-and-private-endpoint"></a>Rede virtual e ponto de extremidade privado
+
+> [!IMPORTANT]
+> O uso do link privado do Azure com o Azure Machine Learning espaço de trabalho está atualmente em visualização pública. Essa funcionalidade só está disponível nas regiões **leste dos EUA** e **oeste dos EUA 2** . Essa visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Se você quiser restringir o acesso ao seu espaço de trabalho a uma rede virtual, poderá usar os seguintes parâmetros:
 

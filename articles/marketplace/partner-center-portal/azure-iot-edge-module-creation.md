@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: a44e7835b90ca88460d2045a5494420c6d47921b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 38e51f8bc66e8c47807a9b265ade3f196745db26
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032825"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167174"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
 
@@ -288,9 +288,11 @@ Adicione pelo menos uma ID da assinatura do Azure, seja individualmente (até 10
 
 Selecione **Salvar rascunho** antes de prosseguir para a próxima seção, Visão geral do plano.
 
-### <a name="plan-overview"></a>Visão geral do plano
+## <a name="plan-overview"></a>Visão geral do plano
 
 Essa guia permite que você forneça opções de plano diferentes na mesma oferta no Partner Center. Os planos (anteriormente chamados de SKUs) podem diferir em termos de quais nuvens estão disponíveis, como nuvens globais, nuvens governamentais e a imagem referenciada pelo plano. Para listar sua oferta no marketplace, você precisa configurar pelo menos um plano.
+
+Você pode criar até 100 planos para cada oferta: até 45 deles podem ser privados. Saiba mais sobre planos privados em [ofertas privadas no Microsoft Commercial Marketplace](../private-offers.md).
 
 Depois de criar seus planos, a guia **Visão geral do plano** exibe:
 
@@ -305,7 +307,7 @@ As ações disponíveis no painel Visão geral do plano variam de acordo com o s
 - **Excluir o rascunho**: se o status de plano for de rascunho.
 - **Parar venda do plano**: se o status do plano for publicado e ativo.
 
-#### <a name="create-new-plan"></a>Criar plano
+### <a name="create-new-plan"></a>Criar plano
 
 Selecione **Criar novo plano**. A caixa de diálogo **Novo plano** é exibida.
 
@@ -337,7 +339,7 @@ Essa opção só estará visível se o **Azure governamental** estiver seleciona
 
 Os serviços do Azure Governamental manipulam os dados que estão sujeitos a determinadas normas e requisitos governamentais. Por exemplo, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS. Para oferecer reconhecimento das suas certificações para esses programas, você pode fornecer até 100 links que as descrevem. Eles podem ser links diretos para suas listagens no programa ou para seu próprio site. Esses links são visíveis somente para clientes do Azure Governamental.
 
-## <a name="plan-listing"></a>Listagem de planos
+### <a name="plan-listing"></a>Listagem de planos
 
 Essa guia exibe informações específicas de cada plano diferente presente na mesma oferta.
 
@@ -377,7 +379,7 @@ Aqui está um exemplo de detalhes do plano do Azure Marketplace (os preços list
 2. Nome do plano
 3. Descrição do plano
 
-## <a name="availability"></a>Disponibilidade
+### <a name="availability"></a>Disponibilidade
 
 Caso queira ocultar sua oferta publicada para que os clientes não possam pesquisá-la, navegar por ela ou comprá-la no marketplace, marque a caixa de seleção **Ocultar plano** na guia Disponibilidade.
 

@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.custom: dpalled
-ms.openlocfilehash: 34cf770a8ac75c2516480ec3136e61da15f4e4ff
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: ab7a30cf6ca71e9260a9cb6e9136f2579e51812c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446641"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167990"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Adicionando suporte para o tipo de dados Long no Azure Time Series Insights Gen2
 
@@ -66,7 +66,7 @@ Se você enviar dados de telemetria de inteiros no momento, seus dados serão di
 
 Seus dados de inteiro gravam em **propertyValue_long**. Dados numéricos ingeridos anteriormente (e ingeridos futuramente) no **propertyValue_double** não são copiados.
 
-Se você quiser consultar dados entre essas duas colunas para a propriedade **PropertyValue** , precisará usar a função escalar de **adesão ()** no TSX. A função aceita argumentos do mesmo **tipo de dados** e retorna o primeiro valor não nulo na lista de argumentos. Para obter mais informações, consulte [Azure Time Series insights conceitos de acesso a dados do Gen2](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions).
+Se você quiser consultar dados entre essas duas colunas para a propriedade **PropertyValue** , precisará usar a função escalar de **adesão ()** no TSX. A função aceita argumentos do mesmo **tipo de dados** e retorna o primeiro valor não nulo na lista de argumentos. Para obter mais informações, consulte [Azure Time Series insights conceitos de acesso a dados do Gen2](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions).
 
 #### <a name="variable-definition-in-tsx---numeric"></a>Definição de variável em TSX-numeric
 
@@ -78,7 +78,7 @@ Se você quiser consultar dados entre essas duas colunas para a propriedade **Pr
 
 [![Nova definição de variável](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
-Você também pode usar o **adesão ($Event. PropertyValue. Double e toduplo ($Event. PropertyValue. Long))** como a [expressão de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)personalizada.
+Você também pode usar o **adesão ($Event. PropertyValue. Double e toduplo ($Event. PropertyValue. Long))** como a [expressão de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizada.
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---numeric"></a>Definição de variável embutida usando APIs de consulta TSX-numeric
 
@@ -126,7 +126,7 @@ Você também pode usar o **adesão ($Event. PropertyValue. Double e toduplo ($E
 }
 ```
 
-Você também pode usar o **adesão ($Event. PropertyValue. Double e toduplo ($Event. PropertyValue. Long))** como a [expressão de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)personalizada.
+Você também pode usar o **adesão ($Event. PropertyValue. Double e toduplo ($Event. PropertyValue. Long))** como a [expressão de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizada.
 
 > [!NOTE]
 > Recomendamos que você atualize essas variáveis em todos os locais em que elas possam ser usadas. Esses locais incluem o modelo de série temporal, consultas salvas e consultas de conector de Power BI.
@@ -147,7 +147,7 @@ Se, no momento, você usar variáveis categóricas que mapeiem valores inteiros 
 
 Você também pode usar o **adesão ($Event. PropertyValue. Double e toduplo ($Event. PropertyValue. Long))** como a [expressão de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)personalizada.
 
-Variáveis categóricas ainda exigem que o valor seja de um tipo inteiro. O **DataType** de todos os argumentos em **adesão ()** deve ser do tipo **Long** na [expressão de série temporal personalizada.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+Variáveis categóricas ainda exigem que o valor seja de um tipo inteiro. O **DataType** de todos os argumentos em **adesão ()** deve ser do tipo **Long** na [expressão de série temporal personalizada.](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---categorical"></a>Definição de variável embutida usando APIs de consulta TSX-categórica
 
@@ -227,7 +227,7 @@ Variáveis categóricas ainda exigem que o valor seja de um tipo inteiro. O **Da
 }
 ```
 
-Variáveis categóricas ainda exigem que o valor seja de um tipo inteiro. O **DataType** de todos os argumentos em **adesão ()** deve ser do tipo **Long** na [expressão de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)personalizada.
+Variáveis categóricas ainda exigem que o valor seja de um tipo inteiro. O **DataType** de todos os argumentos em **adesão ()** deve ser do tipo **Long** na [expressão de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizada.
 
 > [!NOTE]
 > Recomendamos que você atualize essas variáveis em todos os locais em que elas possam ser usadas. Esses locais incluem o modelo de série temporal, consultas salvas e consultas de conector de Power BI.

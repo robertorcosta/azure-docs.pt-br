@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/12/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: e83e6df26a2b3e8eabda142ee6cd89320c59ad8a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 7384d03595f36e37eb70ec68d4f59b889facf76f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922635"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168024"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
 
@@ -46,6 +46,7 @@ De acordo com a **etapa 3**, separar as credenciais do aplicativo e as do usuár
 > Siga o princípio de **Separação de escopos** (descrita para este cenário acima) ao configurar sua política de segurança do Azure Time Series Insights.
 
 > [!NOTE]
+
 > * Este artigo se concentra em um aplicativo de locatário único que se destina a ser executado em uma só organização.
 > * Normalmente, você usa aplicativos com um locatário para os aplicativos da linha de negócios executados em sua organização.
 
@@ -115,6 +116,7 @@ Os cabeçalhos de solicitação necessários são descritos abaixo.
 
 > [!IMPORTANT]
 > O token deve ser emitido exatamente para o recurso `https://api.timeseries.azure.com/` (também conhecido como o "público" do token).
+
 > * Sendo assim, sua [AuthURL](https://www.getpostman.com/) do **Postman** será: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com/.default`
 > * `https://api.timeseries.azure.com/` é válido, mas `https://api.timeseries.azure.com` não é.
 
@@ -155,7 +157,7 @@ Os parâmetros opcionais de cadeia de consulta de URL incluem a definição de u
 
 | Parâmetro de consulta opcional | Descrição | Versão |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Tempo limite do lado do servidor para a execução da solicitação HTTP. Aplicável somente às APIs [Obter Eventos de Ambiente](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) e [Obter Agregações de Ambiente](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api). O valor do tempo limite deve estar no formato de duração ISO 8601, por exemplo, `"PT20S"` e deve estar no intervalo `1-30 s`. O valor padrão é `30 s`. | Gen1 |
+| `timeout=<timeout>` | Tempo limite do lado do servidor para a execução da solicitação HTTP. Aplicável somente às APIs [Obter Eventos de Ambiente](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) e [Obter Agregações de Ambiente](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api). O valor do tempo limite deve estar no formato de duração ISO 8601, por exemplo, `"PT20S"` e deve estar no intervalo `1-30 s`. O valor padrão é `30 s`. | Gen1 |
 | `storeType=<storeType>` | Para ambientes Gen2 com armazenamento quente habilitado, a consulta pode ser executada no ou no `WarmStore` `ColdStore` . Esse parâmetro na consulta define em qual armazenamento a consulta deve ser executada. Se ele não estiver definido, a consulta será executada no armazenamento cold. Para consultar o armazenamento warm, **storeType** precisa ser definido como `WarmStore`. Se ele não estiver definido, a consulta será executada no armazenamento cold. | Gen2 |
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -164,6 +166,6 @@ Os parâmetros opcionais de cadeia de consulta de URL incluem a definição de u
 
 * Para obter o código de exemplo que chama os exemplos de código de API Gen2 Azure Time Series Insights, leia [consultar dados do Gen2 usando C#](./time-series-insights-update-query-data-csharp.md).
 
-* Para obter informações de referência da API, leia a documentação de [Referência da API de Consulta](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
+* Para obter informações de referência da API, leia a documentação de [Referência da API de Consulta](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api).
 
 * Saiba como [criar uma entidade de serviço](../active-directory/develop/howto-create-service-principal-portal.md).

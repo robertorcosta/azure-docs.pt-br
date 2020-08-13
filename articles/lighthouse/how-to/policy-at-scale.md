@@ -1,20 +1,23 @@
 ---
 title: Implantar o Azure Policy em assinaturas delegadas em escala
 description: Saiba como o Azure Lighthouse permite implantar uma definição de política e uma atribuição de política em vários locatários.
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: 6d7c6206916f87072f68cc0fe953c8049896cd0b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 27d32a68c1a3806e514533efbae581aa97bc6d0c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111789"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167276"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implantar o Azure Policy em assinaturas delegadas em escala
 
 Como um provedor de serviços, você pode ter integrado vários locatários de clientes ao [Azure Lighthouse](../overview.md). O Azure Lighthouse permite que os provedores de serviços realizem operações em escala em vários locatários ao mesmo tempo, tornando as tarefas de gerenciamento mais eficientes.
 
 Esse tópico mostra como usar o [Azure Policy](../../governance/policy/index.yml) para implantar uma definição de política e uma atribuição de política em vários locatários por meio de comandos do PowerShell. Neste exemplo, a definição de política garante que as contas de armazenamento estejam protegidas permitindo apenas o tráfego HTTPS.
+
+> [!TIP]
+> Embora possamos nos referimos a provedores de serviços e clientes neste tópico, as [empresas que gerenciam vários locatários](../concepts/enterprise.md) podem usar os mesmos processos.
 
 ## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Usar o Azure Resource Graph para fazer consultas em locatários do cliente
 

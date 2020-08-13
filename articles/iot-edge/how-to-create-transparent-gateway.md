@@ -4,19 +4,19 @@ description: Usar um dispositivo Azure IoT Edge como gateway transparente que po
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/02/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 0155294777e1d732e5ff3874102b90049d9a123d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf7147ca1295c9f2cef5d89c232f2c266075e362
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782578"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167395"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para agir como gateway transparente
 
@@ -93,15 +93,19 @@ Para cenários de produção, você deve gerar esses arquivos com sua própria a
    * Windows: `Restart-Service iotedge`
    * Linux: `sudo systemctl restart iotedge`
 
-## <a name="deploy-edgehub-to-the-gateway"></a>Implantar edgeHub no gateway
+## <a name="deploy-edgehub-and-route-messages"></a>Implantar edgeHub e rotear mensagens
 
-Quando você instala o IoT Edge pela primeira vez em um dispositivo, somente um módulo do sistema é iniciado automaticamente: o agente do IoT Edge. Depois de criar a primeira implantação para um dispositivo, o segundo módulo do sistema, o Hub de IoT Edge, também será iniciado.
+Os dispositivos downstream enviam telemetria e mensagens para o dispositivo de gateway, em que o módulo de Hub IoT Edge é responsável por rotear as informações para outros módulos ou para o Hub IoT. Para preparar o dispositivo de gateway para essa função, verifique se:
 
-O Hub de IoT Edge é responsável por receber mensagens de entrada de dispositivos downstream e roteá-los para o próximo destino. Se o módulo **edgeHub** não estiver em execução no seu dispositivo, crie uma implantação inicial para seu dispositivo. A implantação ficará vazia porque você não adiciona nenhum módulo, mas verificará se ambos os módulos do sistema estão em execução.
+* O módulo Hub de IoT Edge é implantado no dispositivo.
 
-Você pode verificar quais módulos estão sendo executados em um dispositivo verificando os detalhes do dispositivo na portal do Azure, exibindo o status do dispositivo no Visual Studio ou Visual Studio Code, ou executando o comando `iotedge list` no próprio dispositivo.
+  Quando você instala o IoT Edge pela primeira vez em um dispositivo, somente um módulo do sistema é iniciado automaticamente: o agente do IoT Edge. Depois de criar a primeira implantação para um dispositivo, o segundo módulo do sistema, o Hub de IoT Edge, também será iniciado. Se o módulo **edgeHub** não estiver em execução no seu dispositivo, crie uma implantação para seu dispositivo.
 
-Se o módulo **edgeAgent** estiver em execução sem o módulo **edgeHub** , use as seguintes etapas:
+* O módulo Hub IoT Edge tem rotas configuradas para lidar com mensagens de entrada de dispositivos downstream.
+
+  O dispositivo de gateway deve ter uma rota em vigor para tratar mensagens de dispositivos downstream ou então essas mensagens não serão processadas. Você pode enviar as mensagens para os módulos no dispositivo de gateway ou diretamente para o Hub IoT.
+
+Para implantar o módulo Hub de IoT Edge e configurá-lo com rotas para lidar com mensagens de entrada de dispositivos downstream, siga estas etapas:
 
 1. No portal do Azure, navegue para o hub IoT.
 
@@ -109,13 +113,27 @@ Se o módulo **edgeAgent** estiver em execução sem o módulo **edgeHub** , use
 
 3. Selecione **definir módulos**.
 
-4. Selecione **Avançar: rotas**.
+4. Na página **módulos** , você pode adicionar todos os módulos que deseja implantar no dispositivo de gateway. Para os fins deste artigo, estamos concentrados na configuração e implantação do módulo edgeHub, que não precisa ser definido explicitamente nesta página.
 
-5. Na página **rotas** , você deve ter uma rota padrão que envia todas as mensagens, seja de um módulo ou de um dispositivo downstream, para o Hub IOT. Caso contrário, adicione uma nova rota com os seguintes valores e selecione **revisar + criar**:
-   * **Nome**:`route`
-   * **Valor**:`FROM /messages/* INTO $upstream`
+5. Selecione **Avançar: rotas**.
 
-6. Na página **revisar + criar** , selecione **criar**.
+6. Na página **rotas** , verifique se há uma rota para tratar as mensagens provenientes de dispositivos downstream. Por exemplo: 
+
+   * Uma rota que envia todas as mensagens, seja de um módulo ou de um dispositivo downstream, para o Hub IoT:
+       * **Nome**: `allMessagesToHub`
+       * **Valor**: `FROM /messages/* INTO $upstream`
+
+   * Uma rota que envia todas as mensagens de todos os dispositivos downstream para o Hub IoT:
+      * **Nome**: `allDownstreamToHub`
+      * **Valor**: `FROM /messages/* WHERE NOT IS_DEFINED ($connectionModuleId) INTO $upstream`
+
+      Essa rota funciona porque, ao contrário das mensagens de módulos IoT Edge, as mensagens de dispositivos downstream não têm uma ID de módulo associada a elas. O uso da cláusula **Where** da rota nos permite filtrar todas as mensagens com essa propriedade do sistema.
+
+      Para saber mais sobre o roteamento de mensagens, consulte [Implantar módulos e estabelecer rotas](./module-composition.md#declare-routes).
+
+7. Depois que a rota ou as rotas forem criadas, selecione **revisar + criar**.
+
+8. Na página **revisar + criar** , selecione **criar**.
 
 ## <a name="open-ports-on-gateway-device"></a>Abrir portas no dispositivo de gateway
 
@@ -128,25 +146,6 @@ Para que um cenário de gateway funcione, pelo menos um dos protocolos com supor
 | 8883 | MQTT |
 | 5671 | AMQP |
 | 443 | HTTPS <br> MQTT + WS <br> AMQP + WS |
-
-## <a name="route-messages-from-downstream-devices"></a>Rotear de mensagens de dispositivos downstream
-
-O runtime do IoT Edge pode rotear as mensagens enviadas dos dispositivos downstream assim como as mensagens enviadas pelos módulos. Esse recurso permite que você execute análises em um módulo em execução no gateway antes de enviar qualquer dado para a nuvem.
-
-Atualmente, a maneira como você roteia as mensagens enviadas pelos dispositivos downstream é diferenciando-as de mensagens enviadas pelos módulos. Todas as mensagens enviadas por módulos contêm uma propriedade de sistema chamada **connectionModuleId**, mas as mensagens enviadas pelos dispositivos downstream não. Você pode usar a cláusula WHERE da rota para excluir todas as mensagens que contêm essa propriedade do sistema.
-
-A rota abaixo é um exemplo que enviaria mensagens de qualquer dispositivo downstream para um módulo chamado `ai_insights` e, em seguida, do `ai_insights` Hub IOT.
-
-```json
-{
-    "routes":{
-        "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")",
-        "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream"
-    }
-}
-```
-
-Para saber mais sobre o roteamento de mensagens, consulte [Implantar módulos e estabelecer rotas](./module-composition.md#declare-routes).
 
 ## <a name="enable-extended-offline-operation"></a>Habilitar operação offline estendida
 

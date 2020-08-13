@@ -1,18 +1,21 @@
 ---
 title: Exibir e gerenciar provedores de serviços
 description: Os clientes podem usar a página Provedores de serviços no portal do Azure para exibir informações sobre provedores de serviços, ofertas de provedor de serviço e recursos delegados.
-ms.date: 07/10/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: bc0de0d3fd7ac4fe7c00720aab41961d9100ff5a
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: c22408a52d973a244d67528a73d4eaa487f166ba
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273771"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167157"
 ---
 # <a name="view-and-manage-service-providers"></a>Exibir e gerenciar provedores de serviços
 
-Os clientes podem usar a página **provedores de serviço** no [portal do Azure](https://portal.azure.com) para exibir detalhes sobre provedores de serviço e ofertas de provedor de serviço, delegar recursos específicos para o [Azure Lighthouse](../overview.md)e comprar novas ofertas de provedor de serviços. Embora nos refiramos aqui aos provedores de serviços e clientes, as empresas que gerenciam vários locatários podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
+Os clientes podem usar a página **provedores de serviço** no [portal do Azure](https://portal.azure.com) para exibir detalhes sobre provedores de serviço e ofertas de provedor de serviço, delegar recursos específicos para o [Azure Lighthouse](../overview.md)e comprar novas ofertas de provedor de serviços.
+
+> [!TIP]
+> Embora possamos nos referir aos provedores de serviços e clientes aqui, as [empresas que gerenciam vários locatários](../concepts/enterprise.md) podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
 
 Para acessar a página **Provedores de serviços** no portal do Azure, o cliente pode selecionar **Todos os serviços**, pesquisar **Provedores de serviços** e selecioná-lo. Eles também podem encontrá-lo inserindo "provedores de serviço" ou "Azure Lighthouse" na caixa de pesquisa próxima à parte superior do portal do Azure.
 
@@ -40,7 +43,7 @@ Um cliente pode adicionar uma nova oferta de provedor de serviços na página **
 
 Se o cliente desejar remover uma oferta de provedor de serviços, poderá selecionar o ícone de lixeira na linha dessa oferta. Depois de confirmar a exclusão, esse provedor de serviços não terá mais acesso aos recursos do cliente que antes eram delegados para essa oferta.
 
-## <a name="delegate-resources"></a>Recursos delegados
+## <a name="delegate-resources"></a>Delegar recursos
 
 Antes que um provedor de serviços possa acessar e gerenciar os recursos de um cliente, ele deve ser delegado. Se um cliente tiver aceitado uma oferta, mas ainda não tiver delegado nenhum recurso, ele verá uma observação na parte superior da seção **ofertas do provedor de serviços** . Isso permite que o cliente saiba que ele precisa executar uma ação antes que o provedor de serviços possa acessar os recursos de qualquer cliente.
 

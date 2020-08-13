@@ -8,16 +8,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: vikancha
-ms.openlocfilehash: ab0205f05fc1d58157f4363dcc73564f3d4786b2
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: d07da12ecef7dfc6cf1a6df67f6beae01c4573d9
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068091"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168109"
 ---
-# <a name="ncast4_v3-series"></a>Série de NCasT4_v3 
+# <a name="ncast4_v3-series"></a>Série NCasT4_v3 
 
-As máquinas virtuais da série NCasT4_v3 são alimentadas por GPUs [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) e CPUs AMD EPYC 7V12 (Roma). O recurso de VMs tem até 4 GPUs NVIDIA T4 com 16 GB de memória cada, até 64 núcleos de processador EPYC de 7V12 (Roma) não multithread e 440 GiB de memória do sistema. Essas máquinas virtuais são ideais para executar cargas de trabalho ML e ia utilizando CUDA, TensorFlow, Pytorch, Caffe e outras estruturas ou as cargas de trabalho de gráficos usando a tecnologia de grade NVIDIA.
+As máquinas virtuais da série NCasT4_v3 são alimentadas por GPUs [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) e CPUs AMD EPYC 7V12 (Roma). O recurso de VMs tem até 4 GPUs NVIDIA T4 com 16 GB de memória cada, até 64 núcleos de processador EPYC de 7V12 (Roma) não multithread e 440 GiB de memória do sistema. Essas máquinas virtuais são ideais para executar cargas de trabalho ML e ia utilizando CUDA, TensorFlow, Pytorch, Caffe e outras estruturas ou as cargas de trabalho de gráficos usando a tecnologia de grade NVIDIA. A série NCasT4_v3 é ideal para a execução de cargas de trabalho de inferência.
 
 <br>
 
@@ -35,8 +35,8 @@ Atualizações de preservação de memória: Sem suporte
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NC4as_T4_v3 |4 |28 |180 | 1 | 16 | 8 | 2 |
 | Standard_NV8as_T4_v3 |8 |56 |360 | 1 | 16 | 16 | 4  |
-| Standard_NV16as_T4_v3 |16 |110 |360 | 16 | 8 | 32 | 8  |
-| Standard_NV64as_T4_v3 |64 |440 |2880 | 64 | 16 | 32 | 8  |
+| Standard_NV16as_T4_v3 |16 |110 |360 | 1 | 16 | 32 | 8  |
+| Standard_NV64as_T4_v3 |64 |440 |2880 | 4 | 64 | 32 | 8  |
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]

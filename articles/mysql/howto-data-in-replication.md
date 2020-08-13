@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 8/7/2020
-ms.openlocfilehash: dbf3a13ed5a544406950dbcfb5ea8796eceb03c1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: f8dbdf87eef193540fd5c1bf9d9e7f3794ae46ce
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030530"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168211"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a replicação nos dados para o Banco de Dados do Azure para MySQL
 
@@ -204,9 +204,11 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
 
 1. Filtragem 
  
-   Se você quiser ignorar a replicação de algumas tabelas do seu mestre, atualize o `replicate_wild_ignore_table` parâmetro de servidor no servidor de réplica. Consulte a [documentação do MySQL](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) para saber mais sobre esse parâmetro.
+   Se você quiser ignorar a replicação de algumas tabelas do seu mestre, atualize o `replicate_wild_ignore_table` parâmetro de servidor no servidor de réplica. Você pode fornecer mais de um padrão de tabela usando uma lista separada por vírgulas.
+
+   Consulte a [documentação do MySQL](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) para saber mais sobre esse parâmetro. 
     
-    Para atualizar o parâmetro, você pode usar o [portal do Azure](howto-server-parameters.md) ou [CLI do Azure](howto-configure-server-parameters-using-cli.md).
+   Para atualizar o parâmetro, você pode usar o [portal do Azure](howto-server-parameters.md) ou [CLI do Azure](howto-configure-server-parameters-using-cli.md).
 
 1. Iniciar replicação
 

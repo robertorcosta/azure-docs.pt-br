@@ -1,56 +1,56 @@
 ---
 title: Azure Lighthouse em cenários empresariais
 description: As funcionalidades do Azure Lighthouse podem ser usadas para simplificar o gerenciamento entre locatários dentro de uma empresa que usa vários locatários do Azure AD.
-ms.date: 07/06/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9f9a7aa81772a1edda5fd1915918b547a3066455
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3f452e6810fa6809b5ba1b83b664f8b38d82a895
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114135"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167342"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse em cenários empresariais
 
-O cenário mais comum para o [Azure Lighthouse](../overview.md) é um provedor de serviços que gerencia recursos nos locatários do Azure AD (Azure Active Directory) de seus clientes. No entanto, as funcionalidades do Azure Lighthouse também podem ser usadas para simplificar o gerenciamento entre locatários dentro de uma empresa que usa vários locatários do Azure AD.
+Um cenário comum para o [Azure Lighthouse](../overview.md) é um provedor de serviços que gerencia recursos em seus locatários do Azure Active Directory (Azure AD) de seus clientes. No entanto, os recursos do Azure Lighthouse também podem ser usados para simplificar o gerenciamento entre locatários em uma empresa que usa vários locatários do Azure AD.
 
 ## <a name="single-vs-multiple-tenants"></a>Locatários únicos versus múltiplos
 
-Para a maioria das organizações, o gerenciamento é mais fácil com um único locatário do Azure AD. Ter todos os recursos em um locatário permite a centralização de tarefas de gerenciamento por usuários, grupos de usuários ou entidades de serviço designados dentro desse locatário. É recomendável usar um locatário para sua organização sempre que possível.
+Para a maioria das organizações, o gerenciamento é mais fácil com um único locatário do Azure AD. Ter todos os recursos em um locatário permite a centralização de tarefas de gerenciamento por usuários, grupos de usuários ou entidades de serviço designados dentro desse locatário. É recomendável usar um locatário para sua organização sempre que possível. No entanto, algumas organizações podem ter vários locatários do Azure AD. Às vezes, isso pode ser uma situação temporária, como quando as aquisições ocorreram e uma estratégia de consolidação de locatário de longo prazo ainda não foi definida. Em outras ocasiões, as organizações podem precisar manter vários locatários em uma base contínua devido a subsidiárias totalmente independentes, requisitos geográficos ou legais ou outras considerações.
 
-Ao mesmo tempo, há situações que podem exigir que uma organização mantenha vários locatários do Azure AD. Em alguns casos, isso pode ser uma situação temporária, como quando as aquisições ocorreram e uma estratégia de fusão de locatário de longo prazo levará algum tempo para ser definida. Uma organização também pode precisar manter vários locatários continuamente (devido às subsidiárias totalmente independentes, requisitos geográficos e legais e assim por diante). Nos casos em que uma arquitetura multilocatário é necessária, o Azure Lighthouse pode ser usado para centralizar e simplificar as operações de gerenciamento. As assinaturas de vários locatários podem ser integradas para o [gerenciamento de recursos delegados do Azure](azure-delegated-resource-management.md), permitindo que usuários designados em um locatário gerenciador realizem [funções de gerenciamento entre locatários](cross-tenant-management-experience.md) de maneira centralizada e escalonável.
+Nos casos em que uma arquitetura multilocatário é necessária, o Azure Lighthouse pode ajudar a centralizar e otimizar as operações de gerenciamento. Usando o [Gerenciamento de recursos delegado do Azure](azure-delegated-resource-management.md), os usuários em um locatário de gerenciamento podem executar [funções de gerenciamento entre locatários](cross-tenant-management-experience.md) de maneira centralizada e escalonável.
 
 ## <a name="tenant-management-architecture"></a>Arquitetura de gerenciamento de locatários
 
-Ao centralizar as operações de gerenciamento em vários locatários, será necessário determinar qual locatário incluirá os usuários que executam operações de gerenciamento para os outros locatários. Em outras palavras, será necessário determinar qual locatário será o locatário de gerenciamento para outros locatários.
+Para usar o Azure Lighthouse em uma empresa, você precisará determinar qual locatário incluirá os usuários que executam operações de gerenciamento nos outros locatários. Em outras palavras, será necessário determinar qual locatário será o locatário de gerenciamento para os outros locatários.
 
-Por exemplo, digamos que sua organização tenha um único locatário que chamarei *de locatário a*. Em seguida, sua organização adquire dois locatários adicionais, o *locatário B* e o *locatário C*, e você tem motivos comerciais que exigem que você os mantenha como locatários separados.
+Por exemplo, digamos que sua organização tenha um único locatário que chamarei *de locatário a*. Em seguida, sua organização adquire o *locatário B* e o *locatário C*, e você tem motivos comerciais que exigem que você os mantenha como locatários separados.
 
-Sua organização deseja usar as mesmas definições de política, práticas de backup e processos de segurança entre todos os locatários. Como você já tem usuários (incluindo grupos de usuários e entidades de serviço) responsáveis por realizar essas tarefas no Locatário A, é possível integrar todas as assinaturas dentro do Locatário B e do Locatário C para que esses mesmos usuários no Locatário A possam executar essas tarefas.
+Sua organização deseja usar as mesmas definições de política, práticas de backup e processos de segurança entre todos os locatários. Como o locatário A já inclui usuários responsáveis por essas tarefas, você pode integrar assinaturas no locatário B e no locatário C, permitindo que os mesmos usuários no locatário a executem essas tarefas.
 
-![Usuários no Locatário A gerenciando recursos no Locatário B e no Locatário C](../media/enterprise-azure-lighthouse.jpg)
+![Diagrama que mostra os usuários no locatário um Gerenciando recursos no locatário B e no locatário C.](../media/enterprise-azure-lighthouse.jpg)
 
 ## <a name="security-and-access-considerations"></a>Considerações sobre segurança e acesso
 
-Na maioria dos cenários empresariais, você desejará delegar uma assinatura completa ao Azure Lighthouse, embora também possa delegar apenas grupos de recursos específicos dentro de uma assinatura.
+Na maioria dos cenários empresariais, você desejará delegar uma assinatura completa ao Azure Lighthouse. Você também pode optar por delegar apenas grupos de recursos específicos em uma assinatura.
 
-De qualquer forma, [siga o princípio do menor privilégio ao definir quais usuários terão acesso aos recursos](recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege). Fazer isso ajuda a verificar se os usuários só têm as permissões necessárias para executar as tarefas necessárias e reduz a chance de erros inadvertidos.
+De qualquer forma, certifique-se de [seguir o princípio de privilégios mínimos ao definir quais usuários terão acesso aos recursos delegados](recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege). Fazer isso ajuda a verificar se os usuários só têm as permissões necessárias para executar as tarefas necessárias e reduz a chance de erros inadvertidos.
 
 O Azure Lighthouse fornece apenas links lógicos entre um locatário de gerenciamento e locatários gerenciados, em vez de mover dados ou recursos fisicamente. Além disso, o acesso sempre vai em apenas uma direção, do locatário gerenciador para os locatários gerenciados.  Os usuários e grupos no locatário gerenciador devem continuar usando a autenticação multifator ao executar operações de gerenciamento em recursos de locatários gerenciados.
 
-As empresas com proteções de governança e conformidade internas e externas podem usar os [Logs de atividade do Azure](../../azure-monitor/platform/platform-logs-overview.md) para atender aos seus requisitos de transparência. Quando os locatários empresariais tiverem estabelecido relações de locatário gerenciador e gerenciado, os usuários em cada locatário podem monitorar e obter visibilidade para ações executadas pelos usuários no outro locatário exibindo a atividade registrada em log.
+As empresas com proteções de governança e conformidade internas e externas podem usar os [Logs de atividade do Azure](../../azure-monitor/platform/platform-logs-overview.md) para atender aos seus requisitos de transparência. Quando os locatários empresariais tiverem estabelecido o gerenciamento e as relações de locatário gerenciadas, os usuários em cada locatário poderão exibir a atividade registrada para ver as ações tomadas pelos usuários no locatário de gerenciamento.
 
-## <a name="onboarding-process-considerations"></a>Considerações sobre a integração de processos
+## <a name="onboarding-considerations"></a>Considerações sobre integração
 
-As assinaturas (ou grupos de recursos em uma assinatura) podem ser integradas ao Azure Lighthouse implantando modelos de Azure Resource Manager ou por meio de ofertas de serviços gerenciados publicados no Azure Marketplace, de forma privada ou pública.
+As assinaturas (ou grupos de recursos em uma assinatura) podem ser integradas ao Azure Lighthouse implantando modelos de Azure Resource Manager ou por meio de ofertas de serviços gerenciados publicados no Azure Marketplace.
 
-Como os usuários empresariais normalmente poderão obter acesso direto aos locatários da empresa e não há necessidade de comercializar ou promover uma oferta de gerenciamento, geralmente é mais rápido e simples implantar diretamente com modelos do Azure Resource Manager. Embora nos refiramos aos provedores de serviços e clientes nas [diretrizes de integração](../how-to/onboard-customer.md), as empresas podem usar os mesmos processos.
+Como os usuários empresariais normalmente terão acesso direto aos locatários da empresa, e não há necessidade de comercializar ou promover uma oferta de gerenciamento, geralmente é mais rápido e mais simples implantar modelos de Azure Resource Manager. Embora as [diretrizes de integração](../how-to/onboard-customer.md) se refiram a provedores de serviços e clientes, as empresas podem usar os mesmos processos para integrar seus locatários.
 
-Se preferir, os locatários em uma empresa poderão ser integrados [publicando uma oferta de Serviços Gerenciados no Azure Marketplace](../how-to/publish-managed-services-offers.md). Para verificar se a oferta só está disponível para os locatários adequados, certifique-se de que seus planos estão marcados como privados. Com um plano privado, é possível fornecer IDs de assinatura para cada locatário que você planeja integrar e ninguém mais poderá obter sua oferta.
+Se preferir, os locatários em uma empresa poderão ser integrados [publicando uma oferta de Serviços Gerenciados no Azure Marketplace](../how-to/publish-managed-services-offers.md). Para verificar se a oferta só está disponível para os locatários adequados, certifique-se de que seus planos estão marcados como privados. Com um plano particular, você fornece as IDs de assinatura para cada locatário que planeja carregar e ninguém mais poderá obter sua oferta.
 
 ## <a name="terminology-notes"></a>Observações sobre terminologia
 
-Para o gerenciamento entre locatários da empresa, as referências aos provedores de serviço na documentação do Azure Lighthouse podem ser compreendidas para serem aplicadas ao locatário gerenciador dentro de uma empresa – ou seja, o locatário que inclui os usuários que gerenciarão recursos em outros locatários por meio do gerenciamento de recursos delegados do Azure. De maneira semelhante, as referências aos clientes podem ser entendidas para serem aplicadas aos locatários que estão delegando recursos para serem gerenciados por meio de usuários no locatário gerenciador.
+Para o gerenciamento entre locatários dentro da empresa, as referências a provedores de serviço na documentação do Azure Lighthouse podem ser compreendidas para aplicar ao locatário de gerenciamento em uma empresa, ou seja, o locatário que inclui os usuários que gerenciarão recursos em outros locatários por meio do Azure Lighthouse. Da mesma forma, todas as referências a clientes podem ser compreendidas para se aplicar aos locatários que estão delegando recursos a serem gerenciados por meio de usuários no locatário de gerenciamento.
 
 Por exemplo, no exemplo descrito acima, o Locatário A pode ser pensado como um locatário de provedor de serviços (o locatário gerenciador) e o Locatário B e o Locatário C podem ser pensados como os locatários do cliente.
 
