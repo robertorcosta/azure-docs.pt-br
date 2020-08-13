@@ -56,7 +56,7 @@
     - name: Inicialização da VM paralisada
       href: troubleshoot-vm-boot-configure-update.md
     - name: Ciclo de vida e estados da VM
-      href: ../windows/states-lifecycle.md
+      href: ../states-lifecycle.md
 - name: A VM não está inicializando
   items:
     - name: Linux

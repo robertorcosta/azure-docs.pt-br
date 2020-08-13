@@ -935,6 +935,10 @@
               href: app/sharepoint.md
             - name: Área de trabalho do Windows
               href: app/windows-desktop.md
+        - name: Outras ferramentas
+          items:
+            - name: Análise de alterações
+              href: app/change-analysis.md
     - name: Azure Monitor para VMs
       items:
         - name: Visão geral
@@ -1062,10 +1066,6 @@
           href: insights/resource-group-insights.md
         - name: Solucionar problemas de insights
           href: insights/troubleshoot-workbooks.md
-    - name: Análise de alterações
-      items:
-        - name: Análise de alterações
-          href: app/change-analysis.md
     - name: Soluções
       items:
         - name: Visão geral
