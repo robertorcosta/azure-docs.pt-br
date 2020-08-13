@@ -7,13 +7,13 @@ ms.date: 12/06/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: peterpr
-ms.openlocfilehash: 3e4b44c8f784524b4cd363a2f4531c5bf0a70e0d
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.custom: contperfq1
+ms.openlocfilehash: a75fbeb9a12f61f827411e56c57ff6a4460ab083
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041588"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136262"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definir um novo tipo de dispositivo IoT em seu aplicativo do Azure IoT Central
 

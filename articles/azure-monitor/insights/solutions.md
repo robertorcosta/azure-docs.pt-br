@@ -5,28 +5,28 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/12/2020
-ms.openlocfilehash: 406991de2441836565c911ef8a8e1402f6398eb0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/07/2020
+ms.openlocfilehash: 04f2d11b9fc8bbd61319a057c091cddbf140b9db
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824776"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135515"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitoramento no Azure Monitor
 
-As soluções de monitoramento aproveitam os serviços no Azure para fornecer análise adicional da operação de um determinado aplicativo ou serviço. Este artigo fornece uma breve visão geral das soluções de monitoramento no Azure e detalhes sobre como utilizá-las e instalá-las. É possível adicionar soluções de monitoramento ao Azure Monitor para qualquer aplicativo e serviço usado. Normalmente, estão disponíveis gratuitamente, mas coletam dados que podem invocar encargos de uso.
+As soluções de monitoramento no Azure Monitor fornecem análise da operação de um determinado aplicativo ou serviço do Azure. Este artigo fornece uma breve visão geral das soluções de monitoramento no Azure e detalhes sobre como utilizá-las e instalá-las. É possível adicionar soluções de monitoramento ao Azure Monitor para qualquer aplicativo e serviço usado. Normalmente, estão disponíveis gratuitamente, mas coletam dados que podem invocar encargos de uso.
 
 ## <a name="use-monitoring-solutions"></a>Usar soluções de monitoramento
 
-Abra a página de **Visão geral** no Azure Monitor para exibir um bloco para cada solução instalada no workspace.
+A página **visão geral** de soluções no Azure Monitor exibe um bloco para cada solução instalada em um espaço de trabalho log Analytics. Para abrir essa página, vá para **Azure monitor** na [portal do Azure](https://ms.portal.azure.com). No menu **insights** , selecione **mais** para abrir o **Hub de informações**e, em seguida, clique em **log Analytics espaços de trabalho**.
 
-1. Vá para o [Portal do Azure](https://ms.portal.azure.com). Pesquise e selecione **Monitor**.
-1. No menu **Insights**, selecione **Mais**.
-1. Use as caixas suspensas na parte superior da tela para alterar o workspace ou o intervalo de tempo usado para os blocos.
-1. Clique no bloco para uma solução abrir a exibição dela que inclui uma análise mais detalhada dos dados coletados.
+[![Hub de informações](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
 
-![Visão geral](media/solutions/overview.png)
+
+Use as caixas suspensas na parte superior da tela para alterar o workspace ou o intervalo de tempo usado para os blocos. Clique no bloco para uma solução abrir a exibição dela que inclui uma análise mais detalhada dos dados coletados.
+
+[![Visão geral](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
 As soluções de monitoramento podem conter vários tipos de recursos do Azure e é possível exibir todos os recursos incluídos em uma solução como qualquer outro recurso. Por exemplo, todas as consultas de log incluídas na solução estão listadas em **Consultas de Solução** no [Gerenciador de consultas](../log-query/get-started-portal.md#load-queries) e é possível usar essas consultas ao executar análises ad hoc com [consultas de log](../log-query/log-query-overview.md).
 

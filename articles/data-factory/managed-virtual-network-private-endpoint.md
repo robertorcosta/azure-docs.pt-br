@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: a4594ca1a992f158522eccb4ffa6e846a1f4f605
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c0f23c864430b6cb2f49f924d5aaa8bde296037c
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406275"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135956"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory rede virtual gerenciada (versão prévia)
 
@@ -49,7 +49,7 @@ Pontos de extremidade privados gerenciados são pontos de extremidade privados c
 
 ![Novo ponto de extremidade privado gerenciado](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory dá suporte a links privados. O link privado permite que você acesse os serviços do Azure (PaaS) (como o armazenamento do Azure, Azure Cosmos DB, SQL Data Warehouse do Azure).
+Azure Data Factory dá suporte a links privados. O link privado permite que você acesse os serviços do Azure (PaaS) (como o armazenamento do Azure, Azure Cosmos DB, Azure Synapse Analytics (anteriormente chamado de SQL Data Warehouse do Azure)).
 
 Quando você usa um link privado, o tráfego entre os armazenamentos de dados e a rede virtual gerenciada atravessa totalmente a rede de backbone da Microsoft. O Link Privado protege contra riscos de exfiltração dos dados. Você estabelece um link privado para um recurso criando um ponto de extremidade privado.
 
@@ -72,14 +72,14 @@ Se o proprietário aprova a conexão, o link privado é estabelecido. Caso contr
 Somente um Ponto de extremidade privado gerenciado em um estado aprovado pode enviar tráfego para um determinado recurso de link privado.
 
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
-### <a name="supported-data-sources"></a>Fontes de dados para as quais há suporte
+### <a name="supported-data-sources"></a>Fontes de dados com suporte
 As fontes de dados a seguir têm suporte para se conectar por meio do link privado da rede virtual gerenciada do ADF.
 - Armazenamento de Blobs do Azure
 - Armazenamento de Tabelas do Azure
 - Arquivos do Azure
 - Azure Data Lake Gen2
 - Banco de dados SQL do Azure (sem incluir o Azure SQL Instância Gerenciada)
-- SQL Data Warehouse do Azure
+- Azure Synapse Analytics (antigo SQL Data Warehouse do Azure)
 - SQL CosmosDB do Azure
 - Cofre de Chave do Azure
 - Link Privado do Azure

@@ -3,15 +3,15 @@ title: Solucionar problemas Área de Trabalho Remota área de trabalho virtual d
 description: Como resolver problemas ao configurar conexões de cliente em um ambiente de locatário da Área de Trabalho Virtual do Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 03/31/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6ac2eb2632ad96538e965e4d1057d7e4a116c05d
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: d1862e2e0dd9b1e566c6ee5d01a09213a0be4f8e
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009385"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88134472"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Solucionar problemas do cliente do Área de Trabalho Remota
 
@@ -41,13 +41,13 @@ nslookup rdweb.wvd.microsoft.com
 
 Tente se conectar com outro cliente, como Área de Trabalho Remota Client para Windows 7 ou Windows 10, e verifique se você pode abrir o cliente Web.
 
-### <a name="opening-another-site-fails"></a>Falha ao abrir outro site
+### <a name="cant-open-other-websites-while-connected-to-the-web-client"></a>Não é possível abrir outros sites enquanto estiver conectado ao cliente Web
 
-Isso geralmente é causado por problemas de conexão de rede ou por uma interrupção de rede. Recomendamos que você entre em contato com o suporte de rede.
+Se você não puder abrir outros sites enquanto estiver conectado ao cliente Web, pode haver problemas de conexão de rede ou uma interrupção de rede. Recomendamos que você entre em contato com o suporte de rede.
 
-### <a name="nslookup-cannot-resolve-the-name"></a>Nslookup não pode resolver o nome
+### <a name="nslookup-cant-resolve-the-name"></a>Nslookup não pode resolver o nome
 
-Isso geralmente é causado por problemas de conexão de rede ou por uma interrupção de rede. Recomendamos que você entre em contato com o suporte de rede.
+Se nslookup não puder resolver o nome, poderá haver problemas de conexão de rede ou uma interrupção de rede. Recomendamos que você entre em contato com o suporte de rede.
 
 ### <a name="your-client-cant-connect-but-other-clients-on-your-network-can-connect"></a>O cliente não pode se conectar, mas outros clientes em sua rede podem se conectar
 
@@ -58,11 +58,13 @@ Se seu navegador começar a funcionar ou parar de trabalhar enquanto você estiv
 3. Limpe o cache do navegador. Consulte [Limpar cache do navegador para seu navegador](https://binged.it/2RKyfdU).
 4. Abra o navegador em modo privado.
 
-## <a name="web-client-does-not-show-my-resources"></a>O cliente Web não mostra meus recursos
+## <a name="client-doesnt-show-my-resources"></a>O cliente não mostra meus recursos
 
-Primeiro, verifique a conta de Azure Active Directory que você está usando. Se você já tiver entrado com uma conta de Azure Active Directory diferente daquela que deseja usar para a área de trabalho virtual do Windows, deverá assinar ou usar uma janela de navegador privada.
+Primeiro, verifique a conta de Azure Active Directory que você está usando. Se já tiver entrado com uma conta do Azure Active Directory diferente da que deseja usar para a Área de Trabalho Virtual do Windows, você deverá sair ou usar uma janela de navegador privada.
 
 Se você estiver usando a área de trabalho virtual do Windows (clássico), use o link do cliente Web neste [artigo](./virtual-desktop-fall-2019/connect-web-2019.md) para se conectar aos seus recursos.
+
+Se isso não funcionar, verifique se o grupo de aplicativos está associado a um espaço de trabalho.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>O cliente Web para de responder ou desconexões
 
@@ -78,8 +80,8 @@ Se o cliente Web continuar solicitando credenciais, siga estas instruções:
 
 1. Confirme se a URL do cliente Web está correta.
 2. Confirme se as credenciais que você está usando são para o ambiente de área de trabalho virtual do Windows vinculado à URL.
-3. Limpar cookies do navegador. Para obter mais detalhes, consulte [como excluir arquivos de cookie no Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-4. Limpe o cache do navegador. Para obter mais detalhes, consulte [Limpar cache do navegador para seu navegador](https://binged.it/2RKyfdU).
+3. Limpar cookies do navegador. Para obter mais informações, consulte [como excluir arquivos de cookie no Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
+4. Limpe o cache do navegador. Para obter mais informações, consulte [limpar o cache do navegador para seu navegador](https://binged.it/2RKyfdU).
 5. Abra seu navegador em modo privado.
 
 ## <a name="next-steps"></a>Próximas etapas

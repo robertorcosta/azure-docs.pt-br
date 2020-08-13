@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: 4ff80330ab6244bc9d108b7f5a1d4e4e0dbd4feb
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6e03b8f89ec22b74ad7dd14d9225c11fde78ec7f
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387397"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135616"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Início Rápido: Criar um Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus) no portal do Azure
 
@@ -115,7 +115,7 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Até agora, as consultas envolveram os eventos github\_de modo exclusivo, mas podemos combinar essas informações com os usuários do github\_. Uma vez que criamos usuários fragmentados e eventos no mesmo identificador (`user_id`), as linhas de ambas as tabelas com IDs de usuário correspondentes serão [colocadas](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) nos mesmos nós de banco de dados e podem ser unidas facilmente.
+Até agora, as consultas envolveram os eventos github\_de modo exclusivo, mas podemos combinar essas informações com os usuários do github\_. Uma vez que criamos usuários fragmentados e eventos no mesmo identificador (`user_id`), as linhas de ambas as tabelas com IDs de usuário correspondentes serão [colocadas](concepts-hyperscale-colocation.md) nos mesmos nós de banco de dados e podem ser unidas facilmente.
 
 Se entrarmos em `user_id`, o Hyperscale pode efetuar push na execução de junção em fragmentos para execução em paralelo nos nós do trabalhador. Por exemplo, vamos encontrar os usuários que criaram o maior número de repositórios:
 

@@ -4,17 +4,17 @@ description: Conecte-se em particular a um aplicativo Web usando o Ponto de extr
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4fab75aef2a94ba7108085e9d5b5dbbf190342f6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 773e63cb5eb2a9825975402f65439acd6ad192ae
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068296"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135378"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Usando pontos de extremidade privados para o aplicativo Web do Azure (versão prévia)
 
@@ -70,7 +70,7 @@ Quando você usa o ponto de extremidade privado para o aplicativo Web, a URL sol
 Por padrão, sem o ponto de extremidade privado, o nome público do seu aplicativo Web é um nome canônico para o cluster.
 Por exemplo, a resolução de nome será:
 
-|Nome |Tipo |Valor |
+|Nome |Type |Valor |
 |-----|-----|------|
 |mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
 |clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
@@ -80,7 +80,7 @@ Por exemplo, a resolução de nome será:
 Quando você implanta um ponto de extremidade privado, atualizamos a entrada DNS para apontar para o nome canônico mywebapp.privatelink.azurewebsites.net.
 Por exemplo, a resolução de nome será:
 
-|Nome |Tipo |Valor |Comentário |
+|Nome |Type |Valor |Comentário |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
@@ -91,7 +91,7 @@ Você deve configurar um servidor DNS privado ou uma zona privada de DNS do Azur
 A zona DNS que você precisa criar é: **privatelink.azurewebsites.net**. Registre o registro para seu aplicativo Web com um registro a e o IP do ponto de extremidade privado.
 Por exemplo, a resolução de nome será:
 
-|Nome |Tipo |Valor |Comentário |
+|Nome |Type |Valor |Comentário |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|Um|10.10.10.8|<--você gerencia essa entrada em seu sistema DNS para apontar para seu endereço IP do ponto de extremidade privado|
@@ -103,7 +103,7 @@ Se você precisar usar um nome DNS personalizado, deverá adicionar o nome perso
 
 Para o console do kudu ou a API REST do kudu (implantação com agentes do Azure DevOps auto-hospedados, por exemplo), você deve criar dois registros em sua zona privada do DNS do Azure ou seu servidor DNS personalizado. 
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 |-----|-----|-----|
 | mywebapp.privatelink.azurewebsites.net | Um | PrivateEndpointIP | 
 | mywebapp.scm.privatelink.azurewebsites.net | Um | PrivateEndpointIP | 
@@ -128,6 +128,8 @@ Estamos melhorando o recurso de link privado e o ponto de extremidade privado re
 - Para implantar o ponto de extremidade privado para seu aplicativo Web usando CLI do Azure, consulte [como conectar-se de forma privada a um aplicativo Web com CLI do Azure][howtoguide2]
 - Para implantar o ponto de extremidade privado para seu aplicativo Web usando o PowerShell, consulte [como conectar-se de forma privada a um aplicativo Web com o PowerShell][howtoguide3]
 - Para implantar o ponto de extremidade privado para seu aplicativo Web usando o modelo do Azure, confira [como conectar-se de forma privada a um aplicativo Web com o modelo do Azure][howtoguide4]
+- Exemplo de ponta a ponta, como conectar um aplicativo Web front-end a um aplicativo Web de back-end protegido com injeção de VNet e ponto de extremidade privado com modelo ARM, consulte este guia de [início rápido][howtoguide5]
+- Exemplo de ponta a ponta, como conectar um aplicativo Web front-end a um aplicativo Web de back-end protegido com injeção de VNet e ponto de extremidade privado com Terraform, consulte este [exemplo][howtoguide6]
 
 
 <!--Links-->
@@ -144,3 +146,5 @@ Estamos melhorando o recurso de link privado e o ponto de extremidade privado re
 [howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
 [howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint
 [howtoguide4]: https://docs.microsoft.com/azure/app-service/scripts/template-deploy-private-endpoint
+[howtoguide5]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-privateendpoint-vnet-injection
+[howtoguide6]: https://docs.microsoft.com/azure/app-service/scripts/terraform-secure-backend-frontend

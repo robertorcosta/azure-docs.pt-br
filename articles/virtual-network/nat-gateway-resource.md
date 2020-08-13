@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2020
+ms.date: 08/11/2020
 ms.author: allensu
-ms.openlocfilehash: 983a3e04921bb3d8e804430948013a1b51802727
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
-ms.translationtype: HT
+ms.openlocfilehash: f6e0009a1e1df57298884097cac076ef3a344714
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424061"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135820"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Criar redes virtuais com recursos de gateway de NAT
 
@@ -322,7 +322,6 @@ Uma porta de SNAT está disponível para reutilização para o mesmo endereço I
 
 - A NAT é compatível com recursos de prefixo de IP público, IP público de SKU e balanceador de carga de nível Standard.   Os recursos Básicos (por exemplo, um balanceador de carga básico) e produtos derivados deles não são compatíveis com a NAT.  Os recursos básicos precisam ser colocados em uma sub-rede não configurada com NAT.
 - A família de endereços IPv4 é compatível.  A NAT não interage com a família de endereços IPv6.  A NAT não pode ser implantada em uma sub-rede com o prefixo IPv6.
-- O registro em log de fluxo do NSG não é compatível com o uso de NAT.
 - A NAT não pode abranger várias redes virtuais.
 
 ## <a name="suggestions"></a>Sugestões

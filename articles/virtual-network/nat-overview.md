@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2020
+ms.date: 08/11/2020
 ms.author: allensu
-ms.openlocfilehash: 93ce3b02ef8963a33e485b6560516e1d2b9c1ef5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
-ms.translationtype: HT
+ms.openlocfilehash: 63c687cdfe3e014617b5a8773136dfb6513178ed
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424010"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135803"
 ---
 # <a name="what-is-virtual-network-nat"></a>O que é NAT de Rede Virtual?
 
@@ -153,7 +153,6 @@ Desejamos saber como podemos aprimorar o serviço. Proponha e vote em quais iten
 
 * A NAT é compatível com recursos de prefixo de IP público, IP público de SKU e balanceador de carga de nível Standard. Os recursos Básicos, como um balanceador de carga básico, e produtos derivados deles não são compatíveis com a NAT.  Os recursos básicos precisam ser colocados em uma sub-rede não configurada com NAT.
 * A família de endereços IPv4 é compatível.  A NAT não interage com a família de endereços IPv6.  A NAT não pode ser implantada em uma sub-rede com o prefixo IPv6.
-* O registro em log de fluxo do NSG não é compatível com o uso de NAT.
 * A NAT não pode abranger várias redes virtuais.
 
 ## <a name="next-steps"></a>Próximas etapas

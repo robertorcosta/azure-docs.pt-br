@@ -1,6 +1,6 @@
 ---
 title: Solução do Azure VMware por gateways de CloudSimple-VPN
-description: Saiba mais sobre os conceitos de VPN site a site e de VPN de ponto a site do CloudSimple
+description: Saiba mais sobre gateways de VPN site a site e ponto a site do CloudSimple, que são usados para enviar tráfego criptografado entre uma região CloudSimple e outros recursos.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 662fa342b3a18f726b418c496ff3fda937445301
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e013bb96990a8f3a0ef7d3a58529b200919e276
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024850"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140625"
 ---
 # <a name="vpn-gateways-overview"></a>Visão geral de gateways de VPN
 

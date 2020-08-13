@@ -3,15 +3,15 @@ title: Lista de URL segura para área de trabalho virtual do Windows-Azure
 description: Uma lista de URLs que você deve desbloquear para garantir que sua implantação de área de trabalho virtual do Windows funcione conforme o esperado.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 37fb5ccf121fed6e772dc1cd3dcba2345d62c66f
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: d75d6ecf73dece6dad43367a7f869a1b8ec3d86b
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067198"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135854"
 ---
 # <a name="safe-url-list"></a>Lista de URL segura
 
@@ -27,11 +27,12 @@ As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windo
 |mrsglobalsteus2prod.blob.core.windows.net|443|Atualizações do agente e da pilha de SXS|AzureCloud|
 |*.core.windows.net|443|Tráfego de agente|AzureCloud|
 |*.servicebus.windows.net|443|Tráfego de agente|AzureCloud|
-|prod.warmpath.msftcloudes.com|443|Tráfego de agente|AzureCloud|
+|gcs.prod.monitoring.core.windows.net|443|Tráfego de agente|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Ativação do Windows|Internet|
 |wvdportalstorageblob.blob.core.windows.net|443|Suporte do portal do Azure|AzureCloud|
 | 169.254.169.254 | 80 | [Ponto de extremidade do serviço de metadados de instância do Azure](../virtual-machines/windows/instance-metadata-service.md) | N/D |
+| 168.63.129.16 | 80 | [Monitoramento de integridade do host de sessão](../virtual-network/security-overview.md#azure-platform-considerations) | N/D |
 
 >[!IMPORTANT]
 >Agora, a Área de Trabalho Virtual do Windows dá suporte à marca FQDN. Para obter mais informações, confira [Usar o Firewall do Azure para proteger implantações da Área de Trabalho Virtual do Windows](../firewall/protect-windows-virtual-desktop.md).

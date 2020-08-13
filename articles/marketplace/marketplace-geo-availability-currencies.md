@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: bf6215bd9225292f7b85ed6d4c4566cd4ee860b7
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: b1baeaa31eddc13a68f2cc1d374b850f1c1a26bd
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902092"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136330"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilidade geográfica e suporte para moedas para o marketplace comercial
 
@@ -179,11 +179,7 @@ Para ajustar qualquer preço antes de publicar, basta exportar a planilha de pre
 > [!NOTE]
 > Depois que um preço para um mercado em seu plano for publicado, ele não poderá ser alterado posteriormente. Para garantir que os preços sejam adequados antes de publicá-los, exporte a planilha de preços e examine os preços em cada mercado.
 
-## <a name="rate-changes"></a>Alterações de taxa
-
-As tarifas que usamos para calcular os preços locais são atualizadas diariamente. Esse cálculo é feito quando o ISV salva a página e pode revisar todas as tarifas exportando e examinando os preços antes da publicação.
-
-### <a name="retrieving-currency-information-by-api"></a>Recuperando informações de moeda por API
+## <a name="retrieving-currency-information-by-api"></a>Recuperando informações de moeda por API
 
 Os preços individuais (que, dependendo de como foram definidos, podem ter sido influenciados pelas taxas de câmbio no dia em que foram salvos) podem ser recuperados usando uma API; Não é possível obter informações sobre a moeda.
 

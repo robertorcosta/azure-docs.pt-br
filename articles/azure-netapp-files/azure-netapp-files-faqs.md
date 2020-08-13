@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/11/2020
 ms.author: b-juche
-ms.openlocfilehash: 7c792ee9c56a044942bb2249a57f2615c72badee
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 29055da1ea8093d413691a41d38d6280f43f728a
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533131"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88134489"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Perguntas frequentes sobre Azure NetApp Files
 
@@ -177,6 +177,11 @@ Um volume de protocolo duplo dá suporte aos protocolos NFS e SMB.  Quando você
 
 Para evitar o problema de "permissão negada", verifique se o Windows Active Directory inclui `pcuser` antes de acessar o ponto de montagem. Se você adicionar `pcuser` depois de encontrar o problema de "permissão negada", Aguarde 24 horas para que a entrada do cache seja limpa antes de tentar acessar novamente.
 
+### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>Quando tento criar um volume de protocolo duplo, por que o processo de criação falha com o erro "falha ao validar a configuração de LDAP, tente novamente depois de corrigir a configuração de LDAP"?  
+
+O registro de ponteiro (PTR) do computador host do AD pode estar ausente no servidor DNS. Você precisa criar uma zona de pesquisa inversa no servidor DNS e, em seguida, adicionar um registro PTR da máquina host do AD nessa zona de pesquisa inversa.
+
+Por exemplo, suponha que o endereço IP do computador do AD seja `1.1.1.1` , o nome do host do computador do AD (como encontrado usando o `hostname` comando) é `AD1` , e que é `myDomain.com` .  O registro PTR adicionado à zona de pesquisa inversa deve ser `1.1.1.1`  ->  `AD1.myDomain.com` .
 
 ## <a name="capacity-management-faqs"></a>Perguntas frequentes sobre gerenciamento de capacidade
 

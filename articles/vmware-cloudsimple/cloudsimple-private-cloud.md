@@ -1,6 +1,6 @@
 ---
 title: Solução do Azure VMware por nuvens CloudSimple-Private
-description: Saiba mais sobre nuvens e conceitos privados do CloudSimple.
+description: Saiba mais sobre os conceitos e as vantagens do CloudSimple, incluindo a continuidade operacional completa do VMware, a compatibilidade com ferramentas, habilidades e processos existentes.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4fb930603455ed1a5df5d357fcab669f41a0c28c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2096e8c0ebfb233c7449510bf0bc8e80b56231e
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024936"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140709"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>Visão geral da nuvem privada do CloudSimple
 
@@ -46,7 +46,7 @@ O CloudSimple gerencia a infraestrutura e todos os serviços de rede e gerenciam
 * Provisionamento de aplicativo
 * Continuidade de negócios
 * Suporte
-* Imposição de política
+* Aplicação de políticas
 
 ## <a name="private-cloud-environment-overview"></a>Visão geral do ambiente de nuvem privada
 
@@ -121,7 +121,7 @@ Aqui estão alguns exemplos de casos de uso para implantação em nuvem privada.
 * Acesse serviços de nuvem pública sem precisar expandir seu data center ou rearquitetar seus aplicativos.
 * Centralize identidades, políticas de controle de acesso, registro em log e monitoramento para aplicativos VMware no Azure.
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 
 A tabela a seguir lista os limites de nó dos recursos de uma nuvem privada.
 

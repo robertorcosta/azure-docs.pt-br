@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 07/16/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 81e2abc1b4fd0c540b08f96e6b34c16fca3319f1
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 59df49d320b23686a3d053335ea2b95e98125b28
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132009"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135548"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatíveis com o Azure Monitor
 
@@ -95,7 +95,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |QueryPoolBusyThreads|Sim|Threads ocupados do pool de consulta|Contagem|Média|Número de threads ocupados no pool de threads de consulta.|ServerResourceType|
 |QueryPoolIdleThreads|Sim|Threads: Threads ociosos do pool de consultas|Contagem|Média|Número de threads ociosos para trabalhos de E/S no pool de threads de processamento.|ServerResourceType|
 |QueryPoolJobQueueLength|Sim|Threads: Tamanho da fila de trabalhos do pool consultas|Contagem|Média|Número de trabalhos na fila do pool de threads de consulta.|ServerResourceType|
-|Cota|Sim|Memória: Quota|Bytes|Média|Cota de memória atual, em bytes. A cota de memória também é conhecida como uma reserva de memória ou concessão de memória.|ServerResourceType|
+|Quota|Sim|Memória: Quota|Bytes|Média|Cota de memória atual, em bytes. A cota de memória também é conhecida como uma reserva de memória ou concessão de memória.|ServerResourceType|
 |QuotaBlocked|Sim|Memória: Cota bloqueada|Contagem|Média|Número atual de solicitações de cota bloqueadas até que outras cotas de memória sejam liberadas.|ServerResourceType|
 |RowsConvertedPerSec|Sim|Processamento: Linhas convertidas por segundo|CountPerSecond|Média|Taxa de linhas convertidas durante o processamento.|ServerResourceType|
 |RowsReadPerSec|Sim|Processamento: Linhas lidas por segundo|CountPerSecond|Média|Taxa de linhas lidas de todos os bancos de dados relacionais.|ServerResourceType|
@@ -116,16 +116,16 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |BackendDuration|Sim|Duração de Solicitações de Back-end|Milissegundos|Média|Duração de solicitações de back-end em milissegundos|Local, Nome do host|
-|Capacity|Sim|Capacity|Porcentagem|Média|Métrica de utilização para o serviço ApiManagement|Location|
+|Capacity|Sim|Capacity|Porcentagem|Média|Métrica de utilização para o serviço ApiManagement|Local|
 |Duration|Sim|Duração total de solicitações de gateway|Milissegundos|Média|Duração total de solicitações de gateway em milissegundos|Local, Nome do host|
-|EventHubDroppedEvents|Sim|Eventos do EventHub Ignorados|Contagem|Total|Número de eventos ignorados devido ao limite de tamanho de fila atingido|Location|
-|EventHubRejectedEvents|Sim|Eventos do EventHub Rejeitados|Contagem|Total|Número de eventos do EventHub rejeitados (configuração incorreta ou não autorizada)|Location|
-|EventHubSuccessfulEvents|Sim|Eventos do EventHub Bem-sucedidos|Contagem|Total|Número de eventos de EventHub bem-sucedidos|Location|
-|EventHubThrottledEvents|Sim|Eventos do EventHub Restringidos|Contagem|Total|Número de eventos regulados do EventHub|Location|
-|EventHubTimedoutEvents|Sim|Eventos do EventHub com Tempo Limite Excedido|Contagem|Total|Número de eventos do EventHub com tempo limite excedido|Location|
-|EventHubTotalBytesSent|Sim|Tamanho dos Eventos do EventHub|Bytes|Total|Tamanho total dos eventos do EventHub em bytes|Location|
-|EventHubTotalEvents|Sim|Eventos Totais do EventHub|Contagem|Total|Número de eventos enviados ao EventHub|Location|
-|EventHubTotalFailedEvents|Sim|Eventos do EventHub com Falha|Contagem|Total|Número de eventos de EventHub com falha|Location|
+|EventHubDroppedEvents|Sim|Eventos do EventHub Ignorados|Contagem|Total|Número de eventos ignorados devido ao limite de tamanho de fila atingido|Local|
+|EventHubRejectedEvents|Sim|Eventos do EventHub Rejeitados|Contagem|Total|Número de eventos do EventHub rejeitados (configuração incorreta ou não autorizada)|Local|
+|EventHubSuccessfulEvents|Sim|Eventos do EventHub Bem-sucedidos|Contagem|Total|Número de eventos de EventHub bem-sucedidos|Local|
+|EventHubThrottledEvents|Sim|Eventos do EventHub Restringidos|Contagem|Total|Número de eventos regulados do EventHub|Local|
+|EventHubTimedoutEvents|Sim|Eventos do EventHub com Tempo Limite Excedido|Contagem|Total|Número de eventos do EventHub com tempo limite excedido|Local|
+|EventHubTotalBytesSent|Sim|Tamanho dos Eventos do EventHub|Bytes|Total|Tamanho total dos eventos do EventHub em bytes|Local|
+|EventHubTotalEvents|Sim|Eventos Totais do EventHub|Contagem|Total|Número de eventos enviados ao EventHub|Local|
+|EventHubTotalFailedEvents|Sim|Eventos do EventHub com Falha|Contagem|Total|Número de eventos de EventHub com falha|Local|
 |FailedRequests|Sim|Solicitações de Gateway com Falha (Preterido)|Contagem|Total|Número de falhas em solicitações de gateway-use a métrica de solicitação de várias dimensões com a dimensão GatewayResponseCodeCategory em vez disso|Local, Nome do host|
 |Conectividade|Sim|Status de conectividade de rede de recursos (versão prévia)|Contagem|Média|Status de conectividade de rede de tipos de recursos dependentes do serviço de gerenciamento de API|Local, ResourceType|
 |OtherRequests|Sim|Outras Solicitações de Gateway (Preterido)|Contagem|Total|Número de outras solicitações de gateway – use a métrica de solicitação de várias dimensões com a dimensão GatewayResponseCodeCategory em vez disso|Local, Nome do host|
@@ -474,7 +474,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Operações de gravação de disco/Seg|Sim|Operações de gravação de disco/Seg|CountPerSecond|Média|IOPS de gravação de disco.|RoleInstanceId|
 |Entrada na rede|Sim|Entrada na rede|Bytes|Total|O número de bytes recebidos em todos os adaptadores de rede pelas Máquinas Virtuais (Tráfego de Entrada).|RoleInstanceId|
 |Saída da rede|Sim|Saída da rede|Bytes|Total|O número de bytes de saída em todos os adaptadores de rede pelas Máquinas Virtuais (Tráfego de Saída).|RoleInstanceId|
-|Percentual de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|O percentual das unidades de computação alocadas que estão atualmente em uso pelas Máquinas Virtuais.|RoleInstanceId|
+|Porcentagem de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|O percentual das unidades de computação alocadas que estão atualmente em uso pelas Máquinas Virtuais.|RoleInstanceId|
 
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
@@ -487,7 +487,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Operações de gravação de disco/Seg|Sim|Operações de gravação de disco/Seg|CountPerSecond|Média|IOPS de gravação de disco.|Sem dimensões|
 |Entrada na rede|Sim|Entrada na rede|Bytes|Total|O número de bytes recebidos em todos os adaptadores de rede pelas Máquinas Virtuais (Tráfego de Entrada).|Sem dimensões|
 |Saída da rede|Sim|Saída da rede|Bytes|Total|O número de bytes de saída em todos os adaptadores de rede pelas Máquinas Virtuais (Tráfego de Saída).|Sem dimensões|
-|Percentual de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|O percentual das unidades de computação alocadas que estão atualmente em uso pelas Máquinas Virtuais.|Sem dimensões|
+|Porcentagem de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|O percentual das unidades de computação alocadas que estão atualmente em uso pelas Máquinas Virtuais.|Sem dimensões|
 
 
 ## <a name="microsoftclassicstoragestorageaccounts"></a>Microsoft.ClassicStorage/storageAccounts
@@ -626,7 +626,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Por operações de Leitura de Disco/s|Sim|Operações de Leitura do Disco de Dados/s (Preterido)|CountPerSecond|Média|Ler IOPS de um único disco durante o período de monitoramento|SlotId|
 |Por Bytes de Gravação de Disco/s|Sim|Bytes de Gravação do Disco de Dados/s (Preterido)|CountPerSecond|Média|Bytes/s gravados em um único disco durante o período de monitoramento|SlotId|
 |Por Operações de Gravação de Disco/s|Sim|Operações de Gravação do Disco de Dados/s (Preterido)|CountPerSecond|Média|Gravar IOPS de um único disco durante o período de monitoramento|SlotId|
-|Percentual de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|Sem dimensões|
+|Porcentagem de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|Sem dimensões|
 |Ocorrência de Leitura do Cache de Disco de Dados Premium|Sim|Ocorrência de Leitura do Cache de Disco de Dados Premium (Versão prévia)|Porcentagem|Média|Ocorrência de Leitura do Cache de Disco de Dados Premium|LUN|
 |Ausência de Leitura do Cache de Disco de Dados Premium|Sim|Ausência de Leitura do Cache de Disco de Dados Premium (Versão prévia)|Porcentagem|Média|Ausência de Leitura do Cache de Disco de Dados Premium|LUN|
 |Ocorrência de Leitura do Cache de Disco do SO Premium|Sim|Ocorrência de Leitura do Cache de Disco do SO Premium (Versão prévia)|Porcentagem|Média|Ocorrência de Leitura do Cache de Disco do SO Premium|Sem dimensões|
@@ -671,7 +671,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Por operações de Leitura de Disco/s|Sim|Operações de Leitura do Disco de Dados/s (Preterido)|CountPerSecond|Média|Ler IOPS de um único disco durante o período de monitoramento|SlotId|
 |Por Bytes de Gravação de Disco/s|Sim|Bytes de Gravação do Disco de Dados/s (Preterido)|CountPerSecond|Média|Bytes/s gravados em um único disco durante o período de monitoramento|SlotId|
 |Por Operações de Gravação de Disco/s|Sim|Operações de Gravação do Disco de Dados/s (Preterido)|CountPerSecond|Média|Gravar IOPS de um único disco durante o período de monitoramento|SlotId|
-|Percentual de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|VMName|
+|Porcentagem de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|VMName|
 |Ocorrência de Leitura do Cache de Disco de Dados Premium|Sim|Ocorrência de Leitura do Cache de Disco de Dados Premium (Versão prévia)|Porcentagem|Média|Ocorrência de Leitura do Cache de Disco de Dados Premium|LUN, VMName|
 |Ausência de Leitura do Cache de Disco de Dados Premium|Sim|Ausência de Leitura do Cache de Disco de Dados Premium (Versão prévia)|Porcentagem|Média|Ausência de Leitura do Cache de Disco de Dados Premium|LUN, VMName|
 |Ocorrência de Leitura do Cache de Disco do SO Premium|Sim|Ocorrência de Leitura do Cache de Disco do SO Premium (Versão prévia)|Porcentagem|Média|Ocorrência de Leitura do Cache de Disco do SO Premium|VMName|
@@ -716,7 +716,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Por operações de Leitura de Disco/s|Sim|Operações de Leitura do Disco de Dados/s (Preterido)|CountPerSecond|Média|Ler IOPS de um único disco durante o período de monitoramento|SlotId|
 |Por Bytes de Gravação de Disco/s|Sim|Bytes de Gravação do Disco de Dados/s (Preterido)|CountPerSecond|Média|Bytes/s gravados em um único disco durante o período de monitoramento|SlotId|
 |Por Operações de Gravação de Disco/s|Sim|Operações de Gravação do Disco de Dados/s (Preterido)|CountPerSecond|Média|Gravar IOPS de um único disco durante o período de monitoramento|SlotId|
-|Percentual de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|Sem dimensões|
+|Porcentagem de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|Sem dimensões|
 |Ocorrência de Leitura do Cache de Disco de Dados Premium|Sim|Ocorrência de Leitura do Cache de Disco de Dados Premium (Versão prévia)|Porcentagem|Média|Ocorrência de Leitura do Cache de Disco de Dados Premium|LUN|
 |Ausência de Leitura do Cache de Disco de Dados Premium|Sim|Ausência de Leitura do Cache de Disco de Dados Premium (Versão prévia)|Porcentagem|Média|Ausência de Leitura do Cache de Disco de Dados Premium|LUN|
 |Ocorrência de Leitura do Cache de Disco do SO Premium|Sim|Ocorrência de Leitura do Cache de Disco do SO Premium (Versão prévia)|Porcentagem|Média|Ocorrência de Leitura do Cache de Disco do SO Premium|Sem dimensões|
@@ -1268,6 +1268,20 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |solicitações/taxa|Não|Taxa de solicitação do servidor|CountPerSecond|Média|Taxa de solicitações de servidor por segundo|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
 |traces/count|Sim|Rastreamentos|Contagem|Contagem|Contagem de documentos de rastreamento|trace/severityLevel, operation/synthetic, cloud/roleName, cloud/roleInstance|
 
+## <a name="microsoftiotcentraliotapps"></a>Microsoft. IoTCentral/IoTApps
+
+|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|---|---|---|---|---|---|---|
+|C2D. Property. Read. Failure|Sim|Falha nas leituras de Propriedade do dispositivo de IoT Central|Contagem|Total|A contagem de todas as leituras de propriedade com falha iniciadas a partir de IoT Central|Sem dimensões|
+|C2D. Property. Read. Success|Sim|Leituras de propriedade de dispositivo bem-sucedidas de IoT Central|Contagem|Total|A contagem de todas as leituras de propriedade bem-sucedidas iniciadas a partir de IoT Central|Sem dimensões|
+|C2D. Property. Update. Failure|Sim|Falha nas atualizações de propriedade de dispositivo do IoT Central|Contagem|Total|A contagem de todas as atualizações de propriedade com falha iniciadas a partir de IoT Central|Sem dimensões|
+|C2D. Property. Update. Success|Sim|Atualizações de propriedade de dispositivo bem-sucedidas do IoT Central|Contagem|Total|A contagem de todas as atualizações de propriedade bem-sucedidas iniciadas a partir de IoT Central|Sem dimensões|
+|connectedDeviceCount|Não|Total de dispositivos conectados|Contagem|Média|Número de dispositivos conectados a IoT Central|Sem dimensões|
+|D2C. Property. Read. Failure|Sim|Falha nas leituras de Propriedade do dispositivo de dispositivos|Contagem|Total|A contagem de todas as leituras de propriedade com falha iniciadas a partir de dispositivos|Sem dimensões|
+|D2C. Property. Read. Success|Sim|Leituras de propriedade de dispositivo bem-sucedidas de dispositivos|Contagem|Total|A contagem de todas as leituras de propriedade bem-sucedidas iniciadas a partir de dispositivos|Sem dimensões|
+|D2C. Property. Update. Failure|Sim|Falha nas atualizações de Propriedade do dispositivo de dispositivos|Contagem|Total|A contagem de todas as atualizações de propriedade com falha iniciadas a partir de dispositivos|Sem dimensões|
+|D2C. Property. Update. Success|Sim|Atualizações de propriedade de dispositivo bem-sucedidas de dispositivos|Contagem|Total|A contagem de todas as atualizações de propriedade bem-sucedidas iniciadas a partir de dispositivos|Sem dimensões|
+
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 
@@ -1401,7 +1415,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Execuções canceladas|Sim|Execuções canceladas|Contagem|Total|Número de execuções canceladas para este espaço de trabalho. A contagem é atualizada quando uma execução é cancelada com êxito.|Cenário, RunType, PublishedPipelineId, Computetype, PipelineStepType|
 |Execuções Concluídas|Sim|Execuções Concluídas|Contagem|Total|Número de execuções concluídas com êxito para este espaço de trabalho. A contagem é atualizada quando uma execução é concluída e a saída é coletada.|Cenário, RunType, PublishedPipelineId, Computetype, PipelineStepType|
 |CpuUtilization|Sim|CpuUtilization|Contagem|Média|Percentual de utilização de memória em um nó de CPU. A utilização é relatada em intervalos de um minuto.|Cenário, runId, NodeId, ClusterName|
-|Erros|Sim|Errors|Contagem|Total|Número de erros de execução neste espaço de trabalho. A contagem é atualizada sempre que a execução encontra um erro.|Cenário|
+|Errors|Sim|Errors|Contagem|Total|Número de erros de execução neste espaço de trabalho. A contagem é atualizada sempre que a execução encontra um erro.|Cenário|
 |Execuções com falha|Sim|Execuções com falha|Contagem|Total|Número de execuções com falha para este espaço de trabalho. A contagem é atualizada quando uma execução falha.|Cenário, RunType, PublishedPipelineId, Computetype, PipelineStepType|
 |Finalizando execuções|Sim|Finalizando execuções|Contagem|Total|Número de execuções inseridas no estado final para este espaço de trabalho. A contagem é atualizada quando uma execução é concluída, mas a coleta de saída ainda está em andamento.|Cenário, RunType, PublishedPipelineId, Computetype, PipelineStepType|
 |GpuUtilization|Sim|GpuUtilization|Contagem|Média|Percentual de utilização de memória em um nó de GPU. A utilização é relatada em intervalos de um minuto.|Cenário, runId, NodeId, DeviceID, ClusterName|
@@ -2199,7 +2213,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |DeserializationError|Sim|Erros de desserialização de entrada|Contagem|Total|Erros de desserialização de entrada|LogicalName, PartitionID|
 |DroppedOrAdjustedEvents|Sim|Eventos fora de ordem|Contagem|Total|Eventos fora de ordem|LogicalName, PartitionID|
 |EarlyInputEvents|Sim|Eventos de Entrada Antecipados|Contagem|Total|Eventos de Entrada Antecipados|LogicalName, PartitionID|
-|Erros|Sim|Erros de runtime|Contagem|Total|Erros de runtime|LogicalName, PartitionID|
+|Errors|Sim|Erros de runtime|Contagem|Total|Erros de runtime|LogicalName, PartitionID|
 |InputEventBytes|Sim|Bytes de evento de entrada|Bytes|Total|Bytes de evento de entrada|LogicalName, PartitionID|
 |InputEvents|Sim|Eventos de entrada|Contagem|Total|Eventos de entrada|LogicalName, PartitionID|
 |InputEventsSourcesBacklogged|Sim|Eventos de Entrada Acumulados|Contagem|Máximo|Eventos de Entrada Acumulados|LogicalName, PartitionID|
@@ -2304,7 +2318,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Saída da rede|Sim|Saída da rede|Bytes|Total|Taxa de transferência total de rede para o tráfego transmitido.|Sem dimensões|
 |NetworkInBytesPerSecond|Sim|Bytes/s de Entrada de Rede|BytesPerSecond|Média|Taxa de transferência média de rede para o tráfego recebido.|Sem dimensões|
 |NetworkOutBytesPerSecond|Sim|Bytes/s de Saída de Rede|BytesPerSecond|Média|Taxa de transferência média de rede para o tráfego transmitido.|Sem dimensões|
-|Percentual de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A utilização da CPU. Esse valor é relatado com 100% que representa todos os núcleos de processador no sistema. Por exemplo, uma VM de 2 vias usando 50% de um sistema de quatro núcleos está usando completamente dois núcleos.|Sem dimensões|
+|Porcentagem de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A utilização da CPU. Esse valor é relatado com 100% que representa todos os núcleos de processador no sistema. Por exemplo, uma VM de 2 vias usando 50% de um sistema de quatro núcleos está usando completamente dois núcleos.|Sem dimensões|
 |PercentageCpuReady|Sim|Percentual de CPU Pronta|Milissegundos|Total|O tempo de preparação é o tempo gasto aguardando que as CPUs fiquem disponíveis no intervalo de atualização anterior.|Sem dimensões|
 
 

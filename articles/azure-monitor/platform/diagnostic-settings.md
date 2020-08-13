@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: ff0df654650bb1c32d5c3e9833ebde2a81e3d65c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 74e0a63da87a79cbd582cd6da5992251fc256504
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799949"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135429"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes
 [Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo o log de atividades do Azure e os logs de recursos, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem. As [métricas de plataforma](data-platform-metrics.md) são coletadas por padrão e normalmente armazenadas no banco de dados de métricas Azure monitor. Este artigo fornece detalhes sobre como criar e definir configurações de diagnóstico para enviar métricas de plataforma e logs de plataforma para destinos diferentes.
@@ -41,34 +41,24 @@ O vídeo a seguir orienta você pelos logs da plataforma de roteamento com confi
 
 
 ## <a name="destinations"></a>Destinos
-
-Os logs e as métricas da plataforma podem ser enviados para os destinos na tabela a seguir. Siga cada link na tabela a seguir para obter detalhes sobre como enviar dados para esse destino.
+Os logs e as métricas da plataforma podem ser enviados para os destinos na tabela a seguir. 
 
 | Destino | Descrição |
 |:---|:---|
-| [Espaço de Trabalho do Log Analytics](#log-analytics-workspace) | O envio de logs e métricas para um espaço de trabalho Log Analytics permite analisá-los com outros dados de monitoramento coletados por Azure Monitor usando consultas de log poderosas e também para aproveitar outros recursos de Azure Monitor, como alertas e visualizações. |
-| [Hubs de Eventos](#event-hub) | O envio de logs e métricas para hubs de eventos permite transmitir dados para sistemas externos, como SIEMs de terceiros e outras soluções do log Analytics. |
-| [Conta de armazenamento do Azure](#azure-storage) | O arquivamento de logs e métricas para uma conta de armazenamento do Azure é útil para auditoria, análise estática ou backup. Em comparação com os logs de Azure Monitor e um espaço de trabalho Log Analytics, o armazenamento do Azure é menos dispendioso e os logs podem ser mantidos indefinidamente. |
+| [Espaço de Trabalho do Log Analytics](design-logs-deployment.md) | O envio de logs e métricas para um espaço de trabalho Log Analytics permite analisá-los com outros dados de monitoramento coletados por Azure Monitor usando consultas de log poderosas e também para aproveitar outros recursos de Azure Monitor, como alertas e visualizações. |
+| [Hubs de Eventos](/azure/event-hubs/) | O envio de logs e métricas para hubs de eventos permite transmitir dados para sistemas externos, como SIEMs de terceiros e outras soluções do log Analytics.  |
+| [Conta de armazenamento do Azure](/azure/storage/blobs/) | O arquivamento de logs e métricas para uma conta de armazenamento do Azure é útil para auditoria, análise estática ou backup. Em comparação com os logs de Azure Monitor e um espaço de trabalho Log Analytics, o armazenamento do Azure é menos dispendioso e os logs podem ser mantidos indefinidamente.  |
 
 
-## <a name="prerequisites"></a>Pré-requisitos
-Todos os destinos para a configuração de diagnóstico devem ser criados com as permissões necessárias. Consulte as seções abaixo para obter os requisitos de pré-requisito para cada destino.
+### <a name="destination-requirements"></a>Requisitos de destino
 
-### <a name="log-analytics-workspace"></a>Workspace do Log Analytics
-[Crie um novo espaço de trabalho](../learn/quick-create-workspace.md) se você ainda não tiver um. O espaço de trabalho não precisa estar na mesma assinatura que o recurso que envia logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
+Todos os destinos para a configuração de diagnóstico devem ser criados antes da criação das configurações de diagnóstico. O destino não precisa estar na mesma assinatura que o recurso que envia os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas. A tabela a seguir fornece requisitos exclusivos para cada destino, incluindo quaisquer restrições regionais.
 
-### <a name="event-hub"></a>Hub de Eventos
-[Crie um hub de eventos](../../event-hubs/event-hubs-create.md) se você ainda não tiver um. O namespace de hubs de eventos não precisa estar na mesma assinatura que a assinatura que está emitindo logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas e ambas as assinaturas estejam no mesmo locatário.
-
-A política de acesso compartilhado para o namespace define as permissões que o mecanismo de streaming tem. O streaming para hubs de eventos requer permissões de gerenciar, enviar e escutar. Você pode criar ou modificar políticas de acesso compartilhado no portal do Azure na guia Configurar para seu namespace de hubs de eventos. Para atualizar a configuração de diagnóstico para incluir streaming, você deve ter a permissão ListKey nessa regra de autorização de hubs de eventos. 
-
-
-### <a name="azure-storage"></a>Armazenamento do Azure
-[Crie uma conta de armazenamento do Azure](../../storage/common/storage-account-create.md) se você ainda não tiver uma. A conta de armazenamento não precisa estar na mesma assinatura que o recurso que envia logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
-
-Você não deve usar uma conta de armazenamento existente que tenha outros dados de não monitoramento armazenados nele para que você possa controlar melhor o acesso aos dados. Se você estiver arquivando o log de atividades e os logs de recursos juntos, poderá optar por usar a mesma conta de armazenamento para manter todos os dados de monitoramento em um local central.
-
-Para enviar os dados para o armazenamento imutável, defina a política imutável para a conta de armazenamento, conforme descrito em [definir e gerenciar políticas de imutabilidade para o armazenamento de BLOBs](../../storage/blobs/storage-blob-immutability-policies-manage.md). Você deve seguir todas as etapas neste artigo, incluindo a habilitação de gravações de blobs de acréscimo protegidos.
+| Destino | Requisitos |
+|:---|:---|
+| Workspace do Log Analytics | O espaço de trabalho não precisa estar na mesma região que o recurso que está sendo monitorado.|
+| Hubs de Eventos | A política de acesso compartilhado para o namespace define as permissões que o mecanismo de streaming tem. O streaming para hubs de eventos requer permissões de gerenciar, enviar e escutar. Para atualizar a configuração de diagnóstico para incluir streaming, você deve ter a permissão ListKey nessa regra de autorização de hubs de eventos.<br><br>O namespace do hub de eventos precisa estar na mesma região que o recurso que está sendo monitorado se o recurso for regional. |
+| Conta de Armazenamento do Azure | Você não deve usar uma conta de armazenamento existente que tenha outros dados de não monitoramento armazenados nele para que você possa controlar melhor o acesso aos dados. Se você estiver arquivando o log de atividades e os logs de recursos juntos, poderá optar por usar a mesma conta de armazenamento para manter todos os dados de monitoramento em um local central.<br><br>Para enviar os dados para o armazenamento imutável, defina a política imutável para a conta de armazenamento, conforme descrito em [definir e gerenciar políticas de imutabilidade para o armazenamento de BLOBs](../../storage/blobs/storage-blob-immutability-policies-manage.md). Você deve seguir todas as etapas neste artigo, incluindo a habilitação de gravações de blobs de acréscimo protegidos.<br><br>A conta de armazenamento precisa estar na mesma região que o recurso que está sendo monitorado se o recurso for regional. |
 
 > [!NOTE]
 > Atualmente, contas de Azure Data Lake Storage Gen2 não são compatíveis como destino para configurações de diagnóstico, embora elas possam estar listadas como uma opção válida na portal do Azure.
@@ -138,7 +128,7 @@ Você pode definir as configurações de diagnóstico no portal do Azure no menu
         >
         > Por exemplo, se você definir a política de retenção para *WorkflowRuntime* como 180 dias e, em seguida, 24 horas depois defini-la como 365 dias, os logs armazenados durante essas primeiras 24 horas serão excluídos automaticamente após 180 dias, enquanto todos os logs subsequentes desse tipo serão excluídos automaticamente após 365 dias. A alteração da política de retenção mais tarde não faz com que as primeiras 24 horas de logs permaneçam por cerca de 365 dias.
 
-6. Clique em **Salvar**.
+6. Clique em **Save** (Salvar).
 
 Após alguns instantes, a nova configuração aparecerá na lista de configurações desse recurso e os logs serão transmitidos para os destinos especificados à medida que novos dados de evento forem gerados. Pode levar até 15 minutos entre o momento em que um evento é emitido e quando ele [aparece em um espaço de trabalho log Analytics](data-ingestion-time.md).
 
