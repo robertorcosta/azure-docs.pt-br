@@ -1,17 +1,17 @@
 ---
 title: Como desligar uma Microsoft Azure unidade de arquivo de borda do FXT
-description: Procedimentos para inicialização e desligamento seguro de um nó de filer do Azure FXT Edge
+description: Conheça os procedimentos para inicialização e desligamento seguro de um nó de filer do Azure FXT Edge usando o software do painel de controle do cluster.
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: how-to
 ms.date: 07/01/2019
 ms.author: rohogue
-ms.openlocfilehash: 92364de82bc3de8229eced4ee02997a27afbde45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d597d5d1e86a2ea13363bc270fb55304d77dee5c
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506405"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184866"
 ---
 # <a name="how-to-safely-power-off-azure-fxt-edge-filer-hardware"></a>Como desligar com segurança o hardware do Azure FXT Edge Filer
 

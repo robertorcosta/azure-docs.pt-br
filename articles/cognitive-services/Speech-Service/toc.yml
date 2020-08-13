@@ -117,30 +117,16 @@
   items:
     - name: Documentação de conversão de texto em fala
       href: index-text-to-speech.yml
-    - name: Visão geral
-      items:
-        - name: O que é conversão de texto em fala?
-          href: text-to-speech.md
-        - name: Noções básicas de conversão de texto em fala
-          href: text-to-speech-basics.md
-    - name: Guia de Início Rápido
-      items:
-        - name: Sintetizar uma fala em um alto-falante
-          href: quickstarts/text-to-speech.md
-        - name: Sintetizar uma fala em um arquivo de áudio
-          href: quickstarts/text-to-speech-audio-file.md
-        - name: Sintetizar uma fala com áudio de formato longo
-          href: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+    - name: O que é conversão de texto em fala?
+      href: text-to-speech.md
+    - name: Início rápido da conversão de texto em fala
+      href: get-started-text-to-speech.md
     - name: Guias de instruções
       items:
         - name: Melhorar a sintetização com o SSML
           href: speech-synthesis-markup.md
         - name: Sintetizar uma fala com a API de Áudio Longo
           href: long-audio-api.md
-        - name: Obter uma lista de vozes com REST (Python)
-          href: quickstart-python-get-text-to-speech-voices.md
-        - name: Converter texto em fala com REST (Python)
-          href: quickstart-python-text-to-speech.md
     - name: Personalização
       items:
         - name: Implantação responsável

@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 06/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3973e94c9d3add25dba0af7a6b0c0deb18b77440
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 20a85c17ccd4167b29e167c55df1bd8a8cc4d56e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850433"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185648"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Usar o ML automatizado em um pipeline de Azure Machine Learning no Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ Há várias subclasses de `PipelineStep` . Além do `AutoMLStep` , este artigo m
 
 A maneira preferida de _mover dados inicialmente para um_ pipeline ml é com `Dataset` objetos. Para mover dados _entre_ etapas, a maneira preferida é com `PipelineData` objetos. Para ser usado com `AutoMLStep` o, o `PipelineData` objeto deve ser transformado em um `PipelineOutputTabularDataset` objeto. Para obter mais informações, consulte [dados de entrada e saída de pipelines de ml](how-to-move-data-in-out-of-pipelines.md).
 
-O `AutoMLStep` é configurado por meio de um `AutoMLConfig` objeto. `AutoMLConfig`é uma classe flexível, conforme discutido em [Configurar experimentos de ml automatizados no Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings). 
+O `AutoMLStep` é configurado por meio de um `AutoMLConfig` objeto. `AutoMLConfig` é uma classe flexível, conforme discutido em [Configurar experimentos de ml automatizados no Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings). 
 
 Um `Pipeline` é executado em um `Experiment` . O pipeline `Run` tem, para cada etapa, um filho `StepRun` . As saídas do ML automatizado `StepRun` são as métricas de treinamento e o modelo de maior desempenho.
 
@@ -250,7 +250,7 @@ O `prepped_data_path` objeto é do tipo `PipelineOutputFileDataset` . Observe qu
 
 A configuração de uma etapa de pipeline de ML automatizada é feita com a `AutoMLConfig` classe. Essa classe flexível é descrita em [Configurar experimentos de ml automatizados no Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train). Entrada e saída de dados são os únicos aspectos da configuração que exigem atenção especial em um pipeline de ML. A entrada e a saída para o `AutoMLConfig` em pipelines são discutidas em detalhes abaixo. Além dos dados, uma vantagem dos pipelines de ML é a capacidade de usar diferentes destinos de computação para diferentes etapas. Você pode optar por usar um mais poderoso `ComputeTarget` somente para o processo de ml automatizado. Fazer isso é tão simples quanto atribuir um mais poderoso `RunConfiguration` ao `AutoMLConfig` parâmetro do objeto `run_configuration` .
 
-### <a name="send-data-to-automlstep"></a>Enviar dados para`AutoMLStep`
+### <a name="send-data-to-automlstep"></a>Enviar dados para `AutoMLStep`
 
 Em um pipeline de ML, os dados de entrada devem ser um `Dataset` objeto. A maneira de desempenho mais alto é fornecer os dados de entrada na forma de `PipelineOutputTabularDataset` objetos. Você cria um objeto desse tipo com o `parse_parquet_files()` ou `parse_delimited_files()` em um `PipelineOutputFileDataset` , como o `prepped_data_path` objeto.
 
@@ -273,10 +273,10 @@ Comparando as duas técnicas:
 | Técnica | Benefícios e desvantagens | 
 |-|-|
 |`PipelineOutputTabularDataset`| Maior desempenho | 
-|| Rota natural de`PipelineData` | 
+|| Rota natural de `PipelineData` | 
 || Os dados não são persistidos após a execução do pipeline |
 || [Laptop mostrando `PipelineOutputTabularDataset` técnica](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |
-| Registrados`Dataset` | Desempenho inferior |
+| Registrados `Dataset` | Desempenho inferior |
 | | Pode ser gerado de várias maneiras | 
 | | Os dados persistem e ficam visíveis em todo o espaço de trabalho |
 | | [Bloco de anotações mostrando a técnica registrada `Dataset`](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/continuous-retraining/auto-ml-continuous-retraining.ipynb)
@@ -328,25 +328,26 @@ automl_config = AutoMLConfig(task = 'classification',
 
 train_step = AutoMLStep(name='AutoML_Classification',
     automl_config=automl_config,
-    passthru_automl_config=False,
     outputs=[metrics_data,model_data],
+    enable_default_model_output=False,
+    enable_default_metrics_output=False,
     allow_reuse=True)
 ```
 O trecho mostra um idioma comumente usado com `AutoMLConfig` . Os argumentos que são mais fluidos (hiperparâmetro-ish) são especificados em um dicionário separado, enquanto os valores menos prováveis de serem alterados são especificados diretamente no `AutoMLConfig` Construtor. Nesse caso, `automl_settings` especifique uma breve execução: a execução será interrompida após apenas 2 iterações ou 15 minutos, o que ocorrer primeiro.
 
 O `automl_settings` dicionário é passado para o `AutoMLConfig` Construtor como kwargs. Os outros parâmetros não são complexos:
 
-- `task`é definido como `classification` para este exemplo. Outros valores válidos são `regression` e`forecasting`
-- `path`e `debug_log` descrevem o caminho para o projeto e um arquivo local no qual as informações de depuração serão gravadas 
-- `compute_target`é o anteriormente definido `compute_target` , neste exemplo, é um computador baseado em CPU de baixo custo. Se você estiver usando os recursos de aprendizado profundo do AutoML, você desejaria alterar o destino de computação para ser baseado em GPU
+- `task` é definido como `classification` para este exemplo. Outros valores válidos são `regression` e `forecasting`
+- `path` e `debug_log` descrevem o caminho para o projeto e um arquivo local no qual as informações de depuração serão gravadas 
+- `compute_target` é o anteriormente definido `compute_target` , neste exemplo, é um computador baseado em CPU de baixo custo. Se você estiver usando os recursos de aprendizado profundo do AutoML, você desejaria alterar o destino de computação para ser baseado em GPU
 - `featurization` é definido como `auto`. Mais detalhes podem ser encontrados na seção [Data personalização](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#data-featurization) do documento de configuração do ml automatizado 
-- `training_data`é definido para os `PipelineOutputTabularDataset` objetos feitos das saídas da etapa de preparação de dados 
-- `label_column_name`indica em qual coluna estamos interessados em prever 
+- `training_data` é definido para os `PipelineOutputTabularDataset` objetos feitos das saídas da etapa de preparação de dados 
+- `label_column_name` indica em qual coluna estamos interessados em prever 
 
 A `AutoMLStep` si mesma usa `AutoMLConfig` e tem, como saídas, os `PipelineData` objetos criados para manter as métricas e os dados do modelo. 
 
 >[!Important]
-> Você deve definir `passthru_automl_config` como `False` se o `AutoMLStep` estiver usando `PipelineOutputTabularDataset` objetos para entrada.
+> Você deve definir `enable_default_model_output` e `enable_default_metrics_output`  para a `False` menos que se esteja usando o  `AutoMLStep` .
 
 Neste exemplo, o processo de ML automatizado executará validações cruzadas no `training_data` . Você pode controlar o número de validações cruzadas com o `n_cross_validations` argumento. Se você já tiver dividido os dados de treinamento como parte de suas etapas de preparação de dados, poderá definir `validation_data` como seu próprio `Dataset` .
 

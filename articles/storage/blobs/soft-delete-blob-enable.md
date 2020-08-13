@@ -10,12 +10,12 @@ ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 213e4092719b274909cc764d94a72886bb4923c9
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 83827c7a39b2833ce1301e78a0bef4e6d61ec62b
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057136"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185291"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Habilitar e gerenciar exclusão reversível para blobs
 
@@ -35,7 +35,7 @@ Habilite a exclusão reversível para blobs em sua conta de armazenamento usando
 1. Localize a opção **proteção de dados** em **serviço blob**.
 1. Defina a propriedade **exclusão reversível do blob** como *habilitada*.
 1. Em **políticas de retenção**, especifique por quanto tempo os blobs de exclusão reversível são retidos pelo armazenamento do Azure.
-1. Salve suas alterações.
+1. Salve as alterações.
 
 ![Captura de tela do portal do Azure com o serviço blob de proteção de dados escolhido.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
 
@@ -134,7 +134,7 @@ block_blob_service.set_blob_service_properties(
     delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
-# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
 
 Para habilitar a exclusão reversível, atualize as propriedades do serviço do cliente de um blob:
 
@@ -148,7 +148,7 @@ Para recuperar para uma versão específica do blob, primeiro chame Restaurar em
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobVersion":::
 
-# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 Para habilitar a exclusão reversível, atualize as propriedades do serviço do cliente de um blob:
 

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 6e4ed8514cd99d42790296a58296a73696989b69
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 09dd444d0d7409ca86955d2854aec82f07db0c4d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87539128"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185393"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, revisar e implantar modelos de machine learning automatizado com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "87539128"
 Neste artigo, você aprenderá a criar, explorar e implantar modelos de aprendizado de máquina automatizados sem uma única linha de código no Azure Machine Learning Studio.
 
 >[!IMPORTANT]
-> A experiência de ML automatizada no estúdio de Machine Learning do Azure está em versão prévia. Alguns recursos podem não ter suporte ou ter recursos limitados.
+> A experiência de ML automatizado no estúdio do Azure Machine Learning está em versão prévia. Alguns recursos podem não ter suporte ou ter funcionalidades limitadas.
 
  O machine learning automatizado é um processo no qual o melhor algoritmo de machine learning a ser usado para seus dados específicos é selecionado para você. Esse processo permite que você gere modelos de machine learning rapidamente. [Saiba mais sobre o machine learning automatizado](concept-automated-ml.md).
  
@@ -108,7 +108,7 @@ Caso contrário, você verá uma lista das suas experiências recentes de machin
     Prioridade da máquina virtual| As máquinas virtuais de baixa prioridade são mais baratas, mas não garantem os nós de computação. 
     Tipo de máquina virtual| Selecione CPU ou GPU para o tipo de máquina virtual.
     Tamanho da máquina virtual| Selecione o tamanho da máquina virtual da computação.
-    Nós mín./máx.| Para analisar os dados, é necessário especificar um ou mais nós. Insira o número máximo de nós da sua computação. Uma Computação do AML tem 6 nós como padrão.
+    Mín./máx. de nós| Para analisar os dados, é necessário especificar um ou mais nós. Insira o número máximo de nós da sua computação. Uma Computação do AML tem 6 nós como padrão.
     Configurações avançadas | Essas configurações permitem que você configure uma conta de usuário e uma rede virtual existente para seu experimento. 
     
     Selecione **Criar**. A criação da nova computação pode levar alguns minutos.
@@ -134,7 +134,7 @@ Caso contrário, você verá uma lista das suas experiências recentes de machin
 
     Configurações adicionais|Descrição
     ------|------
-    Métrica principal| Métrica principal usada para a pontuação do seu modelo. [Saiba mais sobre as métricas do modelo](how-to-configure-auto-train.md#explore-model-metrics).
+    Métrica principal| Métrica principal usada para a pontuação do seu modelo. [Saiba mais sobre as métricas do modelo](how-to-configure-auto-train.md#primary-metric).
     Explicar o melhor modelo | Selecione para habilitar ou desabilitar o, a fim de mostrar a explicação do melhor modelo recomendado.
     Algoritmo bloqueado| Selecione os algoritmos que você deseja excluir do trabalho de treinamento.
     Critério de saída| Quando qualquer um desses critérios for atendido, o trabalho de treinamento é interrompido. <br> *Tempo do trabalho de treinamento (horas)* : o tempo permitido de execução do trabalho de treinamento. <br> *Limite de pontuação da métrica*:  pontuação mínima da métrica para todos os pipelines. Isso garante que, caso você tenha uma métrica de destino definida e que deseje alcançar, não gastará mais tempo no trabalho de treinamento do que o necessário.

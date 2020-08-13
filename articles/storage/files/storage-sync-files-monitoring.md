@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8b2b62ac4d79964c0a597f40d8154e5f57350f0b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 737617b1fb8bd233a8747deacbbb328a02fa30ef
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031074"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185614"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorar a Sincronização de Arquivos do Azure
 
@@ -135,7 +135,7 @@ Use o log de eventos de telemetria no servidor para monitorar a integridade do s
 
 Integridade da sincronização
 
-- A ID do evento 9102 é registrada quando uma sessão de sincronização é concluída. Use esse evento para determinar se as sessões de sincronização são bem-sucedidas (**HRESULT = 0**) e se há erros de sincronização por item. Para obter mais informações, consulte a documentação [sincronizar integridade](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) e [erros por item](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) .
+- A ID do evento 9102 é registrada quando uma sessão de sincronização é concluída. Use esse evento para determinar se as sessões de sincronização são bem-sucedidas (**HRESULT = 0**) e se há erros de sincronização por item. Para obter mais informações, consulte a documentação [sincronizar integridade](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) e  [erros por item](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) .
 
   > [!Note]  
   > Às vezes, as sessões de sincronização falham em geral ou têm um PerItemErrorCount diferente de zero. No entanto, eles ainda encaminham o progresso e alguns arquivos são sincronizados com êxito. Você pode ver isso nos campos aplicados, como AppliedFileCount, AppliedDirCount, AppliedTombstoneCount e AppliedSizeBytes. Esses campos informam quanto da sessão foi bem-sucedida. Se você vir a falha de várias sessões de sincronização em uma linha e elas tiverem uma contagem aplicada crescente, forneça o tempo de sincronização para tentar novamente antes de abrir um tíquete de suporte.
@@ -156,12 +156,13 @@ Integridade de camadas de nuvem
   - A identificação de evento 9016 fornece resultados de fantasma para um volume. Por exemplo: a porcentagem de espaço livre é, o número de arquivos fantasmas na sessão e o número de arquivos com falha no fantasma.
   - A ID do evento 9029 fornece informações de sessão de conversão em fantasma para um ponto de extremidade de servidor. Por exemplo: o número de arquivos tentados na sessão, o número de arquivos em camadas na sessão e o número de arquivos já em camadas.
   
-- Para monitorar a atividade de recuperação em um servidor, use a ID de evento 9005, 9006, 9009 e 9059 no log de eventos de telemetria, localizado em Visualizador de Eventos em *Applications e Services\Microsoft\FileSync\Agent*.
+- Para monitorar a atividade de recuperação em um servidor, use a ID de evento 9005, 9006, 9009, 9059 e 9071 no log de eventos de telemetria, localizado em Visualizador de Eventos em *Applications and Services\Microsoft\FileSync\Agent*.
 
   - A ID de evento 9005 fornece confiabilidade de recall para um ponto de extremidade do servidor. Por exemplo: total de arquivos exclusivos acessados e total de arquivos exclusivos com falha de acesso.
   - ID do evento 9006 fornece Lembre-se a distribuição de erro para um ponto de extremidade do servidor. Por exemplo: total de solicitações com falha e ErrorCode. Um evento é registrado por código de erro.
   - A ID do evento 9009 fornece informações de sessão de recall para um ponto de extremidade de servidor. Por exemplo: DurationSeconds, CountFilesRecallSucceeded e CountFilesRecallFailed.
   - A ID do evento 9059 fornece distribuição de recall do aplicativo para um ponto de extremidade de servidor. Por exemplo: Shareid, nome do aplicativo e TotalEgressNetworkBytes.
+  - A ID de evento 9071 fornece eficiência de camadas de nuvem para um ponto de extremidade do servidor. Por exemplo: TotalDistinctFileCountCacheHit, TotalDistinctFileCountCacheMiss, TotalCacheHitBytes e TotalCacheMissBytes.
 
 ### <a name="performance-counters"></a>Contadores de desempenho
 
@@ -195,7 +196,7 @@ Esta seção fornece alguns alertas de exemplo para Sincronização de Arquivos 
 5. Na folha **Configurar lógica de sinal** , clique em **sincronizar sessão resultado** em nome do sinal.  
 6. Selecione a seguinte configuração de dimensão: 
     - Nome da dimensão: **nome do ponto de extremidade do servidor**  
-    - Operador**=** 
+    - Operador **=** 
     - Valores de dimensão: **todos os valores atuais e futuros**  
 7. Navegue até a **lógica de alerta** e conclua o seguinte: 
     - Limite definido como **estático** 
@@ -217,7 +218,7 @@ Esta seção fornece alguns alertas de exemplo para Sincronização de Arquivos 
 5. Na folha **Configurar lógica de sinal** , clique em **arquivos não sincronizando** sob o nome do sinal.  
 6. Selecione a seguinte configuração de dimensão: 
      - Nome da dimensão: **nome do ponto de extremidade do servidor**  
-     - Operador**=** 
+     - Operador **=** 
      - Valores de dimensão: **todos os valores atuais e futuros**  
 7. Navegue até a **lógica de alerta** e conclua o seguinte: 
      - Limite definido como **estático** 
@@ -239,7 +240,7 @@ Esta seção fornece alguns alertas de exemplo para Sincronização de Arquivos 
 5. Na folha **Configurar lógica de sinal** , clique em **status do servidor online** em nome do sinal.  
 6. Selecione a seguinte configuração de dimensão: 
      - Nome da dimensão: **nome do servidor**  
-     - Operador**=** 
+     - Operador **=** 
      - Valores de dimensão: **todos os valores atuais e futuros**  
 7. Navegue até a **lógica de alerta** e conclua o seguinte: 
      - Limite definido como **estático** 
@@ -261,7 +262,7 @@ Esta seção fornece alguns alertas de exemplo para Sincronização de Arquivos 
 5. Na folha **Configurar lógica de sinal** , clique em **camada de recall de camadas de nuvem** em nome do sinal.  
 6. Selecione a seguinte configuração de dimensão: 
      - Nome da dimensão: **nome do servidor**  
-     - Operador**=** 
+     - Operador **=** 
      - Valores de dimensão: **todos os valores atuais e futuros**  
 7. Navegue até a **lógica de alerta** e conclua o seguinte: 
      - Limite definido como **estático** 

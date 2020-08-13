@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 37106517c47c86f4a4a562eebd6d120e31e22334
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a19ced1cb9496bddd1f9aa7ea9e3eb58ba7eea3d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564527"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185682"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Conectar dados de Azure Active Directory (Azure AD)
 
@@ -30,7 +30,7 @@ O Azure Sentinel permite coletar dados de [Azure Active Directory](../active-dir
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se você quiser exportar dados de entrada do Azure AD, deverá ter uma licença do Azure AD P1 ou P2.
+- Qualquer licença do Azure AD (gratuito/O365/P1/P2) pode ser integrada com os logs de entrada Azure Monitor e de ingestão no Azure sentinela. Encargos adicionais por gigabyte serão aplicados por Azure Monitor ou pelo Azure Sentinel.
 
 - Usuário com permissões de administrador global ou de administrador de segurança no locatário do qual você deseja transmitir os logs.
 

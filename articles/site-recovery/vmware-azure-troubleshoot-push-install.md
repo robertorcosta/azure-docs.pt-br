@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: 04b4feb1219f6a51a1f0a7ac0d19fc3fd70029c6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: db66137ac4b233a7e5d3040cf38dc69a089b0c9a
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133532"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185206"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Solucionar problemas de instalação por push do serviço de mobilidade
 
@@ -41,8 +41,8 @@ Para Windows (**erro 95107**), verifique se a conta de usuário tem acesso admin
 * Para adicionar manualmente uma chave do registro que desabilita o controle de acesso de usuário remoto:
 
   * `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
-  * Adicione um novo `DWORD` :`LocalAccountTokenFilterPolicy`
-  * Defina o valor como`1`
+  * Adicione um novo `DWORD` : `LocalAccountTokenFilterPolicy`
+  * Defina o valor como `1`
 
 * Para adicionar a chave do registro, em um prompt de comando, execute o seguinte comando:
 
@@ -204,7 +204,7 @@ Antes da versão 9,20, uma partição raiz ou configuração de volume em vário
 
 Os arquivos de configuração do GRUB (carregador unificado geral) (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/Grub2/grub.cfg_ou _/etc/default/grub_) podem conter o valor para a **raiz** dos parâmetros e **retomar** como os nomes de dispositivo reais em vez de um UUID (identificador universalmente exclusivo). Site Recovery exige a abordagem do UUID, pois os nomes dos dispositivos podem mudar na reinicialização da VM. Por exemplo, a VM pode não ficar online com o mesmo nome no failover e que resulte em problemas.
 
-Por exemplo:
+Por exemplo: 
 
 - A linha a seguir é do arquivo GRUB _/boot/Grub2/grub.cfg_:
 
@@ -223,7 +223,7 @@ os nomes de dispositivo devem ser substituídos pelo UUID correspondente.
 
 1. Localize o UUID do dispositivo executando o comando `blkid \<device name>` .
 
-   Por exemplo:
+   Por exemplo: 
 
    ```shell
    blkid /dev/sda1
@@ -257,6 +257,10 @@ A partir da [versão 9,20](https://support.microsoft.com/help/4478871/update-rol
 ## <a name="insufficient-space-errorid-95524"></a>Espaço insuficiente (errorID: 95524)
 
 Quando o agente de mobilidade é copiado para o computador de origem, pelo menos 100 MB de espaço livre é necessário. Verifique se o computador de origem tem a quantidade necessária de espaço livre e repita a operação.
+
+## <a name="low-system-resources"></a>Recursos do sistema insuficientes
+
+Esse problema ocorre quando o sistema tem pouca memória disponível e não é capaz de alocar memória para a instalação do serviço de mobilidade. Certifique-se de que memória suficiente tenha sido liberada para que a instalação prossiga e seja concluída com êxito.
 
 ## <a name="vss-installation-failures"></a>Falhas na instalação do VSS
 

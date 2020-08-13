@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 0c48116c285ee5b9f0de0d9333a49d5f8ac183af
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: a8c61b526f0f0292909cc1b90391dbae2166ccaa
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87425116"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88186319"
 ---
 :::row:::
     :::column span="3":::
-        O SDK de fala para JavaScript está disponível como um pacote NPM, consulte <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Microsoft-cognitivaservices-Speech- <span class="docon docon-navigate-external x-hidden-focus"></span> SDK</a> e ele complementa o repositório GitHub <a href="https://github.com/Microsoft/cognitive-services-speech-sdk-js" target="_blank">cognitiva-Services-Speech-SDK- <span class="docon docon-navigate-external x-hidden-focus"></span> js </a>.
+        O SDK de fala para JavaScript está disponível como um pacote NPM, consulte <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Microsoft-cognitivaservices-Speech- <span class="docon docon-navigate-external x-hidden-focus"></span> SDK</a> e seu repositório do GitHub complementar <a href="https://github.com/Microsoft/cognitive-services-speech-sdk-js" target="_blank">cognitiva-Services-Speech-SDK <span class="docon docon-navigate-external x-hidden-focus"></span> -js </a>.
     :::column-end:::
     :::column:::
         <br>

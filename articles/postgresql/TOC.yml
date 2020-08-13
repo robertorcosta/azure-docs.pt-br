@@ -169,14 +169,16 @@
               href: howto-move-regions-portal.md
     - name: Hiperescala (Citus)
       items:
-        - name: Nós
-          href: concepts-hyperscale-nodes.md
         - name: Dados distribuídos
-          href: concepts-hyperscale-distributed-data.md
-        - name: Escolher uma coluna de distribuição
-          href: concepts-hyperscale-choose-distribution-column.md
-        - name: Colocação de tabela
-          href: concepts-hyperscale-colocation.md
+          items:
+            - name: Nós e tabelas
+              href: concepts-hyperscale-nodes.md
+            - name: Determinar o tipo de aplicativo
+              href: concepts-hyperscale-app-type.md
+            - name: Escolher uma coluna de distribuição
+              href: concepts-hyperscale-choose-distribution-column.md
+            - name: Colocação de tabela
+              href: concepts-hyperscale-colocation.md
         - name: Acesso a dados e segurança
           items:
             - name: Regras de firewall
@@ -341,12 +343,16 @@
       items:
         - name: Criar usuários
           href: howto-hyperscale-create-users.md
-        - name: Escala
+        - name: Tamanho do grupo de servidores
           href: howto-hyperscale-scaling.md
         - name: Gerenciar o firewall
           items:
             - name: Portal do Azure
               href: howto-hyperscale-manage-firewall-using-portal.md
+        - name: Dados distribuídos
+          items:
+            - name: Distribuir e modificar tabelas
+              href: howto-hyperscale-modify-distributed-tables.md
         - name: Alta disponibilidade
           href: howto-hyperscale-high-availability.md
         - name: Monitoramento
@@ -361,12 +367,22 @@
               href: howto-hyperscale-troubleshoot-common-connection-issues.md
 - name: Referência
   items:
-    - name: CLI do Azure
-      href: /cli/azure/postgres
-    - name: API REST
-      href: /rest/api/postgresql
-    - name: Modelo do Resource Manager
-      href: /azure/templates/microsoft.dbforpostgresql/allversions
+    - name: Servidor único
+      items:
+        - name: CLI do Azure
+          href: /cli/azure/postgres
+        - name: API REST
+          href: /rest/api/postgresql
+        - name: Modelo do Resource Manager
+          href: /azure/templates/microsoft.dbforpostgresql/allversions
+    - name: Hiperescala (Citus)
+      items:
+        - name: Funções da API SQL
+          href: reference-hyperscale-functions.md
+        - name: Parâmetros do Servidor
+          href: reference-hyperscale-parameters.md
+        - name: Tabelas do sistema
+          href: reference-hyperscale-metadata.md
 - name: Recursos
   items:
     - name: Desenvolva suas habilidades com o Microsoft Learn

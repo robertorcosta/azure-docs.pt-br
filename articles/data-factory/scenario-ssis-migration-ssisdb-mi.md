@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: c91731d70d5db59ecf5daa726fd42ee42c58f51e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6de08faee78deeb86117084b420eb5043153f62d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84116303"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88186039"
 ---
 # <a name="ssis-migration-with-azure-sql-managed-instance-as-the-database-workload-destination"></a>Migração do SSIS com o Azure SQL Instância Gerenciada como o destino da carga de trabalho do banco de dados
 
@@ -32,7 +32,9 @@ A migração do SSISDB pode ser feita usando DMS, conforme descrito no artigo: [
 
 ## <a name="ssis-jobs-to-sql-managed-instance-agent"></a>Trabalhos do SSIS para o SQL Instância Gerenciada Agent
 
-O SQL Instância Gerenciada tem um Agendador nativo de primeira classe, assim como SQL Server Agent local.  Como uma ferramenta de migração para trabalhos do SSIS ainda não está disponível, eles precisam ser migrados do SQL Server Agent local para o SQL Instância Gerenciada Agent por meio de scripts/cópia manual.
+O SQL Instância Gerenciada tem um Agendador nativo de primeira classe, assim como SQL Server Agent local.  Você pode [executar pacotes do SSIS por meio do Azure SQL instância gerenciada Agent](how-to-invoke-ssis-package-managed-instance-agent.md).
+
+Como uma ferramenta de migração para trabalhos do SSIS ainda não está disponível, eles precisam ser migrados do SQL Server Agent local para o SQL Instância Gerenciada Agent por meio de scripts/cópia manual.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

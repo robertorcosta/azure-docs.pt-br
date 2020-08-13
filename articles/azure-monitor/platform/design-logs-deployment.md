@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 3a6afd42c12a523523b45861b38b323fa680ecab
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8b74fa39c47f9032e57d2b6630be1a3ef45990a3
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317277"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185172"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Projetando a implantação de logs do Azure Monitor
 
@@ -127,17 +127,25 @@ Para saber como alterar o modo de controle de acesso no portal, com o PowerShell
 
 ## <a name="ingestion-volume-rate-limit"></a>Limite da taxa de volume de ingestão
 
-O Azure Monitor é um serviço de dados de grande escala que atende milhares de clientes que enviam terabytes de dados por mês em um ritmo cada vez maior. O limite de taxa de ingestão padrão é definido como **6 GB/min** por espaço de trabalho. Esse é um valor aproximado, pois o tamanho real pode variar entre os tipos de dados, dependendo do tamanho do log e de sua taxa de compactação. Esse limite não se aplica aos dados enviados de agentes ou da [API do coletor de dados](data-collector-api.md).
+O Azure Monitor é um serviço de dados de grande escala que atende milhares de clientes que enviam terabytes de dados por mês em um ritmo cada vez maior. O limite de taxa de volume pretende proteger Azure Monitor clientes contra picos de ingestão repentinas no ambiente multilocação. Um limite de taxa de volume de ingestão padrão de 500 MB (compactado) se aplica a espaços de trabalho, que é aproximadamente **6 GB/min** não compactados, o tamanho real pode variar entre os tipos de dados, dependendo do tamanho do log e de sua taxa de compactação. Esse limite se aplica a todos os dados ingeridos, se enviados de recursos do Azure usando [configurações de diagnóstico](diagnostic-settings.md), API do [coletor de dados](data-collector-api.md) ou agentes.
 
-Se você enviar dados a uma taxa mais alta para um único espaço de trabalho, alguns dados serão descartados e um evento será enviado para a tabela de *operações* no seu espaço de trabalho a cada 6 horas, enquanto o limite continuará sendo excedido. Se o volume de ingestão continuar exceder o limite de taxa ou você estiver esperando contatá-lo em breve, poderá solicitar um aumento no espaço de trabalho enviando um email para LAIngestionRate@microsoft.com ou abrindo uma solicitação de suporte.
- 
-Para ser notificado sobre esse evento em seu espaço de trabalho, crie uma [regra de alerta de log](alerts-log.md) usando a consulta a seguir com a base de lógica de alerta no número de resultados mais rígidos que zero.
+Quando você envia dados para um espaço de trabalho em uma taxa de volume superior a 80% do limite configurado em seu espaço de trabalho, um evento é enviado para a tabela de *operações* no seu espaço de trabalho a cada 6 horas, enquanto o limite continua a ser excedido. Quando a taxa de volume ingerido é maior que o limite, alguns dados são descartados e um evento é enviado para a tabela de *operações* no seu espaço de trabalho a cada 6 horas, enquanto o limite continua a ser excedido. Se a taxa de volume de ingestão continuar excedendo o limite ou você estiver esperando contatá-lo em breve, você poderá solicitar para aumentá-lo em seu espaço de trabalho abrindo uma solicitação de suporte. 
 
-``` Kusto
+Para ser notificado sobre esse evento em seu espaço de trabalho, crie uma [regra de alerta de log](alerts-log.md) usando a consulta a seguir com base de lógica de alerta no número de resultados mais rígidos que zero, período de avaliação de 5 minutos e frequência de 5 minutos.
+
+A taxa de volume de ingestão atingiu 80% do limite:
+```Kusto
 Operation
 |where OperationCategory == "Ingestion"
-|where Detail startswith "The rate of data crossed the threshold"
-``` 
+|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
+```
+
+Limite atingido na taxa de volume de ingestão:
+```Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The data ingestion volume rate crossed the threshold"
+```
 
 
 ## <a name="recommendations"></a>Recomendações

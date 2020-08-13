@@ -11,23 +11,25 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 94595bac2febdef1d3739703f0fa49c9ef15f218
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: a5eb24b5420431a43afa2ffd006ac821f0e907c9
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166613"
+ms.locfileid: "88185750"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Personalização no Machine Learning automatizado
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste guia, você aprenderá a:
+Neste guia, você aprende:
 
 - O que as configurações de personalização Azure Machine Learning oferecem.
 - Como personalizar esses recursos para seus [experimentos de aprendizado de máquina automatizados](concept-automated-ml.md).
 
 A *engenharia de recursos* é o processo de usar o conhecimento de domínio dos dados para criar recursos que ajudem os algoritmos de ml (aprendizado de máquina) a aprender melhor. Em Azure Machine Learning, as técnicas de escalação de dados e normalização são aplicadas para facilitar a engenharia de recursos. Coletivamente, essas técnicas e essa engenharia de recursos são chamadas de *personalização* em experimentos de aprendizado automático de máquina ou *AutoML*.
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que você já sabe como configurar um experimento do AutoML. Para obter informações sobre a configuração, consulte os seguintes artigos:
 
@@ -64,9 +66,9 @@ A tabela a seguir resume as técnicas que são aplicadas automaticamente aos seu
 | ------------- | ------------- |
 |**Descartar alta cardinalidade ou nenhum recurso de variação*** |Descartar esses recursos de conjuntos de treinamento e validação. Aplica-se a recursos com todos os valores ausentes, com o mesmo valor em todas as linhas ou com alta cardinalidade (por exemplo, hashes, IDs ou GUIDs).|
 |**Imputar valores ausentes*** |Para recursos numéricos, imputar com a média de valores na coluna.<br/><br/>Para recursos categóricos, imputar com o valor mais frequente.|
-|**Gerar recursos adicionais*** |Para recursos DateTime: Ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.<br><br> *Para tarefas de previsão,* esses recursos de DateTime adicionais são criados: ano ISO, semestre, mês como cadeia de caracteres, semana, dia da semana como cadeia de caracteres, dia do trimestre, dia do ano, AM/PM (0 se a hora for anterior ao meio-dia (12 PM), 1 caso), AM/PM como cadeia de caracteres, hora do dia (12HR)<br/><br/>Para recursos de texto: a frequência de termos com base em unigrams, bigrams e trigrams. Saiba mais sobre [como isso é feito com o Bert.](#bert-integration)|
+|**Gerar recursos adicionais*** |Para recursos DateTime: Ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.<br><br> *Para tarefas de previsão,* esses recursos de DateTime adicionais são criados: ano ISO, semestre, mês como cadeia de caracteres, semana, dia da semana como cadeia de caracteres, dia do trimestre, dia do ano, AM/PM (0 se a hora for anterior ao meio-dia (12 PM), 1 caso), AM/PM como cadeia de caracteres, hora do dia (12 horas<br/><br/>Para recursos de texto: a frequência de termos com base em unigrams, bigrams e trigrams. Saiba mais sobre [como isso é feito com o Bert.](#bert-integration)|
 |**Transformar e codificar***|Transforme recursos numéricos que têm poucos valores exclusivos em recursos categóricos.<br/><br/>A codificação One-Hot é usada para recursos categóricos de baixa cardinalidade. A codificação um-Hot-hash é usada para recursos categóricos de alta cardinalidade.|
-|**Inserções de palavras**|Um texto featurizer converte vetores de tokens de texto em vetores de sentença usando um modelo pretreinado. O vetor de incorporação de cada palavra em um documento é agregado com o restante para produzir um vetor de recursos de documento.|
+|**Inserções de palavras**|Uma featurizer de texto converte vetores de tokens de texto em vetores de sentença usando um modelo pré-treinado. O vetor de incorporação de cada palavra em um documento é agregado com o restante para produzir um vetor de recursos de documento.|
 |**Codificações de destino**|Para recursos categóricos, essa etapa mapeia cada categoria com um valor de destino médio para problemas de regressão e para a probabilidade de classe de cada classe para problemas de classificação. O peso baseado em frequência e a validação cruzada de k-fold são aplicados para reduzir o superajuste do mapeamento e ruído causados por categorias de dados esparsas.|
 |**Codificação de destino de texto**|Para uma entrada de texto, um modelo linear empilhado com um conjunto de palavras é usado para gerar a probabilidade de cada classe.|
 |**Peso de evidência (WoE)**|Calcula o WoE como uma medida de correlação de colunas categóricas para a coluna de destino. WoE é calculado como o log da proporção de probabilidades de classe vs. fora de classe. Esta etapa produz uma coluna de recurso numérico por classe e remove a necessidade de imputar explicitamente os valores ausentes e o tratamento de exceção.|
@@ -140,34 +142,196 @@ featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "m
 featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
 ```
 
-## <a name="bert-integration"></a>Integração do BERT 
-[Bert](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) é usado na camada personalização do ml automatizado. Nessa camada, detectamos se uma coluna contém texto livre ou outros tipos de dados, como carimbos de data/hora ou números simples, e nós Personalizars de acordo. Para BERT, ajustamos/treinamos o modelo utilizando os rótulos fornecidos pelo usuário e, em seguida, geramos incorporações de documentos (por BERT, são o estado final oculto associado ao token [CLS] especial) como recursos junto com outros recursos, como recursos baseados em carimbo de data/hora (por exemplo, dia da semana) ou números que muitos conjuntos de resultados típicos têm. 
+## <a name="featurization-transparency"></a>Transparência de personalização
 
-Para habilitar o BERT, você deve usar a computação de GPU para treinamento. Se uma computação de CPU for usada, em vez de BERT, AutoML habilitará BiLSTM DNN featurizer. Para invocar BERT, você precisa definir "enable_dnn: true" em automl_settings e usar a computação de GPU (por exemplo, vm_size = "STANDARD_NC6" ou uma GPU superior). Consulte [este bloco de anotações para obter um exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+Cada modelo de AutoML tem personalização aplicado automaticamente.  O personalização inclui engenharia automatizada de recursos (quando `"featurization": 'auto'` ) e dimensionamento e normalização, que impacta o algoritmo selecionado e seus valores de hiperparâmetro. O AutoML dá suporte a métodos diferentes para garantir que você tenha visibilidade do que foi aplicado ao seu modelo.
 
-O AutoML executa as seguintes etapas, para o caso de BERT (Observe que você precisa definir "enable_dnn: true" em automl_settings para que esses itens aconteçam):
+Considere este exemplo de previsão:
 
-1. Pré-processando, incluindo a geração de tokens de todas as colunas de texto (você verá o transformador "StringCast" no Resumo de personalização do modelo final. Visite [este bloco de anotações](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb) para ver um exemplo de como produzir o resumo de personalização do modelo usando o `get_featurization_summary()` método.
++ Há quatro recursos de entrada: A (numérico), B (numérico), C (numérico), D (DateTime).
++ O recurso numérico C é Descartado porque é uma coluna de ID com todos os valores exclusivos.
++ Os recursos numéricos A e B têm valores ausentes e, portanto, são imputadosdos pela média.
++ O recurso DateTime D é destacados em 11 recursos de engenharia diferentes.
+
+Para obter essas informações, use a `fitted_model` saída da execução do experimento do ml automatizado.
 
 ```python
-text_transformations_used = []
-for column_group in fitted_model.named_steps['datatransformer'].get_featurization_summary():
-    text_transformations_used.extend(column_group['Transformations'])
-text_transformations_used
+automl_config = AutoMLConfig(…)
+automl_run = experiment.submit(automl_config …)
+best_run, fitted_model = automl_run.get_output()
+```
+### <a name="automated-feature-engineering"></a>Engenharia de recursos automatizada 
+O `get_engineered_feature_names()` retorna uma lista de nomes de recursos com engenharia.
+
+  >[!Note]
+  >Use “timeseriestransformer” para task=”forecasting”, caso contrário, use “datatransformer” para a tarefa “regression” ou “classification”.
+
+  ```python
+  fitted_model.named_steps['timeseriestransformer']. get_engineered_feature_names ()
+  ```
+
+Essa lista inclui todos os nomes de recursos de engenharia. 
+
+  ```
+  ['A', 'B', 'A_WASNULL', 'B_WASNULL', 'year', 'half', 'quarter', 'month', 'day', 'hour', 'am_pm', 'hour12', 'wday', 'qday', 'week']
+  ```
+
+O `get_featurization_summary()` Obtém um resumo personalização de todos os recursos de entrada.
+
+  ```python
+  fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
+  ```
+
+Saída
+
+  ```
+  [{'RawFeatureName': 'A',
+    'TypeDetected': 'Numeric',
+    'Dropped': 'No',
+    'EngineeredFeatureCount': 2,
+    'Tranformations': ['MeanImputer', 'ImputationMarker']},
+   {'RawFeatureName': 'B',
+    'TypeDetected': 'Numeric',
+    'Dropped': 'No',
+    'EngineeredFeatureCount': 2,
+    'Tranformations': ['MeanImputer', 'ImputationMarker']},
+   {'RawFeatureName': 'C',
+    'TypeDetected': 'Numeric',
+    'Dropped': 'Yes',
+    'EngineeredFeatureCount': 0,
+    'Tranformations': []},
+   {'RawFeatureName': 'D',
+    'TypeDetected': 'DateTime',
+    'Dropped': 'No',
+    'EngineeredFeatureCount': 11,
+    'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
+  ```
+
+   |Saída|Definição|
+   |----|--------|
+   |RawFeatureName|Nome de recurso/coluna de entrada do conjunto de dados fornecido.|
+   |TypeDetected|Tipo de dados detectado do recurso de entrada.|
+   |Dropped|Indica se o recurso de entrada foi removido ou usado.|
+   |EngineeringFeatureCount|Número de recursos gerados por meio de transformações automatizadas de engenharia de recursos.|
+   |Transformações|Lista de transformações aplicadas aos recursos de entrada para gerar recursos de engenharia.|
+
+### <a name="scaling-and-normalization"></a>Dimensionamento e normalização
+
+Para entender o dimensionamento/normalização e o algoritmo selecionado com seus valores de hiperparâmetro, use `fitted_model.steps` . 
+
+A seguinte saída de exemplo é de execução `fitted_model.steps` para uma execução escolhida:
+
+```
+[('RobustScaler', 
+  RobustScaler(copy=True, 
+  quantile_range=[10, 90], 
+  with_centering=True, 
+  with_scaling=True)), 
+
+  ('LogisticRegression', 
+  LogisticRegression(C=0.18420699693267145, class_weight='balanced', 
+  dual=False, 
+  fit_intercept=True, 
+  intercept_scaling=1, 
+  max_iter=100, 
+  multi_class='multinomial', 
+  n_jobs=1, penalty='l2', 
+  random_state=None, 
+  solver='newton-cg', 
+  tol=0.0001, 
+  verbose=0, 
+  warm_start=False))
 ```
 
-2. Concatena todas as colunas de texto em uma única coluna de texto, portanto, você verá "StringConcatTransformer" no modelo final. 
+Para obter mais detalhes, use esta função auxiliar: 
 
-> [!NOTE]
-> Nossa implementação de BERT limita o tamanho de texto total de um exemplo de treinamento a tokens de 128. Isso significa que, de forma ideal, todas as colunas de texto quando concatenadas devem ter, no máximo, 128 tokens de comprimento. Idealmente, se várias colunas estiverem presentes, cada coluna deverá ser removida de modo que essa condição seja satisfeita. Por exemplo, se houver duas colunas de texto nos dados, ambas as colunas de texto deverão ser removidas para 64 tokens cada (supondo que ambas as colunas sejam representadas igualmente na coluna de texto concatenada final) antes de alimentar os dados para AutoML. Para colunas concatenadas de comprimento >tokens 128, a camada criador do BERT truncará essa entrada para 128 tokens.
+```python
+from pprint import pprint
 
-3. Na etapa de limpeza do recurso, o AutoML compara o BERT com a linha de base (recursos de conjunto de palavras) em uma amostra dos dados e determina se o BERT forneceria melhorias de precisão. Se ele determinar que o BERT tem um desempenho melhor do que a linha de base, o AutoML usará BERT para Text personalização como a estratégia de personalização ideal e continuará com destacar os dados inteiros. Nesse caso, você verá o "PretrainedTextDNNTransformer" no modelo final.
+def print_model(model, prefix=""):
+    for step in model.steps:
+        print(prefix + step[0])
+        if hasattr(step[1], 'estimators') and hasattr(step[1], 'weights'):
+            pprint({'estimators': list(
+                e[0] for e in step[1].estimators), 'weights': step[1].weights})
+            print()
+            for estimator in step[1].estimators:
+                print_model(estimator[1], estimator[0] + ' - ')
+        else:
+            pprint(step[1].get_params())
+            print()
 
-BERT geralmente é executado por mais tempo do que a maioria das outras featurizers. Ele pode ser o acelerador, fornecendo mais computação em seu cluster. O AutoML distribuirá o treinamento do BERT em vários nós se eles estiverem disponíveis (até um máximo de 8 nós). Isso pode ser feito definindo [max_concurrent_iterations](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) como maior que 1. Para obter um melhor desempenho, é recomendável usar SKUs com recursos RDMA (como "STANDARD_NC24r" ou "STANDARD_NC24rs_V3")
+print_model(model)
+```
+
+Essa função auxiliar retorna a saída a seguir para uma execução específica usando `LogisticRegression with RobustScalar` como o algoritmo específico.
+
+```
+RobustScaler
+{'copy': True,
+'quantile_range': [10, 90],
+'with_centering': True,
+'with_scaling': True}
+
+LogisticRegression
+{'C': 0.18420699693267145,
+'class_weight': 'balanced',
+'dual': False,
+'fit_intercept': True,
+'intercept_scaling': 1,
+'max_iter': 100,
+'multi_class': 'multinomial',
+'n_jobs': 1,
+'penalty': 'l2',
+'random_state': None,
+'solver': 'newton-cg',
+'tol': 0.0001,
+'verbose': 0,
+'warm_start': False}
+```
+
+### <a name="predict-class-probability"></a>Prever probabilidade de classe
+
+Os modelos produzidos usando o ML automatizado têm objetos wrapper que espelham a funcionalidade de sua classe de origem open-source. A maioria dos objetos do wrapper do modelo de classificação retornados pelo ML automatizado implementam a função `predict_proba()`, que aceita uma amostra de dados de matriz ou de matriz esparsa dos seus recursos (valores X) e retorna uma matriz n-dimensional de cada amostra e sua respectiva probabilidade de classe.
+
+Supondo que você tenha recuperado a melhor execução e o modelo ajustado usando as mesmas chamadas acima, você pode chamar `predict_proba()` diretamente do modelo ajustado, fornecendo uma amostra de `X_test` no formato apropriado, dependendo do tipo de modelo.
+
+```python
+best_run, fitted_model = automl_run.get_output()
+class_prob = fitted_model.predict_proba(X_test)
+```
+
+Se o modelo subjacente não oferecer suporte à função `predict_proba()` ou o formato estiver incorreto, uma exceção específica para classe de modelo será lançada. Consulte os documentos de referência de [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba) e [XGBoost](https://xgboost.readthedocs.io/en/latest/python/python_api.html) para obter exemplos de como essa função é implementada para diferentes tipos de modelo.
+
+## <a name="bert-integration"></a>Integração do BERT
+
+[Bert](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) é usado na camada personalização de AutoML. Nessa camada, se uma coluna contiver texto livre ou outros tipos de dados como carimbos de data/hora ou números simples, personalização será aplicado de acordo.
+
+Para o BERT, o modelo é ajustado e treinado utilizando os rótulos fornecidos pelo usuário. A partir daqui, as incorporações de documentos são geradas como recursos ao lado de outros, como recursos baseados em carimbo de data/hora, dia da semana. 
+
+
+### <a name="bert-steps"></a>Etapas de BERT
+
+Para invocar BERT, você precisa definir `enable_dnn: True` em seu automl_settings e usar uma computação de GPU (por exemplo `vm_size = "STANDARD_NC6"` , ou uma GPU superior). Se uma computação de CPU for usada, em vez de BERT, AutoML habilitará o BiLSTM DNN featurizer.
+
+AutoML executa as seguintes etapas para o BERT. 
+
+1. **Pré-processamento e geração de tokens de todas as colunas de texto**. Por exemplo, o transformador "StringCast" pode ser encontrado no Resumo de personalização do modelo final. Um exemplo de como produzir o resumo de personalização do modelo pode ser encontrado neste [bloco de anotações](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+
+2. **Concatenar todas as colunas de texto em uma única coluna de texto**, portanto, `StringConcatTransformer` no modelo final. 
+
+    Nossa implementação de BERT limita o tamanho de texto total de um exemplo de treinamento a tokens de 128. Isso significa que, de forma ideal, todas as colunas de texto quando concatenadas devem ter, no máximo, 128 tokens de comprimento. Se várias colunas estiverem presentes, cada coluna deverá ser removida para que essa condição seja satisfeita. Caso contrário, para colunas concatenadas de comprimento >a camada criador de tokens de 128 BERT trunca essa entrada para 128 tokens.
+
+3. **Como parte da limpeza de recursos, o AutoML compara BERT com a linha de base (recursos de conjunto de palavras) em uma amostra dos dados.** Essa comparação determina se o BERT forneceria melhorias de precisão. Se BERT tiver um desempenho melhor do que a linha de base, o AutoML usará BERT para o texto personalização para os dados inteiros. Nesse caso, você verá o `PretrainedTextDNNTransformer` no modelo final.
+
+BERT geralmente é executado por mais tempo do que outros featurizers. Para obter um melhor desempenho, recomendamos o uso de "STANDARD_NC24r" ou "STANDARD_NC24rs_V3" para seus recursos RDMA. 
+
+O AutoML distribuirá o treinamento do BERT em vários nós se eles estiverem disponíveis (até um máximo de oito nós). Isso pode ser feito em seu `AutoMLConfig` objeto definindo o `max_concurrent_iterations` parâmetro como maior que 1. 
+### <a name="supported-languages"></a>Idiomas com suporte
 
 O AutoML atualmente dá suporte a idiomas 100 e, dependendo do idioma do conjunto de um, o AutoML escolhe o modelo de BERT apropriado. Para dados em alemão, usamos o modelo alemão BERT. Para o inglês, usamos o modelo BERT em inglês. Para todas as outras linguagens, usamos o modelo BERT multilíngue.
 
-No código a seguir, o modelo alemão BERT é disparado, uma vez que a linguagem do conjunto de dado é especificada como ' deu ', o código de idioma de três letras para o alemão de acordo com a [classificação ISO](https://iso639-3.sil.org/code/deu):
+No código a seguir, o modelo alemão BERT é disparado, uma vez que a linguagem do conjunto de dado é especificada como `deu` , o código de idioma de três letras para o alemão de acordo com a [classificação ISO](https://iso639-3.sil.org/code/deu):
 
 ```python
 from azureml.automl.core.featurization import FeaturizationConfig

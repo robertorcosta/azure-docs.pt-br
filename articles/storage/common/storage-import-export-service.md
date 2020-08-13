@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a43637071ec1a9962c8aa1b2262e07354293f12b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2918c5842d6470e634518ff9c12f6f04aefc920
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512432"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185376"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço de Importação/exportação do Azure?
 
@@ -120,16 +120,17 @@ O serviço de Importação/Exportação do Azure dá suporte à cópia dos dados
 
 |País/Região  |País/Região  |País/Região  |País/Região  |
 |---------|---------|---------|---------|
-|Leste dos EUA    | Norte da Europa        | Índia Central        |US Gov Iowa         |
+|Leste dos EUA    | Norte da Europa        | Central India        |US Gov Iowa         |
 |Oeste dos EUA     |Europa Ocidental         | Sul da Índia        | DoD do Leste dos EUA        |
 |Leste dos EUA 2    | Leste da Ásia        |  Oeste da Índia        | DoD Central dos EUA        |
 |Oeste dos EUA 2     | Sudeste Asiático        | Canadá Central        | Leste da China         |
 |Centro dos EUA     | Leste da Austrália        | Leste do Canadá        | Norte da China        |
-|Centro-Norte dos EUA     |  Sudeste da Austrália       | Sul do Brasil        | Sul do Reino Unido        |
+|Centro-Norte dos EUA     |  Australia Southeast       | Brazil South        | Sul do Reino Unido        |
 |Centro-Sul dos Estados Unidos     | Oeste do Japão        |Coreia Central         | Alemanha Central        |
 |Centro-Oeste dos EUA     |  Leste do Japão       | Gov. dos EUA – Virgínia        | Nordeste da Alemanha        |
+|Oeste da África do Sul   |  Norte da África do Sul |
 
-## <a name="security-considerations"></a>Considerações de segurança
+## <a name="security-considerations"></a>Considerações sobre segurança
 
 Os dados na unidade são criptografados usando o AES 256-bit Criptografia de Unidade de Disco BitLocker. Essa criptografia protegerá os dados enquanto eles estiverem em trânsito.
 

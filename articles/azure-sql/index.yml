@@ -3,7 +3,7 @@ title: Documentação do SQL Azure
 summary: 'Encontre documentação sobre a família do SQL Azure de produtos do mecanismo de banco de dados SQL Server na nuvem: Banco de Dados SQL do Azure, Instância Gerenciada de SQL do Azure e SQL Server em VM do Azure. '
 metadata:
   title: Documentação do SQL Azure
-  description: O SQL Azure é uma família de produtos de mecanismo de banco de dados SQL Server na nuvem, de um banco de dados totalmente gerenciado no Banco de Dados SQL do Azure, uma instância totalmente gerenciada em Instância Gerenciada de SQL do Azure ou SQL Server instalado em máquina virtual no Azure.
+  description: O SQL Azure é uma família de produtos de mecanismo de banco de dados SQL Server na nuvem, de um banco de dados totalmente gerenciado no Banco de Dados SQL do Azure, uma instância totalmente gerenciada na Instância Gerenciada de SQL do Azure ou do SQL Server instalado em uma máquina virtual no Azure.
   services: sql-database
   ms.service: sql-database
   ms.subservice: service
@@ -14,12 +14,12 @@ metadata:
   ms.author: mathoma
   ms.reviewer: carlrab
   ms.date: 10/30/2019
-  ms.openlocfilehash: b069cd8a027d5652ae68bbbbf21e03434daf1443
-  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+  ms.openlocfilehash: 131be4c87e0274050b6c7b374f75757c8d3f94f2
+  ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 06/24/2020
-  ms.locfileid: "85318566"
+  ms.lasthandoff: 08/13/2020
+  ms.locfileid: "88167837"
 landingContent:
 - title: Banco de Dados SQL do Azure
   linkLists:
@@ -151,14 +151,16 @@ landingContent:
     links:
     - text: Recursos educativos do SQL
       url: /sql/sql-server/educational-sql-resources
+    - text: Princípios Básicos do SQL do Azure
+      url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
   - linkListType: deploy
     links:
     - text: Exemplos da CLI do Azure
-      url: /sql/ssms/download-sql-server-management-studio-ssms
+      url: database/az-cli-script-samples-content-guide.md
     - text: Amostras do PowerShell
-      url: /sql/ssms/download-sql-server-management-studio-ssms
+      url: database/powershell-script-content-guide.md
     - text: Amostras de modelo ARM
-      url: /sql/ssms/download-sql-server-management-studio-ssms
+      url: database/arm-templates-content-guide.md
   - linkListType: download
     links:
     - text: SQL Server Management Studio (SSMS)

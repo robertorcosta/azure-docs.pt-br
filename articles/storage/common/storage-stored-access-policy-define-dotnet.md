@@ -10,12 +10,12 @@ ms.date: 06/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a08929c4affbd6eeb4d66a82d787ec5eba122e5b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: c9c267097f681a78ba940283096b2c18d692e9cc
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903758"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185359"
 ---
 # <a name="create-a-stored-access-policy-with-net"></a>Criar uma política de acesso armazenada com o .NET
 
@@ -41,7 +41,7 @@ A operação REST subjacente para criar uma política de acesso armazenada é [d
 
 Os exemplos de código a seguir criam uma política de acesso armazenada em um contêiner. Você pode usar a política de acesso para especificar restrições para um serviço de SAS no contêiner ou seus blobs.
 
-# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
+# <a name="net-v12"></a>[.NET V12](#tab/dotnet)
 
 Para criar uma política de acesso armazenada em um contêiner com a versão 12 da biblioteca de cliente .NET para o armazenamento do Azure, chame um dos seguintes métodos:
 
@@ -92,7 +92,7 @@ async static Task CreateStoredAccessPolicyAsync(string containerName)
 }
 ```
 
-# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
+# <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
 Para criar uma política de acesso armazenada em um contêiner com a versão 12 da biblioteca de cliente .NET para o armazenamento do Azure, chame um dos seguintes métodos:
 

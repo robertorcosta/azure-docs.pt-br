@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: 034d1c4dbbb91ad7317ffb56b1fe38e010694c44
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 53085544be9477c03fdbbc27e709bd80dea25b92
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927089"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88186056"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Migrar cargas de trabalho do SSIS local para o SSIS no ADF
 
@@ -55,7 +55,7 @@ Obtenha o [DMA](https://docs.microsoft.com/sql/dma/dma-overview)e [realize sua a
 
 ## <a name="migration"></a>Migração
 
-Dependendo dos tipos de [armazenamento](#four-storage-types-for-ssis-packages) dos pacotes SSIS de origem e do destino de migração das cargas de trabalho de banco de dados, as etapas para migrar **pacotes SSIS** e **SQL Server Agent trabalhos** que agendam as execuções de pacote SSIS podem variar. Há dois cenários:
+Dependendo dos tipos de [armazenamento](#four-storage-types-for-ssis-packages) dos pacotes SSIS de origem e do destino de migração das cargas de trabalho de banco de dados, as etapas para migrar  **pacotes SSIS** e **SQL Server Agent trabalhos** que agendam as execuções de pacote SSIS podem variar. Há dois cenários:
 
 - [**Azure SQL instância gerenciada** como destino de carga de trabalho de banco de dados](#azure-sql-managed-instance-as-database-workload-destination)
 - [**Banco de dados SQL do Azure** como destino de carga de trabalho](#azure-sql-database-as-database-workload-destination)
@@ -64,10 +64,10 @@ Dependendo dos tipos de [armazenamento](#four-storage-types-for-ssis-packages) d
 
 | **Tipo de armazenamento de pacote** |Como migrar pacotes SSIS em lote|Como migrar trabalhos do SSIS em lote|
 |-|-|-|
-|SSISDB|[Migrar **SSISDB**](scenario-ssis-migration-ssisdb-mi.md)|[Migrar trabalhos do SSIS para o agente do SQL Instância Gerenciada do Azure](scenario-ssis-migration-ssisdb-mi.md#ssis-jobs-to-sql-managed-instance-agent)|
-|Sistema de Arquivos|Reimplante-os em compartilhamentos de arquivos/arquivos do Azure por meio de dtinstall/dtutil/cópia manual ou para manter os sistemas de arquivos a serem acessados por meio de IR para VNet/auto-hospedado. Para obter mais informações, consulte [Utilitário dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|<li> Migrar com o [Assistente de migração de trabalho SSIS no SSMS](how-to-migrate-ssis-job-ssms.md) <li>Converta-os em pipelines/atividades/gatilhos do ADF por meio de scripts/SSMS/ADF Portal. Para obter mais informações, consulte [recurso de agendamento do SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
+|SSISDB|[Migrar **SSISDB**](scenario-ssis-migration-ssisdb-mi.md)|<li>[Migrar trabalhos do SSIS para o agente do SQL Instância Gerenciada do Azure](scenario-ssis-migration-ssisdb-mi.md#ssis-jobs-to-sql-managed-instance-agent) <li>Converta-os em pipelines/atividades/gatilhos do ADF por meio de scripts/SSMS/ADF Portal. Para obter mais informações, consulte [recurso de agendamento do SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
+|Sistema de Arquivos|Reimplante-os em compartilhamentos de arquivos/arquivos do Azure por meio de dtinstall/dtutil/cópia manual ou para manter os sistemas de arquivos a serem acessados por meio de IR para VNet/auto-hospedado. Para obter mais informações, consulte [Utilitário dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|<li>[Migrar trabalhos do SSIS para o agente do SQL Instância Gerenciada do Azure](scenario-ssis-migration-ssisdb-mi.md#ssis-jobs-to-sql-managed-instance-agent) <li> Migrar com o [Assistente de migração de trabalho SSIS no SSMS](how-to-migrate-ssis-job-ssms.md) <li>Converta-os em pipelines/atividades/gatilhos do ADF por meio de scripts/SSMS/ADF Portal. Para obter mais informações, consulte [recurso de agendamento do SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |SQL Server (MSDB)|Exportá-los para sistemas de arquivos/compartilhamentos de arquivos/arquivos do Azure por meio do SSMS/dtutil. Para obter mais informações, consulte [exportando pacotes SSIS](https://docs.microsoft.com/sql/integration-services/service/package-management-ssis-service#import-and-export-packages).|Converta-os em pipelines/atividades/gatilhos do ADF por meio de scripts/SSMS/ADF Portal. Para obter mais informações, consulte [recurso de agendamento do SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
-|Repositório de pacotes|Exportá-los para sistemas de arquivos/compartilhamentos de arquivos/arquivos do Azure por meio do SSMS/dtutil ou reimplantá-los em compartilhamentos de arquivos/arquivos do Azure por meio de dtinstall/dtutil/cópia manual ou mantê-los em sistemas de arquivos para acesso via VNet/infravermelho auto-hospedado. Para obter mais informações, consulte Utilitário dtutil. Para obter mais informações, consulte [Utilitário dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|Converta-os em pipelines/atividades/gatilhos do ADF por meio de scripts/SSMS/ADF Portal. Para obter mais informações, consulte [recurso de agendamento do SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
+|Repositório de pacotes|Exportá-los para sistemas de arquivos/compartilhamentos de arquivos/arquivos do Azure por meio do SSMS/dtutil ou reimplantá-los em compartilhamentos de arquivos/arquivos do Azure por meio de dtinstall/dtutil/cópia manual ou mantê-los em sistemas de arquivos para acesso via VNet/infravermelho auto-hospedado. Para obter mais informações, consulte Utilitário dtutil. Para obter mais informações, consulte [Utilitário dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|<li>[Migrar trabalhos do SSIS para o agente do SQL Instância Gerenciada do Azure](scenario-ssis-migration-ssisdb-mi.md#ssis-jobs-to-sql-managed-instance-agent) <li> Converta-os em pipelines/atividades/gatilhos do ADF por meio de scripts/SSMS/ADF Portal. Para obter mais informações, consulte [recurso de agendamento do SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 
 ### <a name="azure-sql-database-as-database-workload-destination"></a>**Banco de dados SQL do Azure** como destino de carga de trabalho
 

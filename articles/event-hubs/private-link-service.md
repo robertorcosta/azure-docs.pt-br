@@ -3,12 +3,12 @@ title: Integração dos Hubs de Eventos do Azure com o Serviço de Link Privado 
 description: Saiba como integrar os Hubs de Eventos do Azure com o Serviço de Link Privado do Azure
 ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: 66753e51fd1e918e5659e219c5ebbe471705b3ee
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8d6d5c13e1a5eab55998d3b98596ce845de104eb
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421087"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185461"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Permitir acesso aos namespaces dos hubs de eventos do Azure por meio de pontos de extremidade privados 
 O Serviço de Link Privado do Azure permite acessar os Serviços do Azure (por exemplo, os Hubs de Eventos do Azure, o Armazenamento do Azure e o Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um **ponto de extremidade privado** em sua rede virtual.
@@ -18,21 +18,19 @@ O ponto de extremidade privado é uma interface de rede que conecta você de for
 Para obter mais informações, confira [O que é o Link Privado do Azure?](../private-link/private-link-overview.md)
 
 > [!IMPORTANT]
-> Esse recurso tem suporte para as camadas **Standard** e **dedicada** . 
-
->[!WARNING]
-> Implementar pontos de extremidade privados pode impedir que outros serviços do Azure interajam com os Hubs de Eventos.
+> Esse recurso tem suporte para as camadas **Standard** e **dedicada** . Não há suporte na camada **básica** .
 >
-> Não há suporte para serviços confiáveis da Microsoft quando as Redes Virtuais são usadas.
+> Implementar pontos de extremidade privados pode impedir que outros serviços do Azure interajam com os Hubs de Eventos.  Solicitações que estão bloqueadas incluem as de outros serviços do Azure, do portal do Azure, de registro em log e serviços de métricas e assim por diante. 
+> 
+> Aqui estão alguns dos serviços que não podem acessar os recursos dos hubs de eventos quando pontos de extremidade privados estão habilitados. Observe que a lista **não** é exaustiva.
 >
-> Cenários comuns do Azure que não funcionam com Redes Virtuais (observe que a lista **NÃO** é exaustiva):
 > - Stream Analytics do Azure
 > - Rotas do Hub IoT do Azure
 > - Device Explorer do Azure IoT
+> - Grade de Eventos do Azure
+> - Azure Monitor (configurações de diagnóstico)
 >
-> Os serviços da Microsoft a seguir devem estar em uma rede virtual
-> - Aplicativos Web do Azure
-> - Funções do Azure
+> Como exceção, você pode permitir o acesso a recursos de hubs de eventos de determinados serviços confiáveis, mesmo quando os pontos de extremidade privados estiverem habilitados. Para obter uma lista de serviços confiáveis, consulte [serviços confiáveis](#trusted-microsoft-services).
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Inclusão de um ponto de extremidade privado através do portal do Azure
 
@@ -105,6 +103,10 @@ Se você já tem um namespace do Hubs de Eventos, crie uma conexão de link priv
 12. Verifique se a conexão de ponto de extremidade privado que você criou aparece na lista de pontos de extremidade. Neste exemplo, o ponto de extremidade privado é aprovado automaticamente porque você se conectou a um recurso do Azure em seu diretório e tem permissões suficientes. 
 
     ![Ponto de extremidade privado criado](./media/private-link-service/private-endpoint-created.png)
+
+[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+
+Para permitir que os serviços confiáveis acessem seu namespace, alterne para a guia **firewalls e redes virtuais** na página **rede** e selecione **Sim** para **permitir que os serviços confiáveis da Microsoft ignorem esse firewall?**. 
 
 ## <a name="add-a-private-endpoint-using-powershell"></a>Inclusão de um ponto de extremidade privado através do PowerShell
 O exemplo a seguir mostra como usar o Azure PowerShell para criar uma conexão de ponto de extremidade privado. Ele não cria um cluster dedicado. Siga as etapas [neste artigo](event-hubs-dedicated-cluster-create-portal.md) para criar um cluster dedicado do Hubs de Eventos. 
