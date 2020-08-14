@@ -1,4 +1,4 @@
-- name: Documentação do Banco de Dados do Azure Cosmos
+- name: Documentação do Azure Cosmos DB
   href: index.yml
 - name: Visão geral
   items:

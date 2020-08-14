@@ -156,7 +156,7 @@
         - name: Acesso a Dados Gen1
           items:
             - name: Visão geral
-              href: 'https://docs.microsoft.com/rest/api/time-series-insights/ga'
+              href: 'https://docs.microsoft.com/rest/api/time-series-insights/gen1'
             - name: Consulta
               items:
                 - name: Consulta
