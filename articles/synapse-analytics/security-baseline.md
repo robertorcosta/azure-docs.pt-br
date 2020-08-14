@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2cd42d8d4ba1ecabc1b87942536e2ef9a9017b22
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7f05e4fb0443107370f9182706bd35b45771e0f2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501943"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210903"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Linha de base de segurança do Azure para Synapse Analytics
 
@@ -772,7 +772,7 @@ Use o grafo de recursos do Azure para consultar/descobrir recursos em suas assin
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Remover recursos e aplicativos de software não aprovados do Azure
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -934,7 +934,7 @@ Use o grafo de recursos do Azure para consultar/descobrir recursos em suas assin
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: implementar monitoramento automatizado de configuração para sistemas operacionais
 
-**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
+**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1040,7 +1040,7 @@ Se você estiver usando uma chave gerenciada pelo cliente para criptografar sua 
 
 * [Como restaurar chaves de Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-* [Backup e restauração no pool do SQL Synapse do Azure](https://docs.microsoft.coms/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Backup e restauração no pool do SQL Synapse do Azure](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 * [Como restaurar um pool SQL existente](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw)
 

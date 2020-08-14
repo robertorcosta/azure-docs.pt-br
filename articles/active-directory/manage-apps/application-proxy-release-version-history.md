@@ -1,27 +1,22 @@
 ---
-title: 'Proxy de Aplicativo do AD do Azure: histórico de lançamento de versão | Microsoft Docs'
+title: 'Proxy de Aplicativo do AD do Azure: histórico de lançamento de versão'
 description: Este artigo lista todas as versões do Azure Proxy de Aplicativo do AD e descreve os novos recursos e problemas corrigidos
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-editor: ''
 ms.assetid: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 042509240eb2b88446d3ac1956d9056d5c39dfc8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3f6b1bb189390f6ddd02e9ea2d636dcaa66a4f19
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019379"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210863"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Proxy de Aplicativo do AD do Azure: histórico de lançamento de versão
 Este artigo lista as versões e os recursos do proxy de aplicativo Azure Active Directory (AD do Azure) que foram lançados. A equipe do Azure AD atualiza regularmente o proxy de aplicativo com novos recursos e funcionalidades. Os conectores de proxy de aplicativo são atualizados automaticamente quando uma nova versão é liberada. 
@@ -68,7 +63,7 @@ Download do conector do Azure Proxy de Aplicativo do AD |  [Baixe o conector mai
 07 de abril de 2020: lançamento para download
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
--   Os conectores usam apenas o TLS 1,2 para todas as conexões. Consulte [pré-requisitos do conector](application-proxy-add-on-premises-application.md#before-you-begin) para obter mais detalhes.
+-   Os conectores usam apenas o TLS 1,2 para todas as conexões. Consulte [pré-requisitos do conector](application-proxy-add-on-premises-application.md#prerequisites) para obter mais detalhes.
 - Sinalização aprimorado entre o conector e os serviços do Azure. Isso inclui o suporte a sessões confiáveis para comunicação do WCF entre o conector e os serviços do Azure e os aprimoramentos de cache do DNS para comunicações WebSocket.
 - Suporte para configurar um proxy entre o conector e o aplicativo de back-end. Para obter mais informações, consulte [trabalhar com servidores proxy locais existentes](application-proxy-configure-connectors-with-proxy-servers.md).
 

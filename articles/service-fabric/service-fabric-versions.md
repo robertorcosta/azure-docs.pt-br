@@ -3,12 +3,12 @@ title: Versões de cluster com suporte no Azure Service Fabric
 description: Saiba mais sobre as versões de cluster no Azure Service Fabric, incluindo um link para as versões mais recentes do blog da equipe do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 728d7403ee8e0ac9ccbd69260a718c65389adc43
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 9a2278769d75de19a3006e3a9f39b424dbc02b1f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433196"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205898"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões do Service Fabric com suporte
 
@@ -39,13 +39,14 @@ A tabela a seguir lista as versões do Service Fabric e suas datas de término d
 | 6.3.* | 6.1.480.* |Menor ou igual à versão 3.2 |31 de março de 2019  |
 | 6.4.* | 6.2.301.* |Menor ou igual a versão 3.3 |15 de setembro de 2019 |
 | 6,5. * | 6.4.617.* |Menor ou igual à versão 3,4 |1º de agosto de 2020 |
-| 7.0.466.* | 6.4.664.* |Menor ou igual à versão 4,0|1º de agosto de 2020  |
-| 7.0.466.* | 6,5. * |Menor ou igual à versão 4,0|1º de agosto de 2020 |
-| 7.0.470.* | 7.0.466.* |Menor ou igual à versão 4,0 |1º de agosto de 2020  |
-| 7.0.472.* | 7.0.466.* |Menor ou igual à versão 4,0 |1º de agosto de 2020  |
+| 7.0.466.* | 6.4.664.* |Menor ou igual à versão 4,0|1º de novembro de 2020  |
+| 7.0.466.* | 6,5. * |Menor ou igual à versão 4,0|1º de novembro de 2020 |
+| 7.0.470.* | 7.0.466.* |Menor ou igual à versão 4,0 |1º de novembro de 2020  |
+| 7.0.472.* | 7.0.466.* |Menor ou igual à versão 4,0 |1º de novembro de 2020  |
 | 7.1.409.* | 7.0.466.* |Menor ou igual à versão 4,1 |Versão atual, portanto, sem data de término |
 | 7.1.417.* | 7.0.466.* |Menor ou igual à versão 4,1 |Versão atual, portanto, sem data de término |
 | 7.1.428.* | 7.0.466.* |Menor ou igual à versão 4,1 |Versão atual, portanto, sem data de término |
+| 7.1.456.* | 7.0.466.* |Menor ou igual à versão 4,1 |Versão atual, portanto, sem data de término |
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
@@ -55,11 +56,11 @@ A tabela a seguir lista os sistemas operacionais com suporte para as versões de
 | --- | --- |
 | Windows Server 2012 R2 | Todas as versões |
 | Windows Server 2016 | Todas as versões |
-| Windows Server 1709 | 6.0 |
+| Windows Server 1709 | 6,0 |
 | Windows Server 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6.0 |
+| Linux Ubuntu 16.04 | 6,0 |
 | Linux Ubuntu 18, 4 | 7.1 |
 
 ## <a name="supported-version-names"></a>Nomes de versão com suporte
@@ -117,4 +118,5 @@ A tabela a seguir lista os nomes de versão de Service Fabric e seus números de
 | RTO DE 7,1 | 7.1.409.9590 | 7.1.410.1 |
 | 7,1 CU1 | 7.1.417.9590 | 7.1.418.1 |
 | 7,1 CU2 | 7.1.428.9590 | 7.1.428.1 |
+| 7,1 CU3 | 7.1.456.9590 | 7.1.452.1 |
 

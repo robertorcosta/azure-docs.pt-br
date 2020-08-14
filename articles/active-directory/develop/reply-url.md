@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 6a8cc588ff7325242e7e010e9869eaa9a24f6fc2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 8be13a299de0fc3de0acaf0001722d8c96a460e6
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033329"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205939"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Restrições e limitações do URI de redirecionamento (URL de resposta)
 
@@ -51,7 +51,7 @@ Para adicionar URIs de redirecionamento com um esquema HTTP aos registros de apl
 
 De acordo com as [seções RFC 8252 8,3](https://tools.ietf.org/html/rfc8252#section-8.3) e [7,3](https://tools.ietf.org/html/rfc8252#section-7.3), os URIs de redirecionamento "Loopback" ou "localhost" vêm com duas considerações especiais:
 
-1. `http`Os esquemas de URI são aceitáveis porque o redirecionamento nunca deixa o dispositivo. Assim, ambos são aceitáveis:
+1. `http` Os esquemas de URI são aceitáveis porque o redirecionamento nunca deixa o dispositivo. Assim, ambos são aceitáveis:
     - `http://127.0.0.1/myApp`
     - `https://127.0.0.1/myApp`
 1. Devido a intervalos de porta efêmeras geralmente exigidos por aplicativos nativos, o componente de porta (por exemplo, `:5001` ou `:443` ) é ignorado para fins de correspondência de um URI de redirecionamento. Como resultado, todos eles são considerados equivalentes:
@@ -62,9 +62,9 @@ De acordo com as [seções RFC 8252 8,3](https://tools.ietf.org/html/rfc8252#sec
 
 Do ponto de vista do desenvolvimento, isso significa algumas coisas:
 
-1. Não registre vários URIs de redirecionamento onde apenas a porta difere. O servidor de logon escolherá um arbitrariamente e usará o comportamento associado a esse URI de redirecionamento (por exemplo, se for `web` -, `native` -ou `spa` -Type Redirecionado).
-1. Se você precisar registrar vários URIs de redirecionamento no localhost para testar fluxos diferentes durante o desenvolvimento, diferencie-os usando o componente de *caminho* do URI. Por exemplo, `http://127.0.0.1/MyWebApp` não corresponde `http://127.0.0.1/MyNativeApp` .
-1. Por diretrizes da RFC, você não deve usar `localhost` o no URI de redirecionamento. Em vez disso, use o endereço IP de loopback real, `127.0.0.1` . Isso impede que seu aplicativo seja interrompido por firewalls configurados incorretamente ou por interfaces de rede renomeadas.
+* Não registre vários URIs de redirecionamento onde apenas a porta difere. O servidor de logon escolherá um arbitrariamente e usará o comportamento associado a esse URI de redirecionamento (por exemplo, se for `web` -, `native` -ou `spa` -Type Redirecionado).
+* Se você precisar registrar vários URIs de redirecionamento no localhost para testar fluxos diferentes durante o desenvolvimento, diferencie-os usando o componente de *caminho* do URI. Por exemplo, `http://127.0.0.1/MyWebApp` não corresponde `http://127.0.0.1/MyNativeApp` .
+* Por diretrizes da RFC, você não deve usar `localhost` o no URI de redirecionamento. Em vez disso, use o endereço IP de loopback real, `127.0.0.1` . Isso impede que seu aplicativo seja interrompido por firewalls configurados incorretamente ou por interfaces de rede renomeadas.
 
     O endereço de loopback IPv6 ( `[::1]` ) não tem suporte no momento.
 

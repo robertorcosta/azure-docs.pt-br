@@ -4,12 +4,12 @@ description: Saiba como personalizar o recurso de autenticação e autorização
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: d69a75092f4ede5d5467357a7ac254be6e7c379b
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 52213999ae0ec9f6891c8ec10ab65471926e87d2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078386"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208016"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado de autenticação e autorização no Serviço de Aplicativo do Azure
 
@@ -297,6 +297,9 @@ As configurações de autenticação podem, opcionalmente, ser configuradas por 
     1.  Definir `enabled` como "true"
     2.  Definir `isAuthFromFile` como "true"
     3.  Defina `authFilePath` como o nome do arquivo (por exemplo, "auth.jsem")
+
+> [!NOTE]
+> O formato de `authFilePath` varia entre plataformas. No Windows, há suporte para caminhos relativos e absolutos. Relativo é recomendado. Para o Linux, somente caminhos absolutos têm suporte no momento, portanto, o valor da configuração deve ser "/Home/site/wwwroot/auth.js" ou semelhante.
 
 Depois de fazer essa atualização de configuração, o conteúdo do arquivo será usado para definir o comportamento da autenticação/autorização do serviço de aplicativo para esse site. Se você quiser retornar à configuração de Azure Resource Manager, poderá fazer isso Configurando `isAuthFromFile` de volta para "false".
 

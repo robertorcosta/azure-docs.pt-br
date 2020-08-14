@@ -3,12 +3,12 @@ title: Estimando os custos do plano de consumo em Azure Functions
 description: Saiba como estimar melhor os custos que você pode incorrer ao executar seu aplicativo de funções em um plano de consumo no Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 880d1c20c75ce297b556ac203e309e446227e97a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 33c892bd7904d2921039a4b2afb9c775d6a4926a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083031"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207767"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Como estimar os custos do plano de Consumo
 
@@ -36,6 +36,8 @@ Como o uso de memória muda ao longo do tempo, o cálculo é basicamente o integ
 
 > [!NOTE]
 > Embora o uso da CPU não seja considerado diretamente no custo de execução, ele pode ter um impacto no custo quando ele afeta o tempo de execução da função.
+
+Para uma função disparada por HTTP, quando ocorre um erro antes de o código da função começar a ser executado, você não será cobrado por uma execução. Isso significa que 401 respostas da plataforma devido à validação da chave de API ou ao recurso de autenticação/autorização do serviço de aplicativo não contam com o seu custo de execução. Da mesma forma, as respostas de código de status do 5xx não são contadas quando ocorrem na plataforma antes de uma função processar a solicitação. Uma resposta 5xx gerada pela plataforma após o início da execução do código de função ainda é contada como uma execução, mesmo que o erro não seja gerado pelo seu código de função.
 
 ## <a name="other-related-costs"></a>Outros custos relacionados
 
@@ -69,7 +71,7 @@ Para entender melhor o impacto de custos de suas funções, você pode usar Azur
 
 Use [Azure monitor métricas Explorer](../azure-monitor/platform/metrics-getting-started.md) para exibir dados relacionados ao custo para seus aplicativos de função de plano de consumo em um formato gráfico. 
 
-1. Na parte superior da [portal do Azure] em **Pesquisar serviços, recursos e** pesquisa de documentos `monitor` e selecione **monitorar** em **Serviços**.
+1. Na parte superior da [portal do Azure] em **Pesquisar serviços, recursos e**  pesquisa de documentos `monitor` e selecione **monitorar** em **Serviços**.
 
 1. À esquerda, selecione **métricas**  >  **Selecione um recurso**e, em seguida, use as configurações abaixo da imagem para escolher seu aplicativo de funções.
 
@@ -79,7 +81,7 @@ Use [Azure monitor métricas Explorer](../azure-monitor/platform/metrics-getting
     |Configuração  |Valor sugerido  |Descrição  |
     |---------|---------|---------|
     | Subscription    |  Sua assinatura  | A assinatura com seu aplicativo de funções.  |
-    | Grupo de recursos     | Seu grupo de recursos  | O grupo de recursos que contém seu aplicativo de funções.   |
+    | Resource group     | Seu grupo de recursos  | O grupo de recursos que contém seu aplicativo de funções.   |
     | Tipo de recurso     |  Serviços de Aplicativos | Os aplicativos de funções são mostrados como instâncias de serviços de aplicativos no monitor. |
     | Recurso     |  Seu aplicativo de funções  | O aplicativo de funções a ser monitorado.        |
 

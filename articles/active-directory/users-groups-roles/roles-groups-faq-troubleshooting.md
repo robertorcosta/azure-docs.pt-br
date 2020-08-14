@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 901815ba40459bd50562e557a0a766474c731ce0
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 84bf041f64a2f85f3aa3eada1dc1955c93dc034a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475953"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208187"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Solucionando problemas de funções atribuídas a grupos de nuvem
 
@@ -51,7 +51,7 @@ Aqui estão algumas perguntas comuns e dicas de solução de problemas para atri
 
 **R:** Sim, você pode. O administrador global e o administrador de usuários têm a capacidade de colocar qualquer grupo em um pacote de acesso. Nada muda para o administrador global, mas há uma ligeira alteração nas permissões da função de administrador de usuários. Para colocar um grupo de função atribuível em um pacote do Access, você deve ser um administrador do usuário e também o proprietário do grupo de funções de atribuição. Veja a tabela completa que mostra quem pode criar o pacote de acesso no gerenciamento de licenças corporativas:
 
-Função do diretório do Azure Active Directory | Função de gerenciamento de direitos | Pode adicionar grupo de segurança\* | Pode adicionar o grupo do Office 365\* | Pode adicionar aplicativo | Pode adicionar site do SharePoint Online
+Função do diretório do Azure Active Directory | Função de gerenciamento de direitos | Pode adicionar grupo de segurança\* | Pode adicionar Microsoft 365 grupo\* | Pode adicionar aplicativo | Pode adicionar site do SharePoint Online
 ----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------
 Administrador global | N/D | ✔️ | ✔️ | ✔️  | ✔️
 Administrador de usuários  | N/D  | ✔️  | ✔️  | ✔️
@@ -101,4 +101,4 @@ Usuário | Proprietário do catálogo | Somente se o proprietário do grupo | So
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Usar grupos de nuvem para gerenciar atribuições de função](roles-groups-concept.md)
-- [Criar um grupo de funções atribuídas](roles-groups-create-eligible.md)
+- [Criar um grupo ao qual funções podem ser atribuídas](roles-groups-create-eligible.md)

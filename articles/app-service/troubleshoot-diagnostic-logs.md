@@ -4,13 +4,13 @@ description: Saiba como habilitar o log de diagnóstico e adicionar instrumenta�
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
-ms.custom: seodec18
-ms.openlocfilehash: 8b415c9582af2303451a8076307f07ee92ac08d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 1a6c109907c20e06796744d42feae20dc53f2b52
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261334"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207528"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -159,8 +159,8 @@ Se você configurar a opção de blobs de armazenamento do Azure para um tipo de
 
 Para logs armazenados no sistema de arquivos do serviço de aplicativo, a maneira mais fácil é baixar o arquivo ZIP no navegador em:
 
-- Aplicativos de contêiner/Linux:`https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
-- Aplicativos do Windows:`https://<app-name>.scm.azurewebsites.net/api/dump`
+- Aplicativos de contêiner/Linux: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
+- Aplicativos do Windows: `https://<app-name>.scm.azurewebsites.net/api/dump`
 
 Para aplicativos do Linux/contêiner, o arquivo ZIP contém logs de saída do console para o host do Docker e o contêiner do Docker. Para um aplicativo expandido, o arquivo ZIP contém um conjunto de logs para cada instância. No sistema de arquivos do serviço de aplicativo, esses arquivos de log são o conteúdo do diretório */Home/LogFiles* .
 

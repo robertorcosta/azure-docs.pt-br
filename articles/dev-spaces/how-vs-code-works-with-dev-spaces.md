@@ -5,12 +5,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 description: Saiba como Visual Studio Code e Azure Dev Spaces ajudá-lo a depurar e iterar rapidamente seus aplicativos kubernetes
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres
-ms.openlocfilehash: 73a2ae1f603626acf7ec4d42838b301c88ee21da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: decf61bd55ed15182f030bb02a2fe9c959749556
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84307343"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209880"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Como Visual Studio Code funciona com Azure Dev Spaces
 
@@ -43,19 +43,15 @@ Para projetos do .NET Core, você deve ter a [extensão C#][csharp-extension] in
 
 Depois de iniciar o projeto, você pode depurar os serviços Java, Node.js e .NET Core em execução em um espaço de desenvolvimento diretamente do Visual Studio Code. A configuração de inicialização no `.vscode` diretório fornece informações adicionais de depuração para executar um serviço com depuração habilitada em um espaço de desenvolvimento. O Visual Studio Code também é anexado ao processo de depuração no contêiner em execução em seus espaços de desenvolvimento, permitindo que você defina pontos de interrupção, inspecione variáveis e execute outras operações de depuração.
 
-## <a name="use-visual-studio-code-with-azure-dev-spaces"></a>Usar Visual Studio Code com Azure Dev Spaces
+## <a name="next-steps"></a>Próximas etapas
 
-Você pode ver Visual Studio Code e a extensão de Azure Dev Spaces trabalhando com Azure Dev Spaces nos guias de início rápido a seguir:
+Saiba mais sobre como Azure Dev Spaces funciona.
 
-* [Iterar e depurar rapidamente com Visual Studio Code e Java][quickstart-java]
-* [Iterar e depurar rapidamente com o Visual Studio Code e o .NET][quickstart-netcore]
-* [Iterar e depurar rapidamente com Visual Studio Code e Node.js][quickstart-node]
+> [!div class="nextstepaction"]
+> [Como o Azure Dev Spaces funciona](how-dev-spaces-works.md)
 
 [azds-extension]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
 [azds-yaml]: how-dev-spaces-works-prep.md#prepare-your-code
 [csharp-extension]: https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp
 [java-extension]: https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds
 [maven]: https://maven.apache.org
-[quickstart-java]: quickstart-java.md
-[quickstart-netcore]: quickstart-netcore.md
-[quickstart-node]: quickstart-nodejs.md

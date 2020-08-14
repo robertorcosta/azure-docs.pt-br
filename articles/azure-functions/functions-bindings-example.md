@@ -3,14 +3,15 @@ title: Exemplo de gatilho e associação do Azure Functions
 description: Saiba como configurar associações de função do Azure
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 8685c0fe02ad6c68918736e857c2015e2bfb4595
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c95524a5de6696bd0ffe7463451d152a9d3a19b4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74227235"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205969"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Exemplo de gatilho e associação do Azure Functions
 
@@ -45,7 +46,7 @@ O primeiro elemento na matriz `bindings` é o gatilho do Armazenamento de Filas.
 
 O segundo elemento na matriz `bindings` é a associação de saída do Armazenamento de Tabelas do Azure. As propriedades `type` e `direction` identificam a associação. A propriedade `name` especifica como a função fornece a nova linha da tabela, nesse caso, usando o valor retornado da função. O nome da tabela está em `tableName` e a cadeia de conexão está na configuração de aplicativo identificada por `connection`.
 
-Para exibir e editar o conteúdo de *function.json* no Portal do Azure, clique na opção **Editor avançado** na guia **Integrar** da sua função.
+Para exibir e editar o conteúdo de *function.js* no portal do Azure, clique na opção **Editor avançado** na guia **integrar** da sua função.
 
 > [!NOTE]
 > O valor de `connection` é o nome de uma configuração de aplicativo que contém a cadeia de conexão, não a cadeia de conexão propriamente dita. Associações usam cadeias de conexão armazenadas em configurações de aplicativo para impor a melhor prática que dita que *function.json* não contêm segredos do serviço.
@@ -102,7 +103,7 @@ function generateRandomId() {
 
 ## <a name="class-library-example"></a>Exemplo de biblioteca de classes
 
-Em uma biblioteca de classes, o mesmo gatilho e informações de associação &mdash; nomes de fila e tabela, contas de armazenamento, parâmetros de função para entrada e saída &mdash; é fornecido por atributos em vez de um arquivo function.json. Aqui está um exemplo:
+Em uma biblioteca de classes, o mesmo gatilho e informações de associação &mdash; nomes de fila e tabela, contas de armazenamento, parâmetros de função para entrada e saída &mdash; é fornecido por atributos em vez de um arquivo function.json. Veja um exemplo:
 
 ```csharp
 public static class QueueTriggerTableOutput

@@ -2,13 +2,14 @@
 title: Referência do desenvolvedor de C# do Azure Functions
 description: Entenda como desenvolver no Azure Functions usando NodeJS.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 7c00dcd3648ef175d4e834fceef3444f7943e70b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 23b0961c369c21f50d9a873678a1c910385e6a91
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288190"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206202"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
 

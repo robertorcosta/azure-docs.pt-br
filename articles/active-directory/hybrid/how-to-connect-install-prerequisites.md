@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83a05636f8e673e08bfd390aa10069da0abd561d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: b0754c8e2be62c0a5568e97e7e5cf4376fb3c593
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542052"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210909"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este artigo descreve os pré-requisitos e os requisitos de hardware para o Azure Active Directory (Azure AD) Connect.
@@ -29,7 +29,7 @@ Este artigo descreve os pré-requisitos e os requisitos de hardware para o Azure
 ## <a name="before-you-install-azure-ad-connect"></a>Antes de instalar o Azure AD Connect
 Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você precisará.
 
-### <a name="azure-ad"></a>Azure AD
+### <a name="azure-ad"></a>AD do Azure
 * Você precisa de um locatário do Azure AD. Você recebe uma [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). Você pode usar um dos seguintes portais para gerenciar o Azure AD Connect:
   * O [portal do Azure](https://portal.azure.com).
   * O [portal do Office](https://portal.office.com).
@@ -72,7 +72,7 @@ Recomendamos que você proteja seu servidor de Azure AD Connect para diminuir a 
 - Trate Azure AD Connect o mesmo que um controlador de domínio e outros recursos da camada 0. Para obter mais informações, consulte [Active Directory modelo de camada administrativa](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Restrinja o acesso administrativo ao servidor de Azure AD Connect somente a administradores de domínio ou a outros grupos de segurança rigidamente controlados.
 - Crie uma [conta dedicada para todos os funcionários com acesso privilegiado](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access). Os administradores não devem navegar na Web, verificar seus emails e realizar tarefas de produtividade cotidianas com contas altamente privilegiadas.
-- Siga as orientações fornecidas em [protegendo o acesso privilegiado](https://docs.microsoft.com/windows-server/security/credentials-protection-and-management/how-to-configure-protected-accounts). 
+- Siga as orientações fornecidas em [protegendo o acesso privilegiado](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access). 
 - Verifique se cada computador tem uma senha de administrador local exclusiva. Para obter mais informações, consulte a [solução de senha de administrador local (lapsos)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) pode configurar senhas aleatórias exclusivas em cada estação de trabalho e servidor armazená-las em Active Directory protegidas por uma ACL. Somente usuários autorizados qualificados podem ler ou solicitar a redefinição dessas senhas de conta de administrador local. Você pode obter as interrupções para uso em estações de trabalho e servidores do [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.). Diretrizes adicionais para operar um ambiente com interrupções e estações de trabalho com acesso privilegiado (PAWs) podem ser encontradas em [padrões operacionais com base no princípio de origem limpa](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
 - Implemente [estações de trabalho de acesso privilegiado](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) dedicadas para todos os funcionários com acesso privilegiado aos sistemas de informações da sua organização. 
 - Siga estas [diretrizes adicionais](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) para reduzir a superfície de ataque do seu ambiente de Active Directory.

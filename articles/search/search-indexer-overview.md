@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d73782d9de7da2c5daacbff5397d9a365ff9ae03
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f93df91f87f8119a503f2f7c452b61e3af5924f8
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038402"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208787"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexadores na Pesquisa Cognitiva do Azure
 
@@ -38,7 +38,7 @@ Inicialmente, um novo indexador é anunciado como uma versão prévia do recurso
 
 ## <a name="permissions"></a>Permissões
 
-Todas as operações relacionadas a indexadores, incluindo solicitações GET para status ou definições, exigem uma [chave de API de administração](search-security-api-keys.md). 
+Todas as operações relacionadas a indexadores, incluindo solicitações GET para status ou definições, exigem uma [chave de API de administração](search-security-api-keys.md).
 
 <a name="supported-data-sources"></a>
 
@@ -51,10 +51,47 @@ Armazenamentos de dados de rastreamento de indexadores no Azure.
 * [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Banco de dados SQL do Azure e SQL Instância Gerenciada](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [SQL Server nas Máquinas Virtuais do Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
-* [Instância Gerenciada do SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+* [SQL Server em máquinas virtuais do Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+* [Instância Gerenciada de SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+
+## <a name="indexer-stages"></a>Estágios do indexador
+
+Em uma execução inicial, quando o índice estiver vazio, um indexador lerá todos os dados fornecidos na tabela ou no contêiner. Em execuções subsequentes, o indexador normalmente pode detectar e recuperar apenas os dados que foram alterados. Para dados de BLOB, a detecção de alteração é automática. Para outras fontes de dados como Azure SQL ou Cosmos DB, a detecção de alteração deve ser habilitada.
+
+Para cada documento ingerido, um indexador implementa ou coordena várias etapas, desde a recuperação de documentos até uma "entrega" do mecanismo de pesquisa final para indexação. Opcionalmente, um indexador também é fundamental para conduzir a execução e as saídas do contratado, supondo que um contratador seja definido.
+
+![Estágios do indexador](./media/search-indexer-overview/indexer-stages.png "estágios do indexador")
+
+### <a name="stage-1-document-cracking"></a>Estágio 1: quebra de documento
+
+A quebra de documentos é o processo de abertura de arquivos e extração de conteúdo. Dependendo do tipo de fonte de dados, o indexador tentará executar operações diferentes para extrair conteúdo potencialmente indexável.  
+
+Exemplos:  
+
+* Quando o documento for um registro em uma [fonte de dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), o indexador extrairá cada um dos campos para o registro.
+* Quando o documento for um arquivo PDF em uma [fonte de dados do armazenamento de BLOBs do Azure](search-howto-indexing-azure-blob-storage.md), o indexador extrairá o texto, as imagens e os metadados do arquivo.
+* Quando o documento for um registro em uma [Cosmos DB fonte de dados](search-howto-index-cosmosdb.md), o indexador extrairá os campos e subcampos do documento Cosmos DB.
+
+### <a name="stage-2-field-mappings"></a>Etapa 2: mapeamentos de campo 
+
+Um indexador extrai o texto de um campo de origem e o envia para um campo de destino em um índice ou repositório de conhecimento. Quando os nomes e tipos de campo coincidem, o caminho fica claro. No entanto, talvez você queira nomes ou tipos diferentes na saída; nesse caso, você precisa informar ao indexador como mapear o campo. Essa etapa ocorre após a quebra do documento, mas antes das transformações, quando o indexador está lendo dos documentos de origem. Quando você define um [mapeamento de campo](search-indexer-field-mappings.md), o valor do campo de origem é enviado como está para o campo de destino sem modificações. Os mapeamentos de campo são opcionais.
+
+### <a name="stage-3-skillset-execution"></a>Estágio 3: execução do Configurador de habilidades
+
+A execução de contratação é uma etapa opcional que invoca o processamento interno ou personalizado de ia. Talvez você precise dele para reconhecimento óptico de caracteres (OCR) na forma de análise de imagem, ou talvez precise de tradução de idioma. Seja qual for a transformação, a execução do contextset é onde ocorre o aprimoramento. Se um indexador [for um pipeline](cognitive-search-defining-skillset.md) , você poderá considerar um consider como um "pipeline no pipeline". Um qualificable tem sua própria sequência de etapas chamadas habilidades.
+
+### <a name="stage-4-output-field-mappings"></a>Estágio 4: mapeamentos de campo de saída
+
+A saída de um habilidades é, na verdade, uma árvore de informações chamada de documento aprimorado. Os mapeamentos de campo de saída permitem que você Selecione quais partes desta árvore mapear em campos no índice. Saiba como [definir mapeamentos de campo de saída](cognitive-search-output-field-mapping.md).
+
+Assim como os mapeamentos de campo que associam valores textuais dos campos de origem aos de destino, os mapeamentos de campo de saída informam ao indexador como associar os valores transformados no documento aprimorado aos campos de destino no índice. Ao contrário dos mapeamentos de campo, que são considerados opcionais, sempre será necessário definir um mapeamento de campo de saída para qualquer conteúdo transformado que precise residir em um índice.
+
+A imagem a seguir mostra uma representação de [sessão de depuração](cognitive-search-debug-session.md) do indexador de exemplo dos estágios do indexador: quebra de documento, mapeamentos de campo, execução de qualificações e mapeamentos de campo de saída.
+
+:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="sessão de depuração de exemplo" lightbox="media/search-indexer-overview/sample-debug-session.png":::
 
 ## <a name="basic-configuration-steps"></a>Etapas da configuração básica
+
 Os indexadores podem oferecer recursos que são exclusivos da fonte de dados. Nesse sentido, alguns aspectos de configuração da fonte de dados ou do indexador variam de acordo com o tipo de indexador. No entanto, todos os indexadores compartilham a mesma composição básica e os mesmos requisitos. As etapas que são comuns a todos os indexadores são abordadas a seguir.
 
 ### <a name="step-1-create-a-data-source"></a>Etapa 1: Criar uma fonte de dados

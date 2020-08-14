@@ -1,18 +1,18 @@
 ---
 title: Diretrizes de automação de parceiros de WAN virtual do Azure | Microsoft Docs
-description: Este artigo ajuda os parceiros a configurarem a automação da WAN Virtual do Azure.
+description: Configure um ambiente de automação para conectar e configurar uma VPN local ou SD-WAN CPE, ou dispositivo de ramificação, para a WAN virtual do Azure.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 816e8843467588cbfaeb5eb6e531d2221d28656b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0029f3fbcf96036a247356042e4c39d59f86a224
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565955"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208353"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Diretrizes de automação para parceiros de WAN virtual
 
@@ -81,12 +81,12 @@ O arquivo de configuração do dispositivo contém as configurações a serem us
 * **vpnSiteConfiguration -** Essa seção indica os detalhes do dispositivo configurados como um site que se conecta à WAN Virtual. Inclui o nome e o endereço IP público do dispositivo de branch.
 * **vpnSiteConnections -** Essa seção fornece informações sobre o seguinte:
 
-    * **Espaço de endereço** do(s) hub(s) virtual(is) da VNet.<br>Exemplo:
+    * **Espaço de endereço** da VNet de hubs virtuais.<br>Exemplo:
  
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * **Espaço de endereço** das VNets conectadas ao hub.<br>Exemplo:
+    * **Espaço de endereço** do VNets que estão conectados ao Hub.<br>Exemplo:
 
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
@@ -97,7 +97,7 @@ O arquivo de configuração do dispositivo contém as configurações a serem us
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **Detalhes de configuração de conexão Vpngateway** , como BGP, chave pré-compartilhada, etc. A PSK é a chave pré-compartilhada que é gerada automaticamente para você. Você sempre pode editar a conexão na página Visão Geral de um PSK personalizado.
+    * **Detalhes da configuração da conexão do Vpngateway** como BGP, chave pré-compartilhada, etc. O PSK é a chave pré-compartilhada gerada automaticamente para você. Você sempre pode editar a conexão na página Visão Geral de um PSK personalizado.
   
 **Exemplo de arquivo de configuração de dispositivo**
 

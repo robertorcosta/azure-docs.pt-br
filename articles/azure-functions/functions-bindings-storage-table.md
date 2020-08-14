@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 7616f6c502f0b5402aa784f707d0dafa31268d78
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 2f4647f4e13677d9136ce7fdb090e809943cdf0d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853051"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206691"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Associações de armazenamento de tabelas do Azure Functions
 
@@ -249,7 +249,7 @@ public class Person : TableEntity
 
 ### <a name="cloudtable"></a>CloudTable
 
-`IQueryable`Não tem suporte no tempo de execução do Functions para [as versões 2. x e superior)](functions-versions.md). Uma alternativa é usar um `CloudTable` parâmetro do método para ler a tabela usando o SDK de Armazenamento do Azure. Veja um exemplo de uma função que consulta uma tabela de log de Azure Functions:
+`IQueryable` Não tem suporte no tempo de execução do Functions para [as versões 2. x e superior)](functions-versions.md). Uma alternativa é usar um `CloudTable` parâmetro do método para ler a tabela usando o SDK de Armazenamento do Azure. Veja um exemplo de uma função que consulta uma tabela de log de Azure Functions:
 
 ```json
 {

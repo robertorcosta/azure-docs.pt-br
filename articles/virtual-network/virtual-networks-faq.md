@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 19c08029e78e68273298e76635136ff35ae724e0
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: c242b08c598b04c84ab330e846704eace23c4858
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924114"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205481"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure (FAQ)
 
@@ -356,7 +356,7 @@ Não há custos adicionais para usar os pontos de extremidade de serviço da VNe
 Sim, isso é possível. As redes virtuais e os recursos do serviço do Azure podem estar na mesma assinatura ou em assinaturas diferentes. O único requisito é que tanto a rede virtual quanto os recursos do serviço do Azure precisam estar no mesmo locatário do AD (Active Directory).
 
 ### <a name="can-i-turn-on-vnet-service-endpoints-and-set-up-vnet-acls-if-the-virtual-network-and-the-azure-service-resources-belong-to-different-ad-tenants"></a>É possível ativar os pontos de extremidade de serviço e configurar as ACLs da VNet se a rede virtual e os recursos do serviço do Azure pertencerem a locatários do AD diferentes?
-Não, os pontos de extremidade de serviço e as ACLs da VNet não são compatíveis com todos os locatários do AD.
+Sim, é possível ao usar pontos de extremidade de serviço para armazenamento e Azure Key Vault do Azure. Para o restante dos serviços, os pontos de extremidade do serviço VNet e as ACLs de VNet não têm suporte em locatários do AD.
 
 ### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-expressroute-gateway-access-azure-paas-service-over-vnet-service-endpoints"></a>É possível um endereço IP do dispositivo local conectado por meio do gateway de rede virtual do Azure (VPN) ou do gateway do ExpressRoute acessar o serviço de PaaS do Azure por meio de pontos de extremidade de serviço de VNet?
 Por padrão, os recursos do serviço do Azure garantidos para redes virtuais não podem ser acessados nas redes locais. Se você quiser permitir o tráfego do local, também deverá permitir endereços IP públicos (normalmente, NAT) do seu local ou ExpressRoute. Esses endereços IP podem ser adicionados por meio da configuração de firewall de IP dos recursos de serviço do Azure.

@@ -3,17 +3,17 @@ title: Criar um modelo do Construtor de Imagens do Azure (versão prévia)
 description: Saiba como criar um modelo para usar com o Construtor de Imagens do Azure.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/03/2020
+ms.date: 08/13/2020
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 2f1db4e6c45602fb7fde84079e8ef78179a4ec6b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 095aa4ddbdc9ceb04c65d8c896642a0f1a91e547
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830335"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205536"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Visualização: Criar um modelo do Construtor de Imagens do Azure 
 
@@ -435,7 +435,8 @@ Personalizar propriedades:
 - **filters** – opcional, permite que você especifique um filtro para incluir ou excluir atualizações.
 - **updateLimit** – opcional, define quantas atualizações podem ser instaladas. O padrão é 1.000.
  
- 
+> [!NOTE]
+> O personalizador de Windows Update poderá falhar se houver reinicializações pendentes do Windows ou se as instalações do aplicativo ainda estiverem em execução, normalmente você poderá ver esse erro no customization. log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` . É altamente recomendável que você considere a adição de uma reinicialização do Windows e/ou o tempo suficiente para que os aplicativos concluam suas instalações usando os comandos [Sleep] ou Wait ( https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep?view=powershell-7) nos comandos embutidos ou scripts antes de executar Windows Update.
 
 ### <a name="generalize"></a>Generalizar 
 Por padrão, o Construtor de Imagens do Azure também executará o código de "desprovisionamento" no final de cada fase de personalização de imagem para "generalizar" a imagem. Generalizar é um processo em que a imagem é configurada para que possa ser reutilizada para criar várias VMs. Para VMs do Windows, o Construtor de Imagens do Azure usa Sysprep. Para o Linux, o Construtor de Imagens do Azure executa 'waagent-deprovision'. 
@@ -590,7 +591,7 @@ Distribuir propriedades para galerias de imagens compartilhadas:
 - **type** – sharedImage  
 - **galleryImageId** – ID da Galeria de imagens compartilhadas, isso pode ser especificado em dois formatos:
     * O controle de versão automático-o Image Builder gerará um número de versão monotônico para você, isso é útil quando você deseja manter a recriação de imagens do mesmo modelo: o formato é: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>` .
-    * Controle de versão explícito-você pode passar o número de versão que deseja que o construtor de imagem use. O formato é:`/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`
+    * Controle de versão explícito-você pode passar o número de versão que deseja que o construtor de imagem use. O formato é: `/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`
 
 - **runOutputName** – nome exclusivo para identificar a distribuição.  
 - **artifactTags** – marcas opcionais de par de chave-valor especificadas pelo usuário.

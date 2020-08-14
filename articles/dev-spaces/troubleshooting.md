@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Aprenda a solucionar problemas comuns ao habilitar e usar o Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 7696cc8eaeef9ba5e2e0955bad6f17d28e95b5e5
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: e26f066294cb0a6a48c5a3299213206fe4226ad0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077026"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210828"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solução de problemas do Azure Dev Spaces
 
@@ -55,8 +55,6 @@ Se você não tiver a CLI do Azure Dev Spaces instalada, primeiro instale-a usan
 ```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
-
-Recriar o controlador pode ser feito a partir do CLI ou Visual Studio. Confira o início rápido [Desenvolvimento de equipe](quickstart-team-development.md) ou [Desenvolver com o .NET Core](quickstart-netcore-visualstudio.md) para obter exemplos.
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>Falha na criação do controlador devido ao tamanho do nome
 
