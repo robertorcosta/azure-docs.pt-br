@@ -7,25 +7,26 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: b7bcdaf9e3935c01a0906ecfaa1570e4bc7caba9
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: efe60079814958116d8042991e1cfd6e2f6f71f5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798113"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213873"
 ---
 # <a name="offer-listing-best-practices"></a>Práticas recomendadas de listagem de ofertas
 
-Este artigo fornece sugestões para criar e enviar ofertas de marketplace comercial. As tabelas a seguir descrevem as melhores práticas para concluir as informações da oferta na Central de Parceiros. Para uma análise do desempenho de suas ofertas, acesse o [painel dos insights do marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) na Central de Parceiros. 
+Este artigo fornece sugestões para a criação e o envolvimento das ofertas do Microsoft Commercial Marketplace. As tabelas a seguir descrevem as melhores práticas para concluir as informações da oferta na Central de Parceiros. Para uma análise do desempenho de suas ofertas, acesse o [painel dos insights do marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) na Central de Parceiros. 
 
 ## <a name="storefront-offer-details"></a>Detalhes da oferta vitrine
 
 | Configuração de vitrine | Melhor prática |
 |:--- |:--- |  
-| Nome da oferta | Para aplicativos, forneça um título claro que inclua palavras-chave de pesquisa para ajudar os clientes a descobrir sua oferta. <br> <br> Para serviços de consultoria, siga este formato: [nome da oferta: [duração] [tipo de oferta] (por exemplo, contoso: implementação de 2 semanas) <br> <br> Aderir às diretrizes da marca: siga as [diretrizes da marca e das marcas comerciais da Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) e outras diretrizes relevantes, específicas do produto, ao se referir às marcas comerciais da Microsoft e aos nomes de software, produtos e serviços da Microsoft. |
+| Nome da oferta | Para aplicativos, forneça um título claro que inclua palavras-chave de pesquisa para ajudar os clientes a descobrir sua oferta. <br> <br> Para serviços de consultoria, siga este formato: [nome da oferta: [duração] [tipo de oferta] (por exemplo, contoso: implementação de 2 semanas) |
 | Descrição da oferta | Forneça uma descrição clara que descreva a proposta de valor da sua oferta nas primeiras frases.  Tenha em mente que essas frases podem ser usadas nos resultados do mecanismo de pesquisa. Os componentes principais da sua proposta de valor devem incluir: <ul> <li>Descrição do produto ou da solução. </li> <li> O usuário persona que se beneficia do produto ou da solução. </li> <li> O cliente precisa ou dificuldade no produto ou nos endereços da solução. </li> </ul> <br> Use o vocabulário padrão do setor ou palavras com base no benefício quando possível.  Não dependa de recursos e em funcionalidades para vender seu produto.  Em vez disso, concentre-se no valor que você oferece. <br> <br> Para listagens de serviços de consultoria, declare claramente o serviço profissional que você fornece. |
 
-As tabelas nesta seção fornecem sugestões para a criação de ofertas de marketplace atraentes. Para escrever e configurar seus materiais de marketing, acesse a [Central de Parceiros](https://partner.microsoft.com/dashboard/commercial-marketplace/). 
+> [!IMPORTANT]
+> Verifique se o nome da oferta e a descrição da oferta aderem à marca **[registrada da Microsoft e às diretrizes](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)** de marcas e outras diretrizes relevantes específicas do produto ao se referir às marcas comerciais da Microsoft e aos nomes de software, produtos e serviços da Microsoft.
 
 ## <a name="storefront-listing-details"></a>Detalhes da vitrine listagem
 
@@ -119,15 +120,15 @@ Palavras-chave podem ajudar os clientes a encontrarem sua oferta ao pesquisarem 
 ## <a name="storefront-marketing-details"></a>Detalhes da vitrine marketing
 | Configuração de vitrine | Melhor prática |
 |:--- |:--- |  
-| Logotipo da oferta (formato PNG, entre 216 × 216 e 350 x 350 pixels): página de detalhes do aplicativo | Projetar e otimizar seu logotipo para uma mídia digital:<br>Carregue o logotipo no formato PNG os detalhes do aplicativo listando a página de sua oferta. O Partner Center irá redimensioná-lo para os tamanhos de logotipo necessários. |
-| Logotipo da oferta (formato PNG, 48 × 48 pixels): página de pesquisa | O Partner Center gerará esse logotipo do logotipo grande que você carregou. Opcionalmente, você pode substituir isso por uma imagem diferente. |
-| Documentos de "Saiba mais" | Inclua ativos de vendas e de marketing de apoio em "Saiba mais", alguns exemplos são:<ul><li>White papers</li><li> folhetos</li><li>listas de verificação ou</li><li> Apresentações do PowerPoint</li></ul><br>Salve todos os arquivos no formato PDF. Sua meta aqui deve ser instruir os clientes, não vender para eles.<br><br>Adicione um link à sua página de destino do aplicativo para todos os seus documentos e adicione parâmetros de URL para ajudar você a acompanhar os visitantes e as avaliações. |
+| Logotipo da oferta (formato PNG, 48&nbsp;&times;&nbsp;48): página de pesquisa | Projetar e otimizar seu logotipo para uma mídia digital:<br>Carregue o logotipo no formato PNG para a página de pesquisa de sua oferta. |
+| Logotipo da oferta (formato PNG, 216&nbsp;&times;&nbsp;216): página de detalhes do aplicativo | Projetar e otimizar seu logotipo para uma mídia digital:<br>Carregue o logotipo no formato PNG os detalhes do aplicativo listando a página de sua oferta. |
+| Documentos de "Saiba mais" | Inclua ativos de vendas e de marketing de apoio em "Saiba mais", alguns exemplos são: <ul> <li> white papers, </li> <li> folhetos, </li> <li> listas de verificação ou </li> <li> apresentações do PowerPoint.</li> </ul>Salve todos os arquivos no formato PDF. Sua meta aqui deve ser instruir os clientes, não vender para eles. <br><br>Adicione um link à sua página de destino do aplicativo para todos os seus documentos e adicione parâmetros de URL para ajudar você a acompanhar os visitantes e as avaliações. |
 | Vídeos: AppSource, serviços de consultoria e apenas ofertas de SaaS | Os vídeos mais fortes comunicam o valor da sua oferta na forma narrativa:<ul> <li> Verifique seu cliente, e não em sua empresa, o herói da história. </li> <li> Seu vídeo deve abordar os principais desafios e metas de seu cliente-alvo. </li> <li> Duração recomendada: 60 a 90 segundos.</li> <li> Incorporar palavras-chave de pesquisa que usam o nome dos vídeos. </li> <li> Considere adicionar outros vídeos, tais como tutoriais de como fazer, de introdução ou depoimentos de cliente. </li> </ul> |
 | Capturas de tela (1280&nbsp;&times;&nbsp;720) | Adicione até cinco capturas de tela:<br>Incorpore palavras-chave de pesquisa nos nomes de arquivo. |
 
 ## <a name="link-to-your-offer-page-from-your-website"></a>Vincular a sua página de oferta do seu site
 
-Ao vincular o selo do AppSource ou do Azure Marketplace no seu site à sua listagem no marketplace, você pode dar suporte a análises e relatórios sólidos, incluindo os seguintes parâmetros de consulta no final da URL:
+Ao vincular do AppSource ou do selo do Azure Marketplace em seu site à sua listagem no Marketplace comercial, você pode dar suporte à análise e aos relatórios de alta segurança, incluindo os seguintes parâmetros de consulta no final da URL:
 * **src**: Inclua a origem da qual o tráfego é roteado para o AppSource (por exemplo, site, LinkedIn ou Facebook).
 * **mktcmpid**: Sua ID de campanha de marketing, que pode conter até 16 caracteres em qualquer combinação de letras, números, sublinhados e hifens (por exemplo, *blogpost_12*).
 

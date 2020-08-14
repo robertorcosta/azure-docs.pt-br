@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 07/27/2020
-ms.openlocfilehash: 55483b93b770687703b381366d48edbc7d48f26e
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.date: 08/12/2020
+ms.openlocfilehash: cf91dd0b7f16bf0dcd3d84da1b942b2353ec5bd0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475277"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212042"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de desempenho e ajuste de fluxos de dados de mapeamento
 
@@ -87,7 +87,7 @@ Se você tiver uma boa compreensão da cardinalidade de seus dados, o particiona
 > [!TIP]
 > Configurar manualmente o esquema de particionamento reembaralha os dados e pode deslocar os benefícios do otimizador do Spark. Uma prática recomendada é não definir manualmente o particionamento, a menos que você precise.
 
-## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a>Otimizando o Azure Integration Runtime
+## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a> Otimizando o Azure Integration Runtime
 
 Os fluxos de dados são executados em clusters Spark que são girados em tempo de execução. A configuração do cluster usado é definida no IR (Integration Runtime) da atividade. Há três considerações de desempenho a serem feitas ao definir seu tempo de execução de integração: tipo de cluster, tamanho do cluster e vida útil.
 
@@ -273,6 +273,29 @@ Se os dados não forem particionados uniformemente após uma transformação, vo
 
 > [!TIP]
 > Se você reparticionar seus dados, mas tiver transformações downstream que reembaralham seus dados, use o particionamento de hash em uma coluna usada como chave de junção.
+
+## <a name="using-data-flows-in-pipelines"></a>Usando fluxos de dados em pipelines 
+
+Ao criar pipelines complexos com vários fluxos de dados, o fluxo lógico pode ter um grande impacto no tempo e no custo. Esta seção aborda o impacto de diferentes estratégias de arquitetura.
+
+### <a name="executing-data-flows-in-parallel"></a>Executando fluxos de dados em paralelo
+
+Se você executar vários fluxos de dados em paralelo, o ADF girará clusters Spark separados para cada atividade. Isso permite que cada trabalho seja isolado e executado em paralelo, mas levará a vários clusters em execução ao mesmo tempo.
+
+Se os fluxos de dados são executados em paralelo, é recomendável não habilitar a propriedade de Azure IR vida útil, pois ela levará a vários pools quentes não utilizados.
+
+> [!TIP]
+> Em vez de executar o mesmo fluxo de dados várias vezes em uma para cada atividade, prepare seus dados em um data Lake e use caminhos curinga para processar os dados em um único fluxo de dados.
+
+### <a name="execute-data-flows-sequentially"></a>Executar fluxos de dados sequencialmente
+
+Se você executar suas atividades de fluxo de dados em sequência, é recomendável definir um TTL na configuração de Azure IR. O ADF reutilizará os recursos de computação, resultando em um tempo de inicialização mais rápido do cluster. Cada atividade ainda será isolada receberá um novo contexto do Spark para cada execução.
+
+Executar trabalhos sequencialmente provavelmente levará o tempo mais longo para ser executado de ponta a ponta, mas fornece uma separação limpa das operações lógicas.
+
+### <a name="overloading-a-single-data-flow"></a>Sobrecarregando um fluxo de dados único
+
+Se você colocar toda a lógica dentro de um fluxo de dados único, o ADF executará todo o trabalho em uma única instância do Spark. Embora isso possa parecer uma maneira de reduzir os custos, ele combina fluxos lógicos diferentes e pode ser difícil de monitorar e depurar. Se um componente falhar, todas as outras partes do trabalho falharão também. A equipe de Azure Data Factory recomenda organizar os fluxos de dados por fluxos independentes de lógica de negócios. Se o fluxo de dados ficar muito grande, dividi-lo em componentes separados tornará o monitoramento e a depuração mais fáceis. Embora não haja nenhum limite rígido no número de transformações em um fluxo de dados, ter muitos torna o trabalho complexo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

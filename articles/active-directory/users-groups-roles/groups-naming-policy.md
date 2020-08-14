@@ -1,6 +1,6 @@
 ---
 title: Impor a política de nomenclatura de grupo no Azure Active Directory | Microsoft Docs
-description: Como configurar a política de nomenclatura para grupos do Office 365 no Azure Active Directory
+description: Como configurar a política de nomenclatura para grupos de Microsoft 365 no Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,28 +9,28 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 08/13/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 380962b71d6829b8a217a5d3038e2ae4dd7264fd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9ff525eab42d69ded33381fefc83076f9aa94f05
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497079"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213737"
 ---
-# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Impor uma política de nomenclatura em grupos do Office 365 no Azure Active Directory
+# <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Impor uma política de nomenclatura em grupos de Microsoft 365 no Azure Active Directory
 
-Para impor convenções de nomenclatura consistentes para grupos do Office 365 criados ou editados por seus usuários, configure uma política de nomenclatura de grupo para suas organizações no Azure Active Directory (Azure AD). Por exemplo, você pode usar a política de nomenclatura para comunicar a função de um grupo, associação, região geográfica ou quem criou o grupo. Você também pode usar a política de nomenclatura para ajudar a categorizar grupos no catálogo de endereços. Você pode usar a política para bloquear palavras específicas de serem usadas em nomes de grupo e alias.
+Para impor convenções de nomenclatura consistentes para grupos de Microsoft 365 criados ou editados por seus usuários, configure uma política de nomenclatura de grupo para suas organizações no Azure Active Directory (AD do Azure). Por exemplo, você pode usar a política de nomenclatura para comunicar a função de um grupo, associação, região geográfica ou quem criou o grupo. Você também pode usar a política de nomenclatura para ajudar a categorizar grupos no catálogo de endereços. Você pode usar a política para bloquear palavras específicas de serem usadas em nomes de grupo e alias.
 
 > [!IMPORTANT]
-> Usar a política de nomenclatura do Azure AD para grupos do Office 365 requer que você possua, mas não necessariamente, atribua uma licença Azure Active Directory Premium P1 ou Azure AD Basic licença EDU para cada usuário exclusivo que seja membro de um ou mais grupos do Office 365.
+> Usar a política de nomenclatura do Azure AD para grupos de Microsoft 365 requer que você possua, mas não necessariamente, atribua uma licença Azure Active Directory Premium P1 ou Azure AD Basic licença EDU para cada usuário exclusivo que seja membro de um ou mais grupos de Microsoft 365.
 
 A política de nomenclatura é aplicada para criar ou editar grupos criados em cargas de trabalho (por exemplo, Outlook, Microsoft Teams, SharePoint, Exchange ou Planner). Ela é aplicada para o nome do grupo e o alias de grupo. Se você configurar sua política de nomenclatura no Azure AD e tiver uma política de nomenclatura de grupo do Exchange existente, a política de nomenclatura do Azure AD será imposta em sua organização.
 
-Quando a política de nomenclatura de grupo estiver configurada, a política será aplicada aos novos grupos do Office 365 criados pelos usuários finais. A política de nomenclatura não se aplica a determinadas funções de diretório, como administrador global ou administrador de usuários (veja abaixo a lista completa de funções isentadas da política de nomenclatura de grupo). Para grupos existentes do Office 365, a política não será aplicada imediatamente no momento da configuração. Depois que o proprietário do grupo editar o nome do grupo para esses grupos, a política de nomenclatura será imposta.
+Quando a política de nomenclatura de grupo estiver configurada, a política será aplicada a novos grupos de Microsoft 365 criados pelos usuários finais. A política de nomenclatura não se aplica a determinadas funções de diretório, como administrador global ou administrador de usuários (veja abaixo a lista completa de funções isentadas da política de nomenclatura de grupo). Para grupos de Microsoft 365 existentes, a política não será aplicada imediatamente no momento da configuração. Depois que o proprietário do grupo editar o nome do grupo para esses grupos, a política de nomenclatura será imposta.
 
 ## <a name="naming-policy-features"></a>Recursos da política de nomenclatura
 
@@ -253,7 +253,7 @@ Gerenciador de clientes do Outlook (OCM) | Gerenciador de clientes do Outlook es
 Aplicativo de sala de aula | Grupos criados no aplicativo de sala de aula estão em conformidade com a política de nomenclatura, mas a política de nomenclatura não é aplicada automaticamente, e a visualização de política de nomenclatura não é mostrada para os usuários ao inserir um nome de grupo de sala de aula. Os usuários devem digitar o nome imposto do grupo de sala de aula com prefixos e sufixos. Caso contrário, a operação para criar ou editar o grupo de sala de aula falhará com erros.
 Power BI | Os workspaces do Power BI estão em conformidade com a política de nomenclatura.    
 Yammer | Quando um usuário conectado ao Yammer com sua conta do Azure Active Directory criar um grupo ou editar o nome de um grupo, o nome do grupo estará em conformidade com a política de nomenclatura. Isso se aplica a grupos conectados do Office 365 e a todos os outros grupos do Yammer.<br>Se um grupo conectado do Office 365 tiver sido criado antes da política de nomenclatura ter entrado em vigor, o nome do grupo não seguirá automaticamente as políticas de nomenclatura. Quando um usuário editar o nome do grupo, será solicitado que adicione o prefixo e o sufixo.
-StaffHub  | Equipes de StaffHub não seguem a política de nomenclatura, mas o grupo do Office 365 subjacente a segue. O nome da equipe StaffHub não aplica os prefixos e sufixos e não verifica as palavras bloqueadas personalizadas. Mas o StaffHub aplica os prefixos e sufixos e remove as palavras bloqueadas do grupo do Office 365 subjacente.
+StaffHub  | As equipes do StaffHub não seguem a política de nomenclatura, mas o grupo de Microsoft 365 subjacente faz. O nome da equipe StaffHub não aplica os prefixos e sufixos e não verifica as palavras bloqueadas personalizadas. Mas StaffHub aplica os prefixos e sufixos e remove as palavras bloqueadas do grupo de Microsoft 365 subjacente.
 Exchange PowerShell | Cmdlets do Exchange PowerShell estão em conformidade com a política de nomenclatura. Os usuários recebem mensagens de erro apropriado com prefixos e sufixos sugeridos e palavras bloqueadas personalizadas se eles não seguem a política de nomenclatura no nome do grupo e o alias de grupo (mailNickname).
 Cmdlets do Azure Active Directory PowerShell | Cmdlets do Azure Active Directory PowerShell estão em conformidade com a política de nomenclatura. Os usuários recebem mensagens de erro apropriado com prefixos e sufixos sugeridos e palavras bloqueadas personalizadas se eles não seguem a convenção de nomenclatura nos nomes do grupo e o alias de grupo.
 Centro de Administração do Exchange | Centro de Administração do Exchange está em conformidade com a política de nomenclatura. Os usuários recebem mensagens de erro apropriado com prefixos e sufixos sugeridos e palavras bloqueadas personalizadas se eles não seguem a convenção de nomenclatura no nome do grupo e o alias de grupo.
@@ -264,7 +264,7 @@ Centro de administração do Microsoft 365 | Microsoft 365 centro de administra�
 Esses artigos fornecem mais informações sobre os grupos do Azure AD.
 
 - [Consultar grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Política de expiração de grupos do Office 365](groups-lifecycle.md)
+- [Política de expiração para grupos de Microsoft 365](groups-lifecycle.md)
 - [Gerenciar configurações de um grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Gerenciar membros de um grupo](../fundamentals/active-directory-groups-members-azure-portal.md)
 - [Gerenciar associações de um grupo](../fundamentals/active-directory-groups-membership-azure-portal.md)

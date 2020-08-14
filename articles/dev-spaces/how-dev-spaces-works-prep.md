@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Descreve como preparar seu projeto com o Azure Dev Spaces funciona
 keywords: azds. YAML, Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres
-ms.openlocfilehash: 24a54fffdc8e94493d2a4a9aeb1c5f02dcd192b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61351072494b51d02a1d6c31399208b9e9b54fce
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80241628"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213414"
 ---
 # <a name="how-preparing-a-project-for-azure-dev-spaces-works"></a>Como a preparação de um projeto para Azure Dev Spaces funciona
 
@@ -98,17 +98,4 @@ O `azds.yaml` arquivo gerado pelo `prep` comando destina-se a funcionar para um 
 
 Para saber mais sobre como executar seu código em seu espaço de desenvolvimento, confira [como executar seu código com Azure dev Spaces funciona][how-it-works-up].
 
-Para começar a usar o Azure Dev Spaces para preparar seu projeto para o espaço de desenvolvimento do Azure, consulte os seguintes guias de início rápido:
-
-* [Iterar e depurar rapidamente com Visual Studio Code e Java][quickstart-java]
-* [Iterar e depurar rapidamente com o Visual Studio Code e o .NET][quickstart-netcore]
-* [Iterar e depurar rapidamente com Visual Studio Code e Node.js][quickstart-node]
-* [Iterar e depurar rapidamente com o Visual Studio e o .NET Core][quickstart-vs]
-* [Usando a CLI para desenvolver um aplicativo no kubernetes][quickstart-cli]
-
 [how-it-works-up]: how-dev-spaces-works-up.md
-[quickstart-cli]: quickstart-cli.md
-[quickstart-java]: quickstart-java.md
-[quickstart-netcore]: quickstart-netcore.md
-[quickstart-node]: quickstart-nodejs.md
-[quickstart-vs]: quickstart-netcore-visualstudio.md

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e040f42db195760cf40f6dbdf651826b544b65a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f6f3b10219775adb02d47a91da2573ea99f30ac0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507566"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212256"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configurar fontes de identidade do vCenter para usar Active Directory
 
@@ -41,6 +41,9 @@ Antes de [Adicionar uma fonte de identidade](#add-an-identity-source-on-vcenter)
 * [Adicionar Active Directory local como uma fonte de identidade de logon único](#add-on-premises-active-directory-as-a-single-sign-on-identity-source)
 * [Configurar novos Active Directory em uma nuvem privada](#set-up-new-active-directory-on-a-private-cloud)
 * [Configurar Active Directory no Azure](#set-up-active-directory-on-azure)
+
+> [!IMPORTANT]
+> **Não há suporte para Active Directory (autenticação integrada do Windows).** Há suporte apenas para a opção Active Directory sobre LDAP como uma origem de identidade.
 
 ## <a name="add-on-premises-active-directory-as-a-single-sign-on-identity-source"></a>Adicionar Active Directory local como uma fonte de identidade de logon único
 

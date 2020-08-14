@@ -3,27 +3,28 @@ title: Padrões e expressões de associações de Azure Functions
 description: Aprenda a criar diferentes expressões de associação de Azure Functions com base em padrões comuns.
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: ca3e342d42e6baf2bc4caaed07dc196203d8a032
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4e2b5afd7742791218394422d00ee8ee46cb23a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261062"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212603"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Padrões de expressão de associação de Azure Functions
 
 Um dos recursos mais poderosos de [gatilhos e associações](./functions-triggers-bindings.md) é a *Associação de expressões*. No arquivo *function.json* e em parâmetros de função e de código, você pode usar expressões que são resolvidas para valores de várias fontes.
 
-A maioria das expressões são identificadas, encapsulando-as entre chaves. Por exemplo, em uma função de gatilho de fila, `{queueTrigger}` resolve para o texto de mensagem da fila. Se a propriedade `path` para uma associação de saída de blob é `container/{queueTrigger}` e a função é disparada por uma mensagem da fila `HelloWorld`, um blob denominado `HelloWorld` é criado.
+A maioria das expressões é identificada encapsulando-as entre chaves. Por exemplo, em uma função de gatilho de fila, `{queueTrigger}` resolve para o texto de mensagem da fila. Se a propriedade `path` para uma associação de saída de blob é `container/{queueTrigger}` e a função é disparada por uma mensagem da fila `HelloWorld`, um blob denominado `HelloWorld` é criado.
 
 Tipos de expressões de associação
 
-* [Configurações do aplicativo](#binding-expressions---app-settings)
+* [Configurações de aplicativo](#binding-expressions---app-settings)
 * [Nome do arquivo de gatilho](#trigger-file-name)
-* [Gatilho metadados](#trigger-metadata)
-* [Cargas JSON](#json-payloads)
+* [Metadados do gatilho](#trigger-metadata)
+* [Conteúdos JSON](#json-payloads)
 * [Novo GUID](#create-guids)
 * [Data e hora atuais](#current-time)
 
@@ -132,7 +133,7 @@ public static void Run(
 
 ```
 
-Você também pode criar expressões para partes do nome do arquivo. No exemplo a seguir, a função é disparada somente em nomes de arquivo que correspondem a um padrão:`anyname-anyfile.csv`
+Você também pode criar expressões para partes do nome do arquivo. No exemplo a seguir, a função é disparada somente em nomes de arquivo que correspondem a um padrão: `anyname-anyfile.csv`
 
 ```json
 {
@@ -146,7 +147,7 @@ Você também pode criar expressões para partes do nome do arquivo. No exemplo 
 
 Para obter mais informações sobre como usar padrões e expressões na cadeia de caracteres de caminho de Blob, consulte a [referência de associação de blob de Armazenamento](functions-bindings-storage-blob.md).
 
-## <a name="trigger-metadata"></a>Metadados de gatilho
+## <a name="trigger-metadata"></a>Metadados do gatilho
 
 Além do conteúdo dos dados fornecido por um gatilho (como o conteúdo da mensagem da fila que disparou uma função), vários gatilhos fornecem valores de metadados adicionais. Esses valores podem ser usados como parâmetros de entrada em C# e F# ou propriedades no objeto `context.bindings` em JavaScript. 
 

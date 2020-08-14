@@ -3,14 +3,15 @@ title: Azure Functions Associação de gatilho do serviço Signalr
 description: Saiba como enviar mensagens de serviço de sinal de Azure Functions.
 author: chenyl
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 ms.author: chenyl
-ms.openlocfilehash: ec2952a3093661f0f6ef32908307a8a82c6367ed
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e2651afbcdc3bae71bb531aa0e821f83264c295d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540223"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212585"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Associação de gatilho de serviço signalr para Azure Functions
 
@@ -53,7 +54,7 @@ public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMes
 }
 ```
 
-#### <a name="use-attribute-signalrparameter-to-simplify-parameternames"></a>Use o atributo `[SignalRParameter]` para simplificar`ParameterNames`
+#### <a name="use-attribute-signalrparameter-to-simplify-parameternames"></a>Use o atributo `[SignalRParameter]` para simplificar `ParameterNames`
 
 Como é difícil de usar `ParameterNames` , `SignalRParameter` o é fornecido para alcançar a mesma finalidade.
 
@@ -170,8 +171,8 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**| N/D | Deve ser definido como `SignalRTrigger`.|
-|**direction**| N/D | Deve ser definido como `in`.|
+|**tipo**| n/d | Deve ser definido como `SignalRTrigger`.|
+|**direction**| n/d | Deve ser definido como `in`.|
 |**name**| n/d | Nome da variável usada no código de função para objeto de contexto de invocação de gatilho. |
 |**hubName**|**HubName**| Esse valor deve ser definido como o nome do Hub do Signalr para a função a ser disparada.|
 |**category**|**Categoria**| Esse valor deve ser definido como a categoria de mensagens para a função a ser disparada. A categoria pode ser um dos seguintes valores: <ul><li>**conexões**: incluindo eventos *conectados* e *desconectados*</li><li>**mensagens**: incluindo todos os outros eventos, exceto aqueles na categoria *conexões*</li></ul> |
@@ -190,7 +191,7 @@ InvocationContext contém todo o conteúdo da mensagem enviar do serviço Signal
 |Propriedade em InvocationContext | Descrição|
 |------------------------------|------------|
 |Argumentos| Disponível para a categoria de *mensagens* . Contém *argumentos* na [mensagem de invocação](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding)|
-|Erro do| Disponível para evento *desconectado* . Ele poderá ficar vazio se a conexão for fechada sem erro ou contiver as mensagens de erro.|
+|Erro| Disponível para evento *desconectado* . Ele poderá ficar vazio se a conexão for fechada sem erro ou contiver as mensagens de erro.|
 |Hub| O nome do Hub ao qual a mensagem pertence.|
 |Categoria| A categoria da mensagem.|
 |Evento| O evento da mensagem.|
@@ -216,7 +217,7 @@ Você pode acessar esses dois argumentos do parâmetro, bem como atribuir o tipo
 
 Para a associação de parâmetro, a ordem é importante. Se você estiver usando o `ParameterNames` , a ordem em `ParameterNames` corresponde à ordem dos argumentos que você invoca no cliente. Se você estiver usando `[SignalRParameter]` o atributo em C#, a ordem dos argumentos nos métodos de função do Azure corresponderá à ordem dos argumentos nos clientes.
 
-`ParameterNames`e o atributo `[SignalRParameter]` **não pode** ser usado ao mesmo tempo ou você receberá uma exceção.
+`ParameterNames` e o atributo `[SignalRParameter]` **não pode** ser usado ao mesmo tempo ou você receberá uma exceção.
 
 ## <a name="send-messages-to-signalr-service-trigger-binding"></a>Enviar mensagens para a associação de gatilho do serviço Signalr
 

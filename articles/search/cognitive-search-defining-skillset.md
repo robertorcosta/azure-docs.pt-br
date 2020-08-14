@@ -8,16 +8,20 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bdbe157198ad62578613d86f3b3a55b72ca0acf8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 779aa96fcf58d45bb53757f7fe974a0fe4c61ffa
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557449"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214063"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Como criar um conconhecimento em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva 
 
-O enriquecimento de ia extrai e enriquece os dados para torná-los pesquisáveis no Azure Pesquisa Cognitiva. Nós chamamos as etapas de extração e enriquecimento de *habilidades cognitivas*, combinadas em um *conjunto de habilidades* referenciado durante a indexação. Um técnico pode usar [habilidades internas](cognitive-search-predefined-skills.md) ou habilidades personalizadas (consulte [o exemplo: criando uma habilidade personalizada em um pipeline de enriquecimento de ia](cognitive-search-create-custom-skill-example.md) para obter mais informações).
+![estágios do indexador](media/cognitive-search-defining-skillset/indexer-stages-skillset.png "estágios do indexador")
+
+Um qualificable define as operações que extraem e enriquecem os dados para torná-los pesquisáveis. Um configurador de habilidades é executado depois que o conteúdo do texto e da imagem é extraído dos documentos de origem e, depois de todos os campos do documento de origem, são mapeados para os campos de destino em um índice ou repositório de conhecimento.
+
+Um grupo de qualificações contém uma ou mais *habilidades cognitivas* que representam uma operação de enriquecimento específica, como a conversão de texto, a extração de frases-chave ou a execução de reconhecimento óptico de caracteres de um arquivo de imagem. Para criar um qualificable, você pode usar [habilidades internas](cognitive-search-predefined-skills.md) da Microsoft ou habilidades personalizadas que contêm modelos ou lógica de processamento que você fornece (consulte [o exemplo: criando uma habilidade personalizada em um pipeline de enriquecimento de ia](cognitive-search-create-custom-skill-example.md) para obter mais informações).
 
 Neste artigo, você aprenderá a criar um pipeline de enriquecimento para as habilidades que quiser usar. Um contratador de qualificações é anexado a um [indexador](search-indexer-overview.md)pesquisa cognitiva do Azure. Uma parte do design do pipeline, abordada neste artigo, é a criação do próprio conjunto de habilidades. 
 

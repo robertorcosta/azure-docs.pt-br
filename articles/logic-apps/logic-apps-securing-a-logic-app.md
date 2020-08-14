@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: e7199b6d54a0150845bfc09c38e002e6cc298ee7
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c7b4cf688d02ebbcb099f116c0eb7b4ebe7c6074
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066722"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212425"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
@@ -240,7 +240,7 @@ Para habilitar o OAuth do Azure AD no modelo ARM para implantar seu aplicativo l
 ],
 ```
 
-Para obter mais informações sobre a `accessControl` seção, consulte [restringir os intervalos de IP de entrada no modelo de Azure Resource Manager](#restrict-inbound-ip-template) e a referência de modelo de fluxos de [trabalho Microsoft. Logic](/templates/microsoft.logic/2019-05-01/workflows).
+Para obter mais informações sobre a `accessControl` seção, consulte [restringir os intervalos de IP de entrada no modelo de Azure Resource Manager](#restrict-inbound-ip-template) e a referência de modelo de fluxos de [trabalho Microsoft. Logic](/azure/templates/microsoft.logic/2019-05-01/workflows).
 
 <a name="restrict-inbound-ip"></a>
 
@@ -786,8 +786,8 @@ Os pontos de extremidade HTTP e HTTPS dão suporte a vários tipos de autentica�
 
 Esta tabela identifica os tipos de autenticação que estão disponíveis nos gatilhos e ações em que você pode selecionar um tipo de autenticação:
 
-| Tipo de autenticação | Disponibilidade |
-|---------------------|--------------|
+| Tipo de autenticação | Gatilhos e ações com suporte |
+|---------------------|--------------------------------|
 | [Basic](#basic-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, HTTP, HTTP + Swagger, Webhook HTTP |
 | [Certificado do Cliente](#client-certificate-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, HTTP, HTTP + Swagger, Webhook HTTP |
 | [OAuth do Active Directory](#azure-active-directory-oauth-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, Azure Functions, HTTP, HTTP + Swagger, Webhook HTTP |
@@ -952,7 +952,7 @@ Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipu
 
 ### <a name="managed-identity-authentication"></a>Autenticação de identidade gerenciada
 
-Se a opção de [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) estiver disponível, seu aplicativo lógico poderá usar a identidade atribuída pelo sistema ou uma *única* identidade atribuída pelo usuário criada manualmente para autenticar o acesso a outros recursos protegidos pelo Azure Active Directory (AD do Azure) sem entrar. O Azure gerencia essa identidade para você e ajuda a proteger suas credenciais, pois você não precisa fornecer ou trocar segredos. Saiba mais sobre [serviços do Azure que dão suporte a identidades gerenciadas para a autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Se a opção de [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) estiver disponível em um [gatilho ou ação específica](#add-authentication-outbound), seu aplicativo lógico poderá usar a identidade atribuída pelo sistema ou uma *única* identidade atribuída pelo usuário criada manualmente para autenticar o acesso a outros recursos protegidos pelo Azure Active Directory (AD do Azure) sem entrar. O Azure gerencia essa identidade para você e ajuda a proteger suas credenciais, pois você não precisa fornecer ou trocar segredos. Saiba mais sobre [serviços do Azure que dão suporte a identidades gerenciadas para a autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 1. Antes que seu aplicativo lógico possa usar uma identidade gerenciada, siga as etapas em [Autenticar o acesso aos recursos do Azure usando identidades gerenciadas nos Aplicativos Lógicos do Azure](../logic-apps/create-managed-service-identity.md). Essas etapas habilitam a identidade gerenciada em seu aplicativo lógico e configuram o acesso da identidade ao recurso de destino do Azure.
 

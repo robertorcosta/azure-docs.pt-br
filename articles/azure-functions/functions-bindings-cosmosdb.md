@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
-ms.custom: seodec18
-ms.openlocfilehash: 37c98ca2fbffddd064b55192e9b5d83c948d88e6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 8ae7613eea4b952c079be90b05e615087ea80a32
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041968"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214159"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Associações do Azure Cosmos DB para Azure Functions 1.x
 
@@ -180,8 +180,8 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | N/D | Deve ser definido como `cosmosDBTrigger`. |
-|**direction** | N/D | Deve ser definido como `in`. Esse parâmetro é definido automaticamente quando você cria o gatilho no portal do Azure. |
+|**tipo** | n/d | Deve ser definido como `cosmosDBTrigger`. |
+|**direction** | n/d | Deve ser definido como `in`. Esse parâmetro é definido automaticamente quando você cria o gatilho no portal do Azure. |
 |**name** | n/d | O nome da variável usado no código de função que representa a lista de documentos com alterações. |
 |**connectionStringSetting**|**ConnectionStringSetting** | O nome de uma configuração de aplicativo que contém a cadeia de conexão usada para conectar-se à conta do Azure Cosmos DB que está sendo monitorada. |
 |**NomeDoBancoDeDados**|**DatabaseName**  | O nome do banco de dados do Azure Cosmos DB com a coleção que está sendo monitorada. |
@@ -1115,8 +1115,8 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**     | N/D | Deve ser definido como `documentdb`.        |
-|**direction**     | N/D | Deve ser definido como `in`.         |
+|**tipo**     | n/d | Deve ser definido como `documentdb`.        |
+|**direction**     | n/d | Deve ser definido como `in`.         |
 |**name**     | n/d | Nome do parâmetro de associação que representa o documento na função.  |
 |**NomeDoBancoDeDados** |**DatabaseName** |O banco de dados que contém o documento.        |
 |**collectionName** |**CollectionName** | O nome da coleção que contém o documento. |
@@ -1152,7 +1152,7 @@ Com a associação de saída do Azure Cosmos DB, você pode gravar um novo docum
 Esta seção contém os seguintes exemplos:
 
 * Gatilho da fila, gravar um documento
-* Gatilho de fila, gravar documentos usando`IAsyncCollector`
+* Gatilho de fila, gravar documentos usando `IAsyncCollector`
 
 Os exemplos se referem a um tipo `ToDoItem` simples:
 
@@ -1238,7 +1238,7 @@ namespace CosmosDBSamplesV1
 Esta seção contém os seguintes exemplos:
 
 * Gatilho da fila, gravar um documento
-* Gatilho de fila, gravar documentos usando`IAsyncCollector`
+* Gatilho de fila, gravar documentos usando `IAsyncCollector`
 
 ### <a name="queue-trigger-write-one-doc"></a>Gatilho da fila, gravar um documento
 
@@ -1454,8 +1454,8 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**     | N/D | Deve ser definido como `documentdb`.        |
-|**direction**     | N/D | Deve ser definido como `out`.         |
+|**tipo**     | n/d | Deve ser definido como `documentdb`.        |
+|**direction**     | n/d | Deve ser definido como `out`.         |
 |**name**     | n/d | Nome do parâmetro de associação que representa o documento na função.  |
 |**NomeDoBancoDeDados** | **DatabaseName**|O banco de dados que contém a coleção na qual o documento será criado.     |
 |**collectionName** |**CollectionName**  | O nome da coleção na qual o documento será criado. |

@@ -3,14 +3,15 @@ title: Associações do SendGrid no Azure Functions
 description: Referência de associações do SendGrid no Azure Functions.
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: 9ed2b81c12c698822b9542bb6903189c865b572b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 32734ff9df2e55d24789742cd49984d8da212a17
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697350"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212181"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associações do SendGrid no Azure Functions
 
@@ -36,7 +37,7 @@ As associações SendGrid são fornecidas no Pacote NuGet [Microsoft.Azure.WebJo
 
 O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que usa um gatilho de fila do Barramento de Serviço e uma associação de saída de SendGrid.
 
-### <a name="synchronous"></a>Síncrona
+### <a name="synchronous"></a>Síncronos
 
 ```cs
 using SendGrid.Helpers.Mail;
@@ -66,7 +67,7 @@ public class OutgoingEmail
 }
 ```
 
-### <a name="asynchronous"></a>Assíncrona
+### <a name="asynchronous"></a>Assíncronos
 
 ```cs
 using SendGrid.Helpers.Mail;
@@ -352,18 +353,18 @@ A anotação [SendGridOutput](https://github.com/Azure/azure-functions-java-libr
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir lista as propriedades de configuração de associação disponíveis no *function.jsno* arquivo e o `SendGrid` atributo/anotação.
+A tabela a seguir lista as propriedades de configuração de associação disponíveis no  *function.jsno* arquivo e o `SendGrid` atributo/anotação.
 
 | *function.jsna* Propriedade | Propriedade de atributo/anotação | Descrição | Opcional |
 |--------------------------|-------------------------------|-------------|----------|
-| tipo |N/D| Deve ser definido como `sendGrid`.| Não |
+| type |N/D| Deve ser definido como `sendGrid`.| Não |
 | direction |N/D| Deve ser definido como `out`.| Não |
 | name |N/D| O nome da variável usada no código de função para a solicitação ou o corpo da solicitação. Esse valor é `$return` quando há apenas um valor retornado. | Não |
 | apiKey | ApiKey | O nome de uma configuração de aplicativo que contém sua chave de API. Se não estiver definido, o nome da configuração do aplicativo padrão será *AzureWebJobsSendGridApiKey*.| Não |
 | para| Para | O endereço de email do destinatário. | Sim |
 | de| De | O endereço de email do remetente. |  Sim |
 | subject| Assunto | O assunto do email. | Sim |
-| text| Texto | O conteúdo do email. | Sim |
+| texto| Texto | O conteúdo do email. | Sim |
 
 As propriedades opcionais podem ter valores padrão definidos na associação e adicionadas ou substituídas programaticamente.
 
@@ -389,7 +390,7 @@ Esta seção descreve as definições de configuração global disponíveis para
 }
 ```  
 
-|Property  |Padrão | Descrição |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
 |de|N/D|Endereço de email do remetente em todas as funções.| 
 
