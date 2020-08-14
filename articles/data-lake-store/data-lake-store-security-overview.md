@@ -1,18 +1,18 @@
 ---
 title: Visão geral de segurança do Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Entenda como o Azure Data Lake Storage Gen1 é um repositório de big data seguro
+description: Saiba mais sobre os recursos de segurança do Azure Data Lake Storage Gen1, incluindo autenticação, autorização, isolamento de rede, proteção de dados e auditoria.
 services: data-lake-store
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: 4992be004a4b60b7b5fb591d834e8938cf03f34f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: ec0e62297e6eee995fc571589d450176c81f8aac
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926273"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192834"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Segurança no Azure Data Lake Storage Gen1
 
@@ -117,7 +117,7 @@ Os clientes corporativos exigem uma plataforma de nuvem da análise de dados que
 
 Se você quer ver os novos recursos incluídos no Azure Data Lake Storage Gen1, envie seus comentários para o [Fórum UserVoice do Azure Data Lake Storage Gen1](https://feedback.azure.com/forums/327234-data-lake).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)

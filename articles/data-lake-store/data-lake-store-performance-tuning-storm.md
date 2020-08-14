@@ -1,17 +1,17 @@
 ---
 title: Ajuste de desempenho – Storm com Azure Data Lake Storage Gen1
-description: Saiba mais sobre as diretrizes de ajuste de desempenho para um cluster Storm no Azure Data Lake Storage Gen1.
+description: Entenda os fatores que devem ser considerados ao ajustar o desempenho de uma topologia do Azure Storm, incluindo a solução de problemas comuns.
 author: stewu
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 47fb385e5e1fb60f860735530356fa87031c51e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71207509f20c80cf85311cba7b647aaca0a49e42
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513791"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192809"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Diretrizes para o Storm no HDInsight e Azure Data Lake armazenamento Gen1 de ajuste de desempenho
 

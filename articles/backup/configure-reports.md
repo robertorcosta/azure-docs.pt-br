@@ -3,12 +3,12 @@ title: Configurar relatórios de Backup do Azure
 description: Configurar e exibir relatórios para o Backup do Azure usando o Log Analytics e as pastas de trabalho do Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 248fcdc8d57ca2408ada01db4ecf3b8ee7712e4d
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: bbb42643e23020742cab66812f58f78f4529fe07
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388026"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192841"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 
@@ -106,11 +106,11 @@ Usando essa exibição, você pode identificar os itens de backup que não tiver
 
 Para exibir recursos inativos, navegue até a guia **otimizar** e clique no bloco **recursos inativos** . Clicar nesse bloco exibe uma grade que contém detalhes de todos os recursos inativos existentes no escopo selecionado. Por padrão, a grade mostra os itens que não têm um ponto de recuperação nos últimos 7 dias. Para localizar recursos inativos para um intervalo de tempo diferente, você pode ajustar o filtro de **intervalo de tempo** na parte superior da guia.
 
-Depois de identificar um recurso inativo, você pode investigar o problema ainda mais navegando até o painel do item de backup ou a folha de recursos do Azure para esse recurso (sempre que aplicável). Dependendo do seu cenário, você pode optar por interromper o backup do computador (se ele não existir mais), economizando assim o custo da instância protegida, ou você pode corrigir problemas no computador para garantir que os backups sejam feitos de forma confiável.
+Depois de identificar um recurso inativo, você pode investigar o problema ainda mais navegando até o painel do item de backup ou a folha de recursos do Azure para esse recurso (sempre que aplicável). Dependendo do seu cenário, você pode optar por interromper o backup do computador (se ele não existir mais) e excluir backups desnecessários, economizando, assim, os custos, ou você pode corrigir problemas no computador para garantir que os backups sejam feitos de forma confiável.
 
 ![Otimizar recursos inativos de guia](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
 
-###### <a name="backup-items-with-a-large-retention-duration"></a>Itens de backup com uma duração de retenção grande
+###### <a name="backup-items-with-a-large-retention-duration"></a>Itens de backup com grande duração da retenção
 Usando essa exibição, você pode identificar os itens que têm backups retidos por uma duração maior do que o exigido pela sua organização. 
 
 Clicar no bloco **otimizações de política** seguido pelo bloco **otimizações de retenção** exibe uma grade que contém todos os itens de backup para os quais a retenção do RP (ponto de retenção) diário, semanal, mensal ou anual é maior do que um valor especificado. Por padrão, a grade exibe todos os itens de backup no escopo selecionado. Você pode usar os filtros para a retenção de RP diária, semanal, mensal e anual para filtrar a grade mais detalhadamente e identificar os itens para os quais a retenção pode ser reduzida para economizar em custos de armazenamento de backup.
@@ -119,7 +119,7 @@ Observe que para cargas de trabalho de banco de dados como SQL e SAP HANA, os pe
 
 ![Otimizar otimizações de retenção de guia](./media/backup-azure-configure-backup-reports/optimize-retention.png)
 
-###### <a name="databases-configured-for-daily-full-backup"></a>Bancos de dados configurados para backup completo diário
+###### <a name="databases-configured-for-daily-full-backup"></a>Bancos de dados configurados para backup completo diário 
 Usando essa exibição, você pode identificar cargas de trabalho de banco de dados que foram configuradas para backup completo diário. Geralmente, o uso do backup diferencial diário, juntamente com o backup completo semanal, é mais econômico. 
 
 Clicar no bloco **otimizações de política** seguido pelo bloco **otimizações de agendamento de backup** exibe uma grade que contém todos os bancos de dados com uma política de backup completo diário. Você pode optar por navegar até um item de backup específico e modificar a política para usar o backup diferencial diário com o backup completo semanal.
