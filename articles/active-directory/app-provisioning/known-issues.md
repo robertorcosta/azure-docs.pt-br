@@ -1,0 +1,83 @@
+---
+title: Problemas conhecidos do provisionamento de aplicativos no Azure AD
+description: Saiba mais sobre problemas conhecidos ao trabalhar com o provisionamento automatizado de aplicativos no Azure AD.
+author: kenwith
+ms.author: kenwith
+manager: celestedg
+services: active-directory
+ms.service: active-directory
+ms.subservice: app-provisioning
+ms.workload: identity
+ms.topic: troubleshooting
+ms.date: 08/12/2020
+ms.reviewer: arvinh
+ms.openlocfilehash: 127629cb0102c2736995364db9202cd837d99a17
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214272"
+---
+# <a name="known-issues-application-provisioning"></a>Problemas conhecidos: provisionamento de aplicativos
+Problemas conhecidos que você deve estar atento ao trabalhar com o provisionamento de aplicativos. Você pode fornecer comentários sobre o serviço de provisionamento de aplicativos no UserVoice, confira [UserVoice de provisionamento de aplicativos do Azure ad](https://aka.ms/appprovisioningfeaturerequest). Nós observamos com atenção o UserVoice para que possamos melhorar o serviço. 
+
+> [!NOTE]
+> Essa não é uma lista abrangente de problemas conhecidos. Se você souber de um problema que não está listado, forneça comentários na parte inferior da página.
+
+## <a name="authorization"></a>Autorização 
+
+**Não é possível salvar após o teste de conexão bem-sucedido**
+
+Se você puder testar uma conexão com êxito, mas não puder salvar, você excedeu o limite de armazenamento permitido para as credenciais. Para saber mais, confira [problema ao salvar credenciais de administrador](application-provisioning-config-problem-storage-limit.md).
+
+**Não é possível salvar**
+
+A URL do locatário, o token secreto e o email de notificação devem ser preenchidos para salvar. Você não pode fornecer apenas um deles. 
+
+**Não é possível alterar o modo de provisionamento de volta para manual**
+
+Depois de configurar o provisionamento pela primeira vez, você observará que o modo de provisionamento mudou de manual para automático. Você não pode alterá-lo de volta para manual. Mas você pode desativar o provisionamento por meio da interface do usuário. Desativar o provisionamento na interface do usuário efetivamente faz o mesmo que definir a lista suspensa como manual.  
+
+
+## <a name="attribute-mappings"></a>Mapeamentos de atributo 
+
+**O atributo SamAccountName ou UserType não está disponível como um atributo de origem**
+
+Os atributos SamAccountName e UserType não estão disponíveis como um atributo de origem por padrão. Estenda seu esquema para adicionar o atributo. Você pode adicionar os atributos à lista de atributos de origem disponíveis estendendo seu esquema. Para saber mais, veja [atributo de origem ausente](user-provisioning-sync-attributes-for-mapping.md). 
+
+**Lista suspensa de atributo de origem ausente para extensão de esquema**
+
+Às vezes, as extensões para seu esquema podem estar ausentes na lista suspensa atributo de origem na interface do usuário. Vá para as configurações avançadas de seus mapeamentos de atributo e adicione manualmente os atributos. Para saber mais, confira [Personalizar mapeamentos de atributo](customize-application-attributes.md).
+
+**Atributo nulo não pode ser provisionado**
+
+Atualmente, o Azure AD não pode provisionar atributos nulos. Se um atributo for nulo no objeto de usuário, ele será ignorado. 
+
+**Máximo de caracteres para expressões de mapeamento de atributo**
+
+As expressões de mapeamento de atributo podem ter um máximo de 10.000 caracteres. 
+
+
+## <a name="service-issues"></a>Problemas de serviço 
+
+**Cenários sem suporte**
+
+- Não há suporte para o provisionamento de senhas. 
+- Não há suporte para o provisionamento de grupos aninhados. 
+- O provisionamento para locatários B2C não tem suporte devido ao tamanho dos locatários. 
+
+**Alterações que não se movem do aplicativo de destino para o Azure AD**
+
+O serviço de provisionamento de aplicativos não está ciente das alterações feitas em aplicativos externos. Portanto, nenhuma ação é executada para reverter. O serviço de provisionamento de aplicativo depende das alterações feitas no Azure AD.  
+
+**O ciclo de provisionamento continua até a conclusão**
+
+Ao definir `enabled = off` o provisionamento ou ao pressionar parar, o ciclo de provisionamento atual continuará em execução até a conclusão. O serviço deixará de executar qualquer ciclo futuro até você ativar o provisionamento novamente.
+
+**Membro do grupo não provisionado**
+
+Quando um grupo estiver no escopo e um membro estiver fora do escopo, o grupo será provisionado. O usuário fora do escopo não será provisionado. Se o membro voltar ao escopo, o serviço não detectará imediatamente a alteração. Reiniciar o provisionamento abordará o problema. É recomendável reiniciar o serviço periodicamente para garantir que todos os usuários sejam provisionados corretamente.  
+
+
+## <a name="next-steps"></a>Próximas etapas
+- [Como funciona o provisionamento](how-provisioning-works.md)

@@ -4,38 +4,41 @@ description: O Azure IoT Edge usa um certificado para validar dispositivos, mód
 author: stevebus
 manager: philmea
 ms.author: stevebus
-ms.date: 10/29/2019
+ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: f9c3f8e1e37a59dc0010269c6b4c19e3a682c57e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9d7caf332239d364b5bc47b5d58a808ead70395d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247006"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210590"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Entender como Azure IoT Edge usa certificados
 
 IoT Edge certificados são usados pelos módulos e dispositivos IoT downstream para verificar a identidade e a legitimidade do módulo [IOT Edge](iot-edge-runtime.md#iot-edge-hub) tempo de execução do Hub. Essas verificações permitem uma conexão segura TLS (segurança da camada de transporte) entre o runtime, os módulos e os dispositivos IoT. Como o Hub IoT, o IoT Edge requer uma conexão segura e criptografada a partir de dispositivos IoT downstream (ou folha) e módulos IoT Edge. Para estabelecer uma conexão TLS segura, o módulo do hub do IoT Edge apresenta uma cadeia de certificados de servidor para conectar clientes para que eles verifiquem sua identidade.
 
+>[!NOTE]
+>Este artigo fala sobre os certificados que são usados para proteger conexões entre os diferentes componentes em um dispositivo IoT Edge ou entre um dispositivo IoT Edge e dispositivos de folha. Você também pode usar certificados para autenticar seu dispositivo de IoT Edge no Hub IoT. Esses certificados de autenticação são diferentes e não são discutidos neste artigo. Para obter mais informações sobre como autenticar seu dispositivo com certificados, consulte [criar e provisionar um dispositivo de IOT Edge usando certificados X. 509](how-to-auto-provision-x509-certs.md).
+
 Este artigo explica como os certificados de IoT Edge podem funcionar em cenários de produção, desenvolvimento e teste. Enquanto os scripts são diferentes (Powershell vs. bash), os conceitos são os mesmos entre o Linux e o Windows.
 
 ## <a name="iot-edge-certificates"></a>Certificados do IoT Edge
 
-Normalmente, os fabricantes não são os usuários finais de um dispositivo IoT Edge. Às vezes, a única relação entre os dois é quando o usuário final ou o operador, adquire um dispositivo genérico feito pelo fabricante. Em outras ocasiões, o fabricante trabalha sob contrato para criar um dispositivo personalizado para o operador. O design do certificado IoT Edge tenta levar em conta os dois cenários.
-
-> [!NOTE]
-> Atualmente, uma limitação no libiothsm impede o uso de certificados que expiram em 1º de janeiro de 2050. Essa limitação se aplica ao certificado de autoridade de certificação do dispositivo, a todos os certificados no pacote de confiança e aos certificados de ID de dispositivo usados para os métodos de provisionamento X. 509.
+Há dois cenários comuns para configurar certificados em um dispositivo IoT Edge. Às vezes, o usuário final, ou operador, de um dispositivo compra um dispositivo genérico feito por um fabricante e, em seguida, gerencia os próprios certificados. Em outras ocasiões, o fabricante trabalha sob contrato para criar um dispositivo personalizado para o operador e faz alguma assinatura de certificado inicial antes de entregar o dispositivo. O design do certificado IoT Edge tenta levar em conta os dois cenários.
 
 A figura a seguir ilustra o uso de certificados da IoT Edge. Pode haver zero, um ou muitos certificados de assinatura intermediários entre o Certificado de Autoridade de Certificação raiz e o Certificado de Autoridade de Certificação do dispositivo, dependendo do número de entidades envolvidas. Aqui, mostramos um caso.
 
 ![Diagrama de relacionamentos típicos de certificados](./media/iot-edge-certs/edgeCerts-general.png)
 
+> [!NOTE]
+> Atualmente, uma limitação no libiothsm impede o uso de certificados que expiram em 1º de janeiro de 2050. Essa limitação se aplica ao certificado de autoridade de certificação do dispositivo, a todos os certificados no pacote de confiança e aos certificados de ID de dispositivo usados para os métodos de provisionamento X. 509.
+
 ### <a name="certificate-authority"></a>Autoridade de certificação
 
-A autoridade de certificação ou 'CA' para abreviar, é uma entidade que emite certificados digitais. Uma autoridade de certificação atua como um terceiro confiável entre o proprietário e o destinatário do certificado. Um certificado digital certifica a propriedade de uma chave pública pelo destinatário do certificado. A cadeia de certificados de confiança funciona inicialmente emitindo um certificado raiz, que é a base da confiança em todos os certificados emitidos pela autoridade. Depois disso, o proprietário pode usar o certificado raiz para emitir certificados intermediários adicionais (certificados 'leaf').
+A autoridade de certificação ou 'CA' para abreviar, é uma entidade que emite certificados digitais. Uma autoridade de certificação atua como uma terceira parte confiável entre o proprietário e o destinatário do certificado. Um certificado digital certifica a propriedade de uma chave pública pelo destinatário do certificado. A cadeia de certificados de confiança funciona inicialmente emitindo um certificado raiz, que é a base da confiança em todos os certificados emitidos pela autoridade. Depois disso, o proprietário pode usar o certificado raiz para emitir certificados intermediários adicionais (certificados 'leaf').
 
 ### <a name="root-ca-certificate"></a>Certificado de AC raiz
 
@@ -59,7 +62,7 @@ O certificado de CA do dispositivo é gerado e assinado pelo certificado de CA i
 
 ### <a name="iot-edge-workload-ca"></a>Carga de trabalho do IoT Edge da autoridade de certificação
 
-O [IoT Edge Security Manager](iot-edge-security-manager.md) gera o Certificado de Autoridade de Certificação da carga de trabalho, o primeiro no lado do "operador" do processo, quando o IoT Edge é iniciado pela primeira vez. Este certificado é gerado e assinado pelo "certificado da CA do dispositivo". Esse certificado, que é apenas outro certificado de assinatura intermediário, é usado para gerar e assinar quaisquer outros certificados usados pelo runtime do IoT Edge. Atualmente, trata-se principalmente do certificado do servidor de hub do IoT Edge discutido na seção a seguir, mas, no futuro, pode incluir outros certificados para autenticar os componentes do IoT Edge.
+O [IoT Edge Security Manager](iot-edge-security-manager.md) gera o Certificado de Autoridade de Certificação da carga de trabalho, o primeiro no lado do "operador" do processo, quando o IoT Edge é iniciado pela primeira vez. Esse certificado é gerado de e assinado pelo certificado de autoridade de certificação do dispositivo. Esse certificado, que é apenas outro certificado de assinatura intermediário, é usado para gerar e assinar quaisquer outros certificados usados pelo runtime do IoT Edge. Atualmente, trata-se principalmente do certificado do servidor de hub do IoT Edge discutido na seção a seguir, mas, no futuro, pode incluir outros certificados para autenticar os componentes do IoT Edge.
 
 ### <a name="iot-edge-hub-server-certificate"></a>Certificado do servidor de hub do IoT Edge
 

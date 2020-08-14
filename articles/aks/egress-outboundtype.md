@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 5fe674fa7ab6a6a3f222a215ebc6912549776fee
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 2ffe9d525e92fa2154889cea43f681a0f31a18ab
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067351"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214220"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalizar a saída do cluster com uma rota definida pelo usuário
 
@@ -71,7 +71,8 @@ Para ilustrar o aplicativo de um cluster com o tipo de saída usando uma rota de
 > [!IMPORTANT]
 > O tipo de saída de UDR exige que haja uma rota para 0.0.0.0/0 e destino do próximo salto de NVA (solução de virtualização de rede) na tabela de rotas.
 > A tabela de rotas já tem um padrão 0.0.0.0/0 para a Internet, sem um IP público para SNAT apenas adicionar essa rota não fornecerá a saída. O AKS validará que você não cria uma rota 0.0.0.0/0 apontando para a Internet, mas em vez de NVA ou gateway, etc.
-
+> 
+> Ao usar um tipo de saída de UDR, um endereço IP público do balanceador de carga não é criado, a menos que um serviço do tipo *Balancer* seja configurado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

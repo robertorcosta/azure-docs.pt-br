@@ -4,16 +4,16 @@ description: Saiba como desenvolver Azure WebJobs no Visual Studio e implantá-l
 author: ggailey777
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.topic: conceptual
-ms.custom: vs-azure
+ms.custom: devx-track-csharp, vs-azure
 ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: f6ebb20eb66e2449f6627b3c6ce45fd88b8640aa
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 14bb693ccaa1b1d16a1d07b7ee1cdeb4493960f5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009730"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212885"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Desenvolver e implantar trabalhos Web usando o Visual Studio
 
@@ -57,7 +57,7 @@ Implante um projeto como um WebJob ou vincule-o a um projeto Web para que ele se
 
 Instale o Visual Studio 2017 ou o Visual Studio 2019 com a [carga de trabalho de desenvolvimento do Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
-### <a name="enable-webjobs-deployment-for-an-existing-console-app-project"></a><a id="convert"></a>Habilitar a implantação de trabalhos Web para um projeto de aplicativo de console existente
+### <a name="enable-webjobs-deployment-for-an-existing-console-app-project"></a><a id="convert"></a> Habilitar a implantação de trabalhos Web para um projeto de aplicativo de console existente
 
 Você tem duas opções:
 
@@ -218,10 +218,10 @@ As configurações a seguir são suportadas pelos trabalhos Web:
 
 | **Configuração** | **Tipo**  | **Descrição** |
 | ----------- | --------- | --------------- |
-| `is_in_place` | Todos | Permite que o WebJob seja executado no local sem primeiro ser copiado para uma pasta temporária. Para obter mais informações, consulte [diretório de trabalho do WebJob](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
+| `is_in_place` | Tudo | Permite que o WebJob seja executado no local sem primeiro ser copiado para uma pasta temporária. Para obter mais informações, consulte [diretório de trabalho do WebJob](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
 | `is_singleton` | Contínuo | Só execute o WebJob em uma única instância quando expandido. Para obter mais informações, consulte [definir um trabalho contínuo como singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
 | `schedule` | Disparado | Execute o WebJob em uma agenda baseada em CRON. Para obter mais informações, consulte [NCRONTAB Expressions](../azure-functions/functions-bindings-timer.md#ncrontab-expressions). |
-| `stopping_wait_time`| Todos | Permite o controle do comportamento de desligamento. Para obter mais informações, consulte [Desligamento normal](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
+| `stopping_wait_time`| Tudo | Permite o controle do comportamento de desligamento. Para obter mais informações, consulte [Desligamento normal](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ### <a name="continuous-execution"></a>Execução contínua
 

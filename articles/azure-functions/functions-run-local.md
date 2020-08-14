@@ -4,13 +4,13 @@ description: Saiba como codificar e testar o Azure Functions do prompt de comand
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 5c6761b083200556314d7133d5040f7811066e30
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.custom: devx-track-csharp, 80e4ff38-5174-43
+ms.openlocfilehash: 18263f9e77961fb4c169559f221ab94eb4a38840
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037024"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207451"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
@@ -189,7 +189,7 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 </pre>
 
-`func init`o oferece suporte às seguintes opções, que são a versão 3. x/2. x-only, salvo indicação em contrário:
+`func init` o oferece suporte às seguintes opções, que são a versão 3. x/2. x-only, salvo indicação em contrário:
 
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |

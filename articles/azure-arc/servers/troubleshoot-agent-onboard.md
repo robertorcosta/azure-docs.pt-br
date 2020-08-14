@@ -1,18 +1,18 @@
 ---
-title: Solucionar problemas de conexão de agente do Azure ARC para servidores
-description: Este artigo informa como solucionar problemas com o agente do computador conectado que surge com o Azure ARC para servidores (versão prévia) ao tentar se conectar ao serviço.
+title: Solucionar problemas de conexão do agente de servidores habilitados para Arc do Azure (visualização)
+description: Este artigo informa como solucionar problemas com o agente do computador conectado que surge com os servidores habilitados para Arc do Azure (versão prévia) ao tentar se conectar ao serviço.
 ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5cd2560279085485a8ac7b285e4f601060a924f1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: aeb370fb6cd4eacf20c1acf29e84c03e5e322d39
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118001"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213547"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Solucionar problemas de conexão do agente do computador conectado
 
-Este artigo fornece informações sobre como solucionar problemas que podem ocorrer durante a tentativa de configurar o Azure ARC para servidores (visualização) agente de máquina conectado para Windows ou Linux. Os métodos de instalação interativa e em escala ao configurar a conexão com o serviço são incluídos. Para obter informações gerais, consulte [visão geral do Arc for Servers](./overview.md).
+Este artigo fornece informações sobre como solucionar problemas que podem ocorrer durante a tentativa de configurar o agente de computador conectado de servidores habilitados para Arc do Azure (versão prévia) para Windows ou Linux. Os métodos de instalação interativa e em escala ao configurar a conexão com o serviço são incluídos. Para obter informações gerais, consulte [visão geral de servidores habilitados para Arc](./overview.md).
 
 ## <a name="agent-verbose-log"></a>Log detalhado do agente
 
@@ -22,13 +22,13 @@ Antes de seguir as etapas de solução de problemas descritas posteriormente nes
 
 Veja a seguir um exemplo do comando para habilitar o log detalhado com o agente do computador conectado para Windows ao executar uma instalação interativa.
 
-```
+```console
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
 
 Veja a seguir um exemplo do comando para habilitar o log detalhado com o agente do computador conectado para Windows ao executar uma instalação em escala usando uma entidade de serviço.
 
-```
+```console
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect `
   --service-principal-id "{serviceprincipalAppID}" `
   --service-principal-secret "{serviceprincipalPassword}" `
@@ -46,13 +46,13 @@ Veja a seguir um exemplo do comando para habilitar o log detalhado com o agente 
 >[!NOTE]
 >Você deve ter permissões de acesso à *raiz* em computadores Linux para executar o **azcmagent**.
 
-```
+```bash
 azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
 
 Veja a seguir um exemplo do comando para habilitar o log detalhado com o agente do computador conectado para Linux ao executar uma instalação em escala usando uma entidade de serviço.
 
-```
+```bash
 azcmagent connect \
   --service-principal-id "{serviceprincipalAppID}" \
   --service-principal-secret "{serviceprincipalPassword}" \

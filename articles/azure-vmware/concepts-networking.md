@@ -3,14 +3,14 @@ title: Conceitos-interconectividade de rede
 description: Saiba mais sobre os principais aspectos e casos de uso de rede e interconectividade na solução VMware do Azure (AVS)
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: c0416da9c745ccf92970ff39f623a782d5784983
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f1f1f5a089781f1f7e882c9c8692f0c845ae485
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062838"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214098"
 ---
-# <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Conceitos de rede e interconectividade da solução do Azure VMware (AVS) Preview
+# <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Conceitos de rede e interconectividade da versão prévia da Solução VMware no Azure (AVS)
 
 A interconectividade de rede entre suas nuvens privadas da AVS (solução do Azure VMware) e ambientes locais ou redes virtuais no Azure permite que você acesse e use sua nuvem privada. Neste artigo, abordaremos alguns conceitos importantes que estabelecem a base da rede e da interconectividade.
 

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 3ef109dc5fad73a19eabefb8eb872c02d62698ba
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b7623a3c89f9ae4b20385caaac676b972f55f85e
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087549"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209492"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migração de instância de SQL Server para o SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -162,7 +162,7 @@ A migração de banco de dados para uma instância gerenciada mantém as configu
 Como pré-requisito, verifique se você concluiu as seguintes atividades:
 
 - Alinhe suas configurações na instância gerenciada com as configurações da instância de SQL Server de origem, investigando várias instâncias de instância, banco de dados, tempdb e configurações. Certifique-se de que você não alterou as configurações como níveis de compatibilidade ou criptografia antes de executar a primeira comparação de desempenho ou aceite o risco de que alguns dos novos recursos habilitados possam afetar algumas consultas. Para reduzir os riscos de migração, altere o nível de compatibilidade do banco de dados somente após o monitoramento do desempenho.
-- Implemente [diretrizes de práticas recomendadas de armazenamento para uso geral](https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525), como alocar previamente o tamanho dos arquivos para obter um melhor desempenho.
+- Implemente [diretrizes de práticas recomendadas de armazenamento para uso geral](https://techcommunity.microsoft.com), como alocar previamente o tamanho dos arquivos para obter um melhor desempenho.
 - Saiba mais sobre as [principais diferenças de ambiente que podem causar as diferenças de desempenho entre uma instância gerenciada e SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)e identificar os riscos que podem afetar o desempenho.
 - Certifique-se de manter habilitado Repositório de Consultas e ajuste automático em sua instância gerenciada. Esses recursos permitem que você meça o desempenho da carga de trabalho e corrija automaticamente os possíveis problemas de desempenho. Saiba como usar o Repositório de Consultas como uma ferramenta ideal para obter informações sobre o desempenho da carga de trabalho antes e depois da alteração do nível de compatibilidade do banco de dados, conforme explicado em [manter a estabilidade do desempenho durante a atualização para uma versão mais recente do SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 Depois de preparar o ambiente que é comparável o máximo possível com seu ambiente local, você pode começar a executar sua carga de trabalho e medir o desempenho. O processo de medição deve incluir os mesmos parâmetros que você mediu [enquanto criou o desempenho de linha de base de suas medidas de carga de trabalho na instância de SQL Server de origem](#create-a-performance-baseline).

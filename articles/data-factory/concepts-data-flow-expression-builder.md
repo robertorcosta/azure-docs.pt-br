@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 06/20/2020
-ms.openlocfilehash: 7e2b655b344af90c4555beb0af85fa11cbc6d1c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/10/2020
+ms.openlocfilehash: f522812f762b55ec61794101e6cd1ec15fb171ca
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85126154"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212110"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Criar expressões no fluxo de dados de mapeamento
 
@@ -26,7 +26,7 @@ No fluxo de dados de mapeamento, muitas propriedades de transformação são ins
 
 A interface de edição de expressão no Azure Data Factory experiência do usuário é conhecida como Construtor de expressões. À medida que você insere a lógica de expressão, Data Factory usa a conclusão de código [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense?view=vs-2019) para realce, verificação de sintaxe e preenchimento automático.
 
-![Construtor de expressões](media/data-flow/xpb1.png "Construtor de Expressões")
+![Construtor de Expressões](media/data-flow/xpb1.png "Construtor de Expressões")
 
 Em transformações, como a coluna derivada e o filtro, em que as expressões são obrigatórias, abra o construtor de expressões selecionando a caixa expressão azul.
 

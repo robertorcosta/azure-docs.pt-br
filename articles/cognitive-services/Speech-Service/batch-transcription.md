@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: 3e7f310f37bd016a73c589db3c9a23e197465427
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 70977c30edce124aa0d39bcc57d4ccd015d65961
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053909"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214047"
 ---
 # <a name="what-is-batch-transcription"></a>O que é a transcrição em lote?
 
@@ -31,7 +31,7 @@ A transcrição de fala em texto assíncrona é apenas um dos recursos. Você po
 |    Recupera uma lista de transcrições para a assinatura autenticada.    |    GET       |    speechtotext/v 3.0/transcrições            |
 |    Obtém uma lista de localidades com suporte para transcrições offline.              |    GET       |    speechtotext/v 3.0/transcrições/localidades    |
 |    Atualiza os detalhes mutáveis da transcrição identificada por sua ID.    |    PATCH     |    speechtotext/v 3.0/transcrições/{ID}       |
-|    Exclui a tarefa de transcrição especificada.                                 |    DELETE    |    speechtotext/v 3.0/transcrições/{ID}       |
+|    Exclui a tarefa de transcrição especificada.                                 |    Delete (excluir)    |    speechtotext/v 3.0/transcrições/{ID}       |
 |    Obtém a transcrição identificada pela ID fornecida.                        |    GET       |    speechtotext/v 3.0/transcrições/{ID}       |
 |    Obtém os arquivos de resultado da transcrição identificada pela ID fornecida.    |    GET       |    speechtotext/v 3.0/transcrições/{ID}/arquivos |
 
@@ -63,7 +63,7 @@ Se você planeja personalizar modelos, siga as etapas em [personalização acús
 
 A API de transcrição de lote dá suporte aos seguintes formatos:
 
-| Formatar | Codec | Bitrate | Taxa de amostragem                     |
+| Formatar | Codec | Bits por amostra | Taxa de amostragem             |
 |--------|-------|---------|---------------------------------|
 | WAV    | PCM   | 16 bits  | 8 kHz ou 16 kHz, mono ou estéreo |
 | MP3    | PCM   | 16 bits  | 8 kHz ou 16 kHz, mono ou estéreo |

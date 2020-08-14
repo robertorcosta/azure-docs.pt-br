@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: alkohli
-ms.openlocfilehash: a99499110951ccbc0458b5ce848930fed9205dad
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 7cac14708adecbdf3c809e3a9656d25c727d80e3
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371986"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206159"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use a interface do usuário da Web local para administrar seu Data Box e Data Box Heavy
 
@@ -25,7 +25,7 @@ Este artigo inclui os seguintes tutoriais:
 
 - Gerar um pacote de suporte
 - Desligar ou reiniciar seu dispositivo
-- Baixar arquivos de manifesto ou BOM
+- Baixar a BOM (lista de materiais) ou os arquivos de manifesto
 - Exibir a capacidade disponível no dispositivo
 - Ignorar a validação de soma de verificação
 
@@ -62,7 +62,7 @@ Para desligar o dispositivo, execute as etapas a seguir.
 
     ![Desligar o Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
-3. Quando a confirmação for solicitada, clique em **OK** para continuar.
+3. Quando a confirmação for solicitada, selecione **OK** para continuar.
 
     ![Desligar o Data Box 2](media/data-box-local-web-ui-admin/shut-down-local-web-ui-2.png)
 
@@ -81,33 +81,32 @@ Para reiniciar o Data Box, execute as seguintes etapas.
 
 ## <a name="download-bom-or-manifest-files"></a>Baixar arquivos de manifesto ou BOM
 
-A BOM (lista de materiais) ou os arquivos de manifesto contêm a lista dos arquivos que são copiados para o Data Box ou Data Box Heavy. Esses arquivos são gerados para uma ordem de importação quando você prepara o dispositivo para envio.
+A BOM ou os arquivos de manifesto contêm a lista dos arquivos que são copiados para o Data Box ou Data Box Heavy. Esses arquivos são gerados para uma ordem de importação quando você prepara o dispositivo para envio.
 
-Antes de começar, verifique se o dispositivo foi concluído **preparação para o envio** etapa. Siga estas etapas para baixar a BOM ou os arquivos de manifesto para sua ordem de importação:
+Antes de começar, siga estas etapas para baixar a BOM ou os arquivos de manifesto para sua ordem de importação:
 
-1. Vá para a interface do usuário da Web local do seu dispositivo. Você verá que o dispositivo concluiu a preparação para o envio. Quando a preparação do dispositivo for concluída, o status do dispositivo será exibido como **Pronto para envio**.
+1. Vá para a interface do usuário da Web local do seu dispositivo. Verifique se o dispositivo concluiu a etapa de **preparação para o envio** . Quando a preparação do dispositivo for concluída, o status do dispositivo será exibido como **Pronto para envio**.
 
-    ![O dispositivo está pronto para envio](media/data-box-portal-admin/ready-to-ship.png)
+    ![O dispositivo está pronto para envio](media/data-box-local-web-ui-admin/prepare-to-ship-3.png)
 
 2. Selecione **baixar lista de arquivos** para baixar a lista de arquivos que foram copiados no seu data box.
 
-    ![Selecione baixar lista de arquivos](media/data-box-portal-admin/download-list-of-files.png)
+    <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
 3. No Explorador de Arquivos, você verá que a lista de arquivos separada é gerada dependendo do protocolo usado para se conectar ao dispositivo e do tipo de Armazenamento do Azure usado.
 
-    ![Arquivos para o protocolo de conexão e o tipo de armazenamento](media/data-box-portal-admin/files-storage-connection-type.png)
+    <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
+    ![Arquivos para o protocolo de conexão e o tipo de armazenamento](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
 
    A tabela a seguir mapeia os nomes de arquivo para o tipo de Armazenamento do Azure e o protocolo de conexão usado.
 
     |Nome do arquivo  |Tipo de Armazenamento do Azure  |Protocolo de conexão usado |
     |---------|---------|---------|
-    |databoxe2etest_BlockBlob.txt     |Blobs de bloco         |SMB/NFS         |
-    |databoxe2etest_PageBlob.txt     |Blobs de páginas         |SMB/NFS         |
-    |databoxe2etest_AzFile-BOM.txt    |Arquivos do Azure         |SMB/NFS         |
-    |databoxe2etest_PageBlock_Rest-BOM.txt     |Blobs de páginas         |REST        |
-    |databoxe2etest_BlockBlock_Rest-BOM.txt    |Blobs de bloco         |REST         |
-    |mydbmdrg1_MDisk-BOM.txt    |Disco Gerenciado         |SMB/NFS         |
-    |mydbmdrg2_MDisk-BOM.txt     |Disco Gerenciado         |SMB/NFS         |
+    |utSAC1_202006051000_BlockBlob-BOM.txt     |Blobs de bloco         |SMB/NFS         |
+    |utSAC1_202006051000_PageBlob-BOM.txt     |Blobs de páginas         |SMB/NFS         |
+    |utSAC1_202006051000_AzFile-BOM.txt    |Arquivos do Azure         |SMB/NFS         |
+    |utsac1_PageBlock_Rest-BOM.txt     |Blobs de páginas         |REST        |
+    |utsac1_BlockBlock_Rest-BOM.txt    |Blobs de bloco         |REST         |
 
 Você usa esta lista para verificar os arquivos carregados na conta de Armazenamento do Azure depois que o Data Box retorna para o datacenter do Azure. Abaixo é mostrado um exemplo de arquivo de manifesto.
 
@@ -209,7 +208,7 @@ Por padrão, o Azure Data Box usa o protocolo TLS 1,2 para criptografia, pois é
 
 Para obter mais informações relacionadas ao TLS, consulte [segurança do gateway do Azure data Box](../databox-online/data-box-gateway-security.md).
 
-Para habilitar o TLS 1,1 no dispositivo do Azure:
+Para habilitar o TLS 1,1 em seu dispositivo do Azure:
 
 1. No canto superior direito da interface do usuário da Web local do seu dispositivo, selecione **configurações**.
 

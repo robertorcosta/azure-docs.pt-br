@@ -2,13 +2,13 @@
 title: Tipos de entidade-LUIS
 description: Uma entidade extrai dados de um usuário expressão no tempo de execução de previsão. Uma finalidade _opcional_e secundária é impulsionar a previsão da intenção ou de outras entidades usando a entidade como um recurso.
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: ced4a3e23b8e532b54d0b3cf974dab233b81b375
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.date: 08/06/2020
+ms.openlocfilehash: 8751bdd52bb1c3738103dc074184a3cf72bfeb09
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337612"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207754"
 ---
 # <a name="extract-data-with-entities"></a>Extrair dados com entidades
 
@@ -140,9 +140,16 @@ Um padrão. Any está disponível apenas em um [padrão](luis-concept-patterns.m
 
 Se você precisar de mais do que o [limite](luis-limits.md#model-limits), entre em contato com o suporte. Para fazer isso, colete informações detalhadas sobre seu sistema, acesse o site do [LUIS](luis-reference-regions.md#luis-website) e selecione **Suporte**. Se a assinatura do Azure incluir serviços de suporte, contate o [suporte técnico do Azure](https://azure.microsoft.com/support/options/).
 
-## <a name="entity-prediction-status"></a>Status de previsão de entidade
+## <a name="entity-prediction-status-and-errors"></a>Status e erros de previsão de entidade
 
-O portal do LUIS mostra quando a entidade tem uma previsão de entidade diferente da entidade selecionada para um exemplo de expressão. Essa pontuação diferente é baseada no modelo treinado atual. Use essas informações para resolver erros de treinamento usando um ou mais dos seguintes itens:
+O portal do LUIS mostra quando a entidade tem uma previsão de entidade diferente da entidade selecionada para um exemplo de expressão. Essa pontuação diferente é baseada no modelo treinado atual. 
+
+:::image type="content" source="./media/luis-concept-entities/portal-entity-prediction-error.png" alt-text="O portal do LUIS mostra quando a entidade tem uma previsão de entidade diferente da entidade selecionada para um exemplo de expressão.":::
+
+O texto de erro é realçado no exemplo expressão e a linha expressão de exemplo tem um indicador de erro à direita, mostrado como um triângulo vermelho. 
+
+Use essas informações para resolver erros de entidade usando um ou mais dos seguintes itens:
+* O texto realçado é rotulado com nome. Para corrigir, revisar, corrigir e treinar novamente. 
 * Criar um [recurso](luis-concept-feature.md) para a entidade para ajudar a identificar o conceito da entidade
 * Adicionar mais [exemplos de declarações](luis-concept-utterance.md) e rótulo com a entidade
 * [Examine as sugestões de aprendizado ativo](luis-concept-review-endpoint-utterances.md) para qualquer declarações recebido no ponto de extremidade de previsão que possa ajudar a identificar o conceito da entidade.

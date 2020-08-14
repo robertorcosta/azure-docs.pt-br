@@ -9,14 +9,16 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 543644495a99bacd40edc3f2d9151e4c15808c50
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 47a8d58d6ca0a8a04823fe09fb52490f13cfead7
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038419"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208738"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapeamentos de campo e transformações usando indexadores do Azure Pesquisa Cognitiva
+
+![Estágios do indexador](./media/search-indexer-field-mappings/indexer-stages-field-mappings.png "estágios do indexador")
 
 Ao usar os indexadores do Azure Pesquisa Cognitiva, às vezes, você descobre que os dados de entrada não correspondem exatamente ao esquema do índice de destino. Nesses casos, você pode usar **mapeamentos de campo** para remodelar os dados durante o processo de indexação.
 
@@ -275,9 +277,9 @@ Essa função pode ser usada para codificar uma cadeia de caracteres de forma qu
 
 #### <a name="example---document-key-lookup"></a>Exemplo – pesquisa de chave de documento
 
-`urlEncode`a função pode ser usada como uma alternativa à `base64Encode` função, se apenas caracteres não seguros de URL forem convertidos, mantendo outros caracteres como estão.
+`urlEncode` a função pode ser usada como uma alternativa à `base64Encode` função, se apenas caracteres não seguros de URL forem convertidos, mantendo outros caracteres como estão.
 
-Digamos que a cadeia de caracteres de entrada seja `<hello>` -então, o campo de destino do tipo `(Edm.String)` será preenchido com o valor`%3chello%3e`
+Digamos que a cadeia de caracteres de entrada seja `<hello>` -então, o campo de destino do tipo `(Edm.String)` será preenchido com o valor `%3chello%3e`
 
 Quando você recupera a chave codificada no momento da pesquisa, pode usar a `urlDecode` função para obter o valor de chave original e usá-lo para recuperar o documento de origem.
 

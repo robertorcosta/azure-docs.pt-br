@@ -1,18 +1,18 @@
 ---
 title: Visão geral do agente do Connected Machine do Windows
-description: Este artigo fornece uma visão geral detalhada do Azure ARC para servidores (versão prévia) agente disponível, que dá suporte ao monitoramento de máquinas virtuais hospedadas em ambientes híbridos.
+description: Este artigo fornece uma visão geral detalhada do agente de servidores habilitados para Arc do Azure (versão prévia) disponível, que dá suporte ao monitoramento de máquinas virtuais hospedadas em ambientes híbridos.
 ms.date: 08/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8e8abfcc3c6ec7b7893563c67dc6bb82ccdda850
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d922652537034bef258c5bcde78fb178b092ed16
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121826"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212976"
 ---
-# <a name="overview-of-azure-arc-for-servers-preview-agent"></a>Visão geral do Azure ARC para servidores (versão prévia) agente
+# <a name="overview-of-azure-arc-enabled-servers-preview-agent"></a>Visão geral do agente de servidores habilitados para Arc do Azure (versão prévia)
 
-O agente de computador conectado do Arc do Azure para servidores (visualização) permite que você gerencie seus computadores Windows e Linux hospedados fora do Azure em sua rede corporativa ou outro provedor de nuvem. Este artigo fornece uma visão geral detalhada do agente, dos requisitos do sistema e da rede e dos diferentes métodos de implantação.
+O agente de computador conectado de servidores habilitados para Arc (visualização) do Azure permite que você gerencie seus computadores Windows e Linux hospedados fora do Azure em sua rede corporativa ou em outro provedor de nuvem. Este artigo fornece uma visão geral detalhada do agente, dos requisitos do sistema e da rede e dos diferentes métodos de implantação.
 
 ## <a name="agent-component-details"></a>Detalhes do componente do agente
 
@@ -65,7 +65,7 @@ Há suporte oficial para as seguintes versões do sistema operacional Windows e 
 
 ### <a name="azure-subscription-and-service-limits"></a>Limites de serviço e assinatura do Azure
 
-Antes de configurar seus computadores com o Azure ARC para servidores (versão prévia), examine os [limites de assinatura](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) Azure Resource Manager e os limites de [grupo de recursos](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) para planejar o número de computadores a serem conectados.
+Antes de configurar seus computadores com os servidores habilitados para Arc do Azure (versão prévia), examine os limites de Azure Resource Manager de [assinatura](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) e [os limites de grupo de recursos](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) para planejar o número de computadores a serem conectados.
 
 ### <a name="transport-layer-security-12-protocol"></a>Protocolo de segurança de camada de transporte 1,2
 
@@ -105,7 +105,7 @@ As URLs na tabela anterior são necessárias, além das informações sobre o in
 
 ### <a name="register-azure-resource-providers"></a>Registrar provedores de recursos do Azure
 
-O Azure Arc para servidores (versão prévia) depende dos seguintes provedores de recursos do Azure em sua assinatura para usar esse serviço:
+Os servidores habilitados para Arc do Azure (visualização) dependem dos seguintes provedores de recursos do Azure em sua assinatura para usar este serviço:
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
@@ -248,4 +248,4 @@ Após a instalação do agente do Connected Machine para Linux, serão aplicadas
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar a avaliar o Azure Arc para servidores (versão prévia), siga o artigo [Conectar computadores híbridos ao Azure do portal do Azure](onboard-portal.md).
+Para começar a avaliar os servidores habilitados para Arc do Azure (versão prévia), siga o artigo [conectar computadores híbridos ao Azure por meio do portal do Azure](onboard-portal.md).

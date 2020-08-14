@@ -3,14 +3,15 @@ title: Azure Functions Associação de saída do serviço Signalr
 description: Saiba como enviar mensagens de serviço de sinal de Azure Functions.
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: d3ba9183cdea752c3e69a41770b6a5319a4a601d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b401ff20b553629341c5190deb4cfc54c474d789
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77530244"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212577"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Associação de saída do serviço signalr para Azure Functions
 
@@ -729,8 +730,8 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**| N/D | Deve ser definido como `signalRConnectionInfo`.|
-|**direction**| N/D | Deve ser definido como `in`.|
+|**tipo**| n/d | Deve ser definido como `signalRConnectionInfo`.|
+|**direction**| n/d | Deve ser definido como `in`.|
 |**name**| n/d | Nome da variável usada no código de função para o objeto de informações de conexão. |
 |**hubName**|**HubName**| Esse valor deve ser definido como o nome do hub SignalR para o qual as informações de conexão são geradas.|
 |**ID**|**ID**| Opcional: o valor da declaração do identificador de usuário a ser definida no token de chave de acesso. |
@@ -742,8 +743,8 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo**| N/D | Deve ser definido como `signalR`.|
-|**direction**| N/D | Deve ser definido como `out`.|
+|**tipo**| n/d | Deve ser definido como `signalR`.|
+|**direction**| n/d | Deve ser definido como `out`.|
 |**name**| n/d | Nome da variável usada no código de função para o objeto de informações de conexão. |
 |**hubName**|**HubName**| Esse valor deve ser definido como o nome do hub SignalR para o qual as informações de conexão são geradas.|
 |**connectionStringSetting**|**ConnectionStringSetting**| O nome da configuração do aplicativo que contém a cadeia de conexão do SignalR Service (o padrão é "AzureSignalRConnectionString") |

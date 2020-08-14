@@ -5,13 +5,13 @@ keywords: serviço de aplicativo do Azure, aplicativo Web, configurações de ap
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
-ms.custom: seodec18
-ms.openlocfilehash: 9371b39bd37ba2514256a3b2fa90812f45c7ce5e
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 57039149afd22546bbd584db47e7a015b8b5f85c
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077366"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213571"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurar um aplicativo do serviço de aplicativo no portal do Azure
 
@@ -96,11 +96,11 @@ Para outras pilhas de idiomas, é melhor usar [as configurações do aplicativo]
 
 Em tempo de execução, as cadeias de conexão estão disponíveis como variáveis de ambiente, prefixadas com os seguintes tipos de conexão:
 
-* SqlServer`SQLCONNSTR_`  
+* SqlServer `SQLCONNSTR_`  
 * MySQL: `MYSQLCONNSTR_` 
-* SQLAzure`SQLAZURECONNSTR_` 
+* SQLAzure `SQLAZURECONNSTR_` 
 * Personalizado: `CUSTOMCONNSTR_`
-* PostgreSQL`POSTGRESQLCONNSTR_`  
+* PostgreSQL `POSTGRESQLCONNSTR_`  
 
 Por exemplo, uma cadeia de conexão do MySql chamada *connectionstring1* pode ser acessada como a variável de ambiente `MYSQLCONNSTR_connectionString1` . Para obter as etapas específicas da pilha de idiomas, consulte:
 

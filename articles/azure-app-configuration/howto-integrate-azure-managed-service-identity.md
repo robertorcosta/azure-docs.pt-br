@@ -1,26 +1,27 @@
 ---
-title: Usar identidades gerenciadas para acessar a configuração do aplicativo
+title: Usar identidades gerenciadas para acessar a Configuração de Aplicativos
 titleSuffix: Azure App Configuration
 description: Autenticar para Azure App configuração usando identidades gerenciadas
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: 7ccf1bed3a1791f0aa172a617deab1cd192540f3
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: b1efeeef09e7c228eb8fc14de52a6beb2e9ffffe
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135463"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206832"
 ---
-# <a name="use-managed-identities-to-access-app-configuration"></a>Usar identidades gerenciadas para acessar a configuração do aplicativo
+# <a name="use-managed-identities-to-access-app-configuration"></a>Usar identidades gerenciadas para acessar a Configuração de Aplicativos
 
 Azure Active Directory [identidades gerenciadas](../active-directory/managed-identities-azure-resources/overview.md) simplificam o gerenciamento de segredos para seu aplicativo de nuvem. Com uma identidade gerenciada, seu código pode usar a entidade de serviço criada para o serviço do Azure em que ele é executado. Você usa uma identidade gerenciada, em vez de uma credencial separada armazenada no Azure Key Vault ou uma cadeia de caracteres de conexão local.
 
 A configuração de Azure App e suas bibliotecas de cliente .NET Core, .NET Framework e Java Spring têm suporte de identidade gerenciada incorporadas a elas. Embora você não precise usá-lo, a identidade gerenciada elimina a necessidade de um token de acesso que contenha segredos. Seu código pode acessar o repositório de configuração de aplicativo usando apenas o ponto de extremidade de serviço. Você pode inserir essa URL em seu código diretamente sem expor nenhum segredo.
 
-Este artigo mostra como você pode aproveitar a identidade gerenciada para acessar a configuração do aplicativo. Ele se baseia no aplicativo Web introduzido nos Inícios Rápidos. Antes de continuar, [crie um aplicativo ASP.NET Core com a configuração de aplicativo](./quickstart-aspnet-core-app.md) primeiro.
+Este artigo mostra como você pode aproveitar a identidade gerenciada para acessar a configuração do aplicativo. Ele se baseia no aplicativo Web introduzido nos Inícios Rápidos. Antes de continuar,  [crie um aplicativo ASP.NET Core com a configuração de aplicativo](./quickstart-aspnet-core-app.md) primeiro.
 
 Este artigo também mostra como você pode usar a identidade gerenciada em conjunto com as referências de Key Vault da configuração de aplicativo. Com uma única identidade gerenciada, você pode acessar diretamente os segredos de Key Vault e os valores de configuração da configuração do aplicativo. Se você quiser explorar esse recurso, conclua o [uso de Key Vault referências com ASP.NET Core](./use-key-vault-references-dotnet-core.md) primeiro.
 
@@ -68,7 +69,7 @@ Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo
 
 1. Em **Assinatura**, selecione sua assinatura do Azure. Selecione o recurso de Serviço de Aplicativo para o seu aplicativo.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
     ![Adicionar uma identidade gerenciada](./media/add-managed-identity.png)
 
@@ -184,7 +185,7 @@ Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo
     Agora você pode acessar Key Vault referências, assim como qualquer outra chave de configuração de aplicativo. O provedor de configuração usará o `KeyVaultClient` que você configurou para autenticar para Key Vault e recuperar o valor.
 
 > [!NOTE]
-> `ManagedIdentityCredential`dá suporte apenas à autenticação de identidade gerenciada. Ele não funciona em ambientes locais. Se você quiser executar o código localmente, considere o uso do `DefaultAzureCredential` , que oferece suporte à autenticação de entidade de serviço também. Verifique o [link](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) para obter detalhes.
+> `ManagedIdentityCredential` dá suporte apenas à autenticação de identidade gerenciada. Ele não funciona em ambientes locais. Se você quiser executar o código localmente, considere o uso do `DefaultAzureCredential` , que oferece suporte à autenticação de entidade de serviço também. Verifique o [link](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) para obter detalhes.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 

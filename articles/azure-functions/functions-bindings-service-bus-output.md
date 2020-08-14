@@ -6,13 +6,13 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: c377d9882b59731857641e1f593dd6b7b24ca7f9
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 3fc8f205bff52fad6e55b7aa6692ec80ae5e954a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844075"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212148"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Associação de saída do barramento de serviço do Azure para Azure Functions
 
@@ -303,9 +303,9 @@ Use os seguintes tipos de parâmetro para a associação de saída:
 * `out T paramName` - `T` pode ser qualquer tipo serializável em JSON. Se o valor do parâmetro for nulo quando a função existir, o Functions criará a mensagem com um objeto nulo.
 * `out string` - Se o valor de parâmetro não for nulo quando a função sair, o Functions criará uma mensagem.
 * `out byte[]` - Se o valor de parâmetro não for nulo quando a função sair, o Functions criará uma mensagem.
-* `out BrokeredMessage`-Se o valor do parâmetro for nulo quando a função for encerrada, as funções não criarão uma mensagem (para as funções 1. x)
-* `out Message`-Se o valor do parâmetro for nulo quando a função for encerrada, as funções não criarão uma mensagem (para as funções 2. x e superior)
-* `ICollector<T>`ou `IAsyncCollector<T>` (para métodos assíncronos) – para criar várias mensagens. Uma mensagem é criada quando você chama o método `Add` .
+* `out BrokeredMessage` -Se o valor do parâmetro for nulo quando a função for encerrada, as funções não criarão uma mensagem (para as funções 1. x)
+* `out Message` -Se o valor do parâmetro for nulo quando a função for encerrada, as funções não criarão uma mensagem (para as funções 2. x e superior)
+* `ICollector<T>` ou `IAsyncCollector<T>` (para métodos assíncronos) – para criar várias mensagens. Uma mensagem é criada quando você chama o método `Add` .
 
 Ao trabalhar com funções C#:
 
@@ -320,8 +320,8 @@ Use os seguintes tipos de parâmetro para a associação de saída:
 * `out T paramName` - `T` pode ser qualquer tipo serializável em JSON. Se o valor do parâmetro for nulo quando a função existir, o Functions criará a mensagem com um objeto nulo.
 * `out string` - Se o valor de parâmetro não for nulo quando a função sair, o Functions criará uma mensagem.
 * `out byte[]` - Se o valor de parâmetro não for nulo quando a função sair, o Functions criará uma mensagem.
-* `out BrokeredMessage`-Se o valor do parâmetro for nulo quando a função for encerrada, as funções não criarão uma mensagem (para as funções 1. x)
-* `out Message`-Se o valor do parâmetro for nulo quando a função for encerrada, as funções não criarão uma mensagem (para as funções 2. x e superior)
+* `out BrokeredMessage` -Se o valor do parâmetro for nulo quando a função for encerrada, as funções não criarão uma mensagem (para as funções 1. x)
+* `out Message` -Se o valor do parâmetro for nulo quando a função for encerrada, as funções não criarão uma mensagem (para as funções 2. x e superior)
 * `ICollector<T>` ou `IAsyncCollector<T>` - Para a criação de várias mensagens. Uma mensagem é criada quando você chama o método `Add` .
 
 Ao trabalhar com funções C#:

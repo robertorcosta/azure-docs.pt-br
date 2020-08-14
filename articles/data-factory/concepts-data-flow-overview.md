@@ -6,36 +6,36 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 06/09/2020
-ms.openlocfilehash: 850879675d4554329f24c86f2ac28660b303084c
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.custom: references_regions
+ms.date: 08/12/2020
+ms.openlocfilehash: ad3fa9db5a15f68f0538b5de29d9a89858c472e9
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475559"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212059"
 ---
-# <a name="what-are-mapping-data-flows"></a>O que são os fluxos de dados de mapeamento?
+# <a name="mapping-data-flows-in-azure-data-factory"></a>Mapeando fluxos de dados em Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-O mapeamento de fluxos de dados são transformações de dados visualmente projetadas em Azure Data Factory. Os fluxos de dados permitem que os engenheiros de dados desenvolvam a lógica de transformação de dados gráficos sem escrever código. Os fluxos de dados resultantes são executados como atividades dentro de Azure Data Factory pipelines que usam clusters de Apache Spark expandidos. As atividades de fluxo de dados podem ser envolvidas por meio de recursos existentes de agendamento, controle, fluxo e monitoramento de Data Factory.
+## <a name="what-are-mapping-data-flows"></a>O que são os fluxos de dados de mapeamento?
 
-O mapeamento de fluxos de dados fornece uma experiência totalmente visual sem a necessidade de codificação. Seus fluxos de dados são executados em seu cluster de execução para processamento de dados expandido. Azure Data Factory manipula toda a conversão de código, a otimização de caminho e a execução de seus trabalhos de fluxo de dados.
+O mapeamento de fluxos de dados são transformações de dados visualmente projetadas em Azure Data Factory. Os fluxos de dados permitem que os engenheiros de dados desenvolvam a lógica de transformação de dados sem escrever código. Os fluxos de dados resultantes são executados como atividades dentro de Azure Data Factory pipelines que usam clusters de Apache Spark expandidos. As atividades de fluxo de dados podem ser operadas usando recursos existentes de agendamento, controle, fluxo e monitoramento de Azure Data Factory.
 
-![Arquitetura](media/data-flow/adf-data-flows.png "Arquitetura")
+O mapeamento de fluxos de dados fornece uma experiência totalmente visual sem a necessidade de codificação. Seus fluxos de dados são executados em clusters de execução gerenciados por ADF para processamento de dados escalados horizontalmente. Azure Data Factory manipula toda a conversão de código, a otimização de caminho e a execução de seus trabalhos de fluxo de dados.
 
 ## <a name="getting-started"></a>Introdução
 
-Para criar um fluxo de dados, selecione o sinal de adição em **recursos de fábrica**e, em seguida, selecione **fluxo de dados**. 
+Os fluxos de dados são criados no painel recursos de fábrica como pipelines e conjuntos de dados. Para criar um fluxo de dados, selecione o sinal de adição ao lado de **recursos de fábrica**e, em seguida, selecione **fluxo de dados**. 
 
-![Novo fluxo de dados](media/data-flow/newdataflow2.png "novo fluxo de dados")
+![Novo fluxo de dados](media/data-flow/new-data-flow.png "novo fluxo de dados")
 
 Essa ação leva você para a tela de fluxo de dados, na qual você pode criar a lógica de transformação. Selecione **Adicionar origem** para começar a configurar sua transformação de origem. Para obter mais informações, consulte [Source Transformation](data-flow-source.md).
 
-## <a name="data-flow-canvas"></a>Tela de fluxo de dados
+## <a name="authoring-data-flows"></a>Criação de fluxos de dados
 
-A tela de fluxo de dados é separada em três partes: a barra superior, o grafo e o painel de configuração. 
+O mapeamento de fluxo de dados tem uma tela de criação exclusiva projetada para facilitar a criação da lógica de transformação. A tela de fluxo de dados é separada em três partes: a barra superior, o grafo e o painel de configuração. 
 
 ![Canvas](media/data-flow/canvas1.png "Canvas")
 
@@ -44,40 +44,6 @@ A tela de fluxo de dados é separada em três partes: a barra superior, o grafo 
 O grafo exibe o fluxo de transformação. Ele mostra a linhagem dos dados de origem conforme eles fluem em um ou mais coletores. Para adicionar uma nova origem, selecione **Adicionar origem**. Para adicionar uma nova transformação, selecione o sinal de adição no canto inferior direito de uma transformação existente.
 
 ![Canvas](media/data-flow/canvas2.png "Canvas")
-
-### <a name="azure-integration-runtime-data-flow-properties"></a>Propriedades de fluxo de dados do Azure Integration Runtime
-
-![Botão depurar](media/data-flow/debugbutton.png "Botão depurar")
-
-Ao começar a trabalhar com fluxos de dados no ADF, você deseja ativar a opção de "depuração" para fluxos de dados na parte superior da interface do usuário do navegador. Isso gira um cluster Spark para usar para depuração interativa, visualizações de dados e execuções de depuração de pipeline. Você pode definir o tamanho do cluster que está sendo utilizado escolhendo um [Azure Integration Runtime](concepts-integration-runtime.md)personalizado. A sessão de depuração permanece ativa por até 60 minutos após a última visualização de dados ou a última execução do pipeline de depuração.
-
-Quando você operacionalizou seus pipelines com atividades de fluxo de dados, o ADF usa o Azure Integration Runtime associado à [atividade](control-flow-execute-data-flow-activity.md) na propriedade "executar em".
-
-O Azure Integration Runtime padrão é um cluster de nó de trabalho único de 4 núcleos que permite visualizar dados e executar rapidamente os pipelines de depuração com custos mínimos. Defina uma configuração de Azure IR maior se você estiver executando operações em grandes conjuntos de altos.
-
-Você pode instruir o ADF a manter um pool de recursos de cluster (VMs) definindo um TTL na Azure IR Propriedades de fluxo de dados. Essa ação resulta em uma execução de trabalho mais rápida nas atividades subsequentes.
-
-#### <a name="azure-integration-runtime-and-data-flow-strategies"></a>Tempo de execução de integração do Azure e estratégias de fluxo de dados
-
-##### <a name="execute-data-flows-in-parallel"></a>Executar fluxos de dados em paralelo
-
-Se você executar fluxos de dados em um pipeline em paralelo, o ADF girará clusters Spark separados para cada execução de atividade com base nas configurações de sua Azure Integration Runtime anexadas a cada atividade. Para criar execuções paralelas em pipelines do ADF, adicione suas atividades de fluxo de dados sem restrições de precedência na interface do usuário.
-
-Dessas três opções, essa opção provavelmente é executada na quantidade mais curta de tempo. No entanto, cada fluxo de dados paralelo é executado ao mesmo tempo em clusters separados, portanto, a ordem dos eventos é não determinística.
-
-Se você estiver executando suas atividades de fluxo de dados em paralelo dentro de seus pipelines, é recomendável não usar TTL. Essa ação ocorre porque as execuções paralelas de seu fluxo de dados simultaneamente usando o mesmo Azure Integration Runtime resultam em várias instâncias de pools quentes para seu data factory.
-
-##### <a name="overload-single-data-flow"></a>Sobrecarga de fluxo de dados único
-
-Se você colocar toda a lógica dentro de um único fluxo de dados, o ADF executará esse mesmo contexto de execução de trabalho em uma única instância de cluster do Spark.
-
-Essa opção pode ser mais desafiadora para seguir e solucionar problemas, pois suas regras de negócios e a lógica de negócios podem ser jumbled juntas. Essa opção também não fornece muita reutilização.
-
-##### <a name="execute-data-flows-sequentially"></a>Executar fluxos de dados sequencialmente
-
-Se você executar suas atividades de fluxo de dados em sequência no pipeline e tiver definido um TTL na configuração de Azure IR, o ADF reutilizará os recursos de computação (VMs) resultando em tempos de execução subsequentes mais rápidos. Você ainda receberá um novo contexto do Spark para cada execução.
-
-Dessas três opções, essa ação provavelmente levará o tempo mais longo para ser executado de ponta a ponta. Mas ele fornece uma separação limpa das operações lógicas em cada etapa do fluxo de dados.
 
 ### <a name="configuration-panel"></a>Painel de configuração
 
@@ -111,13 +77,85 @@ Se o modo de depuração estiver ativado, a guia **visualização de dados** for
 
 ### <a name="top-bar"></a>Barra superior
 
-A barra superior contém ações que afetam todo o fluxo de dados, como salvar e validar. Você também pode alternar entre modos de gráfico e de configuração usando os botões **Mostrar grafo** e **ocultar grafo** .
+A barra superior contém ações que afetam todo o fluxo de dados, como salvar e validar. Você também pode exibir o código JSON subjacente e o script de fluxo de dados da sua lógica de transformação. Para obter mais informações, saiba mais sobre o [script de fluxo de dados](data-flow-script.md).
 
-![Ocultar grafo](media/data-flow/hideg.png "Ocultar grafo")
+## <a name="available-transformations"></a>Transformações disponíveis
 
-Se você ocultar o grafo, poderá navegar pelos nós de transformação posteriormente por meio dos botões **anterior** e **próximo** .
+Exiba a [visão geral de transformação fluxo de dados de mapeamento](data-flow-transformation-overview.md) para obter uma lista de transformações disponíveis.
 
-![Botões anterior e próximo](media/data-flow/showhide.png "botões anterior e próximo")
+## <a name="data-flow-activity"></a>Atividade de fluxo de dados
+
+O mapeamento de fluxos de dados é operacional em pipelines do ADF usando a [atividade de fluxo de dados](control-flow-execute-data-flow-activity.md). Tudo o que um usuário precisa fazer é especificar qual Integration Runtime usar e passar valores de parâmetro. Para obter mais informações, saiba mais sobre o [tempo de execução de integração do Azure](concepts-integration-runtime.md#azure-integration-runtime).
+
+## <a name="debug-mode"></a>Modo de depuração
+
+O modo de depuração permite ver interativamente os resultados de cada etapa de transformação enquanto você cria e depura seus fluxos de dados. A sessão de depuração pode ser usada no ao criar sua lógica de fluxo de dados e executar a depuração de pipeline executada com atividades de fluxo de dados. Para saber mais, confira a [documentação do modo de depuração](concepts-data-flow-debug-mode.md).
+
+## <a name="monitoring-data-flows"></a>Monitorando fluxos de dados
+
+O mapeamento de fluxo de dados integra-se com os recursos existentes de monitoramento de Azure Data Factory. Para saber como entender a saída de monitoramento do fluxo de dados, consulte [monitoramento fluxos de dados de mapeamento](concepts-data-flow-monitoring.md).
+
+A equipe de Azure Data Factory criou um [Guia de ajuste de desempenho](concepts-data-flow-performance.md) para ajudá-lo a otimizar o tempo de execução de seus fluxos de dados depois de criar sua lógica de negócios.
+
+## <a name="available-regions"></a>Regiões disponíveis
+
+Os fluxos de dados de mapeamento estão disponíveis nas seguintes regiões:
+
+| Região do Azure | Fluxos de dados no ADF | Fluxos de dados no Synapse Studio |
+| ------------ | ----------------- | ---------------------------- |
+|  Austrália Central | | |  
+| Austrália Central 2 | | |
+| Leste da Austrália | ✓ |  ✓ |
+| Australia Southeast   | ✓ | ✓ |
+| Brazil South  | ✓ |  |
+| Canadá Central | ✓ |  |
+| Central India | ✓ |   ✓ |
+| Centro dos EUA    | ✓ |   ✓ |
+| Leste da China |      | ✓ |
+| Leste da China 2  |   |    |
+| China não regional | | |
+| Norte da China |     | |
+| Norte da China 2 | |  |
+| Leste da Ásia | ✓ | |
+| Leste dos EUA   | ✓ | ✓ |
+| Leste dos EUA 2 | ✓ | ✓ |
+| França Central | ✓ | ✓ |
+| Sul da França  | | |
+| Centro da Alemanha (soberanas) | | |
+| Alemanha Não Regional (soberanas) | | |
+| Norte da Alemanha (público) | | |
+| Nordeste da Alemanha (soberanas) | | |
+| Centro-oeste da Alemanha (público) |  | ✓ |
+| Japan East | ✓ |  |
+| Oeste do Japão |  | |
+| Coreia Central | ✓ |  |
+| Sul da Coreia | | |
+| Centro-Norte dos EUA  | ✓ | ✓ |
+| Norte da Europa  | ✓ |    |
+| Leste da Noruega | | |
+| Oeste da Noruega | | |
+| Norte da África do Sul    | ✓ | |
+| Oeste da África do Sul |  |    |
+| Centro-Sul dos Estados Unidos  | | ✓ |
+| Sul da Índia | | |
+| Sudeste Asiático    | ✓ | ✓ |
+| Norte da Suíça |   |  |
+| Oeste da Suíça | | |
+| EAU Central | | |
+| Norte dos EAU |  |    |
+| Sul do Reino Unido  | ✓ |   | ✓ |
+| Oeste do Reino Unido |     | ✓ |
+| DoD Central dos EUA | |  |
+| DoD do Leste dos EUA | |  |
+| Governo dos EUA do Arizona |      |  |
+| US Gov - Não Regional | |  |
+| Governo dos EUA do Texas | |  |
+| Gov. dos EUA – Virgínia |     |  |
+| Centro-Oeste dos EUA |     | ✓ |
+| Europa Ocidental   | ✓ |   ✓ |
+| Oeste da Índia | | |
+| Oeste dos EUA   | ✓ |   |
+| Oeste dos EUA 2 | ✓ |   ✓ | 
 
 ## <a name="next-steps"></a>Próximas etapas
 

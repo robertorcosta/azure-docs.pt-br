@@ -10,17 +10,18 @@ editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
 ms.subservice: asc-for-iot
 ms.devlang: na
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 4d7d2f0a423a50f85160a856480eaa973be7e2b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64b9176a16f4d8d2b7ee7f33e00714d811c5f070
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537603"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209091"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Implantar um agente de segurança baseado em C# da Central de Segurança do Azure para IoT para Windows
 
@@ -30,7 +31,7 @@ Neste guia, você aprenderá a:
 
 > [!div class="checklist"]
 > * Instalar
-> * Verificar implantação
+> * Verificar a implantação
 > * Desinstalar o agente
 > * Solucionar problemas
 
@@ -80,7 +81,7 @@ Esse script executa as seguintes ações:
 
 Para obter ajuda adicional, use o comando Get-Help no PowerShell.
 
-Exemplo de Get-Help:```Get-Help .\InstallSecurityAgent.ps1```
+Exemplo de Get-Help:    ```Get-Help .\InstallSecurityAgent.ps1```
 
 ### <a name="verify-deployment-status"></a>Verificar o status da implantação
 
