@@ -13,12 +13,12 @@ ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: fd19b451638eacbf0d6174154a2688b3523ca4d2
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: ac9264ea8d6cc71d19d2c9bbd23b2123bdf1f924
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183863"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224349"
 ---
 # <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>Migrar aplicativos para a biblioteca de autenticação da Microsoft (MSAL)
 
@@ -49,7 +49,7 @@ Os artigos a seguir podem ajudá-lo a migrar para o MSAL:
 - [Migrar para a MSAL Python](migrate-python-adal-msal.md)
 - [Migrar aplicativos Xamarin usando agentes para o MSAL.NET](msal-net-migration-ios-broker.md)
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes
+## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
 
 __P: a ADAL está sendo preterida?__  
 A: Sim. A partir de 30 de junho de 2020, não adicionaremos mais novos recursos à ADAL. Continuaremos adicionando correções de segurança críticas à ADAL até 30 de junho de 2022. Após essa data, seus aplicativos que usam a ADAL continuarão a funcionar, mas é recomendável atualizar para o MSAL para aproveitar os recursos mais recentes e permanecer seguro.
@@ -62,6 +62,9 @@ R: se você tiver o código-fonte para o aplicativo, poderá fazer referência a
 
 __P: por que devo investir em migrar para o MSAL?__  
 R: o MSAL contém novos recursos que não estão no ADAL, incluindo consentimento incremental, logon único e gerenciamento de cache de token. Além disso, ao contrário da ADAL, o MSAL continuará a receber patches de segurança além de 30 de junho de 2022. [Saiba mais](msal-overview.md).
+
+__P: a Microsoft atualizará seus próprios aplicativos para MSAL?__  
+Sim. A Microsoft está no processo de migrar seus aplicativos para o MSAL pelo prazo final do suporte, garantindo que eles se beneficiarão da segurança contínua e dos aprimoramentos de recursos do MSAL.
 
 __P: você liberará uma ferramenta que me ajuda a mover meus aplicativos do ADAL para o MSAL?__  
 R: Não. As diferenças entre as bibliotecas exigirão recursos dedicados ao desenvolvimento e à manutenção da ferramenta que, de outra forma, seriam gastas melhorando o MSAL. No entanto, fornecemos o conjunto anterior de guias de migração para ajudá-lo a fazer as alterações necessárias em seu aplicativo.

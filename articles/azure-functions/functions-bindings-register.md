@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: a045ef0fea70347f168e8ae0cc93e0c359f31dfa
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 43bc278ea3cbd14690f1a9ac9263872536b5b174
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031108"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224774"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrar Azure Functions extensões de associação
 
@@ -26,12 +26,12 @@ A tabela a seguir indica quando e como você registra as associações.
 
 | Ambiente de desenvolvimento |Registro<br/> em funções de 1. x  |Registro<br/> nas funções 3. x/2. x  |
 |-------------------------|------------------------------------|------------------------------------|
-|Portal do Azure|Automática|Automático<sup>*</sup>|
-|Idiomas Non-.NET ou desenvolvimento de ferramentas principais do Azure local|Automática|[Usar Azure Functions Core Tools e pacotes de extensão](#extension-bundles)|
+|Portal do Azure|Automático|Automático<sup>*</sup>|
+|Idiomas Non-.NET ou desenvolvimento de ferramentas principais do Azure local|Automático|[Usar Azure Functions Core Tools e pacotes de extensão](#extension-bundles)|
 |Biblioteca de classes C# usando o Visual Studio|[Usar as ferramentas do NuGet](#vs)|[Usar as ferramentas do NuGet](#vs)|
 |Biblioteca de classes C# usando o código do Visual Studio|N/D|[Use o .NET Core CLI](#vs-code)|
 
-<sup>*</sup>O portal usa pacotes de extensão.
+<sup>*</sup> O portal usa pacotes de extensão.
 
 ## <a name="extension-bundles"></a><a name="extension-bundles"></a>Pacotes de extensão
 
@@ -53,7 +53,7 @@ Para usar pacotes de extensão, atualize o *host.jsno* arquivo para incluir a se
 
 ## <a name="nuget-packages"></a><a name="local-csharp"></a>Pacotes NuGet
 
-Para um projeto de funções baseadas em biblioteca de classes do C#, você deve instalar os pacotes de extensão criados especificamente para projetos que não são de classe 
+Para um projeto de funções baseadas em biblioteca de classes C#, você deve instalar extensões diretamente. Os pacotes de extensão são projetados especificamente para projetos que não são baseados na biblioteca de classes C#.
 
 ### <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>\#Biblioteca de classes C com o Visual Studio
 
@@ -69,7 +69,7 @@ Substituir `<TARGET_VERSION>` no exemplo com uma versão específica do pacote, 
 
 Se você usar `Install-Package` o para fazer referência a uma associação, não precisará usar [pacotes de extensão](#extension-bundles). Essa abordagem é específica para bibliotecas de classes criadas no Visual Studio.
 
-## <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a>Biblioteca de classes C# com Visual Studio Code
+## <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a> Biblioteca de classes C# com Visual Studio Code
 
 No **Visual Studio Code**, instale pacotes para um projeto de biblioteca de classes C# do prompt de comando usando o comando [dotnet adicionar pacote](/dotnet/core/tools/dotnet-add-package) na CLI do .NET Core. O exemplo a seguir demonstra como você adiciona uma associação:
 

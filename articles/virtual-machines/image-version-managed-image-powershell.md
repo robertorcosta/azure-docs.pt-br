@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: c119ebc8d87c00608fc515099711463f47b8ed1a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: c1b40cc8d52ffe5655401f7698790cdc05898331
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87901803"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225523"
 ---
 # <a name="migrate-from-a-managed-image-to-a-shared-image-gallery-image"></a>Migrar de uma imagem gerenciada para uma imagem da Galeria de imagens compartilhadas
 
@@ -117,7 +117,7 @@ $job.State
 > [!NOTE]
 > Você precisa esperar que a versão da imagem seja compilada e replicada completamente antes de poder usar a mesma imagem gerenciada para criar outra versão da imagem. 
 >
-> Você também pode armazenar a imagem no armazenamento Premium adicionando `-StorageAccountType Premium_LRS`, ou no [Armazenamento com redundância de zona](../storage/common/storage-redundancy.md) adicionando `-StorageAccountType Standard_ZRS` ao criar a versão da imagem.
+> Você também pode armazenar sua imagem no armazenamento Premium adicionando `-StorageAccountType Premium_LRS` ou [armazenando o armazenamento com redundância de zona](../storage/common/storage-redundancy.md) adicionando `-StorageAccountType Standard_ZRS` ao criar a versão da imagem.
 >
 
 ## <a name="delete-the-managed-image"></a>Excluir a imagem gerenciada

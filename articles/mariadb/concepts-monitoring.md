@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.openlocfilehash: 708b243d9db16ee8454b4bc0f5c136b9f4399916
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 8/13/2020
+ms.openlocfilehash: 088d2c0a11f7d145f0c8a7ccb2c0aac5bd2d140d
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413188"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224078"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitorando no Banco de Dados do Azure para MariaDB
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para MariaDB fornece várias métricas que fornecem informações sobre o comportamento do seu servidor.
@@ -28,7 +28,7 @@ Essas métricas estão disponíveis para o Banco de Dados do Azure para MariaDB:
 |---|---|---|---|
 |cpu_percent|Porcentagem de CPU|Porcentagem|O percentual de CPU em uso.|
 |memory_percent|Porcentagem de memória|Porcentagem|O percentual de memória em uso.|
-|io_consumption_percent|Porcentagem de E/S|Porcentagem|O percentual de E/S em uso. (Não aplicável para servidores de camada básica.)|
+|io_consumption_percent|Porcentagem de E/S|Porcentagem|O percentual de E/S em uso. (Não aplicável para servidores de camada básica)|
 |storage_percent|Porcentagem de armazenamento|Porcentagem|O percentual de armazenamento usado fora do máximo do servidor.|
 |storage_used|Armazenamento usado|Bytes|A quantidade de armazenamento em uso. O armazenamento usado pelo serviço pode incluir os arquivos de banco de dados, os logs de transação e os logs do servidor.|
 |serverlog_storage_percent|Porcentagem de armazenamento do Log do Servidor|Porcentagem|A porcentagem de armazenamento de log do servidor usada fora do armazenamento de log máximo do servidor.|
@@ -37,8 +37,10 @@ Essas métricas estão disponíveis para o Banco de Dados do Azure para MariaDB:
 |storage_limit|Limite de armazenamento|Bytes|O armazenamento máximo para esse servidor.|
 |active_connections|Conexões ativas|Contagem|O número de conexões ativas com o servidor.|
 |connections_failed|Conexões com falha|Contagem|O número de conexões com falha com o servidor.|
+|seconds_behind_master|Retardo de replicação em segundos|Contagem|O número de segundos que o servidor de réplica está atrasando contra o servidor mestre. (Não aplicável para servidores de camada básica)|
 |network_bytes_egress|Saída da rede|Bytes|Rede-Out em conexões ativas.|
 |network_bytes_ingress|Entrada na rede|Bytes|Entrada de rede em conexões ativas.|
+|backup_storage_used|Backup do Microsoft Azure|Bytes|A quantidade de armazenamento de backup usado. Essa métrica representa a soma do armazenamento consumido por todos os backups de banco de dados completos, backups diferenciais e backups de log retidos com base no período de retenção de backup definido para o servidor. A frequência dos backups é gerenciada pelo serviço e explicada no [artigo conceitos](concepts-backup.md). Para o armazenamento com redundância geográfica, o uso de armazenamento de backup é o dobro do armazenamento com redundância local.|
 
 ## <a name="server-logs"></a>Logs do servidor
 

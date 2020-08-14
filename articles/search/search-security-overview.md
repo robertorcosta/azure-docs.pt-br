@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: fb265f8a8ab34972dac8529d267e41edaf0acb4c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4bf8f5d7bb8fd262fefc7cbf2f8ca906136509d5
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829281"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225267"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Segurança no Azure Pesquisa Cognitiva-visão geral
 
@@ -36,7 +36,7 @@ Assista a este vídeo rápido do ritmo para obter uma visão geral da arquitetur
 
 No Azure Pesquisa Cognitiva, a criptografia começa com conexões e transmissões e se estende ao conteúdo armazenado em disco. Para serviços de pesquisa na Internet pública, o Azure Pesquisa Cognitiva escuta na porta HTTPS 443. Todas as conexões de cliente para serviço usam a criptografia TLS 1,2. Não há suporte para versões anteriores (1,0 ou 1,1).
 
-Para dados manipulados internamente pelo serviço de pesquisa, a tabela a seguir descreve os [modelos de criptografia de dados](../security/fundamentals/encryption-atrest.md#data-encryption-models). Alguns recursos, como armazenamento de conhecimento, enriquecimento incremental e indexação baseada em indexador, leitura ou gravação em estruturas de dados em outros serviços do Azure. Esses serviços têm seus próprios níveis de suporte de criptografia separados do Azure Pesquisa Cognitiva.
+Para dados manipulados internamente pelo serviço de pesquisa, a tabela a seguir descreve os [modelos de criptografia de dados](../security/fundamentals/encryption-models.md). Alguns recursos, como armazenamento de conhecimento, enriquecimento incremental e indexação baseada em indexador, leitura ou gravação em estruturas de dados em outros serviços do Azure. Esses serviços têm seus próprios níveis de suporte de criptografia separados do Azure Pesquisa Cognitiva.
 
 | Modelo | Novas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requirement&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrições | Aplica-se a |
 |------------------|-------|-------------|--------------|------------|
@@ -54,7 +54,7 @@ Chaves gerenciadas pelo cliente exigem um serviço Faturável adicional, Azure K
 
 <a name="double-encryption"></a>
 
-### <a name="double-encryption"></a>Criptografia dupla 
+### <a name="double-encryption"></a>Criptografia dupla
 
 No Azure Pesquisa Cognitiva, a criptografia dupla é uma extensão de CMK. Ele é entendido como criptografia de duas dobras (uma vez por CMK e novamente pelas chaves gerenciadas pelo serviço) e abrangente no escopo, abrangendo o armazenamento de longo prazo que é gravado em um disco de dados e o armazenamento de curto prazo gravado em discos temporários. A diferença entre CMK antes de agosto de 1 2020 e posteriores e o que torna o CMK um recurso de criptografia dupla no Azure Pesquisa Cognitiva é a criptografia adicional de dados em repouso em discos temporários.
 
@@ -74,7 +74,7 @@ Os recursos de segurança de entrada protegem o ponto de extremidade do serviço
 
 ### <a name="public-access-using-api-keys"></a>Acesso público usando chaves de API
 
-Por padrão, um serviço de pesquisa é acessado por meio da nuvem pública, usando a autenticação baseada em chave para acesso de administrador ou de consulta ao ponto de extremidade do serviço de pesquisa. Uma chave de api é uma cadeia de caracteres composta de letras e números gerados aleatoriamente. O tipo de chave (administrador ou consulta) determina o nível de acesso. O envio de uma chave válida é considerado uma prova de que a solicitação se origina de uma entidade confiável. 
+Por padrão, um serviço de pesquisa é acessado por meio da nuvem pública, usando a autenticação baseada em chave para acesso de administrador ou de consulta ao ponto de extremidade do serviço de pesquisa. Uma chave de api é uma cadeia de caracteres composta de letras e números gerados aleatoriamente. O tipo de chave (administrador ou consulta) determina o nível de acesso. O envio de uma chave válida é considerado uma prova de que a solicitação se origina de uma entidade confiável.
 
 Há dois níveis de acesso ao serviço de pesquisa, habilitados pelas seguintes chaves de API:
 
@@ -92,15 +92,15 @@ A autenticação é necessária em cada solicitação, em que cada solicitação
 
 Para controlar ainda mais o acesso ao serviço de pesquisa, você pode criar regras de firewall de entrada que permitem o acesso a um endereço IP específico ou a um intervalo de endereços IP. Todas as conexões de cliente devem ser feitas por meio de um endereço IP permitido ou a conexão é negada.
 
-Você pode usar o portal para [Configurar o acesso de entrada](service-configure-firewall.md). 
+Você pode usar o portal para [Configurar o acesso de entrada](service-configure-firewall.md).
 
-Como alternativa, você pode usar as APIs REST de gerenciamento. A versão da API 2020-03-13, com o parâmetro [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) , permite restringir o acesso ao serviço identificando endereços IP, individualmente ou em um intervalo, que você deseja conceder acesso ao serviço de pesquisa. 
+Como alternativa, você pode usar as APIs REST de gerenciamento. A versão da API 2020-03-13, com o parâmetro [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) , permite restringir o acesso ao serviço identificando endereços IP, individualmente ou em um intervalo, que você deseja conceder acesso ao serviço de pesquisa.
 
 ### <a name="private-endpoint-no-internet-traffic"></a>Ponto de extremidade privado (sem tráfego de Internet)
 
-Um [ponto de extremidade privado](../private-link/private-endpoint-overview.md) para o Azure pesquisa cognitiva permite que um cliente em uma [rede virtual](../virtual-network/virtual-networks-overview.md) acesse dados com segurança em um índice de pesquisa por um [link privado](../private-link/private-link-overview.md). 
+Um [ponto de extremidade privado](../private-link/private-endpoint-overview.md) para o Azure pesquisa cognitiva permite que um cliente em uma [rede virtual](../virtual-network/virtual-networks-overview.md) acesse dados com segurança em um índice de pesquisa por um [link privado](../private-link/private-link-overview.md).
 
-O ponto de extremidade privado usa um endereço IP do espaço de endereço de rede virtual para conexões com o serviço de pesquisa. O tráfego de rede entre o cliente e o serviço de pesquisa atravessa a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição da Internet pública. Uma VNET permite a comunicação segura entre os recursos, com sua rede local, bem como com a Internet. 
+O ponto de extremidade privado usa um endereço IP do espaço de endereço de rede virtual para conexões com o serviço de pesquisa. O tráfego de rede entre o cliente e o serviço de pesquisa atravessa a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição da Internet pública. Uma VNET permite a comunicação segura entre os recursos, com sua rede local, bem como com a Internet.
 
 Embora essa solução seja a mais segura, usar serviços adicionais é um custo adicional, portanto, certifique-se de ter uma compreensão clara dos benefícios antes de mergulhar no. ou mais informações sobre os custos, consulte a [página de preços](https://azure.microsoft.com/pricing/details/private-link/). Para obter mais informações sobre como esses componentes funcionam em conjunto, Assista ao vídeo na parte superior deste artigo. A cobertura da opção de ponto de extremidade particular começa em 5:48 no vídeo. Para obter instruções sobre como configurar o ponto de extremidade, consulte [criar um ponto de extremidade privado para o Azure pesquisa cognitiva](service-create-private-endpoint.md).
 
@@ -140,7 +140,7 @@ O Azure Pesquisa Cognitiva foi certificado em conformidade com vários padrões 
 
 Para fins de conformidade, você pode usar [Azure Policy](../governance/policy/overview.md) para implementar as práticas recomendadas de alta segurança do [benchmark de segurança do Azure](../security/benchmarks/introduction.md). O benchmark de segurança do Azure é uma coleção de recomendações de segurança, codificados em controles de segurança que são mapeados para as principais ações que você deve executar para reduzir as ameaças a serviços e dados. Atualmente, há 11 controles de segurança, incluindo [segurança de rede](../security/benchmarks/security-control-network-security.md), [registro em log e monitoramento](../security/benchmarks/security-control-logging-monitoring.md)e [proteção de dados](../security/benchmarks/security-control-data-protection.md) para citar alguns.
 
-Azure Policy é um recurso interno do Azure que ajuda a gerenciar a conformidade de vários padrões, incluindo os do benchmark de segurança do Azure. Para benchmarks conhecidos, o Azure Policy fornece definições internas que fornecem critérios, bem como uma resposta acionável que resolve a não conformidade. 
+Azure Policy é um recurso interno do Azure que ajuda a gerenciar a conformidade de vários padrões, incluindo os do benchmark de segurança do Azure. Para benchmarks conhecidos, o Azure Policy fornece definições internas que fornecem critérios, bem como uma resposta acionável que resolve a não conformidade.
 
 Para o Azure Pesquisa Cognitiva, há atualmente uma definição interna. É para o log de diagnóstico. Com esse interno, você pode atribuir uma política que identifica qualquer serviço de pesquisa que não tem o log de diagnóstico e, em seguida, ativa-o. Para obter mais informações, consulte [Azure Policy controles de conformidade regulatória para o pesquisa cognitiva do Azure](security-controls-policy.md).
 

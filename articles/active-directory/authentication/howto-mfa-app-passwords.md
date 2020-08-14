@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6bd09a24202b599c1f008e7b046ea5f93ff0323
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4c4e34c6f13f7013847e99a362716fc9c570cdaf
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489785"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224910"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Habilitar e usar a autenticação multifator do Azure com aplicativos herdados usando senhas de aplicativo
 
@@ -41,6 +41,8 @@ Quando você usa senhas de aplicativo, as seguintes considerações se aplicam:
 * Os aplicativos que armazenam senhas em cache e as usam em cenários locais podem falhar porque a senha do aplicativo não é conhecida fora da conta corporativa ou de estudante. Um exemplo dessa situação é o dos emails do Exchange que estão locais, mas os emails arquivado que estão na nuvem. Nessa situação, a mesma senha não funciona.
 * Depois que a autenticação multifator do Azure é habilitada na conta de um usuário, as senhas de aplicativo podem ser usadas com a maioria dos clientes sem navegador, como o Outlook e o Microsoft Skype for Business. No entanto, as ações administrativas não podem ser executadas usando senhas de aplicativo por meio de aplicativos sem navegador, como o Windows PowerShell. As ações não podem ser executadas, mesmo que o usuário tenha uma conta administrativa.
     * Para executar scripts do PowerShell, crie uma conta de serviço com uma senha forte e não habilite a conta para a verificação em duas etapas.
+* Se você suspeitar que uma conta de usuário está comprometida e revogar/redefinir a senha da conta, as senhas de aplicativo também devem ser atualizadas. As senhas de aplicativo não são revogadas automaticamente quando uma senha de conta de usuário é revogada/redefinida. O usuário deve excluir as senhas de aplicativo existentes e criar novas.
+   * Para obter mais informações, consulte [criar e excluir senhas de aplicativo na página de verificação de segurança adicional](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page).
 
 >[!WARNING]
 > As senhas de aplicativo não funcionam em ambientes híbridos onde os clientes se comunicam com pontos de extremidade de descoberta automática local e na nuvem. As senhas de domínio são necessárias para autenticar localmente. As senhas de aplicativo são necessárias para autenticar na nuvem.

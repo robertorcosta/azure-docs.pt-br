@@ -10,16 +10,17 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 08/14/2020
 ms.author: jingwang
-ms.openlocfilehash: a5d203664520aebadefd16c19813d7957dd37fc4
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 26d52eed02c9d25ed2f18afa3a5262ba9224b0ba
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171247"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224842"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obter atividade de metadados no Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Você pode usar a atividade obter metadados para recuperar os metadados de quaisquer dados em Azure Data Factory. Você pode usar essa atividade nos seguintes cenários:
@@ -58,9 +59,9 @@ A atividade obter metadados usa um conjunto de dados como uma entrada e retorna 
 - Ao usar a atividade obter metadados em uma pasta, verifique se você tem a permissão lista/executar na pasta especificada.
 - Para o Amazon S3 e o Google Cloud Storage, o `lastModified` se aplica ao Bucket e à chave, mas não à pasta virtual, e `exists` aplica-se ao Bucket e à chave, mas não ao prefixo ou à pasta virtual.
 - Para o armazenamento de BLOBs do Azure, `lastModified` o se aplica ao contêiner e ao blob, mas não à pasta virtual.
-- `lastModified`o filtro atualmente se aplica a itens filho de filtro, mas não ao próprio arquivo/pasta especificado.
+- `lastModified` o filtro atualmente se aplica a itens filho de filtro, mas não ao próprio arquivo/pasta especificado.
 - O filtro de curingas em pastas/arquivos não tem suporte para a atividade obter metadados.
-- `structure`e `columnCount` não têm suporte ao obter metadados de arquivos binários, JSON ou XML.
+- `structure` e `columnCount` não têm suporte ao obter metadados de arquivos binários, JSON ou XML.
 
 **Banco de dados relacional**
 
@@ -100,13 +101,36 @@ Você pode especificar os seguintes tipos de metadados na lista de campos de ati
 
 ```json
 {
-    "name": "MyActivity",
-    "type": "GetMetadata",
-    "typeProperties": {
-        "fieldList" : ["size", "lastModified", "structure"],
-        "dataset": {
-            "referenceName": "MyDataset",
-            "type": "DatasetReference"
+    "name":"MyActivity",
+    "type":"GetMetadata",
+    "dependsOn":[
+
+    ],
+    "policy":{
+        "timeout":"7.00:00:00",
+        "retry":0,
+        "retryIntervalInSeconds":30,
+        "secureOutput":false,
+        "secureInput":false
+    },
+    "userProperties":[
+
+    ],
+    "typeProperties":{
+        "dataset":{
+            "referenceName":"MyDataset",
+            "type":"DatasetReference"
+        },
+        "fieldList":[
+            "size",
+            "lastModified",
+            "structure"
+        ],
+        "storeSettings":{
+            "type":"AzureBlobStorageReadSettings"
+        },
+        "formatSettings":{
+            "type":"JsonReadSettings"
         }
     }
 }
@@ -116,18 +140,22 @@ Você pode especificar os seguintes tipos de metadados na lista de campos de ati
 
 ```json
 {
-    "name": "MyDataset",
-    "properties": {
-    "type": "AzureBlob",
-        "linkedService": {
-            "referenceName": "StorageLinkedService",
-            "type": "LinkedServiceReference"
+    "name":"MyDataset",
+    "properties":{
+        "linkedServiceName":{
+            "referenceName":"AzureStorageLinkedService",
+            "type":"LinkedServiceReference"
         },
-        "typeProperties": {
-            "folderPath":"container/folder",
-            "filename": "file.json",
-            "format":{
-                "type":"JsonFormat"
+        "annotations":[
+
+        ],
+        "type":"Json",
+        "typeProperties":{
+            "location":{
+                "type":"AzureBlobStorageLocation",
+                "fileName":"file.json",
+                "folderPath":"folder",
+                "container":"container"
             }
         }
     }

@@ -6,12 +6,12 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: 7a115de449588ea69951e6d997aa5332e5d55ad1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 87fe128a79413af024d72726d936b85db3f9ef52
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119514"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225964"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Usar o Emulador do Azure Cosmos para desenvolvimento e teste locais
 
@@ -114,12 +114,13 @@ Para habilitar o acesso de rede pela primeira vez, o usuário deve desligar o em
 
 ### <a name="sql-api"></a>API do SQL
 
-Depois que o emulador do Azure Cosmos estiver em execução na área de trabalho, você poderá usar qualquer [SDK do Azure Cosmos DB](sql-api-sdk-dotnet.md) com suporte ou a [API REST do Azure Cosmos DB](/rest/api/cosmos-db/) para interagir com o emulador. O Emulador do Azure Cosmos também inclui um Data Explorer interno que permite criar contêineres para a API do SQL ou Cosmos DB para API do Mongo DB, bem como exibir e editar itens sem precisar escrever nenhum código.
+Depois que o emulador do Azure Cosmos estiver em execução na área de trabalho, você poderá usar qualquer [SDK do Azure Cosmos DB](sql-api-sdk-dotnet-standard.md) com suporte ou a [API REST do Azure Cosmos DB](/rest/api/cosmos-db/) para interagir com o emulador. O Emulador do Azure Cosmos também inclui um Data Explorer interno que permite criar contêineres para a API do SQL ou Cosmos DB para API do Mongo DB, bem como exibir e editar itens sem precisar escrever nenhum código.
 
 ```csharp
 // Connect to the Azure Cosmos Emulator running locally
-DocumentClient client = new DocumentClient(
-   new Uri("https://localhost:8081"), "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
+CosmosClient client = new CosmosClient(
+   "https://localhost:8081", 
+    "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
 ```
 
@@ -428,7 +429,7 @@ Se você tiver um aplicativo cliente .NET em execução em um contêiner do Dock
 
 ## <a name="running-on-mac-or-linux"></a>Executar no Mac ou Linux<a id="mac"></a>
 
-Atualmente, o emulador do Cosmos somente pode ser executado no Windows. Os usuários do Mac ou do Linux podem executar o emulador em uma máquina virtual do Windows hospedada em um hipervisor, como o Parallels ou o VirtualBox. Abaixo estão as etapas para habilitá-lo.
+Atualmente, o emulador do Cosmos somente pode ser executado no Windows. Os usuários que executam o Mac ou Linux podem executar o emulador em uma máquina virtual do Windows hospedada em um hipervisor, como paralelos ou VirtualBox. Abaixo estão as etapas para habilitá-lo.
 
 Na VM do Windows, execute o comando a seguir e anote o endereço IPv4.
 
@@ -444,7 +445,36 @@ A próxima etapa, na VM do Windows, inicie o emulador do Cosmos na linha de coma
 Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 ```
 
-Por fim, precisamos importar o Certificado de Autoridade de Certificação do Emulador para o ambiente Linux ou Mac.
+Por fim, precisamos resolver o processo de confiança de certificado entre o aplicativo em execução no ambiente Linux ou Mac e o emulador. Nós temos duas opções:
+
+1. Desabilite a validação SSL no aplicativo:
+
+# <a name="net-standard-21"></a>[.NET Standard 2.1 +](#tab/ssl-netstd21)
+
+   Para qualquer aplicativo em execução em uma estrutura compatível com o .NET Standard 2,1 ou posterior, podemos aproveitar o `CosmosClientOptions.HttpClientFactory` :
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard21)]
+
+# <a name="net-standard-20"></a>[.NET Standard 2.0](#tab/ssl-netstd20)
+
+   Para qualquer aplicativo em execução em uma estrutura compatível com o .NET Standard 2,0, podemos aproveitar o `CosmosClientOptions.HttpClientFactory` :
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
+
+# <a name="nodejs"></a>[Node.js](#tab/ssl-nodejs)
+
+   Para Node.js aplicativos, você pode modificar o `package.json` arquivo para definir o `NODE_TLS_REJECT_UNAUTHORIZED` ao iniciar o aplicativo:
+
+   ```json
+   "start": NODE_TLS_REJECT_UNAUTHORIZED=0 node app.js
+   ```
+
+--- 
+
+> [!NOTE]
+> A desabilitação da validação SSL só é recomendada para fins de desenvolvimento e não deve ser feita durante a execução em um ambiente de produção.
+
+2. Importe o certificado de AC do emulador para o ambiente Linux ou Mac:
 
 ### <a name="linux"></a>Linux
 

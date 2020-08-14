@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: f1e3598f2a805dfc2ebf92395db6b7bf6b0b147a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e8aabcd1c68272a78b3c1fe88913c5a62496f681
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494676"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225828"
 ---
 # <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Copiar uma imagem de outra galeria usando o CLI do Azure
 
@@ -154,7 +154,7 @@ az sig image-version create \
 > [!NOTE]
 > Você precisa esperar que a versão da imagem seja compilada e replicada completamente antes de poder usar a mesma imagem gerenciada para criar outra versão da imagem.
 >
-> Você também pode armazenar a imagem no armazenamento Premium adicionando `--storage-account-type  premium_lrs`, ou no [Armazenamento com redundância de zona](../storage/common/storage-redundancy.md) adicionando `--storage-account-type  standard_zrs` ao criar a versão da imagem.
+> Você também pode armazenar sua imagem no armazenamento Premium adicionando `--storage-account-type  premium_lrs` ou [armazenando o armazenamento com redundância de zona](../storage/common/storage-redundancy.md) adicionando `--storage-account-type  standard_zrs` ao criar a versão da imagem.
 >
 
 ## <a name="next-steps"></a>Próximas etapas

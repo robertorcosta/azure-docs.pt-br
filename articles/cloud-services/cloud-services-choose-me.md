@@ -1,18 +1,18 @@
 ---
 title: O que são os Serviços de Nuvem do Azure | Microsoft Docs
-description: Saiba mais sobre o que são os Serviços de Nuvem do Azure.
+description: Saiba mais sobre o que são os serviços de nuvem do Azure, especificamente que ele foi projetado para dar suporte a aplicativos escalonáveis, confiáveis e de baixo custo para operar.
 services: cloud-services
 author: tgore03
 ms.service: multiple
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: c531e02656c9f6342670024b2220386e789a2d98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0013a3a29bae9d2dde7896b3ae23d0d358946f2b
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75386843"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224281"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Visão geral dos Serviços de Nuvem do Azure
 Os Serviços de Nuvem do Azure são um exemplo de uma [PaaS](https://azure.microsoft.com/overview/what-is-paas/) (Plataforma como Serviço). Como o [Serviço de Aplicativo do Azure](../app-service/overview.md), essa tecnologia foi desenvolvida para dar suporte aos aplicativos escalonáveis, confiáveis e baratos de operar. Da mesma forma que o Serviço de Aplicativo é hospedado em máquinas virtuais (VMs), os Serviços de Nuvem do Azure também são. No entanto, você tem mais controle sobre as VMs. Você pode instalar seu próprio software em VMs que usam os Serviços de Nuvem do Azure acessá-las remotamente.

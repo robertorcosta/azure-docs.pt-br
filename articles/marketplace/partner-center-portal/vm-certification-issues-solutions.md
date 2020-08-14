@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 594a47f397ca78476ed987ac0e06a3cacc79ec3b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5878ea6a554439c261399706eec708b06ed59b11
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319891"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225353"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemas e soluções durante a certificação de máquina virtual 
 
@@ -43,7 +43,7 @@ Para habilitar as extensões de VM, faça o seguinte:
 1. Selecione sua VM do Linux.
 1. Vá para **configurações de diagnóstico**.
 1. Habilite matrizes base atualizando a **conta de armazenamento**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
    ![Habilitar o monitoramento no nível do convidado](./media/vm-certification-issues-solutions-1.png)
 
@@ -214,7 +214,7 @@ Se a imagem não estiver instalada com uma das seguintes versões de kernel, atu
 ||7.2|3.10.0-327.79.2|
 ||7.3|3.10.0-514.66.2|
 ||7.4|3.10.0-693.50.3|
-||7,5|3.10.0-862.34.2|
+||7.5|3.10.0-862.34.2|
 ||7.6|3.10.0-957.21.3|
 ||7.7|3.10.0-1062.1.1|
 ||8.0|4.18.0-80.4.2|
@@ -294,7 +294,7 @@ Se todas as imagens obtidas do Azure Marketplace forem reutilizadas, o VHD do si
 
 * Para o **Linux**, o processo a seguir GENERALIZA uma VM Linux e a implanta novamente como uma VM separada.
 
-  Na janela SSH, digite o seguinte comando:`sudo waagent -deprovision+user`
+  Na janela SSH, digite o seguinte comando: `sudo waagent -deprovision+user`
 
 * Para o **Windows**, você generaliza as imagens do Windows usando o `sysreptool` .
 
@@ -314,6 +314,57 @@ Para obter soluções para erros relacionados ao disco de dados, use a seguinte 
 Se a opção protocolo RDP (RDP) não estiver habilitada para a imagem do Windows, você receberá esse erro. 
 
 Habilite o acesso RDP para imagens do Windows antes de enviá-las.
+
+## <a name="bash-history-failed"></a>Falha no histórico de bash
+
+Você verá esse erro se o tamanho do histórico de bash em sua imagem enviada tiver mais de 1 kilobyte (KB). O tamanho é restrito a 1 KB para garantir que qualquer informação potencialmente confidencial não seja capturada em seu arquivo de histórico bash.
+
+Abaixo estão as etapas para excluir o "histórico do bash".
+
+Etapa 1. Implante a VM e clique na opção "executar comando" em portal do Azure.
+![Executar comando em portal do Azure](./media/vm-certification-issues-solutions-3.png)
+
+Etapa 2. Selecione a primeira opção "RunShellScript" e execute o comando abaixo.
+
+Comando: "Cat/dev/null > ~/. bash_history && History-c" ![ bash história Command on portal do Azure](./media/vm-certification-issues-solutions-4.png)
+
+Etapa 3. Após executar o comando com êxito, reinicie a VM.
+
+Etapa 4. Generalizar a VM, pegar o VHD da imagem e parar a VM.
+
+Etapa 5.     Envie novamente a imagem generalizada.
+
+## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>Solicitando exceções (modelos personalizados) em imagens de VM para testes seletivos
+
+Os editores podem entrar em contato para solicitar exceções para alguns testes executados durante a certificação da VM. As exceções são fornecidas em casos extremamente raros quando o Publisher fornece evidências para dar suporte à solicitação.
+A equipe de certificação reserva o direito de negar ou aprovar exceções em qualquer momento.
+
+Nas seções a seguir, falaremos sobre os principais cenários em que as exceções são solicitadas e como solicitar uma exceção.
+
+Cenários para exceção
+
+Há três cenários/casos em que os editores geralmente solicitam essas exceções. 
+
+* **Exceção para um ou mais casos de teste:** Os editores podem acessar as exceções de solicitação de [suporte do Publicador do Marketplace](https://aka.ms/marketplacepublishersupport) para casos de teste. 
+
+* **VMs bloqueadas/sem acesso à raiz:** Alguns Publicadores têm cenários em que as VMs precisam ser bloqueadas, pois têm software como firewalls instalados na VM. 
+       Nesse caso, os editores podem baixar a [ferramenta de teste certificada](https://aka.ms/AzureCertificationTestTool) aqui e fornecer o relatório no [suporte ao editor do Marketplace](https://aka.ms/marketplacepublishersupport)
+
+
+* **Modelos personalizados:** Alguns Publicadores publicam imagens de VM que exigem um modelo de ARM personalizado para implantar as VMs. Nesse caso, os editores são solicitados a fornecer os modelos personalizados no [suporte de Publicador do Marketplace](https://aka.ms/marketplacepublishersupport) para que o mesmo possa ser usado pela equipe de certificação para validação. 
+
+### <a name="information-to-provide-for-exception-scenarios"></a>Informações a serem fornecidas para cenários de exceção
+
+Os editores devem entrar em contato com o suporte ao [Editor do Marketplace](https://aka.ms/marketplacepublishersupport) para solicitar exceções para o cenário acima com as informações adicionais a seguir:
+
+   1.   ID do editor – a ID do editor no portal do Partner Center
+   2.   ID da oferta/nome – a ID da oferta/nome para o qual a exceção é solicitada 
+   3.   ID do plano/SKU – a ID do plano/SKU da oferta da VM para a qual a exceção é solicitada
+   4.    Versão – a versão da oferta de VM para a qual a exceção é solicitada
+   5.   Tipo de exceção – testes, VM bloqueada, modelos personalizados
+   6.   Motivo da solicitação – motivo para essa exceção e informações sobre os testes a serem isentos 
+   7.   Anexo-anexe qualquer documento de evidência de importância. Para VMs bloqueadas, anexe o relatório de teste e os modelos personalizados, forneça o modelo ARM personalizado como anexo. Falha ao anexar o relatório para VMs bloqueadas e o modelo ARM personalizado para modelos personalizados resultará em negação de solicitação
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 07/28/2020
-ms.openlocfilehash: 33f87bf6f030adb48f2c4f8eb45027c1b298d812
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c36a8e6f2e104d91bd7738849918c46802cd0dca
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419709"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225913"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados no Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Dentro do pool, os bancos de dados individuais recebem a flexibilidade para dime
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Quando um pool elástico do Banco de Dados SQL deve ser considerado
 
-Pools também são indicados para um grande número de bancos de dados com padrões de utilização específicos. Para um determinado banco de dados, esse padrão é caracterizado por baixa utilização média com picos de utilização relativamente pouco frequentes. Por outro lado, vários bancos de dados com utilização de média de alta persistente não devem ser colocados no mesmo pool elástico.
+Os pools também são adequados para um grande número de bancos de dados com padrões de utilização específicos. Para um determinado banco de dados, esse padrão é caracterizado por baixa utilização média com picos de utilização relativamente pouco frequentes. Por outro lado, vários bancos de dados com utilização de média de alta persistente não devem ser colocados no mesmo pool elástico.
 
 Quanto mais bancos de dados você conseguir adicionar a um pool, maior será a sua economia. Dependendo do padrão de utilização do aplicativo, é possível ver economias com apenas dois bancos de dados S3.
 
@@ -113,11 +113,11 @@ As etapas a seguir podem ajudá-lo a estimar se um pool é mais econômico do qu
 
 Para modelos de compra baseados em DTU:
 
-MAX (<*número total de banco de bancos* X *utilização média de dtu por bd*>, <*número de bancos de los de pico simultâneos* x *utilização de DTU de pico por BD*)
+MAX (<*número total de banco de bancos* X *utilização média de dtu por bd*>, <*número de bancos de los de pico simultâneos* x *utilização de DTU de pico por BD*>)
 
 Para o modelo de compra baseado em vCore:
 
-MAX (<*número total de bancos de* *BD X utilização média de VCORE por banco* de>, <*número de bancos de los de pico simultâneos* x utilização de *vcore de pico por BD*)
+MAX (<*número total de bancos de* *BD X utilização média de VCORE por banco* de>, <*número de bancos de los de pico simultâneos* x utilização de *vcore de pico por BD*>)
 
 2. Estime o espaço de armazenamento necessário para o pool adicionando o número de bytes necessários para todos os bancos de dados no pool. Determine o tamanho do pool em eDTU que fornece essa quantidade de armazenamento.
 3. Para o modelo de compra baseado em DTU, obtenha as maiores estimativas de eDTU da Etapa 1 e Etapa 2. Para o modelo de compra baseado em vCore, obtenha a estimativa de vCore da Etapa 1.

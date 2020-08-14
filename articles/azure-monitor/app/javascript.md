@@ -4,12 +4,12 @@ description: Obter a exibição de página e contagens de sessão, dados de clie
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 7c5abb109018bd8bc5b501fe728a3a0f422a3db7
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 3acb7379644b5bfcb22ed86b6bde7031095fef24
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905818"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224845"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas da Web
 
@@ -115,7 +115,7 @@ As opções de configuração disponíveis são
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Enviando telemetria para o portal do Azure
 
-Por padrão, o SDK do JavaScript Application Insights coleta a um número de itens de telemetria que são úteis para determinar a integridade do seu aplicativo e a experiência do usuário subjacente. Elas incluem:
+Por padrão, o SDK do JavaScript Application Insights coleta a um número de itens de telemetria que são úteis para determinar a integridade do seu aplicativo e a experiência do usuário subjacente. Eles incluem:
 
 - **Exceções não capturadas** em seu aplicativo, incluindo informações sobre
     - Rastreamento de pilha
@@ -155,7 +155,7 @@ A maioria dos campos de configuração são nomeados de modo que eles podem ser 
 
 | Nome | Padrão | Descrição |
 |------|---------|-------------|
-| instrumentationKey | null | **Necessária**<br>Chave de instrumentação que você obteve do portal do Azure. |
+| instrumentationKey | null | **Necessário**<br>Chave de instrumentação que você obteve do portal do Azure. |
 | accountId | null | Uma ID de conta opcional, se seu aplicativo agrupar usuários em contas. Sem espaços, vírgulas, pontos-e-vírgulas, Equals ou barras verticais |
 | sessionRenewalMs | 1,8 milhões | Uma sessão será registrada se o usuário estiver inativo por esse período de tempo em milissegundos. O padrão é 30 minutos |
 | sessionExpirationMs | 86,4 milhões | Uma sessão será registrada se continuar por esse período de tempo em milissegundos. O padrão é 24 horas |
@@ -196,7 +196,7 @@ A maioria dos campos de configuração são nomeados de modo que eles podem ser 
 | distributedTracingMode | `DistributedTracingModes.AI` | Define o modo de rastreamento distribuído. Se o modo de AI_AND_W3C ou o modo W3C for definido, os cabeçalhos de contexto de rastreamento do W3C (traceparent/tracestate) serão gerados e incluídos em todas as solicitações de saída. AI_AND_W3C é fornecida para compatibilidade com os serviços instrumentados Application Insightss herdados. Consulte o exemplo [aqui](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 | enableAjaxErrorStatusText | false | Padrão false. Se for true, inclua o texto de dados de erro de resposta no evento de dependência em solicitações AJAX com falha.
 | enableAjaxPerfTracking | false | Padrão false. Sinalizador para habilitar a pesquisa e a inclusão de janela adicional do navegador. os tempos de desempenho nas métricas relatadas `ajax` (XHR e FETCH) relatadas.
-| maxAjaxPerfLookupAttempts | 3 | O padrão é 3. O número máximo de vezes para procurar a janela. os tempos de desempenho (se disponíveis), isso é necessário, pois nem todos os navegadores preenchem a janela. o desempenho antes de relatar o final da solicitação XHR e, para buscar solicitações, isso é adicionado após sua conclusão.
+| maxAjaxPerfLookupAttempts | 3 | O valor padrão é 3. O número máximo de vezes para procurar a janela. os tempos de desempenho (se disponíveis), isso é necessário, pois nem todos os navegadores preenchem a janela. o desempenho antes de relatar o final da solicitação XHR e, para buscar solicitações, isso é adicionado após sua conclusão.
 | ajaxPerfLookupDelay | 25 | O padrão é 25 MS. A quantidade de tempo de espera antes de tentar novamente localizar os intervalos do Windows. performance para uma `ajax` solicitação, o tempo é em milissegundos e é passado diretamente para setTimeout ().
 | enableUnhandledPromiseRejectionTracking | false | Se verdadeiro, as rejeições de promessa sem tratamento serão coletadas e relatadas como um erro de JavaScript. Quando disableExceptionTracking for true (não rastrear exceções), o valor de configuração será ignorado e as rejeições de promessa sem tratamento não serão relatadas.
 
@@ -217,8 +217,8 @@ Por configuração `autoTrackPageVisitTime: true` , o tempo que um usuário gast
 
 | Extensões |
 |---------------|
-| [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
-| [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
+| [React](javascript-react-plugin.md)|
+| [React Native](javascript-react-native-plugin.md)|
 
 ## <a name="correlation"></a>Correlação
 
@@ -235,7 +235,7 @@ Para habilitar a `CORS` correlação, o cliente precisa enviar dois cabeçalhos 
 
 Dependendo da `Access-Control-Allow-Headers` configuração no lado do servidor, muitas vezes é necessário estender a lista do lado do servidor adicionando `Request-Id` e `Request-Context` .
 
-Acesso-controle-permitir-cabeçalhos: `Request-Id` , `Request-Context` ,`<your header>`
+Acesso-controle-permitir-cabeçalhos: `Request-Id` , `Request-Context` , `<your header>`
 
 Se qualquer um dos servidores de terceiros aos quais o cliente se comunica não puder aceitar os `Request-Id` cabeçalhos e e `Request-Context` você não puder atualizar sua configuração, você precisará colocá-los em uma lista de exclusões por meio da `correlationHeaderExcludeDomains` propriedade de configuração. Esta propriedade dá suporte a curingas.
 
@@ -302,7 +302,7 @@ Você pode vincular seu recurso de Application Insights ao seu próprio contêin
 ### <a name="drag-and-drop"></a>Arrastar e soltar
 
 1. Selecione um item de telemetria de exceção no portal do Azure para exibir seus "detalhes de transação de ponta a ponta"
-2. Identifique quais mapas de origem correspondem a esta pilha de chamadas. O mapa de origem deve corresponder ao arquivo de origem de um quadro de pilha, mas com sufixo`.map`
+2. Identifique quais mapas de origem correspondem a esta pilha de chamadas. O mapa de origem deve corresponder ao arquivo de origem de um quadro de pilha, mas com sufixo `.map`
 3. Arraste e solte os mapas de origem na pilha de chamadas no portal do Azure ![ uma imagem animada mostrando como arrastar e soltar arquivos de mapa de origem de uma pasta de compilação para a janela pilha de chamadas no portal do Azure.](https://i.imgur.com/Efue9nU.gif)
 
 ### <a name="application-insights-web-basic"></a>Application Insights Web Basic

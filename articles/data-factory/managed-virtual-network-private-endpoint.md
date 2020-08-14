@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: c0f23c864430b6cb2f49f924d5aaa8bde296037c
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 14a3a76ef4fefb7a33b272b846e1f1cb66644c3e
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135956"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225675"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory rede virtual gerenciada (versão prévia)
 
@@ -82,15 +82,11 @@ As fontes de dados a seguir têm suporte para se conectar por meio do link priva
 - Azure Synapse Analytics (antigo SQL Data Warehouse do Azure)
 - SQL CosmosDB do Azure
 - Cofre de Chave do Azure
-- Link Privado do Azure
+- Serviço de vínculo privado do Azure
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicações de saída por meio do ponto de extremidade público da rede virtual gerenciada por ADF
 - Somente a porta 443 é aberta para comunicações de saída.
 - O armazenamento do Azure e o Azure Data Lake Gen2 não têm suporte para serem conectados por meio do ponto de extremidade público da rede virtual gerenciada por ADF.
-
-### <a name="other-known-issues"></a>Outros problemas conhecidos
-A execução de depuração para conectividade CosmosDB não funciona, incluindo depuração de fluxo de trabalho e depuração de pipeline.
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

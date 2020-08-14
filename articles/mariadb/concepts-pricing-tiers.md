@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/9/2020
-ms.openlocfilehash: 7ded54e0116e6c6e58c0ca8019942dfaaaa88480
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 8/13/2020
+ms.openlocfilehash: cb785a6d988772ba160806621e44900d630b7e61
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954187"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225709"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Banco de dados do Azure para níveis de preços do MariaDB
 
@@ -93,13 +93,11 @@ Lembre-se de que o armazenamento pode ser escalado verticalmente, não inativo.
 
 ## <a name="backup"></a>Backup
 
-O serviço faz backups do servidor automaticamente. Você pode selecionar um período de retenção de um intervalo de 7 a 35 dias. Uso Geral e servidores com otimização de memória podem optar por ter armazenamento com redundância geográfica para backups. Saiba mais sobre backups no [artigo conceitos](concepts-backup.md).
+O Banco de Dados do Azure para MariaDB fornece até 100% de seu armazenamento de servidor configurado como armazenamento de backup, sem custo adicional. Qualquer armazenamento de backup que você usa em excesso desse valor é cobrado em GB por mês. Por exemplo, se você provisionar um servidor com 250 GB de armazenamento, terá 250 GB de armazenamento adicional disponível para backups de servidor sem encargos. O armazenamento para backups que ultrapassem os 250 GB é cobrado de acordo com o [modelo de preços](https://azure.microsoft.com/pricing/details/mariadb/). Para entender os fatores que influenciam o uso do armazenamento de backup, o monitoramento e o controle do custo de armazenamento de backup, você pode consultar a [documentação de backup](concepts-backup.md).
 
-## <a name="scale-resources"></a>Recursos de escala
+## <a name="scale-resources"></a>Escalar recursos
 
 Após criar o servidor, você poderá alterar separadamente os vCores, a camada de preços (exceto para e para Básico), a quantidade de armazenamento e o período de retenção de backup. Não será possível alterar o tipo de armazenamento de backup depois que um servidor é criado. O número de vCores pode ser dimensionado para cima ou para baixo. Os vCores e o período de retenção de backup podem ser aumentados ou reduzidos de 7 a 35 dias. O tamanho de armazenamento só pode ser aumentado. O dimensionamento dos recursos pode ser feito por meio do portal ou da CLI do Azure. 
-
-<!--For an example of scaling by using Azure CLI, see [Monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).-->
 
 Ao alterar o número de vCores ou a camada de preços, uma cópia do servidor original será criada com a nova alocação de computação. Depois que o novo servidor entra em execução, as conexões são alternadas para o novo servidor. Durante um momento enquanto o sistema muda para o novo servidor, nenhuma nova conexão pode ser estabelecida e todas as transações não confirmadas são revertidas. Esse período varia, mas na maioria dos casos fica abaixo um minuto.
 
@@ -112,6 +110,3 @@ Para as informações mais recentes sobre preços, consulte a [página de preço
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre as [limitações de serviço](concepts-limits.md).
 - Saiba como [criar um servidor do MariaDB no portal do Azure](quickstart-create-mariadb-server-database-using-azure-portal.md).
-
-<!--
-- Learn how to [monitor and scale an Azure Database for MariaDB server by using Azure CLI](scripts/sample-scale-server.md).-->
