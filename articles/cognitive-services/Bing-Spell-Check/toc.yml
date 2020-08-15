@@ -12,7 +12,7 @@
     - name: API REST
       expanded: true
       items:
-        - name: 'Usando C#'
+        - name: Usando C#
           href: quickstarts/csharp.md
         - name: Usando Java
           href: quickstarts/java.md
@@ -26,7 +26,7 @@
           href: quickstarts/ruby.md
     - name: .
       items:
-        - name: 'Usando C#'
+        - name: Usando C#
           href: sdk-quickstart-spell-check.md
 - name: Tutoriais
   items:
@@ -81,7 +81,7 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/bing-api'
     - name: Chave de assinatura
-      href: 'https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api'
+      href: 'https://azure.microsoft.com/free/cognitive-services'
     - name: Experimente!
       href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
     - name: UserVoice
