@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: 47f33d8b1a7792487491cbe7f2ddb5c7f5b087af
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c898eeaf99b8a24b992f1daa82b9149327b7a457
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002986"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245768"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adicionar o SQL Instância Gerenciada a um grupo de failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -52,7 +52,7 @@ Para concluir o tutorial, verifique se você tem os seguintes itens:
 ---
 
 
-## <a name="1---create-a-resource-group-and-primary-managed-instance"></a>1-criar um grupo de recursos e uma instância gerenciada primária
+## <a name="create-a-resource-group-and-primary-managed-instance"></a>Criar um grupo de recursos e uma instância gerenciada primária
 
 Nesta etapa, você criará o grupo de recursos e a instância gerenciada primária para seu grupo de failover usando o portal do Azure ou o PowerShell. 
 
@@ -404,7 +404,7 @@ Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 
 ---
 
-## <a name="2---create-secondary-virtual-network"></a>2-criar rede virtual secundária
+## <a name="create-secondary-virtual-network"></a>Criar rede virtual secundária
 
 Se você estiver usando o portal do Azure para criar sua instância gerenciada, será necessário criar a rede virtual separadamente porque há um requisito de que a sub-rede da instância gerenciada primária e secundária não tenha intervalos sobrepostos. Se você estiver usando o PowerShell para configurar sua instância gerenciada, pule para a etapa 3. 
 
@@ -432,7 +432,7 @@ Para criar uma rede virtual, siga estas etapas:
     | **Espaço de endereço** | O espaço de endereço para sua rede virtual, como `10.128.0.0/16` . | 
     | **Assinatura** | A assinatura em que reside a instância gerenciada primária e o grupo de recursos. |
     | **Região** | O local onde você vai implantar sua instância gerenciada secundária. |
-    | **Sub-rede** | O nome da sua sub-rede. `default`é fornecido para você por padrão. |
+    | **Sub-rede** | O nome da sua sub-rede. `default` é fornecido para você por padrão. |
     | **Intervalo de endereços**| O intervalo de endereços da sua sub-rede. Isso deve ser diferente do intervalo de endereços de sub-rede usado pela rede virtual de sua instância gerenciada primária, como `10.128.0.0/24` .  |
     | &nbsp; | &nbsp; |
 
@@ -444,7 +444,7 @@ Esta etapa só será necessária se você estiver usando o portal do Azure para 
 
 ---
 
-## <a name="3---create-a-secondary-managed-instance"></a>3-criar uma instância gerenciada secundária
+## <a name="create-a-secondary-managed-instance"></a>Criar uma instância gerenciada secundária
 Nesta etapa, você criará uma instância gerenciada secundária no portal do Azure, que também irá configurar a rede entre as duas instâncias gerenciadas. 
 
 Sua segunda instância gerenciada deve:
@@ -734,9 +734,9 @@ Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 
 ---
 
-## <a name="4---create-a-primary-gateway"></a>4-criar um gateway primário 
+## <a name="create-a-primary-gateway"></a>Criar um gateway primário 
 
-Para que duas instâncias gerenciadas participem de um grupo de failover, deve haver o ExpressRoute ou um gateway configurado entre as redes virtuais das duas instâncias gerenciadas para permitir a comunicação de rede. Se você optar por configurar o [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) em vez de conectar dois gateways de VPN, pule para a [etapa 7](#7---create-a-failover-group).  
+Para que duas instâncias gerenciadas participem de um grupo de failover, deve haver o ExpressRoute ou um gateway configurado entre as redes virtuais das duas instâncias gerenciadas para permitir a comunicação de rede. Se você optar por configurar o [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) em vez de conectar dois gateways de VPN, pule para a [etapa 7](#create-a-failover-group).  
 
 Este artigo fornece etapas para criar os dois gateways de VPN e conectá-los, mas você pode pular para criar o grupo de failover se tiver configurado o ExpressRoute em vez disso. 
 
@@ -767,7 +767,6 @@ Crie o gateway para a rede virtual da sua instância gerenciada primária usando
     | **Tipo de gateway** | Selecione **VPN**. |
     | **Tipo de VPN** | Selecione **Baseado em rota**. |
     | **SKU**| Mantenha o padrão de `VpnGw1` . |
-    | **Localidade**| O local onde a instância gerenciada primária e a rede virtual primária são.   |
     | **Rede virtual**| Selecione a rede virtual que foi criada na seção 2, como `vnet-sql-mi-primary` . |
     | **Endereço IP público**| Selecione **Criar**. |
     | **Nome do endereço IP público**| Insira um nome para seu endereço IP, como `primary-gateway-IP` . |
@@ -831,7 +830,7 @@ Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 ---
 
 
-## <a name="5---create-secondary-gateway"></a>5-criar gateway secundário 
+## <a name="create-secondary-gateway"></a>Criar gateway secundário 
 Nesta etapa, crie o gateway para a rede virtual da sua instância gerenciada secundária usando o portal do Azure. 
 
 
@@ -849,8 +848,7 @@ Usando o portal do Azure, repita as etapas na seção anterior para criar a sub-
    | **Tipo de gateway** | Selecione **VPN**. |
    | **Tipo de VPN** | Selecione **Baseado em rota**. |
    | **SKU**| Mantenha o padrão de `VpnGw1` . |
-   | **Localidade**| O local onde a instância gerenciada secundária e a rede virtual secundária são.   |
-   | **Rede virtual**| Selecione a rede virtual que foi criada na seção 2, como `vnet-sql-mi-secondary` . |
+   | **Rede virtual**| Selecione a rede virtual para a instância gerenciada secundária, como `vnet-sql-mi-secondary` . |
    | **Endereço IP público**| Selecione **Criar**. |
    | **Nome do endereço IP público**| Insira um nome para seu endereço IP, como `secondary-gateway-IP` . |
    | &nbsp; | &nbsp; |
@@ -883,7 +881,7 @@ Crie o gateway para a rede virtual da instância gerenciada secundária usando o
                      -VirtualNetwork $secondaryVirtualNetwork
    $drLocation = $secondaryVirtualNetwork.Location
    
-   Write-host "Creating primary gateway..."
+   Write-host "Creating secondary gateway..."
    Write-host "This will take some time."
    $secondaryGWPublicIP = New-AzPublicIpAddress -Name $secondaryGWPublicIPAddress -ResourceGroupName $resourceGroupName `
             -Location $drLocation -AllocationMethod Dynamic
@@ -911,7 +909,7 @@ Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 ---
 
 
-## <a name="6---connect-the-gateways"></a>6-conectar os gateways
+## <a name="connect-the-gateways"></a>Conectar os gateways
 Nesta etapa, crie uma conexão bidirecional entre os dois gateways das duas redes virtuais. 
 
 
@@ -923,21 +921,24 @@ Conecte os dois gateways usando o portal do Azure.
 1. Selecione **criar um recurso** no [portal do Azure](https://portal.azure.com).
 1. Digite `connection` na caixa de pesquisa e pressione ENTER para pesquisar, que leva você para o recurso de **conexão** , publicado pela Microsoft.
 1. Selecione **criar** para criar sua conexão. 
-1. Na guia **noções básicas** , selecione os valores a seguir e, em seguida, selecione **OK**. 
+1. Na página **noções básicas** , selecione os valores a seguir e, em seguida, selecione **OK**. 
     1. Selecione `VNet-to-VNet` para o **tipo de conexão**. 
     1. Selecione sua assinatura na lista suspensa. 
     1. Selecione o grupo de recursos para o SQL Instância Gerenciada na lista suspensa. 
     1. Selecione o local da instância gerenciada primária na lista suspensa. 
-1. Na guia **configurações** , selecione ou insira os seguintes valores e, em seguida, selecione **OK**:
-    1. Escolha o gateway de rede primário para o **primeiro gateway de rede virtual**, como `Primary-Gateway` .  
-    1. Escolha o gateway de rede secundário para o **segundo gateway de rede virtual**, como `Secondary-Gateway` . 
+1. Na página **configurações** , selecione ou insira os seguintes valores e, em seguida, selecione **OK**:
+    1. Escolha o gateway de rede primário para o **primeiro gateway de rede virtual**, como `primaryGateway` .  
+    1. Escolha o gateway de rede secundário para o **segundo gateway de rede virtual**, como `secondaryGateway` . 
     1. Marque a caixa de seleção ao lado de **estabelecer conectividade bidirecional**. 
     1. Deixe o nome da conexão primária padrão ou renomeie-o para um valor de sua escolha. 
     1. Forneça uma **chave compartilhada (PSK)** para a conexão, como `mi1m2psk` . 
+    1. Selecione **OK** para salvar as configurações. 
 
-   ![Criar conexão de gateway](./media/failover-group-add-instance-tutorial/create-gateway-connection.png)
+    ![Criar conexão de gateway](./media/failover-group-add-instance-tutorial/create-gateway-connection.png)
 
-1. Na guia **Resumo** , examine as configurações da conexão bidirecional e, em seguida, selecione **OK** para criar a conexão. 
+    
+
+1. Na página **revisar + criar** , examine as configurações da conexão bidirecional e, em seguida, selecione **OK** para criar a conexão. 
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -970,7 +971,7 @@ Esta parte do tutorial usa o seguinte cmdlet do PowerShell:
 ---
 
 
-## <a name="7---create-a-failover-group"></a>7-criar um grupo de failover
+## <a name="create-a-failover-group"></a>Criar um grupo de failover
 Nesta etapa, você criará o grupo de failover e adicionará as duas instâncias gerenciadas a ele. 
 
 
@@ -1013,7 +1014,7 @@ Esta parte do tutorial usa o seguinte cmdlet do PowerShell:
 ---
 
 
-## <a name="8---test-failover"></a>8-failover de teste
+## <a name="test-failover"></a>Failover de Teste
 Nesta etapa, você falhará no grupo de failover para o servidor secundário e, em seguida, fará o failback usando o portal do Azure. 
 
 
@@ -1080,7 +1081,7 @@ Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Limpe os recursos excluindo primeiro as instâncias gerenciadas, depois o cluster virtual, todos os recursos restantes e, por fim, o grupo de recursos. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)

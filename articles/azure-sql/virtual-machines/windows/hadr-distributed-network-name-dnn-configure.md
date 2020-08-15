@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7c40f4d9f86f27af34c1bc649483810f6756c41d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 8eb9caf466148e43266c4be9cf1308da15fb67f2
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169809"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245529"
 ---
 # <a name="configure-a-distributed-network-name-for-an-fci"></a>Configurar um nome de rede distribuída para um FCI 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -156,6 +156,29 @@ O **Gerenciador de Cluster de Failover** mostra a função e seus recursos ficam
 Para testar a conectividade, entre em outra máquina virtual na mesma rede virtual. Abra **SQL Server Management Studio** e conecte-se ao SQL Server FCI usando o nome DNS do DNN.
 
 Se necessário, [baixe o SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+
+## <a name="avoid-ip-conflict"></a>Evitar conflito de IP
+
+Esta é uma etapa opcional para impedir que o endereço VIP (IP virtual) usado pelo recurso FCI seja atribuído a outro recurso no Azure como duplicado. 
+
+Embora os clientes agora usem o DNN para se conectarem ao SQL Server FCI, o VNN (nome da rede virtual) e o IP virtual não podem ser excluídos, pois são componentes necessários da infraestrutura do FCI. No entanto, como não há mais um balanceador de carga reservando o endereço IP virtual no Azure, há um risco de que outro recurso na rede virtual receba o mesmo endereço IP que o endereço IP virtual usado pelo FCI. Isso pode potencialmente levar a um problema de conflito de IP duplicado. 
+
+Configure um endereço APIPA ou um adaptador de rede dedicado para reservar o endereço IP. 
+
+### <a name="apipa-address"></a>Endereço APIPA
+
+Para evitar o uso de endereços IP duplicados, configure um endereço APIPA (também conhecido como endereço de link local). Para fazer isso, execute o comando a seguir:
+
+```powershell
+Get-ClusterResource "virtual IP address" | Set-ClusterParameter 
+    –Multiple @{"Address”=”169.254.1.1”;”SubnetMask”=”255.255.0.0”;"OverrideAddressMatch"=1;”EnableDhcp”=0}
+```
+
+Neste comando, "endereço IP virtual" é o nome do recurso de endereço VIP clusterizado e "169.254.1.1" é o endereço APIPA escolhido para o endereço VIP. Escolha o endereço que melhor se adapta ao seu negócio. Defina `OverrideAddressMatch=1` para permitir que o endereço IP esteja em qualquer rede, incluindo o espaço de endereço APIPA. 
+
+### <a name="dedicated-network-adapter"></a>Adaptador de rede dedicado
+
+Como alternativa, configure um adaptador de rede no Azure para reservar o endereço IP usado pelo recurso de endereço IP virtual. No entanto, isso consome o endereço no espaço de endereço de sub-rede e há a sobrecarga adicional de garantir que o adaptador de rede não seja usado para nenhuma outra finalidade.
 
 ## <a name="limitations"></a>Limitações
 

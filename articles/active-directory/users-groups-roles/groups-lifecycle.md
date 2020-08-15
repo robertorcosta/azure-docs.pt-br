@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff0a1fb386776a3ab1a3b7689c69dea7dc717d1e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: afc9a32c4f0fa5b4b6a2f6c0ec56bbc35b6dde68
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213786"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244475"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configurar a política de expiração para grupos de Microsoft 365
 
@@ -79,7 +79,7 @@ Para obter mais informações sobre permissões para restaurar um grupo excluíd
 
 3. Na página **expiração** , você pode:
 
-    - Definir o tempo de vida do grupo em dias. Selecionar um dos valores predefinidos ou um valor personalizado (deve ser 31 dias ou mais).
+    - Definir o tempo de vida do grupo em dias. Você pode selecionar um dos valores predefinidos ou um valor personalizado (deve ser 30 dias ou mais).
     - Especificar um email para o qual as notificações de vencimento e renovação devem ser enviadas quando um grupo não tem nenhum proprietário.
     - Selecione quais grupos de Microsoft 365 expiram. Você pode definir a expiração para:
       - **Todos** Grupos de Microsoft 365

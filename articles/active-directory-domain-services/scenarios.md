@@ -9,20 +9,70 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 08/14/2020
 ms.author: iainfou
-ms.openlocfilehash: ba4761a2b7893fd894f62b7e2252005d7afd1c91
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 4cd6a37ad2d5081cdc587290c361fbc992c69bfb
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039969"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245155"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Casos de uso comuns e cenários para Azure Active Directory Domain Services
 
 O Azure AD DS (Azure Active Directory Domain Services) fornece serviços de domínio gerenciado, como ingresso no domínio, política de grupo, protocolo LDAP e autenticação Kerberos/NTLM. O Azure AD DS se integra ao locatário existente do Azure AD, o que permite aos usuários entrarem usando suas credenciais atuais. Você usa esses serviços de domínio sem a necessidade de implantar, gerenciar e aplicar patch nos controladores de domínio na nuvem, o que fornece um aumento mais suave dos recursos locais para o Azure.
 
 Este artigo descreve alguns cenários de negócios comuns em que o Azure AD DS fornece valor e atende a essas necessidades.
+
+## <a name="common-ways-to-provide-identity-solutions-in-the-cloud"></a>Maneiras comuns de fornecer soluções de identidade na nuvem
+
+Ao migrar cargas de trabalho existentes para a nuvem, os aplicativos reconhecidos pelo diretório poderão usar o LDAP para acesso de leitura e gravação a um diretório local do AD DS. Aplicativos em execução no Windows Server normalmente são implantados em VMs (máquinas virtuais) ingressadas em domínio, para que possam ser gerenciados com segurança usando a Política de Grupo. Para autenticar usuários finais, os aplicativos também podem depender da autenticação integrada do Windows, como a autenticação Kerberos ou NTLM.
+
+Geralmente, os administradores de TI usam uma das seguintes soluções para fornecer um serviço de identidade a aplicativos executados no Azure:
+
+* Configurar uma conexão VPN site a site entre as cargas de trabalho executadas no Azure e o ambiente local do AD DS.
+    * Os controladores de domínio locais, por sua vez, fornecem autenticação por meio da conexão VPN.
+* Criar réplica dos controladores de domínio usando as VMs (máquinas virtuais) do Azure para estender o domínio/floresta do AD DS do local.
+    * Os controladores de domínio executados em VMs do Azure fornecem autenticação e replicam informações de diretório entre o ambiente do AD DS local.
+* Implantar um ambiente autônomo do AD DS no Azure usando controladores de domínio executados em VMs do Azure.
+    * Os controladores de domínio executados em VMs do Azure fornecem autenticação, mas as informações de diretório não são replicadas entre o ambiente do AD DS local.
+
+Com essas abordagens, as conexões VPN com o diretório local tornam os aplicativos vulneráveis a falhas de rede ou interrupções transitórias. Se você implantar controladores de domínio usando VMs no Azure, a equipe de TI precisará gerenciar as VMs e, então, proteger, aplicar patches, monitorar, fazer backup e solucionar os problemas delas.
+
+O Azure AD DS oferece alternativas para a necessidade de criar conexões VPN de volta para um ambiente local do AD DS ou executar e gerenciar VMs no Azure para fornecer serviços de identidade. Como um serviço gerenciado, o Azure AD DS reduz a complexidade da criação de uma solução de identidade integrada para ambientes híbridos e somente em nuvem.
+
+> [!div class="nextstepaction"]
+> [Comparar o Azure AD DS com o Azure AD e o AD DS autogerenciado em VMs do Azure ou local][compare]
+
+## <a name="azure-ad-ds-for-hybrid-organizations"></a>Azure AD DS para organizações híbridas
+
+Muitas organizações executam uma infraestrutura híbrida que inclui cargas de trabalho locais e de aplicativo. Aplicativos herdados migrados para o Azure como parte de uma estratégia de lift-and-shift podem usar conexões LDAP tradicionais para fornecer informações de identidade. Para apoiar essa infraestrutura híbrida, as informações de identidade de um ambiente local do AD DS podem ser sincronizadas com um locatário do Azure AD. Então, o Azure AD DS fornece esses aplicativos herdados no Azure com uma origem de identidade, sem a necessidade de configurar e gerenciar a conectividade do aplicativo com os serviços de diretório local.
+
+Veja um exemplo da Litware Corporation, uma organização híbrida que executa no local e em recursos do Azure:
+
+![Azure Active Directory Domain Services para uma organização híbrida que inclui sincronização local](./media/overview/synced-tenant.png)
+
+* Os aplicativos e as cargas de trabalho de servidor que exigem serviços de domínio são implantados em uma rede virtual no Azure.
+    * Isso pode incluir aplicativos herdados migrados para o Azure como parte de uma estratégia de lift-and-shift.
+* A Litware Corporation implantou o [Azure AD Connect][azure-ad-connect] para sincronizar informações de identidade do diretório local para seu locatário do Azure AD.
+    * As informações de identidade sincronizadas incluem contas de usuário e associações de grupo.
+* A equipe de TI da Litware habilita o Azure AD DS para o locatário do Azure AD dessa forma ou em uma rede virtual emparelhada.
+* Os aplicativos e as VMs implantados na rede virtual do Azure podem utilizar recursos do Azure AD DS como ingresso no domínio, leitura LDAP, associação LDAP, autenticação NTLM e Kerberos e Política de Grupo.
+
+> [!IMPORTANT]
+> O Azure AD Connect só deve ser instalado e configurado para sincronização com ambientes do AD DS locais. A instalação do Azure AD Connect em um domínio gerenciado a fim de sincronizar objetos com o Azure AD não é um procedimento compatível.
+
+## <a name="azure-ad-ds-for-cloud-only-organizations"></a>Azure AD DS para organizações somente na nuvem
+
+Um locatário somente em nuvem do Azure AD não tem uma origem de identidade local. Contas de usuário e associações de grupo, por exemplo, são criadas e gerenciadas diretamente no Azure AD.
+
+Agora, vamos ver um exemplo da Contoso, uma organização somente em nuvem que usa o Azure AD para gerenciar identidades. Todas as identidades de usuário, suas credenciais e associações de grupo são criadas e gerenciadas no Azure AD. Não há outras configurações do Azure AD Connect para sincronizar informações de identidade de um diretório local.
+
+![Azure Active Directory Domain Services para uma organização somente em nuvem sem sincronização local](./media/overview/cloud-only-tenant.png)
+
+* Os aplicativos e as cargas de trabalho de servidor que exigem serviços de domínio são implantados em uma rede virtual no Azure.
+* A equipe de TI da Contoso habilita o Azure AD DS para o locatário do Azure AD dessa forma ou em uma rede virtual emparelhada.
+* Os aplicativos e as VMs implantados na rede virtual do Azure podem utilizar recursos do Azure AD DS como ingresso no domínio, leitura LDAP, associação LDAP, autenticação NTLM e Kerberos e Política de Grupo.
 
 ## <a name="secure-administration-of-azure-virtual-machines"></a>Administração segura de máquinas virtuais do Azure
 
@@ -117,6 +167,8 @@ Para começar, [crie e configure um Azure Active Directory Domain Services domí
 [custom-ou]: create-ou.md
 [create-gpo]: manage-group-policy.md
 [sspr]: ../active-directory/authentication/overview-authentication.md#self-service-password-reset
+[compare]: compare-identity-solutions.md
+[azure-ad-connect]: ../active-directory/hybrid/whatis-azure-ad-connect.md
 
 <!-- EXTERNAL LINKS -->
 [windows-rds]: /windows-server/remote/remote-desktop-services/rds-azure-adds

@@ -5,16 +5,21 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 1c2330f1ba71e2a72a1a44df7af6444181f5f9ea
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 02facedda206a5621cabe62a07520303635dc3ff
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836387"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245359"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registro de Contêiner do Azure
 
 Este artigo aborda as perguntas frequentes e problemas conhecidos sobre o Registro de Contêiner do Azure.
+
+Para obter diretrizes de solução de problemas do registro, consulte:
+* [Solucionar problemas de logon do registro](container-registry-troubleshoot-login.md)
+* [Solucionar problemas de rede com o registro](container-registry-troubleshoot-access.md)
+* [Solucionar problemas de desempenho do registro](container-registry-troubleshoot-performance.md)
 
 ## <a name="resource-management"></a>Gerenciamento de recursos
 

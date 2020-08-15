@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/22/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: c6964a28956230dabad007d60d84dcdd1cffab23
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9b8432a54aa90b7d500898b2f6959d075ac89460
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319908"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245325"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Painel de uso na análise do marketplace comercial da Microsoft
 
@@ -111,6 +111,8 @@ A guia **Uso de cobrança limitada** apresenta informações de uso para os tipo
 - **Tendência de excedente por plano**: representa a tendência de quantidade de uso da dimensão de medidor selecionada por planos. Os planos exibidos representarão os cinco principais planos com a maior quantidade de uso para a oferta selecionada.
 - **Tendência excedente pelos 50 principais clientes**: As 50 principais ofertas com as horas de uso mais altas são exibidas em um ***placar*** e são classificadas pelo uso mais alto do medidor personalizado. Selecione um cliente no placar para exibir a tendência de uso de uma dimensão de medidor selecionada.
 - **Tendência excedente pelos principais clientes**: Apresenta os principais percentuais do cliente que contribuem para o percentual do uso geral. O principal percentual do cliente é exibido ao longo do eixo X e é determinado pela quantidade de uso do cliente. O eixo Y mostra a quantidade de uso. Você pode exibir detalhes passando o ponteiro do mouse sobre pontos ao longo do gráfico de linhas.
+
+Se você tiver várias ofertas que usam medidores personalizados, o relatório uso de cobrança medido mostrará informações de uso para todas as suas ofertas, de acordo com suas dimensões de medidor personalizadas.
 
 > [!NOTE]
 > Os detalhes de uso e todos os gráficos nessa página são exibidos para qualquer dimensão de medidor selecionada para o filtro de página.

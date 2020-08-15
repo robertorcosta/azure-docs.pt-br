@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: c15601b4c58ce072881b3c244f10bc196bceb853
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d7464d1788101eef7bdad95545056bb32e46c395
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167803"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245461"
 ---
 # <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Fala gratuitamente
 
@@ -29,7 +29,7 @@ Neste artigo, você escolhe uma opção para testar facilmente o serviço de fal
 
 Conclua as etapas a seguir para ativar uma avaliação gratuita de 30 dias e obter as chaves de API. O período de avaliação começará imediatamente depois que as etapas a seguir forem concluídas.
 
-1. Vá para [experimentar o serviço cognitiva](https://azure.microsoft.com/try/cognitive-services/).
+1. Vá para [experimentar o serviço cognitiva](https://azure.microsoft.com/free/cognitive-services).
 1. Selecione a guia **APIs de Fala**.
 1. Escolha **obter chave de API**.
 

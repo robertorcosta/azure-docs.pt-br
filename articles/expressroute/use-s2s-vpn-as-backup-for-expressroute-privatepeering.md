@@ -7,16 +7,16 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: rambala
-ms.openlocfilehash: df4108604c656cd6383bd57b462c0f12f31bdd7b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 68596b881ef1b62187bdb7194b364c9477b4e04d
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206869"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244764"
 ---
 # <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Usando a VPN S2S como um backup para o emparelhamento privado do ExpressRoute
 
-No artigo intitulado [criando para recuperação de desastre com o emparelhamento privado do expressroute][DR-PP], discutimos a necessidade de solução de conectividade de backup para uma conectividade de emparelhamento privado do expressroute e como usar circuitos do expressroute com redundância geográfica para fins de uso. Neste artigo, vamos considerar como aproveitar e manter a VPN S2S (site a site) como volta para o emparelhamento privado do ExpressRoute. 
+No artigo intitulado [criando para recuperação de desastre com o emparelhamento privado do expressroute][DR-PP], discutimos a necessidade de solução de conectividade de backup para uma conectividade de emparelhamento privado do expressroute e como usar circuitos do expressroute com redundância geográfica para fins de uso. Neste artigo, vamos considerar como aproveitar e manter a VPN S2S (site a site) como um backup para o emparelhamento privado do ExpressRoute. 
 
 Diferentemente dos circuitos de ExpressRoute com redundância geográfica, você pode usar a combinação de recuperação de desastres de ExpressRoute-VPN somente no modo ativo-passivo. Um grande desafio de usar qualquer conectividade de rede de backup no modo passivo é que a conexão passiva geralmente falhará ao lado da conexão primária. O motivo comum para as falhas da conexão passiva é a falta de manutenção ativa. Portanto, neste artigo, vamos nos concentrar em como verificar e manter ativamente a conectividade VPN S2S que está fazendo backup de um emparelhamento privado do ExpressRoute.
 
@@ -36,7 +36,7 @@ Na configuração, o circuito do ExpressRoute é encerrado em um par de roteador
 
 A tabela a seguir lista os prefixos IP de chave da topologia:
 
-| **Entidade** | **Prefixo** |
+| **Entidade** | **Prefix** |
 | --- | --- |
 | LAN local | 10.1.11.0/25 |
 | VNet do Hub do Azure | 10.17.11.0/25 |
@@ -116,7 +116,7 @@ Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
 
 ### <a name="configuring-for-symmetric-traffic-flow"></a>Configurando para fluxo de tráfego simétrico
 
-Observamos que, quando uma determinada rota local é anunciada por meio de ExpressRoute e VPN S2S, o Azure prefere o caminho do ExpressRoute. Para forçar o Azure a preferir o caminho VPN S2S sobre o ExpressRoute coexistente, você precisa anunciar rotas mais específicas (prefixo mais longo com maior máscara de sub-rede) por meio da conexão VPN. Nosso objetivo aqui é usar as conexões VPN somente como back. Portanto, o comportamento de seleção de caminho padrão do Azure está em linha com nosso objetivo. 
+Observamos que, quando uma determinada rota local é anunciada por meio de ExpressRoute e VPN S2S, o Azure prefere o caminho do ExpressRoute. Para forçar o Azure a preferir o caminho VPN S2S sobre o ExpressRoute coexistente, você precisa anunciar rotas mais específicas (prefixo mais longo com maior máscara de sub-rede) por meio da conexão VPN. Nosso objetivo aqui é usar as conexões VPN como somente backup. Portanto, o comportamento de seleção de caminho padrão do Azure está em linha com nosso objetivo. 
 
 É nossa responsabilidade garantir que o tráfego destinado ao Azure do local também prefira o caminho do ExpressRoute em relação à VPN S2S. A preferência local padrão dos roteadores e firewalls CE em nossa configuração local é 100. Portanto, ao configurar a preferência local das rotas recebidas por meio dos emparelhamentos privados do ExpressRoute maiores que 100 (digamos 150), podemos fazer com que o tráfego destinado ao Azure prefira o circuito do ExpressRoute no estado estacionário.
 

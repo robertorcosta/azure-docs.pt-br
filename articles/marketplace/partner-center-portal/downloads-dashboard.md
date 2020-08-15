@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: 2bd38bc7a499aa9178d49f54e27a88a38206e521
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5b688d64641f6dd8779d699bcd1d646e40b19b87
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317562"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245665"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Painel de downloads na análise do marketplace comercial
 
@@ -25,9 +25,7 @@ Para acessar o painel de downloads, abra o painel **[analisar](https://partner.m
 
 ## <a name="downloads-dashboard"></a>Painel de downloads
 
-O painel de **downloads** do menu **analisar** exibe solicitações para quaisquer downloads que contenham mais de 1000 linhas de dados do cliente ou do pedido.
-
-Você receberá uma notificação pop-up e um email contendo um link para o painel de **downloads** sempre que solicitar um download com mais de 1000 linhas de dados. Esses downloads de dados estarão disponíveis por um período de 30 dias e, em seguida, removidos.
+O painel de **downloads** do menu **analisar** exibe solicitações para quaisquer downloads que contenham mais de 1000 linhas de dados do cliente ou do pedido. Esses downloads de dados estarão disponíveis por 30 dias e, em seguida, removidos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

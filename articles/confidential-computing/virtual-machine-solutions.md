@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 6e853edf5b7ba756aaedceaf59b1f7d1d7e48b39
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: f9b73e0919d660947edd0417f7379b3f6e6140c0
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985419"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245845"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Soluções em máquinas virtuais do Azure
 
@@ -32,41 +32,18 @@ Inicie a implantação de uma VM da série DCsv2 por meio do marketplace comerci
 Para obter uma lista de todos os tamanhos de VMs de computação confidencial disponíveis para o público em regiões e zonas disponíveis, execute o seguinte comando na [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
 
 ```azurecli-interactive
-az vm list-skus 
-    --size dc 
-    --query "[?family=='standardDCSv2Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" 
-    --all 
+az vm list-skus `
+    --size dc `
+    --query "[?family=='standardDCSv2Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" `
+    --all `
     --output table
-```
-
-Esses SKUs estão disponíveis desde maio de 2020 nas seguintes regiões e zonas de disponibilidade:
-
-```output
-Name              Locations      AZ_a
-----------------  -------------  ------
-Standard_DC8_v2   eastus         2
-Standard_DC1s_v2  eastus         2
-Standard_DC2s_v2  eastus         2
-Standard_DC4s_v2  eastus         2
-Standard_DC8_v2   CanadaCentral
-Standard_DC1s_v2  CanadaCentral
-Standard_DC2s_v2  CanadaCentral
-Standard_DC4s_v2  CanadaCentral
-Standard_DC8_v2   uksouth        3
-Standard_DC1s_v2  uksouth        3
-Standard_DC2s_v2  uksouth        3
-Standard_DC4s_v2  uksouth        3
-Standard_DC8_v2   CentralUSEUAP
-Standard_DC1s_v2  CentralUSEUAP
-Standard_DC2s_v2  CentralUSEUAP
-Standard_DC4s_v2  CentralUSEUAP
 ```
 
 Para ter uma visão mais detalhada dos tamanhos acima, execute o seguinte comando:
 
 ```azurecli-interactive
-az vm list-skus 
-    --size dc 
+az vm list-skus `
+    --size dc `
     --query "[?family=='standardDCSv2Family']"
 ```
 ### <a name="dedicated-host-requirements"></a>Requisitos de host dedicado
@@ -101,17 +78,17 @@ Ao usar máquinas virtuais no Azure, você será responsável por implementar um
 
 No momento, a computação confidencial do Azure não oferece suporte para redundância de zona por meio de zonas de disponibilidade. Para obter a maior disponibilidade e redundância para computação confidencial, use [Conjuntos de Disponibilidade](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Devido a restrições de hardware, os Conjuntos de Disponibilidade para instâncias de computação confidencial podem ter somente um máximo de dez domínios de atualização. 
 
-## <a name="deploying-via-an-azure-resource-manager-template"></a>Implantação por meio de um modelo do Azure Resource Manager 
+## <a name="deployment-with-azure-resource-manager-arm-template"></a>Implantação com modelo de Azure Resource Manager (ARM)
 
 O Azure Resource Manager é p serviço de implantação e gerenciamento do Azure. Ele fornece uma camada de gerenciamento que lhe permite criar, atualizar e excluir recursos em sua assinatura do Azure. Você pode usar recursos de gerenciamento, como controle de acesso, bloqueios e marcas, para proteger e organizar seus recursos após a implantação.
 
-Para saber mais sobre os modelos do Azure Resource Manager, confira [Visão geral de implantação de modelo](../azure-resource-manager/templates/overview.md).
+Para saber mais sobre os modelos do ARM, confira [implantação de modelo visão geral](../azure-resource-manager/templates/overview.md).
 
-Para implantar uma VM da série DCsv2 em um modelo do Azure Resource Manager, será necessário usar o [recurso de Máquina Virtual](../virtual-machines/windows/template-description.md). Certifique-se de especificar as propriedades corretas em **vmSize** e para **imageReference**.
+Para implantar uma VM da série DCsv2 em um modelo do ARM, você usará o [recurso de máquina virtual](../virtual-machines/windows/template-description.md). Certifique-se de especificar as propriedades corretas em **vmSize** e para **imageReference**.
 
 ### <a name="vm-size"></a>Tamanho da VM
 
-Especifique um dos seguintes tamanhos no modelo do Azure Resource Manager no recurso de Máquina Virtual. Essa cadeia de caracteres está contida em **propriedades** como **vmSize**.
+Especifique um dos seguintes tamanhos no modelo do ARM no recurso de máquina virtual. Essa cadeia de caracteres está contida em **propriedades** como **vmSize**.
 
 ```json
   [
@@ -122,7 +99,7 @@ Especifique um dos seguintes tamanhos no modelo do Azure Resource Manager no rec
       ],
 ```
 
-### <a name="gen2-os-image"></a>Imagem do SO Gen2
+### <a name="gen2-os-image"></a>Imagem do so Gen2
 
 Em **Propriedades**, você também deverá fazer referência a uma imagem em **storageProfile**. Use *apenas uma* das imagens a seguir em sua **imageReference**.
 

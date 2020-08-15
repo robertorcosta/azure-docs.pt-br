@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2020
-ms.openlocfilehash: d4398b2bf37ad5dcf60a931f5d4991a3ad00845a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 5a7f13982de000478b14eb75d7341ed2e99c1274
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826527"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245563"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Use grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Os grupos de failover automático permitem gerenciar a replicação e o failover de um grupo de bancos de dados em um servidor ou em todos os bancos de dados em uma instância gerenciada para outra região. É uma abstração declarativa sobre o recurso de [replicação geográfica ativa](active-geo-replication-overview.md) existente, projetado para simplificar a implantação e o gerenciamento de bancos de dados replicados geograficamente em escala. Você pode iniciar o failover manualmente ou pode delegá-lo para o serviço do Azure com base em uma política definida pelo usuário. A última opção permite que você recupere automaticamente vários bancos de dados relacionados em uma região secundária após uma falha catastrófica ou outro evento não planejado que resulta em uma perda total ou parcial do banco de dados SQL ou da disponibilidade do SQL Instância Gerenciada na região primária. Um grupo de failover pode incluir um ou vários bancos de dados, normalmente usados pelo mesmo aplicativo. Além disso, eles podem usar os bancos de dados secundários legíveis para descarregar cargas de trabalho de consulta somente leitura. Como os grupos de failover automático incluem vários bancos de dados, esses bancos de dados devem ser configurados no servidor primário. Os grupos de failover automático dão suporte à replicação de todos os bancos de dados no grupo para apenas um servidor secundário ou instância em uma região diferente.
+O recurso grupos de failover automático permite que você gerencie a replicação e o failover de um grupo de bancos de dados em um servidor ou em todos os bancos de dados em uma instância gerenciada para outra região. É uma abstração declarativa sobre o recurso de [replicação geográfica ativa](active-geo-replication-overview.md) existente, projetado para simplificar a implantação e o gerenciamento de bancos de dados replicados geograficamente em escala. Você pode iniciar o failover manualmente ou pode delegá-lo para o serviço do Azure com base em uma política definida pelo usuário. A última opção permite que você recupere automaticamente vários bancos de dados relacionados em uma região secundária após uma falha catastrófica ou outro evento não planejado que resulta em uma perda total ou parcial do banco de dados SQL ou da disponibilidade do SQL Instância Gerenciada na região primária. Um grupo de failover pode incluir um ou vários bancos de dados, normalmente usados pelo mesmo aplicativo. Além disso, eles podem usar os bancos de dados secundários legíveis para descarregar cargas de trabalho de consulta somente leitura. Como os grupos de failover automático incluem vários bancos de dados, esses bancos de dados devem ser configurados no servidor primário. Os grupos de failover automático dão suporte à replicação de todos os bancos de dados no grupo para apenas um servidor secundário ou instância em uma região diferente.
 
 > [!NOTE]
 > Se você quiser vários secundários do banco de dados SQL do Azure na mesma região ou em regiões diferentes, use a [replicação geográfica ativa](active-geo-replication-overview.md).
@@ -203,7 +203,7 @@ Para ilustrar a sequência de alteração, vamos pressupor que o servidor A é o
 1. Execute um failover planejado para alternar o servidor primário para B. o servidor A se tornará o novo servidor secundário. O failover pode resultar em vários minutos de tempo de inatividade. O tempo real dependerá do tamanho do grupo de failover.
 2. Crie secundários adicionais de cada banco de dados no servidor B para o servidor C usando [a replicação geográfica ativa](active-geo-replication-overview.md). Cada banco de dados no servidor B terá dois secundários, um no servidor A e outro no servidor C. Isso garantirá que os bancos de dados primários permaneçam protegidos durante a transição.
 3. Exclua o grupo de failover. Neste ponto, os logons falharão. Isso ocorre porque os aliases do SQL para os ouvintes do grupo de failover foram excluídos e o gateway não reconhecerá o nome do grupo de failover.
-4. Crie novamente o grupo de failover com o mesmo nome entre os servidores A e C. Neste ponto, os logons deixarão de falhar.
+4. Recrie o grupo de failover com o mesmo nome entre os servidores B e C. Neste ponto, os logons deixarão de falhar.
 5. Adicione todos os bancos de dados primários no B ao novo grupo de failover.
 6. Execute um failover planejado do grupo de failover para o comutador B e C. Agora, o servidor C se tornará o primário e o B-o secundário. Todos os bancos de dados secundários no servidor A serão vinculados automaticamente aos primários em C. Como na etapa 1, o failover pode resultar em vários minutos de inatividade.
 7. Descarte o servidor a. Todos os bancos de dados em um serão excluídos automaticamente.
@@ -231,7 +231,7 @@ Para garantir a conectividade não interrompida com o Instância Gerenciada do S
 > [!IMPORTANT]
 > A primeira instância gerenciada criada na sub-rede determina a zona DNS para todas as instâncias subsequentes na mesma sub-rede. Isso significa que duas instâncias da mesma sub-rede não podem pertencer a diferentes zonas DNS.
 
-Para obter mais informações sobre como criar o SQL Instância Gerenciada secundário na mesma zona DNS que a instância primária, consulte [criar uma instância gerenciada secundária](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-managed-instance).
+Para obter mais informações sobre como criar o SQL Instância Gerenciada secundário na mesma zona DNS que a instância primária, consulte [criar uma instância gerenciada secundária](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance).
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>Habilitando o tráfego de replicação entre duas instâncias
 
@@ -378,10 +378,10 @@ Essa sequência é recomendada especificamente para evitar o problema em que o s
 
 ## <a name="preventing-the-loss-of-critical-data"></a>Evitando a perda de dados críticos
 
-Devido à alta latência das redes de longa distância, a cópia contínua usa um mecanismo de replicação assíncrona. A replicação assíncrona tornará a perda de alguns dados inevitável se ocorrer uma falha. No entanto, alguns aplicativos podem exigir nenhuma perda de dados. Para proteger essas atualizações críticas, um desenvolvedor de aplicativo pode chamar o procedimento de sistema [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) imediatamente após a confirmação da transação. A chamada `sp_wait_for_database_copy_sync` bloqueia o thread de chamada até que a última transação confirmada seja transmitida para o banco de dados secundário. Contudo, a chamada não aguarda as transações transmitidas serem reproduzidas e confirmadas no banco de dados secundário. `sp_wait_for_database_copy_sync`está no escopo de um link de cópia contínua específico. Qualquer usuário com os direitos de conexão para o banco de dados primário pode chamar este procedimento.
+Devido à alta latência das redes de longa distância, a cópia contínua usa um mecanismo de replicação assíncrona. A replicação assíncrona tornará a perda de alguns dados inevitável se ocorrer uma falha. No entanto, alguns aplicativos podem exigir nenhuma perda de dados. Para proteger essas atualizações críticas, um desenvolvedor de aplicativo pode chamar o procedimento de sistema [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) imediatamente após a confirmação da transação. A chamada `sp_wait_for_database_copy_sync` bloqueia o thread de chamada até que a última transação confirmada seja transmitida para o banco de dados secundário. Contudo, a chamada não aguarda as transações transmitidas serem reproduzidas e confirmadas no banco de dados secundário. `sp_wait_for_database_copy_sync` está no escopo de um link de cópia contínua específico. Qualquer usuário com os direitos de conexão para o banco de dados primário pode chamar este procedimento.
 
 > [!NOTE]
-> `sp_wait_for_database_copy_sync`impede a perda de dados após o failover, mas não garante a sincronização completa para acesso de leitura. O atraso causado por uma `sp_wait_for_database_copy_sync` chamada de procedimento pode ser significativo e depende do tamanho do log de transações no momento da chamada.
+> `sp_wait_for_database_copy_sync` impede a perda de dados após o failover, mas não garante a sincronização completa para acesso de leitura. O atraso causado por uma `sp_wait_for_database_copy_sync` chamada de procedimento pode ser significativo e depende do tamanho do log de transações no momento da chamada.
 
 ## <a name="failover-groups-and-point-in-time-restore"></a>Grupos de failover e restauração pontual
 

@@ -5,12 +5,12 @@ ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-javascript
 ms.topic: how-to
-ms.openlocfilehash: 18ccec5332e3751a86225ab087a1f68b0577cf96
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 447b8a07f6bbda42be4def96ee8f1244fa752526
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406088"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245580"
 ---
 # <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Início rápido: APIs REST do QnA Maker para Node.js
 
@@ -31,7 +31,7 @@ Use as APIs REST do QnA Maker para Node.js para:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
+* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * A versão atual do [Node.js](https://nodejs.org).
 * Você precisa ter um [serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Para recuperar a chave e o ponto de extremidade (que inclui o nome do recurso), selecione **Início Rápido** para o recurso no portal do Azure.
 
@@ -88,7 +88,7 @@ Crie variáveis para a chave e o ponto de extremidade do Azure do recurso. Se vo
 
 Defina os seguintes valores de ambiente:
 
-* `QNAMAKER_RESOURCE_KEY`-A **chave** é uma cadeia de caracteres de 32 caracteres e está disponível no portal do Azure, no recurso QnA Maker, na página **início rápido** . Isso não é o mesmo que a chave de ponto de extremidade de previsão.
+* `QNAMAKER_RESOURCE_KEY` -A **chave** é uma cadeia de caracteres de 32 caracteres e está disponível no portal do Azure, no recurso QnA Maker, na página **início rápido** . Isso não é o mesmo que a chave de ponto de extremidade de previsão.
 * `QNAMAKER_AUTHORING_ENDPOINT` – Seu ponto de extremidade de criação, no formato `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`, inclui o seu **nome do recurso**. Essa não é a mesma URL usada para consultar o ponto de extremidade de previsão.
 
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=authorization)]

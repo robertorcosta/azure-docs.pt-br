@@ -4,12 +4,12 @@ description: Declaração de política de privacidade e retenção
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 772777c48c8d16197cd8a73586f6549837d7d080
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 1b1a1e370d55ad58bf1468c2e8b2381b62707b6a
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372392"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245937"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Coleta de dados, retenção e armazenamento no Application Insights
 
@@ -93,9 +93,6 @@ A Microsoft usa os dados apenas para fornecer o serviço a você.
 
 ## <a name="where-is-the-data-held"></a>Onde os dados são mantidos?
 * Quando você cria um novo recurso do Application Insights, você pode selecionar o local. Saiba mais sobre a disponibilidade de Application Insights por região [aqui](https://azure.microsoft.com/global-infrastructure/services/?products=all).
-
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Isso significa que meu aplicativo deve ser hospedado nos EUA, na Europa ou no sudeste asiático?
-* Não. Seu aplicativo pode ser executado em qualquer lugar, em seus próprios hosts locais ou na nuvem.
 
 ## <a name="how-secure-is-my-data"></a>Quão seguros meus dados estão?
 O Application Insights é um serviço do Azure. Políticas de segurança são descritas no [white paper de segurança, privacidade e conformidade do Azure](https://go.microsoft.com/fwlink/?linkid=392408).
@@ -277,7 +274,7 @@ Para [SDKs para outras plataformas][platforms], consulte seus respectivos docume
 | Ajax |Chamadas HTTP da página da Web para o servidor |
 | Requests |URL, duração, código de resposta |
 | Dependências |Tipo (SQL, HTTP,...), Cadeia de conexão, URI, sincronização/Async, duração, êxito, instrução SQL (com Status Monitor) |
-| **Exceções** |Tipo, **mensagem**, pilhas de chamadas, arquivo de origem, número de linha,`thread id` |
+| **Exceções** |Tipo, **mensagem**, pilhas de chamadas, arquivo de origem, número de linha, `thread id` |
 | Falhas |`Process id`, `parent process id` , `crash thread id` ; patch do aplicativo, `id` , Build;  tipo de exceção, endereço, motivo; símbolos e registros ofuscados, endereços de início e término binários, nome e caminho binários, tipo de CPU |
 | Trace |**Mensagem** e nível de severidade |
 | Contadores de desempenho |Tempo do processador, memória disponível, taxa de solicitação, taxa de exceções, bytes particulares do processo, taxa de E/S, duração da solicitação, comprimento da fila de solicitações |

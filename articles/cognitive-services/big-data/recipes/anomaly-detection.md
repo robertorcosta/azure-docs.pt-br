@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: b29fa17c21b2cdb2e764c905af3819142d8c341e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 823d61d94913122fc279e81698933b7e648dd114
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844058"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244339"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Receita: manutenção preditiva com os serviços cognitivas para Big data
 
@@ -30,7 +30,7 @@ Pode haver exceções nos dados em frequência aleatória. Nessas situações, o
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/)
+* Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * [Espaço de trabalho Synapse do Azure](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) configurado com um [pool do Spark](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
 
 ## <a name="setup"></a>Instalação
@@ -39,7 +39,7 @@ Pode haver exceções nos dados em frequência aleatória. Nessas situações, o
 
 Os Serviços Cognitivos do Azure são representados por recursos do Azure que você assina. Crie um recurso para o tradutor usando o [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [CLI do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli). Também é possível:
 
-- Exiba um recurso existente no [portal do Azure](https://portal.azure.com/).
+- Exiba um recurso existente no  [portal do Azure](https://portal.azure.com/).
 
 Anote o ponto de extremidade e a chave para esse recurso, você precisará dele neste guia.
 

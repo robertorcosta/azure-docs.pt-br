@@ -10,25 +10,25 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 15204a081f001d421574daa7f5ec2bac40152a19
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: a9050b85c974a3c04ca717e8fe3d5188c1bf7a40
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995744"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244305"
 ---
 # <a name="how-to-sign-up-for-translator"></a>Como se inscrever no Tradutor
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-- Não tem uma conta? É possível criar uma [conta gratuita](https://azure.microsoft.com/free/) para experimentar sem custo.
+- Não tem uma conta? É possível criar uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services) para experimentar sem custo.
 - Já tem uma conta? [Entrar](https://ms.portal.azure.com/)
 
 ## <a name="create-a-subscription-for-translator"></a>Criar uma assinatura para o tradutor
 
 Depois de entrar no portal, você pode criar uma assinatura para o tradutor da seguinte maneira:
 
-1. Selecione **+ criar um recurso**.
+1. Selecione **+ Criar um recurso**.
 1. Na caixa Pesquisar **na pesquisa do Marketplace** , insira o **Tradutor** e, em seguida, selecione-o nos resultados.
 1. Selecione **Criar** para definir os detalhes da assinatura.
 1. Na lista **Tipo de preço**, selecione o tipo de preço que melhor atende às suas necessidades.

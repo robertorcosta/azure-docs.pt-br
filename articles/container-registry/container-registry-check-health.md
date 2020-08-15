@@ -3,18 +3,23 @@ title: Verificar a integridade do registro
 description: Saiba como executar um comando de diagnóstico rápido para identificar problemas comuns ao usar um registro de contêiner do Azure, incluindo a configuração local do Docker e a conectividade com o registro
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: ea4432c9e92c4a0380517e39678814e2d1cb3bfc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f27a99818260553cbd7ba26158db0064c145a21f
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74456431"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245376"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Verificar a integridade de um registro de contêiner do Azure
 
 Ao usar um registro de contêiner do Azure, ocasionalmente você pode encontrar problemas. Por exemplo, talvez você não consiga efetuar pull de uma imagem de contêiner devido a um problema com o Docker em seu ambiente local. Ou, um problema de rede pode impedi-lo de se conectar ao registro. 
 
 Como uma primeira etapa de diagnóstico, execute o comando [AZ ACR check-Health][az-acr-check-health] para obter informações sobre a integridade do ambiente e, opcionalmente, o acesso a um registro de destino. Esse comando está disponível no CLI do Azure versão 2.0.67 ou posterior. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli].
+
+Para obter diretrizes adicionais de solução de problemas de registro, consulte:
+* [Solucionar problemas de logon do registro](container-registry-troubleshoot-login.md)
+* [Solucionar problemas de rede com o registro](container-registry-troubleshoot-access.md)
+* [Solucionar problemas de desempenho do registro](container-registry-troubleshoot-performance.md)
 
 ## <a name="run-az-acr-check-health"></a>Executar AZ ACR check-Health
 

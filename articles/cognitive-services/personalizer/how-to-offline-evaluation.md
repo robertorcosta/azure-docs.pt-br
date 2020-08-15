@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: d1e11ffcb96bc233604464e90edb7dd42578bf08
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a473085f9c94ca42a75d01b342d60cc33836b096
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132697"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244832"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analise seu loop de aprendizagem com uma avaliação offline
 
@@ -30,7 +30,7 @@ Leia sobre [avaliações offline](concepts-offline-evaluation.md) para saber mai
 
 ## <a name="run-an-offline-evaluation"></a>Executar uma avaliação offline
 
-1. Na [portal do Azure](https://azure.microsoft.com/free/), localize seu recurso personalizador.
+1. Na [portal do Azure](https://azure.microsoft.com/free/cognitive-services), localize seu recurso personalizador.
 1. Na portal do Azure, vá para a seção **avaliações** e selecione **criar avaliação**.
     ![Na portal do Azure, vá para a seção * * avaliações * * e selecione * * criar avaliação * *.](./media/offline-evaluation/create-new-offline-evaluation.png)
 1. Configure os seguintes valores:

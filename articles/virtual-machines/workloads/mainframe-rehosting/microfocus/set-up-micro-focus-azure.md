@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: cc61d842550f82dc8b408ed5cd421af65d0e2be6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 59566fc051b1e84d8e271b3c9d061f2481dcc58f
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507889"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245308"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Instalar o micro Focus Enterprise Server 5,0 e o desenvolvedor Enterprise 5,0 no Azure
 
@@ -67,9 +67,9 @@ Antes de começar, confira estes pré-requisitos:
 
 8.  Na sessão RDP, carregue os dois arquivos a seguir. Como você está usando o Windows, é possível arrastar e soltar os arquivos na sessão RDP:
 
-    -   **es \_50.exe**, o arquivo de instalação do servidor corporativo.
+    -   `es\_50.exe`, o arquivo de instalação do servidor corporativo.
 
-    -   **mflic**, o arquivo de licença correspondente — o servidor corporativo não será carregado sem ele.
+    -   `mflic`, o arquivo de licença correspondente — o servidor corporativo não será carregado sem ele.
 
 9.  Clique duas vezes no arquivo para iniciar a instalação. Na primeira janela, selecione o local de instalação e aceite o contrato de licença de usuário final.
 
@@ -87,11 +87,11 @@ Após a instalação, certifique-se de verificar se há atualizações adicionai
 
 1.  Inicie a administração da licença do micro Focus.
 
-2.  Selecione **Iniciar** \> a administração de licenças do **Gerenciador de licenças do micro Focus** \> **License Administration**e clique na guia **instalar** . escolha o tipo de formato de licença a ser carregado: um arquivo de licença ou um código de licença de 16 caracteres. Por exemplo, para um arquivo, em **arquivo de licença**, navegue até o arquivo **mflic** carregado anteriormente para a VM e selecione **instalar licenças**.
+2.  Selecione **Iniciar** \> a administração de licenças do **Gerenciador de licenças do micro Focus** \> **License Administration**e clique na guia **instalar** . escolha o tipo de formato de licença a ser carregado: um arquivo de licença ou um código de licença de 16 caracteres. Por exemplo, para um arquivo, em **arquivo de licença**, navegue até o `mflic` arquivo * carregado anteriormente para a VM e selecione **instalar licenças**.
 
     ![Caixa de diálogo administração da licença micro Focus](media/install-image-3.png)
 
-3.  Verifique se o servidor corporativo é carregado. Tente iniciar o site de administração do servidor corporativo em um navegador usando esta URL: <http://localhost:86/> . A página de administração do servidor corporativo é exibida conforme mostrado.
+3.  Verifique se o servidor corporativo é carregado. Tente iniciar o site de administração do servidor corporativo em um navegador usando esta URL: `http://localhost:86/` . A página de administração do servidor corporativo é exibida conforme mostrado.
 
     ![Página de administração do servidor corporativo](media/install-image-4.png)
 
@@ -103,9 +103,9 @@ Após a instalação, certifique-se de verificar se há atualizações adicionai
 
 3.  Na sessão RDP, carregue os dois arquivos a seguir (arraste e solte, se desejar):
 
-    -   **edvs2017.exe**, o arquivo de instalação do servidor corporativo.
+    -   `edvs2017.exe`, o arquivo de instalação do servidor corporativo.
 
-    -   **mflic**, o arquivo de licença correspondente (o desenvolvedor corporativo não será carregado sem ele).
+    -   `mflic`, o arquivo de licença correspondente (Enterprise Developer não será carregado sem ele).
 
 4.  Clique duas vezes no arquivo **edvs2017.exe** para iniciar a instalação. Na primeira janela, selecione o local de instalação e aceite o contrato de licença de usuário final. Se desejar, escolha **instalar Rumba 9,5** para instalar este emulador de terminal, que provavelmente será necessário.
 
@@ -117,7 +117,7 @@ Após a instalação, certifique-se de verificar se há atualizações adicionai
 
 6.  Inicie o Gerenciador de licenças do micro Focus da mesma forma que fazia para o Enterprise Server. Escolha **Iniciar** a \> Administração de licenças do **Gerenciador de licenças do micro Focus** \> **License Administration**e clique na guia **instalar** .
 
-7.  Escolha o tipo de formato de licença a ser carregado: um arquivo de licença ou um código de licença de 16 caracteres. Por exemplo, para um arquivo, em **arquivo de licença**, navegue até o arquivo **mflic** carregado anteriormente para a VM e selecione **instalar licenças**.
+7.  Escolha o tipo de formato de licença a ser carregado: um arquivo de licença ou um código de licença de 16 caracteres. Por exemplo, para um arquivo, em **arquivo de licença**, navegue até o `mflic` arquivo carregado anteriormente para a VM e selecione  **instalar licenças**.
 
     ![Caixa de diálogo administração da licença micro Focus](media/install-image-7.png)
 

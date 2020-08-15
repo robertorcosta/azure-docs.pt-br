@@ -4,12 +4,12 @@ description: Aprenda sobre a rede no AKS (Serviço de Kubernetes do Azure), incl
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: dacb14664b21412df1b1d48c023017378cf364c9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: edb195fae2e05a1f746c10482576f7e0b1bff7c9
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387754"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243897"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicativos no Serviço de Kubernetes do Azure (AKS)
 
@@ -73,6 +73,8 @@ Para obter mais informações, consulte [Configurar rede kubenet para um cluster
 
 Com a CNI do Azure, cada pod obtém um endereço IP da sub-rede e pode ser acessado diretamente. Esses endereços IP devem ser exclusivos em todo o seu espaço de rede e devem ser planejados com antecedência. Cada nó tem um parâmetro de configuração para o número máximo de pods aos quais ele dá suporte. O número equivalente de endereços IP por nó é então reservado com antecedência para esse nó. Essa abordagem requer mais planejamento, como pode levar ao esgotamento de endereço IP ou à necessidade de recriar clusters em uma sub-rede maior conforme as demandas do seu aplicativo crescem.
 
+Ao contrário de kubenet, o tráfego para pontos de extremidade na mesma rede virtual não é NAT para o IP primário do nó. O endereço de origem para o tráfego dentro da rede virtual é o IP Pod. O tráfego externo à rede virtual ainda é de NATs para o IP primário do nó.
+
 Nós usam o plug-in de [CNI (Interface de rede de contêiner) do Azure][cni-networking] do Kubernetes.
 
 ![Diagrama que mostra dois nós com pontes conectando cada um a uma única VNet do Azure][advanced-networking-diagram]
@@ -94,7 +96,7 @@ O kubenet e o Azure CNI fornecem conectividade de rede para seus clusters AKS. N
 
 Existem as seguintes diferenças de comportamento entre kubenet e CNI do Azure:
 
-| Funcionalidade                                                                                   | Kubenet   | CNI do Azure |
+| Recurso                                                                                   | Kubenet   | CNI do Azure |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
 | Implantar cluster em uma rede virtual nova ou existente                                            | Com suporte-UDRs aplicado manualmente | Com suporte |
 | Conectividade de pod de Pod                                                                         | Com suporte | Com suporte |

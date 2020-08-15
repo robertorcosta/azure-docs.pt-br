@@ -4,12 +4,12 @@ description: Saiba como configurar a rede (avançada) CNI do Azure no AKS (Servi
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: b1bf459c530195b8855169123b8f496e4969403b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 93cbe6d2a682009ee883d11bdd99fd69b693c5c4
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872422"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246005"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar a rede CNI do Azure no AKS (Serviço de Kubernetes do Azure)
 
@@ -102,7 +102,7 @@ Quando você cria um cluster do AKS, os seguintes parâmetros são configurávei
 * Não deve estar dentro do intervalo de endereços IP da rede virtual do cluster
 * Não deve se sobrepor a nenhuma outra rede virtual com a qual a rede virtual do cluster está emparelhada
 * Não deve sobrepor IPs locais
-* Não deve estar dentro dos intervalos `169.254.0.0/16` , `172.30.0.0/16` , `172.31.0.0/16` ou`192.0.2.0/24`
+* Não deve estar dentro dos intervalos `169.254.0.0/16` , `172.30.0.0/16` , `172.31.0.0/16` ou `192.0.2.0/24`
 
 Embora seja tecnicamente possível especificar um intervalo de endereço de serviço na mesma rede virtual do cluster, isso não é recomendado. Um comportamento imprevisível pode ocorrer se forem usados intervalos de IP sobrepostos. Para mais informações, consulte a seção [FAQ](#frequently-asked-questions) deste artigo. Para obter mais informações sobre os serviços do Kubernetes, consulte [Serviços][services] na documentação do Kubernetes.
 
@@ -152,6 +152,10 @@ As perguntas e respostas a seguir se aplicam à configuração da rede **CNI do 
 * *Posso implantar VMs na sub-rede do cluster?*
 
   Sim.
+
+* *Qual IP de origem os sistemas externos veem para o tráfego originado em um pod habilitado para CNI do Azure?*
+
+  Os sistemas na mesma rede virtual que o cluster AKS veem o IP Pod como o endereço de origem para qualquer tráfego do pod. Os sistemas fora da rede virtual do cluster AKS veem o IP do nó como o endereço de origem para qualquer tráfego do pod. 
 
 * *Posso configurar políticas de rede por Pod?*
 

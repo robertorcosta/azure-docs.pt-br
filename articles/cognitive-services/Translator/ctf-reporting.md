@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 1bf6fefbe7d2ea3fccc393f4445fceec44ed4117
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cc06f73aba216f37db570bb33b9f897fabb16cbf
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584664"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244118"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Como usar o relatório do CTF (Collaborative Translation Framework)
 
@@ -29,7 +29,7 @@ A API de Relatório do CTF (Collaborative Translation Framework) retorna estatí
 * Retorna o conteúdo traduzido e a contagem total sem exigir uma correspondência da sentença de origem.
 * Não retorna a tradução automática (tradução por computador).
 
-## <a name="endpoint"></a>Ponto de Extremidade
+## <a name="endpoint"></a>Ponto de extremidade
 O ponto de extremidade da API de relatório do CTF é https://api.microsofttranslator.com/v2/beta/ctfreporting.svc .
 
 ## <a name="methods"></a>Métodos
@@ -69,14 +69,14 @@ Esse método obtém a contagem de traduções criadas pelo usuário. Ele fornece
 >            int? take);
 > ```
 
-**Parameters**
+**Parâmetros**
 
 | Parâmetro | Descrição |
 |:---|:---|
 | appId | **Obrigatório** Se o cabeçalho de Autorização for usado, deixe o campo appid vazio, caso contrário, especifique uma cadeia de caracteres contendo "token de portador" + " " + token de acesso.|
 | uriPrefix | **Opcional** Uma cadeia de caracteres contendo o prefixo de URI da tradução.|
 | de | **Opcional** Uma cadeia de caracteres representando o código de idioma do texto da tradução. |
-| para | **Opcional** Uma cadeia de caracteres representando o código de idioma para traduzir o texto.|
+| como | **Opcional** Uma cadeia de caracteres representando o código de idioma para traduzir o texto.|
 | minRating| **Opcional** Um valor inteiro representando a classificação de qualidade mínima para o texto traduzido. O valor válido é entre -10 e 10. O valor padrão é 1.|
 | maxRating| **Opcional** Um valor inteiro representando a classificação máxima de qualidade para o texto traduzido. O valor válido é entre -10 e 10. O valor padrão é 1.|
 | usuário | **Opcional** Uma cadeia de caracteres usada para filtrar o resultado com base no originador do envio. |
@@ -113,7 +113,7 @@ O conjunto de resultados contém uma matriz do **UserTranslationCount**. Cada Us
 > [!NOTE]
 > A cota será ajustada para garantir a equidade entre todos os usuários do serviço.
 
-**Exibir exemplos de código no GitHib**
+**Exibir exemplos de código no GitHub**
 * [C#](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp)
 * [PHP](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP)
 
@@ -140,14 +140,14 @@ Esse método recupera as traduções criadas pelo usuário. Ele fornece as tradu
 >             int? take);
 > ```
 
-**Parameters**
+**Parâmetros**
 
 | Parâmetro | Descrição |
 |:---|:---|
 | appId | **Obrigatório** Se o cabeçalho de Autorização for usado, deixe o campo appid vazio, caso contrário, especifique uma cadeia de caracteres contendo "token de portador" + " " + token de acesso.|
 | uriPrefix| **Opcional** Uma cadeia de caracteres contendo o prefixo de URI da tradução.|
 | de| **Opcional** Uma cadeia de caracteres representando o código de idioma do texto da tradução.|
-| para| **Opcional** Uma cadeia de caracteres representando o código de idioma para traduzir o texto.|
+| como| **Opcional** Uma cadeia de caracteres representando o código de idioma para traduzir o texto.|
 | minRating| **Opcional** Um valor inteiro representando a classificação de qualidade mínima para o texto traduzido. O valor válido é entre -10 e 10. O valor padrão é 1.|
 | maxRating| **Opcional** Um valor inteiro representando a classificação máxima de qualidade para o texto traduzido. O valor válido é entre -10 e 10. O valor padrão é 1.|
 | usuário| **Adicional. Uma cadeia de caracteres que é usada para filtrar o resultado com base no originador do envio**|

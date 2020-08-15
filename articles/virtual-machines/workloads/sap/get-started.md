@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/11/2020
+ms.date: 08/14/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f13d0d2ba26f49daac49c4dd88f3bdf8621c4ad4
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: f1152eb11d3452743daa5bcb39fb593dddf94452
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121486"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245920"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 
@@ -88,13 +88,14 @@ Para obter informações sobre a integração dos serviços do Azure em componen
 
 ## <a name="change-log"></a>Log de alterações
 
+- 08/14/2020: adicionando o aviso de configuração de disco para DB2 no artigo [implantação de DBMS de máquinas virtuais do Azure DB2 para carga de trabalho do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm)
 - 08/11/2020: adicionando RHEL 7,6 a [sistemas operacionais compatíveis para instâncias grandes do Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance) como sistema operacional disponível para unidades de HLI do tipo I
 - 08/10/2020: introdução ao custo SAP HANA configuração de armazenamento em [SAP Hana configurações de armazenamento de máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) e fazer algumas atualizações [nas cargas de trabalho do SAP no Azure: lista de verificação de planejamento e implantação](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
 - 08/04/2020: alterar na [configuração do pacemaker no SLES no Azure](./high-availability-guide-suse-pacemaker.md) e [Configurar o pacemaker no RHEL no Azure](./high-availability-guide-rhel-pacemaker.md) para enfatizar a importância da resolução de nomes confiável para clusters do pacemaker
-- 08/04/2020: alteração no [SAP NW ha no WFCS com compartilhamento de arquivos](./sap-high-availability-installation-wsfc-file-share.md), [SAP NW ha no WFCS com disco compartilhado](./sap-high-availability-installation-wsfc-shared-disk.md), [ha para SAP NW em VMs do Azure](./high-availability-guide.md), [ha para SAP NW em VMs do Azure no SLES](./high-availability-guide-suse.md), [ha para SAP NW em VMs do Azure no SLES com seja](./high-availability-guide-suse-netapp-files.md), [ha para SAP NW em VMs do Azure no guia de vários SID do SLES](./high-availability-guide-suse-multi-sid.md), [alta disponibilidade para SAP NetWeaver em VMs do Azure no RHEL](./high-availability-guide-rhel.md), [ha para SAP NW em VMs do Azure no RHEL com seja](./high-availability-guide-rhel-netapp-files.md) e [ha para SAP NW em VMs do Azure no RHEL multi-Sid](./high-availability-guide-rhel-multi-sid.md) para esclarecer o uso do parâmetro`enque/encni/set_so_keepalive`
+- 08/04/2020: alteração no [SAP NW ha no WFCS com compartilhamento de arquivos](./sap-high-availability-installation-wsfc-file-share.md), [SAP NW ha no WFCS com disco compartilhado](./sap-high-availability-installation-wsfc-shared-disk.md), [ha para SAP NW em VMs do Azure](./high-availability-guide.md), [ha para SAP NW em VMs do Azure no SLES](./high-availability-guide-suse.md), [ha para SAP NW em VMs do Azure no SLES com seja](./high-availability-guide-suse-netapp-files.md), [ha para SAP NW em VMs do Azure no guia de vários SID do SLES](./high-availability-guide-suse-multi-sid.md), [alta disponibilidade para SAP NetWeaver em VMs do Azure no RHEL](./high-availability-guide-rhel.md), [ha para SAP NW em VMs do Azure no RHEL com seja](./high-availability-guide-rhel-netapp-files.md) e [ha para SAP NW em VMs do Azure no RHEL multi-Sid](./high-availability-guide-rhel-multi-sid.md) para esclarecer o uso do parâmetro `enque/encni/set_so_keepalive`
 - 07/23/2020: foi adicionado o artigo [salvar em SAP Hana em instâncias grandes com um Azure reserva](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) explicando o que você precisa saber antes de comprar uma reserva de SAP Hana em instâncias grandes e como fazer a compra
 - 07/16/2020: descrever como usar Azure PowerShell para instalar a nova extensão de VM para SAP no [Guia de implantação](deployment-guide.md)
-- 7/04/2020: lançamento do [Azure monitor para soluções SAP (versão prévia)](./azure-monitor-overview.md)
+- 7/04/2020: lançamento do  [Azure monitor para soluções SAP (versão prévia)](./azure-monitor-overview.md)
 - 07/01/2020: sugerindo uma configuração de armazenamento com menos custo com base na funcionalidade de intermitência de armazenamento Premium do Azure no documento [SAP Hana configurações de armazenamento de máquina virtual do Azure](./hana-vm-operations-storage.md) 
 - 06/24/2020: alteração na [configuração de pacemaker no SLES no Azure](./high-availability-guide-suse-pacemaker.md) para liberar o novo agente de limite do Azure aprimorado e uma configuração de STONITH mais resiliente para dispositivos, com base no agente de limite do Azure 
 - 06/24/2020: alteração na [configuração do pacemaker no RHEL no Azure](./high-availability-guide-rhel-pacemaker.md) para liberar uma configuração de STONITH mais resiliente
@@ -133,7 +134,7 @@ Para obter informações sobre a integração dos serviços do Azure em componen
 - 26 de fevereiro de 2020: alterar em [SAP Hana configurações de armazenamento de máquina virtual do Azure](./hana-vm-operations-storage.md) para esclarecer a opção do sistema de arquivos para o Hana no Azure
 - 26 de fevereiro de 2020: alterar em [arquitetura e cenários de alta disponibilidade para o SAP](./sap-high-availability-architecture-scenarios.md) incluir o link para a ha para SAP NetWeaver em VMs do Azure no guia de vários SID do RHEL
 - 26 de fevereiro de 2020: alterar em [alta disponibilidade para o SAP NW em VMs do Azure no SLES para aplicativos SAP](./high-availability-guide-suse.md), [alta disponibilidade para SAP NW em VMs do Azure no SLES com seja para aplicativos SAP](./high-availability-guide-suse-netapp-files.md), alta disponibilidade de [VMs do Azure para SAP NetWeaver no RHEL](./high-availability-guide-rhel.md) e a [alta disponibilidade de VMs do azure para SAP NetWeaver no RHEL com Azure NetApp files](./high-availability-guide-rhel-netapp-files.md) para remover a instrução que o cluster ASCS/ers de vários SIDs
-- 26 de fevereiro de 2020: lançamento de [alta disponibilidade para SAP NetWeaver em VMs do Azure no guia de vários SID do RHEL](./high-availability-guide-rhel-multi-sid.md) para adicionar um link ao guia de cluster do SUSE multi-Sid
+- 26 de fevereiro de 2020: lançamento de  [alta disponibilidade para SAP NetWeaver em VMs do Azure no guia de vários SID do RHEL](./high-availability-guide-rhel-multi-sid.md) para adicionar um link ao guia de cluster do SUSE multi-Sid
 - 25/02/2020: alteração a [Arquitetura e cenários de alta disponibilidade para o SAP](./sap-high-availability-architecture-scenarios.md) para adicionar links para artigos mais recentes de HA
 - 25 de fevereiro de 2020: alteração em [alta disponibilidade do IBM DB2 LUW em VMs do Azure em SuSE Linux Enterprise Server com pacemaker](./dbms-guide-ha-ibm.md) para apontar para o documento que descreve o acesso ao ponto de extremidade público com o Azure Load Balancer padrão
 - 21 de fevereiro de 2020: revisão completa do artigo [implantação de DBMS de máquinas virtuais do Azure ase do SAP para carga de trabalho do SAP](./dbms_guide_sapase.md)

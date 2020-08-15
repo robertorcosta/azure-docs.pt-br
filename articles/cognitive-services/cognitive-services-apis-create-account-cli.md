@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: aahi
-ms.openlocfilehash: b77d69248059a494d823afcd149382dd52b0e49d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 36e21a131181831c2a87c0c6d2c24c9aa6e0acf7
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317120"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245002"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Criar um recurso de serviços cognitivas usando a CLI (interface de linha de comando) do Azure
 
-Use este guia de início rápido para começar a usar os serviços cognitivas do Azure usando a [CLI (interface de linha de comando) do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Os serviços cognitivas são representados pelos [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) do Azure que você cria em sua assinatura do Azure. Depois de criar o recurso, use as chaves e o ponto de extremidade gerados para autenticar seus aplicativos. 
+Use este guia de início rápido para começar a usar os serviços cognitivas do Azure usando a [CLI (interface de linha de comando) do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Os serviços cognitivas são representados pelos [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) do Azure que você cria em sua assinatura do Azure. Depois de criar o recurso, use as chaves e o ponto de extremidade gerados para autenticar seus aplicativos.
 
 
 Neste guia de início rápido, você aprenderá a se inscrever nos serviços cognitivas do Azure e criar uma conta que tenha uma assinatura de serviço único ou de vários serviços, usando a [CLI (interface de linha de comando) do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Esses serviços são representados pelos [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)do Azure, que permitem que você se conecte a um ou mais dos API de serviços cognitivos do Azure.
@@ -27,10 +27,10 @@ Neste guia de início rápido, você aprenderá a se inscrever nos serviços cog
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura válida do Azure- [crie uma](https://azure.microsoft.com/free/) gratuitamente.
+* Uma assinatura válida do Azure- [crie uma](https://azure.microsoft.com/free/cognitive-services) gratuitamente.
 * A [CLI (interface de linha de comando) do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
-## <a name="install-the-azure-cli-and-sign-in"></a>Instalar o CLI do Azure e entrar 
+## <a name="install-the-azure-cli-and-sign-in"></a>Instalar o CLI do Azure e entrar
 
 Instale o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Para entrar na instalação local da CLI, execute o comando [AZ login](https://docs.microsoft.com/cli/azure/reference-index#az-login) :
 
@@ -39,7 +39,7 @@ az login
 ```
 
 Você também pode usar o botão de **teste** verde para executar esses comandos em seu navegador.
- 
+
 ## <a name="create-a-new-azure-cognitive-services-resource-group"></a>Criar um novo grupo de recursos dos serviços cognitivas do Azure
 
 Antes de criar um recurso de serviços cognitivas, você deve ter um grupo de recursos do Azure para conter o recurso. Ao criar um novo recurso, você tem a opção de criar um novo grupo de recursos ou usar um existente. Este artigo mostra como criar um novo grupo de recursos.
@@ -88,7 +88,7 @@ Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja
 
 | Serviço                    | Tipo                      |
 |----------------------------|---------------------------|
-| Visual Computacional            | `ComputerVision`          |
+| Pesquisa Visual Computacional            | `ComputerVision`          |
 | Visão Personalizada-previsão | `CustomVision.Prediction` |
 | Visão Personalizada-treinamento   | `CustomVision.Training`   |
 | Face                       | `Face`                    |
@@ -112,7 +112,7 @@ Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja
 | Serviços de Fala    | `SpeechServices`     |
 | Reconhecimento de fala | `SpeakerRecognition` |
 
-### <a name="language"></a>Linguagem
+### <a name="language"></a>Idioma
 
 | Serviço            | Tipo                |
 |--------------------|---------------------|
@@ -200,7 +200,7 @@ Para remover o grupo de recursos e seus recursos associados, use o comando AZ Gr
 az group delete --name cognitive-services-resource-group
 ```
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [Autenticar solicitações para os Serviços Cognitivos do Azure](authentication.md)
 * [O que são os Serviços Cognitivos do Azure?](Welcome.md)

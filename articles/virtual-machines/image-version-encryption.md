@@ -3,34 +3,41 @@ title: Versão prévia - Crie uma versão da imagem criptografada com suas próp
 description: Crie uma versão da imagem em uma Galeria de Imagens Compartilhadas usando chaves de criptografia gerenciadas pelo cliente.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 469e225a1cc40dc2ecc45339d9355484e87c4af2
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 0d2b840b401dc90b332f91c93a9eda03d6643432
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223577"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245546"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Visualização: Use chaves gerenciadas pelo cliente para criptografar imagens
 
 As imagens da galeria são armazenadas como discos gerenciados; portanto, elas são criptografadas automaticamente usando a criptografia do lado do servidor. A criptografia no servidor usa a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uma das codificações de bloco mais fortes disponíveis e está em conformidade com FIPS 140-2. Para obter mais informações sobre os módulos criptografos subjacentes aos discos gerenciados do Azure, consulte [API de Criptografia: Next Generation](/windows/desktop/seccng/cng-portal)
 
-Você pode contar com chaves gerenciadas pela plataforma para a criptografia das suas imagens ou gerenciar a criptografia usando suas próprias chaves. Se você optar por gerenciar a criptografia com suas próprias chaves, pode especificar uma *chave gerenciada pelo cliente* a ser usada para criptografar e descriptografar todos os discos nas suas imagens. 
+Você pode contar com chaves gerenciadas por plataforma para a criptografia de suas imagens, usar suas próprias chaves ou pode usar ambas juntas para criptografia dupla. Se você optar por gerenciar a criptografia com suas próprias chaves, pode especificar uma *chave gerenciada pelo cliente* a ser usada para criptografar e descriptografar todos os discos nas suas imagens. 
 
 A criptografia do lado do servidor que usa chaves gerenciadas pelo cliente usa o Azure Key Vault. É possível importar [as chaves RSA](../key-vault/keys/hsm-protected-keys.md) para o Key Vault ou gerar novas chaves RSA no Azure Key Vault.
 
-Você precisa primeiro de um Azure Key Vault para usar chaves gerenciadas pelo cliente para imagens. Em seguida, você cria um conjunto de criptografia de disco. O conjunto de criptografia de disco é então usado durante a criação de suas versões de imagem.
+## <a name="prerequisites"></a>Pré-requisitos
 
-Para obter mais informações sobre como criar e usar conjuntos de criptografia de disco, consulte [Chaves gerenciadas pelo cliente](./windows/disk-encryption.md#customer-managed-keys).
+Este artigo requer que você já tenha um conjunto de criptografia de disco para usar para sua imagem.
+
+- Para usar apenas uma chave gerenciada pelo cliente, consulte **habilitar chaves gerenciadas pelo cliente com criptografia do lado do servidor** usando o [portal do Azure](./windows/disks-enable-customer-managed-keys-portal.md) ou o [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+
+- Para usar chaves gerenciadas por plataforma e gerenciadas pelo cliente (para criptografia dupla), consulte **habilitar a criptografia dupla em repouso** usando o [portal do Azure](./windows/disks-enable-double-encryption-at-rest-portal.md) ou o [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
+    > [!IMPORTANT]
+    > Você deve usar este link [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) para acessar o portal do Azure. A criptografia dupla em repouso não está visível no momento no portal do Azure público sem usar o link.
 
 ## <a name="limitations"></a>Limitações
 
 Há várias limitações ao usar chaves gerenciadas pelo cliente para criptografar imagens da galeria de imagens compartilhadas:  
 
-- Os conjuntos de chaves de criptografia devem estar na mesma assinatura e região da imagem.
+- Os conjuntos de chaves de criptografia devem estar na mesma assinatura e região que a imagem.
 
 - Não é possível compartilhar imagens que usam chaves gerenciadas pelo cliente. 
 
@@ -90,7 +97,7 @@ $encryption1 = @{OSDiskImage=$osDiskImageEncryption;DataDiskImages=$dataDiskImag
 
 $region1 = @{Name='West US';ReplicaCount=1;StorageAccountType=Standard_LRS;Encryption=$encryption1}
 
-$targetRegion = @{$region1}
+$targetRegion = @($region1)
 
 
 # Create the image
@@ -150,6 +157,7 @@ Use `--managed-image` para especificar a origem da versão da imagem se a origem
 az sig image-version create \
    -g MyResourceGroup \
    --gallery-image-version 1.0.0 \
+   --location westus \
    --target-regions westus=2=standard_lrs \
    --target-region-encryption DiskEncryptionSet1,0,DiskEncryptionSet2 \
    --gallery-name MyGallery \
@@ -165,11 +173,12 @@ Neste exemplo, as origens são instantâneos de disco. Há um disco do sistema o
 az sig image-version create \
    -g MyResourceGroup \
    --gallery-image-version 1.0.0 \
+   --location westus\
    --target-regions westus=2=standard_lrs \
    --target-region-encryption DiskEncryptionSet1,0,DiskEncryptionSet2 \
-   --os-snapshot "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myOSSnapshot"
-   --data-snapshot-luns 0
-   --data-snapshots "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myDDSnapshot"
+   --os-snapshot "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myOSSnapshot" \
+   --data-snapshot-luns 0 \
+   --data-snapshots "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myDDSnapshot" \
    --gallery-name MyGallery \
    --gallery-image-definition MyImage 
    
@@ -182,15 +191,19 @@ az sig image-version create \
 
 ## <a name="portal"></a>Portal
 
-Ao criar sua versão da imagem no portal, você pode usar a guia **Criptografia** para inserir as informações sobre seus conjuntos de criptografia de armazenamento.
+Ao criar a versão da imagem no portal, você pode usar a guia **criptografia** para entrar em aplicar seus conjuntos de criptografia de armazenamento.
+
+> [!IMPORTANT]
+> Para usar a criptografia dupla, você deve usar este link [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) para acessar o portal do Azure. A criptografia dupla em repouso não está visível no momento no portal do Azure público sem usar o link.
+
 
 1. Na página **Criar uma versão de imagem**, selecione a guia **Criptografia**.
-2. Em **Tipo de criptografia**, selecione **Criptografia em repouso com uma chave gerenciada pelo cliente**. 
+2. Em **tipo de criptografia**, selecione **criptografia em repouso com uma chave gerenciada pelo cliente** ou **criptografia dupla com chaves gerenciadas por plataforma e gerenciadas pelo cliente**. 
 3. Selecione o **Conjunto de criptografia de disco** a ser usado na lista suspensa para cada disco na imagem. 
 
 ### <a name="create-the-vm"></a>Criar a VM
 
-É possível criar uma VM de uma galeria de imagens compartilhada e usar chaves gerenciadas pelo cliente para criptografar os discos. Ao criar a VM no portal, na guia **Discos**, selecione **Criptografia em repouso com chaves gerenciadas pelo cliente** para o **Tipo de criptografia**. Depois selecione o conjunto de criptografia na lista suspensa.
+Você pode criar uma VM com base em uma versão de imagem e usar chaves gerenciadas pelo cliente para criptografar os discos. Quando você cria a VM no portal, na guia **discos** , selecione **criptografia em repouso com chaves gerenciadas pelo cliente** ou **criptografia dupla com chaves** gerenciadas por plataforma e gerenciadas pelo cliente para o **tipo de criptografia**. Depois selecione o conjunto de criptografia na lista suspensa.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 458cda927a6a123fcd9962efc6ab705e13f43286
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 740311226a662ea3d3f8bba3ee5156e14f74516b
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878775"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244288"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Usar o Docker Compose para implantar vários contêineres
 
@@ -29,7 +29,7 @@ Pode ser útil orquestrar várias imagens de contêiner em um único computador 
 
 Este procedimento requer várias ferramentas que devem ser instaladas e executadas localmente:
 
-* Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services) antes de começar.
 * [Mecanismo do Docker](https://www.docker.com/products/docker-engine). Confirme se a CLI do Docker funciona em uma janela de console.
 * Um recurso do Azure com o tipo de preço correto. Somente os seguintes tipos de preço funcionam com este contêiner:
   * **Pesquisa Visual computacional** recurso somente com o tipo de preço F0 ou Standard.
