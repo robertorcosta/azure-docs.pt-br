@@ -3,12 +3,12 @@ title: Como criar políticas de Configuração de Convidado para o Windows
 description: Saiba como criar uma política de Configuração de Convidado do Azure Policy para Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: b53c8ec8189516305de8b0b8c05b2be8ea49f7f2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 31c40640babea961ef3bb255112306f59772bae2
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045120"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236532"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de Configuração de Convidado para o Windows
 
@@ -307,6 +307,8 @@ Parâmetros do cmdlet `New-GuestConfigurationPolicy`:
 - **Versão**: versão da política.
 - **Caminho**: caminho de destino no qual as definições de política são criadas.
 - **Platform**: plataforma de destino (Windows/Linux) da política de Configuração de Convidado e do pacote de conteúdo.
+- **Tag** adiciona um ou mais filtros de tag à definição de política
+- **Category** define o campo de metadados da categoria na definição de política
 
 O exemplo a seguir cria as definições de política em um caminho específico de um pacote de política personalizado:
 
@@ -328,14 +330,6 @@ Os arquivos a seguir são criados por `New-GuestConfigurationPolicy`:
 - **Initiative.json**
 
 A saída do cmdlet retorna um objeto que contenha o nome de exibição da iniciativa e o caminho dos arquivos da política.
-
-> [!Note]
-> O módulo de Configuração de Convidado mais recente inclui novos parâmetros:
-> - **Tag** adiciona um ou mais filtros de tag à definição de política
->   - Consulte a seção [Filtrar políticas de Configuração de Convidado usando tags](#filtering-guest-configuration-policies-using-tags).
-> - **Category** define o campo de metadados da categoria na definição de política
->   - Caso o parâmetro não esteja incluído, a categoria usará a Configuração de Convidado como padrão.
-> Esses recursos estão em versão prévia e requerem a versão 1.20.1 do módulo de Configuração do Convidado, a qual pode ser instalada usando `Install-Module GuestConfiguration -AllowPrerelease`.
 
 Por fim, publique as definições de política usando o cmdlet `Publish-GuestConfigurationPolicy`. O cmdlet tem apenas o parâmetro **Path** que aponta para o local dos arquivos JSON criados por `New-GuestConfigurationPolicy`.
 
@@ -377,9 +371,6 @@ New-AzRoleDefinition -Role $role
 ```
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrar políticas de Configuração de Convidado usando marcas
-
-> [!Note]
-> Esse recurso está em versão prévia e requer a versão 1.20.1 do módulo de Configuração de Convidado, a qual pode ser instalada usando `Install-Module GuestConfiguration -AllowPrerelease`.
 
 As políticas criadas por cmdlets no módulo de Configuração de Convidado podem incluir um filtro para marcas como opção. O parâmetro **Tag** de `New-GuestConfigurationPolicy` oferece suporte a uma matriz de tabelas de hash contendo toda a marca individual. As marcas serão adicionadas à seção `If` da definição de política e não poderão ser modificadas por uma atribuição de política.
 
@@ -439,10 +430,6 @@ New-GuestConfigurationPolicy
 ```
 
 ## <a name="extending-guest-configuration-with-third-party-tools"></a>Estender a Configuração de Convidado com ferramentas de terceiros
-
-> [!Note]
-> Esse recurso está em versão prévia e requer o módulo de configuração de convidado versão 1.20.3, que pode ser instalado usando o `Install-Module GuestConfiguration -AllowPrerelease` .
-> Na versão 1.20.3, esse recurso está disponível apenas para definições de política que auditam computadores Windows
 
 Os pacotes de artefato para a Configuração de Convidado podem ser estendidos para incluir ferramentas de terceiros.
 A extensão da Configuração de Convidado requer o desenvolvimento de dois componentes.
@@ -575,12 +562,7 @@ Se você gostaria de liberar uma atualização para a política, há dois campos
 
 A maneira mais fácil de liberar um pacote atualizado é repetindo o processo descrito neste artigo e fornecendo um número de versão atualizado. Esse processo garante que todas as propriedades tenham sido atualizadas corretamente.
 
-## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Converter o conteúdo da Política de Grupo do Windows para a Configuração de Convidado do Azure Policy
-
-A Configuração de Convidado, ao auditar computadores Windows, é uma implementação da sintaxe da Desired State Configuration do PowerShell. A comunidade da DSC publicou ferramentas para converter modelos de Política de Grupo exportados para o formato DSC. Ao usar esta ferramenta junto com os cmdlets de Configuração de Convidado descritos acima, você pode converter o conteúdo da Política de Grupo do Windows e prepará-lo/publicá-lo para auditoria da Política do Azure. Para obter detalhes sobre o uso da ferramenta, confira o artigo [Início rápido: Converter a Política de Grupo em DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
-Após a conversão do conteúdo, as etapas acima para criar um pacote e publicá-lo como Azure Policy são as mesmas de qualquer conteúdo DSC.
-
-## <a name="optional-signing-guest-configuration-packages"></a>Opcional: assinar pacotes de Configuração de Convidado
+## <a name="optional-signing-guest-configuration-packages"></a>Opcional: Assinar pacotes de Configuração de Convidado
 
 As políticas personalizadas de Configuração de Convidado usam o hash SHA256 para validar se o pacote de política não foi alterado.
 Como opção, os clientes também podem usar um certificado para assinar pacotes e forçar a extensão de Configuração de Convidado a permitir somente o conteúdo assinado.

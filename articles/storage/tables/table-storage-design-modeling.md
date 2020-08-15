@@ -2,18 +2,18 @@
 title: Relações de modelagem no design de armazenamento de tabelas do Azure | Microsoft Docs
 description: Entenda o processo de modelagem ao projetar sua solução de armazenamento de tabelas do Azure. Leia sobre relações um-para-muitos, um para um e herança.
 services: storage
-author: MarkMcGeeAtAquent
 ms.service: storage
+author: tamram
+ms.author: tamram
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 8c803a7b11aee3d57d6145bed296bd40ddd9bb5e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: a7316bc60ea26968e30bb11ef97d63bddb33895a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036038"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235954"
 ---
 # <a name="modeling-relationships"></a>Relações de modelagem
 Este artigo descreve o processo de modelagem para ajudar você a projetar suas soluções de armazenamento em Tabela do Azure.

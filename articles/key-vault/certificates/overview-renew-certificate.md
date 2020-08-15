@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: beea6f7472d6bc871b4a2df323445b05671a621f
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: bbd65cdfc7c8ebbc08b914158577337cc49ec887
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224553"
+ms.locfileid: "88236056"
 ---
 # <a name="about-azure-key-vault-certificate-renewal"></a>Sobre a renovação de certificado Azure Key Vault
 
@@ -64,7 +64,7 @@ Se o certificado emitido estiver no status ' desabilitado ' na portal do Azure, 
   Crie um certificado com validade de 1 mês e, em seguida, defina a ação de tempo de vida para a rotação em 1%. Essa configuração irá girar o certificado em 7,2 horas.
   
 * As marcas serão replicadas após a renovação automática do certificado?
-  Não, as marcas não seriam replicadas, a menos que o usuário copie manualmente as marcas.
+  Sim, as marcas seriam replicadas após a renovação automática.
 
 ### <a name="see-also"></a>Consulte Também
 *   [Como integrar o Key Vault à autoridade de certificação DigiCert](how-to-integrate-certificate-authority.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: d76506141b2563b3ae8d5779e774ad564022494d
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: a5825cf5461213e3440893597059c84dcdc9ad33
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809996"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236090"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -259,7 +259,7 @@ Exemplo de configuração de NSG para acesso somente IP privado: ![Configuraçã
 
 ### <a name="what-certificates-does-application-gateway-support"></a>Quais certificados o Gateway de Aplicativo permite?
 
-O Gateway de Aplicativo dá suporte a certificados autoassinados, certificados de AC (autoridade de certificação), certificados EV (validação estendida) e certificados curinga.
+O gateway de aplicativo dá suporte a certificados autoassinados, certificados de AC (autoridade de certificação), certificados de validação estendida (EV), certificados de vários domínios (SAN) e certificados curinga.
 
 ### <a name="what-cipher-suites-does-application-gateway-support"></a>Quais conjuntos de codificação o Gateway de Aplicativo permite?
 
@@ -346,7 +346,7 @@ Os membros do navegador da AC (autoridade de certificação) publicaram recentem
 
 De acordo com os requisitos de conformidade do setor, os fornecedores de CA começaram a revogar CAs não compatíveis e a emissão de CAs em conformidade, o que exige que os clientes tenham seus certificados reemitidos.A Microsoft está fazendo uma parceria com esses fornecedores para minimizar o impacto potencial nos serviços do Azure, **no entanto, seus certificados emitidos automaticamente ou certificados usados em cenários de BYOC ("Traga seu próprio certificado") ainda estão em risco de serem revogados inesperadamente**.
 
-Para verificar se os certificados utilizados pelo seu aplicativo foram revogados, consulte o [anúncio do DigiCert](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) de referência e o [controlador de revogação de certificado](https://misissued.com/#revoked). Se os certificados tiverem sido revogados ou forem revogados, você precisará solicitar novos certificados do fornecedor da autoridade de certificação utilizado em seus aplicativos. Para evitar que a disponibilidade do aplicativo seja interrompida devido aos certificados serem revogados inesperadamente ou para atualizar um certificado que foi revogado, consulte nossa postagem de atualizações do Azure para obter links de correção de vários serviços do Azure que dão suporte a BYOC:https://azure.microsoft.com/updates/certificateauthorityrevocation/
+Para verificar se os certificados utilizados pelo seu aplicativo foram revogados, consulte o [anúncio do DigiCert](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) de referência e o [controlador de revogação de certificado](https://misissued.com/#revoked). Se os certificados tiverem sido revogados ou forem revogados, você precisará solicitar novos certificados do fornecedor da autoridade de certificação utilizado em seus aplicativos. Para evitar que a disponibilidade do aplicativo seja interrompida devido aos certificados serem revogados inesperadamente ou para atualizar um certificado que foi revogado, consulte nossa postagem de atualizações do Azure para obter links de correção de vários serviços do Azure que dão suporte a BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
 
 Para obter informações específicas do gateway de aplicativo, consulte abaixo-
 

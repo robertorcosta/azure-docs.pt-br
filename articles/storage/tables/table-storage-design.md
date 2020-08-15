@@ -2,18 +2,18 @@
 title: Projete tabelas escalonáveis e de alto desempenho no Armazenamento de Tabelas do Azure. | Microsoft Docs
 description: Aprenda a criar tabelas escalonáveis e de alto desempenho no armazenamento de tabelas do Azure. Examine as partições de tabela, as transações de grupo de entidades e as considerações de capacidade e custo.
 services: storage
-author: SnehaGunda
 ms.service: storage
+author: tamram
+ms.author: tamram
 ms.topic: article
 ms.date: 03/09/2020
-ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 59af13bcae14839a5b583ad7e063668b5305b30a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9fd274fb72c80475ca53d0f1bdedc1e09c10ea60
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824402"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236498"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Projetar tabelas escalonáveis e de alto desempenho
 

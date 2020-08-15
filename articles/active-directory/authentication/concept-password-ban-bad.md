@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f0f7571cf9f8d355330c4acf425e38ce215e840
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 68419c33286457a770a9988f1f00cc0b5e1f91bc
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050873"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235291"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminar senhas ruins usando Azure Active Directory proteção por senha
 
 Muitas diretrizes de segurança recomendam que você não use a mesma senha em vários locais, para torná-la complexa e para evitar senhas simples, como *Password123*. Você pode fornecer aos seus usuários [orientações sobre como escolher senhas](https://www.microsoft.com/research/publication/password-guidance), mas senhas fracas ou inseguras geralmente são usadas. A proteção por senha do Azure AD detecta e bloqueia senhas fracas conhecidas e suas variantes e também pode bloquear outros termos fracos que são específicos para sua organização.
 
-Com a proteção de senha do Azure AD, as listas de senhas globais banidas padrão são aplicadas automaticamente a todos os usuários de nuvem. Para dar suporte às suas próprias necessidades de negócios e de segurança, você pode definir entradas em uma lista personalizada de senhas banidas. Quando os usuários alteram ou redefinem suas senhas, essas listas de senhas banidas são verificadas para impor o uso de senhas fortes.
+Com a proteção de senha do Azure AD, as listas de senhas globais banidas padrão são automaticamente aplicadas a todos os usuários em um locatário do Azure AD. Para dar suporte às suas próprias necessidades de negócios e de segurança, você pode definir entradas em uma lista personalizada de senhas banidas. Quando os usuários alteram ou redefinem suas senhas, essas listas de senhas banidas são verificadas para impor o uso de senhas fortes.
 
 Você deve usar recursos adicionais como [a autenticação multifator do Azure](concept-mfa-howitworks.md), não apenas depende de senhas fortes impostas pela proteção de senha do Azure AD. Para obter mais informações sobre como usar várias camadas de segurança para seus eventos de entrada, consulte [seu PA $ $Word não importa](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
@@ -37,7 +37,7 @@ A equipe de Azure AD Identity Protection analisa constantemente os dados de tele
 
 Quando uma senha é alterada ou redefinida para qualquer usuário em um locatário do Azure AD, a versão atual da lista de senhas excluídas global é usada para validar a força da senha. Essa verificação de validação resulta em senhas mais fortes para todos os clientes do Azure AD.
 
-A lista de senhas globais banidas é aplicada automaticamente a todos os usuários de nuvem em um locatário do Azure AD. Não há nada para habilitar ou configurar e não pode ser desabilitado.
+A lista de senhas excluídas global é aplicada automaticamente a todos os usuários em um locatário do Azure AD. Não há nada para habilitar ou configurar e não pode ser desabilitado. Essa lista global de senhas banidas é aplicada aos usuários quando eles alteram ou redefinem sua própria senha por meio do Azure AD.
 
 > [!NOTE]
 > Os criminosos virtuais também usam estratégias semelhantes em seus ataques para identificar senhas e variações de baixa segurança comuns. Para melhorar a segurança, a Microsoft não publica o conteúdo da lista global de senhas banidas.
@@ -46,16 +46,16 @@ A lista de senhas globais banidas é aplicada automaticamente a todos os usuári
 
 Algumas organizações desejam melhorar a segurança e adicionar suas próprias personalizações sobre a lista de senhas globais banidas. Para adicionar suas próprias entradas, você pode usar a *lista personalizada de senhas banidas*. Os termos adicionados à lista de senhas excluídas personalizada devem estar concentrados em termos específicos da organização, como os exemplos a seguir:
 
-- Nomes de marca
+- Nomes de marcas
 - Nomes de produtos
-- Locais, como sede da empresa
+- Localizações, como a sede da empresa
 - Termos internos específicos da empresa
-- Abreviações que têm significado específico da empresa
+- Abreviações que tenham um significado específico para a empresa
 
 Quando os termos são adicionados à lista de senhas excluídas personalizada, eles são combinados com os termos na lista de senhas globais banidas. Os eventos de alteração ou redefinição de senha são validados em relação ao conjunto combinado dessas listas de senhas banidas.
 
 > [!NOTE]
-> A lista de senhas excluídas personalizada é limitada a um máximo de 1000 termos. Ele não foi projetado para bloquear listas de senhas extremamente grandes.
+> A lista personalizada de senhas proibidas é limitada a um máximo de 1.000 termos. Ele não foi projetado para bloquear listas de senhas extremamente grandes.
 >
 > Para aproveitar ao máximo os benefícios da lista personalizada de senhas banidas, entenda primeiro [como as senhas são avaliadas](#how-are-passwords-evaluated) antes de adicionar termos à lista de proibidos personalizada. Essa abordagem permite detectar e bloquear com eficiência grandes números de senhas fracas e suas variantes.
 
@@ -99,7 +99,7 @@ Embora a lista de proibidos global seja pequena em comparação a algumas listas
 
 ## <a name="on-premises-hybrid-scenarios"></a>Cenários híbridos locais
 
-Muitas organizações têm um modelo de identidade híbrida que inclui ambientes de Active Directory Domain Services (AD DS) locais. Para estender os benefícios de segurança da proteção de senha do Azure AD para seu ambiente de AD DS, você pode instalar componentes em seus servidores locais. Esses agentes exigem eventos de alteração de senha no ambiente de AD DS local para obedecer à mesma política de senha que os usuários somente de nuvem.
+Muitas organizações têm um modelo de identidade híbrida que inclui ambientes de Active Directory Domain Services (AD DS) locais. Para estender os benefícios de segurança da proteção de senha do Azure AD para seu ambiente de AD DS, você pode instalar componentes em seus servidores locais. Esses agentes exigem eventos de alteração de senha no ambiente de AD DS local para obedecer à mesma política de senha do Azure AD.
 
 Para obter mais informações, consulte [impor a proteção por senha do Azure ad para AD DS](concept-password-ban-bad-on-premises.md).
 

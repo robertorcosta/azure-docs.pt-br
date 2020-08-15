@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 4325f75ac8181e088d64e53d3f65e085a09c0224
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8353b7290f0e0073faf93b4ea23bcc0ba50bb89e
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119402"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236464"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB
 
@@ -95,11 +95,23 @@ Além disso, o processador do feed de alterações pode se ajustar dinamicamente
 
 Você é cobrado pelas RUs consumidas, pois a movimentação de dados para dentro e para fora dos contêineres do Cosmos sempre consome RUs. Você é cobrado pelas RUs consumidas pelo contêiner de concessão.
 
+## <a name="where-to-host-the-change-feed-processor"></a>Onde hospedar o processador do feed de alterações
+
+O processador do feed de alterações pode ser hospedado em qualquer plataforma que dê suporte a processos ou tarefas de execução longa:
+
+* Um [WebJob do Azure](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/)em execução contínua.
+* Um processo em uma [máquina virtual do Azure](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-virtual-machines).
+* Um trabalho em segundo plano no [serviço kubernetes do Azure](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-kubernetes-service).
+* Um [serviço hospedado ASP.net](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
+
+Embora o processador do feed de alterações possa ser executado em ambientes de vida curta, porque o contêiner de concessão mantém o estado, o ciclo de início e parada desses ambientes adicionará atraso para receber as notificações (devido à sobrecarga de iniciar o processador sempre que o ambiente for iniciado).
+
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [SDK do Azure Cosmos DB](sql-api-sdk-dotnet.md)
-* [Exemplos de código no GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
-* [Exemplos adicionais sobre o GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
+* [Aplicativo de exemplo completo no GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
+* [Exemplos de uso adicionais no GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
+* [Cosmos DB Workshop Labs para processador do feed de alterações](https://azurecosmosdb.github.io/labs/dotnet/labs/08-change_feed_with_azure_functions.html#consume-cosmos-db-change-feed-via-the-change-feed-processor)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,6 +1,6 @@
 ---
 title: Alteração no local da edição do SQL Server
-description: Saiba como alterar a edição da máquina virtual do SQL Server no Azure.
+description: Saiba como alterar a edição do seu SQL Server máquina virtual no Azure para fazer o downgrade para reduzir o custo ou atualizar para habilitar mais recursos.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -13,12 +13,12 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 228f76c9ecb262ffca7851f4339b73c5574f09dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60020667126fe76d33264795ddb2e17e1241a7b2
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669156"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236277"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Alteração no local da edição do SQL Server na VM do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

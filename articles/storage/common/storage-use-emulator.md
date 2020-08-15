@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: e50c1e3efc33fb761068b3009979079b2ba4b760
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 3bef3ba1e993d91fee8b6f6ef2734f008c91d1a1
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447143"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236821"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste
 
@@ -42,7 +42,7 @@ Existem algumas diferenças de funcionalidade entre o emulador de armazenamento 
 
 ## <a name="start-and-initialize-the-storage-emulator"></a>Iniciar e inicializar o emulador de armazenamento
 
-Para iniciar o Emulador de Armazenamento do Azure:
+Para iniciar o emulador de armazenamento do Azure:
 
 1. Selecione o botão **Iniciar** ou pressione a tecla **Windows**.
 2. Comece digitando `Azure Storage Emulator`.

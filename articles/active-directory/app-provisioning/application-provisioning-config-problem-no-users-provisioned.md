@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: cc3c62da371d66c2aa957974ad6d4472aaf5648e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d07450b61558814a99bf85668c55899c8cf9d389
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782272"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234781"
 ---
 # <a name="no-users-are-being-provisioned"></a>Nenhum usuário sendo provisionado 
 >[!NOTE]
@@ -58,13 +58,13 @@ Quando um usuário aparece como "ignorado" nos logs de provisionamento, é impor
 - **Um atributo obrigatório está ausente ou não está preenchido para um usuário.** Uma coisa importante a considerar ao configurar o provisionamento é examinar e configurar os mapeamentos de atributos e fluxos de trabalho que definem quais propriedades de usuário (ou grupo) fluem do Azure AD para o aplicativo. Essa configuração inclui a definição da "propriedade correspondente" usada para identificar exclusivamente e corresponder usuários/grupos entre os dois sistemas. Para obter mais informações sobre este importante processo, consulte [Personalizando mapeamentos de atributo do provisionamento de usuário para aplicativos SaaS no Azure Active Directory](customize-application-attributes.md).
 - **Mapeamentos de atributos para grupos:** provisionamento do nome do grupo e detalhes do grupo, além de membros, se houver suporte para alguns aplicativos. Você pode habilitar ou desabilitar essa funcionalidade habilitando ou desabilitando o **mapeamento** para objetos de grupo mostrados na guia **provisionamento** . Se o provisionamento de grupos estiver habilitado, certifique-se de examinar os mapeamentos de atributo para garantir que um campo apropriado esteja sendo usado para a "ID correspondente". Essa ID correspondente pode ser o nome de exibição ou o alias do email. O grupo e seus membros não serão provisionados se a propriedade correspondente estiver vazia ou não for populada para um grupo no Microsoft Azure AD.
 ## <a name="provisioning-users-assigned-to-the-default-access-role"></a>Provisionando usuários atribuídos à função de acesso padrão
-A função padrão em um aplicativo da galeria é chamada de função de "acesso padrão". Historicamente, os usuários atribuídos a essa função não são provisionados e são marcados como ignorados nos [logs de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) devido a serem "não qualificados de forma efetiva". 
+A função padrão em um aplicativo da galeria é chamada de função de "acesso padrão". Historicamente, os usuários atribuídos a essa função não são provisionados e são marcados como ignorados nos [logs de provisionamento](../reports-monitoring/concept-provisioning-logs.md) devido a serem "não qualificados de forma efetiva". 
 
 **Comportamento para provisionamento de configurações criadas após 04/16/2020:** Os usuários atribuídos à função de acesso padrão serão avaliados da mesma forma que todas as outras funções. Um usuário ao qual é atribuído o acesso padrão não será ignorado como "não é efetivamente qualificado". 
 
 **Comportamento para provisionamento de configurações criadas antes de 04/16/2020:** Nos próximos 3 meses, o comportamento continuará como está hoje. Os usuários com a função de acesso padrão serão ignorados como não tendo sido efetivamente qualificados. Depois de julho de 2020, o comportamento será uniforme para todos os aplicativos. Não ignoraremos o provisionamento de usuários com a função de acesso padrão, pois "não é efetivamente qualificado". Essa alteração será feita pela Microsoft, sem a necessidade de ação do cliente. Se você quiser garantir que esses usuários continuem sendo ignorados, mesmo após essa alteração, aplique os filtros de escopo apropriados ou cancele a atribuição do usuário do aplicativo para garantir que eles estejam fora do escopo.  
 
-Para perguntas sobre essas alterações, entre em contato comprovisioningfeedback@microsoft.com
+Para perguntas sobre essas alterações, entre em contato com provisioningfeedback@microsoft.com
 ## <a name="next-steps"></a>Próximas etapas
 
 [Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)

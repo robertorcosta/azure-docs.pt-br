@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: d1cd4a25a2a9f07c75976d5eb5c97ba450ffdabb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e579223691ed7593d04c3b67004a6dd511f72c78
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284635"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236600"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Criar uma imagem gerenciada de uma VM generalizada no Azure
 
@@ -39,13 +39,15 @@ Para generalizar a VM do Windows, siga estas etapas:
 
 1. Entre na VM do Windows.
    
-2. Abra uma janela de Prompt de comando como administrador. Mude para o diretório para %windir%\system32\sysprep e, em seguida, execute `sysprep.exe`.
+2. Abra uma janela de Prompt de comando como administrador. 
+
+3. Exclua o diretório Panther (C:\Windows\Panther). Em seguida, altere o diretório para%WINDIR%\system32\sysprep e, em seguida, execute `sysprep.exe` .
    
-3. Na caixa de diálogo **Ferramenta de Preparação do Sistema**, selecione **Entrar na OOBE (configuração inicial pelo usuário) do sistema** e marque a caixa de seleção **Generalizar**.
+4. Na caixa de diálogo **Ferramenta de Preparação do Sistema**, selecione **Entrar na OOBE (configuração inicial pelo usuário) do sistema** e marque a caixa de seleção **Generalizar**.
    
-4. Para **Opções de Desligamento**, selecione **Desligar**.
+5. Para **Opções de Desligamento**, selecione **Desligar**.
    
-5. Selecione **OK**.
+6. Selecione **OK**.
    
     ![Inicie o Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 

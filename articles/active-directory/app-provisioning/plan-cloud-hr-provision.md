@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 8dd108e8c2877c7fe459819bf01b0e5b206cd9c0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: b96b679e967fd898f072b4b1ae195e3dd1061c04
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445567"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235682"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planejar o aplicativo de RH de nuvem para Azure Active Directory provisionamento de usuário
 
@@ -73,7 +73,7 @@ Esse recurso de provisionamento de ti controlado por RH oferece os seguintes ben
 - **Atender à conformidade e governança:** O Azure AD dá suporte a logs de auditoria nativos para solicitações de provisionamento de usuário executadas por aplicativos de sistemas de origem e de destino. Com a auditoria, você pode controlar quem tem acesso aos aplicativos de uma única tela.
 - **Gerenciar custo:** O provisionamento automático reduz os custos, evitando ineficiências e erros humanos associados ao provisionamento manual. Ele reduz a necessidade de soluções de provisionamento de usuário desenvolvidas personalizadas criadas com o passar do tempo usando plataformas herdadas e desatualizadas.
 
-### <a name="licensing"></a>Licenças
+### <a name="licensing"></a>Licenciamento
 
 Para configurar o aplicativo de RH na nuvem para a integração de provisionamento de usuário do Azure AD, você precisa de uma [licença de Azure ad Premium](https://azure.microsoft.com/pricing/details/active-directory/) válida e uma licença para o aplicativo de RH de nuvem, como workday ou SuccessFactors.
 
@@ -81,7 +81,7 @@ Você também precisa de uma licença de assinatura Azure AD Premium P1 ou super
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Administrador de [identidade híbrida](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator) do Azure ad para configurar o agente de provisionamento do Azure ad Connect.
+- Administrador de [identidade híbrida](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)  do Azure ad para configurar o agente de provisionamento do Azure ad Connect.
 - Função de [administrador de aplicativos](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) do Azure ad para configurar o aplicativo de provisionamento no portal do Azure
 - Uma instância de teste e produção do aplicativo de RH de nuvem.
 - Permissões de administrador no aplicativo de RH de nuvem para criar um usuário de integração do sistema e fazer alterações para testar dados de funcionários para fins de teste.
@@ -167,7 +167,7 @@ A integração de provisionamento entre o aplicativo de RH na nuvem e o Active D
 - Agente de provisionamento do Azure AD Connect
 - Domínio do Active Directory
 
-A topologia de implantação do agente de provisionamento do Azure AD Connect depende do número de locatários do aplicativo de RH de nuvem e Active Directory domínios filho que você planeja integrar. Se você tiver vários domínios de Active Directory, dependerá se os domínios de Active Directory são contíguos [ou separados](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/disjoint-namespace).
+A topologia de implantação do agente de provisionamento do Azure AD Connect depende do número de locatários do aplicativo de RH de nuvem e Active Directory domínios filho que você planeja integrar. Se você tiver vários domínios de Active Directory, dependerá se os domínios de Active Directory são contíguos [ou separados](/windows-server/identity/ad-ds/plan/disjoint-namespace).
 
 Com base em sua decisão, escolha um dos cenários de implantação:
 
@@ -313,7 +313,7 @@ Com essa expressão, se o valor de Municipal for Dallas, Austin, Seattle ou Lond
 
 ## <a name="plan-for-password-delivery-of-new-user-accounts"></a>Planejar a entrega de senha de novas contas de usuário
 
-Ao iniciar o processo dos ASSOCIADORES, você precisa definir e entregar uma senha temporária de novas contas de usuário. Com a nuvem de RH para o provisionamento de usuários do Azure AD, você pode distribuir o recurso de [redefinição de senha de autoatendimento](../authentication/quickstart-sspr.md) (SSPR) do Azure ad para o usuário no dia um.
+Ao iniciar o processo dos ASSOCIADORES, você precisa definir e entregar uma senha temporária de novas contas de usuário. Com a nuvem de RH para o provisionamento de usuários do Azure AD, você pode distribuir o recurso de [redefinição de senha de autoatendimento](../authentication/tutorial-enable-sspr.md) (SSPR) do Azure ad para o usuário no dia um.
 
 O SSPR é um meio simples para os administradores de ti permitirem que os usuários redefinam suas senhas ou desbloqueiem suas contas. Você pode provisionar o atributo de **número móvel** do aplicativo de RH na nuvem para Active Directory e sincronizá-lo com o Azure AD. Depois que o atributo de **número móvel** estiver no Azure AD, você poderá habilitar o SSPR para a conta do usuário. Em seguida, no primeiro dia, o novo usuário pode usar o número de celular registrado e verificado para autenticação.
 

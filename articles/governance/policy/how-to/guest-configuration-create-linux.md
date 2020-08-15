@@ -3,12 +3,12 @@ title: Como criar políticas de Configuração de Convidado para o Linux
 description: Saiba como criar uma política de Configuração de Convidado do Azure Policy para Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 5ce6dce034c9479924901e5a20b38c343dd8bac6
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fef5bdea1b7f98e19f9f8ee8bc9bce8553107fda
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026705"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236583"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de Configuração de Convidado para o Linux
 
@@ -50,6 +50,10 @@ Sistemas operacionais em que é possível instalar o módulo:
 - Linux
 - macOS
 - Windows
+
+> [!NOTE]
+> O cmdlet ' test-GuestConfigurationPackage ' requer o OpenSSL versão 1,0, devido a uma dependência em OMI.
+> Isso causa um erro em qualquer ambiente com OpenSSL 1,1 ou posterior.
 
 O módulo do recurso de Configuração de Convidado requer o seguinte software:
 
@@ -260,6 +264,8 @@ Parâmetros do cmdlet `New-GuestConfigurationPolicy`:
 - **Versão**: versão da política.
 - **Caminho**: caminho de destino no qual as definições de política são criadas.
 - **Platform**: plataforma de destino (Windows/Linux) da política de Configuração de Convidado e do pacote de conteúdo.
+- **Tag** adiciona um ou mais filtros de tag à definição de política
+- **Category** define o campo de metadados da categoria na definição de política
 
 O exemplo a seguir cria as definições de política em um caminho específico de um pacote de política personalizado:
 
@@ -281,14 +287,6 @@ Os arquivos a seguir são criados por `New-GuestConfigurationPolicy`:
 - **Initiative.json**
 
 A saída do cmdlet retorna um objeto que contenha o nome de exibição da iniciativa e o caminho dos arquivos da política.
-
-> [!Note]
-> O módulo de Configuração de Convidado mais recente inclui novos parâmetros:
-> - **Tag** adiciona um ou mais filtros de tag à definição de política
->   - Consulte a seção [Filtrar políticas de Configuração de Convidado usando tags](#filtering-guest-configuration-policies-using-tags).
-> - **Category** define o campo de metadados da categoria na definição de política
->   - Caso o parâmetro não esteja incluído, a categoria usará a Configuração de Convidado como padrão.
-> Esses recursos estão atualmente em versão prévia e requerem a versão 1.20.1 do módulo de Configuração de Convidado, a qual pode ser instalada usando `Install-Module GuestConfiguration -AllowPrerelease`.
 
 Por fim, publique as definições de política usando o cmdlet `Publish-GuestConfigurationPolicy`.
 O cmdlet tem apenas o parâmetro **Path** que aponta para o local dos arquivos JSON criados por `New-GuestConfigurationPolicy`.
@@ -404,9 +402,6 @@ A maneira mais fácil de liberar um pacote atualizado é repetindo o processo de
 
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrar políticas de Configuração de Convidado usando tags
-
-> [!Note]
-> Esse recurso está atualmente em versão prévia e requer a versão 1.20.1 do módulo de Configuração de Convidado, a qual pode ser instalada usando `Install-Module GuestConfiguration -AllowPrerelease`.
 
 As políticas criadas por cmdlets no módulo de Configuração de Convidado podem incluir um filtro para tags como opção. O parâmetro **-Tag** de `New-GuestConfigurationPolicy` dá suporte a uma matriz de hashtables contendo toda a tag individual. As tags serão adicionadas à seção `If` da definição de política e não poderão ser modificadas por uma atribuição de política.
 

@@ -1,6 +1,6 @@
 ---
 title: Visão geral do SQL Server nas Máquinas Virtuais do Windows do Azure | Microsoft Docs
-description: Saiba mais sobre como executar as edições completas do SQL Server nas Máquinas Virtuais do Azure.
+description: Saiba como executar edições completas do SQL Server em máquinas virtuais do Azure na nuvem sem precisar gerenciar nenhum hardware local.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 161722d1f80e4bada35548b4e2b4e903c56215ec
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4bf5b9b6f683783a39b7d34c430f1c6671c35885
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926681"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236362"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>O que é SQL Server nas máquinas virtuais do Azure (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -128,7 +128,7 @@ Para obter detalhes, confira:
 - [Criar uma instância gerenciada](../../managed-instance/instance-create-quickstart.md)
 - [Criar uma máquina virtual do SQL Server](sql-vm-create-portal-quickstart.md)
 
-## <a name="sql-server-vm-image-refresh-policy"></a><a id="lifecycle"></a>Política de atualização de imagem de VM SQL Server
+## <a name="sql-server-vm-image-refresh-policy"></a><a id="lifecycle"></a> Política de atualização de imagem de VM SQL Server
 O Azure mantém apenas uma imagem de máquina virtual para cada combinação de sistema operacional, versão e edição com suporte. Isso significa que, ao longo do tempo, as imagens são atualizadas e as imagens mais antigas são removidas. Para saber mais, confira a seção **Imagens** das [Perguntas frequentes sobre VMs SQL Server](frequently-asked-questions-faq.md#images).
 
 ## <a name="customer-experience-improvement-program-ceip"></a>Programa de aperfeiçoamento da experiência do usuário (CEIP)

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
-ms.openlocfilehash: 1e858f1141ade52a1872d8a9822f515796d9182c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1765c6a7d19a11730567acd5e41deebc0a20cec2
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781949"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235801"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo com base em atributo com filtros de escopo
 O objetivo deste artigo é explicar como usar filtros de escopo para definir regras baseadas em atributo que determinam quais usuários serão provisionados a um aplicativo.
@@ -86,7 +86,7 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributos p
 
    f. **IS NOT NULL**. A cláusula retornará "true" se o atributo avaliado não estiver vazio.
 
-   (por exemplo, **REGEX MATCH**. A cláusula retornará "true" se o atributo avaliado corresponder a um padrão de expressão regular. Por Exemplo: ([1-9][0-9]) corresponde a qualquer número entre 10 e 99.
+   g. **REGEX MATCH**. A cláusula retornará "true" se o atributo avaliado corresponder a um padrão de expressão regular. Por Exemplo: ([1-9][0-9]) corresponde a qualquer número entre 10 e 99.
 
    h. **NOT REGEX MATCH**. A cláusula retornará "true" se o atributo avaliado não corresponder a um padrão de expressão regular.
    
@@ -94,7 +94,7 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributos p
    
    j. **Greater_Than_OR_EQUALS.** A cláusula retornará "true" se o atributo avaliado for maior ou igual ao valor. O valor especificado no filtro de escopo deve ser um inteiro e o atributo no usuário deve ser um inteiro [0, 1, 2,...]. 
    
-   k. **Incluir.** A cláusula retornará "true" se o atributo avaliado contiver o valor da cadeia de caracteres (diferencia maiúsculas de minúsculas), conforme descrito [aqui](https://docs.microsoft.com/dotnet/api/system.string.contains?view=netframework-4.8). 
+   k. **Incluir.** A cláusula retornará "true" se o atributo avaliado contiver o valor da cadeia de caracteres (diferencia maiúsculas de minúsculas), conforme descrito [aqui](/dotnet/api/system.string.contains?view=netframework-4.8). 
 
 
 >[!IMPORTANT] 
@@ -130,4 +130,3 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributos p
 * [Notificações de provisionamento de conta](../app-provisioning/user-provisioning.md)
 * [Usar o SCIM para habilitar o provisionamento automático de usuários e grupos do Azure Active Directory para aplicativos](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 * [Lista de tutoriais sobre como integrar aplicativos SaaS](../saas-apps/tutorial-list.md)
-

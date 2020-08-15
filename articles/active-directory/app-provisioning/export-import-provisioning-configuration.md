@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 03/19/2020
 ms.author: kenwith
-ms.openlocfilehash: ef4fbf582baf1e4b81d49c81a8b0e16674e64841
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e34656d6ce515cabe955c101f7b52ac0f2ade8db
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781715"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235810"
 ---
 # <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Como: exportar a configuração de provisionamento e reverter para um estado válido conhecido
 
@@ -39,8 +39,8 @@ Para exportar sua configuração:
 
 Exportar e salvar sua configuração permite que você reverta para uma versão anterior da sua configuração. É recomendável exportar sua configuração de provisionamento e salvá-la para uso posterior sempre que você fizer uma alteração nos mapeamentos de atributo ou nos filtros de escopo. Tudo o que você precisa fazer é abrir o arquivo JSON que você baixou nas etapas acima, copiar todo o conteúdo do arquivo JSON, substituir todo o conteúdo da carga JSON no editor de esquema e, em seguida, salvar. Se houver um ciclo de provisionamento ativo, ele será concluído e o próximo ciclo usará o esquema atualizado. O próximo ciclo também será um ciclo inicial, que reavalia todos os usuários e grupos com base na nova configuração. Considere o seguinte ao reverter para uma configuração anterior:
 
-- Os usuários serão avaliados novamente para determinar se devem estar no escopo. Se os filtros de escopo tiverem alterado um usuário não estiver no escopo, mais eles serão desabilitados. Embora esse seja o comportamento desejado na maioria dos casos, há ocasiões em que você pode querer evitar isso e pode usar a funcionalidade [ignorar exclusões de exclusão de escopo](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) . 
-- A alteração da configuração de provisionamento reinicia o serviço e dispara um [ciclo inicial](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
+- Os usuários serão avaliados novamente para determinar se devem estar no escopo. Se os filtros de escopo tiverem alterado um usuário não estiver no escopo, mais eles serão desabilitados. Embora esse seja o comportamento desejado na maioria dos casos, há ocasiões em que você pode querer evitar isso e pode usar a funcionalidade [ignorar exclusões de exclusão de escopo](./skip-out-of-scope-deletions.md) . 
+- A alteração da configuração de provisionamento reinicia o serviço e dispara um [ciclo inicial](./how-provisioning-works.md#provisioning-cycles-initial-and-incremental).
 
 ## <a name="export-and-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Exportar e importar sua configuração de provisionamento usando a API de Microsoft Graph
 

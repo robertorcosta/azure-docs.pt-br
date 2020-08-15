@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/25/2020
 ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 8c508e65ef2c6d62716454af151feb0a1c80bba0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 036b3af03dec2bdaa7feacc94abca930ebd9b317
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781101"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235376"
 ---
 # <a name="workday-attribute-reference"></a>Referência de atributos do Workday
 
@@ -211,7 +211,7 @@ Para configurar XPATHs adicionais, consulte a seção [Tutorial: Gerenciar sua c
 ## <a name="custom-xpath-values"></a>Valores XPATH personalizados
 A tabela a seguir fornece uma lista de outras expressões de API XPATH personalizadas usadas com frequência ao provisionar trabalhadores do WORKDAY para o Active Directory ou o Azure AD. Teste as expressões de API XPATH fornecidas aqui com sua versão do workday referindo-se às instruções capturadas na seção [tutorial: Gerenciando sua configuração](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration).
 
-Para adicionar mais atributos à tabela XPATH para o benefício dos clientes que implementam essa integração, deixe um comentário abaixo ou [contribua](https://docs.microsoft.com/contribute) diretamente para o artigo. 
+Para adicionar mais atributos à tabela XPATH para o benefício dos clientes que implementam essa integração, deixe um comentário abaixo ou [contribua](/contribute) diretamente para o artigo. 
 
 > [!div class="mx-tdBreakAll"]
 > | \# | Nome do atributo workday  | Versão da API do workday | Expressão da API XPATH do Workday   |
@@ -224,7 +224,7 @@ Para adicionar mais atributos à tabela XPATH para o benefício dos clientes que
 
 
 ## <a name="supported-xpath-functions"></a>Funções XPATH com suporte
-A seguir está a lista de funções XPATH com suporte pela [biblioteca xpath Microsoft .net](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256138(v=vs.100)) que você pode usar ao criar sua expressão de API XPath. 
+A seguir está a lista de funções XPATH com suporte pela [biblioteca xpath Microsoft .net](/previous-versions/dotnet/netframework-4.0/ms256138(v=vs.100)) que você pode usar ao criar sua expressão de API XPath. 
 
 * name
 * last
@@ -235,17 +235,16 @@ A seguir está a lista de funções XPATH com suporte pela [biblioteca xpath Mic
 * substring-after
 * starts-with
 * string-length
-* contém
+* contains
 * translate
 * normalize-space
 * substring-before
 * booleano
 * true
-* não
+* not
 * false
 * número
 * ceiling
 * Sum
 * round
 * floor
-

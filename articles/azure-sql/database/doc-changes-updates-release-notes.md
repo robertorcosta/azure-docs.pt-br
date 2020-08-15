@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: e1e6c9254c3906b79c3a20de4672dff1b9ac6c63
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0e44280c0a6c0d39c98e3aeecd5e9a3707332e81
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121452"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236566"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>O que há de novo no banco de dados SQL do Azure & SQL Instância Gerenciada?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -85,10 +85,10 @@ Esta tabela fornece uma comparação rápida para a alteração na terminologia:
 
 Os seguintes recursos estão habilitados no modelo de implantação do SQL Instância Gerenciada em H1 2019:
   - Suporte para assinaturas com <a href="https://aka.ms/sql-mi-visual-studio-subscribers"> Crédito mensal do Azure para assinantes do Visual Studio </a> e maiores [limites regionais](../managed-instance/resource-limits.md#regional-resource-limitations).
-  - Suporte para <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019">sharepoint 2016 e sharepoint 2019</a> e <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance">Dynamics 365 Business central.</a>
+  - Suporte para <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> sharepoint 2016 e sharepoint 2019 </a> e <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business central. </a>
   - Crie uma instância gerenciada com <a href="https://aka.ms/managed-instance-collation">agrupamento em nível de instância</a> e um <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">fuso horário</a> de sua escolha.
   - Instâncias gerenciadas são protegidas com [firewall interno](../managed-instance/management-endpoint-verify-built-in-firewall.md).
-  - Configure o SQL Instância Gerenciada para usar [pontos de extremidade públicos](../managed-instance/public-endpoint-configure.md), conexão de [substituição de proxy](connectivity-architecture.md#connection-policy) para obter melhor desempenho de rede, <a href="https://aka.ms/four-cores-sql-mi-update">4 VCores na geração de hardware Gen5</a> ou <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurar a retenção de backup de até 35 dias para a</a> restauração pontual. [A retenção de backup de longo prazo](long-term-retention-overview.md#sql-managed-instance-support) (até 10 anos) está atualmente em visualização pública limitada.  
+  - Configure o SQL Instância Gerenciada para usar [pontos de extremidade públicos](../managed-instance/public-endpoint-configure.md), conexão de [substituição de proxy](connectivity-architecture.md#connection-policy) para obter melhor desempenho de rede, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 VCores na geração de hardware Gen5</a> ou <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurar a retenção de backup de até 35 dias para a</a> restauração pontual. [A retenção de backup de longo prazo](long-term-retention-overview.md#sql-managed-instance-support) (até 10 anos) está atualmente em visualização pública limitada.  
   - As novas funcionalidades permitem que você <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">faça a restauração geográfica de seu banco de dados para outro data center usando o PowerShell</a>, [renomeie o banco de dados](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/) e [excluir o cluster virtual](../managed-instance/virtual-cluster-delete.md).
   - A nova [função de colaborador de instância](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) interna permite a conformidade de SoD (separação de imposto) com princípios de segurança e conformidade com os padrões corporativos.
   - O SQL Instância Gerenciada está disponível nas seguintes regiões do Azure governamental para GA (US Gov Texas, US Gov Arizona), bem como no Norte da China 2 e no Leste da China 2. Ele também está disponível nas seguintes regiões públicas: Austrália Central, Austrália Central 2, sul do Brasil, sul da França, EAU Central, Norte dos EAU, norte da África do Sul, oeste da África do Sul.
@@ -97,6 +97,7 @@ Os seguintes recursos estão habilitados no modelo de implantação do SQL Inst�
 
 |Problema  |Data descoberta  |Status  |Data resolvida  |
 |---------|---------|---------|---------|
+|[A entidade de serviço não pode acessar o Azure AD e o AKV](#service-principal-cannot-access-azure-ad-and-akv)|2020 de agosto|Tem solução alternativa||
 |[A restauração do backup manual sem soma de verificação pode falhar](#restoring-manual-backup-without-checksum-might-fail)|Maio de 2020|Resolvido|Junho de 2020|
 |[O Agent não responde na modificação, desabilitação ou habilitação de trabalhos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maio de 2020|Resolvido|Junho de 2020|
 |[As permissões no grupo de recursos não são aplicadas ao SQL Instância Gerenciada](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Fev 2020|Tem solução alternativa||
@@ -124,6 +125,11 @@ Os seguintes recursos estão habilitados no modelo de implantação do SQL Inst�
 |Recurso Database Mail com servidores de email externos (não Azure) usando conexão segura||Resolvido|Out 2019|
 |Bancos de dados independentes sem suporte no SQL Instância Gerenciada||Resolvido|Ago 2019|
 
+### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>A entidade de serviço não pode acessar o Azure AD e o AKV
+
+Em algumas circunstâncias, pode haver um problema com a entidade de serviço usada para acessar os serviços do Azure AD e do Azure Key Vault (AKV). Como resultado, esse problema afeta o uso da autenticação do Azure AD e da TDE (criptografia de banco de dados transparente) com o SQL Instância Gerenciada. Isso pode ser experiente como um problema de conectividade intermitente ou não ser capaz de executar instruções como criar logon/usuário do provedor externo ou executar como logon/usuário. A configuração do TDE com a chave gerenciada pelo cliente em um novo Azure SQL Instância Gerenciada também pode não funcionar em algumas circunstâncias.
+
+**Solução alternativa**: para evitar que esse problema ocorra em seu instância gerenciada do SQL antes de executar qualquer comando de atualização ou, caso você já tenha enfrentado esse problema após os comandos de atualização, vá para o portal do Azure, acesse SQL instância gerenciada [Active Directory folha de administração](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal). Verifique se você pode ver a mensagem de erro "Instância Gerenciada precisa de uma entidade de serviço para acessar Azure Active Directory. Clique aqui para criar uma entidade de serviço ". Caso você tenha encontrado essa mensagem de erro, clique nela e siga as instruções passo a passo fornecidas até que esse erro seja resolvido.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>A restauração do backup manual sem CHECKSUM pode falhar
 

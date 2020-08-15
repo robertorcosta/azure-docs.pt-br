@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: f4310350e83284d6a2839f8c3d86526d3cda74ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40809fae312401cb62fabb10140b9bb7f60e3715
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743568"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234764"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Solução de problemas comuns de roteamentos
 
@@ -102,7 +102,7 @@ Há várias causas possíveis para esse sintoma:
          - Por exemplo, se o back-end só aceitar solicitações HTTP, as seguintes configurações serão válidas:
             - Os _Protocolos aceitos_ são HTTP e HTTPS. O _Protocolo de encaminhamento_ é HTTP. Solicitação de correspondência não funcionará, já que o HTTPS é um protocolo permitido e, se uma solicitação tiver chegado como HTTPS, o Front Door tentará encaminhá-la usando HTTPS.
 
-            - Os _Protocolos aceitos_ são HTTP. O _Protocolo de encaminhamento_ é solicitação de correspondência ou HTTPS.
+            - Os _Protocolos aceitos_ são HTTP. O _protocolo de encaminhamento_ é uma solicitação de correspondência ou http.
 
     - _Reescrita de URL_ é desabilitada por padrão e você só deverá usar este campo se quiser restringir o escopo dos recursos hospedados pelo back-end que deseja disponibilizar. Quando desabilitado, o Front Door encaminhará o mesmo caminho de solicitação que ele recebe. É possível que esse campo esteja configurado incorretamente e o Front Door esteja solicitando um recurso do back-end que não está disponível, retornando, assim, um código de status HTTP 404.
 

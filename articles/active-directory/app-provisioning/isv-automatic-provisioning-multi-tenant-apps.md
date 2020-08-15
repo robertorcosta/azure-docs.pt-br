@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 8e1b953cd2a108e216b4f8e3889287c724f68fa0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ffdef43aa0fdcaab9e8ceae519cef9dfe5cdf6e
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781609"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235631"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Habilitar o provisionamento automático de usuário para seu aplicativo multilocatário
 
@@ -54,7 +54,7 @@ O Azure AD fornece vários caminhos de integração para habilitar o provisionam
 
 * O [serviço de provisionamento do Azure ad](../app-provisioning/user-provisioning.md) gerencia o provisionamento e o desprovisionamento de usuários do Azure ad para seu aplicativo (provisionamento de saída) e de seu aplicativo para o Azure AD (provisionamento de entrada). O serviço se conecta ao sistema para pontos de extremidade de API de gerenciamento de usuário SCIM (gerenciamento de identidade de domínio cruzado) fornecidos pelo seu aplicativo.
 
-* Ao usar o [Microsoft Graph](https://docs.microsoft.com/graph/), seu aplicativo gerencia o provisionamento de entrada e saída de usuários e grupos do Azure ad para seu aplicativo consultando a API de Microsoft Graph.
+* Ao usar o [Microsoft Graph](/graph/), seu aplicativo gerencia o provisionamento de entrada e saída de usuários e grupos do Azure ad para seu aplicativo consultando a API de Microsoft Graph.
 
 * O provisionamento de usuário do Security Assertion Markup Language just in time (SAML JIT) poderá ser habilitado se seu aplicativo estiver usando o SAML para Federação. Ele usa informações de declarações enviadas no token SAML para provisionar usuários.
 
@@ -72,8 +72,8 @@ Para ajudar a determinar qual opção de integração usar para seu aplicativo, 
 | Suporte para contas de convidado (B2B)| √| √| √ |
 | Suporte a contas não empresariais (B2C)| X| √| √ |
 
-<sup>*</sup>– Azure AD Connect configuração é necessária para sincronizar usuários do AD para o Azure AD.  
-<sup>+</sup >– Usar o SCIM para provisionamento não impede que você faça a integração do seu aplicativo com o MIcrosoft Graph para outras finalidades.
+<sup>*</sup> – Azure AD Connect configuração é necessária para sincronizar usuários do AD para o Azure AD.  
+<sup>+</sup >– Usar o SCIM para provisionamento não impede que você faça a integração do seu aplicativo com Microsoft Graph para outras finalidades.
 
 ## <a name="azure-ad-provisioning-service-scim"></a>Serviço de provisionamento do AD do Azure (SCIM)
 
@@ -89,7 +89,7 @@ Para obter mais informações sobre como os usuários do serviço de provisionam
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph para provisionamento
 
-Ao usar Microsoft Graph para provisionamento, você tem acesso a todos os dados avançados do usuário disponíveis no Graph. Além dos detalhes de usuários e grupos, você também pode buscar informações adicionais, como funções do usuário, gerentes e relatórios diretos, dispositivos registrados e de propriedade e centenas de outras partes de dados disponíveis no [Microsoft Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0). 
+Ao usar Microsoft Graph para provisionamento, você tem acesso a todos os dados avançados do usuário disponíveis no Graph. Além dos detalhes de usuários e grupos, você também pode buscar informações adicionais, como funções do usuário, gerentes e relatórios diretos, dispositivos registrados e de propriedade e centenas de outras partes de dados disponíveis no [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
 
 Mais de 15 milhões organizações e 90% das empresas da Fortune 500 usam o Azure AD ao assinar serviços em nuvem da Microsoft, como o Office 365, Microsoft Azure, Enterprise Mobility Suite ou Microsoft 365. Você pode usar Microsoft Graph para integrar seu aplicativo com fluxos de trabalho administrativos, como a integração de funcionários (e encerramento), a manutenção do perfil e muito mais. 
 
@@ -97,9 +97,9 @@ Saiba mais sobre como usar Microsoft Graph para provisionamento:
 
 * [Página inicial do Microsoft Graph](https://developer.microsoft.com/graph)
 
-* [Visão geral do Microsoft Graph](https://docs.microsoft.com/graph/overview)
+* [Visão geral do Microsoft Graph](/graph/overview)
 
-* [Visão geral da autenticação Microsoft Graph](https://docs.microsoft.com/graph/auth/)
+* [Visão geral da autenticação Microsoft Graph](/graph/auth/)
 
 * [Introdução ao Microsoft Graph](https://developer.microsoft.com/graph/get-started)
 
@@ -115,4 +115,4 @@ O SAML JIT usa as informações de declarações no token SAML para criar e atua
 
 * [Envie sua listagem de aplicativos](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) e parceiro com a Microsoft para criar a documentação no site da Microsoft.
 
-* [Junte-se ao Microsoft Partner Network (gratuito) e crie seu plano ir para o mercado](https://partner.microsoft.com/en-us/explore/commercial).
+* [Junte-se ao Microsoft Partner Network (gratuito) e crie seu plano ir para o mercado](https://partner.microsoft.com/explore/commercial).

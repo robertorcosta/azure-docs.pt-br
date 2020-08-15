@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d7408f3b3e955d397ba4a54d07323f80dd72c3d3
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 23f99dc5c648948ce07f1b40106667d24906328a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697334"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236787"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lendo o Azure Cosmos DB alterar feed
 
-Você pode trabalhar com o feed de alterações do Azure Cosmos DB usando um modelo push ou pull. Com um modelo push, um cliente solicita o trabalho de um servidor e tem lógica de negócios para processar uma alteração. No entanto, a complexidade na verificação das alterações e no armazenamento do estado para as últimas alterações processadas é tratada no servidor.
+Você pode trabalhar com o feed de alterações do Azure Cosmos DB usando um modelo push ou pull. Com um modelo de push, um servidor (o feed de alterações) envia o trabalho para um cliente que tem lógica de negócios para processar esse trabalho. No entanto, a complexidade na verificação do trabalho e do armazenamento do estado do último trabalho processado é tratada no servidor.
 
-Com um modelo pull, um servidor solicita trabalho, geralmente solicitando-o de uma fila de trabalho central. O cliente, nesse caso, não só tem lógica de negócios para processar alterações, mas também armazenar o estado da última alteração processada, lidando com o balanceamento de carga entre vários clientes que processam alterações em paralelo e manipulando erros.
+Com um modelo de pull, o cliente precisa efetuar pull do trabalho do servidor. O cliente, nesse caso, não só tem lógica de negócios para processar o trabalho, mas também armazenar o estado para o último trabalho processado, lidando com o balanceamento de carga entre vários clientes processando o trabalho em paralelo e manipulando erros.
 
 Durante a leitura do feed de alterações do Azure Cosmos DB, geralmente é recomendável usar um modelo push porque você não precisará se preocupar com:
 

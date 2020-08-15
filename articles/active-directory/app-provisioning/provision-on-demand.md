@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 3c3706cc3a15a8832cec3d799ea551810c849379
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 52819fc37cf0d10cb36009feb82dec234184752c
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313601"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235529"
 ---
 # <a name="on-demand-provisioning"></a>Provisionamento sob demanda
 Use o provisionamento sob demanda para provisionar um usuário em um aplicativo em segundos. Entre outras coisas, você pode usar essa capacidade para:
@@ -47,9 +47,9 @@ O serviço de provisionamento tenta autorizar o acesso ao aplicativo de destino 
 
 #### <a name="troubleshooting-tips"></a>Dicas de solução de problemas
 
-* Verifique se você forneceu credenciais válidas, como o token secreto e a URL do locatário, para o aplicativo de destino. As credenciais necessárias variam de acordo com o aplicativo. Para obter os tutoriais de configuração detalhados, consulte a [lista do tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list). 
+* Verifique se você forneceu credenciais válidas, como o token secreto e a URL do locatário, para o aplicativo de destino. As credenciais necessárias variam de acordo com o aplicativo. Para obter os tutoriais de configuração detalhados, consulte a [lista do tutorial](../saas-apps/tutorial-list.md). 
 * Verifique se o aplicativo de destino dá suporte à filtragem nos atributos correspondentes definidos no painel **mapeamentos de atributo** . Talvez seja necessário verificar a documentação da API fornecida pelo desenvolvedor do aplicativo para entender os filtros com suporte.
-* Para o sistema para aplicativos SCIM (gerenciamento de identidade entre domínios), você pode usar uma ferramenta como o postmaster. Essas ferramentas ajudam a garantir que o aplicativo responda às solicitações de autorização da maneira que o serviço de provisionamento do Azure Active Directory (Azure AD) espera. Observe uma [solicitação de exemplo](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#request-3).
+* Para o sistema para aplicativos SCIM (gerenciamento de identidade entre domínios), você pode usar uma ferramenta como o postmaster. Essas ferramentas ajudam a garantir que o aplicativo responda às solicitações de autorização da maneira que o serviço de provisionamento do Azure Active Directory (Azure AD) espera. Observe uma [solicitação de exemplo](./use-scim-to-provision-users-and-groups.md#request-3).
 
 ### <a name="step-2-import-user"></a>Etapa 2: importar usuário
 
@@ -76,7 +76,7 @@ A seção **Exibir detalhes** mostra as propriedades do usuário que foram impor
 
 ### <a name="step-3-determine-if-user-is-in-scope"></a>Etapa 3: determinar se o usuário está no escopo
 
-Em seguida, o serviço de provisionamento determina se o usuário está no [escopo](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#scoping) para provisionamento. O serviço considera aspectos como:
+Em seguida, o serviço de provisionamento determina se o usuário está no [escopo](./how-provisioning-works.md#scoping) para provisionamento. O serviço considera aspectos como:
 
 * Se o usuário está atribuído ao aplicativo.
 * Se o escopo está definido para **sincronização atribuída** ou **sincronização de todos**.
@@ -94,8 +94,8 @@ A seção **Exibir detalhes** mostra as condições de escopo que foram avaliada
 
 #### <a name="troubleshooting-tips"></a>Dicas de solução de problemas
 
-* Verifique se você definiu uma função de escopo válida. Por exemplo, evite usar o [operador de Greater_Than](https://docs.microsoft.com/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts#create-a-scoping-filter) com um valor não inteiro.
-* Se o usuário não tiver a função necessária, examine as [dicas para provisionar usuários atribuídos à função de acesso padrão](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned#provisioning-users-assigned-to-the-default-access-role).
+* Verifique se você definiu uma função de escopo válida. Por exemplo, evite usar o [operador de Greater_Than](./define-conditional-rules-for-provisioning-user-accounts.md#create-a-scoping-filter) com um valor não inteiro.
+* Se o usuário não tiver a função necessária, examine as [dicas para provisionar usuários atribuídos à função de acesso padrão](./application-provisioning-config-problem-no-users-provisioned.md#provisioning-users-assigned-to-the-default-access-role).
 
 ### <a name="step-4-match-user-between-source-and-target"></a>Etapa 4: corresponder o usuário entre a origem e o destino
 
@@ -129,7 +129,7 @@ A seção **Exibir detalhes** exibe os atributos que foram modificados no aplica
 
 #### <a name="troubleshooting-tips"></a>Dicas de solução de problemas
 
-* As falhas de exportação de alterações podem variar muito. Verifique a [documentação para provisionar os logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#error-codes) para falhas comuns.
+* As falhas de exportação de alterações podem variar muito. Verifique a [documentação para provisionar os logs](../reports-monitoring/concept-provisioning-logs.md#error-codes) para falhas comuns.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -150,4 +150,4 @@ Atualmente, há algumas limitações conhecidas para o provisionamento sob deman
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Solucionando problemas de provisionamento](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem)
+* [Solucionando problemas de provisionamento](./application-provisioning-config-problem.md)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 33772d46f363b161c1faa5c953f48a702ae2b8bf
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 1f7486f1080c0fbb25b1be6ab70bb647a546ceca
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009626"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234972"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (Portal)
 
@@ -69,7 +69,7 @@ Agora você tem uma instância de gêmeos digital do Azure pronta para uso. Em s
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-Primeiro, abra a página da instância do gêmeos digital do Azure no portal do Azure. No menu da instância, selecione *controle de acesso (iam)*. Selecione o botão *Adicionar* em *Adicionar uma atribuição de função*.
+Primeiro, abra a página da instância do gêmeos digital do Azure no portal do Azure. No menu da instância, selecione *controle de acesso (iam)*. Selecione o botão  *Adicionar* em *Adicionar uma atribuição de função*.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selecionando para adicionar uma atribuição de função da página ' controle de acesso (IAM) '":::
 
@@ -127,6 +127,9 @@ Na página *solicitar permissões de API* que segue, alterne para a guia *APIs q
 
 :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Exibição da página ' solicitar permissões de API ' no resultado da pesquisa mostrando o Azure digital gêmeos":::
 
+>[!NOTE]
+> Se você tiver uma instância do Azure digital gêmeos existente da visualização pública anterior do serviço (antes de julho de 2020) ainda em sua assinatura, será necessário procurar o serviço de *espaços inteligentes do Azure* em vez disso. Esse é um nome mais antigo para o mesmo conjunto de APIs e não alterará sua experiência além desta etapa.
+
 Em seguida, você selecionará quais permissões conceder para essas APIs. Expanda a permissão **Read (1)** e marque a caixa que diz *Read. Write* para conceder a esse aplicativo o leitor de registro e permissões de gravador.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="Exibição da página ' solicitar permissões de API ' selecionando as permissões ' Read. Write ' para as APIs do Azure digital gêmeos":::
@@ -139,7 +142,7 @@ De volta à página *permissões de API* , verifique se agora há uma entrada pa
 
 :::image type="content" source="media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="Exibição do portal das permissões de API para o registro do aplicativo do Azure AD, mostrando "acesso de leitura/gravação" para o gêmeos digital do Azure":::
 
-Você também pode verificar a conexão com o gêmeos digital do Azure dentro domanifest.jsdo registro do aplicativo *em*, que foi atualizado automaticamente com as informações do gêmeos digital do Azure quando você adicionou as permissões de API.
+Você também pode verificar a conexão com o gêmeos digital do Azure dentro domanifest.jsdo registro do aplicativo * em*, que foi atualizado automaticamente com as informações do gêmeos digital do Azure quando você adicionou as permissões de API.
 
 Para fazer isso, selecione *manifesto* no menu para exibir o código do manifesto do registro do aplicativo. Role até a parte inferior da janela de código e procure esses campos em `requiredResourceAccess` . Os valores devem corresponder aos da captura de tela abaixo:
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/15/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 01d4475e73fd436fd0cd2a8aca1e7a946cdd7562
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17660df34c8039ae96440c417aef051d51a5c91c
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782051"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234735"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Configurar o provisionamento usando APIs de Microsoft Graph
 
@@ -48,7 +48,7 @@ A portal do Azure é uma maneira conveniente de configurar o provisionamento de 
 1. Depois de entrar, você verá os detalhes da conta de usuário no painel esquerdo.
 
 ### <a name="retrieve-the-gallery-application-template-identifier"></a>Recuperar o identificador do modelo de aplicativo da galeria
-Os aplicativos na galeria de aplicativos do Azure Active Directory têm um [modelo de aplicativo](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) que descreve os metadados para esse aplicativo. Usando esse modelo, é possível criar uma instância do aplicativo e a entidade de serviço em seu locatário para gerenciamento.
+Os aplicativos na galeria de aplicativos do Azure Active Directory têm um [modelo de aplicativo](/graph/api/applicationtemplate-list?tabs=http&view=graph-rest-beta) que descreve os metadados para esse aplicativo. Usando esse modelo, é possível criar uma instância do aplicativo e a entidade de serviço em seu locatário para gerenciamento.
 
 #### <a name="request"></a>*Solicitação*
 
@@ -100,7 +100,7 @@ Content-type: application/json
 
 ### <a name="create-the-gallery-application"></a>Criar o aplicativo de galeria
 
-Use a ID de modelo recuperada para seu aplicativo na última etapa para [criar uma instância](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http) do aplicativo e a entidade de serviço em seu locatário.
+Use a ID de modelo recuperada para seu aplicativo na última etapa para [criar uma instância](/graph/api/applicationtemplate-instantiate?tabs=http&view=graph-rest-beta) do aplicativo e a entidade de serviço em seu locatário.
 
 #### <a name="request"></a>*Solicitação*
 
@@ -169,7 +169,7 @@ Content-type: application/json
 
 ### <a name="retrieve-the-template-for-the-provisioning-connector"></a>Recuperar o modelo para o conector de provisionamento
 
-Os aplicativos na galeria que estão habilitados para provisionamento têm modelos para simplificar a configuração. Use a solicitação abaixo para [recuperar o modelo para a configuração de provisionamento](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http). Observe que será necessário fornecer a ID. A ID refere-se ao recurso anterior, que neste caso é o servicePrincipalName. 
+Os aplicativos na galeria que estão habilitados para provisionamento têm modelos para simplificar a configuração. Use a solicitação abaixo para [recuperar o modelo para a configuração de provisionamento](/graph/api/synchronization-synchronizationtemplate-list?tabs=http&view=graph-rest-beta). Observe que será necessário fornecer a ID. A ID refere-se ao recurso anterior, que neste caso é o servicePrincipalName. 
 
 #### <a name="request"></a>*Solicitação*
 
@@ -207,7 +207,7 @@ HTTP/1.1 200 OK
 ```
 
 ### <a name="create-the-provisioning-job"></a>Criar o trabalho de provisionamento
-Para habilitar o provisionamento, primeiro você precisará [criar um trabalho](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http). Use a solicitação abaixo para criar um trabalho de provisionamento. Use a TemplateID da etapa anterior ao especificar o modelo a ser usado para o trabalho.
+Para habilitar o provisionamento, primeiro você precisará [criar um trabalho](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta). Use a solicitação abaixo para criar um trabalho de provisionamento. Use a TemplateID da etapa anterior ao especificar o modelo a ser usado para o trabalho.
 
 #### <a name="request"></a>*Solicitação*
 <!-- {
@@ -261,7 +261,7 @@ Content-type: application/json
 
 ### <a name="test-the-connection-to-the-application"></a>Testar a conexão com o aplicativo
 
-Teste a conexão com o aplicativo de terceiros. O exemplo a seguir é para um aplicativo que requer clientSecret e secretToken. Cada aplicativo tem seus requisitos de on. Os aplicativos geralmente usam o BaseAddress no lugar de ClientSecret. Para determinar quais credenciais seu aplicativo exige, navegue até a página de configuração de provisionamento para seu aplicativo e, no modo de desenvolvedor, clique em testar conexão. O tráfego de rede mostrará os parâmetros usados para as credenciais. A lista completa de credenciais pode ser encontrada [aqui](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http). 
+Teste a conexão com o aplicativo de terceiros. O exemplo a seguir é para um aplicativo que requer clientSecret e secretToken. Cada aplicativo tem seus requisitos de on. Os aplicativos geralmente usam o BaseAddress no lugar de ClientSecret. Para determinar quais credenciais seu aplicativo exige, navegue até a página de configuração de provisionamento para seu aplicativo e, no modo de desenvolvedor, clique em testar conexão. O tráfego de rede mostrará os parâmetros usados para as credenciais. A lista completa de credenciais pode ser encontrada [aqui](/graph/api/synchronization-synchronizationjob-validatecredentials?tabs=http&view=graph-rest-beta). 
 
 #### <a name="request"></a>*Solicitação*
 ```msgraph-interactive
@@ -285,7 +285,7 @@ HTTP/1.1 204 No Content
 
 ### <a name="save-your-credentials"></a>Salvar suas credenciais
 
-A configuração do provisionamento requer o estabelecimento de uma relação de confiança entre o Azure AD e o aplicativo. Autorize o acesso ao aplicativo de terceiros. O exemplo a seguir é para um aplicativo que requer clientSecret e secretToken. Cada aplicativo tem seus requisitos de on. Examine a [documentação da API](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) para ver as opções disponíveis. 
+A configuração do provisionamento requer o estabelecimento de uma relação de confiança entre o Azure AD e o aplicativo. Autorize o acesso ao aplicativo de terceiros. O exemplo a seguir é para um aplicativo que requer clientSecret e secretToken. Cada aplicativo tem seus requisitos de on. Examine a [documentação da API](/graph/api/synchronization-synchronizationjob-validatecredentials?tabs=http&view=graph-rest-beta) para ver as opções disponíveis. 
 
 #### <a name="request"></a>*Solicitação*
 ```msgraph-interactive
@@ -310,7 +310,7 @@ HTTP/1.1 204 No Content
 ```
 
 ## <a name="step-4-start-the-provisioning-job"></a>Etapa 4: iniciar o trabalho de provisionamento
-Agora que o trabalho de provisionamento está configurado, use o comando a seguir para [iniciar o trabalho](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&tabs=http). 
+Agora que o trabalho de provisionamento está configurado, use o comando a seguir para [iniciar o trabalho](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta). 
 
 
 #### <a name="request"></a>*Solicitação*
@@ -392,7 +392,7 @@ Content-length: 2577
 
 
 ### <a name="monitor-provisioning-events-using-the-provisioning-logs"></a>Monitorar eventos de provisionamento usando os logs de provisionamento
-Além de monitorar o status do trabalho de provisionamento, você pode usar os [logs de provisionamento](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http) para consultar todos os eventos que estão ocorrendo (por exemplo, uma consulta para um usuário específico e determinar se eles foram provisionados com êxito).
+Além de monitorar o status do trabalho de provisionamento, você pode usar os [logs de provisionamento](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta) para consultar todos os eventos que estão ocorrendo (por exemplo, uma consulta para um usuário específico e determinar se eles foram provisionados com êxito).
 
 #### <a name="request"></a>*Solicitação*
 ```msgraph-interactive
@@ -526,5 +526,5 @@ Content-type: application/json
 ```
 ## <a name="related-articles"></a>Artigos relacionados
 
-- [Examinar a documentação de Microsoft Graph de sincronização](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Examinar a documentação de Microsoft Graph de sincronização](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
 - [Integrando um aplicativo SCIM personalizado com o Azure AD](use-scim-to-provision-users-and-groups.md)

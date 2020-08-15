@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 7dae16140c376bc9288fec5b8744ac6cd14051e5
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 69ea1964449143a25f447375f2aae15d9feeff10
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445621"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235716"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o provisionamento
 
@@ -44,7 +44,7 @@ Para solicitar um conector de provisionamento automático do Azure Active Direct
 
 As credenciais são necessárias para que o Azure Active Directory se conecte à API de gerenciamento de usuários do aplicativo. Enquanto estiver configurando o provisionamento automático de usuário para um aplicativo, você precisará inserir credenciais válidas. Para encontrar os requisitos e tipos de credenciais do aplicativo, você pode consultar o tutorial do aplicativo. No portal do Azure, para testar as credenciais, faça com que o Azure Active Directory tente se conectar ao aplicativo de provisionamento de aplicativo com as credenciais fornecidas.
 
-Se o logon único baseado em SAML também estiver configurado para o aplicativo, o limite de armazenamento por aplicativo interno do Azure Active Directory será de 1024 bytes. Esse limite inclui todos os certificados, tokens secretos, credenciais e dados de configuração relacionados associados a uma única instância de um aplicativo (também conhecido como registro de entidade de serviço no Azure Active Directory). Ao configurar o logon único baseado no SAML, o certificado usado para assinar os tokens SAML geralmente consome mais 50% do espaço. Itens adicionais (tokens secretos, URIs, endereços de email de notificação, nomes de usuário e senhas) inseridos durante a configuração de provisionamento do usuário podem exceder o limite de armazenamento. Para obter mais informações, consulte [Problema ao salvar credenciais do administrador ao configurar o provisionamento do usuário](../manage-apps/application-provisioning-config-problem-storage-limit.md).
+Se o logon único baseado em SAML também estiver configurado para o aplicativo, o limite de armazenamento por aplicativo interno do Azure Active Directory será de 1024 bytes. Esse limite inclui todos os certificados, tokens secretos, credenciais e dados de configuração relacionados associados a uma única instância de um aplicativo (também conhecido como registro de entidade de serviço no Azure Active Directory). Ao configurar o logon único baseado no SAML, o certificado usado para assinar os tokens SAML geralmente consome mais 50% do espaço. Itens adicionais (tokens secretos, URIs, endereços de email de notificação, nomes de usuário e senhas) inseridos durante a configuração de provisionamento do usuário podem exceder o limite de armazenamento. Para obter mais informações, consulte [Problema ao salvar credenciais do administrador ao configurar o provisionamento do usuário](./application-provisioning-config-problem-storage-limit.md).
 
 ## <a name="mapping-attributes"></a>Atributos de mapeamento
 
@@ -54,7 +54,7 @@ Há um conjunto pré-configurado de atributos e mapeamentos de atributos entre o
 
 Ao configurar o provisionamento, é importante examinar e configurar os mapeamentos de atributos e fluxos de trabalho que definem quais propriedades de usuário (ou grupo) são transmitidas entre o Azure Active Directory e o aplicativo. Examine e configure a propriedade correspondente (**Corresponder objetos usando este atributo**) usada para identificar e corresponder usuários/grupos com exclusividade entre os dois sistemas.
 
-Você pode personalizar mapeamentos de atributo padrão de acordo com suas necessidades comerciais. Sendo assim, você pode alterar ou excluir mapeamentos de atributos existentes ou criar mapeamentos. Para mais informações, consulte [Personalizar mapeamentos de atributo de provisionamento de usuário para aplicativos SaaS](../manage-apps/customize-application-attributes.md).
+Você pode personalizar mapeamentos de atributo padrão de acordo com suas necessidades comerciais. Sendo assim, você pode alterar ou excluir mapeamentos de atributos existentes ou criar mapeamentos. Para mais informações, consulte [Personalizar mapeamentos de atributo de provisionamento de usuário para aplicativos SaaS](./customize-application-attributes.md).
 
 Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Para esses mapeamentos, você precisa escrever uma expressão semelhante a script que permite transformar os dados de usuários em formatos que são mais aceitáveis para o aplicativo SaaS. Para mais informações, consulte [Escrever expressões para mapeamentos de atributo](functions-for-customizing-application-data.md).
 
@@ -81,13 +81,13 @@ Você pode usar filtros de escopo para definir regras baseadas em atributo que d
 
 ### <a name="b2b-guest-users"></a>Usuários B2B (convidado)
 
-É possível usar o provisionamento de usuários do serviço para provisionar B2B (ou convidado) no Azure Active Directory para aplicativos SaaS de usuário do Azure Active Directory. No entanto, para usuários B2B entrarem no aplicativo SaaS usando o Azure Active Directory, o aplicativo de SaaS deve ter sua capacidade de logon único baseada em SAML configurada de maneira específica. Para obter mais informações sobre como configurar aplicativos SaaS para dar suporte a entradas de usuários de B2B, consulte [Configurar aplicativos SaaS para colaboração B2B](../b2b/configure-saas-apps.md).
+É possível usar o provisionamento de usuários do serviço para provisionar B2B (ou convidado) no Azure Active Directory para aplicativos SaaS de usuário do Azure Active Directory. No entanto, para usuários B2B entrarem no aplicativo SaaS usando o Azure Active Directory, o aplicativo de SaaS deve ter sua capacidade de logon único baseada em SAML configurada de maneira específica. Para obter mais informações sobre como configurar aplicativos SaaS para dar suporte a entradas de usuários de B2B, consulte [Configurar aplicativos SaaS para colaboração B2B](../external-identities/configure-saas-apps.md).
 
 Observe que userPrincipalName de um usuário convidado é frequentemente armazenado como "alias#EXT#@domain.com". Quando userPrincipalName é incluído nos mapeamentos de atributo como um atributo de origem, #EXT # é removido do userPrincipalName. Se você precisar que o #EXT # esteja presente, substitua userPrincipalName por originalUserPrincipalName como o atributo de origem. 
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Ciclos de provisionamento: Inicial e incremental
 
-Quando o Azure Active Directory é o sistema de origem, o serviço de provisionamento utiliza [Usar a consulta delta para controlar as alterações nos dados do Microsoft Graph](https://docs.microsoft.com/graph/delta-query-overview) para monitorar usuários e grupos. O serviço de provisionamento executa um ciclo inicial com o sistema de origem e o sistema de destino, seguida de ciclos incrementais periódicos.
+Quando o Azure Active Directory é o sistema de origem, o serviço de provisionamento utiliza [Usar a consulta delta para controlar as alterações nos dados do Microsoft Graph](/graph/delta-query-overview) para monitorar usuários e grupos. O serviço de provisionamento executa um ciclo inicial com o sistema de origem e o sistema de destino, seguida de ciclos incrementais periódicos.
 
 ### <a name="initial-cycle"></a>Ciclo inicial
 
@@ -154,11 +154,11 @@ Para resolver essas falhas, ajuste os valores de atributo do usuário afetado no
 
 ### <a name="quarantine"></a>Quarentena
 
-Se a maioria ou todas as chamadas feitas no sistema de destino falharem regularmente por causa de um erro (por exemplo, credenciais de administrador inválidas), o trabalho de provisionamento entrará em um estado de "quarentena". Esse estado é indicado no [relatório de resumo do provisionamento](../manage-apps/check-status-user-account-provisioning.md) e por email, se notificações por email estiverem configuradas no portal do Azure.
+Se a maioria ou todas as chamadas feitas no sistema de destino falharem regularmente por causa de um erro (por exemplo, credenciais de administrador inválidas), o trabalho de provisionamento entrará em um estado de "quarentena". Esse estado é indicado no [relatório de resumo do provisionamento](./check-status-user-account-provisioning.md) e por email, se notificações por email estiverem configuradas no portal do Azure.
 
 Em quarentena, a frequência de ciclos incrementais é reduzida gradualmente a uma por dia.
 
-O trabalho de provisionamento sai da quarentena depois que todos os erros inválidos são corrigidos e o próximo ciclo de sincronização é iniciado. Se permanecer em quarentena por mais de quatro semanas, o trabalho de provisionamento será desabilitado. Saiba mais aqui sobre o status de quarentena [aqui](../manage-apps/application-provisioning-quarantine-status.md).
+O trabalho de provisionamento sai da quarentena depois que todos os erros inválidos são corrigidos e o próximo ciclo de sincronização é iniciado. Se permanecer em quarentena por mais de quatro semanas, o trabalho de provisionamento será desabilitado. Saiba mais aqui sobre o status de quarentena [aqui](./application-provisioning-quarantine-status.md).
 
 ### <a name="how-long-provisioning-takes"></a>Quanto tempo demora o provisionamento
 
@@ -166,7 +166,7 @@ O desempenho depende se o seu trabalho de provisionamento está executando um ci
 
 ### <a name="how-to-tell-if-users-are-being-provisioned-properly"></a>Como posso saber se os usuários estão sendo provisionados corretamente
 
-Todas as operações executadas pelo serviço de provisionamento de usuário são registradas nos [Logs de provisionamento (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) do Azure Active Directory. Os logs incluem todas as operações de gravação feitas para os sistemas de origem e destino, e os dados de usuário que foram lidos ou gravados durante cada operação. Para informações sobre como ler os logs de provisionamento no portal do Azure, consulte o [guia de relatório de provisionamento](../manage-apps/check-status-user-account-provisioning.md).
+Todas as operações executadas pelo serviço de provisionamento de usuário são registradas nos [Logs de provisionamento (versão prévia)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) do Azure Active Directory. Os logs incluem todas as operações de gravação feitas para os sistemas de origem e destino, e os dados de usuário que foram lidos ou gravados durante cada operação. Para informações sobre como ler os logs de provisionamento no portal do Azure, consulte o [guia de relatório de provisionamento](./check-status-user-account-provisioning.md).
 
 ## <a name="de-provisioning"></a>Desprovisionamento
 
@@ -190,8 +190,8 @@ Se você vir um atributo IsSoftDeleted em seus mapeamentos de atributo, ele ser�
 
 [Planejar uma implantação de provisionamento do usuário automática](../app-provisioning/plan-auto-user-provisioning.md)
 
-[Configurar provisionamento para um aplicativo da galeria](../manage-apps/configure-automatic-user-provisioning-portal.md)
+[Configurar provisionamento para um aplicativo da galeria](./configure-automatic-user-provisioning-portal.md)
 
 [Criar um ponto de extremidade SCIM e configurar o provisionamento ao criar seu próprio aplicativo](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-[Solucionar problemas com a configuração e o provisionamento de usuários para um aplicativo](../manage-apps/application-provisioning-config-problem.md).
+[Solucionar problemas com a configuração e o provisionamento de usuários para um aplicativo](./application-provisioning-config-problem.md).

@@ -1,19 +1,19 @@
 ---
-title: Usar o gêmeos digital do Azure para atualizar um mapa interno do Azure Maps
+title: Integração com os Azure Mapas
 titleSuffix: Azure Digital Twins
-description: Veja como criar uma função do Azure que pode usar as notificações do grafo gêmeos e do Azure digital para atualizar as informações mostradas no Azure Maps.
+description: Veja como criar uma função do Azure que pode usar as notificações do grafo gêmeos e do Azure digital para atualizar um mapa interno do Azure Maps.
 author: alexkarcher-msft
 ms.author: alkarche
 ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 6aad6201136bb925d5e094de115cc7274cc7872a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a2dff1ea9c830fa48545dc25654cc3c5318c3415
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131405"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235903"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Usar o gêmeos digital do Azure para atualizar um mapa interno do Azure Maps
 

@@ -12,19 +12,19 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 7e7f8ded24e71fec8ed6bfbc78f9057ddb98dacc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c42a83b4f7f3c6b5ff501525a04ebd96c2a692a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781983"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234832"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerenciamento de provisionamento de conta de usuário para aplicativos empresariais no Portal do Azure
 
 Este artigo descreve as etapas gerais para gerenciar o provisionamento e o desprovisionamento automáticos de conta de usuário para aplicativos com suporte. *Provisionamento de contas de usuário* é o ato de criar, atualizar e/ou desabilitar os registros de conta de usuário no armazenamento de perfil do usuário local do aplicativo. A maioria dos aplicativos de nuvem e SaaS armazenam a função e as permissões de usuário no armazenamento de perfil do usuário local, e a presença de um registro de usuário no armazenamento local do usuário é *necessária* para logon único e acesso ao trabalho. Para saber mais sobre o provisionamento de contas de usuário automático, confira [Automatizar o provisionamento e o desprovisionamento de usuário para aplicativos SaaS com o Azure Active Directory](user-provisioning.md).
 
 > [!IMPORTANT]
-> O Azure AD (Azure Active Directory) tem uma galeria que contém milhares de aplicativos pré-integrados habilitados para provisionamento automático com o Azure AD. Comece localizando o tutorial de configuração de provisionamento específico de seu aplicativo na [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/). Provavelmente, você encontrará diretrizes passo a passo para configurar o aplicativo e o Azure AD para criar a conexão de provisionamento.
+> O Azure AD (Azure Active Directory) tem uma galeria que contém milhares de aplicativos pré-integrados habilitados para provisionamento automático com o Azure AD. Comece localizando o tutorial de configuração de provisionamento específico de seu aplicativo na [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](../saas-apps/tutorial-list.md). Provavelmente, você encontrará diretrizes passo a passo para configurar o aplicativo e o Azure AD para criar a conexão de provisionamento.
 
 ## <a name="finding-your-apps-in-the-portal"></a>Localizar seus aplicativos no portal
 
@@ -85,4 +85,4 @@ Se o provisionamento estiver sendo habilitado pela primeira vez para um aplicati
 
 Altere o **Status de Provisionamento** para **Desativado** para pausar o serviço de provisionamento. Nesse estado, o Azure não cria, atualiza nem remove objetos de usuário ou grupo no aplicativo. Altere o estado de volta para **Ativado** e o serviço continuará de onde parou.
 
-**Limpar o estado atual e reiniciar a sincronização** dispara um ciclo inicial. O serviço, então, avaliará todos os usuários no sistema de origem novamente e determinará se eles estão no escopo do provisionamento. Isso pode ser útil quando o aplicativo está em quarentena no momento ou quando você precisa fazer uma alteração nos mapeamentos de atributos. Observe que o ciclo inicial leva mais tempo para ser concluído do que o ciclo incremental típico, devido ao número de objetos que precisam ser avaliados. Saiba mais sobre o desempenho dos ciclos iniciais e incrementais [aqui](application-provisioning-when-will-provisioning-finish-specific-user.md). 
+**Limpar o estado atual e reiniciar a sincronização** dispara um ciclo inicial. O serviço, então, avaliará todos os usuários no sistema de origem novamente e determinará se eles estão no escopo do provisionamento. Isso pode ser útil quando o aplicativo está em quarentena no momento ou quando você precisa fazer uma alteração nos mapeamentos de atributos. Observe que o ciclo inicial leva mais tempo para ser concluído do que o ciclo incremental típico, devido ao número de objetos que precisam ser avaliados. Saiba mais sobre o desempenho dos ciclos iniciais e incrementais [aqui](application-provisioning-when-will-provisioning-finish-specific-user.md).
