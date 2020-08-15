@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 0bdc9451f0dbc32e14197cde48a3613196b864c0
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e0670aeb3a41506ef302364c6eeaff332520abc5
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037126"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245427"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre o Azure Files
 [ Os arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do {SM} protocolo [de padrão do setor](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -77,13 +77,14 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
     > [!NOTE]
     > Você não pode criar compartilhamentos de arquivos do Azure de contas de armazenamento para blob ou contas de armazenamento de uso geral (GPv1 ou GPv2) *Premium*. Os compartilhamentos de arquivos Standard do Azure precisam ser criados apenas em contas de uso geral *Standard* e os compartilhamentos de arquivo Premium do Azure precisam ser criados apenas em contas FileStorage. Contas de armazenamento de uso geral *Premium* (GPv1 e GPv2) são apenas para blobs de páginas premium. 
 
+* <a id="file-locking"></a>
+  **Os arquivos do Azure dão suporte ao bloqueio de arquivos?**  
+    Sim, os Arquivos do Azure têm suporte com bloqueio de arquivo no estilo do Windows, [veja mais informações](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks).
+
 * <a id="give-us-feedback"></a>
   **Quero muito ver o recurso específico adicionado ao serviço Arquivos do Azure. Você pode adicioná-lo?**  
     A equipe do serviço Arquivos do Azure quer ouvir todos os comentários que você tem a fazer sobre nosso serviço. Vote nas solicitações de recurso no [UserVoice do Arquivos do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files)! Estamos ansiosos para surpreendê-lo com muitos recursos novos.
 
-  **Os Arquivos do Azure têm suporte a bloqueio de arquivos?**  
-    Sim, os Arquivos do Azure têm suporte com bloqueio de arquivo no estilo do Windows, [veja mais informações](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks). 
-    
 ## <a name="azure-file-sync"></a>Sincronização de Arquivos do Azure
 
 * <a id="afs-region-availability"></a>
@@ -208,6 +209,13 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 **A quais políticas de conformidade de dados o serviço Arquivos do Azure dá suporte?**  
 
    O Arquivos do Azure é executado com base na mesma arquitetura de armazenamento usada em outros serviços de armazenamento no Armazenamento do Azure. O Arquivos do Azure aplica as mesmas políticas de conformidade de dados que são usadas em outros serviços de armazenamento do Azure. Para obter mais informações sobre a conformidade de dados do Armazenamento do Azure, você pode consultar as [ofertas de conformidade do Armazenamento do Microsoft Azure ](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings) e ir à [Central de Confiabilidade da Microsoft](https://microsoft.com/trustcenter/default.aspx).
+
+* <a id="file-auditing"></a>
+**Como posso auditar o acesso a arquivos e as alterações nos arquivos do Azure?**
+
+  Há duas opções que fornecem funcionalidade de auditoria para arquivos do Azure:
+  - Se os usuários estiverem acessando o compartilhamento de arquivos do Azure diretamente, [os logs de armazenamento do Azure (versão prévia)](https://docs.microsoft.com/azure/storage/common/monitor-storage?tabs=azure-powershell#logs-in-azure-monitor-preview) poderão ser usados para controlar as alterações de arquivo e o acesso do usuário. Esses logs podem ser usados para fins de solução de problemas e as solicitações são registradas em uma base de melhor esforço.
+  - Se os usuários estiverem acessando o compartilhamento de arquivos do Azure por meio de um Windows Server com o agente de Sincronização de Arquivos do Azure instalado, use uma [política de auditoria](https://docs.microsoft.com/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) ou um produto de terceiros para acompanhar as alterações de arquivos e o acesso do usuário no Windows Server. 
    
 ### <a name="ad-ds--azure-ad-ds-authentication"></a>AD DS & autenticação de AD DS do Azure
 * <a id="ad-support-devices"></a>
@@ -274,7 +282,6 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 **Há APIs REST para dar suporte a ACLs do Windows de obter/definir/copiar diretório/arquivo?**
 
     Sim, oferecemos suporte a APIs REST que obtêm, configuram ou copiam ACLs NTFS para diretórios ou arquivos ao usar a API REST de [07-07-2019](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (ou posterior). Também há suporte para persistência de ACLs do Windows em ferramentas baseadas em REST: [AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases).
-
 
 ## <a name="on-premises-access"></a>Acesso local
 

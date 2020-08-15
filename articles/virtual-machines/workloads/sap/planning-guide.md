@@ -1,14 +1,9 @@
 ---
 title: 'SAP no Azure: Guia de implementação e planejamento'
 description: Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: MSSedusch
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
-ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
@@ -16,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5cd335d34a67cc5a102bde11366813c53770266e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fdce2890de1594635e9302260dc4036cb7c58707
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036328"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245512"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -259,7 +254,7 @@ ms.locfileid: "87036328"
 [virtual-machines-Az-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md
-[virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md
+[virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines/windows/index.yml
 [virtual-machines-linux-agent-user-guide]:../../extensions/agent-linux.md
 [virtual-machines-linux-agent-user-guide-command-line-options]:../../extensions/agent-windows.md#command-line-options
 [virtual-machines-linux-capture-image]:../../linux/capture-image.md
@@ -550,7 +545,7 @@ A cadeia de caracteres acima precisa identificar exclusivamente o disco/VHD que 
 
 
 #### <a name="azure-persisted-storage-types"></a>Tipos de armazenamento persistente do Azure
-O Azure oferece uma variedade de opções de armazenamento persistentes que podem ser usadas para a carga de trabalho do SAP e para componentes específicos do SAP Stack. Para obter mais detalhes, leia o documento [armazenamento do Azure para cargas de trabalho do SAP](./planning-guide-storage.md).
+O Azure oferece uma variedade de opções de armazenamento persistentes que podem ser usadas para a carga de trabalho do SAP e para componentes específicos do SAP Stack. Para obter mais detalhes, leia o documento  [armazenamento do Azure para cargas de trabalho do SAP](./planning-guide-storage.md).
 
 
 ### <a name="microsoft-azure-networking"></a><a name="61678387-8868-435d-9f8c-450b2424f5bd"></a>Rede do Microsoft Azure
@@ -1262,7 +1257,7 @@ Veja a diferença de arquitetura entre o modelo clássico e o ARM, conforme desc
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>Configuração de conectividade do Sistema SAP e da GUI da SAP pela Internet
 
-Consulte este artigo, que descreve os detalhes deste tópico:<https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+Consulte este artigo, que descreve os detalhes deste tópico: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
 
 #### <a name="changing-firewall-settings-within-vm"></a>Alterando as configurações de Firewall na VM
 
@@ -1572,7 +1567,7 @@ As portas de comunicação SAP típicas estão listadas na tabela a seguir. Basi
 | --- | --- | --- | --- | --- |
 | Dispatcher |sapdp`<nn>` confira * |3201 |3200 – 3299 |Dispatcher SAP, usado pela GUI da SAP para Windows e Java |
 | Servidor de mensagens |sapms`<sid`> confira ** |3600 |número livre de sapms`<anySID`> |sid = ID do sistema SAP |
-| Gateway |sapgw`<nn`> confira * |3301 |free |Gateway SAP, usado para comunicação CPIC e RFC |
+| Gateway |sapgw`<nn`> confira * |3301 |livre |Gateway SAP, usado para comunicação CPIC e RFC |
 | Roteador SAP |sapdp99 |3299 |livre |Apenas os nomes de serviço CI (instância central) podem ser reatribuídos em /etc/services, para um valor arbitrário, após a instalação. |
 
 *) nn = Número da Instância SAP
@@ -1607,7 +1602,7 @@ Configurar suas impressoras de rede com base em TCP/IP locais em uma VM do Azure
 > ![Linux][Logo_Linux] Linux
 >
 > * assim como para o Windows, apenas siga o procedimento padrão para instalar uma impressora de rede
-> * basta seguir os guias públicos do Linux para [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) ou [Red Hat e Oracle Linux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Printer_Configuration.html) sobre como adicionar uma impressora.
+> * basta seguir os guias públicos do Linux para [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) ou [Red Hat e Oracle Linux](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/sec-printer_configuration) sobre como adicionar uma impressora.
 >
 >
 
@@ -1953,7 +1948,7 @@ No entanto, ao longo do ano passado, parceiros de data center desenvolveram colo
 Dependendo da configuração SAP escolhida (2 ou 3 camadas), pode haver necessidade de backup. O conteúdo da própria VM, além de ter um backup do banco de dados. Os backups relacionados ao DBMS devem ser feitos com métodos de banco de dados. Uma descrição detalhada dos diferentes bancos de dados pode ser encontrada no [Guia de DBMS][dbms-guide]. Por outro lado, os dados da SAP podem fazer backup de maneira offline (incluindo o conteúdo do banco de dados) conforme descrito nesta seção, ou online, conforme descrito na próxima seção.
 
 O backup offline basicamente exigiria um desligamento da VM por meio do Portal do Azure e uma cópia do disco da VM base, além de todos os discos anexados à VM. Isso preservaria uma imagem da VM e seus discos associados em um ponto no tempo. É recomendável copiar os backups para outra Conta de Armazenamento do Azure. Portanto, o procedimento descrito no capítulo [Copiar discos entre Contas de Armazenamento do Azure][planning-guide-5.4.2] deste documento seria aplicável.
-Além do desligamento com o uso do portal do Azure, também é possível fazer isso por meio do PowerShell ou da CLI, conforme descrito aqui: <https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
+
 
 Uma restauração de estado consiste em excluir a VM base, bem como os discos originais da VM base e os discos montados, copiando os discos salvos de volta à Conta de Armazenamento original ou grupo de recursos para managed disks e, em seguida, reimplantando o sistema.
 Este artigo mostra um exemplo de como criar um script desse processo no PowerShell: <http://www.westerndevs.com/azure-snapshots/>
