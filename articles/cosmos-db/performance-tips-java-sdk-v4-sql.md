@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d8ad191476416bc6ced35c4086d336b7f0a926cb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a014038996ae2846d059551b565feedd8de560a0
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327830"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258319"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Dicas de desempenho para o SDK do Java v4 do Azure Cosmos DB
 
@@ -45,7 +45,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
     Essencialmente, esses modos de conexão são condicionados à rota que o plano de dados solicita – leituras e gravações de documentos do computador cliente para partições no back-end de Azure Cosmos DB. Geralmente, o modo direto é a opção preferencial para o melhor desempenho-ele permite que o cliente abra conexões TCP diretamente em partições nas Azure Cosmos DB back-end e solicitações de envio *diretos*, sem intermediário. Por outro lado, no modo de gateway, as solicitações feitas pelo cliente são encaminhadas para um servidor chamado de "gateway" no front-end do Azure Cosmos DB, que, por sua vez, encaminha suas solicitações para as partições apropriadas no back-end do Azure Cosmos DB. Se seu aplicativo for executado em uma rede corporativa com restrições de firewall rígidas, o modo Gateway será a melhor opção, já que ele usa a porta HTTPS padrão e um único ponto de extremidade. Porém, a compensação do desempenho é que o Modo gateway envolve um salto de rede adicional (cliente para Gateway mais Gateway para partição) sempre que os dados são lidos ou gravados no Azure Cosmos DB. Por isso, o modo Direto oferece um melhor desempenho devido a menos saltos de rede.
 
-    O modo de conexão para solicitações de plano de dados é configurado no construtor de cliente Azure Cosmos DB usando os métodos *directmode ()* ou *gatewaymode ()* , como mostrado abaixo. Para configurar qualquer modo com as configurações padrão, chame um dos métodos sem argumentos. Caso contrário, passe uma instância de classe de definições de configuração como o argumento (*DirectConnectionConfig* para *directmode ()*, *GatewayConnectionConfig* para *gatewaymode ()*.)
+    O modo de conexão para solicitações de plano de dados é configurado no construtor de cliente Azure Cosmos DB usando os métodos *directmode ()* ou *gatewaymode ()* , como mostrado abaixo. Para configurar qualquer modo com as configurações padrão, chame um dos métodos sem argumentos. Caso contrário, passe uma instância de classe de definições de configuração como o argumento (*DirectConnectionConfig* para *directmode ()*,  *GatewayConnectionConfig* para *gatewaymode ()*.)
     
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> SDK do Java v4
 
@@ -316,7 +316,7 @@ Confira as instruções do [Windows](https://docs.microsoft.com/azure/virtual-ne
 
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos"></a><a id="java4-indexing"></a>SDK do Java V4 (Maven com.azure::azure-cosmos)
 
-    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=MigrateIndexingAsync)]
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 
     Para obter mais informações, consulte [Políticas de indexação do Azure Cosmos DB](indexing-policies.md).
 

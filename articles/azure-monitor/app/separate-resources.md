@@ -3,12 +3,12 @@ title: Como projetar sua implantação do Application Insights – Um vs. muitos
 description: Direcione a telemetria para diferentes recursos para stamps de desenvolvimento, teste e produção.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 4f539862432fcdc67632e91caadf71d6584fbc3e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 264cbe35e7af50577b345d686b639e47760f428d
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420559"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258716"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Quantos recursos do Application Insights devo implantar?
 
@@ -41,7 +41,7 @@ Cada recurso do Application Insights vem com métricas que estão disponíveis p
 
 ## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> Chave de instrumentação dinâmica
 
-Para facilitar a alteração da ikey à medida que o código percorre os estágios de produção, a defina no código em vez de no arquivo de configuração.
+Para facilitar a alteração do iKey à medida que o código se move entre os estágios de produção, referencie a chave dinamicamente no código em vez de usar um valor codificado/estático.
 
 Defina a chave em um método de inicialização como global.aspx.cs em um serviço ASP.NET:
 

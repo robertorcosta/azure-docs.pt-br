@@ -4,12 +4,12 @@ description: Saiba como usar o dimensionador automático de cluster para dimensi
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: af09d594dd745b64901965499df4245fa2e6a85f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 9f1dcc64569e9822e3703312740450e2528479dc
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130827"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257519"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para atender às demandas de aplicativo no AKS (Serviço de Kubernetes do Azure)
 
@@ -20,12 +20,6 @@ Este artigo mostra como habilitar e gerenciar o dimensionador automático de clu
 ## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo exige a execução da CLI do Azure versão 2.0.76 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
-
-## <a name="limitations"></a>Limitações
-
-As seguintes limitações se aplicam quando você cria e gerencia clusters do AKS que usam o dimensionador automático de cluster:
-
-* O complemento de roteamento de aplicativo HTTP não pode ser usado.
 
 ## <a name="about-the-cluster-autoscaler"></a>Sobre o dimensionador automático de cluster
 
@@ -44,7 +38,7 @@ O dimensionador automático de pod horizontal e o dimensionador automático de c
 
 Para obter mais informações sobre como o dimensionador automático de cluster pode não conseguir fazer a redução vertical, confira [Quais tipos de pods podem impedir que o dimensionador automático de cluster remova um nó?][autoscaler-scaledown]
 
-O dimensionador automático de cluster usa parâmetros de inicialização para itens como intervalos de tempo entre eventos de escala e limites de recursos. Para obter mais informações sobre quais parâmetros são usados pelo dimensionador de cluster, consulte [quais são os parâmetros de autodimensionamento do cluster?][autoscaler-parameters]
+O dimensionador automático de cluster usa parâmetros de inicialização para itens como intervalos de tempo entre eventos de escala e limites de recursos. Para obter mais informações sobre quais parâmetros são usados pelo dimensionador de cluster, consulte [usando o perfil de autoescalar](#using-the-autoscaler-profile).
 
 Os dimensionadores automáticos de cluster e de pod horizontal podem trabalhar juntos e geralmente são implantados em um cluster. Quando combinados, o dimensionador automático de pod horizontal se concentra na execução do número de pods necessários para atender à demanda de aplicativo. O dimensionador automático de cluster se concentra na execução do número de nós necessários para dar suporte aos pods agendados.
 

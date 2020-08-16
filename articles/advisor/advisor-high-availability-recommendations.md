@@ -3,31 +3,16 @@ title: Aprimore a confiabilidade do seu aplicativo com o Advisor
 description: Use o Azure Advisor para garantir e melhorar a confiabilidade em implantações críticas do Azure para os negócios.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 1eba688a67a8684cdbb6846b389f83e61b349abe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0d96974e53f24d5a01eeee8b08eee578177a9ad2
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057669"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258506"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Melhorar a confiabilidade do seu aplicativo usando o Azure Advisor
 
 O Assistente do Azure ajuda a garantir e melhorar a continuidade de aplicativos críticos aos negócios. Você pode obter recomendações de confiabilidade do Advisor na guia **confiabilidade** do painel do Advisor.
-
-## <a name="ensure-virtual-machine-fault-tolerance"></a>Assegurar tolerância a falhas de máquina virtual
-
-Para fornecer redundância para seu aplicativo, recomendamos que você agrupe duas ou mais máquinas virtuais em um conjunto de disponibilidade. O Advisor identifica as máquinas virtuais que não fazem parte de um conjunto de disponibilidade e recomenda movê-las para uma. Essa configuração garante que, durante a manutenção planejada ou não planejada, pelo menos uma máquina virtual esteja disponível e atenda ao SLA da máquina virtual do Azure. Você pode optar por criar um conjunto de disponibilidade para a máquina virtual ou adicionar a máquina virtual a um conjunto de disponibilidade existente.
-
-> [!NOTE]
-> Se você optar por criar um conjunto de disponibilidade, precisará adicionar pelo menos mais uma máquina virtual a ele. É recomendável agrupar duas ou mais máquinas virtuais em um conjunto de disponibilidade para garantir que pelo menos uma delas esteja disponível durante uma interrupção.
-
-## <a name="ensure-availability-set-fault-tolerance"></a>Assegure que haja tolerância a falhas de conjunto de disponibilidade
-
-Para fornecer redundância para seu aplicativo, recomendamos que você agrupe duas ou mais máquinas virtuais em um conjunto de disponibilidade. O Assistente identifica os conjuntos de disponibilidade que contêm uma única máquina virtual e recomenda a adição de uma ou mais máquinas virtuais a ele.Essa configuração garante que, durante a manutenção planejada ou não planejada, pelo menos uma máquina virtual esteja disponível e atenda ao SLA da máquina virtual do Azure.Você pode optar por criar uma máquina virtual ou então por adicionar uma máquina virtual existente ao conjunto de disponibilidade.  
-
-## <a name="use-managed-disks-to-improve-data-reliability"></a>Usar discos gerenciados para melhorar a confiabilidade dos dados
-
-As máquinas virtuais que estão em um conjunto de disponibilidade com discos que compartilham contas de armazenamento ou unidades de escala de armazenamento não são resilientes a falhas em unidades de escala de armazenamento único durante interrupções. O Advisor identifica esses conjuntos de disponibilidade e recomenda a migração para o Azure Managed disks. Essa migração garantirá que os discos das máquinas virtuais no conjunto de disponibilidade sejam suficientemente isolados para evitar um ponto único de falha. 
 
 ## <a name="check-the-version-of-your-check-point-network-virtual-appliance-image"></a>Verifique a versão da imagem da solução de virtualização de rede do Check Point
 
@@ -73,6 +58,21 @@ O Azure Advisor verifica se há gateways de VPN que usam uma SKU básica e recom
 - Opções de configuração ativo-ativo. 
 - Política de IPSec/IKE personalizada. 
 - Maior estabilidade e disponibilidade.
+
+## <a name="ensure-virtual-machine-fault-tolerance-temporarily-disabled"></a>Garantir a tolerância a falhas da máquina virtual (temporariamente desabilitada)
+
+Para fornecer redundância para seu aplicativo, recomendamos que você agrupe duas ou mais máquinas virtuais em um conjunto de disponibilidade. O Advisor identifica as máquinas virtuais que não fazem parte de um conjunto de disponibilidade e recomenda movê-las para uma. Essa configuração garante que, durante a manutenção planejada ou não planejada, pelo menos uma máquina virtual esteja disponível e atenda ao SLA da máquina virtual do Azure. Você pode optar por criar um conjunto de disponibilidade para a máquina virtual ou adicionar a máquina virtual a um conjunto de disponibilidade existente.
+
+> [!NOTE]
+> Se você optar por criar um conjunto de disponibilidade, precisará adicionar pelo menos mais uma máquina virtual a ele. É recomendável agrupar duas ou mais máquinas virtuais em um conjunto de disponibilidade para garantir que pelo menos uma delas esteja disponível durante uma interrupção.
+
+## <a name="ensure-availability-set-fault-tolerance-temporarily-disabled"></a>Garantir tolerância a falhas de conjunto de disponibilidade (temporariamente desabilitado)
+
+Para fornecer redundância para seu aplicativo, recomendamos que você agrupe duas ou mais máquinas virtuais em um conjunto de disponibilidade. O Assistente identifica os conjuntos de disponibilidade que contêm uma única máquina virtual e recomenda a adição de uma ou mais máquinas virtuais a ele.Essa configuração garante que, durante a manutenção planejada ou não planejada, pelo menos uma máquina virtual esteja disponível e atenda ao SLA da máquina virtual do Azure.Você pode optar por criar uma máquina virtual ou então por adicionar uma máquina virtual existente ao conjunto de disponibilidade.  
+
+## <a name="use-managed-disks-to-improve-data-reliability-temporarily-disabled"></a>Usar discos gerenciados para melhorar a confiabilidade dos dados (temporariamente desabilitados)
+
+As máquinas virtuais que estão em um conjunto de disponibilidade com discos que compartilham contas de armazenamento ou unidades de escala de armazenamento não são resilientes a falhas em unidades de escala de armazenamento único durante interrupções. O Advisor identifica esses conjuntos de disponibilidade e recomenda a migração para o Azure Managed disks. Essa migração garantirá que os discos das máquinas virtuais no conjunto de disponibilidade sejam suficientemente isolados para evitar um ponto único de falha. 
 
 ## <a name="repair-invalid-log-alert-rules"></a>Reparar regras de alerta de log inválidas
 

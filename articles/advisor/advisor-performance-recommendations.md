@@ -3,12 +3,12 @@ title: Melhorar o desempenho de aplicativos do Azure com o Advisor
 description: Use as recomendações de desempenho no Azure Advisor para melhorar a velocidade e a capacidade de resposta de seus aplicativos críticos para os negócios.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 7ecd6a45dc255f4748ed5074a3adb3d948f4122e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bdca8cd39427fb0d25f8b3308eaf2be24e0eb81a
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057567"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257460"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Melhorar o desempenho de aplicativos do Azure usando o Azure Advisor
 
@@ -20,7 +20,7 @@ Você pode usar [as configurações de vida útil (TTL)](../traffic-manager/traf
 
 O Azure Advisor identifica os perfis do Gerenciador de tráfego que têm um TTL mais longo configurado. Ele recomenda configurar a TTL para 20 segundos ou 60 segundos, dependendo se o perfil está configurado para [failover rápido](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/).
 
-## <a name="improve-database-performance-by-using-sql-database-advisor"></a>Melhorar o desempenho do banco de dados usando Assistente do Banco de Dados SQL
+## <a name="improve-database-performance-by-using-sql-database-advisor-temporarily-disabled"></a>Melhorar o desempenho do banco de dados usando Assistente do Banco de Dados SQL (temporariamente desabilitado)
 
 O Assistente do Azure fornece uma exibição consistente e consolidada de recomendações para todos os recursos do Azure. Ele se integra com Assistente do Banco de Dados SQL para oferecer recomendações para melhorar o desempenho de seus bancos de dados.Assistente do Banco de Dados SQL avalia o desempenho de seus bancos de dados analisando seu histórico de uso. Em seguida, ele oferece recomendações que são mais adequadas para executar a carga de trabalho típica do banco de dados.
 
@@ -151,6 +151,22 @@ O Advisor identifica Azure Cosmos DB contêineres que estão usando a política 
 ## <a name="set-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Defina o tamanho da página de consulta de Azure Cosmos DB (MaxItemCount) como-1 
 
 O supervisor do Azure identifica Azure Cosmos DB contêineres que estão usando um tamanho de página de consulta de 100. Ele recomenda usar um tamanho de página de-1 para verificações mais rápidas. [Saiba mais sobre o MaxItemCount.](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
+
+## <a name="consider-using-accelerated-writes-feature-in-your-hbase-cluster-to-improve-cluster-performance"></a>Considere o uso do recurso de gravações aceleradas em seu cluster HBase para melhorar o desempenho do cluster
+O Azure Advisor analisa os logs do sistema nos últimos sete dias e identifica se o cluster encontrou os seguintes cenários:
+1. Latência de tempo alta de sincronização de WAL 
+2. Alta contagem de solicitações de gravação (pelo menos 3 janelas de 1 hora acima de 1.000 avg_write_requests/second/node)
+
+Essas condições são indicadores de que o cluster passa por altas latências de gravação. Isso pode ser devido à carga de trabalho pesada executada no cluster. Para melhorar o desempenho do cluster, talvez você queira considerar a utilização do recurso de gravações aceleradas fornecido pelo Azure HDInsight HBase. O recurso de gravações aceleradas para clusters do Apache HBase do HDInsight anexa discos gerenciados por SSD Premium a cada RegionServer (nó de trabalho) em vez de usar o armazenamento em nuvem. Como resultado, ele fornece baixa latência de gravação e maior resiliência para seus aplicativos. Para ler mais sobre esse recurso, [saiba mais](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)
+
+## <a name="review-azure-data-explorer-table-cache-period-policy-for-better-performance-preview"></a>Examinar o tempo de cache da tabela Data Explorer do Azure – período (política) para melhorar o desempenho (versão prévia)
+Essa recomendação exibe as tabelas do Azure Data Explorer que têm um grande número de consultas abrangendo além do período de cache configurado (política) (você verá as 10 principais tabelas por porcentagem de consulta que acessam dados fora do cache). A ação recomendada para melhorar o desempenho do cluster: Limite as consultas nesta tabela ao intervalo de tempo mínimo necessário (dentro da política definida). Como alternativa, se os dados do intervalo de tempo inteiro forem necessários, aumente o período de cache para o valor recomendado.
+
+## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>Melhorar o desempenho com a otimização do dimensionamento da tabela temporária do MySQL
+A análise do Advisor indica que o servidor MySQL pode estar incorrendo em sobrecarga de e/s desnecessária devido a configurações de parâmetro de tabela temporária baixa. Isso pode causar transações desnecessárias no disco e redução de desempenho. Recomendamos aumentar os valores de parâmetro “tmp_table_size” e “max_heap_table_size” para reduzir o número de transações que usam o disco. [Saiba mais](https://aka.ms/azure_mysql_tmp_table)
+
+## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Distribuir dados no grupo de servidores para distribuir a carga de trabalho entre nós
+O Advisor identifica os grupos de servidores nos quais os dados não foram distribuídos, mas permanecem no coordenador. Com base nesse processo, o Advisor recomenda que, para os benefícios de Citus (hiperescala completa), distribua dados em nós de trabalho para seus grupos de servidores. Isso melhorará o desempenho da consulta utilizando o recurso de cada nó no grupo de servidores. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Como acessar as recomendações de desempenho no Advisor
 

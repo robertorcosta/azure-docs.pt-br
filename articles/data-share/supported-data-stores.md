@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 07/30/2020
-ms.openlocfilehash: 967b2dceab1f1702120cd3121ccd64b4e7286bc6
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 08/14/2020
+ms.openlocfilehash: 0e81d04edff667b0526f1d286701b2e8701528dc
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87511897"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258597"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Armazenamentos de dados com suporte no compartilhamento de dados do Azure
 
@@ -30,7 +30,7 @@ A tabela abaixo detalha as fontes de dados com suporte para o compartilhamento d
 | Azure Data Lake Storage Gen2 |✓ ||
 | Banco de Dados SQL do Azure |Visualização pública | |
 | Análise do Azure Synapse (anteriormente Azure SQL DW) |Visualização pública | |
-| Azure Data Explorer | |Visualização pública |
+| Azure Data Explorer | |✓ |
 
 ## <a name="data-store-support-matrix"></a>Matriz de suporte do armazenamento de dados
 
@@ -38,7 +38,7 @@ O compartilhamento de dados do Azure oferece flexibilidade aos consumidores de d
 
 A tabela abaixo detalha combinações diferentes e escolhas que os consumidores de dados têm ao aceitar e configurar seu compartilhamento de dados. Para obter mais informações sobre como configurar mapeamentos de conjunto de dados, consulte [como configurar mapeamentos de conjunto](how-to-configure-mapping.md)de dados.
 
-| Armazenamento de dados | Armazenamento do Blobs do Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Banco de Dados SQL do Azure | Azure Synapse Analytics | Azure Data Explorer
+| Armazenamento de dados | Armazenamento de Blobs do Azure | Azure Data Lake Storage Gen1 | Azure Data Lake Storage Gen2 | Banco de Dados SQL do Azure | Azure Synapse Analytics | Azure Data Explorer
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Armazenamento de Blobs do Azure | ✓ || ✓ ||
 | Azure Data Lake Storage Gen1 | ✓ | | ✓ ||
@@ -62,9 +62,7 @@ O compartilhamento de fontes baseadas em SQL tem pré-requisitos relacionados à
 ## <a name="share-from-azure-data-explorer"></a>Compartilhar do Azure Data Explorer
 O compartilhamento de dados do Azure dá suporte à capacidade de compartilhar bancos de dados no local a partir de clusters do Azure Data Explorer. O provedor de dados pode compartilhar no nível de cluster ou de banco de dado. Quando compartilhadas no nível de banco de dados, o consumidor do dado poderá acessar apenas os bancos de dados compartilhados pelo provedor de data. Quando compartilhadas no nível do cluster, o consumidor de dados pode acessar todos os bancos de dado do cluster do provedor, incluindo quaisquer bancos de dados futuros criados pelo provedor.
 
-Para acessar bancos de dados compartilhados, os clientes precisam ter seu próprio cluster Data Explorer do Azure. O cluster de Data Explorer do Azure do consumidor de dados precisa localizar na mesma data center do Azure que o cluster de Data Explorer do Azure do provedor de dados. Quando a relação de compartilhamento é estabelecida, o compartilhamento de dados do Azure cria um link simbólico entre os clusters do provedor e do Azure Data Explorer do consumidor.
-
-O Azure Data Explorer dá suporte a dois modos de ingestão de dados: lote e streaming. Os dados recebidos do lote no banco de dados compartilhado aparecerão entre alguns segundos e alguns minutos no lado do consumidor de dado. Os dados recebidos do streaming podem levar até 24 horas para serem exibidos no lado do consumidor de dados. 
+Para acessar bancos de dados compartilhados, os clientes precisam ter seu próprio cluster Data Explorer do Azure. O cluster de Data Explorer do Azure do consumidor de dados precisa localizar na mesma data center do Azure que o cluster de Data Explorer do Azure do provedor de dados. Quando a relação de compartilhamento é estabelecida, o compartilhamento de dados do Azure cria um link simbólico entre os clusters do provedor e do Azure Data Explorer do consumidor. Dados ingeridos usando o modo de lote no cluster de Data Explorer de origem do Azure serão exibidos no cluster de destino dentro de alguns segundos a alguns minutos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

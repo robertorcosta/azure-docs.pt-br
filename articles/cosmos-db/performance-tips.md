@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: sngun
-ms.openlocfilehash: c6c1b30716b52554afebe39562692de181dd7d1a
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 3e15adcac184a0609de3197181cb8c475a962e8d
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921228"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258361"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Dicas de desempenho para Azure Cosmos DB e SDK do .NET v2
 
@@ -41,7 +41,7 @@ O [SDK do .net v3](https://github.com/Azure/azure-cosmos-dotnet-v3) é lançado.
 
 Recomendamos o processamento de host do Windows de 64 bits para melhorar o desempenho. O SDK do SQL inclui um ServiceInterop.dll nativo para analisar e otimizar as consultas localmente. O ServiceInterop.dll tem suporte apenas na plataforma Windows x64. Para Linux e outras plataformas sem suporte em que o ServiceInterop.dll não está disponível, é feita uma chamada de rede adicional ao gateway para obter a consulta otimizada. Os seguintes tipos de aplicativos usam o processamento de host de 32 bits por padrão. Para alterar o processamento de host para o processamento de 64 bits, siga estas etapas, com base no tipo de seu aplicativo:
 
-- Para aplicativos executáveis, você pode alterar o processamento do host definindo o [destino da plataforma](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) para **x64** na janela de **Propriedades do projeto** , na guia **Compilar** .
+- Para aplicativos executáveis, você pode alterar o processamento do host definindo o [destino da plataforma](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) para **x64**  na janela de **Propriedades do projeto** , na guia **Compilar** .
 
 - Para projetos de teste baseados em VSTest, você pode alterar o processamento de host selecionando **testar**  >  **configurações**  >  **de teste arquitetura de processador padrão como x64** no menu de **teste** do Visual Studio.
 
@@ -72,21 +72,19 @@ Como um cliente se conecta a Azure Cosmos DB tem implicações de desempenho imp
 
   * Modo de gateway (padrão)
       
-    O modo de gateway tem suporte em todas as plataformas SDK e é o padrão configurado para o [SDK doMicrosoft.Azure.DocumentDB](sql-api-sdk-dotnet.md). Se seu aplicativo for executado em uma rede corporativa com restrições de firewall estritas, o modo de gateway será a melhor opção, pois ele usa a porta HTTPS padrão e um único ponto de extremidade. No entanto, a compensação de desempenho é que o modo de gateway envolve um salto de rede adicional toda vez que os dados são lidos ou gravados em Azure Cosmos DB. Portanto, o modo direto oferece melhor desempenho porque há menos saltos de rede. Também recomendamos o modo de conexão de gateway quando você executa aplicativos em ambientes que têm um número limitado de conexões de soquete.
+    O modo de gateway tem suporte em todas as plataformas SDK e é o padrão configurado para o [ SDK doMicrosoft.Azure.DocumentDB](sql-api-sdk-dotnet.md). Se seu aplicativo for executado em uma rede corporativa com restrições de firewall estritas, o modo de gateway será a melhor opção, pois ele usa a porta HTTPS padrão e um único ponto de extremidade. No entanto, a compensação de desempenho é que o modo de gateway envolve um salto de rede adicional toda vez que os dados são lidos ou gravados em Azure Cosmos DB. Portanto, o modo direto oferece melhor desempenho porque há menos saltos de rede. Também recomendamos o modo de conexão de gateway quando você executa aplicativos em ambientes que têm um número limitado de conexões de soquete.
 
     Ao usar o SDK no Azure Functions, especialmente no plano de [consumo](../azure-functions/functions-scale.md#consumption-plan), esteja ciente dos limites atuais das [conexões](../azure-functions/manage-connections.md). Nesse caso, o modo de gateway poderá ser melhor se você também estiver trabalhando com outros clientes baseados em HTTP em seu aplicativo Azure Functions.
 
   * Modo direto
 
     O modo direto dá suporte à conectividade por meio do protocolo TCP.
-
-No modo de gateway, Azure Cosmos DB usa a porta 443 e as portas 10250, 10255 e 10256 quando você está usando a API de Azure Cosmos DB para MongoDB. A porta 10250 é mapeada para uma instância padrão do MongoDB sem replicação geográfica. As portas 10255 e 10256 são mapeadas para a instância do MongoDB que tem replicação geográfica.
      
-Ao usar o TCP no modo direto, além das portas de gateway, você precisa garantir que o intervalo de portas entre 10000 e 20000 esteja aberto porque o Azure Cosmos DB usa portas TCP dinâmicas (ao usar o modo direto em [pontos de extremidade privados](./how-to-configure-private-endpoints.md), o intervalo completo de portas TCP-de 0 a 65535-precisa ser aberto). Se essas portas não estiverem abertas e você tentar usar TCP, você receberá um erro 503 Serviço indisponível. Esta tabela mostra os modos de conectividade disponíveis para várias APIs e as portas de serviço usadas para cada API:
+Ao usar o TCP no modo direto, além das portas de gateway, você precisa garantir que o intervalo de portas entre 10000 e 20000 esteja aberto porque o Azure Cosmos DB usa portas TCP dinâmicas. Ao usar o modo direto em [pontos de extremidade privados](./how-to-configure-private-endpoints.md), o intervalo completo de portas TCP-de 0 a 65535 deve ser aberto. Se essas portas não estiverem abertas e você tentar usar o protocolo TCP, você receberá um erro 503 Serviço indisponível. A tabela a seguir mostra os modos de conectividade disponíveis para várias APIs e as portas de serviço usadas para cada API:
 
 |Modo da conexão  |Protocolo com Suporte  |SDKs com suporte  |Porta/serviço de API  |
 |---------|---------|---------|---------|
-|Gateway  |   HTTPS    |  Todos os SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), tabela (443), Cassandra (10350), grafo (443)    |
+|Gateway  |   HTTPS    |  Todos os SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), tabela (443), Cassandra (10350), grafo (443) <br> A porta 10250 é mapeada para uma API de Azure Cosmos DB padrão para a instância do MongoDB sem replicação geográfica. Enquanto as portas 10255 e 10256 são mapeadas para a instância que tem replicação geográfica.   |
 |Direto    |     TCP    |  SDK .NET    | Ao usar pontos de extremidade de serviço/público: portas no intervalo de 10000 a 20000<br>Ao usar pontos de extremidade privados: portas no intervalo de 0 a 65535 |
 
 O Azure Cosmos DB oferece um modelo de programação RESTful simples e aberto por HTTPS. Além disso, ele oferece um protocolo TCP eficiente que também é RESTful em seu modelo de comunicação e está disponível por meio do SDK do cliente .NET. O protocolo TCP usa TLS para autenticação inicial e criptografia de tráfego. Para ter um melhor desempenho, use o protocolo TCP quando possível.
@@ -121,10 +119,10 @@ Em cenários em que você tem acesso esparso e se você notar uma contagem de co
 
 **Chamar OpenAsync para evitar a latência de inicialização na primeira solicitação**
 
-Por padrão, a primeira solicitação tem maior latência porque ela precisa buscar a tabela de roteamento de endereços. Ao usar o [SDK v2](sql-api-sdk-dotnet.md), chame `OpenAsync()` uma vez durante a inicialização para evitar essa latência de inicialização na primeira solicitação. A chamada é semelhante a:`await client.OpenAsync();`
+Por padrão, a primeira solicitação tem maior latência porque ela precisa buscar a tabela de roteamento de endereços. Ao usar o [SDK v2](sql-api-sdk-dotnet.md), chame `OpenAsync()` uma vez durante a inicialização para evitar essa latência de inicialização na primeira solicitação. A chamada é semelhante a: `await client.OpenAsync();`
 
 > [!NOTE]
-> `OpenAsync`o irá gerar solicitações para obter a tabela de roteamento de endereços para todos os contêineres na conta. Para contas que têm muitos contêineres, mas cujo aplicativo acessa um subconjunto deles, o `OpenAsync` geraria uma quantidade desnecessária de tráfego, o que tornaria a inicialização lenta. Portanto, `OpenAsync` o uso do pode não ser útil nesse cenário porque torna a inicialização do aplicativo mais lenta.
+> `OpenAsync` o irá gerar solicitações para obter a tabela de roteamento de endereços para todos os contêineres na conta. Para contas que têm muitos contêineres, mas cujo aplicativo acessa um subconjunto deles, o `OpenAsync` geraria uma quantidade desnecessária de tráfego, o que tornaria a inicialização lenta. Portanto, `OpenAsync` o uso do pode não ser útil nesse cenário porque torna a inicialização do aplicativo mais lenta.
 
 **Para desempenho, colocar clientes na mesma região do Azure**
 
@@ -158,8 +156,8 @@ Azure Cosmos DB solicitações são feitas por HTTPS/REST quando você usa o mod
 **Ajustar consultas paralelas para coleções particionadas**
 
 O SDK do SQL .NET 1.9.0 e versões posteriores dão suporte a consultas paralelas, que permitem consultar uma coleção particionada em paralelo. Para obter mais informações, consulte [exemplos de código](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) relacionados ao trabalho com os SDKs. As consultas paralelas são projetadas para fornecer melhor latência de consulta e taxa de transferência do que o equivalente em série. As consultas paralelas fornecem dois parâmetros que você pode ajustar para atender às suas necessidades: 
-- `MaxDegreeOfParallelism`controla o número máximo de partições que podem ser consultadas em paralelo. 
-- `MaxBufferedItemCount`controla o número de resultados previamente buscados.
+- `MaxDegreeOfParallelism` controla o número máximo de partições que podem ser consultadas em paralelo. 
+- `MaxBufferedItemCount` controla o número de resultados previamente buscados.
 
 ***Grau de ajuste do paralelismo***
 
@@ -179,7 +177,7 @@ Durante o teste de desempenho, você deve aumentar a carga até que uma pequena 
 
 O suporte à política de repetição está incluído nesses SDKs:
 - Versão 1.8.0 e posterior do [SDK do .net para SQL](sql-api-sdk-dotnet.md) e o [SDK do Java para SQL](sql-api-sdk-java.md)
-- Versão 1.9.0 e posterior do [SDK doNode.js para SQL](sql-api-sdk-node.md) e o [SDK do Python para SQL](sql-api-sdk-python.md)
+- Versão 1.9.0 e posterior do [ SDK doNode.js para SQL](sql-api-sdk-node.md) e o [SDK do Python para SQL](sql-api-sdk-python.md)
 - Todas as versões com suporte dos SDKs do [.NET Core](sql-api-sdk-dotnet-core.md) 
 
 Para obter mais informações, consulte [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
@@ -231,7 +229,7 @@ collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabas
 
 Para obter mais informações, consulte [Políticas de indexação do Azure Cosmos DB](index-policy.md).
 
-## <a name="throughput"></a><a id="measure-rus"></a>Taxa
+## <a name="throughput"></a><a id="measure-rus"></a> Taxa
 
 **Medir e ajustar para unidades de solicitação menores/segundo uso**
 

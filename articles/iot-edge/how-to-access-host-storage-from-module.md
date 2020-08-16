@@ -4,16 +4,16 @@ description: Use variáveis de ambiente e crie opções para habilitar o acesso 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/18/2019
+ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 079d5845917e63fadcf0466e5a744ed637d704ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe24cc79d749761b697a8d1a162ec2867da9a649
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75434536"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257482"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Fornecer acesso de módulos ao armazenamento local de um dispositivo
 
@@ -82,6 +82,12 @@ sudo chmod 700 <HostStoragePath>
 ```
 
 Você pode encontrar mais detalhes sobre como criar opções de [documentos do Docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+
+## <a name="encrypted-data-in-module-storage"></a>Dados criptografados no armazenamento de módulo
+
+Quando os módulos invocam a API de carga de trabalho do IoT Edge daemon para criptografar dados, a chave de criptografia é derivada usando a ID de módulo e a ID de geração do módulo. Uma ID de geração é usada para proteger os segredos se um módulo for removido da implantação e outro módulo com a mesma ID de módulo for implantado posteriormente no mesmo dispositivo. Você pode exibir a ID de geração de um módulo usando o comando CLI do Azure [AZ IOT Hub Module-identidade show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show).
+
+Se você quiser compartilhar arquivos entre os módulos entre gerações, eles não deverão conter segredos ou não serão descriptografados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

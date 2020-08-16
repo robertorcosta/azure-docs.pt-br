@@ -3,12 +3,12 @@ title: Reduza os custos de serviço usando o Assistente do Azure
 description: Use o Azure Advisor para otimizar o custo de suas implantações do Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: e8f0e555f71c31bb3286cee59bb7161c3ce3986e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15f357248a6174de1e0890a4b45e9fa3930a06fe
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284363"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258529"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Reduzir os custos de serviço usando o Azure Advisor
 
@@ -96,6 +96,8 @@ O [disco do so efêmero](../virtual-machines/ephemeral-os-disks.md) permite que 
 
 É preferível usar o disco do so efêmero para VMs IaaS de curta duração ou VMs com cargas de trabalho sem estado. O Advisor fornece recomendações para recursos que podem se beneficiar do disco do sistema operacional efêmero.
 
+## <a name="reduce-azure-data-explorer-table-cache-period-policy-for-cluster-cost-optimization-preview"></a>Reduzir o período de cache da tabela de Data Explorer do Azure (política) para otimização de custo do cluster (versão prévia)
+O Advisor identifica os recursos em que a redução da política de cache de tabela liberará os nós de cluster Data Explorer do Azure com baixa utilização da CPU, memória e uma configuração de tamanho de cache alto.
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Como acessar as recomendações de custo no Azure Advisor
 

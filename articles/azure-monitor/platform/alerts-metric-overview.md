@@ -1,15 +1,15 @@
 ---
 title: Entender como funcionam os alertas de métrica no Azure Monitor.
 description: Obtenha uma visão geral do que você pode fazer com alertas de métrica e como eles funcionam no Azure Monitor.
-ms.date: 07/16/2020
+ms.date: 08/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 9ac034eb144e5873f8f73ab7b1d7459394ce4775
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 035b68afed7383956beb13e367aa7a1f6dfcd070
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327133"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258430"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entender como funcionam os alertas de métrica no Azure Monitor
 
@@ -135,12 +135,15 @@ Até agora, você viu como um único alerta de métrica pode ser usado para moni
 
 No momento, esse recurso tem suporte para métricas de plataforma (não métricas personalizadas) para os seguintes serviços nas seguintes nuvens do Azure:
 
-| Serviço | Azure público | Governamental | China |
+| Serviço | Azure público | Governo | China |
 |:--------|:--------|:--------|:--------|
 | Máquinas virtuais  | **Sim** | Não | Não |
-| Bancos de dados do SQL Server | **Sim** | **Sim** | Não |
-| Pools elásticos do SQL Server | **Sim** | **Sim** | Não |
-| Dispositivos de borda da caixa de dados | **Sim** | **Sim** | Não |
+| Bancos de dados do SQL Server | **Sim** | **Sim** | **Sim** |
+| Pools elásticos do SQL Server | **Sim** | **Sim** | **Sim** |
+| Pools de capacidade de arquivos do NetApp | **Sim** | **Sim** | **Sim** |
+| Volumes de arquivos do NetApp | **Sim** | **Sim** | **Sim** |
+| Cofres de chaves | **Sim** | **Sim** | **Sim** |
+| Dispositivos de borda da caixa de dados | **Sim** | **Sim** | **Sim** |
 
 Você pode especificar o escopo do monitoramento por uma única regra de alerta de métrica de uma das três maneiras. Por exemplo, com máquinas virtuais, você pode especificar o escopo como:  
 

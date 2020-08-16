@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 95b514999d7c38140bd3dd275b8ba103ee9af20e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3055d8c31307cfacad575d892db0ed812a03a9e4
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519214"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258616"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
 As duas guias abaixo mostram os recursos da central de segurança do Azure que estão disponíveis para servidores e máquinas virtuais Windows e Linux.
 
-## <a name="supported-features-for-virtual-machines-and-servers"></a>Recursos com suporte para máquinas virtuais e servidores<a name="vm-server-features"></a>
+## <a name="supported-features-for-virtual-machines-and-servers"></a>Recursos com suporte para máquinas virtuais e servidores <a name="vm-server-features"></a>
 
 ### <a name="windows-machines"></a>[**Máquinas do Windows**](#tab/features-windows)
 
@@ -37,7 +37,7 @@ As duas guias abaixo mostram os recursos da central de segurança do Azure que e
 |[Acesso à VM just-in-time](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Avaliação de vulnerabilidades nativas](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[Monitoramento de integridade de arquivo](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
-|[Controles de aplicativos adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[Controles de aplicativo adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Proteção de rede adaptável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |[Painel de conformidade regulatória & relatórios](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
@@ -45,9 +45,9 @@ As duas guias abaixo mostram os recursos da central de segurança do Azure que e
 |Avaliação de patches do sistema operacional ausente|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Standard|
 |Avaliação de incorretas de segurança|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Standard|
 |[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Standard|
-|Avaliação de criptografia de disco|✔|✔|-|Gratuita|
-|Avaliação de vulnerabilidade de terceiros|✔|-|-|Gratuita|
-|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Gratuita|
+|Avaliação de criptografia de disco|✔|✔|-|Gratuito|
+|Avaliação de vulnerabilidade de terceiros|✔|-|-|Gratuito|
+|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Gratuito|
 
 
 ### <a name="linux-machines"></a>[**Máquinas do Linux**](#tab/features-linux)
@@ -61,17 +61,17 @@ As duas guias abaixo mostram os recursos da central de segurança do Azure que e
 |[Acesso à VM just-in-time](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Avaliação de vulnerabilidades nativas](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[Monitoramento de integridade de arquivo](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
-|[Controles de aplicativos adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
+|[Controles de aplicativo adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Proteção de rede adaptável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |[Painel de conformidade regulatória & relatórios](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recomendações e proteção contra ameaças em contêineres de IaaS hospedados pelo Docker|✔|✔|✔|Standard|
 |Avaliação de patches do sistema operacional ausente|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Standard|
 |Avaliação de incorretas de segurança|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Standard|
-|[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratuita|
-|Avaliação de criptografia de disco|✔|✔|-|Gratuita|
-|Avaliação de vulnerabilidade de terceiros|✔|-|-|Gratuita|
-|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Gratuita|
+|[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratuito|
+|Avaliação de criptografia de disco|✔|✔|-|Gratuito|
+|Avaliação de vulnerabilidade de terceiros|✔|-|-|Gratuito|
+|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Gratuito|
 
 --- 
 
@@ -80,7 +80,7 @@ As duas guias abaixo mostram os recursos da central de segurança do Azure que e
 >Para experimentar os recursos que estão disponíveis apenas no tipo de preço Standard, os usuários da camada gratuita podem se registrar em uma avaliação de 30 dias. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/security-center/).
 
 
-## <a name="supported-endpoint-protection-solutions"></a>Soluções de proteção de ponto de extremidade com suporte<a name="endpoint-supported"></a>
+## <a name="supported-endpoint-protection-solutions"></a>Soluções de proteção de ponto de extremidade com suporte <a name="endpoint-supported"></a>
 
 A tabela a seguir fornece uma matriz de:
 
@@ -91,13 +91,13 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 
 | Endpoint Protection| Plataformas | Instalação da Central de Segurança | Descoberta da Central de Segurança |
 |------|------|-----|-----|
-| Windows Defender (Microsoft Antimalware)| Windows Server 2016| Não, Integrado no SO| Sim |
+| Windows Defender (Microsoft Antimalware)| Windows Server 2016 ou posterior| Não, Integrado no SO| Sim |
 | System Center Endpoint Protection (antimalware da Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (consulte a observação abaixo) | Via extensão | Sim |
 | Trend Micro – segurança profunda | Família Windows Server  | Não | Sim |
 | Symantec v12.1.1100+| Família Windows Server  | Não | Sim |
 | McAfee v10+ | Família Windows Server  | Não | Sim |
-| McAfee v10+ | Família de servidores Linux  | Não | Ok**\*** |
-| Sophos v9 +| Família de servidores Linux  | Não | Ok**\***  |
+| McAfee v10+ | Família de servidores Linux  | Não | Ok **\*** |
+| Sophos v9 +| Família de servidores Linux  | Não | Ok  **\***  |
 
  **\*** O estado de cobertura e os dados de suporte estão atualmente disponíveis apenas no espaço de trabalho Log Analytics associado às suas assinaturas protegidas. Ele não é refletido no portal da central de segurança do Azure.
 
