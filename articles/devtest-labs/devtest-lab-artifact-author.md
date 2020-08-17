@@ -1,14 +1,14 @@
 ---
 title: Criar artefatos personalizados para sua máquina virtual do DevTest Labs | Microsoft Docs
-description: Aprenda a criar seus próprios artefatos para uso com o Azure DevTest Labs.
+description: Saiba como criar artefatos para usar com Azure DevTest Labs para implantar e configurar aplicativos depois de provisionar uma máquina virtual.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 775908749f52c71eeaf97eef25e3787f9b6794fc
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 85acfcc3811e671e58fadab08a23951778e1323d
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857026"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270675"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Criar artefatos personalizados para sua máquina virtual do DevTest Labs
 
@@ -44,14 +44,14 @@ O exemplo a seguir mostra as seções que compõem a estrutura básica de um arq
   }
 ```
 
-| Nome do elemento | Obrigatório? | Descrição |
+| Nome do elemento | Necessário? | Descrição |
 | --- | --- | --- |
 | $schema |Não |Local do arquivo de esquema JSON. O arquivo de esquema JSON pode lhe ajudar a testar a validade do arquivo de definição. |
 | título |Sim |Nome do artefato exibido no laboratório. |
 | descrição |Sim |Descrição do artefato exibido no laboratório. |
 | iconUri |Não |URI do ícone exibido no laboratório. |
 | targetOsType |Sim |Sistema operacional da VM em que o artefato está instalado. As opções com suporte são Windows e Linux. |
-| parâmetros |Não |Valores fornecidos quando o comando de instalação do artefato é executado em um computador. Isso ajuda você a personalizar seu artefato. |
+| parameters |Não |Valores fornecidos quando o comando de instalação do artefato é executado em um computador. Isso ajuda você a personalizar seu artefato. |
 | runCommand |Sim |Comando de instalação do artefato executado em uma VM. |
 
 ### <a name="artifact-parameters"></a>Parâmetros do artefato
@@ -69,7 +69,7 @@ Para definir parâmetros, use a seguinte estrutura:
   }
 ```
 
-| Nome do elemento | Obrigatório? | Descrição |
+| Nome do elemento | Necessário? | Descrição |
 | --- | --- | --- |
 | type |Sim |Tipo do valor do parâmetro. Veja a lista a seguir para os tipos permitidos. |
 | displayName |Sim |Nome do parâmetro exibido para um usuário no laboratório. |

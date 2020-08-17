@@ -1,14 +1,14 @@
 ---
 title: Criar e gerenciar VMs declaráveis no Azure DevTest Labs | Microsoft Docs
-description: Saiba como adicionar uma máquina virtual declarável a um laboratório no Azure DevTest Labs
+description: Saiba como usar o portal do Azure para adicionar uma máquina virtual declarável no Azure DevTest Labs e ver os processos a seguir para reivindicar/cancelar a declaração de uma máquina virtual.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7a4e465f0ba6c592f173a0c48aadd51f3e12ea07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fe949d7104fe6437087e77c403cc0d921ebd025
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481299"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270971"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Criar e gerenciar VMs requisitáveis no Azure DevTest Labs
 Você adiciona uma VM declarável a um laboratório de maneira semelhante a como [adiciona uma VM padrão](devtest-lab-add-vm.md) – de uma *base* que é uma [imagem personalizada](devtest-lab-create-template.md), [fórmula](devtest-lab-manage-formulas.md), ou [imagem do Marketplace](devtest-lab-configure-marketplace-images.md). Este tutorial explica como usar o Portal do Azure para adicionar uma VM requisitável a um laboratório no DevTest Labs e mostra o processo que um usuário segue para declarar a VM e cancelar sua declaração.

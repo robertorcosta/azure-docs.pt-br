@@ -1,18 +1,18 @@
 ---
 title: 'Bastiões do Azure: Exibir sessão de máquina virtual: tela inteira'
-description: Neste artigo, saiba como alterar a exibição para tela inteira.
+description: Saiba como alterar a exibição de máquina virtual para tela inteira e de volta em seu navegador para uma conexão RDP ou SSH na bastiões do Azure.
 services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: f4aa2c5aa3f40802db7be64eeb778866819bfe67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa795d7b066733aba54f8612bbabecf264a11c70
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744214"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270284"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Alterar para exibição de tela inteira de uma sessão de VM: bastiões do Azure
 

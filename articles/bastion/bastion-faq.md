@@ -1,18 +1,18 @@
 ---
 title: Perguntas frequentes sobre bastiões do Azure | Microsoft Docs
-description: As perguntas frequentes sobre a bastiões do Azure
+description: Resolva perguntas comuns para a bastiões do Azure, como disponibilidade, quantas sessões simultâneas têm suporte, problemas de configuração e preços.
 services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 07/10/2020
 ms.author: charwen
-ms.openlocfilehash: a37ca4b9977a1d2bd51a6153f4da1b65c1c916be
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: e546888689ff290c750d594f1e737857049bf1ff
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276101"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270539"
 ---
 # <a name="azure-bastion-faq"></a>Perguntas frequentes sobre o Azure Bastion
 

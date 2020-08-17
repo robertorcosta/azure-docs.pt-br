@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 08a1d655d19b5e7deb81e42ca5bebdfe4f18aeef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85ce79644ead939eaeffa5cfffeb495da15e7fe5
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84297897"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270658"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ)
 
@@ -78,7 +78,7 @@ A assinatura de email contém o nome do locatário do Azure AD B2C que você for
 
 1. Entre no [Portal do Azure](https://portal.azure.com/) como o administrador global.
 1. Abra a folha **Azure Active Directory** .
-1. Clique na guia **Propriedades**.
+1. Clique no guia **Propriedades**.
 1. Altere o campo **Nome**.
 1. Clique em **Salvar** na parte superior da página.
 
@@ -134,7 +134,7 @@ Não atualmente. Esse recurso está em nosso roteiro. Verificar seu domínio na 
 
 Siga estas etapas para excluir seu locatário Azure AD B2C.
 
-Você pode usar nossa nova experiência unificada de **registros de aplicativo** ou nossa experiência **de aplicativos herdados (Herdado)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregtraining).
+Você pode usar nossa nova experiência unificada de **registros de aplicativo** ou nossa experiência  **de aplicativos herdados (Herdado)** . [Saiba mais sobre a nova experiência](https://aka.ms/b2cappregtraining).
 
 #### <a name="app-registrations"></a>[Registros de aplicativo](#tab/app-reg-ga/)
 
@@ -154,7 +154,7 @@ Você pode usar nossa nova experiência unificada de **registros de aplicativo**
 1. Em **Gerenciamento de acesso para recursos do Azure**, selecione **Sim** e, em seguida, selecione **Salvar**.
 1. Saia do portal do Azure e, em seguida, entre novamente para atualizar seu acesso.
 1. Selecione **Azure Active Directory** no menu à esquerda.
-1. Na página **visão geral** , selecione **excluir diretório**. Siga as instruções na tela para concluir o processo.
+1. Na página **visão geral** , selecione **excluir locatário**. Siga as instruções na tela para concluir o processo.
 
 #### <a name="applications-legacy"></a>[Aplicativos (Herdado)](#tab/applications-legacy/)
 
