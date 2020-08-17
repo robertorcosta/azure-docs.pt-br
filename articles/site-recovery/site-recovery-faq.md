@@ -4,12 +4,12 @@ description: Este artigo aborda dúvidas comuns sobre o Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 89a5785811b4f4833a5a5ddcef827b258ce1775a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b5730fba1a0267ab72497bc65b51de75654f970
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083728"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263361"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre o Azure Site Recovery
 
@@ -247,6 +247,75 @@ Sim. O Azure Site Recovery para o sistema operacional Linux dá suporte a script
 
 >[!Note]
 >A versão do agente de Site Recovery deve ser 9,24 ou superior para dar suporte a scripts personalizados.
+
+## <a name="replication-policy"></a>Política de replicação
+
+### <a name="what-is-a-replication-policy"></a>O que é uma política de replicação?
+
+Uma política de replicação define as configurações para o histórico de retenção dos pontos de recuperação. A política também define a frequência de instantâneos consistentes em termos de aplicativo. Por padrão, o Azure Site Recovery cria uma nova política de replicação com configurações padrão de:
+
+- 24 horas para o histórico de retenção dos pontos de recuperação.
+- 4 horas para a frequência de instantâneos consistentes com o aplicativo.
+
+[Saiba mais sobre as configurações de replicação](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
+
+### <a name="what-is-a-crash-consistent-recovery-point"></a>O que é ponto de recuperação consistente em termos de falha?
+
+Um ponto de recuperação consistente em termos de falhas tem os dados em disco como se você tivesse recebido o cabo de alimentação do servidor durante o instantâneo. Ele não inclui o que estava na memória quando o instantâneo foi tirado.
+
+Atualmente, a maioria dos aplicativos pode recuperar-se bem de instantâneos consistente em termos de falha. Um ponto de recuperação consistente em termos de falha geralmente é suficiente para sistemas operacionais sem banco de dados e aplicativos como servidores, servidores DHCP, servidores de impressão.
+
+### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>Qual é a frequência de geração de ponto de recuperação consistente com a falha?
+
+O Site Recovery cria um ponto de recuperação consistente em termos de falha a cada 5 minutos.
+
+### <a name="what-is-an-application-consistent-recovery-point"></a>O que é ponto de recuperação consistente em termos de aplicativo?
+
+Pontos de recuperação consistentes em termos de aplicativo são criados com base em instantâneos consistentes em termos de aplicativo. Pontos de recuperação consistentes em termos de aplicativo capturam os mesmos dados de instantâneos consistentes em termos de falhas, além de todos os dados na memória e todas as transações em andamento.
+
+Devido a seu conteúdo adicional, instantâneos de aplicativo consistente são os mais envolvidos e levam mais tempo para executar. Recomendamos pontos de recuperação consistentes em termos de aplicativo para sistemas operacionais de banco de dados como o SQL Server.
+
+### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Qual é o impacto de pontos de recuperação consistentes em termos de aplicativo no desempenho do aplicativo?
+
+Os pontos de recuperação consistentes com o aplicativo capturam todos os dados na memória e em processamento. Como os pontos de recuperação capturam esses dados, eles exigem estruturas como o Serviço de Cópias de Sombra de Volume no Windows para desativar o aplicativo. Se o processo de captura for frequente, poderá afetar o desempenho quando a carga de trabalho já estiver ocupada. Não é recomendável usar a frequência baixa para pontos de recuperação consistentes com o aplicativo em cargas de trabalho que não são de banco de dados. Mesmo para a carga de trabalho do banco de dados, 1 hora é suficiente.
+
+### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Qual é a frequência mínima de geração de ponto de recuperação consistente com o aplicativo?
+
+O Site Recovery pode criar um ponto de recuperação consistente com o aplicativo com frequência mínima de 1 hora.
+
+### <a name="how-are-recovery-points-generated-and-saved"></a>Como os pontos de recuperação são gerados e salvos?
+
+Para entender como Site Recovery gera pontos de recuperação, veja um exemplo de uma política de replicação. Essa política de replicação tem um ponto de recuperação com uma janela de retenção de 24 horas e um instantâneo de frequência consistente com o aplicativo de 1 hora.
+
+O Site Recovery cria um ponto de recuperação consistente em termos de falha a cada 5 minutos. Você não pode alterar essa frequência. Na última hora, você pode escolher entre 12 pontos consistentes com falhas e 1 ponto consistente com o aplicativo. Conforme o tempo decorre, o Site Recovery remove todos os pontos de recuperação além da última hora e salva apenas um ponto de recuperação por hora.
+
+A captura de tela a seguir ilustra o exemplo. Na captura de tela:
+
+- Na última hora, há pontos de recuperação com uma frequência de 5 minutos.
+- Depois da última hora, o Site Recovery mantém apenas um ponto de recuperação.
+
+   ![Lista de pontos de recuperação gerados](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+
+### <a name="how-far-back-can-i-recover"></a>A que tempo é possível fazer failback de recuperação?
+
+O ponto de recuperação mais antigo que você pode usar é de 72 horas.
+
+### <a name="i-have-a-replication-policy-of-24-hours-what-will-happen-if-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>Tenho uma política de replicação de 24 horas. O que acontecerá se um problema impedir o Site Recovery de gerar pontos de recuperação por mais de 24 horas? Meus pontos de recuperação anteriores serão perdidos?
+
+Não, o Site Recovery manterá todos os pontos de recuperação anteriores. Dependendo da janela de retenção dos pontos de recuperação, o Site Recovery substituirá o ponto mais antigo somente se ele gerar novos pontos. Devido ao problema, o Site Recovery não pode gerar novos pontos de recuperação. Até que haja novos pontos de recuperação, todos os pontos antigos permanecerão depois que você chegar à janela de retenção.
+
+### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Após a replicação ser habilitada em uma VM, como fazer para alterar a política de replicação?
+
+Vá para **Cofre do Site Recovery** > **Infraestrutura do Site Recovery** > **Políticas de replicação**. Selecione a política que você deseja editar e salve as alterações. Qualquer alteração também será aplicada a todas as replicações existentes.
+
+### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>Todos os pontos de recuperação são uma cópia completa da VM ou diferencial?
+
+O primeiro ponto de recuperação gerado tem a cópia completa. Os pontos de recuperação sucessivos têm alterações delta.
+
+### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>Aumentar o período de retenção de pontos de recuperação aumenta o custo de armazenamento?
+
+Sim, se você aumentar o período de retenção de 24 horas para 72 horas, o Site Recovery salvará os pontos de recuperação por mais 48 horas. Adicionar tempo gerará em encargos de armazenamento. Por exemplo, um ponto de recuperação pode ter alterações delta de 10 GB com um custo por GB de US$ 0,16 por mês. Os encargos adicionais seriam de US$ 1,60 × 48 por mês.
+
 
 ## <a name="failover"></a>Failover
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>Se estou fazendo failover no Azure, como posso acessar as VMs do Azure após o failover?

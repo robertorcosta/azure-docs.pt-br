@@ -4,12 +4,12 @@ description: Saiba como gerenciar e monitorar backups de agente MARS (Serviços 
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 096f47ba4a3d8d490c9cfaf43f4dafec4faf10f9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 581141ea5ffaecf774d292f66a05da5e40c8dc54
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317341"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263292"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerenciar backups de agente MARS (Serviços de Recuperação do Microsoft Azure) usando o serviço de backup do Azure
 
@@ -29,60 +29,60 @@ Ao modificar a política de backup, você pode adicionar novos itens, remover it
 
 ### <a name="add-new-items-to-existing-policy"></a>Adicionar novos itens à política existente
 
-1. Em **ações**, clique em **agendar backup**.
+1. Em **ações**, selecione **agendar backup**.
 
     ![Agendar um backup do Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
 
-2. Na guia **selecionar item de política** e selecione **Modificar agendamento de backup para seus arquivos e pastas** e clique em **Avançar**.
+2. Na guia **selecionar item de política** e selecione **Modificar agendamento de backup para seus arquivos e pastas** e selecione **Avançar**.
 
     ![Selecionar itens de política](./media/backup-azure-manage-mars/select-policy-items.png)
 
-3. Na guia **modificar ou parar backup de agenda** , selecione **fazer alterações nos itens ou horários de backup** e clique em **Avançar**.
+3. Na guia **modificar ou parar backup de agenda** , selecione **fazer alterações nos itens ou horários de backup** e selecione **Avançar**.
 
     ![Modificar ou agendar backup](./media/backup-azure-manage-mars/modify-schedule-backup.png)
 
-4. Na guia **selecionar itens para backup** , clique em **Adicionar itens** para adicionar os itens que você deseja fazer backup.
+4. Na guia **selecionar itens para backup** , selecione **Adicionar itens** para adicionar os itens que você deseja fazer backup.
 
     ![Modificar ou agendar adicionar itens de backup](./media/backup-azure-manage-mars/modify-schedule-backup-add-items.png)
 
-5. Na janela **selecionar itens** , selecione surges ou pastas que você deseja adicionar e clique em **OK**.
+5. Na janela **selecionar itens** , selecione os arquivos ou as pastas que você deseja adicionar e selecione **OK**.
 
     ![Selecionar os itens](./media/backup-azure-manage-mars/select-item.png)
 
-6. Conclua as próximas etapas e clique em **concluir** para concluir a operação.
+6. Conclua as próximas etapas e selecione **concluir** para concluir a operação.
 
 ### <a name="add-exclusion-rules-to-existing-policy"></a>Adicionar regras de exclusão à política existente
 
 Você pode adicionar regras de exclusão para ignorar arquivos e pastas dos quais você não deseja fazer backup. Você pode fazer isso durante a definição de uma nova política ou a modificação de uma política existente.
 
-1. No painel Ações, clique em **agendar backup**. Vá para **selecionar itens para backup** e clique em **configurações de exclusão**.
+1. No painel Ações, selecione **agendar backup**. Vá para **selecionar itens para backup** e selecione **configurações de exclusão**.
 
-    ![Selecionar os itens](./media/backup-azure-manage-mars/select-exclusion-settings.png)
+    ![Configurações de Exclusão](./media/backup-azure-manage-mars/select-exclusion-settings.png)
 
-2. Em **configurações de exclusão**, clique em **Adicionar exclusão**.
+2. Em **configurações de exclusão**, selecione **Adicionar exclusão**.
 
-    ![Selecionar os itens](./media/backup-azure-manage-mars/add-exclusion.png)
+    ![Adicionar exclusão](./media/backup-azure-manage-mars/add-exclusion.png)
 
-3. Em **selecionar itens para excluir**, procure os arquivos e as pastas e selecione os itens que deseja excluir e clique em **OK**.
+3. Em **selecionar itens para excluir**, procure os arquivos e as pastas e selecione os itens que você deseja excluir e selecione **OK**.
 
-    ![Selecionar os itens](./media/backup-azure-manage-mars/select-items-exclude.png)
+    ![Selecionar os itens a serem excluídos](./media/backup-azure-manage-mars/select-items-exclude.png)
 
 4. Por padrão, todas as **subpastas** dentro das pastas selecionadas são excluídas. Você pode alterar isso selecionando **Sim** ou **não**. Você pode editar e especificar os tipos de arquivo a serem excluídos, conforme mostrado abaixo:
 
-    ![Selecionar os itens](./media/backup-azure-manage-mars/subfolders-type.png)
+    ![Selecionar tipos de subpastas](./media/backup-azure-manage-mars/subfolders-type.png)
 
-5. Conclua as próximas etapas e clique em **concluir** para concluir a operação.
+5. Conclua as próximas etapas e selecione **concluir** para concluir a operação.
 
 ### <a name="remove-items-from-existing-policy"></a>Remover itens da política existente
 
-1. No painel Ações, clique em **agendar backup**. Vá para **selecionar itens para backup**. Na lista, selecione os arquivos e as pastas que você deseja remover do agendamento de backup e clique em **remover itens**.
+1. No painel Ações, selecione **agendar backup**. Vá para **selecionar itens para backup**. Na lista, selecione os arquivos e as pastas que você deseja remover do agendamento de backup e selecione **remover itens**.
 
-    ![Selecionar os itens](./media/backup-azure-manage-mars/select-items-remove.png)
+    ![Selecionar os itens a serem removidos](./media/backup-azure-manage-mars/select-items-remove.png)
 
     > [!NOTE]
     > Continue com cuidado ao remover completamente um volume da política.  Se você precisar adicioná-lo novamente, ele será tratado como um novo volume. O próximo backup agendado executará um backup inicial (backup completo) em vez de backup incremental. Se você precisar remover temporariamente e adicionar itens posteriormente, é recomendável usar **as configurações de exclusões** em vez de **remover itens** para garantir o backup incremental em vez do backup completo.
 
-2. Conclua as próximas etapas e clique em **concluir** para concluir a operação.
+2. Conclua as próximas etapas e selecione **concluir** para concluir a operação.
 
 ## <a name="stop-protecting-files-and-folder-backup"></a>Parar de proteger arquivos e pastas de backup
 
@@ -102,17 +102,17 @@ Há duas maneiras de interromper a proteção de arquivos e pastas backup:
 
 1. Abra o console de gerenciamento do MARS, vá para o **painel Ações**e **selecione agendar backup**.
 
-    ![Modificar ou parar um backup agendado.](./media/backup-azure-manage-mars/mars-actions.png)
-1. Na página **selecionar item de política** , selecione **modificar um agendamento de backup para seus arquivos e pastas** e clique em **Avançar**.
+    ![Selecione agendar backup](./media/backup-azure-manage-mars/mars-actions.png)
+1. Na página **selecionar item de política** , selecione **modificar um agendamento de backup para seus arquivos e pastas** e selecione **Avançar**.
 
-    ![Modificar ou parar um backup agendado.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
+    ![Selecionar item de política](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
 1. Na página **modificar ou parar um backup agendado** , selecione **parar de usar este agendamento de backup, mas mantenha os backups armazenados até que uma agenda seja ativada novamente**. Em seguida, selecione **Avançar**.
 
-    ![Modificar ou parar um backup agendado.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. Em **Pausar backup agendado**, examine as informações e clique em **concluir**.
+    ![Interromper um backup agendado.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
+1. Em **Pausar backup agendado**, examine as informações e selecione **concluir**.
 
-    ![Modificar ou parar um backup agendado.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. Em **Modificar o progresso do backup**, verifique se a pausa do backup de agenda está em status de êxito e clique em **fechar** para concluir.
+    ![Pausar um backup agendado.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
+1. Em **Modificar o progresso do backup**, verifique se a pausa do backup de agenda está em status de êxito e selecione **fechar** para concluir.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Interromper a proteção e excluir dados de backup
 
@@ -123,7 +123,7 @@ Há duas maneiras de interromper a proteção de arquivos e pastas backup:
 
 3. Na página **parar um backup agendado** , selecione **concluir**.
 
-    ![Interromper um backup agendado.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
+    ![Pare um backup agendado e selecione concluir](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Você será solicitado a inserir um PIN de segurança (número de identificação pessoal), que deve ser gerado manualmente. Para fazer isso, primeiro entre no portal do Azure.
 5. Vá para **serviços de recuperação**  >  **configurações**do cofre  >  **Propriedades**.
 6. Em **PIN de segurança**, selecione **gerar**. Copie este PIN. O PIN é válido por apenas cinco minutos.
@@ -133,7 +133,7 @@ Há duas maneiras de interromper a proteção de arquivos e pastas backup:
 
 8. Na página **progresso do backup de modificação** , a seguinte mensagem é exibida: os *dados de backup excluídos serão mantidos por 14 dias. Após esse período, os dados de backup serão excluídos permanentemente.*  
 
-    ![Exclua a infraestrutura de backup.](./media/backup-azure-delete-vault/deleted-backup-data.png)
+    ![Modificar o progresso do backup](./media/backup-azure-delete-vault/deleted-backup-data.png)
 
 Depois de excluir os itens de backup locais, siga as próximas etapas do Portal.
 
@@ -142,15 +142,15 @@ Depois de excluir os itens de backup locais, siga as próximas etapas do Portal.
 Se você interrompeu a proteção enquanto retém os dados e decidiu retomar a proteção, você pode reabilitar o agendamento de backup usando modificar política de backup.
 
 1. Em **ações** , selecione **agendar backup**.
-1. Selecione **habilitar novamente o agendamento de backup. Você também pode modificar itens ou horários de backup** e clicar em **Avançar**.<br>
+1. Selecione **habilitar novamente o agendamento de backup. Você também pode modificar itens ou horários de backup** e selecionar **Avançar**.<br>
 
-    ![Exclua a infraestrutura de backup.](./media/backup-azure-manage-mars/re-enable-policy-next.png)
-1. Em **selecionar itens para backup**, clique em **Avançar**.
+    ![Reabilitar agendamento de backup](./media/backup-azure-manage-mars/re-enable-policy-next.png)
+1. Em **selecionar itens para backup**, selecione **Avançar**.
 
-    ![Exclua a infraestrutura de backup.](./media/backup-azure-manage-mars/re-enable-next.png)
-1. Em **especificar agendamento de backup**, especifique o agendamento de backup e clique em **Avançar**.
-1. Em **selecionar política de retenção**, especifique a duração da retenção e clique em **Avançar**.
-1. Por fim, na tela de **confirmação** , examine os detalhes da política e clique em **concluir**.
+    ![Selecionar itens para backup](./media/backup-azure-manage-mars/re-enable-next.png)
+1. Em **especificar agendamento de backup**, especifique o agendamento de backup e selecione **Avançar**.
+1. Em **selecionar política de retenção**, especifique a duração da retenção e selecione **Avançar**.
+1. Por fim, na tela de **confirmação** , examine os detalhes da política e selecione **concluir**.
 
 ## <a name="re-generate-passphrase"></a>Gerar novamente a senha
 
@@ -158,15 +158,15 @@ Uma frase secreta é usada para criptografar e descriptografar dados durante o b
 
 1. No console do agente Mars, vá para o **painel Ações**  >  **alterar propriedades** >. Em seguida, vá para a **guia criptografia**.<br>
 1. Selecione a caixa de seleção **alterar senha** .<br>
-1. Insira uma nova senha ou clique em **gerar senha**.
-1. Clique em **procurar** para salvar a nova senha.
+1. Insira uma nova senha ou selecione **gerar senha**.
+1. Selecione **procurar** para salvar a nova senha.
 
     ![Gerar frase secreta.](./media/backup-azure-manage-mars/passphrase.png)
 
-1. Clique em **OK** para aplicar as alterações.  Se o [recurso de segurança](./backup-azure-security-feature.md#enable-security-features) estiver habilitado no portal do Azure para o cofre dos serviços de recuperação, será solicitado que você insira o PIN de segurança. Para receber o PIN, siga as etapas listadas neste [artigo](./backup-azure-security-feature.md#authentication-to-perform-critical-operations).<br>
-1. Cole o PIN de segurança do portal e clique em **OK** para aplicar as alterações.<br>
+1. Selecione **OK** para aplicar as alterações.  Se o [recurso de segurança](./backup-azure-security-feature.md#enable-security-features) estiver habilitado no portal do Azure para o cofre dos serviços de recuperação, será solicitado que você insira o PIN de segurança. Para receber o PIN, siga as etapas listadas neste [artigo](./backup-azure-security-feature.md#authentication-to-perform-critical-operations).<br>
+1. Cole o PIN de segurança do portal e selecione **OK** para aplicar as alterações.<br>
 
-    ![Gerar frase secreta.](./media/backup-azure-manage-mars/passphrase2.png)
+    ![Colar o PIN de segurança](./media/backup-azure-manage-mars/passphrase2.png)
 1. Certifique-se de que a frase secreta seja salva com segurança em um local alternativo (que não seja o computador de origem), preferencialmente na Azure Key Vault. Mantenha o controle de todas as senhas se você tiver várias máquinas cujo backup está sendo feito com os agentes MARS.
 
 ## <a name="managing-backup-data-for-unavailable-machines"></a>Gerenciando dados de backup para computadores não disponíveis

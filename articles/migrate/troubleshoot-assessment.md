@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: f9598ad508e3760bf1bad04f8694838465e4961f
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 24e7a1660da4dd021ef7ceb2594b4db2340cf104
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460976"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263020"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Solucionar problemas de visualização de avaliação/dependência
 
@@ -28,7 +28,7 @@ Corrija os problemas de preparação da avaliação da seguinte maneira:
 Tipo de inicialização sem suporte | O Azure não dá suporte a VMs com um tipo de inicialização EFI. Recomendamos que você converta o tipo de inicialização para BIOS antes de executar uma migração. <br/><br/>Você pode usar a migração de servidor de migrações para o Azure para lidar com a migração dessas VMs. Ele converterá o tipo de inicialização da VM para BIOS durante a migração.
 Sistema operacional Windows com suporte condicional | O sistema operacional passou pela data de fim do suporte e precisa de um contrato de suporte personalizado (CSA) para [dar suporte no Azure](https://aka.ms/WSosstatement). Considere a atualização antes de migrar para o Azure.
 Sistema operacional Windows sem suporte | O Azure dá suporte apenas a [versões selecionadas do sistema operacional Windows](https://aka.ms/WSosstatement). Considere atualizar o computador antes de migrar para o Azure.
-SO Linux condicionalmente endossado | O Azure endossa apenas [as versões selecionadas do sistema operacional Linux](../virtual-machines/linux/endorsed-distros.md). Considere atualizar o computador antes de migrar para o Azure.
+SO Linux condicionalmente endossado | O Azure endossa apenas [as versões selecionadas do sistema operacional Linux](../virtual-machines/linux/endorsed-distros.md). Considere atualizar o computador antes de migrar para o Azure. Consulte também [aqui](https://docs.microsoft.com/azure/migrate/troubleshoot-assessment#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment) para obter mais detalhes.
 SO Linux não endossado | O computador pode iniciar no Azure, mas o Azure não fornece suporte ao sistema operacional. Considere atualizar para uma [versão do Linux endossada](../virtual-machines/linux/endorsed-distros.md) antes de migrar para o Azure.
 Sistema operacional desconhecido | O sistema operacional da VM foi especificado como "other" em vCenter Server. Esse comportamento impede que as migrações para Azure verifiquem a prontidão do Azure da VM. Verifique se o sistema operacional tem [suporte](https://aka.ms/azureoslist) do Azure antes de migrar o computador.
 Versão de bits sem suporte | As VMs com sistemas operacionais de 32 bits podem ser inicializadas no Azure, mas recomendamos que você atualize para 64 bits antes de migrar para o Azure.
@@ -64,7 +64,7 @@ No caso de VMs do VMware e do Hyper-V, a avaliação do servidor marca as VMs do
 - Você pode determinar se o SO Linux em execução na VM local é endossado no Azure examinando o [suporte do Azure Linux](https://aka.ms/migrate/selfhost/azureendorseddistros).
 -  Depois de verificar a distribuição endossada, você pode ignorar este aviso.
 
-Essa lacuna pode ser resolvida habilitando a [descoberta de aplicativos](./how-to-discover-applications.md) nas VMs VMware. A avaliação do servidor usa o sistema operacional detectado da VM usando as credenciais de convidado fornecidas. Esses dados do sistema operacional identificam as informações corretas do so no caso de VMs Windows e Linux.
+Essa lacuna pode ser resolvida habilitando a [descoberta de aplicativos](./how-to-discover-applications.md) nas VMs VMware. A avaliação de servidor usa o sistema operacional que detecta da VM com as credenciais de convidado fornecidas. Esses dados do sistema operacional identificam as informações corretas do so no caso de VMs Windows e Linux.
 
 ## <a name="operating-system-version-not-available"></a>Versão do sistema operacional não disponível
 
@@ -74,10 +74,9 @@ Para servidores físicos, as informações de versão secundária do sistema ope
 
 A avaliação de servidor de migrações para Azure pode recomendar SKUs de VM do Azure com mais núcleos e memória do que a alocação local atual com base no tipo de avaliação:
 
-
 - A recomendação de SKU de VM depende das propriedades de avaliação.
 - Isso é afetado pelo tipo de avaliação que você executa na avaliação do servidor: *baseada em desempenho*ou *como local*.
-- Para avaliações baseadas em desempenho, a avaliação do servidor considera os dados de utilização das VMs locais (CPU, memória, disco e utilização de rede) para determinar o SKU de VM de destino correto para suas VMs locais. Ele também adiciona um fator de conforto ao determinar a utilização efetiva.
+- Para avaliações baseadas em desempenho, a avaliação do servidor considera os dados de utilização das VMs locais (CPU, memória, disco e utilização de rede) para determinar o SKU de VM de destino correto para suas VMs locais. Ela também adiciona um fator de conforto ao determinar a utilização efetiva.
 - Para o dimensionamento local, os dados de desempenho não são considerados e o SKU de destino é recomendado com base na alocação local.
 
 Para mostrar como isso pode afetar as recomendações, vamos usar um exemplo:
@@ -88,7 +87,7 @@ Temos uma VM local com quatro núcleos e oito GB de memória, com 50% de utiliza
 - Se a avaliação for baseada em desempenho, com base na utilização efetiva de CPU e memória (50% de 4 núcleos * 1,3 = 2,6 núcleos e 50% de 8 GB de memória * 1,3 = 5,3 GB de memória), o SKU de VM mais barato de quatro núcleos (contagem de núcleos com suporte mais próximo) e oito GB de memória (tamanho de memória mais próximo com suporte
 - [Saiba mais](concepts-assessment-calculation.md#types-of-assessments) sobre o dimensionamento da avaliação.
 
-## <a name="azure-disk-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>SKUs de disco do Azure maiores do que localmente em uma avaliação de VM do Azure
+## <a name="why-is-the-recommended-azure-disk-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Por que os SKUs de disco do Azure recomendados são maiores do que localmente em uma avaliação de VM do Azure?
 
 A avaliação de servidor de migrações para Azure pode recomendar um disco maior com base no tipo de avaliação.
 - O dimensionamento de disco na avaliação do servidor depende de duas propriedades de avaliação: critérios de dimensionamento e tipo de armazenamento.
@@ -97,14 +96,26 @@ A avaliação de servidor de migrações para Azure pode recomendar um disco mai
 
 Por exemplo, se você tiver um disco local com 32 GB de memória, mas o IOPS agregado de leitura e gravação para o disco for de 800 IOPS, a avaliação do servidor recomendará um disco Premium (devido aos requisitos de IOPS mais altos) e, em seguida, recomendará uma SKU de disco que possa dar suporte ao IOPS e ao tamanho necessários. A correspondência mais próxima neste exemplo seria P15 (256 GB, IOPS de 1100). Embora o tamanho exigido pelo disco local tenha 32 GB, a avaliação do servidor recomenda um disco maior devido ao requisito de IOPS alto do disco local.
 
-## <a name="utilized-corememory-percentage-missing"></a>Porcentagem de memória/núcleo utilizada ausente
+## <a name="why-is-performance-data-missing-for-someall-vms-in-my-assessment-report"></a>Por que os dados de desempenho estão ausentes para algumas/todas VMs no meu relatório de avaliação?
 
-A avaliação do servidor relata "PercentageOfCoresUtilizedMissing" ou "PercentageOfMemoryUtilizedMissing" quando o dispositivo de migrações para Azure não pode coletar dados de desempenho para as VMs locais relevantes.
+Para a avaliação “baseada em desempenho”, o relatório de avaliação exportado indica “PercentageOfCoresUtilizedMissing” ou “PercentageOfMemoryUtilizedMissing” quando o dispositivo de Migrações para Azure não pode coletar dados de desempenho das VMs locais. Verifique:
 
-- Isso pode ocorrer se as VMs estiverem desativadas durante a duração da avaliação. O dispositivo não pode coletar dados de desempenho para uma VM quando ela está desativada.
-- Se apenas os contadores de memória estiverem ausentes e você estiver tentando avaliar as VMs do Hyper-V, verifique se você tem memória dinâmica habilitada nessas VMs. Há um problema conhecido apenas para VMs do Hyper-V, em que um dispositivo de migrações para Azure não pode coletar dados de utilização de memória para VMs que não têm memória dinâmica habilitada.
-- Se algum dos contadores de desempenho estiver ausente, a avaliação do servidor de migrações para Azure voltará para os núcleos e a memória alocados e recomendará um tamanho de VM correspondente.
+- Se as VMs estão ativadas pelo tempo para o qual está criando a avaliação
+- Se apenas os contadores de memória estiverem ausentes e você estiver tentando avaliar as VMs do Hyper-V, verifique se você tem memória dinâmica habilitada nessas VMs. Há um problema conhecido atualmente devido ao qual o dispositivo de Migrações para Azure não pode coletar a utilização de memória para essas VMs.
 - Se todos os contadores de desempenho estiverem ausentes, verifique se os requisitos de acesso à porta para avaliação foram atendidos. Saiba mais sobre os requisitos de acesso de porta para [VMware](./migrate-support-matrix-vmware.md#port-access-requirements), [Hyper-V](./migrate-support-matrix-hyper-v.md#port-access) e avaliação de servidor [físico](./migrate-support-matrix-physical.md#port-access) .
+Observação - se algum dos contadores de desempenho estiver ausente, as Migrações para Azure: A avaliação do servidor volta para os núcleos alocados/memória local e recomenda um tamanho de VM de acordo.
+
+## <a name="why-is-the-confidence-rating-of-my-assessment-low"></a>Por que a confiança de classificação da minha avaliação é baixa?
+
+A classificação de confiança é calculada para avaliações de "baseadas em desempenho" com base na porcentagem de [pontos de dados disponíveis](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#ratings) necessária para computar a avaliação. Veja abaixo os motivos pelos quais uma avaliação poderia obter uma classificação de baixa confiança:
+
+- Você não criou o perfil do ambiente pelo tempo para o qual está criando a avaliação. Por exemplo, se você está criando uma avaliação com duração de desempenho definida como uma semana, precisa aguardar pelo menos uma semana após iniciar a descoberta para que todos os pontos de dados sejam coletados. Se não puder esperar tanto tempo, altere a execução para um período menor e “recalcule” a avaliação.
+ 
+- A avaliação do servidor não é capaz de coletar os dados de desempenho de algumas ou de todas as VMs no período de avaliação. Verifique se as VMs foram ligadas durante a avaliação e se as conexões de saída nas portas 443 são permitidas. Para VMs do Hyper-V, se a memória dinâmica estiver habilitada, os contadores de memória ficarão ausentes, levando a uma classificação de baixa confiança. “Recalcule” a avaliação para refletir as alterações mais recentes na classificação de confiança. 
+
+- Algumas VMs foram criadas após o início da descoberta na Avaliação de Servidor. Por exemplo, se você estiver criando uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas no ambiente somente há uma semana. Nesse caso, os dados de desempenho das novas VMs não estariam disponíveis durante todo o período e a classificação de confiança seria baixa.
+
+[Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#confidence-ratings-performance-based) sobre a classificação de confiança.
 
 ## <a name="is-the-operating-system-license-included-in-an-azure-vm-assessment"></a>A licença do sistema operacional está incluída em uma avaliação de VM do Azure?
 
@@ -133,10 +144,6 @@ A categoria de preparação pode estar marcada incorretamente como "não está p
 ## <a name="number-of-discovered-nics-higher-than-actual-for-physical-servers"></a>Número de NICs descobertos acima do real para servidores físicos
 
 Isso pode acontecer se o servidor físico tiver a virtualização do Hyper-V habilitada. Nesses servidores, migrações para Azure atualmente descobre os adaptadores físicos e virtuais. Portanto, o não. de NICs descobertas é maior do que o real.
-
-
-## <a name="low-confidence-rating-on-physical-server-assessments"></a>Classificação de baixa confiança em avaliações de servidor físico
-A classificação é atribuída com base na disponibilidade de pontos de dados que são necessários para calcular a avaliação. No caso de servidores físicos que têm a virtualização Hyper-V habilitada, há uma lacuna de produto conhecida devido à qual a classificação de baixa confiança pode ser atribuída incorretamente a avaliações de servidor físico. Nesses servidores, migrações para Azure atualmente descobre os adaptadores físicos e virtuais. A taxa de transferência de rede é capturada nos adaptadores de rede virtual descobertos, mas não nos adaptadores de rede física. Devido à ausência de pontos de dados nos adaptadores de rede física, a classificação de confiança pode ser afetada resultando em uma baixa classificação. Esta é uma lacuna do produto que será abordada no futuro.
 
 ## <a name="dependency-visualization-in-azure-government"></a>Visualização de dependência no Azure governamental
 
@@ -193,7 +200,7 @@ Atualmente, as Migrações para Azure dão suporte à criação do espaço de tr
 Colete os logs de tráfego de rede da seguinte maneira:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Pressione F12 para iniciar a Ferramentas para Desenvolvedores. Se necessário, desmarque a configuração **Limpar entradas na navegação** .
+2. Pressione F12 para iniciar a Ferramentas para Desenvolvedores. Se necessário, desmarque a configuração  **Limpar entradas na navegação** .
 3. Selecione a guia **rede** e inicie a captura do tráfego de rede:
    - No Chrome, selecione **Preservar log**. A gravação deve ser iniciada automaticamente. Um círculo vermelho indica que o tráfego está sendo capturado. Se o círculo vermelho não aparecer, selecione o círculo preto para iniciar.
    - No Microsoft Edge e no Internet Explorer, a gravação deve ser iniciada automaticamente. Se não estiver, selecione o botão verde Play.

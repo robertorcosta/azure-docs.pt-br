@@ -1,4 +1,4 @@
-- name: Banco de Dados do Azure para documentos do MariaDB
+- name: Documentação do Banco de Dados do Azure para MariaDB
   href: index.yml
 - name: Visão geral
   items:

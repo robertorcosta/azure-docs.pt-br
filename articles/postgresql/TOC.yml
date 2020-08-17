@@ -1,4 +1,4 @@
-- name: Banco de dados do Azure para Documentos do PostgreSQL
+- name: Documentação do Banco de Dados do Azure para PostgreSQL
   href: index.yml
 - name: Visão geral
   items:
@@ -163,10 +163,6 @@
               href: concepts-read-replicas.md
             - name: Decodificação lógica
               href: concepts-logical.md
-        - name: Mover entre regiões
-          items:
-            - name: Portal do Azure
-              href: howto-move-regions-portal.md
     - name: Hiperescala (Citus)
       items:
         - name: Dados distribuídos
@@ -339,6 +335,10 @@
               href: howto-read-replicas-cli.md
             - name: Gerenciar réplicas de leitura do Azure PowerShell
               href: howto-read-replicas-powershell.md
+        - name: Mover entre regiões
+          items:
+            - name: Portal do Azure
+              href: howto-move-regions-portal.md
     - name: Hiperescala (Citus)
       items:
         - name: Criar usuários

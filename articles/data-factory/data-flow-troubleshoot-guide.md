@@ -7,13 +7,13 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 04/27/2020
-ms.openlocfilehash: 2edd5b661240b6156cf8a02059b2b9a668c402f3
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.date: 08/16/2020
+ms.openlocfilehash: 0a691b562ebf030712eb0c13a688ea9a52fdb164
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83829113"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263462"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Solucionar problemas de fluxos de dados no Azure Data Factory
 
@@ -70,6 +70,13 @@ Este artigo explora métodos comuns de solução de problemas para fluxos de dad
 - **Causas**: este é um erro de serviço de back-end. Você pode repetir a operação e também reiniciar a sessão de depuração.
 - **Recomendação**: se tentar novamente e reiniciar não resolver o problema, entre em contato com o atendimento ao cliente.
 
+### <a name="error-code-debug-data-preview-no-output-data-on-join"></a>Código de erro: visualização de dados de depuração não há dados de saída em junção
+
+- **Mensagem**: há um grande número de valores nulos ou valores ausentes que podem ser causados por ter poucas linhas amostradas. Tente atualizar o limite de linha de depuração e atualizar os dados.
+- **Causas**: a condição de junção não correspondeu a nenhuma linha ou resultou em um número alto de nulos durante a visualização de dados.
+- **Recomendação**: Vá para configurações de depuração e aumente o número de linhas no limite de linha de origem. Verifique se você selecionou e Azure IR com um cluster de fluxo de dados grande o suficiente para lidar com mais dados.
+
+
 ## <a name="general-troubleshooting-guidance"></a>Diretrizes gerais de solução de problemas
 
 1. Verifique o status das suas conexões de conjunto de dados. Em cada transformação de origem e coletor, visite o serviço vinculado para cada conjunto de dados que você estiver usando e teste as conexões.
@@ -79,9 +86,9 @@ Este artigo explora métodos comuns de solução de problemas para fluxos de dad
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais ajuda com a solução de problemas, experimente estes recursos:
-*  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Blog de Data Factory](https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog)
 *  [Solicitações de recurso do Data Factory](https://feedback.azure.com/forums/270578-data-factory)
-*  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Vídeos do Azure](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g/videos)
 *  [Página de perguntas e respostas da Microsoft](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Fórum do Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informações do Twitter sobre o Data Factory](https://twitter.com/hashtag/DataFactory)

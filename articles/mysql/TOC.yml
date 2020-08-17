@@ -1,4 +1,4 @@
-- name: Banco de dados do Azure para documentos do MySQL
+- name: Documentação do Banco de Dados do Azure para MySQL
   href: index.yml
 - name: Visão geral
   items:

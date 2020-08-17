@@ -494,6 +494,8 @@
               href: platform/alerts-metric.md
             - name: Usar limites dinâmicos
               href: platform/alerts-dynamic-thresholds.md
+            - name: Alertas únicos para muitas séries temporais
+              href: platform/alerts-metric-multiple-time-series-single-rule.md
             - name: Alertas de métrica em logs
               href: platform/alerts-metric-logs.md
             - name: Usando o modelo do Resource Manager
@@ -1134,7 +1136,7 @@
           items:
             - name: Controle de acesso
               href: platform/workbooks-access-control.md
-            - name: parâmetros
+            - name: Parâmetros
               items:
                 - name: Resumo dos parâmetros
                   href: platform/workbooks-parameters.md

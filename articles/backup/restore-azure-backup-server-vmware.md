@@ -3,12 +3,12 @@ title: Restaurar VMs do VMware com o Servidor de Backup do Azure
 description: Use Servidor de Backup do Azure (MABS) para restaurar VMs VMware em execução em um servidor VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 08/18/2019
-ms.openlocfilehash: d11b9259a44c32891f5fefa6f175681838927586
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b3f61aa828db39aeb11b1ce46a850d9a5b868653
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524515"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263513"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Restaurar máquinas virtuais VMware
 
@@ -22,7 +22,7 @@ Este artigo explica como usar o MABS (servidor de Backup do Microsoft Azure) par
 
 ## <a name="restore-a-recovery-point"></a>Restaurar um ponto de recuperação
 
-1. No Console do Administrador MABS, clique em modo de exibição de recuperação.
+1. Na Console do Administrador MABS, selecione **modo de exibição de recuperação**.
 
 2. Usando o painel Procurar, procure ou filtre para localizar a VM que você deseja recuperar. Quando você seleciona uma VM ou uma pasta, os pontos de recuperação do painel exibem os pontos de recuperação disponíveis.
 
@@ -30,15 +30,15 @@ Este artigo explica como usar o MABS (servidor de Backup do Microsoft Azure) par
 
 3. No campo **Pontos de recuperação para**, use o calendário e os menus suspensos para selecionar uma data em que um ponto de recuperação foi criado. Datas do calendário em negrito têm pontos de recuperação disponíveis.
 
-4. Na faixa de opções de ferramenta, clique em **Recuperar** para iniciar o **Assistente de Recuperação**.
+4. Na faixa de opções da ferramenta, selecione **recuperar** para abrir o **Assistente de recuperação**.
 
     ![Assistente de recuperação, examinar a seleção de recuperação](./media/restore-azure-backup-server-vmware/recovery-wizard.png)
 
-5. Clique em **Avançar** para ir para a tela **Especificar Opções de Recuperação**.
+5. Selecione **Avançar** para ir para a tela **especificar opções de recuperação** .
 
-6. Na tela **Especificar Opções de Recuperação**, se você deseja habilitar a limitação da largura de banda da rede, clique em **Modificar**. Para deixar a limitação da rede desabilitada, clique em **Avançar**. Nenhuma outra opção na tela do assistente está disponível para VMs VMware. Se você optar por modificar a limitação da largura de banda da rede, no diálogo Limitação, selecione **Habilitar limitação do uso da largura de banda da rede** para ativá-lo. Uma vez habilitada, defina as **Configurações** e a **Agenda de Trabalho**.
+6. Na tela **especificar opções de recuperação** , se você quiser habilitar a limitação de largura de banda de rede, selecione **Modificar**. Para deixar a limitação de rede desabilitada, selecione **Avançar**. Nenhuma outra opção na tela do assistente está disponível para VMs VMware. Se você optar por modificar a limitação da largura de banda da rede, no diálogo Limitação, selecione **Habilitar limitação do uso da largura de banda da rede** para ativá-lo. Uma vez habilitada, defina as **Configurações** e a **Agenda de Trabalho**.
 
-7. Na tela **Selecionar Tipo de Recuperação**, escolha se deseja recuperar na instância original ou em um novo local e clique em **Avançar**.
+7. Na tela **Selecionar tipo de recuperação** , escolha se deseja recuperar na instância original ou em um novo local. Em seguida, selecione **Avançar**.
 
      * Se você escolher **Recuperar na instância original**, não precisará escolher outras opções no assistente. Os dados da instância original são usados.
 
@@ -46,7 +46,7 @@ Este artigo explica como usar o MABS (servidor de Backup do Microsoft Azure) par
 
       ![Selecionar Tipo de Recuperação](./media/restore-azure-backup-server-vmware/recovery-type.png)
 
-8. Na tela **Resumo**, verifique as configurações e clique em **Recuperar** para iniciar o processo de recuperação. A tela **Status de recuperação** mostra o progresso da operação de recuperação.
+8. Na tela **Resumo** , examine as configurações e selecione **recuperar** para iniciar o processo de recuperação. A tela **Status de recuperação** mostra o progresso da operação de recuperação.
 
 ## <a name="restore-an-individual-file-from-a-vm"></a>Restaurar um arquivo individual de uma VM
 
@@ -55,11 +55,11 @@ Você pode restaurar arquivos individuais de um ponto de recuperação de VM pro
 >[!NOTE]
 >A restauração de um arquivo individual de uma VM está disponível somente para pontos de recuperação de disco e VM do Windows.
 
-1. No Console do Administrador MABS, clique em modo de exibição de **recuperação** .
+1. Na Console do Administrador MABS, selecione modo de exibição de **recuperação** .
 
-2. Usando o painel **Procurar**, procure ou filtre para localizar a VM que você deseja recuperar. Quando você seleciona uma VM ou uma pasta, os pontos de recuperação do painel exibem os pontos de recuperação disponíveis.
+2. Usando o painel **Procurar**, procure ou filtre para localizar a VM que você deseja recuperar. Depois de selecionar uma VM ou pasta, os pontos de **recuperação para o painel** exibem os pontos de recuperação disponíveis.
 
-    ![Pontos de recuperação disponíveis](./media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
+    ![Painel "pontos de recuperação para"](./media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 
 3. No painel **Pontos de Recuperação para:** , use o calendário para selecionar a data que contém os pontos de recuperação desejados. Dependendo de como a política de backup foi configurada, as datas podem ter mais de um ponto de recuperação. Depois de selecionar o dia em que o ponto de recuperação foi feito, verifique se você escolheu o **tempo de recuperação**correto. Se a data selecionada tiver vários pontos de recuperação, escolha o ponto de recuperação selecionando-o no menu suspenso Tempo de recuperação. Depois de escolher o ponto de recuperação, a lista de itens recuperáveis aparece no painel **Caminho:** .
 
@@ -67,16 +67,16 @@ Você pode restaurar arquivos individuais de um ponto de recuperação de VM pro
 
     ![Rever Seleção de Recuperação](./media/restore-azure-backup-server-vmware/vmware-rp-disk-ilr-2.png)
 
-5. Quando você tiver selecionado os itens para recuperação, na faixa de opções de ferramenta do Console do Administrador, clique em **Recuperar** para abrir o **Assistente de Recuperação**. No Assistente de Recuperação, a tela **Examinar Seleção de Recuperação** mostra os itens selecionados a serem recuperados.
+5. Depois de selecionar o (s) item (ns) para recuperação, na faixa de opções da ferramenta de Console do Administrador, selecione **recuperar** para abrir o **Assistente de recuperação**. No Assistente de Recuperação, a tela **Examinar Seleção de Recuperação** mostra os itens selecionados a serem recuperados.
 
-6. Na tela **Especificar Opções de Recuperação**, se você deseja habilitar a limitação da largura de banda da rede, clique em **Modificar**. Para deixar a limitação da rede desabilitada, clique em **Avançar**. Nenhuma outra opção na tela do assistente está disponível para VMs VMware. Se você optar por modificar a limitação da largura de banda da rede, no diálogo Limitação, selecione **Habilitar limitação do uso da largura de banda da rede** para ativá-lo. Uma vez habilitada, defina as **Configurações** e a **Agenda de Trabalho**.
-7. Na tela **Selecionar Tipo de Recuperação**, clique em **Avançar**. Você só pode recuperar seus arquivos ou pastas em uma pasta de rede.
-8. Na tela **Especificar Destino**, clique em **Procurar** para encontrar um local de rede para seus arquivos ou pastas. MABS cria uma pasta na qual todos os itens recuperados são copiados. O nome da pasta tem o prefixo MABS_day-mês-ano. Quando você seleciona um local para os arquivos ou pasta recuperados, os detalhes desse local (destino, caminho de destino e espaço disponível) são fornecidos.
+6. Na tela **especificar opções de recuperação** , se você quiser habilitar a limitação de largura de banda de rede, selecione **Modificar**. Para deixar a limitação de rede desabilitada, selecione **Avançar**. Nenhuma outra opção na tela do assistente está disponível para VMs VMware. Se você optar por modificar a limitação da largura de banda da rede, no diálogo Limitação, selecione **Habilitar limitação do uso da largura de banda da rede** para ativá-lo. Uma vez habilitada, defina as **Configurações** e a **Agenda de Trabalho**.
+7. Na tela **Selecionar tipo de recuperação** , selecione **Avançar**. Você só pode recuperar seus arquivos ou pastas em uma pasta de rede.
+8. Na tela **especificar destino** , selecione **procurar** para localizar um local de rede para seus arquivos ou pastas. MABS cria uma pasta na qual todos os itens recuperados são copiados. O nome da pasta tem o prefixo MABS_day-mês-ano. Quando você seleciona um local para os arquivos ou pasta recuperados, os detalhes desse local (destino, caminho de destino e espaço disponível) são fornecidos.
 
     ![Especificar o local para recuperar arquivos](./media/restore-azure-backup-server-vmware/specify-destination.png)
 
-9. Na tela **Especificar Opções de Recuperação**, escolha quais configurações de segurança aplicar. Você pode optar por modificar a limitação do uso de largura de banda de rede, mas a limitação é desabilitada por padrão. Além disso, as opções **Recuperação SAN** e **Notificação** não estão habilitadas.
-10. Na tela **Resumo**, verifique as configurações e clique em **Recuperar** para iniciar o processo de recuperação. A tela **Status de recuperação** mostra o progresso da operação de recuperação.
+9. Na tela **Especificar Opções de Recuperação**, escolha quais configurações de segurança aplicar. Você pode optar por modificar a limitação do uso de largura de banda de rede, mas a limitação é desabilitada por padrão. Além disso, a recuperação e a **notificação** de **San** não estão habilitadas.
+10. Na tela **Resumo** , examine as configurações e selecione **recuperar** para iniciar o processo de recuperação. A tela **Status de recuperação** mostra o progresso da operação de recuperação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

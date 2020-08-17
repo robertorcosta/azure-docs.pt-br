@@ -44,6 +44,8 @@
           items:
             - name: Portal do Azure
               href: service-bus-quickstart-topics-subscriptions-portal.md
+            - name: CLI do Azure
+              href: service-bus-tutorial-topics-subscriptions-cli.md
             - name: Modelo de ARM
               href: service-bus-resource-manager-namespace-topic.md
         - name: Publicar e assinar mensagens
@@ -62,12 +64,8 @@
               href: service-bus-ruby-how-to-use-topics-subscriptions.md
 - name: Tutoriais
   items:
-    - name: Atualizar inventário - PowerShell
-      href: service-bus-tutorial-topics-subscriptions-powershell.md
-    - name: Atualizar inventário - Portal
+    - name: Atualizar inventário
       href: service-bus-tutorial-topics-subscriptions-portal.md
-    - name: Atualizar inventário - CLI
-      href: service-bus-tutorial-topics-subscriptions-cli.md
     - name: Responder a eventos por meio da Grade de Eventos
       href: service-bus-to-event-grid-integration-example.md
 - name: Exemplos

@@ -57,7 +57,9 @@
           href: export-import-provisioning-configuration.md
     - name: Solucionar problemas de provisionamento de aplicativos
       items:
-        - name: Solucionar problemas de provisionamento do aplicativo
+        - name: Problemas conhecidos
+          href: known-issues.md
+        - name: Solucionar problemas de configuração
           href: application-provisioning-config-problem.md
         - name: Status de quarentena
           href: application-provisioning-quarantine-status.md

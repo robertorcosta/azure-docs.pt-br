@@ -3,12 +3,12 @@ title: Perguntas sobre descoberta, avaliação e análise de dependência em mig
 description: Obtenha respostas para perguntas comuns sobre descoberta, avaliação e análise de dependência em migrações para Azure.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 8db9103494c0006127c45c0ae5f9672d3bd2bbb1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9b8ba0ec83b9f2faedebb2bfb4ba84109f6f8b77
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829876"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263496"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência-perguntas comuns
 
@@ -36,23 +36,34 @@ Você pode descobrir até 10.000 VMs VMware, até 5.000 VMs Hyper-V e até 1000 
 - Use as avaliações da **AVS (solução do Azure VMware)** quando desejar avaliar suas [VMs VMware](how-to-set-up-appliance-vmware.md) locais para migração para a [solução VMware do Azure (AVS)](../azure-vmware/introduction.md) usando esse tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
 - Você pode usar um grupo comum com computadores VMware somente para executar os dois tipos de avaliações. Se você estiver executando avaliações da AVS nas Migrações para Azure pela primeira vez, recomendamos criar um novo grupo de computadores VMware.
+ 
+
+## <a name="why-is-performance-data-missing-for-someall-vms-in-my-assessment-report"></a>Por que os dados de desempenho estão ausentes para algumas/todas VMs no meu relatório de avaliação?
+
+Para a avaliação “baseada em desempenho”, o relatório de avaliação exportado indica “PercentageOfCoresUtilizedMissing” ou “PercentageOfMemoryUtilizedMissing” quando o dispositivo de Migrações para Azure não pode coletar dados de desempenho das VMs locais. Verifique:
+
+- Se as VMs estão ativadas pelo tempo para o qual está criando a avaliação
+- Se apenas os contadores de memória estiverem ausentes e você estiver tentando avaliar as VMs do Hyper-V, verifique se você tem memória dinâmica habilitada nessas VMs. Há um problema conhecido atualmente devido ao qual o dispositivo de Migrações para Azure não pode coletar a utilização de memória para essas VMs.
+- Se todos os contadores de desempenho estiverem ausentes, verifique se as conexões de saída nas portas 443 (HTTPS) são permitidas.
+
+Observação - se algum dos contadores de desempenho estiver ausente, as Migrações para Azure: A avaliação do servidor volta para os núcleos alocados/memória local e recomenda um tamanho de VM de acordo.
+
+## <a name="why-is-the-confidence-rating-of-my-assessment-low"></a>Por que a confiança de classificação da minha avaliação é baixa?
+
+A classificação de confiança é calculada para avaliações de "baseadas em desempenho" com base na porcentagem de [pontos de dados disponíveis](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#ratings) necessária para computar a avaliação. Veja abaixo os motivos pelos quais uma avaliação poderia obter uma classificação de baixa confiança:
+
+- Você não criou o perfil do ambiente pelo tempo para o qual está criando a avaliação. Por exemplo, se você está criando uma avaliação com duração de desempenho definida como uma semana, precisa aguardar pelo menos uma semana após iniciar a descoberta para que todos os pontos de dados sejam coletados. Se não puder esperar tanto tempo, altere a execução para um período menor e “recalcule” a avaliação.
+ 
+- A avaliação do servidor não é capaz de coletar os dados de desempenho de algumas ou de todas as VMs no período de avaliação. Verifique se as VMs foram ligadas durante a avaliação e se as conexões de saída nas portas 443 são permitidas. Para VMs do Hyper-V, se a memória dinâmica estiver habilitada, os contadores de memória ficarão ausentes, levando a uma classificação de baixa confiança. “Recalcule” a avaliação para refletir as alterações mais recentes na classificação de confiança. 
+
+- Algumas VMs foram criadas após o início da descoberta na Avaliação de Servidor. Por exemplo, se você estiver criando uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas no ambiente somente há uma semana. Nesse caso, os dados de desempenho das novas VMs não estariam disponíveis durante todo o período e a classificação de confiança seria baixa.
+
+[Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#confidence-ratings-performance-based) sobre a classificação de confiança.
 
 ## <a name="i-cant-see-some-groups-when-i-am-creating-an-azure-vmware-solution-avs-assessment"></a>Não consigo ver alguns grupos ao criar uma avaliação da AVS (solução do Azure VMware)
 
 - A avaliação da AVS pode ser feita em grupos que têm apenas computadores VMware. Remova os computadores não VMware do grupo se você pretende executar uma avaliação da AVS.
 - Se você estiver executando avaliações da AVS nas Migrações para Azure pela primeira vez, recomendamos criar um novo grupo de computadores VMware.
-
-## <a name="how-do-i-select-ftt-raid-level-in-avs-assessment"></a>Como fazer selecionar o nível FTT-RAID na avaliação da AVS?
-
-O mecanismo de armazenamento usado na AVS é a vSAN. As políticas de armazenamento vSAN definem os requisitos de armazenamento para suas máquinas virtuais. Essas políticas garantem o nível de serviço necessário para suas VMs, pois determinam como o armazenamento é alocado para a VM. Essas são as combinações disponíveis do FTT-RAID: 
-
-**Falhas a tolerar (FTT)** | **Configuração RAID** | **Hosts mínimos necessários** | **Consideração de dimensionamento**
---- | --- | --- | --- 
-1 | RAID-1 (espelhamento) | 3 | Uma VM de 100 GB consumiria 200 GB.
-1 | RAID-5 (codificação de eliminação) | 4 | Uma VM de 100 GB consumiria 133,33 GB
-2 | RAID-1 (espelhamento) | 5 | Uma VM de 100 GB consumiria 300 GB.
-2 | RAID-6 (codificação de eliminação) | 6 | Uma VM de 100 GB consumiria 150 GB.
-3 | RAID-1 (espelhamento) | 7 | Uma VM de 100 GB consumiria 400 GB.
 
 ## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Não consigo ver alguns tipos de VM no Azure governamental
 
@@ -133,7 +144,7 @@ Suporte | Essa opção está atualmente em visualização e só está disponíve
 Agente | Não é necessário instalar agentes em computadores que você deseja verificar. | Agentes a serem instalados em cada computador local que você deseja analisar: o [MMA (Microsoft Monitoring Agent)](../azure-monitor/platform/agent-windows.md)e o [Dependency Agent](../azure-monitor/platform/agents-overview.md#dependency-agent). 
 Pré-requisitos | [Examine](concepts-dependency-visualization.md#agentless-analysis) os pré-requisitos e os requisitos de implantação. | [Examine](concepts-dependency-visualization.md#agent-based-analysis) os pré-requisitos e os requisitos de implantação.
 Log Analytics | Não necessário. | As Migrações para Azure usam a solução [Mapa do Serviço](../azure-monitor/insights/service-map.md) nos [logs do Azure Monitor](../azure-monitor/log-query/log-query-overview.md) para visualização de dependência. [Saiba mais](concepts-dependency-visualization.md#agent-based-analysis).
-Como ele funciona | Captura dados de conexão TCP em computadores habilitados para visualização de dependência. Após a descoberta, ele coleta dados em intervalos de cinco minutos. | Mapa do Serviço agentes instalados em um computador coletam dados sobre processos TCP e conexões de entrada/saída para cada processo.
+Como isso funciona | Captura dados de conexão TCP em computadores habilitados para visualização de dependência. Após a descoberta, ele coleta dados em intervalos de cinco minutos. | Mapa do Serviço agentes instalados em um computador coletam dados sobre processos TCP e conexões de entrada/saída para cada processo.
 Dados | Nome do servidor do computador de origem, processo, nome do aplicativo.<br/><br/> Nome do servidor do computador de destino, processo, nome do aplicativo e porta. | Nome do servidor do computador de origem, processo, nome do aplicativo.<br/><br/> Nome do servidor do computador de destino, processo, nome do aplicativo e porta.<br/><br/> Número de conexões, latência e informações de transferência de dados são coletadas e disponibilizadas para consultas de Log Analytics. 
 Visualização | O mapa de dependências de um único servidor pode ser exibido durante uma duração de uma hora a 30 dias. | Mapa de dependências de um único servidor.<br/><br/> O mapa pode ser exibido somente em uma hora.<br/><br/> Mapa de dependências de um grupo de servidores.<br/><br/> Adicionar e remover servidores de um grupo da exibição de mapa.
 Exportação de dados | Os últimos 30 dias de dados podem ser baixados em um formato CSV. | Os dados podem ser consultados com Log Analytics.

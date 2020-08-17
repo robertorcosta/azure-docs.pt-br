@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 4d65b43dad80cb130d582132d21e2d10bd8051dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6363100c844d071a3bb47521cec6ff7e988f6af8
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791377"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263190"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendações de segurança na Central de Segurança do Azure 
 Este tópico explica como exibir e entender as recomendações na central de segurança do Azure para ajudá-lo a proteger seus recursos do Azure.
@@ -31,16 +31,15 @@ Este tópico explica como exibir e entender as recomendações na central de seg
 
 As recomendações são ações a serem executadas para proteger seus recursos.
 
-A central de segurança analisa periodicamente o estado de segurança de seus recursos do Azure para identificar possíveis vulnerabilidades de segurança. Em seguida, ele fornece recomendações sobre como removê-los.
+A central de segurança analisa periodicamente o estado de segurança de seus recursos do Azure para identificar possíveis vulnerabilidades de segurança. Em seguida, ele fornece recomendações sobre como corrigir essas vulnerabilidades.
 
 Cada recomendação fornece:
 
-- Uma breve descrição do que está sendo recomendado.
-- As etapas de correção para executar a fim de implementar a recomendação. <!-- In some cases, Quick Fix remediation is available. -->
-- Quais recursos são necessários para executar a ação recomendada neles.
-- O **impacto de Pontuação segura**, que é o valor que sua pontuação de segurança aumentará se você implementar essa recomendação.
+- Uma breve descrição do problema.
+- As etapas de correção para executar a fim de implementar a recomendação.
+- Os recursos afetados.
 
-## <a name="monitor-recommendations"></a>Recomendações de monitor<a name="monitor-recommendations"></a>
+## <a name="monitor-recommendations"></a>Recomendações de monitor <a name="monitor-recommendations"></a>
 
 A central de segurança analisa o estado de segurança de seus recursos para identificar possíveis vulnerabilidades. O bloco **recomendações** em **visão geral** mostra o número total de recomendações identificadas pela central de segurança.
 
@@ -48,26 +47,28 @@ A central de segurança analisa o estado de segurança de seus recursos para ide
 
 1. Selecione o **bloco recomendações** em **visão geral**. A lista de **recomendações** é aberta.
 
-      ![Exibir recomendações](./media/security-center-recommendations/view-recommendations.png)
+1. As recomendações são agrupadas em controles de segurança.
 
-    Você pode filtrar as recomendações. Para filtrar as recomendações, selecione **Filtro** na folha **Recomendações**. A folha **Filtro** é aberta e você seleciona os valores de gravidade e de estado que deseja ver.
+      ![Recomendações agrupadas por controle de segurança](./media/security-center-recommendations/view-recommendations.png)
 
-   * **Recomendações**: a recomendação.
-   * **Impacto de Pontuação segura**: uma pontuação gerada pela central de segurança usando suas recomendações de segurança e aplicando algoritmos avançados para determinar a crucialidade de cada recomendação. Para obter mais informações, consulte [cálculo de Pontuação segura](secure-score-security-controls.md#how-your-secure-score-is-calculated).
-   * **RECURSO**: lista os recursos aos quais essa recomendação se aplica.
-   * **Barras de status**: descreve a severidade dessa recomendação específica:
-       * **Alta (vermelho)**: existe uma vulnerabilidade com um recurso significativo (como um aplicativo, uma VM ou um grupo de segurança de rede) e requer atenção.
-       * **Médio (laranja)**: existe uma vulnerabilidade e etapas não críticas ou adicionais são necessárias para eliminá-la ou para concluir um processo.
-       * **Baixa (azul)**: existe uma vulnerabilidade que deve ser resolvida, mas não requer atenção imediata. (Por padrão, não são apresentadas recomendações baixas, mas você pode filtrar as recomendações baixas caso deseje vê-las.) 
-       * **Íntegro (verde)**:
-       * **Não disponível (cinza)**:
+1. Expanda um controle e selecione uma recomendação específica para exibir a página de recomendação.
 
-1. Para exibir os detalhes de cada recomendação, clique na recomendação.
+    :::image type="content" source="./media/security-center-recommendations/recommendation-details-page.png" alt-text="Página de detalhes de recomendação." lightbox="./media/security-center-recommendations/recommendation-details-page.png":::
 
-    ![Detalhes da recomendação](./media/security-center-recommendations/recommendation-details.png)
+    A página inclui:
 
->[!NOTE] 
-> Consulte [modelos de implantação clássicos e do Resource Manager](../azure-classic-rm.md) para recursos do Azure.
+    - **Indicador de severidade**
+    - **Intervalo de atualização**  (quando relevante) 
+    - **Descrição** -uma breve descrição do problema
+    - **Etapas de correção** -uma descrição das etapas manuais necessárias para corrigir o problema de segurança nos recursos afetados. Para obter recomendações com ' correção rápida ', você pode selecionar **Exibir lógica de correção** antes de aplicar a correção sugerida aos seus recursos. 
+    - **Recursos afetados** -seus recursos são agrupados em guias:
+        - **Recursos íntegros** – recursos relevantes que não são afetados ou nos quais você já corrigiu o problema.
+        - **Recursos não íntegros** – recursos que ainda são afetados pelo problema identificado.
+        - **Recursos não aplicáveis** – recursos para os quais a recomendação não pode dar uma resposta definitiva. A guia não aplicável também inclui os motivos para cada recurso. 
+
+            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Recursos não aplicáveis com motivos.":::
+
+
  
 ## <a name="next-steps"></a>Próximas etapas
 

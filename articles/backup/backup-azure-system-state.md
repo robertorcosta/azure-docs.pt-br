@@ -1,14 +1,14 @@
 ---
 title: Fazer backup de estado do sistema para o Windows Azure
-description: Saiba como fazer backup do estado do sistema do Windows Server e/ou de computadores Windows para o Azure.
+description: Saiba como fazer backup do estado do sistema de computadores Windows Server no Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: ea38b76d9a8b7b8ccc1898ed9450177da2cb2458
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a56e500cc0330a6406b4465ab5baeafa39b544aa
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003696"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263037"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Fazer backup de estado do sistema para o Windows Azure
 
@@ -24,21 +24,21 @@ Se não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.m
 
 Quando você criar um cofre de Serviços de Recuperação, certifique-se de que a redundância de armazenamento esteja configurada da maneira desejada.
 
-1. Na folha **Cofres dos Serviços de Recuperação**, clique no novo cofre.
+1. No painel **cofres dos serviços de recuperação** , selecione o novo cofre.
 
     ![Selecionar o novo cofre da lista de cofres do Serviços de Recuperação](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
 
-    Quando você selecionar o cofre, a folha **Cofre de Serviços de Recuperação** será reduzida e a folha Configurações (*que tem o nome do cofre na parte superior*) e a folha de detalhes do cofre serão abertas.
+    Quando você seleciona o cofre, o painel **cofre dos serviços de recuperação** é limitado e o painel de configurações (*que tem o nome do cofre na parte superior*) e o painel detalhes do cofre são abertos.
 
     ![Exibir a configuração de armazenamento para um novo cofre](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
-2. Na folha de configurações do novo cofre, use o slide vertical para rolar para baixo até a seção Gerenciar e clique em **Infraestrutura de Backup**.
-    A folha Infraestrutura de Backup é aberta.
-3. Na folha Infraestrutura de Backup, clique em **Configuração de Backup** para abrir a folha **Configuração de Backup**.
+2. No painel configurações do novo cofre, use o slide vertical para rolar para baixo até a seção Gerenciar e selecione **infraestrutura de backup**.
+    O painel infraestrutura de backup é aberto.
+3. No painel infraestrutura de backup, selecione **configuração de backup** para abrir o painel **configuração de backup** .
 
     ![Definir a configuração de armazenamento para o novo cofre](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
 4. Escolha a opção de replicação de armazenamento adequada para o cofre.
 
-    ![opções de configuração de armazenamento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
+    ![Opções de configuração de armazenamento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
     Por padrão, seu cofre tem armazenamento com redundância geográfica. Se você usar o Azure como um ponto de extremidade de armazenamento de backup principal, continue a usar **Georredundante**. Se você não usar o Azure como um ponto de extremidade de armazenamento de backup principal, escolha **Localmente redundante**, que reduz os custos de armazenamento do Azure. Leia mais sobre as opções de armazenamento [com redundância geográfica](../storage/common/storage-redundancy.md) e [com redundância local](../storage/common/storage-redundancy.md) nesta [Visão geral de redundância de armazenamento](../storage/common/storage-redundancy.md).
 
@@ -46,47 +46,47 @@ Agora que você criou um cofre, configure-o para fazer backup do Estado do Siste
 
 ## <a name="configure-the-vault"></a>Configurar o cofre
 
-1. Na folha do cofre dos Serviços de Recuperação (para o cofre recém-criado), na seção Introdução, clique em **Backup**, na folha **Introdução ao Backup**, selecione **Meta de Backup**.
+1. No painel cofre dos serviços de recuperação (para o cofre que você acabou de criar), na seção Introdução, selecione **backup**e, em seguida, no painel **introdução com backup** , selecione **meta de backup**.
 
-    ![Abrir folha de meta backup](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
+    ![Abrir configurações de backup](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
-    A folha **Meta de Backup** será aberta.
+    O painel **meta de backup** é aberto.
 
-    ![Abrir folha de meta backup](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
+    ![Abrir o painel meta de backup](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
 
 2. No menu suspenso **Onde sua carga de trabalho é executada?**, selecione **Local**.
 
-    Você escolhe **Local** porque o Windows Server ou o computador do Windows é uma máquina física que não está no Azure.
+    Você escolhe o **local** porque seu computador Windows Server ou Windows é um computador físico que não está no Azure.
 
-3. No menu do **que você deseja fazer backup?** , selecione estado do **sistema**e clique em **OK**.
+3. No menu do **que você deseja fazer backup?** , selecione estado do **sistema**e selecione **OK**.
 
     ![Configuração de arquivos e pastas](./media/backup-azure-system-state/backup-goal-system-state.png)
 
-    Depois de clicar em OK, uma marca de seleção aparece ao lado de **Meta de backup** e a folha **Preparar infraestrutura** será aberta.
+    Depois de clicar em OK, uma marca de seleção é exibida ao lado de **meta de backup**e o painel **preparar infraestrutura** é aberto.
 
     ![Meta de backup configurada, prepare a infraestrutura em seguida](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
-4. Na folha **Preparar infraestrutura**, clique em **Baixar agente do Windows Server ou Windows Client**.
+4. No painel **preparar infraestrutura** , selecione **baixar agente para Windows Server ou Windows Client**.
 
-    ![Preparar infraestrutura](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
+    ![Preparar a infraestrutura](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
 
-    Se você estiver usando o Windows Server Essential, opte por baixar o agente para o Windows Server Essential. Um menu pop-up solicitará que você execute ou salve MARSAgentInstaller.exe.
+    Se você estiver usando o Windows Server Essential, escolha baixar o agente para o Windows Server Essential. Um menu pop-up solicitará que você execute ou salve MARSAgentInstaller.exe.
 
     ![Diálogo MARSAgentInstaller](./media/backup-try-azure-backup-in-10-mins/mars-installer-run-save.png)
 
-5. Clique em **Salvar** no menu pop-up de download.
+5. No menu pop-up baixar, selecione **salvar**.
 
-    Por padrão, o arquivo **MARSagentinstaller.exe** será salvo em sua pasta Downloads. Quando o instalador for concluído, será exibido um pop-up perguntando se você deseja executar o instalador ou abrir a pasta.
+    Por padrão, o arquivo **MARSagentinstaller.exe** será salvo em sua pasta Downloads. Quando o instalador for concluído, você verá um pop-up perguntando se deseja executar o instalador ou abrir a pasta.
 
-    ![Preparar infraestrutura](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
+    ![O instalador do MARS foi concluído](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
 
     Você não precisa instalar o agente ainda. Você poderá instalar o agente depois de baixar as credenciais do cofre.
 
-6. Na folha **Preparar infraestrutura**, clique em **Baixar**.
+6. No painel **preparar infraestrutura** , selecione **baixar**.
 
     ![baixar as credenciais do cofre](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    As credenciais do cofre são baixadas para a pasta Downloads. Após o término do download das credenciais do cofre, você verá um pop-up perguntando se deseja abrir ou salvar as credenciais. Clique em **Save** (Salvar). Se você clicar acidentalmente em **Abrir**, deixe a caixa de diálogo que tenta abrir as credenciais do cofre falhar. Não é possível abrir as credenciais do cofre. Vá para a próxima etapa. As credenciais do cofre estão na pasta Downloads.
+    As credenciais do cofre são baixadas para a pasta **downloads** . Depois que as credenciais do cofre terminarem de baixar, você verá um pop-up perguntando se deseja abrir ou salvar as credenciais. Selecione **Salvar**. Se você selecionar acidentalmente **abrir**, permita que a caixa de diálogo que tenta abrir as credenciais do cofre falhe. Você não poderá abrir as credenciais do cofre. Prossiga para a próxima etapa. As credenciais do cofre estão na pasta **downloads** .
 
     ![o download das credenciais do cofre foi concluído](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]
@@ -142,48 +142,48 @@ Para concluir o backup inicial, use o agente dos Serviços de Recuperação do M
 
     ![Inicialize o agente dos Serviços de Recuperação do Azure](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
 
-2. O agente dos Serviços de Recuperação, clique em **Agendar Backup**.
+2. No agente dos serviços de recuperação, selecione **agendar backup**.
 
     ![Agendar um backup do Windows Server](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
 
-3. Na página de Introdução do Assistente de Agendamento de Backup, clique em **Avançar**.
+3. Na página **Guia de introdução** do assistente de agendamento de backup, selecione **Avançar**.
 
-4. Na tela Selecionar Itens para Backup, clique em **Adicionar Itens**.
+4. Na página **selecionar itens para backup** , selecione **Adicionar itens**.
 
-5. Selecione **Estado do sistema** e, em seguida, clique em **OK**.
+5. Selecione **estado do sistema** e, em seguida, selecione **OK**.
 
-6. Clique em **Próximo**.
+6. Selecione **Avançar**.
 
 7. Selecione a frequência de Backup necessária e a política de retenção para os backups de Estado do Sistema nas próximas páginas.
 
-8. Na página Confirmação, examine as informações e clique em **Concluir**.
+8. Na página confirmação, examine as informações e selecione **concluir**.
 
-9. Depois que o assistente terminar de criar o agendamento de backup, clique em **Fechar**.
+9. Depois que o assistente terminar de criar o agendamento de backup, selecione **fechar**.
 
 ### <a name="to-back-up-windows-server-system-state-for-the-first-time"></a>Para fazer backup do Estado do Sistema do Windows Server pela primeira vez
 
 1. Certifique-se de que não existem atualizações pendentes para o Windows Server que exigem uma reinicialização.
 
-2. No Agente dos Serviços de Recuperação, clique em **Fazer Backup Agora** para concluir a propagação inicial pela rede.
+2. No agente dos serviços de recuperação, selecione **fazer backup agora** para concluir a propagação inicial pela rede.
 
     ![Backup do Windows Server agora](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-3. Selecione **Estado do Sistema** na tela **Selecionar Item de Backup** exibida e clique em **Avançar**.
+3. Selecione **estado do sistema** na tela **selecionar item de backup** que aparece e selecione **Avançar**.
 
-4. Na página Confirmação, examine as configurações que o Assistente Fazer Backup Agora usará para fazer backup do computador. Em seguida, clique em **Fazer Backup**.
+4. Na página Confirmação, examine as configurações que o Assistente Fazer Backup Agora usará para fazer backup do computador. Em seguida, selecione **fazer backup**.
 
-5. Clique em **Fechar** para fechar o assistente. Se você fechar o assistente antes da conclusão do processo de backup, o assistente continuará a ser executado em segundo plano.
+5. Selecione **fechar** para fechar o assistente. Se você fechar o assistente antes da conclusão do processo de backup, o assistente continuará a ser executado em segundo plano.
     > [!NOTE]
-    > O agente MARS dispara o/VERIFYONLY do SFC como parte das verificações anteriores antes de todos os backups de estado do sistema. Isso é para garantir que os arquivos submetidos a backup como parte do estado do sistema tenham as versões corretas correspondentes à versão do Windows. Saiba mais sobre o verificador de arquivos do sistema (SFC) neste [artigo](/windows-server/administration/windows-commands/sfc).
+    > O agente MARS é disparado `SFC /verifyonly` como parte das preverificações antes de todos os backups de estado do sistema. Isso é para garantir que os arquivos submetidos a backup como parte do estado do sistema tenham as versões corretas correspondentes à versão do Windows. Saiba mais sobre o verificador de arquivos do sistema (SFC) neste [artigo](/windows-server/administration/windows-commands/sfc).
     >
 
 Depois que o backup inicial for concluído, o status **Trabalho concluído** aparecerá no Console de backup.
 
   ![IR completo](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
-## <a name="questions"></a>Perguntas?
+## <a name="questions"></a>Dúvidas?
 
-Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](https://feedback.azure.com/forums/258995-azure-backup).
+Se você tiver dúvidas, [envie-nos seus comentários](https://feedback.azure.com/forums/258995-azure-backup).
 
 ## <a name="next-steps"></a>Próximas etapas
 

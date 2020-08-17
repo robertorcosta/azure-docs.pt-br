@@ -4,12 +4,12 @@ description: Restaure uma máquina virtual do Azure de um ponto de recuperação
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a006988049925d2d81c3f15fe24cfe60205b5789
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: af9b505e762e201713b8e554b7886e5e2062dfef
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006325"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263003"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar dados de VM do Azure no portal do Azure
 
@@ -53,7 +53,7 @@ Se você não tiver permissões, poderá [restaurar um disco](#restore-disks)e, 
 
 1. No cofre associado à VM que você deseja restaurar, selecione itens de **backup**  >  **máquina virtual do Azure**.
 1. Selecione uma VM. Por padrão, os pontos de recuperação dos últimos 30 dias são exibidos no painel da VM. Você pode exibir pontos de recuperação com mais de 30 dias ou filtrar para encontrar pontos de recuperação com base em datas, intervalos de tempo e diferentes tipos de consistência de instantâneos.
-1. Para restaurar a VM, clique em **Restaurar VM**.
+1. Para restaurar a VM, selecione **restaurar VM**.
 
     ![Ponto de restauração](./media/backup-azure-arm-restore-vms/restore-point.png)
 
@@ -85,7 +85,7 @@ Como uma das [opções de restauração](#restore-options), você pode criar uma
 
 ## <a name="restore-disks"></a>Restaurar discos
 
-Como uma das [opções de restauração](#restore-options), você pode criar um disco a partir de um ponto de restauração. Em seguida, com o disco, você pode fazer o seguinte:
+Como uma das [opções de restauração](#restore-options), você pode criar um disco a partir de um ponto de restauração. Em seguida, com o disco, você pode executar uma das seguintes ações:
 
 - Use o modelo gerado durante a operação de restauração para personalizar as configurações e disparar a implantação da VM. Você edita as configurações de modelo padrão e envia o modelo para implantação da VM.
 - [Anexe discos restaurados](../virtual-machines/windows/attach-managed-disk-portal.md) a uma VM existente.
@@ -95,7 +95,7 @@ Como uma das [opções de restauração](#restore-options), você pode criar um 
 1. No **Grupo de recursos**, selecione um grupo de recursos existente para os discos recuperados ou crie um novo com um nome exclusivo globalmente.
 1. Em **local de preparo**, especifique a conta de armazenamento para a qual copiar os VHDs. [Saiba mais](#storage-accounts).
 
-    ![Configuração de recuperação concluída](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
+    ![Selecione o grupo de recursos e o local de preparo](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
 
 1. Selecione **restaurar** para disparar a operação de restauração.
 
@@ -192,7 +192,7 @@ Você receberá uma opção para restaurar [discos não gerenciados](../storage/
 
 Há vários cenários comuns nos quais você pode precisar restaurar VMs.
 
-**Cenário** | **Orientação**
+**Cenário** | **Diretrizes**
 --- | ---
 **Restaurar VMs usando Benefícios de uso híbrido** | Se uma VM do Windows usa o [licenciamento do Benefício de uso híbrido (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restaure os discos e crie uma nova VM usando o modelo fornecido (com **Tipo de Licença** definido como **Windows_Server**) ou o PowerShell.  Essa configuração também pode ser aplicada após a criação da VM.
 **Restaurar VMs durante um desastre de datacenter do Azure** | Se o cofre usa GRS e o datacenter principal da VM ficar inativo, o Backup do Azure oferece suporte à restauração de VMs de backup no datacenter emparelhado. Você seleciona uma conta de armazenamento no datacenter emparelhado e a restaura normalmente. O backup do Azure usa o serviço de computação na região emparelhada para criar a VM restaurada. [Saiba mais](/azure/architecture/resiliency/recovery-loss-azure-region) sobre a resiliência do datacenter.<br><br> Se o cofre usar GRS, você poderá escolher o novo recurso, a [restauração entre regiões](#cross-region-restore). Isso permite que você restaure para uma segunda região em cenários de interrupção totais ou parciais, ou mesmo se não houver nenhuma interrupção.
