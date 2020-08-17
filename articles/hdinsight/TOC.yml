@@ -531,6 +531,8 @@
               items:
                 - name: Usar nós de borda vazios
                   href: ./hdinsight-apps-use-edge-node.md
+                - name: Usar nós de borda para dimensionar o HiveServer2
+                  href: ./hdinsight-apps-install-hiveserver2.md
         - name: Solucionar problemas
           items:
             - name: Problemas comuns

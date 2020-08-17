@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 6979ce65022f350a93f533951d634b8e436283bc
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 91adafedfc8f4e6b4948b0dcfe541e2754b47556
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88186320"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226537"
 ---
 **Volume e retenção da coleta de dados** 
 
@@ -64,7 +64,7 @@ ms.locfileid: "88186320"
 | Máximo de caracteres para o nome da coluna | 500 | |
 | Exportação de dados | Não disponível no momento | Use a Função do Azure ou o Aplicativo Lógico para agregar e exportar dados. | 
 
-**Taxa do volume de ingestão de dados**
+**<a name="data-ingestion-volume-rate">Taxa do volume de ingestão de dados</a>**
 
 O Azure Monitor é um serviço de dados de grande escala que atende milhares de clientes que enviam terabytes de dados por mês em um ritmo cada vez maior. O limite da taxa de volume pretende proteger os clientes do Azure Monitor de picos repentinos de ingestão no ambiente de multilocação. Um limite da taxa do volume de ingestão padrão de 500 MB (compactados) se aplica aos workspaces, que é de aproximadamente **6 GB/min** descompactados. O tamanho real pode variar entre os tipos de dados, dependendo do comprimento do log e da taxa de compactação. Esse limite se aplica a todos os dados ingeridos, sejam eles enviados de recursos do Azure usando as [configurações de diagnóstico](../articles/azure-monitor/platform/diagnostic-settings.md), a [API do Data Collector](../articles/azure-monitor/platform/data-collector-api.md) ou os agentes.
 

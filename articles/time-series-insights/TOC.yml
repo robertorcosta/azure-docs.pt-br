@@ -67,7 +67,9 @@
       items:
         - name: Autenticar e autorizar
           href: time-series-insights-authentication-and-authorization.md
-        - name: Consultar dados usando C#
+        - name: Consultar dados usando C# – Gen2
+          href: time-series-insights-update-query-data-csharp.md
+        - name: Consultar dados usando C# – Gen1
           href: time-series-insights-query-data-csharp.md
         - name: Gerenciar dados de referência em C#
           href: time-series-insights-manage-reference-data-csharp.md

@@ -3,12 +3,12 @@ title: Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de 
 description: Descreve como fazer backup de VMs do Azure em um cofre dos Serviços de Recuperação no Backup do Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 91fca2eef21a817c0f78b826e507901d94156dcd
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1ae501be57be672238c8b55f431b6f5962a5fd99
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533590"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261932"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação
 
@@ -76,11 +76,11 @@ Configure uma política de backup para o cofre.
 
     * Se você não quiser usar a política padrão, selecione **Criar** e crie uma política personalizada, conforme descrito no próximo procedimento.
 
-1. Em **máquinas virtuais**, selecione **Adicionar**.
+1. Em **Máquinas virtuais**, selecione **Adicionar**.
 
       ![Adicionar máquinas virtuais](./media/backup-azure-arm-vms-prepare/add-virtual-machines.png)
 
-1. O painel **selecionar máquinas virtuais** será aberto. Selecione as VMs que você deseja fazer backup usando a política. Depois, selecione **OK**.
+1. O painel **Selecionar máquinas virtuais** será aberto. Selecione as VMs que você deseja fazer backup usando a política. Depois, selecione **OK**.
 
    * As VMs selecionadas são validadas.
    * Você só pode escolher máquinas virtuais na mesma região que o cofre.
@@ -140,7 +140,7 @@ A fase de instantâneo garante a disponibilidade de um ponto de recuperação ar
 
 Há duas **subtarefas** em execução no back-end, uma para o trabalho de backup de front-ends que pode ser verificada no painel de detalhes do **trabalho de backup** , conforme indicado abaixo:
 
-  ![Status do trabalho de backup](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
+  ![Sub-tarefas de status do trabalho de backup](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
 
 A fase **Transferir dados para o cofre** pode levar vários dias para ser concluída, dependendo do tamanho dos discos, da rotatividade por disco e de vários outros fatores.
 
@@ -151,8 +151,8 @@ O status do trabalho pode variar dependendo dos seguintes cenários:
 Concluído | Em andamento | Em andamento
 Concluído | Ignorado | Concluído
 Concluído | Concluído | Concluído
-Concluído | Com falha | Concluído com aviso
-Com falha | Falhou | Falhou
+Concluído | Falhou | Concluído com aviso
+Falhou | Falhou | Falhou
 
 Agora, com esse recurso, dois backups podem ser executados em paralelo para a mesma VM, porém, em qualquer fase (instantâneo, transferir dados para o cofre), apenas uma subtarefa pode estar em execução. Assim, em cenários em que um trabalho de backup em andamento resultou no backup do dia seguinte para falhar, ele será evitado com essa funcionalidade de desacoplamento. Os backups de dias subsequentes podem ter o instantâneo concluído, enquanto a **transferência de dados para o cofre** é ignorada se o trabalho de backup de um dia anterior estiver em estado de andamento.
 O ponto de recuperação incremental criado no cofre capturará toda a rotatividade do último ponto de recuperação criado no cofre. Não há impacto no custo do usuário.

@@ -3,14 +3,14 @@ title: Avaliações de VM do Azure na avaliação do servidor de migrações par
 description: Saiba mais sobre as avaliações na avaliação do servidor de migrações para Azure
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 7664c8296f0d47f37f9542dee82d3c718be40126
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1d9c887f42089611ce7402aa32174958cd8c0b07
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825983"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261847"
 ---
-# <a name="azure-vm-assessments-in-azure-migrate-server-assessment"></a>Avaliações de VM do Azure nas migrações para Azure: avaliação do servidor
+# <a name="server-assessment-overview-migrate-to-azure-vms"></a>Visão geral da avaliação do servidor (migrar para VMs do Azure)
 
 Este artigo fornece uma visão geral das avaliações na ferramenta [migrações para Azure: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) . A ferramenta pode avaliar máquinas virtuais VMware locais, VMs Hyper-V e servidores físicos para migração para o Azure.
 
@@ -122,7 +122,7 @@ Aqui estão as novidades incluídas em uma avaliação de VM do Azure na avalia�
 **Histórico de desempenho** | Usado com o dimensionamento baseado em desempenho. Histórico de desempenho especifica a duração usada quando os dados de desempenho são avaliados.
 **Utilização de percentual** | Usado com o dimensionamento baseado em desempenho. Utilização de percentil especifica o valor percentual do exemplo de desempenho usado para a permissão de direitos.
 **Série da VM** | A série de VMs do Azure que você deseja considerar para a permissão de direitos. Por exemplo, se você não tiver um ambiente de produção que precise de VMs série A no Azure, poderá excluir uma série da lista de séries.
-**Fator de conforto** | O buffer usado durante a avaliação. Ele é aplicado aos dados de CPU, RAM, disco e utilização de rede para VMs. Ele conta com problemas como uso sazonal, histórico de desempenho curto e, provavelmente, aumenta o uso futuro.<br/><br/> Por exemplo, uma VM de 10 núcleos com 20% de utilização normalmente resulta em uma VM de dois núcleos. Com um fator de conforto de 2,0, o resultado é uma VM de quatro núcleos.
+**Fator de conforto** | O buffer usado durante a avaliação. Ele é aplicado aos dados de CPU, RAM, disco e rede para VMs. Ele conta com problemas como uso sazonal, histórico de desempenho curto e, provavelmente, aumenta o uso futuro.<br/><br/> Por exemplo, uma VM de 10 núcleos com 20% de utilização normalmente resulta em uma VM de dois núcleos. Com um fator de conforto de 2,0, o resultado é uma VM de quatro núcleos.
 **Oferta** | A [oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) na qual você está inscrito. A avaliação do servidor estima o custo dessa oferta.
 **Moeda** | A moeda de cobrança da sua conta.
 **Desconto (%)** | Quaisquer descontos específicos de assinatura recebidos por cima da oferta do Azure. A configuração padrão é 0%.
@@ -151,8 +151,8 @@ Para uma avaliação de VM do Azure, a avaliação do servidor revisa as seguint
 Propriedade | Detalhes | Status de preparação do Azure
 --- | --- | ---
 **Tempo de inicialização** | O Azure dá suporte a VMs com um tipo de inicialização de BIOS, não UEFI. | Condicionalmente pronto se o tipo de inicialização for UEFI
-**Núcleos** | Cada computador não deve ter mais de 128 núcleos, que é o número máximo com suporte de uma VM do Azure.<br/><br/> Se o histórico de desempenho estiver disponível, as Migrações para Azure considerarão os núcleos utilizados para comparação. Se as configurações de avaliação especificarem um fator de conforto, o número de núcleos utilizados será multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, as migrações para Azure usarão os núcleos alocados sem aplicar o fator de conforto. | Pronto se o número de núcleos estiver dentro do limite
-**RAM** | Cada computador não deve ter mais de 3.892 GB de RAM, que é o tamanho máximo que uma VM da série M do Azure Standard_M128m &nbsp; <sup>2</sup> dá suporte. [Saiba mais](../virtual-machines/sizes.md).<br/><br/> Se o histórico de desempenho estiver disponível, as migrações para Azure considerarão a RAM utilizada para comparação. Se um fator de conforto for especificado, a RAM utilizada será multiplicada pelo fator de conforto.<br/><br/> Se não houver nenhum histórico, a RAM alocada será usada sem a aplicação de um fator de conforto.<br/><br/> | Pronto se a quantidade de RAM estiver dentro do limite
+**Núcleos** | Cada computador não deve ter mais de 128 núcleos, que é o número máximo com suporte de uma VM do Azure.<br/><br/> Se o histórico de desempenho estiver disponível, as Migrações para Azure considerarão os núcleos utilizados para comparação. Se as configurações de avaliação especificarem um fator de conforto, o número de núcleos utilizados será multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, as migrações para Azure usarão os núcleos alocados para aplicar o fator de conforto. | Pronto se o número de núcleos estiver dentro do limite
+**RAM** | Cada computador não deve ter mais de 3.892 GB de RAM, que é o tamanho máximo que uma VM da série M do Azure Standard_M128m &nbsp; <sup>2</sup> dá suporte. [Saiba mais](../virtual-machines/sizes.md).<br/><br/> Se o histórico de desempenho estiver disponível, as migrações para Azure considerarão a RAM utilizada para comparação. Se um fator de conforto for especificado, a RAM utilizada será multiplicada pelo fator de conforto.<br/><br/> Se não houver nenhum histórico, a RAM alocada será usada para aplicar um fator de conforto.<br/><br/> | Pronto se a quantidade de RAM estiver dentro do limite
 **Disco de armazenamento** | O tamanho alocado de um disco não deve ter mais de 32 TB. Embora o Azure dê suporte a discos de 64 TB com discos SSD Ultra do Azure, migrações para Azure: a avaliação de servidor atualmente verifica 32 TB como o limite de tamanho de disco porque ele ainda não dá suporte a SSD Ultra. <br/><br/> O número de discos anexados ao computador, incluindo o disco do sistema operacional, deve ser de 65 ou menos. | Pronto se o tamanho e o número do disco estiverem dentro dos limites
 **Rede** | Um computador não deve ter mais de 32 NICs (adaptadores de rede) conectados a ele. | Pronto se o número de NICs estiver dentro do limite
 
@@ -282,7 +282,7 @@ Após a conclusão das recomendações de dimensionamento, uma avaliação de VM
     - Software Assurance
     - Instâncias reservadas
     - Tempo de atividade da VM
-    - Localização
+    - Location
     - Configurações de moeda
 
     A avaliação do servidor agrega o custo em todas as máquinas para calcular o custo de computação mensal total.

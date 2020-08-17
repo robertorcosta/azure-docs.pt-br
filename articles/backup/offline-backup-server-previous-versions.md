@@ -1,14 +1,14 @@
 ---
 title: Backup offline para Data Protection Manager (DPM) e Backup do Microsoft Azure Server (MABS) – versões anteriores
-description: Com o backup do Azure, você pode enviar dados da rede usando o serviço de importação/exportação do Azure. Este artigo explica o fluxo de trabalho de backup offline para o DPM e o Servidor de Backup do Azure.
+description: Com o backup do Azure, você pode enviar dados da rede usando o serviço de importação/exportação do Azure. Este artigo explica o fluxo de trabalho de backup offline para versões anteriores do DPM e Servidor de Backup do Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 128051210984a55620be60a5965a7067e74de7c7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: e986baaf6ac2943bd210761ff2194eacdee5984a
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186938"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261915"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Fluxo de trabalho de backup offline para o DPM e o Servidor de Backup do Azure (versões anteriores)
 
@@ -23,7 +23,7 @@ O processo de propagação offline do backup do Azure é totalmente integrado ao
 > O processo de backup offline para o agente de Serviços de Recuperação do Microsoft Azure (MARS) é diferente do DPM e do MABS. Para obter informações sobre como usar o backup offline com o agente MARS, consulte [fluxo de trabalho de backup offline no backup do Azure](backup-azure-backup-import-export.md). O backup offline não tem suporte para backups de estado do sistema feito usando o agente de backup do Azure.
 >
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Com a capacidade de propagação offline do backup do Azure e o serviço de importação/exportação do Azure, é simples carregar os dados offline no Azure usando discos. O processo de backup offline envolve as seguintes etapas:
 
@@ -61,7 +61,7 @@ Verifique se os pré-requisitos a seguir foram atendidos antes de iniciar o flux
     | Estados Unidos | [Link](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | China | [Link](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* Uma conta de armazenamento do Azure com o modelo de implantação do Gerenciador de recursos foi criada na assinatura da qual você baixou o arquivo de configurações de publicação. Na conta de armazenamento, crie um novo contêiner de BLOB que será usado como o destino.
+* Uma conta de armazenamento do Azure com o modelo de implantação do Gerenciador de recursos foi criada na assinatura da qual você baixou o arquivo de configurações de publicação. Na conta de armazenamento, crie um novo contêiner de BLOBs, que será usado como o destino.
 
   ![Criar uma conta de armazenamento com o desenvolvimento do Gerenciador de recursos](./media/offline-backup-dpm-mabs-previous-versions/storage-account-resource-manager.png)
 
@@ -106,7 +106,7 @@ Siga estas etapas para carregar manualmente o certificado de backup offline para
     ![Guia Localizar aplicativo em aplicativos de propriedade](./media/offline-backup-dpm-mabs-previous-versions/owned-applications.png)
 
 1. Selecione o aplicativo. Em **gerenciar** no painel esquerdo, vá para **certificados & segredos**.
-1. Verifique se há certificados ou chaves públicas preexistentes. Se não houver nenhum, você poderá excluir com segurança o aplicativo selecionando o botão **excluir** na página **visão geral** do aplicativo. Em seguida, você pode repetir as etapas para [preparar o servidor para o processo de backup offline](#prepare-the-server-for-the-offline-backup-process) e ignorar as etapas a seguir. Caso contrário, continue seguindo estas etapas da instância do DPM ou do servidor de backup do Azure em que você deseja configurar o backup offline.
+1. Verifique se há certificados ou chaves públicas pré-existentes. Se não houver nenhum, você poderá excluir com segurança o aplicativo selecionando o botão **excluir** na página **visão geral** do aplicativo. Em seguida, você pode repetir as etapas para [preparar o servidor para o processo de backup offline](#prepare-the-server-for-the-offline-backup-process) e ignorar as etapas a seguir. Caso contrário, continue seguindo estas etapas da instância do DPM ou do servidor de backup do Azure em que você deseja configurar o backup offline.
 1. Em **início** – **executar**, digite *Certlm. msc*. Na janela **certificados-computador local** , selecione a guia **certificados – computador local**  >  **pessoal** . procure o certificado com o nome `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
 1. Selecione o certificado, clique com o botão direito do mouse em **todas as tarefas**e selecione **Exportar**, sem uma chave privada, no formato. cer.
 1. Vá para o aplicativo de backup offline do Azure na portal do Azure.

@@ -78,12 +78,16 @@
   items:
     - name: Segurança e criptografia de dados
       href: encryption-overview.md
+    - name: Criptografia dupla
+      href: double-encryption.md
     - name: Criptografia do disco
       items:
         - name: Práticas recomendadas
           href: data-encryption-best-practices.md
         - name: Criptografia de dados em repouso
           href: encryption-atrest.md
+        - name: Modelos de criptografia de dados
+          href: encryption-models.md
         - name: Azure Disk Encryption para máquinas virtuais
           href: azure-disk-encryption-vms-vmss.md
     - name: Segurança de banco de dados

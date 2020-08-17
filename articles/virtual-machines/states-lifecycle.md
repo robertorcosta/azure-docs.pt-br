@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: 0613b4c444b9eacaaf2b9d3e0795f4872cb903f3
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: cd104a31fdba932481889db198ae3cc4998a4466
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182929"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261881"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Ciclo de vida e estados de máquinas virtuais
 
@@ -423,6 +423,8 @@ A API de exibição de instância fornece informações sobre o estado de execu�
 O Gerenciador de recursos do Azure fornece uma interface do usuário simple para exibir o estado de execução de VM: [Resource Explorer](https://resources.azure.com/).
 
 Os estados de provisionamento são visíveis na exibição de instância e de propriedades da VM. Os estados de energia estão disponíveis na exibição de instância da VM.
+
+Para recuperar o estado de energia de todas as VMs em sua assinatura, use a [API máquinas virtuais-listar todas as APIs](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) com o parâmetro **statusOnly** definido como *true*.
 
 ## <a name="next-steps"></a>Próximas etapas
 

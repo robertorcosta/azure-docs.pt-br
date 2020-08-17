@@ -4,12 +4,12 @@ description: Este artigo explica como recuperar arquivos e pastas de um ponto de
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3a7fe7ca2e439739cbdeeb626fea9d2fb3983b83
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 01235e116ca93f9c73e698e4d72ae0cb561824d5
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236294"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88262663"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -32,7 +32,7 @@ Para restaurar arquivos ou pastas no ponto de recuperação, vá para a máquina
 
 3. No menu painel de backup, selecione **recuperação de arquivo**.
 
-    ![Botão de recuperação de arquivo](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+    ![Selecionar recuperação de arquivo](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
     O menu **Recuperação de Arquivo** é aberto.
 
@@ -42,7 +42,7 @@ Para restaurar arquivos ou pastas no ponto de recuperação, vá para a máquina
 
 5. Para baixar o software usado para copiar arquivos do ponto de recuperação, selecione **baixar executável** (para VMs do Windows Azure) ou **baixar script** (para VMs do Linux Azure, um script Python é gerado).
 
-    ![Senha gerada](./media/backup-azure-restore-files-from-vm/download-executable.png)
+    ![Baixar executável](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
     O Azure baixa o arquivo executável ou o script para o computador local.
 
@@ -56,7 +56,7 @@ Para restaurar arquivos ou pastas no ponto de recuperação, vá para a máquina
 
 7. Verifique se [você tem o computador certo](#selecting-the-right-machine-to-run-the-script) para executar o script. Se o computador certo for o mesmo computador em que você baixou o script, você poderá continuar para a seção de download. No local do download (geralmente a pasta *Downloads*), clique com o botão direito do mouse no arquivo executável ou no script e execute-o com as credenciais de Administrador. Quando solicitado, digite a senha ou cole a senha a partir da memória e pressione **Enter**. Quando a senha válida é inserida, o script conecta-se ao ponto de recuperação.
 
-    ![Menu de recuperação de arquivo](./media/backup-azure-restore-files-from-vm/executable-output.png)
+    ![Saída executável](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
 8. Para computadores Linux, um script Python é gerado. É necessário baixar o script e copiá-lo para o servidor Linux relevante/compatível. Talvez seja necessário modificar as permissões para executá-lo com ```chmod +x <python file name>```. Em seguida, execute o arquivo Python com ```./<python file name>```.
 
