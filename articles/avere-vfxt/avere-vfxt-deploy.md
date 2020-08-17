@@ -1,17 +1,17 @@
 ---
 title: Implantar o Avere vFXT para Azure
-description: Etapas para implantar o cluster do Avere vFXT no Azure
+description: Saiba como usar o assistente de implantação disponível no Azure Marketplace para implantar um cluster com o avere vFXT para Azure.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 4c42abdbfaf5c867a9d8d4cbc6b4519a86adaac0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31d12466186bb7f66197218fbb9675888a35fef3
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505640"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272766"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implantar cluster vFXT
 

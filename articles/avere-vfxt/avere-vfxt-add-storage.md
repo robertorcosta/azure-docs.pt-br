@@ -1,17 +1,17 @@
 ---
 title: Configurar o armazenamento do Avere vFXT – Azure
-description: Como adicionar um sistema de armazenamento de back-end ao seu Avere vFXT para o Azure
+description: Saiba como adicionar um sistema de armazenamento de back-end para um cluster no avere vFXT para Azure. Se você criou um contêiner de blob do Azure com o cluster, ele estará pronto para uso.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: e011b349c9296fd0ca15d119b35c1e6ec6af268a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c17d3c7cd2cf6fe5bca725cf94344b2d2cb50bf2
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505742"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271134"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
 
@@ -130,7 +130,7 @@ Para adicionar o Armazenamento de Blobs depois de criar o cluster, siga estas et
    | Nome da credencial | qualquer nome descritivo |
    | Tipo de serviço | (selecione a chave de acesso de armazenamento do Azure) |
    | Locatário | nome da conta de armazenamento |
-   | Subscription | ID da assinatura |
+   | Assinatura | ID da assinatura |
    | Chave de Acesso de Armazenamento | Chave de conta de Armazenamento do Azure (copiada na etapa anterior) |
 
    Clique em **Enviar**.
@@ -151,7 +151,7 @@ Para adicionar o Armazenamento de Blobs depois de criar o cluster, siga estas et
    * Definir **Conteúdos do Bucket** como **Vazio**
    * Mude **Verificação de certificado** para **Desabilitada**
    * Mude **Modo de compactação** para **Nenhum**
-   * Clique em **Próximo**.
+   * Clique em **Avançar**.
    * Na quarta página, digite o nome do contêiner em **Nome do Bucket** como *storage_account_name*/*container_name*.
    * Opcionalmente, defina **Tipo de Criptografia** como **Nenhum**.  O Armazenamento do Azure é criptografado por padrão.
    * Clique em **Adicionar Arquivista**.
@@ -176,7 +176,7 @@ Siga estas etapas na interface do painel de controle do avere:
 * Forneça um caminho de namespace que comece com / (barra), como ``/vfxt/data``.
 * Escolha seu arquivista central.
 * Escolha a exportação do arquivista central.
-* Clique em **Próximo**.
+* Clique em **Avançar**.
 
   ![Captura de tela da página "Adicionar nova junção" com os campos preenchidos para junção, arquivista central e exportação](media/avere-vfxt-add-junction.png)
 

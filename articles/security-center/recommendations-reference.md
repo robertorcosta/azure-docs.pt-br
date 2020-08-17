@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: 8038ace4469123e50d98d9296a1aecf0107efbf2
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 1609fc720474f92b3a3fa8c0631452164a7e4d0f
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262544"
+ms.locfileid: "88272019"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança – um guia de referência
 
@@ -181,6 +181,7 @@ Sua classificação de segurança é baseada no número de recomendações da Ce
 |**Um máximo de três proprietários deve ser designado para sua assinatura**|Designe menos de três proprietários de assinaturas para reduzir o potencial de violação por um proprietário comprometido.<br>(Política relacionada: Um máximo de três proprietários deve ser designado para sua assinatura)|Alta|N|Subscription|
 |**A Proteção Avançada contra Ameaças deve ser habilitada nos cofres do Azure Key Vault**|A Central de Segurança do Azure inclui proteção de ameaças avançada e nativa do Azure para o Azure Key Vault, fornecendo uma camada adicional de inteligência de segurança.<br>Importante: corrigir essa recomendação resultará em encargos para proteger seus cofres do AKV. Se você não tiver nenhum cofre AKV nessa assinatura, nenhum encargo será cobrado. Se você criar quaisquer cofres do AKV nessa assinatura no futuro, eles serão automaticamente protegidos e os encargos começarão nesse momento.<br>(Política relacionada: a [proteção avançada contra ameaças deve ser habilitada em cofres de Azure Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047))|Alta|**S**|Subscription|
 |**Os logs de diagnóstico no Key Vault devem estar habilitados**|Ativar os logs e mantenha-os por até um ano. Isso permite recriar trilhas de atividades para fins de investigação quando ocorre um incidente de segurança ou quando sua rede é comprometida.<br>(Política relacionada: Os logs de diagnóstico no Key Vault devem estar habilitados)|Baixo|**S**|Key Vault|
+|**As entidades de serviço devem ser usadas para proteger suas assinaturas em vez de certificados de gerenciamento**|Os certificados de gerenciamento permitem que qualquer pessoa que se autentique com eles gerencie as assinaturas a que estão associadas. Para gerenciar assinaturas com mais segurança, é recomendável usar entidades de serviço com o Gerenciador de recursos para limitar o raio de transmissão no caso de um comprometimento de certificado. Ele também automatiza o gerenciamento de recursos.|Média|Não|Assinatura|
 ||||||
 
 

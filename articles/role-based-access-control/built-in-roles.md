@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 07/29/2020
+ms.date: 08/16/2020
 ms.custom: generated
-ms.openlocfilehash: edf0d0085a8f1f9446e9c699c15b1eebb0a2d004
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 44b4134404d5af3a8dde7028ffa1b43258df7558
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448899"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271984"
 ---
 # <a name="azure-built-in-roles"></a>Funções internas do Azure
 
@@ -30,9 +30,9 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | Função interna | Descrição | ID |
 > | --- | --- | --- |
 > | **Geral** |  |  |
-> | [Colaborador](#contributor) | Permite que você gerencie tudo, exceto conceder acesso aos recursos. | b24988ac-6180-42a0-ab88-20f7382dd24c |
-> | [Proprietário](#owner) | Permite que você gerencie tudo, incluindo acesso aos recursos. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
-> | [Leitor](#reader) | Permite que você veja tudo, mas não faça alterações. | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
+> | [Colaborador](#contributor) | Concede acesso completo para gerenciar todos os recursos, mas não permite que você atribua funções no RBAC do Azure. | b24988ac-6180-42a0-ab88-20f7382dd24c |
+> | [Proprietário](#owner) | Concede acesso completo para gerenciar todos os recursos, incluindo a capacidade de atribuir funções no RBAC do Azure. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
+> | [Leitor](#reader) | Exibir todos os recursos, mas não permite que você faça nenhuma alteração. | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | [Administrador de Acesso do Usuário](#user-access-administrator) | Permite que você gerencie o acesso do usuário aos recursos do Azure. | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
 > | **Computação** |  |  |
 > | [Colaborador de Máquina Virtual Clássica](#classic-virtual-machine-contributor) | Permite gerenciar máquinas virtuais clássicas, mas não o acesso a elas, nem à rede virtual ou conta de armazenamento à qual estão conectadas. | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
@@ -207,7 +207,7 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 
 ### <a name="contributor"></a>Colaborador
 
-Permite que você gerencie tudo, exceto conceder acesso aos recursos. [Saiba mais](rbac-and-directory-admin-roles.md)
+Concede acesso completo para gerenciar todos os recursos, mas não permite que você atribua funções no RBAC do Azure. [Saiba mais](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -229,7 +229,7 @@ Permite que você gerencie tudo, exceto conceder acesso aos recursos. [Saiba mai
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage everything except access to resources.",
+  "description": "Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
   "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
   "permissions": [
@@ -256,7 +256,7 @@ Permite que você gerencie tudo, exceto conceder acesso aos recursos. [Saiba mai
 
 ### <a name="owner"></a>Proprietário
 
-Permite que você gerencie tudo, incluindo acesso aos recursos. [Saiba mais](rbac-and-directory-admin-roles.md)
+Concede acesso completo para gerenciar todos os recursos, incluindo a capacidade de atribuir funções no RBAC do Azure. [Saiba mais](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -274,7 +274,7 @@ Permite que você gerencie tudo, incluindo acesso aos recursos. [Saiba mais](rba
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage everything, including access to resources.",
+  "description": "Grants full access to manage all resources, including the ability to assign roles in Azure RBAC.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
   "name": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
   "permissions": [
@@ -295,7 +295,7 @@ Permite que você gerencie tudo, incluindo acesso aos recursos. [Saiba mais](rba
 
 ### <a name="reader"></a>Leitor
 
-Permite que você veja tudo, mas não faça alterações. [Saiba mais](rbac-and-directory-admin-roles.md)
+Exibir todos os recursos, mas não permite que você faça nenhuma alteração. [Saiba mais](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -313,7 +313,7 @@ Permite que você veja tudo, mas não faça alterações. [Saiba mais](rbac-and-
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you view everything, but not make any changes.",
+  "description": "View all resources, but does not allow you to make any changes.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
   "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
   "permissions": [
@@ -3026,6 +3026,7 @@ Liste a ação de credencial de administrador de cluster. [Saiba mais](../aks/co
 > | --- | --- |
 > | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/listClusterAdminCredential/Action | Listar a credencial clusterAdmin de um cluster gerenciado |
 > | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/accessProfiles/listCredential/Action | Obtém um perfil de acesso do cluster gerenciado por nome de função usando a credencial de lista |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Read | Obtém um cluster gerenciado |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -3045,7 +3046,8 @@ Liste a ação de credencial de administrador de cluster. [Saiba mais](../aks/co
     {
       "actions": [
         "Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action",
-        "Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action"
+        "Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action",
+        "Microsoft.ContainerService/managedClusters/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -3066,6 +3068,7 @@ Liste a ação de credencial de usuário de cluster. [Saiba mais](../aks/control
 > | Ações | Descrição |
 > | --- | --- |
 > | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/listClusterUserCredential/Action | Listar a credencial clusterUser de um cluster gerenciado |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Read | Obtém um cluster gerenciado |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -3084,7 +3087,8 @@ Liste a ação de credencial de usuário de cluster. [Saiba mais](../aks/control
   "permissions": [
     {
       "actions": [
-        "Microsoft.ContainerService/managedClusters/listClusterUserCredential/action"
+        "Microsoft.ContainerService/managedClusters/listClusterUserCredential/action",
+        "Microsoft.ContainerService/managedClusters/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -6811,6 +6815,8 @@ Pode ler todos os dados de monitoramento e editar configurações de monitoramen
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/activityLogAlerts/* |  |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/AlertRules/* | Criar e gerenciar um alerta de métrica clássico |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Components/* | Criar e gerenciar componentes do Insights |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/dataCollectionRules/* |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/dataCollectionRuleAssociations/* |  |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/DiagnosticSettings/* | Criar, atualizar ou ler a configuração de diagnóstico do Analysis Server |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/EventTypes/* | Listar eventos do Log de atividades (eventos de gerenciamento) em um assinatura. Essa permissão é aplicável ao acesso programático e ao portal para o Log de atividades. |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/LogDefinitions/* | Essa permissão é necessária para usuários que precisam de acesso aos Logs de atividade por meio do portal. Liste as categorias de log no Log de Atividades. |
@@ -6860,6 +6866,8 @@ Pode ler todos os dados de monitoramento e editar configurações de monitoramen
         "Microsoft.Insights/activityLogAlerts/*",
         "Microsoft.Insights/AlertRules/*",
         "Microsoft.Insights/components/*",
+        "Microsoft.Insights/dataCollectionRules/*",
+        "Microsoft.Insights/dataCollectionRuleAssociations/*",
         "Microsoft.Insights/DiagnosticSettings/*",
         "Microsoft.Insights/eventtypes/*",
         "Microsoft.Insights/LogDefinitions/*",

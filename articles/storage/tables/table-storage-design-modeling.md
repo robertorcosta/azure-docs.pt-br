@@ -8,12 +8,12 @@ ms.author: tamram
 ms.topic: article
 ms.date: 04/23/2018
 ms.subservice: tables
-ms.openlocfilehash: a7316bc60ea26968e30bb11ef97d63bddb33895a
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 3023b478ef7a4aaf6d9239e997bdf63282b56210
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235954"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271185"
 ---
 # <a name="modeling-relationships"></a>Relações de modelagem
 Este artigo descreve o processo de modelagem para ajudar você a projetar suas soluções de armazenamento em Tabela do Azure.
@@ -51,7 +51,7 @@ A tabela a seguir resume os prós e contras de cada uma das abordagens descritas
 <td>
 <ul>
 <li>Você pode atualizar uma entidade de departamento com uma única operação.</li>
-<li>Você pode usar uma EGT para manter a consistência se precisar modificar uma entidade de departamento sempre que atualizar/inserir/excluir uma entidade de funcionário. Por exemplo, se você mantiver uma contagem de funcionários do departamento para cada departamento.</li>
+<li>Você pode usar uma transação de grupo de entidades * (EGT) para manter a consistência se tiver um requisito para modificar uma entidade de departamento sempre que atualizar/inserir/excluir uma entidade de funcionário. Por exemplo, se você mantiver uma contagem de funcionários do departamento para cada departamento.</li>
 </ul>
 </td>
 <td>
@@ -92,6 +92,9 @@ A tabela a seguir resume os prós e contras de cada uma das abordagens descritas
 </td>
 </tr>
 </table>
+
+* para obter mais informações, consulte [Transações de grupo de entidades](table-storage-design.md#entity-group-transactions)  
+
 
 Como escolher entre essas opções e quais os prós e contras são mais significativos, depende de seus cenários específicos do aplicativo. Por exemplo, com que frequência você modifica entidades de departamento; todas as consultas de funcionário precisam de informações departamentais adicionais; a que distância você está dos limites de escalabilidade em suas partições ou em sua conta de armazenamento?  
 

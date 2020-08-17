@@ -1,6 +1,6 @@
 ---
 title: Criar uma instância do Observador de Rede do Azure | Microsoft Docs
-description: Saiba como habilitar o Observador de Rede em uma região do Azure.
+description: Saiba como criar um observador de rede do Azure em uma região do Azure usando a portal do Azure ou outras tecnologias e como excluir um observador de rede.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 03fe71855c43ba831f4b7a4ab746f05bd3bbb4a3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6809e8a44120eddbae4965bff30f80b617bdd024
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846846"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272154"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Criar uma instância do Observador de Rede do Azure
 

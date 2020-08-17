@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: caad034c2cc3403bc88ee5f50d101702ec692c35
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: a635f32c5e5f1132d70fb503058267c8b33beb7c
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192248"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272053"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -31,6 +31,30 @@ Esta página é atualizada regularmente, então visite-a com frequência. Se voc
 
 
 ## <a name="august-2020"></a>Agosto de 2020
+
+As atualizações em agosto incluem:
+
+- [Inventário de ativos-nova exibição avançada da postura de segurança de seus ativos](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
+- [Recomendação de entidades de serviço adicionada](#service-principals-recommendation-added)
+- [Avaliação de vulnerabilidade em VMs – recomendações e políticas consolidadas](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
+
+
+### <a name="asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets"></a>Inventário de ativos-nova exibição avançada da postura de segurança de seus ativos
+
+O inventário de ativos da central de segurança fornece uma maneira de exibir a postura de segurança dos recursos que você conectou à central de segurança.
+
+A central de segurança analisa periodicamente o estado de segurança de seus recursos do Azure para identificar possíveis vulnerabilidades de segurança. Em seguida, ele fornece recomendações sobre como corrigir essas vulnerabilidades. Quando qualquer recurso tiver recomendações pendentes, eles aparecerão no inventário.
+
+Você pode usar a exibição e seus filtros para explorar seus dados de postura de segurança e realizar ações adicionais com base em suas descobertas.
+
+Saiba mais sobre o [inventário de ativos](asset-inventory.md).
+
+
+### <a name="service-principals-recommendation-added"></a>Recomendação de entidades de serviço adicionada
+
+Nova recomendação para clientes da central de segurança que usam certificados de gerenciamento para gerenciar suas assinaturas.
+
+A recomendação, as **entidades de serviço devem ser usadas para proteger suas assinaturas em vez de certificados de gerenciamento,** aconselham você a usar entidades de serviço ou Azure Resource Manager para gerenciar com mais segurança suas assinaturas. 
 
 ### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>Avaliação de vulnerabilidade em VMs – recomendações e políticas consolidadas
 

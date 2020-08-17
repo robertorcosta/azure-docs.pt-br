@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: 7776345ee4e02baa2d2a6ae7bc08389aa94bd09b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3c097260812e72dfaa3678a4aade556a337e6a6c
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534474"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272892"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Suporte do Hub IoT para redes virtuais com Link Privado e Identidade Gerenciada
 
@@ -182,7 +182,7 @@ O Hub IoT pode rotear mensagens para uma conta de armazenamento de propriedade d
 
 5. Vá para a seção **Pontos de extremidade personalizados** e clique em **Adicionar**. Selecione **Armazenamento** para o tipo de ponto de extremidade.
 
-6. Na página que aparece, forneça um nome para o ponto de extremidade, selecione o contêiner que você pretende usar no armazenamento de blobs, forneça a codificação e o formato de nome de arquivo. Selecione **Sistema Atribuído** como o **Tipo de autenticação** para o ponto de extremidade de armazenamento. Selecione o botão **Criar**.
+6. Na página que aparece, forneça um nome para o ponto de extremidade, selecione o contêiner que você pretende usar no armazenamento de blobs, forneça a codificação e o formato de nome de arquivo. Selecione **baseado em identidade** como o **tipo de autenticação** para o ponto de extremidade de armazenamento. Selecione o botão **Criar**.
 
 Agora seu ponto de extremidade de armazenamento personalizado está configurado para usar a identidade atribuída do sistema do hub e tem permissão para acessar seu recurso de armazenamento, apesar das restrições do firewall. Agora você pode usar esse ponto de extremidade para configurar uma regra de roteamento.
 
@@ -234,7 +234,7 @@ O recurso de carregamento de arquivo do Hub IoT permite que dispositivos carregu
 
 4. Na página de recursos do seu Hub IoT, vá até a guia **Carregamento de arquivos**.
 
-5. Na página que aparece, selecione o contêiner que você pretende usar em seu armazenamento de blobs, defina as **Configurações de notificação de arquivo**, **TTL do SAS**, **TTL padrão** e a **Contagem de entrega máxima** conforme desejado. Selecione **Sistema Atribuído** como o **Tipo de autenticação** para o ponto de extremidade de armazenamento. Selecione o botão **Criar**.
+5. Na página que aparece, selecione o contêiner que você pretende usar em seu armazenamento de blobs, defina as **Configurações de notificação de arquivo**, **TTL do SAS**, **TTL padrão** e a **Contagem de entrega máxima** conforme desejado. Selecione **baseado em identidade** como o **tipo de autenticação** para o ponto de extremidade de armazenamento. Selecione o botão **Criar**.
 
 Agora seu ponto de extremidade de armazenamento para carregamento de arquivo está configurado para usar a identidade atribuída do sistema do hub e tem permissão para acessar seu recurso de armazenamento, apesar das restrições do firewall.
 

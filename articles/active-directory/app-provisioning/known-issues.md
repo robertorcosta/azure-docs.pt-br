@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 08/12/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 127629cb0102c2736995364db9202cd837d99a17
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 23c3dfc6670c96f44a10b2ad5d5bfeb3ff96382c
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214272"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270998"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemas conhecidos: provisionamento de aplicativos
 Problemas conhecidos que você deve estar atento ao trabalhar com o provisionamento de aplicativos. Você pode fornecer comentários sobre o serviço de provisionamento de aplicativos no UserVoice, confira [UserVoice de provisionamento de aplicativos do Azure ad](https://aka.ms/appprovisioningfeaturerequest). Nós observamos com atenção o UserVoice para que possamos melhorar o serviço. 
@@ -66,9 +66,11 @@ As expressões de mapeamento de atributo podem ter um máximo de 10.000 caracter
 - Não há suporte para o provisionamento de grupos aninhados. 
 - O provisionamento para locatários B2C não tem suporte devido ao tamanho dos locatários. 
 
+**O intervalo de provisionamento é fixo** O [tempo](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) entre os ciclos de provisionamento não é configurável no momento. 
+
 **Alterações que não se movem do aplicativo de destino para o Azure AD**
 
-O serviço de provisionamento de aplicativos não está ciente das alterações feitas em aplicativos externos. Portanto, nenhuma ação é executada para reverter. O serviço de provisionamento de aplicativo depende das alterações feitas no Azure AD.  
+O serviço de provisionamento de aplicativos não está ciente das alterações feitas em aplicativos externos. Portanto, nenhuma ação é executada para reverter. O serviço de provisionamento de aplicativo depende das alterações feitas no Azure AD. 
 
 **O ciclo de provisionamento continua até a conclusão**
 

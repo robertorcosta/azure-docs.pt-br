@@ -7,16 +7,16 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: rogarana
-ms.openlocfilehash: c3e8299a5acd7cbd3a6fd3cd76af33f4a798ad12
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3faa86fe67e3f0a208bf42dc3e49de8335b25c95
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832987"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272324"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Visão geral-local Active Directory Domain Services autenticação sobre SMB para compartilhamentos de arquivos do Azure
 
-[Arquivos](storage-files-introduction.md)   do Azure oferece suporte à autenticação baseada em identidade sobre o protocolo SMB por meio de dois tipos de serviços de domínio: Active Directory Domain Services local (AD DS) e Azure Active Directory Domain Services (Azure AD DS). É altamente recomendável que você examine a [seção como ele funciona](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) para selecionar o serviço de domínio certo para authentcation. A instalação é diferente dependendo do serviço de domínio que você escolher. Esta série de artigos concentra-se na habilitação e configuração de AD DS locais para autenticação com compartilhamentos de arquivos do Azure.
+[Arquivos](storage-files-introduction.md)   do Azure oferece suporte à autenticação baseada em identidade sobre o protocolo SMB por meio de dois tipos de serviços de domínio: Active Directory Domain Services local (AD DS) e Azure Active Directory Domain Services (Azure AD DS). É altamente recomendável que você examine a [seção como ele funciona](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) para selecionar o serviço de domínio certo para authentcation. A configuração é diferente dependendo do serviço de domínio que você escolher. Estas séries de artigos se concentram em habilitar e configurar AD DS locais para autenticação com compartilhamentos de arquivos do Azure.
 
 Se você for novo nos compartilhamentos de arquivos do Azure, é recomendável ler nosso [Guia de planejamento](storage-files-planning.md) antes de ler a série de artigos a seguir.
 
@@ -27,7 +27,7 @@ Se você for novo nos compartilhamentos de arquivos do Azure, é recomendável l
 - Dá suporte à autenticação Kerberos com o AD com a criptografia RC4-HMAC. A criptografia Kerberos AES ainda não tem suporte.
 - Dá suporte à experiência de logon único.
 - Somente com suporte em clientes em execução em versões do sistema operacional mais recentes do que o Windows 7 ou o Windows Server 2008 R2.
-- Somente com suporte na floresta do AD que a conta de armazenamento está registrada. Você só pode acessar compartilhamentos de arquivos do Azure com as credenciais de AD DS de uma única floresta por padrão. Se você precisar acessar o compartilhamento de arquivos do Azure de uma floresta diferente, verifique se você tem a relação de confiança de floresta apropriada configurada, consulte as [perguntas frequentes](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) para obter detalhes.
+- Somente com suporte na floresta do AD na qual a conta de armazenamento está registrada. Você só pode acessar compartilhamentos de arquivos do Azure com as credenciais de AD DS de uma única floresta por padrão. Se você precisar acessar o compartilhamento de arquivos do Azure de uma floresta diferente, verifique se você tem a relação de confiança de floresta apropriada configurada, consulte as [perguntas frequentes](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) para obter detalhes.
 - O não oferece suporte à autenticação em relação a contas de computador criadas no AD DS. 
 
 Quando você habilita AD DS para compartilhamentos de arquivos do Azure via SMB, seus computadores ingressados AD DS podem montar compartilhamentos de arquivos do Azure usando suas credenciais de AD DS existentes. Esse recurso pode ser habilitado com um ambiente de AD DS hospedado em computadores locais ou hospedado no Azure.
@@ -65,7 +65,7 @@ A autenticação de arquivos do Azure com o AD DS está disponível em [todas as
 
 Se você planeja habilitar qualquer configuração de rede em seu compartilhamento de arquivos, recomendamos que leia o artigo [considerações de rede](https://docs.microsoft.com/azure/storage/files/storage-files-networking-overview) e conclua a configuração relacionada antes de habilitar a autenticação de AD DS.
 
-Habilitar a autenticação de AD DS para seus compartilhamentos de arquivos do Azure permite que você se autentique em seus compartilhamentos de arquivos do Azure com suas credenciais de AD DS local. Além disso, ele permite que você gerencie melhor suas permissões para permitir o controle de acesso granular. Isso requer a sincronização de identidades do AD DS local para o Azure AD com o AD Connect. Você controla o acesso de nível de compartilhamento com identidades sincronizadas com o Azure AD enquanto gerencia o acesso de nível de arquivo/compartilhamento com credenciais de AD DS local.
+Habilitar a autenticação de AD DS para seus compartilhamentos de arquivos do Azure permite que você se autentique em seus compartilhamentos de arquivos do Azure com suas credenciais de AD DS local. Além disso, ele permite que você gerencie melhor suas permissões para permitir o controle de acesso granular. Isso requer a sincronização de identidades do AD DS local para o Azure AD com o AD Connect. Você controla o acesso de nível de compartilhamento com identidades sincronizadas ao Azure AD enquanto gerencia o acesso de nível de arquivo/compartilhamento com credenciais de AD DS local.
 
 Em seguida, siga as etapas abaixo para configurar os arquivos do Azure para autenticação AD DS: 
 

@@ -1,14 +1,14 @@
 ---
 title: Adicionar um repositório de artefatos ao seu laboratório no Azure DevTest Labs | Microsoft Docs
-description: Saiba como adicionar um repositório de artefatos ao seu laboratório no Azure DevTest Labs.
+description: Saiba como especificar seu próprio repositório de artefatos para seu laboratório em Azure DevTest Labs para armazenar ferramentas indisponíveis no repositório público de artefatos.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d823f437cddef0a33c7d7ea3b4c4fbdaad90fb8e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7553f6b1afa416a5428577a8313bdadb669e32c2
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87013412"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270947"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Adicionar um repositório de artefatos ao seu laboratório no DevTest Labs
 O DevTest Labs permite que você especifique um artefato a ser adicionado a uma VM no momento da criação da VM ou após a criação da VM. Esse artefato pode ser uma ferramenta ou um aplicativo que você deseja instalar na VM. Os artefatos são definidos em um arquivo JSON carregado de um repositório do GitHub ou Azure DevOps git.
@@ -71,7 +71,7 @@ Esta seção fornece etapas para adicionar um repositório de artefatos a um lab
    5. **Caminhos de pasta**. Insira, pelo menos, um caminho de pasta em relação a URL de clone que contém o artefato ou definições de modelo do Resource Manager. Ao especificar um subdiretório, verifique se você incluiu a barra "/" no caminho da pasta.
 
         ![Área de repositórios](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 ## <a name="use-azure-resource-manager-template"></a>Usar o modelo do Azure Resource Manager
 Os modelos de gerenciamento de recursos do Azure (Azure Resource Manager) são arquivos JSON que descrevem os recursos no Azure que você deseja criar. Para obter mais informações sobre esses modelos, consulte [criando modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).

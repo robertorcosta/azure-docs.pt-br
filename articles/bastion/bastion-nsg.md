@@ -1,18 +1,18 @@
 ---
 title: Trabalhando com VMs e NSGs na bastiões do Azure
-description: Este artigo descreve como incorporar o acesso NSG com a bastiões do Azure
+description: Você pode usar grupos de segurança de rede com a bastiões do Azure. Saiba mais sobre as sub-redes necessárias para essa configuração.
 services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: charwen
-ms.openlocfilehash: 1fc261c31a1190536f3128ed6472d9ca76dfce7e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 563c12f91e9553f802d4cf26519da0550880dfcd
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112180"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270522"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabalhando com acesso NSG e bastiões do Azure
 

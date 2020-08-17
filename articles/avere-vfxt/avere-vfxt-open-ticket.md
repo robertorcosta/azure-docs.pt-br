@@ -1,17 +1,17 @@
 ---
 title: Como obter suporte para o Avere vFXT para Azure
-description: Explicação de como abrir tíquetes de suporte do Avere vFXT para Azure
+description: Saiba como resolver problemas que podem surgir durante a implantação ou o uso do avere vFXT para o Azure criando um tíquete de suporte por meio do portal do Azure.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: b3c604003f78a150067875fb2064ab5eca0600db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 522d29505d7d10f5f6d97136f270f07a63053d19
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847350"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271100"
 ---
 # <a name="get-help-with-your-system"></a>Obter ajuda com o sistema
 
@@ -43,7 +43,7 @@ Siga estas etapas para garantir que o tíquete de suporte seja marcado com um re
 
     ![captura de tela de uma nova exibição de solicitação de suporte no portal do Azure. A guia noções básicas está selecionada. Os itens da tela incluem tipo de problema, assinatura, serviço, resumo e tipo de problema.](media/ticket-basics.png)
 
-   Clique em **Próximo** para continuar.
+   Clique em **Avançar** para continuar.
 
 1. A segunda página do formulário de suporte contém sugestões para corrigir o problema com base na descrição resumida. Clique no botão **Avançar** na parte inferior se você ainda precisar criar um tíquete de suporte.
 

@@ -1,17 +1,17 @@
 ---
 title: Ajuste de cluster do Avere vFXT – Azure
-description: Visão geral de configurações personalizadas para otimizar o desempenho no Avere vFXT para o Azure
+description: Saiba mais sobre o ajuste personalizado para clusters vFXT no avere vFXT para o Azure que você pode fazer, trabalhando com um representante de suporte.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: 2d06e3cc80f05cc86980dd2570d1d4d203295ff2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d9f81c9438cb992f81bd3e6319532d67db75552
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505283"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272375"
 ---
 # <a name="cluster-tuning"></a>Ajuste do cluster
 
@@ -34,7 +34,7 @@ Essas alterações podem ser recomendadas com base em qualidades do conjuntos de
 
 ## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>NAS de nuvem ou otimizações de gateway de nuvem
 
-Em um cenário de NAS ou gateway na nuvem, o cluster vFXT fornece acesso em estilo NAS a um contêiner de nuvem. Para aproveitar as maiores velocidades de dados entre o cluster vFXT e o armazenamento em nuvem, seu representante pode recomendar a alteração de configurações para enviar dados de forma mais agressiva para o volume de armazenamento do cache. Por exemplo:
+Em um cenário de NAS ou gateway na nuvem, o cluster vFXT fornece acesso em estilo NAS a um contêiner de nuvem. Para aproveitar as maiores velocidades de dados entre o cluster vFXT e o armazenamento em nuvem, seu representante pode recomendar a alteração de configurações para enviar dados de forma mais agressiva para o volume de armazenamento do cache. Por exemplo: 
 
 * Aumentar o número de conexões TCP entre o cluster e o contêiner de armazenamento
 

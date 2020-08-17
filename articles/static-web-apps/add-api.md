@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-javascript
-ms.openlocfilehash: d6a25e7c36118f6a11bd1a177159bc9050ee69ca
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 8d48a8a9f52c3edb4350c16a25deda9894dcdda1
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431022"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271151"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicionar uma API a aplicativos Web Estáticos do Azure com o Azure Functions
 
@@ -28,7 +28,7 @@ Você pode adicionar APIs sem servidor a aplicativos Web Estáticos do Azure por
 - Extensão do [Código do Servidor do Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
 - [Node.js](https://nodejs.org/download/) executar o aplicativo de API localmente
 
-## <a name="create-a-git-repository"></a>Criar um repositório Git
+## <a name="create-a-git-repository"></a>Crie um repositório Git
 
 As etapas a seguir demonstram como criar um novo repositório e clonar os arquivos para o computador.
 

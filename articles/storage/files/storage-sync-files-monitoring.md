@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 737617b1fb8bd233a8747deacbbb328a02fa30ef
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 9db8a0397c836e8cbc45404d9c4f149255fc76fa
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185614"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271049"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorar a Sincronização de Arquivos do Azure
 
@@ -135,7 +135,7 @@ Use o log de eventos de telemetria no servidor para monitorar a integridade do s
 
 Integridade da sincronização
 
-- A ID do evento 9102 é registrada quando uma sessão de sincronização é concluída. Use esse evento para determinar se as sessões de sincronização são bem-sucedidas (**HRESULT = 0**) e se há erros de sincronização por item. Para obter mais informações, consulte a documentação [sincronizar integridade](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) e  [erros por item](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) .
+- A ID do evento 9102 é registrada quando uma sessão de sincronização é concluída. Use esse evento para determinar se as sessões de sincronização são bem-sucedidas (**HRESULT = 0**) e se há erros de sincronização por item (**PerItemErrorCount**). Para obter mais informações, consulte a documentação [sincronizar integridade](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) e  [erros por item](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) .
 
   > [!Note]  
   > Às vezes, as sessões de sincronização falham em geral ou têm um PerItemErrorCount diferente de zero. No entanto, eles ainda encaminham o progresso e alguns arquivos são sincronizados com êxito. Você pode ver isso nos campos aplicados, como AppliedFileCount, AppliedDirCount, AppliedTombstoneCount e AppliedSizeBytes. Esses campos informam quanto da sessão foi bem-sucedida. Se você vir a falha de várias sessões de sincronização em uma linha e elas tiverem uma contagem aplicada crescente, forneça o tempo de sincronização para tentar novamente antes de abrir um tíquete de suporte.

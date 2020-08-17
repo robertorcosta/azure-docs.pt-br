@@ -1,17 +1,17 @@
 ---
 title: Montar o Avere vFXT – Azure
-description: Como montar os clientes com Avere vFXT para Azure
+description: Saiba como conectar clientes ao cluster vFXT no avere vFXT para o Azure e como balancear a carga do tráfego do cliente entre os nós do cluster.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: e8850162847f2dd416b0951a797e2eb0cd7d55d2
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 44a4e1293bc4c5a54e1e345d5cf95ba307a7b120
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229560"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272564"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Montar o cluster do Avere vFXT
 
@@ -76,7 +76,7 @@ O comando Mount tem três elementos:
 
 O caminho vserver é uma combinação de seu *endereço IP* com o caminho para uma *junção de namespace*. A junção de namespace é um caminho virtual que foi definido quando o sistema de armazenamento foi adicionado.
 
-Se o cluster tiver sido criado com o armazenamento de BLOB, o caminho do namespace para esse contêiner será`/msazure`
+Se o cluster tiver sido criado com o armazenamento de BLOB, o caminho do namespace para esse contêiner será `/msazure`
 
 Exemplo: ``mount 10.0.0.12:/msazure /mnt/vfxt``
 

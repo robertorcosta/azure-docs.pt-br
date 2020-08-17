@@ -3,12 +3,12 @@ title: Guia de Protocolo de Conexões Híbridas de Retransmissão do Azure | Mic
 description: Este artigo descreve as interações do lado do cliente com a retransmissão das Conexões Híbridas para conectar clientes em funções de ouvinte e de remetente.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 798be7f0003509aee6ae616ba33fcc41e5c86275
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fec021d961a17102f8d979c61ee46af6b938f073
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316647"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272002"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de Conexões Híbridas de Retransmissão do Azure
 
@@ -423,7 +423,7 @@ A solicitação pode conter cabeçalhos HTTP adicionais arbitrários, incluindo 
 
 As opções de parâmetro de cadeia de caracteres de consulta são conforme demonstrado a seguir:
 
-| Param          | Obrigatório? | Descrição
+| Param          | Necessário? | Descrição
 | -------------- | --------- | -------------------------- |
 | `sb-hc-action` | Sim       | Para a função de remetente, o parâmetro deve ser `sb-hc-action=connect`.
 | `{path}`       | Sim       | (confira no parágrafo a seguir)
@@ -467,11 +467,11 @@ https://{namespace-address}/{path}?sbc-hc-token=...
 
 O _namespace-address_ é o nome de domínio totalmente qualificado do namespace de Retransmissão do Azure que hospeda a Conexão Híbrida, normalmente no formato `{myname}.servicebus.windows.net`.
 
-A solicitação pode conter cabeçalhos HTTP adicionais arbitrários, incluindo aqueles definidos pelo aplicativo. Todos os cabeçalhos fornecidos, exceto aqueles definidos diretamente no RFC7230 (confira [mensagem de solicitação](#Request message)) fluem para o ouvinte e podem ser encontrados no objeto `requestHeader` da mensagem de **solicitação**.
+A solicitação pode conter cabeçalhos HTTP adicionais arbitrários, incluindo aqueles definidos pelo aplicativo. Todos os cabeçalhos fornecidos, exceto aqueles diretamente definidos no fluxo RFC7230 (consulte a [mensagem de solicitação](#request-message)) para o ouvinte e podem ser encontrados no `requestHeader` objeto da mensagem de **solicitação** .
 
 As opções de parâmetro de cadeia de caracteres de consulta são conforme demonstrado a seguir:
 
-| Param          | Obrigatório? | Descrição
+| Param          | Necessário? | Descrição
 | -------------- | --------- | ---------------- |
 | `sb-hc-token`  | Sim\*     | O ouvinte deve fornecer um Token de Acesso válido, compartilhado com o Barramento de Serviço, em formato codificado de URL para o namespace ou Conexão Híbrida que confere o direito **Send**.
 
@@ -480,7 +480,7 @@ O token também pode estar contido no cabeçalho HTTP `ServiceBusAuthorization` 
 Como o serviço age efetivamente como um proxy, mesmo que não como um proxy HTTP verdadeiro, ele adiciona um cabeçalho `Via` ou anota o cabeçalho `Via` existente compatível com o [RFC7230, Seção 5.7.1](https://tools.ietf.org/html/rfc7230#section-5.7.1).
 O serviço adiciona o nome do host do namespace de retransmissão em `Via`.
 
-| Código | Mensagem  | Description                    |
+| Código | Mensagem  | Descrição                    |
 | ---- | -------- | ------------------------------ |
 | 200  | OK       | A solicitação foi manipulada por pelo menos um ouvinte.  |
 | 202  | Aceita | A solicitação foi aceita por pelo menos um ouvinte. |

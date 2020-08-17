@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/16/2020
+ms.date: 08/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51be98654950ba290fa83f77eccdae4d6f549891
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6857fba86aebbcfd7b20326e4a4a268467e4fc3
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81603835"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272460"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: integração do Azure Active Directory com o Amazon Web Services (AWS) (tutorial herdado)
 
@@ -69,7 +69,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
 * A AWS (Amazon Web Services) dá suporte ao SSO iniciado por **SP e IDP**
-* Depois de configurar a AWS (Amazon Web Services), você poderá impor o controle de sessão, que fornece proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Depois de configurar Amazon Web Services (AWS), você pode impor o controle de sessão, que protege vazamento e pós-infiltração dos dados confidenciais de sua organização em tempo real. O Controle de Sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>Adicionar o AWS (Amazon Web Services) da galeria
 
@@ -86,7 +86,7 @@ Para configurar a integração do AWS (Amazon Web Services) com o Azure AD, voc�
 
     ![AWS (Amazon Web Services) na lista de resultados](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-properties.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar o SSO do Azure AD
 
 Nesta seção, você vai configurar e testar o logon único do Azure AD com o AWS (Amazon Web Services), com base em um usuário de teste chamado "Brenda Fernandes".
 
@@ -120,7 +120,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
 4. Na seção **configuração básica do SAML** , o usuário não precisa executar nenhuma etapa, pois o aplicativo já está previamente integrado ao Azure e clica em **salvar**.
 
-5. Aplicativo Amazon Web Services (AWS) espera as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **Atributos e reivindicações do usuário** na página de integração de aplicativos. Na página ** Configurar logon único com SAML **, clique no botão ** Editar ** para abrir a caixa de diálogo **User Attributes & Claims**.
+5. Aplicativo Amazon Web Services (AWS) espera as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos na seção **Atributos e reivindicações do usuário** na página de integração de aplicativos. Na página **Configurar logon único com SAML** , clique no botão **Editar** para abrir **atributos de usuário &** caixa de diálogo declarações.
 
     ![image](common/edit-attribute.png)
 
@@ -277,13 +277,13 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     ![Caixa de diálogo Microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
-    f. Da lista de Entidades de Serviço buscada, obtenha o que é necessário modificar. Você também pode usar o Ctrl+F para pesquisar o aplicativo de todos os ServicePrincipals listados. Você pode usar a consulta a seguir usando a **ID de objeto** que você copiou da página de propriedades do Azure ad para obter a respectiva entidade de serviço.
+    f. Da lista de Entidades de Serviço buscada, obtenha o que é necessário modificar. Você também pode usar o Ctrl+F para pesquisar o aplicativo de todos os ServicePrincipals listados. Você pode usar a consulta a seguir usando a **ID de objeto da entidade de serviço** que você copiou da página de propriedades do Azure ad para obter a respectiva entidade de serviço.
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
     ![Caixa de diálogo Microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
-    (por exemplo, Extraia a propriedade appRoles do objeto da entidade de serviço.
+    g. Extraia a propriedade appRoles do objeto da entidade de serviço.
 
     ![Caixa de diálogo Microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
