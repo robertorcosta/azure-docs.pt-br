@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
-ms.openlocfilehash: 26eec9cdd327ceb51e72deb1d6f40d585ce368fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 218850feea8b0e22b8e11695a3aa3c69173f1ab7
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75896133"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88504918"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problemas de autenticação no Azure HDInsight
 
@@ -148,7 +148,7 @@ Varia.
 
 ### <a name="resolution"></a>Resolução
 
-Para que o kinit seja bem sucedido, você precisa saber seu `sAMAccountName` (esse é o nome curto da conta sem o realm). `sAMAccountName`geralmente é o prefixo da conta (como Bob in `bob@contoso.com` ). Para alguns usuários, ele pode ser diferente. Você precisará da capacidade de procurar/pesquisar no diretório para aprender seu `sAMAccountName` .
+Para que o kinit seja bem sucedido, você precisa saber seu `sAMAccountName` (esse é o nome curto da conta sem o realm). `sAMAccountName` geralmente é o prefixo da conta (como Bob in `bob@contoso.com` ). Para alguns usuários, ele pode ser diferente. Você precisará da capacidade de procurar/pesquisar no diretório para aprender seu `sAMAccountName` .
 
 Maneiras de localizar `sAMAccountName` :
 
@@ -208,7 +208,7 @@ Esse erro ocorre intermitentemente quando os usuários tentam acessar o ADLS Gen
 
 * Para Azure Data Lake Storage Gen1, limpe o cache do navegador e faça logon no Ambari novamente.
 
-* Por Azure Data Lake Storage Gen2, execute `/usr/lib/hdinsight-common/scripts/RegisterKerbWithOauth.sh <upn>` para o usuário ao qual o usuário está tentando fazer logon
+* Por Azure Data Lake Storage Gen2, execute `/usr/lib/hdinsight-common/scripts/RegisterKerbTicketAndOAuth.sh <upn>` para o usuário ao qual o usuário está tentando fazer logon
 
 ---
 

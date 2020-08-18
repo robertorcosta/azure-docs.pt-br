@@ -91,16 +91,6 @@
           href: application-proxy-high-availability-load-balancing.md
         - name: Comparação de soluções de acesso remoto
           href: application-proxy-migration.md
-    - name: Colocar um aplicativo no mercado
-      items:
-        - name: Habilitar o SSO para seu aplicativo multilocatário
-          href: isv-sso-content.md
-        - name: Criar um locatário do Azure para o aplicativo multilocatário
-          href: isv-tenant-multi-tenant-app.md
-        - name: Escolher a federação multilocatário
-          href: isv-choose-multi-tenant-federation.md
-        - name: Criar documentação para o aplicativo multilocatário
-          href: isv-create-sso-documentation.md
 - name: Guias de instruções
   expanded: false
   items:

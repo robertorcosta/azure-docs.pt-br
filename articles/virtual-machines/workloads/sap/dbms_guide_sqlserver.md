@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6e217540b1dd3744da855c71e0add289dd1c9e18
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e73bc3791ceb75685275af99f888136315c6e50d
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831049"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505551"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implantação do DBMS de Máquinas de Virtuais do SQL Server Azure para NetWeaver do SAP
 
@@ -355,7 +355,7 @@ O diagrama acima exibe um caso simples. Como o momento, passou para o artigo [co
 
 
 ### <a name="special-for-m-series-vms"></a>Especial para VMs da série M
-Para a VM da série M do Azure, a latência de gravação nos logs de transação pode ser reduzida por fatores, comparados ao desempenho do armazenamento Premium do Azure, ao usar o Acelerador de gravação do Azure. Portanto, você deve implantar o Acelerador de gravação do Azure para os VHDs que formam o volume para os logs de transação do SQL Server. Detalhes podem ser lidos no documento [Acelerador de Gravação](../../windows/how-to-enable-write-accelerator.md).
+Para a VM da série M do Azure, a latência de gravação nos logs de transação pode ser reduzida por fatores, comparados ao desempenho do armazenamento Premium do Azure, ao usar o Acelerador de gravação do Azure. Portanto, você deve implantar o Acelerador de gravação do Azure para os VHDs que formam o volume para os logs de transação do SQL Server. Detalhes podem ser lidos no documento [Acelerador de Gravação](../../how-to-enable-write-accelerator.md).
   
 
 ### <a name="formatting-the-disks"></a>Formatação dos discos

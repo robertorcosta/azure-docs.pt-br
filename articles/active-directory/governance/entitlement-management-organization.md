@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 272dd95b97c65ecc52dd73909f1ed87d5e5ae3ca
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2c57f23a5cad2f47311b54728d576eb810ad88a4
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170489"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506015"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicionar uma organização conectada no gerenciamento de direitos do Azure AD
 
@@ -42,7 +42,7 @@ Nesse caso, você pode configurar duas organizações conectadas. Você cria uma
 
 A forma como os usuários do diretório do Azure AD ou do domínio se autenticam depende do tipo de autenticação. Os tipos de autenticação para organizações conectadas são:
 
-- Azure AD
+- AD do Azure
 - [Federação direta](../b2b/direct-federation.md)
 - [Senha de uso único](../b2b/one-time-passcode.md) (domínio)
 
@@ -103,7 +103,7 @@ Para adicionar um diretório ou domínio do Azure AD externo como uma organizaç
 
 Se a organização conectada mudar para um domínio diferente, o nome da organização for alterado ou você quiser alterar os patrocinadores, você poderá atualizar a organização conectada seguindo as instruções nesta seção.
 
-**Função de pré-requisito**: *administrador global*, *administrador de usuário*ou convite de *convidado*
+**Função de pré-requisito**: administrador *global* ou *administrador de usuário*
 
 1. Na portal do Azure, selecione **Azure Active Directory**e, em seguida, selecione **governança de identidade**.
 
@@ -120,7 +120,7 @@ Se a organização conectada mudar para um domínio diferente, o nome da organiz
 
 Se você não tiver mais uma relação com um diretório ou domínio do Azure AD externo, poderá excluir a organização conectada.
 
-**Função de pré-requisito**: *administrador global*, *administrador de usuário*ou convite de *convidado*
+**Função de pré-requisito**: administrador *global* ou *administrador de usuário*
 
 1. Na portal do Azure, selecione **Azure Active Directory**e, em seguida, selecione **governança de identidade**.
 

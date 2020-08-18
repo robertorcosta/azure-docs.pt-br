@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3a35662a3f21aec1306b7b6994e7a08f9cbd467e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f3cd5c3280308f6da15a52361857fa02567d595
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389523"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505454"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gerenciar a personalização de SSO e de token usando políticas personalizadas no Azure Active Directory B2C
 
 Este artigo fornece informações sobre como você pode gerenciar suas configurações de token, sessão e logon único (SSO) usando [políticas personalizadas](custom-policy-overview.md) no Azure Active Directory B2C (Azure ad B2C).
 
-## <a name="jtw-token-lifetimes-and-claims-configuration"></a>Tempos de vida de token JTW e configuração de declarações
+## <a name="jwt-token-lifetimes-and-claims-configuration"></a>Tempos de vida do token JWT e configuração de declarações
 
 Para alterar as configurações nos tempos de vida de token, você adiciona um elemento [ClaimsProviders](claimsproviders.md) ao arquivo de terceira parte confiável da política que você deseja afetar.  O elemento **ClaimsProviders** é um filho do elemento [TrustFrameworkPolicy](trustframeworkpolicy.md).
 

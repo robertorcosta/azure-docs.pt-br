@@ -11,17 +11,63 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: ac4b0c59cfad3d435858e094cbcb8c9f855a0041
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 8985d8ab0b5fa8477a636254d1a5179cd2187963
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185308"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505798"
 ---
 # <a name="speech-service-release-notes"></a>Notas de versão do Serviço de Fala
 
+## <a name="text-to-speech-2020-august-release"></a>Conversão de texto em fala 2020 – versão de agosto
+
+### <a name="new-features"></a>Novos recursos
+
+* **TTS de neural: novo estilo de fala para `en-US` Voz do Aria**. AriaNeural pode parecer um Newscaster ao ler notícias. O estilo ' newscast-formal ' parece mais sério, enquanto o estilo ' newscast-casual ' é mais relaxado e informal. Veja [como usar os estilos de fala em SSML](speech-synthesis-markup.md).
+
+* **Voz personalizada: um novo recurso é liberado para verificar automaticamente a qualidade dos dados de treinamento**. Quando você carrega seus dados, a funcionalidade de verificação de dados examinará vários aspectos de seu áudio e as transcrições e corrigirá ou filtrará automaticamente os dados com problemas para melhorar a qualidade do modelo de voz treinado. Isso abrange o volume de áudio, o nível de ruído, a precisão da pronúncia da fala, o alinhamento da fala com o texto normalizado, o silêncio no áudio, além do formato de áudio e de script. 
+
+* **Criação de conteúdo de áudio: um conjunto de novos recursos para habilitar o ajuste de voz mais poderoso e recursos de gerenciamento de áudio**.
+
+    * Pronúncia: o recurso de ajuste de pronúncia é atualizado para o conjunto mais recente de fonema. Você pode escolher o elemento fonema correto da biblioteca e refinar a pronúncia das palavras selecionadas. 
+
+    * Download: o recurso de "download"/"exportação" de áudio é aprimorado para dar suporte à geração de áudios por cada parágrafo. Você pode editar facilmente o conteúdo diferente no mesmo arquivo/SSML, ao mesmo tempo em que gera várias saídas de áudio. A estrutura de arquivos de "download" também é refinada. Agora, você pode facilmente obter todos os áudios em uma pasta. 
+
+    * Status da tarefa: a experiência de exportação de vários arquivos foi aprimorada. Quando você exportar vários arquivos no passado, se um dos arquivos falhar, a tarefa inteira falhará. Mas, agora, todos os outros arquivos serão exportados com êxito. O relatório de tarefas é aprimorado com informações mais detalhadas e estruturadas. Você pode verificar os logs de todos os arquivos com falha e sentenças agora com o relatório. 
+
+    * Documentação do SSML: vinculada ao documento SSML para ajudá-lo a verificar as regras de como usar todos os recursos de ajuste.
+
+* **A API de lista de voz é atualizada para incluir um nome de exibição amigável do usuário e os estilos de fala com suporte para vozes neurais**.
+
+### <a name="general-tts-voice-quality-improvements"></a>Melhorias gerais de qualidade de voz TTS
+
+* Redução do erro de pronúncia no nível de palavra% para `ru-RU` (erro reduzido por 56%) e `sv-SE` (erro reduzido por 49%)
+
+* Melhoria da leitura de palavras Polyphony em `en-US` vozes neurais por 40%. Exemplos de palavras polyphonys incluem "Read", "Live", "content", "Record", "Object" etc. 
+
+* Melhoria da naturalidade do Tom da pergunta no `fr-FR` . MOS (Pontuação média de opinião) ganho: + 0,28
+
+* Atualização do vocoders para as seguintes vozes, com melhorias de fidelidade e velocidade geral de desempenho em 40%.
+
+    | Local | Voz |
+    |---|---|    
+    | `en-GB` | Mia |
+    | `es-MX` | Dalia |
+    | `fr-CA` | Sylvie |
+    | `fr-FR` | Denise |
+    | `ja-JP` | Nanami |
+    | `ko-KR` | Sol-Hi |
+
+### <a name="bug-fixes"></a>Correções de bug
+
+* Correção de vários bugs com a ferramenta de criação de conteúdo de áudio 
+    * Corrigido o problema com a atualização automática. 
+    * Correção de problemas com vozes de estilo em zh-CN na região do Sul Ásia Oriental
+    * Correção do problema em estabilidade, incluindo o erro de exportação com a marca ' break ', erros em pontuações    
+
 ## <a name="new-speech-to-text-locales-2020-august-release"></a>Novas localidades de fala em texto: 2020 – versão de agosto
-A fala em texto lançou 26 novas localidades em agosto: 2 idiomas europeus CS-CZ e hu-HU, 5 localidades do inglês e 19 localidades do espanhol que abrangem a maioria dos países da América do Sul. Abaixo está uma lista das novas localidades. Consulte a lista completa de idiomas [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
+A conversão de fala em texto lançou 26 novas localidades em agosto: 2 idiomas europeus `cs-CZ` e `hu-HU` 5 localidades em inglês e 19 localidades do espanhol que abrangem a maioria dos países da América do Sul. Abaixo está uma lista das novas localidades. Consulte a lista completa de idiomas [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
 
 | Local  | Linguagem                          |
 |---------|-----------------------------------|
@@ -118,7 +164,7 @@ Mantenha-se íntegro!
 
 * Precisão de pronúncia de nível de palavra aprimorada em 5 idiomas.
 
-    | Linguagem | Redução de erros de pronúncia |
+    | Language | Redução de erros de pronúncia |
     |---|---|
     | `en-GB` | 51% |
     | `ko-KR` | 17% |
@@ -129,9 +175,9 @@ Mantenha-se íntegro!
 ### <a name="bug-fixes"></a>Correções de bug
 
 * Leitura de moeda
-    * Corrigido o problema com a leitura de moeda para `es-ES` e`es-MX`
+    * Corrigido o problema com a leitura de moeda para `es-ES` e `es-MX`
      
-    | Linguagem | Entrada | Leitura após aperfeiçoamento |
+    | Language | Entrada | Leitura após aperfeiçoamento |
     |---|---|---|
     | `es-MX` | $1.58 | un peso Cincuenta y Ocho centavos |
     | `es-ES` | $1.58 | Dólar Cincuenta y Ocho centavos |
@@ -281,9 +327,9 @@ Mantenha-se íntegro!
 
 **Alterações da falha**
 
-- `OpenSSL`foi atualizado para a versão 1.1.1 b e é vinculado estaticamente à biblioteca principal do SDK de fala para Linux. Isso poderá causar uma interrupção se a caixa de entrada `OpenSSL` não tiver sido instalada `/usr/lib/ssl` no diretório no sistema. Consulte [nossa documentação](how-to-configure-openssl-linux.md) em documentos do SDK de fala para contornar o problema.
+- `OpenSSL` foi atualizado para a versão 1.1.1 b e é vinculado estaticamente à biblioteca principal do SDK de fala para Linux. Isso poderá causar uma interrupção se a caixa de entrada `OpenSSL` não tiver sido instalada `/usr/lib/ssl` no diretório no sistema. Consulte [nossa documentação](how-to-configure-openssl-linux.md) em documentos do SDK de fala para contornar o problema.
 - Alteramos o tipo de dados retornado para C# `WordLevelTimingResult.Offset` de `int` para `long` para permitir o acesso ao `WordLevelTimingResults` quando os dados de fala forem maiores do que 2 minutos.
-- `PushAudioInputStream`e `PullAudioInputStream` agora envie informações de cabeçalho WAV para o serviço de fala com base em `AudioStreamFormat` , opcionalmente especificado quando elas foram criadas. Os clientes agora devem usar o [formato de entrada de áudio com suporte](how-to-use-audio-input-streams.md). Qualquer outro formato terá resultados de reconhecimento abaixo do ideal ou poderá causar outros problemas. 
+- `PushAudioInputStream` e `PullAudioInputStream` agora envie informações de cabeçalho WAV para o serviço de fala com base em `AudioStreamFormat` , opcionalmente especificado quando elas foram criadas. Os clientes agora devem usar o [formato de entrada de áudio com suporte](how-to-use-audio-input-streams.md). Qualquer outro formato terá resultados de reconhecimento abaixo do ideal ou poderá causar outros problemas. 
 
 **Correções de bugs**
 
@@ -332,8 +378,8 @@ Mantenha-se íntegro!
 
 **Amostras**
 
-- Exemplo do Xamarin para`KeywordRecognizer`
-- Exemplo de Unity para`KeywordRecognizer`
+- Exemplo do Xamarin para `KeywordRecognizer`
+- Exemplo de Unity para `KeywordRecognizer`
 - Exemplos de C++ e Java para Detecção de Idioma de origem automática.
 
 ## <a name="speech-sdk-170-2019-september-release"></a>SDK de fala 1.7.0:2019 – versão de setembro
@@ -356,9 +402,9 @@ Mantenha-se íntegro!
 - Corrigido o problema com UUIDs que não são exclusivos em algumas propriedades de conexão
 - Correção de alguns avisos sobre especificadores de nulidade nas associações Swift (pode exigir pequenas alterações de código)
 - Correção de um bug que fazia com que as conexões WebSocket fosse fechadas de acordo com a carga de rede
-- Correção de um problema no Android que às vezes resulta em IDs de impressão duplicadas usadas pelo`DialogServiceConnector`
-- Melhorias na estabilidade de conexões entre interativações de várias transformações e o relatório de falhas (por meio de `Canceled` eventos) quando ocorrem com`DialogServiceConnector`
-- `DialogServiceConnector`a sessão inicia agora fornecerá eventos, inclusive ao chamar `ListenOnceAsync()` durante um ativo`StartKeywordRecognitionAsync()`
+- Correção de um problema no Android que às vezes resulta em IDs de impressão duplicadas usadas pelo `DialogServiceConnector`
+- Melhorias na estabilidade de conexões entre interativações de várias transformações e o relatório de falhas (por meio de `Canceled` eventos) quando ocorrem com `DialogServiceConnector`
+- `DialogServiceConnector` a sessão inicia agora fornecerá eventos, inclusive ao chamar `ListenOnceAsync()` durante um ativo `StartKeywordRecognitionAsync()`
 - Endereçado uma falha associada às `DialogServiceConnector` atividades que estão sendo recebidas
 
 **Amostras**
@@ -374,14 +420,14 @@ Mantenha-se íntegro!
 - Exemplos de início rápido para texto para fala sobre UWP e Unity
 - Exemplo de início rápido para Swift no iOS
 - Amostras de Unity para & de fala Reconhecimento de intenção e tradução
-- Exemplos de guia de início rápido atualizados para`DialogServiceConnector`
+- Exemplos de guia de início rápido atualizados para `DialogServiceConnector`
 
 **Melhorias/Alterações**
 
 - Namespace de caixa de diálogo:
   - `SpeechBotConnector` foi renomeado para `DialogServiceConnector`
   - `BotConfig` foi renomeado para `DialogServiceConfig`
-  - `BotConfig::FromChannelSecret()`foi remapeado para`DialogServiceConfig::FromBotSecret()`
+  - `BotConfig::FromChannelSecret()` foi remapeado para `DialogServiceConfig::FromBotSecret()`
   - Todos os clientes de fala de linha direta existentes continuam com suporte após a renomeação
 - Atualizar o adaptador REST TTS para dar suporte a proxy, conexão persistente
 - Melhorar a mensagem de erro quando uma região inválida é passada

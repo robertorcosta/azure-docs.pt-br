@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: a1a166d12ef753a7a6fc7225d0467ead08514f99
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 59b05fcd7fbaf9b0fd9b4083c884edadb4bfef4e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876709"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505573"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensão de DSC para Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -40,10 +40,11 @@ A extensão DSCForLinux é publicada e tem suporte da Microsoft. A extensão ins
 ### <a name="operating-system"></a>Sistema operacional
 
 Para nós que executam o Linux, a extensão de DSC do Linux dá suporte a todas as distribuições do Linux listadas na [documentação do DSC do PowerShell](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
- 
+
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
-A extensão DSCForLinux requer que a máquina virtual de destino esteja conectada à Internet. Por exemplo, a extensão de registro requer conectividade com o serviço de automação. Para outras ações como pull, pull, install requer conectividade com o armazenamento do Azure e o GitHub. Depende das configurações fornecidas pelo cliente.
+A extensão DSCForLinux requer que a máquina virtual de destino esteja conectada à Internet. Por exemplo, a extensão de registro requer conectividade com o serviço de automação.
+Para outras ações como pull, pull, install requer conectividade com o armazenamento do Azure e o GitHub. Depende das configurações fornecidas pelo cliente.
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -55,13 +56,13 @@ Aqui estão todos os parâmetros de configuração pública com suporte:
 * `ResourceName`: (opcional, Cadeia de caracteres) o nome do módulo de recurso personalizado.
 * `ExtensionAction`: (opcional, cadeia de caracteres) Especifica o que faz uma extensão. Os valores válidos são registrar, enviar por push, efetuar pull, instalar e remover. Se não for especificado, ele será considerado uma ação de envio por Push por padrão.
 * `NodeConfigurationName`: (opcional, Cadeia de caracteres) o nome de uma configuração de nó a ser aplicada.
-* `RefreshFrequencyMins`: (opcional, int) especifica com que frequência (em minutos) o DSC tenta obter a configuração do servidor de pull. 
+* `RefreshFrequencyMins`: (opcional, int) especifica com que frequência (em minutos) o DSC tenta obter a configuração do servidor de pull.
        Se a configuração no servidor de pull for diferente da atual no nó de destino, ela será copiada para a loja pendente e aplicada.
 * `ConfigurationMode`: (opcional, cadeia de caracteres) Especifica como DSC deve aplicar a configuração. Os valores válidos são ApplyOnly, ApplyAndMonitor e ApplyAndAutoCorrect.
 * `ConfigurationModeFrequencyMins`: (opcional, int) Especifica a frequência (em minutos) DSC garante que a configuração está no estado desejado.
 
 > [!NOTE]
-> Se você usar uma versão anterior à 2,3, o parâmetro mode será o mesmo que Extensionaction. O modo parece ser um termo sobrecarregado. Para evitar confusão, Extensionaction é usado da versão 2,3 em diante. Para compatibilidade com versões anteriores, a extensão dá suporte ao modo e ExtensionAction. 
+> Se você usar uma versão anterior à 2,3, o parâmetro mode será o mesmo que Extensionaction. O modo parece ser um termo sobrecarregado. Para evitar confusão, Extensionaction é usado da versão 2,3 em diante. Para compatibilidade com versões anteriores, a extensão dá suporte ao modo e ExtensionAction.
 >
 
 ### <a name="protected-configuration"></a>Configuração protegida
@@ -269,7 +270,7 @@ $publicConfig = '{
 
 ## <a name="template-deployment"></a>Implantação de modelo
 
-Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Os modelos são ideais quando você implanta uma ou mais máquinas virtuais que exigem a configuração pós-implantação, como a integração à automação do Azure. 
+Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Os modelos são ideais quando você implanta uma ou mais máquinas virtuais que exigem a configuração pós-implantação, como a integração à automação do Azure.
 
 É o modelo do Resource Manager [201-dsc-linux-azure-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) e [201-dsc-linux-public-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu).
 
@@ -323,13 +324,13 @@ DSCForLinux Microsoft.OSTCExtensions <version> \
 
 Você pode entrar em sua conta do Azure no modo de gerenciamento de serviços do Azure executando:
 
-```powershell>
+```powershell
 Add-AzureAccount
 ```
 
 E implante a extensão DSCForLinux executando:
 
-```powershell>
+```powershell
 $vmname = '<vm-name>'
 $vm = Get-AzureVM -ServiceName $vmname -Name $vmname
 $extensionName = 'DSCForLinux'
@@ -362,7 +363,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 
 Você pode entrar em sua conta do Azure no modo de Azure Resource Manager executando:
 
-```powershell>
+```powershell
 Login-AzAccount
 ```
 
@@ -370,7 +371,7 @@ Para saber mais sobre como usar Azure PowerShell com Azure Resource Manager, con
 
 Você pode implantar a extensão DSCForLinux executando:
 
-```powershell>
+```powershell
 $rgName = '<resource-group-name>'
 $vmName = '<vm-name>'
 $location = '< location>'

@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 509375459d019ead5a7992b808044a75e2666393
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: a74fae74a2d0ebbb71d65420475e5772e44a8d84
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758853"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507086"
 ---
 # <a name="remote-rendering-sessions"></a>Sessões do Remote Rendering
 
@@ -40,10 +40,10 @@ Cada sessão passa por várias fases.
 
 Quando você pede ao ARR para [criar uma nova sessão](../how-tos/session-rest-api.md#create-a-session), a primeira coisa a fazer é retornar uma sessão [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). Esse UUID permite consultar informações sobre a sessão. O UUID e algumas informações básicas sobre a sessão persistem por 30 dias, para que você possa consultar essas informações mesmo depois que a sessão for interrompida. Neste ponto, o **estado da sessão** será relatado como **Iniciando**.
 
-Em seguida, o Azure Remote Rendering tenta encontrar um servidor que pode hospedar sua sessão. Há dois parâmetros para essa pesquisa. Primeiro, ele só reservará servidores em sua [região](../reference/regions.md). Isso ocorre porque a latência de rede entre regiões pode ser alta demais para garantir uma experiência razoável. O segundo fator é o *tamanho* desejado que você especificou. Em cada região, há um número limitado de servidores que podem atender a uma solicitação de tamanho *Standard* ou *Premium*. Consequentemente, se todos os servidores do tamanho solicitado estiverem atualmente em uso em sua região, a criação da sessão falhará. O motivo da falha [pode ser consultado](../how-tos/session-rest-api.md#get-sessions-properties).
+Em seguida, o Azure Remote Rendering tenta encontrar um servidor que pode hospedar sua sessão. Há dois parâmetros para essa pesquisa. Primeiro, ele só reservará servidores em sua [região](../reference/regions.md). Isso ocorre porque a latência de rede entre regiões pode ser alta demais para garantir uma experiência razoável. O segundo fator é o *tamanho* desejado que você especificou. Em cada região, há um número limitado de servidores que podem atender à solicitação de tamanho [*Standard*](../reference/vm-sizes.md) ou [*Premium*](../reference/vm-sizes.md) . Consequentemente, se todos os servidores do tamanho solicitado estiverem atualmente em uso em sua região, a criação da sessão falhará. O motivo da falha [pode ser consultado](../how-tos/session-rest-api.md#get-sessions-properties).
 
 > [!IMPORTANT]
-> Se você solicitar um tamanho de VM *Standard* e a solicitação falhar devido à alta demanda, isso não implica que a solicitação de um servidor *Premium* também falhará. Portanto, se for uma opção para você, é possível tentar fazer fallback para uma VM *Premium*.
+> Se você solicitar um tamanho de servidor *padrão* e a solicitação falhar devido a alta demanda, isso não implica que a solicitação de um servidor *Premium* também falhará. Portanto, se for uma opção para você, você pode tentar fazer fallback para um tamanho de servidor *Premium* .
 
 Quando o serviço encontra um servidor adequado, ele precisa copiar a VM (máquina virtual) apropriada para ela, a fim de transformá-la em um host do Azure Remote Rendering. Esse processo leva vários minutos. Depois, a VM é inicializada e o **estado de sessão** faz a transição para **Pronto**.
 
@@ -72,7 +72,7 @@ Uma sessão também pode ser interrompida devido a alguma falha.
 Em todos os casos, você não continuará a cobrado depois que uma sessão for interrompida.
 
 > [!WARNING]
-> O fato de se conectar a uma sessão não afetará a cobrança, independentemente do tempo de conexão. O que você paga pelo serviço depende da *duração da sessão*, ou seja, o tempo durante o qual um servidor está reservado exclusivamente para você e os recursos de hardware solicitados (o tamanho da VM). Se você iniciar uma sessão, conecte-se por cinco minutos e, em seguida, não interrompa a sessão, de modo que ela continue em execução até que sua concessão expire, assim, você será cobrado pelo tempo total de concessão da sessão. Por outro lado, o *tempo máximo de concessão* é principalmente uma rede de segurança. Não importa se você solicitar uma sessão com um tempo de concessão de oito horas e, em seguida, usá-la somente por cinco minutos, se você interromper manualmente a sessão posteriormente.
+> O fato de se conectar a uma sessão não afetará a cobrança, independentemente do tempo de conexão. O que você paga pelo serviço depende da *duração da sessão*, o que significa que o tempo que um servidor está reservado exclusivamente para você e os recursos de hardware solicitados (o [tamanho alocado](../reference/vm-sizes.md)). Se você iniciar uma sessão, conecte-se por cinco minutos e, em seguida, não interrompa a sessão, de modo que ela continue em execução até que sua concessão expire, assim, você será cobrado pelo tempo total de concessão da sessão. Por outro lado, o *tempo máximo de concessão* é principalmente uma rede de segurança. Não importa se você solicitar uma sessão com um tempo de concessão de oito horas e, em seguida, usá-la somente por cinco minutos, se você interromper manualmente a sessão posteriormente.
 
 #### <a name="extend-a-sessions-lease-time"></a>Estender o tempo de concessão de uma sessão
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e01eecf24802bc43aebfa7b02105a2b1aa679a52
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 93587c6bbed20982bd96d04f58106ec1617542d3
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051941"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506423"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações e operações de infraestrutura do SAP HANA no Azure
 Este documento fornece orientação para configurar a infraestrutura do Azure e operar sistemas SAP HANA que são implantados em máquinas virtuais nativas (VMs) do Azure. O documento também inclui informações de configuração de expansão para a SKU de VM M128s do SAP HANA. Este documento não pretende substituir a documentação padrão do SAP, que inclui o seguinte conteúdo:
@@ -259,7 +259,7 @@ Assim como a VM M64 32ms tem a quantidade de memória, a carga de e/s pode não 
 
 Especialmente no caso da carga de trabalho intensas de leitura ele poderia melhorar o desempenho de e/s para ativar o cache de host do Azure "somente leitura" conforme recomendado para os volumes de dados do software de banco de dados. Enquanto a transação de log de cache de disco do host do Azure deve ser "nenhum". 
 
-Sobre o tamanho do volume de log de um ponto de partida recomendado está uma heurística de 15% do tamanho dos dados. A criação do volume de log pode ser feita usando os tipos de disco do Azure diferente dependendo dos requisitos de custo e a taxa de transferência. Para o volume do log, é necessária uma alta taxa de transferência de E/S.  Caso o tipo de VM M64-32ms seja usado, é obrigatório habilitar o [Acelerador de Gravação](../../linux/how-to-enable-write-accelerator.md). O Acelerador de Gravação do Azure fornece latência de gravação de disco ideal para o log de transações (disponível apenas para a série M). Há alguns itens a considerar, embora, como o número máximo de discos por tipo de VM. Detalhes sobre o Acelerador de Gravação podem ser encontrados [aqui](../../windows/how-to-enable-write-accelerator.md)
+Sobre o tamanho do volume de log de um ponto de partida recomendado está uma heurística de 15% do tamanho dos dados. A criação do volume de log pode ser feita usando os tipos de disco do Azure diferente dependendo dos requisitos de custo e a taxa de transferência. Para o volume do log, é necessária uma alta taxa de transferência de E/S.  Caso o tipo de VM M64-32ms seja usado, é obrigatório habilitar o [Acelerador de Gravação](../../how-to-enable-write-accelerator.md). O Acelerador de Gravação do Azure fornece latência de gravação de disco ideal para o log de transações (disponível apenas para a série M). Há alguns itens a considerar, embora, como o número máximo de discos por tipo de VM. Detalhes sobre o Acelerador de Gravação podem ser encontrados [aqui](../../how-to-enable-write-accelerator.md)
 
 
 A seguir, são apresentados alguns exemplos sobre dimensionamento de volume do log:

@@ -13,12 +13,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a0677603f02b429c269c0f93ef348b2b1d717a9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c757f3e067aeac5d8145ca47b2eac145daba574
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82689775"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272443"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Plataforma de identidade da Microsoft e o fluxo de concessão de autorização de dispositivo OAuth 2,0
 
@@ -53,9 +53,9 @@ scope=user.read%20openid%20profile
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Necessária | Pode ser/Common,/consumers ou/Organizations.  Ele também pode ser o locatário de diretório do qual você deseja solicitar permissão no formato GUID ou nome amigável.  |
+| `tenant` | Obrigatório | Pode ser/Common,/consumers ou/Organizations.  Ele também pode ser o locatário de diretório do qual você deseja solicitar permissão no formato GUID ou nome amigável.  |
 | `client_id` | Obrigatório | A **ID do Aplicativo (cliente)** que a experiência [Portal do Microsoft Azure - Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribui ao seu aplicativo. |
-| `scope` | Recomendado | Uma lista separada por espaços de [escopos](v2-permissions-and-consent.md) para os quais você deseja o consentimento do usuário.  |
+| `scope` | Obrigatório | Uma lista separada por espaços de [escopos](v2-permissions-and-consent.md) para os quais você deseja o consentimento do usuário.  |
 
 ### <a name="device-authorization-response"></a>Resposta de autorização do dispositivo
 
@@ -92,7 +92,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 
 | Parâmetro | Obrigatório | Descrição|
 | -------- | -------- | ---------- |
-| `tenant`  | Necessária | O mesmo alias de locatário ou locatário usado na solicitação inicial. |
+| `tenant`  | Obrigatório | O mesmo alias de locatário ou locatário usado na solicitação inicial. |
 | `grant_type` | Obrigatório | Precisa ser `urn:ietf:params:oauth:grant-type:device_code`|
 | `client_id`  | Obrigatório | Precisa corresponder à `client_id` usada na solicitação inicial. |
 | `device_code`| Obrigatório | O `device_code` retornado na solicitação de autorização de dispositivo.  |
@@ -101,7 +101,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 
 O fluxo de código do dispositivo é um protocolo de sondagem, de modo que o cliente deve esperar receber erros antes de concluir a autenticação do usuário.
 
-| Erro do | Descrição | Ação do Cliente |
+| Erro | Descrição | Ação do Cliente |
 | ------ | ----------- | -------------|
 | `authorization_pending` | O usuário não concluiu a autenticação, mas não cancelou o fluxo. | Repita a solicitação depois de pelo menos `interval` segundos. |
 | `authorization_declined` | O usuário final negou a solicitação de autorização.| Interrompa a sondagem e reverta para um estado não autenticado.  |

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: sngun
-ms.openlocfilehash: 3e15adcac184a0609de3197181cb8c475a962e8d
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: bc73292d7ed01468fc31e5a6203a4ba53a6425a2
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258361"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505760"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Dicas de desempenho para Azure Cosmos DB e SDK do .NET v2
 
@@ -72,7 +72,7 @@ Como um cliente se conecta a Azure Cosmos DB tem implicações de desempenho imp
 
   * Modo de gateway (padrão)
       
-    O modo de gateway tem suporte em todas as plataformas SDK e é o padrão configurado para o [ SDK doMicrosoft.Azure.DocumentDB](sql-api-sdk-dotnet.md). Se seu aplicativo for executado em uma rede corporativa com restrições de firewall estritas, o modo de gateway será a melhor opção, pois ele usa a porta HTTPS padrão e um único ponto de extremidade. No entanto, a compensação de desempenho é que o modo de gateway envolve um salto de rede adicional toda vez que os dados são lidos ou gravados em Azure Cosmos DB. Portanto, o modo direto oferece melhor desempenho porque há menos saltos de rede. Também recomendamos o modo de conexão de gateway quando você executa aplicativos em ambientes que têm um número limitado de conexões de soquete.
+    O modo de gateway tem suporte em todas as plataformas SDK e é o padrão configurado para o [ SDK doMicrosoft.Azure.DocumentDB](sql-api-sdk-dotnet.md). Se seu aplicativo for executado em uma rede corporativa com restrições de firewall estritas, o modo de gateway será a melhor opção porque ele usa a porta HTTPS padrão e um único ponto de extremidade DNS. No entanto, a compensação de desempenho é que o modo de gateway envolve um salto de rede adicional toda vez que os dados são lidos ou gravados em Azure Cosmos DB. Portanto, o modo direto oferece melhor desempenho porque há menos saltos de rede. Também recomendamos o modo de conexão de gateway quando você executa aplicativos em ambientes que têm um número limitado de conexões de soquete.
 
     Ao usar o SDK no Azure Functions, especialmente no plano de [consumo](../azure-functions/functions-scale.md#consumption-plan), esteja ciente dos limites atuais das [conexões](../azure-functions/manage-connections.md). Nesse caso, o modo de gateway poderá ser melhor se você também estiver trabalhando com outros clientes baseados em HTTP em seu aplicativo Azure Functions.
 
@@ -202,7 +202,7 @@ Para reduzir o número de viagens de ida e volta da rede necessárias para recup
 > [!NOTE] 
 > A `maxItemCount` propriedade não deve ser usada apenas para paginação. Seu principal uso é melhorar o desempenho das consultas, reduzindo o número máximo de itens retornados em uma única página.  
 
-Você também pode definir o tamanho da página usando os SDKs de Azure Cosmos DB disponíveis. A propriedade [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) no `FeedOptions` permite que você defina o número máximo de itens a serem retornados na operação de enumeração. Quando `maxItemCount` é definido como-1, o SDK localiza automaticamente o valor ideal, dependendo do tamanho do documento. Por exemplo:
+Você também pode definir o tamanho da página usando os SDKs de Azure Cosmos DB disponíveis. A propriedade [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) no `FeedOptions` permite que você defina o número máximo de itens a serem retornados na operação de enumeração. Quando `maxItemCount` é definido como-1, o SDK localiza automaticamente o valor ideal, dependendo do tamanho do documento. Por exemplo: 
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });

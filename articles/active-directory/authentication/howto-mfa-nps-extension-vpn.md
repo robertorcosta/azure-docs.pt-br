@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc2030f589185fd39c0f10b00c012db038a4e008
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 394a4c171153ecf50ff5d755c42e3c5f939b2ec7
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848730"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507171"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrar sua infraestrutura VPN com a MFA do Azure usando a extensão Servidor de Políticas de Rede para o Azure
 
@@ -308,17 +308,23 @@ Para obter assistência para configurar usuários para Autenticação Multifator
 
 Esta seção apresenta instruções para configurar a VPN para usar MFA para autenticação de cliente com o servidor VPN.
 
+> [!NOTE]
+> A chave do registro de REQUIRE_USER_MATCH diferencia maiúsculas de minúsculas. Todos os valores devem ser definidos no formato de letras maiúsculas.
+>
+
 Depois de instalar e configurar a extensão NPS, todas as autenticações de cliente baseadas em RADIUS processadas por esse servidor são necessárias para que se possa usar MFA. Se nem todos os seus usuários VPN estiverem registrados na Autenticação Multifator do Azure, você terá as seguintes opções:
 
 * Configurar outro servidor RADIUS para autenticar os usuários que não estão configurados para usar MFA.
 
 * Criar uma entrada de registro que permite aos usuários fornecer um segundo fator de autenticação durante o desafio se eles estiverem registrados na Autenticação Multifator do Azure.
 
-Criar um novo valor de cadeia de caracteres chamado _REQUIRE_USER_MATCH in HKLM\SOFTWARE\Microsoft\AzureMfa_ e definir o valor como *True* ou *False*.
+Crie um novo valor de cadeia de caracteres chamado _REQUIRE_USER_MATCH em HKLM\SOFTWARE\Microsoft\AzureMfa_e defina o valor como *true* ou *false*.
 
 ![A configuração "Exigir Correspondência do Usuário"](./media/howto-mfa-nps-extension-vpn/image34.png)
 
-Se o valor for definido como *True* ou estiver em branco, todas as solicitações de autenticação estarão sujeitas a um desafio de MFA. Se o valor for definido como *False*, desafios de MFA serão emitidos somente para usuários que estiverem registrados na Autenticação Multifator do Azure. Use a configuração *False* somente em ambientes de teste ou produção durante um período de integração.
+Se o valor for definido como *true* ou estiver em branco, todas as solicitações de autenticação estarão sujeitas a um desafio de MFA. Se o valor for definido como *false*, os desafios de MFA serão emitidos somente para usuários registrados na autenticação multifator do Azure. Use a configuração *false* somente em ambientes de teste ou de produção durante um período de integração.
+
+
 
 ### <a name="obtain-the-azure-active-directory-tenant-id"></a>Obter a ID de locatário Azure Active Directory
 

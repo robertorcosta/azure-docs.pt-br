@@ -1,20 +1,20 @@
 ---
 title: Formatos de documentos e convenções de nomenclatura - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
-description: Este é um guia sobre formatos de documentos e convenção de nomenclatura no Tradutor Personalizado. Esse conceito ajuda a gerenciar melhor os nomes de documentos e evita conflitos de nomenclatura.
+description: Este é um guia sobre formatos de documentos e convenção de nomenclatura no Tradutor Personalizado. Esse conceito ajuda a gerenciar nomes de documentos melhor e evitar conflitos de nomenclatura.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: e976b59c0128adef6536e78985e7cf89d256062c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 46a19cd4396e598a74f9099727ac80d44c0a44f5
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83992701"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507239"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Formatos de documentos e diretrizes de convenção de nomenclatura
 
@@ -47,7 +47,7 @@ Cada documento no arquivo zip com extensão TXT, HTML, HTM, PDF, DOCX, ALIGN dev
 
 {nome do documento}\_{código do idioma} onde {nome do documente} é o nome do documento, {código do idioma} é a ID de idioma ISO (dois caracteres), indicando que o documento contém sentenças nesse idioma. É necessário ter um sublinhado (_) antes do código do idioma.
 
-Por exemplo, para carregar dois documentos paralelos em um zip para um sistema em inglês para espanhol, os arquivos devem ser nomeados como "data_en" e "data_es".
+Por exemplo, para enviar dois documentos paralelos dentro de um zip para um sistema de inglês para espanhol, os arquivos deverão ser nomeados "data_en" e "data_es".
 
 Arquivos de memória de tradução (TMX, XLF, XLIFF, LCL, XLSX) não precisam seguir a convenção de nomenclatura de idioma específico.  
 

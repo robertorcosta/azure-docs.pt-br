@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0f4d9811dc288222c0a2190805a8b052cb1ae47b
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 8e0f0b37dd429578194c18e5a9a1f063b74fb693
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563918"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506525"
 ---
 # <a name="manage-digital-twins"></a>Gerenciar gêmeos digitais
 
@@ -181,6 +181,8 @@ Para atualizar as propriedades de uma troca digital, você escreve as informaç�
 await client.UpdateDigitalTwin(id, patch);
 ```
 
+Uma chamada de patch pode atualizar tantas propriedades em um único número de atualizações que você deseja (até mesmo todas elas). Se precisar atualizar as propriedades em vários gêmeos, você precisará de uma chamada de atualização separada para cada um.
+
 > [!TIP]
 > Depois de criar ou atualizar um vertical, pode haver uma latência de até 10 segundos antes que as alterações sejam refletidas nas [consultas](how-to-query-graph.md). A `GetDigitalTwin` API (descrita [anteriormente neste artigo](#get-data-for-a-digital-twin)) não enfrenta esse atraso, portanto, use a chamada à API em vez de consultar para ver seu gêmeos atualizado recentemente se precisar de uma resposta instantânea. 
 
@@ -204,6 +206,7 @@ Aqui está um exemplo de código de patch JSON. Este documento substitui os valo
 Você pode criar patches manualmente ou usando uma classe auxiliar de serialização no [SDK](how-to-use-apis-sdks.md). Aqui está um exemplo de cada um.
 
 #### <a name="create-patches-manually"></a>Criar patches manualmente
+
 ```csharp
 List<object> twinData = new List<object>();
 twinData.Add(new Dictionary<string, object>() {
@@ -278,6 +281,19 @@ O patch para essa situação precisa atualizar o modelo e a propriedade de tempe
   }
 ]
 ```
+
+### <a name="handle-conflicting-update-calls"></a>Tratar chamadas de atualização conflitantes
+
+O Azure digital gêmeos garante que todas as solicitações de entrada sejam processadas uma após a outra. Isso significa que, mesmo que várias funções tentem atualizar a mesma propriedade em um entrelaçamento ao mesmo tempo, não há **necessidade** de escrever código de bloqueio explícito para lidar com o conflito.
+
+Esse comportamento está em uma base cada vez mais. 
+
+Como exemplo, imagine um cenário no qual essas três chamadas chegam ao mesmo tempo: 
+*   Gravar A propriedade A em *Twin1*
+*   Gravar a propriedade B em *Twin1*
+*   Gravar A propriedade A em *Twin2*
+
+As duas chamadas que modificam *Twin1* são executadas uma após a outra e as mensagens de alteração são geradas para cada alteração. A chamada para Modify *Twin2* pode ser executada simultaneamente sem conflito, assim que ela chega.
 
 ## <a name="delete-a-digital-twin"></a>Excluir uma teledigital
 

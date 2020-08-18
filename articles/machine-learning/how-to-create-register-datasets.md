@@ -12,20 +12,20 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: b2252a70aea6df755bb8b37c36b77b08db819ba9
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 51e31977a5f31777252920f9cd18bf069bad6d1e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037534"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507188"
 ---
-# <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de Azure Machine Learning de os
+# <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados no Azure Machine Learning
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, você aprenderá a criar conjuntos de dados Azure Machine Learnings para acessar os dados para seus experimentos locais ou remotos. Para entender onde os conjuntos de dados se encaixam no fluxo de trabalho de acesso de data de Azure Machine Learning geral, confira o artigo [dados de acesso seguro](concept-data.md#data-workflow) .
 
-Ao criar um conjunto de dados, você cria uma referência para o local da fonte de dados com uma cópia de seus metadados. Como os dados permanecem em seu local existente, você não incorre nenhum custo de armazenamento extra e não arriscará a integridade de suas fontes de dados. Além disso, os conjuntos de itens são avaliados lentamente, o que auxilia nas velocidades de desempenho do fluxo de trabalho. Você pode criar conjuntos de valores de repositórios de armazenamento, URLs públicas e conjuntos de de [Azure abertos](../open-datasets/how-to-create-dataset-from-open-dataset.md).
+Ao criar um conjunto de dados, você cria uma referência para o local da fonte de dados com uma cópia de seus metadados. Como os dados permanecem em seu local existente, você não incorre nenhum custo de armazenamento extra e não arriscará a integridade de suas fontes de dados. Além disso, os conjuntos de itens são avaliados lentamente, o que auxilia nas velocidades de desempenho do fluxo de trabalho. Você pode criar conjuntos de valores de repositórios de armazenamento, URLs públicas e conjuntos de de [Azure abertos](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
 
 Com os conjuntos de Azure Machine Learning, você pode:
 
@@ -166,8 +166,8 @@ titanic_ds.take(3).to_pandas_dataframe()
 |Index|Passageiroid|Survived|Pclass|Nome|Sexo|Idade|SibSp|Parch|Tíquete|Tarifa|Cabine|Embarcou
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|Falso|3|Braund, Sr. Owen Harris|masculino|22,0|1|0|A/5 21171|7,2500||S
-1|2|verdadeiro|1|Cumings, Sra. John Bradley (Florence Briggs th...|feminino|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|verdadeiro|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
+1|2|True|1|Cumings, Sra. John Bradley (Florence Briggs th...|feminino|38,0|1|0|PC 17599|71,2833|C85|C
+2|3|Verdadeiro|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 ### <a name="create-a-dataset-from-pandas-dataframe"></a>Criar um conjunto de uma série de dataframe do pandas
 
@@ -232,7 +232,7 @@ Para criar um conjunto de um DataSet no estúdio:
 
 Os [Conjuntos de dados abertos do Azure](https://azure.microsoft.com/services/open-datasets/) são conjuntos de dados públicos coletados que você pode usar para adicionar recursos específicos do cenário para soluções de aprendizado de máquina para obter modelos mais precisos. Os conjuntos de dados incluem dados de domínio público de clima, censo, feriados, segurança pública e localização que ajudam você a treinar os modelos de machine learning e aprimorar as soluções de previsão. Os conjuntos de itens abertos estão na nuvem no Microsoft Azure e são incluídos no SDK e no Studio.
 
-Saiba como criar [conjuntos de Azure Machine Learning de conjuntos de informações a partir do Azure Open DataSets](../open-datasets/how-to-create-dataset-from-open-dataset.md). 
+Saiba como criar [conjuntos de Azure Machine Learning de conjuntos de informações a partir do Azure Open DataSets](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md). 
 
 ## <a name="train-with-datasets"></a>Treinar com conjuntos de dados
 

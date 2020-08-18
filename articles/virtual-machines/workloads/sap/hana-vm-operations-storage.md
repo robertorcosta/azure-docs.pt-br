@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5497f50f9e868338541143a18ab0c83f32c1d1b
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 4e1b510ed970b253adedef0fb6efb4abe0c3b65b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080517"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506389"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento de máquina virtual do SAP HANA no Azure
 
@@ -42,11 +42,11 @@ Para obter uma lista de tipos de armazenamento e os respectivos SLAs em IOPS e t
 
 As condições mínimas certificadas pelo SAP HANA para os diferentes tipos de armazenamento são: 
 
-- O armazenamento Premium do Azure- **/Hana/log** precisa ter suporte do Azure [acelerador de gravação](../../linux/how-to-enable-write-accelerator.md). O volume **/Hana/data** pode ser colocado no armazenamento Premium sem o Azure acelerador de gravação ou no ultra Disk
+- O armazenamento Premium do Azure- **/Hana/log** precisa ter suporte do Azure [acelerador de gravação](../../how-to-enable-write-accelerator.md). O volume **/Hana/data** pode ser colocado no armazenamento Premium sem o Azure acelerador de gravação ou no ultra Disk
 - Ultra Disk do Azure pelo menos para o volume **/Hana/log** . O volume **/Hana/data** pode ser colocado em um armazenamento Premium sem o Azure acelerador de gravação ou para obter tempos de reinicialização mais rápidos
 - Volumes **NFS v 4.1** sobre Azure NetApp Files para **/Hana/log e/Hana/data**. O volume de/Hana/Shared pode usar o protocolo NFS v3 ou NFS v 4.1
 
-Alguns tipos de armazenamento podem ser combinados. Por exemplo, é possível colocar **/Hana/data** no armazenamento Premium e **/Hana/log** pode ser colocado em armazenamento de ultra disco para obter a baixa latência necessária. Se você usar um volume baseado em seja para **/Hana/data**, o **/Hana/log** volume também precisará ser baseado em NFS na parte superior do seja. **Não há suporte**para o uso de NFS sobre seja para um dos volumes (como/Hana/Data) e armazenamento Premium do Azure ou ultra Disk para o outro volume (como **/Hana/log**).
+Alguns tipos de armazenamento podem ser combinados. Por exemplo, é possível colocar **/Hana/data** no armazenamento Premium e **/Hana/log** pode ser colocado em armazenamento de ultra disco para obter a baixa latência necessária. Se você usar um volume baseado em seja para **/Hana/data**, o  **/Hana/log** volume também precisará ser baseado em NFS na parte superior do seja. **Não há suporte**para o uso de NFS sobre seja para um dos volumes (como/Hana/Data) e armazenamento Premium do Azure ou ultra Disk para o outro volume (como **/Hana/log**).
 
 No mundo local, você raramente precisava preocupar-se com os subsistemas de E/S e as funcionalidades. O motivo era que o fornecedor do dispositivo precisava certificar-se de que os requisitos mínimos de armazenamento fossem atendidos para o SAP HANA. Ao criar a infraestrutura do Azure por conta própria, você deve estar ciente de alguns desses requisitos emitidos pelo SAP. Algumas das características mínimas de taxa de transferência que o SAP recomenda, são:
 
@@ -75,7 +75,7 @@ O Linux possui vários modos de agendamento de E/S diferentes. A recomendação 
 O Acelerador de Gravação do Azure é uma funcionalidade disponível exclusivamente para VMs da Série M do Azure. Como o nome indica, a finalidade da funcionalidade é melhorar a latência de e/s de gravações no armazenamento Premium do Azure. Para o SAP HANA, acelerador de gravação deve ser usado em relação a **hana/log** somente no volume. Portanto, **/hana/data** e **/gana/log** são volumes separados com o Acelerador de Gravação do Azure que dão suporte apenas ao volume **/hana/log**. 
 
 > [!IMPORTANT]
-> Ao usar o armazenamento Premium do Azure, o uso do Azure [acelerador de gravação](../../linux/how-to-enable-write-accelerator.md) para o volume **/Hana/log** é obrigatório. Acelerador de Gravação está disponível apenas para VMs de armazenamento Premium e série M e série Mv2. Acelerador de Gravação não está funcionando em combinação com outras famílias de VM do Azure, como Esv3 ou Edsv4.
+> Ao usar o armazenamento Premium do Azure, o uso do Azure [acelerador de gravação](../../how-to-enable-write-accelerator.md) para o volume **/Hana/log** é obrigatório. Acelerador de Gravação está disponível apenas para VMs de armazenamento Premium e série M e série Mv2. Acelerador de Gravação não está funcionando em combinação com outras famílias de VM do Azure, como Esv3 ou Edsv4.
 
 As recomendações de cache para os discos Premium do Azure abaixo estão supondo as características de e/s para SAP HANA essa lista, como:
 
@@ -194,7 +194,7 @@ Para os outros volumes, a configuração teria a seguinte aparência:
 
 Verifique se a taxa de transferência de armazenamento para os diferentes volumes recomendados atende à carga de trabalho que você quer executar. Se a carga de trabalho exigir volumes maiores para **/Hana/data** e **/Hana/log**, você precisará aumentar o número de VHDs de armazenamento Premium do Azure. Dimensionar um volume com mais VHDs do que o listado aumenta a taxa de transferência de E/S e IOPS dentro dos limites do tipo de máquina virtual do Azure.
 
-O Acelerador de Gravação do Azure funciona somente em conjunto com o [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Portanto, pelo menos os discos de armazenamento Premium do Azure que formam o volume **/Hana/log** precisam ser implantados como discos gerenciados. Instruções e restrições mais detalhadas do Azure Acelerador de Gravação podem ser encontradas no artigo [acelerador de gravação](../../linux/how-to-enable-write-accelerator.md).
+O Acelerador de Gravação do Azure funciona somente em conjunto com o [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Portanto, pelo menos os discos de armazenamento Premium do Azure que formam o volume **/Hana/log** precisam ser implantados como discos gerenciados. Instruções e restrições mais detalhadas do Azure Acelerador de Gravação podem ser encontradas no artigo [acelerador de gravação](../../how-to-enable-write-accelerator.md).
 
 Para as VMs certificadas do HANA da família Azure [Esv3](../../ev3-esv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#esv3-series) e do [Edsv4](../../edv4-edsv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#edsv4-series), você precisará seja para o volume **/Hana/data** e **/Hana/log** . Ou você precisa aproveitar o armazenamento do Azure ultra Disk em vez do armazenamento Premium do Azure somente para o volume **/Hana/log** . Como resultado, as configurações para o volume **/Hana/data** no armazenamento Premium do Azure poderiam ser semelhantes a:
 
@@ -352,9 +352,9 @@ Uma alternativa menos dispendiosa para essas configurações poderia ser semelha
 | M416ms_v2 | 11400 GiB | 2\.000 MB/s | 7 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | O uso de Acelerador de Gravação para dados combinados e volume de log limitará a taxa de IOPS a 20.000<sup>2</sup> |
 
 
-<sup>1</sup> o [Azure acelerador de gravação](../../linux/how-to-enable-write-accelerator.md) não pode ser usado com as famílias de VMs Ev4 e Ev4. Como resultado do uso do armazenamento Premium do Azure, a latência de e/s não será menor que 1 MS
+<sup>1</sup> o [Azure acelerador de gravação](../../how-to-enable-write-accelerator.md) não pode ser usado com as famílias de VMs Ev4 e Ev4. Como resultado do uso do armazenamento Premium do Azure, a latência de e/s não será menor que 1 MS
 
-<sup>2</sup> a família de VMs dá suporte ao [Azure acelerador de gravação](../../linux/how-to-enable-write-accelerator.md), mas há um potencial de que o limite de IOPS do acelerador de gravação pode limitar as configurações de disco recursos de IOPS
+<sup>2</sup> a família de VMs dá suporte ao [Azure acelerador de gravação](../../how-to-enable-write-accelerator.md), mas há um potencial de que o limite de IOPS do acelerador de gravação pode limitar as configurações de disco recursos de IOPS
 
 No caso de combinar os dados e o volume de log para SAP HANA, os discos que criam o volume distribuído não devem ter cache de leitura ou cache de leitura/gravação habilitado.
 

@@ -3,12 +3,12 @@ title: Suporte a marcas para recursos
 description: Mostra quais tipos de recursos do Azure suportam tags. Fornece detalhes para todos os serviços do Azure.
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 2ebf55a15233c401904460d459a118fc46142ac3
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: e3a51bb7c21b6ea2e8baa86fe2981184c41d7d69
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337986"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272426"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso dá suporte a [marcas](tag-resources.md). A coluna rotulada **dá suporte a marcas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna rotulada como **marca no relatório de custo** indica se esse tipo de recurso passa a marca para o relatório de custo. Você pode exibir os custos por marcas na [análise de custo de gerenciamento de custos](../../cost-management-billing/costs/group-filter.md) e na [fatura de cobrança do Azure e nos dados de uso diário](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -845,7 +845,7 @@ Pule para um namespace de provedor de recursos:
 > | CloudConnectors | Não | Não |
 > | Conectores | Sim | Sim |
 > | costAllocationRules | Não | Não |
-> | Departamentos | Não | Não |
+> | Departments | Não | Não |
 > | Dimensões | Não | Não |
 > | EnrollmentAccounts | Não | Não |
 > | Port | Não | Não |
@@ -902,7 +902,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
-> | workspaces | Sim | Não |
+> | workspaces | Sim | Sim |
 > | espaços de trabalho/dbWorkspaces | Não | Não |
 > | espaços de trabalho/storageEncryption | Não | Não |
 > | espaços de trabalho/virtualNetworkPeerings | Não | Não |

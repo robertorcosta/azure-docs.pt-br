@@ -1,20 +1,20 @@
 ---
-title: Perguntas frequentes - Tradutor personalizado
+title: Perguntas frequentes-Tradutor personalizado
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém respostas para perguntas frequentes sobre o tradutor personalizado dos serviços cognitivas do Azure.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 2edc5e9e255af321a30521ba1e707eea30d81f73
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 06caafe75682a2375a8023787f9905ca1e8117c9
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957589"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507222"
 ---
 # <a name="custom-translator-frequently-asked-questions"></a>Perguntas frequentes sobre o tradutor personalizado
 
@@ -41,7 +41,7 @@ A implantação geralmente leva menos de uma hora.
 
 ## <a name="how-do-you-access-a-deployed-system"></a>Como você acessa um sistema implantado?
 
-Os sistemas implantados podem ser acessados por meio do tradutor especificando o CategoryID. Mais informações sobre o tradutor podem ser encontradas na página da Web de [referência de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) .
+Os sistemas implantados podem ser acessados através da API de tradução de Texto do Microsoft Translator V3, especificando o CategoryID. Mais informações sobre a API de tradução de Texto do tradutor podem ser encontradas na página da Web da [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Como fazer alinhamento e a frase quebrar se meus dados já estão alinhado de frase?
 
@@ -49,6 +49,7 @@ O Custom Translator ignora o alinhamento de sentenças e quebra de frases para a
 
 Se o número de sentenças extraídas não corresponder aos dois arquivos com o mesmo nome base, o Custom Translator ainda executará o alinhador de sentenças em arquivos `.align`.
 
-## <a name="i-tried-uploading-my-tmx-but-it-says-document-processing-failed"></a>Eu tentei carregar meu TMX, mas ele diz "processamento de documento falhou".
+## <a name="i-tried-uploading-my-tmx-but-it-says-document-processing-failed"></a>Tentei carregar meu TMX, mas diz "falha no processamento de documentos"
+
 
 Assegure-se de que o TMX esteja em conformidade com a Especificação TMX 1.4b em <https://www.gala-global.org/tmx-14b>.

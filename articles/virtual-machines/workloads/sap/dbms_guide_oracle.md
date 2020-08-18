@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15838e1e9acf328a0deaa981d1227c22c08dbbdf
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: bd8177f6fd8e40e9c4ea37bc7ead910806efbad2
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832256"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88504935"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação do DBMS de Máquinas Virtuais do Azure para carga de trabalho do SAP
 
@@ -404,7 +404,7 @@ Se mais IOPS forem necessários, é recomendável usar pools de armazenamento do
 
 
 #### <a name="write-accelerator"></a>Acelerador de Gravação
-Para as VMs da série M do Azure, a latência de gravação nos logs online da fase refazer pode ser reduzida por fatores quando comparados ao Armazenamento Premium do Azure. Habilite o Acelerador de Gravação do Azure para os discos (VHDs) com base no Armazenamento Premium do Azure que são usados para arquivos de log de restauração online. Para saber mais, confira [Acelerador de Gravação](../../linux/how-to-enable-write-accelerator.md).
+Para as VMs da série M do Azure, a latência de gravação nos logs online da fase refazer pode ser reduzida por fatores quando comparados ao Armazenamento Premium do Azure. Habilite o Acelerador de Gravação do Azure para os discos (VHDs) com base no Armazenamento Premium do Azure que são usados para arquivos de log de restauração online. Para saber mais, confira [Acelerador de Gravação](../../how-to-enable-write-accelerator.md).
 
 
 ### <a name="backuprestore"></a>Backup/restauração
@@ -498,7 +498,7 @@ Se mais IOPS forem necessários, é recomendável usar LVM (Gerenciador de Volum
 
 
 #### <a name="write-accelerator"></a>Acelerador de Gravação
-Para as VMs da série M do Azure, ao usar o Acelerador de Gravação do Azure, a latência de gravação nos logs online de refazer pode ser reduzida por fatores, comparados ao desempenho do Armazenamento Premium do Azure. Habilite o Acelerador de Gravação do Azure para os discos (VHDs) com base no Armazenamento Premium do Azure que são usados para arquivos de log de restauração online. Para saber mais, confira [Acelerador de Gravação](../../linux/how-to-enable-write-accelerator.md).
+Para as VMs da série M do Azure, ao usar o Acelerador de Gravação do Azure, a latência de gravação nos logs online de refazer pode ser reduzida por fatores, comparados ao desempenho do Armazenamento Premium do Azure. Habilite o Acelerador de Gravação do Azure para os discos (VHDs) com base no Armazenamento Premium do Azure que são usados para arquivos de log de restauração online. Para saber mais, confira [Acelerador de Gravação](../../how-to-enable-write-accelerator.md).
 
 
 ### <a name="backuprestore"></a>Backup/restauração
