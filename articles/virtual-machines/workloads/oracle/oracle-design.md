@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 78eedb9bd4f12644a1bc992d0786a43b8af767a9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0dd787916159637ce92a29a5d4baa1ffe7a09ba4
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507923"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510004"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Projete e implemente um banco de dados Oracle no Azure
 
@@ -187,7 +187,7 @@ Quando você tiver uma visão clara dos requisitos de E/S, poderá escolher a co
 - Use a compactação de dados para reduzir E/S (para dados e índices).
 - Separe os logs da fase refazer, sistema e temps e desfaça o TS em discos de dados separados.
 - Não coloque arquivos de aplicativo em discos do SO padrão (/dev/sda). Esses discos são otimizados inicializações rápidas de VM, e talvez não forneçam um bom desempenho para seu aplicativo.
-- Ao usar VMs da série M no armazenamento Premium, habilite [acelerador de gravação](../../linux/how-to-enable-write-accelerator.md) no disco de logs de restauração.
+- Ao usar VMs da série M no armazenamento Premium, habilite [acelerador de gravação](../../how-to-enable-write-accelerator.md) no disco de logs de restauração.
 
 ### <a name="disk-cache-settings"></a>Configurações de cache de disco
 

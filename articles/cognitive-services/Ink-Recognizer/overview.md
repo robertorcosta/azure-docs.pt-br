@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 12/17/2019
+ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 2d00a489af35f5960aaeb1dda7add5337d48d57d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7bcda79403e021384fc987a67865441dd8732885
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448160"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927446"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>O que é a API de Reconhecimento de Tinta Digital?
 
@@ -43,7 +43,7 @@ A API de Reconhecimento de Tinta Digital é um serviço Web RESTful, facilitando
 
 Após a inscrição:
 
-1. Selecione seus dados de traço de tinta e [formate-os](concepts/send-ink-data.md#sending-ink-data) em JSON válido.
+1. Selecione seus dados de traço de tinta e [formate-os](concepts/send-ink-data.md#sending-ink-data) em JSON válido. A API aceita até 1.500 traços de tinta por solicitação. 
 1. Envie uma solicitação à API de Reconhecimento de Tinta Digital com seus dados.
 1. Processe a resposta da API analisando a mensagem JSON retornada.
 

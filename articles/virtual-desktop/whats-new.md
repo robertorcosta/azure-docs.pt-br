@@ -1,20 +1,18 @@
 ---
 title: O que há de novo na Área de Trabalho Virtual do Windows? - Azure
 description: Novos recursos e atualizações de produto para a Área de Trabalho Virtual do Windows.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 06/15/2020
+ms.date: 08/07/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
-ms.openlocfilehash: 9be1053600ab89a7879a04a7c08a44ddf3bc862a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8663fc3f016fadcd4f4c99acd800cd0ccf8844f8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291242"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003537"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>O que há de novo na Área de Trabalho Virtual do Windows?
 
@@ -27,13 +25,48 @@ A Área de Trabalho Virtual do Windows é atualizada regularmente. Neste artigo,
 
 Este artigo é atualizado mensalmente. Volte a consultá-lo com frequência para acompanhar as atualizações.
 
+## <a name="july-2020"></a>Julho de 2020  
+
+Foi em julho que a integração da Área de Trabalho Virtual do Windows ao Azure Resource Manager entrou em disponibilidade geral.
+
+Aqui está o que mudou nesta nova versão: 
+
+- A "versão Fall 2019" agora é conhecida como "Área de Trabalho Virtual do Windows (Clássica)", enquanto a "versão Spring 2020" agora é apenas "Área de Trabalho Virtual do Windows". Para obter mais informações, confira [esta postagem no blog](https://azure.microsoft.com/blog/new-windows-virtual-desktop-capabilities-now-generally-available/). 
+
+Para saber mais sobre os novos recursos, confira [esta postagem no blog](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245). 
+
+### <a name="autoscaling-tool-update"></a>Atualização da ferramenta de dimensionamento automático
+
+A versão mais recente da ferramenta de dimensionamento automático que estava em versão prévia agora está em disponibilidade geral. Essa ferramenta usa uma conta de automação do Azure e o Aplicativo Lógico do Azure para desligar e reiniciar automaticamente as VMs (máquinas virtuais) do host da sessão em um pool de host, reduzindo os custos de infraestrutura. Saiba mais em [Dimensionar hosts da sessão usando a Automação do Azure](set-up-scaling-script.md).
+
+### <a name="azure-portal"></a>Portal do Azure
+
+Agora você pode fazer o seguinte com o portal do Azure na Área de Trabalho Virtual do Windows: 
+
+- Atribuir usuários diretamente a hosts da sessão de área de trabalho pessoal  
+- Alterar a configuração do ambiente de validação para pools de hosts 
+
+### <a name="diagnostics"></a>Diagnósticos
+
+Lançamos algumas novas consultas predefinidas para o workspace do Log Analytics. Para acessar as consultas, acesse **Logs** e, em **Categoria**, selecione **Área de Trabalho Virtual do Windows**. Saiba mais em [Usar o Log Analytics para o recurso de diagnóstico](diagnostics-log-analytics.md).
+
+### <a name="update-for-remote-desktop-client-for-android"></a>Atualização para o cliente da Área de Trabalho Remota para Android
+
+O [cliente da Área de Trabalho Remota para Android](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) agora dá suporte a conexões de área de trabalho virtual do Windows. Da versão 10.0.7 em diante, o cliente Android apresenta uma nova interface do usuário para melhorar a experiência dos usuários. O cliente também se integra ao Microsoft Authenticator em dispositivos Android para habilitar o acesso condicional ao assinar workspaces da Área de Trabalho Virtual do Windows.  
+
+A versão anterior do cliente da Área de Trabalho Remota agora é chamada de "Área de Trabalho Remota 8". Todas as conexões existentes que você tiver na versão anterior do cliente serão transferidas diretamente para o novo cliente. O novo cliente foi reescrito para o mesmo mecanismo de núcleo de RDP subjacente que os clientes iOS e macOS, com uma versão mais rápida de novos recursos em todas as plataformas. 
+
+### <a name="teams-update"></a>Atualização do Teams
+
+Fizemos melhorias ao Microsoft Teams para Área de Trabalho Virtual do Windows. Mais importante, a Área de Trabalho Virtual do Windows agora dá suporte à otimização de áudio e vídeo para o cliente de Área de Trabalho do Windows. O redirecionamento melhora a latência criando caminhos diretos entre os usuários quando eles usam áudio ou vídeo em chamadas e reuniões. Menos distância significa menos saltos, tornando as chamadas mais tranquilas. Saiba mais em [Usar o Teams a Área de Trabalho Virtual do Windows](teams-on-wvd.md).
+
 ## <a name="june-2020"></a>Junho de 2020
 
 No mês passado, introduzimos a Área de Trabalho Virtual do Windows com integração do Azure Resource Manager em versão prévia. Essa atualização tem muitos recursos novos incríveis que adoraríamos apresentar. Aqui estão as novidades dessa versão da Área de Trabalho Virtual do Windows.
 
-### <a name="windows-virtual-desktop-is-now-integrated-with-azure-resource-manager-preview"></a>A Área de Trabalho Virtual do Windows agora está integrada ao Azure Resource Manager (versão prévia)
+### <a name="windows-virtual-desktop-is-now-integrated-with-azure-resource-manager"></a>A Área de Trabalho Virtual do Windows agora está integrada ao Azure Resource Manager
 
-A Área de Trabalho Virtual do Windows agora está integrada ao Azure Resource Manager. Na atualização mais recente, todos os objetos da Área de Trabalho Virtual do Windows agora são recursos do Azure Resource Manager. Essa atualização também é integrada ao RBAC (Controle de Acesso Baseado em Função) do Azure. Confira [O que é o Azure Resource Manager?](../azure-resource-manager/management/overview.md) para saber mais.
+A Área de Trabalho Virtual do Windows agora está integrada ao Azure Resource Manager. Na atualização mais recente, todos os objetos da Área de Trabalho Virtual do Windows agora são recursos do Azure Resource Manager. Essa atualização também é integrada ao Azure RBAC (Controle de Acesso Baseado em Função do Azure). Confira [O que é o Azure Resource Manager?](../azure-resource-manager/management/overview.md) para saber mais.
 
 Isto é o que essa alteração faz para você:
 
@@ -41,7 +74,7 @@ Isto é o que essa alteração faz para você:
 
 - Antes dessa atualização, você só podia publicar RemoteApps e Desktops para usuários individuais. Com o Azure Resource Manager, agora você pode publicar recursos em grupos do Azure Active Directory.
 
-- A versão anterior da Área de Trabalho Virtual do Windows tinha quatro funções de administrador internas que você podia atribuir a um locatário ou a um pool de host. Essas funções agora estão no [controle de acesso baseado em função](../role-based-access-control/overview.md) do Azure. Você pode aplicar essas funções a cada objeto do Azure Resource Manager da Área de Trabalho Virtual do Windows, o que lhe permite ter um modelo de delegação completo e avançado.
+- A versão anterior da Área de Trabalho Virtual do Windows tinha quatro funções de administrador internas que você podia atribuir a um locatário ou a um pool de host. Essas funções agora estão no [Azure RBAC (controle de acesso baseado em função do Azure)](../role-based-access-control/overview.md). Você pode aplicar essas funções a cada objeto do Azure Resource Manager da Área de Trabalho Virtual do Windows, o que lhe permite ter um modelo de delegação completo e avançado.
 
 - Nessa atualização, você não precisa mais executar o Azure Marketplace nem o modelo do GitHub repetidamente para expandir um pool de host. Para expandir um pool de host, basta acessá-lo no portal do Azure e selecionar **+ Adicionar** para implantar hosts de sessão adicionais.
 
@@ -49,7 +82,7 @@ Isto é o que essa alteração faz para você:
 
 - As funções de monitoramento que costumavam ser feitas por meio do PowerShell ou do aplicativo Web do Serviço de Diagnóstico agora foram movidas para Log Analytics no portal do Azure. Agora, você também tem duas opções para visualizar seus relatórios. Você pode executar consultas do Kusto e usar Pastas de Trabalho para criar relatórios visuais.
 
-- Não é mais necessário o consentimento completo do Azure Active Directory (Azure AD) para usar a Área de Trabalho Virtual do Windows. Nessa atualização, o locatário do Azure AD na sua assinatura do Azure autentica os usuários e fornece controles RBAC para seus administradores.
+- Não é mais necessário o consentimento completo do Azure Active Directory (Azure AD) para usar a Área de Trabalho Virtual do Windows. Nessa atualização, o locatário do Azure AD na sua assinatura do Azure autentica os usuários e fornece controles RBAC do Azure para seus administradores.
 
 
 ### <a name="powershell-support"></a>Suporte ao PowerShell
@@ -60,7 +93,7 @@ Para instalar o módulo, siga as instruções em [Configurar o módulo do PowerS
 
 Você também pode ver uma lista de comandos disponíveis na [referência do PowerShell AzWvd](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization).
 
-Para obter mais informações sobre os novos recursos, confira [nossa postagem no blog](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245). 
+Para obter mais informações sobre os novos recursos, confira [nossa postagem no blog](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245).
 
 ### <a name="additional-gateways"></a>Gateways adicionais
 

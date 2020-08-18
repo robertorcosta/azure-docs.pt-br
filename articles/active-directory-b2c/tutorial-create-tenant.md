@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Criar um locatário do Azure Active Directory B2C'
-description: Saiba como preparar para registrar os aplicativos criando um locatário do Azure Active Directory B2C usando o portal do Azure.
+description: Siga este tutorial para saber como preparar para registrar os aplicativos criando um locatário do Azure Active Directory B2C usando o portal do Azure.
 services: B2C
 author: msmimart
 manager: celestedg
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 044a2d2cb23e36234256b9b19363462e542176fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbccbcf1ac85b63c5610b9904a84e5e6e3fb6c63
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806843"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922186"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Criar um locatário do Azure Active Directory B2C
 
@@ -30,6 +30,8 @@ Neste artigo, você aprenderá como:
 > * Adicione o recurso de Azure AD B2C como um **Favorito** no portal do Azure
 
 Saiba como registrar um aplicativo no próximo tutorial.
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

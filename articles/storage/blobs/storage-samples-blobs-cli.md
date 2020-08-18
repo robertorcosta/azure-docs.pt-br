@@ -1,6 +1,6 @@
 ---
 title: Exemplos de CLI do Azure para o Armazenamento de Blobs | Microsoft Docs
-description: Exemplos de CLI do Azure para trabalhar com o Armazenamento de Blobs do Azure
+description: Confira links para exemplos da CLI do Azure para trabalhar com o Armazenamento de Blobs do Azure, como criar uma conta de armazenamento, excluir contêineres com um prefixo específico e muito mais.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 06/13/2017
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: sample
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2efb46e0ca6408136387ca1549305ba421d23b77
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 79ff7b3d174407da929f201bdce691cecf9b9a89
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503473"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035035"
 ---
 # <a name="azure-cli-samples-for-azure-blob-storage"></a>Exemplos de CLI do Azure para Armazenamento de Blobs do Azure
 

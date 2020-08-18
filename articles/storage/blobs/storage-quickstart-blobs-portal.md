@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 04/16/2020
 ms.author: tamram
-ms.openlocfilehash: a9a048801c6bea74e6b5318eeedf76f92709bee6
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f2e18b060aabcb849fb8e17722c530d199ebdbb8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535155"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067721"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Início Rápido: Carregar, baixar e listar blobs com o portal do Azure
 
@@ -45,7 +45,7 @@ Para carregar um blob de blocos para seu novo contêiner no portal do Azure, sig
 
 1. No portal do Azure, navegue até o contêiner que você criou na seção anterior.
 1. Selecione o contêiner para mostrar uma lista de blobs que ele contém. Esse contêiner é novo, então ele ainda não contém blobs.
-1. Selecione o botão **Carregar** para abrir a folha de mesmo nome e procure seu sistema de arquivos local para encontrar um arquivo a ser carregado como um blob de blocos. Opcionalmente, você pode expandir a seção avançado a fim de definir outras configurações para a operação de upload.
+1. Selecione o botão **Carregar** para abrir a folha de mesmo nome e procure seu sistema de arquivos local para encontrar um arquivo a ser carregado como um blob de blocos. Opcionalmente, você pode expandir a seção **Avançado** para definir outras configurações para a operação de upload.
 
     ![Captura de tela mostrando como carregar um blob a partir da sua unidade local](media/storage-quickstart-blobs-portal/upload-blob.png)
 
@@ -59,9 +59,18 @@ Você pode baixar um blob de blocos para exibir no navegador ou salvar em seu si
 1. Navegue até a lista de blobs que você carregou na seção anterior.
 1. Clique com botão direito do mouse no blob que você deseja baixar e selecione **Baixar**.
 
+    ![Captura de tela mostrando como baixar um blob](media/storage-quickstart-blobs-portal/download-blob.png)
+
+## <a name="delete-a-block-blob"></a>Excluir um blob de blocos
+
+Você pode baixar um blob de blocos para exibir no navegador ou salvar em seu sistema de arquivos local. Para baixar um blob de blocos, siga estas etapas:
+
+1. Navegue até a lista de blobs que você carregou na seção anterior.
+1. Selecione os blobs que deseja excluir e escolha **Excluir** na barra de ação superior.
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Para remover os recursos criados neste guia de início rápido, você pode excluir o contêiner. Todos os blobs no contêiner também serão excluídos.
+Para remover todos os recursos criados neste guia de início rápido, basta excluir o contêiner. Todos os blobs no contêiner também serão excluídos.
 
 Para excluir o contêiner:
 

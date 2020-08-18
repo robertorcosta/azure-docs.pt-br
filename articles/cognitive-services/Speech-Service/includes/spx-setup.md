@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: abfb4f6ba9452581811db1f462089cbafc771266
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c92d6569e3c92d3bad3575599283c7796bd78225
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544993"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88068607"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,6 +51,58 @@ Siga estas etapas para instalar a CLI de Fala no Linux em uma CPU x64:
 
 Digite `spx` para ver a ajuda da CLI de Fala.
 
+#### <a name="docker-install"></a>[Instalação do Docker](#tab/dockerinstall)
+
+Siga estas etapas para instalar a CLI de Fala em um contêiner do Docker:
+
+1. Instale e execute o [Docker Desktop na sua plataforma](https://www.docker.com/get-started).
+1. Em um novo prompt de comando ou terminal, digite este comando: `docker pull msftspeech/spx`
+1. Digite este comando. Você verá informações da Ajuda para a CLI de Fala: `docker run -it --rm msftspeech/spx help`
+
+### <a name="mount-a-directory-in-the-container"></a>Montar um diretório no contêiner
+
+A ferramenta CLI de Fala salva as definições de configuração como arquivos e carrega esses arquivos durante a execução de qualquer comando (exceto os comandos da Ajuda).
+Ao usar a CLI de Fala em um contêiner do Docker, você precisará montar um diretório local por meio do contêiner, de modo que a ferramenta possa armazenar ou localizar as definições de configuração, e também para que a ferramenta possa ler ou gravar todos os arquivos necessários para o comando, como arquivos de áudio de fala.
+
+No Windows, digite este comando para criar um diretório local que possa ser usado pela CLI de Fala no contêiner:
+
+`mkdir c:\spx-data`
+
+Ou então, no Linux ou no Mac, digite este comando em um terminal para criar um diretório e ver o caminho absoluto dele:
+
+```bash
+mkdir ~/spx-data
+cd ~/spx-data
+pwd
+```
+
+Você usará o caminho absoluto ao chamar a CLI de Fala.
+
+### <a name="run-speech-cli-in-the-container"></a>Executar a CLI de Fala no contêiner
+
+Esta documentação mostra o comando `spx` da CLI de Fala usado nas instalações que não são do Docker.
+Ao chamar o comando `spx` em um contêiner do Docker, você precisará montar um diretório no contêiner para o sistema de arquivos em que a CLI de Fala possa armazenar e localizar valores de configuração, bem como ler e gravar arquivos.
+No Windows, os comandos serão iniciados da seguinte maneira:
+
+`docker run -it -v c:\spx-data:/data --rm msftspeech/spx`
+
+No Linux ou no Mac, os comandos serão iniciados de maneira semelhante a esta:
+
+`sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`
+
+> [!NOTE]
+> Substitua `/ABSOLUTE_PATH` pelo caminho absoluto mostrado pelo comando `pwd` na seção acima.
+
+Para usar o comando `spx` instalado em um contêiner, sempre insira o comando completo mostrado acima, seguido dos parâmetros da solicitação.
+Por exemplo, no Windows, este comando define a chave:
+
+`docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY`
+
+> [!NOTE]
+> Não é possível usar o microfone nem o alto-falante do computador durante a execução da CLI de Fala em um contêiner do Docker.
+> Para usar esses dispositivos, transmita os arquivos de áudio na CLI de Fala para gravação/reprodução fora do contêiner do Docker.
+> A ferramenta CLI de Fala pode acessar o diretório local configurado nas etapas acima.
+
 ***
 
 ## <a name="create-subscription-config"></a>Criar configuração da assinatura
@@ -58,8 +110,8 @@ Digite `spx` para ver a ajuda da CLI de Fala.
 Para começar a usar a CLI de Fala, primeiro você precisa inserir sua chave de assinatura da Fala e informações da região. Confira a página [suporte a regiões](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) para encontrar o identificador de sua região. Depois de obter a chave de assinatura e o identificador da região (por exemplo, `eastus`, `westus`), execute os comandos a seguir.
 
 ```shell
-spx config @key --set YOUR-SUBSCRIPTION-KEY
-spx config @region --set YOUR-REGION-ID
+spx config @key --set SUBSCRIPTION-KEY
+spx config @region --set REGION
 ```
 
 Sua autenticação de assinatura agora está armazenada para futuras solicitações de SPX. Se você precisar remover qualquer um desses valores armazenados, execute `spx config @region --clear` ou `spx config @key --clear`.

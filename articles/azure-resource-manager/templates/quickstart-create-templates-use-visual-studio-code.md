@@ -2,15 +2,15 @@
 title: Criar modelo – Visual Studio Code
 description: Use a extensão de ferramentas do Visual Studio Code e do Azure Resource Manager para trabalhar em modelos do Resource Manager.
 author: neilpeterson
-ms.date: 04/17/2020
+ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: 06e7d3f291d32cecdcbf4d1f22ff9976d8970109
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5375fedcd05aefa5d23ee872325373ce631d43bb
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040521"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034967"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Início Rápido: Criar modelos do Azure Resource Manager usando o Visual Studio Code
 
@@ -26,7 +26,7 @@ Crie e abra com um novo arquivo chamado *azuredeploy.json* com o Visual Studio C
 
 Selecione `arm!` para criar um modelo com escopo para uma implantação do grupo de recursos do Azure.
 
-![Imagem mostrando o scaffolding do Azure Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/1.png)
+![Imagem mostrando os snippets de scaffolding do Azure Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/1.png)
 
 Este snippet cria os blocos de construção básicos para um modelo do Resource Manager.
 
@@ -68,7 +68,7 @@ Para usar as funcionalidades de conclusão, remova `megaStorage`, coloque o curs
 
 Agora crie e use um parâmetro para especificar o nome da conta de armazenamento.
 
-Coloque o cursor no bloco de parâmetros, adicione um retorno de carro, digite `par` e selecione o snippet `arm-param-value`. Esta ação adiciona um parâmetro genérico ao modelo.
+Coloque o cursor no bloco de parâmetros, adicione um retorno de carro, digite `"` e selecione o snippet `new-parameter`. Esta ação adiciona um parâmetro genérico ao modelo.
 
 ![Imagem mostrando um parâmetro que está sendo adicionado ao modelo do Resource Manager](./media/quickstart-create-templates-use-visual-studio-code/9.png)
 

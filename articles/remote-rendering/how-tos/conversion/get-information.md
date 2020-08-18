@@ -5,12 +5,12 @@ author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 722d3e218272202074820db442ab1592042c7011
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5c38ac88503416b37b720a091c9e46d819a3146
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805004"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509290"
 ---
 # <a name="get-information-about-a-converted-model"></a>Obter informações sobre um modelo convertido
 
@@ -100,7 +100,7 @@ Esta seção registra informações sobre o formato do arquivo de origem.
 Esta seção fornece informações sobre a cena de origem. Em geral, haverá discrepâncias entre os valores nesta seção e os valores equivalentes na ferramenta que criou o modelo de origem. Essas diferenças são esperadas, pois o modelo é modificado durante as etapas de exportação e conversão.
 
 * `numMeshes`: O número de partes de malha, onde cada parte pode fazer referência a um único material.
-* `numFaces`: O número total de _triângulos_ em todo o modelo. Observe que a malha está triangulada durante a conversão. Esse número contribui para o limite do polígono no [tamanho da VM de renderização padrão](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons).
+* `numFaces`: O número total de _triângulos_ em todo o modelo. Observe que a malha está triangulada durante a conversão. Esse número contribui para o limite do polígono no [tamanho do servidor de renderização padrão](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons).
 * `numVertices`: O número total de vértices em todo o modelo.
 * `numMaterial`: O número total de materiais em todo o modelo.
 * `numFacesSmallestMesh`: O número de triângulos na menor malha do modelo.

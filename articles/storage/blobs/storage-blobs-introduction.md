@@ -1,7 +1,7 @@
 ---
 title: Introdução ao Armazenamento de Blobs (objeto)
 titleSuffix: Azure Storage
-description: O Armazenamento de blobs do Azure armazena enormes quantidades de dados de objeto não estruturados, como texto ou dados binários. O armazenamento de blobs do Azure é altamente escalonável e disponível. Os clientes podem acessar objetos de dados no Armazenamento de blobs do PowerShell ou da CLI do Azure, de maneira programática por meio de bibliotecas de clientes do Armazenamento do Azure, ou usando REST.
+description: Use o armazenamento de Blobs do Azure para armazenar grandes quantidades de dados de objeto não estruturados, como texto ou dados binários. O armazenamento de blobs do Azure é altamente escalonável e disponível.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/24/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 0d05e85a06ae1e893d5d7faa7e5389da78ad6389
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 55059f4edea19a1e559ea1ad99d9e7e60756cc96
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85559522"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836370"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introdução ao armazenamento de Blobs do Azure
 

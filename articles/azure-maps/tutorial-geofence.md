@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Criar uma cerca geográfica e controlar dispositivos no Microsoft Azure Mapas'
-description: Saiba como configurar um limite geográfico e acompanhar os dispositivos em relação ao limite geográfico usando o Serviço Espacial dos Microsoft Azure Mapas.
+description: Saiba como configurar uma cerca geográfica. Veja como controlar dispositivos em relação à cerca geográfica usando o serviço Espacial do Azure Mapas.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 7/15/2020
+ms.date: 8/11/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 775d98b992f2bca4441c868873ceaeb2389db81a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b88d9132ec1548c9d94fc418af35b55ac2836e96
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517310"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121231"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configurar um limite geográfico usando o Azure Mapas
 
@@ -25,7 +25,7 @@ Este tutorial ensina as noções básicas de criação e uso dos serviços de Ce
 O Azure Mapas fornece vários serviços para dar suporte ao acompanhamento de equipamentos que entram e saem da área de construção no cenário acima. Neste tutorial, abordaremos como:
 
 > [!div class="checklist"]
-> * Carregue os [Dados GeoJSON de delimitação geográfica](geofence-geojson.md) que define as áreas do site de construção que desejamos monitorar. Usaremos a [API de Carregamento de Dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) para carregar cercas geográficas como coordenadas em polígono na sua conta do Azure Mapas.
+> * Carregue os [Dados GeoJSON de delimitação geográfica](geofence-geojson.md), que definem as áreas do canteiro de obras que desejamos monitorar. Usaremos a [API de Carregamento de Dados](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) para carregar cercas geográficas como coordenadas em polígono na sua conta do Azure Mapas.
 > * Configure dois [Aplicativos Lógicos](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) que, quando disparados, enviarão notificações por email para o Operations Manager do site de construção quando o equipamento entrar e sair da área de cerca geográfica.
 > * Use a [Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/overview) para assinar eventos de entrada e saída de cerca geográfica do Azure Mapas. Vamos configurar duas assinaturas de evento do web hook que chamarão os pontos de extremidade HTTP definidos nos dois Aplicativos Lógicos. Em seguida, os Aplicativos Lógicos enviarão as notificações por email apropriadas de equipamentos que se movem além da cerca geográfica ou que entram nela.
 > * Use a [Pesquisa de API de GET de Cerca Geográfica](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) para receber notificações quando uma parte do equipamento sair e entrar em áreas de cerca geográfica.

@@ -4,12 +4,12 @@ description: Este artigo descreve como migrar VMs AWS para o Azure com as Migra�
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: MVC
-ms.openlocfilehash: 61a7bee52179ac525b42ad696d118f4f753f6931
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 9aad6993af4a90acb41316da0056da84f2e95f70
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534815"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066637"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Descubra, avalie e migre as VMs AWS (Amazon Web Services) para o Azure
 
@@ -99,7 +99,7 @@ Migrações para Azure: Migração de Servidor usa um dispositivo de replicaçã
 Prepare-se para implantação do dispositivo, conforme mostrado a seguir:
 
 - Configure uma VM EC2 separada para hospedar o dispositivo de replicação. Essa instância precisa estar executando o Windows Server 2012 R2 ou Windows Server 2016. [Examine](./migrate-replication-appliance.md#appliance-requirements) os requisitos de hardware, software e rede para o dispositivo.
-- O dispositivo não deve ser instalado em uma VM de origem que você deseja replicar. Ele deve ser implantado em uma VM diferente.
+- O dispositivo não deve ser instalado em uma VM de origem que você deseja replicar nem no dispositivo de avaliação e descoberta das Migrações para Azure que pode ter sido instalado antes. Ele deve ser implantado em uma VM diferente.
 - As VMs AWS de origem a serem migradas devem ter uma linha de visão de rede para o dispositivo de replicação. Configure as regras necessárias do grupo de segurança para habilitar isso. É recomendável que o dispositivo de replicação seja implantado no mesmo VPC que as VMs de origem a serem migradas. Se o dispositivo de replicação precisar estar em um VPC diferente, os VPCs precisarão ser conectados por meio de emparelhamento de VPC.
 - As VMs AWS de origem se comunicam com o dispositivo de replicação nas portas HTTPS 443 (orquestração de canal de controle) e TCP 9443 (transporte de dados) de entrada para gerenciamento de replicação e transferência de dados de replicação. O dispositivo de replicação, por sua vez, orquestra e envia dados de replicação para o Azure pela porta HTTPS 443 de saída. Para configurar essas regras, edite as regras de entrada/saída do grupo de segurança com as informações de IP de origem e as portas apropriadas.
 

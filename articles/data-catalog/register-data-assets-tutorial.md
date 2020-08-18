@@ -1,17 +1,17 @@
 ---
-title: Gerenciar ativos de dados no Catálogo de Dados do Azure
+title: 'Tutorial: Gerenciar ativos de dados no Catálogo de Dados do Azure'
 description: Este tutorial descreve como registrar ativos de dados no seu Catálogo de Dados do Azure.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 10733dc59d7b143657c67e24d45d4a7c920cbd03
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 66bacdf27b2ef9cf624b645cb6e4c123d9c3fa2a
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255187"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135871"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Tutorial: Gerenciar ativos de dados no Catálogo de Dados do Azure
 
@@ -49,7 +49,7 @@ Agora, registre ativos de dados da amostra de banco de dados usando o Catálogo 
 
    ![Catálogo de Dados do Azure – botão Publicar Dados](media/register-data-assets-tutorial/data-catalog-publish-data.png)
 
-2. selecione **Iniciar Aplicativo** para baixar, instalar e executar a ferramenta de registro em seu computador.
+2. Selecione **Iniciar Aplicativo** para baixar, instalar e executar a ferramenta de registro no computador.
 
    ![Catálogo de Dados do Azure – botão Iniciar](media/register-data-assets-tutorial/data-catalog-launch-application.png)
 
@@ -67,31 +67,31 @@ Agora, registre ativos de dados da amostra de banco de dados usando o Catálogo 
 
 6. Registre os metadados do seu ativo de dados. Neste exemplo, você registra objetos de **Produto** do namespace de amostra:
 
-    1. Na árvore **Hierarquia de Servidores**, expanda sua amostra de banco de dados e selecione **SalesLT**.
+   1. Na árvore **Hierarquia de Servidores**, expanda sua amostra de banco de dados e selecione **SalesLT**.
 
-    2. Selecione **Product**, **ProductCategory**, **ProductDescription** e **ProductModel** usando Ctrl+selecionar.
+   2. Selecione **Product**, **ProductCategory**, **ProductDescription** e **ProductModel** usando Ctrl+selecionar.
 
-    3. selecione a **seta de movimentação selecionada** ( **>** ). Esta ação move todos os objetos selecionados para a lista **Objetos para registrar** .
+   3. Selecione a **seta de movimentação selecionada** ( **>** ). Esta ação move todos os objetos selecionados para a lista **Objetos para registrar** .
 
-          ![Tutorial do Catálogo de Dados do Azure – procurar e selecionar objetos](media/register-data-assets-tutorial/data-catalog-server-hierarchy.png)
+      ![Tutorial do Catálogo de Dados do Azure – procurar e selecionar objetos](media/register-data-assets-tutorial/data-catalog-server-hierarchy.png)
 
-    4. Selecione **Incluir uma Visualização** para incluir uma visualização dos dados como instantâneo. O instantâneo inclui até 20 registros de cada tabela e é copiado no catálogo.
+   4. Selecione **Incluir uma Visualização** para incluir uma visualização dos dados como instantâneo. O instantâneo inclui até 20 registros de cada tabela e é copiado no catálogo.
 
-    5. Selecione **Incluir Perfil de Dados** para incluir um instantâneo das estatísticas de objeto no perfil de dados (por exemplo, valores mínimo, máximo e médio de uma coluna, número de linhas).
+   5. Selecione **Incluir Perfil de Dados** para incluir um instantâneo das estatísticas de objeto no perfil de dados (por exemplo, valores mínimo, máximo e médio de uma coluna, número de linhas).
 
-    6. No campo **Adicionar marcas**, insira **vendas, produto, sql azure**. Essa ação adiciona marcas de pesquisa para esses ativos de dados. Marcas são uma ótima maneira de ajudar os usuários a localizar uma fonte de dados registrada.
+   6. No campo **Adicionar marcas**, insira **vendas, produto, sql azure**. Essa ação adiciona marcas de pesquisa para esses ativos de dados. Marcas são uma ótima maneira de ajudar os usuários a localizar uma fonte de dados registrada.
 
-    7. Especifique o nome de um **especialista** nesses dados (opcional).
+   7. Especifique o nome de um **especialista** nesses dados (opcional).
 
-          ![Tutorial do Catálogo de Dados do Azure – objetos para registrar](media/register-data-assets-tutorial/data-catalog-objects-register.png)
+      ![Tutorial do Catálogo de Dados do Azure – objetos para registrar](media/register-data-assets-tutorial/data-catalog-objects-register.png)
 
-    8. Selecione **REGISTRAR**. O Catálogo de Dados do Azure registra os objetos selecionados. Neste exercício, os objetos selecionados da sua amostra de banco de dados são registrados. A ferramenta de registro extrai metadados de ativo de dados e copia esses dados no serviço Catálogo de Dados do Azure. Os dados permanecem no local em que estão no momento. Os dados permanecem sob o controle dos administradores e das políticas do sistema de origem.
+   8. Selecione **REGISTRAR**. O Catálogo de Dados do Azure registra os objetos selecionados. Neste exercício, os objetos selecionados da sua amostra de banco de dados são registrados. A ferramenta de registro extrai metadados de ativo de dados e copia esses dados no serviço Catálogo de Dados do Azure. Os dados permanecem no local em que estão no momento. Os dados permanecem sob o controle dos administradores e das políticas do sistema de origem.
 
-          ![Catálogo de Dados do Azure – objetos registrados](media/register-data-assets-tutorial/data-catalog-registered-objects.png)
+      ![Catálogo de Dados do Azure – objetos registrados](media/register-data-assets-tutorial/data-catalog-registered-objects.png)
 
     9. Para ver seus objetos de fonte de dados registrados, selecione **Exibir Portal**. No portal do Catálogo de Dados do Azure, confirme que você vê todas as quatro tabelas e o banco de dados na exibição de grade (verifique se a barra de pesquisa está clara).
 
-        ![Objetos no portal do Catálogo de Dados do Azure](media/register-data-assets-tutorial/data-catalog-view-portal.png)
+       ![Objetos no portal do Catálogo de Dados do Azure](media/register-data-assets-tutorial/data-catalog-view-portal.png)
 
 Neste exercício, você registrou objetos da amostra de banco de dados para Banco de Dados SQL do Azure para que eles pudessem ser facilmente descobertos por usuários na sua organização.
 
@@ -115,26 +115,27 @@ Eis alguns exemplos para descobrir ativos de dados no catálogo.
 
 A pesquisa básica ajuda você a procurar um catálogo usando um ou mais termos de pesquisa. Os resultados são quaisquer ativos que correspondam a qualquer propriedade com um ou mais dos termos especificados.
 
-1. selecione **Página Inicial** no portal do Catálogo de Dados do Azure. Se você tiver fechado o navegador da Web, vá até a [página inicial do Catálogo de Dados do Azure](https://www.azuredatacatalog.com).
+1. Selecione **Página Inicial** no portal do Catálogo de Dados do Azure. Se você tiver fechado o navegador da Web, vá até a [página inicial do Catálogo de Dados do Azure](https://www.azuredatacatalog.com).
 
 2. Na caixa de pesquisa, insira `product` e pressione **ENTER**.
 
-    ![Catálogo de Dados do Azure – pesquisa de texto básica](media/register-data-assets-tutorial/data-catalog-basic-text-search.png)
+   ![Catálogo de Dados do Azure – pesquisa de texto básica](media/register-data-assets-tutorial/data-catalog-basic-text-search.png)
 
 3. Confirme que você vê todas as quatro tabelas e o banco de dados nos resultados. Você pode alternar entre **exibição de grade** e **exibição de lista** selecionando os botões na barra de ferramentas como mostrado na imagem a seguir. Observe que a palavra-chave de pesquisa fica realçada nos resultados da pesquisa, já que a opção **Realçar** está **ATIVADA**. Você também pode especificar o número de **resultados por página** nos resultados da pesquisa.
 
-    ![Catálogo de Dados do Azure – resultados da pesquisa de texto básica](media/register-data-assets-tutorial/data-catalog-basic-text-search-results.png)
+   ![Catálogo de Dados do Azure – resultados da pesquisa de texto básica](media/register-data-assets-tutorial/data-catalog-basic-text-search-results.png)
 
-    O painel **Pesquisas** fica à esquerda e o painel **Propriedades**, à direita. No painel **Pesquisas** , você pode alterar os critérios de pesquisa e filtrar os resultados. O painel **Propriedades** exibe as propriedades de um objeto selecionado na grade ou lista.
+   O painel **Pesquisas** fica à esquerda e o painel **Propriedades**, à direita. No painel **Pesquisas** , você pode alterar os critérios de pesquisa e filtrar os resultados. O painel **Propriedades** exibe as propriedades de um objeto selecionado na grade ou lista.
 
-4. selecione **Produto** nos resultados da pesquisa. Selecione as guias **Visualização**, **Colunas**, **Perfil de Dados** e **Documentação** ou selecione a seta para expandir o painel inferior.  
+4. Selecione **Produto** nos resultados da pesquisa. Selecione as guias **Visualização**, **Colunas**, **Perfil de Dados** e **Documentação** ou selecione a seta para expandir o painel inferior.  
 
-    ![Catálogo de Dados do Azure – painel inferior](media/register-data-assets-tutorial/data-catalog-data-asset-preview.png)
+   ![Catálogo de Dados do Azure – painel inferior](media/register-data-assets-tutorial/data-catalog-data-asset-preview.png)
 
-    Na guia **Visualização**, você vê a visualização dos dados na tabela **Product**.  
-5. selecione a guia **Colunas** para encontrar detalhes sobre as colunas (como **nome** e **tipo de dados**) no ativo de dados.
+   Na guia **Visualização**, você vê a visualização dos dados na tabela **Product**.
 
-6. selecione a guia **Perfil de Dados** para ver a criação de perfil de dados (por exemplo, número de linhas, tamanho dos dados ou valor mínimo em uma coluna) no ativo de dados.
+5. Selecione a guia **Colunas** para encontrar detalhes sobre as colunas (como o **nome** e o **tipo de dados**) no ativo de dados.
+
+6. Selecione a guia **Perfil de Dados** para ver a criação de perfil de dados (por exemplo, número de linhas, tamanho dos dados ou valor mínimo em uma coluna) no ativo de dados.
 
 ### <a name="discover-data-assets-with-property-scoping"></a>Descobrir ativos de dados com escopo de propriedade
 
@@ -146,13 +147,13 @@ O escopo de propriedade ajuda você a descobrir os ativos de dados onde o termo 
 
 3. Confirme que você vê as tabelas e o banco de dados nos resultados.  
 
-    ![Catálogo de Dados – resultados da pesquisa de escopo de propriedade](media/register-data-assets-tutorial/data-catalog-property-scoping-results.png)
+   ![Catálogo de Dados – resultados da pesquisa de escopo de propriedade](media/register-data-assets-tutorial/data-catalog-property-scoping-results.png)
 
 ### <a name="save-the-search"></a>Salvar a pesquisa
 
 1. No painel **Pesquisas**, na seção **Pesquisa Atual**, digite um nome para a pesquisa e selecione **Salvar**.
 
-    ![Catálogo de dados do Azure – salvar pesquisa](media/register-data-assets-tutorial/data-catalog-save-search.png)
+   ![Catálogo de dados do Azure – salvar pesquisa](media/register-data-assets-tutorial/data-catalog-save-search.png)
 
 2. Confirme se a pesquisa salva aparece em **Pesquisas Salvas**.
 
@@ -166,7 +167,7 @@ Ao usar parênteses, você pode agrupar partes da consulta para obter o isolamen
 
 2. Verifique se você vê apenas a tabela **Product** nos resultados da pesquisa.
 
-    ![Catálogo de dados do Azure – agrupando pesquisa](media/register-data-assets-tutorial/data-catalog-grouping-search.png)
+   ![Catálogo de dados do Azure – agrupando pesquisa](media/register-data-assets-tutorial/data-catalog-grouping-search.png)
 
 ### <a name="comparison-operators"></a>Operadores de comparação
 
@@ -180,7 +181,7 @@ Com operadores de comparação, você pode usar comparações que não sejam de 
 
 4. Confirme que você vê as tabelas **Product**, **ProductCategory** e **ProductDescription** e o Banco de Dados SQL que você registrou nos resultados da pesquisa.
 
-    ![Catálogo de Dados do Azure – resultados da pequisa de comparação](media/register-data-assets-tutorial/data-catalog-comparison-operator-results.png)
+   ![Catálogo de Dados do Azure – resultados da pequisa de comparação](media/register-data-assets-tutorial/data-catalog-comparison-operator-results.png)
 
 Veja [Como descobrir ativos de dados](data-catalog-how-to-discover.md) para obter informações detalhadas sobre a descoberta de ativos de dados. Para obter mais informações sobre sintaxe de pesquisa, veja [Referência de sintaxe de Pesquisa do Catálogo de Dados](/rest/api/datacatalog/#search-syntax-reference).
 
@@ -233,21 +234,21 @@ Neste exercício, você abre os ativos de dados em uma ferramenta de cliente int
 
 1. Selecione **Produto** nos resultados da pesquisa. selecione **Abrir em** na barra de ferramentas e selecione **Excel**.
 
-    ![Catálogo de Dados do Azure – conectar-se a ativos de dados](media/register-data-assets-tutorial/data-catalog-connect1.png)
+   ![Catálogo de Dados do Azure – conectar-se a ativos de dados](media/register-data-assets-tutorial/data-catalog-connect1.png)
 
 2. Selecione **Abrir** na janela pop-up de download. Essa experiência pode variar dependendo do navegador.
 
 3. Na janela **Aviso de Segurança do Microsoft Excel**, selecione **Habilitar**.
 
-    ![Catálogo de Dados do Azure – pop-up de segurança do Excel](media/register-data-assets-tutorial/data-catalog-excel-security-popup.png)
+   ![Catálogo de Dados do Azure – pop-up de segurança do Excel](media/register-data-assets-tutorial/data-catalog-excel-security-popup.png)
 
 4. Mantenha os padrões na caixa de diálogo **Importar Dados** e selecione **OK**.
 
-    ![Catálogo de Dados do Azure – importar dados do Excel](media/register-data-assets-tutorial/data-catalog-excel-import-data.png)
+   ![Catálogo de Dados do Azure – importar dados do Excel](media/register-data-assets-tutorial/data-catalog-excel-import-data.png)
 
 5. Exiba a fonte de dados no Excel.
 
-    ![Catálogo de Dados do Azure – tabela de produto no Excel](media/register-data-assets-tutorial/data-catalog-connect2.png)
+   ![Catálogo de Dados do Azure – tabela de produto no Excel](media/register-data-assets-tutorial/data-catalog-connect2.png)
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
@@ -259,7 +260,7 @@ Neste exercício, você se conectou aos ativos de dados descobertos usando o Cat
 
 3. Use credenciais e autenticação apropriadas para acessar o ativo de dados. Se você não tem acesso, use as informações no campo **Solicitar Acesso** para obtê-lo.
 
-    ![Catálogo de Dados do Azure – solicitar acesso](media/register-data-assets-tutorial/data-catalog-request-access.png)
+   ![Catálogo de Dados do Azure – solicitar acesso](media/register-data-assets-tutorial/data-catalog-request-access.png)
 
 Selecione **Exibir Cadeias de Conexão** para exibir e copiar as cadeias de conexão ADO.NET, ODBC e OLEDB na área de transferência para usar em seu aplicativo.
 
@@ -277,7 +278,7 @@ Você pode usar o Catálogo de Dados para descobrir fontes de dados e exibir os 
 
 1. Vá para a [home page do catálogo de dados do Azure](https://www.azuredatacatalog.com). Na caixa de texto **Pesquisar**, insira `tags:cycles` e pressione **ENTER**.
 
-2. selecione um item na lista de resultados e selecione **Apropriar-se** na barra de ferramentas.
+2. Selecione um item na lista de resultados e selecione **Apropriar-se** na barra de ferramentas.
 
 3. Na seção **Gerenciamento** do painel **Propriedades**, selecione **Apropriar-se**.
 
@@ -299,18 +300,22 @@ No Catálogo de Dados do Azure, você pode eliminar um ativo individual ou exclu
 
 3. Selecione um item na lista de resultados e selecione **Excluir** na barra de ferramentas, conforme mostrado na imagem a seguir:
 
-    ![Catálogo de Dados do Azure – excluir o item de grade](media/register-data-assets-tutorial/data-catalog-delete-grid-item.png)
+   ![Catálogo de Dados do Azure – excluir o item de grade](media/register-data-assets-tutorial/data-catalog-delete-grid-item.png)
 
-    Se você estiver usando o modo de exibição de lista, a caixa de seleção estará à esquerda do item, conforme mostrado na imagem a seguir:
+   Se você estiver usando o modo de exibição de lista, a caixa de seleção estará à esquerda do item, conforme mostrado na imagem a seguir:
 
-    ![Catálogo de Dados do Azure – excluir o item de lista](media/register-data-assets-tutorial/data-catalog-delete-list-item.png)
+   ![Catálogo de Dados do Azure – excluir o item de lista](media/register-data-assets-tutorial/data-catalog-delete-list-item.png)
 
-    Você também pode selecionar vários ativos de dados e excluí-los, conforme mostrado na imagem abaixo:
+   Você também pode selecionar vários ativos de dados e excluí-los, conforme mostrado na imagem abaixo:
 
-    ![Catálogo de Dados do Azure – excluir vários ativos de dados](media/register-data-assets-tutorial/data-catalog-delete-assets.png)
+   ![Catálogo de Dados do Azure – excluir vários ativos de dados](media/register-data-assets-tutorial/data-catalog-delete-assets.png)
 
 > [!NOTE]
 > O comportamento padrão do catálogo é permitir que qualquer usuário registre qualquer fonte de dados, bem como permitir que qualquer usuário exclua qualquer ativo de dados que foi registrado. Os recursos de gerenciamento incluídos na Edição Standard do Catálogo de Dados do Azure fornecem opções adicionais para a apropriação dos ativos, a restrição de quem pode descobri-los e a restrição de quem pode excluí-los.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Siga as etapas em [Remover ativos de dados](#remove-data-assets) para limpar os ativos que você usou ao seguir este tutorial.
 
 ## <a name="summary"></a>Resumo
 

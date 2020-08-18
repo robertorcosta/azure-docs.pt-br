@@ -1,23 +1,23 @@
 ---
 title: Início Rápido do Azure - Criar um blob no armazenamento de objeto usando o PHP | Microsoft Docs
-description: Aprenda rapidamente a transferir objetos de/para o Armazenamento de Blobs do Azure usando PHP
+description: Aprenda rapidamente a transferir objetos de/para o Armazenamento de Blobs do Azure usando PHP. Carregue, baixe e liste blobs de blocos em um contêiner no armazenamento de Blobs do Azure.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 0453d7465479fb1410d1436cc3fa53914633ece5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a19ff153ea0625a14401770de690dcfddeb74d88
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "68726382"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835741"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transferir objetos de/para o Armazenamento de Blobs do Azure usando PHP
 Neste guia de início rápido, você aprenderá a usar PHP para carregar, baixar e listar blobs de blocos em um contêiner no Armazenamento de Blobs do Azure. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -122,7 +122,7 @@ Nesta seção, você configura uma instância do cliente do armazenamento do Azu
 
 O Armazenamento de Blobs dá suporte a blobs de blocos, blobs de acréscimo e blobs de páginas. Os blobs de blocos são utilizados com mais frequência e são usados nesse guia de início rápido.  
 
-Para carregar um arquivo em um blob, obtenha o caminho completo do arquivo unindo o nome do diretório e o nome do arquivo na unidade local. Em seguida, você pode carregar o arquivo no caminho especificado usando o método **createBlockBlob()** . 
+Para carregar um arquivo em um blob, obtenha o caminho completo do arquivo unindo o nome do diretório e o nome do arquivo na unidade local. Em seguida, você pode carregar o arquivo no caminho especificado usando o método **createBlockBlob()**. 
 
 O código de exemplo usa um arquivo local e carrega-o no Azure. O arquivo é armazenado como **myfile** e o nome do blob como **fileToUpload** no código. O exemplo a seguir carrega o arquivo para seu contêiner chamado **quickstartblobs**.
 
@@ -141,11 +141,11 @@ O código de exemplo usa um arquivo local e carrega-o no Azure. O arquivo é arm
     $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
 ```
 
-Para executar uma atualização parcial do conteúdo de um blob de blocos, use o método **createblocklist()** . Os blobs de bloco podem ter até 4,7 TB e podem ser qualquer coisa desde planilhas do Excel até arquivos de vídeo grandes. Os blobs de páginas são usados principalmente para os arquivos VHD usados auxiliar as VMs IaaS. Os blobs de acréscimo são usados para registro em log, como quando você quer gravar em um arquivo e depois adicionar mais informações. O acréscimo de blobs deve ser usado em um único modo de gravação. A maioria dos objetos armazenados no Armazenamento de Blobs são blobs de blocos.
+Para executar uma atualização parcial do conteúdo de um blob de blocos, use o método **createblocklist()**. Os blobs de bloco podem ter até 4,7 TB e podem ser qualquer coisa desde planilhas do Excel até arquivos de vídeo grandes. Os blobs de páginas são usados principalmente para os arquivos VHD usados auxiliar as VMs IaaS. Os blobs de acréscimo são usados para registro em log, como quando você quer gravar em um arquivo e depois adicionar mais informações. O acréscimo de blobs deve ser usado em um único modo de gravação. A maioria dos objetos armazenados no Armazenamento de Blobs são blobs de blocos.
 
 ### <a name="list-the-blobs-in-a-container"></a>Listar os blobs em um contêiner
 
-É possível obter uma lista de arquivos no contêiner usando o método **listBlobs()** . O código a seguir recupera a lista de blobs e a percorre, mostrando os nomes dos blobs encontrados em um contêiner.  
+É possível obter uma lista de arquivos no contêiner usando o método **listBlobs()**. O código a seguir recupera a lista de blobs e a percorre, mostrando os nomes dos blobs encontrados em um contêiner.  
 
 ```PHP
     $listBlobsOptions = new ListBlobsOptions();
@@ -166,7 +166,7 @@ Para executar uma atualização parcial do conteúdo de um blob de blocos, use o
 
 ### <a name="get-the-content-of-your-blobs"></a>Obter o conteúdo dos blobs
 
-Obter o conteúdo dos blobs usando o método **getBlob()** . O código a seguir exibe o conteúdo do blob carregado em uma seção anterior.
+Obter o conteúdo dos blobs usando o método **getBlob()**. O código a seguir exibe o conteúdo do blob carregado em uma seção anterior.
 
 ```PHP
     $blob = $blobClient->getBlob($containerName, $fileToUpload);
@@ -174,7 +174,7 @@ Obter o conteúdo dos blobs usando o método **getBlob()** . O código a seguir 
 ```
 
 ### <a name="clean-up-resources"></a>Limpar os recursos
-Se você não precisar mais dos blobs carregados neste guia de início rápido, poderá excluir o contêiner inteiro usando o método **deleteContainer()** . Se os arquivos criados não forem mais necessários, use o método **deleteBlob()** para excluí-los.
+Se você não precisar mais dos blobs carregados neste guia de início rápido, poderá excluir o contêiner inteiro usando o método **deleteContainer()**. Se os arquivos criados não forem mais necessários, use o método **deleteBlob()** para excluí-los.
 
 ```PHP
     // Delete blob.

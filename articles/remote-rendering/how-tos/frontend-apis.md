@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
-ms.openlocfilehash: c43ed412116d0cb30f7d06ba65467fd529f367ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcff550b5411ac00dc54d2103278812f32f56543
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552686"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509970"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>Usar as APIs de front-end do Azure para autenticação
 
@@ -64,7 +64,7 @@ As classes relevantes são ```AzureFrontend``` e ```AzureSession```. ```AzureFro
 
 Cada ```AzureSession``` aberta/criada manterá uma referência ao front-end que o criou. Para desligar corretamente, todas as sessões devem ser desalocadas antes que o front-end seja desalocado.
 
-A desalocação de uma sessão não interromperá a VM no Azure, `AzureSession.StopAsync` deve ser chamado explicitamente.
+A desalocação de uma sessão não interromperá o servidor no Azure, `AzureSession.StopAsync` deve ser chamada explicitamente.
 
 Depois que uma sessão tiver sido criada e seu estado tiver sido marcado como pronto, ele poderá se conectar ao runtime do Remote Rendering com `AzureSession.ConnectToRuntime`.
 

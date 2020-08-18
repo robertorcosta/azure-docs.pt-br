@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 01/23/2019
+ms.date: 08/04/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: b10bf18fde850223bda80a597f448747558113f1
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 16c1dec9e52be98e5b4e0103a583bdc219bc2417
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752182"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031755"
 ---
 ## <a name="push-image-to-registry"></a>Efetuar push de imagem para registro
 
@@ -23,13 +23,20 @@ Para enviar por push uma imagem para um Registro de Contêiner do Azure, primeir
 docker pull hello-world
 ```
 
-Para efetuar push de uma imagem para o Registro, você precisa marcá-la com o nome totalmente qualificado de seu servidor de logon do Registro. O nome do servidor de logon está no formato *\<registry-name\>.azurecr.io* (tudo em letras minúsculas), por exemplo, *mycontainerregistry007.azurecr.io*.
+Para efetuar push de uma imagem para o Registro, você precisa marcá-la com o nome totalmente qualificado de seu servidor de logon do Registro. O nome do servidor de logon está no formato *\<registry-name\>.azurecr.io* (tudo em letras minúsculas), por exemplo, *mycontainerregistry.azurecr.io*.
 
 Marque a imagem usando o comando [docker tag][docker-tag]. Substitua o `<login-server>` pelo nome do servidor de logon da sua instância do ACR.
 
 ```
 docker tag hello-world <login-server>/hello-world:v1
 ```
+
+Exemplo:
+
+```
+docker tag hello-world mycontainerregistry.azurecr.io/hello-world:v1
+```
+
 
 Por fim, use [docker push][docker-push] para efetuar push da imagem para a instância do registro. Substitua o `<login-server>` pelo nome do servidor de logon de sua instância do registro. Este exemplo cria o repositório **Olá, mundo**, que contém a imagem `hello-world:v1`.
 

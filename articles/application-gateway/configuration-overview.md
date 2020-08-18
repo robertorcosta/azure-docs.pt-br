@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/30/2020
 ms.author: absha
-ms.openlocfilehash: 9315884db30c053d86c889ff3b45aaea17d48b17
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 32809c33e1c365d8d333bb89a5c2f773b311c2ff
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87438919"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511075"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do gateway de aplicativo
 
@@ -38,11 +38,13 @@ Um gateway de aplicativo é uma implantação dedicada em sua rede virtual. Em s
 
 O gateway de aplicativo usa um endereço IP privado por instância, mais outro endereço IP privado se um IP de front-end privado estiver configurado.
 
-O Azure também reserva cinco endereços IP em cada sub-rede para uso interno: os quatro primeiros e os últimos endereços IP. Por exemplo, considere 15 instâncias de gateway de aplicativo sem um IP de front-end privado. Você precisa de pelo menos 20 endereços IP para esta sub-rede: cinco para uso interno e 15 para as instâncias do gateway de aplicativo. Portanto, você precisa de um tamanho de sub-rede/27 ou maior.
+O Azure também reserva cinco endereços IP em cada sub-rede para uso interno: os quatro primeiros e os últimos endereços IP. Por exemplo, considere 15 instâncias de gateway de aplicativo sem um IP de front-end privado. Você precisa de pelo menos 20 endereços IP para esta sub-rede: cinco para uso interno e 15 para as instâncias do gateway de aplicativo.
 
-Considere uma sub-rede que tenha 27 instâncias de gateway de aplicativo e um endereço IP para um IP de front-end privado. Nesse caso, você precisa de 33 endereços IP: 27 para as instâncias do gateway de aplicativo, uma para o front-end privado e cinco para uso interno. Portanto, você precisa de um tamanho de sub-rede/26 ou maior.
+Considere uma sub-rede que tenha 27 instâncias de gateway de aplicativo e um endereço IP para um IP de front-end privado. Nesse caso, você precisa de 33 endereços IP: 27 para as instâncias do gateway de aplicativo, uma para o front-end privado e cinco para uso interno.
 
-Recomendamos que você use um tamanho de sub-rede de pelo menos/28. Esse tamanho fornece a você 11 endereços IP utilizáveis. Se a carga do aplicativo exigir mais de 10 instâncias do gateway de aplicativo, considere um tamanho de sub-rede/27 ou/26.
+O SKU do gateway de aplicativo (Standard ou WAF) pode dar suporte a até 32 instâncias (32 instância endereços IP + 1 IP privado de front-end + 5 Azure reservado) – portanto, é recomendado um tamanho mínimo de sub-rede de/26
+
+O gateway de aplicativo (Standard_v2 ou WAF_v2 SKU) pode dar suporte a até 125 instâncias (125 instância endereços IP + 1 IP de front-end privado + 5 Azure reservado) – portanto, é recomendado um tamanho mínimo de sub-rede de/24
 
 #### <a name="network-security-groups-on-the-application-gateway-subnet"></a>Grupos de segurança de rede na sub-rede do gateway de aplicativo
 
@@ -292,7 +294,7 @@ Para obter mais informações sobre o redirecionamento, consulte:
 Usando regras de reescrita, você pode adicionar, remover ou atualizar os cabeçalhos de solicitação e resposta HTTP (S), bem como o caminho da URL e os parâmetros da cadeia de caracteres de consulta, pois os pacotes de solicitação e resposta são movidos entre o cliente e os pools de back-end por meio do gateway de aplicativo.
 
 Os cabeçalhos e os parâmetros de URL podem ser definidos para valores estáticos ou para outros cabeçalhos e variáveis de servidor. Isso ajuda com casos de uso importantes, como extração de endereços IP do cliente, remoção de informações confidenciais sobre o back-end, adição de mais segurança e assim por diante.
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
  - [Reescrever cabeçalhos HTTP e visão geral da URL](rewrite-http-headers-url.md)
  - [Configurar a regravação do cabeçalho HTTP](rewrite-http-headers-portal.md)

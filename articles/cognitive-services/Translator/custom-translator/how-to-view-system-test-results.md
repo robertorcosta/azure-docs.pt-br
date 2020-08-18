@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 3361241bf0a330abc18701f93460208b8804a7dc
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 04e21e4bcd56506ba27730ebc1f9b0db8dc39615
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994252"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509615"
 ---
 # <a name="view-system-test-results"></a>Exibir resultados de teste do sistema
 
@@ -54,11 +54,11 @@ Clique no link Baixar Traduções para fazer o download de um arquivo zip. O zip
 
 Este arquivo zip para fazer o download contém três arquivos.
 
-1.  **. Mt. txt personalizado:** Esse arquivo contém traduções de computador de sentenças de idioma de origem no idioma de destino feito pelo modelo treinado com os dados do usuário.
+1.  **custom.mt.txt:** Esse arquivo contém traduções de computador de sentenças de idioma de origem no idioma de destino feito pelo modelo treinado com os dados do usuário.
 
-2.  **ref. txt:** Esse arquivo contém traduções fornecidas pelo usuário de frases de idioma de origem no idioma de destino.
+2.  **ref.txt:** Esse arquivo contém traduções fornecidas pelo usuário de frases de idioma de origem no idioma de destino.
 
-3.  **Source. txt:** Esse arquivo contém sentenças no idioma de origem.
+3.  **source.txt:** Esse arquivo contém sentenças no idioma de origem.
 
     ![Resultados de testes do sistema descarregadas](media/how-to/how-to-download-system-test.png)
 
@@ -68,7 +68,7 @@ Para solicitar uma implantação:
 
 1.  Selecione um projeto, vá para a guia de modelos.
 
-2. Para um modelo treinado com êxito, ele mostra o botão "implantar", se não for implantado.
+2. Para um modelo treinado com êxito, ela mostra o botão "Implantar", se não for implantado.
 
     ![Implantar modelo](media/how-to/how-to-deploy-model.png)
 
@@ -77,7 +77,7 @@ Para solicitar uma implantação:
 
     ![Implantar modelo](media/how-to/how-to-deploy-model-regions.png)
 
-5.  Você pode exibir o status do seu modelo na coluna "status".
+5.  Você pode ver o status do seu modelo na coluna "Status".
 
 >[!Note]
 >O tradutor personalizado dá suporte a 10 modelos implantados em um espaço de trabalho a qualquer momento.
@@ -102,6 +102,6 @@ Para atualizar configurações de implantação:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Comece a usar seu modelo de tradução personalizado implantado por meio do [Tradutor v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Comece a usar o modelo de tradução personalizado implantado por meio da [API de Tradução de Texto V3 da Microsoft](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
 - Saiba mais [como gerenciar configurações](how-to-manage-settings.md) para compartilhar seu workspace, gerenciar a chave de assinatura.
 - Aprenda [como migrar seu workspace e projeto](how-to-migrate.md) do [Microsoft Translator Hub](https://hub.microsofttranslator.com)

@@ -3,14 +3,14 @@ title: Visão geral do Controle de Alterações e Inventário da Automação do 
 description: Este artigo descreve o Controle de Alterações e o recurso de inventário, que ajuda a identificar alterações de software e serviço da Microsoft em seu ambiente.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 06/08/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca96f817407aaef808fa10fbedec7af7b5912dc8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 2fe92942e263cf53b9827ccbcb13a2d7bafc367c
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447933"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511041"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Visão geral do Controle de Alterações e Inventário
 
@@ -26,10 +26,10 @@ Este artigo apresenta o Controle de Alterações e Inventário na Automação do
 > [!NOTE]
 > Para rastrear as alterações da propriedade do Azure Resource Manager, confira o [histórico de alterações](../governance/resource-graph/how-to/get-resource-changes.md) do Azure Resource Graph.
 
-O Controle de Alterações e Inventário obtêm seus dados do Azure Monitor. As máquinas virtuais conectadas a espaços de trabalho do Log Analytics usam agentes de Log Analytics para coletar dados sobre alterações em softwares instalados, serviços da Microsoft, registro e arquivos do Windows e daemons do Linux em servidores monitorados. Quando os dados estão disponíveis, os agentes os enviam para o Azure Monitor para processamento. O Azure Monitor aplica a lógica aos dados recebidos, registra-os e torna-os disponíveis. 
+O Controle de Alterações e Inventário obtêm seus dados do Azure Monitor. As máquinas virtuais conectadas a espaços de trabalho do Log Analytics usam o agente Log Analytics para coletar dados sobre alterações no software instalado, serviços da Microsoft, registro e arquivos do Windows e daemons do Linux em servidores monitorados. Quando os dados estão disponíveis, o agente o envia para Azure Monitor para processamento. O Azure Monitor aplica a lógica aos dados recebidos, registra-os e torna-os disponíveis.
 
 > [!NOTE]
-> Para usar o recurso de Controle de Alterações e Inventário, você deverá localizar todas as suas VMs na mesma assinatura e região da conta de Automação.
+> Controle de Alterações e inventário exigem a vinculação de um espaço de trabalho Log Analytics à sua conta de automação. Para obter uma lista definitiva de regiões compatíveis, confira [Mapeamentos de Workspace do Azure](./how-to/region-mappings.md). Os mapeamentos de região não afetam a capacidade de gerenciar VMs em uma região separada da sua conta de Automação.
 
 O Controle de Alterações e Inventário atualmente não dá suporte aos seguintes itens:
 
@@ -53,7 +53,7 @@ Atualmente, a solução Controle de Alterações e Inventário está enfrentando
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
-O Controle de Alterações e Inventário tem suporte em todos os sistemas operacionais que atendem aos requisitos de agente do Log Analytics. As versões do sistema operacional oficial são o Windows Server 2008 SP1 ou posterior e o Windows 7 SP1 ou posterior. O recurso também tem suporte em vários sistemas operacionais Linux. Para sistemas operacionais com suporte a Log Analytics, consulte [visão geral do agente de log Analytics](../azure-monitor/platform/log-analytics-agent.md).
+O Controle de Alterações e Inventário tem suporte em todos os sistemas operacionais que atendem aos requisitos de agente do Log Analytics. As versões do sistema operacional oficial são o Windows Server 2008 SP1 ou posterior e o Windows 7 SP1 ou posterior. O recurso também tem suporte em vários sistemas operacionais Linux. Para obter uma lista de sistemas operacionais com suporte, consulte [visão geral do agente de log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
 Para entender os requisitos do cliente para o TLS 1,2, confira [imposição tls 1,2 para a automação do Azure](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 

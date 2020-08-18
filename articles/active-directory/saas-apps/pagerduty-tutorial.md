@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 99d9988a02b046562c2517df8a81b8ef5c778ef2
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 330066a950165d3424ca7900493ac89ce746b309
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81683499"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904514"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pagerduty"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao PagerDuty
 
@@ -38,6 +38,9 @@ Para começar, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 * Assinatura habilitada para SSO (logon único) do PagerDuty.
+
+> [!NOTE]
+> Se você estiver usando a autenticação sem senha ou MFA com o Azure AD, desative o valor AuthnContext na solicitação SAML. Caso contrário, o Azure AD vai gerar o erro na incompatibilidade de AuthnContext e não enviará o token de volta para o aplicativo.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 

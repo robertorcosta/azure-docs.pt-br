@@ -1,20 +1,20 @@
 ---
 title: Tutorial sobre como devolver o Microsoft Azure Data Box Disk | Microsoft Docs
-description: Usar este tutorial para aprender como enviar o Azure Data Box Disk para a Microsoft
+description: Neste tutorial, aprenda a devolver seu Azure Data Box Disk. As instruções de retirada dependem da localização em que o dispositivo é devolvido.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 07/21/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 62ab110a24bbf6b93f7f019c829222ca666ecfaf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 692ddbf1e17e316bdcee6c34062ffa51ef278bc7
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039456"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87923774"
 ---
 ::: zone target="docs"
 
@@ -85,7 +85,7 @@ Datacenters do Azure na Austrália têm uma notificação de segurança adiciona
 
 1. Use a etiqueta de remessa de devolução fornecida e verifique se o código TAU (número de referência) está escrito nela. Caso não tenha mais a etiqueta de remessa fornecida ou tenha qualquer outro problema, envie um email para [Operações do Data Box na Ásia](mailto:adbo@microsoft.com). Forneça o nome do pedido no assunto do cabeçalho e os detalhes do problema que você está enfrentando.
 2. Afixe a etiqueta à caixa.
-3. Agende online no link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference uma retirada. 
+3. Agende online no link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference uma retirada.
 
 ### <a name="japan"></a>[Japão](#tab/in-japan)
 
@@ -138,7 +138,7 @@ Se necessário, você poderá contatar o Suporte da Quantium Solutions (em japon
 
     ```
     To: kadcustcare@singpost.com
-    Subject: Microsoft Azure Pick-up - XZ00001234567
+    Subject: Microsoft Azure Pickup - XZ00001234567
     Body:
      a.    Requestor name
      b.    Requestor contact number
@@ -155,6 +155,32 @@ Se necessário, você poderá contatar o Suporte da Quantium Solutions (em japon
    Se tiver problemas, entre em contato com as Operações do Data Box na Ásia pelo email adbo@microsoft.com. Forneça o nome do trabalho no cabeçalho de assunto e o problema encontrado.
 
 3. Passe para a transportadora.
+
+### <a name="south-africa"></a>[África do Sul](#tab/in-sa)
+
+Siga as etapas a seguir se estiver devolvendo o dispositivo na África do Sul.
+
+1. Anexe à caixa a etiqueta de remessa fornecida. Essa etiqueta contém o número de rastreamento. Se a etiqueta de remessa estiver ausente, você poderá baixar uma nova em **Visão geral > Baixar etiqueta de remessa**.
+
+2. Lacre a caixa de envio e verifique se a etiqueta de remessa de devolução está visível.
+
+3. Para agendar uma retirada com a DHL:
+
+    * Ligue para o centro de contato do atendimento ao cliente em +27 (0) 11 9213600, selecione a opção 1 e especifique o número da nota de entrega.
+    * Você deve ligar antes das 14h pelo horário padrão da África do Sul (ZA) para agendar uma retirada.  
+    * Envie um email para [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) para providenciar a retirada usando o seguinte modelo de email:
+
+    ```output
+    To: Priority.Support@dhl.com
+    Subject:Pickup request for Microsoft Azure
+    Body:  Need pick up for the below shipment
+    *  DHL tracking number (reference number/waybill number)
+    *  Requested pickup date：yyyy/mm/dd; time: HH MM
+    ```
+
+    * Como alternativa, você pode deixar o pacote no ponto de serviço da DHL mais próximo.
+
+4. Se você encontrar algum problema, envie um email para [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) com detalhes dos problemas encontrados e coloque o número da nota de entrega na linha Assunto:. Você também pode ligar para +27 (0) 119213902.
 
 ### <a name="china"></a>[China](#tab/in-china)
 
@@ -231,7 +257,3 @@ Avance para as próximas instruções para saber como verificar o upload de dado
 > [Verificar o upload de dados do Azure Data Box Disk](./data-box-disk-deploy-upload-verify.md)
 
 ::: zone-end
-
-
-
-

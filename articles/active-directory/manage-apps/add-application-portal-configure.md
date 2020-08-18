@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: a1a99e9f02a25f5e1d57ea485930a4f26149b53f
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: beb5c7262a5475f5c1535e120fcebe4c70838c7e
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808398"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135480"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Configurar propriedades para um aplicativo em seu locatário do Azure AD (Azure Active Directory)
 
@@ -48,37 +48,24 @@ Para editar as propriedades do aplicativo:
     - **Habilitado para que os usuários entrem?** determina se os usuários atribuídos ao aplicativo podem entrar nele.
     - **Atribuição do usuário obrigatória?** determina se os usuários não atribuídos ao aplicativo podem entrar nele.
     - **Visível para os usuários?** determina se os usuários atribuídos a um aplicativo podem vê-lo no [Painel de Acesso](https://myapps.microsoft.com) e no inicializador de aplicativos do Office 365. (Confira o menu do Waffle no canto superior esquerdo de um site do Office 365 ou Microsoft 365.)
-4. Use as tabelas a seguir para ajudar você a escolher as melhores opções para suas necessidades.
+    
+    > [!TIP]
+    > A atribuição de usuários ocorre na seção **Usuários e grupos** da navegação.
 
-   - Comportamento de usuários *atribuídos*:
+    As três opções podem ser alternadas de maneira independente umas das outras e o comportamento resultante nem sempre é óbvio. Esta tabela pode ajudar:
+    
+    | Habilitado para os usuários entrarem? | Atribuição de usuário obrigatória? | Visível para os usuários? | Comportamento para usuários que foram atribuídos ao aplicativo ou não. |
+    |---|---|---|---|
+    | Sim | Sim | Sim | Usuários atribuídos podem ver o aplicativo e entrar.<br>Usuários não atribuídos não podem ver o aplicativo nem entrar. |
+    | Sim | Sim | Não  | Usuários atribuídos não podem ver o aplicativo, mas podem entrar.<br>Usuários não atribuídos não podem ver o aplicativo nem entrar. |
+    | Sim | Não  | Sim | Usuários atribuídos podem ver o aplicativo e entrar.<br>Usuários não atribuídos não podem ver o aplicativo, mas podem entrar. |
+    | Sim | Não  | Não  | Usuários atribuídos não podem ver o aplicativo, mas podem entrar.<br>Usuários não atribuídos não podem ver o aplicativo, mas podem entrar. |
+    | Não  | Sim | Sim | Usuários atribuídos não podem ver o aplicativo nem entrar.<br>Usuários não atribuídos não podem ver o aplicativo nem entrar. |
+    | Não  | Sim | Não  | Usuários atribuídos não podem ver o aplicativo nem entrar.<br>Usuários não atribuídos não podem ver o aplicativo nem entrar. |
+    | Não  | Não  | Sim | Usuários atribuídos não podem ver o aplicativo nem entrar.<br>Usuários não atribuídos não podem ver o aplicativo nem entrar. |
+    | Não  | Não  | Não  | Usuários atribuídos não podem ver o aplicativo nem entrar.<br>Usuários não atribuídos não podem ver o aplicativo nem entrar. |
 
-       | Propriedade do aplicativo | Propriedade do aplicativo | Propriedade do aplicativo | Experiência do usuário atribuído | Experiência do usuário atribuído |
-       |---|---|---|---|---|
-       | Habilitado para os usuários entrarem? | Atribuição de usuário obrigatória? | Visível para os usuários? | Os usuários atribuídos podem entrar? | Os usuários atribuídos podem ver o aplicativo?* |
-       | Sim | Sim | Sim | Sim | Sim  |
-       | Sim | Sim | Não  | Sim | Não   |
-       | Sim | Não  | Sim | Sim | Sim  |
-       | Sim | Não  | Não  | Sim | Não   |
-       | Não  | Sim | Sim | Não  | Não   |
-       | Não  | Sim | Não  | Não  | Não   |
-       | Não  | Não  | Sim | Não  | Não   |
-       | Não  | Não  | Não  | Não  | Não   |
-
-   - Comportamento de usuários *não atribuídos*:
-
-       | Propriedade do aplicativo | Propriedade do aplicativo | Propriedade do aplicativo | Experiência de usuário não atribuído | Experiência de usuário não atribuído |
-       |---|---|---|---|---|
-       | Habilitado para os usuários entrarem? | Atribuição de usuário obrigatória? | Visível para os usuários? | Os usuários não atribuídos podem entrar? | Os usuários não atribuídos podem ver o aplicativo?* |
-       | Sim | Sim | Sim | Não  | Não   |
-       | Sim | Sim | Não  | Não  | Não   |
-       | Sim | Não  | Sim | Sim | Não   |
-       | Sim | Não  | Não  | Sim | Não   |
-       | Não  | Sim | Sim | Não  | Não   |
-       | Não  | Sim | Não  | Não  | Não   |
-       | Não  | Não  | Sim | Não  | Não   |
-       | Não  | Não  | Não  | Não  | Não   |
-
-     *O usuário pode ver o aplicativo no painel de acesso e no iniciador de aplicativos do Office 365?
+4. Quando terminar, selecione **Salvar**.
 
 ## <a name="use-a-custom-logo"></a>Usar um logotipo personalizado
 

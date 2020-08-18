@@ -1,6 +1,6 @@
 ---
 title: Editar uma API com o Portal do Azure | Microsoft Docs
-description: Este tutorial mostra como usar o APIM (Gerenciamento de API) para editar uma API.
+description: Saiba como usar o APIM (Gerenciamento de API) para editar uma API. Adicione, exclua ou renomeie operações na instância APIM ou edite o swagger da API.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: 6be36493fabce07838991c789e111e918a9a826d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8d3f476f4a6ecf05d63223f3ba2c2b5173e1d0bf
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70072163"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905152"
 ---
 # <a name="edit-an-api"></a>Editar uma API
 
@@ -26,7 +26,7 @@ As etapas neste tutorial mostram como usar o APIM (Gerenciamento de API) para ed
 + Você pode fazer isso adicionando, excluindo ou renomeando operações na instância de APIM. 
 + Você pode editar o swagger da API.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 + [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
 + [Importar e publicar sua primeira API](import-and-publish.md)

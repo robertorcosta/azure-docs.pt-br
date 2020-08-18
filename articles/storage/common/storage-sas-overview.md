@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 08/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 185992284e353c3e58104bc46296c1741fbca7d9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b9882168cd063cb4448269cc6a4949778fe93fb1
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502164"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509851"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)
 
@@ -29,7 +29,7 @@ O armazenamento do Azure dá suporte a três tipos de assinaturas de acesso comp
 
     Para obter mais informações sobre a SAS de delegação de usuário, consulte [criar uma delegação de usuário de SAS (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 
-- **SAS de Serviço.** Uma SAS de serviço é protegida com a chave da conta de armazenamento. Uma SAS de serviço Delega acesso a um recurso em apenas um dos serviços de armazenamento do Azure: armazenamento de BLOBs, armazenamento de filas, armazenamento de tabelas ou arquivos do Azure. 
+- **SAS de Serviço.** Uma SAS de serviço é protegida com a chave da conta de armazenamento. Uma SAS de serviço Delega acesso a um recurso em apenas um dos serviços de armazenamento do Azure: armazenamento de BLOBs, armazenamento de filas, armazenamento de tabelas ou arquivos do Azure.
 
     Para obter mais informações sobre a SAS do serviço, consulte [criar um serviço SAS (API REST)](/rest/api/storageservices/create-service-sas).
 
@@ -38,7 +38,7 @@ O armazenamento do Azure dá suporte a três tipos de assinaturas de acesso comp
     Para obter mais informações sobre a SAS da conta, [crie uma SAS da conta (API REST)](/rest/api/storageservices/create-account-sas).
 
 > [!NOTE]
-> A Microsoft recomenda que você use as credenciais do Azure AD quando possível como uma prática recomendada de segurança, em vez de usar a chave de conta, que pode ser mais facilmente comprometida. Quando o design do aplicativo exigir assinaturas de acesso compartilhado para acesso ao armazenamento de BLOB, use as credenciais do Azure AD para criar uma SAS de delegação de usuário quando possível para segurança superior.
+> A Microsoft recomenda que você use as credenciais do Azure AD quando possível como uma prática recomendada de segurança, em vez de usar a chave de conta, que pode ser mais facilmente comprometida. Quando o design do aplicativo exigir assinaturas de acesso compartilhado para acesso ao armazenamento de BLOB, use as credenciais do Azure AD para criar uma SAS de delegação de usuário quando possível para segurança superior. Para obter mais informações, consulte [autorizar o acesso a BLOBs e filas usando o Azure Active Directory](storage-auth-aad.md).
 
 Uma assinatura de acesso compartilhado pode assumir uma destas duas formas:
 
@@ -52,15 +52,27 @@ Uma assinatura de acesso compartilhado pode assumir uma destas duas formas:
 
 Uma assinatura de acesso compartilhado é um URI assinado que aponta para um ou mais recursos de armazenamento e inclui um token que contém um conjunto especial de parâmetros de consulta. O token indica como os recursos podem ser acessados pelo cliente. Um dos parâmetros de consulta, a assinatura, é construído a partir dos parâmetros de SAS e assinado com a chave que foi usada para criar a SAS. Esta assinatura é usada pelo armazenamento do Azure para autorizar o acesso ao recurso de armazenamento.
 
-### <a name="sas-signature"></a>Assinatura SAS
+### <a name="sas-signature-and-authorization"></a>Assinatura e autorização SAS
 
-Você pode assinar uma SAS de uma das duas maneiras:
+Você pode assinar um token SAS de uma das duas maneiras:
 
 - Com uma *chave de delegação de usuário* que foi criada usando as credenciais do Azure Active Directory (AD do Azure). Uma SAS de delegação de usuário é assinada com a chave de delegação de usuário.
 
     Para obter a chave de delegação de usuário e criar a SAS, uma entidade de segurança do Azure AD deve ser atribuída a uma função do Azure que inclui a ação **Microsoft. Storage/storageAccounts/blobservices/generateUserDelegationKey** . Para obter informações detalhadas sobre as funções do Azure com permissões para obter a chave de delegação de usuário, consulte [criar uma delegação de usuário (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 
-- Com a chave da conta de armazenamento. Uma SAS de serviço e uma SAS de conta são assinadas com a chave da conta de armazenamento. Para criar uma SAS que é assinada com a chave de conta, um aplicativo deve ter acesso à chave de conta.
+- Com a chave da conta de armazenamento (chave compartilhada). Uma SAS de serviço e uma SAS de conta são assinadas com a chave da conta de armazenamento. Para criar uma SAS que é assinada com a chave de conta, um aplicativo deve ter acesso à chave de conta.
+
+Quando uma solicitação inclui um token SAS, essa solicitação é autorizada com base em como o token SAS é assinado. A chave de acesso ou as credenciais que você usa para criar um token SAS também são usadas pelo armazenamento do Azure para conceder acesso a um cliente que possui a SAS.
+
+A tabela a seguir resume como cada tipo de token SAS é autorizado quando é incluído em uma solicitação para o armazenamento do Azure:
+
+| Tipo de SAS | Tipo de autorização |
+|-|-|
+| SAS de delegação de usuário (somente armazenamento de BLOBs) | AD do Azure |
+| SAS do serviço | Chave compartilhada |
+| SAS da conta | Chave compartilhada |
+
+A Microsoft recomenda usar uma SAS de delegação de usuário quando possível para segurança superior.
 
 ### <a name="sas-token"></a>Token SAS
 

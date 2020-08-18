@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 05/25/2020
-ms.openlocfilehash: 87bfd505edcb394bafd70a975b5b3d6bde341cb9
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 08/11/2020
+ms.openlocfilehash: 809011df3c8cd6dbc1ee2a2129a261102adb43c0
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848865"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067844"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Mapeamento de tutoriais em vídeo de fluxo de dados
 
@@ -36,6 +36,8 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 [Monitorar e gerenciar o desempenho do fluxo de dados de mapeamento](https://www.youtube.com/watch?v=fktIWdJiqTk)
 
 [Tempos de parâmetro de comparação](http://youtu.be/6CSbWm4lRhw?hd=1)
+
+[Fluxos de trabalho de depuração para fluxos de dados](https://youtu.be/y3suL7UsWVw)
 
 ## <a name="transformation-overviews"></a>Visões gerais de transformação
 
@@ -118,6 +120,8 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 [Otimizar dinamicamente o tamanho do cluster de fluxo de dados em runtime](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
 [Otimizar os horários de inicialização do fluxo de dados](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
+
+[Azure Integration Runtimes para fluxos de dados](https://mssqldude.wordpress.com/)
 
 ## <a name="mapping-data-flow-scenarios"></a>Cenários de fluxo de dados de mapeamento
 

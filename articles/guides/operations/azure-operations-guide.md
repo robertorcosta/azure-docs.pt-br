@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: e7ebcf39c203f9956b23ef22754b38f32e9d9352
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 0a383e8e2c38dbd00e0a55f9debb9b4daf40fa9c
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323010"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832749"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introdução para operadores de TI do Azure
 
@@ -178,7 +178,7 @@ Os administradores podem acessar o Azure PowerShell e a CLI do Azure por meio de
 
 ## <a name="azure-subscriptions"></a>Assinaturas do Azure
 
-Uma assinatura é um agrupamento de serviços do Azure que está vinculada a uma conta do Azure. Uma única conta do Azure pode conter várias assinaturas. A cobrança dos serviços do Azure é feita por assinatura. As assinaturas do Azure têm um Administrador da Conta (que tem controle total sobre a assinatura) e um Administrador de Serviços (que tem controle sobre todos os serviços na assinatura). Para obter informações sobre os administradores clássicos de assinatura, confira [Adicionar ou alterar administradores de assinatura do Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Além dos administradores, é possível conceder controle detalhado de recursos do Azure usando [RBAC (Controle de Acesso Baseado em Função)](../../role-based-access-control/overview.md) a contas individuais.
+Uma assinatura é um agrupamento de serviços do Azure que está vinculada a uma conta do Azure. Uma única conta do Azure pode conter várias assinaturas. A cobrança dos serviços do Azure é feita por assinatura. As assinaturas do Azure têm um Administrador da Conta (que tem controle total sobre a assinatura) e um Administrador de Serviços (que tem controle sobre todos os serviços na assinatura). Para obter informações sobre os administradores clássicos de assinatura, confira [Adicionar ou alterar administradores de assinatura do Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). Além dos administradores, é possível conceder controle detalhado de recursos do Azure usando o [Azure RBAC (controle de acesso baseado em função do Azure)](../../role-based-access-control/overview.md) a contas individuais.
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Selecionar e habilitar uma assinatura do Azure
 

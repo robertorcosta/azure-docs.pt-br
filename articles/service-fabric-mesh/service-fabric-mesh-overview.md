@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 10/1/2018
 ms.topic: overview
-ms.openlocfilehash: e64cc158a18e604cbd022be5c91350c95258272c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b7061a178a3f5a9d126afab3fc1f9aa77d5cc050
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257800"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927021"
 ---
 # <a name="what-is-service-fabric-mesh"></a>O que é a Malha do Service Fabric?
 
@@ -42,7 +42,7 @@ Com a Malha do Service Fabric, você pode:
 
 - Implante e gerencie aplicativos sem a necessidade de provisionar e gerenciar explicitamente a infraestrutura.  A Malha do Service Fabric provisiona, atualiza, corrige e mantém a infraestrutura subjacente para você.
 - Configure a integração contínua usando as ferramentas integradas para empacotar e implantar facilmente os aplicativos.
-- Aproveite todos os recursos do Azure Resource Manager. Entre os exemplos desses recursos estão a trilha de auditoria e [controle de acesso baseado em função](../role-based-access-control/overview.md)). Todos os recursos que você implanta no serviço de Malha do Azure Service Fabric são recursos do Azure Resource Manager. Esses recursos incluem aplicativos, serviços, segredos etc.
+- Aproveite todos os recursos do Azure Resource Manager. Entre os exemplos desses recursos estão a trilha de auditoria e [Azure RBAC (controle de acesso baseado em função do Azure)](../role-based-access-control/overview.md). Todos os recursos que você implanta no serviço de Malha do Azure Service Fabric são recursos do Azure Resource Manager. Esses recursos incluem aplicativos, serviços, segredos etc.
 - Implante e gerencie recursos usando o [Portal do Azure](https://portal.azure.com), modelos do Resource Manager ou bibliotecas da CLI do Azure/Azure PowerShell.
 - Configure o monitoramento operacional e alertas usando o [Application Insights](/azure/application-insights/) (ou a ferramenta de sua escolha) para capturar rastreamentos operacionais e de diagnóstico da plataforma.
 - Acessar as informações de diagnóstico de aplicativo emitidas do modelo de aplicativo usando [Application Insights](/azure/application-insights/) ou sua ferramenta preferida.

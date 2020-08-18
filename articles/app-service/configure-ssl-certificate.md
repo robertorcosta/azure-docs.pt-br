@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: be490c5ec11ab4bafcd68731a535483d1803a8c7
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 0dd0b86a11c7060040f8734c0102252f18d9f114
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146426"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987164"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicionar um certificado TLS/SSL ao Serviço de Aplicativo do Azure
 
@@ -64,6 +64,7 @@ O Certificado gratuito gerenciado pelo Serviço de Aplicativo é uma solução i
 - Não oferece suporte a certificados curinga.
 - Não oferece suporte a domínios raiz.
 - Não pode ser exportado.
+- Não tem suporte no ASE (Ambiente do Serviço de Aplicativo)
 - Não oferece suporte a registros A. Por exemplo, a renovação automática não funciona com registros A.
 
 > [!NOTE]

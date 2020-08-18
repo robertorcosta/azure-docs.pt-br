@@ -1,14 +1,14 @@
 ---
 title: Gerenciar espaços de trabalho do Azure Sentinel em escala
 description: Saiba como gerenciar efetivamente o Azure Sentinel em recursos de clientes delegados.
-ms.date: 06/17/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: fc6d66a31ed46766bbe664fd8656792c97ff69fd
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 1734efb57b18cfc559144b13aaecb882612ca73b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163230"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511245"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gerenciar espaços de trabalho do Azure Sentinel em escala
 
@@ -69,9 +69,9 @@ Você pode implantar pastas de trabalho no seu locatário de gerenciamento e cri
 
 Você também pode implantar pastas de trabalho diretamente em um locatário individual que você gerencia para cenários específicos para esse cliente.
 
-## <a name="run-queries-across-azure-sentinel-workspaces"></a>Executar consultas em espaços de trabalho do Azure Sentinel
+## <a name="run-log-analytics-and-hunting-queries-across-azure-sentinel-workspaces"></a>Executar Log Analytics e buscar consultas em espaços de trabalho do Azure Sentinel
 
-Você pode criar e salvar Log Analytics consultas para detecção de ameaças centralmente no locatário de gerenciamento. Essas consultas podem ser executadas em todos os espaços de trabalho do Azure Sentinel de seus clientes usando o operador Union e a expressão Workspace (). Para obter mais informações, consulte [consulta entre espaços de trabalho](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
+Você pode criar e salvar Log Analytics consultas para detecção de ameaças de forma centralizada no locatário de gerenciamento, incluindo [consultas de busca](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). Essas consultas podem ser executadas em todos os espaços de trabalho do Azure Sentinel de seus clientes usando o operador Union e a expressão Workspace (). Para obter mais informações, consulte [consulta entre espaços de trabalho](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
 
 ## <a name="use-automation-for-cross-workspace-management"></a>Usar a automação para gerenciamento entre espaços de trabalho
 

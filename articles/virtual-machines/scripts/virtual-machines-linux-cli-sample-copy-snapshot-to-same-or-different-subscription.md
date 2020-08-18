@@ -1,6 +1,6 @@
 ---
-title: 'Copiar o instantâneo do disco gerenciado para uma assinatura: amostra da CLI'
-description: 'Amostra de script da CLI do Azure: copiar (ou mover) o instantâneo de um disco gerenciado para a mesma ou outra assinatura com a CLI'
+title: Copiar o instantâneo de um disco gerenciado para uma assinatura – Amostra da CLI, VM do Linux
+description: Amostra de script da CLI do Azure – Copiar (ou mover) o instantâneo de um disco gerenciado para a mesma ou outra assinatura com a CLI em uma VM do Linux
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: c17773da09b51e135e855002de7b35628c21508f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 637c8c3a2f6ba90a7a16fa375d99a7463be71270
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509743"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056067"
 ---
-# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>Copiar um instantâneo de um disco gerenciado para a mesma assinatura ou outra assinatura com a CLI
+# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli-on-a-linux-vm"></a>Copiar o instantâneo de um disco gerenciado para a mesma ou outra assinatura com a CLI em uma VM do Linux
 
 Esse script copia um instantâneo de um disco gerenciado para a mesma assinatura ou outra assinatura. Use este script para os cenários a seguir:
 

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 07/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ffc9d3f4feb003d537b52cde15356e756aa11c0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd5e3e2a0e6d50340954600c5a452b6d026e5afc
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500099"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987419"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o Slack
 
@@ -52,7 +52,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 * O Slack dá suporte ao SSO iniciado por **SP**
 * O Slack é compatível com o provisionamento de usuário **Just In Time**
 * O Slack dá suporte ao [provisionamento **automatizado** de usuários](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-provisioning-tutorial)
-* Depois de configurar o Slack, você poderá impor controles de sessão, que fornecem proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Depois de configurar o Slack, você poderá impor um controle de sessão, que fornece proteção contra o vazamento e a infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-slack-from-the-gallery"></a>Adicionar o Slack da galeria
 
@@ -159,15 +159,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 2. Navegue até **Microsoft Azure AD** e depois em **Configurações de Equipe**.
 
-     ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial-slack-001.png)
+     ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial-slack-team-settings.png)
 
 3. Na seção **Configurações de Equipe**, clique na guia **Autenticação** e em **Alterar Configurações**.
 
-    ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial-slack-002.png)
+    ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial-slack-authentication.png)
 
 4. No diálogo **Configurações de Autenticação SAML** , realize as seguintes etapas:
 
-    ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial-slack-003.png)
+    ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial-slack-save-authentication.png)
 
     a.  Na caixa de texto **Ponto de Extremidade do SAML 2.0 (HTTP)** , cole o valor da **URL de Logon** copiado do portal do Azure.
 
@@ -177,7 +177,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     d. Defina as três configurações acima conforme apropriado para sua equipe do Slack. Para saber mais sobre as configurações, encontre o **guia de configuração de SSO do Slack** aqui. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
-    ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial-slack-004.png)
+    ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial-slack-expand.png)
 
     e. Clique em **expandir** e insira `https://slack.com` na caixa de texto **Emissor do provedor de identidade**.
 

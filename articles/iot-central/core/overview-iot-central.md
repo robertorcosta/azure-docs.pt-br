@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: c8cd789b16f839c60249b36f570ca1c945ef4e01
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 1af549feb551eca02bb1ef8df6481eceb959f6d1
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337170"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042710"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é Azure IoT Central?
 
@@ -34,10 +34,10 @@ Este artigo descreve os seguintes tópicos do Azure IoT Central:
 
 A documentação do Azure IoT Central faz referência a quatro personas que interagem com um aplicativo do Azure IoT Central:
 
-- Um _construtor de soluções_ é responsável pela definição dos tipos de dispositivos que se conectam ao aplicativo e pela personalização do aplicativo para o operador.
-- Um _operador_ gerencia os dispositivos conectados ao aplicativo.
+- Um _construtor de soluções_ é responsável por [definir os tipos de dispositivos](howto-set-up-template.md) que se conectam ao aplicativo e personalizar o aplicativo para o operador.
+- Um _operador_ [gerencia os dispositivos](howto-manage-devices.md) conectados ao aplicativo.
 - Um _administrador_ é responsável por tarefas administrativas, como gerenciar [funções de usuários e permissões](howto-administer.md) dentro do aplicativo.
-- Um _desenvolvedor de dispositivo_ cria o código que é executado em um dispositivo ou no módulo do IoT Edge conectado ao seu aplicativo.
+- Um _desenvolvedor de dispositivo_ [cria o código que é executado em um dispositivo](concepts-telemetry-properties-commands.md) ou no [módulo do IoT Edge](concepts-iot-edge.md) conectado ao seu aplicativo.
 
 ## <a name="create-your-iot-central-application"></a>Criar seu aplicativo do IoT Central
 
@@ -55,7 +55,7 @@ Como construtor de soluções, você usa as ferramentas baseadas na Web para cri
 - As propriedades do dispositivo que são definidas por um dispositivo e são somente leitura no aplicativo.
 - Propriedades, definidas por um operador, que determinam o comportamento do dispositivo.
 
-Este modelo de dispositivo inclui:
+Este [modelo de dispositivo](howto-set-up-template.md) inclui:
 
 - Um _modelo de funcionalidade de dispositivo_ que descreve as funcionalidades que um dispositivo deve implementar, tais como a telemetria que ele envia e as propriedades que ele relata.
 - Propriedades de nuvem que não são armazenadas no dispositivo.
@@ -83,13 +83,13 @@ Como construtor de soluções, você também pode personalizar a interface do us
 
 ## <a name="manage-your-devices"></a>Gerenciar seus dispositivos
 
-Como operador, você pode usar o aplicativo IoT Central para gerenciar os dispositivos em sua solução de IoT Central. Operadores realizam tarefas como:
+Como operador, use o aplicativo do IoT Central para [gerenciar os dispositivos](howto-manage-devices.md) na sua solução do IoT Central. Operadores realizam tarefas como:
 
 - Monitorar os dispositivos conectados ao aplicativo.
 - Solucionar e corrigir problemas com dispositivos.
 - Provisionar novos dispositivos.
 
-Como construtor de soluções, você pode definir regras e ações personalizadas que operem em um fluxo de dados dos dispositivos conectados. Um operador pode habilitar ou desabilitar essas regras no nível do dispositivo para controlar e automatizar tarefas dentro do aplicativo.
+Como construtor de soluções, você pode [definir regras e ações personalizadas](howto-configure-rules.md) que operem em um streaming de dados nos dispositivos conectados. Um operador pode habilitar ou desabilitar essas regras no nível do dispositivo para controlar e automatizar tarefas dentro do aplicativo.
 
 Com qualquer solução de IoT projetada para operar em escala, é importante ter uma abordagem estruturada para o gerenciamento de dispositivo. Não é suficiente apenas conectar seus dispositivos à nuvem; você precisa mantê-los conectados e íntegros. Um operador pode usar as seguintes funcionalidades do IoT Central para gerenciar os dispositivos ao longo do ciclo de vida do aplicativo:
 

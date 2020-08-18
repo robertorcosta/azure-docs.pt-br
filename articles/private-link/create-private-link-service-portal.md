@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: f21b440ee0e2c53d9824300e85b683629c1575da
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0d873401d377a03581a319769604f3d976f365be
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78252541"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927231"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Início Rápido: Criar um serviço de Link Privado usando o portal do Azure
 
@@ -40,9 +40,9 @@ Nesta seção, você precisará substituir os seguintes parâmetros nas etapas p
 | **\<resource-group-name>**  | myResourceGroupLB |
 | **\<virtual-network-name>** | myVNet          |
 | **\<region-name>**          | Leste dos EUA 2      |
-| **\<IPv4-address-space>**   | 10.3.0.0\16          |
+| **\<IPv4-address-space>**   | 10.3.0.0/16          |
 | **\<subnet-name>**          | myBackendSubnet        |
-| **\<subnet-address-range>** | 10.3.0.0\24          |
+| **\<subnet-address-range>** | 10.3.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -133,7 +133,7 @@ Para criar uma regra do balanceador de carga:
 
 ## <a name="create-a-private-link-service"></a>Criar um serviço de Link Privado
 
-Nesta seção, você cria um serviço de link privado por trás de um balanceador de carga padrão.
+Nesta seção, você criará um serviço de Link Privado por trás de um Standard Load Balancer.
 
 1. No lado superior esquerdo dapágina no portal do Azure, selecione **Criar um recurso** > **Rede** > **Central de Link Privado (Versão Prévia)** . Você também pode usar a caixa de pesquisa do portal para procurar o Link Privado.
 
@@ -145,7 +145,7 @@ Nesta seção, você cria um serviço de link privado por trás de um balanceado
     |-------------------|------------------------------------------------------------------------------|
     | Detalhes do projeto:  |                                                                              |
     | **Assinatura**      | Selecione sua assinatura.                                                     |
-    | **Grupo de recursos**    | Selecione **myResourceGroupLB**.                                                    |
+    | **Grupo de Recursos**    | Selecione **myResourceGroupLB**.                                                    |
     | Detalhes da instância: |                                                                              |
     | **Nome**              | Insira **myPrivateLinkService**. |
     | **Região**            | Selecione **Leste dos EUA 2**.                                                        |
@@ -173,7 +173,7 @@ Nesta seção, você cria um serviço de link privado por trás de um balanceado
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando você terminar de usar o serviço de link privado, exclua o grupo de recursos para limpar os recursos usados neste início rápido.
+Quando você terminar de usar o serviço de Link Privado, exclua o grupo de recursos para limpar os recursos usados neste início rápido.
 
 1. Insira **myResourceGroupLB** na caixa Pesquisar na parte superior do portal e selecione **myResourceGroupLB** nos resultados da pesquisa.
 1. Selecione **Excluir grupo de recursos**.

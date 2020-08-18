@@ -1,6 +1,7 @@
 ---
-title: 'Início Rápido: Acessar APIs Web para aplicativo – plataforma de identidade da Microsoft | Azure'
-description: Neste início rápido, configure um aplicativo registrado na plataforma de identidade da Microsoft para incluir URIs de redirecionamento, credenciais ou permissões para acessar as APIs Web.
+title: 'Início Rápido: Configurar um aplicativo para acessar uma API Web | Azure'
+titleSuffix: Microsoft identity platform
+description: Neste início rápido, você configura um aplicativo registrado na plataforma de identidade da Microsoft para incluir URIs de redirecionamento, credenciais ou permissões para acessar as APIs Web.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,18 +9,18 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 04/22/2020
+ms.date: 08/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 210ed5b8ad53fd59a46e160fe5fc72633d115d44
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 800b399e73be032cfd9d2849b004018aa9d9031f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82082315"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120857"
 ---
-# <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Início Rápido: Configure um aplicativo cliente para acessar APIs Web
+# <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Início Rápido: Configurar um aplicativo cliente para acessar uma API Web
 
 Neste início rápido, você adicionará URIs de redirecionamento, credenciais ou permissões para acessar APIs Web para seu aplicativo. Um aplicativo cliente Web ou confidencial precisa estabelecer credenciais seguras para participar de um fluxo de concessão de autorização que requer autenticação. O método de autenticação padrão com suporte no portal do Azure é a ID do Cliente + chave secreta. O aplicativo obtém um token de acesso durante esse processo.
 
@@ -27,9 +28,8 @@ Antes que um cliente possa acessar uma API Web exposta por um aplicativo de recu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclusão do [Início Rápido: Registrar um aplicativo na plataforma de identidade da Microsoft](quickstart-register-app.md).
-* Examine [Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft](v2-permissions-and-consent.md).
-* Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Conclusão do [Início Rápido: Configurar um aplicativo para expor uma API Web](quickstart-configure-app-expose-web-apis.md).
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Entrar no portal do Azure e selecionar o aplicativo
 
@@ -60,7 +60,7 @@ Para escolher entre os URIs de redirecionamento sugeridos para clientes público
 1. Selecione um ou mais URIs de redirecionamento para seu aplicativo. Você também pode inserir um URI de redirecionamento personalizado. Se você não tiver certeza do que usar, confira a documentação da biblioteca.
 1. Clique em **Salvar**.
 
-Determinadas restrições se aplicam a URIs de redirecionamento. Para obter mais informações, confira [Limitações e restrições de URI de redirecionamento/URL de resposta](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
+Determinadas restrições se aplicam a URIs de redirecionamento. Para obter mais informações, confira [Limitações e restrições de URI de redirecionamento/URL de resposta](./reply-url.md).
 
 > [!NOTE]
 > Experimente a nova experiência de configurações de **Autenticação**, na qual você pode definir configurações para seu aplicativo com base na plataforma ou no dispositivo que você deseja ter como destino.
@@ -113,7 +113,7 @@ Para definir as configurações do aplicativo com base na plataforma ou no dispo
    | **Aplicativos móveis e para desktop**  | Opcional. Selecione um dos **URIs de redirecionamento sugeridos** se você estiver criando aplicativos para desktop e dispositivos.<br/>Opcional. Insira um **URI de redirecionamento personalizado**, que é usado como o local para o qual o Azure AD redirecionará os usuários em resposta às solicitações de autenticação. Por exemplo, para aplicativos .NET Core em que você deseja interação, use `http://localhost`. |
 
    > [!NOTE]
-   > No AD FS (Serviços de Federação do Active Directory) e no Azure AD B2C, você também deve especificar um número da porta.  Por exemplo: `http://localhost:1234`. 
+   > No AD FS (Serviços de Federação do Active Directory) e no Azure AD B2C, você também deve especificar um número da porta.  Por exemplo: `http://localhost:1234`.
 
    > [!IMPORTANT]
    > Para aplicativos móveis que não estão usando a MSAL (Biblioteca de Autenticação da Microsoft) mais recente ou não estão usando um agente, você deve configurar os URIs de redirecionamento para esses aplicativos em **Desktop + dispositivos**.
@@ -200,16 +200,7 @@ A solicitação de consentimento tem a opção **Aceitar** ou **Cancelar**. Sele
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Passe para o próximo artigo para saber como expor APIs Web.
+Avance para o próximo início rápido da série para saber como configurar quais tipos de conta podem acessar seu aplicativo. Por exemplo, talvez você queira limitar o acesso somente a alguns usuários na organização (locatário único) ou queira permitir usuários em outros locatários do Azure AD (multilocatário) e usuários com MSAs (contas Microsoft pessoais).
+
 > [!div class="nextstepaction"]
-> [Início Rápido: Configurar um aplicativo para expor APIs Web](quickstart-configure-app-expose-web-apis.md)
-
-* Saiba mais sobre os dois objetos do Azure AD que representam um aplicativo registrado e a relação entre eles, confira [Objetos de aplicativo e objetos de entidade de serviço](app-objects-and-service-principals.md).
-
-* Para saber mais sobre as diretrizes de identidade visual que você deve usar ao desenvolver aplicativos com o Azure Active Directory, confira [Diretrizes de identidade visual para aplicativos](howto-add-branding-in-azure-ad-apps.md).
-
-* [Início Rápido: Registrar um aplicativo na plataforma de identidade da Microsoft](quickstart-register-app.md)
-
-* [Início Rápido: Modificar as contas que têm suporte de um aplicativo](quickstart-modify-supported-accounts.md)
-
-* [Início Rápido: Remover um aplicativo registrado na plataforma de identidade da Microsoft](quickstart-remove-app.md)
+> [Modificar as contas que têm suporte por um aplicativo](quickstart-modify-supported-accounts.md)

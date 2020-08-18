@@ -1,18 +1,17 @@
 ---
-title: Migrar computadores locais com o Azure Site Recovery
-description: Este artigo descreve como migrar máquinas locais para o Azure, usando o Azure Site Recovery.
-author: rayne-wiselman
+title: Migrar computadores locais com as Migrações para Azure
+description: Este artigo resume como migrar computadores locais para o Azure e recomenda Migrações para Azure.
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: raynew
-ms.openlocfilehash: 3c421845d4e15ef13ce98d0de111270159f564fe
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e0e60ee346d20113b2ec7970390d9874522cc770
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285349"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847305"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas locais para o Azure
 
@@ -20,7 +19,7 @@ Este artigo descreve as opções para migrar computadores locais para o Azure.
 
 ## <a name="migrate-with-azure-migrate"></a>Migrar com as Migrações para Azure
 
-Recomendamos que você migre computadores para o Azure usando o serviço [Migrações para Azure](../migrate/migrate-services-overview.md). As Migrações para Azure fornecem um hub centralizado para a avaliação e a migração de computadores locais para o Azure usando as Migrações para Azure, outros serviços do Azure e ferramentas de terceiros.
+Recomendamos que você migre computadores para o Azure usando o serviço [Migrações para Azure](../migrate/migrate-services-overview.md). O recurso Migrações para Azure é criado especificamente para a migração do servidor. As Migrações para Azure oferecem um hub central para descoberta, avaliação e migração de computadores locais para o Azure.
 
 Siga estes links para migrar usando as Migrações para Azure:
 

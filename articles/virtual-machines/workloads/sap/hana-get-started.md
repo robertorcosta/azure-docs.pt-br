@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
-ms.openlocfilehash: ec63d08b164a3ed767a7622a9829beaf73e65ef3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2a62cb08fcce6597f02c080231f5e1808794054
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042314"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509953"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Instalação do SAP HANA em máquinas virtuais do Azure
 ## <a name="introduction"></a>Introdução
@@ -72,7 +72,7 @@ Nesta fase, você precisa percorrer as etapas de implantação das VMs para inst
     -  [Nota de suporte da SAP #2382421-otimizando a configuração de rede no HANA e no nível do sistema operacional](https://launchpad.support.sap.com/#/notes/2382421)
 
 1. Selecione o tipo de armazenamento do Azure para SAP HANA. Nesta etapa, você precisa decidir sobre o layout de armazenamento para SAP HANA instalação. Você vai usar discos do Azure anexados ou compartilhamentos NFS nativos do Azure. Os tipos de armazenamento do Azure que ou com suporte e combinações de diferentes tipos de armazenamento do Azure que podem ser usados, são documentados em [SAP Hana configurações de armazenamento de máquina virtual do Azure](./hana-vm-operations-storage.md). Use as configurações documentadas como ponto de partida. Para sistemas que não são de produção, você pode configurar a taxa de transferência ou o IOPS mais baixos. Para fins de produção, talvez seja necessário configurar um pouco mais de taxa de transferência e IOPS.
-2. Certifique-se de que você configurou o [Azure acelerador de gravação](../../linux/how-to-enable-write-accelerator.md) para seus volumes que contêm os logs de transação do DBMS ou logs de refazer quando estiver usando as VMs série M ou Mv2. Esteja atento às limitações de Acelerador de Gravação conforme documentado.
+2. Certifique-se de que você configurou o [Azure acelerador de gravação](../../how-to-enable-write-accelerator.md) para seus volumes que contêm os logs de transação do DBMS ou logs de refazer quando estiver usando as VMs série M ou Mv2. Esteja atento às limitações de Acelerador de Gravação conforme documentado.
 2. Verifique se a [rede acelerada do Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) está habilitada nas VMs implantadas.
 
 > [!NOTE]

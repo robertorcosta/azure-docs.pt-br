@@ -1,32 +1,32 @@
 ---
-title: Tamanhos de VM
-description: Descreve os tamanhos distintos de VM que podem ser alocados
+title: Tamanhos de servidor
+description: Descreve os tamanhos de servidor distintos que podem ser alocados
 author: florianborn71
 ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
-ms.openlocfilehash: e8e439a055b71ed291573965c561ee31610e3ed4
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: b9479c2ab5b63440a03bd74d2503930108a49091
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121605"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511178"
 ---
-# <a name="vm-sizes"></a>Tamanhos de VM
+# <a name="server-sizes"></a>Tamanhos de servidor
 
-O serviço de renderização pode operar em dois tipos diferentes de computadores no Azure, chamado `Standard` e `Premium` .
+A renderização remota do Azure está disponível em duas configurações de servidor: `Standard` e `Premium` .
 
 ## <a name="polygon-limits"></a>Limites de polígono
 
-Há uma limitação rígida de **20 milhões polígonos** para o `Standard` tamanho da VM. Não há nenhuma limitação para o `Premium` tamanho.
+A renderização remota com `Standard` o servidor de tamanho tem um tamanho máximo de cena de 20 milhões polígonos. A renderização remota com `Premium` tamanho não impõe um máximo de disco, mas o desempenho pode ser degradado se o conteúdo exceder os recursos de renderização do serviço.
 
-Quando o renderizador em uma VM padrão atinge essa limitação, ele alterna o processamento para um plano de fundo de xadrez:
+Quando o renderizador ativado em um tamanho de servidor ' padrão ' atinge essa limitação, ele alterna o processamento para um plano de fundo quadriculado:
 
 ![Quadriculado](media/checkerboard.png)
 
-## <a name="allocate-the-vm"></a>Alocar a VM
+## <a name="specify-the-server-size"></a>Especificar o tamanho do servidor
 
-O tipo desejado de VM deve ser especificado no tempo de inicialização da sessão de renderização. Ele não pode ser alterado em uma sessão em execução. Os exemplos de código a seguir mostram o local onde o tamanho da VM deve ser especificado:
+O tipo desejado de configuração do servidor deve ser especificado no tempo de inicialização da sessão de renderização. Ele não pode ser alterado em uma sessão em execução. Os exemplos de código a seguir mostram o local onde o tamanho do servidor deve ser especificado:
 
 ```cs
 async void CreateRenderingSession(AzureFrontend frontend)
@@ -51,7 +51,7 @@ void CreateRenderingSession(ApiHandle<AzureFrontend> frontend)
 }
 ```
 
-Para os [scripts do PowerShell de exemplo](../samples/powershell-example-scripts.md), o tamanho da VM deve ser especificado dentro do `arrconfig.json` arquivo:
+Para os [scripts do PowerShell de exemplo](../samples/powershell-example-scripts.md), o tamanho do servidor desejado deve ser especificado dentro do `arrconfig.json` arquivo:
 
 ```json
 {
@@ -74,13 +74,13 @@ Da mesma forma, é possível gravar um aplicativo que tem como alvo o `standard`
 
 ### <a name="how-to-determine-the-number-of-polygons"></a>Como determinar o número de polígonos
 
-Há duas maneiras de determinar o número de polígonos de um modelo ou cena que contribuem para o limite de orçamento da `standard` VM de tamanho:
+Há duas maneiras de determinar o número de polígonos de um modelo ou cena que contribuem para o limite de orçamento do `standard` tamanho da configuração:
 * No lado da conversão de modelo, recupere o [arquivo JSON de saída de conversão](../how-tos/conversion/get-information.md)e verifique a `numFaces` entrada na [seção *inputStatistics* ](../how-tos/conversion/get-information.md#the-inputstatistics-section)
 * Se seu aplicativo estiver lidando com conteúdo dinâmico, o número de polígonos renderizados poderá ser consultado dinamicamente durante o tempo de execução. Use uma [consulta de avaliação de desempenho](../overview/features/performance-queries.md#performance-assessment-queries) e verifique o `polygonsRendered` membro na `FrameStatistics` estrutura. O `polygonsRendered` campo será definido como `bad` quando o renderizador atingir a limitação do polígono. O plano de fundo quadriculado sempre fica com algum atraso para garantir que a ação do usuário possa ser executada após essa consulta assíncrona. A ação do usuário pode, por exemplo, ocultar ou excluir instâncias do modelo.
 
-## <a name="pricing"></a>Preço
+## <a name="pricing"></a>Preços
 
-Para obter uma análise detalhada dos preços de cada tipo de VM, consulte a página de [preços de renderização remota](https://azure.microsoft.com/pricing/details/remote-rendering) .
+Para obter uma análise detalhada dos preços de cada tipo de configuração, consulte a página de [preços de renderização remota](https://azure.microsoft.com/pricing/details/remote-rendering) .
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Scripts de exemplo do PowerShell](../samples/powershell-example-scripts.md)

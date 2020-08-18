@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/15/2020
+ms.date: 8/17/2020
 ms.author: yohaddad
-ms.openlocfilehash: 21dcc10be255c0795058886188b4380266679963
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 5e5bcef36bb283b8b3f2b67578e0f3118302d936
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258301"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510157"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] específica na qual foram introduzidas.
@@ -79,33 +79,30 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 
 
 ## <a name="july-2020-guest-os"></a>SO convidado de julho de 2020
->[!NOTE]
->Atualmente, o SO convidado de julho está sendo distribuído para VMs de serviço de nuvem configuradas para atualizações automáticas. Quando a distribuição estiver concluída, essa versão será disponibilizada para atualizações manuais por meio do portal do Azure e dos arquivos de configuração. Os patches a seguir estão incluídos no SO convidado de julho. Esta lista está sujeita a alterações.
-
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 20-07 |  [4565479]  |  Internet Explorer | 2,100, 3,87, 4,80 | 14 de julho de 2020 |
-|  Rel 20-07 |  [4565511]  |  Atualização cumulativa mais recente (LCU) | 5,45 | 14 de julho de 2020 |
-|  Rel 20-07 |  [4558998]  |  Atualização cumulativa mais recente (LCU) | 6,21 | 14 de julho de 2020 |
-|  Rel 20-07 |  [4565524]  |  Rollup mensal | 2,100 | 14 de julho de 2020 |
-|  Rel 20-07 |  [4565616]  |  Rollup mensal | 2,100 | 16 de julho de 2020 |
-|  Rel 20-07 |  [4565354]  |  Atualização da pilha de manutenção | 2,100 | 14 de julho de 2020 |
-|  Rel 20-07 |  [4565612]  |  Rollup mensal | 2,100 | 14 de julho de 2020 |
-|  Rel 20-07 |  [4565615]  |  Rollup mensal | 3,87 | 14 de julho de 2020 |
-|  Rel 20-07 |  [4566426]  |  Atualização da pilha de manutenção | 3,87 | 14 de julho de 2020 |
-|  Rel 20-07 |  [4565537]  |  Rollup mensal | 3,87 | 14 de julho de 2020 |
-|  Rel 20-07 |  [4565610]  |  Rollup mensal | 3,87 | 14 de julho de 2020 |
-|  Rel 20-07 |  [4565541]  |  Rollup mensal | 4,80 | 14 de julho de 2020 |
-|  Rel 20-07 |  [4566425]  |  Atualização da pilha de manutenção | 4,80 | 14 de julho de 2020 |
-|  Rel 20-07 |  [4565614]  |  Rollup mensal | 4,80 | 14 de julho de 2020 |
-|  Rel 20-07 |  [4565613]  |  Rollup mensal | 4,80 | 14 de julho de 2020 |
-|  Rel 20-07 |  [4565912]  |  Atualização da pilha de manutenção | 5,45 | 14 de julho de 2020 |
-|  Rel 20-07 |  [4565628]  |  Rollup mensal | 5,45 | 14 de julho de 2020 |
-|  Rel 20-07 |  [4494175]  |  Microcódigo | 5,45 | 25 de fevereiro de 2020 |
-|  Rel 20-07 |  [4565632]  |  Rollup mensal | 6,21 | 14 de julho de 2020 |
-|  Rel 20-07 |  [4558997]  |  Atualização da pilha de manutenção | 6,21 | 14 de julho de 2020 |
-|  Rel 20-07 |  [4494174]  |  Microcódigo | 6,21 | 25 de fevereiro de 2020 |
+|  Rel 20-07 |  [4565479]  |  Internet Explorer | [2,100], [3,87], [4,80] | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565511]  |  Atualização cumulativa mais recente (LCU) | [5,45] | 14 de julho de 2020 |
+|  Rel 20-07 |  [4558998]  |  Atualização cumulativa mais recente (LCU) | [6,21] | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565524]  |  Rollup mensal | [2,100] | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565616]  |  Rollup mensal | [2,100] | 16 de julho de 2020 |
+|  Rel 20-07 |  [4565354]  |  Atualização da pilha de manutenção | [2,100] | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565612]  |  Rollup mensal | [2,100] | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565615]  |  Rollup mensal | [3,87] | 14 de julho de 2020 |
+|  Rel 20-07 |  [4566426]  |  Atualização da pilha de manutenção | [3,87] | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565537]  |  Rollup mensal | [3,87] | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565610]  |  Rollup mensal | [3,87] | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565541]  |  Rollup mensal | [4,80] | 14 de julho de 2020 |
+|  Rel 20-07 |  [4566425]  |  Atualização da pilha de manutenção | [4,80] | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565614]  |  Rollup mensal | [4,80] | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565613]  |  Rollup mensal | [4,80] | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565912]  |  Atualização da pilha de manutenção | [5,45] | 14 de julho de 2020 |
+|  Rel 20-07 |  [4565628]  |  Rollup mensal | [5,45] | 14 de julho de 2020 |
+|  Rel 20-07 |  [4494175]  |  Microcódigo | [5,45] | 25 de fevereiro de 2020 |
+|  Rel 20-07 |  [4565632]  |  Rollup mensal | [6,21] | 14 de julho de 2020 |
+|  Rel 20-07 |  [4558997]  |  Atualização da pilha de manutenção | [6,21] | 14 de julho de 2020 |
+|  Rel 20-07 |  [4494174]  |  Microcódigo | [6,21] | 25 de fevereiro de 2020 |
 
 
 [4565479]: https://support.microsoft.com/kb/4565479
@@ -129,6 +126,11 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [4565632]: https://support.microsoft.com/kb/4565632
 [4558997]: https://support.microsoft.com/kb/4558997
 [4494174]: https://support.microsoft.com/kb/4494174
+[2,100]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3,87]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4,80]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5,45]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6,21]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="june-2020-guest-os"></a>SO convidado de junho de 2020

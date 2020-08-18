@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 07/29/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ce816b74c12333477203cce690c955d5aaf1cda
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3a197c879e4c091c9b421c194e1f6a50b91d24bb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093140"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007345"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egress"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Egress
 
@@ -45,7 +45,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * O Egress é compatível com SSO iniciado por **SP e IDP**
 * O Egress é compatível com o provisionamento de usuário **Just-In-Time**
-* Após configurar o Egress, você poderá impor controles de sessão, que protegem a exfiltração e a infiltração dos dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Depois de configurar o Egress, você poderá impor um controle de sessão, que fornece proteção contra o vazamento e a infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-egress-from-the-gallery"></a>Adicionar o Egress por meio da galeria
 
@@ -130,7 +130,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Execute as etapas abaixo na página a seguir.
 
-    ![Configuração do Egress](./media/egress-tutorial/configure1.PNG)
+    ![Configuração do Egress](./media/egress-tutorial/configure-1.PNG)
 
     a. No menu do lado esquerdo, clique em **Configuração de SSO**.
 
@@ -150,11 +150,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. Clique em **Convidar Usuários** no menu do lado esquerdo e clique em **Convidar Usuário Único** para adicionar o usuário.
 
-    ![Criar usuário de teste do Egress](./media/egress-tutorial/createuser1.PNG)
+    ![Criar usuário de teste do Egress](./media/egress-tutorial/create-user-1.PNG)
 
 1. Preencha os campos obrigatórios e clique em **Convidar**.
 
-    ![Criar usuário de teste do Egress](./media/egress-tutorial/createuser2.PNG)
+    ![Criar usuário de teste do Egress](./media/egress-tutorial/create-user-2.PNG)
 
 ## <a name="test-sso"></a>Testar o SSO 
 

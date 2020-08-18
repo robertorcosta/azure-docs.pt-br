@@ -1,6 +1,6 @@
 ---
 title: Tutorial para pedido do Azure Data Box | Microsoft Docs
-description: Conheça os pré-requisitos de implantação e como solicitar um Azure Data Box
+description: Neste tutorial, saiba mais sobre o Azure Data Box, uma solução híbrida que permite importar dados locais para o Azure, e como pedir o Azure Data Box.
 services: databox
 author: priestlg
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: v-grpr
-ms.openlocfilehash: fd841dee5f3a845d793255f5e13b416fb1add4f4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9f742af1a3c9ede4857e329697eb959a5a51dc95
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007235"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926358"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Solicitar o Azure Data Box
 

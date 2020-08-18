@@ -1,0 +1,55 @@
+---
+title: Solucionar problemas de política de acesso do Azure Key Vault
+description: Solucionar problemas de política de acesso do Azure Key Vault
+author: sebansal
+ms.author: sebansal
+ms.date: 08/10/2020
+ms.service: key-vault
+ms.subservice: general
+ms.topic: tutorial
+ms.openlocfilehash: f775a0e1dcb82afc9a458ce4ee608a52ec06dc4c
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135905"
+---
+# <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Solucionar problemas de política de acesso do Azure Key Vault
+
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
+
+### <a name="how-can-i-identify-how-and-when-key-vaults-are-accessed"></a>Como identificar como e quando os cofres de chaves são acessados?
+Depois de criar um ou mais cofres de chaves, provavelmente você desejará monitorar como e quando os cofres de chaves serão acessados e por quem. Você pode fazer isso habilitando o registro em log para o Azure Key Vault. Para ver um guia passo a passo de como habilitar o registro em log, [leia mais](https://docs.microsoft.com/azure/key-vault/general/logging).
+
+### <a name="how-can-i-monitor-vault-availability-service-latency-periods-or-other-performance-metrics-for-key-vault"></a>Como posso monitorar a disponibilidade do cofre, os períodos de latência do serviço ou outras métricas de desempenho do cofre de chaves?
+Conforme você começar a dimensionar o serviço, o número de solicitações enviadas para o cofre de chaves aumentará. Isso tem o potencial de aumentar a latência de suas solicitações e, em casos extremos, fazer com que suas solicitações sejam limitadas, o que afetará o desempenho de seu serviço. Você pode monitorar as métricas de desempenho do cofre de chaves e receber alertas relacionados a limites específicos. Para ver um guia passo a passo de como configurar o monitoramento, [leia mais](https://docs.microsoft.com/azure/key-vault/general/alert).
+
+### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>Como posso atribuir o controle de acesso por objeto do cofre de chaves? 
+A disponibilidade do recurso de controle de acesso por segredo/chave/certificado será notificada aqui; [leia mais](https://feedback.azure.com/forums/906355-azure-key-vault/suggestions/.32213176-per-secret-key-certificate-access-control)
+
+### <a name="how-can-i-provide-key-vault-authenticate-using-access-control-policy"></a>Como fornecer a autenticação do cofre de chaves usando a política de controle de acesso?
+A maneira mais simples de autenticar um aplicativo baseado em nuvem no Key Vault é com uma identidade gerenciada. Confira [Usar uma identidade gerenciada do Serviço de Aplicativo para acessar o Azure Key Vault]( https://docs.microsoft.com/azure/key-vault/general/managed-identity) para obter detalhes.
+Caso você esteja criando um aplicativo local, fazendo o desenvolvimento local ou, por algum outro motivo, não possa usar uma identidade gerenciada, registre uma entidade de serviço manualmente e forneça acesso ao cofre de chaves usando uma política de controle de acesso; [leia mais](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps).
+
+
+### <a name="how-can-i-give-the-ad-group-access-to-the-key-vault"></a>Como conceder ao grupo do AD acesso ao cofre de chaves?
+Conceda ao grupo do AD permissões para o cofre de chaves usando o comando az keyvault set-policy da CLI do Azure ou o cmdlet Set-AzKeyVaultAccessPolicy do Azure PowerShell. Para obter exemplos, confira [fornecer ao aplicativo, ao grupo do Azure AD ou ao usuário o acesso ao cofre de chaves](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps#give-the-principal-access-to-your-key-vault).
+
+O aplicativo também precisa de pelo menos uma função de IAM (Gerenciamento de Identidades e Acesso) atribuída ao cofre de chaves. Caso contrário, ele não poderá fazer logon e falhará ao acessar a assinatura, devido a direitos insuficientes. Os grupos do Azure AD com identidades gerenciadas podem exigir até oito horas para atualizar o token e entrar em vigor.
+
+### <a name="how-can-i-redeploy-key-vault-with-arm-template-without-deleting-existing-access-policies"></a>Como reimplantar o Key Vault com o modelo do ARM sem excluir as políticas de acesso existentes?
+Atualmente, a reimplantação do Key Vault exclui qualquer política de acesso no Key Vault e as substitui pela política de acesso no modelo do ARM. Não há opção incremental para políticas de acesso do Key Vault. Para preservar as políticas de acesso no Key Vault, você precisa ler as políticas de acesso existentes nele e popular o modelo do ARM com essas políticas para evitar qualquer interrupção de acesso.
+
+### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Etapas de solução de problemas recomendadas para os seguintes tipos de erro
+* HTTP 401: Solicitação não autenticada – [Etapas de solução de problemas](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes#http-401-unauthenticated-request)
+* HTTP 403: Permissões insuficientes – [Etapas de solução de problemas](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes#http-403-insufficient-permissions)
+* HTTP 429: Número excessivo de solicitações – [Etapas de solução de problemas](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes#http-429-too-many-requests)
+* Verifique se você tem permissão para excluir acesso ao key Vault: [Políticas de acesso ao Key Vault](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps)
+* Se você tiver problemas com a autenticação no cofre de chaves no código, use [SDK de autenticação](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html)
+
+### <a name="what-are-the-best-practices-i-should-implement-when-key-vault-is-getting-throttled"></a>Quais são as melhores práticas que devo implementar quando o cofre de chaves estiver sendo limitado?
+Siga as melhores práticas documentadas [aqui](https://docs.microsoft.com/azure/key-vault/general/overview-throttling#how-to-throttle-your-app-in-response-to-service-limits)
+
+## <a name="next-steps"></a>Próximas etapas
+
+Saiba como solucionar erros de autenticação no Key Vault. [Guia de solução de problemas do Key Vault](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes)

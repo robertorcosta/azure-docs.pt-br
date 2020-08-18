@@ -1,6 +1,6 @@
 ---
-title: Migrar VMs do AWS para o serviço Azure Site Recovery | Microsoft Docs
-description: Este artigo descreve como migrar VMs do Windows em execução no AWS (Amazon Web Services) para o Azure usando o Azure Site Recovery.
+title: Migrar VMs do AWS para o Azure com Migrações para Azure
+description: Este artigo descreve as opções para migrar instâncias do AWS para o Azure e recomenda Migrações para Azure.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/27/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: dd91e99b45405cca10b9ddc2982674e72ad6bf86
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 83d8106b9f206da9095c37b6179bdda8001b439c
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281286"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852762"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar das VMs do AWS (Amazon Web Services) para o Azure
 
@@ -22,7 +22,7 @@ Este artigo descreve as opções para migrar instâncias de AWS (Amazon Web Serv
 
 ## <a name="migrate-with-azure-migrate"></a>Migrar com as Migrações para Azure
 
-Recomendamos que você migre instâncias da AWS para o Azure usando o serviço [Migrações para Azure](../migrate/migrate-services-overview.md). As Migrações para Azure fornecem um hub centralizado para a avaliação e a migração de computadores locais para o Azure usando as Migrações para Azure, outros serviços do Azure e ferramentas de terceiros.
+Recomendamos que você migre instâncias do EC2 do AWS para o Azure usando o serviço [Migrações para Azure](../migrate/migrate-services-overview.md). O recurso Migrações para Azure é criado especificamente para a migração do servidor. As Migrações para Azure oferecem um hub central para descoberta, avaliação e migração de computadores locais para o Azure.
 
 [Saiba como](../migrate/tutorial-migrate-aws-virtual-machines.md) migrar instâncias da AWS com as Migrações para Azure. 
 

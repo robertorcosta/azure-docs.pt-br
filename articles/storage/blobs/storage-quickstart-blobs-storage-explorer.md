@@ -1,7 +1,7 @@
 ---
 title: Início rápido – Criar um blob com o Gerenciador de Armazenamento do Azure
 titleSuffix: Azure Storage
-description: Neste guia de início rápido, você aprende a usar o Gerenciador de Armazenamento do Azure para criar um contêiner e um blob, baixar o blob em seu computador local e exibir todos os blobs no contêiner.
+description: Aprenda a usar o Gerenciador de Armazenamento do Azure para criar um contêiner e um blob, baixar o blob em seu computador local e exibir todos os blobs no contêiner.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 3ed0885152b15ef365d0e02c198b684bedd2f95b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f8768a1b2542eb0461ef0c50c96e22c80eced57a
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083643"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836455"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Início Rápido: Usar o Gerenciador de Armazenamento do Azure para criar um blob
 

@@ -6,16 +6,16 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/26/2020
-ms.openlocfilehash: 858315008434f511e3adc0a91d591d924634fc39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 919883025075ca38bcef6c23ac744528e7bd5502
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809493"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510055"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-azure-powershell"></a>Configurar um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando Azure PowerShell
 
-Neste artigo, você aprenderá a configurar um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente. 
+Neste artigo, você aprenderá a configurar um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,7 +23,7 @@ Neste artigo, você aprenderá a configurar um conjunto de dimensionamento de m�
 - Um balanceador de carga de SKU padrão existente na assinatura em que o conjunto de dimensionamento de máquinas virtuais será implantado.
 - Uma rede virtual do Azure para o conjunto de dimensionamento de máquinas virtuais.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -64,7 +64,7 @@ O exemplo abaixo implanta um conjunto de dimensionamento de máquinas virtuais c
 - Sub-rede chamada **Mysubnet**
 - Grupo de recursos chamado **MyResource** Group
 
-```azureppowershell-interactive
+```azurepowershell-interactive
 
 $rsg = "myResourceGroup"
 $loc = "East US 2"
@@ -87,4 +87,3 @@ Neste artigo, você implantou um conjunto de dimensionamento de máquinas virtua
 
 - [O que é o Azure Load Balancer?](load-balancer-overview.md)
 - [O que são conjuntos de escala de máquina virtual?](../virtual-machine-scale-sets/overview.md)
-                                

@@ -1,6 +1,6 @@
 ---
 title: O que é SSO (logon único) do Azure?
-description: Saiba como escolher um método de logon único ao configurar aplicativos no Azure AD (Azure Active Directory). Use o logon único para que os usuários não precisem se lembrar de senhas para cada aplicativo e para simplificar a administração de gerenciamento de conta.
+description: Saiba como o SSO (logon único) funciona com o Azure Active Directory. Use o SSO para que os usuários não precisem se lembrar das senhas de todos os aplicativos. Além disso, use o SSO para simplificar a administração do gerenciamento de contas.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,23 +11,39 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b641437b7e15334d59c544b95d5be0f20f2a8df
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6f3c6351a7bcd87ae25dfae53cb17f634bbef146
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387533"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121503"
 ---
 # <a name="what-is-single-sign-on-sso"></a>O que é SSO (logon único)?
 
-O SSO (logon único) adiciona segurança e conveniência quando os usuários se conectam a aplicativos no Azure Active Directory. Este artigo descreve os métodos de logon único e ajuda você a escolher o método de SSO mais adequado ao configurar os seus aplicativos.
+Logon único significa que o usuário não precisa entrar em todos os aplicativos que usa. O usuário faz logon uma vez e essa credencial também é usada para outros aplicativos.
+
+Se você é um usuário final, provavelmente não se preocupa muito com os detalhes do SSO. Você só quer usar os aplicativos que aumentam sua produtividade sem precisar digitar tantas senhas. Você pode encontrar seus aplicativos em: https://myapps.microsoft.com.
+ 
+Se você é um administrador ou profissional de TI, continue lendo para saber mais sobre como o SSO é implementado no Azure.
+
+## <a name="single-sign-on-basics"></a>Noções básicas sobre o logon único
+O logon único representa um grande avanço na maneira como os usuários entram nos aplicativos e os utilizam. Os sistemas de autenticação baseados em logon único costumam ser chamados de "autenticação moderna". Para entender o que torna o logon único possível, confira este vídeo.
+> [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4]
+
+## <a name="understanding-where-an-app-is-hosted"></a>Entender onde o aplicativo está hospedado
+A maneira como você implementa o logon único para um aplicativo tem muito a ver com o local onde ele está hospedado. A hospedagem é importante devido à maneira como o tráfego de rede é roteado para acessar o aplicativo. Se um aplicativo é hospedado e acessado usando a rede local, ou seja, é um aplicativo local, não há necessidade de os usuários acessarem a Internet para utilizá-lo. Se o aplicativo é hospedado em outro lugar, ou seja, é um aplicativo hospedado na nuvem, os usuários precisam acessar a Internet para utilizá-lo.
+
+> [!TIP]
+> Os aplicativos de nuvem também são chamados de aplicativos SaaS (software como serviço). 
+
+> [!TIP]
+> Os termos nuvem e Internet costumam ser usados de maneira intercambiável. O motivo disso está relacionado aos diagramas de rede. É comum representar grandes redes de computadores com uma forma de nuvem em um diagrama, pois não é viável desenhar todos os componentes. A Internet é a rede mais conhecida e, portanto, é fácil usar os termos de maneira intercambiável. No entanto, qualquer rede de computadores pode ser chamada de nuvem.
+
+## <a name="choosing-a-single-sign-on-method"></a>Escolhendo um método de logon único
 
 - **Com o logon único**, os usuários entram uma vez com uma conta para acessar os dispositivos ingressados no domínio, recursos da empresa, aplicativos de SaaS (software como serviço) e aplicativos Web. Depois de entrar, o usuário pode iniciar os aplicativos no portal do Office 365 ou no painel de acesso MyApps do Azure AD. Os administradores podem centralizar o gerenciamento da conta de usuário e automaticamente adicionar ou remover o acesso de usuário para aplicativos com base na associação de grupo.
 
 - **Sem o logon único**, os usuários devem se lembrar de senhas específicas do aplicativo e entrar em cada aplicativo. A equipe de TI precisa criar e atualizar as contas de usuário para cada aplicativo, como o Office 365, o Box e o Salesforce. Os usuários precisam se lembrar de suas senhas, além de gastar tempo para entrar em cada aplicativo.
-
-## <a name="choosing-a-single-sign-on-method"></a>Escolhendo um método de logon único
 
 Há várias maneiras de configurar um aplicativo para logon único. A escolha de um método de logon único depende de como o aplicativo está configurado para autenticação.
 
@@ -42,7 +58,7 @@ A tabela a seguir resume os métodos de logon único e os links para obter mais 
 
 | Método de logon único | Tipos de aplicativos | Quando usar |
 | :------ | :------- | :----- |
-| [OpenID Connect e OAuth](#openid-connect-and-oauth) | somente na nuvem | Use o OpenID Connect e o OAuth ao desenvolver um novo aplicativo. Esse protocolo simplifica a configuração de aplicativo, tem SDKs fáceis de usar e permite que seu aplicativo use o MS Graph.
+| [OpenID Connect e OAuth](#openid-connect-and-oauth) | nuvem e local | Use o OpenID Connect e o OAuth ao desenvolver um novo aplicativo. Esse protocolo simplifica a configuração de aplicativo, tem SDKs fáceis de usar e permite que seu aplicativo use o MS Graph.
 | [SAML](#saml-sso) | nuvem e local | Escolha SAML sempre que possível para aplicativos existentes que não usam o OpenID Connect nem o OAuth. O SAML funciona para aplicativos que são autenticados usando um dos protocolos SAML.|
 | [Baseado em senha](#password-based-sso) | nuvem e local | Escolha o método baseado em senha quando o aplicativo é autenticado com o nome de usuário e senha. O logon único baseado em senha permite o armazenamento e a reprodução segura de senhas do aplicativo usando uma extensão de navegador da Web ou aplicativo móvel. Esse método utiliza o processo de entrada existente fornecido pelo aplicativo, mas permite que um administrador gerencie as senhas. |
 | [Vinculado](#linked-sign-on) | nuvem e local | Escolha o logon vinculado quando o aplicativo estiver configurado para o logon único em outro serviço de provedor de identidade. Essa opção não adiciona o logon único ao aplicativo. No entanto, o aplicativo pode já ter o logon único implementado usando outro serviço, como Serviços de Federação do Active Directory (AD FS).|
@@ -105,7 +121,7 @@ O logon único baseado em senha for compatível com qualquer aplicativo baseado 
 - Chrome no Windows 7 ou posterior e no macOS X ou posterior
 - Firefox 26.0 ou posterior no Windows XP SP2 ou posterior e no macOS X 10.6 ou posterior
 
-Para configurar um aplicativo em nuvem para o logon único baseado em senha, confira [Configurar logon único com senha](configure-password-single-sign-on-non-gallery-applications.md).
+Para configurar um aplicativo em nuvem para o logon único baseado em senha, confira [Configurar o logon único com senha](configure-password-single-sign-on-non-gallery-applications.md).
 
 Para configurar um aplicativo local para logon único por meio do Proxy de Aplicativo, confira [Cofre para senhas para logon único com o Proxy de Aplicativo](application-proxy-configure-single-sign-on-password-vaulting.md)
 
@@ -197,10 +213,5 @@ Como esse cenário é oferecido por meio de uma parceria entre o Azure AD e o Pi
 
 Para obter mais informações, consulte [Edições do Active Directory do Azure](../fundamentals/active-directory-whatis.md).
 
-## <a name="related-articles"></a>Artigos relacionados
+## <a name="next-steps"></a>Próximas etapas
 * [Série de Início Rápido no Gerenciamento de Aplicativos](view-applications-portal.md)
-* [Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Configurando o logon único baseado em senha](configure-password-single-sign-on-non-gallery-applications.md)
-* [Configurando logon vinculado](configure-linked-sign-on.md)
-* [Introdução ao gerenciamento do acesso a aplicativos](what-is-access-management.md)
-* Link de download: [Plano de implantação de logon único](https://aka.ms/SSODeploymentPlan).

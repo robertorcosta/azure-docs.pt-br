@@ -10,15 +10,19 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
-ms.openlocfilehash: 680f8394ad1d10a564033ae5a2b9f59063589f73
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: d89bc33b0ddd0793a3c55dbd64bef9678bd723e7
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532519"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920136"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Tutorial: Configurar a replicação transacional entre a Instância Gerenciada de SQL do Azure e o SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
+
+A replicação transacional permite replicar dados de um banco de dados para outro hospedado no SQL Server ou na [Instância Gerenciada de SQL do Azure](sql-managed-instance-paas-overview.md). A Instância Gerenciada de SQL pode ser um publicador, um distribuidor ou um assinante na topologia de replicação. Confira [configurações de replicação transacional](replication-transactional-overview.md#common-configurations) para obter as configurações disponíveis. 
+
+A replicação transacional está atualmente em versão prévia pública para a Instância Gerenciada de SQL. 
 
 Neste tutorial, você aprenderá como:
 
@@ -30,11 +34,11 @@ Neste tutorial, você aprenderá como:
 
 ![Replicação entre um publicador da instância gerenciada, um distribuidor de instância gerenciada e o assinante d SQL Server](./media/replication-two-instances-and-sql-server-configure-tutorial/sqlmi-to-sql-replication.png)
 
-Este tutorial destina-se a um público-alvo experiente e pressupõe que o usuário esteja familiarizado com a implantação e a conexão com as instâncias gerenciadas e as VMs do SQL Server no Azure. Portanto, algumas etapas deste tutorial são ignoradas.
+Este tutorial destina-se a um público-alvo experiente e pressupõe que o usuário esteja familiarizado com a implantação e a conexão com as instâncias gerenciadas e as VMs do SQL Server no Azure. 
 
-Para saber mais, confira os artigos [Visão geral da Instância Gerenciada de SQL do Azure](sql-managed-instance-paas-overview.md) e [Replicação transacional do SQL](replication-transactional-overview.md).
 
-Para configurar a replicação entre um publicador da instância gerenciada e um assinante da instância gerenciada, confira [Configurar a replicação transacional entre duas instâncias gerenciadas](replication-between-two-instances-configure-tutorial.md).
+> [!NOTE]
+> Este artigo descreve o uso de [replicação transacional](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) na Instância Gerenciada de SQL do Azure. Ele não está relacionado a [grupos de failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), um recurso de Instância Gerenciada de SQL do Azure que permite criar réplicas legíveis completas de instâncias individuais. Há considerações adicionais ao configurar [replicação transacional com grupos de failover](replication-transactional-overview.md#with-failover-groups).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 1676815e1b5614a1e9aa33a1dc5ce471601bde76
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 22eb43e7249214e4184abe723c8348c726979fa6
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759315"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511058"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Banco de dados SQL do Azure e arquitetura de conectividade do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -79,10 +79,10 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Austrália Central    | 20.36.105.0 |
 | Central2 da Austrália   | 20.36.113.0 |
 | Leste da Austrália       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
-| Sudeste da Austrália | 191.239.192.109, 13.73.109.251 |
-| Brazil South         | 104.41.11.5, 191.233.200.14 |
+| Sudeste da Austrália | 191.239.192.109, 13.73.109.251, 13.77.48.10 |
+| Sul do Brasil         | 104.41.11.5, 191.233.200.14 |
 | Canadá Central       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
-| Leste do Canadá          | 40.86.226.166      |
+| Leste do Canadá          | 40.86.226.166, 40.86.226.166, 52.242.30.154 |
 | Centro dos EUA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
 | Leste da China           | 139.219.130.35     |
 | Leste da China 2         | 40.73.82.1         |
@@ -97,7 +97,7 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Centro da Índia        | 104.211.96.159     |
 | Sul da Índia          | 104.211.224.146    |
 | Oeste da Índia           | 104.211.160.80     |
-| Japan East           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
+| Leste do Japão           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
 | Oeste do Japão           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 |
 | Coreia Central        | 52.231.32.42       |
 | Sul da Coreia          | 52.231.200.86      |
@@ -113,7 +113,7 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Oeste da Suíça     | 51.107.152.0, 51.107.153.0 |
 | EAU Central          | 20.37.72.64        |
 | Norte dos EAU            | 65.52.248.0        |
-| Sul do Reino Unido             | 51.140.184.11      |
+| Sul do Reino Unido             | 51.140.184.11,51.140.184.11, 51.105.64.0 |
 | Oeste do Reino Unido              | 51.141.8.11        |
 | Centro-Oeste dos EUA      | 13.78.145.25, 13.78.248.43        |
 | Europa Ocidental          | 40.68.37.158, 191.237.232.75, 104.40.168.105, 52.236.184.163  |

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 34b7f4bc55fc8e33b7d66f53e6f2fc241801f965
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ad6bbc1d3c20659441b8b062898526471f4d713a
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827411"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510225"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para Implantação do DBMS de Máquinas de Virtuais do Azure para carga de trabalho do SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -221,7 +221,7 @@ Para o armazenamento premium, existem as seguintes opções de cache:
 
 Para o armazenamento premium, recomendamos que você use **Cache de leitura para arquivos de dados** do banco de dados SAP e escolha **Sem cache para os discos dos arquivos de log**.
 
-Para implantações da série M, recomendamos que você use o Acelerador de Gravação do Azure para sua implantação do DBMS. Para obter mais informações, restrições e implantar o Acelerador de Gravação do Azure, confira [Habilitar o Acelerador de Gravação](../../windows/how-to-enable-write-accelerator.md).
+Para implantações da série M, recomendamos que você use o Acelerador de Gravação do Azure para sua implantação do DBMS. Para obter mais informações, restrições e implantar o Acelerador de Gravação do Azure, confira [Habilitar o Acelerador de Gravação](../../how-to-enable-write-accelerator.md).
 
 
 ### <a name="azure-nonpersistent-disks"></a>Discos não persistentes do Azure

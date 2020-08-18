@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 53e8586486d9a9ebf870de350d5607f58977c0f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 340fcd723442a53ca72d3af0461226be737eb7a5
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81426325"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844194"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Usar Aplicativos Lógicos para receber email sobre alterações de status de segredos do Key Vault
 
@@ -28,6 +28,7 @@ Para obter uma visão geral da integração do Azure Key Vault/Grade de Eventos 
 - Uma conta de email de qualquer provedor de email com suporte pelos Aplicativos Lógicos do Azure Apps (como Office 365 Outlook). Essa conta de email é usada para enviar as notificações de eventos. Para obter uma lista completa de conectores de Aplicativos Lógicos com suporte, consulte a [Visão geral dos conectores](/connectors)
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - Um cofre de chaves na assinatura do Azure. Você pode criar rapidamente um novo cofre de chaves seguindo as etapas em [Definir e recuperar um segredo do Azure Key Vault usando a CLI do Azure](../secrets/quick-create-cli.md).
+- A Grade de Eventos registrada como um provedor de recursos, confira [Registros de provedores de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)
 
 ## <a name="create-a-logic-app-via-event-grid"></a>Criar um aplicativo lógico por meio da Grade de Eventos
 
@@ -53,13 +54,13 @@ Para criar uma assinatura da Grade de Eventos do Azure, siga as etapas a seguir:
 
 1. Selecione **+ Nova Etapa** Isso abrirá uma janela para Escolher uma ação.
 1. Pesquisar por **Email**. Com base no seu provedor de email, localize e selecione o conector correspondente. Este tutorial usa o **Office 365 Outlook**. As etapas para outros provedores de email são semelhantes.
-1. Selecione a ação **Enviar um email (V2)** .
+1. Selecione a ação **Enviar um email (V2)**.
 
    ![Designer do Aplicativo Lógico - adicionar um email](../media/eventgrid-logicappdesigner3.png)
 
 1. Compile seu modelo de email:
-    - **Para:** insira o endereço de email para receber os emails de notificação. Para este tutorial, use uma conta de email que você possa acessar para testar.
-    - **Assunto** e **Corpo**: escreva o texto de seu email. Selecione as propriedades JSON da ferramenta seletora para incluir conteúdo dinâmico com base nos dados de eventos. Você pode recuperar os dados do evento usando `@{triggerBody()?['Data']}`.
+    - **Para:** insira o endereço de email para receber os emails de notificação. Para este tutorial, use uma conta de email que você possa acessar para testes.
+    - **Assunto** e **Corpo**: escreva o texto para o seu email. Selecione as propriedades JSON na ferramenta de seletor para incluir conteúdo dinâmico com base nos dados do evento. Você pode recuperar os dados do evento usando `@{triggerBody()?['Data']}`.
 
     Seu modelo de email poderá ser semelhante a este exemplo.
 

@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 40a0429c4296426042e5baa58c9575ddb195cd7c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 4c48a8a18a3ad0487b4c3840847c7f5edbb6d29f
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996730"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510312"
 ---
 # <a name="search-edit-and-delete-projects"></a>Pesquisar, editar e excluir projetos
 
@@ -24,36 +24,35 @@ O tradutor personalizado fornece várias maneiras de gerenciar seus projetos de 
 
 A ferramenta de filtragem permite pesquisar projetos por diferentes condições de filtro. Ele filtra como nome do projeto, status, idioma de origem e destino e categoria do projeto.
 
-1.  Clique no botão de filtro.
+1. Clique no botão de filtro.
 
     ![Projeto de pesquisa](media/how-to/how-to-search-project.png)
 
-1.  Você pode filtrar por qualquer (ou todos) os seguintes campos: nome do projeto, status, idioma de origem, idioma de destino e categoria.
+2. Você pode filtrar por qualquer (ou todos) dos seguintes campos: nome do projeto, idioma de origem, idioma de destino, categoria e disponibilidade do projeto.
 
-2.  Clique em Aplicar.
+3. Clique em Aplicar.
 
     ![Opções de filtro de projeto de pesquisa](media/how-to/how-to-search-project-filters.png)
 
-3.  Desmarque o filtro para exibir todos os seus projetos tocando em "limpar".
-
+4. Limpe o filtro para ver todos os seus projetos tocando em "Limpar".
 
 ## <a name="edit-a-project"></a>Editar um projeto
 
 O tradutor personalizado oferece a capacidade de editar o nome e a descrição de um projeto. Outros metadados do projeto como a categoria, o idioma de origem e o idioma de destino não estão disponíveis para edição. As etapas a seguir descrevem como editar um projeto.
 
-1.  Clique no ícone de lápis que aparece quando você passa o mouse sobre um projeto.
+1. Clique no ícone de lápis que aparece quando você passa o mouse sobre um projeto.
 
     ![Editar projeto](media/how-to/how-to-edit-project.png)
 
-2.  Na caixa de diálogo, você pode modificar o nome do projeto ou a descrição do projeto, mas não pode modificar o rótulo, a categoria ou o par de idiomas do projeto.
+2. Na caixa de diálogo, você pode modificar o nome do projeto, a descrição do projeto, a descrição da categoria e o rótulo do projeto se nenhum modelo for implantado. Você não pode modificar o par de categorias ou idiomas depois que o projeto é criado.
 
     ![Editar caixa de diálogo do projeto](media/how-to/how-to-edit-project-dialog.png)
 
-3.  Clique no botão de filtro.
+3. Clique no botão "salvar".
 
 ## <a name="delete-a-project"></a>Excluir um projeto
 
-Você pode excluir um projeto quando você não precisa mais dela. Abaixo, as etapas descrevem como excluir um projeto.
+Você pode excluir um projeto quando você não precisa mais dela. Faça com que o projeto não tenha modelos em estado ativo, como implantado, treinamento enviado, processamento de dados, implantação, etc., caso contrário, a operação de exclusão falhará. Abaixo, as etapas descrevem como excluir um projeto.
 
 1. Passe o mouse sobre qualquer registro de projeto e clique no ícone de Lixeira.
 

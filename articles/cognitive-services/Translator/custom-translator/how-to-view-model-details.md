@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 56d947a6b2d236a04f2b71421a235120a9f02c76
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 52e305f9d50ab0f383810778be681ac41be97c72
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994182"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509767"
 ---
 # <a name="view-model-details"></a>Exibir detalhes do modelo
 
@@ -22,25 +22,25 @@ A guia Modelos no projeto mostra todos os modelos nesse projeto. Todos os modelo
 
 Para cada modelo no projeto, esses detalhes são exibidos.
 
-1.  Nome do modelo: mostra o nome do modelo de um determinado modelo.
+1. Nome do modelo: mostra o nome do modelo de um determinado modelo.
 
-2.  Status: mostra o status de um determinado modelo. O novo treinamento terá um status de Enviado até que seja aceito. O status será alterado para processamento de dados, enquanto o serviço avalia o conteúdo dos documentos. Quando a avaliação dos documentos estiver concluída, o status será alterado para Em Execução e você poderá ver o número de frases que fazem parte do treinamento, incluindo os conjuntos de ajustes e testes criados automaticamente para você. Abaixo está uma lista de status do modelo que descreve o estado dos modelos.
+2. Status: mostra o status de um determinado modelo. O novo treinamento terá um status de Enviado até que seja aceito. O status será alterado para processamento de dados, enquanto o serviço avalia o conteúdo dos documentos. Quando a avaliação dos documentos estiver concluída, o status será alterado para Em Execução e você poderá ver o número de frases que fazem parte do treinamento, incluindo os conjuntos de ajustes e testes criados automaticamente para você. Abaixo está uma lista de status do modelo que descreve o estado dos modelos.
 
-    -  Enviado: especifica que o back-end está processando os documentos para esse modelo.
+    - Enviado: especifica que o back-end está processando os documentos para esse modelo.
 
-    -  TrainingQueued: especifica que o treinamento está sendo colocado na fila do sistema MT para esse modelo.
+    - TrainingQueued: especifica que o treinamento está sendo colocado na fila do sistema MT para esse modelo.
 
-    -  Em Execução: especifica que o treinamento está sendo executado no sistema MT para esse modelo.
+    - Em Execução: especifica que o treinamento está sendo executado no sistema MT para esse modelo.
 
-    -  Êxito: especifica que o treinamento teve êxito no sistema MT e um modelo está disponível. Nesse status, uma pontuação BLEU é exibida para esse modelo.
+    - Êxito: especifica que o treinamento teve êxito no sistema MT e um modelo está disponível. Nesse status, uma pontuação BLEU é exibida para esse modelo.
 
-    -  Implantado: especifica que o modelo treinado com êxito seja enviado ao sistema MT para implantação.
+    - Implantado: especifica que o modelo treinado com êxito seja enviado ao sistema MT para implantação.
 
-    -  Desimplantar: especifica que o modelo implantado está sendo desimplantado.
+    - Desimplantar: especifica que o modelo implantado está sendo desimplantado.
 
-    -  Desimplantado: especifica que o processo de não implantação de um modelo foi concluído com êxito.
+    - Desimplantado: especifica que o processo de não implantação de um modelo foi concluído com êxito.
 
-    -  Falha no treinamento: especifica que o treinamento falhou. Se ocorrer uma falha de treinamento, tente novamente o trabalho de treinamento. Se o erro persistir, contate-nos. Não exclua o modelo com falha.
+    - Falha no treinamento: especifica que o treinamento falhou. Se ocorrer uma falha de treinamento, tente novamente o trabalho de treinamento. Se o erro persistir, contate-nos. Não exclua o modelo com falha.
 
     - DataProcessingFailed: especifica que o processamento de dados falhou para um ou mais documentos pertencentes ao modelo.
 
@@ -48,19 +48,19 @@ Para cada modelo no projeto, esses detalhes são exibidos.
 
     - MigratedDraft: especifica que o modelo está no estado de rascunho após a migração do Hub para o Tradutor Personalizado.
 
-4.  Pontuação BLEU: mostra a pontuação BLEU (Bilingual Evaluation Understudy) do modelo, indicando a qualidade do sistema de tradução. Essa pontuação informa o quanto as traduções feitas pelo sistema de tradução resultantes desse treinamento correspondem às frases de referência no conjunto de dados de teste. A pontuação BLEU será exibida se o treinamento for concluído com êxito. Se o treinamento não estiver concluído/com falha, nenhuma pontuação BLEU será exibida.
+3. Pontuação BLEU: mostra a pontuação BLEU (Bilingual Evaluation Understudy) do modelo, indicando a qualidade do sistema de tradução. Essa pontuação informa o quanto as traduções feitas pelo sistema de tradução resultantes desse treinamento correspondem às frases de referência no conjunto de dados de teste. A pontuação BLEU será exibida se o treinamento for concluído com êxito. Se o treinamento não estiver concluído/com falha, nenhuma pontuação BLEU será exibida.
 
-5.  Contagem de frases de treinamento: mostra o número total de frases usadas como conjunto de treinamento.
+4. Contagem de sentenças de treinamento: mostra o número total de frases usadas como conjunto de treinamento.
 
-6.  Contagem de frases de ajuste: mostra o número total de frases usadas como conjunto de ajuste.
+5. Contagem de frases de ajuste: mostra o número total de frases usadas como conjunto de ajuste.
 
-7.  Contagem de frases de treinamento: mostra o número total de frases usadas como conjunto de testes.
+6.  Contagem de frases de treinamento: mostra o número total de frases usadas como conjunto de testes.
 
-8.  Contagem de frases mono: mostra o número total de frases usadas como conjunto mono.
+7.  Contagem de frases mono: mostra o número total de frases usadas como conjunto mono.
 
-9.  Botão de ação de implantação: para um modelo treinado com êxito, ele mostrará o botão "implantar" se não estiver implantado. Se um modelo for implantado, um botão "desimplantar" será mostrado.
+8.  Botão de ação Implantar: para um modelo treinado com êxito, mostra o botão "Implantar", se não estiver implantado. Se houver um modelo implantado, um botão "Desimplantar" será exibido.
 
-10. Excluir: você pode usará esse botão se quiser excluir o modelo. A exclusão de um modelo não excluirá nenhum documento usado para criar esse modelo.
+9. Excluir: você pode usará esse botão se quiser excluir o modelo. A exclusão de um modelo não excluirá nenhum documento usado para criar esse modelo.
 
     ![Exibir detalhes do modelo](media/how-to/how-to-view-model-details.png)
 

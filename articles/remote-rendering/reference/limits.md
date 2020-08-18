@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 17f98f452764abdc8458cdc38661d464ecb0a60d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c4c6be7c8a6287c5a8ec6a60121751ff9fc0dc9
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808536"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509220"
 ---
 # <a name="limitations"></a>Limitações
 
@@ -26,7 +26,7 @@ Vários recursos têm limitações de tamanho, contagem ou outras limitações.
 * Total de objetos permitidos de um único tipo (Entity, CutPlaneComponent, etc.): 16.777.215.
 * Total de planos de corte ativos permitidos: 8.
 
-## <a name="geometry"></a>Geometry
+## <a name="geometry"></a>Geometria
 
 * Total de materiais permitidos em um ativo: 65.535.
 * Dimensão máxima de uma única textura: 16.384 x 16.384. Texturas de origem maiores serão reduzidas pelo processo de conversão.
@@ -35,12 +35,12 @@ Vários recursos têm limitações de tamanho, contagem ou outras limitações.
 
 O número permitido de polígonos para todos os modelos carregados depende do tamanho da VM, conforme passado para [a API REST de gerenciamento de sessão](../how-tos/session-rest-api.md#create-a-session):
 
-| Tamanho da VM | Número máximo de polígonos |
+| Tamanho do servidor | Número máximo de polígonos |
 |:--------|:------------------|
 |padrão| 20 milhões |
 |premium| nenhum limite |
 
-Consulte o capítulo [tamanho da VM](../reference/vm-sizes.md) para obter informações mais detalhadas sobre essa limitação.
+Consulte o capítulo [tamanho do servidor](../reference/vm-sizes.md) para obter informações mais detalhadas sobre essa limitação.
 
 ## <a name="platform-limitations"></a>Limitações da plataforma
 

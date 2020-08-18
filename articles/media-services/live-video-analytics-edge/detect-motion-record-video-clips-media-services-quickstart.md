@@ -3,12 +3,12 @@ title: Detectar movimento, gravar vídeo nos Serviços de Mídia do Azure
 description: Este guia de início rápido mostra como usar a Análise de Vídeo ao vivo no IoT Edge para detectar o movimento em uma transmissão de vídeo ao vivo e gravar clipes de vídeo nos Serviços de Mídia do Azure.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 24bf958c7a6af25d64d8c2884b9fa259c67e39c3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 972b85c00aa29cc39dafd03b9945e489680dd9a5
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074410"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067640"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Início Rápido: Detectar movimento e gravar vídeo em Serviços de Mídia
 
@@ -29,13 +29,13 @@ Este artigo se baseia no [início rápido Introdução](get-started-detect-motio
 
 Como parte das etapas acima para configurar os recursos do Azure, um vídeo (curto) de um estacionamento será copiado para a VM Linux no Azure que está sendo usada como o dispositivo IoT Edge. Esse arquivo de vídeo será usado para simular uma transmissão ao vivo para este tutorial.
 
-Você pode usar um aplicativo como [VLC Player](https://www.videolan.org/vlc/), iniciá-lo, pressionar Control + N e colar [este](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) link para o vídeo de estacionamento iniciar a reprodução. Na marca de aproximadamente 5 segundos, um carro branco percorre o estacionamento.
+Use um aplicativo como o [VLC Player](https://www.videolan.org/vlc/), inicie-o, clique em `Ctrl+N` e cole o link [do vídeo de exemplo de estacionamento](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) para iniciar a reprodução. Na marca de aproximadamente 5 segundos, um carro branco percorre o estacionamento.
 
 Ao concluir as etapas abaixo, você terá usado a Análise de Vídeo ao vivo no IoT Edge para detectar esse movimento do carro e gravar um clipe de vídeo começando na marca de cerca de 5 segundos. O diagrama a seguir é a representação visual do fluxo geral.
 
 ![Gravação de vídeo baseada em evento em Ativos baseados em eventos em movimento](./media/quickstarts/topology.png)
 
-## <a name="use-direct-methods"></a>Usar métodos diretos
+## <a name="use-direct-method-calls"></a>Usar chamadas de método direto
 
 Você pode usar o módulo para analisar transmissões de vídeo ao vivo invocando os métodos diretos dele. Leia [Métodos Diretos para Análise de Vídeo ao vivo no IoT Edge](direct-methods.md) para entender todos os métodos diretos fornecidos pelo módulo. 
 
@@ -46,35 +46,35 @@ Esta etapa enumera todas as [topologias de grafo](media-graph-concept.md#media-g
 1. Você verá uma caixa de edição aparecer no meio, na parte superior, da janela do Visual Studio Code. Insira "GraphTopologyList" na caixa de edição e pressione Enter.
 1. Em seguida, copie e cole o conteúdo JSON abaixo na caixa de edição e pressione Enter.
     
-    ```
-    {
-        "@apiVersion" : "1.0"
-    }
-    ```
+```
+{
+    "@apiVersion" : "1.0"
+}
+```
 
-    Em alguns segundos, você verá a janela SAÍDA no pop-up do Visual Studio Code com a resposta a seguir
+Em alguns segundos, você verá a janela SAÍDA no pop-up do Visual Studio Code com a resposta a seguir
     
-    ```
-    [DirectMethod] Invoking Direct Method [GraphTopologyList] to [lva-sample-device/lvaEdge] ...
-    [DirectMethod] Response from [lva-sample-device/lvaEdge]:
-    {
-      "status": 200,
-      "payload": {
-        "value": []
-      }
-    }
-    ```
+```
+[DirectMethod] Invoking Direct Method [GraphTopologyList] to [lva-sample-device/lvaEdge] ...
+[DirectMethod] Response from [lva-sample-device/lvaEdge]:
+{
+  "status": 200,
+  "payload": {
+    "value": []
+  }
+}
+```
     
-    A resposta acima é esperada pois nenhuma topologia de grafo foi criada.
+A resposta acima é esperada pois nenhuma topologia de grafo foi criada.
 
 ### <a name="invoke-graphtopologyset"></a>Invocar GraphTopologySet
 
-Usando as mesmas etapas que aquelas descritas para invocar GraphTopologyList, você pode invocar GraphTopologySet para definir uma [topologia de grafo](media-graph-concept.md#media-graph-topologies-and-instances) usando o JSON a seguir como o conteúdo. Você criará uma topologia de grafo chamada de "EVRtoAssetsOnMotionDetecion".
+Usando as mesmas etapas que aquelas descritas para invocar GraphTopologyList, você pode invocar GraphTopologySet para definir uma [topologia de grafo](media-graph-concept.md#media-graph-topologies-and-instances) usando o JSON a seguir como o conteúdo. Você criará uma topologia de grafo nomeada como "EVRtoAssetsOnMotionDetection".
 
 ```
 {
     "@apiVersion": "1.0",
-    "name": "EVRtoAssetsOnMotionDetecion",
+    "name": "EVRtoAssetsOnMotionDetection",
     "properties": {
       "description": "Event-based video recording to Assets based on motion events",
       "parameters": [
@@ -195,7 +195,7 @@ Em poucos segundos, você verá a resposta a seguir na janela de SAÍDA.
       "createdAt": "2020-05-12T22:05:31.603Z",
       "lastModifiedAt": "2020-05-12T22:05:31.603Z"
     },
-    "name": "EVRtoAssetsOnMotionDetecion",
+    "name": "EVRtoAssetsOnMotionDetection",
     "properties": {
       "description": "Event-based video recording to assets based on motion events",
       "parameters": [
@@ -312,7 +312,7 @@ O status retornado é 201, indicando que uma nova topologia de grafo foi criada.
 
 * Invoque GraphTopologySet novamente e verifique se o código de status retornado é 200. O código de status 200 indica que uma topologia de grafo existente foi atualizada com êxito.
 * Invoque GraphTopologySet novamente, mas altere a cadeia de caracteres de descrição. Verifique se o código de status na resposta é 200 e se a descrição foi atualizada para o novo valor.
-* Invoque GraphTopologyList conforme descrito na seção anterior e verifique se agora você pode ver a topologia de grafo "EVRtoAssetsOnMotionDetecion" no conteúdo retornado.
+* Invoque GraphTopologyList, conforme descrito na seção anterior, e verifique se agora você pode ver a topologia de grafo "EVRtoAssetsOnMotionDetection" no conteúdo retornado.
 
 ### <a name="invoke-graphtopologyget"></a>Invocar GraphTopologyGet
 
@@ -321,7 +321,7 @@ Agora invoque GraphTopologyGet com o conteúdo a seguir
 
 {
     "@apiVersion" : "1.0",
-    "name" : "EVRtoAssetsOnMotionDetecion"
+    "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```
 
@@ -337,7 +337,7 @@ Em poucos segundos, você deverá ver a reposta a seguir na janela de Saída
       "createdAt": "2020-05-12T22:05:31.603Z",
       "lastModifiedAt": "2020-05-12T22:05:31.603Z"
     },
-    "name": "EVRtoAssetsOnMotionDetecion",
+    "name": "EVRtoAssetsOnMotionDetection",
     "properties": {
       "description": "Event-based video recording to Assets based on motion events",
       "parameters": [
@@ -466,7 +466,7 @@ Agora invoque o método direto GraphInstanceSet com o seguinte conteúdo:
     "@apiVersion" : "1.0",
     "name" : "Sample-Graph-2",
     "properties" : {
-        "topologyName" : "EVRtoAssetsOnMotionDetecion",
+        "topologyName" : "EVRtoAssetsOnMotionDetection",
         "description" : "Sample graph description",
         "parameters" : [
             { "name" : "rtspUrl", "value" : "rtsp://rtspsim:554/media/lots_015.mkv" }
@@ -477,7 +477,7 @@ Agora invoque o método direto GraphInstanceSet com o seguinte conteúdo:
 
 Observe o seguinte:
 
-* O conteúdo acima especifica o nome da topologia de grafo (EVRtoAssetsOnMotionDetecion) para o qual a instância de grafo precisa ser criada.
+* O conteúdo acima especifica o nome da topologia de grafo (EVRtoAssetsOnMotionDetection) para o qual a instância de grafo precisa ser criada.
 * O conteúdo contém um valor de parâmetro para "rtspUrl", que não tinha um valor padrão no conteúdo da topologia.
 
 Em poucos segundos, você verá a resposta a seguir na janela Saída:
@@ -496,7 +496,7 @@ Em poucos segundos, você verá a resposta a seguir na janela Saída:
     "properties": {
       "state": "Inactive",
       "description": "Sample graph description",
-      "topologyName": "EVRtoAssetsOnMotionDetecion",
+      "topologyName": "EVRtoAssetsOnMotionDetection",
       "parameters": [
         {
           "name": "rtspUrl",
@@ -531,13 +531,13 @@ O grafo de mídia que você criou usa o nó do processador de detecção de movi
     
     Em segundos, você verá as seguintes mensagens na janela de SAÍDA:
 
-    ```
-    [IoTHubMonitor] Start monitoring message arrived in built-in endpoint for all devices ...
-    [IoTHubMonitor] Created partition receiver [0] for consumerGroup [$Default]
-    [IoTHubMonitor] Created partition receiver [1] for consumerGroup [$Default]
-    [IoTHubMonitor] Created partition receiver [2] for consumerGroup [$Default]
-    [IoTHubMonitor] Created partition receiver [3] for consumerGroup [$Default]
-    ```
+```
+[IoTHubMonitor] Start monitoring message arrived in built-in endpoint for all devices ...
+[IoTHubMonitor] Created partition receiver [0] for consumerGroup [$Default]
+[IoTHubMonitor] Created partition receiver [1] for consumerGroup [$Default]
+[IoTHubMonitor] Created partition receiver [2] for consumerGroup [$Default]
+[IoTHubMonitor] Created partition receiver [3] for consumerGroup [$Default]
+```
 
 ### <a name="invoke-graphinstanceactivate"></a>Invocar GraphInstanceActivate
 
@@ -590,7 +590,7 @@ Em poucos segundos, você deverá ver a reposta a seguir na janela de SAÍDA
     "properties": {
       "state": "Active",
       "description": "Sample graph description",
-      "topologyName": "EVRtoAssetsOnMotionDetecion",
+      "topologyName": "EVRtoAssetsOnMotionDetection",
       "parameters": [
         {
           "name": "rtspUrl",
@@ -738,7 +738,7 @@ Se você deixar a instância do grafo continuar sendo executada, você verá est
 
 Se você permitir que a instância de grafo continue sendo executada, o simulador RTSP atingirá o final do arquivo de vídeo e será parado/desconectado. O nó de origem RTSP será reconectado ao simulador e o processo será repetido.
     
-## <a name="invoke-additional-direct-methods-to-clean-up"></a>Invocar métodos diretos adicionais para limpeza
+## <a name="invoke-additional-direct-method-calls-to-clean-up"></a>Invocar chamadas de método direto adicionais para limpeza
 
 Agora invoque métodos diretos para desativar e excluir a instância de grafo (nessa ordem).
 
@@ -801,7 +801,7 @@ Invoque o método direto GraphTopologyDelete com o seguinte conteúdo:
 ```
 {
     "@apiVersion" : "1.0",
-    "name" : "EVRtoAssetsOnMotionDetecion"
+    "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```
 

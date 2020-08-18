@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b7005954b14a9263ec074c836180853a99812dd5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fd4cc4cfa7b7be9085ac404cab7fc7447b6d66a7
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534763"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987130"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Controlar o acesso à conta de armazenamento para SQL sob demanda (versão prévia)
 
@@ -81,12 +81,13 @@ Na tabela abaixo, você pode encontrar os tipos de autorização disponíveis:
 
 Você pode usar as seguintes combinações de autorização e tipos de Armazenamento do Azure:
 
-|                     | Armazenamento de Blobs   | ADLS Gen1        | ADLS Gen2     |
+| Tipo de autorização  | Armazenamento de Blobs   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
-| *SAS*               | Com suporte      | Não compatível   | Com suporte     |
-| *Identidade Gerenciada* | Com suporte      | Com suporte        | Com suporte     |
-| *Identidade do Usuário*    | Com suporte      | Com suporte        | Com suporte     |
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Com suporte\*      | Não compatível   | Com suporte\*     |
+| [Identidade gerenciada](?tabs=managed-identity#supported-storage-authorization-types) | Com suporte      | Com suporte        | Suportado     |
+| [Identidade do Usuário](?tabs=user-identity#supported-storage-authorization-types)    | Suportado\*      | Suportado\*        | Suportado\*     |
 
+\* O token SAS e a identidade do Azure AD podem ser usados para acessar um armazenamento que não está protegido com o firewall.
 
 > [!IMPORTANT]
 > Ao acessar o armazenamento protegido pelo firewall, somente a Identidade Gerenciada pode ser usada. Você precisa [Permitir a configuração de serviços Microsoft confiáveis...](../../storage/common/storage-network-security.md#trusted-microsoft-services) e [atribuir uma função do Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) explicitamente à [identidade gerenciada atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para essa instância do recurso. Nesse caso, o escopo de acesso para a instância corresponde à função do Azure atribuída à identidade gerenciada.
@@ -177,27 +178,46 @@ As credenciais no escopo do banco de dados permitem o acesso ao Armazenamento do
 
 Os usuários do Azure AD podem acessar qualquer arquivo no armazenamento do Azure quando eles têm, pelo menos, a função `Storage Blob Data Owner`, `Storage Blob Data Contributor` ou `Storage Blob Data Reader`. Os usuários do Azure AD não precisam de credenciais para acessar o armazenamento.
 
+```sql
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>'
+)
+```
+
 Os usuários do SQL não podem usar a autenticação do Azure AD para acessar o armazenamento.
 
 ### <a name="shared-access-signature"></a>[Assinatura de acesso compartilhado](#tab/shared-access-signature)
 
-O script a seguir cria uma credencial que é usada para acessar arquivos no armazenamento usando o token SAS especificado na credencial.
+O script a seguir cria uma credencial que é usada para acessar arquivos no armazenamento usando o token SAS especificado na credencial. O script criará uma fonte de dados externa de exemplo que usa esse token SAS para acessar o armazenamento.
 
 ```sql
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>'
+GO
 CREATE DATABASE SCOPED CREDENTIAL [SasToken]
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
      SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = SasToken
+)
 ```
 
 ### <a name="managed-identity"></a>[Identidade gerenciada](#tab/managed-identity)
 
-O script a seguir cria uma credencial no escopo do banco de dados que pode ser usada para representar o usuário atual do Azure AD como identidade gerenciada do serviço. 
+O script a seguir cria uma credencial no escopo do banco de dados que pode ser usada para representar o usuário atual do Azure AD como identidade gerenciada do serviço. O script criará uma fonte de dados externa de exemplo que usa a identidade do workspace para acessar o armazenamento.
 
 ```sql
-CREATE DATABASE SCOPED CREDENTIAL [SynapseIdentity]
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>
+CREATE DATABASE SCOPED CREDENTIAL SynapseIdentity
 WITH IDENTITY = 'Managed Identity';
 GO
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = SynapseIdentity
+)
 ```
 
 A credencial no escopo do banco de dados não precisa corresponder ao nome da conta de armazenamento, pois ela será usada explicitamente na fonte de dados (argumento DATA SOURCE) que define o local do armazenamento.
@@ -206,6 +226,11 @@ A credencial no escopo do banco de dados não precisa corresponder ao nome da co
 
 A credencial no escopo do banco de dados não é necessária para permitir o acesso a arquivos disponíveis publicamente. Crie uma [fonte de dados sem credencial no escopo do banco de dados](develop-tables-external-tables.md?tabs=sql-ondemand#example-for-create-external-data-source) para acessar arquivos publicamente disponíveis no Armazenamento do Azure.
 
+```sql
+CREATE EXTERNAL DATA SOURCE mysample
+WITH (    LOCATION   = 'https://<storage_account>.blob.core.windows.net/<container>/<path>'
+)
+```
 ---
 
 As credenciais no escopo do banco de dados são usadas em fontes externas para especificar qual método de autenticação será usado para acessar esse armazenamento:

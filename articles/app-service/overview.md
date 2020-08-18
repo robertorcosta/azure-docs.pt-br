@@ -3,18 +3,18 @@ title: Visão geral
 description: Saiba como o Serviço de Aplicativo do Azure o ajuda a desenvolver e hospedar aplicativos Web
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
-ms.date: 04/30/2020
+ms.date: 07/06/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 619b5f16f5a913a4ec9bb1ebe2e7060fcac28d7d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 56bba25cea909ac6455462b41c9eeae997c25bc1
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421800"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079613"
 ---
 # <a name="app-service-overview"></a>Visão geral do Serviço de Aplicativo
 
-O *Serviço de Aplicativo do Azure* é um serviço com base em HTTP para hospedagem de aplicativos Web, APIs REST e back-ends móveis. Você pode desenvolver usando sua linguagem favorita, seja .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python. Os aplicativos são executados e dimensionados com facilidade em ambientes baseados no Windows e no Linux. Para ambientes baseados em Linux, confira [Serviço de Aplicativo do Azure](containers/app-service-linux-intro.md). 
+O *Serviço de Aplicativo do Azure* é um serviço com base em HTTP para hospedagem de aplicativos Web, APIs REST e back-ends móveis. Você pode desenvolver usando sua linguagem favorita, seja .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python. Os aplicativos são executados e escalados com facilidade em ambientes baseados no Windows e no [Linux](#app-service-on-linux).
 
 O Serviço de Aplicativo não agrega apenas o poder do Microsoft Azure ao seu aplicativo, como segurança, balanceamento de carga, dimensionamento automático e gerenciamento automatizado. Você pode também aproveitar seus recursos de DevOps, como implantação contínua desde o Azure DevOps, GitHub, Docker Hub e outras fontes, gerenciamento de pacotes, ambientes de preparo, domínio personalizado e certificados TLS/SSL. 
 
@@ -26,10 +26,11 @@ Veja alguns dos principais recursos do Serviço de Aplicativo:
 
 * **Variedade de linguagens e estruturas** – O Serviço de Aplicativo têm suporte de primeira classe para ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP ou Python. Você também pode executar o [PowerShell e outros scripts ou executáveis](webjobs-create.md) como serviços em segundo plano.
 * **Ambiente de produção gerenciado** – o Serviço de Aplicativo [automaticamente corrige e mantém as estruturas do sistema operacional e de idiomas](overview-patch-os-runtime.md) para você. Dedique seu tempo a escrever aplicativos incríveis e deixe o Azure se preocupar com a plataforma.
+* **Transporte em contêineres e Docker** – converta seu aplicativo para Docker e hospede um contêiner personalizado do Windows ou do Linux no Serviço de Aplicativo. Execute aplicativos de vários contêineres com o Docker Compose. Migre suas habilidades do Docker diretamente para o Serviço de Aplicativo.
 * **Otimização de DevOps** – configure a [integração e implantação contínuas](deploy-continuous-deployment.md) com o Azure DevOps, o GitHub, o BitBucket, o Hub do Docker ou o Registro de Contêiner do Azure. Promova atualizações por meio de [ambientes de preparo e teste](deploy-staging-slots.md). Gerencie aplicativos no Serviço de Aplicativo usando o [Azure PowerShell](/powershell/azure/) ou a [CLI (interface de linha de comando de plataforma cruzada)](/cli/azure/install-azure-cli).
 * **Escala global com alta disponibilidade** - escale [verticalmente](manage-scale-up.md) ou [horizontalmente](../monitoring-and-diagnostics/insights-how-to-scale.md) de forma manual ou automática. Hospede os aplicativos em qualquer lugar na infraestrutura de datacenter global da Microsoft, e o [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) do Serviço de Aplicativo promete alta disponibilidade.
 * **Conexões com plataformas SaaS e dados locais** - escolha entre mais de 50 [conectores](../connectors/apis-list.md) para sistemas corporativos (como SAP), serviços de SaaS (como Salesforce) e serviços de Internet (como Facebook). Acesse dados locais usando [Conexões Híbridas](app-service-hybrid-connections.md) e [Redes Virtuais do Azure](web-sites-integrate-with-vnet.md).
-* **Segurança e conformidade** - o Serviço de Aplicativo está em [conformidade com ISO, SOC e PCI](https://www.microsoft.com/en-us/trustcenter). Autentique usuários com o [Azure Active Directory](configure-authentication-provider-aad.md) ou com logon social ([Google](configure-authentication-provider-google.md), [Facebook](configure-authentication-provider-facebook.md), [Twitter](configure-authentication-provider-twitter.md) e [ Microsoft](configure-authentication-provider-microsoft.md)). Crie [Restrições de endereço IP](app-service-ip-restrictions.md) e [gerencie identidades de serviço](overview-managed-identity.md).
+* **Segurança e conformidade** - o Serviço de Aplicativo está em [conformidade com ISO, SOC e PCI](https://www.microsoft.com/en-us/trustcenter). Autentique os usuários com o [Azure Active Directory](configure-authentication-provider-aad.md), o [Google](configure-authentication-provider-google.md), o [Facebook](configure-authentication-provider-facebook.md), o [Twitter](configure-authentication-provider-twitter.md) ou a [conta Microsoft](configure-authentication-provider-microsoft.md). Crie [Restrições de endereço IP](app-service-ip-restrictions.md) e [gerencie identidades de serviço](overview-managed-identity.md).
 * **Modelos de aplicativos** - escolha dentre uma lista abrangente de modelos de aplicativos no [Azure Marketplace](https://azure.microsoft.com/marketplace/), como WordPress, Joomla e Drupal.
 * **Integração do Visual Studio e do Visual Studio Code** – Ferramentas dedicadas no Visual Studio e no Visual Studio Code simplificam o trabalho de criar, implantar e depurar.
 * **Recursos móveis e de API** – O Serviço de Aplicativo fornece suporte pronto para uso ao CORS para cenários de API RESTful e simplifica os cenários de aplicativos móveis permitindo autenticação, sincronização de dados offline, notificações por push e muito mais.
@@ -37,30 +38,49 @@ Veja alguns dos principais recursos do Serviço de Aplicativo:
 
 Além do Serviço de Aplicativo, o Azure oferece outros serviços que podem ser usados para hospedar sites e aplicativos Web. Para a maioria dos cenários, o Serviço de Aplicativo é a melhor opção.  Para a arquitetura de microsserviço, considere o [Serviço do Azure Spring Cloud](/azure/spring-cloud/) e o [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).  Se você precisar de mais controle sobre as VMs nas quais o seu código é executado, considere as [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Para saber mais sobre como escolher entre esses serviços do Azure, confira [Comparação entre o Serviço de Aplicativo do Azure, Máquinas Virtuais, Service Fabric e Serviços de Nuvem do Azure](overview-compare.md).
 
+## <a name="app-service-on-linux"></a>Serviço de Aplicativo no Linux
+
+O Serviço de Aplicativo também pode hospedar aplicativos Web nativamente no Linux em pilhas de aplicativos compatíveis. Ele também pode executar contêineres personalizados do Linux (também conhecidos como Aplicativo Web para Contêineres).
+
+### <a name="built-in-languages-and-frameworks"></a>Linguagens e estruturas internas
+
+O Serviço de Aplicativo no Linux dá suporte a várias imagens internas específicas da linguagem. Basta implantar o código. As linguagens com suporte incluem: Node.js, Java (JRE 8 e JRE 11), PHP, Python, .NET Core e Ruby. Execute [`az webapp list-runtimes --linux`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) para exibir as linguagens mais recentes e as versões com suporte. Se não houver suporte para o runtime de que o seu aplicativo precisa nas imagens internas, implante-o com um contêiner personalizado.
+
+### <a name="limitations"></a>Limitações
+
+- Não há suporte para o Serviço de Aplicativo no Linux no tipo de preço [Compartilhado](https://azure.microsoft.com/pricing/details/app-service/plans/). 
+- Não é possível combinar aplicativos do Windows e do Linux no mesmo Plano do Serviço de Aplicativo.  
+- No mesmo grupo de recursos, não é possível combinar aplicativos do Windows e do Linux na mesma região.
+- O portal do Azure só mostra os recursos que atualmente funcionam em aplicativos do Linux. À medida que os recursos são habilitados, eles são ativados no portal.
+- Quando implantados nas imagens internas, o código e o conteúdo recebem um volume de armazenamento para o conteúdo da Web, com suporte do Armazenamento do Azure. A latência do disco desse volume é maior e mais variável do que a latência do sistema de arquivos do contêiner. Os aplicativos que exigem acesso intenso somente leitura a arquivos de conteúdo podem se beneficiar da opção de contêiner personalizado, que coloca os arquivos no sistema de arquivos do contêiner em vez de no volume de conteúdo.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Crie seu primeiro aplicativo Web.
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core](app-service-web-get-started-dotnet.md)
+> [ASP.NET Core (no Windows ou no Linux)](quickstart-dotnetcore.md)
 
 > [!div class="nextstepaction"]
-> [ASP.NET](app-service-web-get-started-dotnet-framework.md)
+> [ASP.NET (no Windows)](quickstart-dotnet-framework.md)
 
 > [!div class="nextstepaction"]
-> [PHP](app-service-web-get-started-php.md)
+> [PHP (no Windows ou no Linux)](quickstart-php.md)
 
 > [!div class="nextstepaction"]
-> [Ruby (no Linux)](containers/quickstart-ruby.md)
+> [Ruby (no Linux)](quickstart-ruby.md)
 
 > [!div class="nextstepaction"]
-> [Node.js](app-service-web-get-started-nodejs.md)
+> [Node.js (no Windows ou no Linux)](quickstart-nodejs.md)
 
 > [!div class="nextstepaction"]
-> [Java](app-service-web-get-started-java.md)
+> [Java (no Windows ou no Linux)](quickstart-java.md)
 
 > [!div class="nextstepaction"]
-> [Python (no Linux)](containers/quickstart-python.md)
+> [Python (no Linux)](quickstart-python.md)
 
 > [!div class="nextstepaction"]
-> [HTML](app-service-web-get-started-html.md)
+> [HTML (no Windows ou no Linux)](quickstart-html.md)
+
+> [!div class="nextstepaction"]
+> [Contêiner personalizado (Windows ou Linux)](tutorial-custom-container.md)

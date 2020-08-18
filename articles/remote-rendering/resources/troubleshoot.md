@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 2cb143e08e3901b1d0ab7181df68f06887069012
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2c5b6ef0792e418d873d84341a0fffc356c799e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563267"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509273"
 ---
 # <a name="troubleshoot"></a>Solucionar problemas
 
@@ -105,7 +105,7 @@ Se essas duas etapas não ajudarem, será necessário descobrir se os quadros de
 
 **O modelo excede os limites da VM selecionada, especificamente o número máximo de polígonos:**
 
-Consulte [limites de tamanho de VM](../reference/limits.md#overall-number-of-polygons)específicos.
+Consulte [limites de tamanho de servidor](../reference/limits.md#overall-number-of-polygons)específicos.
 
 **O modelo não está dentro do frustum da câmera:**
 
@@ -148,7 +148,7 @@ O Azure Remote Rendering conecta-se ao pipeline de renderização do Unity para 
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>O padrão quadriculado é renderizado após o carregamento do modelo
 
-Se a imagem renderizada tiver esta aparência: ![ quadriculado ](../reference/media/checkerboard.png) , o renderizador atingirá os [limites do polígono para o tamanho da VM padrão](../reference/vm-sizes.md). Para mitigar, alterne para o tamanho da **VM Premium** ou reduza o número de polígonos visíveis.
+Se a imagem renderizada tiver esta aparência: ![ quadriculado ](../reference/media/checkerboard.png) , o renderizador atingirá os [limites do polígono para o tamanho da configuração padrão](../reference/vm-sizes.md). Para mitigar, alterne para o tamanho da configuração **Premium** ou reduza o número de polígonos visíveis.
 
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>A imagem renderizada no Unity está de cabeça para baixo
 

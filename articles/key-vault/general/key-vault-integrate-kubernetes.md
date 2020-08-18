@@ -6,12 +6,12 @@ ms.author: t-trtr
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/04/2020
-ms.openlocfilehash: 7acdee98e5e433567a3d177400ee4e7043d0895c
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e70ee75344a939ea1632df3549d796617c7596af
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921565"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87901990"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o provedor do Azure Key Vault para o driver da Secrets Store CSI no Kubernetes
 
@@ -71,7 +71,7 @@ Conclua as seções "Criar um grupo de recursos", "Criar cluster do AKS" e "Cone
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. Para exibir os metadados do cluster do AKS que você criou, use o comando a seguir. Copie a **principalId**, a **clientId**, **a subscriptionId** e o **nodeResourceGroup** para uso posterior.
+1. Para exibir os metadados do cluster do AKS que você criou, use o comando a seguir. Copie a **principalId**, a **clientId**, **a subscriptionId** e o **nodeResourceGroup** para uso posterior. Se o cluster ASK não tiver sido criado com identidades gerenciadas habilitadas, **principalId** e **clientId** serão nulos. 
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup
@@ -166,7 +166,7 @@ A imagem a seguir mostra a saída do console para **az keyvault show --name cont
 
 ### <a name="assign-a-service-principal"></a>Atribuir uma entidade de serviço
 
-Se estiver usando uma entidade de serviço, conceda as permissões para ela acessar seu cofre de chaves e recuperar segredos. Atribua a função de *Leitor* e conceda à entidade de serviço permissões para *obter* segredos do cofre de chaves fazendo o seguinte:
+Se estiver usando uma entidade de serviço, conceda as permissões para ela acessar seu cofre de chaves e recuperar segredos. Atribua a função de *Leitor* e conceda à entidade de serviço permissões para *obter* segredos do cofre de chaves fazendo o seguinte comando:
 
 1. Atribua a entidade de serviço ao cofre de chaves existente. O parâmetro **$AZURE_CLIENT_ID** é a **appId** que você copiou depois de criar a entidade de serviço.
     ```azurecli
@@ -204,10 +204,10 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
 
 Se estiver usando identidades gerenciadas, atribua funções específicas ao cluster do AKS que você criou. 
 
-1. Para criar, listar ou ler uma identidade gerenciada atribuída pelo usuário, seu cluster do AKS precisa ter a função de [Colaborador de Identidade Gerenciada](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-contributor). Verifique se a **$clientId** é a do cluster do Kubernetes.
+1. Para criar, listar ou ler uma identidade gerenciada atribuída pelo usuário, seu cluster do AKS precisa ter a função de [Operador de Identidade Gerenciada](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator). Verifique se a **$clientId** é a do cluster do Kubernetes. Para o escopo, ele estará sob seu serviço de assinatura do Azure, especificamente, o grupo de recursos do nó que foi gerado quando o cluster AKS foi criado. Esse escopo garantirá que apenas os recursos dentro desse grupo sejam afetados pelas funções atribuídas a seguir. 
 
     ```azurecli
-    az role assignment create --role "Managed Identity Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     ```

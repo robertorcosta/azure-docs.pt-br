@@ -1,6 +1,6 @@
 ---
 title: Sobre o Gateway de VPN do Azure
-description: Saiba mais sobre o que é um gateway de VPN e as maneiras de usar um gateway de VPN para se conectar a redes virtuais do Azure. Incluindo soluções IPsec/IKE Site a Site entre locais e de rede virtual a rede virtual, bem como VPN Ponto a Site.
+description: Saiba o que é um Gateway de VPN e como usar um para se conectar às redes virtuais VPN IPsec IKE site a site, VNet a VNet e ponto a site.
 services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 06/01/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4ec008fa97c75f5ae7c79e2b98efc9005df1014f
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: c195fd3c6d3de518a70070327de5c12d5d210b6a
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300040"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036871"
 ---
 # <a name="what-is-vpn-gateway"></a>O que é o Gateway de VPN?
 

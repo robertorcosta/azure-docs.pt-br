@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: be04b690add70468335ac694e3be54fa55a94249
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 9a393e29c4b5b2faa48cbcd273c7bc7a46169ba3
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475644"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904183"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Criar um cluster do Red Hat OpenShift 4 no Azure
 
@@ -49,9 +49,9 @@ Um segredo de pull do Red Hat permite que o cluster acesse registros de contêin
 
    Você precisará fazer logon em sua conta do Red Hat ou criar uma conta do Red Hat com seu email empresarial e aceitar os termos e condições.
 
-2. **Clique em Baixar segredo de pull.**
+2. Acesse a [**página do produto OpenShift**](https://developers.redhat.com/products/codeready-containers) se esta for a primeira vez que você cria um cluster. Após o registro, vá para [**página do Gerenciador de Cluster do Red Hat OpenShift**](https://cloud.redhat.com/openshift/), em que você pode clicar em **Baixar o segredo de pull** e baixar um segredo de pull para ser usado com o cluster ARO.
 
-Mantenha o arquivo `pull-secret.txt` salvo em algum lugar seguro; ele será usado em cada criação de cluster.
+Mantenha o arquivo `pull-secret.txt` salvo em algum lugar seguro. O arquivo será usado em cada criação de cluster se você precisar criar um cluster que inclua exemplos ou operadores para o Red Hat ou com os parceiros certificados.
 
 Quando executar o comando `az aro create`, você pode fazer referência ao segredo de pull usando o parâmetro `--pull-secret @pull-secret.txt`. Execute `az aro create` no diretório em que você armazenou o arquivo `pull-secret.txt`. Caso contrário, substitua `@pull-secret.txt` por `@<path-to-my-pull-secret-file>`.
 

@@ -1,6 +1,6 @@
 ---
 title: Exemplo de script do Azure PowerShell – Configurar a política de limite de taxa | Microsoft Docs
-description: Exemplo de script do Azure PowerShell – Configurar a política de limite de taxa
+description: Saiba como configurar a política de limite de taxa com o Azure PowerShell. Consulte um script de exemplo e exiba recursos adicionais disponíveis.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 991a9fd9fa0717c97a549d371ca47c5b389d1a27
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 40bbd520eb265b70f95c6b365b590727af8ea144
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008703"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851283"
 ---
 # <a name="set-up-rate-limit-policy"></a>Configurar a política de limite de taxa
 

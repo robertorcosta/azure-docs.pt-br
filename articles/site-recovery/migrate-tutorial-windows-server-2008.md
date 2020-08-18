@@ -1,6 +1,6 @@
 ---
-title: Migrar servidores Windows Server 2008 para o Azure com o Azure Site Recovery
-description: Este artigo descreve como migrar computadores locais do Windows Server 2008 para o Azure usando o Azure Site Recovery.
+title: Migrar servidores Windows Server 2008 para o Azure com Migrações para Azure/Site Recovery
+description: Este artigo descreve como migrar computadores locais do Windows Server 2008 para o Azure e recomenda Migrações para Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8d672c1113f265f9fbbabc7caed8df071f548f2a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d8cd8bf2e1a29b122fb4bac7a12454f102183fe3
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503813"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845554"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrar servidores que executam o Windows Server 2008 para o Azure
 
@@ -31,9 +31,11 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="migrate-with-azure-migrate"></a>Migrar com as Migrações para Azure
 
-Recomendamos que você migre computadores para o Azure usando o serviço [Migrações para Azure](../migrate/migrate-services-overview.md). As Migrações para Azure fornecem um hub centralizado para a avaliação e a migração de computadores locais para o Azure usando as Migrações para Azure, outros serviços do Azure e ferramentas de terceiros. O Azure Site Recovery deve ser usado somente para recuperação de desastre, e não para migração.
+Recomendamos que você migre computadores para o Azure usando o serviço [Migrações para Azure](../migrate/migrate-services-overview.md). 
 
-As Migrações para Azure dão suporte à migração de servidores que executam o Windows Server 2008.
+- O recurso Migrações para Azure é criado especificamente para a migração do servidor.
+- As Migrações para Azure oferecem um hub central para descoberta, avaliação e migração de computadores locais para o Azure. O Azure Site Recovery deve ser usado somente para recuperação de desastre, e não para migração.
+- As Migrações para Azure dão suporte à migração de servidores que executam o Windows Server 2008.
 
 
 ## <a name="migrate-with-site-recovery"></a>Migrar com o Site Recovery

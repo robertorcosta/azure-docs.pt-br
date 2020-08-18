@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 06/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 20a85c17ccd4167b29e167c55df1bd8a8cc4d56e
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: c2fc0b0bc1b59bcb3fa4a84235135d9b8ff1fc27
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185648"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510242"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Usar o ML automatizado em um pipeline de Azure Machine Learning no Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -347,7 +347,7 @@ O `automl_settings` dicionário é passado para o `AutoMLConfig` Construtor como
 A `AutoMLStep` si mesma usa `AutoMLConfig` e tem, como saídas, os `PipelineData` objetos criados para manter as métricas e os dados do modelo. 
 
 >[!Important]
-> Você deve definir `enable_default_model_output` e `enable_default_metrics_output`  para a `False` menos que se esteja usando o  `AutoMLStep` .
+> Você deve definir `enable_default_model_output` e `enable_default_metrics_output` `True` somente se estiver usando o  `AutoMLStepRun` .
 
 Neste exemplo, o processo de ML automatizado executará validações cruzadas no `training_data` . Você pode controlar o número de validações cruzadas com o `n_cross_validations` argumento. Se você já tiver dividido os dados de treinamento como parte de suas etapas de preparação de dados, poderá definir `validation_data` como seu próprio `Dataset` .
 

@@ -1,23 +1,23 @@
 ---
-title: CLI do Azure – Restringir o acesso de importação/exportação aos discos gerenciados com Links Privados (versão prévia)
-description: Habilite Links Privados (versão prévia) para seus discos gerenciados com a CLI do Azure. Permitindo que você exporte e importe discos com segurança somente na sua rede virtual.
+title: CLI do Azure – Restringir o acesso de importação/exportação aos discos gerenciados com Links Privados
+description: Habilite Links Privados para seus discos gerenciados com a CLI do Azure. Permitindo que você exporte e importe discos com segurança somente na sua rede virtual.
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 07/15/2020
+ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 5df11e704987098d61ced7afbff5e6234d4d5f04
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 009f8ec69261103faaa4de1e27ae7383257a13ca
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420270"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136398"
 ---
-# <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links-preview"></a>CLI do Azure – Restringir o acesso de importação/exportação aos discos gerenciados com Links Privados (versão prévia)
+# <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>CLI do Azure – Restringir o acesso de importação/exportação aos discos gerenciados com Links Privados
 
-Use [pontos de extremidade privados](../../private-link/private-endpoint-overview.md) (versão prévia) para restringir a exportação e a importação de discos gerenciados e acesse dados com segurança em um [Link Privado](../../private-link/private-link-overview.md) em clientes na sua rede virtual do Azure. O ponto de extremidade privado usa um endereço IP do espaço de endereço de rede virtual para o serviço de discos gerenciados. O tráfego de rede entre os clientes na rede virtual e os discos gerenciados atravessa a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição na Internet pública. 
+Atualmente, o suporte para Links Privados com discos gerenciados está na versão prévia. Use [pontos de extremidade privados](../../private-link/private-endpoint-overview.md) para restringir a exportação e a importação de discos gerenciados e acesse dados com segurança em um [Link Privado](../../private-link/private-link-overview.md) em clientes na sua rede virtual do Azure. O ponto de extremidade privado usa um endereço IP do espaço de endereço de rede virtual para o serviço de discos gerenciados. O tráfego de rede entre os clientes na rede virtual e os discos gerenciados atravessa somente a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição na Internet pública.
 
 Para usar Links Privados para exportar/importar discos gerenciados, primeiro crie um recurso de acesso a disco e vincule-o a uma rede virtual na mesma assinatura criando um ponto de extremidade privado. Em seguida, associe um disco ou um instantâneo a uma instância de acesso a disco. Por fim, defina a propriedade NetworkAccessPolicy do disco ou o instantâneo como `AllowPrivate`. Isso limitará o acesso à sua rede virtual. 
 

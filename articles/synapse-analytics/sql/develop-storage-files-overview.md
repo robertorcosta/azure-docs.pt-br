@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 3c33e2152fc120d406886d89adda26603126a8ba
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2a0751f12f33a36d9e0003977bcf40b66d715615
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87483545"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986943"
 ---
 # <a name="access-external-storage-in-synapse-sql-on-demand"></a>Acessar o armazenamento externo no SQL do Synapse (sob demanda)
 
@@ -25,11 +25,7 @@ Este documento descreve como o usuário pode ler dados dos arquivos armazenados 
 
 O usuário pode usar [métodos de autenticação diferentes](develop-storage-files-storage-access-control.md) como autenticação de passagem do Azure AD (padrão para entidades do Azure AD) e autenticação SAS (padrão para entidades de segurança do SQL).
 
-## <a name="openrowset"></a>OPENROWSET
-
-Função [OPENROWSET](develop-openrowset.md), que permite ao usuário ler os arquivos do Armazenamento do Azure.
-
-### <a name="query-files-using-openrowset"></a>Consultar arquivos usando OPENROWSET
+## <a name="query-files-using-openrowset"></a>Consultar arquivos usando OPENROWSET
 
 O OPENROWSET permitirá que os usuários consultem arquivos externos no Armazenamento do Azure se tiverem acesso ao armazenamento. O usuário que está conectado ao ponto de extremidade sob demanda do SQL do Synapse deve usar a seguinte consulta para ler o conteúdo dos arquivos no armazenamento do Azure:
 
@@ -40,8 +36,10 @@ SELECT * FROM
 
 O usuário pode acessar o armazenamento usando as seguintes regras de acesso:
 
-- O usuário do Azure AD – OPENROWSET usará a identidade do chamador do Azure AD para acessar o Armazenamento do Azure ou acessar o armazenamento com acesso anônimo.
-- Usuário do SQL – OPENROWSET acessará o armazenamento com acesso anônimo.
+- O usuário do Azure AD – `OPENROWSET` usará a identidade do chamador do Azure AD para acessar o Armazenamento do Azure ou acessar o armazenamento com acesso anônimo.
+- Usuário do SQL – `OPENROWSET` acessará o armazenamento com acesso anônimo ou poderá ser representado usando o token SAS ou a identidade gerenciada do workspace.
+
+### <a name="impersonation"></a>[Representação](#tab/impersonation)
 
 As entidades de segurança do SQL também podem usar OPENROWSET para consultar diretamente os arquivos protegidos com tokens SAS ou identidade gerenciada do workspace. Se um usuário do SQL executar essa função, um usuário avançado com a permissão `ALTER ANY CREDENTIAL` deverá criar uma credencial no escopo do servidor que corresponda à URL na função (usando o nome e o contêiner de armazenamento) e conceder a permissão REFERENCES para essa credencial ao chamador da função OPENROWSET:
 
@@ -56,10 +54,17 @@ GRANT REFERENCES CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<co
 
 Se não houver nenhuma CREDENTIAL no nível do servidor que corresponda à URL ou ao usuário do SQL não tenha a permissão REFERENCES para essa credencial, o erro será retornado. As entidades de segurança SQL não podem representar usando alguma identidade do Azure AD.
 
+### <a name="direct-access"></a>[Acesso direto](#tab/direct-access)
+
+Nenhuma configuração adicional é necessária para permitir que os usuários do Azure AD acessem os arquivos usando as respectivas identidades.
+Qualquer usuário pode acessar o armazenamento do Azure que permite acesso anônimo (não é necessária configuração adicional).
+
+---
+
 > [!NOTE]
 > Esta versão do OPENROWSET foi projetada para uma exploração de dados rápida e fácil usando a autenticação padrão. Para utilizar a representação ou a identidade gerenciada, use OPENROWSET com a DATASOURCE descrita na próxima seção.
 
-### <a name="query-data-sources-using-openrowset"></a>Consultar fontes de dados usando OPENROWSET
+## <a name="query-data-sources-using-openrowset"></a>Consultar fontes de dados usando OPENROWSET
 
 OPENROWSET permite que o usuário consulte os arquivos colocados em alguma fonte de dados externa:
 
@@ -70,9 +75,18 @@ SELECT * FROM
  FORMAT= 'parquet') as rows
 ```
 
-O usuário avançado com a permissão CONTROL DATABASE precisaria criar uma DATABASE SCOPED CREDENTIAL para acessar o armazenamento e uma EXTERNAL DATA SOURCE que especificaria a URL da fonte de dados e a credencial que deveriam ser usadas:
+O usuário que executa essa consulta deve conseguir acessar os arquivos. Os usuários deverão ser representados usando [token SAS](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) ou [identidade gerenciada do workspace](develop-storage-files-storage-access-control.md?tabs=managed-identity) se não puderem acessar diretamente os arquivos usando suas [identidade do Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity) ou [acesso anônimo](develop-storage-files-storage-access-control.md?tabs=public-access).
+
+### <a name="impersonation"></a>[Representação](#tab/impersonation)
+
+`DATABASE SCOPED CREDENTIAL` especifica como acessar os arquivos na fonte de dados referenciada (no momento, SAS e Identidade Gerenciada). O usuário avançado com permissão de `CONTROL DATABASE` precisaria criar `DATABASE SCOPED CREDENTIAL`, que serão usadas para acessar o armazenamento, e `EXTERNAL DATA SOURCE`, que especifica a URL da fonte de dados e da credencial que deve ser usada:
 
 ```sql
+EXECUTE AS somepoweruser;
+
+-- Create MASTER KEY if it doesn't exists in database
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'some very strong password';
+
 CREATE DATABASE SCOPED CREDENTIAL AccessAzureInvoices
  WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
  SECRET = '******srt=sco&amp;sp=rwac&amp;se=2017-02-01T00:55:34Z&amp;st=201********' ;
@@ -82,16 +96,14 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
  CREDENTIAL = AccessAzureInvoices) ;
 ```
 
-DATABASE SCOPED CREDENTIAL especifica como acessar os arquivos na fonte de dados referenciada (no momento, SAS e Identidade Gerenciada).
-
 O chamador deve ter uma das seguintes permissões para executar a função OPENROWSET:
 
 - Uma das permissões para executar OPENROWSET:
   - `ADMINISTER BULK OPERATIONS` permite que o logon execute a função OPENROWSET.
   - `ADMINISTER DATABASE BULK OPERATIONS` permite que o usuário no escopo do banco de dados execute a função OPENROWSET.
-- REFERENCES DATABASE SCOPED CREDENTIAL para a credencial que é referenciada na EXTERNAL DATA SOURCE
+- `REFERENCES DATABASE SCOPED CREDENTIAL` para a credencial que é referenciada no `EXTERNAL DATA SOURCE`.
 
-#### <a name="access-anonymous-data-sources"></a>Acessar fontes de dados anônimas
+### <a name="direct-access"></a>[Acesso direto](#tab/direct-access)
 
 O usuário pode criar uma EXTERNAL DATA SOURCE sem CREDENTIAL que fará referência ao armazenamento de acesso público OU usará a autenticação de passagem do Azure AD:
 
@@ -99,7 +111,7 @@ O usuário pode criar uma EXTERNAL DATA SOURCE sem CREDENTIAL que fará referên
 CREATE EXTERNAL DATA SOURCE MyAzureInvoices
  WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>') ;
 ```
-
+---
 ## <a name="external-table"></a>EXTERNAL TABLE
 
 O usuário com as permissões para ler a tabela pode acessar arquivos externos usando uma EXTERNAL TABLE criada na parte superior do conjunto de arquivos e pastas do Armazenamento do Azure.
@@ -117,9 +129,18 @@ FILE_FORMAT = TextFileFormat
 ) ;
 ```
 
-O usuário com a permissão CONTROL DATABASE precisaria criar uma DATABASE SCOPED CREDENTIAL para acessar o armazenamento e uma EXTERNAL DATA SOURCE que especificaria a URL da fonte de dados e a credencial que deveriam ser usadas:
+O usuário que lê os dados dessa tabela deve ser capaz de acessar os arquivos. Os usuários deverão ser representados usando [token SAS](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) ou [identidade gerenciada do workspace](develop-storage-files-storage-access-control.md?tabs=managed-identity) se não puderem acessar diretamente os arquivos usando suas [identidade do Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity) ou [acesso anônimo](develop-storage-files-storage-access-control.md?tabs=public-access).
+
+### <a name="impersonation"></a>[Representação](#tab/impersonation)
+
+DATABASE SCOPED CREDENTIAL especifica como acessar os arquivos na fonte de dados referenciada. O usuário com a permissão CONTROL DATABASE precisaria criar uma DATABASE SCOPED CREDENTIAL para acessar o armazenamento e uma EXTERNAL DATA SOURCE que especificaria a URL da fonte de dados e a credencial que deveriam ser usadas:
 
 ```sql
+EXECUTE AS somepoweruser;
+
+-- Create MASTER KEY if it doesn't exists in database
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'some very strong password';
+
 CREATE DATABASE SCOPED CREDENTIAL cred
  WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
  SECRET = '******srt=sco&sp=rwac&se=2017-02-01T00:55:34Z&st=201********' ;
@@ -130,7 +151,15 @@ CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
  ) ;
 ```
 
-DATABASE SCOPED CREDENTIAL especifica como acessar os arquivos na fonte de dados referenciada.
+### <a name="direct-access"></a>[Acesso direto](#tab/direct-access)
+
+O usuário pode criar uma EXTERNAL DATA SOURCE sem CREDENTIAL que fará referência ao armazenamento de acesso público OU usará a autenticação de passagem do Azure AD:
+
+```sql
+CREATE EXTERNAL DATA SOURCE MyAzureInvoices
+ WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>') ;
+```
+---
 
 ### <a name="read-external-files-with-external-table"></a>Ler arquivos externos com EXTERNAL TABLE
 
@@ -167,14 +196,14 @@ Agora você está pronto para continuar com os seguintes artigos de instruções
 
 - [Consultar arquivo CSV](query-single-csv-file.md)
 
-- [Consultar pastas e vários arquivos](query-folders-multiple-csv-files.md)
-
-- [Consultar arquivos específicos](query-specific-files.md)
-
 - [Consultar arquivos Parquet](query-parquet-files.md)
 
-- [Tipos aninhados de consulta](query-parquet-nested-types.md)
-
 - [Consultar arquivos JSON](query-json-files.md)
+
+- [Consultar pastas e vários arquivos](query-folders-multiple-csv-files.md)
+
+- [Usar funções de particionamento e metadados](query-specific-files.md)
+
+- [Tipos aninhados de consulta](query-parquet-nested-types.md)
 
 - [Como criar e usar exibições](create-use-views.md)

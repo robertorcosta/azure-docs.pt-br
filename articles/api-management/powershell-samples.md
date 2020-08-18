@@ -1,7 +1,7 @@
 ---
 title: Exemplos do Azure PowerShell
 titleSuffix: Azure API Management
-description: Saiba mais sobre os scripts do Azure PowerShell disponíveis para Gerenciamento de API do Azure.
+description: Saiba mais sobre os scripts de exemplo do Azure PowerShell disponíveis para o Gerenciamento de API do Azure, como "Adicionar um usuário" e "Importar API".
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 10/09/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 7e0da9632aca1475b0348bdd43c7b6b5f89e6d14
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 531c42b763f234baaf6a93924979b8c7dca57423
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506665"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905798"
 ---
 # <a name="azure-powershell-samples-for-api-management"></a>Exemplos do Azure PowerShell para Gerenciamento de API
 

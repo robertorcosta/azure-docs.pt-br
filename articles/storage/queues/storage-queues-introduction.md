@@ -1,6 +1,6 @@
 ---
 title: Introdução às Filas do Azure - Armazenamento do Azure
-description: Introdução às Filas do Azure
+description: Veja uma introdução às Filas do Azure, um serviço para armazenar um grande número de mensagens. Um serviço fila contém um formato de URL, uma conta de armazenamento, uma fila e uma mensagem.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 03/18/2020
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: dineshm
-ms.openlocfilehash: 678ab8a3f3dace17671c242939c20cb5499b2e39
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: c16f02922b2e815ddd4986ab07bf260b20d871ee
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84805121"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87826493"
 ---
 # <a name="what-are-azure-queues"></a>O que são as Filas do Azure?
 
@@ -25,7 +25,7 @@ O serviço Fila contém os seguintes componentes:
 
 ![Diagrama mostrando a relação entre uma conta de armazenamento, filas e mensagens](./media/storage-queues-introduction/queue1.png)
 
-* **Formato de URL:** As consultas são endereçáveis usando o seguinte formato de URL:
+* **Formato da URL:** as filas são acessadas usando o seguinte formato de URL:
 
     `https://<storage account>.queue.core.windows.net/<queue>`
   
@@ -35,9 +35,9 @@ O serviço Fila contém os seguintes componentes:
 
 * **Conta de armazenamento:** Todo o acesso ao Armazenamento do Azure ocorre por meio de uma conta de armazenamento. Para obter informações sobre a capacidade da conta de armazenamento, confira [Metas de escalabilidade e desempenho das contas de Armazenamento Standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
 
-* **Fila:** Uma fila contém um conjunto de mensagens. O nome da fila **precisa** estar em letras minúsculas. Para saber mais sobre filas de nomenclatura, confira [Nomenclatura de filas e metadados](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+* **Fila:** uma fila contém um conjunto de mensagens. O nome da fila **precisa** estar em letras minúsculas. Para saber mais sobre filas de nomenclatura, confira [Nomenclatura de filas e metadados](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
-* **Mensagem:** Uma mensagem, em qualquer formato, de até 64 KB. Antes da versão 2017-07-29, a vida útil máxima permitida era de sete dias. Para a versão 2017-07-29 ou posterior, a vida útil máxima pode ser qualquer número positivo ou -1, indicando que a mensagem não expira. Se esse parâmetro for omitido, a vida útil padrão será de sete dias.
+* **Mensagem:** uma mensagem, em qualquer formato, de até 64 KB. Antes da versão 2017-07-29, a vida útil máxima permitida era de sete dias. Para a versão 2017-07-29 ou posterior, a vida útil máxima pode ser qualquer número positivo ou -1, indicando que a mensagem não expira. Se esse parâmetro for omitido, a vida útil padrão será de sete dias.
 
 ## <a name="next-steps"></a>Próximas etapas
 

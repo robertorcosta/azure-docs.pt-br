@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: 7bc2da2043c6607cfff62ff524be88efb79c6f18
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: d38a4ba04529e70ecfd772eef7f60179041f0273
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148252"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927361"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Criar e compartilhar painéis de dados do Log Analytics
 
@@ -54,7 +54,7 @@ Quando você cria um painel, ele será privado por padrão, o que significa que 
 
 ![Compartilhar um novo painel no portal do Azure](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png) 
 
-Será solicitado que você escolha uma assinatura e o grupo de recursos para que seu painel seja publicado. Para sua conveniência, a experiência de publicação do portal guia você por um padrão onde você coloca painéis em um grupo de recursos chamado **painéis**.  Confirme a assinatura selecionada e, em seguida, clique em **Publicar**.  O acesso às informações exibidas no painel é controlado com o [Controle de Acesso Baseado em Recursos do Azure](../../role-based-access-control/role-assignments-portal.md).   
+Será solicitado que você escolha uma assinatura e o grupo de recursos para que seu painel seja publicado. Para sua conveniência, a experiência de publicação do portal guia você por um padrão onde você coloca painéis em um grupo de recursos chamado **painéis**.  Confirme a assinatura selecionada e, em seguida, clique em **Publicar**.  O acesso às informações exibidas no painel é controlado com o [Azure RBAC (controle de acesso baseado em função do Azure)](../../role-based-access-control/role-assignments-portal.md).   
 
 ## <a name="visualize-a-log-query"></a>Visualizar uma consulta de logs
 [Log Analytics](../log-query/get-started-portal.md) é um portal dedicado usado para trabalhar com consultas de log e seus resultados. Os recursos incluem a capacidade de editar uma consulta em várias linhas e de executar código seletivamente, além do IntelliSense sensível ao contexto e da análise inteligente. Neste tutorial, você usará o Log Analytics para criar uma exibição de desempenho em formato gráfico, salvá-la para pesquisa futura e fixá-la no painel compartilhado criado anteriormente.

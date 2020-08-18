@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: ba121400368f37c4a562a9c34e209c59d15b173c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 01a5714cb78959a982ad73deb401edbafeebe8f9
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81404105"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87834449"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Início Rápido: Como criar um detector de objeto com a Visão Personalizada
 
@@ -55,6 +55,7 @@ No navegador da Web, navegue até o [site Visão Personalizada](https://customvi
     |---|---|
     |__Geral__| Otimizado para uma ampla variedade de tarefas de detecção de objetos. Se nenhum dos outros domínios for apropriado ou se você não tiver certeza de qual domínio escolher, selecione o domínio Genérico. |
     |__Logotipo__|Otimizado para localizar logotipos de marcas em imagens.|
+    |__Produtos em prateleiras__|Otimizado para detectar e classificar produtos em prateleiras.|
     |__Domínios compactos__| Otimizados para as restrições da detecção de objetos em tempo real em dispositivos móveis. Os modelos gerados por domínios compactos podem ser exportados para serem executados localmente.|
 
 1. Por fim, selecione __Criar projeto__.

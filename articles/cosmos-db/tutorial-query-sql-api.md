@@ -8,12 +8,12 @@ ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: e8d1498520ea0c59372ec4e1096b6f2b4bcf885f
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 2a6033ef1d2b7dda04b1510d42fa49141e0b79b4
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921119"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135990"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: Consultar o Azure Cosmos DB usando a API do SQL
 
@@ -113,7 +113,7 @@ Com base no exemplo de documento de família acima, a consulta SQL a seguir reto
 
 ## <a name="example-query-2"></a>Exemplo de consulta 2
 
-A próxima consulta retorna todos os nomes dos filhos na família cuja ID corresponde a `WakefieldFamily`, ordenados pelas respectivas notas.
+A consulta a seguir retorna todos os nomes dos filhos na família cuja ID corresponde a `WakefieldFamily`.
 
 **Consulta**
 

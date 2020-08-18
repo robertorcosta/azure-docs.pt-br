@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 43172cb08bb1e31c8cff891628ca6ef85cb8c864
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 68dd2ae09c5d6ad5e510fb3beb532b235f83fc8d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81404423"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87834687"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Use a Pesquisa Visual Computacional para gerar metadados de imagem no Armazenamento do Azure
 
@@ -59,7 +59,7 @@ Você precisará criar um recurso da Pesquisa Visual Computacional para sua cont
 
 ## <a name="add-computer-vision-credentials"></a>Adicionar credenciais da Pesquisa Visual Computacional
 
-Em seguida, você adicionará as credenciais necessárias ao seu aplicativo, de modo que ele acesse os recursos da Pesquisa Visual Computacional
+Em seguida, você adicionará as credenciais necessárias ao seu aplicativo de modo que ele possa acessar os recursos da Pesquisa Visual Computacional.
 
 Abra o aplicativo Web ASP.NET no Visual Studio e navegue para o arquivo **Web.config** na raiz do projeto. Adicione as instruções a seguir à seção `<appSettings>` do arquivo, substituindo `VISION_KEY` pela chave copiada na etapa anterior e `VISION_ENDPOINT` pela URL salva na etapa anterior.
 

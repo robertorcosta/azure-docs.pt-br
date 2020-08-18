@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 4e4200e291db81ff759e21eac5b1a9b785b5657f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: d692daf2f7f8b77358e73246fd8d8760f95982ac
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888297"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510786"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Suporte a idiomas e regiões para conversão de texto e fala
 
-Use o tradutor para traduzir de e para qualquer uma das mais de 60 idiomas de tradução de texto. A conversão de máquina neural (NMT) é o novo padrão para traduções de máquina com ia de alta qualidade e está disponível como o padrão usando V3 do tradutor quando um sistema neural está disponível.
+Use o tradutor para traduzir de e para qualquer uma das mais de 70 idiomas de tradução de texto. A conversão de máquina neural (NMT) é o novo padrão para traduções de máquina com ia de alta qualidade e está disponível como o padrão usando V3 do tradutor quando um sistema neural está disponível.
 
 Você também pode usar o Translator em conjunto com o tradutor personalizado para criar sistemas de tradução neural que compreendam a terminologia usada em seu próprio negócio e setor e com o serviço de fala da Microsoft para adicionar tradução de fala ao seu aplicativo.
 
@@ -47,6 +47,7 @@ O tradutor dá suporte aos seguintes idiomas para tradução de texto para texto
 |Chinês (tradicional)|   `zh-Hant`       |
 |Croata|  `hr`    |
 |Tcheco| `cs`    |
+|Dari|  `prs`   |
 |Dinamarquês|    `da`        |
 |Holandês| `nl`|
 |Inglês|   `en`    |
@@ -83,6 +84,8 @@ O tradutor dá suporte aos seguintes idiomas para tradução de texto para texto
 |Maori| `mi`  |
 |Marati| `mr`  |
 |Norueguês| `nb`    |
+|Oriá|  `or`    |
+|Pashto|    `ps`    |
 |Persa|   `fa`    |
 |Polonês|    `pl`    |
 |Português (Brasil)|   `pt-br` |
@@ -183,7 +186,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 [Exibir a documentação de referência de operação de transliteração](reference/v3-0-translate.md)
 
 
-| Linguagem    | Código de idioma | Script | Para/De | Script|
+| Linguagem    | Código de idioma | script | Para/De | script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
 | Bangla  | `bn` | Bengalês `Beng` | <--> | Latim `Latn` |
@@ -331,7 +334,7 @@ A tradução de fala está disponível usando o tradutor com o serviço de fala 
 ### <a name="speech-to-text"></a>Conversão de fala em texto
 Converta a fala em texto para traduzir para o idioma de texto de sua escolha. A conversão de fala em texto é usada para a tradução de fala para texto ou para tradução de fala para fala quando usada em conjunto com a síntese de fala.
 
-| Linguagem    |
+| Language    |
 |:----------- |
 |Árabe|
 |Cantonês (tradicional)|
@@ -365,7 +368,7 @@ Converta a fala em texto para traduzir para o idioma de texto de sua escolha. A 
 ### <a name="text-to-speech"></a>Conversão de texto em fala
 Converter texto em fala. A conversão de texto em fala é usada para adicionar saída audível de resultados de tradução ou para tradução de fala a fala quando usada com a fala em texto. 
 
-| Linguagem    |
+| Language    |
 |:----------- |
 |Árabe|
 |Búlgaro|

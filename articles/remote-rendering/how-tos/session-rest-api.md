@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 46560f067e020236031487677ad4f48a9560d4e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e65655f1809c6badc50e39a2a5e932516ef99d2
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80681240"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509834"
 ---
 # <a name="use-the-session-management-rest-api"></a>Usar a API REST de gerenciamento de sessão
 
@@ -71,15 +71,15 @@ Este comando cria uma sessão. Ele retorna a ID da nova sessão. Você precisa d
 
 **Corpo da solicitação:**
 
-* maxLeaseTime (TimeSpan): um valor de tempo limite quando a VM será encerrada automaticamente
+* maxLeaseTime (TimeSpan): um valor de tempo limite quando a sessão será encerrada automaticamente
 * modelos (matriz): URLs do contêiner de ativos a serem pré-carregados
-* tamanho (cadeia de caracteres): o tamanho da VM (**"Standard"** ou **"Premium"**). Confira as [limitações de tamanho de VM](../reference/limits.md#overall-number-of-polygons) específicas.
+* tamanho (cadeia de caracteres): o tamanho do servidor a ser configurado ([**"Standard"**](../reference/vm-sizes.md) ou [**"Premium"**](../reference/vm-sizes.md)). Consulte [limitações de tamanho](../reference/limits.md#overall-number-of-polygons)específicas.
 
 **Response**
 
 | Código de status | conteúdo JSON | Comentários |
 |-----------|:-----------|:-----------|
-| 202 | -sessionId: GUID | Êxito |
+| 202 | -sessionId: GUID | Sucesso |
 
 ### <a name="example-script-create-a-session"></a>Script de exemplo: criar uma sessão
 
@@ -130,7 +130,7 @@ Esse comando atualiza os parâmetros de uma sessão. No momento, você só pode 
 
 **Corpo da solicitação:**
 
-* maxLeaseTime (TimeSpan): um valor de tempo limite quando a VM será encerrada automaticamente
+* maxLeaseTime (TimeSpan): um valor de tempo limite quando a sessão será encerrada automaticamente
 
 **Response**
 
@@ -258,7 +258,7 @@ Esse comando para uma sessão. A VM alocada será recuperada logo após.
 
 | Código de status | conteúdo JSON | Comentários |
 |-----------|:-----------|:-----------|
-| 204 | | Êxito |
+| 204 | | Sucesso |
 
 ### <a name="example-script-stop-a-session"></a>Script de exemplo: parar uma sessão
 

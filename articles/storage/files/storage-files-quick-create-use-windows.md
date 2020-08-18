@@ -1,18 +1,18 @@
 ---
 title: Criar e usar um compartilhamento dos Arquivos do Azure em VMs do Windows
-description: Neste início rápido, você configura um compartilhamento do serviço Arquivos do Azure no portal do Azure e o conecta a uma máquina virtual do Windows. Você se conecta ao compartilhamento do serviço Arquivos e carrega um arquivo nele. Em seguida, tira um instantâneo do compartilhamento do Arquivos, modifica o arquivo no compartilhamento do Arquivos e restaura um instantâneo anterior do compartilhamento do Arquivos.
+description: Crie e use um compartilhamento de Arquivos do Azure no portal do Azure. Conecte-o a uma VM do Windows, conecte-se ao compartilhamento de arquivos e carregue um arquivo para o compartilhamento de arquivos.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6bbab0ee2eefe6e86c150d5bddab4f8e91a7c92d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0cbbcc822765097f83fcd1a52ce775c69faba9fa
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75463899"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836421"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Início Rápido: Criar e gerenciar compartilhamento do Armazenamento de Arquivos do Azure com máquinas de virtuais do Windows
 
@@ -182,4 +182,4 @@ Assim como acontece com instantâneos locais do VSS, você pode exibir os instan
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Usar um compartilhamento de arquivos do Azure com o Windows](storage-how-to-use-files-windows.md)
+> [Usar um compartilhamento de arquivo do Azure com o Windows](storage-how-to-use-files-windows.md)

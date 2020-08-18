@@ -3,12 +3,12 @@ title: Detectar movimento e gravar vídeo em dispositivos de borda – Azure
 description: Este início rápido mostra como usar a Análise de Vídeo ao vivo no IoT Edge para analisar o feed de vídeo ao vivo de uma câmera de IP (simulada), para detectar se qualquer movimento está presente; em caso afirmativo, registre um clipe de vídeo MP4 no sistema de arquivos local no dispositivo de borda.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 14dcc7b298244a1d53a9b820c641ea87c4f9a016
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 796def7cad3632dd50184bea751dc9f348569216
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091854"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067642"
 ---
 # <a name="quickstart-detect-motion-and-record-video-on-edge-devices"></a>Início Rápido: Detectar movimento e gravar vídeo em dispositivos de borda
  
@@ -89,11 +89,20 @@ Como parte dos pré-requisitos deste início rápido, você baixou o código de 
 
 Na etapa [Gerar e implantar o manifesto de implantação do IoT Edge](detect-motion-emit-events-quickstart.md#generate-and-deploy-the-deployment-manifest), no Visual Studio Code, expanda o nó **lva-sample-device** em **HUB IOT DO AZURE** (na seção inferior esquerda). Você deverá ver os seguintes módulos implantados:
 
-* O módulo da Análise Dinâmica de Vídeo, chamado **lvaEdge**
-* Um módulo chamado **rtspsim**, que simula um servidor RTSP que atua como a origem de um feed de vídeo ao vivo
+* O módulo da Análise Dinâmica de Vídeo, chamado `lvaEdge`
+* Um módulo chamado `rtspsim`, que simula um servidor RTSP que atua como a origem de um feed de vídeo ao vivo
 
   ![Módulos](./media/quickstarts/lva-sample-device-node.png)
 
+> [!NOTE]
+> Se você estiver usando o próprio dispositivo de borda em vez de um provisionado pelo nosso script de instalação, acesse o dispositivo de borda e execute os seguintes comandos com **direitos de administrador**, para efetuar pull e armazenar o arquivo de vídeo de exemplo usado neste guia de início rápido:  
+
+```
+mkdir /home/lvaadmin/samples
+mkdir /home/lvaadmin/samples/input    
+curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
+chown -R lvaadmin /home/lvaadmin/samples/  
+```
 
 ## <a name="review---prepare-for-monitoring-events"></a>Revisão – preparar-se para eventos de monitoramento
 Verifique se você concluiu as etapas para [Preparar-se para monitorar eventos](detect-motion-emit-events-quickstart.md#prepare-to-monitor-events).
@@ -105,54 +114,55 @@ Verifique se você concluiu as etapas para [Preparar-se para monitorar eventos](
 1. Inicie uma sessão de depuração pressionando F5. A janela **TERMINAL** imprime algumas mensagens.
 1. O código *operations.json* chama os métodos diretos `GraphTopologyList` e `GraphInstanceList`. Se você limpou os recursos após os inícios rápidos anteriores, esse processo retornará listas vazias e, em seguida, pausará. Pressione Enter.
 
-    ```
-    --------------------------------------------------------------------------
-    Executing operation GraphTopologyList
-    -----------------------  Request: GraphTopologyList  --------------------------------------------------
-    {
-      "@apiVersion": "1.0"
-    }
-    ---------------  Response: GraphTopologyList - Status: 200  ---------------
-    {
-      "value": []
-    }
-    --------------------------------------------------------------------------
-    Executing operation WaitForInput
-    Press Enter to continue
-    ```
+```
+--------------------------------------------------------------------------
+Executing operation GraphTopologyList
+-----------------------  Request: GraphTopologyList  --------------------------------------------------
+{
+  "@apiVersion": "1.0"
+}
+---------------  Response: GraphTopologyList - Status: 200  ---------------
+{
+  "value": []
+}
+--------------------------------------------------------------------------
+Executing operation WaitForInput
+Press Enter to continue
+```
 
-    A janela **TERMINAL** mostra o próximo conjunto de chamadas de método direto:
+  A janela **TERMINAL** mostra o próximo conjunto de chamadas de método direto:  
+  * Uma chamada para `GraphTopologySet` que usa o `topologyUrl` 
+  * Uma chamada para `GraphInstanceSet` que usa o seguinte corpo:
 
-     * Uma chamada para `GraphTopologySet` que usa o `topologyUrl` 
-     * Uma chamada para `GraphInstanceSet` que usa o seguinte corpo:
+```
+{
+  "@apiVersion": "1.0",
+  "name": "Sample-Graph",
+  "properties": {
+    "topologyName": "EVRToFilesOnMotionDetection",
+    "description": "Sample graph description",
+    "parameters": [
+      {
+        "name": "rtspUrl",
+        "value": "rtsp://rtspsim:554/media/lots_015.mkv"
+      },
+      {
+        "name": "rtspUserName",
+        "value": "testuser"
+      },
+      {
+        "name": "rtspPassword",
+        "value": "testpassword"
+      }
+    ]
+  }
+}
+```
 
-         ```
-         {
-           "@apiVersion": "1.0",
-           "name": "Sample-Graph",
-           "properties": {
-             "topologyName": "EVRToFilesOnMotionDetection",
-             "description": "Sample graph description",
-             "parameters": [
-               {
-                 "name": "rtspUrl",
-                 "value": "rtsp://rtspsim:554/media/lots_015.mkv"
-               },
-               {
-                 "name": "rtspUserName",
-                 "value": "testuser"
-               },
-               {
-                 "name": "rtspPassword",
-                 "value": "testpassword"
-               }
-             ]
-           }
-         }
-         ```
-     * Uma chamada para `GraphInstanceActivate` que inicia a instância do grafo e o fluxo de vídeo
-     * Uma segunda chamada para `GraphInstanceList` que mostra que a instância do grafo está em estado de execução
-1. A saída na janela **TERMINAL** pausa em `Press Enter to continue`. Não pressione Enter ainda. Role para cima para ver os conteúdos da resposta JSON para os métodos diretos que você invocou.
+  * Uma chamada para `GraphInstanceActivate` que inicia a instância do grafo e o fluxo de vídeo
+  * Uma segunda chamada para `GraphInstanceList` que mostra que a instância do grafo está em estado de execução  
+
+3. A saída na janela **TERMINAL** pausa em `Press Enter to continue`. Não pressione Enter ainda. Role para cima para ver os conteúdos da resposta JSON para os métodos diretos que você invocou.
 1. Alterne para a janela **SAÍDA** no Visual Studio Code. Você verá as mensagens que o módulo da Análise Dinâmica de Vídeo no IoT Edge está enviando para o Hub IoT. A próxima seção deste início rápido aborda essas mensagens.
 
 1. O grafo de mídia continua sendo executado e imprimindo resultados. O simulador RTSP mantém o loop do vídeo de origem. Para interromper o grafo de mídia, volte para a janela **TERMINAL** e selecione Enter. 
@@ -239,7 +249,7 @@ Os dois eventos geralmente são emitidos em um intervalo de segundos entre si.
 
 ## <a name="play-the-mp4-clip"></a>Reproduzir o clipe MP4
 
-Os arquivos MP4 são gravados em um diretório no dispositivo de borda que você configurou no arquivo *.env* usando a chave OUTPUT_VIDEO_FOLDER_ON_DEVICE. Se você usou o valor padrão, os resultados devem estar na pasta */home/lvaadmin/samples/output/* .
+Os arquivos MP4 são gravados em um diretório no dispositivo de borda que você configurou no arquivo *.env* usando a chave OUTPUT_VIDEO_FOLDER_ON_DEVICE. Se você usou o valor padrão, os resultados devem estar na pasta */var/media/* .
 
 Para reproduzir o clipe MP4:
 
@@ -250,7 +260,7 @@ Para reproduzir o clipe MP4:
     ![VM](./media/quickstarts/virtual-machine.png)
 
 1. Entre usando as credenciais que foram geradas quando você [configurou os recursos do Azure](detect-motion-emit-events-quickstart.md#set-up-azure-resources). 
-1. No prompt de comando, vá para o diretório relevante. O local padrão é */home/lvaadmin/samples/output*. Você deve ver os arquivos MP4 no diretório.
+1. No prompt de comando, vá para o diretório relevante. A localização padrão é */var/media*. Você deve ver os arquivos MP4 no diretório.
 
     ![Saída](./media/quickstarts/samples-output.png) 
 

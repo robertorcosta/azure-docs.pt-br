@@ -6,16 +6,74 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: b36469a89c7bae39ae3c2d62792c2ccde0fcfda9
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 10d4cb8160d0bf9111903b193574e9e820ded221
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799320"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827734"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Quais são as novidades da documentação do Azure Monitor?
 
 Este artigo lista os artigos sobre o Azure Monitor que são novos ou que foram atualizados de maneira significativa. Ele será atualizado na primeira semana de cada mês para incluir as atualizações de artigos do mês anterior.
+
+## <a name="july-2020"></a>Julho de 2020
+
+### <a name="general"></a>Geral
+- [Implantar Azure Monitor](deploy-scale.md) – reestruturação do conteúdo de integração do Azure Monitor para VMs.
+- [Use o Link Privado do Azure para conectar redes com segurança ao Azure Monitor](platform/private-link-security.md) – adicionada seção sobre limites.
+
+### <a name="alerts"></a>Alertas
+- [Regras de ação para alertas de Azure Monitor](platform/alerts-action-rules.md) – processos da CLI adicionados.
+- [Crie e gerencie grupos de ação no portal do Azure](platform/action-groups.md) – atualizado para refletir as alterações à interface do usuário.
+- [Consultas salvas no Azure Monitor Log Analytics](log-query/saved-queries.md) – novo artigo.
+- [Solucionar problemas de alertas de log no Azure Monitor](platform/alerts-troubleshoot-log.md) – adicionada seção sobre cota de regra de alerta.
+- [Solução de problemas de alertas de métrica do Azure](platform/alerts-troubleshoot-metric.md) – adicionada seção sobre regra de alerta em uma métrica personalizada que ainda não foi emitida.
+- [Entender como funcionam os alertas de métrica no Azure Monitor.](platform/alerts-metric-overview.md) – Adicionada recomendação para selecionar a granularidade da agregação.
+
+### <a name="application-insights"></a>Application Insights
+- [Notas sobre a versão para a extensão de aplicativo Web do Azure – Application Insights](app/web-app-extension-release-notes.md) – novo artigo.
+- [Exemplos de modelo do Resource Manager para recursos do Application Insights](samples/resource-manager-app-resource.md) – novo artigo.
+- [Solucionar problemas com o Azure Application Insights Profiler](app/profiler-troubleshooting.md) – adicionada observação sobre o bug ao executar o Profiler para aplicativos ASP.NET Core no Serviço de Aplicativo do Azure. 
+
+### <a name="containers"></a>Contêineres
+- [Alertas de log do Azure Monitor para contêineres](insights/container-insights-log-alerts.md) – novo artigo.
+- [Alertas de métricas do Azure Monitor para contêineres](insights/container-insights-metric-alerts.md) – novo artigo.
+
+### <a name="logs"></a>Logs
+- [Chave gerenciada pelo cliente do Azure Monitor](platform/customer-managed-keys.md) – adicionadas mensagens de erro e a seção de configuração de CMK para consultas.
+- [API do Coletor de Dados HTTP do Azure Monitor](platform/data-collector-api.md) – adicionado exemplo do Python 3.
+- [Otimize as consultas de log no Azure Monitor](log-query/query-optimization.md) – adicionada seção sobre como evitar várias verificações de dados ao usar subconsultas.
+- [Tutorial: Introdução às consultas do Log Analytics](log-query/get-started-portal.md) – vídeo adicionado.
+
+### <a name="platform-logs"></a>Logs de plataforma
+- [Criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes](platform/diagnostic-settings.md) – vídeo adicionado.
+- [Exemplos de modelo do Resource Manager para Azure Monitor](samples/resource-manager-samples.md) – adicionado exemplo do ARM usando o tipo de destino de Logs. 
+
+### <a name="solutions"></a>Soluções
+- [Soluções de monitoramento no Azure Monitor](insights/solutions.md) – processos da CLI adicionados.
+- [Solução de gerenciamento do Office 365 no Azure](insights/solution-office-365.md) – data de desativação alterada.
+
+### <a name="virtual-machines"></a>Máquinas virtuais
+
+Artigos novos e atualizados da de reestruturação de conteúdo de Azure Monitor para VMs
+
+- [O que é o Azure Monitor para VMs?](insights/vminsights-overview.md)
+- [Configurar o workspace do Log Analytics para o Azure Monitor para VMs](insights/vminsights-configure-workspace.md)
+- [Conectar computadores Linux ao Azure Monitor](platform/agent-linux.md)
+- [Habilitar o Azure Monitor para um ambiente híbrido](insights/vminsights-enable-hybrid.md)
+- [Habilitar o Azure Monitor para uma única máquina virtual ou para um conjunto de dimensionamento de máquinas virtuais no portal do Azure](insights/vminsights-enable-portal.md)
+- [Habilitar o Azure Monitor para VMs usando o Azure Policy](insights/vminsights-enable-at-scale-policy.md)
+- [Visão geral de Habilitar o Azure Monitor para VMs](insights/vminsights-enable-overview.md)
+- [Habilitar o Azure Monitor para VMs usando o PowerShell](insights/vminsights-enable-powershell.md)
+- [Habilitar o Azure Monitor para VMs usando modelos do Resource Manager](insights/vminsights-enable-resource-manager.md)
+- [Habilitar o Azure Monitor para VMs com o PowerShell ou modelos](insights/vminsights-enable-at-scale-powershell.md)
+
+
+### <a name="visualizations"></a>Visualizações
+- [Atualizar suas visualizações do Painel do Log Analytics](log-query/dashboard-upgrade.md) – taxa de atualização atualizada.
+- [Visualização de dados do Azure Monitor](visualizations.md) – vídeo adicionado.
+
 
 ## <a name="june-2020"></a>Junho de 2020
 
@@ -66,7 +124,8 @@ Este artigo lista os artigos sobre o Azure Monitor que são novos ou que foram a
 - [Enviar o log de atividades do Azure para o workspace do Log Analytics usando o portal do Azure](learn/quick-collect-activity-log-portal.md) – novo artigo.
 - [Enviar o log de atividades do Azure para workspace do Log Analytics usando o modelo do Azure Resource Manager](learn/quick-collect-activity-log-arm.md) – Novo artigo.
 
-#### <a name="new-and-updated-articles-from-restructure-and-consolidation-of-platform-log-content"></a>Artigos novos e atualizados da reestruturação e da fusão do conteúdo do log da plataforma
+Artigos novos e atualizados da reestruturação e da fusão do conteúdo do log da plataforma
+
 - [Arquivar logs de recursos do Azure na conta de armazenamento](./platform/resource-logs.md#send-to-azure-storage)
 - [Esquema de eventos do log de atividades do Azure](platform/activity-log-schema.md)
 - [Log de Atividades do Azure](platform/activity-log.md)
@@ -84,7 +143,7 @@ Este artigo lista os artigos sobre o Azure Monitor que são novos ou que foram a
 - [Exibir eventos do log de atividades do Azure no Azure Monitor](./platform/activity-log.md#view-the-activity-log)
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
-- [Habilitar o Azure Monitor para VMs no portal do Azure](insights/vminsights-enable-single-vm.md) – atualizado para incluir o Azure Arc.
+- [Habilitar o Azure Monitor para VMs no portal do Azure](./insights/vminsights-enable-portal.md) – atualizado para incluir o Azure Arc.
 - [Visão geral de Habilitar o Azure Monitor para VMs](insights/vminsights-enable-overview.md) – atualizado para incluir o Azure Arc.
 - [O que é o Azure Monitor para VMs?](insights/vminsights-overview.md) – Atualizado para incluir o Azure Arc.
 
@@ -293,7 +352,7 @@ Atualizações gerais para disponibilidade geral do Azure Monitor para VMs
 
 - [O que é o Azure Monitor para VMs?](insights/vminsights-overview.md)
 - [Perguntas frequentes sobre o Azure Monitor para VMs (GA)](insights/vminsights-ga-release-faq.md) 
-- [Habilitar o Azure Monitor para VMs usando o Azure Policy](insights/vminsights-enable-at-scale-policy.md) 
+- [Habilitar o Azure Monitor para VMs usando o Azure Policy](./insights/vminsights-enable-policy.md) 
 - [Como criar um gráfico de desempenho com o Azure Monitor para VMs](insights/vminsights-performance.md)
 - [Como consultar logs do Azure Monitor para VMs](insights/vminsights-log-search.md)
 - [Ver dependências de aplicativo com o Azure Monitor para VMs](insights/vminsights-maps.md) 
