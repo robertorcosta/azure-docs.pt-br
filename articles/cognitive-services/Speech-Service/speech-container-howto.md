@@ -10,30 +10,30 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: 4f14a5cf21a372c66378521fd293b7569b181653
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: dc17c25a84c3d0af39bfa7a8902bdc1d93f201e8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808653"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88518315"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalar e executar contêineres do serviço de fala (versão prévia)
 
-Os contêineres permitem executar algumas das APIs do serviço de fala em seu próprio ambiente. Os contêineres são ótimos para requisitos específicos de segurança e governança de dados. Neste artigo, você aprenderá a baixar, instalar e executar um contêiner de fala.
+Os contêineres permitem executar algumas das APIs de serviço de Fala no seu ambiente. Contêineres são excelentes para especificar requisitos de segurança e governança de dados. Neste artigo, você aprenderá a baixar, instalar e executar um contêiner de Fala.
 
-Os contêineres de fala permitem que os clientes criem uma arquitetura de aplicativo de fala otimizada para recursos de nuvem robustos e localidade de borda. Há quatro contêineres diferentes disponíveis. Os dois contêineres padrão são Text **-to-Text** e **conversão de texto em fala**. Os dois contêineres personalizados são **fala personalizada para texto** e **texto em fala personalizado**. Os contêineres de fala têm o mesmo [preço](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) que os serviços de fala do Azure baseados em nuvem.
+Os contêineres de Fala permitem que os clientes criem uma arquitetura de aplicativo de fala otimizada para capacidades robustas de nuvem e localidade de borda. Há quatro tipos diferentes de contêineres disponíveis. Os dois contêineres padrão são Text **-to-Text** e **conversão de texto em fala**. Os dois contêineres personalizados são **fala personalizada para texto** e **texto em fala personalizado**. Os contêineres de fala têm o mesmo [preço](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) que os serviços de fala do Azure baseados em nuvem.
 
 > [!IMPORTANT]
 > Atualmente, todos os contêineres de fala são oferecidos como parte de uma [Visualização pública "restrita"](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services). Um comunicado será feito quando os contêineres de fala progredirem para disponibilidade geral (GA).
 
-| Função | Recursos | Mais Recente |
+| Função | Recursos | Última |
 |--|--|--|
 | Conversão de fala em texto | Analisa sentimentos e transcreve gravações contínuas em tempo real ou de áudio em lotes com resultados intermediários.  | 2.3.1 |
 | Fala Personalizada para texto | Usar um modelo personalizado do [portal de fala personalizada](https://speech.microsoft.com/customspeech), transcreve gravações contínuas em tempo real ou de áudio em lotes em texto com resultados intermediários. | 2.3.1 |
 | Conversão de texto em fala | Converte texto em fala natural-som com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.5.0 |
 | Conversão de texto em fala personalizada | Usando um modelo personalizado do [portal de voz personalizado](https://aka.ms/custom-voice-portal), o converte o texto em fala de som natural com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.5.0 |
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -441,7 +441,7 @@ speech_config.set_service_property(
 )
 ```
 
-`Simple.Extensions`retornará o resultado de sentimentos na camada raiz da resposta.
+`Simple.Extensions` retornará o resultado de sentimentos na camada raiz da resposta.
 
 ```json
 {
@@ -480,7 +480,7 @@ speech_config.set_service_property(
 )
 ```
 
-`Detailed.Extensions`fornece um resultado de sentimentos na camada raiz da resposta. `Detailed.Options`fornece o resultado na `NBest` camada da resposta. Eles podem ser usados separadamente ou em conjunto.
+`Detailed.Extensions` fornece um resultado de sentimentos na camada raiz da resposta. `Detailed.Options` fornece o resultado na `NBest` camada da resposta. Eles podem ser usados separadamente ou em conjunto.
 
 ```json
 {

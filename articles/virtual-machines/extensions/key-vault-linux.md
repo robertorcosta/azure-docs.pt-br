@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d2deb59b5a10177b1a6e57046c013ec9dac0fb06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5056f453580ef3e4549a0d8ee5b59e893d8c56bf
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010794"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522284"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual de Key Vault para Linux
 
@@ -73,9 +73,9 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 > 
 > Isso porque o caminho `/secrets` retorna todo o certificado, incluindo a chave privada, enquanto o caminho `/certificates` não faz isso. Mais informações sobre certificados podem ser encontradas aqui: [Certificados do Key Vault](../../key-vault/general/about-keys-secrets-certificates.md)
 
-> [!NOTE]
-> A propriedade ' authenticationSettings ' é opcional para cenários quando a VM tem várias identidades atribuídas.
-> Ele permite que o especificando a identidade a ser usada para autenticação para Key Vault.
+> [!IMPORTANT]
+> A propriedade ' authenticationSettings ' é **necessária** somente para VMs com **identidades atribuídas pelo usuário**.
+> Especifica a identidade a ser usada para autenticação para Key Vault.
 
 
 ### <a name="property-values"></a>Valores de propriedade
@@ -88,7 +88,7 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 | typeHandlerVersion | 1.0 | INT |
 | pollingIntervalInS | 3600 | string |
 | certificateStoreName | Ele é ignorado no Linux | string |
-| linkOnRenewal | false | boolean |
+| linkOnRenewal | false | booleano |
 | certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | string |
 | requiredInitialSync | true | booleano |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Matriz de cadeia de caracteres

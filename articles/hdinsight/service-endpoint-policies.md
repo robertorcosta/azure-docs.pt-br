@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/15/2020
-ms.openlocfilehash: 5bc8955f9eb9db837b3243b8a2937d80a4d38e2e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2752e5ab2bf7c2926ec9e2c0e4929eab91ed377
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87096063"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88530963"
 ---
 # <a name="configure-virtual-network-service-endpoint-policies-for-azure-hdinsight"></a>Configurar políticas de ponto de extremidade de serviço de rede virtual para o Azure HDInsight
 
@@ -91,7 +91,7 @@ Use o seguinte processo para criar as políticas de ponto de extremidade de serv
 
     Se você preferir configurar sua política de ponto de extremidade de serviço usando o PowerShell, usando o trecho de código a seguir.
     
-    ```json
+    ```powershell
     #Script to assign SEP 
     $subscriptionId = "<subscription id>"
     $rgName = "<resource group name>"

@@ -2,27 +2,22 @@
 title: Tutoriais de integração de aplicativos SaaS para uso com o Azure AD | Microsoft Docs
 description: Configure a integração do logon único do Azure Active Directory com uma variedade de aplicativos software como serviço de terceiros.
 services: active-directory
-documentationcenter: ''
 author: jeevansd
-manager: daveba
-ms.assetid: 08c0c52b-76d9-4250-936a-6bec0edb8816
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.custom: it-pro
-ms.reviewer: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a63527ce6fcb334d5a6f6c790f090bc39d702f66
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.reviewer: celested
+ms.openlocfilehash: 6d5632e6c50b33396eee5b476281c7a2c0a8366e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86167531"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88534006"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory
 

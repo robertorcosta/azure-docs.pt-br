@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 6ba0be3a6fba35e413270dd6770f5d3f47586b5e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 28b6a70297efb8d8237f085e1f5b08dbb6a09072
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873332"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522599"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Como personalizar o conjunto de padrões em seu painel de conformidade regulatória
 
@@ -73,6 +73,8 @@ As etapas a seguir explicam como adicionar um pacote para monitorar sua conformi
     - **PBMM do Canadá**
     
     ![Como adicionar pacotes regulatórios ao painel de conformidade regulatória da Central de Segurança do Azure](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
+
+1. Selecione **Adicionar** e insira todos os detalhes necessários para a iniciativa específica, como escopo, parâmetros e correção.
 
 1. Na barra lateral da Central de Segurança, selecione **Conformidade regulatória** novamente para voltar para o painel de conformidade regulatória.
     * O novo padrão é exibido na sua lista de padrões de regulamentação e do setor. 

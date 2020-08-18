@@ -3,23 +3,19 @@ title: 'Tutorial: configurar o Write-back do SAP SuccessFactors no Azure Active 
 description: Saiba como configurar o Write-back de atributo para o SAP SuccessFactors do Azure AD
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: ad255bd4-9e50-43a1-a92b-359215868b6b
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: f150d6abf2ac6a423a99d3347df9bf0adc9b294b
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 4b048053a553176f73b5bd199bcb6e28bc74cc6c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809923"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88533989"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Tutorial: configurar o Write-back de atributo do Azure AD para o SAP SuccessFactors
 O objetivo deste tutorial é mostrar as etapas para os atributos de write-back do Azure AD para o SAP SuccessFactors Employee central. 
@@ -151,7 +147,7 @@ O aplicativo de provisionamento de write-back SuccessFactors usa determinados va
 1. No postmaster, clique nas reticências (...) associadas à coleção SuccessFactors e adicione uma "nova solicitação" chamada "obter tipos de email", conforme mostrado abaixo. 
 
    > [!div class="mx-imgBorder"]
-   > ![Solicitação de email do postmaster](./media/sap-successfactors-inbound-provisioning/postman-email-request.png)
+   > ![Solicitação de email do postmaster ](./media/sap-successfactors-inbound-provisioning/postman-email-request.png)
 
 1. Abra o painel de solicitação "obter tipo de email". 
 1. Na URL GET, adicione a seguinte URL, substituindo `successFactorsAPITenantName` pelo locatário da API para sua instância do SuccessFactors. 
@@ -257,7 +253,7 @@ Nesta seção, você configurará como os dados do usuário fluem do SuccessFact
    | 3 | 8448 | emailtype | Esse valor constante é o valor de ID de SuccessFactors associado ao email comercial. Atualize esse valor para corresponder ao seu ambiente SuccessFactors. Consulte a seção [recuperar o valor constante para emailtype](#retrieve-constant-value-for-emailtype) para as etapas para definir esse valor. |
    | 4 | true | emailIsPrimary | Use este atributo para definir emails comerciais como primários no SuccessFactors. Se email comercial não for primário, defina esse sinalizador como false. |
    | 5 | userPrincipalName | [custom01 – custom15] | Usando **Adicionar novo mapeamento**, você pode opcionalmente escrever userPrincipalName ou qualquer atributo do Azure ad para um atributo personalizado disponível no objeto de usuário SuccessFactors.  |
-   | 6 | samAccountName local | Nome de Usuário | Usando **Adicionar novo mapeamento**, você pode, opcionalmente, mapear sAMAccountName local para o atributo de nome de usuário SuccessFactors. |
+   | 6 | samAccountName local | username | Usando **Adicionar novo mapeamento**, você pode, opcionalmente, mapear sAMAccountName local para o atributo de nome de usuário SuccessFactors. |
    | 7 | SSO | loginMethod | Se o locatário do SuccessFactors for configurado para [SSO parcial](https://apps.support.sap.com/sap/support/knowledge/en/2320766)e, em seguida, usar Adicionar novo mapeamento, você poderá, opcionalmente, definir loginMethod como um valor constante de "SSO" ou "pwd". |
    | 8 | telephoneNumber | businessPhoneNumber | Use esse mapeamento para fluir *telephoneNumber* do Azure ad para o número de telefone comercial/trabalho do SuccessFactors. |
    | 9 | 10605 | businessPhoneType | Esse valor constante é o valor de ID de SuccessFactors associado ao telefone comercial. Atualize esse valor para corresponder ao seu ambiente SuccessFactors. Consulte a seção [recuperar o valor constante de PhoneType](#retrieve-constant-value-for-phonetype) para obter as etapas para definir esse valor. |

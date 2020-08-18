@@ -6,13 +6,14 @@ ms.author: robinsh
 ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
+ms.custom: fasttrack-edit, iot
 services: iot-dps
-ms.openlocfilehash: 5cb0e25ec70956e66f7b867f0d0b9473160fc3ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a5e8b6f430f6af49ab79ca0f8cb2253bd0f2049
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975067"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520649"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Como gerenciar registros de dispositivo com SDKs do Serviço de Provisionamento de Dispositivos do Azure
 Um *registro de dispositivo* cria um registro de um único dispositivo ou um grupo de dispositivos que pode em algum momento registrar com o Serviço de Provisionamento de Dispositivos. O registro contém a configuração inicial desejada para os dispositivos como parte desse registro, incluindo o Hub IoT desejado. Este artigo mostra como gerenciar registros de dispositivo para seu serviço de provisionamento programaticamente usando os SDKs de Serviço de Provisionamento do Azure IoT.  Os SDKs do estão disponíveis no GitHub no mesmo repositório dos SDKs do Azure IoT.
@@ -39,7 +40,7 @@ Há duas maneiras em que você pode registrar seus dispositivos com o serviço d
     Você pode criar um grupo de registro com os SDKs seguindo este fluxo de trabalho:
 
     1. Para o grupo de registros, o mecanismo de atestado usa o certificado raiz X.509.  Chame a API do SDK de Serviço ```X509Attestation.createFromRootCertificate``` com o certificado raiz para criar o atestado para o registro.  O certificado raiz X.509 é fornecido em um arquivo PEM ou como uma cadeia de caracteres.
-    1. Crie uma nova variável ```EnrollmentGroup``` usando o ```attestation``` criado e um ```enrollmentGroupId``` exclusivo.  Opcionalmente, você pode definir parâmetros como ```Device ID```, ```IoTHubHostName``` e ```ProvisioningStatus```.
+    1. Crie uma nova variável ```EnrollmentGroup``` usando o ```attestation``` criado e um ```enrollmentGroupId``` exclusivo.  Opcionalmente, você pode definir parâmetros como ```IoTHubHostName``` , ```ProvisioningStatus``` .
     2. Chame a API do SDK de Serviço ```createOrUpdateEnrollmentGroup``` em seu aplicativo de back-end com ```EnrollmentGroup``` para criar um grupo de registros.
 
 * Um **registro Individual** é uma entrada para um único dispositivo que pode registrar. Os registros individuais podem usar certificados X.509 ou tokens de SAS (de um TPM virtual ou físico) como mecanismos de certificação. É recomendável usar inscrições individuais para dispositivos que exigem configurações iniciais exclusivas ou para dispositivos que só podem usar tokens SAS por meio do TPM ou TPM virtual, como o mecanismo de atestado. Registros individuais podem ter a ID de dispositivo de Hub IoT desejada especificada.

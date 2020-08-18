@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 7b52a1ee67c22fb3bded49a80d35305bdf612f10
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c669946ab76fcaeaaa6fd681f521408643c5a63c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498943"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88531252"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitoramento do serviço do Key Vault com Azure Monitor para Key Vault (versão prévia)
 O Azure Monitor para Key Vault (versão prévia) fornece monitoramento abrangente de key vaults, fornecendo uma exibição unificada das solicitações, desempenho, falhas e latência do Key Vault.
@@ -45,7 +45,7 @@ O Azure Monitor para Key Vault combina logs e métricas para fornecer uma soluç
 
 No Azure Monitor, é possível exibir os detalhes de solicitação, latência e falha de vários key vaults da sua assinatura e ajudar a identificar problemas de desempenho e cenários de limitação.
 
-Para exibir a utilização e as operações de suas contas de armazenamento em todas as suas assinaturas, execute as etapas a seguir:
+Para exibir a utilização e as operações de seus cofres de chaves em todas as suas assinaturas, execute as seguintes etapas:
 
 1. Entre no [Portal do Azure](https://portal.azure.com/)
 

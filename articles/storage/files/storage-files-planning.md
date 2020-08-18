@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2e8a2030acd4297ab3032e8f1e3bde5b6df66659
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.custom: references_regions
+ms.openlocfilehash: aab06b4870efd88893b4a14c1127de7ffcd2ba68
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037160"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520509"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 Os [arquivos do Azure](storage-files-introduction.md) podem ser implantados de duas maneiras principais: montando diretamente os compartilhamentos de arquivos do Azure sem servidor ou armazenando em cache os compartilhamentos de arquivos do Azure no local usando sincronização de arquivos do Azure. A opção de implantação escolhida altera as coisas que você precisa considerar ao planejar sua implantação. 
@@ -103,7 +104,7 @@ Para obter mais informações, consulte [proteção avançada contra ameaças pa
 ## <a name="storage-tiers"></a>Camadas de armazenamento
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
-Em geral, os recursos de arquivos do Azure e a interoperabilidade com outros serviços são os mesmos entre compartilhamentos de arquivos Premium e compartilhamentos de arquivos padrão, no entanto, há algumas diferenças importantes:
+Em geral, os recursos de arquivos do Azure e a interoperabilidade com outros serviços são os mesmos entre compartilhamentos de arquivos Premium e compartilhamentos de arquivos padrão (incluindo compartilhamentos de arquivos avançados, otimizados para transações), no entanto, há algumas diferenças importantes:
 - **Modelo de cobrança**
     - Os compartilhamentos de arquivos Premium são cobrados usando um modelo de cobrança provisionado, o que significa que você paga pela quantidade de armazenamento que você provisiona, em vez da quantidade de armazenamento que realmente pede. 
     - Os compartilhamentos de arquivos padrão são cobrados usando um modelo pago conforme o uso, que inclui um custo base de armazenamento para a quantidade de armazenamento que você está consumindo e, em seguida, um custo de transação adicional com base em como você usa o compartilhamento. Com compartilhamentos de arquivos padrão, sua fatura aumentará se você usar (leitura/gravação/montagem) do compartilhamento de arquivos do Azure mais.

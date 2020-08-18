@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas para perguntas comuns sobre o MABS
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.openlocfilehash: 35957a1e8a3d6c3d9be06d9d44dbcd47efa0e6ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2994e250c37d707eee5428e83c151728f83a1ab
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74173151"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522922"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Servidor de Backup do Azure e o DPM-perguntas frequentes
 
@@ -36,6 +36,10 @@ Sim. Mas você deve configurar o DPM primeiro e depois instalar o agente de Back
 ### <a name="why-cant-i-add-an-external-dpm-server-after-installing-ur7-and-latest-azure-backup-agent"></a>Por que não consigo adicionar um servidor DPM externo após instalar o UR7 e o agente de Backup do Azure mais recente?
 
 Para os servidores DPM com fontes de dados protegidas na nuvem (usando um pacote cumulativo de atualizações anterior ao Pacote de Cumulativo de Atualizações 7), é necessário aguardar pelo menos um dia após instalar o UR7 e o agente de Backup do Azure mais recente para começar a **Adicionar servidor DPM externo**. O período de um dia é necessário para carregar os metadados dos grupos de proteção do DPM no Azure. Os metadados do grupo de proteção são carregados na primeira vez por meio de um trabalho noturno.
+
+### <a name="are-there-recommendations-for-configuring-exclusions-for-antivirus-software"></a>Há recomendações para configurar exclusões para software antivírus?
+
+Sim, é recomendável configurar a exclusão de antivírus. Para exclusões do DPM, consulte [executar software antivírus no servidor DPM](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019). Para obter exclusões para MABS, consulte [Configurar o antivírus para o servidor mAbs](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
 
 ## <a name="vmware-and-hyper-v-backup"></a>Backup do VMware e Hyper-V
 

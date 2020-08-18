@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 05/11/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 49a9cfca1c1f3a76c85dfac98cafea00df1d5ff0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3c34fd198164d7e3ae0851749cf51809df31ca19
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504879"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522939"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Série de vídeos explicativos sobre o portal do Azure
 
@@ -22,17 +22,18 @@ A série de vídeos de instruções portal do Azure demonstra como trabalhar com
 
 ## <a name="featured-video"></a>Vídeo em destaque
 
-Neste vídeo em destaque, mostramos a você como se conectar a uma conta de armazenamento usando o Link Privado do Azure.
+Neste vídeo em destaque, mostramos como implantar um aplicativo Web estático do Azure.
 
-> [!VIDEO https://www.youtube.com/embed/vM7yDwHSc_o]
+> [!VIDEO https://www.youtube.com/embed/H2MPsgujpNk]
 
-[Como se conectar a uma conta de armazenamento usando o Link Privado do Azure](https://www.youtube.com/watch?v=vM7yDwHSc_o)
+[Como implantar um aplicativo Web estático do Azure](https://www.youtube.com/watch?v=H2MPsgujpNk)
 
 Atualize-se com estes vídeos recentes que você pode ter perdido:
 
-| [A nova experiência de Azure Functions](https://www.youtube.com/watch?v=0bdT_9uOqkg)  | [Como implantar seu aplicativo Web usando o GitHub Actions](https://www.youtube.com/watch?v=b2oyxbSbLPA)  | [Como usar cartões de informações do serviço](https://www.youtube.com/watch?v=u00TU531qsQ)  |
+| [Como monitorar Azure Functions](https://www.youtube.com/watch?v=eVDZz8h0s00)  | [Como usar o controle de versão de BLOB](https://www.youtube.com/watch?v=b2oyxbSbLPA)  | [Conectar-se a uma conta de armazenamento usando o link privado do Azure](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
 | ------| ------ | ------ |
-| [![Imagem do vídeo do YouTube sobre a nova experiência de Azure Functions](https://i.ytimg.com/vi/0bdT_9uOqkg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=0bdT_9uOqkg) | [![Imagem do vídeo do YouTube sobre a implantação do seu aplicativo Web usando o GitHub Actions](https://i.ytimg.com/vi/b2oyxbSbLPA/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=b2oyxbSbLPA) | [![Imagem do vídeo do YouTube sobre o uso de cartões de informações de serviço](https://i.ytimg.com/vi/u00TU531qsQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=u00TU531qsQ) |
+| [![Imagem do vídeo do YouTube sobre como monitorar Azure Functions](https://i.ytimg.com/vi/eVDZz8h0s00/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=eVDZz8h0s00) | [![Imagem do vídeo do YouTube sobre como usar o controle de versão de BLOB](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) | [![Imagem do vídeo do YouTube sobre como se conectar a uma conta de armazenamento usando o link privado do Azure](https://i.ytimg.com/vi/vM7yDwHSc_o/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?v=vM7yDwHSc_o) |
+
 
 ## <a name="video-playlist"></a>Playlist de vídeo
 

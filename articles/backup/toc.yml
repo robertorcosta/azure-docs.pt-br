@@ -146,7 +146,11 @@
         - name: Visão geral
           href: backup-azure-sql-database.md
         - name: Backup
-          href: backup-sql-server-database-azure-vms.md
+          items:
+            - name: Fazer backup de várias VMs do SQL Server por meio do cofre
+              href: backup-sql-server-database-azure-vms.md
+            - name: Fazer backup de uma VM do SQL Server por meio do painel da VM
+              href: backup-sql-server-vm-from-vm-pane.md
         - name: Restaurar
           href: restore-sql-database-azure-vm.md
         - name: Gerenciar

@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 32650d44b452b90ffd2935eb31f7c7b958c0f7ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/18/2020
+ms.openlocfilehash: 8ec950ddabd3844618c878471d2e1391979e2056
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737744"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88521364"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-by-using-azure-data-factory"></a>Copiar dados de e para o servidor SFTP usando Azure Data Factory
 
@@ -70,7 +70,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do SFTP:
 
 Para usar a autenticação básica, defina a propriedade *authenticationType* como *básica*e especifique as propriedades a seguir, além das propriedades genéricas do conector SFTP que foram introduzidas na seção anterior:
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | userName | O usuário que tem acesso ao servidor SFTP. |Sim |
 | password | A senha do usuário (userName). Marque este campo como uma SecureString para armazená-lo com segurança em seu data factory ou [faça referência a um segredo armazenado em um cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
@@ -184,7 +184,7 @@ Para obter uma lista completa das seções e propriedades que estão disponívei
 
 As propriedades a seguir têm suporte para SFTP em `location` configurações no conjunto de entrada baseado em formato:
 
-| Property   | Descrição                                                  | Obrigatório |
+| Propriedade   | Descrição                                                  | Obrigatório |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | A propriedade *Type* em `location` DataSet deve ser definida como *SftpLocation*. | Sim      |
 | folderPath | O caminho para a pasta. Se você quiser usar um curinga para filtrar a pasta, ignore essa configuração e especifique o caminho nas configurações de origem da atividade. | Não       |
@@ -226,7 +226,7 @@ Para obter uma lista completa de seções e propriedades que estão disponíveis
 
 As propriedades a seguir têm suporte para SFTP sob as `storeSettings` configurações na fonte de cópia baseada em formato:
 
-| Property                 | Descrição                                                  | Obrigatório                                      |
+| Propriedade                 | Descrição                                                  | Obrigatório                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | A propriedade *Type* em `storeSettings` deve ser definida como *SftpReadSettings*. | Sim                                           |
 | ***Localize os arquivos a serem copiados*** |  |  |
@@ -284,11 +284,11 @@ As propriedades a seguir têm suporte para SFTP sob as `storeSettings` configura
 
 ### <a name="sftp-as-a-sink"></a>SFTP como um coletor
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
 
 As propriedades a seguir têm suporte para SFTP em `storeSettings` configurações em um coletor de cópia com base em formato:
 
-| Property                 | Descrição                                                  | Obrigatório |
+| Propriedade                 | Descrição                                                  | Obrigatório |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | A propriedade *Type* em `storeSettings` deve ser definida como *SftpWriteSettings*. | Sim      |
 | copyBehavior             | Define o comportamento de cópia quando a fonte for de arquivos de um armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>– PreserveHierarchy (padrão)</b>: Preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>– FlattenHierarchy</b>: Todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm os nomes gerados automaticamente. <br/><b>– MergeFiles</b>: Mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, ele será um nome de arquivo gerado automaticamente. | Não       |
@@ -421,7 +421,7 @@ Para obter informações sobre as propriedades de atividade de exclusão, consul
 
 ### <a name="legacy-copy-activity-source-model"></a>Modelo de origem da atividade de cópia herdada
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade *Type* da fonte da atividade de cópia deve ser definida como *FileSystemName* |Sim |
 | recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Quando recursivo é definido como *true* e o coletor é um armazenamento baseado em arquivo, pastas e subpastas vazias não serão copiadas ou criadas no coletor.<br/>Os valores permitidos são *true* (padrão) e *false* | Não |

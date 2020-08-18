@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 08/18/2020
 ms.author: jingwang
-ms.openlocfilehash: 6307c8c003e7ab57f3db33e95805264ee4b99bfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0aca266290f8255bb5149d147c16c128e5f82f5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738610"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520950"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copiar dados de ou para um sistema de arquivos usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -205,7 +205,7 @@ As seguintes propriedades são compatíveis com o sistema de arquivos em `storeS
 
 ### <a name="file-system-as-sink"></a>Sistema de arquivos como coletor
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
 
 As seguinte propriedades são compatíveis com o sistema de arquivos em `storeSettings` configurações de coletor de cópia com base no formato:
 
@@ -303,7 +303,7 @@ Para saber mais detalhes sobre as propriedades, marque [Excluir atividade](delet
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de dados herdado
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type do conjunto de dados deve ser definida como: **FileShare** |Sim |
 | folderPath | Caminho para a pasta. O filtro curinga é permitido; os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome real da pasta tiver um curinga ou esse caractere interno de escape. <br/><br/>Exemplos: rootfolder/subfolder /, veja mais exemplos nas [definições de conjunto de dados e de serviço vinculado de exemplo](#sample-linked-service-and-dataset-definitions) e [exemplos de filtro de arquivo e pasta](#folder-and-file-filter-examples). |Não |

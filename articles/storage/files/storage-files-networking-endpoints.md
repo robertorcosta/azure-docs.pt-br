@@ -4,18 +4,19 @@ description: Uma visão geral das opções de rede para Arquivos do Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 3/19/2020
+ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cef1aab42eea84c737d5c0173bd4d0e0aa509fe4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
-ms.translationtype: HT
+ms.openlocfilehash: c144442ecd93ca87683179adef496a5d68cce98e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497759"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88525890"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configurar pontos de extremidade de rede dos Arquivos do Azure
+
 Os Arquivos do Azure fornecem dois tipos principais de pontos de extremidade para acessar compartilhamentos de arquivos do Azure: 
 - Pontos de extremidade públicos, que têm um endereço IP público e podem ser acessados de qualquer lugar do mundo.
 - Pontos de extremidade privados, que existem em uma rede virtual e têm um endereço IP privado dentro do espaço de endereço dessa rede virtual.
@@ -27,12 +28,21 @@ Este artigo se concentra em como configurar os pontos de extremidade de uma cont
 É recomendável ler as [Considerações de rede dos Arquivos do Azure](storage-files-networking-overview.md) antes de ler este guia de instruções.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 - Este artigo pressupõe que você já tenha criado uma assinatura do Azure. Se você ainda não tiver uma assinatura, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- Este artigo pressupõe que você já tenha criado um compartilhamento de arquivo do Azure em uma conta de armazenamento à qual deseja se conectar do local. Para saber como criar um compartilhamento de arquivo do Azure, confira [Criar um compartilhamento de arquivo do Azure](storage-how-to-create-file-share.md).
+- Este artigo pressupõe que você já criou um compartilhamento de arquivos do Azure em uma conta de armazenamento à qual você deseja se conectar do local. Para saber como criar um compartilhamento de arquivo do Azure, confira [Criar um compartilhamento de arquivo do Azure](storage-how-to-create-file-share.md).
 - Se pretende usar o Azure PowerShell, [instale a versão mais recente](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Se pretende usar a CLI do Azure, [instale a versão mais recente](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="create-a-private-endpoint"></a>Criar um ponto de extremidade privado
+## <a name="endpoint-configurations"></a>Configurações de ponto de extremidade
+
+Você pode configurar seus pontos de extremidade para restringir o acesso à rede para sua conta de armazenamento. Há duas abordagens para a restrição do acesso a uma conta de armazenamento a uma rede virtual:
+
+- [Criar um ou mais pontos de extremidade privados para a conta de armazenamento](#create-a-private-endpoint) e restringir todo o acesso ao ponto de extremidade público. Com isso, apenas o tráfego proveniente de dentro das redes virtuais desejadas poderá acessar os compartilhamentos de arquivo do Azure dentro da conta de armazenamento.
+- [Restrinja o ponto de extremidade público a uma ou mais redes virtuais](#restrict-public-endpoint-access). Isso funciona usando uma funcionalidade da rede virtual denominada *pontos de extremidade de serviço*. Ao restringir o tráfego para uma conta de armazenamento por meio de um ponto de extremidade de serviço, você ainda está acessando a conta de armazenamento por meio do endereço IP público, mas o acesso só é possível dos locais que você especificar em sua configuração.
+
+### <a name="create-a-private-endpoint"></a>Criar um ponto de extremidade privado
+
 A criação de um ponto de extremidade privado para sua conta de armazenamento resultará na implantação dos seguintes recursos do Azure:
 
 - **Um ponto de extremidade privado**: um recurso do Azure que representa o ponto de extremidade privado da conta de armazenamento. Considere-o como um recurso que conecta uma conta de armazenamento e uma interface de rede.
@@ -106,7 +116,7 @@ hostName=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint) | tr -d "/"
 nslookup $hostName
 ```
 
-Se tudo tiver funcionado corretamente, você deverá ver a saída a seguir, em que `192.168.0.5` é o endereço IP privado do ponto de extremidade privado em sua rede virtual. Observe que você ainda deve usar o storageaccount.file.core.windows.net para montar o compartilhamento de arquivo em vez do caminho `privatelink`.
+Se tudo tiver funcionado corretamente, você deverá ver a saída a seguir, em que `192.168.0.5` é o endereço IP privado do ponto de extremidade privado em sua rede virtual. Você ainda deve usar o storageaccount.file.core.windows.net para montar o compartilhamento de arquivos em vez do `privatelink` caminho.
 
 ```Output
 Server:         127.0.0.53
@@ -120,13 +130,12 @@ Address: 192.168.0.5
 
 ---
 
-## <a name="restrict-access-to-the-public-endpoint"></a>Restringir o acesso ao ponto de extremidade público
-Você pode restringir o acesso ao ponto de extremidade público usando as configurações de firewall da conta de armazenamento. Em geral, a maioria das políticas de firewall para uma conta de armazenamento restringirá o acesso de rede a uma ou mais redes virtuais. Há duas abordagens para a restrição do acesso a uma conta de armazenamento a uma rede virtual:
+### <a name="restrict-public-endpoint-access"></a>Restringir acesso de ponto de extremidade público
 
-- [Criar um ou mais pontos de extremidade privados para a conta de armazenamento](#create-a-private-endpoint) e restringir todo o acesso ao ponto de extremidade público. Com isso, apenas o tráfego proveniente de dentro das redes virtuais desejadas poderá acessar os compartilhamentos de arquivo do Azure dentro da conta de armazenamento.
-- Restrinja o ponto de extremidade público a uma ou mais redes virtuais. Isso funciona usando uma funcionalidade da rede virtual denominada *pontos de extremidade de serviço*. Quando você restringir o tráfego a uma conta de armazenamento por meio de um ponto de extremidade de serviço, você ainda acessará a conta de armazenamento por meio do endereço IP público.
+Limitar o acesso ao ponto de extremidade público primeiro exige que você desabilite o acesso geral ao ponto de extremidade público. Desabilitar o acesso ao ponto de extremidade público não afeta pontos de extremidades privados. Depois que o ponto de extremidade público tiver sido desabilitado, você poderá selecionar redes ou endereços IP específicos que podem continuar a acessá-lo. Em geral, a maioria das políticas de firewall para uma conta de armazenamento restringe o acesso à rede para uma ou mais redes virtuais.
 
-### <a name="disable-access-to-the-public-endpoint"></a>Desabilitar o acesso ao ponto de extremidade público
+#### <a name="disable-access-to-the-public-endpoint"></a>Desabilitar o acesso ao ponto de extremidade público
+
 Quando o acesso ao ponto de extremidade público está desabilitado, a conta de armazenamento ainda pode ser acessada por meio de seus pontos de extremidade privados. Caso contrário, as solicitações válidas para o ponto de extremidade público da conta de armazenamento serão rejeitadas. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
@@ -140,7 +149,8 @@ Quando o acesso ao ponto de extremidade público está desabilitado, a conta de 
 
 ---
 
-### <a name="restrict-access-to-the-public-endpoint-to-specific-virtual-networks"></a>Restringir o acesso ao ponto de extremidade público para redes virtuais específicas
+#### <a name="restrict-access-to-the-public-endpoint-to-specific-virtual-networks"></a>Restringir o acesso ao ponto de extremidade público para redes virtuais específicas
+
 Ao restringir a conta de armazenamento para redes virtuais específicas, você permite solicitações ao ponto de extremidade público de dentro das redes virtuais especificadas. Isso funciona usando uma funcionalidade da rede virtual denominada *pontos de extremidade de serviço*. Isso pode ser usado com ou sem pontos de extremidade privados.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
@@ -155,6 +165,7 @@ Ao restringir a conta de armazenamento para redes virtuais específicas, você p
 ---
 
 ## <a name="see-also"></a>Confira também
+
 - [Considerações de rede dos Arquivos do Azure](storage-files-networking-overview.md)
 - [Como configurar o encaminhamento de DNS para Arquivos do Azure](storage-files-networking-dns.md)
 - [Configurando a VPN S2S para os Arquivos do Azure](storage-files-configure-s2s-vpn.md)

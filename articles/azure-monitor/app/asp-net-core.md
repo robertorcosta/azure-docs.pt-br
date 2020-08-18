@@ -3,12 +3,12 @@ title: Aplicativo Azure insights para aplicativos ASP.NET Core | Microsoft Docs
 description: Monitorar aplicativos web ASP.NET Core de disponibilidade, desempenho e uso.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 99d2a85e96aff650573e142368a136886945dcb0
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 81d7ab38080aac941bce1f5d1dd17145f8075036
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270913"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88518077"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicativos ASP.NET Core
 
@@ -30,12 +30,14 @@ O [SDK do Application insights para ASP.NET Core](https://nuget.org/packages/Mic
 > [!NOTE]
 > ASP.NET Core 3. X requer [Application insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) ou posterior.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Um aplicativo ASP.NET Core funcionando. Se você precisar criar um aplicativo ASP.NET Core, siga este [tutorial de ASP.NET Core](/aspnet/core/getting-started/).
 - Uma chave de instrumentação de Application Insights válida. Essa chave é necessária para enviar qualquer telemetria para Application Insights. Se você precisar criar um novo recurso de Application Insights para obter uma chave de instrumentação, consulte [criar um recurso de Application insights](./create-new-resource.md).
 
 ## <a name="enable-application-insights-server-side-telemetry-visual-studio"></a>Habilitar Application Insights telemetria do lado do servidor (Visual Studio)
+
+Por Visual Studio para Mac use as [diretrizes manuais](#enable-application-insights-server-side-telemetry-no-visual-studio). Somente a versão do Windows do Visual Studio dá suporte a esse procedimento.
 
 1. Abra o projeto no Visual Studio.
 
@@ -103,7 +105,7 @@ O [SDK do Application insights para ASP.NET Core](https://nuget.org/packages/Mic
 
     * `ApplicationInsights:InstrumentationKey`
 
-    Por exemplo: 
+    Por exemplo:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 

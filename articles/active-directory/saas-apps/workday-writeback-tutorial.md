@@ -3,23 +3,19 @@ title: 'Tutorial: configurar o Write-back do workday no Azure Active Directory |
 description: Saiba como configurar o Write-back de atributo do Azure AD para o workday
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: daveba
-ms.assetid: ad255bd4-9e50-43a1-a92b-359215867b6b
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 1d76fb96676ad49ce28ff4ef0d6c4fbc84636638
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 324d3a21e1694d243f03beca28ac8376bedffa4d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84026467"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88526823"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Tutorial: configurar o Write-back de atributo do Azure AD para o workday
 O objetivo deste tutorial é mostrar as etapas que você precisa executar para os atributos de write-back do Azure AD para o workday. O aplicativo de provisionamento de write-back do workday dá suporte à atribuição de valores aos seguintes atributos do workday:

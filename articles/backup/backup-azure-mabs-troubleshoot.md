@@ -4,12 +4,12 @@ description: Solucionar problemas de instalação, registro de Servidor de Backu
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: a4882867f9bbe5123df275b8d1c69fe4e163f294
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 54b7295eaed5f04a118cf5097ebc7b25b18f67d2
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054835"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88522837"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Solucionar problemas de Servidor de Backup do Azure
 
@@ -20,13 +20,46 @@ Use as informações nas tabelas a seguir para solucionar problemas de erros enc
 Recomendamos que você execute a validação abaixo antes de iniciar a solução de problemas do MABS (Servidor de Backup do Microsoft Azure):
 
 - [Verifique se o Agente de MARS (Serviços de Recuperação do Microsoft Azure) está atualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
-- [Certifique-se de que há conectividade de rede entre o agente MARS e o Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
+- [Verifique se há conectividade de rede entre o agente MARS e o Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Certifique-se de que os Serviços de Recuperação do Microsoft Azure estão em execução (no console de Serviço). Se necessário, reinicie e repita a operação
 - [Certifique-se de que há de 5 a 10% de espaço de volume livre disponível no local da pasta temporária](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
-- Se o registro estiver falhando, verifique se o servidor no qual você está tentando instalar o Servidor de Backup do Azure já não está registrado em outro cofre
+- Se o registro estiver falhando, verifique se o servidor no qual você está tentando instalar o Servidor de Backup do Azure já não está registrado com outro cofre
 - Se a instalação por push falhar, verifique se o agente de DPM já existe. Se sim, desinstale o agente e tente instalar novamente
 - [Verifique se algum outro processo ou software antivírus está interferindo no Backup do Azure](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)<br>
 - Verifique se o serviço SQL Agent está em execução e definido como automático no servidor MABS<br>
+
+## <a name="configure-antivirus-for-mabs-server"></a>Configurar o antivírus para o MABS Server
+
+O MABS é compatível com os produtos de software antivírus mais populares. Recomendamos as seguintes etapas para evitar conflitos:
+
+1. **Desabilitar monitoramento em tempo real** – desabilite o monitoramento em tempo real pelo software antivírus para o seguinte:
+    - `C:\Program Files<MABS Installation path>\XSD` pasta
+    - `C:\Program Files<MABS Installation path>\Temp` pasta
+    - Letra da unidade do volume de Armazenamento de Backup Moderno
+    - Logs de réplica e transferência: para fazer isso, desabilite o monitoramento em tempo real de **dpmra.exe**, que está localizado na pasta `Program Files\Microsoft Azure Backup Server\DPM\DPM\bin` . O monitoramento em tempo real degrada o desempenho porque o software antivírus examina as réplicas toda vez que o MABS sincroniza com o servidor protegido e examina todos os arquivos afetados toda vez que o MABS aplica as alterações às réplicas.
+    - Console do administrador: para evitar um impacto no desempenho, desabilite o monitoramento em tempo real do processo de **csc.exe** . O processo de **csc.exe** é o \# compilador C, e o monitoramento em tempo real pode prejudicar o desempenho porque o software antivírus examina os arquivos emitidos pelo processo de **csc.exe** ao gerar mensagens XML. **CSC.exe** está localizado nos seguintes caminhos:
+        - `\Windows\Microsoft.net\Framework\v2.0.50727\csc.exe`
+        - `\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe`
+    - Para o agente MARS instalado no servidor MABS, recomendamos que você exclua os seguintes arquivos e locais:
+        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\bin\cbengine.exe` como um processo
+        - `C:\Program Files\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\folder`
+        - Local de rascunho (se você não estiver usando o local padrão)
+2. **Desabilitar o monitoramento em tempo real no servidor protegido**: desabilite o monitoramento em tempo real do **dpmra.exe**, localizado na pasta `C:\Program Files\Microsoft Data Protection Manager\DPM\bin` , no servidor protegido.
+3. **Configure o software antivírus para excluir os arquivos infectados nos servidores protegidos e o servidor mAbs**: para evitar a corrupção de dados de réplicas e pontos de recuperação, configure o software antivírus para excluir arquivos infectados, em vez de limpá-los automaticamente ou colocá-los em quarentena. A limpeza e a quarentena automáticas podem fazer com que o software antivírus modifique arquivos, fazendo alterações que o MABS não consegue detectar.
+
+Execute manualmente um trabalho de sincronização com uma consistência. Verifique o trabalho toda vez que o software antivírus exclui um arquivo da réplica, mesmo que a réplica esteja marcada como inconsistente.
+
+### <a name="mabs-installation-folders"></a>Pastas de instalação do MABS
+
+As pastas de instalação padrão do DPM são as seguintes:
+
+- `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM`
+
+Você também pode executar o seguinte comando para localizar o caminho da pasta de instalação:
+
+```cmd
+Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
+```
 
 ## <a name="invalid-vault-credentials-provided"></a>Credenciais do cofre fornecidas inválidas
 

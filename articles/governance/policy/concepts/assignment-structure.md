@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de atribuição de política
 description: Descreve a definição de atribuição de política usada por Azure Policy para relacionar definições de política e parâmetros a recursos para avaliação.
-ms.date: 04/15/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: c9f400aa72508822f8fff2fe41fb17ce98339737
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 969274d72724c8d0a8f10f86f614fe2c50d066f7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84205034"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520706"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
@@ -22,7 +22,7 @@ Você usa JSON para criar uma atribuição de política. A atribuição de polí
 - modo de imposição
 - escopos excluídos
 - definição de política
-- parâmetros
+- parameters
 
 Por exemplo, o JSON a seguir mostra uma atribuição de política no modo _DoNotEnforce_ com parâmetros dinâmicos:
 
@@ -61,9 +61,9 @@ A **Propriedade** impolicymode fornece aos clientes a capacidade de testar o res
 
 Essa propriedade tem os seguintes valores:
 
-|Mode |Valor JSON |Tipo |Corrigir manualmente |Entrada do log de atividades |Descrição |
+|Mode |Valor JSON |Type |Corrigir manualmente |Entrada do log de atividades |Descrição |
 |-|-|-|-|-|-|
-|Habilitada |Padrão |string |Sim |Sim |O efeito de política é imposto durante a criação ou atualização de recursos. |
+|habilitado |Padrão |string |Sim |Sim |O efeito de política é imposto durante a criação ou atualização de recursos. |
 |Desabilitado |DoNotEnforce |string |Sim |Não | O efeito de política não é imposto durante a criação ou atualização de recursos. |
 
 Se **imposiçãomode** não for especificado em uma definição de política ou iniciativa, o valor _padrão_ será usado. [As tarefas de correção](../how-to/remediate-resources.md) podem ser iniciadas para políticas de [deployIfNotExists](./effects.md#deployifnotexists) , **mesmo quando** é definido como _DoNotEnforce_.
@@ -75,12 +75,11 @@ O **escopo** da atribuição inclui todos os contêineres de recursos filho e re
 ## <a name="policy-definition-id"></a>ID de definição de política
 
 Este campo deve ser o nome do caminho completo de uma definição de política ou uma definição de iniciativa.
-`policyDefinitionId`é uma cadeia de caracteres e não uma matriz. É recomendável que, em vez disso, várias políticas sejam atribuídas juntas, para usar uma [iniciativa](./initiative-definition-structure.md) .
+`policyDefinitionId` é uma cadeia de caracteres e não uma matriz. É recomendável que, em vez disso, várias políticas sejam atribuídas juntas, para usar uma [iniciativa](./initiative-definition-structure.md) .
 
 ## <a name="parameters"></a>Parâmetros
 
-Esse segmento da atribuição de política fornece os valores para os parâmetros definidos na definição de [política ou definição de iniciativa](./definition-structure.md#parameters).
-Esse design torna possível reutilizar uma definição de política ou iniciativa com recursos diferentes, mas verificar valores comerciais ou resultados diferentes.
+Esse segmento da atribuição de política fornece os valores para os parâmetros definidos na definição de [política ou definição de iniciativa](./definition-structure.md#parameters). Esse design torna possível reutilizar uma definição de política ou iniciativa com recursos diferentes, mas verificar valores comerciais ou resultados diferentes.
 
 ```json
 "parameters": {

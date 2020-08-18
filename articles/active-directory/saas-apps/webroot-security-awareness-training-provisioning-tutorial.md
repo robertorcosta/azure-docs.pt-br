@@ -2,25 +2,21 @@
 title: 'Tutorial: configurar o treinamento de reconhecimento de segurança do Webroot para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como provisionar e desprovisionar automaticamente contas de usuário do Azure AD para treinamento de reconhecimento de segurança do Webroot.
 services: active-directory
-documentationcenter: ''
 author: Zhchia
 writer: Zhchia
-manager: beatrizd
-ms.assetid: 455f4396-930e-4db5-a167-d3ea6a860a17
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0b9792ce25541917bfde3291b3864f58d70d6d03
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9345aaac306c8c009d6fc0a01c57beed3a22b10b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923978"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88523466"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Tutorial: configurar o treinamento de reconhecimento de segurança do Webroot para o provisionamento automático de usuário
 

@@ -1,6 +1,6 @@
 ---
 title: Configurando a Ferramenta de Importação/Exportação do Azure v1 | Microsoft Docs
-description: Saiba como configurar a ferramenta de preparação e reparo da unidade do serviço de Importação/Exportação do Azure. Este documento refere-se à v1 da Ferramenta de Importação/Exportação.
+description: Saiba como configurar a ferramenta de preparação e reparo da unidade do serviço de Importação/Exportação do Azure. Este artigo refere-se à versão 1 da ferramenta de importação/exportação.
 author: twooley
 services: storage
 ms.service: storage
@@ -8,28 +8,28 @@ ms.topic: how-to
 ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: ca74e3aea8a847344c75ca7167c46675e1339459
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f2aeb010d0c6f62284f1347bd90b952be50c665e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077817"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88530793"
 ---
 # <a name="setting-up-the-azure-importexport-tool-v1"></a>Configurando a ferramenta de importação/exportação do Azure v1
 A Ferramenta de Importação/Exportação do Microsoft Azure é a ferramenta de preparação e reparo da unidade que pode ser usada com o serviço de Importação/Exportação do Microsoft Azure. É possível usar a ferramenta para as seguintes funções:  
 
--   Antes de criar um trabalho de importação, é possível usar essa ferramenta para copiar dados para os discos rígidos que você pretende enviar para um data center do Microsoft Azure.  
+-   Antes de criar um trabalho de importação, você pode usar essa ferramenta para copiar dados para os discos rígidos que está enviando para um data center do Windows Azure.  
 
 -   Após a conclusão de um trabalho de importação, é possível usar essa ferramenta para reparar os blobs corrompidos, ausentes ou que entraram em conflito com outros blobs.  
 
 -   Depois de receber as unidades de um trabalho de exportação concluído, é possível usar essa ferramenta para reparar os arquivos corrompidos ou ausentes nas unidades.  
 
 ## <a name="prerequisites"></a>Pré-requisitos  
-Se estiver preparando as unidades para um trabalho de importação, você precisará atender aos seguintes pré-requisitos:  
+Se estiver preparando unidades para um trabalho de importação, você precisará atender aos seguintes pré-requisitos:  
 
 -   É necessário ter uma assinatura ativa do Azure.  
 
--   A assinatura deve incluir uma conta de armazenamento com espaço disponível suficiente para armazenar os arquivos que você pretende importar.  
+-   Sua assinatura deve incluir uma conta de armazenamento com espaço disponível suficiente para armazenar os arquivos que você está importando.  
 
 -   É necessário pelo menos uma das chaves da conta de armazenamento.  
 
@@ -39,7 +39,7 @@ Se estiver preparando as unidades para um trabalho de importação, você precis
 
 -   O BitLocker deve estar habilitado no computador de cópia.  
 
--   Serão necessárias uma ou mais unidades que contêm os dados a serem importados ou discos rígidos SATA de 3,5 polegadas vazios conectados ao computador de cópia.  
+-   Você precisará de uma ou mais unidades que contenham dados a serem importados ou discos rígidos SATA de 3,5 polegadas vazios conectados à máquina de cópia.  
 
 -   Os arquivos que você pretende importar devem estar acessíveis no computador de cópia, estejam eles em um compartilhamento de rede ou um disco rígido local.
 
@@ -72,7 +72,7 @@ Se estiver tentando reparar uma importação com falha parcial, serão necessár
 
 - Hddid.dll  
 
-  Copie esses arquivos para um diretório de trabalho, por exemplo, `c:\WAImportExport`. Em seguida, abra uma janela da linha de comando no modo Administrador e defina o diretório acima como o diretório atual.  
+  Copie esses arquivos para um diretório de trabalho, por exemplo, `c:\WAImportExport`. Em seguida, abra uma janela de linha de comando no modo de administrador e defina o diretório acima como o diretório atual.  
 
   Para gerar a saída do comando, execute a ferramenta sem parâmetros:  
 
@@ -253,5 +253,4 @@ Examples:
 * [Visualizando o uso da unidade para um trabalho de exportação](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
 * [Revisão do status do trabalho com arquivos de log de cópia](../storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Reparação de um trabalho de importação](../storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Reparação de um trabalho de exportação](../storage-import-export-tool-repairing-an-export-job-v1.md)   
-* [Solucionando problemas da Ferramenta de Importação/Exportação do Azure](storage-import-export-tool-troubleshooting-v1.md)
+* [Reparação de um trabalho de exportação](../storage-import-export-tool-repairing-an-export-job-v1.md)
