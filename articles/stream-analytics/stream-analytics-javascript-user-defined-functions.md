@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-javascript
 ms.date: 06/16/2020
-ms.openlocfilehash: ff4af372fa0ec1b6b24698184eb3f52449e28d46
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6540b35925a92ebd6a8bcced427b5457785603db
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430803"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056900"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funções definidas pelo usuário do JavaScript no Azure Stream Analytics
  
@@ -130,6 +130,60 @@ INTO
     output
 FROM
     input PARTITION BY PARTITIONID
+```
+
+### <a name="cast-string-to-json-object-to-process"></a>Converter uma cadeia de caracteres em um objeto JSON para processamento
+
+Se você tiver um campo de cadeia de caracteres que seja JSON e quiser convertê-lo em um objeto JSON para processamento em uma UDF do JavaScript, use a função **JSON.parse()** para criar um objeto JSON que possa ser usado em seguida.
+
+**Definição de funções definidas pelo usuário de JavaScript:**
+
+```javascript
+function main(x) {
+var person = JSON.parse(x);  
+return person.name;
+}
+```
+
+**Consulta de exemplo:**
+```SQL
+SELECT
+    UDF.getName(input) AS Name
+INTO
+    output
+FROM
+    input
+```
+
+### <a name="use-trycatch-for-error-handling"></a>Usar try/catch para tratamento de erro
+
+Os blocos try/catch podem ajudar você a identificar problemas em dados de entrada malformados transmitidos para uma UDF do JavaScript.
+
+**Definição de funções definidas pelo usuário de JavaScript:**
+
+```javascript
+function main(input, x) {
+    var obj = null;
+
+    try{
+        obj = JSON.parse(x);
+    }catch(error){
+        throw input;
+    }
+    
+    return obj.Value;
+}
+```
+
+**Exemplo de consulta: transmitir o registro inteiro como o primeiro parâmetro, de modo que ele possa ser retornado em caso de erro.**
+```SQL
+SELECT
+    A.context.company AS Company,
+    udf.getValue(A, A.context.value) as Value
+INTO
+    output
+FROM
+    input A
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

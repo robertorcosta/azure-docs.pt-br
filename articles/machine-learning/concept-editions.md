@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: j-martens
 ms.author: jmartens
 ms.date: 06/11/2020
-ms.openlocfilehash: aa754868677802b7d0000045f22090fbca62d9b6
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: fbe3f0109ca3af2cf9ff44061c7882e6bd72c8a6
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927412"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88508595"
 ---
-# <a name="enterprise-and-basic-editions-of-azure-machine-learning"></a>Edições Enterprise e Basic do Azure Machine Learning 
+# <a name="enterprise-preview-and-basic-editions-of-azure-machine-learning"></a>Enterprise (visualização) e edições básicas do Azure Machine Learning 
 
 O Azure Machine Learning oferece duas edições personalizadas para suas necessidades de aprendizado de máquina. Essas edições determinam quais ferramentas de aprendizado de máquina estão disponíveis para desenvolvedores e cientistas de dados no workspace deles.
 
@@ -23,7 +23,7 @@ O Azure Machine Learning oferece duas edições personalizadas para suas necessi
 
 Você atribui a edição sempre que cria um workspace. Os clientes são responsáveis pelos custos relacionados a computação e a outros recursos do Azure durante esse período. Saiba como [gerenciar custos para Azure Machine Learning](concept-plan-manage-cost.md).
 
-Saiba como [atualizar um workspace de Básico para Enterprise](how-to-manage-workspace.md#upgrade). 
+Saiba como [atualizar um espaço de trabalho básico para a edição Enterprise (versão prévia)](how-to-manage-workspace.md#upgrade). 
 
 ## <a name="whats-in-each-edition"></a>O que há em cada edição
 
@@ -31,13 +31,13 @@ Saiba como [atualizar um workspace de Básico para Enterprise](how-to-manage-wor
 
 | Funcionalidades                     | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Rotulagem: [criar e gerenciar projetos de rotulagem](tutorial-labeling.md) no Studio (Web)                                                | Todos                     |
-| Rotulagem: Labeler no estúdio (Web)                                    | Todos                     |
-| Rotulagem: usar força de funcionários privada                               | Todos                     |
+| Rotulagem: [criar e gerenciar projetos de rotulagem](tutorial-labeling.md) no Studio (Web)                                                | Tudo                     |
+| Rotulagem: Labeler no estúdio (Web)                                    | Tudo                     |
+| Rotulagem: usar força de funcionários privada                               | Tudo                     |
 | Rotulagem: [classificação de imagem assistida por ml e detecção de objeto](how-to-label-images.md)                  | Somente Enterprise Edition |
-| Conjuntos de itens + repositórios de armazenamento: criar e gerenciar em Python                       | Todos                     |
-| Conjuntos de itens + repositórios de armazenamento: criar e gerenciar no Studio (Web)                         | Todos                     |
-| Descompasso: exibir e gerenciar monitores de DataSet em Python                           | Todos                     |
+| Conjuntos de itens + repositórios de armazenamento: criar e gerenciar em Python                       | Tudo                     |
+| Conjuntos de itens + repositórios de armazenamento: criar e gerenciar no Studio (Web)                         | Tudo                     |
+| Descompasso: exibir e gerenciar monitores de DataSet em Python                           | Tudo                     |
 | Descompasso: exibir e gerenciar monitores de DataSet no Studio (Web)                            | Somente Enterprise Edition |
 
 
@@ -48,8 +48,8 @@ Saiba como [atualizar um workspace de Básico para Enterprise](how-to-manage-wor
 
 | Funcionalidades    | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Criar e executar [experimentos do AutoML em blocos de anotações](how-to-configure-auto-train.md)               | Todos                     |
-| Criar e executar [experimentos do AutoML no Studio (Web)](how-to-use-automated-ml-for-ml-models.md)   | Somente Enterprise Edition |
+| Criar e executar [experimentos do AutoML em blocos de anotações](how-to-configure-auto-train.md)               | Tudo                     |
+| Criar e executar  [experimentos do AutoML no Studio (Web)](how-to-use-automated-ml-for-ml-models.md)   | Somente Enterprise Edition |
 | Recursos de previsão de AutoML líderes do setor             | Somente Enterprise Edition |
 | Suporte para aprendizado profundo e outros aprendizes avançados | Somente Enterprise Edition |
 | A classificação de suporte a dados grandes e as tarefas de regressão (até 100 GB)                     | Somente Enterprise Edition |
@@ -62,10 +62,10 @@ Saiba como [atualizar um workspace de Básico para Enterprise](how-to-manage-wor
 
 | Funcionalidades    | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| [Explicabilidade do modelo](how-to-machine-learning-interpretability-automl.md)                                              | Todos                     |
-| [Privacidade diferencial](how-to-differential-privacy.md)                          | Todos                     |
-| Marcas personalizadas para implementar folhas de os    | Todos                     |
-| Integração do AzureML de imparcialidade                                      | Todos                     |
+| [Explicabilidade do modelo](how-to-machine-learning-interpretability-automl.md)                                              | Tudo                     |
+| [Privacidade diferencial](how-to-differential-privacy.md)                          | Tudo                     |
+| Marcas personalizadas para implementar folhas de os    | Tudo                     |
+| Integração do AzureML de imparcialidade                                      | Tudo                     |
 
 <br/>
 <br/>
@@ -75,19 +75,19 @@ Saiba como [atualizar um workspace de Básico para Enterprise](how-to-manage-wor
 
 | Funcionalidades    | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Integração do Visual Studio Code                                                     | Todos                     |
-| Aprendizado de reforço                                                             | Todos                     |
-| IU de experimentação                                                                 | Todos                     |
-| Integração do Jupyter, JupyterLab                                                    | Todos                     |
-| Suporte ao SDK do Python                                                                 | Todos                     |
-| Suporte do SDK do R                                                                      | Todos                     |
-| Pipelines de ML: criar, executar e publicar em Python                           | Todos                     |
-| Pipelines de ML: criar, editar e excluir execuções agendadas de pipelines no Python| Todos                     |
-| Pipelines de ML: criar pontos de extremidade de pipeline no Python SDK                                   | Todos                     |
-| Pipelines de ML: Exibir detalhes da execução no estúdio (Web)                                              | Todos                     |
+| Integração do Visual Studio Code                                                     | Tudo                     |
+| Aprendizado de reforço                                                             | Tudo                     |
+| IU de experimentação                                                                 | Tudo                     |
+| Integração do Jupyter, JupyterLab                                                    | Tudo                     |
+| Suporte ao SDK do Python                                                                 | Tudo                     |
+| Suporte do SDK do R                                                                      | Tudo                     |
+| Pipelines de ML: criar, executar e publicar em Python                           | Tudo                     |
+| Pipelines de ML: criar, editar e excluir execuções agendadas de pipelines no Python| Tudo                     |
+| Pipelines de ML: criar pontos de extremidade de pipeline no Python SDK                                   | Tudo                     |
+| Pipelines de ML: Exibir detalhes da execução no estúdio (Web)                                              | Tudo                     |
 | Pipelines de ML: criar, executar, Visualizar e publicar no designer                  | Somente Enterprise Edition |
 | Pipelines de ML: criar pontos de extremidade de pipeline no designer | Somente Enterprise Edition |
-| Instâncias de computação gerenciadas para blocos de anotações integrados                                 | Todos                     |
+| Instâncias de computação gerenciadas para blocos de anotações integrados                                 | Tudo                     |
 
 
 <br/>
@@ -97,13 +97,13 @@ Saiba como [atualizar um workspace de Básico para Enterprise](how-to-manage-wor
 
 | Funcionalidades                            | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| A extensão DevOps do Azure para Machine Learning e o CLI do Azure ML                 | Todos                     |
-| [Integração da Grade de Eventos](how-to-use-event-grid.md)                                                             | Todos                     |
-| Integrar o Azure Stream Analytics com o Azure Machine Learning                       | Todos                     |
-| Criar pipelines de ML no SDK                                                         | Todos                     |
-| Inferência do lote                                                                  | Todos                     |
-| Modelos de Aceleração de Hardware baseado em FPGA                                             | Todos                     |
-| Criação de perfil de modelo                                                                    | Todos                     |
+| A extensão DevOps do Azure para Machine Learning e o CLI do Azure ML                 | Tudo                     |
+| [Integração da Grade de Eventos](how-to-use-event-grid.md)                                                             | Tudo                     |
+| Integrar o Azure Stream Analytics com o Azure Machine Learning                       | Tudo                     |
+| Criar pipelines de ML no SDK                                                         | Tudo                     |
+| Inferência do lote                                                                  | Tudo                     |
+| Modelos de Aceleração de Hardware baseado em FPGA                                             | Tudo                     |
+| Criação de perfil de modelo                                                                    | Tudo                     |
 
 <br/>
 <br/>
@@ -112,10 +112,10 @@ Saiba como [atualizar um workspace de Básico para Enterprise](how-to-manage-wor
 
 | Funcionalidades     | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| Suporte ao [controle de acesso baseado em função do Azure (RBAC do Azure)](how-to-assign-roles.md)                                           | Todos                     |
-| Suporte à [VNet (rede virtual)](how-to-enable-virtual-network.md) para computação                                         | Todos                     |
-| Autenticação de ponto de extremidade de Pontuação                                                    | Todos                     |
-| [Link privado do espaço de trabalho](how-to-configure-private-link.md)                                                            | Todos                     |
+| Suporte ao [controle de acesso baseado em função do Azure (RBAC do Azure)](how-to-assign-roles.md)                                           | Tudo                     |
+| Suporte à [VNet (rede virtual)](how-to-enable-virtual-network.md) para computação                                         | Tudo                     |
+| Autenticação de ponto de extremidade de Pontuação                                                    | Tudo                     |
+| [Link privado do espaço de trabalho](how-to-configure-private-link.md)                                                            | Tudo                     |
 | [Gerenciamento de cotas](how-to-manage-quotas.md) entre espaços de trabalho                                                 | Somente Enterprise Edition |
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: aae1797f7f1a252a4f094ee9f1b079fb60ba72f3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 0407046dcafb0dcc1872d5083669e09b378a75cd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131728"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827296"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Criar uma solução de ponta a ponta
 
@@ -95,6 +95,20 @@ A etapa seguinte é configurar um [aplicativo do Azure Functions](../azure-funct
 
 Nesta seção, você publicará o aplicativo de funções pré-escrito e garantirá que ele possa acessar os Gêmeos Digitais do Azure atribuindo a ele uma identidade do Azure AD (Azure Active Directory). A conclusão dessas etapas permitirá que o restante do tutorial use as funções dentro do aplicativo de funções. 
 
+De volta à janela do Visual Studio em que o projeto _**AdtE2ESample**_ está aberto, o aplicativo de funções está localizado no arquivo de projeto _**SampleFunctionsApp**_. Você pode exibi-lo no painel *Gerenciador de Soluções*.
+
+### <a name="update-dependencies"></a>Atualizar dependências
+
+Antes de publicar o aplicativo, é uma boa ideia verificar se suas dependências estão atualizadas garantindo que você tenha a versão mais recente de todos os pacotes incluídos.
+
+No painel *Gerenciador de Soluções*, expanda *SampleFunctionsApp > Dependências*. Selecione com o botão direito do mouse *Pacotes* e escolha *Gerenciar Pacotes do NuGet...* .
+
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: Gerenciar pacotes do NuGet para o projeto SampleFunctionsApp" border="false":::
+
+Isso abrirá o Gerenciador de Pacotes do NuGet. Selecione a guia *Atualizações* e, se houver pacotes a serem atualizados, marque a caixa para *Selecionar todos os pacotes*. Em seguida, clique em *Atualizar*.
+
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Visual Studio: Como selecionar para atualizar todos os pacotes no Gerenciador de Pacotes do NuGet":::
+
 ### <a name="publish-the-app"></a>Publicar o aplicativo
 
 De volta à janela do Visual Studio em que o projeto _**AdtE2ESample**_ está aberto, no painel do *Gerenciador de Soluções*, selecione o arquivo de projeto _**SampleFunctionsApp**_ e pressione **Publicar**.
@@ -134,19 +148,21 @@ No painel *Publicar* que é aberto na janela principal do Visual Studio, verifiq
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Publicar função do Azure no Visual Studio: publicar":::
 
 > [!NOTE]
-> Você poderá ver um pop-up como este: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publicar função do Azure no Visual Studio: publicar credenciais" border="false":::
-> Se isso acontecer, selecione **Tentativa de recuperar credenciais do Azure** e escolha **Salvar**.
+> Você verá um pop-up como este: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publicar função do Azure no Visual Studio: publicar credenciais" border="false":::
+> Selecione **Tentativa de recuperar credenciais do Azure** e escolha **Salvar**.
 >
-> Se você vir um aviso de que *Sua versão do runtime do Functions não corresponde à versão em execução no Azure*, siga os prompts para atualizar para a versão mais recente do Azure Functions Runtime. Esse problema poderá ocorrer se você estiver usando uma versão mais antiga do Visual Studio do que a recomendada na seção *Pré-requisitos* no início deste tutorial.
+> Se você vir um aviso para *Versão das Funções de Atualização no Azure* ou se *Sua versão do runtime de funções não corresponder à versão em execução no Azure*:
+>
+> siga os prompts para atualizar para a versão mais recente do Azure Functions runtime. Esse problema poderá ocorrer se você estiver usando uma versão mais antiga do Visual Studio do que a recomendada na seção *Pré-requisitos* no início deste tutorial.
 
 ### <a name="assign-permissions-to-the-function-app"></a>Atribuir permissões ao aplicativo de funções
 
-Para permitir que o aplicativo de funções acesse os Gêmeos Digitais do Azure, a próxima etapa é definir uma configuração do aplicativo, atribuir ao aplicativo uma identidade do Azure AD gerenciada pelo sistema e conceder a essa identidade permissões de *proprietário* na instância dos Gêmeos Digitais do Azure.
+Para permitir que o aplicativo de funções acesse os Gêmeos Digitais do Azure, a próxima etapa é definir uma configuração do aplicativo, atribuir ao aplicativo uma identidade do Azure AD gerenciada pelo sistema e dar a essa identidade a função *Proprietário de Gêmeos Digitais do Azure (Versão Prévia)* na instância de Gêmeos Digitais do Azure. Essa função é necessária para qualquer usuário ou função que queira executar muitas atividades de plano de dados na instância. Você pode ler mais sobre atribuições de função e segurança em [*Conceitos: segurança para soluções dos Gêmeos Digitais do Azure*](concepts-security.md).
 
-No Azure Cloud Shell, use o comando a seguir para definir uma configuração de aplicativo que seu aplicativo de funções usará para fazer referência à sua instância dos gêmeos digitais.
+No Azure Cloud Shell, use o comando a seguir para definir uma configuração de aplicativo que seu aplicativo de funções usará para fazer referência à sua instância de Gêmeos Digitais do Azure.
 
 ```azurecli-interactive
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-digital-twin-instance-URL>"
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
 Use o comando a seguir para criar a identidade gerenciada pelo sistema. Anote o campo *principalId* na saída.
@@ -155,7 +171,7 @@ Use o comando a seguir para criar a identidade gerenciada pelo sistema. Anote o 
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Use o valor de *principalId* no comando a seguir para atribuir a identidade do aplicativo de funções à função de *proprietário* da instância dos Gêmeos Digitais do Azure:
+Use o valor *principalId* da saída no seguinte comando para atribuir a identidade do aplicativo de funções à função de *Proprietário dos Gêmeos Digitais do Azure (Versão Prévia*) para sua instância de Gêmeos Digitais do Azure:
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
@@ -339,7 +355,7 @@ Você também pode verificar se a criação do ponto de extremidade foi bem-suce
 az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> 
 ```
 
-Procure o campo `provisioningState` na saída e verifique se o valor é "Êxito".
+Procure o campo `provisioningState` na saída e verifique se o valor é "Êxito". Ele também pode indicar "provisionamento", o que significa que o ponto de extremidade ainda está sendo criado. Nesse caso, aguarde alguns segundos e execute o comando novamente para verificar se ele foi concluído com êxito.
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Resultado da consulta do ponto de extremidade, mostrando o ponto de extremidade com o provisioningState igual a Êxito":::
 
@@ -354,6 +370,9 @@ az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name
 ```
 
 A saída desse comando são algumas informações sobre a rota que você criou.
+
+>[!NOTE]
+>Os pontos de extremidade (da etapa anterior) devem ter o provisionamento concluído para configurar uma rota de eventos que os utilize. Se a criação da rota falhar porque os pontos de extremidade não estão prontos, aguarde alguns minutos e tente novamente.
 
 #### <a name="connect-the-function-to-event-grid"></a>Conectar a função à Grade de Eventos
 

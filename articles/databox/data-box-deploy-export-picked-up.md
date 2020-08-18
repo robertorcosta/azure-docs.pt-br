@@ -6,23 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 07/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 7023d29bcb559f4edf11b374b9bfb959e968f626
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 332b4fdb6e0a26437edbf4309ee0b89b79f7eb23
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86208734"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845792"
 ---
 # <a name="tutorial-return-azure-data-box-preview"></a>Tutorial: Devolução do Azure Data Box Disk (versão prévia)
-
 
 Este tutorial descreve como retornar o Azure Data Box e os dados são apagados depois que o dispositivo é recebido nos dados do Azure.
 
 Neste tutorial, você aprenderá sobre tópicos como:
 
 > [!div class="checklist"]
+>
 > * Pré-requisitos
 > * Preparar para o envio
 > * Enviar o Data Box para a Microsoft
@@ -34,8 +34,8 @@ Neste tutorial, você aprenderá sobre tópicos como:
 
 Antes de começar, verifique se:
 
-- Você concluiu o [Tutorial: Copiar dados do Azure Data Box](data-box-deploy-export-copy-data.md). 
-- Trabalhos de cópia estão concluídos. A Preparação para o envio não poderá ser executada se os trabalhos de cópia estiverem em andamento.
+* Você concluiu o [Tutorial: Copiar dados do Azure Data Box](data-box-deploy-export-copy-data.md).
+* Trabalhos de cópia estão concluídos. A Preparação para o envio não poderá ser executada se os trabalhos de cópia estiverem em andamento.
 
 ## <a name="prepare-to-ship"></a>Preparar para o envio
 
@@ -47,7 +47,7 @@ As próximas etapas são determinadas pelo local em você está devolvendo o dis
 
 Verifique se a cópia de dados do dispositivo foi concluída e se a execução de **Preparar para o envio** foi bem-sucedida. De acordo com a região para a qual você está enviando o dispositivo, o procedimento é diferente.
 
-## <a name="in-us-canada-europe"></a>[Nos EUA, no Canadá e na Europa](#tab/in-us-canada-europe)
+## <a name="us-canada-europe"></a>[EUA, Canadá, Europa](#tab/in-us-canada-europe)
 
 Execute as etapas a seguir se estiver devolvendo o dispositivo nos EUA, no Canadá ou na Europa.
 
@@ -63,11 +63,9 @@ Execute as etapas a seguir se estiver devolvendo o dispositivo nos EUA, no Canad
     Em vez de agendar a retirada, você também pode descartar o Data Box no local mais próximo de redistribuição.
 4. Após a coleta e registro do Data Box por sua operadora, o status do pedido no portal será atualizado para **Recolhido**. Uma ID de rastreamento também é exibida.
 
-
-## <a name="in-australia"></a>[Na Austrália](#tab/in-australia)
+## <a name="australia"></a>[Austrália](#tab/in-australia)
 
 Datacenters do Azure na Austrália têm uma notificação de segurança adicional. Todas as remessas de entrada devem ter uma notificação avançada. Execute as etapas a seguir para o envio na Austrália.
-
 
 1. Mantenha a caixa original usada para enviar o dispositivo para a remessa de devolução.
 2. Verifique se a cópia de dados no dispositivo foi concluída e se a execução de **Preparação para o envio** foi bem-sucedida.
@@ -75,7 +73,7 @@ Datacenters do Azure na Austrália têm uma notificação de segurança adiciona
 4. Enrole e coloque o cabo de alimentação fornecido com o dispositivo com segurança na parte traseira do dispositivo.
 5. Agendar uma coleta online no [Link da DHL](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference).
 
-## <a name="in-japan"></a>[No Japão](#tab/in-japan) 
+## <a name="japan"></a>[Japão](#tab/in-japan)
 
 1. Mantenha a caixa original usada para enviar o dispositivo para a remessa de devolução.
 2. Desligue o dispositivo e remova os cabos.
@@ -83,8 +81,8 @@ Datacenters do Azure na Austrália têm uma notificação de segurança adiciona
 4. Escreva as informações de nome e endereço da sua empresa na nota de consignação como suas informações de remetente.
 5. Envie um email para a Quantium Solutions usando o modelo de email a seguir.
 
-    - Se a nota de consignação do Japan Post Chakubarai não tiver sido incluída ou estiver ausente, indique isso nesse email. A Quantium Solutions Japan solicitará ao Japan Post que traga a nota de consignação após a retirada.
-    - Caso você tenha vários pedidos, envie um email para garantir a retirada individual.
+    * Se a nota de consignação do Japan Post Chakubarai não tiver sido incluída ou estiver ausente, indique isso nesse email. A Quantium Solutions Japan solicitará ao Japan Post que traga a nota de consignação após a retirada.
+    * Caso você tenha vários pedidos, envie um email para garantir a retirada individual.
 
     ```
     To: Customerservice.JP@quantiumsolutions.com
@@ -98,25 +96,24 @@ Datacenters do Azure na Austrália têm uma notificação de segurança adiciona
     d. 17：00-19：00 
     ```
 
-3. Receba um email de confirmação da Quantium Solutions depois de agendar uma retirada. O email de confirmação também inclui informações sobre a nota de consignação do Chakubarai.
+6. Receba um email de confirmação da Quantium Solutions depois de agendar uma retirada. O email de confirmação também inclui informações sobre a nota de consignação do Chakubarai.
 
 Se necessário, você poderá contatar o Suporte da Quantium Solutions (em japonês) com as seguintes informações: 
 
-- Email：Customerservice.JP@quantiumsolutions.com 
-- Telefone：03-5755-0150 
+* Email：Customerservice.JP@quantiumsolutions.com
+* Telefone：03-5755-0150
 
-
-## <a name="in-singapore"></a>[Em Singapura](#tab/in-singapore) 
+## <a name="singapore"></a>[Singapura](#tab/in-singapore)
 
 1. Mantenha a caixa original usada para enviar o dispositivo para a remessa de devolução.
-2. Anote o número de acompanhamento (exibido como um número de referência na página Preparar para o Envio da interface de usuário da Web local do Data Box). Isso estará disponível depois que a etapa preparar para o envio for concluída. Baixe a etiqueta de remessa desta página e cole na caixa de embalagem. 
+2. Anote o número de acompanhamento (exibido como um número de referência na página Preparar para o Envio da interface de usuário da Web local do Data Box). Isso estará disponível depois que a etapa preparar para o envio for concluída. Baixe a etiqueta de remessa desta página e cole na caixa de embalagem.
 3. Desligue o dispositivo e remova os cabos.
 4. Enrole e coloque o cabo de alimentação fornecido com o dispositivo com segurança na parte traseira do dispositivo. 
 5. Envie um email para o Serviço de atendimento ao consumidor da SingPost usando este modelo de email com o número de acompanhamento.
 
     ```
     To: kadcustcare@singpost.com
-    Subject: Microsoft Azure Pick-up - OrderName 
+    Subject: Microsoft Azure Pickup - OrderName 
     Body: 
         1. Requestor name  
         2. Requestor contact number
@@ -126,13 +123,60 @@ Se necessário, você poderá contatar o Suporte da Quantium Solutions (em japon
 
    > [!NOTE]
    > Para solicitações de reserva recebidas em um dia útil:
-   > - Antes das 15:00, a retirada ocorrerá no dia útil a seguir, entre 9:00 e 13:00.
-   > - Após às 15:00, a retirada ocorrerá no dia útil a seguir, entre 14:00 e 18:00.  
+   >
+   > * Antes das 15:00, a retirada ocorrerá no dia útil a seguir, entre 9:00 e 13:00.
+   > * Após às 15:00, a retirada ocorrerá no dia útil a seguir, entre 14:00 e 18:00.  
 
+## <a name="south-africa"></a>[África do Sul](#tab/in-sa)
 
-## <a name="self-managed"></a>[Autogerenciado](#tab/in-selfmanaged) 
+1. Mantenha a caixa original usada para empacotar o dispositivo para a remessa de devolução.
+2. Anote o número de referência (número da nota de entrega) mostrado na IU da Web local do dispositivo. Esse número é exibido depois que a **executada de Preparação para o envio** é bem-sucedida.
+3. Baixe e imprima a etiqueta de remessa que está disponível na IU da Web local do dispositivo e afixe-a ao pacote de remessa.
+4. Para agendar uma retirada com a DHL, escolha uma das seguintes opções:
 
-Se estiver usando o Data Box no Japão, em Singapura, na Coreia do Sul e no Oeste da Europa e tiver selecionado a opção de remessa autogerenciada durante a criação do pedido, siga estas instruções. 
+    * Ligue para o centro de contato do atendimento ao cliente às 14h em **+27(0) 11 9213600**, selecione a opção 1 e especifique o número da nota de entrega.
+    * Envie um email para [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) usando o seguinte modelo:
+
+    ```output
+    To: Priority.Support@dhl.com
+    Subject: Pickup request for Microsoft Azure
+    Body: Need pick up for the below shipment
+      *  DHL tracking number (reference number/waybill number)
+      *  Requested pickup date: yyyy/mm/dd;time:HH MM
+    ```
+
+    * Como alternativa, você pode deixar o pacote no ponto de serviço da DHL mais próximo.
+
+5. Se você encontrar algum problema, envie um email para [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) com detalhes dos problemas encontrados e coloque o número da nota de entrega na linha Assunto:. Você também pode ligar para +27 (0) 119213902.
+
+## <a name="hong-kong"></a>[Hong Kong](#tab/in-hk)
+
+1. Empacote o dispositivo para a remessa de devolução na caixa original.
+2. Anote o número de referência (número de acompanhamento para remessa reversa) mostrado na IU da Web local do dispositivo. Esse número é exibido depois que a **executada de Preparação para o envio** é bem-sucedida.
+3. Baixe e imprima a etiqueta de remessa que está disponível na IU da Web local do dispositivo e afixe-a ao pacote de remessa.
+4. Enrole e coloque o cabo de alimentação fornecido com o dispositivo com segurança na parte traseira do dispositivo.
+5. Ligue para a linha direta da **Quantium Solutions** no número **(852) 2318 1213** durante o horário de expediente (das 9h às 18h, de segunda a sexta-feira).  
+6. Mencione a retirada do Microsoft Azure, o número de referência e o número de rastreamento (acima do código de barras) na etiqueta de remessa de devolução para providenciar a retirada.
+7. Você receberá uma confirmação verbal para o agendamento da retirada. Se a transportadora não chegar para a coleta, ligue para a linha direta da Quantium Solutions para providências alternativas.
+8. Ao reservar uma coleta com a Quantium, compartilhe a confirmação com a [Microsoft Data Box Operations Ásia](mailto:adbo@microsoft.com) usando o seguinte modelo:
+
+    ```output
+    To: adbo@microsoft.com
+    Subject: Microsoft Data Box Job: [order name] has completed copy
+    Body:
+    We have confirmed the pickup details with Quantium.
+
+       * Requestor name:
+       * Requestor contact number:
+       * Pickup Date:  
+       * Pickup time:
+    ```
+
+Se tiver problemas, envie um email para a Data Box Operations Ásia [adbo@microsoft.com](mailto:adbo@microsoft.com) fornecendo o nome do trabalho no cabeçalho de assunto e o problema encontrado.
+
+## <a name="self-managed"></a>[Autogerenciado](#tab/in-selfmanaged)
+
+Se estiver usando o Data Box no Japão, em Singapura, na Coreia do Sul e no Oeste da Europa e tiver selecionado a opção de remessa autogerenciada durante a criação do pedido, siga estas instruções.
 
 1. Após a conclusão dessa etapa, anote o código de Autorização mostrado na página Preparar para o Envio da IU da Web local do Data Box.
 2. Desligue o dispositivo e remova os cabos. Enrole o cabo de alimentação fornecido com o dispositivo e coloque-o com segurança na parte traseira do dispositivo.
@@ -146,6 +190,7 @@ Se estiver usando o Data Box no Japão, em Singapura, na Coreia do Sul e no Oest
         2. Authorization code available after Prepare to Ship has completed [Yes/No]  
         3. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
     ```
+
 ---
 
 ## <a name="erasure-of-data-from-data-box"></a>Eliminar dados do Data Box

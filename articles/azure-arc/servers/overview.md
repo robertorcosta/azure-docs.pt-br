@@ -1,20 +1,16 @@
 ---
 title: Visão geral do Azure Arc para servidores (versão prévia)
 description: Saiba como usar o Azure Arc para servidores para gerenciar computadores que estão hospedados fora do Azure como se fosse um recurso do Azure.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 03/24/2020
+ms.custom: references_regions
+ms.date: 08/06/2020
 ms.topic: overview
-ms.openlocfilehash: e775945526a5453085946ed4eea2a2e19761ba78
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: f11eedaf5f70cb24fa6c1588b7f26b2eed4734ce
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85482183"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121792"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>O que é o Azure Arc para servidores (versão prévia)?
 
@@ -28,10 +24,15 @@ Para oferecer essa experiência com seus computadores híbridos hospedados fora 
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
 
-O Azure Arc para servidores (versão prévia) é compatível com os seguintes cenários com computadores conectados:
+Quando você conecta seu computador ao Azure Arc para servidores (versão prévia), ele habilita a capacidade de execução das seguintes tarefas de gerenciamento de configuração:
 
 - Atribua [configurações de convidado do Azure Policy](../../governance/policy/concepts/guest-configuration.md) usando a mesma experiência que a atribuição de política para máquinas virtuais do Azure.
-- Dados de log coletados pelo agente do Log Analytics, armazenados no workspace do Log Analytics em que o computador está registrado. Os dados de log do computador híbrido agora contêm propriedades específicas do computador, como uma ID de recurso, que podem ser usadas para dar suporte a acesso ao log pelo [contexto de recurso](../../azure-monitor/platform/design-logs-deployment.md#access-mode).
+
+- Monitore o desempenho do sistema operacional convidado do computador conectado e descubra os componentes do aplicativo para monitorar seus processos e dependências com outros recursos com os quais o aplicativo se comunica usando o [Azure Monitor para VMs](../../azure-monitor/insights/vminsights-overview.md).
+
+- Simplifique a implantação com outros serviços do Azure, como o State Configuration da Automação do Azure e workspace do Log Analytics do Azure Monitor usando as [extensões de VM do Azure](manage-vm-extensions.md) com suporte para suas máquinas Windows ou Linux que não são do Azure. Isso inclui a execução da instalação de software ou a configuração pós-implantação usando a Extensão de Script Personalizado.
+
+Os dados de log coletados e armazenados em um workspace do Log Analytics do computador híbrido agora contêm propriedades específicas do computador, como uma ID de Recurso. Isso pode ser usado para dar suporte ao acesso ao log no [contexto de recurso](../../azure-monitor/platform/design-logs-deployment.md#access-mode).
 
 ## <a name="supported-regions"></a>Regiões com suporte
 
@@ -42,7 +43,7 @@ Com o Azure Arc para servidores (versão prévia), só há suporte a determinada
 - WestEurope
 - SoutheastAsia
 
-Na maioria dos casos, o local selecionado durante a criação do script de instalação deve ser a região do Azure mais próxima à localização do seu computador. Os dados em repouso serão armazenados na geografia do Azure que contém a região especificada por você, o que também pode afetar sua escolha de região se você tiver requisitos de residência de dados. Se a região do Azure a qual seu computador está conectado for afetada por uma interrupção, a máquina conectada não será afetada, mas talvez as operações de gerenciamento que usam o Azure não possam terminar. Para obter resiliência no caso de uma interrupção regional, se houver várias localizações que fornecem um serviço com redundância geográfica, será melhor conectar os computadores em cada localização a uma região diferente do Azure.
+Na maioria dos casos, o local selecionado durante a criação do script de instalação deve ser a região do Azure mais próxima à localização do seu computador. Os dados em repouso serão armazenados na geografia do Azure que contém a região especificada por você, o que também pode afetar sua escolha de região se você tiver requisitos de residência de dados. Se a região do Azure a qual seu computador está conectado for afetada por uma interrupção, a máquina conectada não será afetada, mas talvez as operações de gerenciamento que usam o Azure não possam terminar. No caso de uma interrupção regional, se houver várias localizações que fornecem um serviço com redundância geográfica, será melhor conectar os computadores em cada localização a uma região diferente do Azure.
 
 ### <a name="agent-status"></a>Status do agente
 

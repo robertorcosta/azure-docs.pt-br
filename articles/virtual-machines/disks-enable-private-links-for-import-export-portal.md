@@ -1,23 +1,23 @@
 ---
-title: Portal do Azure – Restringir o acesso de importação/exportação aos discos gerenciados com Links Privados (versão prévia)
-description: Habilite Links Privados (versão prévia) para seus discos gerenciados com o portal do Azure. Permitindo que você exporte e importe discos com segurança somente na sua rede virtual.
+title: Portal do Azure – Restringir o acesso de importação/exportação aos discos gerenciados com Links Privados
+description: Habilite Links Privados para seus discos gerenciados com o portal do Azure, atualmente na versão prévia. Permitindo que você exporte e importe discos com segurança em sua rede virtual.
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 07/15/2020
+ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 75b5ba995ff87649ec8a7a96a7c816bf2bec7e44
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 83f204a35e48962e525ad7d64c018eef301f9933
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535461"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135837"
 ---
-# <a name="azure-portal---restrict-importexport-access-for-managed-disks-with-private-links-preview"></a>Portal do Azure – Restringir o acesso de importação/exportação aos discos gerenciados com Links Privados (versão prévia)
+# <a name="azure-portal---restrict-importexport-access-for-managed-disks-with-private-links"></a>Portal do Azure – Restringir o acesso de importação/exportação aos discos gerenciados com Links Privados
 
-Gere um URI de SAS (Assinatura de Acesso Compartilhado) com limite de tempo para discos gerenciados e instantâneos desanexados a fim de exportar os dados para outra região para expansão regional, recuperação de desastre e a fim de ler os dados para análise forense. Use também o URI de SAS para carregar diretamente o VHD em um disco vazio do local.  Agora você pode aproveitar os [links privados](../private-link/private-link-overview.md) (versão prévia) para restringir a exportação e a importação ao Managed Disks somente na sua rede virtual do Azure. Além disso, tenha certeza de que os dados nunca passarão pela Internet pública e sempre percorrerão a rede segura de backbone da Microsoft ao usar os Links Privados. 
+O suporte dos Links Privados para discos gerenciados está na versão prévia e permite que você restrinja a exportação e a importação de discos gerenciados para que elas ocorram somente dentro de sua rede virtual do Azure. Gere um URI de SAS (Assinatura de Acesso Compartilhado) com limite de tempo para discos gerenciados e instantâneos desanexados a fim de exportar os dados para outra região para expansão regional, recuperação de desastre e a fim de ler os dados para análise forense. Use também o URI de SAS para carregar diretamente o VHD em um disco vazio do local. O tráfego de rede entre os clientes na rede virtual e os discos gerenciados atravessa somente a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição à Internet pública.
 
 Crie um recurso de acesso a disco e vincule-o à sua rede virtual na mesma assinatura criando um ponto de extremidade privado. Você precisará associar um disco ou um instantâneo a um acesso a disco para exportar e importar os dados por meio de Links Privados. Além disso, você precisará definir a propriedade NetworkAccessPolicy do disco ou do instantâneo como `AllowPrivate`. 
 

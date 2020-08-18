@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 707b432a4cb3918aa2dfbe460fc3cdcd53761bf1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 08099ede82f8ebd9c1cd6e585a16800ee1626f65
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497073"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88508780"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obter dados de sensor de parceiros de sensor
 
@@ -62,19 +62,19 @@ Siga as etapas abaixo para gerar as informações acima:
 
 5. Vá para o diretório base.
 
-    ```azurepowershell-interactive 
-    cd  
+    ```azurepowershell-interactive
+    cd
     ```
 
 6. Execute o comando a seguir. Isso conecta uma conta autenticada a ser usada para solicitações do Azure AD
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
     Connect-AzureAD
     ```
-    
+
 7. Execute o comando a seguir. Isso baixará um script em seu diretório base.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
     wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
 
@@ -82,9 +82,9 @@ Siga as etapas abaixo para gerar as informações acima:
 
 8. Execute o seguinte script. O script solicita a ID do locatário, que pode ser obtida na **Azure Active Directory**  >  página de**visão geral** Azure Active Directory.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
-    ./generatePartnerCredentials.ps1   
+    ./generatePartnerCredentials.ps1
 
     ```
 
@@ -138,7 +138,7 @@ Siga estas etapas:
 
     ![Página de sensores](./media/get-sensor-data-from-sensor-partner/view-sensors-1.png)
 
-## <a name="assign-devices"></a>Atribuir dispositivos  
+## <a name="assign-devices"></a>Atribuir dispositivos
 
 Depois que os dados do sensor estiverem fluindo, você poderá atribuí-los ao farm no qual você implantou os sensores.
 

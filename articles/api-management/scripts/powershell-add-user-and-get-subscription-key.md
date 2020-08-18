@@ -1,6 +1,6 @@
 ---
 title: Exemplo de Script do Azure PowerShell – Adicionar um usuário | Microsoft Docs
-description: Exemplo de Script do Azure PowerShell – Adicionar um usuário
+description: Saiba como adicionar um usuário no Gerenciamento de API e obter uma chave de assinatura. Consulte um script de exemplo e exiba recursos adicionais disponíveis.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 2cfbfdfc4374d528159e9e026016a0583a1a9ac9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0573097d9821b8cf14573f2e5c5291461c2c7ed7
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87009043"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843837"
 ---
 # <a name="add-a-user"></a>Adicionar um usuário
 

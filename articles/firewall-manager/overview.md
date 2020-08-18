@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/30/2020
+ms.date: 08/10/2020
 ms.author: victorh
-ms.openlocfilehash: 37cbc3737b826060e96524528b065bc8d711bd8b
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0fcf1c8a3800a52e8fa8659fe4bf97e83103c79d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384762"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056985"
 ---
 # <a name="what-is-azure-firewall-manager"></a>O que é o Gerenciador de Firewall do Azure?
 
@@ -66,7 +66,7 @@ Encaminhe facilmente o tráfego para o hub seguro para filtragem e registro, sem
 
 Esse recurso está disponível somente com implantações de hub virtual seguro.
 
-Você pode usar provedores de terceiros para filtrar o tráfego de Branch para Internet (B2I), lado a lado com o Firewall do Azure para Branch para VNet (B2V), VNet para VNet (V2V) e VNet para Internet (V2I). Também pode usar provedores de terceiros para filtrar o tráfego V2I, desde que o Firewall do Azure não seja necessário para B2V ou V2V. 
+Você pode usar provedores de terceiros para filtrar o tráfego de Branch para Internet (B2I), lado a lado com o Firewall do Azure para Branch para VNet (B2V), VNet para VNet (V2V) e VNet para Internet (V2I). Use também provedores de terceiros para filtrar o tráfego V2I, desde que o Firewall do Azure não seja necessário para B2V ou V2V. 
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
@@ -78,10 +78,12 @@ O Gerenciador de Firewall do Azure apresenta os seguintes problemas conhecidos:
 
 |Problema  |Descrição  |Atenuação  |
 |---------|---------|---------|
-|Divisão de tráfego sem suporte no momento.|A divisão de tráfego do Office 365 e PaaS público do Azure não tem suporte no momento. Dessa forma, selecionar um provedor de terceiros para V2I ou B2I também envia todo o tráfego de PaaS público do Azure e do Office 365 por meio do serviço do parceiro.|Investigando a divisão de tráfego no hub.
-|Um hub virtual seguro por região.|Você não pode ter mais de um hub virtual seguro por região.|Crie várias WANs virtuais em uma região.|
-|As políticas básicas devem estar na mesma região que a política local.|Crie todas as políticas locais na mesma região que a política básica. Você ainda pode aplicar uma política que foi criada em uma região em um hub seguro de outra região.|Investigando|
-|A comunicação entre os hubs não está passando pelo hub virtual seguro|A comunicação entre hubs virtuais seguros ainda não tem suporte, no entanto a comunicação entre Hubs ainda funcionará.|Investigando|
+|Separação de tráfego|No momento, não há suporte para a separação de tráfego do Office 365 e do PaaS público do Azure. Dessa forma, selecionar um provedor de terceiros para V2I ou B2I também envia todo o tráfego de PaaS público do Azure e do Office 365 por meio do serviço do parceiro.|Investigando a divisão de tráfego no hub.
+|Um hub virtual seguro por região|Você não pode ter mais de um hub virtual seguro por região.|Crie várias WANs virtuais em uma região.|
+|As políticas básicas devem estar na mesma região que a política local|Crie todas as políticas locais na mesma região que a política básica. Você ainda pode aplicar uma política que foi criada em uma região em um hub seguro de outra região.|Investigando|
+|Filtro do tráfego entre hubs em implantações de hub virtual seguro|Ainda não há suporte para a comunicação entre hubs virtuais seguros. No entanto, a comunicação entre hubs ainda funcionará se a filtragem de tráfego privado por meio do Firewall do Azure não estiver habilitada.|Investigando|
+|Spokes em uma região diferente do hub virtual|Não há suporte para spokes em uma região diferente do hub virtual.|Investigando<br><br>Crie um hub por região e emparelhe as VNETs na mesma região do hub.|
+|Tráfego de branch a branch com a filtragem de tráfego privado habilitada|Não há suporte para o tráfego de branch para branch quando a filtragem de tráfego privado está habilitada. |Em investigação.<br><br>Não proteja o tráfego privado se a conectividade de branch a branch for crítica.|
 |Todos os Hubs Virtuais Seguros que compartilham a mesma WAN virtual devem estar no mesmo grupo de recursos.|Esse comportamento está alinhado aos Hubs da WAN Virtual hoje.|Crie várias WANs Virtuais para permitir que os Hubs Virtuais Seguros sejam criados em diferentes grupos de recursos.|
 
 ## <a name="next-steps"></a>Próximas etapas

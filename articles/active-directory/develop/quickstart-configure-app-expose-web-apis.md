@@ -1,6 +1,7 @@
 ---
-title: Configurar um aplicativo para expor APIs Web – plataforma de identidade da Microsoft | Azure
-description: Saiba como configurar um aplicativo para expor uma nova permissão ou escopo e função a fim de disponibilizar o aplicativo para aplicativos cliente.
+title: 'Início Rápido: Configurar um aplicativo para expor uma API Web | Azure'
+titleSuffix: Microsoft identity platform
+description: Neste guia de início rápido, você aprenderá a configurar um aplicativo para expor uma nova permissão ou escopo e função a fim de disponibilizar o aplicativo para aplicativos cliente.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,30 +9,27 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/14/2019
+ms.date: 08/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 263eb531466e26ed6069dc889c17e2632aa9ed20
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 93b0c3392a32a6ff18a285d34fdaede6ceea6528
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799405"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830284"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Início Rápido: Configurar um aplicativo para expor APIs Web
+# <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Início Rápido: Configurar um aplicativo para expor uma API Web
 
 Você pode desenvolver uma API Web e disponibilizá-la aos aplicativos cliente expondo [permissões/escopos](developer-glossary.md#scopes) e [funções](developer-glossary.md#roles) de acesso. Uma API Web corretamente configurada é disponibilizada assim como outras APIs Web da Microsoft, incluindo a API do Graph e as APIs do Office 365.
 
-Neste início rápido, você aprenderá a configurar um aplicativo para expor um novo escopo e disponibilizá-lo para aplicativos cliente.
+Neste início rápido, você aprende a configurar um aplicativo para expor um novo escopo e disponibilizá-lo para aplicativos cliente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, atenda aos seguintes pré-requisitos:
-
-* Leia sobre [permissões e consentimentos](v2-permissions-and-consent.md), o que é importante saber na hora de criar aplicativos que precisam ser usados por outros usuários ou aplicativos.
-* Obtenha um locatário com aplicativos registrados.
-  * Se você não tiver aplicativos registrados, [saiba como registrar aplicativos com a Microsoft Identity Platform](quickstart-register-app.md).
+* Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Conclusão do [Início Rápido: Registrar um aplicativo na plataforma de identidade da Microsoft](quickstart-register-app.md).
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Entrar no portal do Azure e selecionar o aplicativo
 
@@ -86,13 +84,17 @@ Para expor um novo escopo pela interface do usuário:
 
 ## <a name="expose-a-new-scope-or-role-through-the-application-manifest"></a>Expor um novo escopo ou função pelo manifesto do aplicativo
 
+O manifesto do aplicativo serve como um mecanismo para atualizar a entidade do aplicativo que define os atributos de um registro de aplicativo do Azure AD.
+
 [![Expor um novo escopo usando a coleção oauth2Permissions no manifesto](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png#lightbox)
 
-Para expor um novo escopo ou função pelo manifesto do aplicativo:
+Para expor um novo escopo editando o manifesto do aplicativo:
 
 1. Na página **Visão Geral** do aplicativo, selecione a seção **Manifesto**. Abre um editor de manifesto baseado na Web, permitindo a você **Editar** o manifesto dentro do portal. Opcionalmente, você pode selecionar **Baixar** e editar o manifesto localmente e, em seguida, usar **Carregar** para reaplicá-lo ao seu aplicativo.
 
     O exemplo a seguir mostra como expor um novo escopo chamado `Employees.Read.All` no recurso ou na API adicionando o seguinte elemento JSON à coleção `oauth2Permissions`.
+
+    Gere o valor `id` programaticamente ou usando uma ferramenta de geração de GUID como [guidgen](https://www.microsoft.com/download/details.aspx?id=55984).
 
       ```json
       {
@@ -107,13 +109,12 @@ Para expor um novo escopo ou função pelo manifesto do aplicativo:
       }
       ```
 
-   > [!NOTE]
-   > O valor da `id` precisa ser gerado de modo programático ou usando uma ferramenta de geração de GUID, como [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). O `id` representa um identificador exclusivo para o escopo exposto pela API Web. Depois que um cliente está configurado adequadamente com permissões para acessar a sua API Web, o Azure AD emite um token de acesso OAuth 2.0. Quando o cliente chama a API Web, ele apresenta o token de acesso que tem a declaração de escopo (scp) definida para as permissões solicitadas no seu registro de aplicativo.
-   >
-   > É possível expor escopos adicionais posteriormente conforme a necessidade. Lembre-se de que a API Web pode expor vários escopos associados a uma variedade de funções diferentes. O recurso pode controlar o acesso à API Web em runtime, avaliando declarações de escopo (`scp`) no token de acesso OAuth 2.0 recebido.
-
 1. Ao terminar, clique em **Salvar**. Agora sua API Web está configurada para ser usada por outros aplicativos do seu diretório.
 1. Siga as etapas para [Verificar se que a API Web está exposta a outros aplicativos](#verify-the-web-api-is-exposed-to-other-applications).
+
+Para obter mais informações sobre a entidade de aplicativo e seu esquema, confira a documentação de referência do tipo de recurso [Aplicativo][ms-graph-application] do Microsoft Graph.
+
+Para obter mais informações sobre o manifesto do aplicativo, incluindo sua referência de esquema, confira [Noções básicas sobre o manifesto de aplicativo do Azure AD](reference-app-manifest.md).
 
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Verificar se a API Web está exposta a outros aplicativos
 
@@ -125,24 +126,24 @@ Para expor um novo escopo ou função pelo manifesto do aplicativo:
 
 Depois de selecionar o recurso de API Web, você verá o novo escopo disponível para as solicitações de permissão do cliente.
 
-## <a name="more-on-the-application-manifest"></a>Mais sobre o manifesto do aplicativo
+## <a name="using-the-exposed-scopes"></a>Como usar os escopos expostos
 
-O manifesto do aplicativo funciona como um mecanismo para atualizar a entidade do aplicativo, que define todos os atributos de configuração de identidade de um aplicativo do Azure AD. Para obter mais informações sobre a entidade Aplicativo e seu esquema, confira a [Documentação da entidade do Aplicativo da API do Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). O artigo contém informações de referência completas sobre os membros da entidade do Aplicativo usados para especificar permissões para a sua API, incluindo:
+Depois que um cliente está configurado adequadamente com permissões para acessar a sua API Web, o Azure AD pode emitir um token de acesso OAuth 2.0. Quando o cliente chama a API Web, ele apresenta o token de acesso que tem a declaração de escopo (`scp`) definida para as permissões solicitadas no seu registro de aplicativo.
 
-* O membro appRoles, que é uma coleção de entidades [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type), usado para definir [permissões de aplicativo](developer-glossary.md#permissions) para uma API Web.
-* O membro oauth2Permissions, que é uma coleção de entidades [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type), usado para definir as [permissões delegadas](developer-glossary.md#permissions) para uma API Web.
+É possível expor escopos adicionais posteriormente conforme a necessidade. Lembre-se de que a API Web pode expor vários escopos associados a uma variedade de funções diferentes. O recurso pode controlar o acesso à API Web em runtime, avaliando declarações de escopo (`scp`) no token de acesso OAuth 2.0 recebido.
 
-Para obter mais informações sobre os conceitos do manifesto do aplicativo em geral, consulte [Entendendo o manifesto de aplicativo do Azure Active Directory](reference-app-manifest.md).
+Em seus aplicativos, o valor de escopo completo é uma concatenação do **URI da ID de aplicativo** da API Web (o recurso) e o **nome do escopo**.
+
+Por exemplo, se o URI da ID do aplicativo da sua API Web for `https://contoso.com/api` e o nome do escopo for `Employees.Read.All`, o escopo completo será:
+
+`https://contoso.com/api/Employees.Read.All`
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre esses outros inícios rápidos de gerenciamento de aplicativos relacionados para aplicativos:
+Agora que você expôs sua API Web Configurando seus escopos, configure o registro do aplicativo cliente com permissão para acessar esses escopos.
 
-* [Registrar um aplicativo com a Microsoft Identity Platform](quickstart-register-app.md)
-* [Configurar um aplicativo cliente para acessar APIs Web](quickstart-configure-app-access-web-apis.md)
-* [Modificar as contas que têm suporte por um aplicativo](quickstart-modify-supported-accounts.md)
-* [Remover um aplicativo registrado na Microsoft Identity Platform](quickstart-remove-app.md)
+> [!div class="nextstepaction"]
+> [Configurar um registro de aplicativo para acesso à API Web](quickstart-configure-app-access-web-apis.md)
 
-Saiba mais sobre os dois objetos do Azure AD que representam um aplicativo registrado e a relação entre eles, confira [Objetos de aplicativo e objetos de entidade de serviço](app-objects-and-service-principals.md).
-
-Para saber mais sobre as diretrizes de identidade visual que você deve usar ao desenvolver aplicativos com o Azure Active Directory, confira [Diretrizes de identidade visual para aplicativos](howto-add-branding-in-azure-ad-apps.md).
+<!-- REF LINKS -->
+[ms-graph-application]: /graph/api/resources/application

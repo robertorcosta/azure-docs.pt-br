@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 07/28/2020
+ms.date: 08/10/2020
 ms.author: victorh
-ms.openlocfilehash: 748adbcc719df2cdcf734f308bd4b083e9ca6ec0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 8cca982e291d5d4caf7856e0d807515511c41dc8
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372358"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055030"
 ---
 # <a name="azure-firewall-manager-deployment-overview"></a>Visão geral da implantação do Gerenciador de Firewall do Azure
 
@@ -65,6 +65,8 @@ Há mais de uma forma de implantar o Gerenciador de Firewall do Azure, mas o pro
 > - Você não pode ter mais de um hub por WAN virtual por região. Mas você pode adicionar várias WANs virtuais na região para conseguir isso.
 > - Não é possível ter espaços IP sobrepostos para hubs em uma vWAN.
 > - As conexões de VNet do Hub devem estar na mesma região que o hub.
+>
+> Para descobrir mais problemas conhecidos, confira [O que é o Gerenciador de Firewall do Azure?](overview.md#known-issues)
 
 ## <a name="convert-virtual-networks"></a>Converter redes virtuais
 

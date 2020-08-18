@@ -1,6 +1,6 @@
 ---
 title: Tutorial – Criar fluxos dos usuários – Azure Active Directory B2C
-description: Saiba como criar fluxos dos usuários no portal do Azure para habilitar a inscrição, a entrada e a edição de perfil do usuário para seus aplicativos no Azure Active Directory B2C.
+description: Siga este tutorial para aprender a criar fluxos dos usuários no portal do Azure para habilitar a inscrição, a entrada e a edição de perfil do usuário para seus aplicativos no Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b13decc142328525376ca8b3a93c74b95c90dae6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 041b1766ae6a64f51d922de128ef316cc0ed8260
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87481846"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922162"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Criar fluxos dos usuários no Azure Active Directory B2C
 

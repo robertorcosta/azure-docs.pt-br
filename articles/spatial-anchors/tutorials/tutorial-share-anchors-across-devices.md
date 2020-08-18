@@ -5,15 +5,15 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
-ms.date: 02/24/2019
+ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3b377f87bdba40c90cb3af6caef2c089d7b7de49
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 12a15a2d0cd45207b4adefc7315e48c6d642c0f7
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77615491"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810150"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Tutorial: Compartilhar Âncoras Espaciais do Azure entre as sessões e dispositivos
 
@@ -34,7 +34,7 @@ Você aprenderá a:
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
-Vale a pena notar que, embora você vá usar o Unity e o Aplicativo Web ASP.NET Core neste tutorial, é apenas para mostrar um exemplo de como compartilhar identificadores de Âncora Espacial do Azure em outros dispositivos. Você pode usar outras linguagens e tecnologias de back-end para atingir o mesmo objetivo. Além disso, o aplicativo Web do ASP.NET Core usado neste Tutorial tem uma dependência do SDK 2.2 do .NET Core. Ele é executado sem problemas em Aplicativos Web do Azure normais (para Windows), mas atualmente não funciona em Aplicativos Web do Azure para Linux.
+Vale a pena notar que, embora você vá usar o Unity e o Aplicativo Web ASP.NET Core neste tutorial, é apenas para mostrar um exemplo de como compartilhar identificadores de Âncora Espacial do Azure em outros dispositivos. Você pode usar outras linguagens e tecnologias de back-end para atingir o mesmo objetivo.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -82,19 +82,13 @@ Na caixa de diálogo **Configurar Plano de Hospedagem**, use essas configuraçõ
 
 Selecione **OK**.
 
-Abra o Visual Studio Code e o projeto na pasta `Sharing\SharingServiceSample`. Siga <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">este tutorial</a> para implantar o serviço de compartilhamento por meio do Visual Studio Code. Você pode seguir as etapas na seção "Abrir com o Visual Studio Code". Não crie outro projeto do mvc, conforme explicado na etapa acima, pois você já tem o projeto que precisa ser implantado e publicado: o SharingServiceSample.
+Abra o Visual Studio Code e o projeto na pasta `Sharing\SharingServiceSample`. Siga <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">este tutorial</a> para implantar o serviço de compartilhamento por meio do Visual Studio Code. Você pode seguir as etapas na seção "Abrir com o Visual Studio Code". Não crie outro projeto do ASP.NET, conforme explicado na etapa acima, pois você já tem o projeto que precisa ser implantado e publicado: o SharingServiceSample.
 
 ---
 
 ## <a name="deploy-the-sample-app"></a>Implantar o aplicativo de exemplo
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
-
-## <a name="troubleshooting"></a>Solução de problemas
-
-### <a name="unity-20193"></a>Unity 2019.3
-
-Devido a alterações da falha, atualmente, não há suporte para o Unity 2019.3. Use o Unity 2019.1 ou 2019.2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

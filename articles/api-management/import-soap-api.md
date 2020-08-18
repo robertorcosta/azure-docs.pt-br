@@ -1,6 +1,6 @@
 ---
 title: Importar a API SOAP usando o Portal do Azure | Microsoft Docs
-description: Aprenda a importar a API SOAP com o Gerenciamento de API.
+description: Saiba como importar uma declaração XML padrão de uma API SOAP e, em seguida, testar a API nos portais do Azure e do desenvolvedor.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 7b1fd34824bec9641edc94ce278fa21a1b57b2c0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 583179c4678b43bef25174835ec2701d571b37b6
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202733"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905643"
 ---
 # <a name="import-soap-api"></a>Importar a API SOAP
 

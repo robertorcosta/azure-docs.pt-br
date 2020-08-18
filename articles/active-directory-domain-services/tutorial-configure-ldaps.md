@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 61e2d4607ebe1b688b2874220a170b2539a2226e
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 1164d838a45496a075d356995a60beb967cdfcca
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404167"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054333"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar o LDAP Seguro para um domínio gerenciado do Azure Active Directory Domain Services
 
@@ -265,7 +265,7 @@ Para se conectar e se associar ao domínio gerenciado e pesquisar no LDAP, use a
 Em seguida, faça a associação ao domínio gerenciado. Os usuários (e as contas de serviço) não poderão executar associações LDAP simples se você desabilitar a sincronização de hash de senha NTLM em seu domínio gerenciado. Para obter mais informações sobre como desabilitar a sincronização de hash de senha NTLM, confira [Proteger o domínio gerenciado][secure-domain].
 
 1. Selecione a opção de menu **Conexão** e, em seguida, escolha **Associar...** .
-1. Forneça as credenciais de uma conta de usuário que pertence ao grupo *Administradores de controlador de domínio do AAD*, como *contosoadmin*. Insira a senha da conta de usuário e, em seguida, o seu domínio, como *aaddscontoso.com*.
+1. Forneça as credenciais de uma conta de usuário que pertença ao domínio gerenciado. Insira a senha da conta de usuário e, em seguida, o seu domínio, como *aaddscontoso.com*.
 1. Em **Tipo de associação**, escolha a opção *Associar com credenciais*.
 1. Selecione **OK** para fazer a associação ao domínio gerenciado.
 

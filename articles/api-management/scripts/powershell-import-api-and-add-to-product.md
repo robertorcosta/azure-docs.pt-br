@@ -1,6 +1,6 @@
 ---
 title: Exemplo de script de Azure PowerShell – Importar uma API | Microsoft Docs
-description: Exemplo de script de Azure PowerShell – Importar uma API
+description: Saiba como importar uma API e adicioná-la a um produto de Gerenciamento de API. Consulte um script de exemplo e exiba recursos adicionais disponíveis.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 2461db160b7d4cd56e51f6f027a67cdf27db538d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3644eda24790b9f711d6584b05a18eba23f227ba
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008833"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850926"
 ---
 # <a name="import-an-api"></a>Importar uma API
 

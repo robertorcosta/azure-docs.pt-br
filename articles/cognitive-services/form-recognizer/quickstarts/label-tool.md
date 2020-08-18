@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: cedc400ac6659cf2b2d0e9c499bf8789a6311e32
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 234d6af25f37bf04d3240177142d5ef919e8dd2d
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141884"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87903469"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo
 
@@ -26,7 +26,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para concluir este início rápido, é necessário ter:
 
-- Um conjunto com pelo menos seis formulários do mesmo tipo. Você usará esses dados para treinar o modelo e testar um formulário. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este início rápido. Faça upload dos arquivos de treinamento na raiz de um contêiner de Armazenamento de Blobs em uma conta do Armazenamento do Azure.
+- Um conjunto com pelo menos seis formulários do mesmo tipo. Você usará esses dados para treinar o modelo e testar um formulário. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este início rápido. Carregue os arquivos de treinamento na raiz de um contêiner de armazenamento de blobs em uma conta de Armazenamento do Azure de camada de desempenho padrão.
 
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso do Reconhecimento de Formulários
 
@@ -133,7 +133,7 @@ Em seguida, você criará marcas (rótulos) e as aplicará aos elementos de text
    1. Clique em **+** para criar uma marca.
    1. Insira o nome da marca.
    1. Pressione Enter para salvar a marca.
-1. No editor principal, clique e arraste para selecionar uma ou várias palavras dos elementos de texto realçados.
+1. No editor principal, clique para selecionar as palavras dos elementos de texto realçados.
 1. Clique na marca que você deseja aplicar ou pressione a tecla correspondente no teclado. As chaves de número são atribuídas como teclas de atalho para as 10 primeiras marcas. Você pode reordenar suas marcas usando os ícones de seta para cima e para baixo no painel do editor de marcas.
     > [!Tip]
     > Lembre-se das dicas a seguir quando estiver rotulando seus formulários.
@@ -192,7 +192,7 @@ Os tipos de valor e as variações a seguir são compatíveis no momento:
 
 Clique no ícone Treinar no painel esquerdo para abrir a página Treinamento. Em seguida, clique no botão **Treinar** para começar a treinar o modelo. Quando o processo de treinamento for concluído, você verá as seguintes informações:
 
-* **ID do Modelo** – a ID do modelo que foi criado e treinado. Cada chamada de treinamento cria um novo modelo com sua própria ID. Copie esta cadeia de caracteres para um local seguro. Você precisará dela se quiser fazer chamadas de previsão por meio da API REST.
+* **ID do Modelo** – a ID do modelo que foi criado e treinado. Cada chamada de treinamento cria um novo modelo com sua própria ID. Copie esta cadeia de caracteres para um local seguro. Você precisará dela se quiser fazer chamadas de previsão por meio da [API REST](./curl-train-extract.md) ou da [biblioteca de clientes](./client-library.md).
 * **Precisão Média** – a precisão média do modelo. Você pode aprimorar a precisão do modelo rotulando formulários adicionais e treinando novamente para criar outro modelo. É recomendável começar rotulando cinco formulários e adicionando mais formulários conforme necessário.
 * A lista de marcas e a precisão estimada por marca.
 

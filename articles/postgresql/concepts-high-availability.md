@@ -1,17 +1,17 @@
 ---
 title: Alta disponibilidade-banco de dados do Azure para PostgreSQL-servidor único
 description: Este artigo fornece informações sobre alta disponibilidade no banco de dados do Azure para PostgreSQL-servidor único
-author: sr-pg20
-ms.author: srranga
+author: jasonwhowell
+ms.author: jasonh
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 564aa030c442331fbcd965c87da3bfbc03d00d79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33c66fff681b0458d1cff1ff6176c34f4771b38e
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85105883"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88508457"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Alta disponibilidade no banco de dados do Azure para PostgreSQL – servidor único
 O banco de dados do Azure para PostgreSQL – serviço de servidor único fornece um alto nível de disponibilidade garantido com o SLA (contrato de nível de serviço) com suporte financeiro de [99,99%](https://azure.microsoft.com/support/legal/sla/postgresql) de tempo de atividade. O banco de dados do Azure para PostgreSQL fornece alta disponibilidade durante eventos planejados, como a operação de computação de escala iniciada pelo do usuário, e também quando ocorrem eventos não planejados, como hardware subjacente, software ou falhas de rede. O banco de dados do Azure para PostgreSQL pode se recuperar rapidamente das circunstâncias mais críticas, garantindo praticamente nenhum tempo de inatividade do aplicativo ao usar esse serviço.
@@ -31,6 +31,9 @@ O banco de dados do Azure para PostgreSQL é projetado para fornecer alta dispon
 
 ![exibição do dimensionamento elástico no PostgreSQL do Azure](./media/concepts-high-availability/azure-postgresql-elastic-scaling.png)
 
+1. Aumentar e reduzir os servidores de banco de dados PostgreSQL em segundos
+2. O gateway que atua como um proxy para rotear o cliente se conecta ao servidor de banco de dados apropriado
+3. O dimensionamento do armazenamento pode ser realizado sem nenhum tempo de inatividade. O armazenamento remoto permite desanexar/reanexar rapidamente após o failover.
 Aqui estão alguns cenários de manutenção planejada:
 
 | **Cenário** | **Descrição**|
@@ -48,20 +51,25 @@ O tempo de inatividade não planejado pode ocorrer como resultado de falhas impr
 
 ![exibição de alta disponibilidade no PostgreSQL do Azure](./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png)
 
+1. Servidores PostgreSQL do Azure com recursos de dimensionamento rápido.
+2. Gateway que atua como um proxy para rotear conexões de cliente para o servidor de banco de dados apropriado
+3. Armazenamento do Azure com três cópias de confiabilidade, disponibilidade e redundância.
+4. O armazenamento remoto também permite desanexar/reanexar rapidamente após o failover do servidor.
+   
 ### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>Tempo de inatividade não planejado: cenários de falha e recuperação de serviço
 Aqui estão alguns cenários de falha e como o banco de dados do Azure para PostgreSQL recupera automaticamente:
 
 | **Cenário** | **Recuperação automática** |
 | ---------- | ---------- |
-| <B>Falha no servidor de banco de dados | Se o servidor de banco de dados estiver inoperante devido a alguma falha de hardware subjacente, as conexões ativas serão descartadas e todas as transações em andamentodas serão anuladas. Um novo servidor de banco de dados é implantado automaticamente, e o armazenamento remoto é anexado ao novo servidor de banco de dado. Após a conclusão da recuperação do banco de dados, os clientes podem se conectar ao novo servidor de banco de dados por meio do gateway. <br /> <br /> Os aplicativos que usam os bancos de dados PostgreSQL precisam ser criados de forma que detectem e repitam as conexões e as transações com falha.  Quando o aplicativo tenta novamente, o gateway redireciona de forma transparente a conexão para o servidor de banco de dados recém-criado. |
+| <B>Falha no servidor de banco de dados | Se o servidor de banco de dados estiver inoperante devido a alguma falha de hardware subjacente, as conexões ativas serão descartadas e todas as transações em andamentodas serão anuladas. Um novo servidor de banco de dados é implantado automaticamente, e o armazenamento remoto é anexado ao novo servidor de banco de dado. Após a conclusão da recuperação do banco de dados, os clientes podem se conectar ao novo servidor de banco de dados por meio do gateway. <br /> <br /> O RTO (tempo de recuperação) depende de vários fatores, incluindo a atividade no momento da falha, como transação grande e a quantidade de recuperação a ser executada durante o processo de inicialização do servidor de banco de dados. <br /> <br /> Os aplicativos que usam os bancos de dados PostgreSQL precisam ser criados de forma que detectem e repitam as conexões e as transações com falha.  Quando o aplicativo tenta novamente, o gateway redireciona de forma transparente a conexão para o servidor de banco de dados recém-criado. |
 | <B>Falha de armazenamento | Os aplicativos não veem nenhum impacto para problemas relacionados ao armazenamento, como uma falha de disco ou uma corrupção de bloco físico. À medida que os dados são armazenados em 3 cópias, a cópia dos dados é servida pelo armazenamento sobrevivente. Os danos de bloco são corrigidos automaticamente. Se uma cópia dos dados for perdida, uma nova cópia dos dados será criada automaticamente. |
 
 Aqui estão alguns cenários de falha que exigem a recuperação da ação do usuário:
 
 | **Cenário** | **Plano de recuperação** |
 | ---------- | ---------- |
-| <b>Falha de região | A falha de uma região é um evento raro. No entanto, se você precisar de proteção de uma falha de região, poderá configurar uma ou mais réplicas de leitura em outras regiões para recuperação de desastre (DR). (Consulte [Este artigo](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) sobre como criar e gerenciar réplicas de leitura para obter detalhes). No caso de uma falha de nível de região, você pode promover manualmente a réplica de leitura configurada na outra região para ser seu servidor de banco de dados de produção. |
-| <b>Erros lógicos/de usuário | A recuperação de erros do usuário, como tabelas descartadas acidentalmente ou dados atualizados incorretamente, envolve a execução de uma PITR ( [recuperação pontual](https://docs.microsoft.com/azure/postgresql/concepts-backup) ), restaurando e recuperando os dados até o momento anterior da ocorrência do erro.<br> <br>  Se você quiser restaurar apenas um subconjunto de bancos de dados ou tabelas específicas, em vez de todos os bancos de dados no servidor de banco, poderá restaurar o servidor de banco de dados em uma nova instância, exportar as tabelas via [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html)e, em seguida, usar [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) para restaurar essas tabelas em seu banco de dados. |
+| <b> Falha de região | A falha de uma região é um evento raro. No entanto, se você precisar de proteção de uma falha de região, poderá configurar uma ou mais réplicas de leitura em outras regiões para recuperação de desastre (DR). (Consulte [Este artigo](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) sobre como criar e gerenciar réplicas de leitura para obter detalhes). No caso de uma falha de nível de região, você pode promover manualmente a réplica de leitura configurada na outra região para ser seu servidor de banco de dados de produção. |
+| <b> Erros lógicos/de usuário | A recuperação de erros do usuário, como tabelas descartadas acidentalmente ou dados atualizados incorretamente, envolve a execução de uma PITR ( [recuperação pontual](https://docs.microsoft.com/azure/postgresql/concepts-backup) ), restaurando e recuperando os dados até o momento anterior da ocorrência do erro.<br> <br>  Se você quiser restaurar apenas um subconjunto de bancos de dados ou tabelas específicas, em vez de todos os bancos de dados no servidor de banco, poderá restaurar o servidor de banco de dados em uma nova instância, exportar as tabelas via [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html)e, em seguida, usar [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) para restaurar essas tabelas em seu banco de dados. |
 
 
 

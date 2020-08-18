@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: ''
-ms.openlocfilehash: 4446eef481e8370f7457311f6eae6ce40f9e6727
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ab869fc8577d4d1934be96404ded5a2051237bbf
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539254"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922721"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor"></a>Amostras de modelo do Resource Manager para o Azure Monitor
 
@@ -49,7 +49,7 @@ az deployment group create \
 - Alertas
   - [Regras de alerta de log](resource-manager-alerts-log.md) – Alertas de consultas de log e log de atividades do Azure.
   - [Regras de alerta de métrica](resource-manager-alerts-metric.md) – Alertas de métricas usando diferentes tipos de lógica.
-- Application Insights – Em breve.
+- [Application Insights](resource-manager-app-resource.md)
 - [Configurações de diagnóstico](resource-manager-diagnostic-settings.md) – Crie configurações de diagnóstico para encaminhar logs e métricas de diferentes tipos de recursos.
 - [Consultas de log](resource-manager-log-queries.md) – Crie consultas de log salvas em um workspace do Log Analytics.
 - [Workspace do Log Analytics](resource-manager-workspace.md) – Crie um workspace do Log Analytics e configure a coleta de diferentes fontes de dados do agente do Log Analytics.

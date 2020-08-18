@@ -12,16 +12,16 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: dce579596563855022f14bb2c07353b84d1e6127
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 8f6d9c3409e0b91b6744d406fb1af674f73dbe3c
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808364"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117882"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Início Rápido: Veja a lista de aplicativos que estão usando seu locatário do Azure AD (Azure Active Directory) para gerenciamento de identidades
 
-Comece a usar o Azure AD como seu sistema de IAM (Gerenciamento de Identidades e Acesso) para os aplicativos que sua organização usa. Neste guia de início rápido, você verá os aplicativos, também conhecidos como apps, que já estão configurados para usar o locatário do Azure AD como seu provedor de identidade.
+Comece a usar o Azure AD como seu sistema de IAM (Gerenciamento de Identidades e Acesso) para os aplicativos que sua organização usa. Neste guia de início rápido, você verá os aplicativos, também chamados de apps, que já estão configurados para usar o locatário do Azure AD como seu IdP (provedor de identidade).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

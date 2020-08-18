@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 45b535db9fccb41542ee74cb28845d49211e16ec
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0e17ecea6c85329b22310ebe1d06e2fe63cdd773
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281048"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042812"
 ---
 # <a name="what-is-azure-digital-twins"></a>O que são Gêmeos Digitais do Azure?
 
-Os **Gêmeos Digitais do Azure** são uma oferta de PaaS (plataforma como serviço) que permite a criação de modelos digitais abrangentes de ambientes inteiros. Esses ambientes podem ser edifícios, fábricas, fazendas, redes de energia, ferrovias, estádios e muito mais – até mesmo cidades inteiras. Esses modelos digitais podem ser usados para obter insights que impulsionam melhores produtos, operações otimizadas, custos reduzidos e experiências de clientes inovadoras.
+Os **Gêmeos Digitais do Azure** são uma oferta de PaaS (plataforma como serviço) que permite a criação de grafos de conhecimento baseados em modelos digitais de ambientes inteiros. Esses ambientes podem ser edifícios, fábricas, fazendas, redes de energia, ferrovias, estádios e muito mais – até mesmo cidades inteiras. Esses modelos digitais podem ser usados para obter insights que impulsionam melhores produtos, operações otimizadas, custos reduzidos e experiências de clientes inovadoras.
 
 Aproveite o seu conhecimento de domínio sobre os Gêmeos Digitais do Azure para criar soluções conectadas e personalizadas que:
 * Modelem qualquer ambiente e deem vida aos Gêmeos Digitais de maneira escalonável e segura

@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5d4b87c14422744fd62d42a4d8e5b1ca0f34ffac
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 07945926600163a3fca228ef6d848b50efc4318d
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439722"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042795"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Realizar a classificação de imagem na borda com o Serviço de Visão Personalizada
 
@@ -433,9 +433,9 @@ Em seu dispositivo, exiba os logs do módulo cameraCapture para ver as mensagens
 No Visual Studio Code, clique com o botão direito no nome do dispositivo do IoT Edge e selecione **Iniciar o Monitoramento de Ponto de Extremidade Interno**. 
 
 > [!NOTE]
-> Inicialmente, você pode ver alguns erros de conexão na saída do módulo cameraCapture. Isso ocorre devido ao atraso entre a implantação e a inicialização dos módulos.
+> Inicialmente, talvez você veja erros de conexão na saída do módulo cameraCapture. Isso ocorre devido ao atraso entre a implantação e a inicialização dos módulos.
 >
-> O módulo cameraCapture tentará novamente a conexão, de maneira automática, até obter êxito. Posteriormente, você deve começar a ver as mensagens de classificação de imagem esperadas descritas abaixo.
+> O módulo cameraCapture tenta estabelecer a conexão automaticamente mais uma vez até obter êxito. Após uma conexão bem-sucedida, você verá as mensagens de classificação de imagem esperadas descritas abaixo.
 
 Os resultados do módulo da Visão Personalizada, que são enviados como mensagens do módulo cameraCapture, incluem a probabilidade de a imagem ser uma cicuta (hemlock) ou cerejeira (cherry tree). Como a imagem é uma cicuta, você deve ver a probabilidade como 1.0.
 

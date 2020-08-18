@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 08/15/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de905c61642c36a07c7f87e0be910b0f035bffc1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c92994fee6de4c56257343af2ef418393b505ad
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555267"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507426"
 ---
 # <a name="what-is-risk"></a>O que é risco?
 
@@ -66,6 +66,12 @@ Esses riscos podem ser calculados em tempo real ou calculados offline usando fon
 
 ## <a name="common-questions"></a>Perguntas comuns
 
+### <a name="risk-levels"></a>Níveis de risco
+
+A proteção de identidade categoriza o risco em três camadas: baixa, média e alta. 
+
+Embora a Microsoft não forneça detalhes específicos sobre como o risco é calculado, dizemos que cada nível traz maior confiança de que o usuário ou a entrada é comprometido. Por exemplo, algo como uma instância de propriedades de entrada desconhecidas para um usuário pode não ser tão ameaçado quanto credenciais vazadas para outro usuário.
+
 ### <a name="leaked-credentials"></a>Credenciais vazadas
 
 #### <a name="where-does-microsoft-find-leaked-credentials"></a>Onde a Microsoft encontra credenciais vazadas?
@@ -78,7 +84,7 @@ A Microsoft encontra credenciais vazadas em uma variedade de locais, incluindo:
 
 #### <a name="why-arent-i-seeing-any-leaked-credentials"></a>Por que não vejo credenciais vazadas?
 
-As credenciais vazadas são processadas sempre que a Microsoft encontra um novo lote disponível publicamente. Devido à natureza confidencial, as credenciais vazadas são excluídas logo após o processamento. Somente novas credenciais vazadas encontradas depois que você habilita a sincronização de hash de senha (PHS) serão processadas em seu locatário. A verificação dos pares de credenciais encontrados anteriormente não é executada. 
+As credenciais vazadas são processadas sempre que a Microsoft encontra um novo lote disponível publicamente. Devido à natureza confidencial, as credenciais vazadas são excluídas logo após o processamento. Somente novas credenciais vazadas encontradas depois que você habilita a sincronização de hash de senha (PHS) serão processadas em seu locatário. A confirmação com os pares de credenciais encontrados anteriormente não é feita. 
 
 #### <a name="i-havent-seen-any-leaked-credential-risk-events-for-quite-some-time"></a>Não vi nenhum evento de risco de credencial vazado há algum tempo?
 

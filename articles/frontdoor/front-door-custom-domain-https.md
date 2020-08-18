@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 56a2246b4f1da51d9b18a34279eff04264530ef5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 770353f893762f0f35d744fe1e7a5e4de4a671ce
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82160078"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808755"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado do Front Door
 
@@ -68,6 +68,9 @@ Para habilitar HTTPS em um domínio personalizado, siga estas etapas:
 4. Clique em Salvar.
 
 5. Prossiga para [Validar o domínio](#validate-the-domain).
+
+> [!NOTE]
+> Para os certificados gerenciados do AFD, o limite de 64 caracteres do DigiCert é imposto. A validação falhará se esse limite for excedido.
 
 
 ### <a name="option-2-use-your-own-certificate"></a>Opção 2: Usar o seu próprio certificado

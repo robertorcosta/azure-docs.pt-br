@@ -1,6 +1,6 @@
 ---
 title: Configurar identidades gerenciadas no conjunto de dimensionamento de máquinas virtuais do Azure usando REST – Azure AD
-description: Instruções passo a passo para configurar um sistema e identidades gerenciadas atribuídas pelo usuário em um conjunto de dimensionamento de máquinas virtuais do Azure usando a rotação para fazer chamadas à API REST.
+description: Instruções passo a passo para configurar um sistema e identidades gerenciadas atribuídas pelo usuário em um conjunto de dimensionamento de máquinas virtuais do Azure usando CURL para fazer chamadas à API REST.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06bce15dfbd2ccd3ac97f6a4f1e4efb5a24db85d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bf514480f0ca247606ffbc50148556eeed007c8
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609089"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921496"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando chamadas à API REST
 
@@ -37,7 +37,7 @@ Neste artigo, usando CURL para fazer chamadas ao ponto de extremidade de REST do
 
 - Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#managed-identity-types)**.
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para realizar as operações de gerenciamento deste artigo, a conta precisa das seguintes atribuições de controle de acesso baseado em função do Azure:
+- Para realizar as operações de gerenciamento deste artigo, a conta precisará das seguintes atribuições de função do Azure:
 
     > [!NOTE]
     > Não são necessárias atribuições de função do diretório adicionais do Azure AD.
@@ -93,7 +93,7 @@ Para criar um conjunto de dimensionamento de máquinas virtuais com identidade g
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
-   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -188,7 +188,7 @@ Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de d
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
-   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -221,7 +221,7 @@ Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de d
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
-   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. |
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. |
  
    **Corpo da solicitação**
 
@@ -255,7 +255,7 @@ Para habilitar a identidade gerenciada atribuída ao sistema em um conjunto de d
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
-   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -299,7 +299,7 @@ Para desabilitar uma identidade gerenciada atribuída ao sistema em um conjunto 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
-   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -356,7 +356,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
-   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -443,7 +443,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
-   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. |
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. |
  
    **Corpo da solicitação**
 
@@ -521,7 +521,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
    az account get-access-token
    ```
 
-2.  Crie uma identidade gerenciada atribuída pelo usuário usando as instruções encontradas aqui, [crie uma identidade gerenciada atribuída pelo usuário](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
+2.  Crie uma identidade gerenciada atribuída pelo usuário usando as instruções encontradas aqui, [Crie uma identidade gerenciada atribuída pelo usuário](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
 3. Para garantir que você não exclua nenhuma identidade gerenciada atribuída ao usuário ou ao sistema existente que esteja atribuída ao conjunto de dimensionamento de máquinas virtuais, será necessário listar os tipos de identidade atribuída ao conjunto de dimensionamento de máquinas virtuais, usando o seguinte comando CURL. Se houver identidades gerenciadas atribuídas ao conjunto de dimensionamento de máquinas virtuais, elas serão listadas no valor `identity`.
 
@@ -559,7 +559,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
-   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -591,7 +591,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
-   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -627,7 +627,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
-   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -666,7 +666,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
-   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -727,7 +727,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
-   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -759,7 +759,7 @@ Nesta seção, você aprenderá como adicionar e remover uma identidade gerencia
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
-   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
+   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
    **Corpo da solicitação**
 
@@ -789,7 +789,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 |Cabeçalho da solicitação  |Descrição  |
 |---------|---------|
 |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
-|*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
+|*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
 **Corpo da solicitação**
 
@@ -816,7 +816,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 |Cabeçalho da solicitação  |Descrição  |
 |---------|---------|
 |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
-|*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
+|*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
 **Corpo da solicitação**
 
