@@ -2,25 +2,21 @@
 title: 'Tutorial: configurar o 4me para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o 4me.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c83d43fe1a2068fa4c9f24a10c0975610142a84
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: beb580a02e1db80cf2d74f8167a98c9ead170810
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018680"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88538749"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Tutorial: configurar o 4me para o provisionamento automático de usuário
 

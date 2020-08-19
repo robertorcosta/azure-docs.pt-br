@@ -2,25 +2,21 @@
 title: 'Tutorial: configurar o 15Five para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o 15Five.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: a276c004-9f71-4efc-8cca-1f615760249f
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: dbed26bc6175b464b59fc48c733b15e6fecc7fc1
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: b42833056d6c9c0e6053dbf34c7de17b4136a797
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924910"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88539174"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>Tutorial: configurar o 15Five para o provisionamento automático de usuário
 
@@ -114,7 +110,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Salvar**.
+7. Clique em **Save** (Salvar).
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para 15Five**.
 
