@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4a618b00b211ce65b170379cc14d6b83a1183d28
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: bb6793bc1e3d5bb55426c1f344520ae19a22a9f9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460347"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549558"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -34,11 +34,11 @@ A tabela a seguir resume os tipos de amostragem disponíveis para cada SDK e tip
 |-|-|-|-|
 | ASP.NET | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-aspnet-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-applications) | Somente se nenhuma outra amostragem estiver em vigor |
 | ASP.NET Core | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Somente se nenhuma outra amostragem estiver em vigor |
-| Funções do Azure | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-azure-functions) | No | Somente se nenhuma outra amostragem estiver em vigor |
+| Funções do Azure | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-azure-functions) | Não | Somente se nenhuma outra amostragem estiver em vigor |
 | Java | Não | [Sim](#configuring-fixed-rate-sampling-for-java-applications) | Somente se nenhuma outra amostragem estiver em vigor |
 | Node.JS | Não | [Sim](./nodejs.md#sampling) | Somente se nenhuma outra amostragem estiver em vigor
 | Python | Não | [Sim](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Somente se nenhuma outra amostragem estiver em vigor |
-| Todos os outros | No | Não | [Sim](#ingestion-sampling) |
+| Todos os outros | Não | Não | [Sim](#ingestion-sampling) |
 
 > [!NOTE]
 > As informações sobre a maior parte desta página se aplicam às versões atuais dos SDKs do Application Insights. Para obter informações sobre versões mais antigas dos SDKs, [consulte a seção abaixo](#older-sdk-versions).
@@ -187,6 +187,8 @@ Use os métodos de extensão de `TelemetryProcessorChainBuilder` conforme mostra
 > Se você usar esse método para configurar a amostragem, certifique-se de definir a `aiOptions.EnableAdaptiveSampling` propriedade como `false` ao chamar `AddApplicationInsightsTelemetry()` .
 
 ```csharp
+using Microsoft.ApplicationInsights.Extensibility
+
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
 {
     var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
@@ -448,7 +450,7 @@ Assim como outros tipos de amostragem, o algoritmo retém os itens relacionados 
 
 Os pontos de dados que são descartados pela amostragem não estão disponíveis em nenhum recurso do Application Insights como [Exportação Contínua](./export-telemetry.md).
 
-A amostragem de ingestão não funciona enquanto a amostragem adaptável ou de taxa fixa está em operação. A amostragem adaptável é habilitada por padrão quando o SDK do ASP.NET ou o SDK do ASP.NET Core está sendo usado, ou quando Application Insights está habilitado no [serviço Azure app](azure-web-apps.md) ou usando status monitor. Quando a telemetria é recebida pelo ponto de extremidade de serviço Application Insights, ela examina a telemetria e, se a taxa de amostragem for relatada para menos de 100% (o que indica que a telemetria está sendo amostrada), a taxa de amostragem de ingestão definida será ignorada.
+A amostragem de ingestão não funciona enquanto a amostragem adaptável ou de taxa fixa está em operação. A amostragem adaptável é habilitada por padrão quando o SDK do ASP.NET ou o SDK do ASP.NET Core está sendo usado, ou quando Application Insights está habilitado no [serviço Azure app ](azure-web-apps.md) ou usando status monitor. Quando a telemetria é recebida pelo ponto de extremidade de serviço Application Insights, ela examina a telemetria e, se a taxa de amostragem for relatada para menos de 100% (o que indica que a telemetria está sendo amostrada), a taxa de amostragem de ingestão definida será ignorada.
 
 > [!WARNING]
 > O valor mostrado no bloco do portal indica o valor que você definiu para amostragem de ingestão. Ele não representa a taxa de amostragem real se qualquer tipo de amostragem do SDK (amostragem adaptável ou de taxa fixa) estiver em operação.

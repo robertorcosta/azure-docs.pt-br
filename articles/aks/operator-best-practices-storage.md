@@ -5,12 +5,12 @@ description: Aprenda as práticas recomendadas do operador de cluster para armaz
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 26af9e0ab2bd3a52c159e947f1f40300f9e84dd4
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: c683cbf7802fbf5420ec95d49e2dfda624ce093f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562831"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551788"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para armazenamento e backups no Serviço de Kubernetes do Azure (AKS)
 
@@ -88,7 +88,7 @@ Para obter mais informações sobre as opções de classe de armazenamento, conf
 
 ## <a name="secure-and-back-up-your-data"></a>Proteja e faça backup de seus dados
 
-**Diretrizes de práticas recomendadas** -faça backup dos dados usando uma ferramenta apropriada para seu tipo de armazenamento, como Velero ou Azure site Recovery. Verifique a integridade e a segurança desses backups.
+**Orientação de práticas recomendadas** -faça backup dos dados usando uma ferramenta apropriada para o tipo de armazenamento, como Velero ou backup do Azure. Verifique a integridade e a segurança desses backups.
 
 Quando seus aplicativos armazenam e consomem dados persistentes em discos ou arquivos, você precisa fazer backups ou instantâneos regulares desses dados. Os Discos do Azure podem usar tecnologias internas de instantâneo. Talvez seja necessário procurar seus aplicativos para liberar gravações no disco antes de executar a operação de instantâneo. O [Velero][velero] pode fazer backup de volumes persistentes juntamente com configurações e recursos de cluster adicionais. Se você não puder [remover o estado de seus aplicativos][remove-state], faça o backup dos dados de volumes persistentes e teste regularmente as operações de restauração para verificar a integridade dos dados e os processos necessários.
 

@@ -2,25 +2,21 @@
 title: 'Tutorial: configurar o LucidChart para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o LucidChart.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 25fe315e7d1af2e301e761c755470d2e3c24db1c
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 88c14ef916847b84f881e8da2deda7835df37ffb
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927004"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550275"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Tutorial: configurar o LucidChart para o provisionamento automático de usuário
 
@@ -98,7 +94,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
     ![Guia Provisionamento](common/provisioning-automatic.png)
 
-5. Na seção **credenciais de administrador** , insira o valor do **token de portador** recuperado anteriormente no campo **token secreto** . Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao LucidChart. Se a conexão falhar, verifique se sua conta do LucidChart tem permissões de administrador e tente novamente.
+5. Na seção **credenciais de administrador** , insira o valor do **token de portador**  recuperado anteriormente no campo **token secreto** . Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao LucidChart. Se a conexão falhar, verifique se sua conta do LucidChart tem permissões de administrador e tente novamente.
 
       ![provisionamento](./media/Lucidchart-provisioning-tutorial/lucidchart1.png)
 
@@ -125,7 +121,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
-   |urn: IETF: params: SCIM: esquemas: extensão: LucidChart: 1.0: usuário: CanEdit|Boolean|
+   |urn: IETF: params: SCIM: esquemas: extensão: LucidChart: 1.0: usuário: CanEdit|Booliano|
 
 10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para LucidChart**.
 

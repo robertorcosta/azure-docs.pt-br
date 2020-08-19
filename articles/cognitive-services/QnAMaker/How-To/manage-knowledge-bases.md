@@ -3,12 +3,12 @@ title: Gerenciar bases de dados de conhecimento-QnA Maker
 description: QnA Maker permite que você gerencie suas bases de dados de conhecimento fornecendo acesso às configurações e ao conteúdo da base de dados de conhecimento.
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 4eb07b30b10826c361f4f9b805b517e372fc5ea1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 08736ce61e6768cfd9ac3d3ded7092a4ab93fca9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756810"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551771"
 ---
 # <a name="create-knowledge-base-and-manage-settings"></a>Criar base de dados de conhecimento e gerenciar configurações
 
@@ -17,7 +17,7 @@ QnA Maker permite que você gerencie suas bases de dados de conhecimento, fornec
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
-> * Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+> * Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 > * Um [recurso QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) criado no portal do Azure. Lembre-se de sua ID e sua assinatura do Azure Active Directory, bem como do nome do recurso do QnA que você selecionou ao criar o recurso.
 
 ## <a name="create-a-knowledge-base"></a>Como criar uma base de dados de conhecimento
@@ -36,7 +36,7 @@ QnA Maker permite que você gerencie suas bases de dados de conhecimento, fornec
 
    ![Captura de tela da seleção de uma base de dados de conhecimento do serviço do QnA Maker](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
-1. Na **etapa 3**, nomeie sua base `My Sample QnA KB`de dados de conhecimento.
+1. Na **etapa 3**, nomeie sua base de dados de conhecimento `My Sample QnA KB` .
 
 1. Na **Etapa 4**, defina as configurações com a seguinte tabela:
 

@@ -2,26 +2,21 @@
 title: 'Tutorial: provisionamento de usuário para asana-Azure AD'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o Asana.
 services: active-directory
-documentationcenter: ''
 author: ArvindHarinder1
 manager: CelesteDG
-ms.assetid: 0b38ee73-168b-42cb-bd8b-9c5e5126d648
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.reviewer: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: abeac030db419f7fb7d561df5dcd407684f20ca2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: celested
+ms.openlocfilehash: 11e0606568fdaad20f996a7ae20a622576acea15
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77058900"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549459"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Tutorial: Configurar o Asana para provisionamento automático de usuário
 
@@ -85,7 +80,7 @@ Esta seção orienta você sobre como conectar o Azure AD à API de provisioname
 
 1. Insira o endereço de email de uma pessoa ou um grupo que você deseja que receba notificações de erro de provisionamento no campo **Email de Notificação**. Marque a caixa de seleção logo abaixo.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 1. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para asana**.
 
@@ -93,7 +88,7 @@ Esta seção orienta você sobre como conectar o Azure AD à API de provisioname
 
 1. Para habilitar o serviço de provisionamento do Azure AD para o Asana, na seção **Configurações**, altere o **Status de Provisionamento** para **Ativado**.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Agora, a sincronização inicial de todos os usuários atribuídos ao Asana na seção **Usuários** é iniciada. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o andamento e seguir os links para os logs da atividade de provisionamento. Os logs de auditoria descrevem todas as ações executadas pelo serviço de provisionamento no aplicativo Asana.
 

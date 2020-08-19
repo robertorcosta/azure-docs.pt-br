@@ -9,18 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: d0933f5305007bc4a8238adb2b6b949ab0c11edf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 321c13e88cb09c7078a169c3e1666cf781ec7787
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559942"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553131"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Configurar uma conexão do indexador com o banco de dados SQL do Azure usando uma identidade gerenciada (versão prévia)
 
 > [!IMPORTANT] 
-> No momento, o suporte para configurar uma conexão com uma fonte de dados usando uma identidade gerenciada está em uma visualização pública restrita. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção.
-> Você pode solicitar acesso à versão prévia preenchendo [este formulário](https://aka.ms/azure-cognitive-search/mi-preview-request).
+> O suporte para configurar uma conexão com uma fonte de dados usando uma identidade gerenciada está atualmente em visualização pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção.
 
 Esta página descreve como configurar uma conexão de indexador com o banco de dados SQL do Azure usando uma identidade gerenciada em vez de fornecer credenciais na cadeia de conexão do objeto de fonte de dado.
 
@@ -31,7 +30,7 @@ Antes de saber mais sobre esse recurso, é recomendável compreender o que é um
 
 ## <a name="set-up-a-connection-using-a-managed-identity"></a>Configurar uma conexão usando uma identidade gerenciada
 
-### <a name="1---turn-on-system-assigned-managed-identity"></a>1 - Habilitar a identidade gerenciada atribuída ao sistema
+### <a name="1---turn-on-system-assigned-managed-identity"></a>1 – Habilitar a identidade gerenciada atribuída ao sistema
 
 Quando uma identidade gerenciada atribuída pelo sistema é habilitada, o Azure cria uma identidade para o serviço de pesquisa que pode ser usada para autenticar outros serviços do Azure no mesmo locatário e assinatura. Use essa identidade em atribuições de RBAC (controle de acesso baseado em função) que permitem o acesso aos dados durante a indexação.
 
@@ -98,7 +97,9 @@ Nesta etapa, você dará permissão ao seu serviço Azure Cognitive Search para 
 
 ### <a name="5---create-the-data-source"></a>5 – Criar a fonte de dados
 
-Ao indexar de um banco de dados SQL, a fonte de dados deve ter as seguintes propriedades obrigatórias:
+A [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), portal do Azure e o [SDK do .net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) oferecem suporte à cadeia de conexão de identidade gerenciada. Veja abaixo um exemplo de como criar uma fonte de dados para indexar dados de um banco de dados SQL do Azure usando a [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerenciada. O formato da cadeia de conexão de identidade gerenciada é o mesmo para a API REST, o SDK do .NET e o portal do Azure.
+
+Ao criar uma fonte de dados usando a [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), a fonte de dados deve ter as seguintes propriedades necessárias:
 
 * **name** é o nome exclusivo da fonte de dados dentro de seu serviço de pesquisa.
 * **type** é `azuresql`
@@ -122,8 +123,6 @@ api-key: [admin key]
     "container" : { "name" : "my-table" }
 } 
 ```
-
-O portal do Azure e o [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) também oferecem suporte à cadeia de conexão de identidades gerenciadas. O portal do Azure requer um sinalizador de recurso que será fornecido a você ao se inscrever na visualização usando o link na parte superior desta página. 
 
 ### <a name="6---create-the-index"></a>6 – Criar o índice
 
