@@ -1,23 +1,23 @@
 ---
 title: Entender o repositório de valor-chave de configuração Azure App
-description: Entenda como os dados de configuração são armazenados na configuração do Azure App.
+description: Entenda o armazenamento de chave-valor na configuração Azure App, que armazena os dados de configuração como valores de chave. Os valores de chave são uma representação das configurações do aplicativo.
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.openlocfilehash: 9a0ed747ea0c894214a633bdbc8141e95e95b5fb
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: b1998532c3d9e4272d91280d57d9ea2f6e7a262c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830029"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586385"
 ---
 # <a name="keys-and-values"></a>Chaves e valores
 
 Azure App configuração armazena dados de configuração como valores de chave. Os valores-chave são uma representação simples e flexível das configurações do aplicativo usadas pelos desenvolvedores.
 
-## <a name="keys"></a>Chaves
+## <a name="keys"></a>simétricas
 
 As chaves servem como identificadores para valores de chave e são usadas para armazenar e recuperar valores correspondentes. É uma prática comum organizar chaves em um namespace hierárquico usando um caractere delimitador, como `/` ou `:`. Use uma convenção mais adequada para seu aplicativo. A Configuração de Aplicativo trata as chaves como um todo. Ela não analisa as chaves para descobrir como seus nomes são estruturados nem impõem regras a elas.
 

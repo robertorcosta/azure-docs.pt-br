@@ -9,18 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 107cd113645a2cbd4b452f9350fa67d734ee6df8
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: f65aa4b307108682fa6e190a229e9d82b6efdec0
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143641"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553194"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity-preview"></a>Configurar uma conexão do indexador a um banco de dados do Cosmos DB usando uma identidade gerenciada (versão prévia)
 
 > [!IMPORTANT] 
-> No momento, o suporte para configurar uma conexão a uma fonte de dados usando uma identidade gerenciada está em versão prévia pública restrita. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção.
-> Você pode solicitar acesso à versão prévia preenchendo [este formulário](https://aka.ms/azure-cognitive-search/mi-preview-request).
+> O suporte para configurar uma conexão com uma fonte de dados usando uma identidade gerenciada está atualmente em visualização pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção.
 
 Esta página descreve como configurar uma conexão de indexador a um banco de dados do Cosmos DB do Azure usando uma identidade gerenciada, em vez de fornecer credenciais na cadeia de conexão do objeto da fonte de dados.
 
@@ -58,11 +57,9 @@ Nesta etapa, você dará permissão ao seu serviço do Azure Cognitive Search pa
 
 ### <a name="3---create-the-data-source"></a>3 – Criar a fonte de dados
 
-A **fonte de dados** especifica os dados no índice, nas credenciais e nas políticas para identificação de alterações nos dados (como documentos modificados ou excluídos em sua coleção). A fonte de dados é definida como um recurso independente para que possa ser usada por vários indexadores.
+A [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), portal do Azure e o [SDK do .net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) oferecem suporte à cadeia de conexão de identidade gerenciada. Abaixo está um exemplo de como criar uma fonte de dados para indexar dados de Cosmos DB usando a [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerenciada. O formato da cadeia de conexão de identidade gerenciada é o mesmo para a API REST, o SDK do .NET e o portal do Azure.
 
-Ao usar identidades gerenciadas para autenticar a fonte de dados, as **credenciais** não incluirão uma chave de conta.
-
-Exemplo de como criar um objeto de fonte de dados do Cosmos DB usando a [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
+Ao usar identidades gerenciadas para autenticar, as **credenciais** não incluirão uma chave de conta.
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
@@ -93,8 +90,6 @@ O corpo da solicitação contém a definição da fonte de dados, que deve inclu
 | **contêiner** | Contém os seguintes elementos: <br/>**nome**: Obrigatórios. Especifique a ID da coleção do banco de dados a ser indexada.<br/>**query**: Opcional. Você pode especificar uma consulta para nivelar um documento JSON arbitrário, criando um esquema nivelado que o Azure Cognitive Search possa indexar.<br/>Para a API do MongoDB, API do Gremlin e API do Cassandra, não há suporte para consultas. |
 | **dataChangeDetectionPolicy** | Recomendadas |
 |**dataDeletionDetectionPolicy** | Opcional |
-
-O portal do Azure e o [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) também oferecem suporte à cadeia de conexão de identidades gerenciadas. O portal do Azure requer um sinalizador de recurso que será fornecido a você ao se inscrever na visualização usando o link na parte superior desta página. 
 
 ### <a name="4---create-the-index"></a>4 – Criar o índice
 

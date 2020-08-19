@@ -5,53 +5,55 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 08/17/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bd688a9e488c1206b0c8531698b061f650e2afe
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: d949f4b10bc6b7b592556d78edfcf02a05ec7144
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417923"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565767"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Habilitar a Autenticação Multifator individual do Azure para proteção de acesso
 
-Há duas maneiras de proteger acessos dos usuários através da autenticação multifator no Azure AD. A primeira, e recomendada, é configurar uma política de Acesso Condicional que exige a autenticação multifator sob determinadas condições. A segunda é habilitar cada usuário para a Autenticação Multifator do Azure. Quando os usuários são habilitados individualmente, eles executam a autenticação multifator em cada acesso (com algumas exceções, como quando eles acessam a partir de endereços IP confiáveis, ou quando o recurso de _dispositivos lembrados_ estiver ativado).
+Para proteger eventos de entrada do usuário no Azure AD, você pode exigir a MFA (autenticação multifator). Habilitar a autenticação multifator do Azure usando políticas de acesso condicional é a abordagem recomendada para proteger os usuários. O acesso condicional é um recurso Azure AD Premium P1 ou P2 que permite aplicar regras para exigir MFA conforme necessário em determinados cenários. Para começar a usar o Acesso Condicional, veja [Tutorial: proteger acessos do usuário com a Autenticação Multifator do Azure](tutorial-enable-azure-mfa.md).
 
-> [!NOTE]
-> Habilitar a Autenticação Multifator do Azure usando políticas de Acesso Condicional é a abordagem recomendada. Não é mais recomendável alterar os estados do usuário, salvo se suas licenças não incluem o Acesso Condicional, pois elas exigem que os usuários executem a MFA em cada acesso. Para começar a usar o Acesso Condicional, veja [Tutorial: proteger acessos do usuário com a Autenticação Multifator do Azure](tutorial-enable-azure-mfa.md).
+Para locatários gratuitos do Azure AD sem acesso condicional, você pode [usar os padrões de segurança para proteger os usuários](../fundamentals/concept-fundamentals-security-defaults.md). Os usuários são solicitados a receber a MFA conforme necessário, mas você não pode definir suas próprias regras para controlar o comportamento.
+
+Se necessário, você pode habilitar cada conta para a autenticação multifator do Azure por usuário. Quando os usuários são habilitados individualmente, eles executam a autenticação multifator cada vez que se conectam (com algumas exceções, como quando eles entram em endereços IP confiáveis ou quando o recurso _lembrar MFA em dispositivos confiáveis_ está ativado).
+
+Não é recomendável alterar os Estados do usuário, a menos que suas licenças do Azure AD não incluam o acesso condicional e você não queira usar os padrões de segurança. Para obter mais informações sobre as diferentes maneiras de habilitar a MFA, consulte [recursos e licenças para a autenticação multifator do Azure](concept-mfa-licensing.md).
+
+> [!IMPORTANT]
 >
-> Para locatários gratuitos do Azure AD sem acesso condicional, você pode [usar os padrões de segurança para proteger os usuários](../fundamentals/concept-fundamentals-security-defaults.md).
+> Este artigo fornece detalhes sobre como exibir e alterar o status da autenticação multifator do Azure por usuário. Se você usar o acesso condicional ou os padrões de segurança, não examine ou habilite as contas de usuário usando estas etapas.
+>
+> Habilitar a Autenticação Multifator do Azure através de política de Acesso Condicional não altera o estado do usuário. Não se assuste se os usuários parecem desabilitados. O Acesso Condicional não altera o estado.
+>
+> **Não habilite ou aplique a autenticação multifator do Azure por usuário se você usar políticas de acesso condicional.**
 
 ## <a name="azure-multi-factor-authentication-user-states"></a>Estados de usuário da Autenticação Multifator do Azure
 
-As contas de usuário na Autenticação Multifator do Azure apresentam os três estados distintos a seguir:
+O estado de um usuário reflete se um administrador o registrou na autenticação multifator do Azure por usuário. As contas de usuário na Autenticação Multifator do Azure apresentam os três estados distintos a seguir:
 
-> [!IMPORTANT]
-> Habilitar a Autenticação Multifator do Azure através de política de Acesso Condicional não altera o estado do usuário. Não se assuste se os usuários parecem desabilitados. O Acesso Condicional não altera o estado.
->
-> **Você não deve habilitar ou impor usuários se estiver usando políticas de Acesso Condicional.**
-
-| Status | Descrição | Aplicativos que não usam navegador afetados | Aplicativos que usam o navegador afetados | Autenticação moderna afetada |
+| Estado | Descrição | Autenticação herdada afetada | Aplicativos que usam o navegador afetados | Autenticação moderna afetada |
 |:---:| --- |:---:|:--:|:--:|
-| Desabilitado | O estado padrão para um novo usuário não inscrito na Autenticação Multifator do Azure. | Não | Não | Não |
-| habilitado | O usuário foi registrado na autenticação multifator do Azure, mas não registrou os métodos de autenticação. Eles receberão uma solicitação para se registrarem na próxima vez que entrarem. | Não.  Eles continuarão a trabalhar até o processo ser concluído. | Sim. Depois que a sessão expirar, o registro da Autenticação Multifator do Azure será exigido.| Sim. Depois que o token de acesso expirar, o registro da Autenticação Multifator do Azure será exigido. |
-| Imposto | O usuário foi inscrito e concluiu o processo de registro da Autenticação Multifator do Azure. | Sim. Os aplicativos exigem senhas de aplicativo. | Sim. A Autenticação Multifator do Azure é exigida para logon. | Sim. A Autenticação Multifator do Azure é exigida para logon. |
+| Desabilitado | O estado padrão de um usuário não registrado na autenticação multifator do Azure por usuário. | Não | Não | Não |
+| habilitado | O usuário é registrado na autenticação multifator do Azure por usuário, mas ainda pode usar sua senha para autenticação herdada. Se o usuário ainda não tiver registrado os métodos de autenticação MFA, eles receberão uma solicitação para registrar-se na próxima vez que entrarem usando a autenticação moderna (como por meio de um navegador da Web). | Não. A autenticação herdada continuará funcionando até que o processo de registro seja concluído. | Sim. Depois que a sessão expirar, o registro da Autenticação Multifator do Azure será exigido.| Sim. Depois que o token de acesso expirar, o registro da Autenticação Multifator do Azure será exigido. |
+| Imposto | O usuário é registrado por usuário na autenticação multifator do Azure. Se o usuário ainda não tiver registrado os métodos de autenticação, eles receberão uma solicitação para registrar-se na próxima vez que entrarem usando a autenticação moderna (por exemplo, por meio de um navegador da Web). Os usuários que concluírem o registro enquanto estiverem no estado *habilitado* serão automaticamente movidos para o estado *imposto* . | Sim. Os aplicativos exigem senhas de aplicativo. | Sim. A autenticação multifator do Azure é necessária na entrada. | Sim. A autenticação multifator do Azure é necessária na entrada. |
 
-O estado de um usuário reflete se um administrador o registrou na Autenticação Multifator do Azure e se ele concluiu o processo de registro.
-
-Todos os usuários começam com o status *Desabilitado*. Quando você registra os usuários na Autenticação Multifator do Azure, seu estado é alterado para *Habilitado*. Quando usuários habilitados entram e concluem o processo de registro, seu estado é alterado para *Imposto*.
+Todos os usuários começam com o status *Desabilitado*. Quando você registra os usuários na autenticação multifator do Azure por usuário, seu estado muda para *habilitado*. Quando usuários habilitados entram e concluem o processo de registro, seu estado é alterado para *Imposto*. Os administradores podem mover os usuários entre os Estados, incluindo de *imposto* para *habilitado* ou *desabilitado*.
 
 > [!NOTE]
-> Se a MFA for habilitada novamente para objeto de usuário que já tem detalhes de registro, como telefone ou email, os administradores precisarão fazer com que o usuário se registre novamente para MFA através do portal do Azure ou do PowerShell. Se o usuário não se registrar novamente, seu estado de MFA não fará a transição de *Habilitada* para *Imposta* na interface do usuário de gerenciamento da MFA.
+> Se a MFA por usuário for reabilitada em um usuário e o usuário não fizer o novo registro, seu estado de MFA não passará de *habilitado* para *imposto* na interface do usuário de gerenciamento do MFA. O administrador deve mover o usuário diretamente para *imposto*.
 
 ## <a name="view-the-status-for-a-user"></a>Exibir o status de um usuário
 
-Use as etapas a seguir para acessar a página do portal do Azure onde você pode exibir e gerenciar os estados do usuário:
+Para exibir e gerenciar Estados do usuário, conclua as seguintes etapas para acessar a página de portal do Azure:
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
 1. Pesquise e selecione *Azure Active Directory* e, em seguida, selecione **Usuários** > **Todos os usuários**.
@@ -61,16 +63,16 @@ Use as etapas a seguir para acessar a página do portal do Azure onde você pode
 
 ## <a name="change-the-status-for-a-user"></a>Alterar o status de um usuário
 
-Para alterar o estado da Autenticação Multifator do Azure para um usuário, siga estas etapas:
+Para alterar o estado da autenticação multifator do Azure por usuário para um usuário, conclua as seguintes etapas:
 
-1. Use as etapas anteriores para chegar à página de **usuários** da Autenticação Multifator do Azure.
-1. Localize o usuário que deseja habilitar para a Autenticação Multifator do Azure. Altere o modo de exibição na parte superior para **usuários**, se necessário.
+1. Use as etapas anteriores para [Exibir o status de um usuário](#view-the-status-for-a-user) para acessar a página **usuários** da autenticação multifator do Azure.
+1. Localize o usuário que você deseja habilitar para a autenticação multifator do Azure por usuário. Altere o modo de exibição na parte superior para **usuários**, se necessário.
    ![Selecione o usuário desejado na guia de usuários e altere o seu estado](./media/howto-mfa-userstates/enable1.png)
 1. Marque a caixa ao lado do nome de um usuário para alterar o seu estado.
 1. No lado direito, em **etapas rápidas**, escolha **Habilitar** ou **Desabilitar**. No exemplo a seguir, o usuário *John Smith* tem uma marca de seleção ao lado do seu nome e está habilitado para uso: ![Habilitar o usuário selecionado clicando em Habilitar no menu etapas rápidas](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
-   > Usuários *Habilitados* mudam automaticamente para *Imposto* ao se registrarem na Autenticação Multifator do Azure. Não altere manualmente o estado do usuário para *Imposto*.
+   > Usuários *Habilitados* mudam automaticamente para *Imposto* ao se registrarem na Autenticação Multifator do Azure. Não altere manualmente o estado do usuário para *imposto* , a menos que o usuário já esteja registrado ou se for aceitável para o usuário experimentar a interrupção em conexões com protocolos de autenticação herdados.
 
 1. Confirme sua seleção na janela pop-up que é aberta.
 
@@ -84,7 +86,7 @@ Para alterar o estado do usuário usando o [PowerShell do Azure AD](/powershell/
 * *Imposto*
 * *Desabilitado*  
 
-Não mova os usuários diretamente para o estado *Imposto*. Caso o faça, os aplicativos que não são baseados em navegador deixarão de funcionar porque o usuário não passou pelo registro da Autenticação Multifator do Azure nem obteve uma [senha de aplicativo](howto-mfa-app-passwords.md).
+Em geral, não mova os usuários diretamente para o estado *imposto* , a menos que eles já estejam registrados para MFA. Se você fizer isso, os aplicativos de autenticação herdados deixarão de funcionar porque o usuário não passou pelo registro da autenticação multifator do Azure e obteve uma [senha de aplicativo](howto-mfa-app-passwords.md). Em alguns casos, esse comportamento pode ser desejado, mas afeta a experiência do usuário até que o usuário se registre.
 
 Para começar, instale o módulo *MSOnline* usando [Install-Module](/powershell/module/powershellget/install-module) conforme a seguir:
 
@@ -138,7 +140,7 @@ Você também pode desabilitar diretamente a MFA para um usuário usando [Set-Ms
 Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements @()
 ```
 
-## <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Conversão de usuários da MFA individual para a MFA baseada em Acesso Condicional
+## <a name="convert-users-from-per-user-mfa-to-conditional-access"></a>Converter usuários de MFA por usuário para acesso condicional
 
 O PowerShell a seguir ajuda a fazer a conversão para a Autenticação Multifator do Azure baseada em Acesso Condicional.
 
@@ -177,11 +179,11 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
 > [!NOTE]
-> Se a MFA for habilitada novamente para objeto de usuário que já tem detalhes de registro, como telefone ou email, os administradores precisarão fazer com que o usuário se registre novamente para MFA através do portal do Azure ou do PowerShell. Se o usuário não se registrar novamente, seu estado de MFA não fará a transição de *Habilitada* para *Imposta* na interface do usuário de gerenciamento da MFA.
+> Se a MFA for reabilitada em um usuário e o usuário não fizer o novo registro, seu estado de MFA não passará de *habilitado* para *imposto* na interface do usuário de gerenciamento do MFA. Nesse caso, o administrador deve mover o usuário diretamente para *imposto*.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para definir as configurações da autenticação multifator do Azure, consulte [definir as configurações da autenticação multifator do Azure](howto-mfa-mfasettings.md).
+Para definir as configurações da autenticação multifator do Azure, consulte  [definir as configurações da autenticação multifator do Azure](howto-mfa-mfasettings.md).
 
 Para gerenciar as configurações do usuário para Autenticação Multifator do Azure , veja [Gerenciamento das configurações do usuário com Autenticação Multifator do Azure](howto-mfa-userdevicesettings.md).
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: f159d2cdc48b144d0c75c62cd8a7ba6667424243
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e0085ef5213853a1577ec039d5e360114aa7c64e
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043862"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566260"
 ---
 # <a name="advanced-data-security-for-sql-machines-preview"></a>Segurança de dados avançada para máquinas SQL (versão prévia)
 
@@ -72,7 +72,7 @@ Ambos são descritos abaixo.
 
     [![Página de preços da central de segurança com pacotes opcionais](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
 
-    A segurança de dados avançada para servidores SQL em computadores será habilitada em todos os SQL Servers conectados ao espaço de trabalho selecionado. A proteção estará totalmente ativa após a primeira reinicialização do SQL Server. 
+    A segurança de dados avançada para servidores SQL em computadores será habilitada em todos os SQL Servers conectados ao espaço de trabalho selecionado. A proteção estará totalmente ativa após a primeira reinicialização da instância de SQL Server.
 
     >[!TIP] 
     > Para criar um novo espaço de trabalho, siga as instruções em [criar um log Analytics espaço de trabalho](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).

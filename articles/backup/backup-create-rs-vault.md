@@ -4,12 +4,12 @@ description: Neste artigo, saiba como criar e configurar cofres de serviços de 
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 244562efdc4c274a79ea27cdfa00dd51ae671fa4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7084fb9b599e127fac2b8c75748448d37d3f5365
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032945"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586181"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Criar e configurar um cofre dos serviços de recuperação
 
@@ -25,10 +25,10 @@ O backup do Azure manipula automaticamente o armazenamento para o cofre. Você p
 >- Se você ainda não tiver configurado o backup, [siga estas etapas](#set-storage-redundancy) para revisar e modificar as configurações.
 >- Se você já configurou o backup e deve passar de GRS para LRS, [revise essas soluções alternativas](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
-1. Na folha **Cofres dos Serviços de Recuperação**, clique no novo cofre. Na seção **Configurações**, clique em **Propriedades**.
-1. Em **Propriedades**, em **Configuração de Backup**, clique em **Atualizar**.
+1. No painel **cofres dos serviços de recuperação** , selecione o novo cofre. Na seção **configurações** , selecione  **Propriedades**.
+1. Em **Propriedades**, em **configuração de backup**, selecione **Atualizar**.
 
-1. Selecione o tipo de replicação de armazenamento e clique em **Salvar**.
+1. Selecione o tipo de replicação de armazenamento e selecione **salvar**.
 
      ![Definir a configuração de armazenamento para o novo cofre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
@@ -46,7 +46,7 @@ Como uma das opções de restauração, a CRR (restauração entre regiões) per
 - realizar análises quando houver um requisito de auditoria ou de conformidade
 - Restaure a VM ou seu disco se houver um desastre na região primária.
 
-Para escolher esse recurso, selecione **habilitar restauração entre regiões** na folha **configuração de backup** .
+Para escolher esse recurso, selecione **habilitar restauração entre regiões** no painel **configuração de backup** .
 
 Para esse processo, há implicações de preço como ele está no nível de armazenamento.
 
@@ -62,16 +62,16 @@ Para esse processo, há implicações de preço como ele está no nível de arma
 
 ### <a name="configure-cross-region-restore"></a>Configurar a restauração entre regiões
 
-Um cofre criado com redundância GRS inclui a opção de configurar o recurso de restauração entre regiões. Cada cofre do GRS terá um banner, que será vinculado à documentação. Para configurar a CRR para o cofre, vá para a folha configuração de backup, que contém a opção para habilitar esse recurso.
+Um cofre criado com redundância GRS inclui a opção de configurar o recurso de restauração entre regiões. Cada cofre do GRS terá um banner, que será vinculado à documentação. Para configurar a CRR para o cofre, vá para o painel configuração de backup, que contém a opção para habilitar esse recurso.
 
  ![Faixa de configuração de backup](./media/backup-azure-arm-restore-vms/banner.png)
 
 1. No portal, acesse cofre dos serviços de recuperação > configurações > Propriedades.
-2. Clique em **habilitar a restauração entre regiões neste cofre** para habilitar a funcionalidade.
+2. Selecione **habilitar a restauração entre regiões neste cofre** para habilitar a funcionalidade.
 
-   ![Antes de clicar em habilitar a restauração entre regiões neste cofre](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
+   ![Antes de selecionar habilitar a restauração entre regiões neste cofre](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
 
-   ![Depois de clicar em habilitar a restauração entre regiões neste cofre](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
+   ![Depois de selecionar habilitar a restauração entre regiões neste cofre](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
 
 Saiba como [Exibir itens de backup na região secundária](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region).
 
@@ -79,9 +79,27 @@ Saiba como [restaurar na região secundária](backup-azure-arm-restore-vms.md#re
 
 Saiba como [monitorar trabalhos de restauração de região secundária](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs).
 
+## <a name="set-encryption-settings"></a>Definir configurações de criptografia
+
+Por padrão, os dados no cofre dos serviços de recuperação são criptografados usando chaves gerenciadas por plataforma. Nenhuma ação explícita é necessária do seu fim para habilitar essa criptografia e ela se aplica a todas as cargas de trabalho cujo backup está sendo feito em seu cofre dos serviços de recuperação.  Você pode optar por trazer sua própria chave para criptografar os dados de backup neste cofre. Isso é conhecido como chaves gerenciadas pelo cliente. Se você deseja criptografar dados de backup usando sua própria chave, a chave de criptografia deve ser especificada antes que qualquer item seja protegido a esse cofre. Depois de habilitar a criptografia com a chave, ela não poderá ser revertida.
+
+### <a name="configuring-a-vault-to-encrypt-using-customer-managed-keys"></a>Configurando um cofre para criptografar usando chaves gerenciadas pelo cliente
+
+Para configurar seu cofre para criptografar com chaves gerenciadas pelo cliente, essas etapas devem ser seguidas nesta ordem:
+
+1. Habilitar identidade gerenciada para seu cofre de serviços de recuperação
+
+1. Atribua permissões ao cofre para acessar a chave de criptografia no Azure Key Vault
+
+1. Habilitar a proteção de exclusão e limpeza reversível no Azure Key Vault
+
+1. Atribuir a chave de criptografia ao cofre dos serviços de recuperação
+
+As instruções para cada uma dessas etapas podem ser encontradas [neste artigo](encryption-at-rest-with-cmk.md#configuring-a-vault-to-encrypt-using-customer-managed-keys).
+
 ## <a name="modifying-default-settings"></a>Modificando configurações padrão
 
-É altamente recomendável revisar as configurações padrão de **tipo de replicação de armazenamento** e configurações de **segurança** antes de configurar backups no cofre.
+É altamente recomendável examinar as configurações padrão de **tipo de Replicação de Armazenamento** e **Configurações de segurança** antes de configurar backups no cofre.
 
 - O **tipo de replicação de armazenamento** por padrão é definido como com **redundância geográfica** (GRS). Depois de configurar o backup, a opção para modificar é desabilitada.
   - Se você ainda não tiver configurado o backup, [siga estas etapas](#set-storage-redundancy) para revisar e modificar as configurações.
@@ -101,7 +119,7 @@ Antes de decidir migrar do GRS para o armazenamento com redundância local (LRS)
 Para proteger as cargas de trabalho em um novo cofre do LRS, a proteção e os dados atuais precisarão ser excluídos no cofre do GRS e os backups serão configurados novamente.
 
 >[!WARNING]
->A operação a seguir é destrutiva e não pode ser desfeita. Todos os dados de backup e itens de backup associados ao servidor protegido serão excluídos permanentemente. Faça isso com cuidado.
+>A operação a seguir é destrutiva e não pode ser desfeita. Todos os dados de backup e itens de backup associados ao servidor protegido serão excluídos permanentemente. Continue com cuidado.
 
 Pare e exclua a proteção atual no cofre do GRS:
 
@@ -132,7 +150,6 @@ Se você precisar manter os dados protegidos atuais no cofre do GRS e continuar 
   - Você precisará pagar para manter os pontos de recuperação no cofre do GRS (consulte [preços de backup do Azure](azure-backup-pricing.md) para obter detalhes).
   - Você poderá restaurar a VM, se necessário, do cofre do GRS.
   - O primeiro backup no cofre LRS da VM no novo recurso será uma réplica inicial.
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

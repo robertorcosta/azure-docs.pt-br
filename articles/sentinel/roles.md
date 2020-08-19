@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 7dded3b938444198e72d6eb87476f571dd3f4d78
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: b48ff1043ae8128a5cbfdcbba0548d89b5af2624
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836761"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565835"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões no Azure Sentinel
 
@@ -59,6 +59,10 @@ Os usuários com requisitos de trabalho específicos podem precisar receber fun�
 - Conectando fontes de dados ao Azure Sentinel
 
     Para que um usuário adicione **conectores de dados**, você deve atribuir as permissões de gravação do usuário no espaço de trabalho do Azure Sentinel. Além disso, observe as permissões adicionais necessárias para cada conector, conforme listado na página do conector relevante.
+
+- Usuários convidados atribuindo incidentes
+
+    Se um usuário convidado precisar atribuir incidentes, além da função de respondente do Azure Sentinel, o usuário também precisará receber a função de [leitor de diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers). Observe que essa função *não* é uma função RBAC do Azure, mas uma função **Azure Active Directory** , e que usuários regulares (não convidados) têm essa função atribuída por padrão. 
 
 Para uma comparação lado a lado, consulte a [tabela abaixo](#roles-and-allowed-actions).
 

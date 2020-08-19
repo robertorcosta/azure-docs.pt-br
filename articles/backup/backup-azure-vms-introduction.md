@@ -3,12 +3,12 @@ title: Sobre o backup de VM do Azure
 description: Neste artigo, saiba como o serviço de backup do Azure faz backup de máquinas virtuais do Azure e como seguir as práticas recomendadas.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 3c73b489404d1e8198fbd984b5188a7a2ccb973f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 04ea9fa49d95ced3245f88fee58a23ba67aaa0d7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091038"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587490"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup de VM do Azure
 
@@ -51,8 +51,8 @@ Quando você faz backup de VMs do Azure com o Backup do Azure, máquinas virtuai
 
 **Criptografia** | **Detalhes** | **Suporte**
 --- | --- | ---
+**SSE** | Com o SSE, o armazenamento do Azure fornece criptografia em repouso criptografando automaticamente os dados antes de armazená-los. O armazenamento do Azure também descriptografa os dados antes de recuperá-los. O backup do Azure dá suporte a backups de VMs com dois tipos de Criptografia do Serviço de Armazenamento:<li> **SSE com chaves gerenciadas por plataforma**: essa criptografia é por padrão para todos os discos em suas VMs. Veja mais [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys).<li> **SSE com chaves gerenciadas pelo cliente**. Com o CMK, você gerencia as chaves usadas para criptografar os discos. Veja mais [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys). | O backup do Azure usa SSE para criptografia em repouso de VMs do Azure.
 **Criptografia de Disco do Azure** | O Azure Disk Encryption criptografa tanto o sistema operacional quanto os discos de dados para VMs do Azure.<br/><br/> O Azure Disk Encryption se integra com as chaves de criptografia do BitLocker (BEKs), que são protegidas em um cofre de chaves como segredos. O Azure Disk Encryption também se integra com Azure Key Vault chaves de criptografia de chave (KEKs). | O backup do Azure dá suporte ao backup de VMs do Azure gerenciadas e não gerenciadas criptografadas somente com o BEKs ou com o BEKs junto com KEKs.<br/><br/> É feito backup e criptografia de BEKs e KEKs.<br/><br/> Como o backup de KEKs e BEKs é feito, os usuários com as permissões necessárias podem restaurar chaves e segredos de volta para o cofre de chaves, se necessário. Esses usuários também podem recuperar a VM criptografada.<br/><br/> Chaves e segredos criptografados não podem ser lidos por usuários não autorizados ou pelo Azure.
-**SSE** | Com o SSE, o armazenamento do Azure fornece criptografia em repouso criptografando automaticamente os dados antes de armazená-los. O armazenamento do Azure também descriptografa os dados antes de recuperá-los. | O backup do Azure usa SSE para criptografia em repouso de VMs do Azure.
 
 Para VMs do Azure gerenciadas e não gerenciadas, o backup dá suporte a ambas as VMs criptografadas com BEKs somente ou VMs criptografadas com BEKs junto com KEKs.
 
@@ -131,7 +131,7 @@ Por exemplo, pegue uma VM de tamanho padrão a2 que tenha dois discos de dados a
 
 **Disco** | **Tamanho máximo** | **Dados reais presentes**
 --- | --- | ---
-Disco do SO | 32 TB | 17 GB
+Disco do sistema operacional | 32 TB | 17 GB
 Disco local/temporário | 135 GB | 5 GB (não incluído no backup)
 Disco de dados 1 | 32 TB| 30 GB
 Disco de dados 2 | 32 TB | 0 GB
@@ -140,4 +140,4 @@ O tamanho real da VM neste caso é de 17 GB + 30 GB + 0 GB = 47 GB. Esse tamanho
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora, [Prepare-se para o backup de VM do Azure](backup-azure-arm-vms-prepare.md).
+- [Prepare-se para o backup de VM do Azure](backup-azure-arm-vms-prepare.md).

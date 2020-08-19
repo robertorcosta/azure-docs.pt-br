@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 82ddba67a6bd9fcc56b74c3f830663228feb945b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 86597521f762237b5c4bc9a7a5268d7dae1303b4
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009691"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587962"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (com script)
 
@@ -110,6 +110,8 @@ Para verificar se a instância foi criada, vá para a [página gêmeos digital d
 
 > [!NOTE]
 > Lembre-se de que o script atribui atualmente essa função necessária ao mesmo usuário que executa o script de Cloud Shell. Se você precisar atribuir essa função a outra pessoa que gerenciará a instância, poderá fazer isso agora por meio do portal do Azure ([instruções](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) ou da CLI ([instruções](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
+>
+> Você também pode usar o portal ou a CLI para refazer sua própria atribuição de função se houvesse algum problema com a configuração com script.
 
 ### <a name="verify-app-registration"></a>Verificar registro do aplicativo
 

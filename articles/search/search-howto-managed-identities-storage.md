@@ -9,18 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 073a92f07d17614cb386c5c33a8058af9b59aaea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dacfeeff06d58a084d4313ca50b51f262cf61381
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084068"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553073"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Configurar uma conexão com uma conta de armazenamento do Azure usando uma identidade gerenciada (versão prévia)
 
 > [!IMPORTANT] 
-> No momento, o suporte para configurar uma conexão com uma fonte de dados usando uma identidade gerenciada está em uma visualização pública restrita. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção.
-> Você pode solicitar acesso à versão prévia preenchendo [este formulário](https://aka.ms/azure-cognitive-search/mi-preview-request).
+> O suporte para configurar uma conexão com uma fonte de dados usando uma identidade gerenciada está atualmente em visualização pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção.
 
 Esta página descreve como configurar uma conexão de indexador com uma conta de armazenamento do Azure usando uma identidade gerenciada, em vez de fornecer credenciais na cadeia de conexão do objeto da fonte de dados.
 
@@ -67,7 +66,9 @@ Nesta etapa, você dará permissão ao seu serviço do Azure Cognitive Search pa
 
     ![Adicionar a atribuição de função Acesso a Dados e Leitor](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Adicionar a atribuição de função Acesso a Dados e Leitor")
 
-### <a name="3---create-the-data-source"></a>3 – Criar a fonte de dados
+### <a name="3---create-the-data-source"></a>3 - Criar a fonte de dados
+
+A [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), portal do Azure e o [SDK do .net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) oferecem suporte à cadeia de conexão de identidade gerenciada. Veja abaixo um exemplo de como criar uma fonte de dados para indexar dados de uma conta de armazenamento usando a [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerenciada. O formato da cadeia de conexão de identidade gerenciada é o mesmo para a API REST, o SDK do .NET e o portal do Azure.
 
 Ao indexar de uma conta de armazenamento, a fonte de dados deve ter as seguintes propriedades obrigatórias:
 
@@ -96,8 +97,6 @@ api-key: [admin key]
     "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
 }   
 ```
-
-O portal do Azure e o [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) também oferecem suporte à cadeia de conexão de identidades gerenciadas. O portal do Azure requer um sinalizador de recurso que será fornecido a você ao se inscrever na visualização usando o link na parte superior desta página. 
 
 ### <a name="4---create-the-index"></a>4 – Criar o índice
 

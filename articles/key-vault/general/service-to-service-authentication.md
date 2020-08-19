@@ -6,15 +6,15 @@ author: msmbaldwin
 services: key-vault
 ms.author: mbaldwin
 ms.date: 08/08/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 56ada47e46d788ca77f65e354836e19f4d3969d2
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: af7cb87f8caf0176505c8af864ae8d3cb0c312a0
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272749"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585688"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação serviço a serviço no Azure Key Vault usando o .NET
 
@@ -170,7 +170,7 @@ Há três métodos principais de usar uma entidade de serviço para executar seu
 
     Substitua *{AppId}*, *{TenantId}* e *{Thumbprint}* pelos valores gerados na Etapa 1. Substitua *{CertificateStore}* por *LocalMachine*' ou *CurrentUser*, com base no seu plano de implantação.
 
-1. Execute o aplicativo.
+1. Executar o aplicativo.
 
 ### <a name="use-a-shared-secret-credential-to-sign-into-azure-ad"></a>Usar uma credencial de segredo compartilhado para entrar no Azure AD
 
@@ -188,7 +188,7 @@ Há três métodos principais de usar uma entidade de serviço para executar seu
 
     Substitua _{AppId}_, _{TenantId}_ e _{ClientSecret}_ pelos valores gerados na Etapa 1.
 
-1. Execute o aplicativo.
+1. Executar o aplicativo.
 
 Depois que tudo estiver configurado corretamente, nenhuma alteração de código adicional será necessária. O `AzureServiceTokenProvider` usa a variável de ambiente e o certificado para se autenticar no Azure AD.
 

@@ -6,15 +6,15 @@ author: ghogen
 manager: jillfra
 ms.service: key-vault
 ms.custom: vs-azure
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: e8c452ffb40b27ed84061e93c1758b3d403052fe
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 52c9584ca94117db58a5427c46269d7f2612861a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054401"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88588476"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicione o Key Vault ao seu aplicativo Web usando os Serviços Conectados do Visual Studio
 
@@ -154,7 +154,7 @@ Afeta as referências de .NET do arquivo de projeto e as referências de pacote 
 
 ### <a name="added-files-for-aspnet-core"></a>Arquivos adicionados para ASP.NET Core
 
-- `ConnectedService.json`adicionado, que registra algumas informações sobre o provedor de serviços conectado, a versão e um link da documentação.
+- `ConnectedService.json` adicionado, que registra algumas informações sobre o provedor de serviços conectado, a versão e um link da documentação.
 
 ### <a name="project-file-changes-for-aspnet-core"></a>Alterações de arquivo de projeto para ASP.NET Core
 
@@ -192,7 +192,7 @@ Afeta o arquivo de projeto referências do .NET e `packages.config` (referência
 
 ### <a name="added-files-for-aspnet-framework"></a>Arquivos adicionados para a estrutura ASP.NET
 
-- `ConnectedService.json`adicionado, que registra algumas informações sobre o provedor de serviços conectado, a versão e um link para a documentação.
+- `ConnectedService.json` adicionado, que registra algumas informações sobre o provedor de serviços conectado, a versão e um link para a documentação.
 
 ### <a name="project-file-changes-for-aspnet-framework"></a>Alterações de arquivo de projeto para a estrutura ASP.NET
 

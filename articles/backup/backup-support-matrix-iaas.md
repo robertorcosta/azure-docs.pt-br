@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações ao
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 9d7e3b4f565fac42d0a91d155846e672c7437f2d
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: c7cd3ed863153762e42a0b6420623fec52e779e1
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810455"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566311"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 
@@ -49,7 +49,7 @@ Backups por dia (por meio do DPM/MABS) | Dois backups agendados por dia.
 Backup mensal/anual| Não tem suporte durante o backup com a extensão de VM do Azure. Só há suporte para diários e semanais.<br/><br/> É possível configurar a política para manter backups diários/semanais por um período de retenção mensal/anual.
 Ajuste automático de relógio | Sem suporte.<br/><br/> O Backup do Azure não é ajustado automaticamente para alterações do horário de verão ao fazer backup de uma VM.<br/><br/>  Modifique a política manualmente, se necessário.
 [Recursos de segurança para backups híbridos](./backup-azure-security-feature.md) |Não há suporte para desabilitar recursos de segurança.
-Fazer backup da VM cuja hora do computador foi alterada | Sem suporte.<br/><br/> Se a hora da máquina for alterada para uma data/hora futura depois de habilitar o backup para essa VM; No entanto, mesmo se a alteração de tempo for revertida, o backup bem-sucedido não será garantido.
+Fazer backup da VM cuja hora do computador foi alterada | Sem suporte.<br/><br/> Se a hora da máquina for alterada para uma data/hora futura depois de habilitar o backup para essa VM; no entanto, mesmo se a alteração de tempo for revertida, o backup bem-sucedido não será garantido.
 VMs do Azure em [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/overview.md) | Há suporte para backup e restauração em VMs com o [modo de orquestração](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) definido como 3. <br><br>Não há suporte para conjuntos de disponibilidade.
 
 ## <a name="operating-system-support-windows"></a>Suporte do sistema operacional (Windows)
@@ -155,7 +155,7 @@ Backup de VMs do Azure com bloqueios | Sem suporte para VMs não gerenciadas. <b
 
 **Componente** | **Suporte**
 --- | ---
-Discos de dados de VM do Azure | O suporte para backup de VMs do Azure com até 32 discos está em visualização pública em todas as regiões, exceto nuvens nacionais (Azure governamental, Azure China 21Vianet e Azure Alemanha).<br><br> O suporte para backup de VMs do Azure com discos não gerenciados ou VMs clássicas é de até 16 discos.
+Discos de dados de VM do Azure | O suporte para backup de VMs do Azure com até 32 discos está em visualização pública em todas as regiões.<br><br> O suporte para backup de VMs do Azure com discos não gerenciados ou VMs clássicas é de até 16 discos.
 Tamanho do disco de dados | O tamanho do disco individual pode ter até 32 TB e um máximo de 256 TB combinados para todos os discos em uma VM.
 Tipo de armazenamento | HDD Standard, SSD Standard e SSD Premium.
 Discos gerenciados | Com suporte.

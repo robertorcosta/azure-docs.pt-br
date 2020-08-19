@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d32ad29bf652cad62a5950859ebff0366e09fc6f
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 10b74f7b795df2cf8c19d044fce44da3f798af7a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510021"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587626"
 ---
 # <a name="understand-event-data"></a>Entender os dados do evento
 
@@ -30,7 +30,7 @@ Em geral, as notificações são feitas de duas partes: o cabeçalho e o corpo.
 
 Os cabeçalhos de mensagens de notificação são representados com pares chave-valor. Dependendo do protocolo usado (MQTT, AMQP ou HTTP), os cabeçalhos de mensagem serão serializados de forma diferente. Esta seção discute informações gerais de cabeçalho para mensagens de notificação, independentemente do protocolo e da serialização específicos escolhidos.
 
-Algumas notificações estão em conformidade com o padrão CloudEvents. A conformidade do CloudEvents é a seguinte:
+Algumas notificações estão em conformidade com o padrão [CloudEvents](https://cloudevents.io/) . A conformidade do CloudEvents é a seguinte:
 * As notificações emitidas de dispositivos continuam a seguir as especificações existentes para notificações
 * As notificações processadas e emitidas pelo Hub IoT continuam a seguir as especificações existentes para notificação, exceto quando o Hub IoT opta por oferecer suporte a CloudEvents, como por meio da grade de eventos
 * Notificações emitidas do [gêmeos digital](concepts-twins-graph.md) com um [modelo](concepts-models.md) em conformidade com o CloudEvents
@@ -107,7 +107,7 @@ Aqui estão os campos no corpo de uma notificação de ciclo de vida.
 | --- | --- |
 | `id` | Identificador da notificação, como um UUID ou um contador mantido pelo serviço. `source` + `id` é exclusivo para cada evento distinto. |
 | `source` | Nome do Hub IoT ou instância do gêmeos digital do Azure, como *MyHub.Azure-Devices.net* ou *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | *1.0*<br>A mensagem está de acordo com esta versão da especificação CloudEvents. |
+| `specversion` | *1,0*<br>A mensagem está de acordo com esta versão da [especificação CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete` |
 | `datacontenttype` | `application/json` |
 | `subject` | ID do teledigital |
@@ -193,7 +193,7 @@ Aqui estão os campos no corpo de uma notificação de alteração de borda.
 | --- | --- |
 | `id` | Identificador da notificação, como um UUID ou um contador mantido pelo serviço. `source` + `id` é exclusivo para cada evento distinto |
 | `source` | Nome da instância de gêmeos digital do Azure, como *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | *1.0*<br>A mensagem está de acordo com esta versão da especificação CloudEvents. |
+| `specversion` | *1,0*<br>A mensagem está de acordo com esta versão da [especificação CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
 |`datacontenttype`| `application/json` |
 | `subject` | ID da relação, como `<twinID>/relationships/<relationshipID>` |
@@ -249,7 +249,7 @@ Aqui estão os campos no corpo de uma notificação de alteração de troca digi
 | --- | --- |
 | `id` | Identificador da notificação, como um UUID ou um contador mantido pelo serviço. `source` + `id` é exclusivo para cada evento distinto |
 | `source` | Nome do Hub IoT ou instância do gêmeos digital do Azure, como *MyHub.Azure-Devices.net* ou *mydigitaltwins.westus2.azuredigitaltwins.net*
-| `specversion` | *1.0*<br>A mensagem está de acordo com esta versão da especificação CloudEvents. |
+| `specversion` | *1,0*<br>A mensagem está de acordo com esta versão da [especificação CloudEvents](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Update` |
 | `datacontenttype` | `application/json` |
 | `subject` | ID do teledigital |
