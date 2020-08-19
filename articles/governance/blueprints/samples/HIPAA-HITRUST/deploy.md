@@ -1,14 +1,14 @@
 ---
 title: Implantar amostra de blueprint de HIPAA/HITRUST
 description: Etapas de implantação do modelo de blueprint do HIPAA/HITRUST, incluindo detalhes do parâmetro do artefato de blueprint.
-ms.date: 12/03/2019
+ms.date: 08/03/2020
 ms.topic: sample
-ms.openlocfilehash: b3101d67e281f3b613b95e3f3ef5f620ae44cec7
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f41827d687beb583ea6402d517e88b8cf69903a0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044831"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211522"
 ---
 # <a name="deploy-the-hipaa-hitrust-blueprint-sample"></a>Implantar a amostra de blueprint de HIPAA/HITRUST
 
@@ -106,6 +106,8 @@ Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |Implantar Auditoria em servidores SQL |Atribuição de política |Nome do grupo de recursos da conta de armazenamento para auditoria do SQL Server |A auditoria grava eventos de banco de dados em um log de auditoria na sua conta de Armazenamento do Azure (uma conta de armazenamento é criada em cada região em que um SQL Server é criado e compartilhada por todos os servidores na região). Importante: para um funcionamento adequado da Auditoria, não exclua nem renomeie o grupo de recursos nem as contas de armazenamento. |
 |Implantar configurações de diagnóstico para Grupos de Segurança de Rede |Atribuição de política |Prefixo da conta de armazenamento para diagnóstico do grupo de segurança de rede |Este prefixo é combinado com a localização de grupo de segurança de rede para formar o nome da conta de armazenamento criada. |
 |Implantar configurações de diagnóstico para Grupos de Segurança de Rede |Atribuição de política |Nome do grupo de recursos da conta de armazenamento para diagnóstico do grupo de segurança de rede (precisa existir) |O nome do grupo de recursos em que a conta de armazenamento é criada. Esse grupo de recursos já precisa existir. |
+|\[Versão Prévia\]: Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Linux |Atribuição de política |Workspace do Log Analytics para VMSS (Conjuntos de Dimensionamento de VMs) do Linux |Se este workspace estiver fora do escopo da atribuição, você deverá conceder permissões de 'Colaborador do Log Analytics' (ou semelhantes) à ID da entidade de segurança da atribuição da política. |
+|\[Versão Prévia\]: Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Windows |Atribuição de política |Workspace do Log Analytics para VMSS (Conjuntos de Dimensionamento de VMs) do Linux |Se este workspace estiver fora do escopo da atribuição, você deverá conceder permissões de 'Colaborador do Log Analytics' (ou semelhantes) à ID da entidade de segurança da atribuição da política. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

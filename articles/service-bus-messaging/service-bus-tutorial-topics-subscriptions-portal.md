@@ -5,12 +5,12 @@ author: spelluru
 ms.author: spelluru
 ms.date: 06/23/2020
 ms.topic: tutorial
-ms.openlocfilehash: 77a8ef9c96219d2deb08126dc68eafe08d5262d4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 348e37202335cc525f945085658337fbe6bcc561
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341692"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182418"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: Atualizar estoque usando o portal do Azure e tópicos/assinaturas
 
@@ -409,7 +409,7 @@ Para obter mais exemplos de envio e recebimento de mensagens, comece com os [Exe
 Avance para o próximo tutorial para saber mais sobre como usar os recursos de publicação/assinatura do Barramento de Serviço.
 
 > [!div class="nextstepaction"]
-> [Atualizar estoque usando o PowerShell e tópicos/assinaturas](service-bus-tutorial-topics-subscriptions-powershell.md)
+> [Responder a eventos por meio da Grade de Eventos](service-bus-to-event-grid-integration-example.md)
 
 [conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

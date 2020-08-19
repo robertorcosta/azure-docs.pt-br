@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 332b4fdb6e0a26437edbf4309ee0b89b79f7eb23
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 04e4394e6a439c923558ef90e13c14c0adaa4020
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845792"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142104"
 ---
 # <a name="tutorial-return-azure-data-box-preview"></a>Tutorial: Devolução do Azure Data Box Disk (versão prévia)
 
@@ -176,7 +176,7 @@ Se tiver problemas, envie um email para a Data Box Operations Ásia [adbo@micros
 
 ## <a name="self-managed"></a>[Autogerenciado](#tab/in-selfmanaged)
 
-Se estiver usando o Data Box no Japão, em Singapura, na Coreia do Sul e no Oeste da Europa e tiver selecionado a opção de remessa autogerenciada durante a criação do pedido, siga estas instruções.
+Se estiver usando o Data Box no Japão, em Singapura, na Coreia do Sul, na Índia, na África do Sul ou no Oeste da Europa e tiver selecionado a opção de remessa autogerenciada durante a criação do pedido, siga estas instruções.
 
 1. Após a conclusão dessa etapa, anote o código de Autorização mostrado na página Preparar para o Envio da IU da Web local do Data Box.
 2. Desligue o dispositivo e remova os cabos. Enrole o cabo de alimentação fornecido com o dispositivo e coloque-o com segurança na parte traseira do dispositivo.

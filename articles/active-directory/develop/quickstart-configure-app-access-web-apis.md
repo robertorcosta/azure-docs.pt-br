@@ -13,12 +13,12 @@ ms.date: 08/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 800b399e73be032cfd9d2849b004018aa9d9031f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 87c21587567ffe3462e4b702985114ac10454886
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120857"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140795"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Início Rápido: Configurar um aplicativo cliente para acessar uma API Web
 
@@ -148,7 +148,7 @@ Para adicionar um segredo do cliente:
 
 ## <a name="add-permissions-to-access-web-apis"></a>Adicionar permissões para acessar APIs Web
 
-A [permissão Entrar e ler perfil do usuário da API do Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference#user-permissions) está selecionada por padrão. Você pode selecionar entre [dois tipos de permissões](developer-glossary.md#permissions) para cada API Web:
+A [permissão Entrar e ler perfil do usuário da API do Graph](/graph/permissions-reference#user-permissions) está selecionada por padrão. Você pode selecionar entre [dois tipos de permissões](developer-glossary.md#permissions) para cada API Web:
 
 * **Permissões de aplicativo**. Seu aplicativo cliente precisa acessar a API Web diretamente por si só, sem contexto de usuário. Esse tipo de permissão requer o consentimento do administrador. Essa permissão não está disponível para aplicativos cliente móveis e para desktop.
 * **Permissões delegadas**. o aplicativo cliente precisa acessar a API Web como o usuário conectado, mas com acesso limitado pela permissão selecionada. Esse tipo de permissão pode ser concedido por um usuário, a menos que a permissão exija consentimento do administrador.
