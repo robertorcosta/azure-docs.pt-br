@@ -2,25 +2,21 @@
 title: 'Tutorial: configurar o software de recrutamento de coencontro para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o software de recrutamento coencontro.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: f427fb75cfaeda79b037c327992e4ad482a7e689
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5165c3f03d51403a978ad3574306bc27d931e1d7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77058307"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88536870"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Tutorial: configurar o software de recrutamento de coencontro para provisionamento automático de usuário
 
@@ -102,7 +98,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 5. Na seção **credenciais de administrador** , insira a **URL do locatário** e o **token secreto** de sua conta do software de recrutamento de seu encontro, conforme descrito na etapa 6.
 
-6. No [console de administração de software de recrutamento coencontro](https://app.comeet.co/), navegue até **Coencontro > configurações > autenticação > Microsoft Azure**e copie o **token secreto para o valor da empresa** para o campo **token secreto** no Azure AD.
+6. No [console de administração de software de recrutamento coencontro](https://app.comeet.co/), navegue até  **Coencontro > configurações > autenticação > Microsoft Azure**e copie o **token secreto para o valor da empresa** para o campo **token secreto** no Azure AD.
 
     ![Conencontro provisionamento de software de recrutamento](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 
