@@ -3,12 +3,12 @@ title: Migrar bases de dados de conhecimento – QnA Maker
 description: Migrar uma base de dados de conhecimento requer a exportação de uma base de dados de conhecimento e a importação para outra.
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: e2d6c1795b816d3b7ac046ea4055402b9107e20b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 4148431ebb4de288ac517c7c006a925e36c5f460
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343081"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88542914"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de dados de conhecimento usando export-import
 
@@ -22,7 +22,7 @@ A migração de uma base de dados de conhecimento requer a exportação de uma b
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* Crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 * Configurar um novo [serviço do QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
 
 ## <a name="migrate-a-knowledge-base-from-qna-maker"></a>Migrar uma base de dados de conhecimento do QnA Maker
@@ -56,7 +56,7 @@ O processo de migração está programaticamente disponível usando as seguintes
 
 * [Baixar API da base de dados de conhecimento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download)
 
-**Importar**
+**Importaçãoação**
 
 * [Substituir API (recarregar com a mesma ID da base de dados de conhecimento)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace)
 * [Criar API (carregar com nova ID da base de dados de conhecimento)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)

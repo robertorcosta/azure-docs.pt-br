@@ -3,23 +3,19 @@ title: 'Tutorial: configurar o provisionamento de entrada do workday no Azure Ac
 description: Saiba como configurar o provisionamento de entrada do WORKDAY para o Azure AD
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: daveba
-ms.assetid: fac4f61e-d942-4429-a297-9ba74db95077
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 6fb80af84379a1a0bc174a7318c8150a98bea95e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69c3246c910a83d889151d6ad749e1be86340e8c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84026497"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88540959"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>Tutorial: configurar o WORKDAY para o provisionamento de usuário do Azure AD
 O objetivo deste tutorial é mostrar as etapas que você precisa executar para provisionar dados de trabalho do workday no Azure Active Directory. 

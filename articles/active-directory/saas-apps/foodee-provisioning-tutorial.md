@@ -2,25 +2,21 @@
 title: 'Tutorial: configurar o alimento para o provisionamento automático de usuário usando Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o alimento.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: fb48deae-4653-448a-ba2f-90258edab3a7
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 2195056ec66550063aba5ce5e2b977b51a6dc5e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40549fa8880fb4dc4d29046b0037621610f0b130
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77057798"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544175"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutorial: configurar o alimento para provisionamento automático de usuário
 
@@ -75,7 +71,7 @@ Para configurar o alimento para o provisionamento automático de usuário usando
 
 Para adicionar o alimento da Galeria de aplicativos do Azure AD, faça o seguinte:
 
-1. No [Portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**.
+1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**.
 
     ![O comando Azure Active Directory](common/select-azuread.png)
 
@@ -130,7 +126,7 @@ Configure o provisionamento automático de usuário para o alimento no Azure AD 
 
     ![A caixa de texto email de notificação](common/provisioning-notification-email.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 1. Em **mapeamentos**, selecione **sincronizar Azure Active Directory usuários para o alimento**.
 

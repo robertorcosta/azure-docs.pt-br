@@ -2,25 +2,21 @@
 title: 'Tutorial: configurar o console de infraestrutura de nuvem da Oracle para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o console de infraestrutura de nuvem da Oracle.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: e22c8746-7638-4a0f-ae08-7db0c477cf52
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 94f5be93d95cc1c524e6db464cac68879ed0b0e7
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 0c3d68698621fe963074c7216e4636208d93deca
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926783"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543860"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Tutorial: configurar o console de infraestrutura de nuvem da Oracle para provisionamento automático de usuário
 
@@ -146,8 +142,8 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
       |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
       |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
       |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
-      |urn: IETF: params: SCIM: schemas: Oracle: IDCs: Extension: User: User: bypassNotification|Boolean|
-      |urn: IETF: params: SCIM: schemas: Oracle: IDCs: Extension: User: User: isFederatedUser|Boolean|
+      |urn: IETF: params: SCIM: schemas: Oracle: IDCs: Extension: User: User: bypassNotification|Booliano|
+      |urn: IETF: params: SCIM: schemas: Oracle: IDCs: Extension: User: User: isFederatedUser|Booliano|
 
 10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para o console de infraestrutura de nuvem da Oracle**.
 
