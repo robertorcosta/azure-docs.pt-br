@@ -3,15 +3,15 @@ title: Visão geral-automatizar a implantação para aplicativos lógicos do Azu
 description: Saiba mais sobre modelos de Azure Resource Manager para automatizar a implantação para aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 07/25/2019
-ms.openlocfilehash: 6a89eb16c8042efc86bb5cc8bd5fba7c821dc341
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/17/2020
+ms.openlocfilehash: 391692d708adbd542b2cf358f0ac597dc1db3fa0
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520962"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565546"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Visão geral: automatizar a implantação para aplicativos lógicos do Azure usando modelos de Azure Resource Manager
 
@@ -175,7 +175,7 @@ Aqui estão algumas práticas recomendadas para definir parâmetros:
 
   * [Passar valores de parâmetros protegidos com Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
-* Para diferenciar nomes de parâmetro de modelo dos nomes de parâmetros de definição de fluxo de trabalho, você pode usar nomes de parâmetro de modelo descritivos, por exemplo:`TemplateFabrikamPassword`
+* Para diferenciar nomes de parâmetro de modelo dos nomes de parâmetros de definição de fluxo de trabalho, você pode usar nomes de parâmetro de modelo descritivos, por exemplo: `TemplateFabrikamPassword`
 
 Para obter mais práticas recomendadas de modelo, consulte [práticas recomendadas para parâmetros de modelo](../azure-resource-manager/templates/template-best-practices.md#parameters).
 
@@ -237,7 +237,7 @@ Este arquivo de parâmetros de exemplo especifica os valores para os parâmetros
 
 ## <a name="template-resources"></a>Recursos de modelo
 
-Seu modelo tem um `resources` objeto, que é uma matriz que contém definições para cada recurso a ser criado e implantado no Azure, como a [definição de recurso do aplicativo lógico](#logic-app-resource-definition), quaisquer [definições de recurso de conexão](#connection-resource-definitions)e quaisquer outros recursos que seu aplicativo lógico precisa para a implantação.
+Seu modelo tem um `resources` objeto, que é uma matriz que contém definições para cada recurso a ser criado e implantado no Azure, como a [definição de recurso do aplicativo lógico](#logic-app-resource-definition), as [definições de recurso de conexão](#connection-resource-definitions)e quaisquer outros recursos que seu aplicativo lógico precisa para a implantação.
 
 ```json
 {
@@ -264,6 +264,22 @@ Seu modelo tem um `resources` objeto, que é uma matriz que contém definições
 
 > [!NOTE]
 > Os modelos podem incluir definições de recursos para vários aplicativos lógicos, portanto, certifique-se de que todos os recursos do aplicativo lógico especifiquem o mesmo grupo de recursos do Azure. Ao implantar o modelo em um grupo de recursos do Azure usando o Visual Studio, você será solicitado a inserir o aplicativo lógico que deseja abrir. Além disso, o projeto do grupo de recursos do Azure pode conter mais de um modelo, portanto, certifique-se de selecionar o arquivo de parâmetros correto quando solicitado.
+
+<a name="view-resource-definitions"></a>
+
+### <a name="view-resource-definitions"></a>Exibir definições de recursos
+
+Para examinar as definições de recursos de todos os recursos em um grupo de recursos do Azure, [Baixe seu aplicativo lógico do Azure para o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), que é a maneira mais fácil de criar um modelo de aplicativo lógico com parâmetros válido que está, na maioria das vezes, pronto para implantação, ou siga estas etapas no portal do Azure:
+
+1. Entre no [portal do Azure](https://portal.azure.com) com suas credenciais da conta do Azure.
+
+1. Localize o grupo de recursos do Azure que contém seu aplicativo lógico, conexões e outros recursos.
+
+1. Na barra de ferramentas do grupo de recursos, selecione **visão geral**e selecione todos os recursos no grupo de recursos.
+
+1. Na barra de ferramentas do grupo de recursos, em **configurações**, selecione **Exportar modelo**.
+
+   O portal mostra as definições para os recursos que você selecionou. Para obter mais informações, consulte [exportação única e de vários recursos para um modelo no portal do Azure](../azure-resource-manager/templates/export-template-portal.md).
 
 Para obter informações gerais sobre os recursos de modelo e seus atributos, consulte estes tópicos:
 

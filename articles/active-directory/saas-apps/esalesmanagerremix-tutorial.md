@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory com o E Sales Manager Remix | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o E Sales Manager Remix.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-ms.assetid: 89b5022c-0d5b-4103-9877-ddd32b6e1c02
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 167d682bb5ce1266ba6b677f6223c38dd34af9bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd5a200d1c17f0417b2ee88f7f905ee6de3cfe62
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82202389"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555382"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Tutorial: Integrar o Azure Active Directory ao E Sales Manager Remix
 
@@ -61,7 +56,7 @@ O cenário descrito neste tutorial consiste em dois blocos de construção princ
 ## <a name="add-e-sales-manager-remix-from-the-gallery"></a>Adicionar o E Sales Manager Remix da galeria
 Para configurar a integração do Microsoft Azure Active Directory ao E Sales Manager Remix, adicione o E Sales Manager Remix da galeria à sua lista de aplicativos SaaS gerenciados da seguinte maneira:
 
-1. No [Portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**. 
+1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**. 
 
     ![O botão Azure Active Directory][1]
 
@@ -132,7 +127,7 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
 
 1. Na seção **Referência rápida**, copie a URL de saída e a URL do serviço de logon único do SAML.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
     ![O botão Salvar](./media/esalesmanagerremix-tutorial/tutorial_general_400.png)
 

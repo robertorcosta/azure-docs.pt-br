@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: c7b4cf688d02ebbcb099f116c0eb7b4ebe7c6074
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a53ac9387664aafc218f13834e0499fde417d87d
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212425"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566073"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
@@ -159,7 +159,7 @@ Por exemplo, suponha que seu aplicativo lógico tenha uma política de autoriza�
 
 Antes de habilitar essa autenticação, revise estas considerações:
 
-* Uma chamada de entrada para seu aplicativo lógico pode usar apenas um esquema de autorização, o OAuth do Azure AD ou [SAS (Assinaturas de Acesso Compartilhado)](#sas). Somente esquemas de autorização de [tipo de portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) têm suporte para tokens OAuth, que têm suporte apenas para o gatilho de solicitação.
+* Uma chamada de entrada para seu aplicativo lógico pode usar apenas um esquema de autorização, o OAuth do Azure AD ou [SAS (Assinaturas de Acesso Compartilhado)](#sas). O uso de um esquema não desabilita o outro, mas o uso de ambos ao mesmo tempo causa um erro porque o serviço não sabe qual esquema deve ser escolhido. Somente esquemas de autorização de [tipo de portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) têm suporte para tokens OAuth, que têm suporte apenas para o gatilho de solicitação.
 
 * Seu aplicativo lógico é limitado a um número máximo de políticas de autorização. Cada política de autorização também tem um número máximo de [declarações](../active-directory/develop/developer-glossary.md#claim). Para obter mais informações, confira [Limites e configuração para Aplicativos Lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
 

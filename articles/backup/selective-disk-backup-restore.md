@@ -3,16 +3,20 @@ title: Backup e restauração de disco seletivo para máquinas virtuais do Azure
 description: Neste artigo, saiba mais sobre o backup e a restauração de disco seletivo usando a solução de backup de máquina virtual do Azure.
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: e61014a4fde7bfce316671ff0b081ff7bc2205a5
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.custom: references_regions
+ms.openlocfilehash: 6a5e574795dfded98260da20711dab7d16cabd5b
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535304"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566226"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Backup e restauração de disco seletivo para máquinas virtuais do Azure
 
 O backup do Azure dá suporte ao backup de todos os discos (sistema operacional e dados) em uma VM juntas usando a solução de backup de máquina virtual. Agora, usando a funcionalidade de backup e restauração dos discos seletivos, você pode fazer backup de um subconjunto dos discos de dados em uma VM. Isso fornece uma solução eficiente e econômica para suas necessidades de backup e restauração. Cada ponto de recuperação contém apenas os discos que são incluídos na operação de backup. Isso permite ainda que você tenha um subconjunto de discos restaurados do ponto de recuperação fornecido durante a operação de restauração. Isso se aplica a ambas as restaurações de instantâneos e do cofre.
+
+>[!NOTE]
+>O backup e a restauração de disco seletivo para máquinas virtuais do Azure estão em visualização pública em todas as regiões.
 
 ## <a name="scenarios"></a>Cenários
 

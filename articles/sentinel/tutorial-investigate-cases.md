@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 564041da0be6874acae1bec69e4ab2d744d89323
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ef08ac8d386bd8a28dce38cb53aed31d79b37a2
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565240"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566328"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: investigar incidentes com o Azure Sentinel
 
@@ -37,10 +37,12 @@ Este artigo cobre:
 > * Usar o grafo de investigação
 > * Responda às ameaças
 
-Um incidente pode incluir vários alertas. É uma agregação de todas as evidências relevantes para uma investigação específica. Um incidente é criado com base em regras analíticas que você criou na página **análise** . As propriedades relacionadas aos alertas, como severidade e status, são definidas no nível do incidente. Depois de permitir que o Azure Sentinel saiba quais tipos de ameaças você está procurando e como encontrá-las, você pode monitorar ameaças detectadas investigando incidentes.
+Um incidente pode incluir vários alertas. É uma agregação de todas as evidências relevantes para uma investigação específica. Um incidente é criado com base nas regras de análise que você criou na página de **análise** . As propriedades relacionadas aos alertas, como severidade e status, são definidas no nível do incidente. Depois de permitir que o Azure Sentinel saiba quais tipos de ameaças você está procurando e como encontrá-las, você pode monitorar ameaças detectadas investigando incidentes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Você só poderá investigar o incidente se tiver usado os campos de mapeamento de entidade ao configurar sua regra analítica. O grafo de investigação requer que seu incidente original inclua entidades.
+- Você só poderá investigar o incidente se tiver usado os campos de mapeamento de entidade ao configurar sua regra de análise. O grafo de investigação requer que seu incidente original inclua entidades.
+
+- Se você tiver um usuário convidado que precisa atribuir incidentes, o usuário deverá ser atribuído à função de [leitor de diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) em seu locatário do Azure AD. Usuários regulares (não convidados) têm essa função atribuída por padrão.
 
 ## <a name="how-to-investigate-incidents"></a>Como investigar incidentes
 
@@ -81,7 +83,7 @@ Para usar o grafo de investigação:
 1. Selecione um incidente e, em seguida, selecione **investigar**. Isso levará você ao grafo de investigação. O grafo fornece um mapa ilustrativo das entidades conectadas diretamente ao alerta e a cada recurso conectado.
 
    > [!IMPORTANT] 
-   > Você só poderá investigar o incidente se tiver usado os campos de mapeamento de entidade ao configurar sua regra analítica. O grafo de investigação requer que seu incidente original inclua entidades.
+   > Você só poderá investigar o incidente se tiver usado os campos de mapeamento de entidade ao configurar sua regra de análise. O grafo de investigação requer que seu incidente original inclua entidades.
 
    ![Exibir mapa](media/tutorial-investigate-cases/map1.png)
 

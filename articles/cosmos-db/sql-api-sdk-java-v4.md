@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 0d1845c06c1f0373ffd4be43c104889a7327c3ac
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: af0964dceca8b862d0008d878045203983a96bda
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035766"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586208"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>SDK do Java v4 do Azure Cosmos DB para API do Core (SQL): notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -26,7 +26,8 @@ ms.locfileid: "88035766"
 > * [SDK do Java v4](sql-api-sdk-java-v4.md)
 > * [SDK do Java Assíncrono v2](sql-api-sdk-async-java.md)
 > * [SDK do Java Síncrono v2](sql-api-sdk-java.md)
-> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Spring data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring data v3](sql-api-sdk-java-spring-v3.md)
 > * [Conector do Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
@@ -143,7 +144,7 @@ O SDK do Java v4 do Azure Cosmos DB para Core (SQL) combina uma API assíncrona 
 * API renomeada `preferredLocations`  &  `multipleWriteLocations` para `preferredRegions`  &  `multipleWriteRegions` . 
 * Atualizado `reactor-core` para 3.3.5. Release, `reactor-netty` para 0.9.7. Release & `netty` para as versões 4.1.49. final. 
 * Adicionado suporte para `analyticalStoreTimeToLive` no SDK.     
-* `CosmosClientException`estende `AzureException` . 
+* `CosmosClientException` estende `AzureException` . 
 * Removidas `maxItemCount`  &  `requestContinuationToken` APIs do `FeedOptions` em vez disso usando `byPage()` APIs do `CosmosPagedFlux`  &  `CosmosPagedIterable` .
 * Introduzido `CosmosPermissionProperties` na superfície pública para `Permission` APIs.
 * `SqlParameterList`Tipo removido & substituído por`List`
@@ -154,14 +155,14 @@ O SDK do Java v4 do Azure Cosmos DB para Core (SQL) combina uma API assíncrona 
 * Uma sub-rede atualizada para 4.1.45. final & reator de projeto para a versão 3.3.3.
 * Contratos REST públicos atualizados para `Final` classes.
 * Suporte adicionado para diagnóstico avançado para operações de ponto.
-* Pacote atualizado para`com.azure.cosmos`
+* Pacote atualizado para `com.azure.cosmos`
 * `models`Pacote adicionado para contratos de modelo/REST
 * `utils`Pacote adicionado para `CosmosPagedFlux`  &  `CosmosPagedIterable` tipos. 
 * APIs públicas atualizadas para usar `Duration` em todo o SDK.
 * Adicionados todos os contratos REST ao `models` pacote.
 * `RetryOptions` foi renomeado para `ThrottlingRetryOptions`.
 * `CosmosPagedFlux`  &  `CosmosPagedIterable` Tipos de paginação adicionados para APIs de consulta. 
-* Adicionado suporte para compartilhamento de TransportClient em várias instâncias do CosmosClients usando uma nova API no`CosmosClientBuilder#connectionSharingAcrossClientsEnabled(true)`
+* Adicionado suporte para compartilhamento de TransportClient em várias instâncias do CosmosClients usando uma nova API no `CosmosClientBuilder#connectionSharingAcrossClientsEnabled(true)`
 * Otimizações de consulta removendo serialização/desserialização duplas. 
 * Otimizações de cabeçalhos de resposta removendo a cópia desnecessária de volta e para trás. 
 * Serialização otimizada `ByteBuffer` /desserialização removendo instanciações de cadeia de caracteres intermediárias.
@@ -171,8 +172,8 @@ O SDK do Java v4 do Azure Cosmos DB para Core (SQL) combina uma API assíncrona 
 * Corrigido o problema com a análise de resultados da consulta em caso de consultas de ordem de valor por. 
 * Correção de problemas de vazamento de soquete com o cliente TCP direto.
 * Corrigido `orderByQuery` com bug de token de continuação.
-* `ChangeFeedProcessor`correção de bug para tratamento de divisões de partição & quando a partição não foi encontrada.
-* `ChangeFeedProcessor`correção de bug ao sincronizar atualizações de concessão em threads diferentes.
+* `ChangeFeedProcessor` correção de bug para tratamento de divisões de partição & quando a partição não foi encontrada.
+* `ChangeFeedProcessor` correção de bug ao sincronizar atualizações de concessão em threads diferentes.
 * Correção da condição de corrida causando `ArrayIndexOutOfBound` exceção em StoreReader
 
 ## <a name="faq"></a>Perguntas frequentes

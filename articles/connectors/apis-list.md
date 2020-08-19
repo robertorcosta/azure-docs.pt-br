@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 3a628a70d8ce62827f79c1f7e16d2826be8d80f5
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1dd38f0360a4471124497d8357481283cd98383c
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827241"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566294"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores de Aplicativos Lógicos do Azure
 
@@ -66,7 +66,7 @@ Para aplicativos lógicos que precisam de acesso direto a recursos em uma rede v
 > [!NOTE]
 > Os aplicativos lógicos que são executados em um ISE e seus conectores, independentemente de onde esses conectores são executados, seguem um plano de preços fixo versus o plano de preços baseado em consumo. Para obter mais informações, consulte [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md) e [detalhes de preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-| Rótulo | Exemplo | Descrição |
+| Rotular | Exemplo | Descrição |
 |-------|---------|-------------|
 | **CORE** | ![Conector do ISE de exemplo](./media/apis-list/example-core-connector.png) | Gatilhos e ações internos com esse rótulo são executados no mesmo ISE que seus aplicativos lógicos. |
 | **ISE** | ![Conector do ISE de exemplo](./media/apis-list/example-ise-connector.png) | Conectores gerenciados com esse rótulo são executados no mesmo ISE que seus aplicativos lógicos. Se você tiver um sistema local conectado a uma rede virtual do Azure, um ISE permitirá que seus aplicativos lógicos acessem diretamente esse sistema sem o [Gateway de dados local](../logic-apps/logic-apps-gateway-connection.md). Em vez disso, você pode usar o conector do **ISE** do sistema, se disponível, uma ação http ou um [conector personalizado](#custom). Para sistemas locais que não têm conectores do **ISE** , use o gateway de dados local. Para examinar os conectores do ISE disponíveis, consulte [conectores do ISE](#ise-connectors). |
@@ -407,6 +407,10 @@ Para chamar as APIs que executam o código personalizado ou não estão disponí
 ## <a name="block-creating-connections"></a>Bloquear a criação de conexões
 
 Se sua organização não permitir a conexão a recursos específicos usando seus conectores em aplicativos lógicos do Azure, você poderá [bloquear a capacidade de criar essas conexões](../logic-apps/block-connections-connectors.md) para conectores específicos em fluxos de trabalho de aplicativo lógico usando [Azure Policy](../governance/policy/overview.md). Para obter mais informações, consulte [Bloquear conexões criadas por conectores específicos nos aplicativos lógicos do Azure](../logic-apps/block-connections-connectors.md).
+
+## <a name="get-ready-for-deployment"></a>Preparar-se para a implantação
+
+Embora você crie conexões de dentro de um aplicativo lógico, as conexões são recursos do Azure separados com suas próprias definições de recurso. Para examinar essas definições de recurso de conexão, você pode [inspecionar o grupo de recursos para seu aplicativo lógico usando o portal do Azure](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#view-resource-definitions) ou [baixar seu aplicativo lógico do Azure para o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), que é a maneira mais fácil de criar um modelo de aplicativo lógico parametrizado válido que está quase sempre pronto para implantação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

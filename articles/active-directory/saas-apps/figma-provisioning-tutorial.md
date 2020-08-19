@@ -2,25 +2,21 @@
 title: 'Tutorial: configurar o provisionamento automático de usuário do figma com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o figma.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: a50f1c81f5eda78ee6834aba3085f685c197b4dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0f0d61788d7ac9b242dbc176a125b45753d2578
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77057925"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555113"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Tutorial: configurar o figma para o provisionamento automático de usuário
 
@@ -71,7 +67,7 @@ Antes de configurar o figma para o provisionamento automático de usuário com o
 
     ![Figma criar token](media/Figma-provisioning-tutorial/token.png)
 
-5. Copie o valor do **token de API** . Esse valor será inserido no campo **token secreto** na guia provisionamento do seu aplicativo Figma no portal do Azure. 
+5. Copie o valor do  **token de API** . Esse valor será inserido no campo **token secreto** na guia provisionamento do seu aplicativo Figma no portal do Azure. 
 
     ![Figma criar token](media/Figma-provisioning-tutorial/figma04.png)
 
