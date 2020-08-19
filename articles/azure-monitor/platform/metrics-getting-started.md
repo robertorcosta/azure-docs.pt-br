@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 14f21b1c0bff5f4d5f77b1547c09ddd6c370ece0
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 3e5514c4a54083bcc6ef8187f2cd97515d2dd680
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276423"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590176"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introdução ao Azure Metrics Explorer
 
@@ -41,16 +41,19 @@ Para criar um gráfico de métricas, em seu recurso, grupo de recursos, assinatu
 
 4. Opcionalmente, você pode [alterar a agregação de métrica](metrics-charts.md#changing-aggregation). Por exemplo, talvez você queira que o gráfico mostre os valores mínimo, máximo ou médio da métrica.
 
-> [!NOTE]
+> [!TIP]
 > Use o botão **Adicionar métrica** e repita essas etapas se quiser ver várias métricas plotadas no mesmo gráfico. Para vários gráficos em uma exibição, selecione o botão **Adicionar gráfico** na parte superior.
 
 ## <a name="select-a-time-range"></a>Selecione um intervalo de tempo
+
+> [!WARNING]
+> [A maioria das métricas no Azure é armazenada por 93 dias](data-platform-metrics.md#retention-of-metrics). No entanto, você pode consultar no máximo 30 dias de dados em qualquer gráfico individual. Essa limitação não se aplica a [métricas baseadas em log](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
 
 Por padrão, o gráfico mostra as últimas 24 horas de dados de métricas. Use o painel **seletor de tempo** para alterar o intervalo de tempo, ampliar ou reduzir seu gráfico. 
 
 ![Alterar o painel de intervalo de tempo](./media/metrics-getting-started/time-picker.png)
 
-> [!NOTE]
+> [!TIP]
 > Use o **pincel de tempo** para investigar uma área interessante do gráfico (pico ou DIP). Coloque o ponteiro do mouse no início da área, clique e mantenha o botão esquerdo do mouse, arraste para o outro lado da área e, em seguida, solte o botão. O gráfico será ampliado naquele intervalo de tempo. 
 
 ## <a name="apply-dimension-filters-and-splitting"></a>Aplicar filtros de dimensão e divisão

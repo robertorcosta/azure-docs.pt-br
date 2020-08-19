@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 72b3b190492be5cec9986729875c5b09e2559ae5
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 46ddbd18051ffa44232468704ce189d4171b50e7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854181"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590002"
 ---
 # <a name="azure-cosmos-db-apache-spark-connector-for-core-sql-api-release-notes-and-resources"></a>API do Azure Cosmos DB Apache Spark Connector para núcleo (SQL): notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -26,7 +26,8 @@ ms.locfileid: "87854181"
 > * [SDK do Java v4](sql-api-sdk-java-v4.md)
 > * [SDK do Java Assíncrono v2](sql-api-sdk-async-java.md)
 > * [SDK do Java Síncrono v2](sql-api-sdk-java.md)
-> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [Spring data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring data v3](sql-api-sdk-java-spring-v3.md)
 > * [Conector do Spark](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
@@ -35,7 +36,7 @@ ms.locfileid: "87854181"
 > * [Executor em massa-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
 
-Acelere a análise de Big Data usando o conector do Azure Cosmos DB Apache Spark para núcleo (SQL). O conector do Spark permite executar trabalhos do [Spark](https://spark.apache.org/) em dados armazenados no Azure Cosmos DB. Há suporte para processamento em lote e fluxo.
+Acelere a análise de Big Data usando o conector do Azure Cosmos DB Apache Spark para núcleo (SQL). O conector do Spark permite executar trabalhos do [Spark ](https://spark.apache.org/) em dados armazenados no Azure Cosmos DB. Há suporte para processamento em lote e fluxo.
 
 Você pode usar o conector com o [Azure Databricks](https://azure.microsoft.com/services/databricks) ou o [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/), que fornece clusters Spark gerenciados no Azure. A tabela a seguir mostra as versões do Spark com suporte.
 

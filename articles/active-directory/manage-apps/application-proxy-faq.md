@@ -2,25 +2,21 @@
 title: Perguntas frequentes sobre o Azure Proxy de Aplicativo do AD | Microsoft Docs
 description: Aprenda as respostas para perguntas frequentes sobre como usar o Proxy de Aplicativo do AD do Azure para publicar aplicativos internos e locais para usuários remotos.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 78a0cb6217d8c1d25f08801066a970d6bc94e1b0
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: edf51dad768e8d8b5ea5dc6c1eff88f43f0f6b70
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042098"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589156"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Perguntas frequentes sobre o proxy de aplicativo Active Directory (Azure AD)
 
@@ -90,6 +86,15 @@ O proxy de aplicativo requer o Windows Server 2012 R2 ou posterior. Atualmente, 
 
 
 ## <a name="application-configuration"></a>Configuração de aplicativo
+
+### <a name="i-am-receiving-an-error-about-an-invalid-certificate-or-possible-wrong-password"></a>Estou recebendo um erro sobre um certificado inválido ou uma possível senha incorreta
+
+Depois de carregar o certificado SSL, você receberá a mensagem "certificado inválido, possível senha incorreta" no Portal.
+
+Aqui estão algumas dicas para solucionar esse erro:
+- Verifique se há problemas com o certificado. Instale-o em seu computador local. Se você não tiver problemas, o certificado será bom.
+- Verifique se a senha não contém nenhum caractere especial. Para teste, a senha deve conter apenas os caracteres 0-9, A-Z e a-z.
+- Se o certificado foi criado com o provedor de armazenamento de chaves de software da Microsoft, o algoritmo RSA deve ser usado.
 
 ### <a name="what-is-the-length-of-the-default-and-long-back-end-timeout-can-the-timeout-be-extended"></a>Qual é o comprimento do tempo limite de back-end padrão e "longo"? O tempo limite pode ser estendido?
 

@@ -3,12 +3,12 @@ title: Visão geral de cofres de Serviços de Recuperação
 description: Uma visão geral e a comparação entre os cofres de Serviços de Recuperação e os cofres de Backup do Azure.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 2b292a39e38ef5e298f45c2babbee9fbd20c39ea
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 5334bc2aea5ddbf734c3fd3ef314ff4da609d61d
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261864"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587745"
 ---
 # <a name="recovery-services-vaults-overview"></a>Visão geral dos cofres dos Serviços de Recuperação
 
@@ -32,10 +32,19 @@ Um cofre dos Serviços de Recuperação é uma entidade que armazena os backups 
 
 - Para saber mais sobre a redundância de armazenamento, consulte estes artigos sobre redundância [geográfica](../storage/common/storage-redundancy.md) e [local](../storage/common/storage-redundancy.md) .
 
-### <a name="additional-resources"></a>Recursos adicionais
+## <a name="encryption-settings-in-the-recovery-services-vault"></a>Configurações de criptografia no cofre dos serviços de recuperação
 
-- [Cenários com suporte e sem suporte do cofre](backup-support-matrix.md#vault-support)
-- [Perguntas frequentes sobre o cofre](backup-azure-backup-faq.md)
+Esta seção discute as opções disponíveis para criptografar os dados de backup armazenados no cofre dos serviços de recuperação.
+
+### <a name="encryption-of-backup-data-using-platform-managed-keys"></a>Criptografia de dados de backup usando chaves gerenciadas pela plataforma
+
+Por padrão, todos os seus dados são criptografados usando chaves gerenciadas por plataforma. Você não precisa executar nenhuma ação explícita do seu fim para habilitar essa criptografia. Ele se aplica a todas as cargas de trabalho cujo backup está sendo feito em seu cofre dos Serviços de Recuperação.
+
+### <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Criptografia de dados de backup usando chaves gerenciadas pelo cliente
+
+Você pode optar por criptografar seus dados usando chaves de criptografia de propriedade e gerenciadas por você. O backup do Azure permite que você use suas chaves RSA armazenadas no Azure Key Vault para criptografar seus backups. A chave de criptografia usada para criptografar backups pode ser diferente da usada para a origem. Os dados são protegidos usando uma DEK (chave de criptografia de dados) baseada em AES 256, que é, por sua vez, protegida usando suas chaves. Isso lhe dá controle total sobre os dados e as chaves. Para permitir a criptografia, o cofre dos serviços de recuperação deve receber acesso à chave de criptografia no Azure Key Vault. Você pode desabilitar a chave ou revogar o acesso sempre que necessário. No entanto, você deve habilitar a criptografia usando as chaves antes de tentar proteger todos os itens para o cofre.
+
+Leia mais sobre como criptografar seus dados de backup [usando chaves gerenciadas pelo cliente](encryption-at-rest-with-cmk.md).
 
 ## <a name="azure-advisor"></a>Assistente do Azure
 
@@ -45,9 +54,15 @@ O assistente do Azure fornece [recomendações](../advisor/advisor-high-availabi
 
 ![Assistente do Azure](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
+## <a name="additional-resources"></a>Recursos adicionais
+
+- [Cenários com suporte e sem suporte do cofre](backup-support-matrix.md#vault-support)
+- [Perguntas frequentes sobre o cofre](backup-azure-backup-faq.md)
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Use os artigos a seguir para:</br>
-[Fazer backup de uma VM IaaS](backup-azure-arm-vms-prepare.md)</br>
-[Fazer backup de um Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md)</br>
-[Fazer backup de um Windows Server](backup-windows-with-mars-agent.md)
+Use os artigos a seguir para:
+
+- [Fazer backup de uma VM IaaS](backup-azure-arm-vms-prepare.md)
+- [Fazer backup de um Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md)
+- [Fazer backup de um Windows Server](backup-windows-with-mars-agent.md)

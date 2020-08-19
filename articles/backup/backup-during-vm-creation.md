@@ -3,12 +3,12 @@ title: Habilitar o backup ao criar uma VM do Azure
 description: Descreve como habilitar o backup ao criar uma VM do Azure com o backup do Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7fb6fd25f5031669633641ea02f34180f6f795d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c744f6aa2bef6d3d6800aa6b6dc077915fc5205b
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032843"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586691"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Habilitar o backup ao criar uma VM do Azure
 
@@ -47,6 +47,9 @@ Se você ainda não tiver entrado em sua conta, entre no [portal do Azure](https
     - [Saiba mais](backup-instant-restore-capability.md) sobre a funcionalidade de restauração instantânea.
 
       ![Política de backup padrão](./media/backup-during-vm-creation/daily-policy.png)
+
+>[!NOTE]
+>[SSE e PMK são os métodos de criptografia padrão](backup-encryption.md) para VMs do Azure. O backup do Azure dá suporte ao backup e à restauração dessas VMs do Azure.
 
 ## <a name="azure-backup-resource-group-for-virtual-machines"></a>Grupo de recursos de backup do Azure para máquinas virtuais
 

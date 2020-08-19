@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f48b30e0e4e76a4cf4c855008776f6b7541ad5a2
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7a344b9c1383976cfe1b7507c120e19221f3555f
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850637"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589343"
 ---
 # <a name="scenario-azure-firewall---custom"></a>Cenário: Firewall do Azure-personalizado
 
@@ -40,6 +40,8 @@ Na tabela anterior, um "X" representa a conectividade direta entre duas conexõe
   * Tabela de rotas associada: **padrão**
   * Propagando para tabelas de rotas: **padrão**
 
+> [!NOTE]
+> Você pode criar uma instância de WAN virtual separada com um único Hub virtual seguro em cada região e, em seguida, pode conectar cada WAN virtual entre si por meio de VPN site a site.
 
 Para obter informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
 

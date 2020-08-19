@@ -7,22 +7,22 @@ manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: cc0d969ff6eb76732768dfed2826762920ae9e62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b179dd2662bf6fa545ea44b723671f1499b9e35
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81726937"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589003"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitoramento e alertas para Azure Key Vault
 
 ## <a name="overview"></a>Visão geral
 
-Depois de começar a usar o Key Vault para armazenar seus segredos de produção, é importante monitorar a integridade do cofre de chaves para garantir que o serviço funcione conforme o esperado. Conforme você começa a dimensionar seu serviço, o número de solicitações enviadas para o cofre de chaves aumentará. Isso tem um potencial para aumentar a latência de suas solicitações e, em casos extremos, fazer com que suas solicitações sejam limitadas, o que afetará o desempenho do seu serviço. Você também precisará ser alertado se o cofre de chaves estiver enviando um número incomum de códigos de erro, para que você possa ser notificado rapidamente sobre qualquer política de acesso ou problemas de configuração de firewall. Este documento abordará os seguintes tópicos:
+Depois de começar a usar o Key Vault para armazenar seus segredos de produção, é importante monitorar a integridade do cofre de chaves para garantir que o serviço funcione conforme o esperado. Conforme você começar a dimensionar o serviço, o número de solicitações enviadas para o cofre de chaves aumentará. Isso tem o potencial de aumentar a latência de suas solicitações e, em casos extremos, fazer com que suas solicitações sejam limitadas, o que afetará o desempenho de seu serviço. Você também precisará ser alertado se o cofre de chaves estiver enviando um número incomum de códigos de erro, para que você possa ser notificado rapidamente sobre qualquer política de acesso ou problemas de configuração de firewall. Este documento abordará os seguintes tópicos:
 
 + Métricas de Key Vault básicas para monitorar
 + Como configurar métricas e criar um painel 

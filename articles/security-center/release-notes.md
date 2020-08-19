@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: a635f32c5e5f1132d70fb503058267c8b33beb7c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: dbd040bf7caf3dbe9ed9820bf189bc1f74475c09
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272053"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586887"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -35,6 +35,7 @@ Esta página é atualizada regularmente, então visite-a com frequência. Se voc
 As atualizações em agosto incluem:
 
 - [Inventário de ativos-nova exibição avançada da postura de segurança de seus ativos](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
+- [Suporte adicionado para padrões de segurança de Azure Active Directory (para autenticação multifator)](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
 - [Recomendação de entidades de serviço adicionada](#service-principals-recommendation-added)
 - [Avaliação de vulnerabilidade em VMs – recomendações e políticas consolidadas](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
 
@@ -50,11 +51,27 @@ Você pode usar a exibição e seus filtros para explorar seus dados de postura 
 Saiba mais sobre o [inventário de ativos](asset-inventory.md).
 
 
+### <a name="added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication"></a>Suporte adicionado para padrões de segurança de Azure Active Directory (para autenticação multifator)
+
+A central de segurança adicionou suporte completo para [os padrões de segurança](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults), as proteções de segurança de identidade gratuita da Microsoft.
+
+Os padrões de segurança fornecem configurações de segurança de identidade pré-configuradas para defender sua organização contra ataques comuns relacionados à identidade. Os padrões de segurança já estão protegendo mais de 5 milhões locatários em geral; os locatários 50.000 também são protegidos pela central de segurança.
+
+A central de segurança agora fornece uma recomendação de segurança sempre que identifica uma assinatura do Azure sem os padrões de segurança habilitados. Até agora, a central de segurança recomenda habilitar a autenticação multifator usando o acesso condicional, que faz parte da licença Premium do Azure Active Directory (AD). Para clientes que usam o Azure AD gratuito, agora é recomendável habilitar os padrões de segurança. 
+
+Nossa meta é encorajar mais clientes a proteger seus ambientes de nuvem com o MFA e reduzir um dos maiores riscos que também é o mais impactante em sua [Pontuação segura](https://docs.microsoft.com/azure/security-center/secure-score-security-controls).
+
+Saiba mais sobre [os padrões de segurança](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
+
+
 ### <a name="service-principals-recommendation-added"></a>Recomendação de entidades de serviço adicionada
 
-Nova recomendação para clientes da central de segurança que usam certificados de gerenciamento para gerenciar suas assinaturas.
+Uma nova recomendação foi adicionada para recomendar que os clientes da central de segurança que usam certificados de gerenciamento para gerenciar suas assinaturas alternem para entidades de serviço.
 
 A recomendação, as **entidades de serviço devem ser usadas para proteger suas assinaturas em vez de certificados de gerenciamento,** aconselham você a usar entidades de serviço ou Azure Resource Manager para gerenciar com mais segurança suas assinaturas. 
+
+Saiba mais sobre [objetos de aplicativo e entidade de serviço no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
+
 
 ### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>Avaliação de vulnerabilidade em VMs – recomendações e políticas consolidadas
 

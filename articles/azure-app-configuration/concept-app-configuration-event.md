@@ -1,18 +1,18 @@
 ---
 title: Reagindo a Azure App eventos de valor de chave de configuração
-description: Use a grade de eventos do Azure para assinar eventos de configuração de aplicativo.
+description: Use a grade de eventos do Azure para assinar eventos de configuração de aplicativo, que permitem que os aplicativos reajam às alterações nos valores de chave sem a necessidade de código complicado.
 services: azure-app-configuration,event-grid
 author: jimmyca
 ms.author: jimmyca
 ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
-ms.openlocfilehash: a4f61d147ba1abf73ada6360b8d0d965d8e063a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae3417f991c0d810d8946cdaf358218ebbe4f6a5
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77523791"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590023"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reagindo a Azure App eventos de configuração
 
@@ -29,7 +29,7 @@ Dê uma olhada na [rota Azure app eventos de configuração para um ponto de ext
 ## <a name="available-azure-app-configuration-events"></a>Azure App eventos de configuração disponíveis
 A Grade de eventos usa [assinaturas de evento](../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para os assinantes. Azure App as assinaturas de evento de configuração podem incluir dois tipos de eventos:  
 
-> |Nome do Evento|Descrição|
+> |Nome do evento|Descrição|
 > |----------|-----------|
 > |`Microsoft.AppConfiguration.KeyValueModified`|Acionado quando um valor de chave é criado ou substituído|
 > |`Microsoft.AppConfiguration.KeyValueDeleted`|Acionado quando um valor de chave é excluído|
@@ -37,7 +37,7 @@ A Grade de eventos usa [assinaturas de evento](../event-grid/concepts.md#event-s
 ## <a name="event-schema"></a>Esquema do evento
 Azure App eventos de configuração contêm todas as informações de que você precisa para responder às alterações em seus dados. Você pode identificar um evento de configuração de aplicativo porque a propriedade eventType começa com "Microsoft. AppConfiguration". Encontre informações adicionais sobre o uso de propriedades de evento da Grade de Eventos em [Esquema de eventos da Grade de Eventos](../event-grid/event-schema.md).  
 
-> |Propriedade|Tipo|Descrição|
+> |Propriedade|Type|Descrição|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |topic|string|ID de Azure Resource Manager completo da configuração do aplicativo que emite o evento.|
 > |subject|string|O URI do valor de chave que é o assunto do evento.|

@@ -3,20 +3,20 @@ title: Guia de gerenciamento de custos para Azure Lab Services
 description: Entenda as diferentes maneiras de exibir os custos dos serviços de laboratório.
 author: rbest
 ms.author: rbest
-ms.date: 06/26/2020
+ms.date: 08/16/2020
 ms.topic: article
-ms.openlocfilehash: fbbaf4a3646260fc09467e214b82fd0213415635
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98ce4d5e82d65d911984dc45615253ddcae33ae1
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445297"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589836"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Gerenciamento de custos para Azure Lab Services
 
 O gerenciamento de custos pode ser dividido em duas áreas distintas: estimativa de custo e análise de custo.  A estimativa de custo ocorre ao configurar o laboratório para garantir que a estrutura inicial do laboratório se ajuste no orçamento esperado.  A análise de custo geralmente ocorre no final do mês para analisar os custos e determinar as ações necessárias para o próximo mês.
 
-## <a name="estimating-the-lab-costs"></a>Estimando os custos do laboratório
+## <a name="estimate-the-lab-costs"></a>Estimar os custos do laboratório
 
 Cada painel de laboratório tem uma seção **custos & cobrança** que apresenta uma estimativa aproximada do custo do laboratório para o mês.  A estimativa de custo resume o uso de horas com o número máximo de usuários pelo custo estimado por horas.  Para obter a estimativa mais precisa, configure o laboratório, incluindo a [agenda](how-to-create-schedules.md), e o painel refletirá o custo estimado.  
 
@@ -25,7 +25,7 @@ Essa estimativa pode não ser todos os custos possíveis, há alguns recursos qu
 > [!div class="mx-imgBorder"]
 > ![Estimativa de custo do painel](./media/cost-management-guide/dashboard-cost-estimation.png)
 
-## <a name="analyzing-previous-months-usage"></a>Analisando o uso de meses anteriores
+## <a name="analyze-previous-months-usage"></a>Analisar o uso de meses anteriores
 
 A análise de custo é para revisar o uso de meses anteriores para ajudar a determinar qualquer ajuste para o laboratório.  A divisão dos custos no passado pode ser encontrada na análise de [custo da assinatura](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis).  No portal do Azure, você pode digitar "assinaturas" no campo de pesquisa superior e, em seguida, selecionar a opção assinaturas.  
 
@@ -39,14 +39,14 @@ Selecione a assinatura específica a ser revisada.
 
  Selecione "análise de custo" no painel esquerdo em gerenciamento de **custos**.
 
- > [!div class="mx-imgBorder"]
+> [!div class="mx-imgBorder"]
 > ![Análise de custo de assinatura](./media/cost-management-guide/subscription-cost-analysis.png)
 
 Esse painel permitirá uma análise de custo detalhada, incluindo a capacidade de exportar para diferentes tipos de arquivo em uma agenda.  O gerenciamento de custos tem vários recursos para obter mais informações, consulte [visão geral da cobrança de gerenciamento de custos](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview)
 
 Filtragem pelo tipo de recurso: `microsoft.labservices/labaccounts` mostrará apenas o custo associado aos serviços de laboratório.
 
-## <a name="understanding-the-usage"></a>Noções básicas sobre o uso
+## <a name="understand-the-usage"></a>Entender o uso
 
 Veja abaixo um exemplo da análise de custo.
 
@@ -68,9 +68,69 @@ Algumas universidades usaram a conta de laboratório e o grupo de recursos como 
 
 Dependendo do tipo de classe, há maneiras de gerenciar os custos para reduzir a execução das VMs sem um aluno usando a máquina.
 
-### <a name="auto-shutdown-on-disconnect"></a>Desligamento automático ao desconectar
+### <a name="maximize-cost-control-with-auto-shutdown-settings"></a>Maximizar o controle de custo com as configurações de desligamento automático
 
-Na criação do laboratório, o proprietário do laboratório pode definir as VMs no laboratório para [desligar quando a conexão RDP com a VM for desconectada](how-to-enable-shutdown-disconnect.md).  Essa configuração reduz o cenário em que o aluno se desconecta, mas se esquece de interromper a VM.
+Os recursos de controle de custos de desligamento automático permitem que você impeça o desperdício de horas de uso da máquina virtual dentro dos laboratórios. A combinação dos seguintes três recursos automáticos de desligamento e desconexão captura a maioria dos casos em que os usuários deixam acidentalmente suas máquinas virtuais em execução:
+
+> [!div class="mx-imgBorder"]
+> ![Análise de custo de assinatura](./media/cost-management-guide/auto-shutdown-disconnect.png)
+
+Essas configurações podem ser definidas no nível da conta do laboratório e no nível do laboratório. Se as configurações estiverem habilitadas no nível da conta do laboratório, elas serão aplicadas a todos os laboratórios dentro da conta do laboratório. Para todas as novas contas de laboratório, essas configurações são ativadas por padrão. 
+
+#### <a name="details-about-auto-shutdown-settings"></a>Detalhes sobre as configurações de desligamento automático
+
+* Desconectar automaticamente os usuários de máquinas virtuais que o sistema operacional considera ocioso (somente Windows).
+
+    > [!NOTE]
+    > Essa configuração só está disponível para máquinas virtuais do Windows.
+
+    Quando a configuração é ativada, o usuário é desconectado de qualquer computador no laboratório quando o sistema operacional Windows considera a sessão como ociosa (incluindo as máquinas virtuais de modelo). A [definição de ociosidade do sistema operacional Windows](https://docs.microsoft.com/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) usa dois critérios: 
+
+    * Ausência do usuário – sem entrada de teclado ou mouse.
+    * Falta de consumo de recursos – todos os processadores e todos os discos estavam ociosos por um determinado% do tempo
+
+    Os usuários verão uma mensagem como esta dentro da máquina virtual antes de serem desconectadas: 
+
+    > [!div class="mx-imgBorder"]
+    > ![Análise de custo de assinatura](./media/cost-management-guide/idle-timer-expired.png)
+    
+    A máquina virtual ainda está em execução quando o usuário está desconectado. Se o usuário se reconectar à máquina virtual entrando, o Windows ou os arquivos que estavam abertos ou não salvos no trabalho anterior à desconexão ainda estarão lá. Nesse estado, como a máquina virtual está em execução, ela ainda conta como ativa e acumula o custo. 
+    
+    Para desligar automaticamente as máquinas virtuais ociosas do Windows que estão desconectadas, use a combinação de **usuários desconectados quando as máquinas virtuais estiverem ociosas** e **desligar as máquinas virtuais quando os usuários desconectarem** as configurações.
+
+    Por exemplo, se você definir as configurações da seguinte maneira:
+    
+    * Desconectar usuários quando as máquinas virtuais estiverem ociosas – 15 minutos após o estado ocioso ser detectado.
+    * Desligue as máquinas virtuais quando os usuários desconectarem – 5 minutos após a desconexão do usuário.
+    
+    As máquinas virtuais do Windows serão desligadas automaticamente 20 minutos depois que o usuário parar de usá-las. 
+    
+    > [!div class="mx-imgBorder"]
+    > ![Análise de custo de assinatura](./media/cost-management-guide/vm-idle-diagram.png)
+* Desligar automaticamente as máquinas virtuais quando os usuários se desconectarem (Windows & Linux).
+    
+    Essa configuração dá suporte a máquinas virtuais Windows e Linux. Quando essa configuração estiver ativada, o desligamento automático ocorrerá quando:
+    
+    * Para Windows, a conexão Área de Trabalho Remota (RDP) é desconectada.
+    * Para o Linux, a conexão SSH é desconectada.
+    
+    > [!NOTE]
+    > Há suporte apenas para [distribuições e versões específicas do Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions) .
+    
+    Você pode especificar por quanto tempo as máquinas virtuais devem aguardar até que o usuário se reconecte antes de desligar automaticamente. 
+* Desligar automaticamente as máquinas virtuais que são iniciadas, mas os usuários não se conectam.
+     
+    Dentro de um laboratório, um usuário pode iniciar uma máquina virtual, mas nunca se conectar a ela. Por exemplo:
+    
+    * Uma agenda no laboratório inicia todas as máquinas virtuais para uma sessão de classe, mas alguns alunos não aparecem e não se conectam a seus computadores.  
+    * Um usuário inicia uma máquina virtual, mas se esquece de conectar. 
+    
+    A configuração "desligar máquinas virtuais quando os usuários não se conectam" detectará esses casos e desligará automaticamente as máquinas virtuais.  
+    
+Para obter informações sobre como configurar e habilitar o desligamento automático de VMs na desconexão, consulte estes artigos:
+
+* [Configurar o desligamento automático de VMs na configuração de desconexão para uma conta de laboratório](how-to-configure-lab-accounts.md)
+* [Habilitar desligamento automático de VMs ao desconectar](how-to-enable-shutdown-disconnect.md)
 
 ### <a name="quota-vs-scheduled-time"></a>Cota vs. hora agendada
 

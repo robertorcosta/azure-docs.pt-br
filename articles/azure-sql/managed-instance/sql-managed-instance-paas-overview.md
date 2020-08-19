@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 06/25/2020
-ms.openlocfilehash: 7194e4553386c25691bb3ede8096da7fb63c5dc0
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.date: 08/14/2020
+ms.openlocfilehash: 72d0745e5a885ddbc57a9a849a7537a40e0b1215
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055183"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590057"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>O que é o Azure SQL Instância Gerenciada?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -73,8 +73,8 @@ O [modelo de compra baseado em vCore](../database/service-tiers-vcore.md) para o
 
 No modelo vCore, você pode escolher entre gerações de hardware.
 
-- As CPUs lógicas **Gen4** são baseadas em processadores Intel E5-2673 v3 (Haswell) 2,4-GHz, SSD anexado, núcleos físicos, 7 GB de RAM por núcleo e tamanhos de computação entre 8 e 24 vCores.
-- As CPUs lógicas **Gen5** são baseadas em processadores Intel E5-2673 V4 (Broadwell) 2,3-GHz e Intel SP-8160 (Skylake), SSD Fast NVMe, núcleo lógico Hyper-thread e tamanhos de computação entre 4 e 80 núcleos.
+- As CPUs lógicas **Gen4** são baseadas em processadores Intel® E5-2673 v3 (Haswell) 2,4 GHz, SSD anexado, núcleos físicos, 7 GB de RAM por núcleo e tamanhos de computação entre 8 e 24 vCores.
+- As CPUs lógicas **Gen5** são baseadas em processadores Intel® E5-2673 V4 (Broadwell) 2,3 GHz, Intel® SP-8160 (Skylake) e Intel® 8272CL (cascadey Lake) 2,5 GHz, SSD Fast NVMe, núcleo lógico Hyper-Threading e tamanhos de computação entre 4 e 80 núcleos.
 
 Encontre mais informações sobre a diferença entre as gerações de hardware nos [limites de recursos do SQL instância gerenciada](resource-limits.md#hardware-generation-characteristics).
 

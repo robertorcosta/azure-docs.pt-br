@@ -4,12 +4,12 @@ description: Saiba como implantar um cluster do Service Fabric do Linux em uma r
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
-ms.openlocfilehash: 14e029622f17e8aae392cc55ba4418b3971a5ad2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c4b71328ce59284f8870407c9492d24afe9acd8a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260220"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586913"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Implantar um cluster do Service Fabric do Linux em uma rede virtual do Azure
 
@@ -21,7 +21,7 @@ Antes de começar:
 
 * Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Instalar a [CLI do Service Fabric](service-fabric-cli.md)
-* Instalar o [CLI do Azure](/cli/azure/install-azure-cli)
+* Instale a [CLI do Azure](/cli/azure/install-azure-cli)
 * Para saber os principais conceitos sobre clusters, leia [Visão geral dos clusters do Azure](service-fabric-azure-clusters-overview.md)
 * [Planejar e preparar](service-fabric-cluster-azure-deployment-preparation.md) para uma implantação de cluster de produção.
 
@@ -41,7 +41,12 @@ Para o Ubuntu 18, 4 LTS:
 * [AzureDeploy.jsem][template2]
 * [AzureDeploy.Parameters.jsem][parameters2]
 
-A diferença entre os dois modelos é o atributo **vmImageSku** sendo definido como "18, 4-LTS" e o **typeHandlerVersion** de cada nó sendo definido como 1,1.
+Para o Ubuntu 18, 4 LTS, a diferença entre os dois modelos é 
+* o atributo **vmImageSku** está sendo definido como "18, 4-LTS"
+* o **typeHandlerVersion** de cada nó está sendo definido como 1,1
+* Recursos do Microsoft. infabric/clusters
+   - **apiVersion** sendo definido como "2019-03-01" ou superior
+   - Propriedade **vmImage** sendo definida como "Ubuntu18_04"
 
 Esse modelo implanta um cluster seguro de sete máquinas virtuais e três tipos de nó em uma rede virtual.  Outros modelos de exemplo podem ser encontrados no [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). O [AzureDeploy.jsem][template] implanta um número de recursos, incluindo o seguinte.
 
@@ -160,7 +165,7 @@ Verifique se você está conectado e se o cluster está íntegro usando o comand
 sfctl cluster health
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não for imediatamente para o próximo artigo, [exclua o cluster](./service-fabric-tutorial-delete-cluster.md) para evitar a cobrança de encargos.
 

@@ -3,12 +3,12 @@ title: Referência de configurações de aplicativo para Azure Functions
 description: Documentação de referência para as configurações de aplicativo ou variáveis de ambiente do Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 2be13fbdbf8ce75a051448bfb46d2a41ad425be8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b17db828aeb19c3347c0db4babf0eee2b9d5f280
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242756"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589293"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -44,7 +44,7 @@ Por padrão, os [proxies do Functions](functions-proxies.md) usam um atalho para
 |Chave|Valor|Descrição|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Chamadas com uma URL de back-end apontando para uma função no aplicativo de função local não serão enviadas diretamente para a função. Em vez disso, as solicitações são direcionadas de volta para o front-end HTTP para o aplicativo de funções.|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Chamadas com uma URL de back-end apontando para uma função no aplicativo de funções local são encaminhadas diretamente para a função. Esse é o valor padrão. |
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Chamadas com uma URL de back-end apontando para uma função no aplicativo de funções local são encaminhadas diretamente para a função. Este é o valor padrão. |
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
@@ -234,8 +234,8 @@ Para consumo & apenas planos Premium. O caminho do arquivo para o código do apl
 
 O número máximo de instâncias que o aplicativo de funções pode alcançar. O padrão é sem limites.
 
-> [!NOTE]
-> Essa configuração é uma versão prévia do recurso - e só confiável se definido como um valor < = 5
+> [!IMPORTANT]
+> Essa configuração está em versão prévia.  Uma [propriedade de aplicativo para a função de expansão máxima](./functions-scale.md#limit-scale-out) foi adicionada e é a maneira recomendada para limitar a escala horizontal.
 
 |Chave|Valor de exemplo|
 |---|------------|
@@ -264,7 +264,7 @@ Os valores válidos são `1` ou uma URL que resolve para o local de um arquivo d
 
 Permite que você defina o fuso horário para seu aplicativo de funções. 
 
-|Chave|SO|Valor de exemplo|
+|Chave|Sistema operacional|Valor de exemplo|
 |---|--|------------|
 |\_fuso horário do site \_|Windows|Hora oficial do leste|
 |\_fuso horário do site \_|Linux|América/New_York|

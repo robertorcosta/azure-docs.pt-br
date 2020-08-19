@@ -1,27 +1,22 @@
 ---
-title: Domínios Personalizados no Proxy de Aplicativo do Azure AD | Microsoft Docs
+title: Domínios personalizados no Azure Proxy de Aplicativo do AD
 description: Configurar e gerenciar domínios personalizados no Proxy de Aplicativo do Azure AD.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 646a32509921709711b208c263ac6b077555eac5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6688875385d34fcbece964d43827c6d62ae7ced4
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764903"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587762"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurar domínios personalizados com o Proxy de Aplicativo do Azure AD
 
@@ -91,11 +86,11 @@ Para publicar seu aplicativo por meio do Proxy de Aplicativo com um domínio per
    
    ![Selecionar domínio personalizado](./media/application-proxy-configure-custom-domain/application-proxy.png)
    
-6. Se o domínio já tiver um certificado, o campo **Certificado** exibirá as informações do certificado. Caso contrário, selecione o campo **Certificado**. 
+6. Se o domínio já tiver um certificado, o campo **Certificado** exibirá as informações do certificado. Caso contrário, selecione o campo **Certificado**.
    
    ![Clique para carregar um certificado](./media/application-proxy-configure-custom-domain/certificate.png)
    
-7. Na página **Certificado SSL**, navegue até e selecione o arquivo de certificado PFX. Insira a senha para o certificado e selecione **Carregar certificado**. Para saber mais sobre certificados, confira a seção [Certificados para domínios personalizados](#certificates-for-custom-domains).
+7. Na página **Certificado SSL**, navegue até e selecione o arquivo de certificado PFX. Insira a senha para o certificado e selecione **Carregar certificado**. Para saber mais sobre certificados, confira a seção [Certificados para domínios personalizados](#certificates-for-custom-domains). Se o certificado não for válido ou se houver um problema com a senha, você verá uma mensagem de erro. As [perguntas frequentes sobre o proxy de aplicativo](application-proxy-faq.md#application-configuration) contêm algumas etapas de solução de problemas que você pode experimentar.
    
    ![Carregar um certificado](./media/application-proxy-configure-custom-domain/ssl-certificate.png)
    
@@ -126,7 +121,7 @@ Um certificado cria a conexão TLS segura para seu domínio personalizado.
 
 Você deve usar um certificado PFX para garantir que todos os certificados intermediários necessários estejam incluídos. O certificado deve conter uma chave privada.
 
-Não há nenhuma restrição em relação aos métodos de assinatura do certificado. A Criptografia de Curva Elíptica (ECC), o Nome Alternativo da Entidade (SAN) e outros tipos de certificado são compatíveis. 
+Os métodos de assinatura de certificado mais comuns têm suporte, como o SAN (nome alternativo da entidade). 
 
 Você pode usar certificados curingas, desde que o curinga corresponda à URL externa. Você deve usar certificados curinga para [aplicativos curinga](application-proxy-wildcard.md). Se você quiser usar o certificado para também acessar subdomínios, deverá adicionar os curingas de subdomínio como nomes alternativos da entidade no mesmo certificado. Por exemplo, um certificado para *\*.adventure-works.com* não funcionará para *\*.apps.adventure-works.com* a menos que você adicione *\*.apps.adventure-works.com* como um nome alternativo da entidade. 
 

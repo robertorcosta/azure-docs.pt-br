@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f621ed1342928b7f05fc8b84bfc2fceadf494fb5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ea5c3e0ffc000d3d239e87e9771d1b49d98fd206
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019724"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589037"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Logon Único Contínuo do Azure Active Directory: Perguntas frequentes
 
@@ -104,7 +104,7 @@ Siga estas etapas no servidor local em que você está executando o Azure AD Con
    2. Chame `Update-AzureADSSOForest -OnPremCredentials $creds`. Esse comando atualiza a chave de descriptografia do Kerberos para a `AZUREADSSO` conta de computador nessa floresta do AD específico e a atualiza no AD do Azure.
    
    >[!NOTE]
-   >Se você não for um administrador de domínio e tiver recebido permissões pelo administrador de domínio, deverá chamar`Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
+   >Se você não for um administrador de domínio e tiver recebido permissões pelo administrador de domínio, deverá chamar `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
    
    3. Repita as etapas anteriores para cada floresta do AD em que você configurou o recurso.
 
@@ -135,6 +135,8 @@ Siga estas etapas no servidor local em que você está executando o Azure AD Con
    3. Importe o módulo do PowerShell de SSO Contínuo usando este comando: `Import-Module .\AzureADSSO.psd1`.
    4. Execute o PowerShell como um Administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer a você um pop-up para inserir suas credenciais de Administrador Global do locatário.
    5. Chame `Enable-AzureADSSO -Enable $false`.
+   
+   Neste ponto, o SSO contínuo está desabilitado, mas os domínios permanecerão configurados no caso de você desejar habilitar o SSO contínuo de volta. Se você quiser remover completamente os domínios da configuração de SSO contínuo, chame o seguinte cmdlet depois de concluir a etapa 5 acima: `Disable-AzureADSSOForest -DomainFqdn <fqdn>` .
 
    >[!IMPORTANT]
    >Desabilitar o SSO Contínuo usando o PowerShell não alterará o estado no Azure AD Connect. O SSO Contínuo aparecerá como habilitado na página **Alterar entrada do usuário**.

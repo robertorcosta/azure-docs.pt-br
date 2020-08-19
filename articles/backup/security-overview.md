@@ -3,12 +3,12 @@ title: Visão geral de recursos de segurança
 description: Saiba mais sobre as funcionalidades de segurança no Backup do Azure que ajudam a proteger seus dados de backup e a atender às necessidades de segurança de sua empresa.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 944ef2e86ad8e56501692b29d0958bc4fc19bf0a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8a63585635f578f55b274c3257807fc731eacc47
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319296"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589377"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Visão geral dos recursos de segurança no Backup do Azure
 
@@ -48,9 +48,9 @@ A criptografia protege seus dados e ajuda a atender aos compromissos de conformi
 
 * No Azure, os dados em trânsito entre o armazenamento do Azure e o cofre são [protegidos por HTTPS](backup-support-matrix.md#network-traffic-to-azure). Esses dados permanecem na rede de backbone do Azure.
 
-* Os dados de backup são criptografados automaticamente usando [chaves gerenciadas pela Microsoft](backup-encryption.md#encryption-of-backup-data-using-platform-managed-keys)e você não precisa tomar nenhuma ação explícita para habilitá-lo. Você também pode criptografar seus dados de backup usando [chaves gerenciadas pelo cliente](encryption-at-rest-with-cmk.md) armazenadas no Azure Key Vault. Ele se aplica a todas as cargas de trabalho cujo backup está sendo feito em seu cofre dos Serviços de Recuperação.
+* Os dados de backup são criptografados automaticamente usando [chaves gerenciadas por plataforma](backup-encryption.md)e você não precisa tomar nenhuma ação explícita para habilitá-lo. Você também pode criptografar seus dados de backup usando [chaves gerenciadas pelo cliente](encryption-at-rest-with-cmk.md) armazenadas no Azure Key Vault. Ele se aplica a todas as cargas de trabalho cujo backup está sendo feito em seu cofre dos Serviços de Recuperação.
 
-* O backup do Azure dá suporte ao backup e à restauração de VMs do Azure que têm seus discos de sistema operacional/dados criptografados com [Azure Disk Encryption (Ade)](backup-encryption.md#backup-of-vms-encrypted-using-ade) e [VMs com discos criptografados CMK](backup-encryption.md#backup-of-managed-disk-vms-encrypted-using-customer-managed-keys). Para obter mais informações, [saiba mais sobre as VMs do Azure e o backup do Azure criptografados](./backup-azure-vms-encryption.md).
+* O backup do Azure dá suporte ao backup e à restauração de VMs do Azure que têm seus discos de sistema operacional/dados criptografados com [Azure Disk Encryption (Ade)](backup-azure-vms-encryption.md#encryption-support-using-ade) e [VMs com discos criptografados CMK](backup-azure-vms-encryption.md#encryption-using-customer-managed-keys). Para obter mais informações, [saiba mais sobre as VMs do Azure e o backup do Azure criptografados](./backup-azure-vms-encryption.md).
 
 * Quando é feito backup dos dados de servidores locais com o agente MARS, os dados são criptografados com uma senha antes do upload para o backup do Azure e descriptografados somente após serem baixados do backup do Azure. Leia mais sobre [os recursos de segurança para ajudar a proteger os backups híbridos](#security-features-to-help-protect-hybrid-backups).
 

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: 71020453f51e5baa9172ad8902eeb537dd55763b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac843ec2084cd019ec9d3bc90f6c8bbcb5c34279
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255221"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590346"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução aos Serviços de Nuvem do Azure e ao ASP.NET
 
@@ -37,7 +37,7 @@ Este tutorial mostra como executar front-end e back-end no serviço de nuvem do 
 ## <a name="what-youll-learn"></a>O que você aprenderá
 * Como habilitar seu computador para desenvolvimento do Azure ao instalar o SDK do Azure.
 * Como criar um projeto de serviço de nuvem do Visual Studio com uma função de trabalho e uma função Web MVC do ASP.NET.
-* Como testar o projeto de serviço de nuvem localmente, usando o emulador de armazenamento do Azure.
+* Como testar o projeto de serviço de nuvem localmente usando o emulador de armazenamento do Azure.
 * Como publicar o projeto de nuvem em um serviço de nuvem do Azure e testar usando uma conta de armazenamento do Azure.
 * Como carregar arquivos e armazená-los no serviço Blob do Azure.
 * Como usar o serviço Fila do Azure para comunicação entre camadas.

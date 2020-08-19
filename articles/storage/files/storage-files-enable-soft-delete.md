@@ -8,12 +8,12 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: f432c544d8632a548c397b63ffa8066f63424f67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2d2a000879a95f86a6cdda3324add5b692476eee
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528376"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590108"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Habilitar exclusão reversível nos compartilhamentos de arquivo do Azure
 
@@ -22,6 +22,8 @@ O armazenamento do Azure oferece exclusão reversível para compartilhamentos de
 As seguintes seções mostram como habilitar e usar a exclusão reversível para compartilhamentos de arquivo do Azure em uma conta de armazenamento existente:
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
+
+## <a name="getting-started"></a>Introdução
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 1. Navegue até sua conta de armazenamento e selecione **Exclusão reversível** em **Serviço de arquivo**.
@@ -33,7 +35,13 @@ As seguintes seções mostram como habilitar e usar a exclusão reversível para
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Os cmdlets de exclusão reversível estão disponíveis na versão 2.1.1-preview do módulo AZ. Storage. Para habilitar a exclusão reversível, você precisa atualizar as propriedades do serviço do cliente de um arquivo. O seguinte exemplo habilita a exclusão reversível para todos os compartilhamentos de arquivo em uma conta de armazenamento:
+## <a name="prerequisite"></a>Pré-requisito
+
+Os cmdlets de exclusão reversível atualmente só estão disponíveis nas versões [2.1.1-Preview](https://www.powershellgallery.com/packages/Az.Storage/2.1.1-preview) e [2.3.1-Preview](https://www.powershellgallery.com/packages/Az.Storage/2.3.1-preview) do módulo AZ. Storage. 
+
+## <a name="getting-started"></a>Introdução
+
+Para habilitar a exclusão reversível, você precisa atualizar as propriedades do serviço do cliente de um arquivo. O seguinte exemplo habilita a exclusão reversível para todos os compartilhamentos de arquivo em uma conta de armazenamento:
 
 ```azurepowershell-interactive
 $rgName = "yourResourceGroupName"

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 08/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 29055da1ea8093d413691a41d38d6280f43f728a
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: eeb22672829dca9ba342079183dcc5ed7c35393c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134489"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590363"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Perguntas frequentes sobre Azure NetApp Files
 
@@ -54,7 +54,9 @@ Não. A atribuição de IP para Azure NetApp Files volumes é dinâmica. Não h�
 
 ### <a name="can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted"></a>O tráfego de rede entre a VM do Azure e o armazenamento pode ser criptografado?
 
-O tráfego de dados (tráfego do cliente NFSv3, NFSv 4.1 ou SMBv3 para Azure NetApp Files volumes) não é criptografado. No entanto, o tráfego de uma VM do Azure (executando um cliente NFS ou SMB) para Azure NetApp Files é tão seguro quanto qualquer outro tráfego do Azure-VM para VM. Esse tráfego é local para a rede do Data Center do Azure. 
+O tráfego de dados entre os clientes NFSv 4.1 e os volumes Azure NetApp Files pode ser criptografado usando o Kerberos com a criptografia AES-256. Consulte [Configurar nfsv 4.1 criptografia Kerberos para Azure NetApp files](configure-kerberos-encryption.md) para obter detalhes.   
+
+O tráfego de dados entre clientes NFSv3 ou SMBv3 para Azure NetApp Files volumes não é criptografado. No entanto, o tráfego de uma VM do Azure (executando um cliente NFS ou SMB) para Azure NetApp Files é tão seguro quanto qualquer outro tráfego do Azure-VM para VM. Esse tráfego é local para a rede do Data Center do Azure. 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>O armazenamento pode ser criptografado em repouso?
 
@@ -125,7 +127,7 @@ Azure NetApp Files dá suporte a NFSv3 e NFSv 4.1. Você pode [criar um volume](
 
 ### <a name="how-do-i-enable-root-squashing"></a>Como fazer habilitar o desativação de raiz?
 
-No momento, não há suporte para o desatualização raiz.
+Você pode especificar se a conta raiz pode acessar o volume ou não usando a política de exportação do volume. Consulte [Configurar política de exportação para um volume de NFS](azure-netapp-files-configure-export-policy.md) para obter detalhes.
 
 ## <a name="smb-faqs"></a>Perguntas frequentes sobre o SMB
 

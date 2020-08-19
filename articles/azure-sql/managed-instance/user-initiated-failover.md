@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
-ms.date: 08/12/2020
-ms.openlocfilehash: e1a5cb4a5ce02954a14a6936ec14379701354a79
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.date: 08/18/2020
+ms.openlocfilehash: 1833f0343aa3e41119e215e7ce022f122d13489b
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191189"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589496"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manual iniciado pelo usuário no SQL Instância Gerenciada
 
@@ -126,9 +126,12 @@ Antes de iniciar o failover, sua saída indicará a réplica primária atual na 
 
 Você não poderá ver a mesma saída com a camada de serviço GP como aquela acima mostrada para BC. Isso ocorre porque a camada de serviço de GP é baseada apenas em um único nó. A saída de consulta T-SQL para a camada de serviço do GP mostrará um único nó somente antes e depois do failover. A perda de conectividade do cliente durante o failover, normalmente duradoura em um minuto, será a indicação da execução do failover.
 
+> [!NOTE]
+> A conclusão do processo de failover (não a indisponibilidade curta real) pode levar vários minutos por vez no caso de cargas de trabalho de **alta intensidade** . Isso ocorre porque o mecanismo de instância está tomando cuidado com todas as transações atuais no primário e acompanhe o nó secundário, antes de ser capaz de realizar o failover.
+
 > [!IMPORTANT]
 > As limitações funcionais do failover manual iniciado pelo usuário são:
-> - Pode haver um (1) failover iniciado no mesmo Instância Gerenciada a cada 30 minutos.
+> - Pode haver um (1) failover iniciado no mesmo Instância Gerenciada a cada **30 minutos**.
 > - Para instâncias de BC, deve existir quorum de réplicas para que a solicitação de failover seja aceita.
 > - Para instâncias de BC, não é possível especificar em qual réplica secundária legível iniciar o failover.
 
