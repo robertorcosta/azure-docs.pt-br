@@ -3,14 +3,14 @@ title: Crie Azure Functions no Linux usando uma imagem personalizada
 description: Saiba como criar Azure Functions em execução em uma imagem personalizada do Linux.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: mvc, devx-track-python
+ms.custom: devx-track-csharp, mvc, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 43ca0a01cd56d63113824eccd6d9c37b225d4134
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: efe1706f2ea97c3eadab8deade7e13123af17752
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852575"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225658"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux usando um contêiner personalizado
 
@@ -496,7 +496,7 @@ Com a associação de fila definida, agora você pode atualizar sua função par
 1. Na pasta raiz, execute `docker build` novamente e, desta vez, atualize a versão na marca para `v1.0.1`. Assim como antes, substitua `<docker_id>` pela ID da conta do Docker Hub:
 
     ```
-    docker build --tag <docker_id>/azurefunctionsimage:v1.0.1
+    docker build --tag <docker_id>/azurefunctionsimage:v1.0.1 .
     ```
     
 1. Envie a imagem atualizada por push de volta para o repositório usando `docker push`:

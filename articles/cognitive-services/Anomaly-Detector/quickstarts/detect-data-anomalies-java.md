@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 06/30/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 42edf9cd1687314f2ef168969791cb39f43851d3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e8fdc703b094ace83e70b736c1eb0d15c461adba
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323682"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243863"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Início Rápido: Detectar anomalias nos dados de série temporal usando o Java e a API REST do Detector de Anomalias
 
@@ -31,7 +31,7 @@ Use este início rápido para começar a usar os dois modos de detecção da API
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
+- Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 - Depois de ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Crie um recurso de Detector de Anomalias"  target="_blank">Crie um recurso de detector de anomalias <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Aguarde até que ele seja implantado e clique no botão **Ir para o recurso**.
     - Você precisará da chave e do ponto de extremidade do recurso que você criar para conectar seu aplicativo à API do Detector de Anomalias. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
     Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
@@ -47,7 +47,7 @@ Use este início rápido para começar a usar os dois modos de detecção da API
 ## <a name="create-a-new-application"></a>Crie um novo aplicativo
 
 1. Crie um projeto Java e importe as bibliotecas a seguir.
-    
+
     [!code-java[Import statements](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=imports)]
 
 2. Crie variáveis para seu ponto de extremidade e sua chave de assinatura. Abaixo estão os URIs que você pode usar para a detecção de anomalias. Eles serão anexados a seu ponto de extremidade de serviço posteriormente para criar as URLs de solicitação da API.

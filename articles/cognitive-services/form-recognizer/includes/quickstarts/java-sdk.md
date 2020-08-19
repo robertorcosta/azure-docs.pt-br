@@ -10,18 +10,18 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 0cfdf3d7fe22d5e7e580e4147b9df430f451f9a5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8e96a666ece7fea64df59c9ed51944534c96bd6b
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87374794"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246280"
 ---
 [Documentação de referência](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Pacote (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Exemplos](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
+* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * Um blob do Armazenamento do Azure contendo um conjunto de dados de treinamento. Confira [Criar um conjunto de dados de treinamento para um modelo personalizado](../../build-training-data-set.md) para obter dicas e opções para compilar o conjunto de dados de treinamento. Para este guia de início rápido, você pode usar os arquivos na pasta **Train** do [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451).
 * A versão atual do [JDK (Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * A [ferramenta de build Gradle](https://gradle.org/install/) ou outro gerenciador de dependência.

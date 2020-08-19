@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 85124a51b986b6e3d6444b35aa264e136abcdb76
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a1cf8bbda448dd991e805456ce8fb942077e8553
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400546"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226390"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -109,7 +109,7 @@ ms.locfileid: "81400546"
 
 1. Substitua a cadeia de caracteres `YourSubscriptionKey` pela chave de assinatura.
 
-1. Substitua a cadeia de caracteres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à assinatura (por exemplo, `westus` para a assinatura de avaliação gratuita).
+1. Substitua a cadeia de caracteres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à sua assinatura.
 
 1. Substitua a cadeia de caracteres `whatstheweatherlike.wav` pelo nome do seu arquivo.
 

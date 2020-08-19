@@ -7,20 +7,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 05/06/2020
+ms.date: 08/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 8ff353c5386f7ad5f30144ca50740c751b81ffc5
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 480c1e991225f707b6497849b6e8d8b5c4124f21
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87910701"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505387"
 ---
 [Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Exemplos](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/).
+* Assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services).
 * Um blob do Armazenamento do Azure contendo um conjunto de dados de treinamento. Confira [Criar um conjunto de dados de treinamento para um modelo personalizado](../../build-training-data-set.md) para obter dicas e opções para compilar o conjunto de dados de treinamento. Para este guia de início rápido, você pode usar os arquivos na pasta **Train** do [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451).
 * A versão atual do [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
@@ -60,26 +60,11 @@ Build succeeded.
 
 No diretório do projeto, abra o arquivo *Program.cs* no IDE ou no editor de sua preferência. Adicione as seguintes diretivas `using`:
 
-```csharp
-using Azure.AI.FormRecognizer;
-using Azure.AI.FormRecognizer.Models;
-using Azure.AI.FormRecognizer.Training;
-
-using System;
-using System.IO;
-using System.Threading.Tasks;
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_using)]
 
 Em seguida, adicione o código a seguir ao método **Main** do aplicativo. Você definirá essa tarefa assíncrona posteriormente. 
 
-```csharp
-static void Main(string[] args)
-{
-    var t1 = RunFormRecognizerClient();
-
-    Task.WaitAll(t1);
-}
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
 
 ### <a name="install-the-client-library"></a>Instalar a biblioteca de clientes
 
@@ -112,18 +97,8 @@ Estes snippets de códigos mostram como realizar as seguintes tarefas com a bibl
 
 Abaixo do método `Main`, defina a tarefa que é referenciada em `Main`. Aqui, você autenticará os objetos de cliente usando as variáveis de assinatura definidas acima. Você usará um objeto **AzureKeyCredential**, para, se necessário, atualizar a chave de API sem criar objetos de cliente.
 
-```csharp
-static async Task RunFormRecognizerClient()
-{ 
-    string endpoint = Environment.GetEnvironmentVariable(
-        "FORM_RECOGNIZER_ENDPOINT");
-    string apiKey = Environment.GetEnvironmentVariable(
-        "FORM_RECOGNIZER_KEY");
-    var credential = new AzureKeyCredential(apiKey);
-    
-    var trainingClient = new FormTrainingClient(new Uri(endpoint), credential);
-    var recognizerClient = new FormRecognizerClient(new Uri(endpoint), credential);
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_auth)]
+
 
 ### <a name="call-client-specific-methods"></a>Chamar métodos específicos do cliente
 
@@ -137,29 +112,7 @@ Você também precisará adicionar referências às URLs para os dados de treina
 > [!NOTE]
 > Os snippets de código deste guia usam formulários remotos acessados por URLs. Caso deseje processar documentos de formulário local, confira os métodos relacionados na [documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre).
 
-```csharp
-    string trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
-    string formUrl = "<SAS-URL-of-a-form-in-blob-storage>";
-    string receiptUrl = "https://docs.microsoft.com/azure/cognitive-services/form-recognizer/media"
-    + "/contoso-allinone.jpg";
-
-    // Call Form Recognizer scenarios:
-    Console.WriteLine("Get form content...");
-    await GetContent(recognizerClient, formUrl);
-
-    Console.WriteLine("Analyze receipt...");
-    await AnalyzeReceipt(recognizerClient, receiptUrl);
-
-    Console.WriteLine("Train Model with training data...");
-    Guid modelId = await TrainModel(trainingClient, trainingDataUrl);
-
-    Console.WriteLine("Analyze PDF form...");
-    await AnalyzePdfForm(recognizerClient, modelId, formUrl);
-
-    Console.WriteLine("Manage models...");
-    await ManageModels(trainingClient, trainingDataUrl) ;
-}
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_calls)]
 
 ## <a name="recognize-form-content"></a>Reconhecer o conteúdo do formulário
 
@@ -167,45 +120,13 @@ Use o Reconhecimento de Formulários para reconhecer tabelas, linhas e palavras 
 
 Para reconhecer o conteúdo de um arquivo em um URI especificado, use o método **StartRecognizeContentFromUri**.
 
-```csharp
-private static async Task GetContent(
-    FormRecognizerClient recognizerClient, string invoiceUri)
-{
-    Response<FormPageCollection> formPages = await recognizerClient
-        .StartRecognizeContentFromUri(new Uri(invoiceUri))
-        .WaitForCompletionAsync();
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_getcontent_call)]
+
 
 O valor retornado é uma coleção de objetos **FormPage**: um para cada página no documento enviado. O código a seguir itera nesses objetos e imprime os pares de chave/valor extraídos e os dados da tabela.
 
-```csharp
-    foreach (FormPage page in formPages.Value)
-    {
-        Console.WriteLine($"Form Page {page.PageNumber} has {page.Lines.Count}" + 
-            $" lines.");
-    
-        for (int i = 0; i < page.Lines.Count; i++)
-        {
-            FormLine line = page.Lines[i];
-            Console.WriteLine($"    Line {i} has {line.Words.Count}" + 
-                $" word{(line.Words.Count > 1 ? "s" : "")}," +
-                $" and text: '{line.Text}'.");
-        }
-    
-        for (int i = 0; i < page.Tables.Count; i++)
-        {
-            FormTable table = page.Tables[i];
-            Console.WriteLine($"Table {i} has {table.RowCount} rows and" +
-                $" {table.ColumnCount} columns.");
-            foreach (FormTableCell cell in table.Cells)
-            {
-                Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex})" +
-                    $" contains text: '{cell.Text}'.");
-            }
-        }
-    }
-}
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_getcontent_print)]
+
 
 ## <a name="recognize-receipts"></a>Reconhecer recibos
 
@@ -213,96 +134,15 @@ Esta seção demonstra como reconhecer e extrair campos comuns de recibos dos EU
 
 Para reconhecer recibos de um URI, use o método **StartRecognizeReceiptsFromUri**. O valor retornado é uma coleção de objetos **RecognizedReceipt**: um para cada página no documento enviado. O código a seguir processa um recibo no URI fornecido e imprime os valores e os campos principais no console.
 
-```csharp
-private static async Task AnalyzeReceipt(
-    FormRecognizerClient recognizerClient, string receiptUri)
-{
-    RecognizedReceiptCollection receipts = await recognizerClient.StartRecognizeReceiptsFromUri(new Uri(receiptUri))
-    .WaitForCompletionAsync();
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_call)]
 
-    foreach (RecognizedReceipt receipt in receipts)
-    {
-    FormField merchantNameField;
-    if (receipt.RecognizedForm.Fields.TryGetValue("MerchantName", out merchantNameField))
-    {
-        if (merchantNameField.Value.Type == FieldValueType.String)
-        {
-            string merchantName = merchantNameField.Value.AsString();
-
-            Console.WriteLine($"Merchant Name: '{merchantName}', with confidence {merchantNameField.Confidence}");
-        }
-    }
-
-    FormField transactionDateField;
-    if (receipt.RecognizedForm.Fields.TryGetValue("TransactionDate", out transactionDateField))
-    {
-        if (transactionDateField.Value.Type == FieldValueType.Date)
-        {
-            DateTime transactionDate = transactionDateField.Value.AsDate();
-
-            Console.WriteLine($"Transaction Date: '{transactionDate}', with confidence {transactionDateField.Confidence}");
-        }
-    }
-```
 
 O próximo bloco de código itera em itens individuais detectados no recibo e imprime os detalhes no console.
-
-```csharp
-    FormField itemsField;
-    if (receipt.RecognizedForm.Fields.TryGetValue("Items", out itemsField))
-    {
-        if (itemsField.Value.Type == FieldValueType.List)
-        {
-            foreach (FormField itemField in itemsField.Value.AsList())
-            {
-                Console.WriteLine("Item:");
-
-                if (itemField.Value.Type == FieldValueType.Dictionary)
-                {
-                    IReadOnlyDictionary<string, FormField> itemFields = itemField.Value.AsDictionary();
-
-                    FormField itemNameField;
-                    if (itemFields.TryGetValue("Name", out itemNameField))
-                    {
-                        if (itemNameField.Value.Type == FieldValueType.String)
-                        {
-                            string itemName = itemNameField.Value.AsString();
-
-                            Console.WriteLine($"    Name: '{itemName}', with confidence {itemNameField.Confidence}");
-                        }
-                    }
-
-                    FormField itemTotalPriceField;
-                    if (itemFields.TryGetValue("TotalPrice", out itemTotalPriceField))
-                    {
-                        if (itemTotalPriceField.Value.Type == FieldValueType.Float)
-                        {
-                            float itemTotalPrice = itemTotalPriceField.Value.AsFloat();
-
-                            Console.WriteLine($"    Total Price: '{itemTotalPrice}', with confidence {itemTotalPriceField.Confidence}");
-                        }
-                    }
-                }
-            }
-        }
-    }
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_item_print)]
 
 Por fim, o último bloco de código imprime o valor total no recibo.
 
-```csharp
-    FormField totalField;
-    if (receipt.RecognizedForm.Fields.TryGetValue("Total", out totalField))
-    {
-        if (totalField.Value.Type == FieldValueType.Float)
-        {
-            float total = totalField.Value.AsFloat();
-
-            Console.WriteLine($"Total: '{total}', with confidence '{totalField.Confidence}'");
-        }
-    }
-}
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_total_print)]
 
 ## <a name="train-a-custom-model"></a>Treinar um modelo personalizado
 
@@ -317,82 +157,25 @@ Treine modelos personalizados para reconhecer todos os campos e valores encontra
 
 O método a seguir treina um modelo em um especificado conjunto de documentos e imprime o status do modelo no console. 
 
-```csharp
-private static async Task<Guid> TrainModel(
-    FormRecognizerClient trainingClient, string trainingDataUrl)
-{
-    CustomFormModel model = await trainingClient
-        .StartTrainingAsync(new Uri(trainingFileUrl), useTrainingLabels: false).WaitForCompletionAsync();
-    
-    Console.WriteLine($"Custom Model Info:");
-    Console.WriteLine($"    Model Id: {model.ModelId}");
-    Console.WriteLine($"    Model Status: {model.Status}");
-    Console.WriteLine($"    Requested on: {model.RequestedOn}");
-    Console.WriteLine($"    Completed on: {model.CompletedOn}");
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_train)]
 
 O objeto **CustomFormModel** retornado contém informações sobre os tipos de formulários que o modelo pode reconhecer e os campos que ele pode extrair de cada tipo de formulário. O bloco de código a seguir imprime essas informações no console.
 
-```csharp
-    foreach (CustomFormSubmodel submodel in model.Submodels)
-    {
-        Console.WriteLine($"Submodel Form Type: {submodel.FormType}");
-        foreach (CustomFormModelField field in submodel.Fields.Values)
-        {
-            Console.Write($"    FieldName: {field.Name}");
-            if (field.Label != null)
-            {
-                Console.Write($", FieldLabel: {field.Label}");
-            }
-            Console.WriteLine("");
-        }
-    }
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_train_response)]
 
 Por fim, esse método retorna a ID exclusiva do modelo.
 
-```csharp
-    return model.ModelId;
-}
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_train_return)]
 
 ### <a name="train-a-model-with-labels"></a>Treinar um modelo com rótulos
 
 Você também pode treinar modelos personalizados rotulando manualmente os documentos de treinamento. O treinamento com rótulos leva a um melhor desempenho em alguns cenários. Para o treinamento com rótulos, você precisará ter arquivos de informações de rótulo especiais ( *\<filename\>.pdf.labels.json*) no contêiner de armazenamento de blobs junto com os documentos de treinamento. A [ferramenta de rotulagem de exemplo Reconhecimento de Formulários](../../quickstarts/label-tool.md) fornece uma interface do usuário para ajudar você a criar esses arquivos de rótulo. Depois de obtê-los, chame o método **StartTrainingAsync** com o parâmetro *uselabels* definido como `true`.
 
-```csharp
-private static async Task<Guid> TrainModelWithLabelsAsync(
-    FormRecognizerClient trainingClient, string trainingDataUrl)
-{
-    CustomFormModel model = await trainingClient
-    .StartTrainingAsync(new Uri(trainingFileUrl), useTrainingLabels: true).WaitForCompletionAsync();
-    
-    Console.WriteLine($"Custom Model Info:");
-    Console.WriteLine($"    Model Id: {model.ModelId}");
-    Console.WriteLine($"    Model Status: {model.Status}");
-    Console.WriteLine($"    Requested on: {model.RequestedOn}");
-    Console.WriteLine($"    Completed on: {model.CompletedOn}");
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_trainlabels)]
 
 O **CustomFormModel** retornado indica os campos que o modelo pode extrair, juntamente com a precisão estimada em cada campo. O bloco de código a seguir imprime essas informações no console.
 
-```csharp
-    foreach (CustomFormSubmodel submodel in model.Submodels)
-    {
-        Console.WriteLine($"Submodel Form Type: {submodel.FormType}");
-        foreach (CustomFormModelField field in submodel.Fields.Values)
-        {
-            Console.Write($"    FieldName: {field.Name}");
-            if (field.Accuracy != null)
-            {
-                Console.Write($", Accuracy: {field.Accuracy}");
-            }
-            Console.WriteLine("");
-        }
-    }
-    return model.ModelId;
-}
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_trainlabels_response)]
 
 ## <a name="analyze-forms-with-a-custom-model"></a>Analisar formulários com um modelo personalizado
 
@@ -403,118 +186,41 @@ Esta seção demonstra como extrair informações de chave/valor e outro conteú
 
 Você usará o método **StartRecognizeCustomFormsFromUri**. O valor retornado é uma coleção de objetos **RecognizedForm**: um para cada página no documento enviado.
 
-```csharp
-// Analyze PDF form data
-private static async Task AnalyzePdfForm(
-    FormRecognizerClient recognizerClient, Guid modelId, string formUrl)
-{    
-    Response<IReadOnlyList<RecognizedForm>> forms = await recognizerClient
-        .StartRecognizeCustomFormsFromUri(modelId.ToString(), new Uri(formUrl))
-        .WaitForCompletionAsync();
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_analyze)]
 
 O código a seguir imprime os resultados da análise no console. Ele imprime cada campo reconhecido e o valor correspondente, juntamente com uma pontuação de confiança.
 
-```csharp
-    foreach (RecognizedForm form in forms.Value)
-    {
-        Console.WriteLine($"Form of type: {form.FormType}");
-        foreach (FormField field in form.Fields.Values)
-        {
-            Console.WriteLine($"Field '{field.Name}: ");
-    
-            if (field.LabelText != null)
-            {
-                Console.WriteLine($"    Label: '{field.LabelText.Text}");
-            }
-    
-            Console.WriteLine($"    Value: '{field.ValueText.Text}");
-            Console.WriteLine($"    Confidence: '{field.Confidence}");
-        }
-    }
-}
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_analyze_response)]
 
 ## <a name="manage-your-custom-models"></a>Gerenciar seus modelos personalizados
 
 Esta seção demonstra como gerenciar os modelos personalizados armazenados na sua conta. O código a seguir executa todas as tarefas de gerenciamento de modelos em um só método, como um exemplo. Comece copiando a assinatura de método abaixo:
 
-```csharp
-private static async Task ManageModels(
-    FormRecognizerClient trainingClient, string trainingFileUrl)
-{
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage)]
 
 ### <a name="check-the-number-of-models-in-the-formrecognizer-resource-account"></a>Verificar o número de modelos na conta do recurso do FormRecognizer
 
 O bloco de código a seguir verifica quantos modelos você salvou na sua conta do Reconhecimento de Formulários e os compara com o limite da conta.
 
-```csharp
-    // Check number of models in the FormRecognizer account, 
-    // and the maximum number of models that can be stored.
-    AccountProperties accountProperties = trainingClient.GetAccountProperties();
-    Console.WriteLine($"Account has {accountProperties.CustomModelCount} models.");
-    Console.WriteLine($"It can have at most {accountProperties.CustomModelLimit}" +
-        $" models.");
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_count)]
 
 ### <a name="list-the-models-currently-stored-in-the-resource-account"></a>Listar os modelos atualmente armazenados na conta do recurso
 
 O bloco de código a seguir lista os modelos atuais na sua conta e imprime os detalhes no console.
 
-```csharp
-    // List the first ten or fewer models currently stored in the account.
-    Pageable<CustomFormModelInfo> models = trainingClient.GetModelInfos();
-    
-    foreach (CustomFormModelInfo modelInfo in models.Take(10))
-    {
-        Console.WriteLine($"Custom Model Info:");
-        Console.WriteLine($"    Model Id: {modelInfo.ModelId}");
-        Console.WriteLine($"    Model Status: {modelInfo.Status}");
-        Console.WriteLine($"    Created On: {modelInfo.CreatedOn}");
-        Console.WriteLine($"    Last Modified: {modelInfo.LastModified}");
-    }
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_list)]
 
 ### <a name="get-a-specific-model-using-the-models-id"></a>Obter um modelo específico usando a ID do modelo
 
 O bloco de código a seguir treina um novo modelo (assim como na seção [Treinar um modelo](#train-a-model-without-labels)) e recupera uma segunda referência a ele usando a respectiva ID.
 
-```csharp
-    // Create a new model to store in the account
-    CustomFormModel model = await trainingClient.StartTrainingAsync(
-        new Uri(trainingFileUrl)).WaitForCompletionAsync();
-    
-    // Get the model that was just created
-    CustomFormModel modelCopy = trainingClient.GetCustomModel(model.ModelId);
-    
-    Console.WriteLine($"Custom Model {modelCopy.ModelId} recognizes the following" +
-        " form types:");
-    
-    foreach (CustomFormSubModel subModel in modelCopy.Models)
-    {
-        Console.WriteLine($"SubModel Form Type: {subModel.FormType}");
-        foreach (CustomFormModelField field in subModel.Fields.Values)
-        {
-            Console.Write($"    FieldName: {field.Name}");
-            if (field.Label != null)
-            {
-                Console.Write($", FieldLabel: {field.Label}");
-            }
-            Console.WriteLine("");
-        }
-    }
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_get)]
 
 ### <a name="delete-a-model-from-the-resource-account"></a>Excluir um modelo da conta do recurso
 
 Exclua também um modelo da sua conta referenciando a ID.
 
-```csharp
-    // Delete the model from the account.
-    trainingClient.DeleteModel(model.ModelId);
-}
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_delete)]
 
 ## <a name="run-the-application"></a>Executar o aplicativo
 
@@ -537,11 +243,10 @@ Quando você interagir com a biblioteca de clientes do Reconhecimento de Formul�
 
 Por exemplo, se você enviar uma imagem de recibo com um URI inválido, um erro `400` será retornado, indicando "Solicitação inválida".
 
-```csharp Snippet:FormRecognizerBadRequest
+```csharp
 try
 {
     RecognizedReceiptCollection receipts = await client.StartRecognizeReceiptsFromUri(new Uri(receiptUri)).WaitForCompletionAsync();
-
 }
 catch (RequestFailedException e)
 {

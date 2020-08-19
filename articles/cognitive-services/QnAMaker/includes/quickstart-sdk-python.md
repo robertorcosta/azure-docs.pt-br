@@ -3,12 +3,12 @@ title: 'Início Rápido: Biblioteca de clientes do QnA Maker para Python'
 description: Este início rápido oferece uma introdução à biblioteca de clientes do QnA Maker para Python.
 ms.topic: include
 ms.date: 06/18/2020
-ms.openlocfilehash: 1b6990589663655c5b4518d55e42838775889671
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: d99ed657098a8046a64c10ae48433aa87c2f06f6
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114497"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246263"
 ---
 Use a biblioteca de clientes do QnA Maker para python para:
 
@@ -27,7 +27,7 @@ Use a biblioteca de clientes do QnA Maker para python para:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
+* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
 * Quando você tiver sua assinatura do Azure, crie um [recurso do QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) no portal do Azure para obter a chave de criação e o ponto de extremidade. Após a implantação, selecione **Ir para recurso**.
     * Você precisará da chave e do ponto de extremidade do recurso que você criar para conectar seu aplicativo à API do QnA Maker. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
@@ -94,7 +94,7 @@ Instancie um cliente com o ponto de extremidade e a chave. Crie um objeto Cognit
 Uma base de dados de conhecimento armazena pares de perguntas e respostas para o objeto [CreateKbDTO](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.models.create_kb_dto?view=azure-python) de três fontes:
 
 * Para **conteúdo editorial**, use o objeto [QnADTO](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.models.qn_adto?view=azure-python).
-    * Para usar os metadados e as solicitações de acompanhamento, use o contexto editorial, pois esses dados são adicionados no nível do par individual do QnA.
+    * Para usar os metadados e as solicitações de acompanhamento, use o contexto editorial, pois esses dados são adicionados no nível do par individual de P e R.
 * Para **arquivos**, use o objeto [FileDTO](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.authoring.models.file_dto?view=azure-python). O FileDTO inclui o nome de arquivo, bem como a URL pública para acessar o arquivo.
 * Em **URLs**, use uma lista de cadeias de caracteres para representar URLs disponíveis publicamente.
 

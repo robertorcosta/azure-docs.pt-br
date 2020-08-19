@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: erhopf
-ms.openlocfilehash: cee0f5c1cdb71f182399356cc7e1dce8d738fd4e
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: be20a6e4b6c89bf9d371cdc8620441f066249b94
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80671639"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226275"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -116,7 +116,7 @@ Antes de começar, é preciso:
 
 1. No mesmo arquivo, substitua a cadeia de caracteres `YourSubscriptionKey` por sua chave de assinatura.
 
-1. Substitua a cadeia de caracteres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à assinatura (por exemplo, `westus` para a assinatura de avaliação gratuita).
+1. Substitua a cadeia de caracteres `YourServiceRegion` pela [região](~/articles/cognitive-services/Speech-Service/regions.md) associada à sua assinatura.
 
 1. Na barra de menus, escolha **Arquivo** > **Salvar tudo**.
 

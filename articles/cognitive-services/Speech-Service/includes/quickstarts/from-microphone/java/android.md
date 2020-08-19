@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 2641464e52b80c59b6c6b5a123ad1605c1d41495
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 5832920ec491ce9d99219a7a423fcf0e38ba62cc
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81275583"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226088"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,7 +58,7 @@ O texto e a representação gráfica da sua interface do usuário agora devem se
 
 1. No mesmo arquivo, substitua a cadeia de caracteres `YourSubscriptionKey` por sua chave de assinatura.
 
-1. Substitua também a cadeia de caracteres `YourServiceRegion` pelo **Identificador de região** da [região](https://aka.ms/speech/sdkregion) associada à assinatura. Por exemplo, use `westus` para a assinatura de avaliação gratuita.
+1. Substitua também a cadeia de caracteres `YourServiceRegion` pelo **Identificador de região** da [região](https://aka.ms/speech/sdkregion) associada à assinatura.
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar o aplicativo
 

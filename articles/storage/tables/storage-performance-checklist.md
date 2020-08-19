@@ -3,17 +3,17 @@ title: Lista de verificação de desempenho e escalabilidade do Armazenamento de
 description: Uma lista de verificação de práticas comprovadas para uso com o Armazenamento de tabela ao desenvolver aplicativos de alto desempenho.
 services: storage
 author: tamram
+ms.author: tamram
 ms.service: storage
 ms.topic: overview
 ms.date: 10/10/2019
-ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 89581c8ae2fbdbb55a2abfbd527c8fdcf4b65761
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7c805e9cf15e22b9200ef86c6c22ac3f50e77719
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75749558"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236379"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de verificação de desempenho e escalabilidade para Armazenamento de tabela
 
@@ -196,7 +196,7 @@ Esta seção lista diversas configurações rápidas que você pode usar para fa
 
 Começando na versão 2013-08-15 do serviço de armazenamento, o serviço Tabela dá suporte ao uso de JSON, em vez do formato AtomPub baseado em XML para transferir dados de tabela. Usar JSON pode reduzir o tamanho do conteúdo em até 75% e melhorar consideravelmente o desempenho do seu aplicativo.
 
-Para saber mais, confira a postagem [Tabelas do Microsoft Azure: introdução ao JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e [Formato de conteúdo para operações de serviço Tabela](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+Para saber mais, veja a postagem [Tabelas do Microsoft Azure: introdução ao JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e [Formato de carga para operações do serviço Tabela](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 ### <a name="disable-nagle"></a>Desabilitar o Nagle
 
@@ -242,7 +242,7 @@ Esta seção descreve as práticas comprovadas para consultar o serviço Tabela.
 
 Há diversas maneiras de especificar quais entidades devem ser consultadas. A lista a seguir descreve cada opção para o escopo de consulta.
 
-- **Consultas pontuais:** – uma consulta pontual recupera exatamente uma entidade especificando a chave de partição e a chave bruta da entidade a ser recuperada. Essas consultas são eficientes e você deve usá-las sempre que possível.
+- **Consultas pontuais:**– uma consulta pontual recupera exatamente uma entidade especificando a chave de partição e a chave bruta da entidade a ser recuperada. Essas consultas são eficientes e você deve usá-las sempre que possível.
 - **Consultas de partição:** Esse tipo de consulta recupera um conjunto de dados que tem uma chave de partição em comum. Geralmente, a consulta especifica diversos valores de chave de linha ou valores de propriedade de entidade, além de uma chave de partição. Essas consultas são menos eficientes do que as consultas pontuais e devem ser usados com critério.
 - **Consultas de tabela:** Esse tipo de consulta recupera um conjunto de entidades que não tem uma chave de partição em comum. Essas consultas não são eficientes e você deve evitá-las sempre que possível.
 

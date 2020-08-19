@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2020
 ms.author: johndaw
-ms.openlocfilehash: e7958a722f7010d63794cacc072289030a72ed99
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 93333f2f0a2ef4aaf44884aa30afaa959459aaad
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512496"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257424"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial – Implantando HSMs em uma rede virtual existente usando o PowerShell
 
@@ -40,7 +40,7 @@ Este tutorial se concentra na integração de alguns HSMs e do Gateway do Expres
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Atualmente, o HSM Dedicado do Azure não está disponível no portal do Azure e, portanto, toda a interação com o serviço será pela linha de comando ou usando o PowerShell. Este tutorial usará o PowerShell no Azure Cloud Shell. Se você for novo no PowerShell, execute as instruções de introdução aqui: [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Atualmente, o HSM Dedicado do Azure não está disponível no portal do Azure e, portanto, toda a interação com o serviço será pela linha de comando ou usando o PowerShell. Este tutorial usará o PowerShell no Azure Cloud Shell. Se você for novo no PowerShell, execute as instruções de introdução aqui: [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps).
 
 Suposições:
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: chlandsi
-ms.openlocfilehash: 3758b035e7840c63c895417d0ed3d8dca0ab618f
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 2222f19ef4459d5ad3ccfa8a39fac6ab804b62e4
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80671574"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226525"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -78,7 +78,7 @@ Antes de começar, é preciso:
 
 1. No mesmo arquivo, substitua a cadeia de caracteres `YourSubscriptionKey` por sua chave de assinatura.
 
-1. Substitua a cadeia de caracteres `YourServiceRegion` pela [região](../../../../regions.md) associada à assinatura (por exemplo, `westus` para a assinatura de avaliação gratuita).
+1. Substitua a cadeia de caracteres `YourServiceRegion` pela [região](../../../../regions.md) associada à sua assinatura.
 
 1. Salve as alterações feitas`quickstart.py`.
 

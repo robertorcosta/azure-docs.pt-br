@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/14/2019
+ms.date: 08/14/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: daee09de544e12d07b28d4e88a4847f71bd2e01f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9bde9f86987602b69907a36fe4d8298834b14c3e
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502706"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245835"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutorial: Criar um gateway de aplicativo com o redirecionamento baseado em caminhos de URL, usando a CLI do Azure
 
@@ -37,6 +37,8 @@ Se preferir, você pode concluir este tutorial usando o [Azure PowerShell](tutor
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## <a name="prerequisites"></a>Pré-requisitos 
 
 Caso opte por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 

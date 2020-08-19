@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 02b15f88e05abc918100f5e6b1ad1cdd60954a9d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e4403252396aab91fa960ed7258d433e27db950a
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486979"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258245"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Tutorial: Implantar HSMs em uma rede virtual existente usando a CLI
 
@@ -38,7 +38,7 @@ Este tutorial se concentra na integração de HSMs e do Gateway do ExpressRoute 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O HSM dedicado do Azure não está disponível atualmente no portal do Azure. Toda a interação com o serviço ocorrerá por meio da linha de comando ou usando o PowerShell. Este tutorial usará a CLI (interface de linha de comando) no Azure Cloud Shell. Se você estiver familiarizado com a CLI do Azure, siga estas instruções de introdução: [Introdução à CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+O HSM dedicado do Azure não está disponível atualmente no portal do Azure. Toda a interação com o serviço ocorrerá por meio da linha de comando ou usando o PowerShell. Este tutorial usará a CLI (interface de linha de comando) no Azure Cloud Shell. Se você estiver familiarizado com a CLI do Azure, siga estas instruções de introdução: [Introdução à CLI do Azure 2.0](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
 Suposições:
 

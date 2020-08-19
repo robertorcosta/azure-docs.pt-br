@@ -8,18 +8,18 @@ ms.subservice: personalizer
 ms.topic: include
 ms.custom: include file, devx-track-javascript
 ms.date: 07/30/2020
-ms.openlocfilehash: 4f57d3a6c959a8ec912722a617496c52f412c13f
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: ba7885859adc1d9899c66917204306c8a0d0092f
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461082"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246030"
 ---
 [Documentação de referência](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest) |[Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Pacote (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Personalizer)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
+* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * A versão atual do [Node.js](https://nodejs.org) e do NPM.
 
 ## <a name="using-this-quickstart"></a>Como usar este início rápido

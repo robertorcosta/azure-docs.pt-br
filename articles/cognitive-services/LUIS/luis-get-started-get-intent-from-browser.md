@@ -3,12 +3,12 @@ title: 'Início Rápido: Consulta de previsão com navegador – LUIS'
 description: Neste início rápido, use um aplicativo LUIS público disponível para determinar a intenção de um usuário com base no texto de conversa em um navegador.
 ms.topic: quickstart
 ms.date: 04/21/2020
-ms.openlocfilehash: 5ba86882ebf3cb538ad6b865382342fcbd43d27c
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 24c7a8aca410ad10b8a9299c4bca2f13d0feb780
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81769977"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245988"
 ---
 # <a name="quickstart-query-prediction-runtime-with-user-text"></a>Início Rápido: Runtime de previsão de consulta com texto de usuário
 
@@ -19,7 +19,7 @@ Para entender o que um ponto de extremidade de previsão do LUIS retorna, exiba 
 Para consultar um aplicativo público, você precisará de:
 
 * Suas informações de recurso do LUIS (Reconhecimento vocal):
-    * **Chave de previsão**, que pode ser obtida do [Portal do LUIS](https://www.luis.ai/). Caso você ainda não tenha uma assinatura para criar uma chave, registre-se em uma [conta gratuita](https://azure.microsoft.com/free/).
+    * **Chave de previsão**, que pode ser obtida do [Portal do LUIS](https://www.luis.ai/). Caso você ainda não tenha uma assinatura para criar uma chave, registre-se em uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services).
     * **Subdomínio do ponto de extremidade de previsão** – o subdomínio também é o **nome** do recurso LUIS.
 * Uma ID do aplicativo LUIS – use a ID do aplicativo IoT público de `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. A consulta de usuário usada no código de início rápido é específica para esse aplicativo.
 

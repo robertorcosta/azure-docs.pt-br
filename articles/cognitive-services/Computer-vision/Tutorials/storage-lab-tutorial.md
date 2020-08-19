@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 68dd2ae09c5d6ad5e510fb3beb532b235f83fc8d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f350aae32909de2b9be4384d921f7507a158f6ff
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834687"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243846"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Use a Pesquisa Visual Computacional para gerar metadados de imagem no Armazenamento do Azure
 
@@ -31,7 +31,7 @@ Este tutorial mostra como:
 > * Anexar metadados a imagens do Armazenamento do Azure
 > * Verificar metadados de imagem usando o Gerenciador de Armazenamento do Azure
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

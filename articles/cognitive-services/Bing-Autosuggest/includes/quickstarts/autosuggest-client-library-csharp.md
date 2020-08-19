@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 5d325ac8da43f020f4ab39244d2e6a7dc6ed72b7
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: a6ae9d8975c36e7ffa8e3eadf880b4685390c5fc
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156681"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246237"
 ---
 Introdução à biblioteca de clientes da Sugestão Automática do Bing para .NET. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.
 
@@ -23,7 +23,7 @@ Use a biblioteca de clientes da Sugestão Automática do Bing para .NET para obt
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você ainda não tiver uma assinatura do Azure, [poderá criar uma gratuita](https://azure.microsoft.com/free/).
+* Uma assinatura do Azure. Se você ainda não tiver uma assinatura do Azure, [poderá criar uma gratuita](https://azure.microsoft.com/free/cognitive-services).
 * A versão atual do [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
 [!INCLUDE [cognitive-services-bing-autosuggest-signup-requirements](~/includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
@@ -31,12 +31,12 @@ Use a biblioteca de clientes da Sugestão Automática do Bing para .NET para obt
 ## <a name="create-environment-variables"></a>Criar variáveis de ambiente
 
 >[!NOTE]
-> Os pontos de extremidade para recursos criados após 1º de julho de 2019, use o formato de subdomínio personalizado mostrado abaixo. Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> Os pontos de extremidade para recursos criados após 1º de julho de 2019, use o formato de subdomínio personalizado mostrado abaixo. Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains).
 
 Usando a chave e o ponto de extremidade do recurso criado, crie duas variáveis de ambiente para autenticação:
 <!-- replace the below variable names with the names expected in the code sample.-->
 * `AUTOSUGGEST_SUBSCRIPTION_KEY`: a chave de recurso para autenticar as solicitações.
-* `AUTOSUGGEST_ENDPOINT`: o ponto de extremidade do recurso para enviar solicitações de API. O resultado deve ser assim: `https://<your-custom-subdomain>.api.cognitive.microsoft.com`. 
+* `AUTOSUGGEST_ENDPOINT`: o ponto de extremidade do recurso para enviar solicitações de API. O resultado deve ser assim: `https://<your-custom-subdomain>.api.cognitive.microsoft.com`.
 
 Use as instruções para seu sistema operacional.
 <!-- replace the below endpoint and key examples -->
@@ -72,9 +72,9 @@ Depois de adicionar a variável de ambiente, execute `source .bash_profile` a pa
 
 ## <a name="create-a-new-c-application"></a>Criar um aplicativo em C#
 
-Crie um novo aplicativo .NET Core em seu IDE ou editor preferido. 
+Crie um novo aplicativo .NET Core em seu IDE ou editor preferido.
 
-Em uma janela de console (como cmd, PowerShell ou Bash), use o comando `dotnet new` para criar um novo aplicativo do console com o nome `bing-autosuggest-quickstart`. Esse comando cria um projeto simples em C# do tipo "Olá, Mundo" com um arquivo de origem único: *program.cs*. 
+Em uma janela de console (como cmd, PowerShell ou Bash), use o comando `dotnet new` para criar um novo aplicativo do console com o nome `bing-autosuggest-quickstart`. Esse comando cria um projeto simples em C# do tipo "Olá, Mundo" com um arquivo de origem único: *program.cs*.
 
 ```console
 dotnet new console -n bing-autosuggest-quickstart
@@ -86,7 +86,7 @@ Altere o diretório para a pasta do aplicativo recém-criado. É possível criar
 dotnet build
 ```
 
-A saída de compilação não deve conter nenhum aviso ou erro. 
+A saída de compilação não deve conter nenhum aviso ou erro.
 
 ```console
 ...

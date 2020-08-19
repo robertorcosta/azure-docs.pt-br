@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/30/2020
 ms.author: aahi
 ms.custom: devx-track-javascript
-ms.openlocfilehash: cb9a674890330ba83b6e7fe754ecd83eda4031bb
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 836582003c4b4bd47d2b90b845ae414210d16edd
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405987"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246555"
 ---
 Introdução à biblioteca de clientes do Detector de Anomalias para JavaScript. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O serviço Detector de Anomalias permite localizar anormalidades em seus dados de série temporal usando automaticamente os modelos de melhor ajuste, independentemente do setor, cenário ou volume de dados.
 
@@ -27,7 +27,7 @@ Use a biblioteca de cliente do Detector de Anomalias para JavaScript para:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
+* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * A versão atual do [Node.js](https://nodejs.org/)
 * Depois de ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Crie um recurso de Detector de Anomalias"  target="_blank">Crie um recurso de detector de anomalias <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Aguarde até que ele seja implantado e clique no botão **Ir para o recurso**.
     * Você precisará da chave e do ponto de extremidade do recurso que você criar para conectar seu aplicativo à API do Detector de Anomalias. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.

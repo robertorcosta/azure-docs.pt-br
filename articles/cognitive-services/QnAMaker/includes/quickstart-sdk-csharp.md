@@ -3,12 +3,12 @@ title: 'Início Rápido: Biblioteca de clientes do QnA Maker para .NET'
 description: Este início rápido oferece uma introdução à biblioteca de clientes do QnA Maker para .NET. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.  O QnA Maker permite ter um serviço avançado de perguntas e respostas a partir de um conteúdo semiestruturado, como documentos de perguntas frequentes ou URLs e manuais de produtos.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 0dfabfa1357543e4011412c0a9f63061e8856019
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: eecbf162f3bd043bf4aabe9796ee095667e0cc39
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87507518"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246508"
 ---
 Use a biblioteca de clientes do QnA Maker para .NET para:
 
@@ -27,7 +27,7 @@ Use a biblioteca de clientes do QnA Maker para .NET para:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
+* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * O [IDE do Visual Studio](https://visualstudio.microsoft.com/vs/) ou a versão atual do [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * Quando você tiver sua assinatura do Azure, crie um [recurso do QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) no portal do Azure para obter a chave de criação e o nome do recurso. Após a implantação, selecione **Ir para recurso**.
     * Você precisará do nome do recurso e da chave do recurso que você criar para conectar o aplicativo à API do QnA Maker. Cole a chave e o nome do recurso no código abaixo mais adiante no guia de início rápido.

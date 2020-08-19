@@ -1,5 +1,5 @@
 ---
-title: Usar o Node.js para se conectar ao Banco de Dados do Azure para PostgreSQL – Servidor único
+title: 'Início Rápido: Usar o Node.js para se conectar ao Banco de Dados do Azure para PostgreSQL – Servidor único'
 description: Este início rápido fornece um exemplo de código do Node.js que você pode usar para se conectar e consultar dados do Banco de Dados do Azure para PostgreSQL – Servidor único.
 author: rachel-msft
 ms.author: raagyema
@@ -13,12 +13,12 @@ ms.custom:
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: c3157bb3e643c8aea4653f7cf12390938ae44d5a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 10c7abf7349a3b2419e81459866920f20c3af6f7
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423245"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182724"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Início Rápido: Usar o Node.js para conectar-se e consultar dados no Banco de Dados do Azure para PostgreSQL – servidor único
 

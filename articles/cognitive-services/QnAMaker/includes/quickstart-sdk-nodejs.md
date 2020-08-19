@@ -4,12 +4,12 @@ description: Este início rápido oferece uma introdução à biblioteca de clie
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 76d0587c68ac46253dbd937c661b06bdb8c495c8
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 4085ec5aaff75f33fc7a87708693084831ff5d8d
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404066"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246292"
 ---
 Use a biblioteca de clientes do QnA Maker para Node.js para:
 
@@ -28,7 +28,7 @@ Use a biblioteca de clientes do QnA Maker para Node.js para:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
+* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * A versão atual do [Node.js](https://nodejs.org).
 * Quando você tiver sua assinatura do Azure, crie um [recurso do QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) no portal do Azure para obter a chave de criação e o recurso. Após a implantação, selecione **Ir para recurso**.
     * Você precisará do nome do recurso e da chave do recurso que você criar para conectar o aplicativo à API do QnA Maker. Cole a chave e o nome do recurso no código abaixo mais adiante no guia de início rápido.
