@@ -1,5 +1,5 @@
 ---
-title: Criar um compartilhamento de arquivo do Azure
+title: Criar um compartilhamento de arquivos do Azure
 titleSuffix: Azure Files
 description: Como criar um compartilhamento de arquivos do Azure usando o portal do Azure, o PowerShell ou o CLI do Azure.
 author: roygara
@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: a642aa9735c4360c11d50cf475e5de63259c55df
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, references_regions
+ms.openlocfilehash: aaba608ba80a751c40cd300dee80f673897c22a8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495702"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88525642"
 ---
-# <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivo do Azure
+# <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
 Para criar um compartilhamento de arquivos do Azure, você precisa responder a três perguntas sobre como você irá usá-lo:
 
 - **Quais são os requisitos de desempenho para o compartilhamento de arquivos do Azure?**  
@@ -81,7 +81,7 @@ A seção avançado contém várias configurações importantes para compartilha
 
 As outras configurações disponíveis na guia Avançado (exclusão reversível de BLOB, namespace hierárquico para Azure Data Lake armazenamento Gen 2 e NFSv3 para armazenamento de BLOB) não se aplicam aos arquivos do Azure.
 
-#### <a name="tags"></a>Marcas
+#### <a name="tags"></a>Marcações
 Marcas são pares nome/valor que permitem categorizar recursos e exibir a cobrança consolidada por meio da aplicação da mesma marca a vários recursos e grupos de recursos. Eles são opcionais e podem ser aplicados após a criação da conta de armazenamento.
 
 #### <a name="review--create"></a>Examinar + criar
@@ -229,6 +229,60 @@ Esse comando falhará se a conta de armazenamento estiver contida em uma rede vi
 
 > [!Note]  
 > O nome do seu compartilhamento de arquivo deve estar em minúsculas. Para obter detalhes completos sobre como nomear arquivos e compartilhamentos de arquivos, consulte [nomenclatura e referência de compartilhamentos, diretórios, arquivos e metadados](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+
+### <a name="create-a-hot-or-cool-file-share"></a>Criar um compartilhamento de arquivos quente ou frio
+Um compartilhamento de arquivos em uma **conta de armazenamento de uso geral v2 (GPv2)** pode conter compartilhamentos de arquivos de transações otimizados, quentes ou interessantes (ou uma mistura deles). Os compartilhamentos de transações otimizadas estão disponíveis em todas as regiões do Azure, mas compartilhamentos de arquivos quentes e frios só estão disponíveis [em um subconjunto de regiões](storage-files-planning.md#storage-tiers). Você pode criar um compartilhamento de arquivos quente ou frio usando o módulo Azure PowerShell Preview ou o CLI do Azure. 
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+O portal do Azure ainda não dá suporte à criação de compartilhamentos de arquivos quentes e interessantes ou à movimentação de compartilhamentos de arquivos com otimização de transação existentes para quente ou esporádico. Consulte as instruções para criar um compartilhamento de arquivos com o PowerShell ou o CLI do Azure.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+```PowerShell
+# Update the Azure storage module to use the preview version. You may need to close and 
+# reopen PowerShell before running this command. If you are running PowerShell 5.1, ensure 
+# the following:
+# - Run the below cmdlets as an administrator.
+# - Have PowerShellGet 2.2.3 or later. Uncomment the following line to check.
+# Get-Module -ListAvailable -Name PowerShellGet
+Remove-Module -Name Az.Storage -ErrorAction SilentlyContinue
+Uninstall-Module -Name Az.Storage
+Install-Module -Name Az.Storage -RequiredVersion "2.1.1-preview" -AllowClobber -AllowPrerelease 
+
+# Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
+# been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2 
+# storage accounts. Standard tiers are only available in standard storage accounts. 
+$shareName = "myhotshare"
+
+New-AzRmStorageShare `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName `
+    -Name $shareName `
+    -AccessTier Hot
+
+# You can also change an existing share's tier.
+Update-AzRmStorageShare `
+    -ResourceGroupName $resourceGroupName `
+    -StorageAccountName $storageAccountName `
+    -Name $shareName `
+    -AccessTier Cool
+```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+A funcionalidade para criar ou mover um compartilhamento de arquivos para uma camada específica está disponível na atualização mais recente do CLI do Azure. A atualização CLI do Azure é específica para a distribuição do sistema operacional/Linux que você está usando. Para obter instruções sobre como atualizar CLI do Azure em seu sistema, consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+```bash
+# Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
+# been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2
+# storage accounts. Standard tiers are only available in standard storage accounts.
+shareName="myhotshare"
+
+az storage share-rm create \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
+    --name $shareName \
+    --access-tier "Hot"
+```
+---
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Planeje uma implantação de arquivos do Azure](storage-files-planning.md) ou [planeje uma implantação de sincronização de arquivos do Azure](storage-sync-files-planning.md). 

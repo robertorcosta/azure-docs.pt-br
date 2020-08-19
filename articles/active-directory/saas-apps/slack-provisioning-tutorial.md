@@ -2,25 +2,20 @@
 title: 'Tutorial: provisionamento de usuário para a margem de atraso-Azure AD'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário no Slack.
 services: active-directory
-documentationcenter: ''
 author: ArvindHarinder1
 manager: CelesteDG
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aa97595f9a6ab2a866a8c8ebccde7e53854dbd1
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 368d75ecffda49f688a7a5ce11b60693650014c6
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924539"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88527818"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configurar Slack para provisionamento automático de usuário
 
@@ -187,7 +182,7 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 
 * A margem de atraso só permite correspondência com os atributos **username** e **email**.  
   
-* Os códigos erorr comuns estão documentados na documentação de margem de atraso oficial-https://api.slack.com/scim#errors
+* Os códigos erorr comuns estão documentados na documentação de margem de atraso oficial- https://api.slack.com/scim#errors
 
 ## <a name="change-log"></a>Log de alterações
 
