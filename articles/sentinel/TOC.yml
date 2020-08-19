@@ -58,10 +58,10 @@
               href: connect-azure-security-center.md
             - name: Central de Segurança do Azure para IoT
               href: connect-asc-iot.md
+            - name: WAF (Firewall do Aplicativo Web) do Azure
+              href: connect-azure-waf.md
             - name: Servidor de nomes de domínio
               href: connect-dns.md
-            - name: Firewall do aplicativo Web do Azure
-              href: connect-azure-waf.md
             - name: Firewall do Windows
               href: connect-windows-firewall.md
             - name: Eventos de segurança do Windows
