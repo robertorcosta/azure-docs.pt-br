@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para os recursos do Azure na sua organização.
-ms.date: 06/12/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 87cdca414a04d287f02fec5b3510c4f561cab8c0
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: ba6b8160eefb0a59bc8273989c27a3a8501a79b7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116992"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547793"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -77,7 +77,7 @@ Use **displayName** e **description** para identificar a definição de polític
 > [!NOTE]
 > Durante a criação ou a atualização de uma definição de política, **id**, **type** e **name** são definidos por propriedades externas ao JSON e não são necessários no arquivo JSON. O fetch da definição de política por meio do SDK retorna a as propriedades **id**, **type** e **name** como parte do JSON, mas cada uma delas é uma informação somente leitura relacionada à definição de política.
 
-## <a name="type"></a>Tipo
+## <a name="type"></a>Type
 
 Embora a propriedade **Type** não possa ser definida, há três valores que são retornados pelo SDK e visíveis no Portal:
 
@@ -119,10 +119,10 @@ A `metadata` propriedade opcional armazena informações sobre a definição de 
 
 ### <a name="common-metadata-properties"></a>Propriedades de metadados comuns
 
-- `version`(cadeia de caracteres): rastreia detalhes sobre a versão do conteúdo de uma definição de política.
-- `category`(String): determina sob qual categoria em portal do Azure a definição de política é exibida.
-- `preview`(booliano): sinalizador true ou false para se a definição de política for _Preview_.
-- `deprecated`(booliano): sinalizador true ou false para se a definição de política tiver sido marcada como _preterida_.
+- `version` (cadeia de caracteres): rastreia detalhes sobre a versão do conteúdo de uma definição de política.
+- `category` (String): determina sob qual categoria em portal do Azure a definição de política é exibida.
+- `preview` (booliano): sinalizador true ou false para se a definição de política for _Preview_.
+- `deprecated` (booliano): sinalizador true ou false para se a definição de política tiver sido marcada como _preterida_.
 
 > [!NOTE]
 > O serviço Azure Policy usa as propriedades `version`, `preview` e `deprecated` para transmitir o nível de alteração para uma definição de política interna ou uma iniciativa e um estado. O formato de `version` é: `{Major}.{Minor}.{Patch}`. Estados específicos, como _preterido_ ou _versão prévia_, são acrescentados à propriedade `version` ou a outra propriedade como um **booliano**. Para obter mais informações sobre como Azure Policy versões internas, consulte [controle de versão interno](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
@@ -188,7 +188,7 @@ Este exemplo faz referência ao parâmetro **allowedLocations** que foi demonstr
 
 Na propriedade `metadata`, você pode usar **strongType** para fornecer uma lista de opções de seleção múltipla no portal do Azure. **strongType** pode ser um _tipo de recurso_ compatível ou um valor permitido. Para determinar se um _tipo de recurso_ é válido para **strongType**, use [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). O formato de um _resource type_ **strongtype** de tipo de recurso é `<Resource Provider>/<Resource Type>` . Por exemplo, `Microsoft.Network/virtualNetworks/subnets`.
 
-Há suporte para alguns _tipos de recursos_ não retornados pelo **Get-AzResourceProvider**. Eles são:
+Há suporte para alguns _tipos de recursos_ não retornados pelo **Get-AzResourceProvider**. Esses tipos são:
 
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
@@ -275,7 +275,8 @@ Uma condição avalia se um **campo** ou um acessador de **valor** atende a dete
 - `"less": "dateValue"` | `"less": "stringValue"` | `"less": intValue`
 - `"lessOrEquals": "dateValue"` | `"lessOrEquals": "stringValue"` | `"lessOrEquals": intValue`
 - `"greater": "dateValue"` | `"greater": "stringValue"` | `"greater": intValue`
-- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
+- `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` |
+  `"greaterOrEquals": intValue`
 - `"exists": "bool"`
 
 Para **less**, **lessOrEquals**, **greater** e **greaterOrEquals**, se o tipo de propriedade não corresponder ao tipo de condição, um erro será gerado. As comparações de cadeias de caracteres são feitas por meio de `InvariantCultureIgnoreCase`.
@@ -346,8 +347,7 @@ No exemplo a seguir, `concat` é usado para criar uma pesquisa de campo de marca
 
 ### <a name="value"></a>Valor
 
-As condições também podem ser formadas usando o **valor**. O **valor** verifica as condições em relação aos [parâmetros](#parameters), [funções de modelo com suporte](#policy-functions) ou literais.
-O **valor** é emparelhado a uma [condição](#conditions) com suporte.
+As condições também podem ser formadas usando o **valor**. O **valor** verifica as condições em relação aos [parâmetros](#parameters), [funções de modelo com suporte](#policy-functions) ou literais. O **valor** é emparelhado a uma [condição](#conditions) com suporte.
 
 > [!WARNING]
 > Se o resultado de uma _função de modelo_ for um erro, a avaliação da política falhará. Uma avaliação com falha é um **deny** implícito. Para mais informações, confira [Evitar falhas de modelo](#avoiding-template-failures). Use [enforcementMode](./assignment-structure.md#enforcement-mode) de **DoNotEnforce** para evitar o impacto de uma avaliação com falha em recursos novos ou atualizados durante o teste e a validação de uma nova definição de política.
@@ -453,7 +453,7 @@ As seguintes propriedades são usadas com **count**:
 - **count.field** (obrigatório): contém o caminho para a matriz e precisa ser um alias de matriz. Se a matriz estiver ausente, a expressão será avaliada como _false_ sem considerar a expressão de condição.
 - **count.where** (opcional): a expressão de condição usada para avaliar individualmente cada membro da matriz de [alias \[\*\]](#understanding-the--alias) de **count.field**. Se essa propriedade não for fornecida, todos os membros da matriz com o caminho de ' Field ' serão avaliados como _true_. Qualquer [condição](../concepts/definition-structure.md#conditions) pode ser usada nessa propriedade.
   Os [operadores lógicos](#logical-operators) podem ser usados nessa propriedade para criar requisitos complexos de avaliação.
-- **\<condition\>**(obrigatório): o valor é comparado com o número de itens que atendem à **contagem.** expressão de condição WHERE. Uma [condição](../concepts/definition-structure.md#conditions) numérica deve ser usada.
+- **\<condition\>** (obrigatório): o valor é comparado com o número de itens que atendem à **contagem.** expressão de condição WHERE. Uma [condição](../concepts/definition-structure.md#conditions) numérica deve ser usada.
 
 #### <a name="count-examples"></a>Exemplos de contagem
 
@@ -575,7 +575,7 @@ Todas as [funções de modelo do Resource Manager](../../../azure-resource-manag
 
 A função a seguir está disponível para uso em uma regra de política, mas difere do uso em um modelo de Azure Resource Manager (modelo ARM):
 
-- `utcNow()`-Ao contrário de um modelo de ARM, essa propriedade pode ser usada fora do _DefaultValue_.
+- `utcNow()` -Ao contrário de um modelo de ARM, essa propriedade pode ser usada fora do _DefaultValue_.
   - Retorna uma cadeia de caracteres que é definida com a data e a hora atuais no formato DateTime universal ISO 8601 'yyyy-MM-ddTHH:mm:ss.fffffffZ'
 
 As seguintes funções estão disponíveis apenas em regras de política:

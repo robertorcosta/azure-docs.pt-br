@@ -1,29 +1,29 @@
 ---
 title: Como criar definições de política de configuração de convidado da linha de base de Política de Grupo para Windows
 description: Saiba como converter Política de Grupo da linha de base de segurança do Windows Server 2019 em uma definição de política.
-ms.date: 06/05/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: bbb634ed55acf8aa994045fbef6569fae031c841
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 58fe4fa3e5056192fa5febe4883a1457d130871b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080662"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547761"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Como criar definições de política de configuração de convidado da linha de base de Política de Grupo para Windows
 
-Antes de criar definições de política personalizadas, é uma boa ideia ler as informações de visão geral conceitual em [Azure Policy configuração de convidado](../concepts/guest-configuration.md). Para saber mais sobre a criação de definições de política de configuração de convidado personalizadas para Linux, consulte [como criar políticas de configuração de convidado para Linux](./guest-configuration-create-linux.md). Para saber mais sobre a criação de definições de política de configuração de convidado personalizadas para o Windows, consulte [como criar políticas de configuração de convidado para o Windows](./guest-configuration-create.md). 
+Antes de criar definições de política personalizadas, é uma boa ideia ler as informações de visão geral conceitual em [Azure Policy configuração de convidado](../concepts/guest-configuration.md). Para saber mais sobre a criação de definições de política de configuração de convidado personalizadas para Linux, consulte [como criar políticas de configuração de convidado para Linux](./guest-configuration-create-linux.md). Para saber mais sobre a criação de definições de política de configuração de convidado personalizadas para o Windows, consulte [como criar políticas de configuração de convidado para o Windows](./guest-configuration-create.md).
 
-Ao auditar o Windows, a Configuração de Convidado usa um módulo de recurso [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para criar o arquivo de configuração. A configuração DSC define a condição em que o computador deve estar. Se a avaliação da configuração não estiver **em conformidade**, o efeito de política *auditIfNotExists* será disparado. [Azure Policy configuração de convidado](../concepts/guest-configuration.md) só audita configurações dentro de computadores.
+Ao auditar o Windows, a Configuração de Convidado usa um módulo de recurso [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para criar o arquivo de configuração. A configuração DSC define a condição em que o computador deve estar. Se a avaliação da configuração não estiver **em conformidade**, o efeito de política *auditIfNotExists* será disparado.
+[Azure Policy configuração de convidado](../concepts/guest-configuration.md) só audita configurações dentro de computadores.
 
 > [!IMPORTANT]
 > As definições de política personalizadas com a configuração de convidado são um recurso de visualização.
 >
-> A extensão de Configuração de Convidado é necessária para executar auditorias em máquinas virtuais do Azure.
-> Para implantar a extensão em escala em todos os computadores Windows, atribua a seguinte definição de política:
->   - [Implantar os pré-requisitos para habilitar a Política de Configuração de Convidado nas VMs do Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> A extensão de Configuração de Convidado é necessária para executar auditorias em máquinas virtuais do Azure. Para implantar a extensão em escala em todos os computadores Windows, atribua a seguinte definição de política:
+> - [Implantar os pré-requisitos para habilitar a Política de Configuração de Convidado nas VMs do Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
 
-A comunidade de DSC publicou o [módulo BaselineManagement](https://github.com/microsoft/BaselineManagement) para converter modelos de política de grupo exportados para o formato DSC. Junto com o cmdlet GuestConfiguration, o módulo BaselineManagement cria Azure Policy pacote de configuração de convidado para Windows do conteúdo Política de Grupo. Para obter detalhes sobre como usar o módulo BaselineManagement, consulte o artigo [início rápido: converter política de grupo em DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart). 
+A comunidade de DSC publicou o [módulo BaselineManagement](https://github.com/microsoft/BaselineManagement) para converter modelos de política de grupo exportados para o formato DSC. Junto com o cmdlet GuestConfiguration, o módulo BaselineManagement cria Azure Policy pacote de configuração de convidado para Windows do conteúdo Política de Grupo. Para obter detalhes sobre como usar o módulo BaselineManagement, consulte o artigo [início rápido: converter política de grupo em DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
 
 Neste guia, percorreremos o processo para criar um pacote de configuração de convidado Azure Policy de um objeto de Política de Grupo (GPO). Enquanto a explicação descreve a conversão da linha de base de segurança do Windows Server 2019, o mesmo processo pode ser aplicado a outros GPOs.  
 
@@ -62,7 +62,7 @@ Para instalar o **DSC**, o **GuestConfiguration**, o **Gerenciamento de linha de
 
 ## <a name="convert-from-group-policy-to-azure-policy-guest-configuration"></a>Converter de Política de Grupo para Azure Policy configuração de convidado
 
-Em seguida, convertemos a linha de base do servidor baixado 2019 em um pacote de configuração de convidado usando os módulos configuração de convidado e gerenciamento de linha de base. 
+Em seguida, convertemos a linha de base do servidor baixado 2019 em um pacote de configuração de convidado usando os módulos configuração de convidado e gerenciamento de linha de base.
 
 1. Converta o Política de Grupo para a configuração de estado desejado usando o módulo de gerenciamento de linha de base.
 
@@ -203,5 +203,5 @@ Atribuir uma definição de política com o efeito _DeployIfNotExists_ requer um
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre as VMs de auditoria com a [Configuração de Convidado](../concepts/guest-configuration.md).
-- Entenda como [criar políticas de forma programática](programmatically-create.md).
-- Saiba como [obter dados de conformidade](get-compliance-data.md).
+- Entenda como [criar políticas de forma programática](./programmatically-create.md).
+- Saiba como [obter dados de conformidade](./get-compliance-data.md).

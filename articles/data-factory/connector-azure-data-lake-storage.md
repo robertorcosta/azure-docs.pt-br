@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/05/2020
-ms.openlocfilehash: 8a6d0a24ef7252e40bb170bd63a76e2bfce8caef
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.date: 08/18/2020
+ms.openlocfilehash: 9eed71f5a264a6308a49ac594563c746bb8ea5b7
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852269"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544767"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiar e transformar dados no Azure Data Lake Storage Gen2 usando o Azure Data Factory
 
@@ -133,7 +133,7 @@ Estas propriedades têm suporte para o serviço vinculado:
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim |
 | servicePrincipalKey | Especifique a chave do aplicativo. Marque esse campo como `SecureString` para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Recupere-as passando o mouse no canto superior direito do Portal do Azure. | Sim |
-| azureCloudType | Para autenticação de entidade de serviço, especifique o tipo de ambiente de nuvem do Azure no qual seu aplicativo do AAD está registrado. <br/> Os valores permitidos são **AzurePublic**, **AzureChina**, **AzureUsGovernment**e **AzureGermany**. Por padrão, o ambiente de nuvem do data factory é usado. | Não |
+| azureCloudType | Para autenticação de entidade de serviço, especifique o tipo de ambiente de nuvem do Azure no qual seu aplicativo Azure Active Directory está registrado. <br/> Os valores permitidos são **AzurePublic**, **AzureChina**, **AzureUsGovernment**e **AzureGermany**. Por padrão, o ambiente de nuvem do data factory é usado. | Não |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Azure Integration Runtime ou um runtime de integração auto-hospedada se o seu armazenamento de dados estiver em uma rede privada. Se não especificado, o Azure Integration Runtime padrão será usado. |Não |
 
 **Exemplo:**
@@ -321,7 +321,7 @@ As propriedades a seguir têm suporte para Data Lake Storage Gen2 em configuraç
 
 ### <a name="azure-data-lake-storage-gen2-as-a-sink-type"></a>Azure Data Lake Store Gen2 como um tipo de coletor
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)]
 
 As propriedades a seguir têm suporte para Data Lake Storage Gen2 em configurações de `storeSettings` no coletor de cópia baseado em formato:
 

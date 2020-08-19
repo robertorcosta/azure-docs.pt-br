@@ -2,25 +2,21 @@
 title: 'Tutorial: configurar o Zscaler One para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o Zscaler One.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd-msft
-ms.assetid: 72f6ba2b-73ed-420a-863a-aff672f26fa3
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 87413932acee576934ee50b59546371b03ceaf7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 978f8ff5e57a5a9a1df10152713c8c42901b3b6f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77064165"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545853"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Tutorial: configurar o Zscaler One para o provisionamento automático de usuário
 
@@ -120,7 +116,7 @@ Esta seção aborda as etapas para configurar o serviço de provisionamento do A
 
     ![Zscaler um email de notificação](./media/zscaler-one-provisioning-tutorial/notification.png)
 
-9. Selecione **Salvar**.
+9. Clique em **Salvar**.
 
 10. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Zscaler um**.
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 6a2208fac98d3cd8e4ddcea887d9b8cf30fb6482
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f5409fea1cdbbc35e9068fae6b3ba7fbc2a95580
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524498"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547385"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar os contêineres de docker LUIS
 
@@ -26,13 +26,13 @@ O vídeo a seguir demonstra como usar esse contêiner.
 
 [![Demonstração do contêiner para serviços cognitivas](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para executar o contêiner LUIS, observe os seguintes pré-requisitos:
 
-|Necessária|Finalidade|
+|Obrigatório|Finalidade|
 |--|--|
 |Mecanismo do Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.|
@@ -55,7 +55,7 @@ Criando APIs para aplicativos empacotados:
 
 A tabela abaixo lista os valores mínimos e recomendados para o host do contêiner. Seus requisitos podem mudar dependendo do volume de tráfego.
 
-|Contêiner| Mínimo | Recomendado | TPS<br>(Mínimo, máximo)|
+|Contêiner| Mínimo | Recomendadas | TPS<br>(Mínimo, máximo)|
 |-----------|---------|-------------|--|
 |LUIS|1 núcleo, 2 GB de memória|1 núcleo, 4 GB de memória|20, 40|
 

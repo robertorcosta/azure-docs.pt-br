@@ -2,25 +2,21 @@
 title: 'Tutorial: configurar o Wrike para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o Wrike.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 5dd4f5ac6152c22b5e2a84ecc0774672bcd5590b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3ec25504decca0747c8a853bb88ab3e7a10966a
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77064182"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546314"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>Tutorial: configurar o Wrike para o provisionamento automático de usuário
 
@@ -62,7 +58,7 @@ Antes de configurar o Wrike para o provisionamento automático de usuário com o
 
 2.  Vá para **Azure ad** e selecione-o.
 
-    ![Azure AD](media/Wrike-provisioning-tutorial/Capture01.png)
+    ![AD do Azure](media/Wrike-provisioning-tutorial/Capture01.png)
 
 3.  Selecione SCIM. Copie a **URL base**.
 
@@ -137,7 +133,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Notificação por email](common/provisioning-notification-email.png)
 
-8. Selecione **Salvar**.
+8. Clique em **Salvar**.
 
 9. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Wrike**.
 

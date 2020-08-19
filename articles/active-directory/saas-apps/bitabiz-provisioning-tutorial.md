@@ -2,25 +2,21 @@
 title: 'Tutorial: configurar o BitaBIZ para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o BitaBIZ.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: d0d38abe-c041-482a-9d3f-ca340678c226
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: ad9176614c4a5235e5138444d4197286204a747f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f3e01147e44b495a666d11a3927eabbbe0dec0e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77059152"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547264"
 ---
 # <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>Tutorial: configurar o BitaBIZ para o provisionamento automático de usuário
 
@@ -64,7 +60,7 @@ Antes de configurar o BitaBIZ para o provisionamento automático de usuário com
 
     ![Console de administração do BitaBIZ](media/bitabiz-provisioning-tutorial/integration.png)
 
-2.  Navegue até **Microsoft Azure ad provisionamento**.  Selecione **habilitado** no provisionamento automático de usuário. Copie os valores para **URL de ponto de extremidade de provisionamento scim** e **token de portador**. Esses valores serão inseridos nos campos URL do locatário e token secreto na guia provisionamento do aplicativo BitaBIZ no portal do Azure.
+2.  Navegue até **Microsoft Azure ad provisionamento**.  Selecione **habilitado** no provisionamento automático de usuário. Copie os valores para **URL de ponto de extremidade de provisionamento scim** e  **token de portador**. Esses valores serão inseridos nos campos URL do locatário e token secreto na guia provisionamento do aplicativo BitaBIZ no portal do Azure.
 
     ![BitaBIZ adicionar SCIM](media/bitabiz-provisioning-tutorial/authentication.png)
 

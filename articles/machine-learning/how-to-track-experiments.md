@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d0c6488f9a75bbf9ba6775138edeed9c4a397abf
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 7a0fd4178df92cc9102456c1fa2ae4e8927337e4
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552213"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547317"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Habilitar o registro em log nas execuções de treinamento do Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,12 +42,6 @@ Você pode registrar vários tipos de dados, incluindo valores escalares, listas
 ## <a name="interactive-logging-session"></a>Sessão de log interativa
 
 As sessões de log interativo normalmente são usadas em ambientes de notebook. O método [experimento. start_logging ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) inicia uma sessão de log interativa. Todas as métricas registradas durante a sessão são adicionadas ao registro de execução no experimento. O método [Execute. Complete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) encerra as sessões e marca a execução como concluída.
-
-O trecho de código a seguir usa uma sessão de log interativa para registrar parâmetros de treinamento e métricas de desempenho com o método [Run. log ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#log-name--value--description----) . Ele também carrega o modelo treinado em um local de saída especificado.
-
-[!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=create_experiment)]
-
-Para obter um bloco de anotações de exemplo completo que usa registro em log interativo, consulte [treinar um modelo em um notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb).
 
 ## <a name="scriptrunconfig-logs"></a>Logs do ScriptRunConfig
 

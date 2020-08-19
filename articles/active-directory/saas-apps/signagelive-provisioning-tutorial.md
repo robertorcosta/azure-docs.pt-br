@@ -2,25 +2,21 @@
 title: 'Tutorial: configurar o Signagelive para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o Signagelive.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: fb48deae-4653-448a-ba2f-90258edab3a7
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: bbd0d3c60c5cc4056d5cbadfc7c6d90ae2a37ca6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7bf9e7a4c17134a47cbaafbc2bde25d467c6a978
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77063213"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548541"
 ---
 # <a name="tutorial-configure-signagelive--for-automatic-user-provisioning"></a>Tutorial: configurar o Signagelive para o provisionamento automático de usuário
 
@@ -56,7 +52,7 @@ Antes de configurar e habilitar o provisionamento automático de usuário, você
 
 Antes de configurar o Signagelive para o provisionamento automático de usuário com o Azure AD, será necessário habilitar o provisionamento do SCIM no Signagelive.
 
-  Entre em contato com o [Signagelive](mailto:development@signagelive.com) para obter o token secreto necessário para configurar o provisionamento do SCIM.
+  Entre em contato com o  [Signagelive](mailto:development@signagelive.com) para obter o token secreto necessário para configurar o provisionamento do SCIM.
 
 ## <a name="add-signagelive-from-the-gallery"></a>Adicionar o Signagelive por meio da galeria
 

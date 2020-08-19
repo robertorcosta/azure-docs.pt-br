@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 20ac33a26bfe24eb60e2febc1344859f4e54cdd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee30e9bba35ad39606fbe201c49e4eed3e656c97
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514416"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548266"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Abra um tíquete de suporte para um trabalho de Importação/Exportação
 
@@ -26,7 +26,7 @@ Caso enfrente algum problema com o serviço de Importação/Exportação, você 
 
 Execute as seguintes etapas para criar uma solicitação de suporte:
 
-1. Vá para o trabalho de Importação/Exportação. Navegue até **SUPORTE + SOLUÇÃO DE PROBLEMAS** e, em seguida, clique em **Nova solicitação de suporte**.
+1. Vá para o trabalho de Importação/Exportação. Navegue até a seção **suporte + solução de problemas** e selecione **nova solicitação de suporte**.
      
     ![Noções básicas](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
    
@@ -40,7 +40,7 @@ Execute as seguintes etapas para criar uma solicitação de suporte:
         - Se você escolher **Blob**, selecione **Recurso**, **Nomes de contêiner** (opcional) e **Plano de Suporte**.
             ![Escolher Blob](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
         - Se você escolher **Arquivo**, selecione **Recurso**, **Nomes de compartilhamento de arquivo** (opcional) e **Plano de Suporte** ![Escolher Arquivo](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
-    4. Clique em **Próximo**.
+    4. Selecione **Avançar**.
 
 3. Em **Nova solicitação de suporte**, selecione **Etapa 2 Problema**. Em **Problema**, execute as seguintes etapas:
     
@@ -49,22 +49,22 @@ Execute as seguintes etapas para criar uma solicitação de suporte:
     3. Escolha a **Categoria** como **Importar - Exportar**.
     4. Forneça um **Título** para o problema e mais **Detalhes**.
     5. Forneça a data de início e a hora para o problema.
-    6. Em **Upload do arquivo**, clique no ícone de pasta para procurar outros arquivos que você deseja carregar.
+    6. Em **Upload do arquivo**, selecione o ícone de pasta para procurar outros arquivos que você deseja carregar.
     7. Marque **Compartilhar informações de diagnóstico**.
-    8. Clique em **Próximo**.
+    8. Selecione **Avançar**.
 
        ![Problema](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
 
-4. Em **Nova solicitação de suporte**, clique **Etapa 3 Informações de contato**. Em **Informações de contato**, execute as seguintes etapas:
+4. Em **nova solicitação de suporte**, selecione **etapa 3 informações de contato**. Em **Informações de contato**, execute as seguintes etapas:
 
    1. Nas **Opções de contato**, forneça seu método de contato preferencial (telefone ou email) e o idioma. O tempo de resposta é selecionado automaticamente com base em seu plano de assinatura.
    2. Nas Informações de contato, informe seu nome, seu email, seu contato opcional e seu país/sua região. Marque a caixa de seleção **Salvar alterações de contato para futuras solicitações de suporte**.
-   3. Clique em **Criar**.
+   3. Selecione **Criar**.
    
        ![Informações de contato](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 
       O Microsoft Support usará essas informações para entrar em contato com você para obter mais informações, diagnóstico e resolução.
-      Depois que você enviar sua solicitação, um engenheiro de Suporte entrará em contato com você assim que possível para prosseguir com sua solicitação.
+      Depois de enviar sua solicitação, um engenheiro de suporte entrará em contato com você para continuar com sua solicitação.
 
 ## <a name="manage-a-support-request"></a>Gerenciar uma solicitação de suporte
 
@@ -80,11 +80,11 @@ Depois de criar um tíquete de suporte, você pode gerenciar o ciclo de vida do 
 
     ![Gerenciar solicitações de suporte](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
 
-3. Selecione e clique em uma solicitação de suporte. Você pode exibir o status e os detalhes para esta solicitação. Clique em **+ Nova mensagem** se desejar acompanhar esta solicitação.
+3. Selecione e clique em uma solicitação de suporte. Você pode exibir o status e os detalhes para esta solicitação. Selecione **+ nova mensagem** se desejar acompanhar essa solicitação.
 
     ![Gerenciar solicitações de suporte](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [solucionar problemas relacionados ao serviço de Importação/Exportação](storage-import-export-tool-troubleshooting-v1.md).
+Saiba como [usar a importação/exportação do Azure para transferir dados de e para o armazenamento do Azure](storage-import-export-service.md).

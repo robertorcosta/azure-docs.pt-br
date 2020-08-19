@@ -11,28 +11,28 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 8d08a0ab8f817d70343686f907ac444af392ea06
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 61303a52212c4cec88dee2ccd8a1c08fb971a9b8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108888"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545651"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contêineres da Análise de Texto
 
 > [!NOTE]
-> * O contêiner para Análise de Sentimento v3 agora está disponível para o público geral. Os contêineres de extração de frases-chave e detecção de idioma estão disponíveis como uma visualização pública não restrita.
+> * O contêiner para Análise de Sentimento v3 agora está disponível para o público geral. Os contêineres de extração de frase principal e detecção de idioma estão disponíveis como versão prévia pública livre.
 > * A vinculação de entidade e NER não estão disponíveis no momento como um contêiner.
-> * No momento, você não será cobrado por Análise de Texto para uso do contêiner de integridade.
+> * No momento, você não será cobrado pelo uso do contêiner de Análise de Texto para Saúde.
 
-Os contêineres permitem executar as APIs de análise de texto em seu próprio ambiente e são ótimos para seus requisitos específicos de segurança e governança de dados. Os contêineres de Análise de Texto fornecem processamento de idioma natural avançado sobre texto bruto e incluem três funções principais: análise de sentimentos, extração de frases-chave e detecção de idioma. 
+Contêineres permitem executar APIs de Análise de Texto no seu ambiente e são excelentes para seus requisitos específicos de segurança e governança de dados. Os contêineres de Análise de Texto fornecem processamento de idioma natural avançado sobre texto bruto e incluem três funções principais: análise de sentimentos, extração de frases-chave e detecção de idioma. 
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 > [!IMPORTANT]
 > A conta gratuita é limitada a 5.000 transações por mês e apenas os <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">tipos <span class="docon docon-navigate-external x-hidden-focus"></span> de preço</a> **gratuito** e **padrão** são válidos para contêineres. Para obter mais informações sobre taxas de solicitação de transação, consulte [limites de dados](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 Para executar qualquer um dos contêineres de Análise de Texto, você deve ter o computador host e os ambientes de contêiner.
 
@@ -42,7 +42,7 @@ Você deve cumprir os seguintes pré-requisitos antes de usar os contêineres de
 
 |Obrigatório|Finalidade|
 |--|--|
-|Mecanismo Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
+|Mecanismo do Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.| 
 |Recurso de Análise de Texto |Para usar o contêiner, você precisará ter:<br><br>Um [recurso de análise de texto](../../cognitive-services-apis-create-account.md) do Azure para obter a chave de API e o URI de ponto de extremidade associados. Ambos os valores estão disponíveis nas páginas Visão Geral e Chaves da Análise de Texto no portal do Azure e são necessários para iniciar o contêiner.<br><br>**{Api_key}**: uma das duas chaves de recurso disponíveis na página **chaves**<br><br>**{ENDPOINT_URI}**: o ponto de extremidade conforme fornecido na página **visão geral**|
 
@@ -127,9 +127,9 @@ Use o comando [Docker execute](https://docs.docker.com/engine/reference/commandl
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão do contêiner
 
-O contêiner fornece APIs de ponto de extremidade de previsão de consulta com base em REST.
+O contêiner fornece APIs de ponto de extremidade de previsão de consulta baseadas em REST.
 
-Use o host, `http://localhost:5000`, para APIs de contêiner.
+Use o host, `http://localhost:5000`, para as APIs do contêiner.
 
 <!--  ## Validate container is running -->
 

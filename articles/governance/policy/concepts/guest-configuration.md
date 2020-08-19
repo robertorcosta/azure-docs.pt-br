@@ -3,17 +3,16 @@ title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como o Azure Policy usa o agente de Configuração de Convidado para auditar as configurações dentro de máquinas virtuais.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 906c86856342febc92f070493fde31af42e4ca10
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 624f0a2464323e8002b9940471c93b3030f053d5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987096"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544665"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
-Azure Policy pode auditar as configurações dentro de um computador, tanto para computadores em execução no Azure quanto em [computadores conectados ao Arc](../../../azure-arc/servers/overview.md).
-A validação é executada pela extensão e pelo cliente de Configuração de Convidado. A extensão, por meio do cliente, valida as configurações como:
+Azure Policy pode auditar as configurações dentro de um computador, tanto para computadores em execução no Azure quanto em [computadores conectados ao Arc](../../../azure-arc/servers/overview.md). A validação é executada pela extensão e pelo cliente de Configuração de Convidado. A extensão, por meio do cliente, valida as configurações como:
 
 - A configuração do sistema operacional
 - Configuração ou presença do aplicativo
@@ -60,7 +59,7 @@ O cliente de Configuração Convidado verifica o novo conteúdo a cada 5 minutos
 
 ## <a name="supported-client-types"></a>Tipos de clientes com suporte
 
-As políticas de configuração de convidado são inclusivas de novas versões. As versões mais antigas dos sistemas operacionais disponíveis no Azure Marketplace serão excluídas se o agente de Configuração do Convidado não for compatível.
+As políticas de configuração de convidado são inclusivas de novas versões. As versões mais antigas dos sistemas operacionais disponíveis no Azure Marketplace serão excluídas se o agente de configuração do convidado não for compatível.
 A tabela a seguir mostra uma lista de sistemas operacionais compatíveis em imagens do Azure:
 
 |Publicador|Nome|Versões|
@@ -93,8 +92,7 @@ O tráfego é roteado usando o [endereço IP público virtual](../../../virtual-
 
 ### <a name="azure-arc-connected-machines"></a>Computadores conectados ao arco do Azure
 
-Os nós localizados fora do Azure que estão conectados pelo Arc do Azure exigem conectividade com o serviço de configuração do convidado.
-Detalhes sobre os requisitos de rede e proxy fornecidos na [documentação do Arc do Azure](../../../azure-arc/servers/overview.md).
+Os nós localizados fora do Azure que estão conectados pelo Arc do Azure exigem conectividade com o serviço de configuração do convidado. Detalhes sobre os requisitos de rede e proxy fornecidos na [documentação do Arc do Azure](../../../azure-arc/servers/overview.md).
 
 Para se comunicar com o provedor de recursos de Configuração de Convidado no Azure, as máquinas virtuais exigem acesso de saída aos datacenters do Azure na porta **443**. Se uma rede no Azure não permitir tráfego de saída, configure exceções com regras de [grupo de segurança de rede](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). A [tag de serviço](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" pode ser usada para fazer referência ao serviço de Configuração de Convidado.
 

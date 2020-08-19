@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/05/2020
-ms.openlocfilehash: 7296ec52f8bede86b73e7494af3a784526b639c3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.date: 08/18/2020
+ms.openlocfilehash: e9561c0b54d256d5f24dc02c6f46d84821b9708c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849092"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548439"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiar e transformar dados no Armazenamento de Blobs do Azure usando o Azure Data Factory
 
@@ -237,7 +237,7 @@ Estas propriedades são suportadas por um serviço vinculado de armazenamento de
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim |
 | servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como **SecureString** para armazená-lo com segurança no data Factory ou [faça referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Recupere-o passando o mouse sobre o canto superior direito do portal do Azure. | Sim |
-| azureCloudType | Para autenticação de entidade de serviço, especifique o tipo de ambiente de nuvem do Azure no qual seu aplicativo do AAD está registrado. <br/> Os valores permitidos são **AzurePublic**, **AzureChina**, **AzureUsGovernment**e **AzureGermany**. Por padrão, o ambiente de nuvem do data factory é usado. | Não |
+| azureCloudType | Para autenticação de entidade de serviço, especifique o tipo de ambiente de nuvem do Azure ao qual seu aplicativo Azure Active Directory está registrado. <br/> Os valores permitidos são **AzurePublic**, **AzureChina**, **AzureUsGovernment**e **AzureGermany**. Por padrão, o ambiente de nuvem do data factory é usado. | Não |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou o tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se essa propriedade não for especificada, o serviço usará o tempo de execução de integração do Azure padrão. |Não |
 
 >[!NOTE]
@@ -267,7 +267,7 @@ Estas propriedades são suportadas por um serviço vinculado de armazenamento de
 }
 ```
 
-### <a name="managed-identities-for-azure-resource-authentication"></a><a name="managed-identity"></a>Identidades gerenciadas para a autenticação de recursos do Azure
+### <a name="managed-identities-for-azure-resource-authentication"></a><a name="managed-identity"></a> Identidades gerenciadas para a autenticação de recursos do Azure
 
 Um data factory pode ser associado a uma [identidade gerenciada para recursos do Azure](data-factory-service-identity.md), que representa esse data factory específico. Você pode usar essa identidade gerenciada diretamente para autenticação de armazenamento de BLOBs, que é semelhante a usar sua própria entidade de serviço. Ele permite que essa fábrica designada acesse e copie dados de ou para o armazenamento de BLOBs.
 
@@ -426,7 +426,7 @@ As propriedades a seguir têm suporte para o armazenamento de BLOBs do Azure em 
 
 ### <a name="blob-storage-as-a-sink-type"></a>Armazenamento de blob como um tipo de coletor
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-sink-formats](../../includes/data-factory-v2-file-sink-formats.md)] 
 
 As propriedades a seguir têm suporte para o armazenamento de BLOBs do Azure em `storeSettings` configurações em um coletor de cópia com base em formato:
 
@@ -534,15 +534,15 @@ Em seu contêiner de origem, escolha uma série de arquivos que correspondem a u
 
 Exemplos de caracteres curinga:
 
-* ```*```Representa qualquer conjunto de caracteres.
-* ```**```Representa o aninhamento de diretório recursivo.
-* ```?```Substitui um caractere.
-* ```[]```Corresponde a um ou mais caracteres entre colchetes.
+* ```*``` Representa qualquer conjunto de caracteres.
+* ```**``` Representa o aninhamento de diretório recursivo.
+* ```?``` Substitui um caractere.
+* ```[]``` Corresponde a um ou mais caracteres entre colchetes.
 
-* ```/data/sales/**/*.csv```Obtém todos os arquivos. csv em/data/Sales.
-* ```/data/sales/20??/**/```Obtém todos os arquivos no século 20.
-* ```/data/sales/*/*/*.csv```Obtém os arquivos. csv dois níveis em/data/Sales.
-* ```/data/sales/2004/*/12/[XY]1?.csv```Obtém todos os arquivos. csv em dezembro de 2004, começando com X ou Y prefixados por um número de dois dígitos.
+* ```/data/sales/**/*.csv``` Obtém todos os arquivos. csv em/data/Sales.
+* ```/data/sales/20??/**/``` Obtém todos os arquivos no século 20.
+* ```/data/sales/*/*/*.csv``` Obtém os arquivos. csv dois níveis em/data/Sales.
+* ```/data/sales/2004/*/12/[XY]1?.csv``` Obtém todos os arquivos. csv em dezembro de 2004, começando com X ou Y prefixados por um número de dois dígitos.
 
 **Caminho raiz da partição:** Se você tiver pastas particionadas em sua fonte de arquivo com um ```key=value``` formato (por exemplo, `year=2019` ), poderá atribuir o nível superior dessa árvore de pastas de partição a um nome de coluna no fluxo de dados do fluxo de dados.
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: aahi
-ms.openlocfilehash: 6190653934dede1fa042beca8dbd2d7c06f43cfc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cdcf4182f098affba0a18be5846ae6f6e52d7229
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538013"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547351"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalar e executar contêineres do reconhecedor de formulário (versão prévia)
 
@@ -28,13 +28,13 @@ Para reduzir a complexidade e integrar facilmente um modelo de Reconhecimento de
 |----------|----------|
 | Reconhecimento de Formulários | <li>Processa arquivos PDF, PNG e JPG<li>Treina modelos personalizados com um mínimo de cinco formas do mesmo layout <li>Extrai pares chave-valor e informações de tabela <li>Usa o recurso de Reconhecimento de Texto da API de Pesquisa Visual Computacional dos Serviços Cognitivos do Azure para detectar e extrair texto impresso de imagens em formulários<li>Não exige anotação nem rotulagem |
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de usar contêineres de Reconhecimento de Formulários, é necessário atender aos seguintes pré-requisitos:
 
-| Necessária | Finalidade |
+| Obrigatório | Finalidade |
 |----------|---------|
 | Mecanismo do Docker | É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> No Windows, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br> |
 | Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como Registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`. |
@@ -49,13 +49,13 @@ Antes de usar contêineres de Reconhecimento de Formulários, é necessário ate
 
 Há três parâmetros principais para todos os contêineres de serviços cognitivas que são necessários. O contrato de licença de usuário final (EULA) deve estar presente com um valor de `accept` . Além disso, uma URL de ponto de extremidade e uma chave de API são necessárias.
 
-### <a name="endpoint-uri-computer_vision_endpoint_uri-and-form_recognizer_endpoint_uri"></a>URI do ponto `{COMPUTER_VISION_ENDPOINT_URI}` de extremidade e`{FORM_RECOGNIZER_ENDPOINT_URI}`
+### <a name="endpoint-uri-computer_vision_endpoint_uri-and-form_recognizer_endpoint_uri"></a>URI do ponto `{COMPUTER_VISION_ENDPOINT_URI}` de extremidade e `{FORM_RECOGNIZER_ENDPOINT_URI}`
 
 O valor do URI do **ponto de extremidade** está disponível na página de *visão geral* portal do Azure do recurso de serviço cognitiva correspondente. Navegue até a página *visão geral* , focalize o ponto de extremidade e um `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> ícone será exibido. Copie e use onde for necessário.
 
 ![Coletar o URI do ponto de extremidade para uso posterior](../containers/media/overview-endpoint-uri.png)
 
-### <a name="keys-computer_vision_api_key-and-form_recognizer_api_key"></a>Chaves `{COMPUTER_VISION_API_KEY}` e`{FORM_RECOGNIZER_API_KEY}`
+### <a name="keys-computer_vision_api_key-and-form_recognizer_api_key"></a>Chaves `{COMPUTER_VISION_API_KEY}` e `{FORM_RECOGNIZER_API_KEY}`
 
 Essa chave é usada para iniciar o contêiner e está disponível na página chaves do portal do Azure do recurso de serviço cognitiva correspondente. Navegue até a página *chaves* e clique no `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> ícone.
 
@@ -72,7 +72,7 @@ Essa chave é usada para iniciar o contêiner e está disponível na página cha
 
 Os núcleos de CPU e a memória mínimos e recomendados a serem alocados para cada contêiner do Reconhecimento de Formulários são descritos na tabela a seguir:
 
-| Contêiner | Mínimo | Recomendado |
+| Contêiner | Mínimo | Recomendadas |
 |-----------|---------|-------------|
 | Reconhecimento de Formulários | 2 núcleos, 4 GB de memória | 4 núcleos, 8 GB de memória |
 | Reconhecimento de Texto | 1 núcleo, 8 GB de memória | 2 núcleos, 8 GB de memória |

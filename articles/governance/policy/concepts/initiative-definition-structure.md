@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de definição de iniciativa
 description: Descreve como as definições de iniciativa de política são usadas para agrupar definições de política para implantação em recursos do Azure em sua organização.
-ms.date: 05/29/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 80fa90765caa25d6995220134b9a5b4225133219
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b151ef4d58998b810e116321de68cbdb2e8d3eff
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84205867"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544631"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Estrutura de definição da iniciativa Azure Policy
 
@@ -19,7 +19,7 @@ Você usa JSON para criar uma definição de iniciativa de política. A definiç
 - nome de exibição
 - descrição
 - metadata
-- parâmetros
+- parameters
 - definições de política
 - grupos de políticas (essa propriedade faz parte do [recurso de conformidade regulatória (versão prévia)](./regulatory-compliance.md))
 
@@ -109,14 +109,14 @@ Os clientes podem definir quaisquer propriedades e valores úteis para sua organ
 
 ### <a name="common-metadata-properties"></a>Propriedades de metadados comuns
 
-- `version`(cadeia de caracteres): rastreia detalhes sobre a versão do conteúdo de uma definição de iniciativa de política.
-- `category`(String): determina sob qual categoria em portal do Azure a definição de política é exibida.
+- `version` (cadeia de caracteres): rastreia detalhes sobre a versão do conteúdo de uma definição de iniciativa de política.
+- `category` (String): determina sob qual categoria em portal do Azure a definição de política é exibida.
 
   > [!NOTE]
   > Para uma iniciativa de [conformidade regulatória](./regulatory-compliance.md) , o `category` deve ser a **conformidade regulatória**.
 
-- `preview`(booliano): sinalizador true ou false para se a definição da iniciativa de política for _Preview_.
-- `deprecated`(booliano): sinalizador true ou false para se a definição da iniciativa de política tiver sido marcada como _preterida_.
+- `preview` (booliano): sinalizador true ou false para se a definição da iniciativa de política for _Preview_.
+- `deprecated` (booliano): sinalizador true ou false para se a definição da iniciativa de política tiver sido marcada como _preterida_.
 
 > [!NOTE]
 > O serviço Azure Policy usa as propriedades `version`, `preview` e `deprecated` para transmitir o nível de alteração para uma definição de política interna ou uma iniciativa e um estado. O formato de `version` é: `{Major}.{Minor}.{Patch}`. Estados específicos, como _preterido_ ou _versão prévia_, são acrescentados à propriedade `version` ou a outra propriedade como um **booliano**. Para obter mais informações sobre como Azure Policy versões internas, consulte [controle de versão interno](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
@@ -218,10 +218,10 @@ A `policyDefinitions` parte da definição da iniciativa é uma _matriz_ da qual
 
 Cada elemento da _matriz_ que representa uma definição de política tem as seguintes propriedades:
 
-- `policyDefinitionId`(String): a ID da definição de política personalizada ou interna a ser incluída.
-- `policyDefinitionReferenceId`(cadeia de caracteres): um nome curto para a definição de política incluída.
+- `policyDefinitionId` (String): a ID da definição de política personalizada ou interna a ser incluída.
+- `policyDefinitionReferenceId` (cadeia de caracteres): um nome curto para a definição de política incluída.
 - `parameters`: (Opcional) os pares de nome/valor para passar um parâmetro de iniciativa para a definição de política incluída como uma propriedade nessa definição de política. Para obter mais informações, confira [Parâmetros](#parameters).
-- `groupNames`(matriz de cadeias de caracteres): (opcional) o grupo do qual a definição de política é membro. Para obter mais informações, consulte [grupos de políticas](#policy-definition-groups).
+- `groupNames` (matriz de cadeias de caracteres): (opcional) o grupo do qual a definição de política é membro. Para obter mais informações, consulte [grupos de políticas](#policy-definition-groups).
 
 Aqui está um exemplo de `policyDefinitions` que tem duas definições de política incluídas que são passadas para o mesmo parâmetro de iniciativa:
 
@@ -257,11 +257,11 @@ Detalhes adicionais de Agrupamento podem ser encontrados em um objeto **policyMe
 
 Cada elemento da _matriz_ em `policyDefinitionGroups` deve ter as duas propriedades a seguir:
 
-- `name`(cadeia de caracteres) \[ obrigatório \] : o nome curto do **controle**. O valor dessa propriedade é usado pelo `groupNames` no `policyDefinitions` .
-- `category`(String): o **domínio de conformidade** do controle.
-- `displayName`(String): o nome amigável para o **controle**. Usado pelo portal.
-- `description`(String): uma descrição do que o **controle** faz.
-- `additionalMetadataId`(String): o local do objeto [policyMetadata](#metadata-objects) que tem detalhes adicionais sobre o domínio de **controle** e **conformidade**.
+- `name` (cadeia de caracteres) \[ obrigatório \] : o nome curto do **controle**. O valor dessa propriedade é usado pelo `groupNames` no `policyDefinitions` .
+- `category` (String): o **domínio de conformidade** do controle.
+- `displayName` (String): o nome amigável para o **controle**. Usado pelo portal.
+- `description` (String): uma descrição do que o **controle** faz.
+- `additionalMetadataId` (String): o local do objeto [policyMetadata](#metadata-objects) que tem detalhes adicionais sobre o domínio de **controle** e **conformidade**.
 
   > [!NOTE]
   > Os clientes podem apontar para um objeto [policyMetadata](#metadata-objects) existente. No entanto, esses objetos são _somente leitura_ e criados apenas pela Microsoft.
@@ -292,9 +292,9 @@ Essas informações são:
 Os metadados de um agrupamento de política têm as seguintes informações no `properties` nó:
 
 - `metadataId`: A **ID de controle** à qual o agrupamento está relacionado.
-- `category`(obrigatório): o **domínio de conformidade** ao qual o **controle** pertence.
-- `title`(obrigatório): o nome amigável da **ID de controle**.
-- `owner`(obrigatório): identifica quem tem a responsabilidade pelo controle no Azure: _Customer_, _Microsoft_, _Shared_.
+- `category` (obrigatório): o **domínio de conformidade** ao qual o **controle** pertence.
+- `title` (obrigatório): o nome amigável da **ID de controle**.
+- `owner` (obrigatório): identifica quem tem a responsabilidade pelo controle no Azure: _Customer_, _Microsoft_, _Shared_.
 - `description`: Informações adicionais sobre o controle.
 - `requirements`: Detalhes sobre a responsabilidade da implementação do controle.
 - `additionalContentUrl`: Um link para obter mais informações sobre o controle. Essa propriedade é geralmente um link para a seção da documentação que aborda esse controle no padrão de conformidade.

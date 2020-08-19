@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 52427cbaa418e0335797fe0a98c26c3fb84cf670
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dddcdd52709c634f0dcf67cb982804f5556e88b9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304166"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548328"
 ---
 # <a name="register-a-saas-application"></a>Registrar um aplicativo SaaS
 
@@ -82,14 +82,14 @@ Postar<br>
 
 |  Nome da propriedade     |  Obrigatório         |  Descrição |
 |  ---------------   |  ---------------  | ------------ |
-|  `grant-type`      |  True      |  Tipo de concessão. Use `"client_credentials"`. |
+|  `grant_type`      |  True      |  Tipo de concessão. Use `"client_credentials"`. |
 |  `client_id`       |  True      |  Identificador do cliente/aplicativo associado ao Aplicativo Azure AD. |
 |  `client_secret`   |  True      |  Segredo associado ao aplicativo do Azure AD. |
 |  `resource`        |  True      |  Recurso de destino para o qual o token é solicitado. Use `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` porque a API SaaS do Marketplace sempre é o recurso de destino nesse caso. |
 
 ##### <a name="response"></a>*Resposta*
 
-|  Nome     |  Type         |  DESCRIÇÃO |
+|  Nome     |  Type         |  Descrição |
 |  ------   |  ---------------  | ------------ |
 |  200 OK   |  TokenResponse    |  Solicitação bem-sucedida. |
 

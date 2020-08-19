@@ -1,14 +1,14 @@
 ---
 title: Como criar políticas de Configuração de Convidado para o Windows
 description: Saiba como criar uma política de Configuração de Convidado do Azure Policy para Windows.
-ms.date: 03/20/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 31c40640babea961ef3bb255112306f59772bae2
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 4ee0c9d1912338235e53eb287bfc86a14b75cc97
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236532"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547657"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de Configuração de Convidado para o Windows
 
@@ -16,8 +16,7 @@ Antes de criar definições de política personalizadas, é uma boa ideia ler as
  
 Para saber mais sobre como criar políticas de Configuração de Convidado para o Linux, confira a página [Como criar políticas de Configuração de Convidado para o Linux](./guest-configuration-create-linux.md)
 
-Ao auditar o Windows, a Configuração de Convidado usa um módulo de recurso [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para criar o arquivo de configuração. A configuração DSC define a condição em que o computador deve estar.
-Se a avaliação da configuração falhar, o efeito da política **auditIfNotExists** será disparado e o computador será considerado **não compatível**.
+Ao auditar o Windows, a Configuração de Convidado usa um módulo de recurso [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para criar o arquivo de configuração. A configuração DSC define a condição em que o computador deve estar. Se a avaliação da configuração falhar, o efeito da política **auditIfNotExists** será disparado e o computador será considerado **não compatível**.
 
 A [Configuração de Convidado do Azure Policy](../concepts/guest-configuration.md) só pode ser usada para auditar configurações dentro de computadores. A correção das configurações dentro de computadores ainda não está disponível.
 
@@ -56,7 +55,7 @@ O módulo do recurso de Configuração de Convidado requer o seguinte software:
 
 - PowerShell 6.2 ou posterior. Se ainda não estiver instalado, siga [estas instruções](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 ou superior. Se ainda não estiver instalado, siga [estas instruções](/powershell/azure/install-az-ps).
-  - Apenas os módulos AZ denominados “Az.Accounts” e “Az.Resources” são necessários.
+  - Somente os módulos AZ ' AZ. Accounts ' e ' AZ. Resources ' são necessários.
 
 ### <a name="install-the-module"></a>Instalar o módulo
 
@@ -90,8 +89,7 @@ Quando a configuração de convidado audita um computador, a sequência de event
 1. O valor booliano retornado pela função determina se o status do Azure Resource Manager para a Atribuição de Convidado deve ser compatível/não compatível.
 1. O provedor executa `Get-TargetResource` para retornar o estado atual de cada configuração, para que estejam disponíveis detalhes sobre o motivo pelo qual um computador não é compatível e para confirmar que o estado atual é compatível.
 
-Os parâmetros em Azure Policy que passam valores para atribuições de configuração de convidado devem ser do tipo _cadeia de caracteres_ .
-Não é possível passar matrizes por meio de parâmetros, mesmo que o recurso de DSC dê suporte a matrizes.
+Os parâmetros em Azure Policy que passam valores para atribuições de configuração de convidado devem ser do tipo _cadeia de caracteres_ . Não é possível passar matrizes por meio de parâmetros, mesmo que o recurso de DSC dê suporte a matrizes.
 
 ### <a name="get-targetresource-requirements"></a>Requisitos da função Get-TargetResource
 
@@ -121,7 +119,7 @@ return @{
 }
 ```
 
-A propriedade Reasons também deve ser adicionada ao Schema MOF para o recurso como uma classe incorporada.
+A propriedade Reasons deve ser adicionada ao Schema MOF para o recurso como uma classe incorporada.
 
 ```mof
 [ClassVersion("1.0.0.0")] 
@@ -166,8 +164,7 @@ O formato do pacote deve ser um arquivo zip.
 ### <a name="storing-guest-configuration-artifacts"></a>Armazenar artefatos de Configuração de Convidado
 
 O pacote .zip deve ser armazenado em um local acessível pelas máquinas virtuais gerenciadas.
-Exemplos incluem repositórios do GitHub, um repositório do Azure ou armazenamento do Azure. Se você preferir não tornar o pacote público, poderá incluir um [token SAS](../../../storage/common/storage-sas-overview.md) na URL.
-Você também pode implementar o [ponto de extremidade de serviço](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) para máquinas em uma rede privada, embora essa configuração se aplique apenas ao acesso ao pacote e não à comunicação com o serviço.
+Exemplos incluem repositórios do GitHub, um repositório do Azure ou armazenamento do Azure. Se você preferir não tornar o pacote público, poderá incluir um [token SAS](../../../storage/common/storage-sas-overview.md) na URL. Você também pode implementar o [ponto de extremidade de serviço](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) para máquinas em uma rede privada, embora essa configuração se aplique apenas ao acesso ao pacote e não à comunicação com o serviço.
 
 ## <a name="step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows"></a>Criar uma política de auditoria de Configuração de Convidado personalizada para Windows passo a passo
 
@@ -372,7 +369,7 @@ New-AzRoleDefinition -Role $role
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrar políticas de Configuração de Convidado usando marcas
 
-As políticas criadas por cmdlets no módulo de Configuração de Convidado podem incluir um filtro para marcas como opção. O parâmetro **Tag** de `New-GuestConfigurationPolicy` oferece suporte a uma matriz de tabelas de hash contendo toda a marca individual. As marcas serão adicionadas à seção `If` da definição de política e não poderão ser modificadas por uma atribuição de política.
+As políticas criadas por cmdlets no módulo de Configuração de Convidado podem incluir um filtro para marcas como opção. O parâmetro **Tag** de `New-GuestConfigurationPolicy` oferece suporte a uma matriz de tabelas de hash contendo toda a marca individual. As marcas são adicionadas à `If` seção da definição de política e não podem ser modificadas por uma atribuição de política.
 
 A seguir, é fornecido um trecho de código de exemplo de uma definição de política que filtra as marcas.
 
@@ -440,7 +437,7 @@ A extensão da Configuração de Convidado requer o desenvolvimento de dois comp
   - Converter saída
 - Conteúdo no formato correto para a ferramenta consumir nativamente
 
-O recurso DSC requer desenvolvimento personalizado se uma solução da comunidade ainda não existir.
+O recurso DSC requer desenvolvimento personalizado se uma solução de comunidade ainda não existir.
 As soluções da comunidade podem ser descobertas pesquisando na Galeria do PowerShell a marca [GuestConfiguration](https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22).
 
 > [!Note]
@@ -536,7 +533,7 @@ Agora você deve ter uma estrutura de projeto conforme a seguir:
 
 Os arquivos de suporte devem ser empacotados juntos. O pacote fechado é usado pela Configuração de Convidado para criar as definições do Azure Policy.
 
-O cmdlet `New-GuestConfigurationPackage` cria o pacote. Para conteúdo de terceiros, use o parâmetro **FilesToInclude** para adicionar o conteúdo InSpec ao pacote. Você não precisa especificar o **ChefProfilePath** como nos pacotes do Linux.
+O cmdlet `New-GuestConfigurationPackage` cria o pacote. Para conteúdo de terceiros, use o parâmetro **FilesToInclude** para adicionar o conteúdo InSpec ao pacote. Você não precisa especificar o **ChefProfilePath** como para pacotes do Linux.
 
 - **Name**: nome do pacote da Configuração de Convidado.
 - **Configuração**: caminho completo do documento com a configuração compilada.
@@ -602,5 +599,5 @@ Para obter mais informações sobre os cmdlets nessa ferramenta, use o comando G
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre as VMs de auditoria com a [Configuração de Convidado](../concepts/guest-configuration.md).
-- Entenda como [criar políticas de forma programática](programmatically-create.md).
-- Saiba como [obter dados de conformidade](get-compliance-data.md).
+- Entenda como [criar políticas de forma programática](./programmatically-create.md).
+- Saiba como [obter dados de conformidade](./get-compliance-data.md).

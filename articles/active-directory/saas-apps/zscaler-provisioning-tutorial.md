@@ -2,25 +2,21 @@
 title: 'Tutorial: configurar o Zscaler para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o Zscaler.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd-msft
-ms.assetid: 31f67481-360d-4471-88c9-1cc9bdafee24
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 8add1f57b566d746d464c1ca165938fc112a9784
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3424a42e86b47d4103dd41ca143b5bc7be3796a
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77062701"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545906"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Tutorial: configurar o Zscaler para o provisionamento automático de usuário
 
@@ -112,7 +108,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/secret-token-2.png)
 
-    Selecione **habilitar provisionamento baseado em scim** para recuperar a **URL base** e o **token de portador**e, em seguida, salve as configurações. Copie a **URL base** para a **URL do locatário**e o token de **portador** para o **token secreto** no portal do Azure.
+    Selecione **habilitar provisionamento baseado em scim** para recuperar a **URL base** e o **token de portador**e, em seguida, salve as configurações. Copie a **URL base** para a **URL do locatário**e o token de **portador**  para o **token secreto** no portal do Azure.
 
 7. Ao preencher os campos mostrados na etapa 5, clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Zscaler. Se a conexão falhar, verifique se sua conta do Zscaler tem permissões de administrador e tente novamente.
 

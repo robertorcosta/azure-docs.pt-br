@@ -2,25 +2,21 @@
 title: 'Tutorial: configurar o Zscaler beta para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o Zscaler beta.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd-msft
-ms.assetid: 83db6b8d-503b-48f3-b918-f9fba1369d53
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 505cd7a3350c937885f0f03268ef326a4f784258
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71b40fe903e5a837046b9b29f62ef4875e3139e5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77062716"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545910"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Tutorial: configurar o Zscaler beta para provisionamento automático de usuário
 
@@ -113,7 +109,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Provisionamento do Zscaler beta](./media/zscaler-beta-provisioning-tutorial/secret-token-2.png)
 
-    Selecione **habilitar provisionamento baseado em scim** para recuperar a **URL base** e o **token de portador**e, em seguida, salve as configurações. Copie a **URL base** para a **URL do locatário**e o token de **portador** para o **token secreto** no portal do Azure.
+    Selecione **habilitar provisionamento baseado em scim** para recuperar a **URL base** e o **token de portador**e, em seguida, salve as configurações. Copie a **URL base** para a **URL do locatário**e o token de **portador**  para o **token secreto** no portal do Azure.
 
 7. Ao preencher os campos mostrados na etapa 5, clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Zscaler beta. Se a conexão falhar, verifique se sua conta do Zscaler beta tem permissões de administrador e tente novamente.
 

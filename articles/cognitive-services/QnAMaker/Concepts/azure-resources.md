@@ -3,12 +3,12 @@ title: Recursos do Azure-QnA Maker
 description: O QnA Maker usa várias fontes do Azure, cada uma com uma finalidade diferente. Entender como eles são usados individualmente permite que você planeje e selecione o tipo de preço correto ou saiba quando alterar o tipo de preço. Entender como eles são usados em combinação permite localizar e corrigir problemas quando eles ocorrem.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 7d6598510ae75a76e0a4fcaff59297b4c724ba78
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 06731c97217e3b6a5c498743b83f1d16bab791eb
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171067"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548422"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos do Azure para QnA Maker
 
@@ -44,15 +44,15 @@ Normalmente, há três parâmetros que você precisa considerar:
 
 A tabela a seguir fornece algumas diretrizes de alto nível.
 
-|                            | Gerenciamento do QnA Maker | Serviço de Aplicativo | Azure Cognitive Search | Limitações                      |
+|                            | Gerenciamento do QnA Maker | Serviço de Aplicativo | Pesquisa Cognitiva do Azure | Limitações                      |
 | -------------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | **Experimentação**        | SKU gratuito             | Camada Gratuita   | Camada Gratuita    | Publicar até 2 KB/s, tamanho de 50 MB  |
-| **Ambiente de Desenvolvimento/Teste**   | SKU Standard         | Compartilhada      | Básico        | Publicar até 14 KBs, com tamanho de 2 GB    |
+| **Ambiente de Desenvolvimento/Teste**   | SKU Standard         | Compartilhado      | Basic        | Publicar até 14 KBs, com tamanho de 2 GB    |
 | **Ambiente de Produção** | SKU Standard         | Basic       | Standard     | Publicar até 49 KBs, tamanho de 25 GB |
 
 ## <a name="recommended-settings"></a>Configurações recomendadas
 
-|QPS de destino | Serviço de Aplicativo | Azure Cognitive Search |
+|QPS de destino | Serviço de Aplicativo | Pesquisa Cognitiva do Azure |
 | -------------------- | ----------- | ------------ |
 | 3             | S1, 1 instância   | S1, 1 instância    |
 | 50         | S3, 10 instâncias       | S1, 12 instâncias         |
@@ -174,7 +174,7 @@ Use essas chaves ao fazer solicitações ao serviço por meio de APIs.
 
 |Nome|Localização|Finalidade|
 |--|--|--|
-|Chave de criação|[Portal do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves** .|
+|Chave de criação|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves** .|
 |Chave do ponto de extremidade da consulta|[Portal do QnA Maker](https://www.qnamaker.ai)|Essas chaves são usadas para consultar o ponto de extremidade da base de dados de conhecimento publicado para obter uma resposta para uma pergunta de usuário. Normalmente, você usa esse ponto de extremidade de consulta em seu bot de chat ou no código do aplicativo cliente que se conecta ao serviço de QnA Maker. Essas chaves são criadas quando você publica sua base de dados de conhecimento QnA Maker.<br><br>Localize essas chaves na página **configurações de serviço** . Localize essa página no menu do usuário no canto superior direito da página no menu suspenso.|
 
 ### <a name="subscription-keys"></a>Chaves de assinatura

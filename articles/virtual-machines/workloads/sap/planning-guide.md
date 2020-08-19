@@ -8,15 +8,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/23/2020
+ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 61401fc15f6f1003f6969787854fad65bfb6a5ab
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 87c8b160a0b8791d13976be975090d16e68ea82f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511228"
+ms.locfileid: "88547402"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -766,6 +766,8 @@ O Microsoft Azure oferece várias maneiras de implantar VMs e discos associados.
 #### <a name="moving-a-vm-from-on-premises-to-azure-with-a-non-generalized-disk"></a><a name="4d175f1b-7353-4137-9d2f-817683c26e53"></a>Movendo uma VM do local para o Azure com um disco não generalizado
 
 Você planeja mover um sistema SAP específico do local para o Azure. Isso pode ser feito carregando, no Azure, o VHD que contém os binários do sistema operacional, os binários da SAP e os binários do DBMS, além dos VHDs com os arquivos de dados e arquivos de log do DBMS. Ao contrário do que ocorre no [cenário nº 2 abaixo][planning-guide-5.1.2], você mantém o nome de host, a SID do SAP e as contas de usuário do SAP na VM do Azure, já que eles foram configurados no ambiente local. Portanto, não é necessário generalizar a imagem. Confira os capítulos [Preparação para mover uma VM do local para o Azure com um disco não generalizado][planning-guide-5.2.1] deste documento para obter as etapas de preparação local e de carregamento de VMs ou VHDs não generalizados para o Azure. Leia o capítulo [Cenário 3: mover uma VM do local usando um VHD do Azure não generalizado com SAP][deployment-guide-3.4] no [Guia de implantação][deployment-guide] para obter etapas detalhadas de implantação de uma imagem desse tipo no Azure.
+
+Outra opção que não discutiremos detalhadamente neste guia é usar Azure Site Recovery para replicar servidores de aplicativos SAP NetWeaver e serviços centrais do SAP NetWeaver para o Azure. Não recomendamos usar Azure Site Recovery para a camada de banco de dados e, em vez disso, usar mecanismos de replicação específicos de banco de dados, como a replicação de sistema do HANA. Para obter mais informações, consulte o capítulo [proteger o SAP](https://docs.microsoft.com/azure/site-recovery/site-recovery-workload#protect-sap) do guia [sobre recuperação de desastres para aplicativos locais](https://docs.microsoft.com/azure/site-recovery/site-recovery-workload) .
 
 #### <a name="deploying-a-vm-with-a-customer-specific-image"></a><a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>Implantando uma VM com uma imagem específica do cliente
 

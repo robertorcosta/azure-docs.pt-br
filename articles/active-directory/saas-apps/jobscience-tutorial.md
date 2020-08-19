@@ -2,25 +2,20 @@
 title: 'Tutorial: integração do Azure Active Directory com o Jobscience | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Jobscience.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.assetid: 77282dcc-bbe2-4728-953d-adb4ab6a713b
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d2694aa4936090367cf881379f81911ae70f9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0de47cc12c461e47d8703861a99d11e7ee72d581
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81870535"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547060"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutorial: Integração do Active Directory do Azure com o Jobscience
 
@@ -66,11 +61,11 @@ Para configurar a integração do Jobscience ao Azure AD, é necessário adicion
 
 1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![Aplicativo][2]
     
 1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![Aplicativo][3]
 
 1. Na caixa de pesquisa, digite **Jobscience**.
 
@@ -113,7 +108,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/jobscience-tutorial/tutorial_jobscience_url.png)
 
-    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `http://<company name>.my.salesforce.com`
+    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:  `http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
     > Esse valor não é real. Atualize esse valor com a URL de Logon real. Obtenha esse valor com a [equipe de suporte ao Cliente do Jobscience](http://www.jobscience.com/support) ou no perfil de SSO que você criará, explicado adiante no tutorial. 
@@ -146,7 +141,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. No site da empresa do Jobscience, clique em **Controles de Segurança** e, em seguida, clique em **Configurações de Logon Único**.
     
-    ![Controles de Segurança](./media/jobscience-tutorial/ic784364.png "Controles de Segurança")
+    ![Controles de segurança](./media/jobscience-tutorial/ic784364.png "Controles de Segurança")
 
 1. Na seção **Configurações de Logon Único**, faça o seguinte:
     
@@ -154,13 +149,13 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     a. Selecione **SAML Habilitado**.
 
-    b. Clique em **Novo**.
+    b. Clique em **Nova**.
 
 1. Na caixa de diálogo **Editar Configuração de Logon Único do SAML**, execute as etapas a seguir:
     
     ![Configuração de Logon Único do SAML](./media/jobscience-tutorial/ic784365.png "Configuração de Logon Único do SAML")
     
-    a. Na caixa de texto **Nome**, digite um nome para a sua configuração.
+    a. Na caixa de texto **Nome** , digite um nome para a sua configuração.
 
     b. Na caixa de texto **Emissor**, cole o valor da **ID da Entidade SAML** copiado do portal do Azure.
 
@@ -172,7 +167,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     f. Selecione **A identidade está no elemento NameIdentifier da declaração do Assunto** como **Local da Identidade do SAML**.
 
-    (por exemplo, Na caixa de texto **URL de Logon do Provedor de Identidade**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
+    g. Na caixa de texto **URL de Logon do Provedor de Identidade**, cole o valor da **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
 
     h. Na caixa de texto **URL de Logoff do Provedor de Identidade**, cole o valor da **URL de Saída** copiado do portal do Azure.
 
@@ -192,7 +187,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 1. Para obter o logon único iniciado pelo SP, clique nas **Configurações de Logon Único** na seção do menu **Controles de Segurança**.
 
-    ![Controles de Segurança](./media/jobscience-tutorial/ic784368.png "Controles de Segurança")
+    ![Controles de segurança](./media/jobscience-tutorial/ic784368.png "Controles de Segurança")
     
     Clique no perfil SSO que você criou na etapa anterior. Esta página mostra o logon único na URL para a sua empresa (por exemplo, `https://companyname.my.salesforce.com?so=companyid`.    
 

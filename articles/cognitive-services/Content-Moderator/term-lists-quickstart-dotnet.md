@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 68da335875752d326ee718cade3d501623c70b49
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a9c64d1a5c4c7ada666b5fe3a8bcc70b39871850
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72935949"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545617"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Verificar o texto em relação a uma lista de termos personalizados em C#
 
@@ -32,7 +32,7 @@ Este artigo fornece informações e exemplos de código para ajudá-lo a começa
 - Editar informações da lista.
 - Atualizar o índice para que as alterações da lista sejam incluídas em uma nova verificação.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar. 
 
 ## <a name="sign-up-for-content-moderator-services"></a>Inscreva-se nos serviços do Content Moderator
 
@@ -69,7 +69,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Criar o cliente do Content Moderator
 
-Adicione o código a seguir para criar um cliente do Content Moderator para sua assinatura. Atualize os `AzureEndpoint` campos `CMSubscriptionKey` e com os valores de sua URL de ponto de extremidade e chave de assinatura. Você pode encontrá-los na guia **início rápido** do recurso na portal do Azure.
+Adicione o código a seguir para criar um cliente do Content Moderator para sua assinatura. Atualize os `AzureEndpoint` `CMSubscriptionKey` campos e com os valores de sua URL de ponto de extremidade e chave de assinatura. Você pode encontrá-los na guia **início rápido** do recurso na portal do Azure.
 
 ```csharp
 /// <summary>

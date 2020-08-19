@@ -2,25 +2,20 @@
 title: 'Tutorial: provisionamento de usuário para ThousandEyes-Azure AD'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário no ThousandEyes.
 services: active-directory
-documentationcenter: ''
 author: ArvindHarinder1
 manager: CelesteDG
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d87cffce636146eac3e557670ffc4fb2fc34ae38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a009361267a364f04237716f3623921c892e2708
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77062873"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546416"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Tutorial: Configurar ThousandEyes para provisionamento automático de usuário
 
@@ -60,7 +55,7 @@ Esta seção explica como conectar seu Azure AD à API de provisionamento de con
 
 ### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Configurar o provisionamento automático de conta de usuário para o ThousandEyes no Azure AD
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > aplicativos empresariais > todos os aplicativos** .
+1. Na [portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > aplicativos empresariais > todos os aplicativos**  .
 
 2. Se você já tiver configurado o ThousandEyes para logon único, pesquise sua instância do ThousandEyes usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise **ThousandEyes** na galeria de aplicativos. Selecione o ThousandEyes nos resultados da pesquisa e adicione-o à lista de aplicativos.
 

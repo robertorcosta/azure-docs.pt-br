@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 75b71fe9a15b05679ab1b71b13bb0b1f51b7d1d1
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 70cbb21430253dc9683cd3803f2a09ef8bb858cb
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816141"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545634"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Instalar e executar ler contêineres (visualização)
 
-Os contêineres permitem que você execute as APIs de Pesquisa Visual Computacional em seu próprio ambiente. Os contêineres são ótimos para requisitos específicos de segurança e governança de dados. Neste artigo, você aprenderá a baixar, instalar e executar um Pesquisa Visual Computacional contêiner.
+Os contêineres permitem executar as APIs de Pesquisa Visual Computacional em seu próprio ambiente. Contêineres são excelentes para especificar requisitos de segurança e governança de dados. Neste artigo, você aprenderá a baixar, instalar e executar um contêiner da Pesquisa Visual Computacional.
 
 Um único contêiner do Docker, *leitura*, está disponível para pesquisa Visual computacional. O contêiner *ler* permite detectar e extrair *texto impresso* de imagens de vários objetos com diferentes superfícies e planos de fundo, como recibos, pôsteres e cartões de visita. Além disso, o contêiner de *leitura* detecta *texto manuscrito* em imagens e fornece suporte a arquivos PDF, TIFF e de várias páginas. Para obter mais informações, consulte a documentação da API de [leitura](concept-recognizing-text.md#read-api) .
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,7 +32,7 @@ Você deve atender aos seguintes pré-requisitos antes de usar os contêineres:
 
 |Obrigatório|Finalidade|
 |--|--|
-|Mecanismo Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
+|Mecanismo do Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.| 
 |Pesquisa Visual Computacional recurso |Para usar o contêiner, você precisará ter:<br><br>Um recurso de **Pesquisa Visual computacional** do Azure e a chave de API associada do URI do ponto de extremidade. Ambos os valores estão disponíveis nas páginas visão geral e chaves para o recurso e são necessários para iniciar o contêiner.<br><br>**{Api_key}**: uma das duas chaves de recurso disponíveis na página **chaves**<br><br>**{ENDPOINT_URI}**: o ponto de extremidade conforme fornecido na página **visão geral**|
 
@@ -121,9 +121,9 @@ Há outros [exemplos](./computer-vision-resource-container-config.md#example-doc
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão do contêiner
 
-O contêiner fornece APIs de ponto de extremidade de previsão de consulta com base em REST. 
+O contêiner fornece APIs de ponto de extremidade de previsão de consulta baseadas em REST. 
 
-Use o host, `http://localhost:5000`, para APIs de contêiner.
+Use o host, `http://localhost:5000`, para as APIs do contêiner.
 
 ### <a name="asynchronous-read"></a>Leitura assíncrona
 

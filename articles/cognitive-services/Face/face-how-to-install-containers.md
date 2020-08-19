@@ -11,27 +11,27 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: a74b77ac59ece98f1a64839fd5000f4ab5d638f7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 766af570c959ff2c49256058dfbfffdd1021295f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497872"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548456"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Instalar e executar contêineres de face (visualização)
 
 > [!IMPORTANT]
-> O limite para usuários de contêiner facial foi atingido. No momento, não estamos aceitando novos aplicativos para o contêiner facial.
+> O limite de usuários do contêiner de Detecção Facial foi atingido. No momento, não estamos aceitando novos aplicativos para o contêiner de Detecção Facial.
 
 O rosto dos serviços cognitivas do Azure fornece um contêiner Linux padronizado para o Docker que detecta faces humanas em imagens. Ele também identifica atributos, que incluem pontos de referência de face, como narizs e olhos, sexo, idade e outros recursos faciais previstos por máquina. Além da detecção, a face pode verificar se duas faces na mesma imagem ou em imagens diferentes são as mesmas usando uma pontuação de confiança. A face também pode comparar rostos com um banco de dados para ver se já existe uma face semelhante ou idêntica. Ele também pode organizar faces semelhantes em grupos usando características visuais compartilhadas.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Você deve atender aos seguintes pré-requisitos antes de usar os contêineres de serviço de face.
 
-|Necessária|Finalidade|
+|Obrigatório|Finalidade|
 |--|--|
 |Mecanismo do Docker| O mecanismo do Docker deve ser instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> No Windows, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | Você precisa de uma compreensão básica dos conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner. Você também precisa de conhecimento dos `docker` comandos básicos.| 
@@ -47,9 +47,9 @@ Você deve atender aos seguintes pré-requisitos antes de usar os contêineres d
 
 A tabela a seguir descreve os núcleos de CPU mínimos e recomendados e a memória a ser alocada para cada contêiner de serviço de face.
 
-| Contêiner | Mínimo | Recomendado | Transações por segundo<br>(Mínimo, máximo)|
+| Contêiner | Mínimo | Recomendadas | Transações por segundo<br>(Mínimo, máximo)|
 |-----------|---------|-------------|--|
-|Face | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |10, 20|
+|Detecção Facial | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |10, 20|
 
 * Cada núcleo deve ter pelo menos 2,6 GHz ou mais rápido.
 * Transações por segundo (TPS).
@@ -62,7 +62,7 @@ As imagens de contêiner para o serviço de face estão disponíveis.
 
 | Contêiner | Repositório |
 |-----------|------------|
-| Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
+| Detecção Facial | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 

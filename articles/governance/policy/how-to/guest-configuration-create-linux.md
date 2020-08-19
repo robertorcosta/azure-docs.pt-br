@@ -1,14 +1,14 @@
 ---
 title: Como criar políticas de Configuração de Convidado para o Linux
 description: Saiba como criar uma política de Configuração de Convidado do Azure Policy para Linux.
-ms.date: 03/20/2020
+ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: fef5bdea1b7f98e19f9f8ee8bc9bce8553107fda
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 8bf01d8f69439f7b4d60fba76de0b7abf636c274
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236583"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547713"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de Configuração de Convidado para o Linux
 
@@ -25,9 +25,8 @@ Use as ações a seguir para criar sua própria configuração para validar o es
 > [!IMPORTANT]
 > As políticas personalizadas com a Configuração de Convidado são uma versão prévia do recurso.
 >
-> A extensão de Configuração de Convidado é necessária para executar auditorias em máquinas virtuais do Azure.
-> Para implantar a extensão em escala em todos os computadores Linux, atribua a seguinte definição de política:
->   - [Implantar os pré-requisitos para habilitar a Política de Configuração de Convidado nas VMs do Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> A extensão de Configuração de Convidado é necessária para executar auditorias em máquinas virtuais do Azure. Para implantar a extensão em escala em todos os computadores Linux, atribua a seguinte definição de política:
+> - [Implantar os pré-requisitos para habilitar a Política de Configuração de Convidado nas VMs do Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ## <a name="install-the-powershell-module"></a>Instalar o módulo do PowerShell
 
@@ -52,14 +51,13 @@ Sistemas operacionais em que é possível instalar o módulo:
 - Windows
 
 > [!NOTE]
-> O cmdlet ' test-GuestConfigurationPackage ' requer o OpenSSL versão 1,0, devido a uma dependência em OMI.
-> Isso causa um erro em qualquer ambiente com OpenSSL 1,1 ou posterior.
+> O cmdlet ' test-GuestConfigurationPackage ' requer o OpenSSL versão 1,0, devido a uma dependência em OMI. Isso causa um erro em qualquer ambiente com OpenSSL 1,1 ou posterior.
 
 O módulo do recurso de Configuração de Convidado requer o seguinte software:
 
 - PowerShell 6.2 ou superior. Se ainda não estiver instalado, siga [estas instruções](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 ou superior. Se ainda não estiver instalado, siga [estas instruções](/powershell/azure/install-az-ps).
-  - Apenas os módulos AZ denominados “Az.Accounts” e “Az.Resources” são necessários.
+  - Somente os módulos AZ ' AZ. Accounts ' e ' AZ. Resources ' são necessários.
 
 ### <a name="install-the-module"></a>Instalar o módulo
 
@@ -81,7 +79,8 @@ Para instalar o módulo **GuestConfiguration** no PowerShell:
 
 ## <a name="guest-configuration-artifacts-and-policy-for-linux"></a>Artefatos e política de Configuração de Convidado para Linux
 
-Mesmo em ambientes Linux, a Configuração de Convidado usa a Desired State Configuration como uma abstração de linguagem. A implementação é baseada em código nativo (C++) para que o carregamento do PowerShell não seja necessário. No entanto, é preciso haver um MOF de configuração que descreva os detalhes sobre o ambiente. A DSC está agindo como um wrapper do InSpec para padronizar como ele é executado, como os parâmetros são fornecidos e como a saída é retornada ao serviço. É preciso ter pouco conhecimento da DSC para trabalhar com o conteúdo do InSpec personalizado.
+Mesmo em ambientes Linux, a Configuração de Convidado usa a Desired State Configuration como uma abstração de linguagem. A implementação é baseada em código nativo (C++) para que o carregamento do PowerShell não seja necessário. No entanto, é preciso haver um MOF de configuração que descreva os detalhes sobre o ambiente.
+A DSC está agindo como um wrapper do InSpec para padronizar como ele é executado, como os parâmetros são fornecidos e como a saída é retornada ao serviço. É preciso ter pouco conhecimento da DSC para trabalhar com o conteúdo do InSpec personalizado.
 
 #### <a name="configuration-requirements"></a>Requisitos de configuração
 
@@ -141,8 +140,6 @@ AuditFilePathExists -out ./Config
 Nomeie o arquivo como `config.ps1` e salve-o na pasta do projeto. Execute-o no PowerShell por meio do comando `./config.ps1` no terminal. Um novo arquivo mof será criado.
 
 O comando `Node AuditFilePathExists` não é tecnicamente necessário, mas ele produz um arquivo denominado `AuditFilePathExists.mof` em vez do padrão `localhost.mof`. Ao nomear o arquivo .mof conforme a configuração, fica mais fácil organizar vários arquivos ao operar em escala.
-
-
 
 Agora você deve ter uma estrutura de projeto conforme a seguir:
 
@@ -288,8 +285,7 @@ Os arquivos a seguir são criados por `New-GuestConfigurationPolicy`:
 
 A saída do cmdlet retorna um objeto que contenha o nome de exibição da iniciativa e o caminho dos arquivos da política.
 
-Por fim, publique as definições de política usando o cmdlet `Publish-GuestConfigurationPolicy`.
-O cmdlet tem apenas o parâmetro **Path** que aponta para o local dos arquivos JSON criados por `New-GuestConfigurationPolicy`.
+Por fim, publique as definições de política usando o cmdlet `Publish-GuestConfigurationPolicy`. O cmdlet tem apenas o parâmetro **Path** que aponta para o local dos arquivos JSON criados por `New-GuestConfigurationPolicy`.
 
 Para executar o comando Publish, você precisa ter acesso de criação das políticas no Azure. Os requisitos de autorização específicos estão documentados na página [Visão geral do Azure Policy](../overview.md). A melhor função interna é a de **Colaborador da política de recurso**.
 
@@ -347,7 +343,7 @@ end
 
 Os cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluem um parâmetro chamado **Parameter**. Esse parâmetro usa uma tabela de hash que inclui todos os detalhes sobre cada parâmetro e cria automaticamente todas as seções necessárias dos arquivos usados para criar cada definição do Azure Policy.
 
-O exemplo a seguir cria uma definição de política para auditar um caminho de arquivo, no qual o usuário fornece o caminho no momento da atribuição da política.
+O exemplo a seguir cria uma definição de política para auditar um caminho de arquivo, em que o usuário fornece o caminho no momento da atribuição de política.
 
 ```azurepowershell-interactive
 $PolicyParameterInfo = @(
@@ -459,5 +455,5 @@ Para obter mais informações sobre os cmdlets nessa ferramenta, use o comando G
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre as VMs de auditoria com a [Configuração de Convidado](../concepts/guest-configuration.md).
-- Entenda como [criar políticas de forma programática](programmatically-create.md).
-- Saiba como [obter dados de conformidade](get-compliance-data.md).
+- Entenda como [criar políticas de forma programática](./programmatically-create.md).
+- Saiba como [obter dados de conformidade](./get-compliance-data.md).
