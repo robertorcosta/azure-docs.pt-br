@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 4705919f9c6c11678984c016716fe38cb6191557
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 5b9752107aac1f90a67fb7c87a14492a74a124aa
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030735"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604624"
 ---
-# <a name="create-a-power-bi-app-offer"></a>Criar uma oferta de aplicativo Power BI
+# <a name="create-a-power-bi-app-offer"></a>Criar uma oferta do aplicativo Power BI
 
 Este artigo descreve como criar e publicar uma oferta de aplicativo Power BI para o Microsoft [AppSource](https://appsource.microsoft.com/).
 
@@ -29,7 +29,7 @@ Antes de começar, [crie uma conta do marketplace comercial no Partner Center](c
    ![Ilustra o menu de navegação à esquerda.](./media/new-offer-power-bi-app.png)
 
 > [!NOTE]
-> Depois que uma oferta for publicada, as edições feitas nela no Partner Center aparecerão somente em frentes de loja após a republicação da oferta. Depois de fazer alterações, é sempre necessário republicar.
+> Depois que uma oferta é publicada, as edições feitas nela no Partner Center aparecem somente em lojas online após a republicação da oferta. Depois de fazer alterações, é sempre necessário republicar.
 
 > [!IMPORTANT]
 > Se **aplicativo de serviço Power BI** não for mostrado ou habilitado, sua conta não terá permissão para criar esse tipo de oferta. Verifique se você atendeu a todos os [requisitos](create-power-bi-app-overview.md) para esse tipo de oferta, incluindo o registro de uma conta de desenvolvedor.

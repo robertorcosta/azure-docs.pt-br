@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 050da712df6dad872fc03bd6ca79bbdf2a3e1753
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/19/2020
+ms.openlocfilehash: 00ed8f6ff9839c227f3d8a929a071834c5559226
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563193"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605740"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à taxa de transferência provisionada do Azure Cosmos DB
 
@@ -96,7 +96,7 @@ Se suas cargas de trabalho envolvem excluir e recriar todas as coleções em um 
 
 Depois de criar um contêiner Cosmos do Azure ou um banco de dados, você pode atualizar a taxa de transferência provisionada. Não há limite para a taxa de transferência máxima provisionada que você pode configurar no banco de dados ou no contêiner. 
 
-Para estimar a [taxa de transferência mínima provisionada](concepts-limits.md#storage-and-throughput) de um banco de dados ou contêiner, encontre o máximo de:
+Para estimar a [taxa de transferência mínima provisionada](concepts-limits.md#storage-and-database-operations) de um banco de dados ou contêiner, encontre o máximo de:
 
 * 400 RU/s 
 * Armazenamento atual em GB * 10 RU/s

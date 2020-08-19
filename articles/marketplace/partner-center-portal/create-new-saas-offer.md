@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 6140d369c2dbc0968d2f28ff6b8cf447dd721d10
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 7500eddc2416a1cb705ef207930c5fe4c6f1068a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166715"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604752"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Criar uma oferta de SaaS no Marketplace comercial
 
@@ -30,7 +30,7 @@ Para começar a criar ofertas de SaaS (software como serviço) no marketplace co
    ![Ilustra o menu de navegação à esquerda.](./media/new-offer-saas.png)
 
 > [!NOTE]
-> Depois que uma oferta for publicada, as edições feitas nela no Partner Center aparecerão somente em frentes de loja após a republicação da oferta. Depois de fazer alterações, é sempre necessário republicar.
+> Depois que uma oferta é publicada, as edições feitas nela no Partner Center aparecem somente em lojas online após a republicação da oferta. Depois de fazer alterações, é sempre necessário republicar.
 
 ## <a name="new-offer"></a>Nova oferta
 
@@ -144,7 +144,7 @@ Aqui está um exemplo de como as informações de oferta são exibidas no Micros
 
 #### <a name="call-out-descriptions"></a>Descrições de chamada
 
-1. Título
+1. Title
 2. Descrição
 3. Links úteis
 4. Capturas de tela
@@ -185,7 +185,7 @@ Sua oferta será publicada no AppSource ou no Azure Marketplace, dependendo dos 
 - Pelo menos uma e até duas categorias, incluindo uma categoria primária e uma secundária (opcional).
 - Até duas subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for aplicável à sua oferta, selecione **não aplicável**.
 
-Veja a lista completa de categorias e subcategorias aplicáveis a cada vitrine nas [melhores práticas de listagem de ofertas](../gtm-offer-listing-best-practices.md).
+Consulte a lista completa de categorias e subcategorias aplicáveis a cada loja online nas [melhores práticas de listagem de ofertas](../gtm-offer-listing-best-practices.md).
 
 ### <a name="industries"></a>Setores
 
@@ -282,14 +282,14 @@ Esse campo é obrigatório.
 #### <a name="files-and-images"></a>Arquivos e imagens
 
 - **Documentos** (obrigatório) – adicione documentos de marketing relacionados para sua oferta, em formato PDF, de pelo menos um e até três documentos por oferta.
-- **Imagens** – carregar imagens de logotipo no formato png:
+- **Imagens**  – carregar imagens de logotipo no formato png:
 
   - **Pequeno** (48 x 48 pixels, obrigatório)
   - **Médio** (90 x 90 pixels, obrigatório)
   - **Grande** (216 x 216 pixels, obrigatório)
   - **Largo** (255 x 115 pixels) (opcional)
 
-   Esses três tamanhos de logotipo são usados em locais diferentes nas vitrines:
+   Esses três tamanhos de logotipo são usados em locais diferentes nas lojas online:
 
    -   O logotipo pequeno (48 x 48 pixels) aparece nos resultados da pesquisa do Azure Marketplace e na página de Microsoft AppSource página principal e nos resultados da pesquisa. 
    -   O logotipo médio (90 x 90 pixels) é exibido quando você cria um novo recurso no Microsoft Azure.

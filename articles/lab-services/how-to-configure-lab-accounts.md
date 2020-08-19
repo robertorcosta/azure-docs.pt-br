@@ -3,12 +3,12 @@ title: Configurar o desligamento automático de VMs no Azure Lab Services
 description: Este artigo descreve como configurar o desligamento automático de VMs na conta do laboratório.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 9fd93d383ba6a2d57057a3b45f8b517c84990043
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 8dbc54ad14530006b56bf336d9d78e7d59843485
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589785"
+ms.locfileid: "88603884"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab-account"></a>Configurar o desligamento automático de VMs para uma conta de laboratório
 
@@ -35,4 +35,4 @@ Examine mais detalhes sobre os recursos de desligamento automático na seção [
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como um proprietário de laboratório pode configurar ou substituir essa configuração no nível de laboratório, consulte [habilitar o desligamento automático de VMs ao desconectar](how-to-enable-shutdown-disconnect.md)
+Para saber mais sobre como um proprietário de laboratório pode configurar ou substituir essa configuração no nível de laboratório, consulte [Configurar o desligamento automático de VMs para um laboratório](how-to-enable-shutdown-disconnect.md)

@@ -116,6 +116,14 @@
       href: faq.md
     - name: Perguntas frequentes sobre o Windows 10 Enterprise de várias sessões
       href: windows-10-multisession-faq.md
+    - name: Anexação de aplicativo MSIX
+      items:
+        - name: O que é a anexação de aplicativo MSIX?
+          href: what-is-app-attach.md
+        - name: Glossário
+          href: app-attach-glossary.md
+        - name: Perguntas frequentes
+          href: app-attach-faq.md
     - name: Localizações de dados
       href: data-locations.md
 - name: Solucionar problemas
@@ -150,6 +158,8 @@
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: CLI (interface de linha de comando) do Azure
       href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
+    - name: Cenários de exemplo do Azure
+      href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
 - name: Recursos
   items:
     - name: PowerShell

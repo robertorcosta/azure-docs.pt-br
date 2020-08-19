@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bbee9881addf66d762f1eadb837e5a4e41bf79de
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 7ef9d87db1981c7721c2398e858404c2527dd274
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167888"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605781"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Desenvolvimento para o Arquivos do Azure com .NET
 
@@ -99,7 +99,7 @@ Em seguida, salve suas credenciais no arquivo do seu projeto `App.config` . Em *
 ```
 
 > [!NOTE]
-> A versão mais recente do emulador de armazenamento do Azure não dá suporte a arquivos do Azure. Sua cadeia de conexão deve ter como destino uma Conta de Armazenamento do Azure na nuvem para funcionar com os Arquivos do Azure.
+> As versões mais recentes do emulador de armazenamento do Azure e o emulador de código-fonte aberto do azurite não dão suporte a arquivos do Azure. Sua cadeia de conexão deve ter como destino uma Conta de Armazenamento do Azure na nuvem para funcionar com os Arquivos do Azure.
 
 ## <a name="add-using-directives"></a>Adicionar diretivas using
 

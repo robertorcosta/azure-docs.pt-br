@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: f020d3e98a5c13848a67ed4d8c9ded485b2f9450
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: f8ddbc66b8e7775fa35d2407bf3aa8614fe8e835
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032587"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606163"
 ---
 # <a name="create-a-consulting-service-offer"></a>Criar uma oferta de serviço de consultoria
 
@@ -38,7 +38,7 @@ Benefícios da publicação no Marketplace comercial:
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-consulting-service.png)
 
 >[!NOTE]
->Depois que uma oferta for publicada, as edições feitas nela na Central de Parceiros aparecerão somente em frentes de loja após a republicação da oferta. Depois de fazer alterações, é sempre necessário republicar.
+>Depois que uma oferta é publicada, as edições feitas nela no Partner Center aparecem somente em lojas online após a republicação da oferta. Depois de fazer alterações, é sempre necessário republicar.
 
 ## <a name="new-offer"></a>Nova oferta
 

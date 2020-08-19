@@ -6,6 +6,11 @@
       href: overview.md
     - name: Armazenamento de dados com suporte
       href: supported-data-stores.md
+- name: Inícios rápidos
+  items:
+    - name: Criar compartilhamento de dados – modelo do Resource Manager
+      displayName: Resource Manager
+      href: share-your-data-arm.md
 - name: Tutoriais
   expanded: true
   items:

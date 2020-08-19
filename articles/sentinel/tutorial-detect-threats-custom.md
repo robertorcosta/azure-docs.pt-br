@@ -1,6 +1,6 @@
 ---
-title: Crie regras analíticas personalizadas para detectar ameaças suspeitas com o Azure Sentinel | Microsoft Docs
-description: Use este tutorial para aprender a criar regras analíticas personalizadas para detectar ameaças suspeitas com o Azure Sentinel.
+title: Crie regras de análise personalizadas para detectar ameaças com o Azure Sentinel | Microsoft Docs
+description: Use este tutorial para aprender a criar regras de análise personalizadas para detectar ameaças à segurança com o Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,37 +12,37 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/20/2020
+ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: cea7429ecea105355b0afe306bfa334e55d5d9c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e5989490603e22745a8bc972b16ed016c894893
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77585100"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605890"
 ---
-# <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>Tutorial: criar regras analíticas personalizadas para detectar ameaças suspeitas
+# <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Tutorial: criar regras de análise personalizadas para detectar ameaças
 
-Depois de [conectar suas fontes de dados](quickstart-onboard.md)   ao Azure Sentinel, você pode criar regras personalizadas que podem Pesquisar critérios específicos em seu ambiente e gerar incidentes quando os critérios forem correspondidos para que você possa investigar-los. Este tutorial ajuda você a criar regras personalizadas para detectar ameaças com o Azure Sentinel.
+Depois de [conectar suas fontes de dados](quickstart-onboard.md)   ao Azure Sentinel, você pode criar regras personalizadas que podem Pesquisar critérios específicos em seu ambiente e gerar incidentes quando os critérios forem correspondidos para que você possa investigar-los. Este tutorial ajuda você a criar regras personalizadas para detectar ameaças com o Azure Sentinel.
 
 Este tutorial ajuda você a detectar ameaças com o Azure Sentinel.
 > [!div class="checklist"]
-> * Criar regras analíticas
+> * Criar regras de análise
 > * Automatizar as respostas a ameaças
 
-## <a name="create-custom-analytic-rules"></a>Criar regras analíticas personalizadas
+## <a name="create-custom-analytics-rules"></a>Criar regras de análise personalizadas
 
-Você pode criar regras analíticas personalizadas para ajudá-lo a Pesquisar os tipos de ameaças e anomalias suspeitas em seu ambiente. A regra garante que você seja notificado imediatamente, para que você possa fazer a triagem, investigar e corrigir as ameaças.
+Você pode criar regras de análise personalizadas para ajudá-lo a Pesquisar os tipos de ameaças e anomalias suspeitas em seu ambiente. A regra garante que você seja notificado imediatamente, para que você possa fazer a triagem, investigar e corrigir as ameaças.
 
 1. No portal do Azure, no Azure Sentinel, selecione **Análise**.
 
 1. Na barra de menus superior, selecione **+ criar** e selecione **regra de consulta agendada**. Isso abre o **Assistente de regra de análise**.
 
-    ![Criar consulta agendada](media/tutorial-detect-threats-custom/create-scheduled-query.png)
+    :::image type="content" source="media/tutorial-detect-threats-custom/create-scheduled-query.png" alt-text="Criar consulta agendada":::
 
-1. Na guia **geral** , forneça um **nome**exclusivo e uma **Descrição**. No campo **táticas** , você pode escolher entre as categorias de ataques pelas quais classificar a regra. Defina a **severidade** do alerta conforme necessário. Quando você cria a regra, seu **status** é **habilitado** por padrão, o que significa que ela será executada imediatamente depois que você terminar de criá-la. Se você não quiser que ele seja executado imediatamente, selecione **desabilitado**e a regra será adicionada à guia **regras ativas** e você poderá habilitá-la a partir daí, quando precisar.
+1. Na guia **geral** , forneça um **nome** exclusivo e uma **Descrição**. No campo **táticas** , você pode escolher entre as categorias de ataques pelas quais classificar a regra. Defina a **severidade** do alerta conforme necessário. Quando você cria a regra, seu **status** é **habilitado** por padrão, o que significa que ela será executada imediatamente depois que você terminar de criá-la. Se você não quiser que ele seja executado imediatamente, selecione **desabilitado**e a regra será adicionada à guia **regras ativas** e você poderá habilitá-la a partir daí, quando precisar.
 
-    ![Começar a criar uma regra analítica personalizada](media/tutorial-detect-threats-custom/general-tab.png)
+    ![Começar a criar uma regra de análise personalizada](media/tutorial-detect-threats-custom/general-tab.png)
 
 1. Na guia **definir lógica de regra** , você pode escrever uma consulta diretamente no campo de **consulta de regra** ou criar a consulta em log Analytics e, em seguida, copiá-la e colá-la lá.
  
@@ -62,6 +62,7 @@ Você pode criar regras analíticas personalizadas para ajudá-lo a Pesquisar os
       > O comprimento da consulta deve ter entre 1 e 10.000 caracteres e não pode conter "Search \* " ou "Union \* ".
 
     1. Use a seção **mapear entidades** para vincular os parâmetros dos resultados da consulta às entidades reconhecidas do Sentinela do Azure. Essas entidades formam a base para análise adicional, incluindo o agrupamento de alertas em incidentes na guia **configurações de incidentes** .
+  
     1. Na seção **agendamento de consulta** , defina os seguintes parâmetros:
 
        1. Defina **Executar consulta a cada** para controlar a frequência com que a consulta é executada-com frequência a cada 5 minutos ou com pouca frequência como uma vez por dia.
@@ -71,27 +72,56 @@ Você pode criar regras analíticas personalizadas para ajudá-lo a Pesquisar os
        > [!NOTE]
        > Essas duas configurações são independentes umas das outras, até um ponto. Você pode executar uma consulta em um intervalo curto, cobrindo um período de tempo maior do que o intervalo (em vigor com consultas sobrepostas), mas não é possível executar uma consulta em um intervalo que exceda o período de cobertura, caso contrário, você terá lacunas na cobertura de consulta geral.
 
-    1. Use a seção **limite de alerta** para definir uma linha de base. Por exemplo, defina **gerar alerta quando o número de resultados da consulta** **for maior que** e insira o número 1000 se você quiser que a regra gere um alerta somente se a consulta gerar mais de 1000 resultados cada vez que for executada. Como este é um campo obrigatório, se você não quiser definir uma linha de base – ou seja, se desejar que o alerta Registre todos os eventos – Insira 0 no campo número.
+    1. Use a seção **limite de alerta** para definir uma linha de base. Por exemplo, defina **gerar alerta quando o número de resultados da consulta** **for maior que** e insira o número 1000 se você quiser que a regra gere um alerta somente se a consulta retornar mais de 1000 resultados cada vez que for executada. Este é um campo obrigatório, portanto, se você não quiser definir uma linha de base – ou seja, se quiser que seu alerta Registre todos os eventos – Insira 0 no campo número.
+    
+    1. Em **agrupamento de eventos**, escolha uma das duas maneiras de lidar com o agrupamento de **eventos** em **alertas**: 
 
+       - **Agrupar todos os eventos em um único alerta** (a configuração padrão). A regra gera um único alerta toda vez que ele é executado, desde que a consulta retorne mais resultados do que o **limite de alerta** especificado acima. O alerta inclui um resumo de todos os eventos retornados nos resultados. 
+
+       - **Disparar um alerta para cada evento**. A regra gera um alerta exclusivo para cada evento retornado pela consulta. Isso será útil se você quiser que os eventos sejam exibidos individualmente ou se quiser agrupá-los por determinados parâmetros-por usuário, nome do host ou outra coisa. Você pode definir esses parâmetros na consulta.
+    
+       Atualmente, o número de alertas que uma regra pode gerar está limitado a 20. Se estiver em uma regra específica, o **agrupamento de eventos** será definido para **disparar um alerta para cada evento**e a consulta da regra retornará mais de 20 eventos, cada um dos primeiros 19 eventos gerará um alerta exclusivo e o alerta de vigésimo resumirá todo o conjunto de eventos retornados. Em outras palavras, o alerta de vigésimo é o que teria sido gerado na opção **agrupar todos os eventos em um único alerta** .
+
+       > [!NOTE]
+       > Qual é a diferença entre **eventos** e **alertas**?
+       >
+       > - Um **evento** é uma descrição de uma única ocorrência. Por exemplo, uma única entrada em um arquivo de log pode ser contada como um evento. Nesse contexto, um evento se refere a um único resultado retornado por uma consulta em uma regra de análise.
+       >
+       > - Um **alerta** é uma coleção de eventos que, juntos, são significativos do ponto de vista da segurança. Um alerta pode conter um único evento se o evento tivesse implicações de segurança significativas – um logon administrativo de um país estrangeiro fora do horário comercial, por exemplo.
+       >
+       > - A propósito, o que são **incidentes**? A lógica interna do Azure Sentinel cria **incidentes** de **alertas** ou grupos de alertas. A fila de incidentes é o ponto focal da triagem de trabalho de analistas, investigação e correção.
+       > 
+       > O Azure Sentinel ingere eventos brutos de algumas fontes de dados e alertas já processados de outras pessoas. É importante observar com qual deles você está lidando a qualquer momento.
+
+       > [!IMPORTANT]
+       > O agrupamento de eventos está atualmente em visualização pública. Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+    
     1. Na seção **supressão** , você pode desativar a configuração **parar a execução da consulta após o alerta ser gerado** **em** se, depois de receber um alerta, você deseja suspender a operação dessa regra por um período de tempo excedendo o intervalo de consulta. Se você ativar essa opção, deverá definir **parar a execução da consulta para** o tempo durante o qual a consulta deve parar de ser executada, até 24 horas.
 
 1. Na guia **configurações de incidente** , você pode escolher se e como o Azure Sentinel transforma os alertas em incidentes acionáveis. Se essa guia for deixada sozinha, o Azure Sentinel criará um único incidente separado de cada alerta. Você pode optar por não ter nenhum incidente criado ou agrupar vários alertas em um único incidente, alterando as configurações nessa guia.
 
-    1. Na seção **configurações de incidente** , **criar incidentes de alertas disparados por essa regra de análise** é definido por padrão como **habilitado**, o que significa que o Azure Sentinel criará um único incidente separado de cada um e de todos os alertas disparados pela regra.<br></br>Se você não quiser que essa regra resulte na criação de quaisquer incidentes (por exemplo, se essa regra for apenas para coletar informações para análise subsequente), defina isso como **desabilitado**.
+   > [!IMPORTANT]
+   > A guia Configurações de incidente está atualmente em visualização pública. Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+    
+    1. Na seção **configurações de incidente** , **criar incidentes de alertas disparados por essa regra de análise** é definido por padrão como **habilitado**, o que significa que o Azure Sentinel criará um único incidente separado de cada um e de todos os alertas disparados pela regra.
+       - Se você não quiser que essa regra resulte na criação de quaisquer incidentes (por exemplo, se essa regra for apenas para coletar informações para análise subsequente), defina isso como **desabilitado**.
 
-    1. Na seção **agrupamento de alertas** , se você quiser que um único incidente seja gerado a partir de um grupo de alertas semelhantes ou recorrentes, defina **alertas relacionados a grupos, disparados por essa regra de análise, em incidentes** a serem **habilitados**e defina os parâmetros a seguir.
+    1. Na seção **agrupamento de alertas** , se você quiser que um único incidente seja gerado a partir de um grupo de até 150 alertas semelhantes ou recorrentes (consulte a observação), defina **alertas relacionados ao grupo, disparados por essa regra de análise, em incidentes** a serem **habilitados**e defina os parâmetros a seguir.
 
-    1. **Limitar o grupo aos alertas criados dentro do período de tempo selecionado**:<br></br> Determine o intervalo de tempo no qual os alertas semelhantes ou recorrentes serão agrupados juntos. Todos os alertas correspondentes nesse período de tempo gerarão coletivamente um incidente ou um conjunto de incidentes (dependendo das configurações de agrupamento abaixo). Os alertas fora desse período de tempo gerarão um incidente separado ou um conjunto de incidentes.
+    - **Limitar o grupo aos alertas criados dentro do período de tempo selecionado**: Determine o intervalo de tempo no qual os alertas semelhantes ou recorrentes serão agrupados juntos. Todos os alertas correspondentes nesse período de tempo gerarão coletivamente um incidente ou um conjunto de incidentes (dependendo das configurações de agrupamento abaixo). Os alertas fora desse período de tempo gerarão um incidente separado ou um conjunto de incidentes.
 
-    2. Os **alertas de grupo disparados por essa regra de análise em um único incidente**: escolha a base em que os alertas serão agrupados juntos:
+    - Os **alertas de grupo disparados por essa regra de análise em um único incidente**: escolha a base em que os alertas serão agrupados juntos:
 
-        - **Agrupar alertas em um único incidente se todas as entidades corresponderem**: <br></br>Os alertas serão agrupados se compartilharem valores idênticos para cada uma das entidades mapeadas (definidas na guia definir lógica de regra acima). Esta é a configuração recomendável.
+        - **Agrupar alertas em um único incidente se todas as entidades corresponderem: os**alertas serão agrupados se compartilharem valores idênticos para cada uma das entidades mapeadas (definidas na guia definir lógica de regra acima). Esta é a configuração recomendável.
 
-        - **Agrupar todos os alertas disparados por essa regra em um único incidente**: <br></br>Todos os alertas gerados por essa regra são agrupados mesmo que não compartilhem valores idênticos.
+        - **Agrupar todos os alertas disparados por essa regra em um único incidente**: todos os alertas gerados por essa regra são agrupados em conjunto mesmo que não compartilhem valores idênticos.
 
-        - **Agrupar alertas em um único incidente se as entidades selecionadas corresponderem**: <br></br>Os alertas serão agrupados se compartilharem valores idênticos para algumas das entidades mapeadas (que você pode selecionar na lista suspensa). Você talvez queira usar essa configuração se, por exemplo, desejar criar incidentes separados com base nos endereços IP de origem ou de destino.
+        - **Agrupar alertas em um único incidente se as entidades selecionadas forem correspondentes: os**alertas serão agrupados se compartilharem valores idênticos para algumas das entidades mapeadas (que você pode selecionar na lista suspensa). Você talvez queira usar essa configuração se, por exemplo, desejar criar incidentes separados com base nos endereços IP de origem ou de destino.
 
-    3. **Reabrir incidentes de correspondência fechados**: se um incidente tiver sido fechado (o que significa que o problema subjacente foi resolvido) e, subsequentemente, outro alerta for gerado que teria sido agrupado nesse incidente, defina essa configuração como **habilitada** se você quiser que o incidente fechado seja reaberto e deixe como **desabilitado** se desejar que o alerta crie um novo incidente.
+    - **Reabrir incidentes de correspondência fechados**: se um incidente tiver sido resolvido e fechado, e posteriormente em outro alerta for gerado que deve pertencer a esse incidente, defina essa configuração como **habilitada** se você quiser que o incidente fechado seja reaberto e deixe como **desabilitado** se desejar que o alerta crie um novo incidente.
+    
+        > [!NOTE]
+        > Até 150 alertas podem ser agrupados em um único incidente. Se mais de 150 alertas forem gerados por uma regra que os agrupa em um único incidente, um novo incidente será gerado com os mesmos detalhes de incidente que o original e os alertas em excesso serão agrupados no novo incidente.
 
 1. Na guia **respostas automatizadas** , selecione os guias estratégicos que você deseja executar automaticamente quando um alerta for gerado pela regra personalizada. Para obter mais informações sobre como criar e automatizar os guias estratégicos, consulte [responder a ameaças](tutorial-respond-threats-playbook.md).
 

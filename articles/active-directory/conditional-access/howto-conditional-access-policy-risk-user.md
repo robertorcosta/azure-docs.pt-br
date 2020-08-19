@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a015f7dd58bae328a8c18e3de3202c0ca615c9cf
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 916ff4a5e6afd68106d70f386436723c24574df1
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034768"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605580"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>Acesso condicional: acesso condicional baseado em risco do usuário
 
@@ -29,7 +29,7 @@ Há dois locais em que essa política pode ser atribuída. As organizações dev
 1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
 1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
 1. Selecione **Nova política**.
-1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
+1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas. Para obter mais informações, [defina os padrões de nomenclatura para suas políticas](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access#set-naming-standards-for-your-policies).
 1. Em **Atribuições**, selecione **Usuários e grupos**.
    1. Em **Incluir**, selecione **Todos os usuários**.
    1. Em **Excluir**, selecione **Usuários e grupos** e escolha o acesso de emergência ou as contas de interrupção da sua organização. 
@@ -60,7 +60,7 @@ Há dois locais em que essa política pode ser atribuída. As organizações dev
 
 [Políticas comuns de Acesso Condicional](concept-conditional-access-policy-common.md)
 
-[Acesso condicional com base em risco de entrada](howto-conditional-access-policy-risk.md)
+[Acesso condicional baseado em risco de entrada](howto-conditional-access-policy-risk.md)
 
 [Determinar o impacto usando o modo somente relatório de Acesso Condicional](howto-conditional-access-report-only.md)
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
 ms.reviewer: davberg
-ms.openlocfilehash: 072e42f642de3daf3d0d03a706435cffa8953888
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 07d222139f48e91637405660ae0e0c65ef3acdb6
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543615"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605013"
 ---
 # <a name="azure-compute-unit-acu"></a>ACU (unidade de computação do Azure)
 
@@ -63,13 +63,13 @@ O conceito da ACU (Unidade de Computação do Azure) fornece uma maneira de comp
 | [F1s - F16s](sizes-previous-gen.md) |210 - 250* | 1:1 |
 | [G1 - G5](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [GS1 - GS5](sizes-previous-gen.md) |180 - 240* | 1:1 |
-| [T](h-series.md) |290 – 300* | 1:1 |
+| [H](h-series.md) |290 – 300* | 1:1 |
 | [HB](hb-series.md) |199-216 * * | 1:1 |
 | [HC](hc-series.md) |297-315 * | 1:1 |
 | [L4s - L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [L8s_v2 - L80s_v2](lsv2-series.md) |150 - 175** | 2:1 |
 | [M](m-series.md) | 160-180 | 2:1\*\*\* |
-| [NV4](nvv4-series.md) |230-260 * * | 2:1 |
+| [NVv4](nvv4-series.md) |230-260 * * | 2:1 |
 
 Nos links abaixo, você obtém mais informações sobre os diferentes tamanhos:
 

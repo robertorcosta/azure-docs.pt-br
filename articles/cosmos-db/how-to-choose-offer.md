@@ -4,14 +4,14 @@ description: Saiba mais sobre como escolher entre a taxa de transferência padr�
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: 94022b9959b6a7f2bc30e31f918f2f5a916ccd8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbe17d75ad809c54939624b1409e281b2f62a037
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116801"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605208"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Como escolher entre a taxa de transferência padrão (manual) e a de dimensionamento automático provisionada 
 
@@ -37,7 +37,10 @@ A tabela a seguir mostra uma comparação de alto nível entre o padrão (manual
 ## <a name="understand-your-traffic-patterns"></a>Entenda seus padrões de tráfego
 
 ### <a name="new-applications"></a>Novos aplicativos ###
-Se você estiver criando um novo aplicativo e ainda não souber seu padrão de tráfego, poderá iniciar com as RU/s do ponto de entrada (ou com o mínimo de RU/s) para evitar excesso de provisionamento no início. Ou, se você tiver um aplicativo pequeno que não precise de alta escala, poderá provisionar apenas o mínimo de RU/s do ponto de entrada para otimizar o custo. Em ambos os casos, tanto a taxa padrão (manual) quanto a de dimensionamento automático são adequadas. Você deve considerar o seguinte:
+
+Se você estiver criando um novo aplicativo e ainda não souber seu padrão de tráfego, poderá iniciar com as RU/s do ponto de entrada (ou com o mínimo de RU/s) para evitar excesso de provisionamento no início. Ou, se você tiver um aplicativo pequeno que não precise de alta escala, poderá provisionar apenas o mínimo de RU/s do ponto de entrada para otimizar o custo. Para aplicativos pequenos com um tráfego de baixo esperado, você também pode considerar o modo de capacidade sem [servidor](throughput-serverless.md) .
+
+Se você planeja usar o padrão (manual) ou o dimensionamento automático, veja o que você deve considerar:
 
 Se você provisionar RU/s padrão (manual) no ponto de entrada de 400 RU/s, não será possível consumir acima de 400 RU/s, a menos que você altere manualmente a taxa de transferência. Você será cobrado, por hora, 400 RU/s na taxa de taxa de transferência provisionada padrão (manual).
 

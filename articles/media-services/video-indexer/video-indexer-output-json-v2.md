@@ -8,35 +8,50 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/09/2019
+ms.date: 08/10/2020
 ms.author: juliako
-ms.openlocfilehash: 5e3501ea8bc327f0dd906a42702194abce18c5fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddd1a5b9217962b595408973874a59219af298cf
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84656587"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604783"
 ---
-# <a name="examine-the-video-indexer-output-produced-by-api"></a>Examinar a saída de Video Indexer produzida pela API
+# <a name="examine-the-video-indexer-output"></a>Examinar a saída de Video Indexer
 
-Quando você chama o **obter índice de vídeo** API e o status da resposta está Okey, você obterá uma saída detalhada do JSON como o conteúdo da resposta. O conteúdo JSON contém detalhes das informações do vídeo especificado. As informações incluem: transcrições, OCRs, rostos, tópicos, blocos, etc. Cada tipo de insight inclui instâncias de intervalos de tempo que mostram quando a Insight é exibida no vídeo. 
+Quando um vídeo é indexado, Video Indexer poduces o conteúdo JSON que contém detalhes das informações de vídeo especificadas. As informações incluem: transcrições, OCRs, rostos, tópicos, blocos, etc. Cada tipo de insight inclui instâncias de intervalos de tempo que mostram quando a Insight é exibida no vídeo. 
+
+Você pode examinar visualmente as ideias resumidas do vídeo pressionando o botão **reproduzir** no vídeo no site [Video indexer](https://www.videoindexer.ai/) . 
+
+Você também pode usar a API chamando a API **obter índice de vídeo** e o status de resposta é ok. você obtém uma saída JSON detalhada como o conteúdo da resposta.
+
+![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
+
+Este artigo examina a saída de Video Indexer (conteúdo JSON). Para obter informações sobre quais recursos e informações estão disponíveis para você, consulte [Video indexer insights](video-indexer-overview.md#video-insights).
+
+> [!NOTE]
+> Expiração de todos os tokens de acesso no indexador de vídeo é uma hora.
+
+## <a name="get-the-insights"></a>Obtenha as informações
+
+### <a name="insightsoutput-produced-in-the-websiteportal"></a>Informações/saída produzidas no site/Portal
+
+1. Navegue até o site do [Video Indexer](https://www.videoindexer.ai/) e entre.
+1. Localize um vídeo da saída que você deseja examinar.
+1. Pressione **Reproduzir**.
+1. Selecione a guia **insights** (informações resumidas) ou a guia **linha do tempo** (permite filtrar as informações relevantes).
+1. Baixe artefatos e o que estão neles.
+
+Para obter mais informações, consulte [insights de vídeo de exibir e editar](video-indexer-view-edit.md).
+
+## <a name="insightsoutput-produced-by-api"></a>Informações/saída produzidas pela API
 
 1. Para recuperar o arquivo JSON, chame [obter API de índice de vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
 1. Se você também estiver interessado em artefatos específicos, chame [obter a API da URL de download do artefato de vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
 
     Na chamada à API, especifique o tipo de artefato solicitado (OCR, rostos, quadros-chave, etc.)
 
-Você também pode examinar visualmente os insights resumidos do vídeo pressionando o botão **Reproduzir** no vídeo no site do [Video Indexer](https://www.videoindexer.ai/). Para obter mais informações, consulte [insights de vídeo de exibir e editar](video-indexer-view-edit.md).
-
-![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
-
-Este artigo examina o conteúdo JSON retornado pela **API Get Video Index**. 
-
-> [!NOTE]
-> Expiração de todos os tokens de acesso no indexador de vídeo é uma hora.
-
-
-## <a name="root-elements"></a>Elementos raiz
+## <a name="root-elements-of-the-insights"></a>Elementos raiz das informações
 
 |Nome|Descrição|
 |---|---|
@@ -86,7 +101,7 @@ Esta seção mostra o resumo das informações.
 |duration|Contém uma duração que descreve o tempo que uma percepção ocorreu. Duração é em segundos.|
 |thumbnailVideoId|A ID do vídeo da qual a miniatura foi tirada.
 |thumbnailId|A ID da miniatura do vídeo. Para obter a miniatura real, chame [Get-thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passe-o thumbnailVideoId e thumbnailid.|
-|faces|Pode conter zero ou mais faces. Para obter mais informações, consulte [faces](#faces).|
+|rostos/animatedCharacters|Pode conter zero ou mais faces. Para obter informações mais detalhadas, consulte [faces/animatedCharacters](#facesanimatedcharacters).|
 |palavras-chave|Pode conter zero ou mais palavras-chave. Para obter mais informações, consulte [palavras-chave](#keywords).|
 |sentiments|Pode conter zero ou mais sentimentos. Para obter mais informações, consulte [sentimentos](#sentiments).|
 |audioEffects| Pode conter zero ou mais audioEffects. Para informações mais detalhadas, consulte [audioEffects](#audioeffects).|
@@ -162,7 +177,7 @@ Uma face pode ter uma ID, um nome, uma miniatura, outros metadados e uma lista d
 |ocr|A percepção do [OCR](#ocr) .|
 |palavras-chave|As [palavras-chave](#keywords) Insight.|
 |Blocos|Pode conter um ou mais [blocos](#blocks)|
-|faces|A visão do [faces](#faces) .|
+|rostos/animatedCharacters|O [rostos/animatedCharacters](#facesanimatedcharacters) Insight.|
 |rótulos|Os [Rótulos](#labels) se insights.|
 |shots|O insights de [capturas](#shots) .|
 |marcas|As [marcas](#brands) insights.|
@@ -206,7 +221,7 @@ instances|Uma lista de intervalos de tempo deste bloco.|
 |Nome|Descrição|
 |---|---|
 |id|A ID da linha.|
-|text|A própria transcrição.|
+|texto|A própria transcrição.|
 |Linguagem|O idioma da transcrição. Tem o objetivo dar suporte à transcrição na qual cada linha pode ter um idioma diferente.|
 |instances|Uma lista com os intervalos de tempo nos quais essa linha apareceu. Se a instância for transcrita, ela terá apenas 1 instância.|
 
@@ -244,11 +259,11 @@ Exemplo:
 |Nome|Descrição|
 |---|---|
 |id|A ID da linha de OCR.|
-|text|O texto de OCR.|
+|texto|O texto de OCR.|
 |confidence|A confiança do reconhecimento.|
 |Linguagem|O idioma do OCR.|
 |instances|Uma lista de intervalos de tempo nos quais essa OCR apareceu (o mesmo OCR pode aparecer várias vezes).|
-|height|A altura do retângulo OCR|
+|altura|A altura do retângulo OCR|
 |top|O local principal em px|
 |esquerda| O local à esquerda em px|
 |width|A largura do retângulo OCR|
@@ -279,7 +294,7 @@ Exemplo:
 |Nome|Descrição|
 |---|---|
 |id|A ID da palavra-chave.|
-|text|O texto da palavra-chave.|
+|texto|O texto da palavra-chave.|
 |confidence|A confiança do reconhecimento da palavra-chave.|
 |Linguagem|O idioma da palavra-chave (quando traduzida).|
 |instances|Uma lista de intervalos de tempo nos quais essa palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
@@ -305,7 +320,11 @@ Exemplo:
 }
 ```
 
-#### <a name="faces"></a>faces
+#### <a name="facesanimatedcharacters"></a>rostos/animatedCharacters
+
+`animatedCharacters` o elemento substitui `faces` caso o vídeo tenha sido indexado com um modelo de caracteres animados. Isso é feito usando um modelo personalizado no Visão Personalizada, Video Indexer executa-o em quadros-chave.
+
+Se os rostos (não os caracteres animados) estiverem presentes, Video Indexer usará API de Detecção Facial em todos os quadros do vídeo para detectar rostos e celebridades.
 
 |Nome|Descrição|
 |---|---|
@@ -499,7 +518,7 @@ Nomes de marcas comerciais e de produtos detectados na fala para transcrição d
 |id|A ID de marca.|
 |name|O nome de marcas.|
 |referenceId | O sufixo do URL da Wikipédia da marca. Por exemplo, "Target_Corporation" é o sufixo de [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
-|referenceUrl | A marca da url da Wikipedia, se existir. Por exemplo, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
+|referenceUrl | A marca da url da Wikipedia, se existir. Por exemplo, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |descrição|A descrição de marcas.|
 |marcas|Uma lista de tags predefinidas associadas a essa marca.|
 |confidence|O valor de confiança do detector de marca indexador de vídeo (0-1).|
@@ -566,7 +585,7 @@ Nomes de marcas comerciais e de produtos detectados na fala para transcrição d
 |Nome|Descrição|
 |---|---|
 |id|A ID do efeito de áudio.|
-|tipo|O tipo de efeito de áudio (por exemplo, Palmas, Fala, Silêncio).|
+|type|O tipo de efeito de áudio (por exemplo, Palmas, Fala, Silêncio).|
 |instances|Uma lista com os intervalos de tempo nos quais esse efeito de áudio apareceu.|
 
 ```json
@@ -680,7 +699,7 @@ Video Indexer identifica emoções com base em indicações de fala e áudio. A 
 |Nome|Descrição|
 |---|---|
 |id|A ID da emoção.|
-|tipo|O momento de emoção que foi identificado com base nas indicações de fala e áudio. A emoção poderia ser: alegria, tristeza, raiva ou medo.|
+|type|O momento de emoção que foi identificado com base nas indicações de fala e áudio. A emoção poderia ser: alegria, tristeza, raiva ou medo.|
 |instances|Uma lista de intervalos de tempo nos quais essa emoção apareceu.|
 
 ```json

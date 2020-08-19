@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 2f464a0b519dd7f378790c135a05d04e02704ac8
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8bae89e68e5a016dbdc10c763f1ea2daedece3c8
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027725"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605328"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidade com o Azure Cosmos DB
 
@@ -66,7 +66,7 @@ Para casos raros de interrupção regional, o Azure Cosmos DB garante que seu ba
 - A região afetada é desconectada automaticamente e será marcada como offline. Os [SDKs de Azure Cosmos DB](sql-api-sdk-dotnet.md) redirecionarão as chamadas de leitura para a próxima região disponível na lista de regiões preferenciais.
 - Se nenhuma das regiões na lista de regiões preferenciais estiver disponível, as chamadas retornarão automaticamente à região de gravação atual.
 - Não é necessária nenhuma alteração no código do aplicativo para lidar com a interrupção da região de leitura. Quando a região de leitura afetada voltar a ficar online, ela será sincronizada automaticamente com a região de gravação atual e estará disponível novamente para atender às solicitações de leitura.
-- Leituras subsequentes são redirecionadas para a região recuperada sem exigir nenhuma alteração ao código do aplicativo. Durante o failover e a rejunção de uma região com falha anteriormente, as garantias de consistência de leitura continuam a ser respeitadas pelo Azure Cosmos DB.
+- As próximas leituras são redirecionadas para a região recuperada sem exigir nenhuma alteração do código do aplicativo. Durante o failover e a rejunção de uma região com falha anteriormente, as garantias de consistência de leitura continuam a ser respeitadas pelo Azure Cosmos DB.
 - Mesmo em um evento raro e infeliz quando a região do Azure for permanentemente irrecuperável, não haverá perda de dados se sua conta do Azure Cosmos de várias regiões estiver configurada com consistência *forte* . No caso de uma região de gravação permanentemente irrecuperável, uma conta do Azure Cosmos de várias regiões configurada com consistência de desatualização limitada, a janela potencial de perda de dados é restrita à janela de desatualização (*k* ou *T*) em que K = 100.000 atualizações e T = 5 minutos. Para os níveis de sessão, de prefixo consistente e de consistência eventual, a janela potencial de perda de dados é restrita a um máximo de 15 minutos. Para obter mais informações sobre os destinos RTO e RPO para Azure Cosmos DB, consulte [níveis de consistência e durabilidade de dados](consistency-levels-tradeoffs.md#rto)
 
 ## <a name="availability-zone-support"></a>Suporte à zona de disponibilidade
@@ -79,7 +79,7 @@ A redundância de zona é uma *funcionalidade suplementar* para a [replicação 
 
 Ao configurar gravações de várias regiões para sua conta do Azure Cosmos, você pode aceitar a redundância de zona sem custo adicional. Caso contrário, consulte a observação abaixo sobre os preços do suporte à redundância de zona. Você pode habilitar a redundância de zona em uma região existente da sua conta do Azure Cosmos removendo a região e adicionando-a novamente com a redundância de zona habilitada.
 
-Esse recurso está disponível em: *sul do Reino Unido, Sudeste Asiático, leste dos EUA, leste dos EUA 2, EUA Central, Europa Ocidental, oeste dos EUA 2, leste do Japão, Europa setentrional, regiões centrais da França* .
+Esse recurso está disponível em: *sul do Reino Unido, Sudeste Asiático, leste dos EUA, leste dos EUA 2, EUA Central, Europa Ocidental, oeste dos EUA 2, leste do Japão, Europa setentrional, França central, região leste da Austrália* .
 
 > [!NOTE]
 > A habilitação de Zonas de Disponibilidade para uma única conta do Azure Cosmos de região resultará em encargos equivalentes à adição de uma região adicional à sua conta. Para obter detalhes sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) e o custo de [várias regiões em artigos Azure Cosmos DB](optimize-cost-regions.md) .
@@ -90,7 +90,7 @@ A tabela a seguir resume a capacidade de alta disponibilidade de várias configu
 |---------|---------|---------|---------|
 |SLA de disponibilidade de gravação | 99,99% | 99,99% | 99,999% |
 |SLA de leitura de disponibilidade  | 99,99% | 99,99% | 99,999% |
-|Price | Taxa de cobrança de região única | Taxa de cobrança da zona de disponibilidade de região única | Taxa de cobrança de várias regiões |
+|Preço | Taxa de cobrança de região única | Taxa de cobrança da zona de disponibilidade de região única | Taxa de cobrança de várias regiões |
 |Falhas de zona – perda de dados | Perda de dados | Sem perda de dados | Sem perda de dados |
 |Falhas de zona – disponibilidade | Perda de disponibilidade | Sem perda de disponibilidade | Sem perda de disponibilidade |
 |Latência de leitura | Entre regiões | Entre regiões | Baixo |

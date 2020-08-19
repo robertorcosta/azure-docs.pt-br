@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: ff93a336b50ceac1106b31726d865ed3e0b41108
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 0d00f779031ec294523c861a4e9868f7cbbe790d
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031465"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606135"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Criar uma oferta do Dynamics 365 Business Central
 
@@ -29,7 +29,7 @@ Antes de começar, [crie uma conta do Marketplace comercial no Partner Center](c
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-dynamics-365-business-central.png)
 
 > [!NOTE]
-> Depois que uma oferta for publicada, as edições feitas nela no Partner Center aparecerão somente em frentes de loja após a republicação da oferta. Depois de fazer alterações, é sempre necessário republicar.
+> Depois que uma oferta é publicada, as edições feitas nela no Partner Center aparecem somente em lojas online após a republicação da oferta. Depois de fazer alterações, é sempre necessário republicar.
 
 ## <a name="new-offer"></a>Nova oferta
 

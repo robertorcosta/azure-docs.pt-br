@@ -11,20 +11,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/09/2020
+ms.date: 08/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bb290106c5ceafe8c636bbeeab38b74ea475eb4
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 1be8a714d57d0f84b195c9f3846964aa2bf2525b
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056183"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605095"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Criar uma revisão de acesso de grupos e aplicativos nas revisões de acesso do Azure AD
 
 Acesso a grupos e aplicativos para funcionários e visitantes muda ao longo do tempo. Para reduzir os riscos associados às atribuições de acesso obsoletas, os administradores podem usar o Azure Active Directory (Azure AD) para criar revisões de acesso para membros do grupo ou usuários atribuídos a um aplicativo. Se você precisar revisar rotineiramente o acesso, você também pode criar as revisões de acesso recorrentes. Para obter mais informações sobre esses cenários, consulte [Gerenciar acesso de usuário](manage-user-access-with-access-reviews.md) e [Gerenciar acesso de convidado](manage-guest-access-with-access-reviews.md).
+
+Você pode assistir a um vídeo rápido falando sobre como habilitar as revisões de acesso:
+
+>[!VIDEO https://www.youtube.com/embed/X1SL2uubx9M]
 
 Este artigo descreve como criar uma ou mais revisões de acesso para membros do grupo ou acesso ao aplicativo.
 
@@ -55,7 +59,12 @@ Para obter mais informações, veja [Requisitos de licença](access-reviews-over
 
 1. Para fazer com que a revisão de acesso seja recorrente, altere a configuração de **frequência** de **uma vez** para **semanal**, **mensal**, **trimestral**, **semianual**ou **anualmente**. Use o controle deslizante **Duração** ou caixa de texto para definir por quantos dias cada revisão da série recorrente será aberta para entrada de revisores. Por exemplo, a duração máxima que você pode definir para uma revisão mensal é de 27 dias, para evitar revisões sobrepostas.
 
-1. Use a configuração **Final** para especificar como terminar a série de revisão de acesso recorrente. A série pode terminar de três maneiras: ela é executada continuamente para iniciar revisões indefinidamente, até uma data específica ou após a conclusão de um número definido de ocorrências. Você, outro usuário administrador ou outro administrador global pode interromper a série após a criação, alterando a data em **Configurações** para que ela encerre nessa data.
+1. Use a configuração **Final** para especificar como terminar a série de revisão de acesso recorrente. A série pode terminar de três maneiras: 
+    1. Ele é executado continuamente para iniciar revisões indefinidamente
+    1. Até uma data específica,
+    1. Até que um número definido de ocorrências tenha sido concluído. 
+  
+    Você, outro usuário administrador ou outro administrador global pode interromper a série após a criação, alterando a data em **Configurações** para que ela encerre nessa data.
 
 1. Na seção **usuários** , especifique os usuários aos quais a revisão de acesso se aplica. As revisões de acesso podem ser de membros de um grupo ou usuários que foram atribuídos a um aplicativo. Você pode detalhar ainda mais o escopo da análise de acesso para examinar apenas os usuários convidados que são membros (ou atribuídos ao aplicativo), em vez de examinar todos os usuários que são membros ou que têm acesso ao aplicativo.
 
@@ -83,9 +92,9 @@ Para obter mais informações, veja [Requisitos de licença](access-reviews-over
 
     ![Criar uma revisão de acesso - Programas](./media/create-access-review/programs.png)
 
-    É possível simplificar a maneira de rastrear e coletar revisões de acesso para finalidades diferentes, organizando-as em programas. Cada análise de acesso pode ser vinculada a um programa. Em seguida, ao preparar relatórios para um auditor, você poderá concentrar-se nas revisões de acesso no escopo de uma iniciativa específica. Os resultados de análise de programas e acesso são visíveis para os usuários no administrador global, administrador de usuários, administrador de segurança ou função de leitor de segurança.
+    Você pode simplificar a coleta e o acompanhamento de revisões de acesso organizando-as em programas. Cada análise de acesso pode ser vinculada a um programa. Em seguida, ao preparar relatórios para um auditor, você poderá concentrar-se nas revisões de acesso no escopo de uma iniciativa específica. Os resultados de análise de programas e acesso são visíveis para os usuários no administrador global, administrador de usuários, administrador de segurança ou função de leitor de segurança.
 
-    Para ver uma lista de programas, vá para a página revisões de acesso e selecione **Programas**. Se você estiver em uma função de administrador global ou de administrador de usuários, poderá criar programas adicionais. Por exemplo, é possível optar por ter um programa para cada iniciativa de conformidade ou meta de negócios. Se você não precisar mais de um programa e se ele não tiver nenhum controle vinculado a ele, você poderá excluí-lo.
+    Para ver uma lista de programas, vá para a página revisões de acesso e selecione **Programas**. Se você estiver em uma função de administrador global ou de administrador de usuários, poderá criar programas adicionais. Por exemplo, é possível optar por ter um programa para cada iniciativa de conformidade ou meta de negócios. Quando você não precisar mais de um programa e ele não tiver nenhum controle vinculado a ele, você poderá excluí-lo.
 
 ### <a name="upon-completion-settings"></a>Após configurações de conclusão
 
@@ -93,7 +102,7 @@ Para obter mais informações, veja [Requisitos de licença](access-reviews-over
 
     ![Criar uma revisão de acesso-após as configurações de conclusão](./media/create-access-review/upon-completion-settings.png)
 
-1. Se você quiser remover automaticamente o acesso para usuários que foram negados, defina **Resultados de aplicação automática ao recurso** para **Habilitar**. Se você deseja aplicar manualmente os resultados quando a revisão for concluída, defina a opção para **Desabilitar**.
+1. Se você quiser remover automaticamente o acesso para usuários negados, defina **auto aplicar resultados para recurso** a ser **habilitado**. Se você deseja aplicar manualmente os resultados quando a revisão for concluída, defina a opção para **Desabilitar**.
 
 1. Use a lista **Se o revisor não responder** para especificar o que acontece para usuários que não foram examinados pelo revisor dentro do período de revisão. Essa configuração não afeta os usuários que foram revisados pelos revisores manualmente. Se a decisão do revisor final for negar o acesso do usuário será removido.
 
@@ -119,7 +128,7 @@ Para obter mais informações, veja [Requisitos de licença](access-reviews-over
     >[!NOTE]
     > Por padrão, o Azure AD envia automaticamente um lembrete na metade da data de término para os revisores que ainda não responderam
 
-1. Apresentação O conteúdo do email enviado aos revisores é gerado automaticamente com base nos detalhes da revisão, como nome da revisão, nome do recurso, data de vencimento, etc. Se você precisar de uma maneira de comunicar informações adicionais, como instruções adicionais ou informações de contato, poderá especificar esses detalhes no conteúdo adicional do email do revisor que será incluído nos emails de convite e lembrete enviados aos revisores atribuídos. A seção realçada abaixo é onde essas informações serão exibidas.
+1. Apresentação O conteúdo do email enviado aos revisores é gerado automaticamente com base nos detalhes da revisão, como nome da revisão, nome do recurso, data de vencimento, etc. Se você precisar de uma maneira de comunicar informações adicionais, como instruções adicionais ou informações de contato, poderá especificar esses detalhes no **conteúdo adicional do email do revisor** que será incluído nos emails de convite e lembrete enviados aos revisores atribuídos. A seção realçada abaixo é onde essas informações serão exibidas.
 
     ![Examinar um acesso de usuários a um grupo](./media/create-access-review/review-users-access-group.png)
 
@@ -142,8 +151,8 @@ Se você tiver atribuído convidados como revisores e eles não tiverem aceitado
 |Iniciando | A revisão está sendo iniciada. Se as notificações por email estiverem habilitadas, os emails serão enviados aos revisores. |
 |InProgress | A revisão foi iniciada. Se as notificações por email forem habilitadas, os emails serão enviados aos revisores. Os revisores podem enviar decisões até a data de vencimento. |
 |Finaliza | A revisão está sendo concluída e os emails estão sendo enviados para o proprietário da revisão. |
-|Revisão revisada | A revisão está em um estágio de revisão do sistema. O sistema está gravando decisões para usuários que não foram revisados com base em recomendações ou decisões pré-configuradas. |
-|Analisado com autorevisão | As decisões foram registradas pelo sistema para todos os usuários que não foram revisados. A revisão está pronta para continuar a **aplicação** se a aplicação automática estiver habilitada. |
+|Revisão automática | A revisão está em um estágio de revisão do sistema. O sistema está gravando decisões para usuários que não foram revisados com base em recomendações ou decisões pré-configuradas. |
+|Revisado automaticamente | As decisões foram registradas pelo sistema para todos os usuários que não foram revisados. A revisão está pronta para continuar a **aplicação** se a aplicação automática estiver habilitada. |
 |Solicita | Não haverá nenhuma alteração no acesso para usuários que foram aprovados. |
 |Aplicado | Os usuários negados, se houver algum, foram removidos do recurso ou diretório. |
 

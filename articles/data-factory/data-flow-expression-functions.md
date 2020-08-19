@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 43623e6841c3776e6e83453ad9cb47549fc16021
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: b48fc6ad448b829bb399c151d3f1507c804ad471
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170285"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605102"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressões de transformação de dados no fluxo de dados de mapeamento
 
@@ -101,21 +101,13 @@ ___
 <code><b>byNames(<i>&lt;column names&gt;</i> : array, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
 Selecione uma matriz de colunas de acordo com o nome no fluxo. Você pode transmitir um nome de fluxo opcional como o segundo argumento. Se houver várias correspondências, a primeira correspondência será retornada. Se não houver correspondência para uma coluna, a saída inteira será um valor NULL. O valor retornado requer uma função de conversão de tipo (toDate, toString,...).  Os nomes de coluna conhecidos no tempo de design devem ser tratados apenas por seus nomes. Não há suporte a entradas computadas, mas você pode usar substituições de parâmetro.
 * ``toString(byNames(['parent', 'child']))``
-* ````
 * ``byNames(['parent']) ? string``
-* ````
 * ``toLong(byNames(['income']))``
-* ````
 * ``byNames(['income']) ? long``
-* ````
 * ``toBoolean(byNames(['foster']))``
-* ````
 * ``toLong(byNames($debtCols))``
-* ````
 * ``toString(byNames(['a Column']))``
-* ````
 * ``toString(byNames(['a Column'], 'DeriveStream'))``
-* ````
 * ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
 ___
 ### <code>byPosition</code>
@@ -354,7 +346,7 @@ Duração em milissegundos para o número de horas.
 ___
 ### <code>iif</code>
 <code><b>iif(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, [<i>&lt;false_expression&gt;</i> : any]) => any</b></code><br/><br/>
-Com base em uma condição, aplica-se um valor ou o outro. Se "Outros" não for especificado, será considerado NULL. Ambos os valores devem ser compatíveis (Numeric, String...).* ``iif(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``  
+Com base em uma condição, aplica-se um valor ou o outro. Se "Outros" não for especificado, será considerado NULL. Ambos os valores devem ser compatíveis (Numeric, String...). * ``iif(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``  
 * ``iif(10 > 30, 'dumbo', 'gumbo') -> 'gumbo'``  
 * ``iif(month(toDate('2018-12-01')) == 12, 345.12, 102.67) -> 345.12``  
 ___
@@ -968,7 +960,7 @@ ___
 <code><b>year(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 Obtém o valor de ano de uma data.  
 * ``year(toDate('2012-8-8')) -> 2012``  
-##Funções de agregação as funções a seguir só estão disponíveis em transformações agregadas, dinâmicas, não dinâmicas e de janela.
+## Funções de agregação as funções a seguir só estão disponíveis em transformações agregadas, dinâmicas, não dinâmicas e de janela.
 ___
 ### <code>avg</code>
 <code><b>avg(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -1161,7 +1153,7 @@ ___
 <code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Com base em um critério, obtém a variação não polarizada de uma coluna.  
 * ``varianceSampleIf(region == 'West', sales)``  
-##Funções de janela as funções a seguir só estão disponíveis em transformações de janela.
+## Funções de janela as funções a seguir só estão disponíveis em transformações de janela.
 ___
 ### <code>cumeDist</code>
 <code><b>cumeDist() => integer</b></code><br/><br/>

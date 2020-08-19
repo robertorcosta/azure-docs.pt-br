@@ -4,15 +4,15 @@ description: Saiba como usar a injeção de dependência para registrar e usar s
 author: craigshoemaker
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 09/05/2019
+ms.date: 08/15/2020
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: ee3caef30c573763db56f89aa4900aa62b8a436a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4919dc8f08a745a029eb6c3755f8cfc9c39f827f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206105"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88603863"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usar injeção de dependência no .NET do Azure Functions
 
@@ -226,10 +226,10 @@ De dentro do método `Startup.Configure`, você pode extrair valores da instânc
 
 ```csharp
 builder.Services.AddOptions<MyOptions>()
-                .Configure<IConfiguration>((settings, configuration) =>
-                                           {
-                                                configuration.GetSection("MyOptions").Bind(settings);
-                                           });
+    .Configure<IConfiguration>((settings, configuration) =>
+    {
+        configuration.GetSection("MyOptions").Bind(settings);
+    });
 ```
 
 Chamar `Bind` copia os valores da configuração, que têm nomes de propriedade correspondentes, na instância personalizada. A instância das opções agora está disponível no contêiner IoC para ser injetada em uma função.
@@ -253,8 +253,57 @@ public class HttpTrigger
 
 Consulte o [padrão de opções no ASP.NET Core](/aspnet/core/fundamentals/configuration/options) para mais informações com relação ao trabalho com opções.
 
-> [!WARNING]
-> Evite tentar ler valores de arquivos como *local.settings.json* ou *appsettings.{environment}.json* no plano de consumo. Os valores lidos desses arquivos relacionados a conexões de gatilho não estão disponíveis conforme o aplicativo é dimensionado porque a infraestrutura de hospedagem não tem acesso às informações de configuração, pois o controlador de escala cria novas instâncias do aplicativo.
+### <a name="customizing-configuration-sources"></a>Personalizando fontes de configuração
+
+> [!NOTE]
+> A personalização da fonte de configuração está disponível a partir do Azure Functions versões do host 2.0.14192.0 e 3.0.14191.0.
+
+Para especificar fontes de configuração adicionais, substitua o `ConfigureAppConfiguration` método na classe do aplicativo de funções `StartUp` .
+
+O exemplo a seguir adiciona valores de configuração de uma base e de um arquivo de configurações de aplicativo específico ao ambiente opcional.
+
+```csharp
+using System.IO;
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+[assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
+
+namespace MyNamespace
+{
+    public class Startup : FunctionsStartup
+    {
+        public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
+        {
+            FunctionsHostBuilderContext context = builder.GetContext();
+
+            builder.ConfigurationBuilder
+                .AddJsonFile(Path.Combine(context.ApplicationRootPath, "appsettings.json"), optional: true, reloadOnChange: false)
+                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false);
+        }
+    }
+}
+```
+
+Adicione provedores de configuração à `ConfigurationBuilder` propriedade de `IFunctionsConfigurationBuilder` . Para obter mais informações sobre como usar provedores de configuração, consulte [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#configuration-providers).
+
+Um `FunctionsHostBuilderContext` é obtido do `IFunctionsConfigurationBuilder.GetContext()` . Use este contexto para recuperar o nome do ambiente atual e resolver o local dos arquivos de configuração em sua pasta de aplicativo de funções.
+
+Por padrão, os arquivos de configuração, como *appsettings.jsem* , não são copiados automaticamente para a pasta de saída do aplicativo de funções. Atualize seu arquivo *. csproj* para corresponder ao exemplo a seguir para garantir que os arquivos sejam copiados.
+
+```xml
+<None Update="appsettings.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>      
+</None>
+<None Update="appsettings.Development.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+</None>
+```
+
+> [!IMPORTANT]
+> Para aplicativos de funções em execução nos planos de consumo ou Premium, as modificações nos valores de configuração usados em gatilhos podem causar erros de dimensionamento. Qualquer alteração nessas propriedades pela `FunctionsStartup` classe resulta em um erro de inicialização do aplicativo de funções.
 
 ## <a name="next-steps"></a>Próximas etapas
 

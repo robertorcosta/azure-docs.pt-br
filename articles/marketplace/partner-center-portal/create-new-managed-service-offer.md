@@ -7,12 +7,12 @@ ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 08/07/2020
-ms.openlocfilehash: 4d2a884bd6fd4cb62aa7cae5f3e53b865082fde8
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 75c604df2f44e9c732fa9c2ce2093237e4e484a4
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166596"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606063"
 ---
 # <a name="create-a-managed-service-offer"></a>Criar uma oferta de serviço gerenciado
 
@@ -29,7 +29,7 @@ Você deve ter um [nível de competência de plataforma de nuvem Prata ou Ouro](
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-managed-service.png)
 
 >[!NOTE]
->Depois que uma oferta for publicada, as edições feitas nela no Partner Center aparecerão somente em frentes de loja após a republicação da oferta. Depois de fazer alterações, é sempre necessário republicar.
+>Depois que uma oferta é publicada, as edições feitas nela no Partner Center aparecem somente em lojas online após a republicação da oferta. Depois de fazer alterações, é sempre necessário republicar.
 
 ## <a name="new-offer"></a>Nova oferta
 
@@ -85,7 +85,7 @@ Aqui está um exemplo de como as informações de oferta são exibidas no portal
 
 #### <a name="call-out-descriptions"></a>Descrições de chamada
 
-1. Título
+1. Title
 2. Descrição
 3. Links úteis
 4. Capturas de tela

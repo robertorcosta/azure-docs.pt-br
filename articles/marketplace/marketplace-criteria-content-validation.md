@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 757f729caa7ea8a038a29f8e0a56465848b774ad
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 69be4118aca45582c38bb49a996782d661d8084f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035103"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604414"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Diretrizes de listagem do Azure Marketplace
 
@@ -50,8 +50,8 @@ Este artigo explica os requisitos e as diretrizes para listar novas ofertas e se
 | 1 | Título da oferta |<ul><li>Precisa conter somente letras minúsculas, caracteres alfanuméricos, traços ou sublinhados. O título não pode ser modificado depois de ser publicado.</li><li>Descreve a oferta da solução.</li><li>Corresponde à promoção online da solução no site do parceiro. | Contém palavras-chave de pesquisa. |
 | 2 | Informações técnicas: Configuração |<ul><li>Para um aplicativo SaaS (software como serviço), escolha se você quer apenas listar seu aplicativo ou se deseja permitir que os clientes comprem seu aplicativo por meio do Azure.</li><li>Selecione o texto que você deseja no botão de aquisição da oferta: *gratuito*, *avaliação gratuita* ou *entre em contato comigo*.</li><li>Na janela pop-up, selecione apenas um produto aplicável se seu aplicativo utiliza a tecnologia: Cortana Intelligence, Power BI Solution Templates ou Power Apps. |  |
 | 3 | Test drive | Selecione *Sim* ou *Não* | O cliente pode entender facilmente quais são as próximas etapas: <ol><li>Experimentar a avaliação gratuita.</li><li>Comprar agora.</li><li>Entre em contato por email ou número de telefone para providenciar a Prova de Conceito, Avaliação ou Resumo.</li></ol> |
-| 4 | Detalhes da vitrine: Resumo da oferta | Aparecerá na página de pesquisa do seu aplicativo e tem no máximo 100 caracteres. | |
-| 5 | Detalhes da vitrine: Indústrias | Setores (máx. de 2): Selecione os setores aos quais seu aplicativo é mais adequado e aplicável. | |
+| 4 | Detalhes da loja online: Resumo da oferta | Aparecerá na página de pesquisa do seu aplicativo e tem no máximo 100 caracteres. | |
+| 5 | Detalhes da loja online: setores | Setores (máx. de 2): Selecione os setores aos quais seu aplicativo é mais adequado e aplicável. | |
 | 6 | Descrição da oferta | <ul><li>HTML simples é permitido, incluindo \<p> , \<em> , \<ul> , \<li> , \<ol> e marcas de cabeçalho. Máx. 3000 caracteres.</li><li>Contém 2 a 3 parágrafos.</li><li>A oferta de solução pode ser entendida de modo fácil e rápido.</li><li>A descrição é abrangente e captura público de destino, tipo de usuário e por que ela é valiosa (proposição de valor).</li><li>Está em formato narrativo de parágrafo, com frases curtas que são fáceis de entender. | <ul><li>O setor de destino é indicado (se relevante).</li><li>Boa formatação de estilo, com cada cabeçalho de parágrafo tendo uma única sentença ou frase que resume o conteúdo e que segue, usando marcadores, conforme o caso, para enfatizar os principais benefícios. O objetivo é que o leitor entenda a oferta de forma rápida, em um formato de fácil exibição, sem precisar ler parágrafos.</li><li>Há espaçamento entre cada parágrafo. Pode ser lido como um panfleto de carro. Ou seja, é abrangente e descreve a oferta de maneira simples, sem o jargão técnico. | 
 | 7 | Artefatos de marketing | Os logotipos são exibidos corretamente. | <ul><li>Logotipos: pequeno (48 x 48 pixels), médio (90 x 90 pixels) e grande (entre 216 x 216 e 350 x 350 pixels) são necessários.</li><li>Captura de tela (máx. 5): requer um. Imagem PNG com uma resolução de 1280x720 pixels. |
 | 8 | Categorias e setores | <ul><li>As categorias correspondem aos recursos da oferta de solução.</li><li>Selecione pelo menos um item na janela pop-up.</li><li>Não selecione categorias para as quais a solução não se ajusta.</li><li>Setor ideal ou todos os setores selecionados, se não forem os setores ideais. | Máx. Três categorias selecionadas, se aplicável. |

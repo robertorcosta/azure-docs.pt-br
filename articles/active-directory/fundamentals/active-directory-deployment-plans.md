@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d839fc71992802e9ee2b6a66d0bc407c5caaecf
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 1f85d4203c0fe3978f776b418ab6d7850061416c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799048"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605382"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implantação do Azure Active Directory
 Procurando orientação de ponta a ponta sobre a implantação de recursos do Azure Active Directory (Azure AD)? Os planos de implantação do Azure AD orientam você pelo valor de negócios, considerações de planejamento e procedimentos operacionais necessários para implantar com êxito recursos comuns do Azure AD.
@@ -97,3 +97,4 @@ Ampliar a distribuição para grupos maiores de usuários deve ser executado aum
 | -| -|
 | [Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)| O Azure AD Privileged Identity Management (PIM) ajuda você a gerenciar funções administrativas com privilégios entre o Azure AD, recursos do Azure e outros Serviços Online da Microsoft. O PIM fornece soluções como acesso just-in-time, solicitação de fluxos de trabalho de aprovação e revisões de acesso totalmente integradas para que você possa identificar, descobrir e impedir atividades maliciosas de funções com privilégios em tempo real. |
 | [Relatórios e monitoramento](../reports-monitoring/plan-monitoring-and-reporting.md)| O design de sua solução de monitoramento e relatório do Azure AD depende dos seus requisitos legais, de segurança e operacionais, bem como do ambiente e dos processos existentes. Este artigo apresenta as várias opções de design e orienta você para a estratégia de implantação certa. |
+| [Revisões de acesso](../governance/deploy-access-reviews.md) | As revisões de acesso são uma parte importante da sua estratégia de governança, permitindo que você conheça e gerencie quem tem acesso e ao que eles têm acesso. Este artigo ajuda você a planejar e implantar revisões de acesso para atingir suas condições de segurança e colaboração desejadas. |

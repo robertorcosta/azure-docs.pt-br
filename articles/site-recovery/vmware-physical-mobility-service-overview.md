@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: d73e2776d0d9c86fe0331f9804bfeade3f1de676
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 431f1da463e4bd9970bc92b0842393f2de882220
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131791"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604726"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Sobre o serviço de Mobilidade para VMs do VMware e servidores físicos
 
@@ -37,6 +37,7 @@ A instalação por push é parte integrante do trabalho executado do portal do A
 
 - Verifique se todos os [pré-requisitos](vmware-azure-install-mobility-service.md) de instalação por push foram atendidos.
 - Verifique se todas as configurações do servidor atendem aos critérios na [matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure](vmware-physical-azure-support-matrix.md).
+- A partir da [versão 9,36](https://support.microsoft.com/help/4578241/) em diante, para o SuSE Linux Enterprise Server 11 SP4, verifique se o instalador mais recente está [disponível no servidor de configuração e no servidor de processo de expansão](#download-latest-mobility-agent-installer-for-suse-11-sp3-server)
 
 O fluxo de trabalho de instalação por push é descrito nas seções a seguir:
 
@@ -127,7 +128,7 @@ Durante uma instalação por push do serviço de mobilidade, as seguintes etapas
 
 #### <a name="installation-settings"></a>Configurações de instalação
 
-Configuração | Detalhes
+Setting | Detalhes
 --- | ---
 Sintaxe | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
 Logs de instalação | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
@@ -138,11 +139,11 @@ Logs de instalação | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 
 #### <a name="registration-settings"></a>Configurações de registro
 
-Configuração | Detalhes
+Setting | Detalhes
 --- | ---
 Sintaxe | `UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>`
 Logs de configuração do agente | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log`
-`/CSEndPoint` | Parâmetro obrigatório. `<CSIP>`Especifica o endereço IP do servidor de configuração. Use qualquer endereço de IP válido.
+`/CSEndPoint` | Parâmetro obrigatório. `<CSIP>` Especifica o endereço IP do servidor de configuração. Use qualquer endereço de IP válido.
 `/PassphraseFilePath` |  Mandatory. Local da frase secreta. Use qualquer caminho UNC ou arquivo local válido.
 
 ### <a name="linux-machine"></a>Computador Linux
@@ -168,7 +169,7 @@ Logs de configuração do agente | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentCo
 
 #### <a name="installation-settings"></a>Configurações de instalação
 
-Configuração | Detalhes
+Setting | Detalhes
 --- | ---
 Sintaxe | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
 `-r` | Parâmetro de instalação obrigatório. Especifica se o serviço Mobility (MS) ou o destino mestre (MT) deve ser instalado.
@@ -178,10 +179,10 @@ Sintaxe | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
 
 #### <a name="registration-settings"></a>Configurações de registro
 
-Configuração | Detalhes
+Setting | Detalhes
 --- | ---
 Sintaxe | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
-`-i` | Parâmetro obrigatório. `<CSIP>`Especifica o endereço IP do servidor de configuração. Use qualquer endereço de IP válido.
+`-i` | Parâmetro obrigatório. `<CSIP>` Especifica o endereço IP do servidor de configuração. Use qualquer endereço de IP válido.
 `-P` |  Mandatory. Caminho de arquivo completo do arquivo no qual a frase secreta é salvo. Use qualquer pasta válida.
 
 ## <a name="azure-virtual-machine-agent"></a>Agente de Máquina Virtual do Azure
@@ -204,13 +205,27 @@ Arquivo de instalador | Sistema operacional (somente 64 bits)
 `Microsoft-ASR_UA_version_RHEL6-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 6 </br> CentOS 6
 `Microsoft-ASR_UA_version_RHEL7-64_GA_date_release.tar.gz` | Red Hat Enterprise Linux (RHEL) 7 </br> CentOS 7
 `Microsoft-ASR_UA_version_SLES12-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 12 SP1 </br> Inclui o SP2 e o SP3.
-`Microsoft-ASR_UA_version_SLES11-SP3-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 11 SP3
+[Para ser baixado e colocado nessa pasta manualmente](#download-latest-mobility-agent-installer-for-suse-11-sp3-server). | SUSE Linux Enterprise Server 11 SP3
 `Microsoft-ASR_UA_version_SLES11-SP4-64_GA_date_release.tar.gz` | SUSE Linux Enterprise Server 11 SP4
 `Microsoft-ASR_UA_version_OL6-64_GA_date_release.tar.gz` | Oracle Enterprise Linux 6,4 </br> Oracle Enterprise Linux 6,5
 `Microsoft-ASR_UA_version_UBUNTU-14.04-64_GA_date_release.tar.gz` | Ubuntu Linux 14.04
 `Microsoft-ASR_UA_version_UBUNTU-16.04-64_GA_date_release.tar.gz` | Servidor do Ubuntu Linux 16.04 LTS
 `Microsoft-ASR_UA_version_DEBIAN7-64_GA_date_release.tar.gz` | Debian 7
 `Microsoft-ASR_UA_version_DEBIAN8-64_GA_date_release.tar.gz` | Debian 8
+
+### <a name="download-latest-mobility-agent-installer-for-suse-11-sp3-server"></a>Baixe o instalador do agente de mobilidade mais recente para o servidor SUSE 11 SP3
+
+Como um **pré-requisito para atualizar ou proteger computadores SuSE Linux Enterprise Server 11 SP3** da [versão 9,36](https://support.microsoft.com/help/4578241/) em diante:
+
+1. Verifique se o instalador do agente de mobilidade mais recente foi baixado do centro de download da Microsoft e colocado no repositório do instalador de push no servidor de configuração e todos os servidores de processo de expansão
+2. [Baixe](https://download.microsoft.com/download/0/3/4/0341b388-1ff5-4ead-b197-7cf6d2bb3e40/Microsoft-ASR_UA_9.36.0.0_SLES11-SP3-64_GA_06Aug2020_release.tar.gz) o instalador do agente do SUSE Linux Enterprise Server 11 SP3.
+3. Navegue até servidor de configuração, copie o instalador do agente SUSE Linux Enterprise Server 11 SP3 nos seguintes caminhos
+    1. INSTALL_DIR \home\svsystems\pushinstallsvc\repository
+    1.  INSTALL_DIR pastas \home\svsystems\admin\web\sw
+4. Agora, navegue até servidores de processo de expansão associados & Copie o instalador em ambos os caminhos mencionados na 3ª etapa.
+5. **Por exemplo**, se o caminho de instalação for C:\Program Files (x86) \Microsoft Azure site Recovery, os diretórios mencionados acima serão
+    1. C:\Arquivos de programas (x86) \Microsoft Azure site Recovery\home\svsystems\pushinstallsvc\repository
+    1. C:\Arquivos de programas (x86) \Microsoft Azure site Recovery\home\svsystems\admin\web\sw caminho
 
 ## <a name="next-steps"></a>Próximas etapas
 

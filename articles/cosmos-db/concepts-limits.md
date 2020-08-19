@@ -5,37 +5,40 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/03/2020
-ms.openlocfilehash: 296f212e26d066613c54f7d69802654e5f7b5090
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/19/2020
+ms.openlocfilehash: 0ebd3d97c3d7a2218bcfd821e1cc81c6bd74adf6
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391835"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605771"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cotas de serviço do Azure Cosmos DB
 
 Este artigo oferece uma visão geral das cotas padrão oferecidas a diferentes recursos no Azure Cosmos DB.
 
-## <a name="storage-and-throughput"></a>Armazenamento e taxa de transferência
+## <a name="storage-and-database-operations"></a>Operações de armazenamento e banco de dados
 
-Após a criação de uma conta do Azure Cosmos na sua assinatura, é possível gerenciar dados em sua conta [criando bancos de dados, contêineres e itens](databases-containers-items.md). Você pode provisionar a taxa de transferência em um nível de contêiner ou em um nível de banco de dados em termos de [RU/s ou RUs (unidades de solicitação)](request-units.md). A tabela a seguir lista os limites de armazenamento e taxa de transferência por contêiner/banco de dados.
+Após a criação de uma conta do Azure Cosmos na sua assinatura, é possível gerenciar dados em sua conta [criando bancos de dados, contêineres e itens](databases-containers-items.md).
+
+### <a name="provisioned-throughput"></a>Taxa de transferência provisionada
+
+Você pode provisionar a taxa de transferência em um nível de contêiner ou em um nível de banco de dados em termos de [RU/s ou RUs (unidades de solicitação)](request-units.md). A tabela a seguir lista os limites de armazenamento e taxa de transferência por contêiner/banco de dados.
 
 | Recurso | Limite padrão |
 | --- | --- |
 | Máximo de RUs por contêiner ([modo provisionado de taxa de transferência dedicada](databases-containers-items.md#azure-cosmos-containers)) | 1 milhão por padrão. Você pode aumentar isso [abrindo um tíquete de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
 | Máximo de RUs por banco de dados ([modo provisionado de taxa de transferência compartilhada](databases-containers-items.md#azure-cosmos-containers)) | 1 milhão por padrão. Você pode aumentar isso [abrindo um tíquete de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
-| Máximo de RUs por chave de partição (lógica) | 10.000 |
-| Armazenamento máximo em todos os itens por chave de partição (lógica)| 20 GB |
+| RUs máxima por partição (lógica) | 10.000 |
+| Armazenamento máximo em todos os itens por partição (lógica) | 20 GB |
 | Número máximo de chaves de partição (lógica) distintas | Ilimitado |
 | Armazenamento máximo por contêiner | Ilimitado |
 | Armazenamento máximo por banco de dados | Ilimitado |
-| Tamanho máximo de anexo por conta (o recurso de anexo está sendo descontinuado) | 2 GB |
+| Tamanho máximo de anexo por conta (o recurso de anexo está sendo preterido) | 2 GB |
 | Mínimo de RUs necessárias por 1 GB | 10 RU/s |
 
 > [!NOTE]
 > Para saber mais sobre as práticas recomendadas para o gerenciamento de cargas de trabalho que têm chaves de partição que exigem limites mais altos para armazenamento ou taxa de transferência, confira [Criar uma chave de partição sintética](synthetic-partition-keys.md).
->
 
 Um contêiner do Cosmos (ou banco de dados de produtividade compartilhado) deve ter uma taxa de transferência mínima de 400 RU/s. À medida que o contêiner cresce, a taxa de transferência mínima compatível também depende dos seguintes fatores:
 
@@ -47,7 +50,6 @@ A taxa de transferência atual e mínima de um contêiner ou de um banco de dado
 
 > [!NOTE]
 > Em alguns casos, talvez seja possível reduzir a taxa de transferência para menos de 10%. Use a API para obter o mínimo exato de RUs por contêiner.
->
 
 Em resumo, aqui estão os limites mínimos de RU provisionadas. 
 
@@ -58,6 +60,18 @@ Em resumo, aqui estão os limites mínimos de RU provisionadas.
 | Mínimo de RUs por contêiner em um banco de dados de taxa de transferência compartilhada | 100 |
 
 O Cosmos DB dá suporte à escala elástica da taxa de transferência (RUs) por contêiner ou banco de dados por meio de SDKs ou portal. Cada contêiner pode ser dimensionado de modo síncrono e imediatamente dentro de um intervalo de escala de 10 a 100 vezes entre os valores mínimo e máximo. Se o valor da taxa de transferência solicitado estiver fora do intervalo, a colocação em escala será executada de modo assíncrono. A colocação em escala assíncrona pode levar de minutos a horas para ser concluída, dependendo da taxa de transferência e do tamanho de armazenamento de dados solicitados no contêiner.  
+
+### <a name="serverless"></a>Sem servidor
+
+O sem [servidor](serverless.md) permite que você use seus recursos de Azure Cosmos DB de uma maneira baseada em consumo. A tabela a seguir lista os limites para armazenamento e intermitência de taxa de transferência por contêiner/banco de dados.
+
+| Recurso | Limite |
+| --- | --- |
+| RU/s máximo por contêiner | 5\.000 |
+| Máximo de RU/s por partição (lógica) | 5\.000 |
+| Armazenamento máximo em todos os itens por partição (lógica) | 20 GB |
+| Número máximo de chaves de partição (lógica) distintas | Ilimitado |
+| Armazenamento máximo por contêiner | 50 GB |
 
 ## <a name="control-plane-operations"></a>Operações de plano de controle
 
@@ -75,12 +89,22 @@ O Cosmos DB faz backups automáticos de seus dados em intervalos regulares. Para
 
 ## <a name="per-account-limits"></a>Limites por conta
 
+### <a name="provisioned-throughput"></a>Taxa de transferência provisionada
+
 | Recurso | Limite padrão |
 | --- | --- |
 | Número máximo de bancos de dados | Ilimitado |
 | Número máximo de contêineres por banco de dados com taxa de transferência compartilhada |25 |
 | Número máximo de contêineres por banco de dados ou conta com taxa de transferência dedicada  |ilimitado |
 | Número máximo de regiões | Sem limite (todas as regiões do Azure) |
+
+### <a name="serverless"></a>Sem servidor
+
+| Recurso | Limite |
+| --- | --- |
+| Número máximo de bancos de dados | Ilimitado |
+| Número máximo de contêineres por conta  | 100 |
+| Número máximo de regiões | 1 (qualquer região do Azure) |
 
 ## <a name="per-container-limits"></a>Limites por contêiner
 

@@ -5,39 +5,32 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.openlocfilehash: d36b4fd433af716ebd97d88d05922d94bd74c309
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/19/2020
+ms.openlocfilehash: a992d240955f42ec030a84c887ba086ce92f9790
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523529"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605256"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modelo de preços no Azure Cosmos DB
 
-O modelo de preços do Azure Cosmos DB simplifica o planejamento e o gerenciamento dos custos. Com o Azure Cosmos DB, você paga pela taxa de transferência provisionada e pelo armazenamento que consumir.
+O modelo de preços do Azure Cosmos DB simplifica o planejamento e o gerenciamento dos custos. Com o Azure Cosmos DB, você paga pelas operações executadas no banco de dados e pelo armazenamento consumido por eles.
 
-* **Taxa de transferência provisionada**: a [taxa de transferência provisionada](how-to-choose-offer.md) (também chamada de taxa de transferência reservada) garante alto desempenho em qualquer escala. Especifique a taxa de transferência (RU/s) de que você precisa e o Azure Cosmos DB dedicará os recursos necessários para garantir a taxa de transferência configurada. Você será cobrado por hora pela taxa de transferência máxima provisionada para determinada hora. Você pode provisionar manualmente a produtividade ou usar o [dimensionamento automático](provision-throughput-autoscale.md).
+- **Operações de banco de dados**: a maneira como você é cobrado pelas operações de banco de dados depende do tipo de conta do Azure cosmos que você está usando.
+
+  - **Taxa de transferência provisionada**: a [taxa de transferência provisionada](set-throughput.md) (também chamada de taxa de transferência reservada) garante alto desempenho em qualquer escala. Você especifica a taxa de transferência de que precisa em [unidades de solicitação](request-units.md) por segundo (ru/s) e Azure Cosmos DB dedica os recursos necessários para garantir a taxa de transferência configurada. Você pode [provisionar a taxa de transferência em um banco de dados ou em um contêiner](set-throughput.md). Com base nas suas necessidades de carga de trabalho, você pode dimensionar a taxa de transferência para cima/para baixo a qualquer momento ou usar o [dimensionamento automático](provision-throughput-autoscale.md) (embora haja uma taxa de transferência mínima necessária em um banco de dados ou um contêiner para garantir os SLAs). Você será cobrado por hora pela taxa de transferência máxima provisionada para determinada hora.
 
    > [!NOTE]
-   > Como o modelo de taxa de transferência provisionado dedica recursos ao contêiner ou banco de dados, você será cobrado pela taxa de transferência provisionada mesmo que não execute nenhuma carga de trabalho.
+   > Como o modelo de taxa de transferência provisionado dedica recursos ao contêiner ou banco de dados, você será cobrado pela taxa de transferência que você provisionou mesmo se não executar nenhuma carga de trabalho.
 
-* **Armazenamento consumido**: você será cobrado como uma taxa fixa para a quantidade total de armazenamento (GB) consumida para os dados e os índices de uma determinada hora.
+  - Sem **servidor**: no modo de [servidor](serverless.md) , você não precisa provisionar nenhuma taxa de transferência ao criar recursos em sua conta do Azure Cosmos. No final do período de cobrança, você será cobrado pela quantidade de unidades de solicitação consumidas pelas operações de banco de dados.
 
-A taxa de transferência provisionada, especificada como [RU/s](request-units.md) (unidades de solicitação por segundo), permite que você leia ou grave dados em contêineres ou bancos de dados. Você pode [provisionar a taxa de transferência em um banco de dados ou em um contêiner](set-throughput.md). Com base nas suas necessidades de carga de trabalho, você pode aumentar ou reduzir a taxa de transferência a qualquer hora. Os preços do Azure Cosmos DB são flexíveis proporcionais à taxa de transferência que você definiu em um banco de dados ou em um contêiner. Os valores mínimos de taxa de transferência e armazenamento, e os incrementos de escala, fornecem uma gama completa de preços e flexibilidade para todos os segmentos de clientes, de contêineres de pequeno porte para contêineres de grande porte. Cada banco de dados ou contêiner é cobrado por hora pela taxa de transferência provisionada em unidades de 100 RU/s, com o mínimo de 400 RU/s, e pelo armazenamento consumido em GBs. Ao contrário da taxa de transferência provisionada, o armazenamento é cobrado com base no consumo. Ou seja, você não precisa reservar nenhum armazenamento com antecedência. Você será cobrado somente pelo armazenamento que consumir.
+- **Armazenamento**: você é cobrado como uma taxa fixa para a quantidade total de armazenamento consumido por seus dados e índices para uma determinada hora. O armazenamento é cobrado de acordo com o consumo, de modo que você não precisa reservar nenhum armazenamento com antecedência. Você será cobrado somente pelo armazenamento que consumir.
 
-Para obter mais informações, confira a [página de preços do Microsoft Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) e [Entendendo sua fatura do Microsoft Azure Cosmos DB](understand-your-bill.md).
+O modelo de preços do Azure Cosmos DB é consistente em todas as APIs. Para obter mais informações, consulte a [página de preços Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/), [noções básicas sobre sua fatura de Azure Cosmos DB](understand-your-bill.md) e [como Azure Cosmos DB modelo de preços é econômico para os clientes](total-cost-ownership.md).
 
-O modelo de preços do Azure Cosmos DB é consistente em todas as APIs. Saiba mais em [Como o modelo de preços do Microsoft Azure Cosmos DB é econômico para os clientes](total-cost-ownership.md). Há uma taxa de transferência mínima necessária em um banco de dados ou em um contêiner para garantir os SLAs e você pode aumentar ou diminuir a taxa de transferência provisionada para cada 100 RU/s.
-
-Se você implantar sua conta de Azure Cosmos DB em uma região não governamental nos EUA, no momento o preço mínimo para o banco de dados e a taxa de transferência baseada em contêiner será de aproximadamente US $24/mês. O preço varia de acordo com a região que você está usando, consulte a [página de preços Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as informações mais recentes sobre preços. Se sua carga de trabalho usa vários contêineres, ela ser otimizada em termos de custo usando taxa de transferência no nível do banco de dados, pois a taxa de transferência no nível do banco de dados permite que você tenha qualquer quantidade de contêineres em um banco de dados compartilhando a taxa de transferência entre eles. A tabela a seguir resume a taxa de transferência provisionada e os custos para entidades diferentes:
-
-|**Entidade**  | **Taxa de transferência mínima** |**Incrementos de escala** |**Escopo de provisionamento** |
-|---------|---------|---------|-------|
-|Banco de dados    | 400 RU/s    | 100 RU/s   |A taxa de transferência é reservada para o banco de dados e compartilhada por contêineres dentro do banco de dados |
-|Contêiner     | 400 RU/s   | 100 RU/s  |A taxa de transferência é reservada para um contêiner específico |
-
-Conforme mostrado na tabela anterior, a taxa de transferência mínima no Azure Cosmos DB começa com um preço de aproximadamente US $24/mês. Se você começar com a taxa de transferência mínima e escalar verticalmente ao longo do tempo para dar suporte às suas cargas de trabalho de produção, seus custos aumentarão suavemente, em incrementos de aproximadamente US $6/mês. O preço varia de acordo com a região que você está usando, consulte a [página de preços Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as informações mais recentes sobre preços. O modelo de preços do Azure Cosmos DB é flexível e há um aumento ou diminuição suave no preço durante o aumento ou redução.
+Se você implantar sua conta de Azure Cosmos DB em uma região não governamental nos EUA, haverá um preço mínimo para a taxa de transferência baseada em contêiner e banco de dados no modo de taxa de transferência provisionado. Não há nenhum preço mínimo no modo sem servidor. O preço varia de acordo com a região que você está usando, consulte a [página de preços Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as informações mais recentes sobre preços.
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Experimente o Azure Cosmos DB gratuitamente
 
@@ -53,7 +46,7 @@ O Azure Cosmos DB oferece muitas opções para os desenvolvedores a ele gratuita
 
 ## <a name="pricing-with-reserved-capacity"></a>Preços com capacidade reserva
 
-A [capacidade reservada](cosmos-db-reserved-capacity.md) do Azure Cosmos DB ajuda você a economizar dinheiro, pagando previamente pelos recursos do Azure Cosmos DB por um período de um a três anos. É possível reduzir significativamente seus custos com compromissos antecipados de um ano ou três anos e economizar com descontos de 20% a 65% em comparação com o preço regular. A capacidade reserva do Azure Cosmos DB ajuda a reduzir os custos pelo pagamento antecipado da taxa de transferência provisionada (RU/s) por um período de um ou três anos, e você recebe um desconto na taxa de transferência provisionada. 
+Azure Cosmos DB [capacidade reservada](cosmos-db-reserved-capacity.md) ajuda a economizar dinheiro ao usar o modo de taxa de transferência provisionado por meio do pagamento antecipado de Azure Cosmos DB recursos por um ou três anos. É possível reduzir significativamente seus custos com compromissos antecipados de um ano ou três anos e economizar com descontos de 20% a 65% em comparação com o preço regular. A capacidade reserva do Azure Cosmos DB ajuda a reduzir os custos pelo pagamento antecipado da taxa de transferência provisionada (RU/s) por um período de um ou três anos, e você recebe um desconto na taxa de transferência provisionada. 
 
 A capacidade reserva proporciona um desconto de cobrança e não afeta o estado do runtime dos seus recursos do Azure Cosmos DB. A capacidade reserva está disponível consistentemente em todas as APIs, que incluem MongoDB, Cassandra, SQL, Gremlin e as Tabelas do Azure e todas as regiões em todo o mundo. Você pode aprender mais sobre a capacidade reserva no artigo [Pagar antecipadamente por recursos do Azure Cosmos DB com capacidade reserva](cosmos-db-reserved-capacity.md) e comprar capacidade reserva no [portal do Azure](https://portal.azure.com/).
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 420ca9ff6a3ccc0e0bb76887e777f05dd955e97b
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: f62483880d2572b6487c87bbd73e0dd7033238d3
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166681"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606171"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicativo do Azure
 
@@ -103,7 +103,7 @@ Para saber mais sobre os requisitos de publicação para cada plano de aplicativ
 ## <a name="create-a-new-offer"></a>Criar uma oferta
 
 >[!NOTE]
->Depois que uma oferta for publicada, as edições feitas nela no Partner Center não aparecerão em vitrines até a republicação da oferta. Sempre republique uma oferta depois de fazer alterações nela.
+>Depois que uma oferta for publicada, as edições feitas nela no Partner Center não aparecerão em lojas online até que você Republique a oferta. Sempre republique uma oferta depois de fazer alterações nela.
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
 
@@ -197,7 +197,7 @@ Aqui está um exemplo de como as informações de oferta são exibidas no Azure 
 
 #### <a name="call-out-descriptions"></a>Descrições de chamada
 
-1. Título
+1. Title
 2. Descrição
 3. Links úteis
 4. Capturas de tela
