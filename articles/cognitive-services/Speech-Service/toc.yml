@@ -20,10 +20,8 @@
       href: index-speech-to-text.yml
     - name: Visão geral
       items:
-        - name: O que é a conversão de fala em texto em tempo real?
+        - name: O que é conversão de fala em texto?
           href: speech-to-text.md
-        - name: O que é a conversão de fala em texto em lote?
-          href: batch-transcription.md
         - name: Noções básicas de reconhecimento de fala
           href: speech-to-text-basics.md
     - name: Inícios rápidos
@@ -53,6 +51,8 @@
           href: how-to-select-audio-input-devices.md
         - name: Usar a detecção automática de idioma de origem
           href: how-to-automatic-language-detection.md
+        - name: Usar a API de transcrição em lote
+          href: batch-transcription.md
     - name: Tutoriais
       items:
         - name: Melhorar a precisão com modelos de locatário

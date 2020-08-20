@@ -58,8 +58,10 @@
               href: set-up-mabs-for-avs.md
             - name: Fazer backup de VMs da AVS com o Servidor de Backup
               href: backup-avs-vms-with-mabs.md
-        - name: Gateway de Aplicativo na AVS
+        - name: Gateway de Aplicativo com AVS
           href: protect-avs-web-apps-with-app-gateway.md
+        - name: Gerenciador de Tráfego com AVS
+          href: deploy-traffic-manager-to-balance-avs-workloads.md
     - name: Soluções VMware
       items:
         - name: Configurar operações vRealize para AVS

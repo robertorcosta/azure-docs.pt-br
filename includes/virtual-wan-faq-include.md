@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: dececd066597682e240e737727d3bcaf8f8f3619
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: c1a8fbb5558d5b9069c5b8103bca2fc3f8bcddf3
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375072"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507563"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>O usuário precisa ter hub e spoke com dispositivos SD-WAN/VPN para usar a WAN virtual do Azure?
 
@@ -187,7 +187,7 @@ Não. A WAN Virtual não exige o ExpressRoute de cada site. Seus sites podem est
 
 ### <a name="is-there-a-network-throughput-or-connection-limit-when-using-azure-virtual-wan"></a>Há um limite de taxa de transferência de rede ou de conexão ao usar a WAN Virtual do Azure?
 
-A taxa de transferência de rede é de acordo com o serviço em um hub de WAN virtual. Embora você possa ter tantas WANs virtuais quanto desejar, cada WAN Virtual permite um hub por região. Em cada hub, a taxa de transferência agregada de VPN é de até 20 Gbps, a taxa de transferência agregada do ExpressRoute é de até 20 Gbps e a taxa de transferência agregada de VPN do Usuário/VPN ponto a site é de até 20 Gbps. O roteador no hub virtual é compatível com até 50 Gbps para fluxos de tráfego de VNet a VNet e admite um total de 2 mil cargas de trabalho de VM em todas as VNets em hubs da WAN Virtual.
+A taxa de transferência de rede é de acordo com o serviço em um hub de WAN virtual. Embora você possa ter tantas WANs virtuais quanto desejar, cada WAN Virtual permite um hub por região. Em cada hub, a taxa de transferência agregada de VPN é de até 20 Gbps, a taxa de transferência agregada do ExpressRoute é de até 20 Gbps e a taxa de transferência agregada de VPN do Usuário/VPN ponto a site é de até 20 Gbps. O roteador no hub virtual é compatível com até 50 Gbps para fluxos de tráfego de VNet a VNet e admite um total de 2 mil cargas de trabalho de VM em todas as VNets conectadas a um único Hub virtual.
 
 Os Sites de VPN se conectam a um Hub por meio de conexões. A WAN Virtual é compatível com até mil conexões ou 2 mil túneis de IPsec por hub virtual. Quando usuários remotos se conectam ao hub virtual, eles se conectam ao gateway de VPN P2S, que é compatível com até 10 mil usuários, dependendo da unidade de escala (largura de banda) escolhida para o gateway de VPN P2S no hub virtual.
 

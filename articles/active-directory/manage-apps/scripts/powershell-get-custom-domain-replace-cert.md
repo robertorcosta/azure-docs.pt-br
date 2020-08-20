@@ -1,27 +1,26 @@
 ---
-title: Exemplo do PowerShell – substituir certificado em aplicativos de proxy de aplicativo
-description: Exemplo do PowerShell que substitui em massa um certificado entre os aplicativos de proxy de aplicativo Azure Active Directory (Azure AD).
+title: Exemplo do PowerShell – substituir certificado em aplicativos do Proxy de Aplicativo
+description: Exemplo do PowerShell que substitui em massa um certificado entre os aplicativos do Proxy de Aplicativo do Azure AD (Azure Active Directory).
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91aafe00856f37e9d7e6b3babafecd2cbdf5f856
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 8ef083a079ff4bc42959c7734595e41793cd04bc
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75481991"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511101"
 ---
-# <a name="get-all-application-proxy-applications-published-with-the-identical-certificate-and-replace-it"></a>Obter todos os aplicativos de proxy de aplicativo publicados com o certificado idêntico e substituí-lo
+# <a name="get-all-application-proxy-applications-published-with-the-identical-certificate-and-replace-it"></a>Obter todos os aplicativos do Proxy de Aplicativo publicados com o certificado idêntico e substituí-lo
 
-Este exemplo de script do PowerShell permite que você substitua o certificado em massa para todos os aplicativos de proxy de aplicativo Azure Active Directory (Azure AD) que são publicados com o certificado idêntico.
+Este exemplo de script do PowerShell permite que você substitua em massa o certificado de todos os aplicativos do Proxy de Aplicativo do Azure AD (Azure Active Directory) que são publicados com o certificado idêntico.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,7 +28,7 @@ Este exemplo de script do PowerShell permite que você substitua o certificado e
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Este exemplo requer o [módulo AzureAD v2 PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) ou o [PowerShell do AzureAD v2 para a versão de visualização do módulo do Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
+Este exemplo requer o [módulo do PowerShell do AzureAD v2 para o Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) ou a [versão prévia do módulo do PowerShell do AzureAD v2 para o Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
 
 ## <a name="sample-script"></a>Exemplo de script
 
@@ -41,11 +40,11 @@ Este exemplo requer o [módulo AzureAD v2 PowerShell for Graph](https://docs.mic
 |---|---|
 |[Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Obtém uma entidade de serviço. |
 |[Get-AzureADApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0) | Obtém um aplicativo do Azure AD. |
-|[Get-AzureADApplicationProxyApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyapplication?view=azureadps-2.0) | Recupera um aplicativo configurado para o proxy de aplicativo no Azure AD. |
-|[Set-AzureADApplicationProxyApplicationCustomDomainCertificate](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplicationproxyapplicationcustomdomaincertificate?view=azureadps-2.0) | Atribui um certificado a um aplicativo configurado para o proxy de aplicativo no Azure AD. Esse comando carrega o certificado e permite que o aplicativo use domínios personalizados. |
+|[Get-AzureADApplicationProxyApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyapplication?view=azureadps-2.0) | Recupera um aplicativo configurado para o Proxy de Aplicativo no Azure AD. |
+|[Set-AzureADApplicationProxyApplicationCustomDomainCertificate](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplicationproxyapplicationcustomdomaincertificate?view=azureadps-2.0) | Atribui um certificado a um aplicativo configurado para o Proxy de Aplicativo no Azure AD. Esse comando carrega o certificado e permite que o aplicativo use Domínios Personalizados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o módulo do PowerShell do Azure AD, consulte [visão geral do módulo do PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
+Para obter mais informações sobre o módulo do PowerShell do Azure AD, confira [Visão geral do módulo do PowerShell do Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
-Para obter outros exemplos do PowerShell para o proxy de aplicativo, consulte [exemplos do PowerShell do Azure ad para azure proxy de aplicativo do AD](../application-proxy-powershell-samples.md).
+Para obter outros exemplos do PowerShell para o Proxy de Aplicativo, confira [Exemplos do PowerShell do Azure AD para o Proxy de Aplicativo do Azure AD](../application-proxy-powershell-samples.md).

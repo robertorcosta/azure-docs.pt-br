@@ -1,27 +1,26 @@
 ---
-title: Exemplo do PowerShell – listar todos os aplicativos de proxy de aplicativo com uma política
-description: Exemplo do PowerShell que lista todos os aplicativos de proxy de aplicativo Azure Active Directory (Azure AD) no diretório que têm uma política de token de tempo de vida.
+title: Exemplo do PowerShell – listar todos os aplicativos do Proxy de Aplicativo com uma política
+description: Exemplo do PowerShell que lista todos os aplicativos do Proxy de Aplicativo do Azure AD (Azure Active Directory) no diretório que têm uma política de token de tempo de vida.
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2ad7b769dc890917e5364fe57582acdfe16acac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: aa66b842007d9471828171c44c2dcb7505e8b4d7
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75482121"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506834"
 ---
 # <a name="get-all-application-proxy-apps-with-a-token-lifetime-policy"></a>Obter todos os aplicativos do Proxy de Aplicativo com uma política de tempo de vida de token
 
-Este exemplo de script do PowerShell lista todos os aplicativos de proxy de aplicativo Azure Active Directory (Azure AD) em seu diretório que têm uma política de tempo de vida de token e lista detalhes sobre a política.
+Este exemplo de script do PowerShell lista todos os aplicativos do Proxy de Aplicativo do Azure AD (Azure Active Directory) em seu diretório que têm uma política de tempo de vida de token e lista detalhes sobre a política.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,7 +28,7 @@ Este exemplo de script do PowerShell lista todos os aplicativos de proxy de apli
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Este exemplo requer o [PowerShell do AzureAD v2 para a versão de visualização do módulo do Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
+Este exemplo requer a [Versão prévia do módulo do PowerShell do AzureAD v2 para o Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
 
 ## <a name="sample-script"></a>Exemplo de script
 
@@ -47,6 +46,6 @@ Este exemplo requer o [PowerShell do AzureAD v2 para a versão de visualização
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o módulo do PowerShell do Azure AD, consulte [visão geral do módulo do PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
+Para obter mais informações sobre o módulo do PowerShell do Azure AD, confira [Visão geral do módulo do PowerShell do Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
-Para obter outros exemplos do PowerShell para o proxy de aplicativo, consulte [exemplos do PowerShell do Azure ad para azure proxy de aplicativo do AD](../application-proxy-powershell-samples.md).
+Para obter outros exemplos do PowerShell para o Proxy de Aplicativo, confira [Exemplos do PowerShell do Azure AD para o Proxy de Aplicativo do Azure AD](../application-proxy-powershell-samples.md).

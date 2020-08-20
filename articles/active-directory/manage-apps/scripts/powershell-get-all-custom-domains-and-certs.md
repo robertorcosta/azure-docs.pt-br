@@ -1,27 +1,26 @@
 ---
-title: Exemplo do PowerShell – aplicativos de proxy de aplicativo usando domínios personalizados
-description: Exemplo do PowerShell que lista todos os aplicativos de proxy de aplicativo Azure Active Directory (Azure AD) que estão usando domínios personalizados e informações de certificado.
+title: Exemplo do PowerShell – aplicativos do Proxy de Aplicativo usando domínios personalizados
+description: Exemplo do PowerShell que lista todos os aplicativos do Proxy de Aplicativo do Azure AD (Azure Active Directory) que estão usando domínios personalizados e informações de certificado.
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9722178011c3c0411f2e0e888dd9ab5962b933b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 3e6f300126da0eeffe9d1c752102ab9ded81ff5b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75482043"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506729"
 ---
 # <a name="get-all-application-proxy-apps-using-custom-domains-and-certificate-information"></a>Obter todos os aplicativos do Proxy de Aplicativo usando informações de certificado e domínios personalizados
 
-Este exemplo de script do PowerShell lista todos os aplicativos de proxy de aplicativo Azure Active Directory (Azure AD) que estão usando domínios personalizados e lista as informações de certificado associadas aos domínios personalizados.
+Este exemplo de script do PowerShell lista todos os aplicativos do Proxy de Aplicativo do Azure AD (Azure Active Directory) que estão usando domínios personalizados e lista as informações do certificado associadas aos domínios personalizados.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,7 +28,7 @@ Este exemplo de script do PowerShell lista todos os aplicativos de proxy de apli
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Este exemplo requer o [módulo AzureAD v2 PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) ou o [PowerShell do AzureAD v2 para a versão de visualização do módulo do Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
+Este exemplo requer o [módulo do PowerShell do AzureAD v2 para o Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) ou a [versão prévia do módulo do PowerShell do AzureAD v2 para o Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
 
 ## <a name="sample-script"></a>Exemplo de script
 
@@ -41,10 +40,10 @@ Este exemplo requer o [módulo AzureAD v2 PowerShell for Graph](https://docs.mic
 |---|---|
 |[Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Obtém uma entidade de serviço. |
 |[Get-AzureADApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0) | Obtém um aplicativo do Azure AD. |
-|[Get-AzureADApplicationProxyApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyapplication?view=azureadps-2.0) | Recupera um aplicativo configurado para o proxy de aplicativo no Azure AD. |
+|[Get-AzureADApplicationProxyApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyapplication?view=azureadps-2.0) | Recupera um aplicativo configurado para o Proxy de Aplicativo no Azure AD. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o módulo do PowerShell do Azure AD, consulte [visão geral do módulo do PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
+Para obter mais informações sobre o módulo do PowerShell do Azure AD, confira [Visão geral do módulo do PowerShell do Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
-Para obter outros exemplos do PowerShell para o proxy de aplicativo, consulte [exemplos do PowerShell do Azure ad para azure proxy de aplicativo do AD](../application-proxy-powershell-samples.md).
+Para obter outros exemplos do PowerShell para o Proxy de Aplicativo, confira [Exemplos do PowerShell do Azure AD para o Proxy de Aplicativo do Azure AD](../application-proxy-powershell-samples.md).

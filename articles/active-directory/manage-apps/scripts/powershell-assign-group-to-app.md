@@ -1,27 +1,26 @@
 ---
-title: Exemplo do PowerShell – atribuir grupo a um aplicativo de proxy de aplicativo
-description: Exemplo do PowerShell que atribui um grupo a um aplicativo de proxy de aplicativo Azure Active Directory (Azure AD).
+title: Exemplo do PowerShell – atribuir grupo a um aplicativo do Proxy de Aplicativo
+description: Exemplo do PowerShell que atribui um grupo a um aplicativo do Proxy de Aplicativo do Azure AD (Azure Active Directory).
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 540453e5de3eed97b1207ca16443b46dffd5f8e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: c1a8ebe170c499febc42fed028a17f7e6e591fc6
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75483343"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506981"
 ---
-# <a name="assign-a-group-to-a-specific-azure-ad-application-proxy-application"></a>Atribuir um grupo a um aplicativo de Proxy de Aplicativo do AD específico do Azure
+# <a name="assign-a-group-to-a-specific-azure-ad-application-proxy-application"></a>Atribuir um grupo a um aplicativo específico do Proxy de Aplicativo do Azure AD
 
-Este exemplo de script do PowerShell permite atribuir um grupo específico a um aplicativo de proxy de aplicativo Azure Active Directory (Azure AD).
+Este exemplo de script do PowerShell permite atribuir um grupo específico a um aplicativo do Proxy de Aplicativo do Azure AD (Azure Active Directory).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,7 +28,7 @@ Este exemplo de script do PowerShell permite atribuir um grupo específico a um 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Este exemplo requer o [módulo AzureAD v2 PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) ou o [PowerShell do AzureAD v2 para a versão de visualização do módulo do Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
+Este exemplo requer o [módulo do PowerShell do AzureAD v2 para o Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) ou a [versão prévia do módulo do PowerShell do AzureAD v2 para o Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
 
 ## <a name="sample-script"></a>Exemplo de script
 
@@ -43,6 +42,6 @@ Este exemplo requer o [módulo AzureAD v2 PowerShell for Graph](https://docs.mic
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o módulo do PowerShell do Azure AD, consulte [visão geral do módulo do PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
+Para obter mais informações sobre o módulo do PowerShell do Azure AD, confira [Visão geral do módulo do PowerShell do Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
-Para obter outros exemplos do PowerShell para o proxy de aplicativo, consulte [exemplos do PowerShell do Azure ad para azure proxy de aplicativo do AD](../application-proxy-powershell-samples.md).
+Para obter outros exemplos do PowerShell para o Proxy de Aplicativo, confira [Exemplos do PowerShell do Azure AD para o Proxy de Aplicativo do Azure AD](../application-proxy-powershell-samples.md).
