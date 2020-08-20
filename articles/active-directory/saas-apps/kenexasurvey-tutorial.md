@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory com o IBM Kenexa Survey Enterprise | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o IBM Kenexa Survey Enterprise.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: c7aac6da-f4bf-419e-9e1a-16b460641a52
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: jeedes
-ms.openlocfilehash: c649b966b3e210f6b026b06a9654761e0f97aea1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ed4725a98939e160f42d3087b86e591b09c026c4
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67099051"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88540143"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Tutorial: Integração do Azure Active Directory com o IBM Kenexa Survey Enterprise
 
