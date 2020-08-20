@@ -9,18 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 94873a3ea1349a9dfac199d98fd109b1a97f72f9
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: d0bf5da3633ce8f34e34cbdf0cee12a94c128d72
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904727"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88517958"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Início Rápido: Treinar em um modelo do Reconhecimento de Formulários e extrair dados de formulário usando a API REST com o cURL
 
 Neste Início Rápido, você usará a API REST do Reconhecimento de Formulários do Azure com o cURL para treinar e pontuar formulários a fim de extrair pares chave-valor e tabelas.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,7 +49,7 @@ Para treinar um modelo do Reconhecimento de Formulários usando os documentos no
 curl -i -X POST "https://<Endpoint>/formrecognizer/v2.0/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
 ```
 
-Você receberá uma resposta `201 (Success)` com um cabeçalho **Location**. O valor desse cabeçalho é a ID do novo modelo que está sendo treinado. 
+Você receberá uma resposta `201 (Success)` com um cabeçalho **Location**. O valor desse cabeçalho é a ID do novo modelo que está sendo treinado.
 
 ## <a name="get-training-results"></a>Obter os resultados do treinamento
 
@@ -66,64 +66,64 @@ curl -X GET "https://<Endpoint>/formrecognizer/v2.0/custom/models/<model ID>" -H
 Você receberá a resposta `200 (Success)` com um corpo JSON no formato a seguir. Observe o campo `"status"`. Ele terá o valor `"ready"` quando o treinamento for concluído. Se o modelo não tiver terminado o treinamento, você precisará consultar o serviço novamente, executando o comando mais uma vez. Recomendamos dar um intervalo de um segundo ou mais entre chamadas.
 
 O campo `"modelId"` contém a ID do modelo que você está treinando. Você precisará dela para a próxima etapa.
-    
+
 ```json
-{ 
-  "modelInfo":{ 
+{
+  "modelInfo":{
     "status":"ready",
     "createdDateTime":"2019-10-08T10:20:31.957784",
     "lastUpdatedDateTime":"2019-10-08T14:20:41+00:00",
     "modelId":"1cfb372bab404ba3aa59481ab2c63da5"
   },
-  "trainResult":{ 
-    "trainingDocuments":[ 
-      { 
+  "trainResult":{
+    "trainingDocuments":[
+      {
         "documentName":"invoices\\Invoice_1.pdf",
         "pages":1,
-        "errors":[ 
+        "errors":[
 
         ],
         "status":"succeeded"
       },
-      { 
+      {
         "documentName":"invoices\\Invoice_2.pdf",
         "pages":1,
-        "errors":[ 
+        "errors":[
 
         ],
         "status":"succeeded"
       },
-      { 
+      {
         "documentName":"invoices\\Invoice_3.pdf",
         "pages":1,
-        "errors":[ 
+        "errors":[
 
         ],
         "status":"succeeded"
       },
-      { 
+      {
         "documentName":"invoices\\Invoice_4.pdf",
         "pages":1,
-        "errors":[ 
+        "errors":[
 
         ],
         "status":"succeeded"
       },
-      { 
+      {
         "documentName":"invoices\\Invoice_5.pdf",
         "pages":1,
-        "errors":[ 
+        "errors":[
 
         ],
         "status":"succeeded"
       }
     ],
-    "errors":[ 
+    "errors":[
 
     ]
   },
-  "keys":{ 
-    "0":[ 
+  "keys":{
+    "0":[
       "Address:",
       "Invoice For:",
       "Microsoft",
@@ -166,18 +166,18 @@ As principais associações de tabelas e pares chave-valor estão no nó `"pageR
 
 ```json
 {
-  "analyzeResult":{ 
-    "readResults":[ 
-      { 
+  "analyzeResult":{
+    "readResults":[
+      {
         "page":1,
         "width":8.5,
         "height":11.0,
         "angle":0,
         "unit":"inch",
-        "lines":[ 
-          { 
+        "lines":[
+          {
             "text":"Contoso",
-            "boundingBox":[ 
+            "boundingBox":[
               0.5278,
               1.0597,
               1.4569,
@@ -187,10 +187,10 @@ As principais associações de tabelas e pares chave-valor estão no nó `"pageR
               0.5278,
               1.4347
             ],
-            "words":[ 
-              { 
+            "words":[
+              {
                 "text":"Contoso",
-                "boundingBox":[ 
+                "boundingBox":[
                   0.5278,
                   1.0597,
                   1.4569,
@@ -204,9 +204,9 @@ As principais associações de tabelas e pares chave-valor estão no nó `"pageR
             ]
           },
           ...
-          { 
+          {
             "text":"PT",
-            "boundingBox":[ 
+            "boundingBox":[
               6.2181,
               3.3528,
               6.3944,
@@ -216,10 +216,10 @@ As principais associações de tabelas e pares chave-valor estão no nó `"pageR
               6.2181,
               3.5417
             ],
-            "words":[ 
-              { 
+            "words":[
+              {
                 "text":"PT",
-                "boundingBox":[ 
+                "boundingBox":[
                   6.2181,
                   3.3528,
                   6.3944,
@@ -236,21 +236,21 @@ As principais associações de tabelas e pares chave-valor estão no nó `"pageR
       }
     ],
     "version":"2.0.0",
-    "errors":[ 
+    "errors":[
 
     ],
-    "documentResults":[ 
+    "documentResults":[
 
     ],
-    "pageResults":[ 
-      { 
+    "pageResults":[
+      {
         "page":1,
         "clusterId":1,
-        "keyValuePairs":[ 
-          { 
-            "key":{ 
+        "keyValuePairs":[
+          {
+            "key":{
               "text":"Address:",
-              "boundingBox":[ 
+              "boundingBox":[
                 0.7972,
                 1.5125,
                 1.3958,
@@ -260,13 +260,13 @@ As principais associações de tabelas e pares chave-valor estão no nó `"pageR
                 0.7972,
                 1.6431
               ],
-              "elements":[ 
+              "elements":[
                 "#/readResults/0/lines/1/words/0"
               ]
             },
-            "value":{ 
+            "value":{
               "text":"1 Redmond way Suite 6000 Redmond, WA 99243",
-              "boundingBox":[ 
+              "boundingBox":[
                 0.7972,
                 1.6764,
                 2.15,
@@ -276,7 +276,7 @@ As principais associações de tabelas e pares chave-valor estão no nó `"pageR
                 0.7972,
                 2.2181
               ],
-              "elements":[ 
+              "elements":[
                 "#/readResults/0/lines/4/words/0",
                 "#/readResults/0/lines/4/words/1",
                 "#/readResults/0/lines/4/words/2",
@@ -289,10 +289,10 @@ As principais associações de tabelas e pares chave-valor estão no nó `"pageR
             },
             "confidence":0.86
           },
-          { 
-            "key":{ 
+          {
+            "key":{
               "text":"Invoice For:",
-              "boundingBox":[ 
+              "boundingBox":[
                 4.3903,
                 1.5125,
                 5.1139,
@@ -302,14 +302,14 @@ As principais associações de tabelas e pares chave-valor estão no nó `"pageR
                 4.3903,
                 1.6431
               ],
-              "elements":[ 
+              "elements":[
                 "#/readResults/0/lines/2/words/0",
                 "#/readResults/0/lines/2/words/1"
               ]
             },
-            "value":{ 
+            "value":{
               "text":"Microsoft 1020 Enterprise Way Sunnayvale, CA 87659",
-              "boundingBox":[ 
+              "boundingBox":[
                 5.1917,
                 1.4458,
                 6.6583,
@@ -319,7 +319,7 @@ As principais associações de tabelas e pares chave-valor estão no nó `"pageR
                 5.1917,
                 2.0347
               ],
-              "elements":[ 
+              "elements":[
                 "#/readResults/0/lines/3/words/0",
                 "#/readResults/0/lines/5/words/0",
                 "#/readResults/0/lines/5/words/1",
@@ -333,18 +333,18 @@ As principais associações de tabelas e pares chave-valor estão no nó `"pageR
           },
           ...
         ],
-        "tables":[ 
-          { 
+        "tables":[
+          {
             "caption":null,
             "rows":2,
             "columns":5,
-            "cells":[ 
-              { 
+            "cells":[
+              {
                 "rowIndex":0,
                 "colIndex":0,
                 "header":true,
                 "text":"Invoice Number",
-                "boundingBox":[ 
+                "boundingBox":[
                   0.5347,
                   2.8722,
                   1.575,
@@ -354,17 +354,17 @@ As principais associações de tabelas e pares chave-valor estão no nó `"pageR
                   0.5347,
                   3.0028
                 ],
-                "elements":[ 
+                "elements":[
                   "#/readResults/0/lines/9/words/0",
                   "#/readResults/0/lines/9/words/1"
                 ]
               },
-              { 
+              {
                 "rowIndex":0,
                 "colIndex":1,
                 "header":true,
                 "text":"Invoice Date",
-                "boundingBox":[ 
+                "boundingBox":[
                   1.9403,
                   2.8722,
                   2.7569,
@@ -374,17 +374,17 @@ As principais associações de tabelas e pares chave-valor estão no nó `"pageR
                   1.9403,
                   3.0028
                 ],
-                "elements":[ 
+                "elements":[
                   "#/readResults/0/lines/10/words/0",
                   "#/readResults/0/lines/10/words/1"
                 ]
               },
-              { 
+              {
                 "rowIndex":0,
                 "colIndex":2,
                 "header":true,
                 "text":"Invoice Due Date",
-                "boundingBox":[ 
+                "boundingBox":[
                   3.3403,
                   2.8722,
                   4.4583,
@@ -394,7 +394,7 @@ As principais associações de tabelas e pares chave-valor estão no nó `"pageR
                   3.3403,
                   3.0028
                 ],
-                "elements":[ 
+                "elements":[
                   "#/readResults/0/lines/11/words/0",
                   "#/readResults/0/lines/11/words/1",
                   "#/readResults/0/lines/11/words/2"

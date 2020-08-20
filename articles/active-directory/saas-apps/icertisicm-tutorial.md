@@ -2,25 +2,21 @@
 title: 'Tutorial: integração do Azure Active Directory com o Icertis Contract Management Platform | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Icertis Contract Management Platform.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 6627e6dd-f559-4cd4-a509-f6d9a4961b49
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 4d105fd9d0611ad56cd5ec2ecaa36bdcf9deed18
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2d7371b38796891f2e2a37266ac30bbbfd0f6d6e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67100736"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88517227"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Tutorial: integração do Azure Active Directory com o Icertis Contract Management Platform
 

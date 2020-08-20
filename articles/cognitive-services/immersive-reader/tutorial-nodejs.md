@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metan
 ms.custom: devx-track-javascript
-ms.openlocfilehash: c64fc95c44aad81087cada23639e3b13bf478056
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: a8cd8bacc749ef44ee23e98709f04f75757f5919
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407176"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516326"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Tutorial: Iniciar a Leitura Avançada (Node.js)
 
@@ -30,7 +30,7 @@ Na [visão geral](./overview.md), você aprendeu sobre o que é a Leitura Avanç
 > * Especifique o idioma da interface de Leitura Avançada
 > * Iniciar a Leitura Avançada com o conteúdo de matemática
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

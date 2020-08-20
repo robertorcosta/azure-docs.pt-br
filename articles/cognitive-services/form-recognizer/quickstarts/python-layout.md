@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 0c7e077b3f170e3d9f1b15f78d52a1f386396983
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 1777d4d09dfb12f490245f726715aed4eefd6227
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876862"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88517788"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Início Rápido: Extrair informações de texto e de layout usando a API REST do Reconhecimento de Formulários com Python
 
 Neste início rápido, você usará a API REST de Reconhecimento de Formulários do Azure com o Python para extrair informações de layout e de texto e dados de tabela de documentos de formulário.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

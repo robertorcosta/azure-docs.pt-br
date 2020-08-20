@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metan
-ms.openlocfilehash: a7e0cb41f32a60e4f00cb60cc3c86e40ab926785
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 968f3c9fbfea1e2f04fb029605173087f6f311c0
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735123"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516496"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Tutorial: Criar um aplicativo iOS que inicia a Leitura Avançada com o conteúdo de uma foto (Swift)
 
@@ -24,7 +24,7 @@ A [API de Leitura de Serviços Cognitivos de Pesquisa Visual Computacional](http
 
 Neste tutorial, você criará um aplicativo iOS do zero e integrará a API de Leitura e a Leitura Avançada usando o SDK de Leitura Avançada. Um exemplo de funcionamento completo deste tutorial está disponível [aqui](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: dylankil
 ms.custom: devx-track-java
-ms.openlocfilehash: f8420a42b87481b5e51b383ace1ba8a510d2a6a7
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 637b4d988a4845369a441dce55f0043d873879f6
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366731"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516428"
 ---
 # <a name="tutorial-start-the-immersive-reader-using-the-android-java-code-sample"></a>Tutorial: Iniciar a Leitura Avançada usando o exemplo de código Java para Android
 
@@ -27,7 +27,7 @@ Na [visão geral](./overview.md), você aprendeu sobre o que é a Leitura Avanç
 > * Adquirir um token de acesso.
 > * Iniciar a Leitura Avançada com o conteúdo de exemplo.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

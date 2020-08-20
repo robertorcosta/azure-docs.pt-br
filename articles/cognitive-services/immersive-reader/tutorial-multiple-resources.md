@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 214d6d614fcc54a532766854f2e72ac45dbfa8ad
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 1abd1052c33346d949809d7c35a99ef97bde2c03
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407193"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88516275"
 ---
 # <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Tutorial: Integrar vários recursos da Leitura Avançada
 
@@ -25,7 +25,7 @@ Na [visão geral](./overview.md), você aprendeu sobre o que é a Leitura Avanç
 > * Criar vários recursos da Leitura Avançada em um grupo de recursos existente
 > * Iniciar a Leitura Avançada usando vários recursos
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
