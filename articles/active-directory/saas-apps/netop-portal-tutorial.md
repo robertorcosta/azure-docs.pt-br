@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Netop Portal | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Netop Portal.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 63f7eab5-412a-4a5c-84bc-7473087abb49
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/18/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2e456114d186e548cede656da8e8d227efa09aa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f316d7bab4b9d5b1f08d7a12cdc892be252128ae
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75550087"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549000"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netop-portal"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Netop Portal
 
@@ -142,7 +137,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 ## <a name="configure-netop-portal-sso"></a>Configurar o SSO do Netop Portal
 
-Para configurar o logon único no **Netop Portal**, é preciso ter baixado o **XML de Metadados de Federação** e a URL de Logon do portal do Azure. Siga as instruções na Etapa 3 da documentação [aqui](https://kb.netop.com/assets/netop_portal_adfs_and_azure_ad_integration.pdf) para configurar o Netop Portal para autenticação do Azure AD.
+Para configurar o logon único no **Netop Portal**, é preciso ter baixado o **XML de Metadados de Federação** e a URL de Logon do portal do Azure. Siga as instruções na Etapa 3 da documentação [aqui](https://kb.netop.com/article/netop-remote-control-portal-adfs-and-azure-ad-integration-456.html) para configurar o Netop Portal para autenticação do Azure AD.
 
 ### <a name="create-netop-portal-test-user"></a>Criar um usuário de teste do Netop Portal
 

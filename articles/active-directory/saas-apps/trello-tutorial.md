@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Trello | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Trello.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: cd5ae365-9ed6-43a6-920b-f7814b993949
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4f82617784fa782d37b915800498f44f8222bb2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: de37b4b958ab1139d46d476889ffdf8e3b4f7e4a
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71121851"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551892"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trello"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Trello
 
@@ -79,7 +74,7 @@ Para configurar e testar o SSO do Azure AD com o Trello, conclua os seguintes bl
 Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 > [!NOTE]
-> Você deve obter o campo de dados dinâmico **\<empresa\>** do Trello. Se você não tiver o valor do campo de dados dinâmico, contate a [equipe de suporte do Trello](mailto:support@trello.com) para obtê-lo para a sua empresa.
+> Você deve obter o campo de dados dinâmico **\<enterprise\>** do Trello. Se você não tiver o valor do campo de dados dinâmico, contate a [equipe de suporte do Trello](mailto:support@trello.com) para obtê-lo para a sua empresa.
 
 Para configurar o logon único do Azure AD com o Trello, execute as seguintes etapas:
 

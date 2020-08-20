@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao Trakstar | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Trakstar.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 411cb8c3-95c6-4138-acf2-ffc7f663e89a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 06ab8a96e4f2c4bb90afd34952a8e6e78114e7e5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a274718f43a6251e468f8f2a9aaa20125387cb0f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67088330"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551978"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>Tutorial: Integração do Azure Active Directory ao Trakstar
 

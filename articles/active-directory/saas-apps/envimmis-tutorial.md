@@ -2,26 +2,21 @@
 title: 'Tutorial: integração do Azure Active Directory ao Envi MMIS | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Microsoft Azure Active Directory e o Envi MMIS.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: ab89f8ee-2507-4625-94bc-b24ef3d5e006
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1689517042713e9a3ce75c6ada822cb3d6ff138
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: aababc6ffd84540b99ba68f6bbb449d2aa78ed4b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158259"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551728"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Tutorial: integração do Microsoft Azure Active Directory ao Envi MMIS
 

@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Cloud Academy – SSO | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Cloud Academy – SSO.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 560c86fb-e25c-4428-a1dd-a5711cfece5c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb118e4d2fa811bf88ff13db84848ebb230ed209
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 88e626f9b3069b3b43d525914c017caf763a9047
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293239"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551754"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cloud-academy---sso"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Cloud Academy – SSO
 

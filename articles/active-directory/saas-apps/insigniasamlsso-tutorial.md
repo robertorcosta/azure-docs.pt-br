@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory com o Insignia SAML SSO | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Insignia SAML SSO.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 828c981c-c3dd-4eb2-8699-0f732baa43f6
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: c7b62a65d3f0b3b4006c55f5323b1feb69cca9f1
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 9d3463e04f06e02f8d27e633a10c22069ad9b57f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799836"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550411"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Tutorial: Integração do Azure Active Directory com o Insignia SAML SSO
 
@@ -116,7 +112,7 @@ Para configurar o logon único do Azure AD com o SSO de SAML do Insignia, execut
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<customername>.insigniailsusa.com/<uniqueid>`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Insignia SAML SSO](https://www.insigniasoftware.com/insignia/Techsupport.aspx) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Insignia SAML SSO](http://www.insigniasoftware.com/insignia/Techsupport.aspx) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -134,7 +130,7 @@ Para configurar o logon único do Azure AD com o SSO de SAML do Insignia, execut
 
 ### <a name="configure-insignia-saml-sso-single-sign-on"></a>Configurar o logon único do SSO de SAML do Insignia
 
-Para configurar o logon único no lado do **SSO de SAML do Insignia**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do SSO de SAML do Insignia](https://www.insigniasoftware.com/insignia/Techsupport.aspx). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **SSO de SAML do Insignia**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do SSO de SAML do Insignia](http://www.insigniasoftware.com/insignia/Techsupport.aspx). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -189,7 +185,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure ao
 
 ### <a name="create-insignia-saml-sso-test-user"></a>Criar um usuário de teste do SSO de SAML do Insignia
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no SSO de SAML do Insignia. Trabalhe com a [equipe de suporte do SSO de SAML do Insignia](https://www.insigniasoftware.com/insignia/Techsupport.aspx) para adicionar os usuários na plataforma do SSO de SAML do Insignia. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no SSO de SAML do Insignia. Trabalhe com a [equipe de suporte do SSO de SAML do Insignia](http://www.insigniasoftware.com/insignia/Techsupport.aspx) para adicionar os usuários na plataforma do SSO de SAML do Insignia. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 

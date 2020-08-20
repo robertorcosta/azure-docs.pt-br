@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9dcc1b6f6f3792682f81c0d37ef2046bd1840657
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1865d307e7b79e7e40b0e98f2dcfa2535b0313fd
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526989"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551700"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutorial: Fazer backup e restaurar arquivos para máquinas virtuais do Linux no Azure
 
@@ -45,7 +45,7 @@ Crie um backup diário agendado em um Cofre dos Serviços de Recuperação:
 1. Entre no [portal do Azure](https://portal.azure.com/).
 2. No menu à esquerda, selecione **Máquinas virtuais**. 
 3. Na lista, selecione uma VM da qual fazer backup.
-4. Na folha da VM, na seção **Configurações**, clique em **Backup**. A folha **Habilitar backup** é aberta.
+4. Na folha da VM, na seção **Operações**, clique em **Backup**. A folha **Habilitar backup** é aberta.
 5. Em **Cofre de Serviços de Recuperação**, clique em **Criar novo** e forneça o nome para o novo cofre. Um novo cofre é criado no mesmo Grupo de Recursos e na mesma localização que a máquina virtual.
 6. Clique em **Política de backup**. Para este exemplo, mantenha os padrões e clique em **OK**.
 7. Na folha **Habilitar backup**, clique em **Habilitar Backup**. Isso cria um backup diário com base no agendamento padrão.

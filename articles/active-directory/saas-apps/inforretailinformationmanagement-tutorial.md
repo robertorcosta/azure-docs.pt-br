@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory com informações de varejo – gerenciamento de informações | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Infor Retail – Information Management.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5ff49168-ef81-4169-8e5e-dc86e24dd5e5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91c48772ae50fd34e822c947687c0366e1d179cc
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 8724bb332e48bb9e458550b312fb9c1d41da2477
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85798723"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550564"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Tutorial: Integração do Azure Active Directory com informações de varejo – gerenciamento de informações
 

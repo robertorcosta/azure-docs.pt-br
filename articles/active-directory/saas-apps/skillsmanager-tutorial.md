@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao Skills Manager | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Skills Manager.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: dab8debd-3b7b-4656-9bf0-1963ad8fce05
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 03cc443197746909eb37efa699cebd8cfd460ac0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 092cac4790bf93aad452f79292540c3a49470c81
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67090416"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88552162"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-manager"></a>Tutorial: Integração do Azure Active Directory ao Skills Manager
 

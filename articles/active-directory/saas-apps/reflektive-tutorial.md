@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao Reflektive | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Reflektive.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 799a08b9-1ce6-46d1-9064-aa9f36f6604e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 76ded60421c1f6d39328ec88e964876e3eb64d78
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 70ad4bfdfda0def4fba2778725fcfc4e81e72a5b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169044"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548830"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Tutorial: integração do Azure Active Directory com o Reflektive
 

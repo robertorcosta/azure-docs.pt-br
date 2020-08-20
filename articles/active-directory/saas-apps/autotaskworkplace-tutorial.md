@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao Autotask Workplace | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Autotask Workplace.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: a9a7ff71-c389-4169-aafd-d7a505244797
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/20/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97a68fd74449ea34438348cbc4c9d09c06d46d71
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8c7e5699930b633d900b2b31b0fe29fbd8505944
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73157798"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550155"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>Tutorial: Integração do Azure Active Directory ao Autotask Workplace
 

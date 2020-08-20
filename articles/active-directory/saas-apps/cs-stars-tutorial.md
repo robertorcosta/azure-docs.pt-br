@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao CS Stars | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o CS Stars.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5704d151-afb8-40a4-b286-8bacd4f279ee
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15b31bf14b01a215d99814ce57eb9cd5f2cb2773
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 981fc2eb083ff2b1c7b472210299b535f04c45d3
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81869426"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549204"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Tutorial: Integração do Microsoft Azure Active Directory ao CS Stars
 
