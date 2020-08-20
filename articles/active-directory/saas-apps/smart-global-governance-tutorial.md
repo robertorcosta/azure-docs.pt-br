@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração de SSO do Azure AD com Smart Global Governance'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Smart Global Governance.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5c31613e-f30d-47d9-af51-001345b6db10
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/04/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91200ba4561aa6b715149d91beee8ac9d0375657
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d93cd2efe49f819c8adeb53674b6d4f465312e06
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170455"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88527393"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smart-global-governance"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Smart Global Governance
 

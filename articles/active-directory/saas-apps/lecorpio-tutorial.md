@@ -2,26 +2,21 @@
 title: 'Tutorial: integração do Azure Active Directory ao Lecorpio | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Lecorpio.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce3684f6170e731298cdb9e73c39e2a833c1f537
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: dec5f612cd9ce843e0c516fca3a9f56c491b7359
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73159537"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88528902"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lecorpio"></a>Tutorial: integração do Azure Active Directory com o Lecorpio
 
