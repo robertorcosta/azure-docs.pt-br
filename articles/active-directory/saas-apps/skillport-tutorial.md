@@ -2,25 +2,21 @@
 title: 'Tutorial: integração do Azure Active Directory com o Skillport | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Skillport.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 4df349b2-a73f-4b88-a077-ec0fbfc26527
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 328f3d0dc648b3c5fa96c3aab02e80a37cf4218f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: cceb0a98cc35a41d1d46b798c9caf08fae2e3748
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680671"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543084"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Tutorial: integração do Azure Active Directory com o Skillport
 

@@ -2,26 +2,21 @@
 title: 'Tutorial: integração do Azure Active Directory com o Sedgwick CMS | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Sedgwick CMS.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 957931e0-e426-47e7-9904-3ed98d3f504c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 155222dcbc3fed33ba4f9098986e3fb4f74a3dc3
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a93e683e98b1772e9c33a1a2923b0ac807c29e3d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86168772"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543203"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Tutorial: integração do Azure Active Directory com o Sedgwick CMS
 

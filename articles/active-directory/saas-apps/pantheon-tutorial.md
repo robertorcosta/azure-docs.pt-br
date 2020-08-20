@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Pantheon | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Pantheon.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: d2c965d1-666f-44c2-b08f-b73163096374
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f24cfeac35e5ce669575c14a3de3e2bff46c7a91
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 05bf7a3bcbc44d7a54ad2f3a94b89241a1c58c61
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74893239"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543697"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pantheon"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o Pantheon
 

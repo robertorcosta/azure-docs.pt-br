@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao Sequr | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Sequr.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: a491e2ce-b4e8-41b8-8f4a-a2e263e462c3
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eed00aab4296cb5352e74d9e6bfc014f2340646
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c8d0ce5031dc5972cac81b92477d3de049bc1f2f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67091077"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543101"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sequr"></a>Tutorial: Integração do Microsoft Azure Active Directory ao Sequr
 

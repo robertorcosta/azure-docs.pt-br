@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Salesforce | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Salesforce.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/17/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f66a5ba491a5afed4007f73b88a38719ec71fb63
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 7228f4fbf348b8112654ece91aa5e9e831ac1201
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849154"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543553"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Salesforce
 

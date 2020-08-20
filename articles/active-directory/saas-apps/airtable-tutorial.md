@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Airtable | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Airtable.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 7dbf0efa-747c-4d44-b6c3-3438ab38abb6
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 883dd7caabba48b42aaeaeddbe854ddf42973cb4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3ec375746c8d730e18300d414cdbae7883fce5d0
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79136561"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88542728"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-airtable"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Airtable
 

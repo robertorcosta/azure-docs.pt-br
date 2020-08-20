@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SendSafely | Microsoft Docs'
 description: Aprenda a configurar o logon único entre o Azure Active Directory e o SendSafely.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5ac4d4b9-8e52-4dae-a767-041684dc7db0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86e71dc45eb2d8cdc2c016d564efd53a42a44e95
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 36d075ea84ef42be27520a9ad33d8d4b1ffa8218
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85808180"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543112"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sendsafely"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SendSafely
 

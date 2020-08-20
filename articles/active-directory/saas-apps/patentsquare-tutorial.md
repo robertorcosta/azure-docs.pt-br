@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory com PatentSQUARE | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o PatentSQUARE.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5ab95cea-4839-4588-b2d0-c8b7066415a1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 01bdd54ce0f661502ba0db902b150d76092ec03a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4cdc83290ac6e7d655491ae3feee5fb9b150de93
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67094881"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543754"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-patentsquare"></a>Tutorial: Integração do Azure Active Directory com o PatentSQUARE
 
