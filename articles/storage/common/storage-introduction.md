@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 81ee07eb41df6d8d663510913572b829feffd995
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b603776ce19bca8d6fefa7c3c85366ebe3b7b01f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82133791"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653793"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introdução aos principais serviços de armazenamento do Azure
 
@@ -30,10 +30,10 @@ A plataforma de armazenamento do Azure é a solução de armazenamento em nuvem 
 A plataforma de armazenamento do Azure inclui os seguintes serviços de dados:
 
 - [Blobs do Azure](../blobs/storage-blobs-introduction.md): um repositório de objetos altamente escalonável para texto e dados binários. Também inclui suporte para análise de Big Data por meio de Data Lake Storage Gen2.
-- [Arquivos do Azure](../files/storage-files-introduction.md): compartilhamentos de arquivos gerenciados para implantações locais e em nuvem.
+- [Arquivos do Azure](../files/storage-files-introduction.md): compartilhamentos de arquivos gerenciados para implantações locais ou na nuvem.
 - [Filas do Azure](../queues/storage-queues-introduction.md): um armazenamento de mensagens para um sistema de mensagens confiável entre componentes do aplicativo.
 - [Tabelas do Azure](../tables/table-storage-overview.md): Um armazenamento NoSQL para um armazenamento sem esquemas de dados estruturados.
-- [Discos do Azure](../../virtual-machines/windows/managed-disks-overview.md): volumes de armazenamento de nível de bloco para VMs do Azure.
+- [Discos do Azure](../../virtual-machines/managed-disks-overview.md): volumes de armazenamento de nível de bloco para VMs do Azure.
 
 Cada serviço é acessado através de uma conta de armazenamento. Para usá-los, consulte [Criar uma conta de armazenamento](storage-account-create.md).
 
@@ -67,7 +67,7 @@ Para mais informações sobre o Armazenamento de Blobs, confira [Introdução ao
 
 ## <a name="azure-files"></a>Arquivos do Azure
 
-Os [Arquivos do Azure](../files/storage-files-introduction.md) permite que você configure compartilhamentos de arquivo por rede altamente disponíveis que podem ser acessados usando o protocolo SMB (Server Message Block) padrão. Isso significa que várias VMs podem compartilhar os mesmos arquivos com acesso de leitura e gravação. Você também pode ler os arquivos usando a interface REST ou as bibliotecas de cliente de armazenamento.
+[Os arquivos do Azure](../files/storage-files-introduction.md) permitem que você configure compartilhamentos de arquivos de rede altamente disponíveis que podem ser acessados usando o protocolo SMB (Server Message Block) padrão. Isso significa que várias VMs podem compartilhar os mesmos arquivos com acesso de leitura e gravação. Você também pode ler os arquivos usando a interface REST ou as bibliotecas de cliente de armazenamento.
 
 Uma coisa que diferencia os Arquivos do Azure dos arquivos em um compartilhamento de arquivos corporativo é a capacidade de acessar os arquivos de qualquer lugar do mundo usando uma URL que aponte para o arquivo, e que inclua um token SAS (Assinatura de Acesso Compartilhado). Você pode gerar tokens SAS; eles permitem o acesso específico a um ativo privado durante período especificado.
 
@@ -101,7 +101,7 @@ Para saber mais informações sobre o armazenamento de tabelas, consulte [Visão
 
 Um disco gerenciado do Azure é um disco rígido virtual (VHD). Você pode pensar nisso como um disco físico em um servidor local, mas virtualizado. Os discos gerenciados pelo Azure são armazenados como BLOBs de páginas, que são um objeto de armazenamento de e/s aleatório no Azure. Chamamos um disco gerenciado "Managed" porque ele é uma abstração em blobs de página, contêineres de BLOB e contas de armazenamento do Azure. Com discos gerenciados, tudo o que você precisa fazer é provisionar o disco e o Azure cuidará do resto.
 
-Para obter mais informações sobre discos gerenciados, consulte [introdução aos Azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
+Para obter mais informações sobre discos gerenciados, consulte [introdução aos Azure Managed disks](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="types-of-storage-accounts"></a>Tipos de contas de armazenamento
 
@@ -121,7 +121,7 @@ Cada solicitação para o armazenamento do Azure deve ser autorizada. O armazena
 
 Há dois tipos básicos de criptografia disponíveis para os serviços de armazenamento principal. Para saber mais sobre segurança e criptografia, consulte o [Guia de segurança do Armazenamento do Azure](../blobs/security-recommendations.md).
 
-### <a name="encryption-at-rest"></a>Criptografia em repouso
+### <a name="encryption-at-rest"></a>Criptografar em repouso
 
 A criptografia de armazenamento do Azure protege e protege seus dados para atender aos compromissos de segurança e conformidade da organização. O armazenamento do Azure criptografa automaticamente todos os dados antes de persistir para a conta de armazenamento e descriptografá-los antes da recuperação. Os processos de criptografia, descriptografia e gerenciamento de chaves são transparentes para os usuários. Os clientes também podem optar por gerenciar suas próprias chaves usando Azure Key Vault. Para obter mais informações, consulte [Criptografia do Armazenamento do Azure para dados em repouso](storage-service-encryption.md).
 
@@ -131,7 +131,7 @@ As bibliotecas de cliente de armazenamento do Azure fornecem métodos para cript
 
 ## <a name="redundancy"></a>Redundância
 
-Para garantir que seus dados sejam duráveis, o armazenamento do Azure armazena várias cópias de seus dados. Quando você configura sua conta de armazenamento, você seleciona uma opção de redundância. Para obter mais informações, consulte [Redundância do Armazenamento do Azure](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
+Para garantir que seus dados sejam duráveis, o armazenamento do Azure armazena várias cópias de seus dados. Quando você configura sua conta de armazenamento, você seleciona uma opção de redundância. Para mais informações, confira [Redundância do Armazenamento do Microsoft Azure](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
 
 ## <a name="transfer-data-to-and-from-azure-storage"></a>Transferir dados de e para o armazenamento do Azure
 
@@ -147,7 +147,7 @@ Você pode acessar recursos em uma conta de armazenamento por qualquer linguagem
 
 ### <a name="azure-storage-data-api-and-library-references"></a>Bibliotecas de referência e API de dados do Armazenamento do Azure
 
-- [API REST do armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/)
+- [API REST de Armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/)
 - [Biblioteca de cliente de armazenamento do Azure para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 - [Biblioteca de cliente de armazenamento do Azure para Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
 - [Biblioteca de cliente de armazenamento do Azure para Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
@@ -174,7 +174,7 @@ Você pode acessar recursos em uma conta de armazenamento por qualquer linguagem
 - [Utilitário de linha de comando AzCopy](https://aka.ms/downloadazcopy)
 - [O Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.
 - [Ferramentas de cliente de armazenamento do Azure](../storage-explorers.md)
-- [Ferramentas para desenvolvedores do Azure](https://azure.microsoft.com/tools/)
+- [Ferramentas para Desenvolvedores do Azure](https://azure.microsoft.com/tools/)
 
 ## <a name="next-steps"></a>Próximas etapas
 

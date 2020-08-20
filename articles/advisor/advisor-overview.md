@@ -3,12 +3,12 @@ title: Introdução ao Azure Advisor
 description: Use o Azure Advisor para otimizar as implantações do Azure.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 17b68e220b7011dee2cc8fca440d58d980c28e6d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 27e49fa28e7b02b873ca145d514920784689b407
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057688"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654014"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introdução ao Azure Advisor
 
@@ -55,7 +55,7 @@ Você pode acessar as recomendações do Advisor como *proprietário*, *colabora
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Para quais recursos o Advisor fornece recomendações?
 
-O Advisor fornece recomendações para gateway de aplicativo, serviços de aplicativos, conjuntos de disponibilidade, cache do Azure, Azure Data Factory, banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL, banco de dados do Azure para MariaDB, Azure ExpressRoute, Azure Cosmos DB, endereços IP públicos do Azure, SQL Data Warehouse, SQL Servers, contas de armazenamento, perfis do Gerenciador de tráfego e máquinas virtuais.
+O Advisor fornece recomendações para o gateway de aplicativo, serviços de aplicativos, conjuntos de disponibilidade, cache do Azure, Azure Data Factory, banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL, banco de dados do Azure para MariaDB, Azure ExpressRoute, Azure Cosmos DB, endereços IP públicos do Azure, análise de Synapse, SQL Server, contas de armazenamento, perfis do Gerenciador de tráfego e máquinas virtuais.
 
 O Azure Advisor também inclui suas recomendações da [central de segurança do Azure](../security-center/security-center-recommendations.md) , que podem incluir recomendações para tipos de recursos adicionais.
 

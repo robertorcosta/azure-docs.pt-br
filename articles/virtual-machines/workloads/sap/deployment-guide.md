@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: dbcb39641f35ad0f997db30b320826764a08bff1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6b66db639e0b22a7e0c45486465a1fa395aba33d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082249"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653504"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implantação de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -133,7 +133,7 @@ ms.locfileid: "87082249"
 [deployment-guide-contact-support]:deployment-guide.md#3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2 (Solução de problemas de extensão do Azure para SAP – contate o suporte)
 [deployment-guide-run-the-script]:deployment-guide.md#0d2847ad-865d-4a4c-a405-f9b7baaa00c7 (Solução de problemas da extensão do Azure para SAP – executar o script de instalação)
 [deployment-guide-redeploy-after-sysprep]:deployment-guide.md#2cd61f22-187d-42ed-bb8c-def0c983d756 (Solucionando problemas da extensão do Azure para SAP – reimplantar após Sysprep)
-[deployment-guide-fix-internet-connection]:deployment-guide.md#e92bc57d-80d9-4a2b-a2f4-16713a22ad89 (Solução de problemas de extensão do Azure para SAP – corrigir conexão com a Internet)
+[deployment-guide-fix-internet-connection]:deployment-guide.md#e92bc57d-80d9-4a2b-a2f4-16713a22ad89 ( Solução de problemas de extensão do Azure para SAP – corrigir conexão com a Internet)
 
 
 [deployment-guide-configure-monitoring-scenario-1]:deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (Configurar Extensão da VM)
@@ -256,7 +256,7 @@ ms.locfileid: "87082249"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -1147,7 +1147,7 @@ Se o valor de **Status de integridade** não for **OK**, siga as instruções em
 
 1. Verifique a saída da Extensão para SAP do Azure.
 
-   a.  Executando `more /var/lib/AzureEnhancedMonitor/PerfCounters`
+   a.  Execute `more /var/lib/AzureEnhancedMonitor/PerfCounters`
 
    **Resultado esperado**: Retorna a lista dos contadores de desempenho. O arquivo não deve estar vazio.
 
@@ -1163,7 +1163,7 @@ Se a verificação anterior não for bem-sucedida, execute estas verificações 
 
 1. Verifique se waagent está instalado e habilitado.
 
-   a.  Executando `sudo ls -al /var/lib/waagent/`
+   a.  Execute `sudo ls -al /var/lib/waagent/`
 
      **Resultado esperado**: Lista o conteúdo do diretório waagent.
 
@@ -1173,7 +1173,7 @@ Se a verificação anterior não for bem-sucedida, execute estas verificações 
 
 1. Verifique se a Extensão para SAP do Azure está instalada e em execução.
 
-   a.  Executando `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`
+   a.  Execute `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`
 
    **Resultado esperado**: Lista o conteúdo do diretório da Extensão para SAP do Azure.
 
@@ -1183,7 +1183,7 @@ Se a verificação anterior não for bem-sucedida, execute estas verificações 
 
 1. Instale o Agente de Host do SAP conforme descrito na Nota SAP [1031096] e verifique a saída de `saposcol`.
 
-   a.  Executando `/usr/sap/hostctrl/exe/saposcol -d`
+   a.  Execute `/usr/sap/hostctrl/exe/saposcol -d`
 
    b.  Execute `dump ccm`
 
@@ -1203,7 +1203,7 @@ Essa verificação garante que todas as métricas de desempenho que aparecem no 
 #### <a name="run-the-readiness-check-on-a-windows-vm"></a>Executar a verificação de preparação em uma VM Windows
 
 1. Entre na máquina virtual do Azure (não é necessário usar uma conta do administrador).
-1. Abra um navegador da Web e navegue atéhttp://127.0.0.1:11812/azure4sap/metrics
+1. Abra um navegador da Web e navegue até http://127.0.0.1:11812/azure4sap/metrics
 1. O navegador deve exibir ou baixar um arquivo XML que contém os dados de monitoramento de sua máquina virtual. Se esse não for o caso, verifique se a extensão do Azure para SAP está instalada.
 
 ##### <a name="check-the-content-of-the-xml-file"></a>Verificar o conteúdo do arquivo XML
@@ -1228,7 +1228,7 @@ Se a verificação anterior não for bem-sucedida, execute estas verificações 
 
 1. Verifique se waagent está instalado e habilitado.
 
-   a.  Executando `sudo ls -al /var/lib/waagent/`
+   a.  Execute `sudo ls -al /var/lib/waagent/`
 
      **Resultado esperado**: Lista o conteúdo do diretório waagent.
 
@@ -1238,7 +1238,7 @@ Se a verificação anterior não for bem-sucedida, execute estas verificações 
 
 1. Verifique se a Extensão para SAP do Azure está instalada e em execução.
 
-   a.  Executando `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-*/'`
+   a.  Execute `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-*/'`
 
    **Resultado esperado**: Lista o conteúdo do diretório da Extensão para SAP do Azure.
 
@@ -1248,7 +1248,7 @@ Se a verificação anterior não for bem-sucedida, execute estas verificações 
 
 1. Instale o Agente de Host do SAP conforme descrito na Nota SAP [1031096] e verifique a saída de `saposcol`.
 
-   a.  Executando `/usr/sap/hostctrl/exe/saposcol -d`
+   a.  Execute `/usr/sap/hostctrl/exe/saposcol -d`
 
    b.  Execute `dump ccm`
 

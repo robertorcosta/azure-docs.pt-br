@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 2af82233013f064b185aefde3f2e1710bd86ed43
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a89d0182f6a659cee65ebc1de7d97d40418b4b20
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053738"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654881"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configurar chaves gerenciadas pelo cliente para sua conta do lote do Azure com Azure Key Vault e identidade gerenciada
 
@@ -19,7 +19,7 @@ Por padrão, o lote do Azure usa chaves gerenciadas por plataforma para criptogr
 As chaves que você fornecer devem ser geradas em [Azure Key Vault](../key-vault/general/basic-concepts.md)e as contas do lote que você deseja configurar com chaves gerenciadas pelo cliente precisam ser habilitadas com a [identidade gerenciada do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
-> O suporte para chaves gerenciadas pelo cliente no lote do Azure está atualmente em visualização pública para as regiões Oeste EUA Central, leste dos EUA, Sul EUA Central, oeste dos EUA 2, US Gov-Virgínia e US Gov Arizona.
+> O suporte para chaves gerenciadas pelo cliente no lote do Azure está atualmente em visualização pública para as regiões Europa Ocidental, Europa Setentrional, Norte da Suíça, EUA Central, Sul EUA Central, Oeste EUA Central, leste dos EUA, leste dos EUA 2, oeste dos EUA 2, US Gov-Virgínia e US Gov Arizona.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -82,7 +82,7 @@ No campo **selecionar** , em **principal**, preencha o `principalId` que você r
 
 ### <a name="generate-a-key-in-azure-key-vault"></a>Gerar uma chave no Azure Key Vault
 
-Na portal do Azure, vá para a instância de Key Vault na seção **chave** , selecione **gerar/importar**. Selecione o **tipo de chave** a ser `RSA` e o tamanho da **chave RSA** para que sejam pelo menos `2048` bits. `EC`Atualmente, não há suporte para tipos de chave como uma chave gerenciada pelo cliente em uma conta do lote.
+Na portal do Azure, vá para a instância de Key Vault na seção **chave** , selecione **gerar/importar**. Selecione o **tipo de chave** a ser `RSA` e o tamanho da **chave RSA** para que sejam pelo menos `2048` bits. `EC` Atualmente, não há suporte para tipos de chave como uma chave gerenciada pelo cliente em uma conta do lote.
 
 ![Criar uma chave](./media/batch-customer-managed-key/create-key.png)
 

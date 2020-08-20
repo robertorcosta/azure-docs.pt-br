@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 668f8ffdc4b797219dc1f3c23fecb858d8f706ad
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 819ac1f01cc182c79571de35ec0753f694dc7722
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510854"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653606"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipos de Armazenamento do Azure para carga de trabalho SAP
 O Azure tem vários tipos de armazenamento que diferem amplamente em recursos, taxa de transferência, latência e preços. Alguns dos tipos de armazenamento não são, ou do uso limitado para cenários SAP. Enquanto que vários tipos de armazenamento do Azure são adequados ou otimizados para cenários de carga de trabalho SAP específicos. Especialmente para SAP HANA, alguns tipos de armazenamento do Azure receberam certificação para o uso com SAP HANA. Neste documento, vamos percorrer os diferentes tipos de armazenamento e descrever sua capacidade e usabilidade com cargas de trabalho do SAP e componentes SAP.
@@ -36,7 +36,7 @@ Há vários outros métodos de redundância, que são todos descritos no artigo 
 
 ### <a name="azure-managed-disks"></a>Managed disks do Azure
 
-Managed disks são um tipo de recurso no Azure Resource Manager que pode ser usado em vez de VHDs que são armazenados em contas de armazenamento do Azure. Managed Disks alinhar automaticamente com o [conjunto de disponibilidade] [Virtual-Machines-Manage-Availability] da máquina virtual à qual eles estão anexados e, portanto, aumentar a disponibilidade de sua máquina virtual e os serviços que estão em execução na máquina virtual. Para obter mais informações, leia o [artigo de visão geral](../../windows/managed-disks-overview.md).
+Managed disks são um tipo de recurso no Azure Resource Manager que pode ser usado em vez de VHDs que são armazenados em contas de armazenamento do Azure. Managed Disks alinhar automaticamente com o [conjunto de disponibilidade] [Virtual-Machines-Manage-Availability] da máquina virtual à qual eles estão anexados e, portanto, aumentar a disponibilidade de sua máquina virtual e os serviços que estão em execução na máquina virtual. Para obter mais informações, leia o [artigo de visão geral](../../managed-disks-overview.md).
 
 Relacionado à resiliência, este exemplo demonstra a vantagem dos Managed disks:
 
@@ -61,7 +61,7 @@ O armazenamento persistente é necessário na carga de trabalho do SAP em vário
 - Compartilhamentos de arquivos ou discos compartilhados que contêm seu diretório de transporte global para NetWeaver ou S/4HANA. O conteúdo desses compartilhamentos é consumido por software em execução em várias VMs ou é usado para criar cenários de cluster de failover de alta disponibilidade
 - O diretório/sapmnt ou compartilhamentos de arquivos comuns para processos EDI ou semelhantes. O conteúdo desses compartilhamentos é consumido por software em execução em várias VMs ou é usado para criar cenários de cluster de failover de alta disponibilidade
 
-Nas próximas seções, os diferentes tipos de armazenamento do Azure e sua usabilidade para a carga de trabalho do SAP são discutidos que se aplicam aos quatro cenários acima. Uma categorização geral de como os diferentes tipos de armazenamento do Azure devem ser usados está documentada no artigo [quais tipos de disco estão disponíveis no Azure?](../../linux/disks-types.md). As recomendações para usar os diferentes tipos de armazenamento do Azure para carga de trabalho do SAP não serão muito diferentes.
+Nas próximas seções, os diferentes tipos de armazenamento do Azure e sua usabilidade para a carga de trabalho do SAP são discutidos que se aplicam aos quatro cenários acima. Uma categorização geral de como os diferentes tipos de armazenamento do Azure devem ser usados está documentada no artigo [quais tipos de disco estão disponíveis no Azure?](../../disks-types.md). As recomendações para usar os diferentes tipos de armazenamento do Azure para carga de trabalho do SAP não serão muito diferentes.
 
 Para obter restrições de suporte nos tipos de armazenamento do Azure para o SAP NetWeaver/camada de aplicativo de S/4HANA, leia a [Nota de suporte do sap 2015553](https://launchpad.support.sap.com/#/notes/2015553) para obter SAP Hana os tipos de armazenamento do Azure certificados e com suporte, leia o artigo [SAP Hana configurações de armazenamento de máquina virtual do Azure](./hana-vm-operations-storage.md).
 
@@ -123,7 +123,7 @@ O armazenamento do SSD Premium do Azure foi introduzido com o objetivo de fornec
 * SLAs para IOPS e taxa de transferência
 * Menos variabilidade na latência de e/s
 
-Esse tipo de armazenamento destina-se a cargas de trabalho do DBMS, tráfego de armazenamento que exige baixa latência de milissegundos de dígito único, e os SLAs em IOPS e taxa de transferência de custo no caso do armazenamento Premium do Azure não são o volume de dados real armazenado em tais discos, mas a categoria de tamanho de um disco, independentemente da quantidade de dados armazenados no disco. Você também pode criar discos no armazenamento Premium que não estão mapeando diretamente para as categorias de tamanho mostradas no artigo [SSD Premium](../../linux/disks-types.md#premium-ssd). As conclusões deste artigo são:
+Esse tipo de armazenamento destina-se a cargas de trabalho do DBMS, tráfego de armazenamento que exige baixa latência de milissegundos de dígito único, e os SLAs em IOPS e taxa de transferência de custo no caso do armazenamento Premium do Azure não são o volume de dados real armazenado em tais discos, mas a categoria de tamanho de um disco, independentemente da quantidade de dados armazenados no disco. Você também pode criar discos no armazenamento Premium que não estão mapeando diretamente para as categorias de tamanho mostradas no artigo [SSD Premium](../../disks-types.md#premium-ssd). As conclusões deste artigo são:
 
 - O armazenamento é organizado em intervalos. Por exemplo, um disco no intervalo de 513 GiB a 1024 GiB capacidade compartilha os mesmos recursos e os mesmos custos mensais
 - O IOPS por GiB não está controlando linear nas categorias de tamanho. Discos menores abaixo de 32 GiB têm taxas de IOPS maiores por GiB. Para discos além de 32 GiB a 1024 GiB, a taxa de IOPS por GiB está entre 4-5 IOPS por GiB. Para discos maiores de até 32.767 GiB, a taxa de IOPS por GiB está abaixo de 1
@@ -184,8 +184,8 @@ Os discos Ultra do Azure proporcionam uma alta taxa de transferência, alta IOPS
 Ao criar um ultra Disk, você tem três dimensões que pode definir:
 
 - A capacidade do disco. Os intervalos são de 4 GiB a 65.536 GiB
-- IOPS provisionado para o disco. Valores máximos diferentes se aplicam à capacidade do disco. Leia o artigo [ultra Disk](../../linux/disks-types.md#ultra-disk) para obter mais detalhes
-- Largura de banda de armazenamento provisionada. A largura de banda máxima diferente se aplica de acordo com a capacidade do disco. Leia o artigo [ultra Disk](../../linux/disks-types.md#ultra-disk) para obter mais detalhes
+- IOPS provisionado para o disco. Valores máximos diferentes se aplicam à capacidade do disco. Leia o artigo [ultra Disk](../../disks-types.md#ultra-disk) para obter mais detalhes
+- Largura de banda de armazenamento provisionada. A largura de banda máxima diferente se aplica de acordo com a capacidade do disco. Leia o artigo [ultra Disk](../../disks-types.md#ultra-disk) para obter mais detalhes
 
 O custo de um único disco é determinado pelas três dimensões que você pode definir para os discos específicos separadamente. 
 
@@ -352,7 +352,7 @@ Ao dimensionar as VMs do Azure no ciclo de vida de um sistema SAP, você deve av
 
 
 ## <a name="striping-or-not-striping"></a>Distribuição ou não distribuição
-A criação de um conjunto de distribuição de vários discos do Azure em um volume maior permite que você acumule a IOPS e a taxa de transferência dos discos individuais em um volume. Ele é usado somente para armazenamento standard do Azure e armazenamento Premium do Azure. O ultra Disk do Azure, no qual você pode configurar a taxa de transferência e IOPS independentes da capacidade de um disco, não requer o uso de conjuntos de distribuição. Volumes compartilhados baseados em NFS ou SMB não podem ser distribuídos. Devido à natureza não linear da taxa de transferência e do IOPS do armazenamento Premium do Azure, você pode provisionar capacidade menor com a mesma IOPS e taxa de transferência do que grandes discos únicos de armazenamento Premium do Azure. Esse é o método para obter uma taxa de transferência maior ou IOPS com custo mais baixo usando o armazenamento Premium do Azure. Por exemplo: 
+A criação de um conjunto de distribuição de vários discos do Azure em um volume maior permite que você acumule a IOPS e a taxa de transferência dos discos individuais em um volume. Ele é usado somente para armazenamento standard do Azure e armazenamento Premium do Azure. O ultra Disk do Azure, no qual você pode configurar a taxa de transferência e IOPS independentes da capacidade de um disco, não requer o uso de conjuntos de distribuição. Volumes compartilhados baseados em NFS ou SMB não podem ser distribuídos. Devido à natureza não linear da taxa de transferência e do IOPS do armazenamento Premium do Azure, você pode provisionar capacidade menor com a mesma IOPS e taxa de transferência do que grandes discos únicos de armazenamento Premium do Azure. Esse é o método para obter uma taxa de transferência maior ou IOPS com custo mais baixo usando o armazenamento Premium do Azure. Por exemplo:
 
 - A distribuição entre dois discos de armazenamento P15 Premium leva você a uma taxa de transferência de 
 - 250 MiB/s. Esse volume terá 512 GiB de capacidade. Se você quiser ter um único disco que fornece 250 de taxa de transferência de MiB por segundo, precisaria escolher um disco P40 com 2 TiB de capacidade. 

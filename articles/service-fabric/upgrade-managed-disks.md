@@ -3,16 +3,16 @@ title: Atualizar nós de cluster para usar o Azure Managed disks
 description: Veja como atualizar um cluster de Service Fabric existente para usar o Azure Managed disks com pouco ou nenhum tempo de inatividade do cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 1ca85af86df28691e2194c40e1cdde1abd7c8a4d
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 74b4ec803229ceb0168da6540fcbda685f0df16e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192307"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653691"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Atualizar nós de cluster para usar o Azure Managed disks
 
-Os [discos gerenciados do Azure](../virtual-machines/windows/managed-disks-overview.md) são a oferta de armazenamento em disco recomendada para uso com máquinas virtuais do Azure para armazenamento persistente de dados. Você pode melhorar a resiliência de suas cargas de trabalho de Service Fabric atualizando os conjuntos de dimensionamento de máquinas virtuais que expandem os tipos de nós para usar discos gerenciados. Veja como atualizar um cluster de Service Fabric existente para usar o Azure Managed disks com pouco ou nenhum tempo de inatividade do cluster.
+Os [discos gerenciados do Azure](../virtual-machines/managed-disks-overview.md) são a oferta de armazenamento em disco recomendada para uso com máquinas virtuais do Azure para armazenamento persistente de dados. Você pode melhorar a resiliência de suas cargas de trabalho de Service Fabric atualizando os conjuntos de dimensionamento de máquinas virtuais que expandem os tipos de nós para usar discos gerenciados. Veja como atualizar um cluster de Service Fabric existente para usar o Azure Managed disks com pouco ou nenhum tempo de inatividade do cluster.
 
 A estratégia geral para atualizar um Service Fabric nó de cluster para usar discos gerenciados é:
 

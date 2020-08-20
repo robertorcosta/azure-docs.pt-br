@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: efa4ca24dadb2fb5d347d79de20eebfacc9a58e0
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 110a25fca0b0e764650665635dbe545de7a350cd
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142172"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653989"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para continuidade dos negócios e recuperação de desastres no Serviço de Kubernetes do Azure (AKS)
 
@@ -122,7 +122,7 @@ A estratégia típica é fornecer um ponto de armazenamento comum em que os apli
 Se você usar o Azure Managed Disks, poderá escolher soluções de recuperação de desastres e replicação, como estas:
 
 * [Velero no Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
-* [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
+* [Serviço de Backup do Azure](../backup/backup-overview.md)
 
 ### <a name="application-based-asynchronous-replication"></a>Replicação assíncrona baseada em aplicativo
 

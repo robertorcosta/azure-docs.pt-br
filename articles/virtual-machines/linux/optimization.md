@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 662475bdcb6b1ea9809f4501d144fb94e21e945e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eff512c9d050eb293391233848fcece83e845680
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659466"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654184"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Otimizar sua VM do Linux no Azure
 É fácil criar uma máquina virtual (VM) Linux desde a linha de comando ou do portal. Este tutorial mostra como garantir que você configurou uma VM para otimizar o desempenho na plataforma Microsoft Azure. Este tópico usa uma VM do Ubuntu Server, mas é possível também criar uma máquina virtual do Linux usando [suas próprias imagens como modelos](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -34,7 +34,7 @@ Para atingir os IOps mais altos nos discos de Armazenamento Premium com configur
 * Se você usar **XFS**, desabilite as barreiras usando a opção de montagem `nobarrier` (para habilitar as barreiras, use a opção `barrier`)
 
 ## <a name="unmanaged-storage-account-considerations"></a>Considerações sobre a conta de armazenamento não gerenciado
-A ação padrão ao criar uma VM com a CLI do Azure é usar o Azure Managed Disks.  Esses discos são tratados pela plataforma do Azure e não exigem nenhuma preparação ou local para armazenamento.  Os discos não gerenciados exigem uma conta de armazenamento e têm algumas considerações adicionais de desempenho.  Para saber mais sobre discos gerenciados, veja [Visão geral dos Azure Managed Disks](../windows/managed-disks-overview.md).  A seção a seguir descreve as considerações de desempenho somente quando você usa os discos não gerenciados.  Novamente, o padrão e a solução de armazenamento recomendada é usar discos gerenciados.
+A ação padrão ao criar uma VM com a CLI do Azure é usar o Azure Managed Disks.  Esses discos são tratados pela plataforma do Azure e não exigem nenhuma preparação ou local para armazenamento.  Os discos não gerenciados exigem uma conta de armazenamento e têm algumas considerações adicionais de desempenho.  Para saber mais sobre discos gerenciados, veja [Visão geral dos Azure Managed Disks](../managed-disks-overview.md).  A seção a seguir descreve as considerações de desempenho somente quando você usa os discos não gerenciados.  Novamente, o padrão e a solução de armazenamento recomendada é usar discos gerenciados.
 
 Se você criar uma VM com discos não gerenciados, certifique-se de anexar discos de contas de armazenamento que residam na mesma região que sua VM para garantir a proximidade e minimizar a latência de rede.  Cada conta de Armazenamento Standard tem um máximo de 20k IOps e uma capacidade de tamanho de 500 TB.  Este limite funciona para aproximadamente 40 discos muito usados, incluindo o disco do sistema operacional e os discos de dados que você criar. Para contas de Armazenamento Premium, não há nenhum limite máximo de IOps, mas há um limite de tamanho de 32 TB. 
 

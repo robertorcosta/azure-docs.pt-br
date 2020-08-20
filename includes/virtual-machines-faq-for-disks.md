@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: efec7656675b649d365a479c184de06a67d33db0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5994e9741340c6fef662f7037efa142c5684b6cb
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86545115"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655200"
 ---
 Este artigo responde a algumas perguntas frequentes sobre o Azure Managed Disks e os discos Azure Premium SSD.
 
@@ -21,7 +21,7 @@ Este artigo responde a algumas perguntas frequentes sobre o Azure Managed Disks 
 
 **O que é o Azure Managed Disks?**
 
-Managed Disks é um recurso que simplifica o gerenciamento de disco para VMs IaaS do Azure manipulando o gerenciamento de conta de armazenamento para você. Para saber mais, veja [Visão geral dos Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
+Managed Disks é um recurso que simplifica o gerenciamento de disco para VMs IaaS do Azure manipulando o gerenciamento de conta de armazenamento para você. Para saber mais, veja [Visão geral dos Managed Disks](../articles/virtual-machines/managed-disks-overview.md).
 
 **Se eu criar um disco gerenciado standard com base em um VHD existente que tem 80 GB, quanto isso custará?**
 
@@ -212,7 +212,7 @@ Além do acelerador de disco, há um acelerador de E/S que é imposto no nível 
 Não, os Discos Ultra não dão suporte aos diferentes métodos de cache que têm suporte em outros tipos de disco. Defina o cache de disco como **nenhum**.
 
 **Posso anexar um Disco Ultra à minha VM existente?**
-Talvez, mas sua VM precisa estar em um par de região e zona de disponibilidade que dê suporte a Discos Ultra. Confira [Introdução aos Discos Ultra](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md) para obter detalhes.
+Talvez, mas sua VM precisa estar em um par de região e zona de disponibilidade que dê suporte a Discos Ultra. Confira [Introdução aos Discos Ultra](../articles/virtual-machines/disks-enable-ultra-ssd.md) para obter detalhes.
 
 **Posso usar um Disco Ultra como o disco do sistema operacional da minha VM?**
 Não, os Discos Ultra só têm suporte como discos de dados e apenas como discos nativos de 4K.

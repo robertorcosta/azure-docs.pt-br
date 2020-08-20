@@ -3,12 +3,12 @@ title: Fazer backup de compartilhamentos de arquivos do Azure com a API REST
 description: Saiba como usar a API REST para fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: f48ebbd20d6775fe61c3e3dbb07e8f71af41635a
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: bf737dfa366796c4a392ec3d00609134978057ac
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036735"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654133"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Fazer backup do compartilhamento de arquivos do Azure usando o backup do Azure via API REST
 
@@ -38,13 +38,13 @@ O cofre precisa descobrir todas as contas de armazenamento do Azure na assinatur
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
 ```
 
-O URI da postagem tem os `{subscriptionId}` `{vaultName}` parâmetros,, `{vaultresourceGroupName}` e `{fabricName}` . Em nosso exemplo, o valor para os diferentes parâmetros seria o seguinte:
+O URI da postagem tem os `{subscriptionId}` `{vaultName}` parâmetros,, `{vaultresourceGroupName}` e `{fabricName}` . Em nosso exemplo, o valor para os diferentes parâmetros será o seguinte:
 
-- `{fabricName}`é o *Azure*
+- `{fabricName}` é o *Azure*
 
-- `{vaultName}`é *azurefilesvault*
+- `{vaultName}` é *azurefilesvault*
 
-- `{vaultresourceGroupName}`é *azurefiles*
+- `{vaultresourceGroupName}` é *azurefiles*
 
 - $filter = backupManagementType EQ ' AzureStorage '
 
@@ -54,13 +54,13 @@ Como todos os parâmetros necessários são fornecidos no URI, não há necessid
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
 ```
 
-#### <a name="responses"></a>Respostas
+#### <a name="responses-to-the-refresh-operation"></a>Respostas para a operação de atualização
 
 A operação “atualizar” é uma [operação assíncrona](../azure-resource-manager/management/async-operations.md). Isso significa que essa operação cria outra operação que precisa ser rastreada separadamente.
 
 Ele retorna duas respostas: 202 (aceito) quando outra operação é criada e 200 (OK) quando a operação é concluída.
 
-##### <a name="example-responses"></a>Respostas de exemplo
+##### <a name="example-responses-to-the-refresh-operation"></a>Respostas de exemplo para a operação de atualização
 
 Após a solicitação *POST* ser enviada, uma resposta 202 (Aceito) será retornada.
 
@@ -421,7 +421,7 @@ x-ms-routing-request-id  : CENTRALUSEUAP:20200127T105412Z:b55527fa-f473-4f09-b16
 Date : Mon, 27 Jan 2020 10:54:12 GMT
 ```
 
-Em seguida, acompanhe a operação resultante usando o cabeçalho Location ou o cabeçalho Azure-AsyncOperation com um comando *Get* .
+Em seguida, acompanhe a operação resultante usando o cabeçalho Location ou o cabeçalho Azure-AsyncOperation com um comando  *Get* .
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupOperations/c3a52d1d-0853-4211-8141-477c65740264?api-version=2016-12-01
@@ -487,13 +487,13 @@ Exemplo de corpo de solicitação
 }
 ```
 
-### <a name="responses"></a>Respostas
+### <a name="responses-to-the-on-demand-backup-operation"></a>Respostas para a operação de backup sob demanda
 
 Disparar um backup sob demanda é uma [operação assíncrona](../azure-resource-manager/management/async-operations.md). Isso significa que essa operação cria outra operação que precisa ser rastreada separadamente.
 
 Ele retorna duas respostas: 202 (aceito) quando outra operação é criada e 200 (OK) quando a operação é concluída.
 
-### <a name="example-responses"></a>Respostas de exemplo
+### <a name="example-responses-to-the-on-demand-backup-operation"></a>Respostas de exemplo para a operação de backup sob demanda
 
 Depois de enviar a solicitação *POST* para um backup sob demanda, a resposta inicial é 202 (Aceito) com um cabeçalho de localização ou cabeçalho assíncrono do Azure.
 
@@ -516,7 +516,7 @@ Depois de enviar a solicitação *POST* para um backup sob demanda, a resposta i
 'Content-Length': '0'
 ```
 
-Em seguida, acompanhe a operação resultante usando o cabeçalho Location ou o cabeçalho Azure-AsyncOperation com um comando *Get* .
+Em seguida, acompanhe a operação resultante usando o cabeçalho Location ou o cabeçalho Azure-AsyncOperation com um comando  *Get* .
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupOperations/dc62d524-427a-4093-968d-e951c0a0726e?api-version=2016-12-01

@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: 666f84da8f0999268b09dfd06ff5b3fe21bbef96
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 82554982cd55b6c5fb2b96b2752b00401cb896d8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525561"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653623"
 ---
-# <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Otimizar o desempenho nas máquinas virtuais da série Lsv2 do Azure
+# <a name="optimize-performance-on-the-lsv2-series-windows-virtual-machines"></a>Otimizar o desempenho nas máquinas virtuais do Windows da série Lsv2
 
 As máquinas virtuais da série Lsv2 dão suporte a uma variedade de cargas de trabalho que precisam de alta E/S e taxa de transferência no armazenamento local em uma ampla gama de aplicativos e setores.  A série Lsv2 é ideal para Big Data, SQL, bancos de dados NoSQL, data warehouse e grandes bancos de dados transacionais, incluindo Cassandra, MongoDB, Cloudera e Redis.
 
@@ -75,7 +75,7 @@ Os cenários que apagam dados com segurança para proteger o cliente incluem:
 - A VM se torna não íntegra e tem de reparar o serviço para outro nó devido a um problema de hardware.
 - Um pequeno número de operações de serviço de manutenção planejada que exige que a VM seja realocada para outro host para manutenção.
 
-Para saber mais sobre as opções de backup de dados no armazenamento local, consulte [Backup e recuperação de desastre para discos IaaS do Azure](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+Para saber mais sobre as opções de backup de dados no armazenamento local, consulte [Backup e recuperação de desastre para discos IaaS do Azure](../backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 

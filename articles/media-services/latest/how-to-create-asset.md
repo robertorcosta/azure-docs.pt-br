@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4d1e5e48e70cee1cf75b1d6605837695d26dcbf0
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: b40c936006fa47964ef67ffda37c80eb5732bdf0
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88608712"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653863"
 ---
 # <a name="create-an-asset"></a>Criar um ativo
 
@@ -53,6 +53,10 @@ Siga as etapas em [criar uma conta dos serviços de mídia](./create-account-how
 ### <a name="using-curl"></a>Usando cURL
 
 [!INCLUDE [media-services-cli-instructions.md](./includes/task-create-asset-curl.md)]
+
+## <a name="using-postman"></a>Uso do Postman
+
+[!INCLUDE[Create an asset with Postman](./includes/task-create-asset-postman.md)]
 
 ## <a name="net"></a>[.NET](#tab/net/)
 

@@ -3,7 +3,7 @@ title: Introdução à autenticação do Azure AD
 description: Saiba como acessar a autenticação do Azure Active Directory (Azure AD) para consumir a API dos Serviços de Mídia do Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 05/21/2020
-ms.author: juliako
-ms.openlocfilehash: a039e1d4442490d3747a302754d521f1f3402bcf
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.author: inhenkel
+ms.openlocfilehash: 9528efb0ce7dd9df57db21ccdcf19e54a969d2e4
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035783"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654830"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Obter credenciais para acessar a API dos Serviços de Mídia  
 
@@ -38,9 +38,9 @@ Este artigo descreve as etapas para obter credenciais para acessar a API dos Ser
 - Uma conta do Azure. Se você não tiver uma conta, comece com uma [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Uma conta dos Serviços de Mídia. Para obter mais informações, consulte [Criar uma conta dos Serviços de Mídia do Azure usando o portal do Azure](create-account-howto.md).
 
-## <a name="use-the-azure-portal"></a>Use o Portal do Azure
+## <a name="portal"></a>[Portal](#tab/portal/)
 
-### <a name="api-access"></a>Acesso à API 
+### <a name="api-access"></a>Acesso à API
 
 A página **acesso à API** permite selecionar o método de autenticação que você deseja usar para se conectar à API. A página também fornece os valores necessários para se conectar à API.
 
@@ -70,7 +70,7 @@ Essa opção pode ser usada para autenticar um funcionário ou membro de um Azur
 
 Copie as credenciais para conectar seu aplicativo de usuário na seção  **Conecte-se à API de Serviços de Mídia**. É possível obter valores de texto ou copiar os blocos JSON ou XML.
 
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
+## <a name="cli"></a>[CLI](#tab/cli/)
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 

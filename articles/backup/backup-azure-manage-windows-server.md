@@ -3,12 +3,12 @@ title: Gerenciar servidores e cofres dos Serviços de Recuperação do Microsoft
 description: Neste artigo, saiba como usar o painel Visão geral do cofre dos serviços de recuperação para monitorar e gerenciar seus cofres dos serviços de recuperação.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 68c6354fa15ee2a6873b57e5c1622afb108b9a10
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: ee96acf624f1c313c85b21840c142e1e2d6f40d8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263319"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654201"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorar e gerenciar cofres dos Serviços de Recuperação
 
@@ -70,8 +70,8 @@ Verificações prévias de backup verificam a configuração de suas VMs para pr
 Verificações prévias de backup são executadas como parte das operações de backup agendadas para suas VMs do Azure. Eles terminam com um dos seguintes Estados:
 
 * **Aprovado**: esse estado indica que a configuração da VM deve levar a backups bem-sucedidos e nenhuma ação corretiva precisa ser executada.
-* **Aviso**: esse estado indica um ou mais problemas na configuração da VM que *podem* levar a falhas de backup. Ele fornece etapas *recomendadas* para garantir backups bem-sucedidos. Por exemplo, não ter o agente de VM mais recente instalado pode fazer com que os backups falhem intermitentemente. Essa situação forneceria um estado de aviso.
-* **Crítico**: esse estado indica um ou mais problemas críticos na configuração da *VM que* levará a falhas de backup e fornece as etapas *necessárias* para garantir os backups bem-sucedidos. Por exemplo, um problema de rede causado por uma atualização das regras NSG de uma VM fará com que os backups falhem, pois impede que a VM se comunique com o serviço de backup do Azure. Essa situação forneceria um estado crítico.
+* **Aviso**: esse estado indica um ou mais problemas na configuração da VM que *podem* levar a falhas de backup. Ele fornece etapas *recomendadas* para garantir backups bem-sucedidos. Por exemplo, não ter o agente de VM mais recente instalado pode fazer com que os backups falhem intermitentemente. Essa situação fornecerá um estado de aviso.
+* **Crítico**: esse estado indica um ou mais problemas críticos na configuração da *VM que* levará a falhas de backup e fornece as etapas *necessárias* para garantir os backups bem-sucedidos. Por exemplo, um problema de rede causado por uma atualização das regras NSG de uma VM fará com que os backups falhem, pois impede que a VM se comunique com o serviço de backup do Azure. Essa situação fornecerá um estado crítico.
 
 Siga as etapas abaixo para iniciar a resolução de quaisquer problemas relatados pelas verificações prévias de backup para backups de VM no cofre dos serviços de recuperação.
 
@@ -96,7 +96,7 @@ A lista de Alertas de Backup exibe as informações selecionadas para os alertas
 | Nível de alerta | Eventos que geram alertas |
 | ----------- | ----------- |
 | Crítico | Alertas críticos são recebidos quando: trabalhos de Backup falham, trabalhos de recuperação falham e quando você interrompe a proteção em um servidor, mas retém os dados.|
-| Aviso | Você recebe alertas de aviso quando: trabalhos de backup são concluídos com avisos, por exemplo, quando menos de 100 arquivos não são submetidos a backup devido a problemas de corrupção ou quando mais de 1 milhão arquivos são submetidos a backup com êxito). |
+| Aviso | Você recebe alertas de aviso quando: trabalhos de backup são concluídos com avisos. Por exemplo, quando menos de 100 arquivos não são submetidos a backup devido a problemas de corrupção ou quando mais de 1 milhão arquivos são submetidos a backup com êxito). |
 | Informativo | no momento, nenhum alerta informativo está em uso. |
 
 ### <a name="viewing-alert-details"></a>Exibir detalhes do alerta
@@ -231,7 +231,7 @@ O Tipo de Item é o tipo de gerenciamento de backup da instância protegida. Há
 É possível exibir uma única operação ou todas as operações. Não é possível selecionar duas ou três operações. As Operações disponíveis são:
 
 * Todas as operações
-* Registre-se
+* Registrar
 * Configurar o backup
 * Backup
 * Restaurar

@@ -3,12 +3,12 @@ title: Preços do Backup do Azure
 description: Saiba como estimar seus custos para orçar os preços do backup do Azure.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: cdb3dc756e1ee7e32453acd7246952c84abebaf7
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 03ec0076d3089562ddaace6db413fb3f1ba949a6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035749"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654524"
 ---
 # <a name="azure-backup-pricing"></a>Preços do Backup do Azure
 
@@ -100,7 +100,7 @@ Para estimar os custos de backup de SQL Servers em execução em VMs do Azure us
 
   - Tipo de backup
 
-    - A política mais eficaz que você pode escolher é **diferencial diária** com backups completos semanais/mensais/anuais. O backup do Azure também pode ser restaurado de diferenciais por meio de um único clique.
+    - A política mais eficaz que você pode escolher é **diferencial diária** com backups completos semanais/mensais/anuais. O backup do Azure também pode ser restaurado de diferenciais por meio de um clique.
 
     - Você também pode optar por ter uma política com backups completos diários/semanais/mensais/anuais. Esta opção consumirá um pouco mais de armazenamento do que a primeira opção.
 
@@ -137,7 +137,7 @@ Para estimar os custos de backup de SAP HANA servidores em execução em VMs do 
   - Se você conhece o **% de rotatividade**, pode usar a opção **inserir seu próprio%**
 - Escolher a política de backup
   - Tipo de backup
-    - A política mais eficaz que você pode escolher é **diferencial diária** com backups completos **semanais/mensais/anuais** . O backup do Azure também pode ser restaurado de diferenciais por meio de um único clique.
+    - A política mais eficaz que você pode escolher é **diferencial diária** com backups completos **semanais/mensais/anuais** . O backup do Azure também pode ser restaurado de diferenciais por meio de um clique.
     - Você também pode optar por ter uma política com backups completos **diários/semanais/mensais/anuais** . Esta opção consumirá um pouco mais de armazenamento do que a primeira opção.
   - Por quanto tempo você espera manter os backups de "log"? (em dias) [7-35]
   - Por quanto tempo você espera manter os backups "diários"? (em dias)

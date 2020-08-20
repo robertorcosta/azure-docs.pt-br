@@ -3,12 +3,12 @@ title: Pontos de extremidade privados
 description: Entenda o processo de criação de pontos de extremidade privados para o backup do Azure e os cenários em que o uso de pontos de extremidade privados ajuda a manter a segurança de seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 9a50a655af02bc2bfa188225209024cfbaa82a7c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 789aab1174f599a2ae484c7b0d91ddba15bd4fd6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432864"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654694"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos de extremidade privados para o backup do Azure
 
@@ -25,11 +25,11 @@ Este artigo o ajudará a entender o processo de criação de pontos de extremida
 - Embora um cofre dos serviços de recuperação seja usado pelo (ambos) backup e Azure Site Recovery do Azure, este artigo aborda o uso de pontos de extremidade privados somente para o backup do Azure.
 - No momento, o Azure Active Directory não dá suporte a pontos de extremidade privados. Portanto, os IPs e FQDNs necessários para Azure Active Directory trabalhar em uma região precisarão ter acesso de saída da rede protegida ao executar o backup de bancos de dados em VMs do Azure e fazer backup usando o agente MARS. Você também pode usar marcas NSG e marcas de firewall do Azure para permitir o acesso ao Azure AD, conforme aplicável.
 - As redes virtuais com políticas de rede não têm suporte para pontos de extremidade privados. Você precisará desabilitar as políticas de rede antes de continuar.
-- Você precisa registrar novamente o provedor de recursos dos serviços de recuperação com a assinatura se o tiver registrado antes de maio de 1 2020. Para registrar novamente o provedor, acesse sua assinatura no portal do Azure, navegue até provedor de **recursos** na barra de navegação à esquerda, selecione **Microsoft. recoveryservices** e clique em **registrar novamente**.
+- Você precisa registrar novamente o provedor de recursos dos serviços de recuperação com a assinatura se o tiver registrado antes de maio de 1 2020. Para registrar novamente o provedor, acesse sua assinatura no portal do Azure, navegue até provedor de **recursos** na barra de navegação à esquerda, selecione **Microsoft. recoveryservices** e selecione **registrar novamente**.
 
 ## <a name="recommended-and-supported-scenarios"></a>Cenários recomendados e com suporte
 
-Embora os pontos de extremidade privados estejam habilitados para o cofre, eles são usados para backup e restauração de cargas de trabalho do SQL e do SAP HANA somente em uma VM do Azure e no backup do agente MARS. Você também pode usar o cofre para backup de outras cargas de trabalho (eles não precisariam de pontos de extremidade privados). Além do backup de cargas de trabalho do SQL e do SAP HANA e do backup usando o agente MARS, os pontos de extremidade privados também são usados para executar a recuperação de arquivos no caso do backup de VM do Azure. Para obter mais informações, confira a tabela a seguir:
+Embora os pontos de extremidade privados estejam habilitados para o cofre, eles são usados para backup e restauração de cargas de trabalho do SQL e do SAP HANA somente em uma VM do Azure e no backup do agente MARS. Você também pode usar o cofre para backup de outras cargas de trabalho (eles não precisarão de pontos de extremidade privados). Além do backup de cargas de trabalho do SQL e do SAP HANA e do backup usando o agente MARS, os pontos de extremidade privados também são usados para executar a recuperação de arquivos para o backup de VM do Azure. Para obter mais informações, confira a tabela a seguir:
 
 | Backup de cargas de trabalho na VM do Azure (SQL, SAP HANA), backup usando o agente MARS | O uso de pontos de extremidade privados é recomendado para permitir backup e restauração sem a necessidade de permitir-listar qualquer IPs/FQDNs para o backup do Azure ou o armazenamento do Azure de suas redes virtuais. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -55,7 +55,7 @@ Identidades gerenciadas permitem que o cofre crie e use pontos de extremidade pr
 
     ![Alterar o status de identidade para ativado](./media/private-endpoints/identity-status-on.png)
 
-1. Altere o **status** para **ativado** e clique em **salvar**.
+1. Altere o **status** para **ativado** e selecione **salvar**.
 
 1. Uma **ID de objeto** é gerada, que é a identidade gerenciada do cofre.
 
@@ -72,14 +72,14 @@ Você também pode usar seus servidores DNS personalizados. Consulte [alteraçõ
 
 Há duas zonas DNS obrigatórias que precisam ser criadas:
 
-- `privatelink.blob.core.windows.net`(para dados de backup/restauração)
-- `privatelink.queue.core.windows.net`(para comunicação de serviço)
+- `privatelink.blob.core.windows.net` (para dados de backup/restauração)
+- `privatelink.queue.core.windows.net` (para comunicação de serviço)
 
 1. Pesquise **DNS privado zona** na barra de pesquisa **todos os serviços** e selecione **DNS privado zona** na lista suspensa.
 
     ![Selecionar zona de DNS privado](./media/private-endpoints/private-dns-zone.png)
 
-1. Uma vez no painel **DNS privado zona** , clique no botão **+ Adicionar** para começar a criar uma nova zona.
+1. Uma vez no painel **DNS privado zona** , selecione o botão **+ Adicionar** para começar a criar uma nova zona.
 
 1. No painel **criar zona DNS privada** , preencha os detalhes necessários. A assinatura deve ser a mesma de onde o ponto de extremidade privado será criado.
 
@@ -90,7 +90,7 @@ Há duas zonas DNS obrigatórias que precisam ser criadas:
 
     | **Zona**                           | **Serviço** | **Detalhes de assinatura e grupo de recursos (RG)**                  |
     | ---------------------------------- | ----------- | ------------------------------------------------------------ |
-    | `privatelink.blob.core.windows.net`  | Blob        | **Assinatura**: o mesmo que o ponto de extremidade privado precisa ser criado **RG**: ou o RG da VNET ou o do ponto de extremidade privado |
+    | `privatelink.blob.core.windows.net`  | Blob        | **Assinatura**: o mesmo que o ponto de extremidade privado precisa ser criado  **RG**: ou o RG da VNET ou o do ponto de extremidade privado |
     | `privatelink.queue.core.windows.net` | Fila       | **RG**: o RG da VNET ou o do ponto de extremidade privado |
 
     ![Criar zona de DNS privado](./media/private-endpoints/create-private-dns-zone.png)
@@ -105,7 +105,7 @@ Se você quiser criar uma zona DNS privada separada no Azure, poderá fazer o me
 
 | **Zona**                                                     | **Serviço** | **Detalhes do grupo de recursos e da assinatura**                  |
 | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
-| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Observação**: a *geografia* aqui refere-se ao código de região. Por exemplo, *wcus* e *ne* para o Oeste EUA Central e Europa setentrional respectivamente. | Backup      | **Assinatura**: o mesmo que o ponto de extremidade privado precisa ser criado **RG**: qualquer RG dentro da assinatura |
+| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Observação**: a *geografia* aqui refere-se ao código de região. Por exemplo, *wcus* e *ne* para o Oeste EUA Central e Europa setentrional respectivamente. | Backup      | **Assinatura**: o mesmo que o ponto de extremidade privado precisa ser criado  **RG**: qualquer RG dentro da assinatura |
 
 Consulte [esta lista](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) para códigos de região.
 
@@ -119,7 +119,7 @@ Para convenções de nomenclatura de URL em regiões nacionais:
 
 As zonas DNS criadas acima agora devem ser vinculadas à rede virtual na qual são localizados os servidores de backup. Isso precisa ser feito para todas as zonas DNS que você criou.
 
-1. Vá para a zona DNS (que você criou na etapa anterior) e navegue até os **links de rede virtual** na barra à esquerda. Uma vez lá, clique no botão **+ Adicionar**
+1. Vá para a zona DNS (que você criou na etapa anterior) e navegue até os **links de rede virtual** na barra à esquerda. Uma vez lá, selecione o botão **+ Adicionar**
 1. Preencha os detalhes necessários. Os campos **assinatura** e **rede virtual** devem ser preenchidos com os detalhes correspondentes da rede virtual onde os servidores existem. Os outros campos devem ser deixados como estão.
 
     ![Adicionar link de rede virtual](./media/private-endpoints/add-virtual-network-link.png)
@@ -139,7 +139,7 @@ Recomendamos que você conceda a função de **colaborador** para esses três gr
 
     ![Adicionar uma atribuição de função](./media/private-endpoints/add-role-assignment.png)
 
-1. No painel **Adicionar atribuição de função** , escolha **colaborador** como a **função**e use o **nome** do cofre como a entidade de **segurança**. Selecione seu cofre e clique em **salvar** quando terminar.
+1. No painel **Adicionar atribuição de função** , escolha **colaborador** como a **função**e use o **nome** do cofre como a entidade de **segurança**. Selecione seu cofre e selecione **salvar** quando terminar.
 
     ![Escolher função e entidade de segurança](./media/private-endpoints/choose-role-and-principal.png)
 
@@ -155,7 +155,7 @@ Esta seção descreve o processo de criação de um ponto de extremidade privado
 
     ![Pesquisar link privado](./media/private-endpoints/search-for-private-link.png)
 
-1. Na barra de navegação à esquerda, clique em **pontos de extremidade privados**. Uma vez no painel **pontos de extremidade particulares** , clique em **+ Adicionar** para começar a criar um ponto de extremidade privado para seu cofre.
+1. Na barra de navegação à esquerda, selecione **pontos de extremidade privados**. Uma vez no painel **pontos de extremidade particulares** , selecione **+ Adicionar** para começar a criar um ponto de extremidade privado para seu cofre.
 
     ![Adicionar ponto de extremidade privado no centro de link privado](./media/private-endpoints/add-private-endpoint.png)
 
@@ -169,13 +169,13 @@ Esta seção descreve o processo de criação de um ponto de extremidade privado
 
         ![Preencher a guia de recursos](./media/private-endpoints/resource-tab.png)
 
-    1. **Configuração**: em configuração, especifique a rede virtual e a sub-rede em que você deseja que o ponto de extremidade privado seja criado. Essa seria a vnet em que a VM está presente. Você pode optar por **integrar seu ponto de extremidade privado** a uma zona DNS privada. Como alternativa, você também pode usar seu servidor DNS personalizado ou criar uma zona DNS privada.
+    1. **Configuração**: em configuração, especifique a rede virtual e a sub-rede em que você deseja que o ponto de extremidade privado seja criado. Essa será a vnet em que a VM está presente. Você pode optar por **integrar seu ponto de extremidade privado** a uma zona DNS privada. Como alternativa, você também pode usar seu servidor DNS personalizado ou criar uma zona DNS privada.
 
         ![Guia de configuração de preenchimento](./media/private-endpoints/configuration-tab.png)
 
     1. Opcionalmente, você pode adicionar **marcas** para seu ponto de extremidade particular.
 
-    1. Prossiga para **revisar + criar** depois de inserir os detalhes. Quando a validação for concluída, clique em **criar** para criar o ponto de extremidade privado.
+    1. Continue a **examinar + criar** depois de inserir detalhes. Quando a validação for concluída, selecione **criar** para criar o ponto de extremidade privado.
 
 ## <a name="approving-private-endpoints"></a>Aprovando pontos de extremidade privados
 
@@ -200,7 +200,7 @@ Depois de criar a zona DNS privada opcional e os pontos de extremidade privados 
 
 Isso exige que você faça entradas para cada FQDN em seu ponto de extremidade privado em sua zona de DNS privado.
 
-1. Vá para a **zona DNS privada** e navegue até a opção **visão geral** na barra esquerda. Uma vez lá, clique em **+ conjunto de registros** para começar a adicionar registros.
+1. Vá para a **zona DNS privada** e navegue até a opção **visão geral** na barra esquerda. Uma vez lá, selecione **+ conjunto de registros** para começar a adicionar registros.
 
     ![Selecione + conjunto de registros para adicionar registros](./media/private-endpoints/select-record-set.png)
 
@@ -332,9 +332,9 @@ JSON de resposta:
 
 A identidade gerenciada para o cofre precisa ter as seguintes permissões no grupo de recursos e na rede virtual em que os pontos de extremidade privados serão criados:
 
-- `Microsoft.Network/privateEndpoints/*`Isso é necessário para executar o CRUD em pontos de extremidade privados no grupo de recursos. Ele deve ser atribuído no grupo de recursos.
-- `Microsoft.Network/virtualNetworks/subnets/join/action`Isso é necessário na rede virtual em que o IP privado está sendo anexado com o ponto de extremidade privado.
-- `Microsoft.Network/networkInterfaces/read`Isso é necessário no grupo de recursos para obter a interface de rede criada para o ponto de extremidade privado.
+- `Microsoft.Network/privateEndpoints/*` Isso é necessário para executar o CRUD em pontos de extremidade privados no grupo de recursos. Ele deve ser atribuído no grupo de recursos.
+- `Microsoft.Network/virtualNetworks/subnets/join/action` Isso é necessário na rede virtual em que o IP privado está sendo anexado com o ponto de extremidade privado.
+- `Microsoft.Network/networkInterfaces/read` Isso é necessário no grupo de recursos para obter a interface de rede criada para o ponto de extremidade privado.
 - Função de colaborador de zona DNS privado essa função já existe e pode ser usada para fornecer `Microsoft.Network/privateDnsZones/A/*` `Microsoft.Network/privateDnsZones/virtualNetworkLinks/read` permissões e.
 
 Você pode usar um dos seguintes métodos para criar funções com as permissões necessárias:
@@ -546,25 +546,25 @@ Zona DNS para o serviço Fila ( `privatelink.queue.core.windows.net` ):
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 Q. Posso criar um ponto de extremidade privado para um cofre de backup existente?<br>
-A. Não, os pontos de extremidade privados só podem ser criados para novos cofres de backup. Portanto, o cofre não deve ter nenhum item protegido. Na verdade, nenhuma tentativa de proteger itens para o cofre pode ser feita antes da criação de pontos de extremidade privados.
+a. Não, os pontos de extremidade privados só podem ser criados para novos cofres de backup. Portanto, o cofre não deve ter nenhum item protegido. Na verdade, nenhuma tentativa de proteger itens para o cofre pode ser feita antes da criação de pontos de extremidade privados.
 
 Q. Tentei proteger um item ao meu cofre, mas ele falhou e o cofre ainda não contém itens protegidos. Posso criar pontos de extremidade privados para este cofre?<br>
-A. Não, o cofre não deve ter nenhuma tentativa de proteger nenhum item para ele no passado.
+a. Não, o cofre não deve ter nenhuma tentativa de proteger nenhum item para ele no passado.
 
 Q. Tenho um cofre que está usando pontos de extremidade privados para backup e restauração. Posso adicionar ou remover pontos de extremidade particulares para este cofre, mesmo se eu tiver itens de backup protegidos?<br>
 a. Sim. Se você já tiver criado pontos de extremidade privados para um cofre e itens de backup protegidos, será possível adicionar ou remover pontos de extremidade privados posteriormente, conforme necessário.
 
 Q. O ponto de extremidade privado para o backup do Azure também pode ser usado para Azure Site Recovery?<br>
-A. Não, o ponto de extremidade privado para backup só pode ser usado para o backup do Azure. Você precisará criar um novo ponto de extremidade privado para Azure Site Recovery, se ele tiver suporte do serviço.
+a. Não, o ponto de extremidade privado para backup só pode ser usado para o backup do Azure. Você precisará criar um novo ponto de extremidade privado para Azure Site Recovery, se ele tiver suporte do serviço.
 
 Q. Eu perdi uma das etapas neste artigo e passei para proteger minha fonte de dados. Ainda posso usar pontos de extremidade privados?<br>
-A. Não seguir as etapas no artigo e continuar a proteger os itens pode levar o cofre a não conseguir usar pontos de extremidade privados. Portanto, é recomendável que você consulte esta lista de verificação antes de continuar a proteger os itens.
+a. Não seguir as etapas no artigo e continuar a proteger os itens pode levar o cofre a não conseguir usar pontos de extremidade privados. Portanto, é recomendável que você consulte esta lista de verificação antes de continuar a proteger os itens.
 
 Q. Posso usar meu próprio servidor DNS em vez de usar a zona DNS privada do Azure ou uma zona DNS privada integrada?<br>
-A. Sim, você pode usar seus próprios servidores DNS. No entanto, verifique se todos os registros DNS necessários foram adicionados conforme sugerido nesta seção.
+a. Sim, você pode usar seus próprios servidores DNS. No entanto, verifique se todos os registros DNS necessários foram adicionados conforme sugerido nesta seção.
 
 Q. É necessário executar qualquer etapa adicional no meu servidor depois de seguir o processo neste artigo?<br>
-A. Depois de seguir o processo detalhado neste artigo, você não precisa fazer mais trabalho para usar pontos de extremidade privados para backup e restauração.
+a. Depois de seguir o processo detalhado neste artigo, você não precisa fazer mais trabalho para usar pontos de extremidade privados para backup e restauração.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d979d2d0167a4398d31271bb896c812bbe86be73
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4223e3bc572a689472dce136b60599034566b274
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827853"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654252"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrar para compartilhamentos de Arquivos do Azure
 
@@ -26,7 +26,7 @@ O Azure tem vários tipos de armazenamento em nuvem disponíveis. Um aspecto fun
 
 Os [compartilhamentos de arquivos do Azure](storage-files-introduction.md) são adequados para dados de arquivo de uso geral. Esses dados incluem tudo o que você usa em um compartilhamento SMB ou NFS local para o. Com o [sincronização de arquivos do Azure](storage-sync-files-planning.md), você pode armazenar em cache o conteúdo de vários compartilhamentos de arquivos do Azure em servidores que executam o Windows Server local.
 
-Para um aplicativo que é executado atualmente em um servidor local, o armazenamento de arquivos em um compartilhamento de arquivos do Azure pode ser uma boa opção. Você pode mover o aplicativo para o Azure e usar compartilhamentos de arquivos do Azure como armazenamento compartilhado. Você também pode considerar os [discos do Azure](../../virtual-machines/windows/managed-disks-overview.md) para esse cenário.
+Para um aplicativo que é executado atualmente em um servidor local, o armazenamento de arquivos em um compartilhamento de arquivos do Azure pode ser uma boa opção. Você pode mover o aplicativo para o Azure e usar compartilhamentos de arquivos do Azure como armazenamento compartilhado. Você também pode considerar os [discos do Azure](../../virtual-machines/managed-disks-overview.md) para esse cenário.
 
 Alguns aplicativos de nuvem não dependem de SMB ou de acesso a dados locais de computador ou acesso compartilhado. Para esses aplicativos, o armazenamento de objeto como [BLOBs do Azure](../blobs/storage-blobs-overview.md) geralmente é a melhor opção.
 
@@ -126,7 +126,7 @@ A tabela a seguir classifica as ferramentas da Microsoft e sua adequação atual
 |![Não recomendado](media/storage-files-migration-overview/circle-red-x.png)| Fábrica de dados do Azure | Com suporte. | Não copia metadados. |
 |||||
 
-*\*Fidelidade total: atende ou excede os recursos de compartilhamento de arquivos do Azure.*
+*\* Fidelidade total: atende ou excede os recursos de compartilhamento de arquivos do Azure.*
 
 ### <a name="migration-helper-tools"></a>Ferramentas auxiliares de migração
 

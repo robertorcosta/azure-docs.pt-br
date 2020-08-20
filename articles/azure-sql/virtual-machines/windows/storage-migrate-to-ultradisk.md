@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f5a2205ec835fb630933dd85b4b0e5846ae864cb
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 42738ff71432284a156d0dfbb1f6cf160cbf4032
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86235828"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653233"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migrar disco de log para ultra Disk
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,7 +36,7 @@ Conclua um [backup completo](backup-restore.md) do seu banco de dados.
 
 Anexe o SSD Ultra à sua máquina virtual depois de habilitar a compatibilidade de ultradisk na VM. 
 
-O ultra Disk tem suporte em um subconjunto de regiões e tamanhos de VM. Antes de continuar, valide se sua VM está em uma região, zona e tamanho que dá suporte a ultra Disk. Você pode [determinar e validar o tamanho e a região da VM](../../../virtual-machines/windows/disks-enable-ultra-ssd.md#determine-vm-size-and-region-availability) usando o CLI do Azure ou o PowerShell. 
+O ultra Disk tem suporte em um subconjunto de regiões e tamanhos de VM. Antes de continuar, valide se sua VM está em uma região, zona e tamanho que dá suporte a ultra Disk. Você pode [determinar e validar o tamanho e a região da VM](../../../virtual-machines/disks-enable-ultra-ssd.md#determine-vm-size-and-region-availability) usando o CLI do Azure ou o PowerShell. 
 
 ### <a name="enable-compatibility"></a>Habilitar compatibilidade
 
@@ -50,15 +50,15 @@ Para habilitar a compatibilidade, siga estas etapas:
 
 1. Selecione **Sim** para **habilitar a compatibilidade de ultra Disk**. 
 
-   :::image type="content" source="../../../../includes/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Selecione configurações adicionais para discos em configurações na portal do Azure":::
+   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Selecione configurações adicionais para discos em configurações na portal do Azure":::
 
-1. Selecione **Salvar**. 
+1. Clique em **Salvar**. 
 
 
 
 ### <a name="attach-disk"></a>Anexar disco
 
-Use o portal do Azure para anexar um ultra Disk à sua máquina virtual. Para obter detalhes, consulte [anexar um disco ultra](../../../virtual-machines/windows/disks-enable-ultra-ssd.md#attach-an-ultra-disk-using-the-azure-portal)
+Use o portal do Azure para anexar um ultra Disk à sua máquina virtual. Para obter detalhes, consulte [anexar um disco ultra](../../../virtual-machines/disks-enable-ultra-ssd.md#attach-an-ultra-disk-using-the-azure-portal)
 
 Depois que o disco for anexado, inicie sua VM mais uma vez usando o portal do Azure. 
 
@@ -85,7 +85,7 @@ Configure SQL Server para usar a nova unidade de log. Você pode fazer isso usan
 1. Crie uma pasta (ou várias pastas) a ser usada para o arquivo de log. 
 1. Clique com o botão direito do mouse na pasta e selecione **Propriedades**.
 1. Na guia **segurança** , conceda acesso de controle total à conta de serviço SQL Server. 
-1. Selecione **OK** para salvar suas configurações. 
+1. Selecione **OK**  para salvar suas configurações. 
 1. Repita isso para cada pasta de nível raiz em que você planeja ter dados SQL. 
 
 ### <a name="use-new-log-drive"></a>Usar nova unidade de log 

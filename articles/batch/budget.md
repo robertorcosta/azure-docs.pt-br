@@ -3,12 +3,12 @@ title: Análise de custo e orçamento
 description: Saiba como obter uma análise de custo e definir um orçamento para os recursos de computação subjacentes e as licenças de software usadas para executar suas cargas de trabalho do Lote.
 ms.topic: how-to
 ms.date: 07/19/2019
-ms.openlocfilehash: 13c8cc508a4940b5e21570104527c40988879919
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 50ca1ecfd0a973ff39dabfcb62175ce820d0a0d6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725764"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654235"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Análise de custo e orçamentos para o Lote do Azure
 
@@ -68,7 +68,7 @@ Saiba mais sobre como configurar VMs de baixa prioridade para sua carga de traba
 
 ### <a name="virtual-machine-os-disk-type"></a>Tipo de disco de SO da máquina virtual
 
-Há vários [tipos de disco de SO de VM](../virtual-machines/windows/disks-types.md). A maioria das séries de VM tem tamanhos que dão suporte ao armazenamento Premium e Standard. Quando um tamanho de VM 's' é selecionado para um pool, o Lote configura discos do SO de SSD Premium. Quando o tamanho de VM 'não s' é selecionado, o tipo de disco HDD padrão mais barato é usado. Por exemplo, os discos do SO de SSD Premium são usados para `Standard_D2s_v3` e os discos do SO de HDD padrão são usados para `Standard_D2_v3`.
+Há vários [tipos de disco de SO de VM](../virtual-machines/disks-types.md). A maioria das séries de VM tem tamanhos que dão suporte ao armazenamento Premium e Standard. Quando um tamanho de VM 's' é selecionado para um pool, o Lote configura discos do SO de SSD Premium. Quando o tamanho de VM 'não s' é selecionado, o tipo de disco HDD padrão mais barato é usado. Por exemplo, os discos do SO de SSD Premium são usados para `Standard_D2s_v3` e os discos do SO de HDD padrão são usados para `Standard_D2_v3`.
 
 Os discos do SO de SSD Premium são mais caros, mas têm desempenho mais alto e VMs com discos Premium podem iniciar um pouco mais rapidamente do que as VMs com discos do SO de HDD padrão. Com o Lote, o disco do SO geralmente não é tão usado, pois os aplicativos e os arquivos de tarefa estão localizados no disco SSD temporário de VMs. Portanto, em muitos casos, não há necessidade de pagar o aumento do custo para o SSD Premium que é provisionado quando um tamanho de VM 's' é especificado.
 

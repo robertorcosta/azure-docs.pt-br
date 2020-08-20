@@ -7,16 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: de32f2a3a45a883f9da860b159eaa7f7b9368518
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 99253aa2e7e2e1f3f58f2ab7d5c40a695c2b9690
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085422"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654847"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Gravações aceleradas do Azure HDInsight para Apache HBase
 
-Este artigo fornece informações sobre o recurso de **gravações aceleradas** para o Apache HBase no Azure HDInsight e como ele pode ser usado com eficiência para melhorar o desempenho de gravação. As **gravações aceleradas** usam o [Managed disks SSD do Azure Premium](../../virtual-machines/linux/disks-types.md#premium-ssd) para melhorar o desempenho do log write ahead do Apache HBase (WAL). Para saber mais sobre o Apache HBase, confira [o que é o Apache HBase no HDInsight](apache-hbase-overview.md).
+Este artigo fornece informações sobre o recurso de **gravações aceleradas** para o Apache HBase no Azure HDInsight e como ele pode ser usado com eficiência para melhorar o desempenho de gravação. As **gravações aceleradas** usam o [Managed disks SSD do Azure Premium](../../virtual-machines/disks-types.md#premium-ssd) para melhorar o desempenho do log write ahead do Apache HBase (WAL). Para saber mais sobre o Apache HBase, confira [o que é o Apache HBase no HDInsight](apache-hbase-overview.md).
 
 ## <a name="overview-of-hbase-architecture"></a>Visão geral da arquitetura do HBase
 
@@ -32,7 +32,7 @@ Se um **RegionServer** falhar ou ficar indisponível antes de o MemStore ser lib
 
 ## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Recurso de gravações aceleradas no Azure HDInsight para Apache HBase
 
-O recurso de gravações aceleradas resolve o problema de latências de gravação mais altas causadas pelo uso de logs write-ahead que estão no armazenamento em nuvem.  O recurso de gravações aceleradas para clusters do Apache HBase do HDInsight, anexa discos gerenciados por SSD Premium a cada RegionServer (nó de trabalho). Os logs write-ahead são gravados no sistema de arquivos do Hadoop (HDFS) montado nesses discos gerenciados Premium em vez do armazenamento em nuvem.  Os discos gerenciados Premium usam SSDs (discos de estado sólido) e oferecem excelente desempenho de e/s com tolerância a falhas.  Diferentemente dos discos não gerenciados, se uma unidade de armazenamento falhar, ela não afetará outras unidades de armazenamento no mesmo conjunto de disponibilidade.  Como resultado, os discos gerenciados fornecem baixa latência de gravação e melhor resiliência para seus aplicativos. Para saber mais sobre os discos gerenciados do Azure, confira [introdução aos Azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
+O recurso de gravações aceleradas resolve o problema de latências de gravação mais altas causadas pelo uso de logs write-ahead que estão no armazenamento em nuvem.  O recurso de gravações aceleradas para clusters do Apache HBase do HDInsight, anexa discos gerenciados por SSD Premium a cada RegionServer (nó de trabalho). Os logs write-ahead são gravados no sistema de arquivos do Hadoop (HDFS) montado nesses discos gerenciados Premium em vez do armazenamento em nuvem.  Os discos gerenciados Premium usam SSDs (discos de estado sólido) e oferecem excelente desempenho de e/s com tolerância a falhas.  Diferentemente dos discos não gerenciados, se uma unidade de armazenamento falhar, ela não afetará outras unidades de armazenamento no mesmo conjunto de disponibilidade.  Como resultado, os discos gerenciados fornecem baixa latência de gravação e melhor resiliência para seus aplicativos. Para saber mais sobre os discos gerenciados do Azure, confira [introdução aos Azure Managed disks](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Como habilitar gravações aceleradas para o HBase no HDInsight
 

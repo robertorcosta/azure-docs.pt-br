@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e73bc3791ceb75685275af99f888136315c6e50d
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0fc7d62cc89e240d931f3d0f255a917a73a4114c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505551"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654575"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implantação do DBMS de Máquinas de Virtuais do SQL Server Azure para NetWeaver do SAP
 
@@ -247,7 +247,7 @@ ms.locfileid: "88505551"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -381,7 +381,7 @@ O SQL Server 2014 e versões mais recentes abrem a possibilidade para armazenar 
 * As considerações listadas anteriormente em relação à distribuição de VHDs em diferentes Contas de Armazenamento do Azure também se aplicam a esse método de implantações. Significa a contagem de operações de E/S em relação aos limites da Conta de Armazenamento do Azure.
 * Em vez de contabilização em relação à cota de e/s de armazenamento da VM, o tráfego em blobs de armazenamento que representam os arquivos de log e de dados do SQL Server será contabilizado na largura de banda de rede da VM do tipo específico de VM. Para obter a largura de banda de rede e de armazenamento de um tipo específico de VM, confira o artigo [Tamanhos das máquinas virtuais do Windows no Azure](../../sizes.md).
 * Como resultado do envio por push da E/S de arquivo por meio da cota de rede, você está deixando de lado grande parte da cota de armazenamento e, com isso, usando a largura de banda geral da VM apenas parcialmente.
-* As metas de desempenho de taxa de transferência e/s e IOPS que tem o armazenamento Premium do Azure para os tamanhos de disco diferentes não se aplicam mais. Mesmo se os blobs que você criou estejam localizados no armazenamento Premium do Azure. Os destinos são documentados no artigo [Armazenamento Premium de alto desempenho e discos gerenciados para VMs](../../windows/disks-types.md#premium-ssd). Como resultado de colocar arquivos de dados do SQL Server e arquivos de log diretamente nos blobs que são armazenados no armazenamento Premium do Azure, as características de desempenho podem ser diferentes em comparação com VHDs no armazenamento Premium do Azure.
+* As metas de desempenho de taxa de transferência e/s e IOPS que tem o armazenamento Premium do Azure para os tamanhos de disco diferentes não se aplicam mais. Mesmo se os blobs que você criou estejam localizados no armazenamento Premium do Azure. Os destinos são documentados no artigo [Armazenamento Premium de alto desempenho e discos gerenciados para VMs](../../disks-types.md#premium-ssd). Como resultado de colocar arquivos de dados do SQL Server e arquivos de log diretamente nos blobs que são armazenados no armazenamento Premium do Azure, as características de desempenho podem ser diferentes em comparação com VHDs no armazenamento Premium do Azure.
 * O cache baseado em host disponível para discos de Armazenamento Premium do Azure não está disponível para arquivos de dados do SQL Server colocados diretamente nos blobs do Azure.
 * Em VMs da série M, acelerador de gravação do Azure não pode ser usado para dar suporte a gravações de submilissegundo contra o arquivo de log de transações do SQL Server. 
 

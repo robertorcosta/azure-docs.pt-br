@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 21609e38625d0911476c85a9d6e518f5ff7e9e61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de0402febe94e50877367dc37d448a4a13893f93
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667362"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653334"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento para VMs do SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ Para usar as definições automatizadas de configuração de armazenamento, sua 
 
 * Deve ser provisionada com uma [imagem da galeria do SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
 * Deve usar o [Modelo de implantação do Resource Manager](../../../azure-resource-manager/management/deployment-models.md).
-* Deve usar os [SSDs premium](../../../virtual-machines/windows/disks-types.md).
+* Deve usar os [SSDs premium](../../../virtual-machines/disks-types.md).
 
 ## <a name="new-vms"></a>Novas VMs
 
@@ -115,7 +115,7 @@ Você pode modificar as configurações de disco das unidades que foram configur
 Esta seção fornece uma referência para as alterações de configuração de armazenamento que o Azure executa automaticamente durante SQL Server provisionamento ou configuração de VM no portal do Azure.
 
 * O Azure configura um pool de armazenamento com o armazenamento selecionado em sua VM. A próxima seção deste tópico fornece detalhes sobre a configuração do pool de armazenamento.
-* A configuração de armazenamento automática sempre usa discos de dados P30 dos [SSDs premium](../../../virtual-machines/windows/disks-types.md). Consequentemente, há um mapeamento 1:1 entre o número selecionado de Terabytes e o número de discos de dados anexados à sua VM.
+* A configuração de armazenamento automática sempre usa discos de dados P30 dos [SSDs premium](../../../virtual-machines/disks-types.md). Consequentemente, há um mapeamento 1:1 entre o número selecionado de Terabytes e o número de discos de dados anexados à sua VM.
 
 Para saber mais sobre preços, consulte a página [Preços de armazenamento](https://azure.microsoft.com/pricing/details/storage) na guia **Armazenamento em disco** .
 

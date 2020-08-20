@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e1f670f2ba5ad31f29d56b2de40acd6e2bf18a9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73954092"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654371"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integre o ExpressRoute com a recuperação de desastre para VMs do Azure
 
@@ -22,7 +22,7 @@ Este artigo descreve como integrar o Azure ExpressRoute ao [Azure Site Recovery]
 
 O Site Recovery permite a recuperação de desastres das VMs do Azure, replicando os dados da VM do Azure para o Azure.
 
-- Se as VMs do Azure usarem [discos gerenciados do Azure](../virtual-machines/windows/managed-disks-overview.md), os dados da VM serão replicados para um disco gerenciado replicado na região secundária.
+- Se as VMs do Azure usarem [discos gerenciados do Azure](../virtual-machines/managed-disks-overview.md), os dados da VM serão replicados para um disco gerenciado replicado na região secundária.
 - Se as VMs do Azure não usarem discos gerenciados, os dados da VM serão replicados para uma conta de armazenamento do Azure.
 - Os pontos de extremidade de replicação são públicos, mas o tráfego de replicação das VMs do Azure não cruza a Internet.
 
@@ -106,10 +106,10 @@ Geralmente, as implantações corporativas têm cargas de trabalho divididas em 
 
 **Direção** | **Configuração** | **State**
 --- | --- | ---
-Do spoke para o hub | Permitir que o endereço de rede virtual | Habilitada
-Do spoke para o hub | Permitir tráfego encaminhado | Habilitada
+Do spoke para o hub | Permitir que o endereço de rede virtual | habilitado
+Do spoke para o hub | Permitir tráfego encaminhado | habilitado
 Do spoke para o hub | Permitir trânsito de gateway | Desabilitado
-Do spoke para o hub | Use remover gateways | Habilitada
+Do spoke para o hub | Use remover gateways | habilitado
 
  ![Configuração do emparelhamento spoke-hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
@@ -117,9 +117,9 @@ Do spoke para o hub | Use remover gateways | Habilitada
 
 **Direção** | **Configuração** | **State**
 --- | --- | ---
-Do hub para o spoke | Permitir que o endereço de rede virtual | Habilitada
-Do hub para o spoke | Permitir tráfego encaminhado | Habilitada
-Do hub para o spoke | Permitir trânsito de gateway | Habilitada
+Do hub para o spoke | Permitir que o endereço de rede virtual | habilitado
+Do hub para o spoke | Permitir tráfego encaminhado | habilitado
+Do hub para o spoke | Permitir trânsito de gateway | habilitado
 Do hub para o spoke | Use remover gateways | Desabilitado
 
  ![Configuração do emparelhamento hub-spoke](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)

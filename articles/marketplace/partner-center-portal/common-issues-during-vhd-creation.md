@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/09/2020
-ms.openlocfilehash: 273e6560cd4a9efeac6704ca5d44772248c26050
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f4d30cdb931d6523eba3aac003caeee38a8c024d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504306"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653521"
 ---
 # <a name="common-issues-during-vhd-creation"></a>Problemas comuns durante a criação do VHD
 
@@ -20,7 +20,7 @@ Essas perguntas frequentes abordam os problemas comuns que você pode encontrar 
 
 ## <a name="how-do-i-create-a-vm-from-the-azure-portal-using-a-vhd-in-premium-storage"></a>Como criar uma VM do portal do Azure usando um VHD no armazenamento Premium?
 
-O Azure Marketplace atualmente não dá suporte para a criação de ofertas de VM de imagens no armazenamento gerenciado ou de Armazenamento Premium do Azure. Para detalhes, confira [Visão geral do Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
+O Azure Marketplace atualmente não dá suporte para a criação de ofertas de VM de imagens no armazenamento gerenciado ou de Armazenamento Premium do Azure. Para detalhes, confira [Visão geral do Azure Managed Disks](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="can-i-use-generation-2-vms-for-offers"></a>É possível usar VMs de Geração 2 para as ofertas?
 

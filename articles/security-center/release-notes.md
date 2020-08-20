@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: dbd040bf7caf3dbe9ed9820bf189bc1f74475c09
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 7bec65867373293ff06a2295f08a05db6ffaa480
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586887"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653827"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -38,6 +38,7 @@ As atualizações em agosto incluem:
 - [Suporte adicionado para padrões de segurança de Azure Active Directory (para autenticação multifator)](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
 - [Recomendação de entidades de serviço adicionada](#service-principals-recommendation-added)
 - [Avaliação de vulnerabilidade em VMs – recomendações e políticas consolidadas](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
+- [Novas políticas de segurança AKS adicionadas à iniciativa de ASC_default – para uso somente por clientes de visualização privada](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
 
 
 ### <a name="asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets"></a>Inventário de ativos-nova exibição avançada da postura de segurança de seus ativos
@@ -126,6 +127,17 @@ Se você tiver scripts, consultas ou automaçãos referentes às recomendações
 |[**A avaliação de vulnerabilidade deve ser habilitada em máquinas virtuais**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>ID da política: 501541f7-f7e7-4cd6-868C-4190fdad3ac9 |Interno + BYOL|
 ||||
 
+
+### <a name="new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only"></a>Novas políticas de segurança AKS adicionadas à iniciativa de ASC_default – para uso somente por clientes de visualização privada
+
+Para garantir que as cargas de trabalho do kubernetes sejam seguras por padrão, a central de segurança está adicionando políticas de nível de kubernetes e recomendações de proteção, incluindo opções de imposição com o controle de admissão kubernetes.
+
+A fase inicial deste projeto inclui uma visualização privada e a adição de políticas novas (desabilitadas por padrão) à iniciativa de ASC_default.
+
+Você pode ignorar essas políticas com segurança e não haverá nenhum impacto no seu ambiente. Se você quiser habilitá-los, Inscreva-se para a visualização em https://aka.ms/SecurityPrP e selecione uma das seguintes opções:
+
+1. **Visualização única** – para unir somente esta visualização privada. Mencione explicitamente "verificação contínua ASC" como a visualização que você gostaria de unir.
+1. **Programa em andamento** – a ser adicionado a esta e a visualizações privadas futuras. Será necessário concluir um perfil e um contrato de privacidade.
 
 
 ## <a name="july-2020"></a>Julho de 2020

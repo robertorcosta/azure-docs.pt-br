@@ -4,12 +4,12 @@ description: Saiba como gerenciar e monitorar backups de agente MARS (Serviços 
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 581141ea5ffaecf774d292f66a05da5e40c8dc54
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 71cec82550ae8ca2bc6ddd7bda6452870e5e0818
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263292"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654218"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerenciar backups de agente MARS (Serviços de Recuperação do Microsoft Azure) usando o serviço de backup do Azure
 
@@ -92,7 +92,7 @@ Há duas maneiras de interromper a proteção de arquivos e pastas backup:
   - Esta opção irá parar todos os trabalhos de backup futuros da proteção.
   - O serviço de backup do Azure continuará a reter todos os pontos de recuperação existentes.  
   - Você poderá restaurar os dados de backup para pontos de recuperação não expirados.
-  - Se você decidir retomar a proteção, poderá usar a opção *habilitar agendamento de backup novamente* . Depois disso, os dados seriam retidos com base na nova política de retenção.
+  - Se você decidir retomar a proteção, poderá usar a opção *habilitar agendamento de backup novamente* . Depois disso, os dados serão retidos com base na nova política de retenção.
 - **Interrompa a proteção e exclua os dados de backup**.
   - Esta opção impedirá que todos os trabalhos de backup futuros protejam seus dados e excluam todos os pontos de recuperação.
   - Você receberá um email de alerta de exclusão de dados de backup com uma mensagem *os dados deste item de backup foram excluídos. Esses dados estarão temporariamente disponíveis por 14 dias, após o qual serão excluídos permanentemente* e a ação recomendada *proteger novamente o item de backup dentro de 14 dias para recuperar os dados.*

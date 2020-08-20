@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/17/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 37d9cf0b0ac7145e389f9fc768ff0b593b27ae1a
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 93c97c70a65be40b5801b202ba277b8f86ad1566
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515184"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655131"
 ---
 ## <a name="limitations"></a>Limitações
 
@@ -137,7 +137,7 @@ Antes de usar o modelo a seguir, substitua,,,,,, `[parameters('dataDiskName')]` 
 Depois de implantar um disco compartilhado com `maxShares>1` o, você pode montar o disco em uma ou mais de suas VMs.
 
 > [!NOTE]
-> Se você estiver implantando um ultra Disk, verifique se ele corresponde aos requisitos necessários. Consulte a seção [PowerShell](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) ou [CLI](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) do artigo ultra Disk para obter detalhes.
+> Se você estiver implantando um ultra Disk, verifique se ele corresponde aos requisitos necessários. Consulte a seção [PowerShell](../articles/virtual-machines/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) ou [CLI](../articles/virtual-machines/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) do artigo ultra Disk para obter detalhes.
 
 ```azurepowershell-interactive
 
