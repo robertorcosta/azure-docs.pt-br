@@ -3,12 +3,12 @@ title: Habilitar automaticamente o backup na criação da VM usando o Azure Poli
 description: Um artigo que descreve como usar Azure Policy para habilitar o backup automaticamente para todas as VMs criadas em um determinado escopo
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 2b4ce7825b714eed1b025a6a807a62759177b81f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19985ebc51fe713ee0392800e2791ea1891ff3cd
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514213"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612666"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Habilitar automaticamente o backup na criação da VM usando o Azure Policy
 
@@ -33,18 +33,18 @@ Hoje, o backup do Azure fornece uma política interna (usando Azure Policy) que 
 Para atribuir a política ao escopo necessário, siga as etapas abaixo:
 
 1. Entre no portal do Azure e navegue até o painel de **política** .
-2. Selecione **definições** no menu à esquerda para obter uma lista de todas as políticas internas nos recursos do Azure.
-3. Filtre a lista para **Category = backup**. Você verá a lista filtrada para uma única política denominada ' Configurar backup em VMs de um local para um cofre central existente no mesmo local '.
+1. Selecione **definições** no menu à esquerda para obter uma lista de todas as políticas internas nos recursos do Azure.
+1. Filtre a lista para **Category = backup**. Você verá a lista filtrada para uma única política denominada ' Configurar backup em VMs de um local para um cofre central existente no mesmo local '.
 ![Painel de política](./media/backup-azure-auto-enable-backup/policy-dashboard.png)
-4. Clique no nome da política. Você será redirecionado para a definição detalhada dessa política.
-![Folha definição de política](./media/backup-azure-auto-enable-backup/policy-definition-blade.png)
-5. Clique no botão **atribuir** na parte superior da folha. Isso redireciona você para a folha **atribuir política** .
-6. Em **noções básicas**, clique nos três pontos ao lado do campo **escopo** . Isso abre uma folha de contexto à direita, na qual você pode selecionar a assinatura na qual a política será aplicada. Você também pode selecionar um grupo de recursos, para que a política seja aplicada somente a VMs em um determinado grupo de recursos.
+1. Selecione o nome da política. Você será redirecionado para a definição detalhada dessa política.
+![Painel de definição de política](./media/backup-azure-auto-enable-backup/policy-definition-blade.png)
+1. Selecione o botão **atribuir** na parte superior do painel. Isso redireciona você para o painel **atribuir política** .
+1. Em **noções básicas**, selecione os três pontos ao lado do campo **escopo** . Isso abre um painel de contexto à direita no qual você pode selecionar a assinatura na qual a política será aplicada. Você também pode selecionar um grupo de recursos, para que a política seja aplicada somente a VMs em um determinado grupo de recursos.
 ![Noções básicas de atribuição de política](./media/backup-azure-auto-enable-backup/policy-assignment-basics.png)
-7. Na guia **parâmetros** , escolha um local na lista suspensa e selecione o cofre e a política de backup aos quais as VMs no escopo devem ser associadas.
+1. Na guia **parâmetros** , escolha um local na lista suspensa e selecione o cofre e a política de backup aos quais as VMs no escopo devem ser associadas.
 ![Parâmetros de atribuição de política](./media/backup-azure-auto-enable-backup/policy-assignment-parameters.png)
-8. Verifique se o **efeito** está definido como deployIfNotExists.
-9. Navegue até **revisar + criar** e clique em **criar**.
+1. Verifique se o **efeito** está definido como deployIfNotExists.
+1. Navegue até **revisar + criar** e selecione **criar**.
 
 > [!NOTE]
 >

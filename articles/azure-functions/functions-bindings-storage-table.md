@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 2f4647f4e13677d9136ce7fdb090e809943cdf0d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: fd50e649257ba8849f49cd3aae85e3228b9eb94c
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206691"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612207"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Associações de armazenamento de tabelas do Azure Functions
 
@@ -100,7 +100,7 @@ public class TableStorage
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
-using Microsoft.WindowsAzure.Storage.Table;
+using Microsoft.Azure.Cosmos.Table;
 using System;
 using System.Threading.Tasks;
 
@@ -228,8 +228,8 @@ A seção [configuração](#input---configuration) explica essas propriedades.
 O código script C# adiciona uma referência ao SDK de Armazenamento do Azure para que o tipo de entidade possa derivar de `TableEntity`:
 
 ```csharp
-#r "Microsoft.WindowsAzure.Storage"
-using Microsoft.WindowsAzure.Storage.Table;
+#r "Microsoft.Azure.Cosmos"
+using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Extensions.Logging;
 
 public static void Run(string myQueueItem, IQueryable<Person> tableBinding, ILogger log)
@@ -273,8 +273,8 @@ public class Person : TableEntity
 ```
 
 ```csharp
-#r "Microsoft.WindowsAzure.Storage"
-using Microsoft.WindowsAzure.Storage.Table;
+#r "Microsoft.Azure.Cosmos"
+using Microsoft.Azure.Cosmos.Table;
 using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
@@ -564,7 +564,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**partitionKey** | **PartitionKey** |Opcional. Chave de partição da entidade de tabela para leitura. Consulte a seção [uso](#input---usage) para obter orientação sobre como usar essa propriedade.| 
 |**rowKey** |**RowKey** | Opcional. Chave de linha da entidade de tabela para leitura. Consulte a seção [uso](#input---usage) para obter orientação sobre como usar essa propriedade.| 
 |**take** |**Take** | Opcional. O número máximo de entidades para ler em JavaScript. Consulte a seção [uso](#input---usage) para obter orientação sobre como usar essa propriedade.| 
-|**sem** |**Filter** | Opcional. Uma expressão de filtro OData para a entrada de tabela em JavaScript. Consulte a seção [uso](#input---usage) para obter orientação sobre como usar essa propriedade.| 
+|**filter** |**Filter** | Opcional. Uma expressão de filtro OData para a entrada de tabela em JavaScript. Consulte a seção [uso](#input---usage) para obter orientação sobre como usar essa propriedade.| 
 |**connection** |**Conexão** | O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Armazenamento para usar para essa associação. A configuração pode ser o nome de uma configuração do aplicativo prefixado "AzureWebJobs" ou nome da cadeia de conexão. Por exemplo, se o nome da sua configuração for "AzureWebJobsMyStorage", você poderá especificar "mystorage" aqui. O tempo de execução do Functions procurará automaticamente uma configuração de aplicativo denominada "AzureWebJobsMyStorage". Se você deixar `connection` vazio, o runtime de Functions usa a cadeia de caracteres de conexão de Armazenamento padrão na configuração de aplicativo chamada `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações do
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: f2f3d26f74c6227ad257c188d4088fd41fca7075
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 5871e61229277d8036727c11b42d9d7a061bad99
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922309"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612513"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte Backup do Azure
 
@@ -79,8 +79,8 @@ Veja a seguir os itens compatíveis, caso deseje fazer backup de computadores Li
 --- | ---
 **Backup direto de computador local que está executando o Linux** | Sem suporte. O agente do MARS só pode ser instalado em computadores Windows.
 **Uso da extensão do agente para fazer backup de VM do Azure que está executando Linux** | Backup consistente com aplicativo usando [scripts personalizados](backup-azure-linux-app-consistent.md).<br/><br/> Recuperação em nível de arquivo.<br/><br/> Faça a restauração com a criação de uma VM de um ponto de recuperação ou um disco.
-**Uso do DPM para fazer backup de computadores locais executando Linux** | Backup consistente de arquivos das VMs Convidadas Linux no Hyper-V e VMWare.<br/><br/> Restauração de VM do Hyper-V e VMs Convidadas Linux do VMWare.
-**Uso do MABS para fazer backup de computadores locais executando Linux** | Backup consistente de arquivos das VMs Convidadas Linux no Hyper-V e VMWare.<br/><br/> Restauração de VM do Hyper-V e VMs convidadas Linux do VMWare.
+**Uso do DPM para fazer backup de computadores locais executando Linux** | Backup consistente com o arquivo de VMs de convidado do Linux no Hyper-V e no VMware.<br/><br/> Restauração de VM de VMs do Hyper-V e do VMware Linux convidadas.
+**Uso do MABS para fazer backup de computadores locais executando Linux** | Backup consistente com o arquivo de VMs de convidado do Linux no Hyper-V e no VMware.<br/><br/> Restauração de VM de VMs do Hyper-V e do VMware Linux convidadas.
 **Uso do MABS ou DPM para fazer backup de VMs do Azure no Linux** | Sem suporte.
 
 ## <a name="daylight-saving-time-support"></a>Suporte de horário de verão

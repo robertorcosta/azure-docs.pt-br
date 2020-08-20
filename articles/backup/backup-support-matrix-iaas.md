@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações ao
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: c7cd3ed863153762e42a0b6420623fec52e779e1
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: cfa8a6c7cb2da35929151dfce09c0bc31ee69bb2
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566311"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611527"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 

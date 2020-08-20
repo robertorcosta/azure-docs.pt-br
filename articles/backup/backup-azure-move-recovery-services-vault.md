@@ -4,12 +4,12 @@ description: Instruções sobre como mover o cofre dos serviços de recuperaçã
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 40ef55fa3b86856051b840c5d88ab8fadae3b7c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fbbe914b3e567a1a136d735fc52965524bc17b67
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514094"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612564"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre dos serviços de recuperação entre assinaturas e grupos de recursos do Azure
 
@@ -57,23 +57,23 @@ Para mover um cofre dos serviços de recuperação e seus recursos associados pa
 
    ![Abrir o Cofre do Serviço de Recuperação](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-   Se você não vir as informações do **Essentials** para seu cofre, clique no ícone suspenso. Agora você deve ver as informações do Essentials para seu cofre.
+   Se você não vir as informações do **Essentials** para seu cofre, selecione o ícone suspenso. Agora você deve ver as informações do Essentials para seu cofre.
 
    ![Guia de Informações do Essentials](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. No menu de visão geral do cofre, clique em **alterar** ao lado de **Grupo de recursos** para abrir a folha **Mover recursos**.
+3. No menu visão geral do cofre, selecione **alterar** ao lado do **grupo de recursos**para abrir o painel **mover recursos** .
 
    ![Alterar Grupo de Recursos](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
-4. Na folha **mover recursos** , para o cofre selecionado, é recomendável mover os recursos relacionados opcionais marcando a caixa de seleção conforme mostrado na imagem a seguir.
+4. No painel **mover recursos** , para o cofre selecionado, é recomendável mover os recursos relacionados opcionais marcando a caixa de seleção conforme mostrado na imagem a seguir.
 
    ![Mover assinatura](./media/backup-azure-move-recovery-services/move-resource.png)
 
-5. Para adicionar o grupo de recursos de destino, na lista suspensa **Grupo de recursos**, selecione um grupo de recursos existente ou clique na opção **criar um novo grupo**.
+5. Para adicionar o grupo de recursos de destino, na lista suspensa **grupo de recursos** , selecione um grupo de recursos existente ou selecione **a opção criar um novo grupo** .
 
    ![Criar recurso](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
-6. Depois de adicionar o grupo de recursos, confirme a opção **Eu entendo que ferramentas e scripts associados aos recursos movidos não funcionarão até que eu os atualize para usar as novas IDs de recurso** e, em seguida, clique em **OK** para concluir a movimentação do cofre.
+6. Depois de adicionar o grupo de recursos, confirme **que eu entendo que as ferramentas e os scripts associados aos recursos movidos não funcionarão até que eu os atualize para usar a nova opção IDs de recurso** e, em seguida, selecione **OK** para concluir a movimentação do cofre.
 
    ![Mensagem de confirmação](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
@@ -86,11 +86,11 @@ Você pode mover um cofre dos Serviços de Recuperação e seus recursos associa
 
     ![Abrir o Cofre do Serviço de Recuperação](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-    Se você não visualizar as informações do **Essentials** para seu cofre, clique no ícone de menu suspenso. Agora você deve ver as informações do Essentials para seu cofre.
+    Se você não vir as informações do **Essentials** para seu cofre, selecione o ícone suspenso. Agora você deve ver as informações do Essentials para seu cofre.
 
     ![Guia de Informações do Essentials](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. No menu de visão geral do cofre, clique em **alterar** lado de **Assinatura** para abrir a folha **Mover recursos**.
+3. No menu visão geral do cofre, selecione **alterar** ao lado de **assinatura**para abrir o painel **mover recursos** .
 
    ![Alterar assinatura](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
 
@@ -99,11 +99,11 @@ Você pode mover um cofre dos Serviços de Recuperação e seus recursos associa
    ![mover recurso](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
 5. Selecione a assinatura de destino na lista suspensa **Assinaturas** para a qual você deseja que o cofre seja movido.
-6. Para adicionar o grupo de recursos de destino, na lista suspensa **Grupo de recursos**, selecione um grupo de recursos existente ou clique na opção **criar um novo grupo**.
+6. Para adicionar o grupo de recursos de destino, na lista suspensa **grupo de recursos** , selecione um grupo de recursos existente ou selecione **a opção criar um novo grupo** .
 
    ![Adicionar assinatura](./media/backup-azure-move-recovery-services/add-subscription.png)
 
-7. Clique na opção **Eu entendo que ferramentas e scripts associados aos recursos movidos não funcionarão até que eu os atualize para usar as novas IDs de recurso** para confirmar e, em seguida, clique em **OK**.
+7. Selecione **eu entendo que ferramentas e scripts associados a recursos movidos não funcionarão até que eu os atualize para usar a opção de novas IDs de recurso** para confirmar e, em seguida, selecione **OK**.
 
 > [!NOTE]
 > Backup entre assinaturas (cofre RS e VMs protegidas estão em assinaturas diferentes) não é um cenário com suporte. Além disso, a opção de redundância de armazenamento de LRS (armazenamento com redundância local) para GRS (armazenamento com redundância global) e vice-versa não pode ser modificada durante a operação de movimentação de cofre.

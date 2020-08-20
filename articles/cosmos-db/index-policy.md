@@ -4,14 +4,14 @@ description: Saiba como configurar e alterar a política de indexação padrão 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: e1254b31bffa72918b46c550e8354bd1c2195dfb
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: f723d7ac218869313f02212d27d9f96b74bb7f0f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077587"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607525"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 
@@ -30,15 +30,15 @@ O Azure Cosmos DB dá suporte a dois modos de indexação:
 - **Nenhum**: a indexação está desabilitada no contêiner. Isso é normalmente usado quando um contêiner é usado como um repositório de chave-valor puro sem a necessidade de índices secundários. Ele também pode ser usado para melhorar o desempenho de operações em massa. Depois que as operações em massa forem concluídas, o modo de índice poderá ser definido como consistente e, em seguida, monitorado usando o [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) até ser concluído.
 
 > [!NOTE]
-> O Azure Cosmos DB também dá suporte a um modo de indexação lento. A indexação lenta executa atualizações no índice em um nível de prioridade muito menor quando o mecanismo não está fazendo nenhum outro trabalho. Isso pode resultar em resultados de consulta **inconsistentes ou incompletos** . Se você planeja consultar um contêiner Cosmos, você não deve selecionar a indexação lenta. Em junho de 2020, apresentamos uma alteração que não permite mais que novos contêineres sejam definidos como modo de indexação lento. Se sua conta de Azure Cosmos DB já contiver pelo menos um contêiner com indexação lenta, essa conta será isenta automaticamente da alteração. Você também pode solicitar uma isenção entrando em contato com o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> O Azure Cosmos DB também dá suporte a um modo de indexação lento. A indexação lenta executa atualizações no índice em um nível de prioridade muito menor quando o mecanismo não está fazendo nenhum outro trabalho. Isso pode resultar em resultados de consulta **inconsistentes ou incompletos** . Se você planeja consultar um contêiner Cosmos, você não deve selecionar a indexação lenta. Em junho de 2020, apresentamos uma alteração que não permite mais que novos contêineres sejam definidos como modo de indexação lento. Se sua conta de Azure Cosmos DB já contiver pelo menos um contêiner com indexação lenta, essa conta será isenta automaticamente da alteração. Você também pode solicitar uma isenção entrando em contato com o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (exceto se você estiver usando uma conta do Azure Cosmos no modo sem [servidor](serverless.md) que não dá suporte à indexação lenta).
 
 Por padrão, a política de indexação é definida como `automatic` . É possível definir a `automatic` Propriedade na política de indexação como `true` . Definir essa propriedade como `true` permite que o Azure CosmosDB indexe automaticamente os documentos conforme eles são gravados.
 
-## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Incluindo e excluindo caminhos de propriedade
+## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a> Incluindo e excluindo caminhos de propriedade
 
 Uma política de indexação personalizada pode especificar caminhos de propriedade que são explicitamente incluídos ou excluídos da indexação. Ao otimizar o número de caminhos que são indexados, você pode reduzir substancialmente a latência e a carga de RU das operações de gravação. Esses caminhos são definidos seguindo [o método descrito na seção visão geral da indexação](index-overview.md#from-trees-to-property-paths) com as seguintes adições:
 
-- um caminho que leva a um valor escalar (cadeia de caracteres ou número) termina com`/?`
+- um caminho que leva a um valor escalar (cadeia de caracteres ou número) termina com `/?`
 - os elementos de uma matriz são abordados em conjunto por meio da `/[]` notação (em vez de `/0` , `/1` etc.)
 - o `/*` curinga pode ser usado para corresponder qualquer elemento abaixo do nó
 
@@ -58,11 +58,11 @@ Dando o mesmo exemplo novamente:
     }
 ```
 
-- o `headquarters` `employees` caminho do é`/headquarters/employees/?`
+- o `headquarters` `employees` caminho do é `/headquarters/employees/?`
 
-- o `locations` ' `country` caminho ' é`/locations/[]/country/?`
+- o `locations` ' `country` caminho ' é `/locations/[]/country/?`
 
-- o caminho para qualquer coisa em `headquarters` é`/headquarters/*`
+- o caminho para qualquer coisa em `headquarters` é `/headquarters/*`
 
 Por exemplo, poderíamos incluir o `/headquarters/employees/?` caminho. Esse caminho garantiria que indexamos a propriedade Employees, mas não indexo JSON aninhado adicional dentro dessa propriedade.
 
@@ -81,11 +81,11 @@ Qualquer política de indexação deve incluir o caminho raiz `/*` como um camin
 
 Ao incluir e excluir caminhos, você pode encontrar os seguintes atributos:
 
-- `kind`pode ser `range` ou `hash` . A funcionalidade de índice de intervalo fornece toda a funcionalidade de um índice de hash, portanto, é recomendável usar um índice de intervalo.
+- `kind` pode ser `range` ou `hash` . A funcionalidade de índice de intervalo fornece toda a funcionalidade de um índice de hash, portanto, é recomendável usar um índice de intervalo.
 
-- `precision`é um número definido no nível de índice para caminhos incluídos. Um valor `-1` indica o máximo de precisão. É recomendável sempre definir esse valor como `-1` .
+- `precision` é um número definido no nível de índice para caminhos incluídos. Um valor `-1` indica o máximo de precisão. É recomendável sempre definir esse valor como `-1` .
 
-- `dataType`pode ser `String` ou `Number` . Isso indica os tipos de propriedades JSON que serão indexadas.
+- `dataType` pode ser `String` ou `Number` . Isso indica os tipos de propriedades JSON que serão indexadas.
 
 Quando não for especificado, essas propriedades terão os seguintes valores padrão:
 
@@ -103,9 +103,9 @@ Se os caminhos incluídos e os caminhos excluídos tiverem um conflito, o caminh
 
 Veja um exemplo:
 
-**Caminho incluído**:`/food/ingredients/nutrition/*`
+**Caminho incluído**: `/food/ingredients/nutrition/*`
 
-**Caminho excluído**:`/food/ingredients/*`
+**Caminho excluído**: `/food/ingredients/*`
 
 Nesse caso, o caminho incluído tem precedência sobre o caminho excluído porque é mais preciso. Com base nesses caminhos, todos os dados no `food/ingredients` caminho ou aninhados em serão excluídos do índice. A exceção seria dado dentro do caminho incluído: `/food/ingredients/nutrition/*` , que seria indexado.
 
@@ -261,6 +261,9 @@ As seguintes considerações são usadas ao criar índices compostos para otimiz
 
 A política de indexação de um contêiner pode ser atualizada a qualquer momento [usando o portal do Azure ou um dos SDKs com suporte](how-to-manage-indexing-policy.md). Uma atualização para a política de indexação dispara uma transformação do índice antigo para o novo, que é executado online e in-loco (portanto, nenhum espaço de armazenamento adicional é consumido durante a operação). O índice antigo da política é transformado com eficiência na nova política sem afetar a disponibilidade de gravação, a disponibilidade de leitura ou a taxa de transferência provisionada no contêiner. A transformação de índice é uma operação assíncrona e o tempo necessário para concluir depende da taxa de transferência provisionada, do número de itens e de seu tamanho.
 
+> [!IMPORTANT]
+> A transformação de índice é uma operação que consome [unidades de solicitação](request-units.md). As unidades de solicitação consumidas por uma transformação de índice não serão cobradas no momento se você estiver usando contêineres sem [servidor](serverless.md) . Essas unidades de solicitação serão cobradas quando o servidor não estiver disponível para o público geral.
+
 > [!NOTE]
 > É possível acompanhar o progresso da transformação de índice [usando um dos SDKs](how-to-manage-indexing-policy.md).
 
@@ -284,7 +287,7 @@ Para cenários em que nenhum caminho de propriedade precisa ser indexado, mas o 
 
 - um modo de indexação definido como consistente e
 - nenhum caminho incluído e
-- `/*`como o único caminho excluído.
+- `/*` como o único caminho excluído.
 
 ## <a name="next-steps"></a>Próximas etapas
 

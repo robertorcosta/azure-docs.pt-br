@@ -13,12 +13,12 @@ ms.date: 08/14/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6cf9f7a005a80ab34e05ee293c20209e9d0b3f01
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 6648cfb717ade4b842e8ff470a46bf744b630363
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258582"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612309"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidade da Microsoft e fluxo de código de autorização do OAuth 2.0
 
@@ -233,6 +233,7 @@ As respostas de erro serão parecidas com esta:
 | `interaction_required` | Não padrão, pois a especificação OIDC chama isso somente no `/authorize` ponto de extremidade. A solicitação requer interação do usuário. Por exemplo, é necessária uma etapa de autenticação adicional. | Repita a `/authorize` solicitação com os mesmos escopos. |
 | `temporarily_unavailable` | O servidor está temporariamente muito ocupado para tratar da solicitação. | Repita a solicitação após um pequeno atraso. O aplicativo cliente pode explicar para o usuário que sua resposta está atrasada devido a uma condição temporária. |
 |`consent_required` | A solicitação requer consentimento do usuário. Esse erro não é padrão, pois geralmente é retornado apenas no `/authorize` ponto de extremidade por especificações de OIDC. Retornado quando um `scope` parâmetro foi usado no fluxo de resgate de código que o aplicativo cliente não tem permissão para solicitar.  | O cliente deve enviar o usuário de volta para o `/authorize` ponto de extremidade com o escopo correto para disparar o consentimento. |
+|`invalid_scope` | O escopo solicitado pelo aplicativo é inválido.  | Atualize o valor do parâmetro de escopo na solicitação de autenticação para um valor válido. |
 
 > [!NOTE]
 > Aplicativos de página única podem receber um erro `invalid_request` indicando que o resgate de token entre origens é permitido somente para o tipo de cliente “Aplicativo de Página Única”.  Isso indica que o URI de redirecionamento usado para solicitar o token não foi marcado como um URI de redirecionamento `spa`.  Revise as [etapas de registro do aplicativo](#redirect-uri-setup-required-for-single-page-apps) para saber como habilitar esse fluxo.

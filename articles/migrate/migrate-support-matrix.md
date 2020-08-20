@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações do
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: fae5af9c8717604d71ec2bf2628ea25125d5b2d5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aac7b7d39102a1fe115ddea483aee36af79e7fc4
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022711"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612105"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte das Migrações para Azure
 
@@ -45,7 +45,7 @@ Migração de Servidor das Migrações para Azure | NA | Migre [VMs do VMware](t
 [DMA](/sql/dma/dma-overview?view=sql-server-2017) | Avaliar SQL Server bancos de dados. | NA
 [DMS](../dms/dms-overview.md) | NA | Migrar SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Avaliar a infraestrutura de área de trabalho virtual (VDI) | NA
-[Movere](https://www.movere.io/) | Avaliar VMs do VMWare, VMs do Hyper-V, VMs do Xen, computadores físicos, estações de trabalho (incluindo VDI), cargas de trabalho de nuvem pública | NA
+[Movere](https://www.movere.io/) | Avaliar VMs do VMware, VMs do Hyper-V, VMs Xen, máquinas físicas, estações de trabalho (incluindo VDI), cargas de trabalho de nuvem pública | NA
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | NA | Migrar VMs do VMware, VMs do Hyper-V, VMs do Xen, VMs do KVM, computadores físicos, cargas de trabalho de nuvem pública 
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Acessar VMs do VMware, VMs do Hyper-V, servidores físicos e cargas de trabalho de nuvem pública. | NA
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Acessar VMs do VMware, VMs do Hyper-V, servidores físicos, cargas de trabalho de nuvem pública e bancos de dados do SQL Server. | NA

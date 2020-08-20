@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: cc294eb1bdfd4a6a8c6ad001c007f83a10983644
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 730df91d922c4bd6187748654f8184cfb7dc6ea0
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185801"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612700"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Dimensionar automaticamente os clusters do Azure HDInsight
 
@@ -72,14 +72,14 @@ Para reduzir verticalmente, o dimensionamento automático emite uma solicitaçã
 
 A tabela a seguir descreve os tipos de cluster e as versões que são compatíveis com o recurso de dimensionamento automático.
 
-| Versão | Spark | Hive | LLAP | O HBase | Kafka | Storm | ML |
+| Versão | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3,6 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
 | HDInsight 4,0 sem ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
 | HDInsight 3,6 com ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
 | HDInsight 4,0 com ESP | Sim | Sim | Sim | Sim* | Não | Não | Não |
 
-\*Os clusters HBase só podem ser configurados para dimensionamento baseado em agendamento, não baseado em carga.
+\* Os clusters HBase só podem ser configurados para dimensionamento baseado em agendamento, não baseado em carga.
 
 ## <a name="get-started"></a>Introdução
 
@@ -231,7 +231,7 @@ Todas as mensagens de status do cluster que você pode ver são explicadas na li
 | Atualizar  | A configuração de autoescala do cluster está sendo atualizada.  |
 | Configuração do HDInsight  | Uma operação de expansão ou redução do cluster está em andamento.  |
 | Erro de atualização  | O HDInsight atendeu a problemas durante a atualização de configuração de dimensionamento automático. Os clientes podem optar por repetir a atualização ou desabilitar o dimensionamento automático.  |
-| Erro  | Algo está errado com o cluster e não é utilizável. Exclua este cluster e crie um novo.  |
+| Erro do  | Algo está errado com o cluster e não é utilizável. Exclua este cluster e crie um novo.  |
 
 Para exibir o número atual de nós no cluster, acesse o gráfico de **tamanho do cluster** na página **visão geral** do cluster. Ou selecione o **tamanho do cluster** em **configurações**.
 
@@ -258,6 +258,26 @@ Os trabalhos em execução continuarão. Os trabalhos pendentes aguardarão o ag
 ### <a name="minimum-cluster-size"></a>Tamanho mínimo do cluster
 
 Não dimensione o cluster para menos de três nós. Dimensionar o cluster para menos de três nós pode fazer com que ele fique preso no modo de segurança devido à replicação de arquivo insuficiente.  Para obter mais informações, consulte [ficando preso no modo de segurança](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
+
+### <a name="llap-daemons-count"></a>Contagem de daemons LLAP
+
+No caso de clusters LLAP habilitados para autoescala, o evento de dimensionamento automático/baixo também aumenta/reduz o número de daemons LLAP para o número de nós de trabalho ativos. Mas essa alteração no número de daemons não é persistida na configuração **num_llap_nodes** no Ambari. Se os serviços do hive forem reiniciados manualmente, o número de daemons LLAP será redefinido de acordo com a configuração em Ambari.
+
+Vamos fazer o cenário abaixo:
+1. Um cluster habilitado para autoescala LLAP é criado com 3 nós de trabalho e o dimensionamento automático baseado em carga está habilitado com os nós de trabalho mínimos como 3 e máximo de nós de trabalho como 10.
+2. A configuração da contagem de daemons LLAP de acordo com o LLAP Configuration e Ambari é 3, pois o cluster foi criado com 3 nós de trabalho.
+3. Em seguida, um dimensionamento automático é disparado devido à carga no cluster, o cluster agora é dimensionado para 10 nós.
+4. A verificação de dimensionamento automático em execução em intervalos regulares observa que a contagem de daemons LLAP é 3, mas o número de nó de trabalho ativo é 10, o processo de dimensionamento automático agora aumentará a contagem de daemon LLAP para 10, mas essa alteração não será persistida no num_llap_nodes config-reAmbari.
+5. O dimensionamento automático agora está desabilitado.
+6. O cluster agora tem 10 nós de trabalho e 10 daemons LLAP.
+7. O serviço LLAP é reiniciado manualmente.
+8. Durante a reinicialização, ele verifica o num_llap_nodes config na configuração LLAP e observa o valor como 3, de modo que ele gira a 3 instância de daemons, mas o número de nós de trabalho é 10. Agora há uma incompatibilidade entre os dois.
+
+Quando isso acontece, precisamos alterar manualmente a configuração de **num_llap_node (número de nós para para executar o daemon LLAP do hive) em Hive-Interactive-env avançado** para corresponder à contagem de nós do trabalho ativo atual.
+
+**Observação**
+
+Os eventos de dimensionamento automático não alteram as **consultas simultâneas máximas** de configuração do hive em Ambari. Isso significa que o serviço interativo do hive Server 2 **pode manipular apenas o número determinado de consultas simultâneas em qualquer ponto de tempo, mesmo que a contagem de daemons LLAP seja dimensionada para cima e para baixo com base na carga/agendamento**. A recomendação geral é definir essa configuração para o cenário de pico de uso para que a intervenção manual possa ser evitada. No entanto, deve estar ciente de que **a definição de um valor alto para a configuração máxima de consultas simultâneas pode falhar na reinicialização do serviço interativo do servidor 2 se o número mínimo de nós de trabalho não puder acomodar o número determinado de tez AMS (igual à configuração de consultas simultâneas total máxima)**
 
 ## <a name="next-steps"></a>Próximas etapas
 

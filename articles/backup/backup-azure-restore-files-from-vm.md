@@ -4,12 +4,12 @@ description: Este artigo explica como recuperar arquivos e pastas de um ponto de
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 01235e116ca93f9c73e698e4d72ae0cb561824d5
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: ba97a5812359fc72e52d68e337762f7234aa3883
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262663"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611833"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 

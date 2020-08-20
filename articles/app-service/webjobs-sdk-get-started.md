@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 08cf736e533486b765f3b1a1173fcfe06c03306f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ded612fb79001adf2ada1a289603bc8a7561d38f
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212864"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612479"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -188,7 +188,7 @@ A partir da versão 3. x, você precisa instalar explicitamente a extensão de a
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-O emulador do Armazenamento do Microsoft Azure executado localmente não tem todos os recursos de que o WebJobs SDK precisa. Portanto, nesta seção, você criará uma conta de armazenamento do Azure e configurará o projeto para usá-la. Se você já tiver uma conta de armazenamento, pule para a etapa 6.
+O emulador de armazenamento do Azure que é executado localmente não tem todos os recursos que o SDK de trabalhos Web precisa. Portanto, nesta seção, você criará uma conta de armazenamento do Azure e configurará o projeto para usá-la. Se você já tiver uma conta de armazenamento, pule para a etapa 6.
 
 1. Abra **Gerenciador de Servidores** no Visual studio e entre no Azure. Clique com o botão direito do mouse no nó do **Azure** e selecione **Conectar à Assinatura do Microsoft Azure**.
 

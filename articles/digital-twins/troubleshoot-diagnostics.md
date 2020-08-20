@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: d47bb7cc868c5733c6e36290f097fec783764cd3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5091edbf9138cb8ff03df193dcbeed692aaf13e3
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003581"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612394"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solução de problemas do Azure digital gêmeos: log de diagnóstico
 
@@ -70,7 +70,7 @@ Cada categoria de log consiste em operações de gravação, leitura, exclusão 
 | --- | --- |
 | Gravar | PUT e PATCH |
 | Ler | GET |
-| Excluir | DELETE |
+| Excluir | Delete (excluir) |
 | Ação | POST |
 
 Aqui está uma lista abrangente das operações e das [chamadas da API REST do Azure digital gêmeos](https://docs.microsoft.com/rest/api/azure-digitaltwins/) que são registradas em log em cada categoria. 
@@ -88,7 +88,7 @@ Aqui está uma lista abrangente das operações e das [chamadas da API REST do A
 | ADTEventRoutesOperation | Microsoft. DigitalTwins/eventroutes/Write | Adicionar API às rotas de eventos |
 |  | Microsoft. DigitalTwins/eventroutes/Read | Rotas de eventos Get por ID e listar APIs |
 |  | Microsoft. DigitalTwins/eventroutes/Delete | API de exclusão de rotas de eventos |
-|  | Microsoft. DigitalTwins/eventroutes/Action | Saída de um evento para um serviço de ponto de extremidade (não uma chamada à API) |
+|  | Microsoft. DigitalTwins/eventroutes/Action | Falha ao tentar publicar eventos em um serviço de ponto de extremidade (não uma chamada à API) |
 | ADTDigitalTwinsOperation | Microsoft. DigitalTwins/DigitalTwins/Write | Gêmeos digital-adicionar, adicionar relação, atualizar, atualizar componente |
 |  | Microsoft. DigitalTwins/DigitalTwins/Read | Digital gêmeos Get por ID, obter componente, obter relação por ID, listar relações de entrada, relações de lista |
 |  | Microsoft. DigitalTwins/DigitalTwins/Delete | Gêmeos digital excluir, excluir relação |

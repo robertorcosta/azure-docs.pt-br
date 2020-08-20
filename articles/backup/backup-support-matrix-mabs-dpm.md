@@ -3,12 +3,12 @@ title: MABS & matriz de suporte do System Center DPM
 description: Este artigo resume o suporte ao backup do Azure quando você usa o Backup do Microsoft Azure Server (MABS) ou o System Center DPM para fazer backup de recursos locais e da VM do Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: a97c37accd1275fa99437862a8d939df31360e87
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 4ed4452cf8f1f44e90cfc991c2b1d13d30dddcd2
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810421"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612768"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com o Backup do Microsoft Azure Server ou o System Center DPM
 
@@ -50,7 +50,7 @@ Para mais informações:
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
 
-**Cenário** | **Agente** | **Localidade**
+**Cenário** | **Agente** | **Localização**
 --- | --- | ---
 **Fazer backup das cargas de trabalho/computadores locais** | O agente de proteção do DPM/MABS é executado nos computadores que você deseja fazer backup.<br/><br/> O agente MARS no servidor DPM/MABS.<br/> A versão mínima do agente dos Serviços de Recuperação do Microsoft Azure ou do agente de Backup do Azure necessária para habilitar esse recurso é 2.0.8719.0.  | O DPM/MABS deve estar em execução no local.
 
@@ -146,7 +146,7 @@ Para obter mais informações, consulte os [requisitos de roteamento do ExpressR
 
 É necessária conectividade com o serviço de Backup do Azure para os backups funcionarem corretamente e a assinatura do Azure deve estar ativa. A tabela a seguir mostra o comportamento se essas duas coisas não ocorrerem.
 
-**MABS no Azure** | **Assinatura** | **Backup/restauração**
+**MABS no Azure** | **Assinatura** | **Backup/Restauração**
 --- | --- | ---
 Conectado | Ativo | Faça backup no disco do DPM/MABS.<br/><br/> Faça backup no Azure.<br/><br/> Restaurar do disco.<br/><br/> Restaurar do Azure.
 Conectado | Expirado/desprovisionado | Nenhum backup em disco ou no Azure.<br/><br/> Se a assinatura tiver expirado, você poderá restaurar do disco ou do Azure.<br/><br/> Se a assinatura for encerrada, você não poderá restaurar do disco ou do Azure. Os pontos de recuperação do Azure são excluídos.

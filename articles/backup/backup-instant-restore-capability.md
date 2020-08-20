@@ -4,12 +4,12 @@ description: Funcionalidade de restauração instantânea do Azure e perguntas f
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 6ea4c3757da4e24ae0455cf35f119bf57ed644a6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: bb9a7a32306fc76ea8852787601f3b3b3828daf8
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531822"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611796"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obter o melhor backup e restaurar o desempenho com a funcionalidade de restauração instantânea do Backup do Azure
 
@@ -42,17 +42,17 @@ Por padrão, os instantâneos são retidos por dois dias. Esse recurso permite a
 ## <a name="feature-considerations"></a>Considerações do recurso
 
 * Instantâneos são armazenados com os discos para aumentar a criação do ponto de recuperação e acelerar as operações de restauração. Como resultado, você vê os custos de armazenamento correspondentes aos instantâneos obtidos durante esse período.
-* Os instantâneos incrementais são armazenados como blobs de página. Todos os usuários de discos não gerenciados são cobrados pelos instantâneos armazenados na conta de armazenamento local. Uma vez que as coleções de ponto de restauração usadas por backups de VM gerenciada usam instantâneos de blob no nível de armazenamento subjacente, para discos gerenciados, você vê os custos correspondentes a preços de instantâneo de blob, e eles são incrementais.
+* Os instantâneos incrementais são armazenados como blobs de página. Todos os usuários de discos não gerenciados são cobrados pelos instantâneos armazenados na conta de armazenamento local. Como as coleções de pontos de restauração usadas por backups de VM gerenciados usam instantâneos de blob no nível de armazenamento subjacente, para discos gerenciados, você verá os custos correspondentes ao preço do instantâneo de BLOB e eles são incrementais.
 * Para contas de armazenamento premium, os instantâneos obtidos para pontos de recuperação instantâneos contam para o limite de 10 TB de espaço alocado.
-* Você consegue configurar a retenção de instantâneos com base nas necessidades de restauração. Dependendo do requisito, você pode definir a retenção de instantâneos como, no mínimo, um dia na folha de política de backup, conforme explicado abaixo. Isso o ajudará a economizar o custo para retenção de instantâneo se você não executar restaurações com frequência.
-* É uma atualização direcional, uma vez atualizada para restauração instantânea, você não pode voltar.
+* Você consegue configurar a retenção de instantâneos com base nas necessidades de restauração. Dependendo do requisito, você pode definir a retenção de instantâneo para um mínimo de um dia no painel de política de backup, conforme explicado abaixo. Isso o ajudará a economizar o custo para retenção de instantâneo se você não executar restaurações com frequência.
+* É uma única atualização direcional. Depois de atualizado para a restauração instantânea, você não pode voltar.
 
 >[!NOTE]
 >Com o upgrade da restauração instantânea, a duração da retenção de instantâneos para todos os clientes (**tanto novos quanto existentes**) será definida com um valor padrão de dois dias. No entanto, você pode definir a duração de acordo com seu requisito para qualquer valor entre 1 e 5 dias.
 
 ## <a name="cost-impact"></a>Impacto de custo
 
-Os instantâneos incrementais são armazenados na conta de armazenamento da VM, que é usada para recuperação instantânea. Instantâneo incremental significa que o espaço ocupado por um instantâneo é igual ao espaço ocupado por páginas escritas depois que o instantâneo foi criado. A cobrança ainda é para o espaço usado por GB ocupado pelo instantâneo e o preço por GB é o mesmo mencionado na página de [preços](https://azure.microsoft.com/pricing/details/managed-disks/). Para VMs que usam discos não gerenciados, os instantâneos podem ser vistos no menu do arquivo VHD de cada disco. Para discos gerenciados, os instantâneos são armazenados em um recurso de coleção de pontos de restauração em um grupo de recursos designado, e os instantâneos em si não são diretamente visíveis.
+Os instantâneos incrementais são armazenados na conta de armazenamento da VM, que é usada para recuperação instantânea. Instantâneo incremental significa que o espaço ocupado por um instantâneo é igual ao espaço ocupado por páginas escritas depois que o instantâneo foi criado. A cobrança ainda é para o espaço usado por GB ocupado pelo instantâneo e o preço por GB é o mesmo mencionado na página de [preços](https://azure.microsoft.com/pricing/details/managed-disks/). Para VMs que usam discos não gerenciados, os instantâneos podem ser vistos no menu do arquivo VHD de cada disco. Para discos gerenciados, os instantâneos são armazenados em um recurso de coleção de pontos de restauração em um grupo de recursos designado e os instantâneos propriamente ditos não são visíveis diretamente.
 
 >[!NOTE]
 > A retenção de instantâneos é fixada em 5 dias para políticas semanais.
@@ -61,7 +61,7 @@ Os instantâneos incrementais são armazenados na conta de armazenamento da VM, 
 
 ### <a name="using-azure-portal"></a>Usando o Portal do Azure
 
-No portal do Azure, você pode ver um campo adicionado na folha **política de backup de VM** na seção **restauração instantânea** . Você pode alterar a duração da retenção de instantâneos na folha **Política de Backup da VM** para todas as VMs associadas à política de backup específica.
+No portal do Azure, você pode ver um campo adicionado no painel **política de backup de VM** na seção **restauração instantânea** . Você pode alterar a duração da retenção de instantâneo no painel **política de backup de VM** para todas as VMs associadas à política de backup específica.
 
 ![Funcionalidade de restauração instantânea](./media/backup-azure-vms/instant-restore-capability.png)
 
@@ -106,11 +106,11 @@ Se o tipo de recuperação é "instantâneo e cofre", a restauração é feita a
 
 ### <a name="what-happens-if-i-select-retention-period-of-restore-point-tier-2-less-than-the-snapshot-tier1-retention-period"></a>O que acontece se eu selecionar o período de retenção do ponto de restauração (Tier2) menor que o período de retenção instantâneo (Tier1)?
 
-O novo modelo não permite excluir o ponto de restauração (Tier2), a menos que o instantâneo (Tier1) seja excluído. Recomendamos agendar o período de retenção do ponto de restauração (Camada 2) de forma a ser mais longo que o período de retenção de instantâneos.
+O novo modelo não permite excluir o ponto de restauração (tier2), a menos que o instantâneo (nível 1) seja excluído. Recomendamos agendar o período de retenção do ponto de restauração (Camada 2) de forma a ser mais longo que o período de retenção de instantâneos.
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Por que meu instantâneo existe mesmo após o período de retenção definido na política de backup?
 
-Se o ponto de recuperação tem um instantâneo e esse é o período de retenção mais recente disponível, ele é mantido até o momento em que houver um backup bem-sucedido. Isso é de acordo com a política de "coleta de lixo" (GC) projetada hoje que exige pelo menos um RP mais recente para estar sempre presente no caso de falha de todos os backups devido a um problema na VM. Em cenários normais, os períodos de retenção são limpos no máximo 24 horas após sua expiração.
+Se o ponto de recuperação tiver um instantâneo e esse for o RP mais recente disponível, ele será retido até o próximo backup bem-sucedido. Isso é de acordo com a política de "coleta de lixo" (GC) projetada hoje que exige pelo menos um RP mais recente para estar sempre presente no caso de falha de todos os backups devido a um problema na VM. Em cenários normais, os períodos de retenção são limpos no máximo 24 horas após sua expiração.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Não preciso da funcionalidade de restauração instantânea. Ele pode ser desabilitado?
 

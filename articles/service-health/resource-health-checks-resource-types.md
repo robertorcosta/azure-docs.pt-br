@@ -3,12 +3,12 @@ title: Tipos de recurso com suporte por meio do Azure Resource Health | Microsof
 description: Tipos de recurso com suporte por meio do Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: b6420283f3d3c07182faa2cb2a82ba7b2d784055
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 2c002ab89b1cae4db6d3337908bb401039cb2295
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272647"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611935"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de integridade no Azure Resource Health
 Abaixo, temos uma lista completa de todas as verificações executadas por meio do Resource Health segundo o tipo do recurso.
@@ -46,7 +46,7 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 ## <a name="microsoftclassiccomputedomainnames"></a>Microsoft. classiccompute/nome_do_domínio
 |Verificações executadas|
 |---|
-|<ul><li>O nome hospedado do serviço de nuvem está em execução?</li><li>A inicialização do SO host foi concluída?</li><li>O contêiner da máquina virtual está provisionado e ligado?</li><li>Há conectividade de rede entre o host e a conta de armazenamento?</li><li>A inicialização do SO convidado foi concluída?</li><li>Há manutenção planejada contínua?</li><li>O hardware do host foi degradado e previsto para falhar em breve?</li></ul>|
+|<ul><li>A implantação do slot de produção está íntegra em todas as instâncias de função?</li><li>A função está íntegra em todas as suas instâncias de VM?</li><li>Qual é o status de integridade de cada VM em uma função de um serviço de nuvem?</li><li>O status da VM foi alterado devido à operação iniciada pela plataforma ou pelo cliente?</li><li>A inicialização do SO convidado foi concluída?</li><li>Há manutenção planejada contínua?</li><li>O hardware do host foi degradado e previsto para falhar em breve?</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |Verificações executadas|

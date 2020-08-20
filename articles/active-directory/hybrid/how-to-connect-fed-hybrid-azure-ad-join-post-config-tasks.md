@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a0ee226fcddb3bfc216e1e160b5571fde59a41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da5cefbacbd3851d2609a687c1948d9bcba5ffae
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807580"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612462"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Tarefas de configuração de postagem para junção do Microsoft Azure Active Directory Híbrido
 
@@ -87,9 +87,6 @@ O instalador cria uma tarefa agendada no sistema que é executada no contexto do
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. configurar a política de grupo para permitir o registro do dispositivo
 
 Para obter informações sobre como permitir a junção híbrida do Azure AD para dispositivos individuais, consulte [validação controlada do ingresso no Azure ad híbrido](../devices/hybrid-azuread-join-control.md).
-
-> [!NOTE]
-> As configurações de política para 2012 R2 estão em **configuração do computador > políticas > Modelos Administrativos > componentes do Windows > Workplace Join > Workplace ingressar automaticamente nos computadores cliente**.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Configurar o write-back de dispositivo](how-to-connect-device-writeback.md)

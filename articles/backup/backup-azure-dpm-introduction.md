@@ -3,12 +3,12 @@ title: Preparar o servidor DPM para fazer backup de cargas de trabalho
 description: Neste artigo, saiba como preparar os backups do System Center Data Protection Manager (DPM) para o Azure usando o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: a61112f04d3faef83a80395a7d316c63130e7758
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 7043b4411856addf0fae26ee5402c4d3878e7f12
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263258"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612649"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparar-se para fazer backup de cargas de trabalho no Azure com o System Center DPM
 
@@ -127,7 +127,7 @@ Todos os computadores cujo backup é feito pelo Backup do Azure devem ter o agen
 7. O agente do Backup do Azure instala o .NET Framework 4.5 e o Windows PowerShell (se não estiverem instalados) para concluir a instalação.
 8. Depois que o agente for instalado, você pode **Fechar** a janela.
 
-    ![Fechar](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
+    ![Feche](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
 
 ## <a name="register-the-dpm-server-in-the-vault"></a>Registrar o servidor DPM no cofre
 

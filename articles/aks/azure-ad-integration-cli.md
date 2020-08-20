@@ -6,12 +6,12 @@ author: TomGeske
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: thomasge
-ms.openlocfilehash: dfcbf214c374f449a04139ce7bf4fbb6853ed524
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ab25ec5406c75316aaa1ee8efd0192dc0207ad79
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006852"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612411"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli-legacy"></a>Integrar Azure Active Directory com o serviço kubernetes do Azure usando o CLI do Azure (Herdado)
 
@@ -27,6 +27,7 @@ Para obter o script de exemplo completo usado neste artigo, consulte [CLI do Azu
 ## <a name="the-following-limitations-apply"></a>As seguintes limitações se aplicam:
 
 - O Azure AD só pode ser habilitado no cluster habilitado para RBAC.
+- A integração herdada do Azure AD só pode ser habilitada durante a criação do cluster.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -176,7 +177,7 @@ az ad signed-in-user show --query userPrincipalName -o tsv
 > [!IMPORTANT]
 > Se o usuário para o qual você concede a associação de RBAC estiver no mesmo locatário do Azure AD, atribua permissões com base no *userPrincipalName*. Se o usuário estiver em um locatário do Azure AD diferente, consulte e use a propriedade *ObjectID* em seu lugar.
 
-Crie um manifesto do YAML chamado `basic-azure-ad-binding.yaml` e cole o conteúdo a seguir. Na última linha, substitua *userPrincipalName_or_objectId* pela saída de ID de objeto ou UPN do comando anterior:
+Crie um manifesto do YAML chamado `basic-azure-ad-binding.yaml` e cole o conteúdo a seguir. Na última linha, substitua *userPrincipalName_or_objectId*  pela saída de ID de objeto ou UPN do comando anterior:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -244,7 +245,7 @@ error: You must be logged in to the server (Unauthorized)
 
 * Você definiu a ID de objeto ou o UPN apropriado, dependendo de se a conta de usuário está no mesmo locatário do Azure AD ou não.
 * O usuário não é um membro de mais de 200 grupos.
-* O segredo definido no registro do aplicativo para o servidor corresponde ao valor configurado usando`--aad-server-app-secret`
+* O segredo definido no registro do aplicativo para o servidor corresponde ao valor configurado usando `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Próximas etapas
 

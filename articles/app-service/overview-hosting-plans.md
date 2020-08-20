@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: c6aa5200220c55407ade5910b4232fffed3ffe19
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 3b339b359ddbaf105b95bdf5d94ee0f66f339a82
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141577"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611442"
 ---
 # <a name="azure-app-service-plan-overview"></a>Visão geral do plano do Serviço de Aplicativo do Azure
 
@@ -65,11 +65,11 @@ Para obter informações sobre o dimensionamento de um aplicativo, consulte [Dim
 
 Esta seção descreve como os aplicativos do serviço de aplicativo são cobrados. Para obter informações detalhadas de preço específicas a certas regiões, consulte [Preço do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/).
 
-Exceto para o tipo **Grátis**, um plano de Serviço de Aplicativo carrega uma carga horária sobre os recursos de computação que usa.
+Exceto para a camada **gratuita** , um plano do serviço de aplicativo carrega um encargo sobre os recursos de computação que ele usa.
 
-- No tipo **Compartilhado**, cada aplicativo recebe uma cota de minutos de CPU, portanto _cada aplicativo_ é cobrado por hora para a cota de CPU.
-- Nas camadas de computação dedicadas (**Basic**, **Standard**, **Premium**, **PremiumV2**), o plano do serviço de aplicativo define o número de instâncias de VM para as quais os aplicativos são dimensionados, de modo que _cada instância de VM_ no plano do serviço de aplicativo tem um custo por hora. Essas instâncias de máquina virtual são cobradas da mesma forma, independentemente de quantos aplicativos forem executados nelas. Para evitar cobranças inesperadas, consulte [Limpar um plano do serviço de aplicativo](app-service-plan-manage.md#delete).
-- No tipo **Isolado**, o ambiente do serviço de aplicativo define o número de trabalhadores isolados que executam seus aplicativos, e _cada trabalhador_ é cobrado por hora. Além disso, há um valor base por hora para a execução do ambiente do serviço de aplicativo em si.
+- Na camada **compartilhada** , cada aplicativo recebe uma cota de minutos de CPU, de modo que _cada aplicativo_ é cobrado pela cota de CPU.
+- Nas camadas de computação dedicadas (**Basic**, **Standard**, **Premium**, **PremiumV2**), o plano do serviço de aplicativo define o número de instâncias de VM para as quais os aplicativos são dimensionados para que _cada instância de VM_ no plano do serviço de aplicativo seja cobrada. Essas instâncias de máquina virtual são cobradas da mesma forma, independentemente de quantos aplicativos forem executados nelas. Para evitar cobranças inesperadas, consulte [Limpar um plano do serviço de aplicativo](app-service-plan-manage.md#delete).
+- Na camada **isolada** , o ambiente do serviço de aplicativo define o número de trabalhadores isolados que executam seus aplicativos e _cada trabalho_ é cobrado. Além disso, há uma tarifa de carimbo simples para a execução do Ambiente do Serviço de Aplicativo em si.
 
 Você não é cobrado pelo uso dos recursos do serviço de aplicativo que estão disponíveis para você (Configurando domínios personalizados, certificados TLS/SSL, slots de implantação, backups, etc.). As exceções são:
 

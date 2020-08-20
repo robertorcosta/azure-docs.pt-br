@@ -3,12 +3,12 @@ title: Configurar um dispositivo de migrações para Azure no Azure governamenta
 description: Saiba como configurar um dispositivo de migrações para Azure no Azure governamental
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: f0ebc882646b5ff3f62ddddf91cffc85cb5e0da6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 993c25d7b2c580df47b61c836b885ed6379e8640
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109970"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612258"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configurar um dispositivo no Azure governamental 
 
@@ -34,7 +34,7 @@ Para configurar o dispositivo para VMware, você baixa um arquivo compactado do 
 ### <a name="download-the-script"></a>Baixar o script
 
 1.  Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, clique em **Descobrir**.
-2.  Em **Descobrir computadores** > **Os computadores estão virtualizados?** , selecione **Sim, com o hipervisor do VMware vSphere**.
+2.  Em **Descobrir computadores** > **As suas máquinas são virtualizadas?** , selecione **Sim, com o hipervisor do VMware vSphere**.
 3.  Clique em **baixar**para baixar o arquivo compactado. 
 
 
@@ -71,7 +71,7 @@ Para executar o script:
 1. Extraia o arquivo compactado em uma pasta no computador que hospedará o dispositivo. Você não deve executar o script em um computador em um dispositivo de Migrações para Azure existente.
 2. Inicie o PowerShell no computador com privilégios de administrador (elevado).
 3. Altere o diretório do PowerShell para a pasta que contém o conteúdo extraído do arquivo compactado baixado.
-4. Execute o script **AzureMigrateInstaller.ps1**, da seguinte maneira:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
+4. Execute o script **AzureMigrateInstaller.ps1**, da seguinte maneira: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
 5. Depois que o script é executado com êxito, ele inicia o aplicativo Web do dispositivo para que você possa configurar o dispositivo. Se você encontrar problemas, examine os logs de script em C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Verificar acesso
@@ -124,7 +124,7 @@ Para executar o script:
 1. Extraia o arquivo compactado em uma pasta no computador que hospedará o dispositivo. Você não deve executar o script em um computador em um dispositivo de Migrações para Azure existente.
 2. Inicie o PowerShell no computador com privilégios de administrador (elevado).
 3. Altere o diretório do PowerShell para a pasta que contém o conteúdo extraído do arquivo compactado baixado.
-4. Execute o script **AzureMigrateInstaller.ps1**, da seguinte maneira:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ``` 
+4. Execute o script **AzureMigrateInstaller.ps1**, da seguinte maneira: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ``` 
 5. Depois que o script é executado com êxito, ele inicia o aplicativo Web do dispositivo para que você possa configurar o dispositivo. Se você encontrar problemas, examine os logs de script em C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Verificar acesso
@@ -176,7 +176,7 @@ Para executar o script:
 1. Extraia o arquivo compactado em uma pasta no computador que hospedará o dispositivo. Você não deve executar o script em um computador em um dispositivo de Migrações para Azure existente.
 2. Inicie o PowerShell no computador com privilégios de administrador (elevado).
 3. Altere o diretório do PowerShell para a pasta que contém o conteúdo extraído do arquivo compactado baixado.
-4. Execute o script **AzureMigrateInstaller.ps1**, da seguinte maneira:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
+4. Execute o script **AzureMigrateInstaller.ps1**, da seguinte maneira: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
 5. Depois que o script é executado com êxito, ele inicia o aplicativo Web do dispositivo para que você possa configurar o dispositivo. Se você encontrar problemas, examine os logs de script em C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Verificar acesso

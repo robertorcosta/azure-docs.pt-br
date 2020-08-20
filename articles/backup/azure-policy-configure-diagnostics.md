@@ -3,12 +3,12 @@ title: Definir configurações de diagnóstico de cofre em escala
 description: Definir Log Analytics configurações de diagnóstico para todos os cofres em um determinado escopo usando Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 2400be15dcd46084e9a605076c00cf5c5ac92463
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 58ef8af56bb3f44664ffaec6a17bab5f5e92808e
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498042"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612496"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Definir configurações de diagnóstico de cofre em escala
 
@@ -22,7 +22,7 @@ Para simplificar a criação de configurações de diagnóstico em escala (com L
 
 * A política pode ser aplicada de uma vez a todos os cofres dos serviços de recuperação em uma determinada assinatura (ou a um grupo de recursos dentro da assinatura). O usuário que atribui a política precisa ter acesso de ' proprietário ' à assinatura à qual a política está atribuída.
 
-* O espaço de trabalho LA, conforme especificado pelo usuário (para o qual os dados de diagnóstico serão enviados) pode estar em uma assinatura diferente dos cofres aos quais a política é atribuída. O usuário precisa ter o acesso ' leitor ', ' colaborador ' ou ' proprietário ' à assinatura na qual o espaço de trabalho especificado existe.
+* O espaço de trabalho LA conforme especificado pelo usuário (para o qual os dados de diagnóstico serão enviados) pode estar em uma assinatura diferente dos cofres aos quais a política é atribuída. O usuário precisa ter o acesso ' leitor ', ' colaborador ' ou ' proprietário ' à assinatura na qual o espaço de trabalho especificado existe.
 
 * O escopo do grupo de gerenciamento não tem suporte no momento.
 
@@ -36,15 +36,15 @@ Para atribuir a política para cofres no escopo necessário, siga as etapas abai
 2. Selecione **definições** no menu à esquerda para obter uma lista de todas as políticas internas nos recursos do Azure.
 3. Filtre a lista para **Category = Monitoring**. Localize a política denominada **[Preview]: implantar configurações de diagnóstico para o cofre dos serviços de recuperação para log Analytics espaço de trabalho para categorias específicas de recursos**.
 
-    ![Folha definição de política](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
+    ![Painel de definição de política](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 
-4. Clique no nome da política. Você será redirecionado para a definição detalhada dessa política.
+4. Selecione o nome da política. Você será redirecionado para a definição detalhada dessa política.
 
     ![Definição de política detalhada](./media/backup-azure-policy-configure-diagnostics/detailed-policy-definition.png)
 
-5. Clique no botão **atribuir** na parte superior da folha. Isso redireciona você para a folha **atribuir política** .
+5. Selecione o botão **atribuir** na parte superior do painel. Isso redireciona você para o painel **atribuir política** .
 
-6. Em **noções básicas**, clique nos três pontos ao lado do campo **escopo** . Isso abre uma folha de contexto à direita, na qual você pode selecionar a assinatura na qual a política será aplicada. Opcionalmente, você também pode selecionar um grupo de recursos, para que a política seja aplicada somente para cofres em um determinado grupo de recursos.
+6. Em **noções básicas**, selecione os três pontos ao lado do campo **escopo** . Isso abre um painel de contexto à direita no qual você pode selecionar a assinatura na qual a política será aplicada. Opcionalmente, você também pode selecionar um grupo de recursos, para que a política seja aplicada somente para cofres em um determinado grupo de recursos.
 
     ![Noções básicas de atribuição de política](./media/backup-azure-policy-configure-diagnostics/policy-assignment-basics.png)
 
@@ -53,7 +53,7 @@ Para atribuir a política para cofres no escopo necessário, siga as etapas abai
     * **Nome do perfil** -o nome que será atribuído às configurações de diagnóstico criadas pela política.
     * **Espaço de trabalho log Analytics** -o espaço de trabalho log Analytics ao qual a configuração de diagnóstico deve ser associada. Os dados de diagnóstico de todos os cofres no escopo da atribuição de política serão enviados para o espaço de trabalho especificado.
 
-    * **Nome da marca de exclusão (opcional) e valor da marca de exclusão (opcional)** -você pode optar por excluir cofres contendo um determinado nome de marca e valor da atribuição de política. Por exemplo, se você **não** quiser que uma configuração de diagnóstico seja adicionada a esses cofres que têm uma marca ' istest ' definida como o valor ' Yes ', deverá inserir ' istest ' no campo de **nome da marca de exclusão** e ' Yes ' no campo valor da **marca de exclusão** . Se algum (ou ambos) desses dois campos forem deixados vazios, a política será aplicada a todos os cofres relevantes, independentemente das marcas que eles contêm.
+    * **Nome da marca de exclusão (opcional) e valor da marca de exclusão (opcional)** -você pode optar por excluir cofres contendo um determinado nome de marca e valor da atribuição de política. Por exemplo, se você **não** quiser que uma configuração de diagnóstico seja adicionada a esses cofres que tenham uma marca ' istest ' definida com o valor ' Yes ', deverá inserir ' istest ' no campo de **nome da marca de exclusão** e ' Yes ' no campo valor da **marca de exclusão** . Se algum (ou ambos) desses dois campos forem deixados vazios, a política será aplicada a todos os cofres relevantes, independentemente das marcas que eles contêm.
 
     ![Parâmetros de atribuição de política](./media/backup-azure-policy-configure-diagnostics/policy-assignment-parameters.png)
 
@@ -61,7 +61,7 @@ Para atribuir a política para cofres no escopo necessário, siga as etapas abai
 
     ![Correção de atribuição de política](./media/backup-azure-policy-configure-diagnostics/policy-assignment-remediation.png)
 
-9. Navegue até a guia **revisar + criar** e clique em **criar**.
+9. Navegue até a guia **revisar + criar** e selecione **criar**.
 
 ## <a name="under-what-conditions-will-the-remediation-task-apply-to-a-vault"></a>Em quais condições a tarefa de correção será aplicada a um cofre?
 
@@ -70,7 +70,7 @@ A tarefa de correção é aplicada aos cofres que não são compatíveis, de aco
 * Nenhuma configuração de diagnóstico está presente para o cofre.
 * As configurações de diagnóstico estão presentes para o cofre, mas nenhuma das configurações tem **todos** os eventos específicos do recurso habilitados com la como destino e o **recurso específico** selecionado na alternância.
 
-Portanto, mesmo que um usuário tenha um cofre com o evento AzureBackupReport habilitado no modo AzureDiagnostics (que tem suporte nos relatórios de backup), a tarefa de correção ainda se aplicará a esse cofre, pois o modo específico do recurso é a maneira recomendada de criar configurações de diagnóstico, no [futuro](./backup-azure-diagnostic-events.md#legacy-event).
+Portanto, mesmo que um usuário tenha um cofre com o evento AzureBackupReport habilitado no modo AzureDiagnostics (que tem suporte nos relatórios de backup), a tarefa de correção ainda se aplicará a esse cofre, pois o modo específico ao recurso é a maneira recomendada de criar configurações de diagnóstico, no [futuro](./backup-azure-diagnostic-events.md#legacy-event).
 
 Além disso, se um usuário tiver um cofre com apenas um subconjunto dos seis eventos específicos do recurso habilitado, a tarefa de correção será aplicada a esse cofre, já que os relatórios de backup funcionarão como esperado somente se todos os seis eventos específicos do recurso estiverem habilitados.
 

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: f2f752d6435b311c1737d531f5572aed5af223f2
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.date: 08/10/2020
+ms.openlocfilehash: 608740ea52cf82485bae073d9679107ac52baa28
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276644"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611119"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Ler réplicas no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -126,7 +126,7 @@ Saiba como [interromper a replicação para uma réplica](howto-read-replicas-po
 ## <a name="failover"></a>Failover
 Não há nenhum failover automatizado entre servidores mestre e de réplica. 
 
-Como a replicação é assíncrona, há um atraso entre o mestre e a réplica. A quantidade de latência pode ser influenciada por vários fatores, como a intensidade da carga de trabalho em execução no servidor mestre e a latência entre os data centers. Na maioria dos casos, a latência de réplica varia entre alguns segundos e alguns minutos. Você pode acompanhar o retardo de replicação real usando o *retardo de réplica*de métrica, que está disponível para cada réplica. Essa métrica mostra o tempo desde a última transação reproduzida. É recomendável que você identifique o que é o retardo médio, observando o atraso da réplica em um período de tempo. Você pode definir um alerta na latência de réplica, de modo que, se ele ficar fora do intervalo esperado, você poderá executar uma ação.
+Como a replicação é assíncrona, há um atraso entre o mestre e a réplica. A quantidade de latência pode ser influenciada por vários fatores, como a intensidade da carga de trabalho em execução no servidor mestre e a latência entre os data centers. Na maioria dos casos, o atraso da réplica varia entre alguns segundos e alguns minutos. Você pode acompanhar o retardo de replicação real usando o *retardo de réplica*de métrica, que está disponível para cada réplica. Essa métrica mostra o tempo desde a última transação reproduzida. É recomendável que você identifique o que é o retardo médio, observando o atraso da réplica em um período de tempo. Você pode definir um alerta na latência de réplica, de modo que, se ele ficar fora do intervalo esperado, você poderá executar uma ação.
 
 > [!Tip]
 > Se você realizar o failover para a réplica, o retardo no momento em que você desvincular a réplica do mestre indicará a quantidade de dados perdidos.
@@ -163,18 +163,21 @@ Uma réplica de leitura é criada como um novo servidor de Banco de Dados do Azu
 ### <a name="replica-configuration"></a>Configuração da réplica
 Uma réplica é criada usando as mesmas configurações de computação e armazenamento que o mestre. Depois que uma réplica é criada, várias configurações podem ser alteradas, incluindo o período de retenção do armazenamento e do backup.
 
-o vCores e o tipo de preço também podem ser alterados na réplica sob as seguintes condições:
-* PostgreSQL requer que o valor do parâmetro `max_connections` na réplica de leitura seja maior ou igual ao valor mestre; caso contrário, a réplica não será iniciada. No banco de dados do Azure para PostgreSQL, o `max_connections` valor do parâmetro é baseado na SKU (vCores e tipo de preço). Para obter mais informações, confira [Limites no Banco de Dados do Azure para PostgreSQL](concepts-limits.md). 
-* Não há suporte para o dimensionamento de ou para o tipo de preço básico
-
-> [!IMPORTANT]
-> Antes que uma configuração mestre seja atualizada para um novo valor, atualize a configuração de réplica para um valor igual ou maior. Esta ação garante que a réplica pode acompanhar as alterações feitas ao mestre.
-
-Se você tentar atualizar os valores de servidor descritos acima, mas não atender aos limites, você receberá um erro.
-
 As regras de firewall, as regras de rede virtual e as configurações de parâmetros não são herdadas do servidor mestre para a réplica quando a réplica é criada ou posteriormente.
 
-### <a name="basic-tier"></a>Camada básica
+### <a name="scaling"></a>Scaling
+Dimensionamento de vCores ou entre Uso Geral e com otimização de memória:
+* O PostgreSQL requer que a `max_connections` configuração em um servidor secundário seja [maior ou igual à configuração no primário](https://www.postgresql.org/docs/current/hot-standby.html), caso contrário, o secundário não será iniciado.
+* No banco de dados do Azure para PostgreSQL, o máximo permitido de conexões para cada servidor é corrigido para o SKU de computação, já que as conexões ocupam memória. Você pode saber mais sobre o [mapeamento entre max_connections e SKUs de computação](concepts-limits.md).
+* **Escalar verticalmente**: primeiro escalar verticalmente a computação de uma réplica e, em seguida, escalar verticalmente o primário. Essa ordem impedirá que erros violem o `max_connections` requisito.
+* **Reduzir verticalmente**: primeiro reduza horizontalmente a computação do primário e reduza a réplica. Se você tentar dimensionar a réplica abaixo do primário, haverá um erro, pois isso viola o `max_connections` requisito.
+
+Armazenamento em escala:
+* Todas as réplicas têm o aumento automático de armazenamento habilitado para evitar problemas de replicação de uma réplica de armazenamento completo. Essa configuração não pode ser desabilitada.
+* Você também pode escalar verticalmente o armazenamento manualmente, como faria em qualquer outro servidor
+
+
+### <a name="basic-tier"></a>Camada Básica
 Os servidores de camada básica oferecem suporte apenas à replicação de mesma região.
 
 ### <a name="max_prepared_transactions"></a>max_prepared_transactions

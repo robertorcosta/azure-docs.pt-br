@@ -2,13 +2,13 @@
 title: O que há de novo no Azure Site Recovery
 description: Fornece um resumo dos novos recursos e das atualizações mais recentes no serviço de Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: 28bdf902ab74bf4bb94a6bc02a558bf200b25e52
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/20/2020
+ms.openlocfilehash: d7e3a8e29800943b28c64848fc66f27f888d439f
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836625"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611731"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novidades do Site Recovery
 
@@ -22,17 +22,25 @@ Para componentes de Site Recovery, damos suporte a versões N-4, em que N é a v
 
 **Atualização** |  **Instalação unificada** | **Ova do servidor de configuração** | **Agente de serviço de mobilidade** | **Provedor de Recuperação de Site** | **Agente dos Serviços de Recuperação**
 --- | --- | --- | --- | --- | ---
+[ROLLUP 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
 [ROLLUP 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
 [ROLLUP 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | Máquinas HyperV-2.0.9183.0 <br> Máquinas VMware-2.0.9177.0
 [ROLLUP 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 [ROLLUP 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
-[ROLLUP 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
-[ROLLUP 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
 
 [Saiba mais](service-updates-how-to.md) sobre a instalação e o suporte da atualização.
 
-> [!NOTE]
-> O pacote cumulativo de atualizações 44 não é mostrado na tabela porque não inclui atualizações para os provedores e agentes de Site Recovery.
+
+## <a name="updates-august-2020"></a>Atualizações (agosto de 2020)
+
+### <a name="update-rollup-49"></a>Pacote cumulativo de atualizações 49
+
+O [pacote cumulativo](https://support.microsoft.com/help/4578241/update-rollup-49-for-azure-site-recovery) de atualizações 49 fornece as seguintes atualizações:
+
+**Atualização** | **Detalhes**
+--- | ---
+**Provedores e agentes** | Atualizações para Site Recovery agentes e provedores conforme detalhado no acúmulo.
+**Correções de problemas/aprimoramentos** | Várias correções e aprimoramentos, conforme detalhado no acúmulo.
 
 ## <a name="updates-july-2020"></a>Atualizações (julho de 2020)
 
@@ -437,7 +445,7 @@ Os recursos adicionados neste mês são resumidos na tabela.
 --- | ---
 **Suporte a Linux** |  Foi adicionado suporte para Oracle Linux 6,8, Oracle Linux 6,9 e Oracle Linux 7,0 com kernel compatível com Red Hat e para o UEK (inbreakable Enterprise kernel) versão 5.
 **LVM** | Suporte adicionado para volumes LVM e LVM2.<br/><br/> Agora há suporte para o diretório/boot em uma partição de disco e em volumes LVM.
-**Diretórios** | O suporte foi adicionado para esses diretórios configurados como partições separadas ou sistemas de arquivos que não estão no mesmo disco do sistema:<br/><br/> /(raiz),/boot,/usr,/usr/local,/var,/etc.
+**Listas** | O suporte foi adicionado para esses diretórios configurados como partições separadas ou sistemas de arquivos que não estão no mesmo disco do sistema:<br/><br/> /(raiz),/boot,/usr,/usr/local,/var,/etc.
 **Windows Server 2008** | Suporte adicionado para discos dinâmicos.
 **Failover** | Tempo de failover melhorado para VMs VMware em que storvsc e vsbus não são drivers de inicialização.
 **Suporte a UEFI** | As VMs do Azure não dão suporte ao tipo de inicialização UEFI. Agora você pode migrar servidores físicos locais com UEFI para o Azure com o Site Recovery. Site Recovery migra o servidor convertendo o tipo de inicialização para BIOS antes da migração. Site Recovery anteriormente suportava essa conversão somente para VMs. O suporte está disponível para servidores físicos que executam o Windows Server 2012 ou posterior.
