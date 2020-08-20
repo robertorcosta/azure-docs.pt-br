@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Hosted MyCirqa SSO | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Hosted MyCirqa SSO.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 4337e343-180d-475d-83ac-6f5b5f133dfe
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/26/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: adc6cd36190ca3847fdc9e3f6935aed5c78e0942
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4a45954a0993994b80ac4301bc2abc08cecbaac8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75662436"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88521596"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hosted-mycirqa-sso"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Hosted MyCirqa SSO
 
