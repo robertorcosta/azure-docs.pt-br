@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: 81bfde964fa993b69bc464214dab0810a8f2bfe5
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a5a3887efe9b8f19608fac63216ca53576d9ec3f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832579"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654728"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos expansíveis da máquina virtual da série B
 
@@ -88,7 +88,7 @@ Linha de base: 270%
 
 <sup>1</sup> os créditos acumulados/créditos usados em uma hora são equivalentes a: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes` .  
 
-Para um D16s_v3 que tem 16 vCPUs e 64 GiB de memória, a taxa horária é $0.936 por hora (mensalmente $673.92) e para B16ms com 16 vCPUs e 64 GiB de memória a taxa é $0.794 por hora (mensalmente $547.86). <b>Isso resulta em uma economia de 15%!</b>
+Para um D16s_v3 que tem 16 vCPUs e 64 GiB de memória, a taxa horária é $0.936 por hora (mensalmente $673.92) e para B16ms com 16 vCPUs e 64 GiB de memória a taxa é $0.794 por hora (mensalmente $547.86). <b> Isso resulta em uma economia de 15%!</b>
 
 ## <a name="q--a"></a>Perguntas e Respostas
 
@@ -149,7 +149,7 @@ por exemplo, na instância acima, sua linha de base é de 20% e se você usar 10
 
 Calculadora de preços: [calculadora de preços](https://azure.microsoft.com/pricing/calculator/)
 
-Mais informações sobre tipos de discos: [tipos de disco](./linux/disks-types.md#ultra-disk)
+Mais informações sobre tipos de discos: [tipos de disco](./disks-types.md#ultra-disk)
 
 ## <a name="next-steps"></a>Próximas etapas
 

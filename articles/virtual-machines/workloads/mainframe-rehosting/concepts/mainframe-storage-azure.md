@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 7f83d798bbffeb232b45701beee828114ad3db7d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 639764c9cae5e27e90a55da00b246807e49d2a20
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042600"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652841"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Mover o armazenamento de mainframe para o Azure
 
@@ -45,13 +45,13 @@ As opções de infraestrutura como serviço ([IaaS](https://azure.microsoft.com/
 
 A Microsoft oferece petabytes de armazenamento para aplicativos hospedados no Azure, e você tem várias opções de armazenamento. Eles variam desde o armazenamento SSD até o alto desempenho até o armazenamento de blobs de baixo custo para armazenamento e arquivamento em massa. Além disso, o Azure fornece uma opção de redundância de dados para armazenamento — algo que leva mais esforço para ser configurado em um ambiente de mainframe.
 
-O armazenamento do Azure está disponível como [discos do Azure](../../../windows/managed-disks-overview.md), [arquivos do Azure](../../../../storage/files/storage-files-introduction.md)e [BLOBs do Azure](../../../../storage/blobs/storage-blobs-overview.md) conforme a tabela a seguir resume. Saiba mais sobre [quando usar cada um deles](../../../../storage/common/storage-introduction.md).
+O armazenamento do Azure está disponível como [discos do Azure](../../../managed-disks-overview.md), [arquivos do Azure](../../../../storage/files/storage-files-introduction.md)e [BLOBs do Azure](../../../../storage/blobs/storage-blobs-overview.md) conforme a tabela a seguir resume. Saiba mais sobre [quando usar cada um deles](../../../../storage/common/storage-introduction.md).
 
 <!-- markdownlint-disable MD033 -->
 
 <table>
 <thead>
-    <tr><th>Tipo</th><th>Descrição</th><th>Use quando desejar:</th></tr>
+    <tr><th>Type</th><th>Descrição</th><th>Use quando desejar:</th></tr>
 </thead>
 <tbody>
 <tr><td>Arquivos do Azure
@@ -94,7 +94,7 @@ O tipo de armazenamento de um determinado sistema depende dos requisitos do sist
 
 O SSDs fornece o melhor desempenho de armazenamento no Azure. As seguintes opções estão disponíveis (a partir da escrita deste documento):
 
-| Tipo         | Tamanho           | IOPS                  |
+| Type         | Tamanho           | IOPS                  |
 |--------------|----------------|-----------------------|
 | SSD Ultra    | 4 GB a 64 TB  | 1.200 a 160.000 IOPS |
 | SSD Premium  | 32 GB a 32 TB | 12 a 15.000 IOPS     |
@@ -108,7 +108,7 @@ O armazenamento de BLOBs fornece o maior volume de armazenamento no Azure. Além
 - [Hospedagem de mainframe em máquinas virtuais do Azure](../overview.md)
 - [Mover a computação do mainframe para o Azure](mainframe-compute-Azure.md)
 - [Decidindo quando usar Blobs do Azure, Arquivos do Azure ou Discos do Azure](../../../../storage/common/storage-introduction.md)
-- [SSD Standard Managed Disks para cargas de trabalho de VM do Azure](../../../windows/disks-types.md#standard-ssd)
+- [SSD Standard Managed Disks para cargas de trabalho de VM do Azure](../../../disks-types.md#standard-ssd)
 
 ### <a name="ibm-resources"></a>Recursos da IBM
 

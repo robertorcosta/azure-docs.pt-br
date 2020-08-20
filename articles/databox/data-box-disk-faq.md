@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 8a0b3a91d9af119191717aa63a2dedf0797159fd
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3d4b51445e0859fe90a81eecb95625d41009b6eb
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745790"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649407"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Perguntas frequentes
 
@@ -58,6 +58,23 @@ a. Há suporte para o Data Box Disk em todas as regiões dos EUA, no Canadá, na
 
 ### <a name="q-will-my-data-box-disk-cross-countryregion-borders-during-shipping"></a>Q. Meu Data Box Disk atravessará fronteiras de países/regiões durante o envio?
 a. O Data Box Disk é enviado do mesmo país/região de destino e não cruzará fronteiras internacionais. A única exceção é para pedidos na União Europeia (UE), onde os discos podem ser enviados de e para qualquer país/região da UE.
+
+### <a name="q-how-can-i-import-my-on-premises-source-data-in-one-countryregion-to-an-azure-region-in-a-different-countryregion"></a>Q. Como importar meus dados de origem locais em um país/região para uma região do Azure em um país/região diferente?
+a. Disco do Data Box dá suporte à ingestão de dados somente na mesma região (limite de comércio). Em todos os outros casos, talvez seja necessário executar uma ação adicional. 
+
+Por exemplo, se você tivesse dados locais no Canadá que quisesse mover para uma conta de armazenamento do Azure Westus, você poderia obtê-lo da seguinte maneira:
+
+### <a name="option-1"></a>Opção 1: 
+
+Envie um [disco com suporte](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements?toc=/azure/storage/blobs/toc.json#supported-disks) contendo dados usando o [serviço de importação/exportação do Azure](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) do local de origem no Canadá para o datacenter do Azure westus.
+
+### <a name="option-2"></a>Opção 2:
+
+1. Solicite Disco do Data Box no Canadá escolhendo uma conta de armazenamento digamos no Cananda central. Os discos SSD são enviados do datacenter do Azure no Canadá central para o endereço de envio (no Canadá) fornecido durante a criação do pedido.
+
+2. Depois que os dados do seu servidor local são copiados para os discos, devolva-os para o datacenter do Azure no Canadá usando os rótulos de retorno fornecidos pela Microsoft. Os dados presentes nas Disco do Data Box serão carregados na conta de armazenamento de destino na região do Azure do Canadá escolhida durante a criação do pedido.
+
+3. Você pode usar uma ferramenta como AzCopy para copiar os dados para uma conta de armazenamento em Westus. Essa etapa incorre em custos de [largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/) e [armazenamento padrão](https://azure.microsoft.com/pricing/details/storage/) que não estão incluídos na cobrança de disco do data box.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>Q. Quem devo contatar se eu encontrar problemas com discos do Data Box?
 a. Caso tenha problemas com os Data Box Disks, [contate o Suporte da Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).

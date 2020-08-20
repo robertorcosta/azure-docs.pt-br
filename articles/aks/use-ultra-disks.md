@@ -4,23 +4,23 @@ description: Saiba como habilitar e configurar o ultra disks em um cluster do AK
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: f74da764f5a0b021199782dbad03e6e95cceb7f2
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 6ad739a128839eac4d664ffb6f9e3b2fcd07f2d9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986824"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650172"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Usar ultra discos do Azure no serviço kubernetes do Azure (versão prévia)
 
-Os [ultra discos do Azure](../virtual-machines/linux/disks-enable-ultra-ssd.md) oferecem alta taxa de transferência, IOPS alta e armazenamento de disco consistente de baixa latência para seus aplicativos com estado. Um grande benefício dos ultra discos é a capacidade de alterar dinamicamente o desempenho do SSD junto com suas cargas de trabalho sem a necessidade de reiniciar os nós do agente. Ultra discos são adequados para cargas de trabalho com uso intensivo de dados.
+Os [ultra discos do Azure](../virtual-machines/disks-enable-ultra-ssd.md) oferecem alta taxa de transferência, IOPS alta e armazenamento de disco consistente de baixa latência para seus aplicativos com estado. Um grande benefício dos ultra discos é a capacidade de alterar dinamicamente o desempenho do SSD junto com suas cargas de trabalho sem a necessidade de reiniciar os nós do agente. Ultra discos são adequados para cargas de trabalho com uso intensivo de dados.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Esse recurso só pode ser definido na criação do cluster ou no momento da criação do pool de nós.
 
 > [!IMPORTANT]
-> Os ultra discos do Azure exigem o nodepools implantado em zonas de disponibilidade e regiões que dão suporte a esses discos, bem como apenas a séries específicas da VM. Confira o [**escopo e as limitações do GA dos ultra discos**](../virtual-machines/linux/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
+> Os ultra discos do Azure exigem o nodepools implantado em zonas de disponibilidade e regiões que dão suporte a esses discos, bem como apenas a séries específicas da VM. Confira o [**escopo e as limitações do GA dos ultra discos**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -64,7 +64,7 @@ az extension update --name aks-preview
 ``` 
 
 ### <a name="limitations"></a>Limitações
-- Veja o [ **escopo e as limitações do GA de ultra discos**](../virtual-machines/linux/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
+- Veja o [ **escopo e as limitações do GA de ultra discos**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
 - O intervalo de tamanho com suporte para um ultra disks está entre 100 e 1500
 
 ## <a name="create-a-new-cluster-that-can-use-ultra-disks"></a>Criar um novo cluster que pode usar ultra disks
@@ -226,7 +226,7 @@ Events:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais informações sobre ultra disks, consulte [usando os ultra discos do Azure](../virtual-machines/linux/disks-enable-ultra-ssd.md).
+- Para obter mais informações sobre ultra disks, consulte [usando os ultra discos do Azure](../virtual-machines/disks-enable-ultra-ssd.md).
 - Para obter mais informações sobre as práticas recomendadas de armazenamento, consulte [práticas recomendadas para armazenamento e backups no serviço de kubernetes do Azure (AKs)][operator-best-practices-storage]
 
 <!-- LINKS - external -->
@@ -240,7 +240,7 @@ Events:
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
-[premium-storage]: ../virtual-machines/windows/disks-types.md
+[premium-storage]: ../virtual-machines/disks-types.md
 [az-disk-list]: /cli/azure/disk#az-disk-list
 [az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
 [az-disk-create]: /cli/azure/disk#az-disk-create
