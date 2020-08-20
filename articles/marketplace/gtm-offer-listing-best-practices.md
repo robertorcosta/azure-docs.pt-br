@@ -7,20 +7,20 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: efe60079814958116d8042991e1cfd6e2f6f71f5
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7bf4860e8c42ef8aacc2e564dacd6de1a7d39149
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213873"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607396"
 ---
 # <a name="offer-listing-best-practices"></a>Práticas recomendadas de listagem de ofertas
 
 Este artigo fornece sugestões para a criação e o envolvimento das ofertas do Microsoft Commercial Marketplace. As tabelas a seguir descrevem as melhores práticas para concluir as informações da oferta na Central de Parceiros. Para uma análise do desempenho de suas ofertas, acesse o [painel dos insights do marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) na Central de Parceiros. 
 
-## <a name="storefront-offer-details"></a>Detalhes da oferta vitrine
+## <a name="online-store-offer-details"></a>Detalhes da oferta da loja online
 
-| Configuração de vitrine | Melhor prática |
+| Configuração | Melhor prática |
 |:--- |:--- |  
 | Nome da oferta | Para aplicativos, forneça um título claro que inclua palavras-chave de pesquisa para ajudar os clientes a descobrir sua oferta. <br> <br> Para serviços de consultoria, siga este formato: [nome da oferta: [duração] [tipo de oferta] (por exemplo, contoso: implementação de 2 semanas) |
 | Descrição da oferta | Forneça uma descrição clara que descreva a proposta de valor da sua oferta nas primeiras frases.  Tenha em mente que essas frases podem ser usadas nos resultados do mecanismo de pesquisa. Os componentes principais da sua proposta de valor devem incluir: <ul> <li>Descrição do produto ou da solução. </li> <li> O usuário persona que se beneficia do produto ou da solução. </li> <li> O cliente precisa ou dificuldade no produto ou nos endereços da solução. </li> </ul> <br> Use o vocabulário padrão do setor ou palavras com base no benefício quando possível.  Não dependa de recursos e em funcionalidades para vender seu produto.  Em vez disso, concentre-se no valor que você oferece. <br> <br> Para listagens de serviços de consultoria, declare claramente o serviço profissional que você fornece. |
@@ -28,11 +28,11 @@ Este artigo fornece sugestões para a criação e o envolvimento das ofertas do 
 > [!IMPORTANT]
 > Verifique se o nome da oferta e a descrição da oferta aderem à marca **[registrada da Microsoft e às diretrizes](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)** de marcas e outras diretrizes relevantes específicas do produto ao se referir às marcas comerciais da Microsoft e aos nomes de software, produtos e serviços da Microsoft.
 
-## <a name="storefront-listing-details"></a>Detalhes da vitrine listagem
+## <a name="online-store-listing-details"></a>Detalhes da listagem da loja online
 
-As categorias e os setores para uma vitrine diferente serão aplicáveis a diferentes tipos de oferta.
+As categorias e os setores de uma loja online diferente serão aplicáveis a diferentes tipos de oferta.
 
-| Vitrine | Categorias <br>por vitrine | Categorias <br>por vitrine | Setores <br> para AppSource |
+| Loja online | Categorias <br>por loja online | Categorias <br>por loja online | Setores <br> para AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
 | **Tipo de oferta**   |  **Azure Marketplace**  | **AppSource**  |
 | Aplicativo do Azure | X | |
@@ -48,9 +48,9 @@ As categorias e os setores para uma vitrine diferente serão aplicáveis a difer
 
 ### <a name="categories"></a>Categorias
 
-O Microsoft AppSource e o Azure Marketplace são duas vitrines diferentes que atendem aos requisitos exclusivos do cliente. O Azure Marketplace tem como alvo profissionais de ti e desenvolvedores que criam soluções no Azure.  Microsoft AppSource destina-se a usuários empresariais que buscam aplicativos SaaS de negócios e/ou setor, suplementos do Dynamics 365, suplementos de Microsoft 365 e aplicativos de plataforma de energia.
+O Microsoft AppSource e o Azure Marketplace são duas lojas online diferentes que atendem aos requisitos exclusivos do cliente. O Azure Marketplace tem como alvo profissionais de ti e desenvolvedores que criam soluções no Azure.  Microsoft AppSource destina-se a usuários empresariais que buscam aplicativos SaaS de negócios e/ou setor, suplementos do Dynamics 365, suplementos de Microsoft 365 e aplicativos de plataforma de energia.
 
-As categorias e subcategorias são mapeadas para cada vitrine com base no público-alvo. Sua oferta será publicada no Microsoft AppSource ou no Azure Marketplace, dependendo do tipo de oferta, dos recursos de transação da seleção de oferta e categoria/subcategoria. 
+As categorias e subcategorias são mapeadas para cada loja online com base no público-alvo. Sua oferta será publicada no Microsoft AppSource ou no Azure Marketplace, dependendo do tipo de oferta, dos recursos de transação da seleção de oferta e categoria/subcategoria. 
 
 Selecione categorias e subcategorias que melhor se alinhem com sua oferta e seu público-alvo. Você pode selecionar:
 
@@ -61,9 +61,9 @@ Selecione categorias e subcategorias que melhor se alinhem com sua oferta e seu 
 
 **IMPORTANTE: o SaaS oferece e Microsoft 365 suplementos**
 
-Consulte o [guia por tipo de oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) para obter detalhes específicos sobre como os recursos de transação podem afetar como sua oferta pode ser exibida e adquirida por clientes do Marketplace. Para ofertas de SaaS, a capacidade de transação da oferta, bem como a seleção de categoria, determinará a vitrine onde sua oferta será publicada:
+Consulte o [guia por tipo de oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) para obter detalhes específicos sobre como os recursos de transação podem afetar como sua oferta pode ser exibida e adquirida por clientes do Marketplace. Para ofertas de SaaS, a capacidade de transação da oferta, bem como a seleção de categoria, determinará a loja online onde sua oferta será publicada:
 
-| Oferta de SaaS    | Oferta de SaaS   | Oferta de SaaS  | Oferta de SaaS   | Oferta de SaaS   | Oferta de SaaS   | Oferta de SaaS    | Vitrine aplicável | Vitrine aplicável |
+| Oferta de SaaS    | Oferta de SaaS   | Oferta de SaaS  | Oferta de SaaS   | Oferta de SaaS   | Oferta de SaaS   | Oferta de SaaS    | Loja online aplicável| Loja online aplicável |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
 | Cobrança limitada | Suplementos de Microsoft 365 | Entrar em contato comigo | Transact (pelo menos 1 plano) | Plano somente particular | Plano somente público | Planos públicos & privados | AppSource | Azure Marketplace |
 |  | X |  |  |  |  |  | X |  |
@@ -117,8 +117,8 @@ Selecione os produtos aplicáveis com os quais seu aplicativo trabalha para que 
 
 Palavras-chave podem ajudar os clientes a encontrarem sua oferta ao pesquisarem algo. Identifique as principais palavras-chave de pesquisa para sua oferta, incorpore-as no resumo e na descrição da oferta, bem como na seção de palavras-chave da seção de detalhes da listagem de ofertas.
 
-## <a name="storefront-marketing-details"></a>Detalhes da vitrine marketing
-| Configuração de vitrine | Melhor prática |
+## <a name="online-store-marketing-details"></a>Detalhes de marketing da loja online
+| Configuração | Melhor prática |
 |:--- |:--- |  
 | Logotipo da oferta (formato PNG, 48&nbsp;&times;&nbsp;48): página de pesquisa | Projetar e otimizar seu logotipo para uma mídia digital:<br>Carregue o logotipo no formato PNG para a página de pesquisa de sua oferta. |
 | Logotipo da oferta (formato PNG, 216&nbsp;&times;&nbsp;216): página de detalhes do aplicativo | Projetar e otimizar seu logotipo para uma mídia digital:<br>Carregue o logotipo no formato PNG os detalhes do aplicativo listando a página de sua oferta. |

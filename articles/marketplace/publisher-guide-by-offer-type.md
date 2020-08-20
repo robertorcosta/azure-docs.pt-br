@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 72acd5c3c5fbab08b2e97421689b4f562b2ae2e8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9b23fbe55589bbbe6d560967119206fb1ea1d85c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119711"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607260"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guia de publicação por tipo de oferta
 
@@ -22,7 +22,7 @@ Para poder criar uma oferta e, depois de [decidir sobre uma opção de publicaç
 
 Um único tipo de oferta pode ser configurado de maneiras diferentes para habilitar diferentes opções de publicação, chamadas para ação, provisionamento ou preços. A opção de publicação e a configuração do tipo de oferta também são alinhados aos requisitos técnicos e de qualificação da oferta.
 
-Verifique se você examinou os requisitos de qualificação de tipo de oferta e de vitrine e os requisitos técnicos de publicação antes de criar sua oferta.
+Certifique-se de examinar a loja online e oferecer requisitos de qualificação de tipo e os requisitos de publicação técnica antes de criar sua oferta.
 
 ## <a name="list-of-offer-types"></a>Lista de tipos de oferta
 
@@ -45,4 +45,4 @@ Para obter informações sobre os requisitos de logon único listando opções e
 ## <a name="next-steps"></a>Próximas etapas
 
 - Examine os requisitos de qualificação no artigo correspondente para seu tipo de oferta (seções a seguir) para finalizar a seleção e a configuração da sua oferta.
-- Examine os padrões de publicação por vitrine eletrônica para obter exemplos de como sua solução é mapeada para uma configuração e tipo de oferta.
+- Examine os padrões de publicação por loja online para obter exemplos de como sua solução é mapeada para um tipo de oferta e configuração.

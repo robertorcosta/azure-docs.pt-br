@@ -6,22 +6,23 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: af63ef6f33cc0e3dfe7f186ad2e36b854a728c6b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3c13d37e62da8abfa860d5fdbdf186302519c93e
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120569"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606501"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Conectar com a Identidade Gerenciada ao Banco de dados do Azure para MySQL
 
-Este artigo mostra como usar uma identidade atribuída pelo usuário para uma VM (máquina virtual) para acessar o Banco de Dados do Azure para MySQL. As Identidades de Serviço Gerenciadas são gerenciadas automaticamente pelo Azure e permitem a você autenticar os serviços que dão suporte à autenticação do Azure AD sem necessidade de inserir as credenciais em seu código. Você aprenderá como:
+Este artigo mostra como usar uma identidade atribuída pelo usuário para uma VM (máquina virtual) para acessar o Banco de Dados do Azure para MySQL. As Identidades de Serviço Gerenciadas são gerenciadas automaticamente pelo Azure e permitem a você autenticar os serviços que dão suporte à autenticação do Azure AD sem necessidade de inserir as credenciais em seu código. 
 
-> [!div class="checklist"]
-> * Conceder à VM acesso a um Banco de Dados do Azure para MySQL
-> * Criar um usuário no banco de dados que represente a identidade atribuída pelo usuário da VM
-> * Obter um token de acesso usando a identidade da VM e usá-lo para consultar um Banco de Dados do Azure para MySQL
-> * Implementar a recuperação de token em um aplicativo de exemplo C#
+Você aprenderá como:
+
+- Conceder à VM acesso a um Banco de Dados do Azure para MySQL
+- Criar um usuário no banco de dados que represente a identidade atribuída pelo usuário da VM
+- Obter um token de acesso usando a identidade da VM e usá-lo para consultar um Banco de Dados do Azure para MySQL
+- Implementar a recuperação de token em um aplicativo de exemplo C#
 
 > [!IMPORTANT]
 > A conexão com identidade gerenciada só está disponível para MySQL 5,7 e mais recente.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 20c82793726221515ad4d1019f4d8f4754b3ae08
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 82a6b2674fe73bd448bb7ccbd230e837bd1cbb2a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036565"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607335"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Perguntas comuns sobre o Marketplace comercial da Microsoft
 
@@ -120,11 +120,11 @@ Os editores do marketplace comercial são responsáveis por dar suporte ao respe
 
 Durante o processo de publicação, você tem acesso a uma versão prévia da sua oferta. O acesso é restrito aos usuários que você especifica na guia **Versão prévia** e a oferta não pode ser visualizada por mais ninguém. Você pode comprar uma versão prévia e testar o processo, mas será cobrado o valor total de acordo com a configuração da sua oferta.
 
-Para concluir uma compra por um preço muito baixo, sugerimos publicar um plano privado que esteja visível apenas a você e por um preço que você possa aceitar como o custo do teste. Há suporte para um preço de US$ 0,00, mas não refletirá a experiência completa, como uma assinatura paga, portanto, é recomendável definir o preço como US$ 1,00.
+Para concluir uma compra a um preço baixo, sugerimos publicar um plano privado que é visível por você sozinho e por um preço que você pode aceitar como o custo do teste. Há suporte para um preço de US$ 0,00, mas não refletirá a experiência completa, como uma assinatura paga, portanto, é recomendável definir o preço como US$ 1,00.
 
 ### <a name="what-are-leads-from-the-commercial-marketplace-and-what-should-i-do-with-them"></a>O que são vendas potenciais do marketplace comercial e o que devo fazer com elas?
 
-À medida que os clientes usam suas ofertas nas lojas de Microsoft AppSource e do Azure Marketplace, são capturadas informações. Depois que os clientes tiverem demonstrado um interesse suficiente, uma venda potencial será criada e uma oportunidade será enviada ao sistema de sua escolha. Os editores que obtiverem êxito com o Marketplace comercial geralmente buscam clientes potenciais, desenvolvem relações e transformam interesse em acordos.
+À medida que os clientes usam suas ofertas nas lojas online do Microsoft AppSource e do Azure Marketplace, as informações são capturadas. Depois que os clientes tiverem demonstrado um interesse suficiente, uma venda potencial será criada e uma oportunidade será enviada ao sistema de sua escolha. Os editores que obtiverem êxito com o Marketplace comercial geralmente buscam clientes potenciais, desenvolvem relações e transformam interesse em acordos.
 
 Para obter mais informações, confira [Vendas potenciais do cliente de sua oferta do marketplace](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
@@ -140,7 +140,7 @@ As ofertas são apresentadas aos clientes por meio de experiências no produto, 
 
 ### <a name="can-my-offer-appear-in-both-microsoft-appsource-and-azure-marketplace"></a>Minha oferta pode aparecer tanto no Microsoft AppSource quanto no Azure Marketplace?
 
-O Microsoft AppSource é o destino para soluções de negócios e do setor e o Azure Marketplace foi projetado para soluções de TI e de desenvolvedores. As ofertas estão disponíveis em cada uma das vitrines com base em categorias e setores que você selecionou durante a criação da oferta. No caso raro de a oferta ser relevante para os usuários de ambas as vitrines, ela pode aparecer em ambas.
+O Microsoft AppSource é o destino para soluções de negócios e do setor e o Azure Marketplace foi projetado para soluções de TI e de desenvolvedores. As ofertas estão disponíveis em cada uma das lojas online com base em categorias e setores que você selecionou durante a criação da oferta. No caso raro de a oferta ser relevante para os usuários de ambas as lojas online, ela pode aparecer em ambos.
 
 ### <a name="what-is-the-cloud-solution-provider-program"></a>O que é o programa do Provedor de Soluções na Nuvem?
 

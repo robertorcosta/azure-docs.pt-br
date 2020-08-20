@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: d0aea0594a97990c7c89434e73fcd4982b01e20f
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b08324654a046b5a2296f6e533107c1b26a0e1fc
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035171"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606890"
 ---
 # <a name="lead-management-for-the-commercial-marketplace"></a>Gerenciamento de leads para o Marketplace comercial
 
@@ -170,7 +170,7 @@ O cliente potencial só fica gravado quando você seleciona o armazenamento de B
 
 **Recebi um email do Marketplace, por que não é possível localizar o cliente potencial no meu CRM?**  
 
-É possível que o domínio de email do usuário final é de. edu. Por motivos de privacidade, não passe dados de identificação pessoal do domínio .edu. Envie um tíquete de suporte em [Ajuda e suporte](https://aka.ms/marketplacepublishersupport).
+É possível que o domínio de email do usuário final é de. edu. Por motivos de privacidade, não passamos dados de identificação pessoal do domínio. edu. Envie um tíquete de suporte em [Ajuda e suporte](https://aka.ms/marketplacepublishersupport).
 
 **Configurei a Tabela do Azure/BLOB do Azure de acordo com o destino do meu cliente potencial, eu consigo ver os clientes potenciais?** 
 

@@ -8,12 +8,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 25a164fc8709d7c9f6249336ece34bd8a5378f23
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 702486a0728a7394d8d8febffc11b11bc113a030
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496008"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606756"
 ---
 # <a name="marketplace-rewards"></a>O Marketplace Rewards
 
@@ -27,7 +27,7 @@ Com base em sua qualificação, você será contatado por um membro da equipe de
 
 Para parceiros de Transação, à medida que você aumenta suas vendas cobradas por meio da plataforma do marketplace, você desbloqueia mais benefícios por camada.
 
-O requisito mínimo para publicar nas vitrines é um MPNID, portanto, esses benefícios estão disponíveis para todos os parceiros, independentemente do status de competência do MPN ou do tipo de parceiro. Cada parceiro é capacitado para aumentar seus negócios por meio do marketplace como plataforma.
+O requisito mínimo para publicar nas lojas online é um MPNID, portanto, esses benefícios estão disponíveis para todos os parceiros, independentemente do status de competência do MPN ou do tipo de parceiro. Cada parceiro é capacitado para aumentar seus negócios por meio do marketplace como plataforma.
 
 Você obterá suporte para entender os recursos disponíveis e implementar as melhores práticas, as quais você também [examinar por conta própria](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 

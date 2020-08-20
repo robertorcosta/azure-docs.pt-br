@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 07/22/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 877d5436628fdeb973f6d7f30cc71e91eeb92364
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: cc950c4915a57dd949941fbb9802c51a47c9a00d
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323274"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607148"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Painel Insights do Marketplace no Partner Center
 
-Este artigo fornece informações sobre o painel Insights do Marketplace no Partner Center. Este painel exibe um resumo do Marketplace Web Analytics que permite que os editores meçam o envolvimento do cliente para suas respectivas páginas de detalhes do produto listadas nas vitrines do Marketplace comercial: Microsoft AppSource e Azure Marketplace.
+Este artigo fornece informações sobre o painel Insights do Marketplace no Partner Center. Este painel exibe um resumo do Marketplace Web Analytics que permite que os editores meçam o envolvimento do cliente para suas respectivas páginas de detalhes do produto listadas nas lojas online do Marketplace comercial: Microsoft AppSource e Azure Marketplace.
 
 ## <a name="marketplace-insights-dashboard"></a>Painel Insights do Marketplace
 
@@ -42,11 +42,11 @@ A latência máxima entre os usuários que visitam ofertas no Azure Marketplace 
 
 Veja as métricas do Marketplace comercial de várias maneiras:
 
-- Guias da vitrine
+- Guias da loja online
 - Filtros de página
 - Filtros de data
 
-**Guias da vitrine**: Você pode exibir as métricas de suas ofertas separadamente por meio das guias AppSource e Azure Marketplace. Selecione as ofertas na lista suspensa da oferta à direita para ver uma visualização das métricas das ofertas selecionadas. Por padrão, todas as ofertas são selecionadas.
+**Guias da loja online**: você pode exibir as métricas de suas ofertas separadamente por meio das guias AppSource & Azure Marketplace. Selecione as ofertas na lista suspensa da oferta à direita para ver uma visualização das métricas das ofertas selecionadas. Por padrão, todas as ofertas são selecionadas.
 
 ![Lista suspensa da oferta no painel do Insights do Partner Center](./media/insights-offer-dropdown.png)
 
@@ -96,7 +96,7 @@ O mapa de calor inclui os seguintes recursos:
 
 ## <a name="page-visits-versus-unique-visitors-trend"></a>Visitas à página versus tendência de visitantes exclusivos
 
-As colunas abaixo representam a contagem de visitas de páginas mensais, que são exibidas no eixo Y (eixo no lado esquerdo do gráfico). A linha de tendência representa a tendência mensal de visitantes exclusivos, que é exibida no eixo Y secundário (eixo no lado direito do gráfico), para suas ofertas publicadas nas vitrines: o Azure Marketplace e o AppSource.
+As colunas abaixo representam a contagem de visitas de páginas mensais, que são exibidas no eixo Y (eixo no lado esquerdo do gráfico). A linha de tendência representa a tendência mensal de visitantes exclusivos, que é exibida no eixo Y secundário (eixo no lado direito do gráfico), para suas ofertas publicadas nas lojas online: Azure Marketplace e AppSource.
 
 ![Visitas à página do Insights do Partner Center versus tendência de visitantes exclusivos](./media/insights-page-vists-unique-visitors.png)
 

@@ -1,22 +1,22 @@
 ---
 title: Detalhes de pagamento por região — marketplace comercial da Microsoft
-description: Saiba como o tempo estimado para transferir pagamentos e as lojas da Microsoft das quais você pode receber pagamentos variam de acordo com seu país/região e tipo de conta de pagamento.
+description: Saiba como o tempo estimado para transferir pagamentos e as lojas online da Microsoft dos quais você pode receber pagamentos variam de acordo com o seu país/região e o tipo de conta de pagamento.
 author: mingshen-ms
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 44246fa122b7c602e47c44e48c43c2a42d01de77
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f5614da7eac0717894d2bcb3c9cfdd959cb57f72
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327320"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607274"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Limites, métodos e períodos de pagamento
 
-O tempo estimado para transferir pagamentos e as vitrines das quais você pode receber pagamentos podem variar dependendo do seu país/região e tipo de conta de pagamento. Este artigo descreve os métodos de pagamento com suporte em cada país e região.
+O tempo estimado para transferir pagamentos e as lojas online das quais você pode receber pagamentos pode variar dependendo do seu país/região e tipo de conta de pagamento. Este artigo descreve os métodos de pagamento com suporte em cada país e região.
 
 Para qualquer país e região, pagamos usando ACH/SEPA ou transferência eletrônica. Alguns países e regiões também dão suporte a PayPal como um método de pagamento.
 

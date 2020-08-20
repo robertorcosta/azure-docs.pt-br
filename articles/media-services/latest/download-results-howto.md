@@ -3,30 +3,26 @@ title: Baixar os resultados de um trabalho-serviços de mídia do Azure
 description: Este artigo demonstra como baixar os resultados de um trabalho.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
-ms.author: juliako
-ms.openlocfilehash: bae7104eaded8c2ed153bc141faf7eba0bb86bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: inhenkel
+ms.openlocfilehash: 0a2e4d1ac5cf0945ab75e58bb42d23d10d6c89aa
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80346310"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607239"
 ---
 # <a name="download-the-results-of-a-job"></a>Baixar os resultados de um trabalho
 
 Nos serviços de mídia do Azure, ao processar seus vídeos (por exemplo, codificação ou análise), você precisa criar um [ativo](assets-concept.md) de saída para armazenar o resultado de seu [trabalho](transforms-jobs-concept.md). Em seguida, você pode baixar esses resultados em uma pasta local usando o serviço de mídia e as APIs de armazenamento. 
 
 Este artigo demonstra como baixar os resultados usando SDKs Java e .NET.
-
-## <a name="prerequisites"></a>Pré-requisitos 
-
-Examine [gerenciar ativos](manage-asset-concept.md).
 
 ## <a name="java"></a>Java
 

@@ -4,12 +4,12 @@ description: Saiba como preparar computadores locais para migração com as Migr
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: b92a26732f59235dac4c03f4e648d36dadd6c4ac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8acbb867d98a547787e207c410d4e1a852aa68f3
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077979"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606818"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparar computadores locais para migração para Azure
 
@@ -129,6 +129,7 @@ Para outras versões, prepare os computadores conforme resumido na tabela.
 **Habilitar ssh** | Verifique se o ssh está habilitado e se o serviço sshd foi definido para ser iniciado automaticamente na reinicialização.<br/><br/> Verifique se as solicitações de conexão ssh de entrada não estão bloqueadas pelo firewall do sistema operacional ou por regras programáveis.| Habilite manualmente para todas as versões, exceto aquelas informadas acima.
 
 A tabela a seguir resume as etapas executadas automaticamente para os sistemas operacionais listados acima.
+
 
 | Ação                                      | Migração de VMware baseada em\-agente | Migração de VMware sem agente | Hyper\-V   |
 |---------------------------------------------|-------------------------------|----------------------------|------------|

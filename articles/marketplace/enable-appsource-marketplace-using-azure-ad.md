@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/24/2020
-ms.openlocfilehash: 4c700a61de80968b17585faf92e268fef8d86f0e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a6e304e5ffeab8f0a44cbdfe1566465f2b9bf34a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323257"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607416"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integre sua listagem de marketplace comercial ao Azure Active Directory
 
@@ -20,7 +20,7 @@ ms.locfileid: "87323257"
 
 ## <a name="azure-ad-benefits"></a>Benefícios do AD do Azure
 
-Os clientes do Microsoft AppSource e do Azure Marketplace usam experiências no produto para pesquisar catálogos de listagem da vitrine. Essas ações exigem que os clientes assinem o produto. A integração do Azure AD fornece os seguintes benefícios:
+Os clientes do Microsoft AppSource e do Azure Marketplace usam experiências no produto para pesquisar catálogos de listagem da loja online. Essas ações exigem que os clientes assinem o produto. A integração do Azure AD fornece os seguintes benefícios:
 
 - Engajamento mais rápido e uma experiência otimizada para o cliente
 - Logon único (SSO) para milhões de usuários corporativos
@@ -56,8 +56,8 @@ Durante a autenticação, o Azure AD envia um token para seu aplicativo ou ofert
 
 Quando você usa o Azure AD para habilitar a autenticação de um clique no seu aplicativo ou a listagem de avaliação, você:
 
-- Simplificar a experiência do cliente do Marketplace para sua listagem de avaliação.
-- Manter a percepção de uma experiência no produto mesmo quando o usuário é redirecionado do Marketplace para o seu domínio ou ambiente de avaliação.
+- Simplifique a experiência do cliente do Marketplace comercial para sua listagem de avaliação.
+- Mantenha a sensação de uma experiência no produto mesmo quando o usuário for redirecionado do mercado comercial para seu ambiente de avaliação ou domínio.
 - Reduza a probabilidade de abandono quando os usuários são redirecionados porque não há etapas adicionais de login.
 - Reduza as barreiras de implantação para a grande população de usuários do Azure AD.
 
@@ -67,12 +67,12 @@ Quando você usa o Azure AD para habilitar a autenticação de um clique no seu 
 
 Use o Azure AD para dar suporte as seguintes ações:
 
-- Registre seu aplicativo em uma das vitrines do Marketplace. Modo de exibição [registro de aplicativo](../active-directory/develop/quickstart-register-app.md) ou [certificação do AppSource](../active-directory/azuread-dev/howto-get-appsource-certified.md) para obter mais informações.
+- Registre seu aplicativo em uma das lojas online do Marketplace comercial. Modo de exibição [registro de aplicativo](../active-directory/develop/quickstart-register-app.md) ou [certificação do AppSource](../active-directory/azuread-dev/howto-get-appsource-certified.md) para obter mais informações.
 - Habilite o recurso de suporte multilocatário no Microsoft Azure Active Directory para obter uma experiência de avaliação com um clique.
 
 Se você for novo no usando o logon único federado do Azure AD, siga estas etapas:
 
-1. Registre seu aplicativo no Marketplace.
+1. Registre seu aplicativo no Marketplace comercial.
 1. Desenvolver SSO com o Azure AD por meio [OAuth 2.0](../active-directory/azuread-dev/v1-protocols-oauth-code.md) ou [OpenID Connect](../active-directory/azuread-dev/v1-protocols-openid-connect-code.md).
 1. Habilite o recurso de suporte multilocação no Azure AD para fornecer uma experiência de avaliação com um clique.
 
@@ -89,7 +89,7 @@ Use o Azure AD para oferecer suporte a uma das seguintes ações:
 
 Caso ainda não tenha feito isso, 
 
-- [Saiba mais](https://azuremarketplace.microsoft.com/sell) sobre o marketplace.
+- [Saiba mais](https://azuremarketplace.microsoft.com/sell) sobre o Marketplace comercial.
 
 Para se registrar na Central de Parceiros, comece criando uma nova oferta ou trabalhando em uma existente:
 

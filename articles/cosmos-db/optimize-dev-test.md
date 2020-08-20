@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: ea5d975b73afcf03ad97bafd1c6f68f2b55263c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/19/2020
+ms.openlocfilehash: 9390f8a2ab9372927b434ea94d7545c9ec540c58
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084714"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606267"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Otimizar o custo de desenvolvimento e teste no Azure Cosmos DB
 
@@ -25,6 +25,9 @@ O [Emulador do Azure Cosmos DB](local-emulator.md) é uma versão local para dow
 
 Azure Cosmos DB camada gratuita facilita a introdução, o desenvolvimento e teste de seus aplicativos ou até mesmo a execução de cargas de trabalho de produção pequenas gratuitamente. Quando a camada gratuita estiver habilitada em uma conta, você obterá os primeiros 400 RU/s e 5 GB de armazenamento na conta livre. Você também pode criar um banco de dados de produtividade compartilhado com 25 contêineres que compartilham 400 RU/s no nível do banco de dados, todos cobertos pela camada gratuita (limite 5 bancos de dados de taxa de transferência compartilhada em uma conta de camada gratuita). Ao usar a camada gratuita, se você provisionar um banco de dados compartilhado com uma taxa de transferência mínima de 400 RU/s, todos os contêineres nesse banco de dados poderão compartilhar a taxa de transferência. Todos os novos bancos de dados com taxa de transferência compartilhada ou contêineres com taxa de transferência dedicada são cobrados com o preço regular.
 
+> [!NOTE]
+> A camada gratuita só está disponível no modo de taxa de transferência provisionada.
+
 A camada gratuita dura indefinidamente pelo tempo de vida da conta e vem com todos os [benefícios e recursos](introduction.md#key-benefits) de uma conta Azure Cosmos DB regular, incluindo armazenamento ilimitado e taxa de transferência (ru/s), SLAs, alta disponibilidade, distribuição global completa em todas as regiões do Azure e muito mais. Você pode ter até uma conta de camada gratuita por assinatura do Azure e deve aceitar ao criar a conta. Para começar, [crie uma nova conta no portal do Azure com a camada gratuita habilitada](create-cosmosdb-resources-portal.md) ou use um [modelo ARM](manage-sql-with-resource-manager.md#free-tier). Consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter mais detalhes.
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Experimente o Azure Cosmos DB gratuitamente
@@ -34,6 +37,10 @@ A camada gratuita dura indefinidamente pelo tempo de vida da conta e vem com tod
 ## <a name="azure-free-account"></a>Conta gratuita do Azure
 
 O Azure Cosmos DB está incluso na [conta gratuita do Azure](https://azure.microsoft.com/free), que oferece recursos e créditos do Azure gratuitamente por um determinado período de tempo. Especificamente para o Azure Cosmos DB, a conta gratuita oferece armazenamento de 5 GB e 400 RUs de taxa de transferência provisionada para o ano todo. Essa experiência permite que qualquer desenvolvedor teste facilmente os recursos do Azure Cosmos DB ou integre-os a outros serviços do Azure sem custo. Com a conta gratuita do Azure, você recebe um crédito de US$ 200,00 para gastar nos primeiros 30 dias. Você não será cobrado, mesmo se começar a usar os serviços, até que você opte por atualizar. Para começar, visite a página [Conta gratuita do Azure](https://azure.microsoft.com/free).
+
+## <a name="azure-cosmos-db-serverless"></a>Azure Cosmos DB sem servidor
+
+O [Azure Cosmos DB sem servidor](serverless.md) permite que você use sua conta do cosmos do Azure em um modo baseado em consumo, no qual você é cobrado apenas pelas unidades de solicitação consumidas pelas operações de banco de dados e pelo armazenamento consumido pelos sua data. Não há nenhum encargo mínimo envolvido ao usar Azure Cosmos DB no modo sem servidor. Como ele elimina o conceito de capacidade provisionada, ele é mais adequado para atividades de desenvolvimento ou teste, especificamente quando o banco de dados está ocioso na maior parte do tempo.
 
 ## <a name="use-shared-throughput-databases"></a>Usar bancos de dados de produtividade compartilhada
 
@@ -45,8 +52,8 @@ Por exemplo, suponha que sua conta de desenvolvimento ou teste tenha quatro cont
 
 Para começar a usar o emulador ou as contas gratuitas do Azure Cosmos DB, leia os seguintes artigos:
 
-* Saiba mais sobre [Otimizando para desenvolvimento e teste](optimize-dev-test.md)
 * Saiba mais sobre [Entender sua cobrança do Azure Cosmos DB](understand-your-bill.md)
+* Saiba mais sobre o [Azure Cosmos DB sem servidor](serverless.md)
 * Saiba mais sobre [Otimizando o custo da taxa de transferência](optimize-cost-throughput.md)
 * Saiba mais sobre [Otimizando o custo de armazenamento](optimize-cost-storage.md)
 * Saiba mais sobre [Otimizando o custo de leituras e gravações](optimize-cost-reads-writes.md)

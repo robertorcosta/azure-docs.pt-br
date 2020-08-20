@@ -1,32 +1,32 @@
 ---
 title: Comparando Microsoft AppSource e o Azure Marketplace
-description: Este artigo explica as diferenças entre as vitrines do Microsoft Commercial Marketplace – Microsoft AppSource e o Azure Marketplace.
+description: Este artigo explica as diferenças entre o Microsoft Commercial Marketplace online Stores-Microsoft AppSource e o Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: fc0a03871ee3191f24a886cc1b9d7f90e8d54b62
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 10560d1407d4e9f899578d6d4eb9cdf9b7fe7dc9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121802"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607474"
 ---
 # <a name="comparing-microsoft-appsource-and-azure-marketplace"></a>Comparando Microsoft AppSource e o Azure Marketplace
 
-O Microsoft Commercial Marketplace inclui [Microsoft AppSource](https://appsource.microsoft.com) e o [Azure Marketplace](https://azuremarketplace.microsoft.com). Cada vitrine atende aos requisitos exclusivos do cliente e a públicos-alvo diferentes, para que você possa garantir que sua solução ou serviço esteja disponível para os clientes certos.
+O Microsoft Commercial Marketplace inclui [Microsoft AppSource](https://appsource.microsoft.com) e o [Azure Marketplace](https://azuremarketplace.microsoft.com). Cada loja online atende aos requisitos exclusivos do cliente e a públicos-alvo diferentes, para que você possa garantir que sua solução ou serviço esteja disponível para os clientes certos.
 
-## <a name="understanding-the-differences-between-storefronts"></a>Compreendendo as diferenças entre as vitrines
+## <a name="understanding-the-differences-between-online-stores"></a>Noções básicas sobre as diferenças entre lojas online
 
-Para escolher uma vitrine, primeiro identifique o público-alvo para sua oferta. Se você estiver focando públicos em várias vitrines, é possível publicar uma vez para vender em várias vitrines.
+Para escolher uma loja online, primeiro identifique o público-alvo para sua oferta. Se você estiver direcionando audiências em várias lojas online, poderá publicar uma vez para vender em vários repositórios.
 
 | Azure Marketplace | AppSource |
 |:--- |:--- |
 | Desenvolvedores e profissionais de TI | Usuários empresariais e tomadores de decisões de negócios |
 
-A tabela a seguir descreve os benefícios de usar uma vitrine:
+A tabela a seguir descreve os benefícios de usar uma loja online:
 
 | Benefícios | Azure Marketplace | AppSource |
 |:--- |:--- | :--- |

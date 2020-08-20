@@ -7,16 +7,16 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 8ac69d7d611aa75584955ed6ed83ab79c70ed73a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 51f4c9a5748896eff9e9f3ae9719b2e7e7cdd4e7
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082793"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607481"
 ---
 # <a name="cloud-solution-provider-program"></a>Programa do provedor de soluções de nuvem
 
-Este artigo explica como configurar sua oferta para estar disponível para o programa CSP (Provedor de Soluções de Nuvem). Além de publicar suas ofertas por meio de [vitrines na Web do marketplace comercial](comparing-appsource-azure-marketplace.md), você também pode vender por meio do programa CSP para alcançar milhões de clientes qualificados da Microsoft aos quais o programa atende.
+Este artigo explica como configurar sua oferta para estar disponível para o programa CSP (Provedor de Soluções de Nuvem). Além de publicar suas ofertas por meio de [lojas online do Marketplace comercial](comparing-appsource-azure-marketplace.md), você também pode vender por meio do programa CSP para alcançar milhões de clientes qualificados da Microsoft que o programa atende.
 
 Você pode configurar ofertas novas ou existentes para disponibilidade no programa CSP de acordo com a aceitação, o que permite que os parceiros do CSP vendam seus produtos e criem soluções agrupadas para os clientes.
 
@@ -166,7 +166,7 @@ Se, no momento, sua oferta está na **Opção 3: Nenhum parceiro no programa CSP
 
 ## <a name="sharing-sales-and-support-materials-with-partners-in-the-csp-program"></a>Compartilhamento de materiais de vendas e suporte com parceiros no programa CSP
 
-Para ajudar os parceiros no programa do provedor de soluções na nuvem a representar a sua oferta de maneira mais eficaz e se envolver com sua organização, você deve enviar materiais de vendas e de suporte que estarão disponíveis para os revendedores. Esses recursos não serão expostos aos clientes nas vitrines do marketplace.
+Para ajudar os parceiros no programa do provedor de soluções na nuvem a representar a sua oferta de maneira mais eficaz e se envolver com sua organização, você deve enviar materiais de vendas e de suporte que estarão disponíveis para os revendedores. Esses recursos não serão expostos aos clientes nas lojas online.
 
 ### <a name="partner-center-csp-channel"></a>Canal do CSP no Partner Center
 

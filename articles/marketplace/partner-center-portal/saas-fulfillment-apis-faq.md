@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/11/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 164a0e295179bb0c1e8d7da6b43d8e07a4e9f4e9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4c5d8b438764fa9aa3838b2225c63d412afc519b
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304404"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606811"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Perguntas comuns sobre APIs de cumprimento de SaaS
 
@@ -63,13 +63,13 @@ A resposta à `Resolve` API inclui a oferta e as informações de plano associad
 >[!Note]
 >Você poderá bloquear os downgrades se não quiser dar suporte a caminhos de conversão específicos.
 
-A sequência a seguir captura o fluxo quando um cliente do Azure muda de plano na experiência de SaaS:
+A sequência a seguir captura o fluxo quando um cliente do Azure altera um plano na experiência de SaaS:
 
 ![Fluxo de alteração do plano do cliente](media/saas-metering-service-integration-flow-b.png)
 
-A sequência a seguir captura o fluxo quando um cliente do Azure muda de plano na vitrine da Microsoft
+A sequência a seguir captura o fluxo quando um cliente do Azure altera um plano na loja online da Microsoft:
 
-![Fluxo de alteração do plano de vitrine do cliente](media/saas-metering-service-integration-flow-c.png)
+![Fluxo de alteração do plano de loja online do cliente](media/saas-metering-service-integration-flow-c.png)
 
 ### <a name="how-can-the-azure-user-unsubscribe-from-the-plan-associated-with-azure-subscription"></a>Como o usuário do Azure pode cancelar a assinatura do plano associado à assinatura do Azure?
 
@@ -79,9 +79,9 @@ A sequência a seguir captura o fluxo quando um cliente do Azure cancela a assin
 
 ![O cliente não assina a experiência de SaaS](media/saas-metering-service-integration-flow-d.png)
 
-A sequência a seguir captura o fluxo quando o usuário do Azure cancela a assinatura na vitrine da Microsoft:
+A sequência a seguir captura o fluxo quando o usuário do Azure cancela a assinatura na loja online da Microsoft:
 
-![O cliente não assina na vitrine da Microsoft](media/saas-metering-service-integration-flow-e.png)
+![Cancelamento de assinatura do cliente na loja online da Microsoft](media/saas-metering-service-integration-flow-e.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

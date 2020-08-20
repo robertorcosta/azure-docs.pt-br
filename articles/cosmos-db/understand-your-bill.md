@@ -5,29 +5,36 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 596296069686e843d0be1899cce8929417b70bcc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: bf041163c6b2759b3d38e48ee98a0d528ec601db
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964576"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606909"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entendendo sua fatura do Azure Cosmos DB
 
-Como um serviço de banco de dados nativo de nuvem totalmente gerenciado, o Azure Cosmos DB simplifica a cobrança cobrando apenas a taxa de transferência provisionada e o armazenamento consumido. Não existem valores de licença adicionais, hardware, custos de utilitários ou custos de instalação, comparados com alternativas locais ou hospedadas em IaaS. Quando você considera os recursos multirregiões do Azure Cosmos DB, o serviço de banco de dados reduz os custos substancialmente em comparação com soluções de IaaS ou locais existentes.
+Como um serviço de banco de dados nativo de nuvem totalmente gerenciado, Azure Cosmos DB simplifica a cobrança carregando apenas as operações de banco de dados e o armazenamento consumido. Não existem valores de licença adicionais, hardware, custos de utilitários ou custos de instalação, comparados com alternativas locais ou hospedadas em IaaS. Quando você considera os recursos multirregiões do Azure Cosmos DB, o serviço de banco de dados reduz os custos substancialmente em comparação com soluções de IaaS ou locais existentes.
 
-Com o Azure Cosmos DB, você será cobrado por hora com base na taxa de transferência provisionada e no armazenamento consumido. Para a taxa de transferência provisionada, a unidade de cobrança é de 100 RU/s por hora, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as informações de preços mais recentes. Para o armazenamento consumido, você será cobrado por 1 GB de armazenamento por mês, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as informações de preços mais recentes.
+- **Operações de banco de dados**: a maneira como você é cobrado pelas operações de banco de dados depende do tipo de conta do Azure cosmos que você está usando.
 
-Este artigo usa alguns exemplos para ajudá-lo a entender os detalhes encontrados na fatura mensal. Os números mostrados nos exemplos podem ser diferentes se seus contêineres do Azure Cosmos têm uma taxa de transferência provisionada diferente, se eles abrangem várias regiões ou são executados em regiões diferentes por algum tempo durante o mês. Todos os exemplos neste artigo calculam a fatura com base nas informações de preços mostradas na [página de preços.](https://azure.microsoft.com/pricing/details/cosmos-db/)
+  - **Taxa de transferência provisionada**: você será cobrado por hora para obter a taxa de transferência máxima provisionada para uma determinada hora, em incrementos de 100 ru/s.
+  - Sem **servidor**: você é cobrado por hora para a quantidade total de unidades de solicitação consumidas pelas operações de banco de dados.
+
+- **Armazenamento**: você é cobrado como uma taxa fixa para a quantidade total de armazenamento consumido por seus dados e índices para uma determinada hora.
+
+Consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as informações de preços mais recentes.
+
+Este artigo usa alguns exemplos para ajudá-lo a entender os detalhes encontrados na fatura mensal. Os números mostrados nos exemplos podem ser diferentes se seus contêineres do Azure Cosmos têm uma taxa de transferência provisionada diferente, se eles abrangem várias regiões ou são executados em regiões diferentes por algum tempo durante o mês. Todos os exemplos neste artigo calculam a fatura com base nas informações de preços mostradas na [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 > [!NOTE]
 > A cobrança é para qualquer parte de uma hora do relógio, não para uma duração de 60 minutos. Todos os exemplos mostrados neste documento baseiam-se no preço de uma conta do Azure Cosmos implantada em uma região não governamental nos EUA. O preço e o cálculo variam de acordo com a região que você está usando, consulte a [página de preços Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as informações mais recentes sobre preços.
 
 ## <a name="billing-examples"></a>Exemplos de cobrança
 
-### <a name="billing-example---throughput-on-a-container-full-month"></a>Exemplo de cobrança: taxa de transferência em um contêiner (mês completo)
+### <a name="billing-example---provisioned-throughput-on-a-container-full-month"></a>Exemplo de cobrança-taxa de transferência provisionada em um contêiner (mês inteiro)
 
 * Vamos supor que você configurou uma taxa de transferência de 1.000 RU/s em um contêiner e ele existe por 24 horas * 30 dias do mês = 720 horas no total.  
 
@@ -39,13 +46,21 @@ Este artigo usa alguns exemplos para ajudá-lo a entender os detalhes encontrado
 
 * O total de sua fatura mensal mostrará 7.200 unidades (de 100 RUs), o que custará US$ 57,60.
 
-### <a name="billing-example---throughput-on-a-container-partial-month"></a>Exemplo de cobrança: taxa de transferência em um contêiner (mês parcial)
+### <a name="billing-example---provisioned-throughput-on-a-container-partial-month"></a>Exemplo de cobrança-taxa de transferência provisionada em um contêiner (mês parcial)
 
 * Vamos supor que criamos um contêiner com taxa de transferência provisionada de 2.500 RU/s. O contêiner existe por 24 horas ao longo do mês (por exemplo, podemos excluí-lo 24 horas depois de o criarmos).  
 
 * Em seguida, vamos ver 600 unidades na fatura (2.500 RU/s / 100 RU/s/unidade * 24 horas). O custo será de US$ 4,80 (600 unidades * US$ 0,008/unidade).
 
 * A fatura total para o mês será de US$ 4,80.
+
+### <a name="billing-example---serverless-container"></a>Exemplo de cobrança-contêiner sem servidor
+
+* Vamos supor que criamos um contêiner sem servidor. 
+
+* Mais de um mês, emitimos solicitações de banco de dados consumindo um total de 500.000 unidades de solicitação. O custo será de $0.125 (500.000 * $0,25/milhão).
+
+* A fatura total do mês será $0.125.
 
 ### <a name="billing-rate-if-storage-size-changes"></a>Taxa de cobrança em caso de mudança do tamanho de armazenamento
 
@@ -55,7 +70,7 @@ A capacidade de armazenamento é cobrada em unidades da quantidade máxima por h
 
 Será cobrada a taxa fixa por hora de existência do contêiner ou do banco de dados, independentemente do uso ou de o contêiner ou banco de dados ficar ativo por menos de uma hora. Por exemplo, se você criar um contêiner ou banco de dados e o excluir depois de 5 minutos, sua fatura incluirá uma hora.
 
-### <a name="billing-rate-when-throughput-on-a-container-or-database-scales-updown"></a>Taxa de cobrança quando a taxa de transferência em um contêiner ou banco de dados é aumentada ou reduzida
+### <a name="billing-rate-when-provisioned-throughput-on-a-container-or-database-scales-updown"></a>Taxa de cobrança quando a taxa de transferência provisionada em um contêiner ou banco de dados é dimensionada para cima/para baixo
 
 Se às 9h30 você aumentar a taxa de transferência provisionada de 400 RU/s para 1.000 RU/s e voltar a diminuí-la às 10h45 para 400 RU/s, será cobrado por duas horas de 1.000 RU/s. 
 
@@ -75,7 +90,7 @@ Se você aumentar a taxa de transferência provisionada para um contêiner ou um
 
 :::image type="content" source="./media/understand-your-bill/bill-example1.png" alt-text="Exemplo de cobrança da taxa de transferência dedicada":::
 
-### <a name="billing-example-containers-with-shared-throughput-mode"></a>Exemplo de cobrança: contêineres com modo de taxa de transferência compartilhada
+### <a name="billing-example-containers-with-shared-provisioned-throughput-mode"></a>Exemplo de cobrança: contêineres com modo de taxa de transferência compartilhado (provisionado)
 
 * Se você criar uma conta do Azure Cosmos no Leste dos EUA 2 com dois bancos de dados Azure Cosmos (com um conjunto de contêineres que compartilham a taxa de transferência no nível do banco de dados) e taxas de transferência provisionadas de 50 mil RU/s e 70 mil RU/s, respectivamente, terá um total de taxa de transferência provisionada de 120 mil RU/s.  
 
