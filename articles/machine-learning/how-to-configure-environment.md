@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 09d82c4834e50e0dff74edb5ccd14287736b937e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1753373b360a78918682b5f6102dcc896e2d90c3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844465"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652624"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento para Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -215,7 +215,7 @@ Para habilitar esses componentes em seu ambiente de Jupyter Notebook:
     conda activate myenv
     ```
 
-1. Clone [o repositório do GitHub](https://aka.ms/aml-notebooks) para um conjunto de blocos de anotações de exemplo.
+1. Clone [o repositório do GitHub](https://github.com/Azure/MachineLearningNotebooks) para um conjunto de blocos de anotações de exemplo.
 
     ```bash
     git clone https://github.com/Azure/MachineLearningNotebooks.git
@@ -312,7 +312,7 @@ Depois que o cluster estiver em execução, [crie uma biblioteca](https://docs.d
    > Nenhum outro adicional do SDK pode ser instalado. Escolha apenas uma das opções anteriores [databricks] ou [automl].
 
    * Não selecione **anexar automaticamente a todos os clusters**.
-   * Selecione **anexar** ao lado do nome do cluster.
+   * Selecione  **anexar** ao lado do nome do cluster.
 
 1. Monitorar erros até que o status seja alterado para **anexado**, o que pode levar vários minutos.  Se esta etapa falhar:
 
@@ -323,8 +323,8 @@ Depois que o cluster estiver em execução, [crie uma biblioteca](https://docs.d
 
    Considere também:
    + Na configuração do AutoML, ao usar Azure Databricks adicione os seguintes parâmetros:
-       1. ```max_concurrent_iterations```o é baseado no número de nós de trabalho no cluster.
-        2. ```spark_context=sc```baseia-se no contexto padrão do Spark.
+       1. ```max_concurrent_iterations``` o é baseado no número de nós de trabalho no cluster.
+        2. ```spark_context=sc``` baseia-se no contexto padrão do Spark.
    + Ou, se você tiver uma versão antiga do SDK, desmarque-a do bibliotecas instalado do cluster e mude para Trash. Instale a nova versão do SDK e reinicie o cluster. Se houver um problema após a reinicialização, desanexe e anexe novamente o cluster.
 
 Se a instalação tiver sido bem-sucedida, a biblioteca importada deverá ser semelhante a uma destas:
@@ -361,9 +361,9 @@ Para usar esse arquivo de seu código, use `ws=Workspace.from_config()`. Esse c�
 
 É possível criar o arquivo de configuração de três maneiras:
 
-* **Use [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**: para gravar um *config.jsno* arquivo. O arquivo contém as informações de configuração do workspace. É possível baixar ou copiar o *config.json* para outros ambientes de desenvolvimento.
+* **Use  [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**: para gravar um *config.jsno* arquivo. O arquivo contém as informações de configuração do workspace. É possível baixar ou copiar o *config.json* para outros ambientes de desenvolvimento.
 
-* **Baixe o arquivo**: no [portal do Azure](https://ms.portal.azure.com), selecione **baixar config.jsna** seção **visão geral** do seu espaço de trabalho.
+* **Baixe o arquivo**: no [portal do Azure](https://ms.portal.azure.com), selecione  **baixar config.jsna** seção **visão geral** do seu espaço de trabalho.
 
      ![Portal do Azure](./media/how-to-configure-environment/configure.png)
 

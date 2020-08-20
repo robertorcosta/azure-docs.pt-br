@@ -3,12 +3,12 @@ title: Excluir um cofre de Serviços de Recuperação do Microsoft Azure
 description: Neste artigo, saiba como remover dependências e, em seguida, excluir um cofre dos serviços de recuperação de backup do Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 41d0cbc8e1c59f33efc24f38b535aa9cf91b2cc9
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: ffe8005ed6c2583763a10ba515ff19f0ef62ae0d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257952"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652811"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Excluir um cofre dos serviços de recuperação de backup do Azure
 
@@ -18,7 +18,7 @@ Este artigo descreve como excluir um cofre dos serviços de recuperação de [ba
 
 Não é possível excluir um cofre dos Serviços de Recuperação com qualquer uma das seguintes dependências:
 
-- Não é possível excluir um cofre que contém fontes de dados protegidas (por exemplo, VMs de IaaS, bancos de dados SQL, compartilhamentos de arquivos do Azure, etc.)  
+- Você não pode excluir um cofre que contém fontes de dados protegidas (por exemplo, VMs de IaaS, bancos de dados SQL, compartilhamentos de arquivos do Azure).
 - Você não pode excluir um cofre que contém dados de backup. Depois que os dados de backup forem excluídos, eles entrarão no estado de exclusão temporária.
 - Você não pode excluir um cofre que contém dados de backup no estado de exclusão reversível.
 - Não é possível excluir um cofre que tenha contas de armazenamento registradas.
@@ -45,7 +45,7 @@ Para excluir um cofre corretamente, você deve seguir as etapas nesta ordem:
   - **Itens protegidos na nuvem**: acesse o menu do painel do cofre > **itens de backup**. Todos os itens listados aqui devem ser removidos com **parar backup** ou **excluir dados de backup** junto com seus dados de backup.  [Siga estas etapas](#delete-protected-items-in-the-cloud) para remover esses itens.
   - **Instância de SQL Server**: Vá para o menu do painel do cofre > **Backup Infrastructure**  >  **servidores protegidos**de infraestrutura de backup. Em Servidores Protegidos, selecione o servidor para cancelar o registro. Para excluir o cofre, você deve cancelar o registro de todos os servidores. Clique com o botão direito do mouse no servidor protegido e selecione **Cancelar registro**.
   - **Servidores protegidos por Mars**: Vá para o menu do painel **Backup Infrastructure**do cofre >  >  **servidores protegidos**de infraestrutura de backup. Se você tiver servidores protegidos por MARS, todos os itens listados aqui deverão ser excluídos junto com seus dados de backup. [Siga estas etapas](#delete-protected-items-on-premises) para excluir servidores protegidos por Mars.
-   - **Servidores de gerenciamento do mAbs ou do DPM**: Vá para o menu do painel do cofre > backup **Infrastructure**  >  **Management Servers**. Se você tiver o DPM ou o Servidor de Backup do Azure (MABS), todos os itens listados aqui deverão ser excluídos ou desregistrados junto com seus dados de backup. [Siga estas etapas](#delete-protected-items-on-premises) para excluir os servidores de gerenciamento.
+  - **Servidores de gerenciamento do mAbs ou do DPM**: Vá para o menu do painel do cofre > backup **Infrastructure**  >  **Management Servers**. Se você tiver o DPM ou o Servidor de Backup do Azure (MABS), todos os itens listados aqui deverão ser excluídos ou desregistrados junto com seus dados de backup. [Siga estas etapas](#delete-protected-items-on-premises) para excluir os servidores de gerenciamento.
 
 - **Etapa 4**: você deve garantir que todas as contas de armazenamento registradas sejam excluídas. Acesse o menu do painel do **Backup Infrastructure**cofre >  >  **as contas de armazenamento**de infraestrutura de backup. Se você tiver contas de armazenamento listadas aqui, deverá cancelar o registro de todas elas. Para saber como cancelar o registro da conta, consulte [cancelar o registro de uma conta de armazenamento](manage-afs-backup.md#unregister-a-storage-account).
 
@@ -234,7 +234,7 @@ Para interromper a proteção e excluir os dados de backup:
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    Poste onde o prompt a seguir seria exibido:
+    Posteriormente, o prompt a seguir será exibido:
 
     *Backup do Microsoft Azure tem certeza de que deseja remover esta política de backup? Os dados de backup excluídos serão mantidos por 14 dias. Após esse período, os dados de backup serão excluídos permanentemente. <br/> [Y] Sim [A] Sim para todos [N] não [L] não para todos [S] suspender [?] Ajuda (o padrão é "Y"):*
 
@@ -244,7 +244,7 @@ Para interromper a proteção e excluir os dados de backup:
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    Poste onde o prompt a seguir seria exibido:
+    Posteriormente, o prompt a seguir será exibido:
 
    *Backup do Microsoft Azure* Tem certeza de que deseja remover esta política de backup? Os dados de backup excluídos serão mantidos por 14 dias. Após esse período, os dados de backup serão excluídos permanentemente. <br/>
    [Y] Sim [A] Sim para todos [N] não [L] não para todos [S] suspender [?] Ajuda (o padrão é "Y"):*

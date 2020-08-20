@@ -3,12 +3,12 @@ title: Fazer backup e recuperar VMs do Azure com o PowerShell
 description: Descreve como fazer backup e recuperar VMs do Azure usando o backup do Azure com o PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 7957253565658ca387502acb413bc3e6f9a1a3a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e695fae087ca4e10a1d900a45cb02947bd5afa0b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538795"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652739"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Fazer backup e restaurar VMs do Azure com o PowerShell
 
@@ -51,14 +51,14 @@ Para começar:
     Get-Command *azrecoveryservices*
     ```
 
-    Os aliases e os cmdlets do Azure Backup, do Azure Site Recovery e do cofre do Recovery Services são exibidos. A imagem a seguir é um exemplo do que você verá. Não é a lista completa dos cmdlets.
+    Os aliases e os cmdlets do Azure Backup, do Azure Site Recovery e do cofre do Recovery Services são exibidos. A imagem a seguir é um exemplo do que você verá. Não é a lista completa de cmdlets.
 
     ![lista de serviços de recuperação](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)
 
 3. Entre em sua conta do Azure usando **Connect-AzAccount**. Esse cmdlet abre uma página da Web que solicita suas credenciais de conta:
 
     * Como alternativa, é possível incluir as credenciais de conta como um parâmetro no cmdlet **Connect-AzAccount**, usando o parâmetro **-Credential**.
-    * Se você é um parceiro CSP trabalhando em nome de um locatário, especifique o cliente como um locatário usando sua tenantID ou o nome de domínio primário do locatário. Por exemplo: **Connect-AzAccount-Tenant "fabrikam.com"**
+    * Se você for um parceiro CSP trabalhando em nome de um locatário, especifique o cliente como um locatário, usando seu nome de domínio de locatárioid ou de locatário primário. Por exemplo: **Connect-AzAccount-Tenant "fabrikam.com"**
 
 4. Associe a assinatura que deseja usar com a conta, uma vez que uma conta pode ter várias assinaturas:
 
@@ -189,7 +189,7 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 >
 >
 
-Uma política de proteção de backup está associada a pelo menos uma política de retenção. Uma política de retenção define por quanto tempo um ponto de recuperação é mantido antes de ser excluído.
+Uma política de proteção de backup está associada a pelo menos uma política de retenção. Uma política de retenção define por quanto tempo um ponto de recuperação é mantido até ser excluído.
 
 * Use [Get-AzRecoveryServicesBackupRetentionPolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject) para exibir a política de retenção padrão.
 * Da mesma forma, você pode usar [Get-AzRecoveryServicesBackupSchedulePolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject) para obter a política de agendamento padrão.
@@ -394,7 +394,7 @@ Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.
 
 #### <a name="delete-backup-data"></a>Excluir dados de backup
 
-Para remover completamente os dados de backup armazenados no cofre, basta adicionar o sinalizador de '-RemoveRecoveryPoints '/alternar para o [comando de proteção ' Disable '](#retain-data).
+Para remover completamente os dados de backup armazenados no cofre, adicione o sinalizador '-RemoveRecoveryPoints '/alterne para o [comando de proteção ' Disable '](#retain-data).
 
 ````powershell
 Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.ID -RemoveRecoveryPoints
@@ -402,7 +402,7 @@ Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.
 
 ## <a name="restore-an-azure-vm"></a>Restaurar uma VM do Azure
 
-Há uma diferença importante entre a restauração de uma VM usando o portal do Azure e restaurar uma VM usando o PowerShell. Com o PowerShell, a operação de restauração é concluída quando são criadas as informações dos discos e de configuração do ponto de recuperação. A operação de restauração não cria a máquina virtual. Para criar uma máquina virtual com base no disco, consulte a seção [Criar a VM com base em discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). Se você não quiser restaurar toda a VM, mas deseja restaurar ou recuperar alguns arquivos de um backup de VM do Azure, consulte a [seção de recuperação de arquivo](backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup).
+Há uma diferença importante entre a restauração de uma VM usando o portal do Azure e a restauração de uma VM usando o PowerShell. Com o PowerShell, a operação de restauração é concluída quando são criadas as informações dos discos e de configuração do ponto de recuperação. A operação de restauração não cria a máquina virtual. Para criar uma máquina virtual com base no disco, consulte a seção [Criar a VM com base em discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). Se você não quiser restaurar toda a VM, mas deseja restaurar ou recuperar alguns arquivos de um backup de VM do Azure, consulte a [seção de recuperação de arquivo](backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup).
 
 > [!Tip]
 > A operação de restauração não cria a máquina virtual.
@@ -422,7 +422,7 @@ As etapas básicas para restaurar uma VM do Azure são:
 * Restaure os discos.
 * Crie a VM de discos armazenados.
 
-### <a name="select-the-vm"></a>Selecione a VM
+### <a name="select-the-vm-when-restoring-files"></a>Selecionar a VM (ao restaurar arquivos)
 
 Para obter o objeto do PowerShell que identifica o item correto de backup, comece do contêiner no cofre e desça progressivamente na hierarquia de objetos. Para selecionar o contêiner que representa a VM, use o cmdlet [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer) e redirecione-o para o cmdlet [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) .
 
@@ -431,9 +431,9 @@ $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM
 $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM" -VaultId $targetVault.ID
 ```
 
-### <a name="choose-a-recovery-point"></a>Escolha um ponto de recuperação
+### <a name="choose-a-recovery-point-when-restoring-files"></a>Escolher um ponto de recuperação (ao restaurar arquivos)
 
-Use o cmdlet [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) para listar todos os pontos de recuperação para o item de backup. Em seguida, escolha o ponto de recuperação a ser restaurado. Se você não tiver certeza de qual ponto de recuperação será usado, é uma boa prática escolher o mais recente ponto RecoveryPointType = AppConsistent na lista.
+Use o cmdlet [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) para listar todos os pontos de recuperação para o item de backup. Em seguida, escolha o ponto de recuperação a ser restaurado. Se você não tiver certeza de qual ponto de recuperação usar, é uma boa prática escolher o ponto RecoveryPointType = AppConsistent mais recente na lista.
 
 No script a seguir, a variável, **$RP**, é uma matriz de pontos de recuperação para o item de backup selecionado, dos últimos sete dias. A matriz é classificada em ordem inversa de tempo com o último ponto de recuperação no índice 0. Use a indexação de matriz padrão do PowerShell para selecionar o ponto de recuperação. No exemplo, $rp[0] seleciona o último ponto de recuperação.
 
@@ -544,7 +544,7 @@ Os detalhes do trabalho resultante fornecem o URI do modelo, o qual pode ser con
    $templateBlobURI = $properties["Template Blob Uri"]
 ```
 
-O modelo não pode ser acessado diretamente, pois está sob a conta de armazenamento de um cliente e o contêiner fornecido. Precisamos da URL completa (junto com um token SAS temporário) para acessar esse modelo.
+O modelo não é acessível diretamente, pois está sob a conta de armazenamento de um cliente e o contêiner fornecido. Precisamos da URL completa (junto com um token SAS temporário) para acessar esse modelo.
 
 1. Primeiro extraia o nome do modelo do templateBlobURI. O formato é mencionado abaixo. Você pode usar a operação Split no PowerShell para extrair o nome do modelo final desta URL.
 
@@ -636,9 +636,9 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
         }
     ```
 
-    * **VMs criptografadas e não gerenciadas sem o Azure AD (apenas BEK)** – para VMs criptografadas não gerenciadas sem o Azure AD (criptografadas usando apenas BEK), se **keyVault/segredo de origem não estiverem disponíveis**, restaure os segredos para o cofre de chaves usando o procedimento em [Restore an non-encrypted virtual machine from an Azure Backup recovery point (Restaurar uma máquina virtual não criptografada de um ponto de recuperação do Backup do Azure)](backup-azure-restore-key-secret.md). Em seguida, execute os seguintes scripts para definir detalhes de criptografia no blob do sistema operacional restaurado (essa etapa não é necessária para blob de dados). O $dekurl pode ser buscado do keyVault restaurado.
+    * **VMs criptografadas e não gerenciadas sem o Azure AD (apenas BEK)** – para VMs criptografadas não gerenciadas sem o Azure AD (criptografadas usando apenas BEK), se **keyVault/segredo de origem não estiverem disponíveis**, restaure os segredos para o cofre de chaves usando o procedimento em [Restore an non-encrypted virtual machine from an Azure Backup recovery point (Restaurar uma máquina virtual não criptografada de um ponto de recuperação do Backup do Azure)](backup-azure-restore-key-secret.md). Em seguida, execute os scripts a seguir para definir detalhes de criptografia no blob restaurado do sistema operacional (essa etapa não é necessária para um blob de dados). O $dekurl pode ser buscado do keyVault restaurado.
 
-    O script abaixo precisará ser executado somente quando o keyVault/segredo de origem não estiver disponível.
+    O script abaixo precisa ser executado somente quando o keyvault/segredo de origem não estiver disponível.
 
     ```powershell
         $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -663,9 +663,9 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
         }
     ```
 
-    * **VMs criptografadas e não gerenciadas sem o Azure AD (BEK e KEK)** – para VMs criptografadas não gerenciadas sem o Azure AD (criptografadas usando BEK e KEK), se **keyVault/chave/segredo de origem não estiverem disponíveis**, restaure a chave e os segredos para o cofre de chaves usando o procedimento em [Restore an non-encrypted virtual machine from an Azure Backup recovery point (Restaurar uma máquina virtual não criptografada de um ponto de recuperação do Backup do Azure)](backup-azure-restore-key-secret.md). Em seguida, execute os seguintes scripts para definir detalhes de criptografia no blob do sistema operacional restaurado (essa etapa não é necessária para blob de dados). O $dekurl e $kekurl podem ser buscados do keyVault restaurado.
+    * **VMs criptografadas e não gerenciadas sem o Azure AD (BEK e KEK)** – para VMs criptografadas não gerenciadas sem o Azure AD (criptografadas usando BEK e KEK), se **keyVault/chave/segredo de origem não estiverem disponíveis**, restaure a chave e os segredos para o cofre de chaves usando o procedimento em [Restore an non-encrypted virtual machine from an Azure Backup recovery point (Restaurar uma máquina virtual não criptografada de um ponto de recuperação do Backup do Azure)](backup-azure-restore-key-secret.md). Em seguida, execute os scripts a seguir para definir detalhes de criptografia no blob restaurado do sistema operacional (essa etapa não é necessária para um blob de dados). O $dekurl e $kekurl podem ser buscados do keyVault restaurado.
 
-    O script abaixo precisará ser executado somente quando o keyVault/chave/segredo de origem não estiver disponível.
+    O script a seguir precisa ser executado somente quando o keyvault/chave/segredo de origem não estiver disponível.
 
     ```powershell
         $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -697,9 +697,9 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
 
     * **VMs gerenciadas e criptografadas com o Azure AD (BEK e KEK)** ‒ para VMs criptografadas gerenciadas com o Azure AD (criptografadas usando BEK e KEK), anexe os discos gerenciados restaurados. Para obter informações detalhadas, confira [Anexar um disco de dados a uma VM do Windows usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-    * **VMs gerenciadas e criptografadas sem o AD do Azure (somente Bek)** – para VMs criptografadas e gerenciadas sem o Azure AD (criptografado usando apenas Bek), se o **keyvault/segredo de origem não estiver disponível** , restaure os segredos para o Key Vault usando o procedimento em [restaurar uma máquina virtual não criptografada de um ponto de recuperação de backup do Azure](backup-azure-restore-key-secret.md). Em seguida, execute os seguintes scripts para definir detalhes de criptografia no disco do sistema operacional restaurado (essa etapa não é necessária para o disco de dados). O $dekurl pode ser buscado do keyVault restaurado.
+    * **VMs gerenciadas e criptografadas sem o AD do Azure (somente Bek)** – para VMs criptografadas e gerenciadas sem o Azure AD (criptografado usando apenas Bek), se o **keyvault/segredo de origem não estiver disponível** , restaure os segredos para o Key Vault usando o procedimento em [restaurar uma máquina virtual não criptografada de um ponto de recuperação de backup do Azure](backup-azure-restore-key-secret.md). Em seguida, execute os scripts a seguir para definir detalhes de criptografia no disco do sistema operacional restaurado (essa etapa não é necessária para um disco de dados). O $dekurl pode ser buscado do keyVault restaurado.
 
-    O script abaixo precisará ser executado somente quando o keyVault/segredo de origem não estiver disponível.  
+    O script a seguir precisa ser executado somente quando o keyvault/segredo de origem não estiver disponível.  
 
     ```powershell
     $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -811,7 +811,7 @@ As etapas básicas para restaurar um arquivo de um backup de VM do Azure são:
 * Copie os arquivos necessários
 * Desmonte o disco
 
-### <a name="select-the-vm"></a>Selecione a VM
+### <a name="select-the-vm-when-restoring-the-vm"></a>Selecionar a VM (ao restaurar a VM)
 
 Para obter o objeto do PowerShell que identifica o item correto de backup, comece do contêiner no cofre e desça progressivamente na hierarquia de objetos. Para selecionar o contêiner que representa a VM, use o cmdlet [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer) e redirecione-o para o cmdlet [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) .
 
@@ -820,9 +820,9 @@ $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM
 $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM" -VaultId $targetVault.ID
 ```
 
-### <a name="choose-a-recovery-point"></a>Escolha um ponto de recuperação
+### <a name="choose-a-recovery-point-when-restoring-the-vm"></a>Escolha um ponto de recuperação (ao restaurar a VM)
 
-Use o cmdlet [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) para listar todos os pontos de recuperação para o item de backup. Em seguida, escolha o ponto de recuperação a ser restaurado. Se você não tiver certeza de qual ponto de recuperação será usado, é uma boa prática escolher o mais recente ponto RecoveryPointType = AppConsistent na lista.
+Use o cmdlet [Get-AzRecoveryServicesBackupRecoveryPoint](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) para listar todos os pontos de recuperação para o item de backup. Em seguida, escolha o ponto de recuperação a ser restaurado. Se você não tiver certeza de qual ponto de recuperação usar, é uma boa prática escolher o ponto RecoveryPointType = AppConsistent mais recente na lista.
 
 No script a seguir, a variável, **$RP**, é uma matriz de pontos de recuperação para o item de backup selecionado, dos últimos sete dias. A matriz é classificada em ordem inversa de tempo com o último ponto de recuperação no índice 0. Use a indexação de matriz padrão do PowerShell para selecionar o ponto de recuperação. No exemplo, $rp[0] seleciona o último ponto de recuperação.
 

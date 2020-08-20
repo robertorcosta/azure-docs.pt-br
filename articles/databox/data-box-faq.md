@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 3024c79b6295762636518e3f77d506ad45f73682
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7d300252893a72ef6296e941f5a573a67807779f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090749"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652569"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas frequentes
 
@@ -56,6 +56,18 @@ a.  Para obter informações sobre em quais países/regiões o Data Box está di
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>Q. Em quais regiões posso armazenar dados com o Data Box?
 a. O Data Box é compatível com todas as regiões nos EUA, na Europa Ocidental, no Norte da Europa, na França, no Reino Unido, no Japão, na Austrália e no Canadá. Para saber mais, acesse [Disponibilidade por região](data-box-overview.md#region-availability).
+
+### <a name="q-how-can-i-import-my-on-premises-source-data-to-an-azure-region-in-a-different-countryregion-or-export-data-from-an-azure-region-in-one-country-to-a-different-countryregion"></a>Q. Como importar meus dados de origem locais para uma região do Azure em um país/região diferente ou exportar dados de uma região do Azure em um país para um país/região diferente?
+
+Data Box dá suporte à ingestão de dados ou egresso somente dentro do mesmo país/região que seu destino e não cruzará nenhuma borda internacional. A única exceção é para pedidos na União Europeia (UE), em que as caixas de dados podem ser enviadas de e para qualquer país/região da UE.
+
+Por exemplo, no cenário de importação, se você tivesse dados locais no Canadá que você queria mover para uma conta de armazenamento do Azure Westus, você poderia obtê-lo da seguinte maneira:
+
+1. Solicite Data Box no Canadá escolhendo uma conta de armazenamento em Cananda. O dispositivo é enviado de um datacenter do Azure no Canadá para o endereço de envio (no Canadá) fornecido durante a criação do pedido.
+
+2. Depois que a cópia de dados local para a Data Box for concluída, retorne o dispositivo para o datacenter do Azure no Canadá. Os dados presentes na Data Box são carregados para a conta de armazenamento de destino na região do Azure do Canadá escolhida durante a criação do pedido.
+
+3. Você pode usar uma ferramenta como AzCopy para copiar os dados para uma conta de armazenamento em Westus. Essa etapa incorre em custos de [largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/) e [armazenamento padrão](https://azure.microsoft.com/pricing/details/storage/) que não estão incluídos na cobrança de data box.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>Q. Quem deverei contatar se eu tiver problemas com o Data Box?
 a. Caso tenha problemas com o Data Box, [contate o Suporte da Microsoft](data-box-disk-contact-microsoft-support.md).

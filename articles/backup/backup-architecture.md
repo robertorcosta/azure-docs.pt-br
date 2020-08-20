@@ -3,12 +3,12 @@ title: Visão geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos usados pelo serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: fc57f275d7693c9cf93adf04dc5dcc7524ba0567
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6da6cedc7841e31876bef8788458531b1ec375a8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835724"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652773"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes de backup do Azure
 
@@ -193,9 +193,8 @@ As VMs do Azure usam discos para armazenar seu sistema operacional, aplicativos 
 
 Para obter mais informações sobre o armazenamento em disco e os tipos de disco disponíveis para VMs, consulte estes artigos:
 
-- [Azure Managed disks para VMs Windows](../virtual-machines/windows/managed-disks-overview.md)
-- [Azure Managed disks para VMs Linux](../virtual-machines/linux/managed-disks-overview.md)
-- [Tipos de disco disponíveis para VMs](../virtual-machines/windows/disks-types.md)
+- [Azure Managed disks para VMs Linux](../virtual-machines/managed-disks-overview.md)
+- [Tipos de disco disponíveis para VMs](../virtual-machines/disks-types.md)
 
 ### <a name="back-up-and-restore-azure-vms-with-premium-storage"></a>Fazer backup e restaurar VMs do Azure com o armazenamento Premium
 
@@ -204,7 +203,7 @@ Você pode fazer backup de VMs do Azure usando o armazenamento Premium com o bac
 - Durante o processo de backup de VMs com o armazenamento Premium, o serviço de backup cria um local temporário de preparo, chamado *AzureBackup-*, na conta de armazenamento. O tamanho do local de preparo é igual ao tamanho do instantâneo do ponto de recuperação.
 - Certifique-se de que a conta de armazenamento premium tenha espaço livre suficiente para acomodar o local de preparo temporário. Para obter mais informações, consulte [metas de escalabilidade para contas de armazenamento de blob de página Premium](../storage/blobs/scalability-targets-premium-page-blobs.md). Não modifique o local de preparo.
 - Após a conclusão do trabalho de backup, o local de preparo será excluído.
-- O preço do armazenamento usado para o local de preparo é consistente com os [preços do armazenamento premium](../virtual-machines/windows/disks-types.md#billing).
+- O preço do armazenamento usado para o local de preparo é consistente com os [preços do armazenamento premium](../virtual-machines/disks-types.md#billing).
 
 Ao restaurar as VMs do Azure usando o armazenamento Premium, você pode restaurá-las para o armazenamento Premium ou Standard. Normalmente, você os restauraria para o armazenamento Premium. Mas se você precisar apenas de um subconjunto de arquivos da VM, pode ser econômico restaurá-los para o armazenamento padrão.
 

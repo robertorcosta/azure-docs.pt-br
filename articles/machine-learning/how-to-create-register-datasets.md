@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 51e31977a5f31777252920f9cd18bf069bad6d1e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8bc99be12b4bd4e56163150f939e5d9ace4b59bd
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507188"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652552"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados no Azure Machine Learning
 
@@ -39,7 +39,7 @@ Com os conjuntos de Azure Machine Learning, você pode:
 
 Para criar e trabalhar com conjuntos de os, você precisa de:
 
-* Uma assinatura do Azure. Se você não tiver uma, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
+* Uma assinatura do Azure. Se você não tiver uma conta gratuita, crie uma antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Um [espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md).
 
@@ -257,5 +257,5 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba [como treinar com conjuntos de](how-to-train-with-datasets.md)informações.
-* Use o Machine Learning automatizado para [treinar com o TabularDatasets](https://aka.ms/automl-dataset).
-* Para obter mais exemplos de treinamento de conjunto de informações, consulte os [blocos de anotações de exemplo](https://aka.ms/dataset-tutorial).
+* Use o Machine Learning automatizado para [treinar com o TabularDatasets](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
+* Para obter mais exemplos de treinamento de conjunto de informações, consulte os [blocos de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).
