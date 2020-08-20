@@ -3,12 +3,15 @@ title: Usar o portal para carregar, codificar e transmitir o conteúdo – Azure
 description: Este início rápido mostra como usar o portal para carregar, codificar e transmitir o conteúdo com os Serviços de Mídia do Azure.
 ms.topic: quickstart
 ms.date: 06/08/2020
-ms.openlocfilehash: bab13b7b878f8992ac5523b9902054a42a3dc769
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+author: IngridAtMicrosoft
+ms.author: inhenkel
+manager: femila
+ms.openlocfilehash: 7aebc6e52ec7fac97c6f1e8fb9b30cc63b74e860
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053360"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605665"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Início Rápido: Carregar, codificar e transmitir o conteúdo com o portal
 
@@ -28,7 +31,6 @@ Este início rápido mostra como usar o portal do Azure para carregar, codificar
 
   * [Upload e armazenamento na nuvem](storage-account-concept.md)
   * [Conceito de ativos](assets-concept.md)
-  * [Como gerenciar ativos](manage-asset-concept.md)
 * Depois de carregar seu arquivo de mídia digital de alta qualidade em um ativo (um ativo de entrada), você poderá processá-lo (codificá-lo ou analisá-lo). O conteúdo processado é enviado para outro ativo (ativo de saída). 
     * [Codifique](encoding-concept.md) o arquivo carregado em formatos que possam ser reproduzidos em uma ampla variedade de navegadores e dispositivos.
     * [Analise](analyzing-video-audio-files-concept.md) o arquivo carregado. 

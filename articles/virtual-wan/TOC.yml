@@ -2,7 +2,7 @@
   href: index.yml
 - name: Visão geral
   items:
-    - name: Sobre a WAN Virtual
+    - name: O que é a WAN virtual?
       href: virtual-wan-about.md
     - name: Arquitetura
       items:

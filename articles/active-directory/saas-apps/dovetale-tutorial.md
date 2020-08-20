@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Dovetale | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Dovetale.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 81da50c3-df94-458a-8b6a-a30827ee6358
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2c96c6ddd015285b7780c70741ddb704866aa60
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f1e8c1a0008d1b09a56929c64ba35bbc4881edd0
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76260643"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555781"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dovetale"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Dovetale
 
