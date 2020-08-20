@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory com Lean | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Lean.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 8af3c65b-8e15-4b28-9d46-98c75b11fe11
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 3e01fc292f2b04dc85066a19954104468e84e2ba
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f32d41fb26abb4aba8217074e3cbdbc2515710fc
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73159607"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88519454"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lean"></a>Tutorial: Integração do Azure Active Directory com Lean
 

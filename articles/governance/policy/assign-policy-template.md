@@ -1,15 +1,15 @@
 ---
 title: 'Início Rápido: Nova atribuição de política com os modelos'
 description: Neste início rápido, você usa um modelo do ARM (modelo do Azure Resource Manager) para criar uma atribuição de política para identificar recursos que não estão em conformidade.
-ms.date: 05/21/2020
+ms.date: 08/17/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: f4cb4cb1fc56d06ab1e061b2d0e9a031e0e511dc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 93c8e907190a3e87c3c0ce3392ccfd7fd4d2e515
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242042"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88520865"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Início Rápido: Criar uma atribuição de política para identificar recursos sem conformidade usando um modelo ARM
 
@@ -54,7 +54,7 @@ O recurso definido no modelo inclui:
    | Subscription | Selecione sua assinatura do Azure. |
    | Resource group | Selecione **Criar**, especifique um nome e, em seguida, selecione **OK**. Na captura de tela, o nome do grupo de recursos é _mypolicyquickstart\<Date in MMDD\>rg_. |
    | Location | Selecione uma região. Por exemplo, **Centro dos EUA**. |
-   | Nome de atribuição de política | Especifique um nome de atribuição de política. Será possível usar a exibição de definição de política se você desejar. Por exemplo, **Auditar VMs que não usam discos gerenciados**. |
+   | Nome de atribuição de política | Especifique um nome de atribuição de política. Será possível usar a exibição de definição de política se você desejar. Por exemplo, _Auditar VMs que não usam discos gerenciados_. |
    | Nome do Rg | Especifique um nome de grupo de recursos ao qual você deseja atribuir a política. Neste início rápido, use o valor padrão **[resourceGroup().name]** . **[resourceGroup()](../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)** é uma função de modelo que recupera o grupo de recursos. |
    | ID de definição de política | Especifique **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
    | Concordo com os termos e condições acima | (Selecionar) |
@@ -70,7 +70,7 @@ Alguns recursos adicionais:
 
 ## <a name="validate-the-deployment"></a>Validar a implantação
 
-Selecione **Conformidade** no lado esquerdo da página. Em seguida, localize as **VMs de auditoria que não usam a atribuição de política de discos gerenciados** que você criou.
+Selecione **Conformidade** no lado esquerdo da página. Em seguida, localize as _VMs de auditoria que não usam a atribuição de política de discos gerenciados_ que você criou.
 
 :::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Página de visão geral de conformidade de política" border="false":::
 
@@ -82,9 +82,9 @@ Para saber mais, confira [How compliance works](./how-to/get-compliance-data.md#
 
 Para remover a atribuição criada, siga estas etapas:
 
-1. Selecione **Conformidade** (ou **Atribuições**) no lado esquerdo da página e localize as **VMs de auditoria que não usam a atribuição  de política de discos gerenciados** que você criou.
+1. Selecione **Conformidade** (ou **Atribuições**) no lado esquerdo da página e localize as _VMs de auditoria que não usam a atribuição  de política de discos gerenciados_ que você criou.
 
-1. Clique com o botão direito do mouse na atribuição de política **Auditar VMs que não usam discos gerenciados** e selecione **Excluir atribuição**.
+1. Clique com o botão direito do mouse na atribuição de política _Auditar VMs que não usam discos gerenciados_ e selecione **Excluir atribuição**.
 
    :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Excluir uma atribuição da página de visão geral de conformidade" border="false":::
 

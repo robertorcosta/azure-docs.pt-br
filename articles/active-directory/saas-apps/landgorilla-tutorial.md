@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory com o Land Gorilla | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Land Gorilla.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 452f06e1294fad64547e0b04003ae06f80c1d9f4
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 2eaa9c01c88ba31a9ec1f8425a50c1647140a40c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799795"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88519318"
 ---
 # <a name="tutorial-integrate-land-gorilla-with-azure-active-directory"></a>Tutorial: Integrar o Land Gorilla ao Azure Active Directory
 
