@@ -153,6 +153,8 @@
       href: concept-ml-pipelines.md
     - name: Preparação e segurança corporativas
       items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
         - name: Segurança e governança corporativas
           items:
             - name: Visão geral de segurança empresarial

@@ -2,26 +2,21 @@
 title: Solucionar problemas de Proxy de Aplicativo | Microsoft Docs
 description: Aborda como solucionar erros no Proxy de Aplicativo do Azure do AD.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57a77b486239f1fd49a4979d7acbbfc8f0254311
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 413cfe4f3aed446ad26a210b4faa452c4f624685
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848450"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640847"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Solucionar problemas e mensagens de erro do Proxy do Aplicativo
 
@@ -49,7 +44,7 @@ Get-EventLog application –source "Microsoft AAD Application Proxy Connector" �
 
 Depois de encontrar o erro do Conector no log de eventos, use esta tabela de erros comuns para resolver o problema:
 
-| Erro | Etapas recomendadas |
+| Erro do | Etapas recomendadas |
 | ----- | ----------------- |
 | Falha no registro de conector: verifique se você habilitou o Proxy de Aplicativo no Portal de Gerenciamento do Azure e se inseriu o nome de usuário e a senha do Active Directory corretamente. Erro: "ocorreram um ou mais erros”. | Se você fechou a janela de registro sem entrar no Azure AD, execute o assistente do Conector novamente e registrar o Conector. <br><br> Se a janela de registro abrir e fechar imediatamente sem permitir que você faça logon, você provavelmente receberá esse erro. Esse erro ocorre quando há algum erro de rede em seu sistema. Certifique-se de que é possível conectar-se de um navegador a um site público e que as portas estejam abertas conforme especificado nos [pré-requisitos do proxy de aplicativo](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). |
 | Apagar erro é apresentado na janela de registro. Não é possível continuar | Caso esse erro seja exibido e a janela fechar, você inseriu o nome de usuário e a senha incorretos. Tente novamente. |
@@ -63,7 +58,7 @@ Depois de encontrar o erro do Conector no log de eventos, use esta tabela de err
 
 Esta tabela cobre os erros mais comuns resultantes da instalação e configuração do Kerberos e inclui sugestões para resolução.
 
-| Erro | Etapas recomendadas |
+| Erro do | Etapas recomendadas |
 | ----- | ----------------- |
 | Falha ao recuperar a política de execução atual para executar scripts do PowerShell. | Se a instalação do Conector falhar, verifique se a política de execução do PowerShell não está desabilitada.<br><br>1. Abra o editor de Política de Grupo.<br>2. vá para **configuração do computador**  >  **modelos administrativos**  >  **componentes do Windows**  >  **Windows PowerShell** e clique duas vezes em **Ativar execução de script**.<br>3. a política de execução pode ser definida como **não configurada** ou **habilitada**. Se estiver definido como **Habilitado**, verifique se a Política de Execução em Opções está definida como **Permitir scripts locais e scripts remotos assinados** ou como **Permitir todos os scripts**. |
 | 12008 - O Azure AD excedeu o número máximo de tentativas de autenticação Kerberos permitidas para o servidor back-end. | Esse erro pode indicar uma configuração incorreta entre o Azure AD e o servidor de aplicativos back-end ou um problema na configuração de data e hora nos dois computadores. O servidor back-end recusou o tíquete Kerberos criado pelo AD do Azure. Verifique se o Azure AD e o servidor de aplicativos de back-end estão configurados corretamente. Verifique se a configuração de data e hora no AD do Azure e no servidor de aplicativos back-end estão sincronizadas. |
@@ -76,7 +71,7 @@ Esta tabela cobre os erros mais comuns resultantes da instalação e configuraç
 
 Esta lista cobre os erros que os usuários finais podem encontrar quando tentam acessar o aplicativo e falham. 
 
-| Erro | Etapas recomendadas |
+| Erro do | Etapas recomendadas |
 | ----- | ----------------- |
 | O site não pode exibir a página. | O usuário poderá receber esse erro ao tentar acessar o aplicativo publicado se o aplicativo for um aplicativo IWA. O SPN definido para esse aplicativo pode estar incorreto. Para aplicativos IWA, certifique-se de que o SPN configurado para este aplicativo esteja correto. |
 | O site não pode exibir a página. | O usuário poderá ver esse erro ao tentar acessar o aplicativo publicado se o aplicativo for um aplicativo OWA. Isso pode ser causado por um dos seguintes motivos: <br><li>O SPN definido para este aplicativo está incorreto. Certifique-se de que o SPN configurado para este aplicativo esteja correto.</li><li>O usuário que tentou acessar o aplicativo está usando uma conta da Microsoft em vez da conta corporativa apropriada para entrar, ou o usuário é um usuário convidado. Verifique se o usuário faz logon usando sua conta corporativa correspondente ao domínio do aplicativo publicado. Convidados e usuários de Conta da Microsoft não podem acessar aplicativos IWA.</li><li>O usuário que tentou acessar o aplicativo não está definido corretamente para este aplicativo no lado local. Verifique se esse usuário tem as permissões apropriadas, conforme definido para esse aplicativo de back-end no computador local. |
@@ -84,12 +79,13 @@ Esta lista cobre os erros que os usuários finais podem encontrar quando tentam 
 | Não foi possível acessar esse aplicativo corporativo no momento. Tente novamente mais tarde... O conector atingiu o tempo limite. | O usuário pode receber esse erro ao tentar acessar o aplicativo que você publicou se eles não estiverem definidos corretamente para esse aplicativo no lado local. Certifique-se de que os usuários tenham as permissões apropriadas, conforme definido para esse aplicativo de back-end no computador local. |
 | Não foi possível acessar este aplicativo corporativo. Você não está autorizado a acessar este aplicativo. Falha na autorização. Verifique se o usuário tem uma licença para Azure Active Directory Premium. | O usuário pode receber esse erro ao tentar acessar o aplicativo que você publicou se eles não tiverem sido explicitamente atribuídos a uma licença Premium pelo administrador do Assinante. Vá para a guia **licenças** de Active Directory do assinante e verifique se esse usuário ou grupo de usuários está atribuído a uma licença Premium. |
 | Não foi possível encontrar um servidor com o nome de host especificado. | O usuário pode receber esse erro ao tentar acessar o aplicativo que você publicou se o domínio personalizado do aplicativo não estiver configurado corretamente. Verifique se você carregou um certificado para o domínio e configurou o registro DNS corretamente seguindo as etapas em [trabalhando com domínios personalizados no Azure proxy de aplicativo do AD](application-proxy-configure-custom-domain.md) |
+|Proibido: este aplicativo corporativo não pode ser acessado ou o usuário não pôde ser autorizado. Verifique se o usuário está definido no seu AD local e se o usuário tem acesso ao aplicativo em seu AD local. | Isso pode ser um problema com o acesso a informações de autorização, consulte [alguns aplicativos e APIs exigem acesso a informações de autorização em objetos de conta]( https://support.microsoft.com/help/331951/some-applications-and-apis-require-access-to-authorization-information). Resumindo, adicione a conta do computador do conector de proxy de aplicativo ao grupo de domínio interno "grupo de acesso à autorização do Windows" para resolver. |
 
 ## <a name="my-error-wasnt-listed-here"></a>Meu erro não estava listado aqui
 
 Se você encontrar um erro ou problema com o Proxy de Aplicativo do Azure AD que não está listado neste guia de solução de problemas, conte-nos. Envie um email para nossa [equipe de comentários](mailto:aadapfeedback@microsoft.com) com os detalhes do erro encontrado.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 * [Habilitar o Proxy de Aplicativo para o Azure Active Directory](application-proxy-add-on-premises-application.md)
 * [Publique aplicativos com proxy de aplicativo](application-proxy-add-on-premises-application.md)
 * [Habilitar logon único](application-proxy-configure-single-sign-on-with-kcd.md)

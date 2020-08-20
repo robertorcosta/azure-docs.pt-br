@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33b67c836be3395061e33b5988a4bb06fa5ee20f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9d2f295394d89432f3c6dd99585cc4363d4ff74
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608544"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641357"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Movendo a autenticação do aplicativo de Serviços de Federação do Active Directory (AD FS) para Azure Active Directory
 
@@ -100,7 +100,7 @@ Os aplicativos LOB que usam o OAuth 2,0, o OpenID Connect ou o WS-Federation pod
 
 Os aplicativos que usam SAML 2,0 para autenticação podem ser configurados para [logon único baseado em SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) (SSO baseado em SAML). Com o [SSO baseado em SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on), você pode mapear usuários para funções de aplicativo específicas com base em regras que você define em suas declarações SAML. 
 
-Para configurar um aplicativo SaaS para logon único baseado em SAML, consulte [Configurar logon único baseado em SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications). 
+Para configurar um aplicativo SaaS para o logon único baseado em SAML, confira [Configurar o logon único baseado em SAML](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications). 
 
 ![Capturas de tela de usuário SAML do SSO ](media/migrate-adfs-apps-to-azure/sso-saml-user-attributes-claims.png)
 
@@ -127,7 +127,7 @@ Tenha em mente as seguintes limitações ao mapear atributos:
 
 Se o usuário entrar em aplicativos SaaS, como Salesforce, ServiceNow ou workday, e estiver integrado com o AD FS, você estará usando o logon federado para aplicativos SaaS. 
 
-A maioria dos aplicativos SaaS já pode estar configurada no Azure AD. A Microsoft tem muitas conexões pré-configuradas com aplicativos SaaS na Galeria de [aplicativos do Azure ad](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps), o que facilitará sua transição. Os aplicativos SAML 2,0 podem ser integrados com o Azure AD por meio da Galeria de aplicativos do Azure AD ou como [aplicativo que não são da Galeria](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app). 
+A maioria dos aplicativos SaaS já pode estar configurada no Azure AD. A Microsoft tem muitas conexões pré-configuradas com aplicativos SaaS na Galeria de  [aplicativos do Azure ad](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps), o que facilitará sua transição. Os aplicativos SAML 2,0 podem ser integrados com o Azure AD por meio da Galeria de aplicativos do Azure AD ou como [aplicativo que não são da Galeria](https://docs.microsoft.com/azure/active-directory/manage-apps/add-non-gallery-app). 
 
 Os aplicativos que usam o OAuth 2,0 ou o OpenID Connect podem ser integrados ao Azure AD da mesma forma que os [registros do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide-for-app-registrations-legacy-users). Os aplicativos que usam protocolos herdados podem usar o [azure proxy de aplicativo do AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) para autenticar com o Azure AD.
 
@@ -237,8 +237,8 @@ Os aplicativos SaaS precisam saber para onde enviar solicitações de autentica�
 
 | Definição de configuração| AD FS| Como configurar no Azure AD |
 | - | - | - |
-| **URL de logon do IdP** <p>URL de logon do IdP da perspectiva do aplicativo (em que o usuário é redirecionado para logon).| A URL de logon AD FS é o nome do serviço de Federação AD FS seguido por "/adfs/ls/." <p>Por exemplo: `https://fs.contoso.com/adfs/ls/`| Substitua {Tenant-ID} pela sua ID de locatário. <p> Para aplicativos que usam o protocolo SAML-P:[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>Para aplicativos que usam o protocolo WS-Federation:[https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
-| **URL de saída do IdP**<p>URL de saída do IdP da perspectiva do aplicativo (onde o usuário é redirecionado quando opta por sair do aplicativo).| A URL de saída é a mesma que a URL de logon ou a mesma URL com "wa = wsignout 1.0" acrescentado. Por exemplo: `https://fs.contoso.com/adfs/ls/?wa=wsignout1.0`| Substitua {Tenant-ID} pela sua ID de locatário.<p>Para aplicativos que usam o protocolo SAML-P:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> Para aplicativos que usam o protocolo WS-Federation:[https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
+| **URL de logon do IdP** <p>URL de logon do IdP da perspectiva do aplicativo (em que o usuário é redirecionado para logon).| A URL de logon AD FS é o nome do serviço de Federação AD FS seguido por "/adfs/ls/." <p>Por exemplo: `https://fs.contoso.com/adfs/ls/`| Substitua {Tenant-ID} pela sua ID de locatário. <p> Para aplicativos que usam o protocolo SAML-P: [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>Para aplicativos que usam o protocolo WS-Federation: [https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
+| **URL de saída do IdP**<p>URL de saída do IdP da perspectiva do aplicativo (onde o usuário é redirecionado quando opta por sair do aplicativo).| A URL de saída é a mesma que a URL de logon ou a mesma URL com "wa = wsignout 1.0" acrescentado. Por exemplo: `https://fs.contoso.com/adfs/ls/?wa=wsignout1.0`| Substitua {Tenant-ID} pela sua ID de locatário.<p>Para aplicativos que usam o protocolo SAML-P:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> Para aplicativos que usam o protocolo WS-Federation: [https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
 | **Certificado de autenticação de tokens**<p>O IdP usa a chave privada do certificado para assinar tokens emitidos. Ele verifica se o token veio do mesmo IdP em que o aplicativo está configurado para confiar.| Encontre o certificado de autenticação de token do AD FS no Gerenciamento do AD FS, em **Certificados**.| Encontre-o na portal do Azure nas **Propriedades de logon único** do aplicativo no cabeçalho **certificado de autenticação SAML**. Lá, você pode baixar o certificado para carregar no aplicativo.  <p>Se o aplicativo tiver mais de um certificado, você poderá encontrar todos os certificados no arquivo XML de metadados de Federação. |
 | **Identificador/"emissor"**<p>Identificador do IdP da perspectiva do aplicativo (às vezes chamado de "ID do emissor").<p>No token SAML, o valor aparece como o elemento emissor.| O identificador para AD FS geralmente é o identificador do serviço de Federação no gerenciamento de AD FS em **serviço > editar propriedades de serviço de Federação**. Por exemplo: `http://fs.contoso.com/adfs/services/trust`| Substitua {Tenant-ID} pela sua ID de locatário.<p>https: \/ /STS.Windows.net/{Tenant-ID}/ |
 | **Metadados de Federação IdP**<p>Local dos metadados de Federação disponíveis publicamente do IdP. (Alguns aplicativos usam metadados de federação como uma alternativa à configuração de URLs, identificadores e certificados de autenticação de token pelo administrador individualmente.)| Localize a URL de metadados de Federação AD FS no gerenciamento de AD FS em **serviços > pontos de extremidade > metadados > tipo: metadados de Federação**. Por exemplo: `https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`| O valor correspondente para o Azure AD segue o padrão [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml) . Substitua {TenantDomainName} pelo nome do locatário no formato "contoso.onmicrosoft.com".   <p>Para saber mais, confira [Metadados de federação](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata). |
@@ -483,7 +483,7 @@ Embora a própria janela de interrupção planejada possa ser mínima, você ain
 
 Depois que a implantação for concluída, você poderá enviar comunicação informando os usuários da implantação bem-sucedida e lembre-se de quaisquer novas etapas que precisam ser executadas.
 
-* Instrua os usuários a usar o [painel de acesso](https://myapps.microsoft.com) para acessar todos os aplicativos migrados. 
+* Instrua os usuários a usar [meus aplicativos](https://myapps.microsoft.com) para acessar todos os aplicativos migrados. 
 
 * Lembre os usuários de que eles podem precisar atualizar suas configurações de MFA. 
 
@@ -492,5 +492,5 @@ Depois que a implantação for concluída, você poderá enviar comunicação in
 Comunicação com usuários externos: esse grupo de usuários geralmente é o impacto mais crítico em caso de problemas. Isso é especialmente verdadeiro se a sua postura de segurança determinar um conjunto diferente de regras de acesso condicional ou perfis de risco para parceiros externos. Certifique-se de que os parceiros externos estejam cientes da agenda de migração na nuvem e tenham um período de tempo durante o qual eles são incentivados a participar de uma implantação piloto que testa todos os fluxos exclusivos da colaboração externa. Por fim, verifique se eles têm uma maneira de acessar a assistência técnica em caso de problemas de interrupção.
 
 ## <a name="next-steps"></a>Próximas etapas
-Ler [a migração de autenticação de aplicativo para o Azure ad](https://aka.ms/migrateapps/whitepaper)<p>
+Ler  [a migração de autenticação de aplicativo para o Azure ad](https://aka.ms/migrateapps/whitepaper)<p>
 Configurar [acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) e [MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)

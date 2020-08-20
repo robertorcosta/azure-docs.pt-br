@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15d519e1cede27b3626d715c48790af620589e43
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 1ab69e3f4ca89e2069ff25470773e597009ec238
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757585"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641068"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planejar uma implantação da Autenticação Multifator do Azure
 
@@ -108,6 +108,9 @@ Recomendamos que as organizações usem o Acesso Condicional para definir sua re
 ## <a name="plan-authentication-methods"></a>Planejar métodos de autenticação
 
 Os administradores podem escolher os [métodos de autenticação](../authentication/concept-authentication-methods.md) que desejam disponibilizar aos usuários. É importante permitir mais de um método de autenticação, para que os usuários tenham um modo de backup caso o principal não esteja disponível. Os seguintes métodos estão disponíveis para que os administradores habilitem:
+
+> [!TIP]
+> A Microsoft recomenda usar o aplicativo móvel como o principal método para a autenticação multifator do Azure para a melhor segurança e experiência do usuário.
 
 ### <a name="notification-through-mobile-app"></a>Notificação pelo aplicativo móvel
 

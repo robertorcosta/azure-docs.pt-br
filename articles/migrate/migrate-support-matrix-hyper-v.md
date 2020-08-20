@@ -3,12 +3,12 @@ title: Suporte para avaliação do Hyper-V em migrações para Azure
 description: Saiba mais sobre o suporte à avaliação do Hyper-V com a avaliação do servidor de migrações para Azure
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 563a98162a2453ac1c96baf9f04500ee880e0ce5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3d55d71fc4e9551fa19afe8c3f37d31107e4d2e7
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420950"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641816"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação do Hyper-V
 
@@ -34,7 +34,7 @@ Para configurar a avaliação de VM do Hyper-V, você cria um projeto de migraç
 
 | **Suporte**                | **Detalhes**               
 | :-------------------       | :------------------- |
-| **Host do Hyper-V**       | O host Hyper-V pode ser autônomo ou implantado em um cluster.<br/><br/> O host Hyper-V pode executar o Windows Server 2019, o Windows Server 2016 ou o Windows Server 2012 R2. Também há suporte para a instalação Server Core do Windows Server 2016 e do Windows Server 2012 R2. <br/>Não é possível avaliar as VMs localizadas em hosts Hyper-V que executam o Windows Server 2012.
+| **Host do Hyper-V**       | O host Hyper-V pode ser autônomo ou implantado em um cluster.<br/><br/> O host Hyper-V pode executar o Windows Server 2019, o Windows Server 2016 ou o Windows Server 2012 R2. Também há suporte para a instalação do Server Core desses sistemas operacionais. <br/>Não é possível avaliar as VMs localizadas em hosts Hyper-V que executam o Windows Server 2012.
 | **Permissões**           | Você precisa de permissões de administrador no host do Hyper-V. <br/> Se você não quiser atribuir permissões de administrador, crie uma conta de usuário local ou de domínio e adicione a conta de usuário a esses grupos – usuários de gerenciamento remoto, administradores do Hyper-V e usuários de monitor de desempenho. |
 | **Comunicação remota do PowerShell**   | A [comunicação remota do PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-7) deve ser habilitada em cada host Hyper-V. |
 | **Réplica do Hyper-V**       | Se você usar a réplica do Hyper-V (ou se tiver várias VMs com os mesmos identificadores de VM) e descobrir as VMs originais e replicadas usando as migrações para Azure, a avaliação gerada pelas migrações para Azure pode não ser precisa. |

@@ -1,17 +1,17 @@
 ---
-title: Habilitar Azure Monitor para um ambiente híbrido
+title: Habilitar o Azure Monitor para um ambiente híbrido
 description: Este artigo descreve como habilitar Azure Monitor para VMs para um ambiente de nuvem híbrida que contém uma ou mais máquinas virtuais.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 3b30cefdd72286c15095828c409a87f173200a7b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d994df4d56f4958784256ff9cd92ce1e6f3b3e50
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828397"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642156"
 ---
 # <a name="enable-azure-monitor-for-vms-for-a-hybrid-virtual-machine"></a>Habilitar Azure Monitor para VMs para uma máquina virtual híbrida
 Este artigo descreve como habilitar Azure Monitor para VMs para uma máquina virtual fora do Azure, incluindo ambientes de nuvem locais e outros.
@@ -41,10 +41,10 @@ Os requisitos de firewall para o agente de Log Analytics são fornecidos na [vis
 
 Você pode baixar o Dependency Agent nestes locais:
 
-| Arquivo | Sistema operacional | Versão | SHA-256 |
+| Arquivo | SO | Versão | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.4.10090 | B4E1FF9C1E5CD254AA709AEF9723A81F04EC0763C327567C582CE99C0C5A0BAE  |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.4.10090 | A56E310D297CE3B343AE8F4A6F72980F1C3173862D6169F1C713C2CA09660A9F |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.5.10940 | C27A56D0BE9CF162DF73292DFBB2083F5FF749F2B80FCAD2545BC8B14B64A8D7  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.5.10940 | 71B4E1DA5116E61E03317C49C6702B5069F01A0C9A7CB860F6ACFAF5C198740E |
 
 
 ## <a name="install-the-dependency-agent-on-windows"></a>Instalar o Dependency Agent no Windows
@@ -92,7 +92,7 @@ Se o Agente de Dependência não for iniciado, verifique os logs para obter info
 
 Os arquivos do Agente de Dependência são colocados nos diretórios a seguir:
 
-| Arquivos | Localização |
+| Arquivos | Location |
 |:--|:--|
 | Arquivos de núcleo | /opt/microsoft/dependency-agent |
 | Arquivos de log | /var/opt/microsoft/dependency-agent/log |

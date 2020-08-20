@@ -15,12 +15,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45124862fffa3a1ef6f601733407fbbea4eb5e74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 516bffa7057f8fee3b8e38d46f3b2da905880044
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762948"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639929"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Como atribuir usuários a aplicativos
 
@@ -44,9 +44,9 @@ Para acessar um aplicativo, o usuário precisa primeiro ser atribuído a ele de 
 
     * O grupo [Todos os Usuários](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups)
 
-3.  Um administrador habilita o [Acesso de aplicativo de autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) para permitir que um usuário adicione um aplicativo usando o recurso [Adicionar Aplicativo do ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Painel de Acesso do Aplicativo****sem aprovação de negócios**
+3.  Um administrador habilita o [acesso de aplicativo de autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) para permitir que um usuário adicione um aplicativo usando [meus aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Adicionar** recurso de aplicativo **sem aprovação de negócios**
 
-4.  Um administrador habilita o [Acesso de aplicativo de autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) para permitir que um usuário adicione um aplicativo usando o recurso [Adicionar Aplicativo do ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Painel de Acesso do Aplicativo**, mas apenas **com aprovação anterior de um conjunto selecionado de aprovadores de negócios**
+4.  Um administrador habilita o [acesso de aplicativo de autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) para permitir que um usuário adicione um aplicativo usando [meus aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Adicionar** recurso de aplicativo, mas apenas w tenho**aprovação anterior de um conjunto selecionado de aprovadores de negócios**
 
 5.  Um administrador habilita o [Gerenciamento de Grupo de Autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) para permitir que um usuário ingresse em um grupo a que um aplicativo está atribuído **sem aprovação de negócios**
 

@@ -4,16 +4,16 @@ description: Conheça as diferentes maneiras como você pode implantar código p
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: bf8944952abf83837d05019bd783bec2fd43cefe
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 3865e6906b39633e14c86619770188f1c73fed8e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905118"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641952"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação no Azure Functions
 
-Você pode usar algumas tecnologias diferentes para implantar o código do projeto Azure Functions no Azure. Este artigo fornece uma visão geral dos métodos de implantação disponíveis para você e recomendações para o melhor método a ser usado em vários cenários. Ele também fornece uma lista completa de detalhes importantes sobre as tecnologias de implantação underlyng. 
+Você pode usar algumas tecnologias diferentes para implantar o código do projeto Azure Functions no Azure. Este artigo fornece uma visão geral dos métodos de implantação disponíveis para você e recomendações para o melhor método a ser usado em vários cenários. Ele também fornece uma lista completa de detalhes importantes sobre as tecnologias de implantação subjacentes. 
 
 ## <a name="deployment-methods"></a>Métodos de implantação
 
@@ -202,7 +202,13 @@ A tabela a seguir mostra os sistemas operacionais e idiomas que dão suporte à 
 | PowerShell (versão prévia) |✔|✔|✔| | | |
 | TypeScript (Node.js) | | | | | | |
 
-<sup>*</sup>A edição do portal é habilitada apenas para gatilhos HTTP e de temporizador para funções no Linux usando planos Premium e dedicados.
+<sup>*</sup> A edição do portal é habilitada apenas para gatilhos HTTP e de temporizador para funções no Linux usando planos Premium e dedicados.
+
+## <a name="deployment-behaviors"></a>Comportamentos de implantação
+
+Quando você faz uma implantação, todas as execuções existentes têm permissão para concluir ou atingir o tempo limite, após o qual o novo código é carregado para começar a processar solicitações.
+
+Se precisar de mais controle sobre essa transição, você deverá usar slots de implantação.
 
 ## <a name="deployment-slots"></a>Slots de implantação
 

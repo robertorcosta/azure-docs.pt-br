@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 07/30/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 2269a8f7f58d35fee5e2ca30a77af5e8cba83678
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: bad4fe7f0cf090e5d61506e775fccf677df45fa5
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87459327"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641969"
 ---
 # <a name="configure-linked-sign-on"></a>Configurar o logon vinculado
 
 Na [série de guias de início rápido](view-applications-portal.md) sobre o gerenciamento de aplicativos, você aprendeu a usar o Azure ad como o IDP (provedor de identidade) para um aplicativo. No guia de início rápido, você configura o SSO baseado em SAML. Outra opção está **vinculada**. Este artigo apresenta mais detalhes sobre a opção vinculada.
 
-A opção **vinculada** permite configurar o local de destino quando um usuário seleciona o aplicativo no portal [meus aplicativos](https://myapplications.microsoft.com/) ou do Office 365 da sua organização.
+A opção **vinculada** permite configurar o local de destino quando um usuário seleciona o aplicativo no portal [meus aplicativos](https://myapps.microsoft.com/) ou do Office 365 da sua organização.
 
 Alguns cenários comuns em que a opção link é valiosa incluem:
 - Adicione um link a um aplicativo Web personalizado que usa atualmente a Federação, como Serviços de Federação do Active Directory (AD FS) (AD FS).
@@ -35,7 +35,7 @@ Alguns cenários comuns em que a opção link é valiosa incluem:
 
 Para aumentar rapidamente, percorra a [série de guias de início rápido](view-applications-portal.md) sobre o gerenciamento de aplicativos. No guia de início rápido, onde você configura o logon único, você também encontrará a opção **vinculada** . 
 
-A opção **vinculada** não fornece funcionalidade de logon por meio do Azure AD. A opção simplesmente define o local ao qual os usuários serão enviados quando selecionam o aplicativo em [meus aplicativos](https://myapplications.microsoft.com/) ou o iniciador de aplicativo Microsoft 365.
+A opção **vinculada** não fornece funcionalidade de logon por meio do Azure AD. A opção simplesmente define o local ao qual os usuários serão enviados quando selecionam o aplicativo em [meus aplicativos](https://myapps.microsoft.com/) ou o iniciador de aplicativo Microsoft 365.
 
 > [!IMPORTANT] 
 > Há alguns cenários em que a opção de **logon único** não estará na navegação de um aplicativo em **aplicativos empresariais**. 
@@ -48,7 +48,7 @@ A opção **vinculada** não fornece funcionalidade de logon por meio do Azure A
 
 Para definir um link para um aplicativo, selecione **vinculado** na página **logon único** . Em seguida, insira o link e selecione **salvar**. Precisa de um lembrete sobre onde encontrar essas opções? Confira a [série de início rápido](view-applications-portal.md).
  
-Depois de configurar um aplicativo, atribua usuários e grupos a ele. Ao atribuir usuários, você pode controlar quando o aplicativo aparece em [meus aplicativos](https://myapplications.microsoft.com/) ou no iniciador de aplicativo Microsoft 365.
+Depois de configurar um aplicativo, atribua usuários e grupos a ele. Ao atribuir usuários, você pode controlar quando o aplicativo aparece em [meus aplicativos](https://myapps.microsoft.com/) ou no iniciador de aplicativo Microsoft 365.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 1c70950426b2f34d94bd66d2287550e19253874c
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 2c96e4b7baa2c463c42db9440cadb3cb396fde1b
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233158"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642462"
 ---
 # <a name="what-is-azure-sql-edge-preview"></a>O que é o SQL do Azure no Edge (visualização)?
 
 O SQL do Azure no Edge (visualização) é um mecanismo otimizado de banco de dados relacional projetado para implantações de IoT e IoT Edge. Ele oferece funcionalidades para a criação de uma camada de processamento e armazenamento de dados de alto desempenho para aplicativos e soluções de IoT. O SQL do Azure no Edge fornece recursos para transmitir, processar e analisar relacionais e não relacionais, como JSON, gráfico e dados de série temporal, o que o torna a escolha certa para uma variedade de aplicativos de IoT modernos.
 
-O SQL do Azure no Edge foi criado com base nas versões mais recentes do [Mecanismo de Banco de Dados do Microsoft SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json), que fornece recursos de desempenho, segurança e processamento de consulta líderes do setor. Assim, o SQL do Azure no Edge se baseia no mesmo mecanismo que o SQL Server e o Banco de Dados SQL do Azure. Ele fornece a mesma área de superfície de programação T-SQL que torna o desenvolvimento de aplicativos ou soluções mais fácil e rápido e, ao mesmo tempo, torna rápida a portabilidade de aplicativo entre dispositivos do IoT Edge, data centers e a nuvem.
+O Azure SQL Edge foi criado com base nas versões mais recentes do Microsoft SQL Mecanismo de Banco de Dados (/SQL/SQL-Server/SQL-Server-technical-documentation? TOC =/Azure/Azure-SQL-Edge/toc.js), que fornece recursos de desempenho, segurança e processamento de consulta líderes do setor. Desde que o Azure SQL Edge se baseia no mesmo mecanismo que [SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json) e no [Azure SQL](https://docs.microsoft.com/azure/azure-sql/), ele fornece a mesma área de superfície de programação T-SQL que torna o desenvolvimento de aplicativos ou soluções mais fácil e rápido e, ao mesmo tempo, torna a portabilidade do aplicativo entre dispositivos IOT Edge, data centers e a nuvem diretamente em frente.
 
 > [!NOTE]
 > Atualmente, o SQL do Azure no Edge está na versão de visualização e, como tal, não deve ser usado em ambientes de produção.

@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 972eb3f9983004ec7dbb3cb0df7bb3c59bdc9122
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 66a2fde47f71536661431959b957246e28c81d6a
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042007"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639793"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Criar um recurso de leitor de imersão e configurar a autenticação Azure Active Directory
 
@@ -44,7 +44,8 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
         [Parameter(Mandatory=$true)] [String] $ResourceGroupLocation,
         [Parameter(Mandatory=$true)] [String] $AADAppDisplayName="ImmersiveReaderAAD",
         [Parameter(Mandatory=$true)] [String] $AADAppIdentifierUri,
-        [Parameter(Mandatory=$true)] [String] $AADAppClientSecret
+        [Parameter(Mandatory=$true)] [String] $AADAppClientSecret,
+        [Parameter(Mandatory=$true)] [String] $AADAppClientSecretExpiration
     )
     {
         $unused = ''
@@ -93,12 +94,13 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
         $clientId = az ad app show --id $AADAppIdentifierUri --query "appId" -o tsv
         if (-not $clientId) {
             Write-Host "Creating new Azure Active Directory app"
-            $clientId = az ad app create --password $AADAppClientSecret --display-name $AADAppDisplayName --identifier-uris $AADAppIdentifierUri --query "appId" -o tsv
+            $clientId = az ad app create --password $AADAppClientSecret --end-date "$AADAppClientSecretExpiration" --display-name $AADAppDisplayName --identifier-uris $AADAppIdentifierUri --query "appId" -o tsv
 
             if (-not $clientId) {
                 throw "Error: Failed to create Azure Active Directory app"
             }
-            Write-Host "Azure Active Directory app created successfully"
+            Write-Host "Azure Active Directory app created successfully."
+            Write-Host "NOTE: To manage your Active Directory app client secrets after this Immersive Reader Resource has been created please visit https://portal.azure.com and go to Home -> Azure Active Directory -> App Registrations -> $AADAppDisplayName -> Certificates and Secrets blade -> Client Secrets section" -ForegroundColor Yellow
         }
 
         # Create a service principal if it doesn't already exist
@@ -155,6 +157,7 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
       -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' `
       -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' `
       -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>'
+      -AADAppClientSecretExpiration '<AAD_APP_CLIENT_SECRET_Expiration>'
     ```
 
     | Parâmetro | Comentários |
@@ -168,7 +171,12 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
     | ResourceGroupLocation |Se o grupo de recursos não existir, você precisará fornecer um local no qual criar o grupo. Para localizar uma lista de locais, execute `az account list-locations` . Use a propriedade *Name* (sem espaços) do resultado retornado. Esse parâmetro será opcional se o grupo de recursos já existir. |
     | AADAppDisplayName |O nome de exibição do aplicativo Azure Active Directory. Se um aplicativo existente do Azure AD não for encontrado, um novo com esse nome será criado. Esse parâmetro será opcional se o aplicativo do Azure AD já existir. |
     | AADAppIdentifierUri |O URI para o aplicativo do Azure AD. Se um aplicativo do Azure AD existente não for encontrado, um novo com esse URI será criado. Por exemplo, `https://immersivereaderaad-mycompany`. |
-    | AADAppClientSecret |Uma senha que você cria que será usada posteriormente para autenticar ao adquirir um token para iniciar o leitor de imersão. A senha deve ter pelo menos 16 caracteres de comprimento, conter pelo menos um caractere especial e conter pelo menos um caractere numérico. |
+    | AADAppClientSecret |Uma senha que você cria que será usada posteriormente para autenticar ao adquirir um token para iniciar o leitor de imersão. A senha deve ter pelo menos 16 caracteres de comprimento, conter pelo menos um caractere especial e conter pelo menos um caractere numérico. Para gerenciar os segredos do cliente do aplicativo do Azure AD depois de criar esse recurso, visite https://portal.azure.com e acesse Home-> Azure Active Directory-> registros do aplicativo-> `[AADAppDisplayName]` -> certificados e segredos folha-> seção segredos do cliente (conforme mostrado na captura de tela "gerenciar seus segredos do aplicativo do Azure AD" abaixo). |
+    | AADAppClientSecretExpiration |A data ou DateTime após o qual seu `[AADAppClientSecret]` expirará (por exemplo, ' 2020-12-31T11:59:59 + 00:00 ' ou ' 2020-12-31 '). |
+
+    Gerenciar seus segredos de aplicativo do Azure AD
+
+    ![Folha de certificados e segredos do portal do Azure](./media/client-secrets-blade.png)
 
 1. Copie a saída JSON em um arquivo de texto para uso posterior. A saída deve parecer com o seguinte.
 
@@ -184,8 +192,8 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
 ## <a name="next-steps"></a>Próximas etapas
 
 * Confira o [Início rápido do Node.js](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) para ver o que mais você pode fazer com o SDK de Leitura Avançada usando Node.js
-* Veja o [tutorial do Android](./tutorial-android.md) para ver o que mais você pode fazer com o SDK do leitor de imersão usando Java ou Kotlin para Android
-* Veja o [tutorial do IOS](./tutorial-ios.md) para ver o que mais você pode fazer com o SDK do leitor de imersão usando o Swift para IOS
+* Veja o [tutorial do Android](./tutorial-android.md) para saber o que mais você pode fazer com o SDK de Leitura Avançada usando o Java ou o Kotlin para Android
+* Veja o [tutorial do iOS](./tutorial-ios.md) para saber o que mais você pode fazer com o SDK de Leitura Avançada usando o Swift para iOS
 * Confira o [tutorial do Python](./tutorial-python.md) para ver o que mais você pode fazer com o SDK de Leitura Avançada usando Python
 * Explore o [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk) e a [Referência de SDK da Leitura Avançada](./reference.md)
 

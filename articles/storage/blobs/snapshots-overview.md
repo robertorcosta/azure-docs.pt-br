@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/02/2020
+ms.date: 08/19/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 24118e6ae5c31399ce5d33361dd60e3a08424681
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 4c6c2774e0d71ec33449565efab797c040aa264f
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055761"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640592"
 ---
 # <a name="blob-snapshots"></a>Instantâneos de BLOB
 
 Um instantâneo é uma versão somente leitura de um blob capturada em um momento no tempo.
 
 > [!NOTE]
-> O controle de versão do blob (visualização) oferece uma maneira alternativa de manter cópias históricas de um blob. Para obter mais informações, consulte [controle de versão de BLOB (visualização)](versioning-overview.md).
+> O controle de versão do blob (visualização) oferece uma maneira alternativa de manter versões anteriores de um blob. Para obter mais informações, consulte [controle de versão de BLOB (visualização)](versioning-overview.md).
 
 ## <a name="about-blob-snapshots"></a>Sobre instantâneos de BLOB
 
@@ -33,7 +33,7 @@ O instantâneo de um blob é idêntico ao respectivo blob de base, exceto pelo f
 > Todos os instantâneos compartilham o URI do blob de base. A única diferença entre o blob de base e o instantâneo é o acréscimo do valor **DateTime** .
 >
 
-Um blob pode ter qualquer número de instantâneos. Os instantâneos persistem até serem explicitamente excluídos, independentemente ou como parte da operação de exclusão de BLOB para o blob de base. Você pode enumerar os instantâneos associados ao blob de base para acompanhar seus instantâneos atuais.
+Um blob pode ter qualquer número de instantâneos. Os instantâneos persistem até serem explicitamente excluídos, independentemente ou como parte de uma operação de [exclusão de blob](/rest/api/storageservices/delete-blob) para o blob de base. Você pode enumerar os instantâneos associados ao blob de base para acompanhar seus instantâneos atuais.
 
 Quando você cria um instantâneo de um blob, as propriedades do sistema são copiadas para o instantâneo com os mesmos valores. Os metadados do blob de base também são copiados no instantâneo, a menos que você especifique metadados separados para o instantâneo ao criá-lo. Depois de criar um instantâneo, você pode lê-lo, copiá-lo ou excluí-lo, mas não é possível modificá-lo.
 
@@ -51,15 +51,15 @@ A lista a seguir inclui os principais pontos a considerar ao criar um instantân
 
 - Sua conta de armazenamento é cobrada por páginas ou blocos exclusivos, estejam eles no blob ou no instantâneo. Sua conta não incorre em cobranças adicionais para instantâneos associados a um blob até que você atualize o blob no qual eles se baseiam. Depois de atualizar o blob de base, ele divergirá dos respectivos instantâneos. Quando isso acontece, você é cobrado por páginas ou blocos exclusivos em cada blob ou instantâneo.
 - Quando você substituir um bloco em um blob de blocos, esse bloco será cobrado subsequentemente como um único bloco. Isso é verdadeiro mesmo se o bloco tiver a mesma ID de bloco e os mesmos dados que tem no instantâneo. Depois que o bloco for confirmado novamente, ele divergirá de sua contraparte em qualquer instantâneo e você será cobrado por seus dados. O mesmo se aplica para uma página em um blob de páginas é atualizada com os dados idênticos.
-- Substituir um blob de bloco chamando o método [uploadfromfile] [dotnet_UploadFromFile], [UploadText] [dotnet_UploadText], [UploadFromStream] [dotnet_UploadFromStream] ou [UploadFromByteArray] [dotnet_UploadFromByteArray] substitui todos os blocos no BLOB. Se você tiver um instantâneo associado a esse blob, todos os blocos no blob de base e o instantâneo agora divergirão e você será cobrado por todos os blocos em ambos os blobs. Isso é verdadeiro mesmo se os dados no blob de base e o instantâneo permanecerem idênticos.
+- Atualizar um blob de bloco chamando um método que substitui todo o conteúdo do blob substituirá todos os blocos no BLOB. Se você tiver um instantâneo associado a esse blob, todos os blocos no blob de base e o instantâneo agora divergirão e você será cobrado por todos os blocos em ambos os blobs. Isso é verdadeiro mesmo se os dados no blob de base e o instantâneo permanecerem idênticos.
 - O serviço Blob do Azure não tem um meio para determinar se dois blocos contêm dados idênticos. Cada bloco que é carregado e confirmado é tratado como exclusivo, mesmo se tiver os mesmos dados e a mesma ID de bloco. Já que as cobranças se acumulam para blocos exclusivos, é importante considerar que a atualização de um blob que tenha um instantâneo resulta em blocos exclusivos adicionais e cobranças adicionais.
 
-### <a name="minimize-cost-with-snapshot-management"></a>Minimizar o custo com gerenciamento de instantâneos
+### <a name="minimize-costs-with-snapshot-management"></a>Minimizar os custos com o gerenciamento de instantâneos
 
 É recomendável gerenciar seus instantâneos com cuidado para evitar cobranças extras. Você pode seguir estas práticas recomendadas para ajudar a minimizar os custos incorridos pelo armazenamento de seus instantâneos:
 
 - Exclua e recrie instantâneos associados a um blob sempre que você atualiza o blob, mesmo se você estiver atualizando com dados idênticos, a menos que o design do seu aplicativo requer que você mantenha os instantâneos. Ao excluir e recriar os instantâneos do blob, você pode garantir que o blob e os instantâneos não divirjam.
-- Se você estiver mantendo instantâneos para um blob, evite chamar [uploadfromfile] [dotnet_UploadFromFile], [UploadText] [dotnet_UploadText], [UploadFromStream] [dotnet_UploadFromStream] ou [UploadFromByteArray] [dotnet_UploadFromByteArray] para atualizar o blob. Esses métodos substituem todos os blocos no blob, fazendo com que o blob base e os respectivos instantâneos divirjam consideravelmente. Em vez disso, atualize o menor número possível de blocos usando os métodos [PutBlock] [dotnet_PutBlock] e [PutBlockList] [dotnet_PutBlockList].
+- Se você estiver mantendo instantâneos para um blob, evite chamar métodos que substituem todo o blob ao atualizar o blob. Em vez disso, atualize o menor número possível de blocos para manter os custos baixos.
 
 ### <a name="snapshot-billing-scenarios"></a>Cenários de cobrança de instantâneo
 
@@ -85,9 +85,12 @@ No cenário 3, o blob de base foi atualizado, mas o instantâneo, não. O bloco 
 
 #### <a name="scenario-4"></a>Cenário 4
 
-No cenário 4, o blob de base foi totalmente atualizado e não contém nenhum dos seus blocos originais. Como resultado, a conta é cobrada por todos os oito blocos exclusivos. Esse cenário pode ocorrer se você estiver usando um método de atualização como [uploadfromfile] [dotnet_UploadFromFile], [UploadText] [dotnet_UploadText], [UploadFromStream] [dotnet_UploadFromStream] ou [UploadFromByteArray] [dotnet_UploadFromByteArray], pois esses métodos substituem todo o conteúdo de um blob.
+No cenário 4, o blob de base foi totalmente atualizado e não contém nenhum dos seus blocos originais. Como resultado, a conta é cobrada por todos os oito blocos exclusivos.
 
 ![Recursos de Armazenamento do Azure](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
+
+> [!TIP]
+> Evite chamar métodos que substituem todo o blob e, em vez disso, atualize blocos individuais para manter os custos baixos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -16,16 +16,16 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e7e3a6666d467045b733b5401476fd83c93be19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 155a91ded6c814e2d868e8edd4572459460d006f
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764869"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642054"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Definir uma home page personalizada para aplicativos publicados usando o Proxy de Aplicativo Azure AD
 
-Este artigo discute como configurar um aplicativo para direcionar um usuário para um home page personalizado. Ao publicar um aplicativo com o proxy de aplicativo, você define uma URL interna, mas às vezes essa não é a página que um usuário deve ver primeiro. Defina um home page personalizado para que um usuário obtenha a página correta quando acessar o aplicativo. Um usuário verá o home page personalizado que você definiu, independentemente de eles acessarem o aplicativo do painel de acesso Azure Active Directory ou do iniciador de aplicativos do Office 365.
+Este artigo discute como configurar um aplicativo para direcionar um usuário para um home page personalizado. Ao publicar um aplicativo com o proxy de aplicativo, você define uma URL interna, mas às vezes essa não é a página que um usuário deve ver primeiro. Defina um home page personalizado para que um usuário obtenha a página correta quando acessar o aplicativo. Um usuário verá o home page personalizado que você definiu, independentemente de eles acessarem o aplicativo do Azure Active Directory o iniciador de aplicativos ou do Microsoft 365.
 
 Quando um usuário inicia o aplicativo, ele é direcionado por padrão para a URL do domínio raiz para o aplicativo publicado. A página de aterrissagem é normalmente definida como a URL da home page. Use o módulo do PowerShell do Azure AD para definir uma URL de home page personalizada quando você quiser que um usuário de aplicativo pouse em uma página específica dentro do aplicativo.
 
@@ -37,7 +37,7 @@ Veja um cenário que explica por que sua empresa definiria um home page personal
 - `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx`Em vez disso, você deseja definir como a URL de Home Page, para que um usuário externo Veja a página de entrada primeiro.
 
 > [!NOTE]
-> Quando você conceder aos usuários acesso a aplicativos publicados, os aplicativos são exibidos no [painel de acesso do Azure AD](../user-help/my-apps-portal-end-user-access.md) e [lançador de aplicativo do Office 365](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
+> Quando você concede aos usuários acesso a aplicativos publicados, os aplicativos são exibidos em [meus aplicativos](../user-help/my-apps-portal-end-user-access.md) e no [iniciador de aplicativos do Office 365](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -59,7 +59,7 @@ Para alterar a URL de home page do seu aplicativo por meio do portal do AD do Az
 1. Selecione **Azure Active Directory**e, em seguida, **registros de aplicativo**. A lista de aplicativos registrados é exibida.
 1. Escolha seu aplicativo na lista. É exibida uma página mostrando os detalhes do aplicativo registrado.
 1. Em **gerenciar**, selecione **identidade visual**.
-1. Atualize a **URL da Home Page** com o novo caminho.
+1. Atualize a **URL da Home Page**  com o novo caminho.
 
    ![Página de identidade visual para um aplicativo registrado mostrando o campo URL da Home Page](media/application-proxy-configure-custom-home-page/app-proxy-app-branding.png)
 
@@ -127,7 +127,7 @@ Você Obtém o ObjectId do aplicativo procurando pelo aplicativo por seu nome de
 
 ### <a name="update-the-home-page-url"></a>Atualizar a URL da home page
 
-Crie a URL de home page e atualize seu aplicativo com esse valor. Continue usando a mesma janela do PowerShell ou, se você estiver usando uma nova janela do PowerShell, entre no módulo do Azure AD novamente usando `Connect-AzureAD` . Depois, siga estas etapas:
+Crie a URL de home page e atualize seu aplicativo com esse valor. Continue usando a mesma janela do PowerShell ou, se você estiver usando uma nova janela do PowerShell, entre no módulo do Azure AD novamente usando `Connect-AzureAD` . Depois, execute estas etapas:
 
 1. Crie uma variável para conter o valor de ObjectId que você copiou na seção anterior. (Substitua o valor ObjectId usado para neste exemplo do SharePoint pelo valor ObjectId do seu aplicativo.)
 

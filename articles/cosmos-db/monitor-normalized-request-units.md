@@ -6,30 +6,32 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 06/25/2020
-ms.openlocfilehash: 8709389208ba1320685b1834b20893f08ef33ed7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7005a3786bb2d538450b076c113e159c766d72e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482897"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642071"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Como monitorar RU/s normalizados para um contêiner Cosmos do Azure ou uma conta
 
 O Azure Monitor para Azure Cosmos DB fornece uma exibição de métricas para monitorar sua conta e criar painéis. As métricas do Azure Cosmos DB são coletadas por padrão, e esse recurso não exige que você habilite nem configure nada explicitamente.
 
-A métrica de **consumo de ru normalizada** é usada para ver quão bem saturadas as réplicas estão relacionadas ao consumo de unidades de solicitação entre os intervalos de chaves de partição. Azure Cosmos DB distribui a taxa de transferência igualmente entre todas as partições físicas. Essa métrica fornece uma exibição por segundo da utilização máxima da taxa de transferência em um conjunto de réplicas. Use essa métrica para calcular o uso de RU/s em partições para um determinado contêiner. Usando essa métrica, se você vir uma alta porcentagem de utilização de unidades de solicitação, aumente a taxa de transferência para atender às necessidades de sua carga de trabalho.
+A métrica de **consumo de ru normalizada** é usada para ver como os intervalos de chave de partição são bem saturados em relação ao tráfego. Azure Cosmos DB distribui a taxa de transferência igualmente entre todos os intervalos de chaves de partição. Essa métrica fornece uma exibição por segundo da utilização máxima da taxa de transferência para o intervalo de chaves de partição. Use essa métrica para calcular o uso de RU/s no intervalo de chaves de partição para determinado contêiner. Usando essa métrica, se você vir uma alta porcentagem de utilização de unidades de solicitação em todos os intervalos de chaves de partição no Azure monitor, você deve aumentar a taxa de transferência para atender às necessidades de sua carga de trabalho. 
 
 ## <a name="what-to-expect-and-do-when-normalized-rus-is-higher"></a>O que esperar e fazer quando a RU/s normalizada é maior
 
-Quando o consumo de RU/s normalizado atinge 100%, o cliente recebe erros de limitação de taxa. O cliente deve respeitar o tempo de espera e tentar novamente. Se houver um pequeno pico que atinja a utilização de 100%, significa que a taxa de transferência na réplica atingiu seu limite de desempenho máximo. Por exemplo, uma única operação, como um procedimento armazenado que consome todos os RU/s em uma réplica, levará a um pequeno pico no consumo normalizado de RU/s. Nesses casos, não haverá nenhum erro de limitação de taxa imediata se a taxa de solicitação for baixa. Isso porque, Azure Cosmos DB permite que as solicitações sejam cobradas mais do que os RU/s provisionados para a solicitação específica e outras solicitações dentro desse período de tempo são limitadas por taxa.
+Quando o consumo de RU/s normalizado atingir 100% para determinado intervalo de chaves de partição, e se um cliente ainda fizer solicitações nesse período de 1 segundo para esse intervalo de chaves de partição específico, ele receberá um erro de taxa limitada. O cliente deve respeitar o tempo de espera sugerido e repetir a solicitação. O SDK facilita a manipulação dessa situação, repetindo os tempos pré-configurados ao aguardar adequadamente.  Não é necessário que você veja o erro de limitação da taxa de RU apenas porque o RU normalizado atingiu 100%. Isso ocorre porque o RU normalizado é um único valor que representa o uso máximo em todos os intervalos de chave de partição, um intervalo de chaves de partição pode estar ocupado, mas os outros intervalos de chave de partição podem atender às solicitações sem problemas. Por exemplo, uma única operação, como um procedimento armazenado que consome todos os RU/s em um intervalo de chaves de partição, levará a um pequeno pico no consumo normalizado de RU/s. Nesses casos, não haverá nenhum erro de limitação de taxa imediata se a taxa de solicitação for baixa ou se forem feitas solicitações a outras partições em diferentes intervalos de chaves de partição. 
 
-As métricas de Azure Monitor ajudam a localizar as operações por código de status usando a métrica **total de solicitações** . Posteriormente, você pode filtrar essas solicitações pelo código de status 429 e dividi-las por **tipo de operação**.
+As métricas de Azure Monitor ajudam a localizar as operações por código de status para a API do SQL usando a métrica **total de solicitações** . Posteriormente, você pode filtrar essas solicitações pelo código de status 429 e dividi-las por **tipo de operação**.  
 
 Para localizar as solicitações que são limitadas por taxa, a maneira recomendada é obter essas informações por meio dos logs de diagnóstico.
 
-Se houver um pico contínuo de 100% de consumo de RU/s normalizado ou perto de 100%, é recomendável aumentar a taxa de transferência. Você pode descobrir quais operações são pesadas e seu uso de pico utilizando as métricas do Azure monitor e os logs do Azure monitor.
+Se houver um pico contínuo de 100% de consumo de RU/s normalizado ou perto de 100% em vários intervalos de chave de partição, é recomendável aumentar a taxa de transferência. Você pode descobrir quais operações são pesadas e seu uso de pico utilizando as métricas do Azure monitor e os logs de diagnóstico do Azure monitor.
 
-A métrica de **consumo de ru normalizada** também é usada para ver qual intervalo de chave de partição está mais quente em termos de uso; dando a você a distorção da taxa de transferência em direção a um intervalo de chaves de partição. Posteriormente, você pode acompanhar para ver o log do **PartitionKeyRUConsumption** em logs de Azure monitor para obter informações sobre quais chaves de partição lógica estão quentes em termos de uso.
+Em resumo, a métrica de **consumo de ru normalizada** é usada para ver qual intervalo de chave de partição está mais quente em termos de uso. Portanto, ele oferece a distorção da taxa de transferência em direção a um intervalo de chaves de partição. Posteriormente, você pode acompanhar para ver o log do **PartitionKeyRUConsumption** em logs de Azure monitor para obter informações sobre quais chaves de partição lógica estão quentes em termos de uso. Isso apontará para alteração na opção de chave de partição ou na alteração da lógica do aplicativo. Para resolver a limitação de taxa, distribua a carga de dados por meio de várias partições ou apenas aumente a taxa de transferência, pois ela é realmente necessária. 
+
+
 
 ## <a name="view-the-normalized-request-unit-consumption-metric"></a>Exibir a métrica de consumo de unidade de solicitação normalizada
 

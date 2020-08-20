@@ -10,16 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: trbye
-ms.openlocfilehash: b1e84f9acb439324317ed2f0d11ed06eb3e43ad8
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 90a5ec8c58865c3aa1b210db51b9ffeb7169d641
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678050"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640405"
 ---
 # <a name="what-is-speech-to-text"></a>O que é conversão de fala em texto?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 A conversão de fala em texto do serviço de fala, também conhecida como reconhecimento de fala, permite a transcrição em tempo real de fluxos de áudio em texto. Seus aplicativos, ferramentas ou dispositivos podem consumir, exibir e tomar medidas sobre esse texto como entrada de comando. Esse serviço é fornecido pela mesma tecnologia de reconhecimento usada pela Microsoft para os produtos Cortana e Office. Ele funciona diretamente com as ofertas <a href="./speech-translation.md" target="_blank">de <span class="docon docon-navigate-external x-hidden-focus"></span> tradução</a> e serviço de conversão de <a href="./text-to-speech.md" target="_blank">texto em fala <span class="docon docon-navigate-external x-hidden-focus"></span> </a> . Para obter uma lista completa de idiomas de fala para texto disponíveis, consulte [idiomas com suporte](language-support.md#speech-to-text).
 
@@ -30,6 +28,8 @@ Com o texto de referência adicional como entrada, o serviço de conversão de f
 > [!NOTE]
 > Fala do Bing foi encerrado em 15 de outubro de 2019. Se seus aplicativos, ferramentas ou produtos estiverem usando as APIs de Fala do Bing, criamos guias para ajudá-lo a migrar para o serviço de fala.
 > - [Migrar do Fala do Bing para o serviço de fala](how-to-migrate-from-bing-speech.md)
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 ## <a name="get-started-with-speech-to-text"></a>Introdução à conversão de fala em texto
 
@@ -58,6 +58,10 @@ O código de exemplo para o SDK de fala está disponível no GitHub. Esses exemp
 ## <a name="customization"></a>Personalização
 
 Além do modelo de serviço de fala padrão, você pode criar modelos personalizados. A personalização ajuda a superar as barreiras de reconhecimento de fala, como estilo de fala, vocabulário e ruído de fundo, consulte [fala personalizada](how-to-custom-speech.md). As opções de personalização variam por idioma/localidade, consulte [idiomas com suporte](supported-languages.md) para verificar o suporte.
+
+## <a name="batch-transcription"></a>Transcrição de lote
+
+A transcrição do lote é um conjunto de operações da API REST que permitem transcrever uma grande quantidade de áudio no armazenamento. Você pode apontar para arquivos de áudio com um URI de assinatura de acesso compartilhado (SAS) e receber resultados de transcrição de forma assíncrona. Consulte o [instruções](batch-transcription.md) para obter mais informações sobre como usar a API de transcrição do lote.
 
 [!INCLUDE [speech-reference-doc-links](includes/speech-reference-doc-links.md)]
 

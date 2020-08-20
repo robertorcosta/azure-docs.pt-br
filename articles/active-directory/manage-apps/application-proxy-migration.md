@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1ffb5ec0b39c5331afbc55d99268d9a3997e62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efd98cab50c3239d3202e6feabe18f45a4240293
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764444"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641170"
 ---
 # <a name="compare-remote-access-solutions"></a>Comparar as soluções de acesso remoto
 
@@ -32,7 +32,7 @@ O Azure Active Directory Application Proxy é uma das duas soluções de acesso 
 
 Use essa tabela para entender a comparação entre o Threat Management Gateway (TMG), o Unified Access Gateway (UAG), o Proxy de Aplicativo da Web (WAP) e o Proxy de Aplicativo do Azure AD (AP).
 
-| Recurso | TMG | UAG | WAP | AP |
+| Recurso | TMG | UAG | WAP | PA |
 | ------- | --- | --- | --- | --- |
 | Autenticação de certificado | Sim | Sim | - | - |
 | Publicar seletivamente os aplicativos de navegador | Sim | Sim | Sim | Sim |
@@ -59,7 +59,7 @@ O Proxy de Aplicativo do Azure AD oferece benefícios exclusivos quando comparad
    - Recursos como acesso condicional e autenticação multifator são fáceis de habilitar
 - Nenhum componente na zona desmilitarizada
 - Nenhuma conexão de entrada necessária
-- Um painel de acesso em que os usuários poderão procurar todos os aplicativos, incluindo o O365, os aplicativos SaaS integrados do Azure AD e seus aplicativos Web locais. 
+- Uma página meus aplicativos à qual os usuários podem ir para todos os seus aplicativos, incluindo o O365, aplicativos SaaS integrados do Azure AD e seus aplicativos Web locais. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: d692daf2f7f8b77358e73246fd8d8760f95982ac
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: a0ea0a7580bbb7a6106880d2733f36f5ab7a7690
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510786"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639776"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Suporte a idiomas e regiões para conversão de texto e fala
 
@@ -296,6 +296,7 @@ Os idiomas a seguir estão disponíveis para personalização de ou para o ingl�
 | Francês      | `fr`          |
 | Alemão      | `de`          |
 | Grego      | `el`          |
+| Guzerate| `gu`    |
 | Hebraico      | `he`          |
 | Híndi      | `hi`          |
 | Húngaro      | `hu`          |
@@ -309,11 +310,14 @@ Os idiomas a seguir estão disponíveis para personalização de ou para o ingl�
 | Letão      | `lv`          |
 | Lituano      | `lt`          |
 | Malgaxe| `mg`    |
+| Malaio|    `ms`        |
 | Maori| `mi`  |
+| Marati| `mr`  |
 | Norueguês      | `nb`          |
 | Persa      | `fa`          |
 | Polonês      | `pl`          |
 | Português (Brasil) | `pt-br` |
+| Panjabi|`pa`|
 | Romeno      | `ro`          |
 | Russo      | `ru`          |
 | Samoano|   `sm`    |
@@ -325,6 +329,7 @@ Os idiomas a seguir estão disponíveis para personalização de ou para o ingl�
 | Tailandês      | `th`          |
 | Turco      | `tr`          |
 | Ucraniano      | `uk`          |
+| Urdu| `ur`    |
 | Vietnamita      | `vi`          |
 | Galês | `cy` |
 
@@ -334,7 +339,7 @@ A tradução de fala está disponível usando o tradutor com o serviço de fala 
 ### <a name="speech-to-text"></a>Conversão de fala em texto
 Converta a fala em texto para traduzir para o idioma de texto de sua escolha. A conversão de fala em texto é usada para a tradução de fala para texto ou para tradução de fala para fala quando usada em conjunto com a síntese de fala.
 
-| Language    |
+| Idioma    |
 |:----------- |
 |Árabe|
 |Cantonês (tradicional)|
@@ -368,7 +373,7 @@ Converta a fala em texto para traduzir para o idioma de texto de sua escolha. A 
 ### <a name="text-to-speech"></a>Conversão de texto em fala
 Converter texto em fala. A conversão de texto em fala é usada para adicionar saída audível de resultados de tradução ou para tradução de fala a fala quando usada com a fala em texto. 
 
-| Language    |
+| Idioma    |
 |:----------- |
 |Árabe|
 |Búlgaro|

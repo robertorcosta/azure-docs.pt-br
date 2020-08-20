@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 68ccf3518a7011c0c39003d8e447a4e1d233fd91
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: ce159bc61a1f21c52b8d182c1248ba1d436462da
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164573"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640507"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Usar o Proxy de Aplicativo do Azure AD para publicar aplicativos locais para usuários remotos
 
@@ -76,7 +76,7 @@ O Proxy de Aplicativo é um serviço do Azure AD que você configura no portal d
 
 Os componentes desse recurso incluem o serviço Proxy de Aplicativo, executado na nuvem, o conector do Proxy de Aplicativo, que é um agente leve executado em um servidor local, e o Azure AD, que é o provedor de identidade. Todos os três componentes trabalham em conjunto para fornecer ao usuário uma experiência de logon único para acessar aplicativos Web locais.
 
-Após o logon, os usuários externos podem acessar os aplicativos Web locais usando uma URL conhecida ou o [painel de acesso MyApps](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) dos dispositivos de área de trabalho ou dispositivos iOS/MAC. Por exemplo, o Proxy de Aplicativo pode fornecer acesso remoto e o logon único para a Área de Trabalho Remota, o SharePoint, o Tableau, o Qlik, o Outlook na Web e aplicativos LOB (linha de negócios).
+Depois de entrar, os usuários externos podem acessar aplicativos Web locais usando uma URL familiar ou [meus aplicativos](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) de seus dispositivos de área de trabalho ou Ios/Mac. Por exemplo, o Proxy de Aplicativo pode fornecer acesso remoto e o logon único para a Área de Trabalho Remota, o SharePoint, o Tableau, o Qlik, o Outlook na Web e aplicativos LOB (linha de negócios).
 
 ![Arquitetura do Proxy de Aplicativo do Azure AD](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 

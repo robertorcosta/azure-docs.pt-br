@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: 06838ecee809c5159bc8a290ecb4f589fd3ce04f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: dd3978ee1f371d59119e406c5f023718d57ad99b
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207419"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642207"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia do desenvolvedor do PowerShell do Azure Functions
 
@@ -233,7 +233,7 @@ O registro em log nas funções do PowerShell funciona como log normal do PowerS
 
 | Nível de log de funções | Cmdlet de registro em log |
 | ------------- | -------------- |
-| Erro | **`Write-Error`** |
+| Erro do | **`Write-Error`** |
 | Aviso | **`Write-Warning`**  | 
 | Informação | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informação | Grava no log do nível de _informações_ . |
 | Depurar | **`Write-Debug`** |
@@ -297,7 +297,7 @@ O objeto de solicitação que é passado para o script é do tipo `HttpRequestCo
 
 | Propriedade  | Descrição                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Um objeto que contém o corpo da solicitação. `Body` é serializado no melhor tipo com base nos dados. Por exemplo, se os dados forem JSON, eles serão passados como uma tabela de hash. Se os dados forem uma cadeia de caracteres, eles serão passados como uma cadeia de caracteres. | object |
+| **`Body`**    | Um objeto que contém o corpo da solicitação. `Body` é serializado no melhor tipo com base nos dados. Por exemplo, se os dados forem JSON, eles serão passados como uma tabela de hash. Se os dados forem uma cadeia de caracteres, eles serão passados como uma cadeia de caracteres. | objeto |
 | **`Headers`** | Um dicionário que contém os cabeçalhos de solicitação.                | <de cadeia de caracteres de dicionário, Cadeia de caracteres><sup>*</sup> |
 | **`Method`** | O método HTTP da solicitação.                                | string                    |
 | **`Params`**  | Um objeto que contém os parâmetros de roteamento da solicitação. | <de cadeia de caracteres de dicionário, Cadeia de caracteres><sup>*</sup> |
@@ -312,7 +312,7 @@ O objeto de resposta que você deve enviar de volta é do tipo `HttpResponseCont
 
 | Propriedade      | Descrição                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | Um objeto que contém o corpo da resposta.           | object                    |
+| **`Body`**  | Um objeto que contém o corpo da resposta.           | objeto                    |
 | **`ContentType`** | Uma pequena mão para definir o tipo de conteúdo para a resposta. | string                    |
 | **`Headers`** | Um objeto que contém os cabeçalhos da resposta.               | Dicionário ou Hashtable   |
 | **`StatusCode`**  | O código de status HTTP da resposta.                       | cadeia de caracteres ou inteiro             |
@@ -382,14 +382,14 @@ Quando você cria um aplicativo de funções usando ferramentas, como Visual Stu
 * Autenticação automática de MSI para o Azure.
 * A capacidade de ativar o Azure PowerShell `AzureRM` aliases do PowerShell, se desejar.
 
-## <a name="powershell-version"></a>Versão do PowerShell
+## <a name="powershell-versions"></a>Versões do PowerShell
 
-A tabela a seguir mostra a versão do PowerShell usada por cada versão principal do tempo de execução do Functions:
+A tabela a seguir mostra as versões do PowerShell com suporte em cada versão principal do tempo de execução do Functions e a versão do .NET necessária:
 
-| Versão do Functions | Versão do PowerShell                             |
-|-------------------|------------------------------------------------|
-| 1.x               | Windows PowerShell 5,1 (bloqueado pelo tempo de execução) |
-| 2. x               | PowerShell Core 6                              |
+| Versão do Functions | Versão do PowerShell                               | Versão do .NET  | 
+|-------------------|--------------------------------------------------|---------------|
+| 3. x (recomendado) | PowerShell 7 (recomendado)<br/>PowerShell Core 6 | .NET Core 3.1<br/>.NET Core 3.1 |
+| 2. x               | PowerShell Core 6                                | .NET Core 2.2 |
 
 Você pode ver a versão atual imprimindo `$PSVersionTable` de qualquer função.
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 1566de36d6176568b148fde965bb7d3051e6b500
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 7456402605328592d4f5677767bcd985941173ec
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543462"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639827"
 ---
 # <a name="what-is-azure-private-endpoint"></a>O que é o Ponto de Extremidade Privado do Azure?
 
@@ -47,6 +47,7 @@ Estes são alguns detalhes importantes sobre os pontos de extremidade privados:
  
 - Vários pontos de extremidade privados podem ser criados na mesma sub-rede ou em sub-redes diferentes na mesma rede virtual. Há limites para o número de pontos de extremidade privados que você pode criar em uma assinatura. Para obter detalhes, confira  [Limites do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
+- A assinatura do recurso de link privado também deve ser registrada com o provedor de recursos Microsoft. Network. Para obter detalhes, consulte [provedores de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
  
 ## <a name="private-link-resource"></a>Recurso do link privado 
@@ -132,9 +133,9 @@ A tabela a seguir inclui uma lista de limitações conhecidas ao usar pontos de 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Criar um ponto de extremidade privado para o banco de dados SQL usando o portal](create-private-endpoint-portal.md)
-- [Criar um ponto de extremidade privado para o banco de dados SQL usando o PowerShell](create-private-endpoint-powershell.md)
-- [Criar um ponto de extremidade privado para o banco de dados SQL usando a CLI](create-private-endpoint-cli.md)
+- [Criar um ponto de extremidade privado para o banco de dados SQL usando o portal ](create-private-endpoint-portal.md)
+- [Criar um ponto de extremidade privado para o banco de dados SQL usando o PowerShell ](create-private-endpoint-powershell.md)
+- [Criar um ponto de extremidade privado para o banco de dados SQL usando a CLI ](create-private-endpoint-cli.md)
 - [Criar um Ponto de Extremidade Privado para a conta de Armazenamento usando o portal ](create-private-endpoint-storage-portal.md)
 - [Criar um Ponto de Extremidade Privado para a conta do Azure Cosmos usando o portal ](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Criar seu próprio serviço de Link Privado usando o Azure PowerShell](create-private-link-service-powershell.md)

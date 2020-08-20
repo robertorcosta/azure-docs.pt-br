@@ -4,13 +4,13 @@ description: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
-ms.openlocfilehash: 3cd2ed692f3a34223675da69efd92e78c2ba9504
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 08/19/2020
+ms.openlocfilehash: 97ba976c841e192646ebb484fe4d004556e34c54
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082904"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640830"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configurar a coleta de dados para o agente de Azure Monitor (versão prévia)
 As regras de coleta de dados (DCR) definem os dados que chegam ao Azure Monitor e especificam onde devem ser enviados. Este artigo descreve como criar uma regra de coleta de dados para coletar dados de máquinas virtuais usando o agente de Azure Monitor.
@@ -48,7 +48,7 @@ Na guia **coletar e entregar** , clique em **Adicionar fonte de dados** para adi
 [![Fonte de dados básica](media/azure-monitor-agent/data-collection-rule-data-source-basic.png)](media/azure-monitor-agent/data-collection-rule-data-source-basic.png#lightbox)
 
 
-Para especificar outros logs e contadores de desempenho, selecione **personalizado**. Em seguida, você pode especificar um [XPath](https://www.w3schools.com/xml/xpath_syntax.asp) para quaisquer valores específicos a serem coletados. Consulte o [exemplo DCR](data-collection-rule-overview.md#sample-data-collection-rule) para obter exemplos.
+Para especificar outros logs e contadores de desempenho, selecione **personalizado**. Em seguida, você pode especificar um [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) para quaisquer valores específicos a serem coletados. Consulte o [exemplo DCR](data-collection-rule-overview.md#sample-data-collection-rule) para obter exemplos.
 
 [![Fonte de dados personalizada](media/azure-monitor-agent/data-collection-rule-data-source-custom.png)](media/azure-monitor-agent/data-collection-rule-data-source-custom.png#lightbox)
 
@@ -61,6 +61,11 @@ Clique em **Adicionar fonte de dados** e **revise + criar** para examinar os det
 > [!NOTE]
 > Depois que a regra de coleta de dados e as associações tiverem sido criadas, pode levar até 5 minutos para os dados serem enviados aos destinos.
 
+## <a name="createusingrestapi"></a>Criar usando a API REST
+Siga as etapas abaixo para criar um DCR e associações usando a API REST. 
+1.Crie manualmente o arquivo DCR usando o formato JSON mostrado no [exemplo DCR](data-collection-rule-overview.md#sample-data-collection-rule).
+2.Crie a regra usando a [API REST](https://docs.microsoft.com/rest/api/monitor/datacollectionrules/create#examples).
+3.Crie uma associação para cada máquina virtual para a regra de coleta de dados usando a [API REST](https://docs.microsoft.com/rest/api/monitor/datacollectionruleassociations/create#examples).
 
 ## <a name="next-steps"></a>Próximas etapas
 

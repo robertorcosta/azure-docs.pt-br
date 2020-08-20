@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: article
 ms.date: 04/23/2020
 ms.author: cshoe
-ms.openlocfilehash: fd7b0be967c7a0bbc605c51408448917b5222d36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37f79d717b7ea0e26717e7b51f9e66b908b96521
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83121710"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640949"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Executar manualmente uma função não disparada por HTTP
 
@@ -37,7 +37,7 @@ Você pode usar esta localização de solicitação no Postman, juntamente com a
 
 ## <a name="get-the-functions-master-key"></a>Obter a chave mestra da função
 
-1. Navegue até sua função no portal do Azure e selecione **chaves de função**. Em seguida, selecione a tecla de função que você deseja copiar. 
+1. Navegue até seu aplicativo de funções no [portal do Azure](https://portal.azure.com), selecione **chaves de aplicativo**e, em seguida, a `_master` chave. 
 
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key.png" alt-text="Localize a chave mestra a ser copiada." border="true":::
 
@@ -50,7 +50,7 @@ Você pode usar esta localização de solicitação no Postman, juntamente com a
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Exiba os logs para ver os resultados do teste de chave mestra." border="true":::
 
 > [!CAUTION]  
-> Devido às permissões elevadas no aplicativo de funções concedidas pela chave mestra, você não deve compartilhar essa chave com terceiros nem distribuí-la em um aplicativo.
+> Devido às permissões elevadas no aplicativo de funções concedidas pela chave mestra, você não deve compartilhar essa chave com terceiros nem distribuí-la em um aplicativo. A chave só deve ser enviada para um ponto de extremidade HTTPS.
 
 ## <a name="call-the-function"></a>Chamar a função
 

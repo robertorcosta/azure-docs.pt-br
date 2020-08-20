@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: kenwith
-ms.openlocfilehash: fdcea318fcd0796a790818794f6dd7cd949c17cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09a930778e35897671d10f14a95f3fa48ea5e9eb
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367777"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642411"
 ---
-# <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planejar uma implantação de Proxy de Aplicativo do AD do Azure
+# <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planejar uma implantação do Proxy de Aplicativo do Azure AD
 
 O proxy de aplicativo Azure Active Directory (AD do Azure) é uma solução de acesso remoto segura e econômica para aplicativos locais. Ele fornece um caminho de transição imediato para as organizações de "nuvem First" para gerenciar o acesso a aplicativos locais herdados que ainda não são capazes de usar protocolos modernos. Para obter informações introdutórias adicionais, consulte [o que é o proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
 
@@ -170,7 +170,7 @@ Realize testes funcionais básicos depois de publicar um aplicativo para garanti
 
 ### <a name="deploy-application-proxy"></a>Implantar o proxy de aplicativo
 
-As etapas para implantar o proxy de aplicativo são abordadas neste [tutorial para adicionar um aplicativo local para acesso remoto](application-proxy-add-on-premises-application.md). Se a instalação não for bem-sucedida, selecione **solucionar problemas de proxy de aplicativo** no portal ou use o guia de solução de problemas [para instalar o conector do agente de proxy de aplicativo](application-proxy-connector-installation-problem.md).
+As etapas para implantar o proxy de aplicativo são abordadas neste [tutorial para adicionar um aplicativo local para acesso remoto](application-proxy-add-on-premises-application.md). Se a instalação não for bem-sucedida, selecione  **solucionar problemas de proxy de aplicativo**  no portal ou use o guia de solução de problemas [para instalar o conector do agente de proxy de aplicativo](application-proxy-connector-installation-problem.md).
 
 ### <a name="publish-applications-via-application-proxy"></a>Publicar aplicativos por meio do proxy de aplicativo
 
@@ -271,7 +271,7 @@ Os seguintes recursos podem ser usados para dar suporte ao Azure Proxy de Aplica
 
 * Acesso condicional com base em risco: Proteja seus dados contra hackers mal-intencionados com uma [política de acesso condicional baseada em risco](https://www.microsoft.com/cloud-platform/conditional-access) que pode ser aplicada a todos os aplicativos e a todos os usuários, seja localmente ou na nuvem.
 
-* Painel de acesso do AD do Azure: com o serviço de proxy de aplicativo implantado e aplicativos publicados com segurança, ofereça aos usuários um hub simples para descobrir e acessar todos os seus aplicativos. Aumente a produtividade com recursos de autoatendimento, como a capacidade de solicitar acesso a novos aplicativos e grupos ou gerenciar o acesso a esses recursos em nome de outros, por meio do [painel de acesso](https://aka.ms/AccessPanelDPDownload).
+* Meus aplicativos do Azure AD: com o serviço de proxy de aplicativo implantado e aplicativos publicados com segurança, oferecem aos usuários um hub simples para descobrir e acessar todos os seus aplicativos. Aumente a produtividade com recursos de autoatendimento, como a capacidade de solicitar acesso a novos aplicativos e grupos ou gerenciar o acesso a esses recursos em nome de outros, por meio de [meus aplicativos](https://aka.ms/AccessPanelDPDownload).
 
 ## <a name="manage-your-implementation"></a>Gerenciar sua implementação
 

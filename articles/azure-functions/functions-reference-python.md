@@ -4,12 +4,12 @@ description: Saiba como desenvolver funções usando Python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 776355ce981ba5cc2a24bfe473da2f55427eadf6
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f9b81a7263dc9a1bdae9fd881519ac734da2c6bc
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850739"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642190"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor de Python para o Azure Functions
 
@@ -87,7 +87,6 @@ A pasta principal do projeto (\_aplicativo \_\_\_) pode conter os seguintes arqu
 * *requirements.txt*: contém a lista de pacotes que o sistema instala quando publica no Azure.
 * *host.json*: contém opções de configuração global que afetam todas as funções em um aplicativo de funções. Esse arquivo é publicado do Azure. Nem todas as opções têm suporte quando executadas localmente. Para saber mais, confira [host.json](functions-host-json.md).
 * *.funcignore*: (opcional) declara os arquivos que não devem ser publicados no Azure.
-* *.gitignore*: (opcional) declara os arquivos que são excluídos de um repositório Git, como local.settings.json.
 * *Dockerfile*: (opcional) usado quando seu projeto é publicado em um [contêiner personalizado](functions-create-function-linux-custom-image.md).
 
 Cada função possui seu próprio arquivo de código e arquivo de configuração de associação (function.json).

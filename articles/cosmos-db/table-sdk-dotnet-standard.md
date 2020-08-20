@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: 097868c0f6c64ad8b58dce365a2232bb02b786e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de173d6dc25610cd397cd719fe4c1c9db33a02f6
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84168192"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641833"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API do .NET Standard de Tabela do Azure Cosmos DB: download e notas de versão
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "84168192"
 |   |   |
 |---|---|
 |**Baixe o SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
-|**Nova**|[Exemplo de Cosmos DB API de Tabela .NET](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
+|**Amostra**|[Exemplo de Cosmos DB API de Tabela .NET](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
 |**Início rápido**|[Início rápido](create-table-dotnet.md)|
 |**Tutorial**|[Tutorial](tutorial-develop-table-dotnet.md)|
 |**Framework atualmente com suporte**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
@@ -41,6 +41,14 @@ a série 2.0.0 usa a dependência do [Microsoft. Azure. Cosmos](https://www.nuge
 
 ## <a name="release-notes-for-100-series"></a>Notas de versão da série 1.0.0
 a série 1.0.0 usa a dependência de [Microsoft.Azure.DocumentDB. Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
+
+### <a name="108"></a><a name="1.0.8"></a>1.0.8
+* Adicionar suporte para definir a propriedade TTL se for cosmosdb ponto de extremidade 
+* Honrar política de repetição após tempo limite e exceção de tarefa cancelada
+* Corrigir a exceção de tarefa cancelada intermitente em aplicativos ASP .net
+* Corrigir o armazenamento de tabela do Azure recuperar do modo de localização somente de ponto de extremidade secundário
+* Atualizar `Microsoft.Azure.DocumentDB.Core` a versão de dependência para 2.11.2 que corrige a exceção de referência nula intermitente
+* Atualizar `Odata.Core` a versão de dependência para 7.6.4 que corrige o conflito de compatibilidade com o Shell do Azure
 
 ### <a name="107"></a><a name="1.0.7"></a>1.0.7
 * Melhoria de desempenho definindo o nível de rastreamento padrão do SDK de tabela como SourceLevels. off, que pode ser aceito por meio de app.config

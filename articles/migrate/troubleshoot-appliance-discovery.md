@@ -6,19 +6,19 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: eafe13adb5b37de2de2bc4eb8bf15c775af0b039
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 1ddcdfd9efddd050f996e5c2b953baba242967fa
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171860"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640575"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solucionar problemas do dispositivo e da descoberta de migrações para Azure
 
 Este artigo ajuda você a solucionar problemas ao implantar o dispositivo de [migrações para Azure](migrate-services-overview.md) e usar o dispositivo para descobrir computadores locais.
 
 
-## <a name="whats-supported"></a>Há suporte para quê?
+## <a name="whats-supported"></a>Para que há suporte?
 
 [Examine](migrate-appliance.md) os requisitos de suporte do dispositivo.
 
@@ -117,6 +117,28 @@ Erro 50004: "não é possível se conectar a um host ou cluster porque o nome do
     3. Adicione o endereço IP e o nome do host em uma linha. Repita para cada host ou cluster em que você vê esse erro.
     4. Salve e feche o arquivo de hosts.
     5. Verifique se o dispositivo pode se conectar aos hosts, usando o aplicativo de gerenciamento de dispositivo. Após 30 minutos, você deverá ver as informações mais recentes para esses hosts na portal do Azure.
+
+
+## <a name="error-60001-unable-to-connect-to-server"></a>Erro 60001: não é possível conectar ao servidor 
+
+- Verifique se há conectividade do dispositivo com o servidor
+- Se for um servidor Linux, verifique se a autenticação baseada em senha está habilitada usando as seguintes etapas:
+    1. Faça logon no computador Linux e abra o arquivo de configuração do SSH usando o comando "vi/etc/ssh/sshd_config"
+    2. Defina a opção "PasswordAuthentication" como Sim. Salve o arquivo.
+    3. Reinicie o serviço SSH executando "Service sshd restart"
+- Se for um servidor Windows, verifique se a porta 5985 está aberta para permitir chamadas WMI remotas.
+- Se você estiver descobrindo um servidor Linux GCP e usando um usuário raiz, use os comandos a seguir para alterar a configuração padrão para logon raiz
+    1. Faça logon no computador Linux e abra o arquivo de configuração do SSH usando o comando "vi/etc/ssh/sshd_config"
+    2. Defina a opção "PermitRootLogin" como Sim.
+    3. Reinicie o serviço SSH executando "Service sshd restart"
+
+## <a name="error-no-suitable-authentication-method-found"></a>Erro: nenhum método de autenticação adequado encontrado
+
+Verifique se a autenticação baseada em senha está habilitada no servidor Linux usando as seguintes etapas:
+    1. Faça logon no computador Linux e abra o arquivo de configuração do SSH usando o comando "vi/etc/ssh/sshd_config"
+    2. Defina a opção "PasswordAuthentication" como Sim. Salve o arquivo.
+    3. Reinicie o serviço SSH executando "Service sshd restart"
+
 
 ## <a name="discovered-vms-not-in-portal"></a>VMs descobertas não estão no portal
 

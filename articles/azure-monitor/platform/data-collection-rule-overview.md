@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
-ms.openlocfilehash: af5324373359cea643a3e31b6bb94e614ddb7e36
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 08/19/2020
+ms.openlocfilehash: 32993ba41a612ccf0f02a242ed610feab2fac78f
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082901"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640728"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Regras de coleta de dados no Azure Monitor (versão prévia)
 As regras de coleta de dados (DCR) definem os dados que chegam ao Azure Monitor e especificam onde esses dados devem ser enviados ou armazenados. Este artigo fornece uma visão geral das regras de coleta de dados, incluindo seu conteúdo e estrutura, e como você pode criar e trabalhar com elas.
@@ -48,7 +48,7 @@ Cada fonte de dados tem um tipo de fonte de dados. Cada tipo define um conjunto 
 | windowsEventLogs | Log de eventos do Windows |
 
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 A tabela a seguir lista os limites que atualmente se aplicam a cada regra de coleta de dados.
 
 | Limite | Valor |
@@ -68,7 +68,7 @@ A tabela a seguir lista os limites que atualmente se aplicam a cada regra de col
 Atualmente, há dois métodos disponíveis para criar um DCR:
 
 - [Use o portal do Azure](data-collection-rule-azure-monitor-agent.md) para criar uma regra de coleta de dados e fazer com que ela seja associada a uma ou mais máquinas virtuais.
-- Edite diretamente a regra de coleta de dados em JSON e envie usando a API REST.
+- Edite diretamente a regra de coleta de dados em JSON e [envie usando a API REST](https://docs.microsoft.com/rest/api/monitor/datacollectionrules).
 
 ## <a name="sample-data-collection-rule"></a>Regra de coleta de dados de exemplo
 A regra de coleta de dados de exemplo abaixo é para máquinas virtuais com o agente de gerenciamento do Azure e tem os seguintes detalhes:

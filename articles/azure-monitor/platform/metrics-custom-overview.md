@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: ca697fe0174a62532f3fa9ffbc5b3fcfc0c06ad7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 73c9b2bf8cf88ca5e8576c451c9d9ac5f0eae8a3
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321268"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639895"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas no Azure Monitor (versão prévia)
 
@@ -26,6 +26,7 @@ Azure Monitor métricas personalizadas são atuais em visualização pública.
 
 Métricas personalizadas podem ser enviadas ao Monitor do Azure por vários métodos:
 - Instrua seu aplicativo usando o SDK do Azure Application Insights e envie a telemetria personalizada ao Monitor do Azure. 
+- Instale o agente de Azure Monitor (versão prévia) em sua [VM do Azure do Windows ou Linux](azure-monitor-agent-overview.md) e use uma [regra de coleta de dados](data-collection-rule-azure-monitor-agent.md) para enviar contadores de desempenho para Azure monitor métricas.
 - Instale a extensão WAD (Windows Azure Diagnostics) em [VM](collect-custom-metrics-guestos-resource-manager-vm.md), [máquina virtual do Azure configurada](collect-custom-metrics-guestos-resource-manager-vmss.md), [VM clássica](collect-custom-metrics-guestos-vm-classic.md) ou [Serviços em nuvem clássicos](collect-custom-metrics-guestos-vm-cloud-service-classic.md) e enviar contadores de desempenho para o Monitor do Azure. 
 - Instale o [agente InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) em sua VM do Azure Linux e envie as métricas usando o plug-in de saída do Monitor do Azure.
 - Envie métricas personalizadas [diretamente para a API REST do Azure monitor](./metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
@@ -176,14 +177,14 @@ Depois que as métricas personalizadas são enviadas ao Monitor do Azure, você 
 > Você precisa ser uma função de leitor ou colaborador para exibir métricas personalizadas.
 
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Procurar suas métricas personalizadas no portal do Azure
-1.    Vá para o [Portal do Azure](https://portal.azure.com).
+1.    Vá para o [portal do Azure](https://portal.azure.com).
 2.    Selecione o painel **Monitor**.
 3.    Selecione **Métricas**.
 4.    Selecione um recurso em que você emitiu métricas personalizadas.
 5.    Selecione o namespace de métricas para sua métrica personalizada.
 6.    Selecione a métrica personalizada.
 
-## <a name="supported-regions"></a>Regiões compatíveis
+## <a name="supported-regions"></a>Regiões com suporte
 Durante a pré-visualização pública, a capacidade de publicar métricas personalizadas está disponível apenas em um subconjunto de regiões do Azure. Essa restrição significa que as métricas podem ser publicadas apenas para recursos em uma das regiões suportadas. A tabela a seguir lista o conjunto de regiões do Azure com suporte para métricas personalizadas. Ele também lista os terminais correspondentes que as métricas de recursos nessas regiões devem ser publicadas para:
 
 |Região do Azure |Prefixo de ponto de extremidade regional|
@@ -195,7 +196,7 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 |Centro-Sul dos Estados Unidos| https: \/ /southcentralus.Monitoring.Azure.com |
 |Centro dos EUA      | https: \/ /centralus.Monitoring.Azure.com |
 |Canadá Central | https: \/ /canadacentral.Monitoring.Azure.com |
-|East US| https: \/ /eastus.Monitoring.Azure.com |
+|Leste dos EUA| https: \/ /eastus.Monitoring.Azure.com |
 |Leste dos EUA 2 | https: \/ /eastus2.Monitoring.Azure.com |
 | **Europa** | |
 |Norte da Europa    | https: \/ /northeurope.Monitoring.Azure.com |
@@ -207,7 +208,7 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 | **Ásia** | |
 |Índia Central | https: \/ /centralindia.Monitoring.Azure.com |
 |Leste da Austrália | https: \/ /australiaeast.Monitoring.Azure.com |
-|Japan East | https: \/ /japaneast.Monitoring.Azure.com |
+|Leste do Japão | https: \/ /japaneast.Monitoring.Azure.com |
 |Sudeste Asiático  | https: \/ /southeastasia.Monitoring.Azure.com |
 |Leste da Ásia | https: \/ /eastasia.Monitoring.Azure.com |
 |Coreia Central   | https: \/ /koreacentral.Monitoring.Azure.com |

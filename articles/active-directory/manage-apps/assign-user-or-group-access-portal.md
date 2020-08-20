@@ -12,16 +12,16 @@ ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04b0b0120a514591fb4fa23656906203acf443b4
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 7875bfc55d4530f7f56a96599491cab4a98ced04
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799495"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642020"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory
 
-Neste artigo, você verá como atribuir usuários ou grupos a aplicativos empresariais no Azure AD (Azure Active Directory) no portal do Azure ou no PowerShell. Quando você atribui um usuário a um aplicativo, esse aplicativo aparece no [painel de acesso Meus Aplicativos](https://myapps.microsoft.com/) do usuário para facilitar o acesso. Se o aplicativo expõe funções, você também pode atribuir uma função específica ao usuário.
+Neste artigo, você verá como atribuir usuários ou grupos a aplicativos empresariais no Azure AD (Azure Active Directory) no portal do Azure ou no PowerShell. Quando você atribui um usuário a um aplicativo, o aplicativo é exibido nos [meus aplicativos](https://myapps.microsoft.com/) do usuário para facilitar o acesso. Se o aplicativo expõe funções, você também pode atribuir uma função específica ao usuário.
 
 Para maior controle, determinados tipos de aplicativos empresariais podem ser configurados para [exigir a atribuição de usuário](#configure-an-application-to-require-user-assignment). 
 
@@ -45,7 +45,7 @@ Quando a atribuição de usuário é necessária, somente os usuários que você
 
 Quando a atribuição *não é necessária*, seja porque você definiu essa opção como **Não** ou porque o aplicativo usa outro modo SSO, qualquer usuário poderá acessar o aplicativo se tiver um link direto para ele ou a **URL de acesso do usuário** na página **Propriedades** do aplicativo. 
 
-Essa configuração não afeta se um aplicativo é exibido ou não no painel de acesso Meus Aplicativos. Os aplicativos aparecem nos painéis de acesso Meus Aplicativos dos usuários depois que você atribuiu um usuário ou grupo ao aplicativo. Para saber mais, confira [Gerenciar o acesso a aplicativos](what-is-access-management.md).
+Essa configuração não afeta se um aplicativo aparece ou não em meus aplicativos. Os aplicativos aparecem nos painéis de acesso Meus Aplicativos dos usuários depois que você atribuiu um usuário ou grupo ao aplicativo. Para saber mais, confira [Gerenciar o acesso a aplicativos](what-is-access-management.md).
 
 
 Para exigir a atribuição de usuários a um aplicativo:
@@ -161,7 +161,7 @@ Este exemplo atribui a usuária Brenda Fernandes ao aplicativo [Microsoft Workpl
 ## <a name="related-articles"></a>Artigos relacionados
 
 - [Saiba mais sobre o acesso do usuário final a aplicativos](end-user-experiences.md)
-- [Planejar uma implantação do painel de acesso do Azure AD](access-panel-deployment-plan.md)
+- [Planejar uma implantação de meus aplicativos do Azure AD](access-panel-deployment-plan.md)
 - [Gerenciamento do acesso aos aplicativos](what-is-access-management.md)
  
 ## <a name="next-steps"></a>Próximas etapas

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5326fd6adf12d53d836594c8e53bda14e0871e5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3626a29bb828c9fbc353b11858d42fecd4bb129d
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87009111"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641017"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Como fazer: Exigir políticas de proteção de aplicativo e um aplicativo cliente aprovado para acesso ao aplicativo em nuvem com acesso condicional
 
@@ -55,9 +55,9 @@ As organizações devem concluir as etapas a seguir para exigir o uso de um apli
 1. Em **Condições**, selecione **Plataformas de dispositivo**.
    1. Defina **Configurar** como **Sim**.
    1. Inclua **Android** e **iOS**.
-1. Em **Condições**, selecione **Aplicativos cliente (versão preliminar)** .
+1. Em **condições**, selecione **aplicativos cliente**.
    1. Defina **Configurar** como **Sim**.
-   1. Selecione **Aplicativos móveis e clientes da área de trabalho** e **Clientes de autenticação moderna**.
+   1. Selecione **aplicativos móveis e clientes de área de trabalho** e desmarque tudo o mais.
 1. Em **Controles de acesso** > **Conceder**, selecione as seguintes opções:
    - **Exigir um aplicativo cliente aprovado**
    - **Exigir uma política de proteção do aplicativo (versão preliminar)**
@@ -76,10 +76,9 @@ Para a política de acesso condicional nesta etapa, configure os seguintes compo
    1. Em **Incluir**, selecione **Todos os usuários** ou os **usuários e grupos** específicos aos quais você deseja aplicar essa política. 
    1. Selecione **Concluído**.
 1. Em **Aplicativos de nuvem ou ações** > **Incluir**, selecione **Office 365 Exchange Online**.
-1. Em **Condições**:
-   1. **Aplicativos cliente (versão preliminar)** :
-      1. Defina **Configurar** como **Sim**.
-      1. Selecione **Aplicativos móveis e clientes da área de trabalho** e **Clientes do Exchange ActiveSync**.
+1. Em **condições**, selecione **aplicativos cliente**:
+   1. Defina **Configurar** como **Sim**.
+   1. Selecione **clientes do Exchange ActiveSync** e desmarque tudo o mais.
 1. Em **Controles de acesso** > **Conceder**, selecione **Conceder acesso**, **Exigir política de proteção de aplicativo** e selecione **Selecionar**.
 1. Confirme suas configurações e defina **Habilitar política** como **Ativado**.
 1. Selecione **Criar** para criar e habilitar sua política.
@@ -107,9 +106,9 @@ As organizações devem concluir as etapas a seguir para exigir o uso de um apli
 1. Em **Condições**, selecione **Plataformas de dispositivo**.
    1. Defina **Configurar** como **Sim**.
    1. Inclua **Android** e **iOS**.
-1. Em **Condições**, selecione **Aplicativos cliente (versão preliminar)** .
+1. Em **condições**, selecione **aplicativos cliente**.
    1. Defina **Configurar** como **Sim**.
-   1. Selecione **Navegador**.
+   1. Selecione **navegador** e desmarque tudo o mais.
 1. Em **Controles de acesso** > **Conceder**, selecione as seguintes opções:
    - **Exigir um aplicativo cliente aprovado**
    - **Exigir uma política de proteção do aplicativo (versão preliminar)**
@@ -140,9 +139,9 @@ As organizações devem concluir as seguintes três etapas para exigir o uso de 
 1. Em **Condições**, selecione **Plataformas de dispositivo**.
    1. Defina **Configurar** como **Sim**.
    1. Inclua **Android** e **iOS**.
-1. Em **Condições**, selecione **Aplicativos cliente (versão preliminar)** .
+1. Em **condições**, selecione **aplicativos cliente**.
    1. Defina **Configurar** como **Sim**.
-   1. Selecione **Aplicativos móveis e clientes da área de trabalho** e **Clientes de autenticação moderna**.
+   1. Selecione **aplicativos móveis e clientes de área de trabalho** e desmarque tudo o mais.
 1. Em **Controles de acesso** > **Conceder**, selecione as seguintes opções:
    - **Exigir um aplicativo cliente aprovado**
    - **Exigir uma política de proteção do aplicativo (versão preliminar)**
@@ -159,10 +158,9 @@ As organizações devem concluir as seguintes três etapas para exigir o uso de 
    1. Em **Incluir**, selecione **Todos os usuários** ou os **usuários e grupos** específicos aos quais você deseja aplicar essa política. 
    1. Selecione **Concluído**.
 1. Em **Aplicativos de nuvem ou ações** > **Incluir**, selecione **Office 365 Exchange Online**.
-1. Em **Condições**:
-   1. **Aplicativos cliente (versão preliminar)** :
-      1. Defina **Configurar** como **Sim**.
-      1. Selecione **Aplicativos móveis e clientes da área de trabalho** e **Clientes do Exchange ActiveSync**.
+1. Em **condições**, selecione **aplicativos cliente**:
+   1. Defina **Configurar** como **Sim**.
+   1. Selecione **clientes do Exchange ActiveSync** e desmarque tudo o mais.
 1. Em **Controles de acesso** > **Conceder**, selecione **Conceder acesso**, **Exigir política de proteção de aplicativo** e selecione **Selecionar**.
 1. Confirme suas configurações e defina **Habilitar política** como **Ativado**.
 1. Selecione **Criar** para criar e habilitar sua política.

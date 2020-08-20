@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: kenwith
-ms.openlocfilehash: 1b19f4aae7bf7477dbe5950f2d4df31e2de81372
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 7738bd2f2dc169ab52677928c6fecbc193ff2f35
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562558"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639912"
 ---
 # <a name="managing-access-to-apps"></a>Gerenciando o acesso a aplicativos
 
@@ -45,7 +45,7 @@ Com determinados tipos de aplicativos, você tem a opção de [exigir que os usu
 * Aplicativos de proxy de aplicativo que usam a pré-autenticação do Azure Active Directory
 * Aplicativos criados diretamente na plataforma de aplicativos do Azure AD que usam a autenticação OAuth 2.0/OpenID Connect depois que um usuário ou administrador autoriza o aplicativo. Alguns aplicativos empresariais oferecem um controle adicional sobre quem pode entrar.
 
-Quando a atribuição de usuário *não é necessária*, os usuários não atribuídos não veem o aplicativo em seu painel de acesso de Meus Aplicativos, mas eles ainda podem entrar no aplicativo em si (também conhecido como logon iniciado pelo SP) ou podem usar a **URL de acesso do usuário** na página **Propriedades** do aplicativo (também conhecido como logon iniciado pelo IDP).
+Quando a atribuição de usuário *não é necessária*, os usuários não atribuídos não veem o aplicativo em meus aplicativos, mas eles ainda podem entrar no próprio aplicativo (também conhecido como logon iniciado pelo SP) ou podem usar a URL de acesso do **usuário** na página de **Propriedades** do aplicativo (também conhecido como logon iniciado pelo IDP).
 
 Para alguns aplicativos, a opção de exigir a atribuição de usuário não está disponível entre as propriedades do aplicativo. Nesses casos, use o PowerShell para definir a propriedade appRoleAssignmentRequired na entidade de serviço.
 
@@ -53,12 +53,12 @@ Para alguns aplicativos, a opção de exigir a atribuição de usuário não est
 
 O Azure AD fornece [várias maneiras personalizáveis de implantar aplicativos](end-user-experiences.md) para usuários finais em sua organização:
 
-* Painel de acesso de Meus aplicativos do Azure AD
+* Meus aplicativos do Azure AD
 * Iniciador de aplicativos do Office 365
 * Logon direto a aplicativos federados (provedor de serviços)
 * Links profundos a aplicativos federados, baseado em senha, ou existentes
 
-Você pode determinar se os usuários atribuídos a um aplicativo empresarial podem vê-lo no painel de acesso e no inicializador de aplicativos do Office 365.
+Você pode determinar se os usuários atribuídos a um aplicativo empresarial podem vê-lo em meus aplicativos e no iniciador de aplicativos do Office 365.
 
 ## <a name="example-complex-application-assignment-with-azure-ad"></a>Exemplo: Atribuição de aplicativo complexo com o AD do Azure
 Considere um aplicativo como o Salesforce. Em muitas organizações, o Salesforce é usado principalmente pelas equipes de marketing e vendas. Geralmente, membros da equipe de marketing têm acesso altamente privilegiado ao Salesforce, enquanto os membros da equipe de vendas têm acesso limitado. Em muitos casos, uma grande população de operadores de informações tem acesso restrito ao aplicativo. Exceções a essas regras complicam as coisas. Geralmente é privilégio das equipes de liderança de marketing ou vendas conceder acesso a um usuário ou alterar suas funções independentemente dessas regras genéricas.
@@ -72,7 +72,7 @@ Com o AD do Azure, aplicativos como o Salesforce podem ser pré-configurados par
 
 * Para habilitar o mecanismo de exceção, um grupo de autoatendimento poderia ser criado para cada função. Por exemplo, o grupo "exceção de marketing do Salesforce" pode ser criado como um grupo de autoatendimento. O grupo pode ser atribuído à função de marketing do Salesforce e a equipe de liderança de marketing pode ser definida como proprietária. Membros da equipe de liderança de marketing podem adicionar ou remover usuários, definir uma política de associação ou até mesmo aprovar ou negar as solicitações de usuários individuais para ingressar. Este mecanismo é suportado por meio de uma experiência adequada ao operador de informações que não exige treinamento especializado para os proprietários ou membros.
 
-Nesse caso, todos os usuários atribuídos poderiam ser provisionados automaticamente no Salesforce. Como são adicionados a grupos diferentes, sua atribuição de função seria atualizada no Salesforce. Os usuários poderiam descobrir e acessar o Salesforce por meio do painel de acesso de aplicativos Microsoft, clientes do Office na web ou até mesmo navegando para sua página de logon organizacional do Salesforce. Os administradores poderiam exibir facilmente o status de atribuição e uso usando os relatórios do AD do Azure.
+Nesse caso, todos os usuários atribuídos poderiam ser provisionados automaticamente no Salesforce. Como são adicionados a grupos diferentes, sua atribuição de função seria atualizada no Salesforce. Os usuários poderão descobrir e acessar o Salesforce por meio de meus aplicativos, clientes Web do Office ou até mesmo navegando até sua página de logon institucional do Salesforce. Os administradores poderiam exibir facilmente o status de atribuição e uso usando os relatórios do AD do Azure.
 
 Os administradores podem usar o [Acesso Condicional do Azure AD](../conditional-access/concept-conditional-access-users-groups.md) para definir políticas de acesso para funções específicas. Essas políticas podem incluir se o acesso é permitido fora do ambiente corporativo e até mesmo requisitos de autenticação multifator ou dispositivo para obter acesso em vários casos.
 
@@ -88,7 +88,7 @@ Há três principais maneiras que um usuário pode obter acesso a um aplicativo 
 
 Alguns aplicativos combinam esses métodos. Por exemplo, alguns aplicativos Microsoft fazem parte de uma assinatura do Office 365, mas ainda exigem consentimento.
 
-Os usuários podem acessar aplicativos do Office 365 através de seus portais do Office 365. Você também pode mostrar ou ocultar aplicativos do Office 365 no painel de acesso Meus Aplicativos com a [Alternância de visibilidade do Office 365](hide-application-from-user-portal.md) nas **Configurações de usuário** do seu diretório. 
+Os usuários podem acessar aplicativos do Office 365 através de seus portais do Office 365. Você também pode mostrar ou ocultar aplicativos do Office 365 na pasta meus aplicativos com a [visibilidade de 365 do Office](hide-application-from-user-portal.md) nas configurações de **usuário**do seu diretório. 
 
 Assim como é feito com os aplicativos empresariais, você pode [atribuir usuários](assign-user-or-group-access-portal.md) a determinados aplicativos Microsoft através do portal do Azure ou, se a opção do portal não estiver disponível, usando o PowerShell.
 

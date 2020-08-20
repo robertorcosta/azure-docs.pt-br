@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: 1193e6f9ed637f6bd28b2fef6488b2d4902ec67b
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: be6a8a58f1d66df9d0fe557584c4731e42ae9c59
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87459378"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640541"
 ---
 # <a name="configure-password-based-single-sign-on"></a>Configurar logon único baseado em senha
 
@@ -29,7 +29,7 @@ O SSO baseado em senha é uma ótima maneira de começar a integrar aplicativos 
 
 - Dar suporte a aplicativos que exigem vários campos de entrada, para aplicativos que exigem mais do que apenas os campos de nome de usuário e senha para entrar
 
-- Personalize os rótulos dos campos de nome de usuário e senha que os usuários veem no [painel de acesso do aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) quando inserem suas credenciais
+- Personalizar os rótulos dos campos de nome de usuário e senha que os usuários veem em [meus aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) quando inserem suas credenciais
 
 - Permita que os usuários forneçam seus próprios nomes de usuário e senhas para as contas de aplicativos existentes que estão digitando manualmente.
 
@@ -71,7 +71,7 @@ Se a tentativa de análise do Azure AD falhar, você poderá configurar o logon 
    ![Configuração manual de logon único baseado em senha](./media/configure-password-single-sign-on/password-configure-sign-on.png)
 3. Selecione **capturar campos de entrada**. Uma página de status de captura é aberta em uma nova guia, mostrando que a captura de metadados de mensagem **está em andamento no momento**.
 
-4. Se a caixa **extensão do painel de acesso necessária** aparecer em uma nova guia, selecione **instalar agora** para instalar a extensão do navegador de **extensão de entrada segura dos meus aplicativos** . (A extensão do navegador requer o Microsoft Edge, o Chrome ou o Firefox.) Em seguida, instale, inicie e habilite a extensão e atualize a página de status de captura.
+4. Se a caixa a **extensão meus aplicativos necessária** aparecer em uma nova guia, selecione **instalar agora** para instalar a extensão de navegador de **extensão de entrada segura dos meus aplicativos** . (A extensão do navegador requer o Microsoft Edge, o Chrome ou o Firefox.) Em seguida, instale, inicie e habilite a extensão e atualize a página de status de captura.
 
    A extensão do navegador abre outra guia que exibe a URL inserida.
 5. Na guia com a URL inserida, percorra o processo de entrada. Preencha os campos de nome de usuário e senha e tente entrar. (Você não precisa fornecer a senha correta.)

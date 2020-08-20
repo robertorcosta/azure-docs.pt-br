@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 51edbc18a929f4f954fb1a582a417bc1600d1a6f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dc5bfacf470980a5d38832ec6299c8ff1426ee05
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082980"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642224"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Depurar Azure Functions do PowerShell localmente
 
@@ -235,13 +235,23 @@ Você pode invocar a mesma função novamente (usando, `Invoke-RestMethod` por e
 
 Tenha em mente os seguintes problemas ao depurar seu código de funções.
 
-### <a name="breakall-might-cause-your-debugger-to-break-in-an-unexpected-place"></a>`BreakAll`pode fazer com que o depurador quebre em um local inesperado
+### <a name="breakall-might-cause-your-debugger-to-break-in-an-unexpected-place"></a>`BreakAll` pode fazer com que o depurador quebre em um local inesperado
 
 A extensão do PowerShell usa `Debug-Runspace` , que, por sua vez, depende do recurso do PowerShell `BreakAll` . Esse recurso informa ao PowerShell para parar no primeiro comando que é executado. Esse comportamento oferece a oportunidade de definir pontos de interrupção dentro do runspace depurado.
 
 O tempo de execução de Azure Functions executa alguns comandos antes de realmente invocar o `run.ps1` script, portanto, é possível que o depurador acabe a interrupção dentro do `Microsoft.Azure.Functions.PowerShellWorker.psm1` ou `Microsoft.Azure.Functions.PowerShellWorker.psd1` .
 
 Se essa interrupção ocorrer, execute o `continue` `c` comando ou para ignorar esse ponto de interrupção. Em seguida, você pára no ponto de interrupção esperado.
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+Se você tiver dificuldades durante a depuração, deverá verificar o seguinte:
+
+| Verificação | Ação |
+|------|------|
+| Executar `func --version` do terminal. Se você receber um erro que `func` não pode ser encontrado, as ferramentas principais (func.exe) podem estar ausentes da `path` variável local.| [Reinstale as ferramentas principais](functions-run-local.md#v2).|  
+| No Visual Studio Code, o terminal padrão precisa ter acesso ao func.exe. Verifique se você não está usando um terminal padrão que não tem as ferramentas principais instaladas, como o subsistema do Windows para Linux (WSL).  | Defina o shell padrão em Visual Studio Code para o PowerShell 7 (recomendado) ou o Windows PowerShell 5,1.|
+  
 
 ## <a name="next-steps"></a>Próximas etapas
 

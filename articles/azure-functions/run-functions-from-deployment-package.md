@@ -3,12 +3,12 @@ title: Executar o Azure Functions de um pacote
 description: Faça com que o Azure Functions Runtime execute suas funções montando um arquivo de pacote de implantação que contém os arquivos de projeto do aplicativo de funções.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: 6a2633550c9bcbdc59baf99f79559655afbb9b74
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: b2d90cf78263b30b4315199cf1c543186a435f17
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214244"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639878"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Executar o Azure Functions de um arquivo de pacote
 
@@ -50,6 +50,9 @@ O exemplo a seguir mostra um aplicativo de funções configurado para ser execut
 ## <a name="integration-with-zip-deployment"></a>Integração com a implantação do zip
 
 [Implantação do zip][Zip deployment for Azure Functions] é um recurso do Serviço de Aplicativo do Azure que permite que você implante seu projeto de aplicativo de funções no diretório `wwwroot`. O projeto é empacotado como um arquivo de implantação .zip. As mesmas APIs podem ser usadas para implantar seu pacote na pasta `d:\home\data\SitePackages`. Com o valor de configuração de aplicativo `WEBSITE_RUN_FROM_PACKAGE` de `1`, as APIs de implantação zip copiam seu pacote para a pasta `d:\home\data\SitePackages` em vez de extrair os arquivos para `d:\home\site\wwwroot`. Ele também cria o arquivo `packagename.txt`. Após uma reinicialização, o pacote é montado `wwwroot` como um sistema de arquivos somente leitura. Para obter mais informações sobre a implantação do zip, consulte [Implantação de zip para o Azure Functions](deployment-zip-push.md).
+
+> [!NOTE]
+> Quando ocorre uma implantação, uma reinicialização do aplicativo de funções é disparada. Antes de uma reinicialização, todas as execuções de função existentes podem ser concluídas ou atingir o tempo limite. Para saber mais, confira [comportamentos de implantação](functions-deployment-technologies.md#deployment-behaviors).
 
 ## <a name="adding-the-website_run_from_package-setting"></a>Adicionando a configuração WEBSITE_RUN_FROM_PACKAGE
 
