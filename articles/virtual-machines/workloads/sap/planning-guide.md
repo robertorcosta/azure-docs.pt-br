@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87c8b160a0b8791d13976be975090d16e68ea82f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: de3b0ed309863a09003b1ff7709481d763163e07
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547402"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652195"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -242,7 +242,7 @@ ms.locfileid: "88547402"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -533,7 +533,7 @@ Ao implantar serviços ou VMs no Azure, a implantação de VHDs e imagens de VM 
 
 desempenha um papel importante no planejamento de uma implantação do SAP no Azure. Ele estava em você para gerenciar o número de discos persistentes em uma conta de armazenamento. Você precisava gerenciar as contas de armazenamento e, eventualmente, criar novas contas de armazenamento para criar mais discos persistentes.
 
-Nos últimos anos, a introdução dos [Azure Managed disks](../../windows/managed-disks-overview.md) aliviau você dessas tarefas. A recomendação para implantações do SAP é aproveitar o Azure Managed disks em vez de gerenciar contas de armazenamento do Azure por conta própria. O Azure Managed disks distribuirá discos entre diferentes contas de armazenamento, portanto, os limites das contas de armazenamento individuais não serão excedidos.
+Nos últimos anos, a introdução dos [Azure Managed disks](../../managed-disks-overview.md) aliviau você dessas tarefas. A recomendação para implantações do SAP é aproveitar o Azure Managed disks em vez de gerenciar contas de armazenamento do Azure por conta própria. O Azure Managed disks distribuirá discos entre diferentes contas de armazenamento, portanto, os limites das contas de armazenamento individuais não serão excedidos.
 
 Em uma conta de armazenamento, você tem um tipo de conceito de pasta chamado ' contêineres ' que pode ser usado para agrupar determinados discos em contêineres específicos.
 
@@ -804,7 +804,7 @@ Os requisitos ao preparar seu próprio Disco de VM do Azure são:
 
 * Originalmente, o VHD que contém o sistema operacional poderia ter um tamanho máximo de 127 GB. Essa limitação foi eliminada no final de março de 2015. Agora, o VHD que contém o sistema operacional pode ter até 1 TB de tamanho como qualquer outro VHD hospedado do armazenamento do Azure também.
 * Ele precisa estar no formato de VHD fixo. VHDs dinâmicos ou VHDs no formato VHDx ainda não têm suporte no Azure. VHDs dinâmicos serão convertidos em VHDs estáticos quando você carregar o VHD com a CLI ou cmdlets do PowerShell
-* VHDs que são montados na VM e devem ser montados novamente no Azure para a VM precisam estar em um formato de VHD fixo. Leia [este artigo (Linux)](../../linux/managed-disks-overview.md) e [este artigo (Windows)](../../windows/managed-disks-overview.md) para conhecer os limites de tamanho dos discos de dados. VHDs dinâmicos serão convertidos em VHDs estáticos quando você carregar o VHD com a CLI ou cmdlets do PowerShell
+* VHDs que são montados na VM e devem ser montados novamente no Azure para a VM precisam estar em um formato de VHD fixo. Leia [Este artigo](../../managed-disks-overview.md) para obter os limites de tamanho dos discos de dados. VHDs dinâmicos serão convertidos em VHDs estáticos quando você carregar o VHD com a CLI ou cmdlets do PowerShell
 * Adicione outra conta local com privilégios de administrador que possa ser usada pelo suporte da Microsoft ou que possa ser atribuída como contexto no qual serviços e aplicativos sejam executados até que a VM seja implantada e mais usuários apropriados possam ser usados.
 * Adicione outras contas locais, já que elas podem ser necessárias para o cenário de implantação específico.
 
@@ -831,7 +831,7 @@ Os requisitos ao preparar sua própria Imagem de VM do Azure são:
 
 * Originalmente, o VHD que contém o sistema operacional poderia ter um tamanho máximo de 127 GB. Essa limitação foi eliminada no final de março de 2015. Agora, o VHD que contém o sistema operacional pode ter até 1 TB de tamanho como qualquer outro VHD hospedado do armazenamento do Azure também.
 * Ele precisa estar no formato de VHD fixo. VHDs dinâmicos ou VHDs no formato VHDx ainda não têm suporte no Azure. VHDs dinâmicos serão convertidos em VHDs estáticos quando você carregar o VHD com a CLI ou cmdlets do PowerShell
-* VHDs que são montados na VM e devem ser montados novamente no Azure para a VM precisam estar em um formato de VHD fixo. Leia [Este artigo (Linux)](../../windows/managed-disks-overview.md) e [Este artigo (Windows)](../../linux/managed-disks-overview.md) para obter limites de tamanho de discos de dados. VHDs dinâmicos serão convertidos em VHDs estáticos quando você carregar o VHD com a CLI ou cmdlets do PowerShell
+* VHDs que são montados na VM e devem ser montados novamente no Azure para a VM precisam estar em um formato de VHD fixo. Leia [Este artigo](../../managed-disks-overview.md) para obter os limites de tamanho dos discos de dados. VHDs dinâmicos serão convertidos em VHDs estáticos quando você carregar o VHD com a CLI ou cmdlets do PowerShell
 * Adicione outras contas locais, já que elas podem ser necessárias para o cenário de implantação específico.
 * Se a imagem contém uma instalação do SAP NetWeaver e renomear o nome do host do nome original no ponto de implantação do Azure é algo provável, é recomendável copiar as versões mais recentes do DVD do Gerenciador de provisionamento de software SAP para o modelo. Isso permitirá que você use a funcionalidade de renomeação SAP fornecida para adaptar o nome do host alterado e/ou alterar a SID do sistema SAP na imagem de VM implantada, assim que uma nova cópia for iniciada.
 

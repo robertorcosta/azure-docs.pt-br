@@ -3,12 +3,12 @@ title: Diretrizes e melhores práticas
 description: Descubra as práticas recomendadas e as diretrizes para fazer backup da carga de trabalho local e na nuvem para a nuvem
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 2571fcc31a0ea6a548ec764d7a15d6d976ae4822
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 1e2680c5fbcdb685e13b6ad990aaf98b013c98bb
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808620"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650869"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Fazer backup de cargas de trabalho locais e na nuvem para a nuvem
 
@@ -189,7 +189,7 @@ O [ponto de extremidade privado](../private-link/private-endpoint-overview.md) d
 
 ## <a name="governance-considerations"></a>Considerações de governança
 
-A governança no Azure é implementada principalmente com [Azure Policy](../governance/policy/overview.md) e o [Gerenciamento de custos do Azure](../cost-management-billing/cost-management-billing-overview.md). O [Azure Policy](../governance/policy/overview.md) permite criar, atribuir e gerenciar definições de política para impor regras aos recursos. Esse recurso mantém os recursos em conformidade com os padrões corporativos. O [Gerenciamento de custos do Azure](../cost-management-billing/cost-management-billing-overview.md) permite acompanhar o uso da nuvem e as despesas dos recursos do Azure e de outros provedores de nuvem. Além disso, as ferramentas a seguir, como a [calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) e o [Azure Advisor](../advisor/advisor-overview.md) , desempenham um papel importante no processo de gerenciamento de custos.
+A governança no Azure é implementada principalmente com [Azure Policy](../governance/policy/overview.md) e o [Gerenciamento de custos do Azure](../cost-management-billing/cost-management-billing-overview.md). O [Azure Policy](../governance/policy/overview.md) permite criar, atribuir e gerenciar definições de política para impor regras aos recursos. Esse recurso mantém os recursos em conformidade com os padrões corporativos. O [Gerenciamento de custos do Azure](../cost-management-billing/cost-management-billing-overview.md) permite acompanhar o uso da nuvem e as despesas dos recursos do Azure e de outros provedores de nuvem. Além disso, as ferramentas a seguir, como a [calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) e o [Azure Advisor](../advisor/advisor-overview.md)  , desempenham um papel importante no processo de gerenciamento de custos.
 
 ### <a name="azure-backup-support-two-key-scenarios-via-built-in-azure-policy"></a>O backup do Azure dá suporte a dois cenários principais por meio de Azure Policy interno
 

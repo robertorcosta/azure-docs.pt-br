@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: dee74c787f6546494d12ea582eab383fbd99079d
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 186839425e6ab2fb5430a82650615425bb93d51a
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876896"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651753"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Treinar modelos com Azure Machine Learning
 
@@ -90,7 +90,7 @@ Os pipelines de machine learning podem usar os métodos de treinamento mencionad
 * [Tutorial: Usar Pipelines do Azure Machine Learning para pontuação do lote](tutorial-pipeline-batch-scoring-classification.md)
 * [Exemplos: exemplos do Jupyter Notebook para pipelines de machine learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Exemplos: Pipeline com machine learning automatizado](https://aka.ms/pl-automl)
-* [Exemplos: Pipeline com avaliadores](https://aka.ms/pl-estimator)
+* [Exemplos: Pipeline com avaliadores](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-estimatorstep.ipynb)
 
 ### <a name="understand-what-happens-when-you-submit-a-training-job"></a>Entender o que acontece quando você envia um trabalho de treinamento
 
@@ -108,7 +108,7 @@ O ciclo de vida de treinamento do Azure consiste em:
     1. Se não for encontrado, o sistema criará uma nova imagem (que será armazenada em cache e registrada com o ACR do espaço de trabalho)
 1. Baixando seu arquivo de projeto compactado para armazenamento temporário no nó de computação
 1. Descompactando o arquivo de projeto
-1. O nó de computação em execução`python <entry script> <arguments>`
+1. O nó de computação em execução `python <entry script> <arguments>`
 1. Salvando logs, arquivos de modelo e outros arquivos gravados na `./outputs` conta de armazenamento associada ao espaço de trabalho
 1. Ampliando a computação, incluindo a remoção de armazenamento temporário 
 

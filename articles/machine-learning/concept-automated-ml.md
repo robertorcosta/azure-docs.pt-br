@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 8d94acabb434d0e722e352de46197a86e994e145
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 081da2b3f6fbe97ebce21940d7e0ca8978793b15
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290024"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652093"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é AutoML (machine learning automatizado)?
 
@@ -202,8 +202,6 @@ Por exemplo, criar um modelo __para cada instância ou indivíduo__ nos cenário
 * Manutenção preditiva para centenas de poços de petróleo
 * Como personalizando uma experiência para usuários individuais.
 
-Para obter mais informações, confira [Acelerador de solução de Muitos modelos](https://aka.ms/many-models) no GitHub.
-
 ## <a name="automl-in-azure-machine-learning"></a>AutoML no Azure Machine Learning
 
 O Azure Machine Learning oferece duas experiências para trabalhar com ML automatizado
@@ -279,7 +277,7 @@ Os tutoriais são exemplos introdutórios de ponta a ponta de cenários AutoML.
 
  + **Para uma experiência baixa ou sem código**, consulte o [tutorial: criar modelos de classificação de ml automatizados com o Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md).
 
-Os artigos de instruções fornecem detalhes adicionais sobre a funcionalidade que o AutoML oferece. Por exemplo: 
+Os artigos de instruções fornecem detalhes adicionais sobre a funcionalidade que o AutoML oferece. Por exemplo, 
 
 + Definir as configurações para experimentos de treinamento automático
     + No Azure Machine Learning Studio, [use estas etapas](how-to-use-automated-ml-for-ml-models.md). 

@@ -9,19 +9,19 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: aa7e773cb45ea23d0e091ce12cc8488114ddfbdf
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 94c47369d7b638640fab1971801177103779e896
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837050"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648931"
 ---
 # <a name="ev4-and-esv4-series"></a>Séries Ev4 e Esv4
 
 As Ev4 e a série Esv4 são executadas nos &reg; processadores Intel Xeon &reg; Platinum 8272CL (cascadey Lake) em uma configuração de hiperthread, são ideais para vários aplicativos empresariais com uso intensivo de memória e recursos até 504GIB de RAM.
 
 > [!NOTE]
-> Para perguntas frequentes, consulte [tamanhos de VM do Azure sem disco temporário local](azure-vms-no-temp-disk.md).
+> Para perguntas frequentes, consulte  [tamanhos de VM do Azure sem disco temporário local](azure-vms-no-temp-disk.md).
 
 ## <a name="ev4-series"></a>Série Ev4
 
@@ -97,7 +97,7 @@ Atualizações de preservação de memória: Com suporte
 
 Calculadora de preços: [calculadora de preços](https://azure.microsoft.com/pricing/calculator/)
 
-Mais informações sobre tipos de discos: [tipos de disco](./linux/disks-types.md#ultra-disk)
+Mais informações sobre tipos de discos: [tipos de disco](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Próximas etapas

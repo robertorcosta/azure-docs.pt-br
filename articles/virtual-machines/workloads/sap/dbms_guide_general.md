@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad6bbc1d3c20659441b8b062898526471f4d713a
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 15c0368b2d0bd85f6fee65ffa2c9d6776d07f162
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510225"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650608"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para Implantação do DBMS de Máquinas de Virtuais do Azure para carga de trabalho do SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -111,10 +111,7 @@ Em geral, as instalação e a configuração do Windows, do Linux e do DBMS são
 ## <a name="storage-structure-of-a-vm-for-rdbms-deployments"></a><a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Estrutura de armazenamento de uma VM para implantações de RDBMS
 Para seguir este capítulo, leia e entenda as informações apresentadas [neste capítulo][deployment-guide-3] do [Guia de implantação][deployment-guide]. Você precisa entender e conhecer as diferentes séries de VM e as diferenças entre o armazenamento padrão e premium antes de ler este capítulo. 
 
-Para saber mais sobre o Armazenamento do Microsoft Azure para VMs do Azure, confira:
-
-- [Introdução aos discos gerenciados para VMs do Windows Azure](../../windows/managed-disks-overview.md).
-- [Introdução aos discos gerenciados para VMs do Linux Azure](../../linux/managed-disks-overview.md).
+Para saber mais sobre o armazenamento do Azure para VMs do Azure, consulte [introdução aos Managed disks para VMs do Azure](../../managed-disks-overview.md).
 
 Em uma configuração básica, nós normalmente recomendamos uma estrutura de implantação na qual o sistema operacional, o DBMS e eventuais binários SAP são separados dos arquivos de banco de dados. Recomendamos que os sistemas SAP em execução em máquinas virtuais do Azure tenham o VHD base ou disco instalado com o sistema operacional, os executáveis do sistema de gerenciamento de banco de dados e os executáveis do SAP. 
 

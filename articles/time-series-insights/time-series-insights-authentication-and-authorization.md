@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 7384d03595f36e37eb70ec68d4f59b889facf76f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cea08022b992395862fcf75e0592efd54c805a98
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168024"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649118"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
 
@@ -85,7 +85,7 @@ De acordo com a **etapa 3**, separar as credenciais do aplicativo e as do usuár
 
    1. Em C#, o código a seguir pode adquirir o token em nome do aplicativo. Para obter um exemplo completo sobre como consultar dados de um ambiente Gen1, leia [dados de consulta usando C#](time-series-insights-query-data-csharp.md).
 
-        [!code-csharp[csharpquery-example](~/samples-tsi/gen1-sample/csharp-tsi-gen1-sample/Program.cs)]
+        Consulte o repositório [Azure Time Series insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)] para acessar o código C#. 
 
    1. Em seguida, o token pode ser passado no `Authorization` cabeçalho quando o aplicativo chama a API Azure Time Series insights.
 

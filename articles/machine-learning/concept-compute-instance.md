@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: f4938d517d9a5c244045798a79f31b96bacd03f5
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c72777bf2a4415a7f773f82a21a121f5e58f2ec0
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829434"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651908"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
@@ -145,7 +145,7 @@ Em seu espaço de trabalho no Azure Machine Learning Studio, crie uma nova inst�
 
 |Campo  |Descrição  |
 |---------|---------|
-|Nome da computação     |  <li>O nome é obrigatório e deve ter entre 3 e 24 caracteres.</li><li>Os caracteres válidos são letras maiúsculas e minúsculas, dígitos e o **-** caractere.</li><li>O nome deve começar com uma letra</li><li>O nome deve ser exclusivo em todas as computações existentes em uma região do Azure. Você verá um alerta se o nome escolhido não for exclusivo</li><li>Se o **-** caractere for usado, ele precisará ser seguido por pelo menos uma letra mais tarde no nome</li>     |
+|Nome da computação     |  <li>O nome é obrigatório e deve ter entre 3 e 24 caracteres.</li><li>Os caracteres válidos são letras maiúsculas e minúsculas, dígitos e o  **-** caractere.</li><li>O nome deve começar com uma letra</li><li>O nome deve ser exclusivo em todas as computações existentes em uma região do Azure. Você verá um alerta se o nome escolhido não for exclusivo</li><li>Se o **-**  caractere for usado, ele precisará ser seguido por pelo menos uma letra mais tarde no nome</li>     |
 |Tipo de máquina virtual |  Escolha CPU ou GPU. Este tipo não pode ser alterado após a criação     |
 |Tamanho da máquina virtual     |  Os tamanhos de máquina virtual com suporte podem ser restritos em sua região. Verificar a [lista de disponibilidade](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Habilitar/desabilitar o acesso SSH     |   O acesso SSH é desabilitado por padrão.  O acesso SSH não pode ser. alterado após a criação. Certifique-se de habilitar o acesso se você planeja depurar interativamente com [vs Code remoto](how-to-set-up-vs-code-remote.md)   |
@@ -155,26 +155,22 @@ Você também pode criar uma instância
 * Diretamente da [experiência de notebooks integrados](tutorial-1st-experiment-sdk-setup.md#azure)
 * No Portal do Azure
 * Do modelo de Azure Resource Manager. Para obter um modelo de exemplo, consulte [criar um Azure Machine Learning modelo de instância de computação](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
-* Com [Azure Machine Learning SDK](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)
+* Com o SDK do Azure Machine Learning
 * Da [extensão da CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
 Os núcleos dedicados por região por cota de família de VM e cota regional total, que se aplica à criação da instância de computação. é unificado e compartilhado com Azure Machine Learning cota de cluster de computação de treinamento. Parar a instância de computação não libera a cota para garantir que você poderá reiniciar a instância de computação.
 
 ## <a name="compute-target"></a>Destino de computação
 
-As instâncias de computação podem ser usadas como um [destino de computação de treinamento](concept-compute-target.md#train) semelhante a clusters de treinamento de computação do Azure Machine Learning. 
+As instâncias de computação podem ser usadas como um [destino de computação de treinamento](concept-compute-target.md#train) semelhante a Azure Machine Learning clusters de computação. 
 
 Uma instância de computação:
 * Tem uma fila de trabalhos.
 * Executa trabalhos com segurança em um ambiente de rede virtual, sem exigir que as empresas Abram a porta SSH. O trabalho é executado em um ambiente em contêiner e empacota suas dependências de modelo em um contêiner do Docker.
 * Pode executar vários trabalhos pequenos em paralelo (visualização).  Dois trabalhos por núcleo podem ser executados em paralelo enquanto o restante dos trabalhos são enfileirados.
+* Dá suporte a trabalhos de treinamento distribuído de várias GPU de nó único
 
 Você pode usar a instância de computação como um destino de implantação de inferência local para cenários de teste/depuração.
-
-> [!NOTE]
-> Não há suporte para trabalhos de treinamento distribuídos na instância de computação.  Use (clusters de computação] (como fazer a configuração-treinamento-targets. MD # amlcompute) para treinamento distribuído.
-
-Para obter mais detalhes, consulte o notebook [Train-on-computeinstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb). Este notebook também está disponível na pasta de **exemplos** do Studio em *Training/Train-on-computeinstance*.
 
 ## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>O que aconteceu com a VM do Notebook?
 

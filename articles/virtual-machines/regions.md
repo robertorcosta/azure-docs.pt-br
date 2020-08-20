@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/28/2019
-ms.openlocfilehash: 44370b378899228949aa1bddcc92570ad282fe92
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 094b78fa35da451101f4f5664cca46292d78d146
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284720"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650546"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Regiões para máquinas virtuais no Azure
 
@@ -43,7 +43,7 @@ Cada região do Azure é emparelhada com outra região na mesma área geográfic
 
 Exemplos de pares de regiões incluem:
 
-| Primário | Secundário |
+| Primária | Secundário |
 |:--- |:--- |
 | Oeste dos EUA |Leste dos EUA |
 | Norte da Europa |Europa Ocidental |
@@ -58,11 +58,11 @@ Alguns serviços ou recursos de VM estão disponíveis somente em determinadas r
 Compreender as áreas e regiões do Azure torna-se importante quando você considera as opções de replicação de armazenamento disponíveis. Dependendo do tipo de armazenamento, você tem opções de replicação diferentes.
 
 **Azure Managed Disks**
-* LRS (armazenamento com redundância local)
+* Armazenamento com redundância local (LRS)
   * Replica seus dados três vezes dentro da região em que você criou sua conta de armazenamento.
 
 **Discos baseados em contas de armazenamento**
-* LRS (armazenamento com redundância local)
+* Armazenamento com redundância local (LRS)
   * Replica seus dados três vezes dentro da região em que você criou sua conta de armazenamento.
 * ZRS (Armazenamento com redundância de zona)
   * Replica seus dados três vezes para duas ou três instalações, em uma única região ou em duas regiões.
@@ -79,7 +79,7 @@ A tabela a seguir oferece uma visão geral das diferenças entre os tipos de rep
 | Os dados podem ser lidos do local secundário e do local primário. |Não |Não |Não |Sim |
 | Número de cópias de dados mantidas em nós separados. |3 |3 |6 |6 |
 
-Você pode ler mais sobre as [Opções de replicação de armazenamento do Azure aqui](../storage/common/storage-redundancy.md). Para saber mais sobre discos gerenciados, veja [Visão geral dos Azure Managed Disks](./windows/managed-disks-overview.md).
+Você pode ler mais sobre as [Opções de replicação de armazenamento do Azure aqui](../storage/common/storage-redundancy.md). Para saber mais sobre discos gerenciados, veja [Visão geral dos Azure Managed Disks](./managed-disks-overview.md).
 
 ### <a name="storage-costs"></a>Custos de armazenamento
 Os preços variam dependendo do tipo de armazenamento e da disponibilidade que você selecionar.

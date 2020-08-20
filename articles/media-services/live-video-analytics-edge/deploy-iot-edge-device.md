@@ -3,12 +3,12 @@ title: Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge – Azu
 description: Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo ao vivo em seu dispositivo IoT Edge. Você faria isso, por exemplo, se tiver acesso a um computador Linux local e/ou tiver criado anteriormente uma conta dos serviços de mídia do Azure.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: f031f679d8fe8e1c14b6a4086f5e1c37f15c7855
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 26be76a46fa514917ee1c89cab7d1f112ee85431
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067865"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652450"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge
 
@@ -51,7 +51,7 @@ Você pode usar este comando para iniciar o ponto de extremidade de streaming
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 
-Siga as etapas neste artigo para obter credenciais para acessar as APIs do serviço de mídia: [acesse as APIs do serviço de mídia](../latest/access-api-howto.md#use-the-azure-portal).
+Siga as etapas neste artigo para obter credenciais para acessar as APIs do serviço de mídia: [acesse as APIs do serviço de mídia](../latest/access-api-howto.md?tabs=portal) e selecione a guia Portal.
 
 ## <a name="create-and-use-local-user-account-for-deployment"></a>Criar e usar a conta de usuário local para implantação
 Para executar o módulo análise de vídeo ao vivo no IoT Edge, crie uma conta de usuário local com o menor número de privilégios possível. Por exemplo, execute os seguintes comandos em seu computador Linux:
@@ -168,7 +168,7 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos i
     * {resourceGroupName}-este grupo de recursos ao qual a conta do serviço de mídia pertence
     * {AMS-Account-Name}-este é o nome da sua conta de serviços de mídia
     
-    Para obter os outros valores, consulte [acessar a API dos serviços de mídia do Azure](../latest/access-api-howto.md#use-the-azure-portal).  
+    Para obter os outros valores, consulte [acessar a API dos serviços de mídia do Azure](../latest/access-api-howto.md?tabs=portal) e selecione a guia Portal.  
     * aadTenantId-esta é a ID do seu locatário e é o mesmo que "AadTenantId" do link acima.
     * aadServicePrincipalAppId-esta é a ID do aplicativo da entidade de serviço para sua conta de serviço de mídia e é a mesma que a "AadClientId" do link acima.
     * aadServicePrincipalSecret-essa é a senha da entidade de serviço e é a mesma que a "AadSecret" do link acima.

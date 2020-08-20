@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 3b6f115e27b5cf956a524bd1a610797c689b5d6c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 464d945708fba83877fe6cef9ec1b64ec444bd95
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319483"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650410"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Disparar aplicativos, processos ou fluxos de trabalho de CI/CD com base em eventos de Azure Machine Learning (versão prévia)
 
@@ -199,7 +199,7 @@ Este exemplo mostra como usar a grade de eventos com um Aplicativo Lógico do Az
 
 Antes de começar, realize as seguintes ações:
 
-* Configurar um monitor de conjunto de dados para [detectar o descompasso de dados]( https://aka.ms/datadrift) em um workspace
+* Configurar um monitor de conjunto de dados para [detectar o descompasso de dados](how-to-monitor-datasets.md) em um workspace
 * Criar um [pipeline publicado do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/).
 
 Neste exemplo, um pipeline simples do Data Factory é usado a fim de copiar arquivos para um repositório de BLOB e executar um pipeline publicado do Machine Learning. Para saber mais sobre este cenário, veja como configurar uma [etapa do Machine Learning no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-machine-learning-service).

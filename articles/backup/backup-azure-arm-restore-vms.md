@@ -4,12 +4,12 @@ description: Restaure uma máquina virtual do Azure de um ponto de recuperação
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: af9b505e762e201713b8e554b7886e5e2062dfef
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 4aca863dd4e9c418872cd67bdf54df616a7a0c5b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263003"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651141"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar dados de VM do Azure no portal do Azure
 
@@ -184,7 +184,7 @@ A experiência do usuário de restauração da região secundária será semelha
 
 ## <a name="restoring-unmanaged-vms-and-disks-as-managed"></a>Restaurando VMs e discos não gerenciados como gerenciados
 
-Você receberá uma opção para restaurar [discos não gerenciados](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) como [discos gerenciados](../virtual-machines/windows/managed-disks-overview.md) durante a restauração. Por padrão, as VMs/discos não gerenciados são restaurados como VMs/discos não gerenciados. No entanto, se você optar por restaurar como VMs/discos gerenciados, agora é possível fazer isso. Essas restaurações não são disparadas da fase de instantâneo, mas apenas da fase de cofre. Esse recurso não está disponível para VMs criptografadas não gerenciadas.
+Você receberá uma opção para restaurar [discos não gerenciados](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) como [discos gerenciados](../virtual-machines/managed-disks-overview.md) durante a restauração. Por padrão, as VMs/discos não gerenciados são restaurados como VMs/discos não gerenciados. No entanto, se você optar por restaurar como VMs/discos gerenciados, agora é possível fazer isso. Essas restaurações não são disparadas da fase de instantâneo, mas apenas da fase de cofre. Esse recurso não está disponível para VMs criptografadas não gerenciadas.
 
 ![Restaurar como discos gerenciados](./media/backup-azure-arm-restore-vms/restore-as-managed-disks.png)
 

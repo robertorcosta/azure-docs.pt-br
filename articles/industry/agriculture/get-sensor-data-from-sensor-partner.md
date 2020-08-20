@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 08099ede82f8ebd9c1cd6e585a16800ee1626f65
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 3452641b336308ddf46349064345b154e55aa53c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508780"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649152"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obter dados de sensor de parceiros de sensor
 
@@ -87,6 +87,10 @@ Siga as etapas abaixo para gerar as informações acima:
     ./generatePartnerCredentials.ps1
 
     ```
+
+> [!NOTE]
+> 1. O nome do ponto de extremidade da API do Datahub deve estar em letras minúsculas.
+> 2. Se você estiver copiando a URL do nome do site farmbeats para o ponto de extremidade da API do Datahub, verifique se não há nenhuma barra à direita (/).
 
 9. Siga as instruções na tela para capturar os valores para **o ponto de extremidade da API**, ID do **locatário**, **ID do cliente**, segredo do **cliente**e cadeia de **conexão do EventHub**.
 

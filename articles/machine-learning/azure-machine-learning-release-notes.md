@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: d93e01cdec79f739367dc219d81028c1abc2d66e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: b6a060f4487bed5b820126d7a886cf68fa76868a
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508202"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652059"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
@@ -206,7 +206,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
     + A limpeza de balanceamento de classe não será mais habilitada se o usuário desabilitar personalização.  
   + **azureml-contrib-ITP**
     + Há suporte para o tipo de computação CmAks. Você pode anexar seu próprio cluster AKS ao espaço de trabalho para o trabalho de treinamento.
-  + **azureml-contrib-notebook**
+  + **azureml-contrib-Notebook**
     + Melhorias de documentos no pacote azureml-contrib-notebook.
   + **azureml-contrib-pipeline-steps**
     + Aprimoramentos de documentos para o azureml-contrib--pacote de etapas de pipeline.
@@ -229,7 +229,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
   + **azureml-dataprep**
     + Carregar um conjunto de to_spark_dataframe de arquivos parquet agora é mais rápido e dá suporte a todos os tipos de dataparquet e Spark SQL.
     + Melhor manipulação de memória no caso de um problema de OutOfMemory para to_pandas_dataframe.
-  + **azureml-interpret**
+  + **azureml-interpretar**
     + Atualização do azureml-interprete para usar a interpretação-Community versão 0,12. *
   + **azureml-mlflow**
     + Aprimoramentos do doc para o azureml-mlflow.
@@ -393,7 +393,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
   + **azureml-dataprep**
     + Foi feito um aviso para atualizar a versão pyarrow mais explícita.
     + Tratamento de erro e mensagem aprimorados retornados em caso de falha ao executar Dataflow.
-  + **azureml-interpret**
+  + **azureml-interpretar**
     + Atualizações de documentação para o pacote azureml-interpret.
     + Correção de pacotes de interpretação e notebooks para serem compatíveis com a atualização mais recente do sklearn
   + **azureml-opendatasets**
@@ -560,7 +560,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     + Adição do limite superior ao tamanho do arquivo para os dados de visualização nas explicações carregadas.
   + **azureml-train-automl-client**
     + Verificando explicitamente label_column_name & parâmetros weight_column_name para que AutoMLConfig seja do tipo cadeia de caracteres.
-  + **azureml-contrib-pipeline-etapas**
+  + **azureml-contrib-pipeline-steps**
     + ParallelRunStep agora dá suporte a DataSet como parâmetro de pipeline. O usuário pode construir o pipeline com o conjunto de dados de exemplo e pode alterar o conjunto de dados de entrada do mesmo tipo (arquivo ou tabular) para a nova execução do pipeline.
 
   
@@ -593,7 +593,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     + Conjunto de dados: adicionamos um índice para a coluna de série temporal quando você acessa um conjunto de dados de série temporal como um data frames do pandas, que são usados para acelerar o acesso ao acesso de dado baseado em série temporal.  Anteriormente, o índice recebeu o mesmo nome que a coluna timestamp, os usuários confusos sobre qual é a coluna de carimbo de data/hora real e qual é o índice. Agora, não damos nenhum nome específico ao índice, pois ele não deve ser usado como uma coluna. 
     + DataSet: problema de autenticação de conjunto de banco de uma correção no soberanas Cloud.
     + Conjunto de `Dataset.to_spark_dataframe` valores: falha fixa para conjuntos de itens criados a partir de repositórios de armazenamento do PostgreSQL do Azure.
-  + **azureml-interpret**
+  + **azureml-interpretar**
     + Foram adicionadas pontuações globais à visualização se os valores de importância local forem esparsos
     + Atualizado o azureml-interpretar para usar a interpretação-Community 0,9. *
     + Correção do problema com a explicação de download que tinha dados de avaliação esparsas
@@ -637,7 +637,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     + Adicionada a capacidade de registrar ADLS Gen2 na CLI do Azure Machine Learning
     + Parâmetro renomeado ' fine_grain_timestamp ' para ' timestamp ' e parâmetro ' coarse_grain_timestamp ' como ' partition_timestamp ' para o método with_timestamp_columns () em TabularDataset para refletir melhor o uso dos parâmetros.
     + Tamanho máximo do nome de experimento aumentado para 255.
-  + **azureml-interpret**
+  + **azureml-interpretar**
     + Atualizado o azureml-interpretar para interpretar-Community 0,7. *
   + **azureml-sdk**
     + Mudando para dependências com til de versão compatível para o suporte de aplicação de patch em versões de pré-lançamento e estáveis.
@@ -707,7 +707,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     + Corrigido o bug em que letras maiúsculas não podem ser usadas como nome de entrada do conjunto de dados.
   + **azureml-padrões**
     + `azureml-dataprep` Agora será instalado como parte do `azureml-defaults` . Não é mais necessário instalar o data Prep [fusível] manualmente em destinos de computação para montar conjuntos de dados.
-  + **azureml-interpret**
+  + **azureml-interpretar**
     + Atualizado o azureml-interpretar para interpretar-Community 0,6. *
     + Atualizado o azureml-interpretar para depender do 0.5.0 da comunidade de interpretação
     + Exceções do estilo do azureml adicionadas ao azureml-interpret
@@ -757,7 +757,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
       + Método de atualização do espaço de trabalho disponibilizado publicamente.
       + Parâmetro image_build_compute adicionado no método de atualização do espaço de trabalho para permitir que o usuário atualize a computação para a compilação da imagem
     +  Foram adicionadas mensagens de substituição ao antigo fluxo de trabalho de criação de perfil. Correção de limites de CPU e memória de criação de perfil
-  + **azureml-interpret**
+  + **azureml-interpretar**
     + atualizar o azureml-interpretar para interpretação-comunidade 0,6. *
   + **azureml-mlflow**
     + Adicionar suporte para nuvens soberanas a azureml. mlflow
@@ -792,7 +792,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     + A criação de perfil de instância única foi corrigida para produzir uma recomendação e foi disponibilizada no SDK principal.
     + Correção do problema no aks.py _deploy
     + Valida a integridade dos modelos que estão sendo carregados para evitar falhas de armazenamento silencioso.
-  + **azureml-interpret**
+  + **azureml-interpretar**
     + exceções do estilo do azureml adicionadas ao azureml-interpret
     + correção de serialização de DeepScoringExplainer para modelos de Keras
   + **azureml-pipeline-core**
@@ -830,7 +830,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     + Correção de um bug em que os resultados de PythonScriptStep podem ser reutilizados incorretamente apesar de alterar a lista de argumentos
   + **azureml-pipeline-steps**
     + Exemplo de documentação adicionada para o conjunto de dados como entrada PythonScriptStep
-  + **azureml-contrib-pipeline-etapas**
+  + **azureml-contrib-pipeline-steps**
     + Os parâmetros passados em ParallelRunConfig podem ser substituídos passando parâmetros de pipeline agora. Novos parâmetros de pipeline com suporte aml_mini_batch_size, aml_error_threshold, aml_logging_level aml_run_invocation_timeout (aml_node_count e aml_process_count_per_node já fazem parte da versão anterior).
   
 ## <a name="2020-01-21"></a>2020-01-21
@@ -863,7 +863,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     + Get_active_runs fixo
   + **azureml-explain-model**
     + atualizado o shap para 0.33.0 e interprete-Community para 0,4. *
-  + **azureml-interpret**
+  + **azureml-interpretar**
     + atualizado o shap para 0.33.0 e interprete-Community para 0,4. *
   + **azureml-train-automl-runtime**
     + O coeficiente de correlação de Matthews foi adicionado como uma métrica de classificação, para classificação binária e multiclasse.
@@ -887,7 +887,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     + Correção do problema em que os modelos que usam source_dir não puderam ser empacotados para Azure Functions.    
     + Adicionada uma opção ao [Environment. build_local ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) para enviar uma imagem para o registro de contêiner do espaço de trabalho do AzureML
     + O SDK foi atualizado para usar a nova biblioteca de tokens no Azure Synapse de forma compatível.
-  + **azureml-interpret**
+  + **azureml-interpretar**
     + Corrigido o bug onde nenhum foi retornado quando nenhuma explicação estava disponível para download. Agora gera uma exceção, correspondendo ao comportamento em outro lugar.
   + **azureml-pipeline-steps**
     + Não permitido passar de `DatasetConsumptionConfig` s para `Estimator` `inputs` o parâmetro do quando o `Estimator` será usado em um `EstimatorStep` .
@@ -1019,7 +1019,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     + Adicionado append_prefix parâmetro BOOL para download_files em run.py e download_artifacts_from_prefix no artifacts_client. Esse sinalizador é usado para mesclar seletivamente o FilePath de origem para que apenas o nome de arquivo ou pasta seja adicionado ao output_directory
     + Corrigir o problema de desserialização para com o uso do conjunto de um `run_config.yml` .
     + Ao chamar `keep_columns` ou `drop_columns` que resulta em uma coluna de série temporal sendo removida, os recursos correspondentes também serão descartados para o conjunto de resultados.
-  + **azureml-interpret**
+  + **azureml-interpretar**
     + Atualizada a versão de interpretação da Comunidade para 0.1.0.3
   + **azureml-Train-automl**
     + Corrigido um problema em que automl_step pode não imprimir problemas de validação.
@@ -1080,7 +1080,7 @@ Azure Machine Learning agora é um provedor de recursos para a grade de eventos,
 ### <a name="azure-machine-learning-sdk-for-python-v1072"></a>Azure Machine Learning SDK para Python v 1.0.72
 
 + **Novos recursos**
-  + Os monitores de conjunto de dados adicionados por meio do pacote [**azureml-descompasso**](https://docs.microsoft.com/python/api/azureml-datadrift) , permitindo o monitoramento de conjuntos de dados de série temporal para descompasso ou outras alterações estatísticas ao longo do tempo. Alertas e eventos podem ser disparados se o descompasso for detectado ou se outras condições nos dados forem atendidas. Consulte [nossa documentação](https://aka.ms/datadrift) para obter detalhes.
+  + Os monitores de conjunto de dados adicionados por meio do pacote [**azureml-descompasso**](https://docs.microsoft.com/python/api/azureml-datadrift) , permitindo o monitoramento de conjuntos de dados de série temporal para descompasso ou outras alterações estatísticas ao longo do tempo. Alertas e eventos podem ser disparados se o descompasso for detectado ou se outras condições nos dados forem atendidas. Consulte [nossa documentação](how-to-monitor-datasets.md) para obter detalhes.
   + Anunciando duas novas edições (também chamadas de SKU intercambiáveis) em Azure Machine Learning. Com esta versão, agora você pode criar um espaço de trabalho básico ou de Azure Machine Learning empresarial. Todos os espaços de trabalho existentes serão padronizados para a edição básica e você poderá ir para a portal do Azure ou para o estúdio para atualizar o espaço de trabalho a qualquer momento. Você pode criar um espaço de trabalho básico ou empresarial do portal do Azure. Leia [nossa documentação](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) para saber mais. No SDK, a edição do seu espaço de trabalho pode ser determinada usando a propriedade "SKU" do seu objeto de espaço de trabalho.
   + Também fizemos aprimoramentos para Azure Machine Learning computação. agora você pode exibir métricas para seus clusters (como nós totais, nós em execução, cota de núcleo total) em Azure Monitor, além de exibir os logs de diagnóstico para depuração. Além disso, você também pode exibir execuções em fila ou em execução no momento no cluster e detalhes como os IPs dos vários nós no cluster. Você pode exibi-los no portal ou usando funções correspondentes no SDK ou na CLI.
 
@@ -1328,7 +1328,7 @@ A guia experimento no [novo portal de espaço de trabalho](https://ml.azure.com)
   + **azureml-core**
     + Foi adicionada a capacidade de recuperar a URL da SAS para o modelo no armazenamento por meio do objeto de modelo. Ex.: Model. get_sas_url ()
     + Introduzir `run.get_details()['datasets']` para obter conjuntos de valores associados à execução enviada
-    + Adicione `Dataset.Tabular.from_json_lines_files` a API para criar um TabularDataset de arquivos de linhas JSON. Para saber mais sobre esses dados tabulares em arquivos de linhas JSON em TabularDataset, visite https://aka.ms/azureml-data para obter a documentação.
+    + Adicione `Dataset.Tabular.from_json_lines_files` a API para criar um TabularDataset de arquivos de linhas JSON. Para saber mais sobre esses dados tabulares em arquivos de linhas JSON em TabularDataset, visite [Este artigo](how-to-create-register-datasets.md) para obter a documentação.
     + Adição de campos de tamanho de VM adicionais (disco do so, número de GPUs) à função supported_vmsizes ()
     + Adicionados campos adicionais à função list_nodes () para mostrar a execução, o IP privado e o público, a porta, etc.
     + Capacidade de especificar um novo campo durante o provisionamento de cluster--remotelogin_port_public_access que pode ser definido como habilitado ou desabilitado, dependendo se você deseja deixar a porta SSH aberta ou fechada no momento da criação do cluster. Se você não especificá-lo, o serviço abrirá de forma inteligente ou fechará a porta dependendo se você estiver implantando o cluster dentro de uma VNet.
@@ -1367,8 +1367,8 @@ A guia experimento no [novo portal de espaço de trabalho](https://ml.azure.com)
 ### <a name="azure-machine-learning-sdk-for-python-v1062"></a>Azure Machine Learning SDK para Python v 1.0.62
 
 + **Novos recursos**
-  + Introduziu a `timeseries`  característica em TabularDataset. Essa característica permite uma fácil filtragem de carimbo de data/hora nos dados de uma TabularDataset, como a obtenção de todos os dados entre um intervalo de tempo ou os dados mais recentes. Para saber mais sobre essa `timeseries`  característica em TabularDataset, visite a https://aka.ms/azureml-data documentação ou https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb para obter um exemplo de bloco de anotações.
-  + Habilitado o treinamento com TabularDataset e filedataset. Visite https://aka.ms/dataset-tutorial um exemplo de bloco de anotações.
+  + Introduziu a `timeseries`  característica em TabularDataset. Essa característica permite uma fácil filtragem de carimbo de data/hora nos dados de uma TabularDataset, como a obtenção de todos os dados entre um intervalo de tempo ou os dados mais recentes.  https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb para um bloco de anotações de exemplo.
+  + Habilitado o treinamento com TabularDataset e filedataset. 
 
   + **azureml-train-core**
       + Adição `Nccl` e `Gloo` suporte no estimador de PyTorch
@@ -1446,7 +1446,7 @@ No momento desta versão, há suporte para os seguintes navegadores: Chrome, Fir
 ### <a name="azure-machine-learning-sdk-for-python-v1060"></a>Azure Machine Learning SDK para Python v 1.0.60
 
 + **Novos recursos**
-  + Introduziu filedataset, que faz referência a um ou vários arquivos em seus armazenamentos de dados ou URLs públicas. Os arquivos podem ser de qualquer formato. O filedataset fornece a capacidade de baixar ou montar os arquivos em sua computação. Para saber mais sobre filedataset, visite https://aka.ms/file-dataset .
+  + Introduziu filedataset, que faz referência a um ou vários arquivos em seus armazenamentos de dados ou URLs públicas. Os arquivos podem ser de qualquer formato. O filedataset fornece a capacidade de baixar ou montar os arquivos em sua computação. 
   + Adicionado suporte de YAML de pipeline para a etapa PythonScript, etapa adla, databricks etapa, DataTransferStep e etapa AzureBatch
 
 + **Correções de bugs e melhorias**

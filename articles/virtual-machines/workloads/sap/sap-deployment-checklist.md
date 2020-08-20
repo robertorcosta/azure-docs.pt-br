@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3402f4ff719752cca6e1d7a4aeeb3b7e12c3e28
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: f195d4096baaa1d6a03b4b6c7c589ccef8fbd036
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511135"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651719"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho do SAP no Azure: lista de verificação de planejamento e implantação
 
@@ -110,9 +110,9 @@ Recomendamos que você configure e valide uma solução HADR completa e um desig
            -  [Tamanhos das máquinas virtuais do Linux no Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). É importante considerar a taxa de *transferência máxima do disco não armazenado em cache* para o dimensionamento.
    2. Armazenamento.
         - Verificar o documento [tipos de armazenamento do Azure para carga de trabalho SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage)
-        - No mínimo, use o [armazenamento de SSD standard do Azure](../../windows/disks-types.md#standard-ssd) para VMs que representam as camadas do aplicativo SAP e para a implantação de DBMSs que não são sensíveis ao desempenho.
-        - Em geral, não recomendamos o uso de [discos HDD standard do Azure](../../windows/disks-types.md#standard-hdd).
-        - Use o [armazenamento Premium do Azure](../../windows/disks-types.md#premium-ssd) para qualquer VM DBMS que seja sensível ao desempenho remotamente.
+        - No mínimo, use o [armazenamento de SSD standard do Azure](../../disks-types.md#standard-ssd) para VMs que representam as camadas do aplicativo SAP e para a implantação de DBMSs que não são sensíveis ao desempenho.
+        - Em geral, não recomendamos o uso de [discos HDD standard do Azure](../../disks-types.md#standard-hdd).
+        - Use o [armazenamento Premium do Azure](../../disks-types.md#premium-ssd) para qualquer VM DBMS que seja sensível ao desempenho remotamente.
         - Use o [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/).
         - Use o Acelerador de Gravação do Azure para unidades de log do DBMS com a série M. Lembre-se de Acelerador de Gravação limites e uso, conforme documentado em [acelerador de gravação](../../how-to-enable-write-accelerator.md).
         - Para os diferentes tipos de DBMS, verifique a [documentação genérica do DBMS relacionada ao SAP](./dbms_guide_general.md) e a documentação específica do DBMS para a qual o documento genérico aponta.

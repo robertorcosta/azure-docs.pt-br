@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 7a0fd4178df92cc9102456c1fa2ae4e8927337e4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f49a66fc6e233658b228b7ad9bacdaa23917afef
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547317"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648727"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Habilitar o registro em log nas execuções de treinamento do Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -70,8 +70,6 @@ run = exp.submit(src, show_output=True)
 run.wait_for_completion(show_output=True)
 ```
 
-Para obter um bloco de anotações de exemplo completo que usa logs do ScriptRunConfigs, consulte [treinar um modelo localmente](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb).
-
 ## <a name="native-python-logging"></a>Registro em log do Python nativo
 
 Alguns logs no SDK podem conter um erro que instrui você a definir o nível de log para depurar. Para definir o nível de log, adicione o seguinte código ao script.
@@ -88,9 +86,7 @@ Azure Machine Learning também pode registrar informações de outras fontes dur
 Para obter informações sobre as métricas de log no designer de Azure Machine Learning (versão prévia), consulte [como registrar métricas no designer (versão prévia)](how-to-track-designer-experiments.md)
 
 ## <a name="example-notebooks"></a>Blocos de anotações de exemplo
-Os seguintes blocos de anotações demonstram conceitos neste artigo:
-* [how-to-use-azureml/training/train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
-* [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
+O bloco de anotações a seguir demonstra os conceitos neste artigo:
 * [how-to-use-azureml/track-and-monitor-experiments/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]

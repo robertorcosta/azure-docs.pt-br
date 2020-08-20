@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 093f86f0373791326cf4658bdab7179fbca1307d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e0cb9492f6e0b52cb0816d16be5d67d3b92cfe56
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849651"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651396"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e usar destinos de computação para treinamento de modelo 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -127,7 +127,7 @@ Uma Computação do Azure Machine Learning pode ser reutilizada entre execuçõe
 
 Agora que você anexou um computador e configurou sua execução, a próxima etapa é [enviar a execução de treinamento](#submit).
 
- ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a>Reduzir o custo do cluster de computação
+ ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a> Reduzir o custo do cluster de computação
 
 Você também pode optar por usar [VMs de baixa prioridade](concept-plan-manage-cost.md#low-pri-vm) para executar algumas ou todas as suas cargas de trabalho. Essas VMs não têm disponibilidade garantida e podem ser substituídas enquanto estiverem em uso. Um trabalho admitido é reiniciado, não retomado. 
 
@@ -180,8 +180,6 @@ As instâncias de computação podem executar trabalhos com segurança em um [am
      
     run = experiment.submit(config=src)
     ```
-
-Para obter mais comandos úteis para a instância de computação, consulte o notebook [Train-on-computeinstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb). Este notebook também está disponível na pasta de **exemplos** do Studio em *Training/Train-on-computeinstance*.
 
 Agora que você anexou a computação e configurou sua execução, a próxima etapa é [enviar a execução de treinamento](#submit)
 

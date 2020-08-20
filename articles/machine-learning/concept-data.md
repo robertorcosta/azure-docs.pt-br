@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 04/24/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ff335cd6276083eb76efd74a4921d2bae96cd7c9
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: dadd3a8316efc5bf090a84a738c8f6da223d4572
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875295"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651787"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteger o acesso a dados no Azure Machine Learning
 
@@ -118,5 +118,4 @@ Consulte o artigo [criar um conjunto de](how-to-monitor-datasets.md) dados para 
 ## <a name="next-steps"></a>Próximas etapas 
 
 + Crie um conjunto de um DataSet no Azure Machine Learning Studio ou com o SDK do Python [usando estas etapas.](how-to-create-register-datasets.md)
-+ Experimente exemplos de treinamento de conjunto de [anotações com nossos notebooks de exemplo](https://aka.ms/dataset-tutorial).
-+ Para obter exemplos de descompasso de dados, consulte este [tutorial de descompasso de dados](https://aka.ms/datadrift-notebook).
++ Experimente exemplos de treinamento de conjunto de [anotações com nossos notebooks de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).
