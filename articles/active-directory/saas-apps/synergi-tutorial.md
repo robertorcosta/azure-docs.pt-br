@@ -2,25 +2,21 @@
 title: 'Tutorial: integração do Azure Active Directory com o Synergi | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Synergi.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 73c970e1-f1ba-420b-b225-414fdf93b140
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 19e4240991e4bc9ea80d210f738380e823f3387d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 345c6aa6aca5c335c2a9f91283fb2761b1999bb0
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67089373"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88524465"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-synergi"></a>Tutorial: Integração do Azure Active Directory com o Synergi
 
