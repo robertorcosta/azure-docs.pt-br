@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao Proxyclick | Microsoft Docs'
 description: Neste tutorial, você aprenderá a configurar o logon único entre o Azure Active Directory e o Proxyclick.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5c58a859-71c2-4542-ae92-e5f16a8e7f18
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 6a4d1c8a390ebd1194d14c057bb32d3111bf39be
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b3974c5e2a46ede6ef3f92d74759f58ed55b8497
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67093503"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553413"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Tutorial: Integração do Azure Active Directory com o Proxyclick
 
@@ -185,7 +181,7 @@ Nesta seção, você criará um usuário de teste chamado Brenda Fernandes no po
 
     1. Na caixa **Nome**, insira **BrendaFernandes**.
   
-    1. Na caixa **Nome de usuário**, insira **BrendaFernandes@\<domíniodaempresa>.\<extensão>** . (Por exemplo, BrittaSimon@contoso.com.)
+    1. Na caixa **Nome de usuário**, insira **BrendaFernandes@\<yourcompanydomain>.\<extension>** . (Por exemplo, BrittaSimon@contoso.com.)
 
     1. Selecione **Mostrar Senha** e, em seguida, anote o valor mostrado na caixa **Senha**.
 

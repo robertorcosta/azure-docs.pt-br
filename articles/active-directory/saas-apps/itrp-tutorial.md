@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory com o ITRP | Microsoft Docs'
 description: Neste tutorial, você aprenderá a configurar o logon único entre o Azure Active Directory e o ITRP.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: e09716a3-4200-4853-9414-2390e6c10d98
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c4d0f753e23e42b1064fec3f56957dfe97c30ca4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d7a7c4f7d9a9ba2ef574519a41aae3dd6e28e4fb
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81261186"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88552778"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Tutorial: Integração do Azure Active Directory com o ITRP
 
@@ -179,7 +175,7 @@ Nesta seção, você criará um usuário de teste chamado Brenda Fernandes no po
 
     1. Na caixa **Nome**, insira **BrendaFernandes**.
   
-    1. Na caixa **Nome de usuário**, insira **BrendaFernandes@\<domíniodaempresa>.\<extensão>** . (Por exemplo, BrittaSimon@contoso.com.)
+    1. Na caixa **Nome de usuário**, insira **BrendaFernandes@\<yourcompanydomain>.\<extension>** . (Por exemplo, BrittaSimon@contoso.com.)
 
     1. Selecione **Mostrar Senha** e, em seguida, anote o valor mostrado na caixa **Senha**.
 

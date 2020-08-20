@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao MyWorkDrive | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o MyWorkDrive.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: 4d049778-3c7b-46c0-92a4-f2633a32334b
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 60fdd9b0a8fb272da885df97e39804a98e48de67
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: aa0fe40ec28aea7f82ee0e635b3c42140a472816
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478875"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88552434"
 ---
 # <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>Tutorial: Integrar o MyWorkDrive com o Azure Active Directory
 

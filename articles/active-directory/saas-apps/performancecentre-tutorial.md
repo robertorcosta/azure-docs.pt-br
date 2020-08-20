@@ -2,25 +2,21 @@
 title: 'Tutorial: integração do Azure Active Directory ao PerformanceCentre | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o PerformanceCentre.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 65288c32-f7e6-4eb3-a6dc-523c3d748d1c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 67e67c8790628ea589f7f8232248c8ccbc1ba811
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d0a19a95a0a0d2353070068b2113e11efe471ccc
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649009"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553930"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Tutorial: Integração do Active Directory do Azure com o PerformanceCentre
 

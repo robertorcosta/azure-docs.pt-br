@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao EAB Navigate IMPL | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o EAB Navigate IMPL.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 51460c55-2239-49b6-8a5e-7c8baacad518
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 465b41aaf3c3b16dcba489d1ea9ba951a3108c8e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1ef4cd8830cec4eb8d72855f8308035e47bf3d4f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77046596"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555606"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab-navigate-impl"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao EAB Navigate IMPL
 

@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Active Directory do Azure ao Infinite Campus | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Infinite Campus.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3995b544-e751-4e0f-ab8b-c9a3862da6ba
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: d54769c1f3265e2cee619520044313fca46855a5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ca154caf67d8dd715ad1341e9fe3c6cfde20fde0
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67100363"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88553045"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutorial: Microsoft Azure Active Directory do Azure ao Campus Infinito
 

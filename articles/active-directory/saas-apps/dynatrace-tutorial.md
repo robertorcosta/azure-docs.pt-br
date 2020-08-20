@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Dynatrace | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Dynatrace.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 267ad37f-feda-4fac-bd15-7610174caf45
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 275215a69f97d93a1b1741a8fa8f3ca752c8c9ef
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: a1f052df9b233fd564ed7e16c04c32c0c7234e1a
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758974"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555647"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dynatrace"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Dynatrace
 

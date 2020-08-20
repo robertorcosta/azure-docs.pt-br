@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao OutSystems Azure AD | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o OutSystems Azure AD.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: cf6f99b7-0604-4db2-a72e-0d1a1d643a08
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f631a641ab63d33d27d1e4520a000b4b01132be
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0d9c7014e3dfada1fb301c66c234ca18d4a89c65
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68478576"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88554123"
 ---
 # <a name="tutorial-integrate-outsystems-azure-ad-with-azure-active-directory"></a>Tutorial: Integrar o OutSystems Azure AD ao Azure Active Directory
 
