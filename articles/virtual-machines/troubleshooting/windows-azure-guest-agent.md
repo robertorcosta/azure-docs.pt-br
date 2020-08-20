@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/07/2020
 ms.author: genli
-ms.openlocfilehash: c3295365859ad3291a95b616cccc6fa265237a01
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 38bf652ccefe98c2bd0fb28e8018d41df21651dc
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263875"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659459"
 ---
 # <a name="troubleshooting-windows-azure-guest-agent"></a>Solucionando problemas do agente convidado do Windows Azure
 
@@ -102,7 +102,7 @@ O agente convidado do Windows Azure tem um recurso de atualização automática.
 
 1. Mova todas as pastas nomeadas pacotes ou GuestAgent para a pasta antiga.
 
-1. Baixe e instale a versão mais recente do pacote de instalação do agente [aqui](https://go.microsoft.comfwlink/?linkid=394789&clcid=0x409). Você precisa ter direitos de Administrador para concluir a instalação.
+1. Baixe e instale a versão mais recente do pacote de instalação do agente [aqui](https://go.microsoft.com/fwlink/?linkid=394789&clcid=0x409). Você precisa ter direitos de Administrador para concluir a instalação.
 
 1. Instale o agente convidado usando o seguinte comando:
 

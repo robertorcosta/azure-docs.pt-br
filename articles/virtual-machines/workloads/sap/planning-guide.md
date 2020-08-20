@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: de3b0ed309863a09003b1ff7709481d763163e07
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: f2bf360d9b09be4db84d0ff00b1a777fe8b188ea
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652195"
+ms.locfileid: "88661326"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -1803,7 +1803,7 @@ Há dois tipos de eventos de plataforma do Azure que podem afetar a disponibilid
 * Eventos de manutenção planejada são atualizações periódicas feitas pela Microsoft na plataforma subjacente do Azure para melhorara a confiabilidade, o desempenho e a segurança geral da infraestrutura da plataforma na qual suas máquinas virtuais são executadas.
 * Eventos de manutenção não planejada ocorrem quando o hardware ou a infraestrutura física subjacente à sua máquina virtual apresenta algum tipo de falha. Isso inclui falhas na rede local, falhas no disco local ou outras falhas no nível de rack. Quando tal falha é detectada, a plataforma do Azure migrará automaticamente sua máquina virtual do servidor físico não íntegro hospedando sua máquina virtual para um servidor físico íntegro. Esses eventos são raros, mas podem também reinicializar a sua máquina virtual.
 
-Encontre mais detalhes nesta documentação: <https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
+Para obter mais detalhes, consulte [disponibilidade de máquinas virtuais do Windows no Azure](../../windows/manage-availability.md) e [disponibilidade de máquinas virtuais do Linux no Azure](../../linux/manage-availability.md).
 
 #### <a name="azure-storage-redundancy"></a>Redundância de Armazenamento do Azure
 
@@ -1811,7 +1811,7 @@ Os dados da sua Conta de Armazenamento do Microsoft Azure sempre são replicados
 
 Já que o armazenamento do Azure está mantendo três imagens dos dados por padrão, RAID5 ou RAID1 em vários discos do Azure não são necessárias.
 
-Encontre mais detalhes neste artigo: <https://azure.microsoft.com/documentation/articles/storage-redundancy/>
+Para obter mais detalhes, consulte [redundância de armazenamento do Azure](../../../storage/common/storage-redundancy.md).
 
 #### <a name="utilizing-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-sap-applications"></a>Utilizando a Reinicialização de VM da infraestrutura do Azure para atingir maior disponibilidade de aplicativos SAP
 

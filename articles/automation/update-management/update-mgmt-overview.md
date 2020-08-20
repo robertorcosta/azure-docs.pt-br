@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea568acdf356064dc603d30ffba7df3c02bde621
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 0fd416c844ac93ffb77eded98448b2e93e9acd30
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449854"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660901"
 ---
 # <a name="update-management-overview"></a>Visão geral do Gerenciamento de Atualizações
 
@@ -99,7 +99,7 @@ A tabela a seguir lista os sistemas operacionais não compatíveis:
 |Sistema operacional  |Observações  |
 |---------|---------|
 |Windows Client     | Os sistemas operacionais clientes (como Windows 7 e Windows 10) não têm suporte.<br> Para a WVD (Área de Trabalho Virtual do Windows) do Azure, o método recomendado<br> para gerenciar atualizações é [o Microsoft Endpoint Configuration Manager para o](../../virtual-desktop/configure-automatic-updates.md) gerenciamento de patches de computador cliente do Windows 10. |
-|Windows Server 2016 Nano Server     | Não há suporte.       |
+|Windows Server 2016 Nano Server     | Sem suporte.       |
 |Nós do Serviço de Kubernetes do Azure | Sem suporte. Use o processo de aplicação de patch descrito em [Aplicar atualizações de segurança e kernel a nós do Linux no AKS (Serviço de Kubernetes do Azure)](../../aks/node-updates-kured.md)|
 
 ### <a name="client-requirements"></a>Requisitos do cliente
@@ -166,10 +166,10 @@ Para obter mais informações sobre atualizações para pacotes de gerenciamento
 
 A tabela a seguir descreve as fontes conectadas compatíveis com o Gerenciamento de Atualizações:
 
-| Fonte conectada | Com suporte | Description |
+| Fonte conectada | Com suporte | Descrição |
 | --- | --- | --- |
-| Agentes do Windows |Yes |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes do Windows e, em seguida, inicia a instalação das atualizações necessárias. |
-| Agentes do Linux |Yes |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes para Linux e, em seguida, inicia a instalação das atualizações necessárias nas distribuições compatíveis. |
+| Agentes do Windows |Sim |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes do Windows e, em seguida, inicia a instalação das atualizações necessárias. |
+| Agentes do Linux |Sim |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes para Linux e, em seguida, inicia a instalação das atualizações necessárias nas distribuições compatíveis. |
 | Grupo de gerenciamento do Operations Manager |Sim |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectado.<br/><br/>Não é necessária uma conexão direta entre o agente do Operations Manager e os logs do Azure Monitor. Os dados são encaminhados do grupo de gerenciamento para o espaço de trabalho do Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequência de coleta
@@ -180,7 +180,7 @@ O Gerenciamento de Atualizações verifica os dados em computadores gerenciados 
 
 * Cada computador com Linux – o Gerenciamento de Atualizações faz uma verificação a cada hora.
 
-A média de uso de dados por logs do Azure Monitor para um computador usando o Gerenciamento de Atualizações é de aproximadamente 25 MB por mês. Esse valor é somente uma aproximação e está sujeito a alterações, dependendo do seu ambiente. Recomendamos que você monitore seu ambiente para controlar seu uso exato. Para obter mais informações para analisar o uso de dados, confira [Gerenciar o uso e o custo](../../azure-monitor/platform/manage-cost-storage.md).
+A média de uso de dados por logs do Azure Monitor para um computador usando o Gerenciamento de Atualizações é de aproximadamente 25 MB por mês. Esse valor é somente uma aproximação e está sujeito a alterações, dependendo do seu ambiente. Recomendamos que você monitore seu ambiente para controlar seu uso exato. Para obter mais informações sobre como analisar o uso de dados de logs de Azure Monitor, consulte [gerenciar o uso e o custo](../../azure-monitor/platform/manage-cost-storage.md).
 
 ## <a name="network-planning"></a><a name="ports"></a>Planejamento de rede
 

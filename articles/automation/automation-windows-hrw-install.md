@@ -3,14 +3,14 @@ title: Implantar um Hybrid Runbook Worker do Windows na Automação do Azure
 description: Este artigo informa como implantar um Hybrid Runbook Worker que você pode usar para executar runbooks em computadores baseados no Windows em seu datacenter local ou ambiente de nuvem.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 90b16f10cfa94ce427a9f6249c72842f8ef6278a
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 74657743d14b9365f66ed3373592b708a07e11dc
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270573"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660505"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implantar um Windows híbrido Runbook Worker
 
@@ -29,6 +29,9 @@ A função Hybrid Runbook Worker depende de um espaço de trabalho de Log Analyt
 Se você não tiver um Azure Monitor Log Analytics espaço de trabalho, examine as [diretrizes de design do Azure monitor log](../azure-monitor/platform/design-logs-deployment.md) antes de criar o espaço de trabalho.
 
 Se você tiver um espaço de trabalho, mas ele não estiver vinculado à sua conta de automação, a habilitação de um recurso de automação adicionará funcionalidade para a automação do Azure, incluindo suporte para o Hybrid Runbook Worker. Quando você habilita um dos recursos de automação do Azure em seu espaço de trabalho Log Analytics, especificamente [Gerenciamento de atualizações](update-management/update-mgmt-overview.md) ou [controle de alterações e inventário](change-tracking.md), os componentes de trabalho são enviados automaticamente para o computador do agente.
+
+> [!NOTE]
+> Ao habilitar o Gerenciamento de Atualizações ou o Controle de Alterações e o recurso de inventário, a automação do Azure dá suporte apenas a determinadas regiões para vincular um espaço de trabalho Log Analytics e uma conta de automação. Para obter uma lista dos pares de mapeamento com suporte, consulte [Mapeamento de região para conta da Automação e workspace do Log Analytics](how-to/region-mappings.md). Antes de habilitar qualquer recurso, examine as informações de [preço do Azure](https://azure.microsoft.com/pricing/details/automation/) para a automação do Azure.
 
    Para adicionar o recurso Gerenciamento de Atualizações ao seu espaço de trabalho, execute o seguinte cmdlet do PowerShell:
 
@@ -123,9 +126,6 @@ Baixe o script **New-OnPremiseHybridWorker.ps1** na [Galeria do PowerShell](http
 | `SubscriptionID` | Obrigatório | O identificador da assinatura do Azure associada à sua conta de Automação. |
 | `TenantID` | Opcional | O identificador da organização do locatário associado à sua conta de Automação. |
 | `WorkspaceName` | Opcional | O nome do espaço de trabalho do Log Analytics. Se você não tiver um espaço de trabalho do Log Analytics, o script cria e configura um. |
-
-> [!NOTE]
-> Ao habilitar recursos, a Automação do Azure permite que somente determinadas regiões vinculem um workspace do Log Analytics e uma conta de Automação. Para obter uma lista dos pares de mapeamento compatíveis, confira [Mapeamento de região para conta da Automação e workspace do Log Analytics](how-to/region-mappings.md).
 
 ### <a name="step-2---open-windows-powershell-command-line-shell"></a>Etapa 2: abrir o shell de linha de comando do Windows PowerShell
 

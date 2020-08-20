@@ -3,12 +3,12 @@ title: Solucionar problemas SQL Server backup de banco de dados
 description: Informações de solução de problemas para fazer backup de bancos de dados do SQL Server em execução em VMs do Azure com o Backup do Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: f4049cca317d254bd5ee120e47cedc4cd42300e8
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 1d692d0bacbcb26090d17bf905b959f870eed3f8
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926477"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660114"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solucionar problemas SQL Server backup de banco de dados usando o backup do Azure
 
@@ -26,7 +26,7 @@ Depois de criar e configurar um cofre dos serviços de recuperação, descobrir 
 
 ![sql](./media/backup-azure-sql-database/sql.png)
 
-Durante a configuração de backup, se a VM do SQL e suas instâncias não estiverem visíveis nos bancos de entrada de **descoberta em VMs** e **Configurar o backup** (consulte a imagem acima), verifique se:
+Durante a configuração de backup, se a VM do SQL e suas instâncias não estiverem visíveis nos **bancos de entrada de descoberta em VMs** e **Configurar o backup** (consulte a imagem acima), verifique se:
 
 ### <a name="step-1-discovery-dbs-in-vms"></a>Etapa 1: bancos de entrada de descoberta em VMs
 
@@ -60,9 +60,9 @@ Se a VM do SQL precisar ser registrada no novo cofre, ele deverá ter o registro
 
 ### <a name="backup-type-unsupported"></a>Tipo de backup sem suporte
 
-| Gravidade | Descrição | Possíveis causas | Ação recomendada |
+| Severidade | Descrição | Possíveis causas | Ação recomendada |
 |---|---|---|---|
-| Aviso | As configurações atuais deste banco de dados não dão suporte a determinados tipos de backup presentes na política associada. | <li>Somente uma operação de backup de banco de dados completa pode ser executada no banco de dados mestre. Nenhum backup diferencial nem backup de log de transações é possível. </li> <li>Qualquer banco de dados no modelo de recuperação simples não permite o backup de logs de transações.</li> | Modifica as configurações de banco de dados, de modo que todos os tipos na política de backup têm suporte. Ou altere a política atual para incluir apenas os tipos de backup com suporte. Caso contrário, os tipos de backup sem suporte serão ignorados durante o backup agendado ou o trabalho de backup falhará para o backup sob demanda.
+| Aviso | As configurações atuais deste banco de dados não dão suporte a determinados tipos de backup presentes na política associada. | <li>Somente uma operação de backup de banco de dados completa pode ser executada no banco de dados mestre. O backup diferencial de backup e de log de transações não é possível. </li> <li>Qualquer banco de dados no modelo de recuperação simples não permite o backup de logs de transações.</li> | Modifica as configurações de banco de dados, de modo que todos os tipos na política de backup têm suporte. Ou altere a política atual para incluir apenas os tipos de backup com suporte. Caso contrário, os tipos de backup sem suporte serão ignorados durante o backup agendado ou o trabalho de backup falhará para o backup sob demanda.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -113,6 +113,13 @@ Se a VM do SQL precisar ser registrada no novo cofre, ele deverá ter o registro
 |---|---|---|
 | A restauração falhou porque o banco de dados não pôde ficar offline. | Enquanto você estiver fazendo uma restauração, o banco de dados de destino precisará ser colocado offline. O backup do Azure não pode colocar esses dados offline. | Use os detalhes adicionais no menu portal do Azure erro para restringir as causas raiz. Para obter mais informações, consulte a [documentação do SQL Server](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
+### <a name="wlextgenericiofaultusererror"></a>WlExtGenericIOFaultUserError
+
+|Mensagem de erro |Possíveis causas  |Ação recomendada  |
+|---------|---------|---------|
+|Ocorreu um erro de entrada/saída durante a operação. Verifique os erros comuns de e/s na máquina virtual.   |   Permissões de acesso ou restrições de espaço no destino.       |  Verifique os erros comuns de e/s na máquina virtual. Verifique se a unidade de destino/compartilhamento de rede no computador: <li> tem permissão de leitura/gravação para a conta NT AUTHORITY\SYSTEM no computador. <li> tem espaço suficiente para a operação ser concluída com êxito.<br> Para obter mais informações, consulte [restaurar como arquivos](restore-sql-database-azure-vm.md#restore-as-files).
+       |
+
 ### <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
@@ -153,19 +160,19 @@ Se a VM do SQL precisar ser registrada no novo cofre, ele deverá ter o registro
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-A operação está bloqueada, pois você atingiu o limite de número de operações permitidas em 24 horas. | Quando você atingir o limite máximo permitido para uma operação em um intervalo de 24 horas, esse erro será fornecido. <br> Por exemplo: se você atingiu o limite do número de trabalhos de backup de configuração que podem ser disparados por dia e tentar configurar o backup em um novo item, você verá esse erro. | Normalmente, repetir a operação após 24 horas resolve esse problema. No entanto, se o problema persistir, você poderá entrar em contato com o suporte da Microsoft para obter ajuda.
+A operação está bloqueada, pois você atingiu o limite de número de operações permitidas em 24 horas. | Quando você atingir o limite máximo permitido para uma operação em um intervalo de 24 horas, esse erro será exibido. <br> Por exemplo: se você atingiu o limite do número de trabalhos de backup de configuração que podem ser disparados por dia e tentar configurar o backup em um novo item, você verá esse erro. | Normalmente, repetir a operação após 24 horas resolve esse problema. No entanto, se o problema persistir, você poderá entrar em contato com o suporte da Microsoft para obter ajuda.
 
 ### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-A operação está bloqueada porque o cofre atingiu seu limite máximo para essas operações permitidas em um intervalo de 24 horas. | Quando você atingir o limite máximo permitido para uma operação em um intervalo de 24 horas, esse erro será fornecido. Esse erro geralmente é exibido quando há operações em escala, como modificar política ou proteção automática. Ao contrário do caso do CloudDosAbsoluteLimitReached, não há muito que você possa fazer para resolver esse estado. na verdade, o serviço de backup do Azure tentará novamente as operações internamente para todos os itens em questão.<br> Por exemplo: se você tiver um grande número de fontes de fonte protegidas por uma política e tentar modificar essa política, ela irá disparar configurar trabalhos de proteção para cada um dos itens protegidos e, às vezes, poderá atingir o limite máximo permitido para essas operações por dia.| O serviço de backup do Azure repetirá essa operação automaticamente após 24 horas.
+A operação está bloqueada porque o cofre atingiu seu limite máximo para essas operações permitidas em um intervalo de 24 horas. | Quando você atingir o limite máximo permitido para uma operação em um intervalo de 24 horas, esse erro será exibido. Esse erro geralmente aparece quando há operações em escala, como modificar política ou proteção automática. Ao contrário do caso do CloudDosAbsoluteLimitReached, não há muito que você possa fazer para resolver esse estado. Na verdade, o serviço de backup do Azure tentará novamente as operações internamente para todos os itens em questão.<br> Por exemplo: se você tiver um grande número de fontes de fonte protegidas por uma política e tentar modificar essa política, ela irá disparar configurar trabalhos de proteção para cada um dos itens protegidos e, às vezes, poderá atingir o limite máximo permitido para essas operações por dia.| O serviço de backup do Azure repetirá essa operação automaticamente após 24 horas.
 
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-A VM não é capaz de contatar o serviço de backup do Azure devido a problemas de conectividade com a Internet. | A VM precisa de conectividade de saída para o serviço de backup do Azure, o armazenamento do Azure ou serviços de Azure Active Directory.| -Se você usar NSG para restringir a conectividade, deverá usar a marca de serviço AzureBackup para permitir o acesso de saída ao backup do Azure para o serviço de backup do Azure, armazenamento do Azure ou serviços de Azure Active Directory. Siga estas [etapas](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acesso.<br>-Verifique se o DNS está resolvendo os pontos de extremidade do Azure.<br>-Verifique se a VM está atrás de um balanceador de carga bloqueando o acesso à Internet. Ao atribuir o IP público às VMs, a descoberta funcionará.<br>-Verifique se não há firewall/antivírus/proxy que esteja bloqueando chamadas para os três serviços de destino acima.
+A VM não é capaz de contatar o serviço de backup do Azure devido a problemas de conectividade com a Internet. | A VM precisa de conectividade de saída para o serviço de backup do Azure, o armazenamento do Azure ou os serviços Azure Active Directorys.| -Se você usar NSG para restringir a conectividade, deverá usar a marca de serviço AzureBackup para permitir o acesso de saída ao serviço de backup do Azure, armazenamento do Azure ou serviços de Azure Active Directory. Siga estas [etapas](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acesso.<br>-Verifique se o DNS está resolvendo os pontos de extremidade do Azure.<br>-Verifique se a VM está atrás de um balanceador de carga bloqueando o acesso à Internet. Ao atribuir o IP público às VMs, a descoberta funcionará.<br>-Verifique se não há firewall/antivírus/proxy que esteja bloqueando chamadas para os três serviços de destino acima.
 
 ## <a name="re-registration-failures"></a>Falhas no novo registro
 
@@ -175,7 +182,7 @@ Verifique se um ou mais dos seguintes sintomas existem, antes de acionar a opera
 - Se a área de **Status de backup** para o item de backup estiver mostrando **Não acessível**, descarte todas as outras causas que possam resultar no mesmo status:
 
   - Falta de permissão para executar operações relacionadas ao backup na VM.
-  - Desligamento da VM, portanto, os backups não podem ocorrer.
+  - Desligamento da VM, para que os backups não ocorram.
   - Problemas de rede.
 
    ![Registrando novamente a VM](./media/backup-azure-sql-database/re-register-vm.png)
@@ -261,7 +268,7 @@ No conteúdo anterior, você pode obter o nome lógico do arquivo de banco de da
 SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
                 WHERE db.name = N'<Database Name>'"
-  ```
+```
 
 Esse arquivo deve ser colocado antes de você disparar a operação de restauração.
 

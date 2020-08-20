@@ -6,18 +6,21 @@ author: laurenhughes
 ms.topic: article
 ms.date: 08/11/2020
 ms.author: lahugh
-ms.openlocfilehash: 109192efa19605af003dcfb30592c865ce7495b5
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 4a0acf284475f3c9119f3b9d012debad656b1faa
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136710"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661343"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Acessar recursos do kubernetes da portal do Azure (versão prévia)
 
 O portal do Azure inclui um visualizador de recursos kubernetes (versão prévia) para facilitar o acesso aos recursos do kubernetes em seu cluster AKS (Azure kubernetes Service). A exibição de recursos de kubernetes da portal do Azure reduz a alternância de contexto entre o portal do Azure e a `kubectl` ferramenta de linha de comando, simplificando a experiência de exibição e edição dos recursos do kubernetes. O Visualizador de recursos atualmente inclui vários tipos de recursos, como implantações, pods e conjuntos de réplicas.
 
 A exibição de recurso kubernetes da portal do Azure substitui o [complemento do painel do AKS][kubernetes-dashboard], que é definido para substituição.
+
+>[!NOTE]
+>Atualmente, o capabilty não tem suporte em [clusters privados do serviço kubernetes do Azure](https://docs.microsoft.com/azure/aks/private-clusters).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

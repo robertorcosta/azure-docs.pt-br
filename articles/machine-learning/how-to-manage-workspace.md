@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: c852d416b73ba29b22efe63996835deac3a5277d
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e1f97fddb07e56946e37c04d9b9685412782c560
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167667"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659748"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Criar e gerenciar workspaces do Azure Machine Learning no portal do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,8 +44,9 @@ Para criar um workspace, você precisa de uma assinatura do Azure. Caso não ten
    ---|---
    Nome do workspace |Insira um nome único que identifique seu workspace. Para este exemplo, usamos **docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferenciar de workspaces criados por outras pessoas. O nome do workspace não diferencia maiúsculas de minúsculas.
    Subscription |Selecione a assinatura do Azure que deseja usar.
-   Resource group | Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Para este exemplo, usamos **docs-aml**. 
-   Local | Selecione a localização mais próxima aos usuários e recursos de dados para criar o workspace.
+   Resource group | Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Para este exemplo, usamos **docs-aml**. Você precisa de um *colaborador* ou função de *proprietário* para usar um grupo de recursos existente.  Para obter mais informações sobre o acesso, consulte [gerenciar o acesso a um espaço de trabalho do Azure Machine Learning](how-to-assign-roles.md).
+   Location | Selecione a localização mais próxima aos usuários e recursos de dados para criar o workspace.
+   Location | Selecione a localização mais próxima aos usuários e recursos de dados para criar o workspace.
    Edição do Workspace | Selecione **básico** ou **Enterprise**.  Essa edição de espaço de trabalho determina os recursos aos quais você terá acesso e preços. Saiba mais sobre as [ofertas Basic e Enterprise Edition](overview-what-is-azure-ml.md#sku). 
 
     ![Configurar seu novo workspace](./media/how-to-manage-workspace/select-edition.png)
@@ -78,7 +79,7 @@ Você pode atualizar seu espaço de trabalho de edição básica para Enterprise
 
 1. Selecione o espaço de trabalho que você deseja atualizar.
 
-1. Selecione **saiba mais** na parte superior direita da página.
+1. Selecione **saiba mais**  na parte superior direita da página.
 
    [![Atualizar um espaço de trabalho ](./media/how-to-manage-workspace/upgrade.png)](./media/how-to-manage-workspace/upgrade.png#lightbox)
 
@@ -104,7 +105,7 @@ Você pode atualizar seu espaço de trabalho de edição básica para Enterprise
 
 ## <a name="delete-a-workspace"></a>Excluir um workspace
 
-Na [portal do Azure](https://portal.azure.com/), selecione **excluir** na parte superior do espaço de trabalho que você deseja excluir.
+Na [portal do Azure](https://portal.azure.com/), selecione **excluir**  na parte superior do espaço de trabalho que você deseja excluir.
 
 :::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Excluir espaço de trabalho":::
 

@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 9130a3248e881c9d4e2c9bfe9017f43198d50f51
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 0c008061d2d4fafa96eda934d5026c92839a0bdb
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590159"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661479"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemas conhecidos no Azure digital gêmeos
 
@@ -69,9 +69,9 @@ Para resolver, faça com que seus aplicativos usem explicitamente o Azure. Ident
 
 ### <a name="possible-causes"></a>Possíveis causas
 
-Essa é uma incompatibilidade entre o Azure digital gêmeos e a versão mais recente da biblioteca do Azure. Identity, versão **1.2.0**. 
+Isso está relacionado a um problema aberto com a versão mais recente da biblioteca do Azure. Identity (versão **1.2.0**): [*falha ao autenticar ao usar o InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
 
-Você verá esse problema se usar a versão **1.2.0** em seu aplicativo ou se adicionar a biblioteca ao seu projeto sem especificar uma versão (pois isso também é o padrão para essa versão mais recente).
+Você verá esse problema se usar a versão **1.2.0** em seu aplicativo gêmeos digital do Azure ou se adicionar a biblioteca ao seu projeto sem especificar uma versão (como isso também usa essa versão mais recente).
 
 ## <a name="next-steps"></a>Próximas etapas
 

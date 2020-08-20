@@ -2,13 +2,13 @@
 title: Configurar o acesso ao Registro público
 description: Configure as regras de IP para habilitar o acesso a um registro de contêiner do Azure de endereços IP públicos selecionados ou intervalos de endereços.
 ms.topic: article
-ms.date: 05/19/2020
-ms.openlocfilehash: 967f27c05301ff339765706d0b3088ffcbaed1f2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/17/2020
+ms.openlocfilehash: 0fbca1ec2734bf8275e12249f63ab134837fea12
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523818"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660918"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configurar regras de rede IP pública
 
@@ -61,12 +61,12 @@ az acr network-rule add \
 
 Opcionalmente, desabilite o ponto de extremidade público no registro. Desabilitar o ponto de extremidade público substitui todas as configurações do firewall. Por exemplo, talvez você queira desabilitar o acesso público a um registro protegido em uma rede virtual usando [Link Privado](container-registry-private-link.md).
 
+> [!NOTE]
+> Se o registro estiver configurado em uma rede virtual com um [ponto de extremidade de serviço](container-registry-vnet.md), desabilitar o acesso ao ponto de extremidade público do registro também desabilita o acesso ao registro na rede virtual.
+
 ### <a name="disable-public-access---cli"></a>Desabilitar o acesso público – CLI
 
-Para desabilitar o acesso público usando ao CLI do Azure, execute [az acr update][az-acr-update] e defina `--public-network-enabled` como `false`. 
-
-> [!NOTE]
-> O argumento `public-network-enabled` requer a CLI do Azure 2.6.0 ou posterior. 
+Para desabilitar o acesso público usando ao CLI do Azure, execute [az acr update][az-acr-update] e defina `--public-network-enabled` como `false`. O argumento `public-network-enabled` requer a CLI do Azure 2.6.0 ou posterior. 
 
 ```azurecli
 az acr update --name myContainerRegistry --public-network-enabled false

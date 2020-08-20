@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 2de2680ccd0ecf385598080747e80eed5ead3bc8
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 6316bcc91bb381facb4f77b2d8dbd8b22f9ed387
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652858"
+ms.locfileid: "88660088"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemas conhecidos com VMs da série H e da série N
 
@@ -35,10 +35,6 @@ A rede acelerada do Azure não está habilitada no momento, mas ocorrerá à med
 ## <a name="qp0-access-restriction"></a>Restrição de acesso qp0
 
 Para evitar o acesso de hardware de baixo nível que pode resultar em vulnerabilidades de segurança, o par de filas 0 não é acessível para VMs convidadas. Isso só deve afetar as ações normalmente associadas à administração da NIC ConnectX-5 e a execução de alguns diagnósticos InfiniBand como ibdiagnet, mas não os aplicativos do usuário final.
-
-## <a name="ud-transport"></a>Transporte UD
-
-Na inicialização, a série HB e HC não dão suporte ao transporte conectado dinamicamente (DCT). O suporte para DCT será implementado ao longo do tempo. Há suporte para Transportações de conexão confiável (RC) e datagrama não confiável (UD).
 
 ## <a name="gss-proxy"></a>Proxy GSS
 

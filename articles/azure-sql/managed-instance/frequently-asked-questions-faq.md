@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 5f42079d271a933cb9a722c7e33e6f646f7c4d1b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: fe779ebf8bb041fb90b8eb38a9469a783127ffd3
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210503"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661411"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -223,12 +223,15 @@ Para otimizar o desempenho do armazenamento, consulte [práticas recomendadas de
 Não, o armazenamento de backup não é deduzido do seu espaço de armazenamento de instância gerenciada. O armazenamento de backup é independente do espaço de armazenamento da instância e não é limitado em tamanho. O armazenamento de backup é limitado pelo período de tempo para reter o backup de seus bancos de dados de instância, configuráveis até 35 dias. Para mais detalhes, consulte [Backups automatizados](../database/automated-backups-overview.md).
 
 **Como posso ver quando os backups automatizados são feitos na minha instância gerenciada?**
+
 Para acompanhar quando os backups automatizados foram executados no Instância Gerenciada, consulte [como acompanhar o backup automatizado de um instância gerenciada do SQL do Azure](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-128-how-to-track-the-automated-backup-for-an/ba-p/1442355).
 
 **Há suporte para backup sob demanda?**
+
 Sim, você pode criar um backup completo somente cópia em seu armazenamento de BLOBs do Azure, mas ele só poderá ser restaurável no Instância Gerenciada. Para obter detalhes, consulte [backup somente cópia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15). No entanto, o backup somente cópia será impossível se o banco de dados for criptografado pelo TDE gerenciado pelo serviço, uma vez que o certificado usado para criptografia é inacessível. Nesse caso, use o recurso de restauração pontual para mover o banco de dados para outro Instância Gerenciada SQL ou alternar para a chave gerenciada pelo cliente.
 
 **A restauração nativa (de arquivos. bak) Instância Gerenciada é suportada?**
+
 Sim, ele tem suporte e está disponível para versões do SQL Server 2005 +.  Para usar a restauração nativa, carregue o arquivo. bak no armazenamento de BLOBs do Azure e execute comandos T-SQL. Para obter mais detalhes, consulte [Native Restore from URL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate#native-restore-from-url).
 
 ## <a name="business-continuity"></a>Continuidade de negócios
@@ -503,6 +506,14 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 ```
 
 (substitua ' test ' pelo nome de logon desejado e ajuste a política e os valores de expiração)
+
+
+## <a name="service-updates"></a>Atualizações de serviço
+
+**O que é um evento de manutenção planejada para o SQL Instância Gerenciada?**
+
+Consulte [planejar eventos de manutenção do Azure no SQL instância gerenciada](https://docs.microsoft.com/azure/azure-sql/database/planned-maintenance). 
+
 
 ## <a name="azure-feedback-and-support"></a>Comentários e suporte do Azure
 

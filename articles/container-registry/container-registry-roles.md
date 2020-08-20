@@ -2,17 +2,17 @@
 title: Funções e permissões do Azure
 description: Use o Azure RBAC (controle de acesso baseado em função) e o IAM (gerenciamento de identidade e acesso) para fornecer permissões refinadas aos recursos em um registro de contêiner do Azure.
 ms.topic: article
-ms.date: 12/02/2019
-ms.openlocfilehash: 23a9c08162c03d4b34ed289d650fddcd7413ed08
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 08/17/2020
+ms.openlocfilehash: b8562d3e33cd49082d4ba4d8567d5f0c816070b0
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920068"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661377"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Funções e permissões do Registro de Contêiner do Azure
 
-O serviço de registro de contêiner do Azure dá suporte a um conjunto de [funções internas do Azure](../role-based-access-control/built-in-roles.md) que fornecem diferentes níveis de permissões para um registro de contêiner do Azure. Use o Azure [RBAC (controle de acesso baseado em função)](../role-based-access-control/index.yml) para atribuir permissões específicas a usuários, entidades de serviço ou outras identidades que precisam interagir com um registro. 
+O serviço de registro de contêiner do Azure dá suporte a um conjunto de [funções internas do Azure](../role-based-access-control/built-in-roles.md) que fornecem diferentes níveis de permissões para um registro de contêiner do Azure. Use o Azure [RBAC (controle de acesso baseado em função)](../role-based-access-control/index.yml) para atribuir permissões específicas a usuários, entidades de serviço ou outras identidades que precisam interagir com um registro. Você também pode definir [funções personalizadas](#custom-roles) com permissões refinadas para um registro para operações diferentes.
 
 | Função/permissão       | [Acessar o Resource Manager](#access-resource-manager) | [Criar/excluir registro](#create-and-delete-registry) | [Enviar uma imagem por push](#push-image) | [Pull de imagem](#pull-image) | [Excluir dados de imagem](#delete-image-data) | [Alterar políticas](#change-policies) |   [Imagens de entrada](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -70,7 +70,7 @@ A capacidade de imagens de entrada normalmente é atribuída a um processo autom
 
 ## <a name="custom-roles"></a>Funções personalizadas
 
-Assim como acontece com outros recursos do Azure, você pode criar suas próprias [funções personalizadas](../role-based-access-control/custom-roles.md) com permissões refinadas para o registro de contêiner do Azure. Em seguida, atribua as funções personalizadas a usuários, entidades de serviço ou outras identidades que precisam interagir com um registro. 
+Assim como acontece com outros recursos do Azure, você pode criar [funções personalizadas](../role-based-access-control/custom-roles.md) com permissões refinadas para o registro de contêiner do Azure. Em seguida, atribua as funções personalizadas a usuários, entidades de serviço ou outras identidades que precisam interagir com um registro. 
 
 Para determinar quais permissões aplicar a uma função personalizada, consulte a lista de [ações](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry)Microsoft. ContainerRegistry, examine as ações permitidas das [funções ACR internas](../role-based-access-control/built-in-roles.md)ou execute o seguinte comando:
 
@@ -82,6 +82,36 @@ Para definir uma função personalizada, consulte [etapas para criar uma funçã
 
 > [!IMPORTANT]
 > Em uma função personalizada, o registro de contêiner do Azure atualmente não dá suporte a curingas como `Microsoft.ContainerRegistry/*` ou `Microsoft.ContainerRegistry/registries/*` que concedem acesso a todas as ações correspondentes. Especifique qualquer ação necessária individualmente na função.
+
+### <a name="example-custom-role-to-import-images"></a>Exemplo: função personalizada para importar imagens
+
+Por exemplo, o JSON a seguir define as ações mínimas para uma função personalizada que permite a [importação de imagens](container-registry-import-images.md) para um registro.
+
+```json
+{
+   "assignableScopes": [
+     "/subscriptions/<optional, but you can limit the visibility to one or more subscriptions>"
+   ],
+   "description": "Can import images to registry",
+   "Name": "AcrImport",
+   "permissions": [
+     {
+       "actions": [
+         "Microsoft.ContainerRegistry/registries/push/write",
+         "Microsoft.ContainerRegistry/registries/pull/read",
+         "Microsoft.ContainerRegistry/registries/read",
+         "Microsoft.ContainerRegistry/registries/importImage/action"
+       ],
+       "dataActions": [],
+       "notActions": [],
+       "notDataActions": []
+     }
+   ],
+   "roleType": "CustomRole"
+ }
+```
+
+Para criar ou atualizar uma função personalizada usando a descrição JSON, use o [CLI do Azure](../role-based-access-control/custom-roles-cli.md), [Azure Resource Manager modelo](../role-based-access-control/custom-roles-template.md), [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md)ou outras ferramentas do Azure. Adicione ou remova atribuições de função para uma função personalizada da mesma maneira que você gerencia atribuições de função para funções internas do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 
