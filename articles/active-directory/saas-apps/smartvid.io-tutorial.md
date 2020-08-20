@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao smartvid.io | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o smartvid.io.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 5e4a2528-04ff-4e8f-9bd0-1ecd62d68ebb
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 8992038ae613fa24598ad935ad0604fd8e5c053a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 04fa69c13932c486483e0bf6a3166be6a2d54038
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73159999"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546654"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartvidio"></a>Tutorial: Integração do Azure Active Directory ao smartvid.io
 

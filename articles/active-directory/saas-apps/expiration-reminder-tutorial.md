@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao Lembrete de Término | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Lembrete de Término.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 3df3d73e-80a4-4b35-bd3d-90bc4f6f6afd
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8261ab34398d8961faf0abda8df17db1be3bfdd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0f576205246ed90b8e8da91b7dd3074aa2d58d9d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158179"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547164"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expiration-reminder"></a>Tutorial: Integração do Azure Active Directory ao Lembrete de Término
 

@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao Spacio | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Spacio.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 9df8d199-b955-483c-aa4e-cabad1a0b9d6
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 99b314fe34798099c73de419dc718c548fd5b623
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a38580dcd55ef9b9fca8fb2619d2aff124cb3c9e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67090082"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544988"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>Tutorial: Integração do Microsoft Azure Active Directory ao Spacio
 

@@ -1,14 +1,14 @@
 ---
 title: Controles de amostra de blueprint de Mídia
 description: Mapeamento de controles das amostras de blueprint de Mídia. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
-ms.date: 02/24/2020
+ms.date: 08/13/2020
 ms.topic: sample
-ms.openlocfilehash: bdc4ef65c6d61a9d4217d7873bb29bd787842e71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4101b9030425c22b8806870d467581521870d639
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78201733"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208473"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Mapeamento de controles da amostra de blueprint de Mídia
 
@@ -236,8 +236,8 @@ Os mapeamentos a seguir referem-se aos controles de **Mídia**. Use a navegaçã
 Você examinou o mapeamento de controles da amostra de blueprint de Mídia. A seguir, acesse os seguintes artigos para saber mais sobre a visão geral e como implantar essa amostra:
 
 > [!div class="next step action"]
-> [Blueprint de Mídia – Visão Geral](./control-mapping.md)
-> [Blueprint de Mídia – etapas de implantação](./deploy.md)
+> [Blueprint de Mídia – Mapeamento de controle](./control-mapping.md)
+> [Blueprint de Mídia – Etapas de implantação](./deploy.md)
 
 Outros artigos sobre blueprints e como usá-los:
 

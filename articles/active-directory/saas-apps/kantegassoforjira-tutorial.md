@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao SSO do Kantega para o JIRA | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o SSO do Kantega para o JIRA.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: e2af4891-e3c8-43b3-bdcb-0500c493e9b4
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e97a66a1b21b46649a1206eb522c180e84a0a0d4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 230613cc103cc851d1173f867b551af028ea898b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67099164"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546835"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>Tutorial: Integração do Azure Active Directory ao SSO do Kantega para o JIRA
 

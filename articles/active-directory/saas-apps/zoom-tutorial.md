@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Zoom | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Zoom.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f9d727154adf0a2099d7a9144c109cef9c91238
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d257935aa3e9ad54b64b0f416119931661809172
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70743977"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545957"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Zoom
 
@@ -87,6 +82,8 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `<companyname>.zoom.us`
 
+    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<companyname>.zoom.us`
+
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do Zoom](https://support.zoom.us/hc/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
@@ -138,15 +135,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Em uma janela diferente do navegador da Web, entre em seu site da empresa do Zoom como administrador.
 
-2. Clique na guia **Logon Único** .
+2. Clique na guia **Logon Único**.
 
-    ![Guia Logon único](./media/zoom-tutorial/ic784700.png "Logon único")
+    ![Guia Logon único](./media/zoom-tutorial/zoom-sso1.png "Logon único")
 
-3. Clique na guia **Controle de Segurança** e vá para as configurações de **Logon Único**.
+3. Clique na guia **Controle de segurança** e, em seguida, vá para as configurações de **Logon Único**.
 
 4. Na seção de Configurações de Logon Único, execute as seguintes etapas:
 
-    ![Seção Logon único](./media/zoom-tutorial/ic784701.png "Logon único")
+    ![Seção Logon único](./media/zoom-tutorial/zoom-sso2.png "Logon único")
 
     a. Na caixa de texto **URL da página de entrada**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
@@ -162,11 +159,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     ![O botão Copiar ponto de extremidade](./media/zoom-tutorial/endpoint1.png)
 
-    e. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado do provedor de identidade** .
+    e. Abra o seu certificado codificado em base 64 no bloco de notas, copie o seu conteúdo para a sua área de transferência e cole na caixa de texto **Certificado do provedor de identidade**.
 
     f. Na caixa de texto **Emissor**, cole o valor de **Identificador do Azure AD**, copiado do portal do Azure. 
 
-    g. Clique em **Save** (Salvar).
+    g. Clique em **Salvar Alterações**.
 
     > [!NOTE]
     > Para obter mais informações, visite a documentação de zoom [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)

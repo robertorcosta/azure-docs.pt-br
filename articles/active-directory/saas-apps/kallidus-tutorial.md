@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao Kallidus | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Kallidus.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: 5a562a8d-0c2a-442e-87b5-db7e74aef0d6
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/05/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3caa48e1461552f2999aa2fd91447a41d146379
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b743043d7a7c211ad024b2c1f2fe51f807c50beb
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76120292"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546849"
 ---
 # <a name="tutorial-integrate-kallidus-with-azure-active-directory"></a>Tutorial: Integrar o Kallidus ao Azure Active Directory
 

@@ -2,25 +2,21 @@
 title: 'Tutorial: integração do Azure Active Directory ao TargetProcess | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o TargetProcess.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 7cb91628-e758-480d-a233-7a3caaaff50d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 60cd043c34ba2aee365c59feb38cc9dd02d45746
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d5b0be147b8aa25e6c737d423eaf4a8a23cde083
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67089034"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546518"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Tutorial: integração do Active Directory do Azure com o TargetProcess
 
@@ -70,7 +66,7 @@ Para configurar a integração do TargetProcess ao Azure AD, você precisa adici
 
      ![TargetProcess na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar o SSO do Azure AD
 
 Nesta seção, você configurará e testará o logon único do Azure AD com o TargetProcess com base em um usuário de teste chamado **Brenda Fernandes**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do TargetProcess.
@@ -133,25 +129,27 @@ Para configurar o logon único do Azure AD com o TargetProcess, realize as segui
 
     ![image](./media/target-process-tutorial/install_extension.png)
 
-2. Depois de adicionar a extensão ao navegador, clique em **configurar TargetProcess**. Você será direcionado para o aplicativo TargetProcess. Em seguida, forneça as credenciais de administrador para entrar no TargetProcess. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 7.
+1. Depois de adicionar a extensão ao navegador, clique em **configurar TargetProcess**. Você será direcionado para o aplicativo TargetProcess. Em seguida, forneça as credenciais de administrador para entrar no TargetProcess. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 7.
+
+    ![Configuração da instalação](common/setup-sso.png)
 
     **Se desejar configurar o aplicativo manualmente, realize as seguintes etapas:**
 
-3. Entre no seu aplicativo TargetProcess como administrador.
+1. Entre no seu aplicativo TargetProcess como administrador.
 
-4. No menu na parte superior, clique em **Configuração**.
+1. No menu da parte superior, clique em **Configuração**.
 
     ![Instalação](./media/target-process-tutorial/tutorial_target_process_05.png)
 
-5. Clique na guia **Configurações**.
+1. Clique na guia **Configurações**.
 
     ![Configurações](./media/target-process-tutorial/tutorial_target_process_06.png)
 
-6. Clique na guia **Logon Único**.
+1. Clique na guia **Logon Único**.
 
     ![clique em Logon Único](./media/target-process-tutorial/tutorial_target_process_07.png)
 
-7. Na caixa de diálogo Configurações de Logon Único, execute as seguintes etapas:
+1. Na caixa de diálogo Configurações de Logon Único, execute as seguintes etapas:
 
     ![Configurar o logon único](./media/target-process-tutorial/tutorial_target_process_08.png)
 
@@ -235,4 +233,4 @@ Ao clicar no bloco do TargetProcess no Painel de Acesso, você deverá ser conec
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

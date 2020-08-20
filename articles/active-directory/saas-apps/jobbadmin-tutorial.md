@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao Jobbadmin | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Jobbadmin.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: c5208b0d-66a3-49ed-9aad-70d21f54aee0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b21013da7748d133b924b9869bc6f532a3f59cb9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 50303d8f137652fec89f52c9be5e68864eec5523
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73155233"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88547130"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobbadmin"></a>Tutorial: Integração do Azure Active Directory com o Jobbadmin
 

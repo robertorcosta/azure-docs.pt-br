@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao Bridge | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Bridge.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3dbb6499-80c1-4d00-a0b4-e0ad5522cf0f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9990cc0f5c266607ea758c3d840b9f10c3e17bb0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: db787983c66ee04a21415a0c6a606987aed3e552
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73158726"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545460"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bridge"></a>Tutorial: Integração do Azure Active Directory ao Bridge
 
