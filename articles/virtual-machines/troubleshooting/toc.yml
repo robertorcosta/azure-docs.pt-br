@@ -193,7 +193,7 @@
 - name: Problemas de gerenciamento de disco virtual
   items:
     - name: Visão geral
-      href: ../windows/managed-disks-overview.md
+      href: ../managed-disks-overview.md
     - name: Perguntas frequentes
       href: ../windows/faq-for-disks.md
     - name: Erros ao excluir recursos de armazenamento
