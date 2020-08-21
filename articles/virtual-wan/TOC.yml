@@ -36,10 +36,6 @@
           href: virtual-wan-locations-partners.md
         - name: Diretrizes de automação para parceiros
           href: virtual-wan-configure-automation-providers.md
-    - name: Conceitos de preços
-      href: pricing-concepts.md
-    - name: Sobre NVA em um hub virtual
-      href: about-nva-hub.md
     - name: Roteamento
       items:
         - name: Sobre o roteamento de hub virtual
@@ -54,15 +50,15 @@
               href: scenario-isolate-vnets-custom.md
             - name: VNets de serviços compartilhados
               href: scenario-shared-services-vnet.md
-            - name: Rotear por meio do NVA
+            - name: Rotear por meio de um NVA
               href: scenario-route-through-nva.md
-            - name: Rotear por meio do NVA – Personalizado (versão prévia)
+            - name: Rotear por meio de um NVA – Personalizado
               href: scenario-route-through-nvas-custom.md
             - name: Firewall do Azure – Personalizado
               href: scenario-route-between-vnets-firewall.md
     - name: Monitoramento
       items:
-        - name: Sobre insights do Azure Monitor para WAN Virtual (versão prévia)
+        - name: Sobre insights do Azure Monitor para WAN Virtual
           href: azure-monitor-insights.md
     - name: Site a site
       items:
@@ -70,11 +66,15 @@
           href: virtual-wan-ipsec.md
         - name: Vários links ISP – Seleção de caminho do Azure
           href: path-selection-multiple-links.md
+    - name: Conceitos de preços
+      href: pricing-concepts.md
+    - name: Sobre NVA em um hub virtual
+      href: about-nva-hub.md
 - name: Guias de instruções
   items:
     - name: Atualizar um SKU da WAN virtual
       href: upgrade-virtual-wan.md
-    - name: Criar NVA em um hub virtual (versão prévia)
+    - name: Criar um NVA em um hub virtual
       href: How-to-nva-hub.md
     - name: ExpressRoute
       items:
@@ -154,14 +154,18 @@
   items:
     - name: Perguntas frequentes
       href: virtual-wan-faq.md
-    - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=networking'
-    - name: Blog
-      href: 'https://azure.microsoft.com/blog/topics/networking'
-    - name: Limites de serviço e assinatura
-      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+    - name: Atualizar comunicados
+      href: 'https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/virtual-wan'
+    - name: Limites de serviço e assinatura
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+    - name: Roteiro de rede
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog de rede
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Comunicados de atualização de rede
+      href: 'https://azure.microsoft.com/updates/?category=networking'
     - name: Calculadora de preço
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Contrato de Nível de Serviço

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3a06f01507ad5715d1e8a3f828ab008e1e8ce65
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e4afc5e554e72fc2ab78173368930b2e5317bce7
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512968"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718910"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registro de informações de segurança combinado para Azure Active Directory visão geral
 
@@ -32,7 +32,7 @@ Este artigo descreve o que é o registro de segurança combinado. Para começar 
 
 ![Meu perfil mostrando informações de segurança registradas para um usuário](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
-Antes de habilitar a nova experiência, examine esta documentação voltada para o administrador e a documentação voltada para o usuário para garantir que você compreenda a funcionalidade e o efeito desse recurso. Baseie seu treinamento na [documentação do usuário](../user-help/user-help-security-info-overview.md) para preparar seus usuários para a nova experiência e para ajudar a garantir uma distribuição bem-sucedida.
+Antes de habilitar a nova experiência, examine esta documentação voltada para o administrador e a documentação voltada para o usuário para garantir que você compreenda a funcionalidade e o efeito desse recurso. Baseie seu treinamento na [documentação do usuário](../user-help/security-info-setup-signin.md) para preparar seus usuários para a nova experiência e para ajudar a garantir uma distribuição bem-sucedida.
 
 O registro de informações de segurança combinadas do Azure AD não está disponível atualmente para nuvens nacionais como Azure EUA governamental, Azure Alemanha ou Azure China 21Vianet.
 
@@ -51,18 +51,18 @@ Se você quiser forçar um idioma específico, poderá adicionar `?lng=<language
 
 O registro combinado dá suporte aos seguintes métodos e ações de autenticação:
 
-| Método | Registre-se | Alterar | Excluir |
+| Método | Registrar | Alterar | Excluir |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Sim (no máximo 5) | Não | Sim |
 | Outro aplicativo autenticador | Sim (no máximo 5) | Não | Sim |
-| Token de hardware | No | Não | Sim |
-| Telefone | Yes | Yes | Yes |
-| Telefone alternativo | Yes | Yes | Yes |
-| Telefone comercial | No | Não | Não |
-| Email | Yes | Yes | Yes |
+| Token de hardware | Não | Não | Sim |
+| Telefone | Sim | Sim | Sim |
+| Telefone alternativo | Sim | Sim | Sim |
+| Telefone comercial | Não | Não | Não |
+| Email | Sim | Sim | Sim |
 | Perguntas de segurança | Sim | Não | Sim |
 | Senhas de aplicativo | Sim | Não | Sim |
-| Chaves de segurança FIDO2<br />*Modo gerenciado somente da página [informações de segurança](https://mysignins.microsoft.com/security-info)*| Yes | Yes | Yes |
+| Chaves de segurança FIDO2<br />*Modo gerenciado somente da página [informações de segurança](https://mysignins.microsoft.com/security-info)*| Sim | Sim | Sim |
 
 > [!NOTE]
 > As senhas de aplicativo estão disponíveis somente para usuários que foram impostos para a autenticação multifator. As senhas de aplicativo não estão disponíveis para usuários que estão habilitados para autenticação multifator por meio de uma política de acesso condicional.

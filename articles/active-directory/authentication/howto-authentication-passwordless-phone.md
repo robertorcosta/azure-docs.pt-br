@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5022dfc5811f3db59774a46a7034ff14c4dcf4a8
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6ed1c3628b33d3ed29c3af3b773f2b635e684a67
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428020"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717040"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilitar a entrada sem senha com o aplicativo Microsoft Authenticator (versão prévia)
 
@@ -62,7 +62,7 @@ Os recursos de registro para métodos de autenticação com senha contam com o r
 1. Em **Microsoft Authenticator**, escolha **Habilitar entrada pelo telefone** no menu suspenso conta
 1. Siga as instruções no aplicativo para concluir o registro de entrada por telefone sem senha. 
 
-As organizações podem apontar seus usuários para o artigo [entrar com seu telefone, não sua senha](../user-help/microsoft-authenticator-app-phone-signin-faq.md) para obter mais assistência na configuração do Microsoft Authenticator aplicativo e habilitar a entrada pelo telefone. Para aplicar essas configurações, talvez seja necessário fazer logoff e logon novamente no locatário. 
+As organizações podem apontar seus usuários para o artigo [entrar com seu telefone, não sua senha](../user-help/user-help-auth-app-sign-in.md) para obter mais assistência na configuração do Microsoft Authenticator aplicativo e habilitar a entrada pelo telefone. Para aplicar essas configurações, talvez seja necessário fazer logoff e logon novamente no locatário. 
 
 ## <a name="sign-in-with-passwordless-credential"></a>Entrar com credencial sem senha
 
@@ -72,7 +72,7 @@ Depois de digitar seu nome de usuário na Web e selecionar **Avançar**, os usu�
 
 ![Exemplo de uma entrada no navegador usando o aplicativo Microsoft Authenticator](./media/howto-authentication-passwordless-phone/web-sign-in-microsoft-authenticator-app.png)
 
-## <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas Conhecidos
 
 ### <a name="user-is-not-enabled-by-policy-but-still-has-passwordless-phone-sign-in-method-in-microsoft-authenticator"></a>O usuário não está habilitado pela política, mas ainda tem um método de entrada de telefone sem senha no Microsoft Authenticator
 

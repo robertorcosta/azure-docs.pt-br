@@ -3,12 +3,12 @@ title: Atualizar nós de cluster para usar o Azure Managed disks
 description: Veja como atualizar um cluster de Service Fabric existente para usar o Azure Managed disks com pouco ou nenhum tempo de inatividade do cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 74b4ec803229ceb0168da6540fcbda685f0df16e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 152bdaea121e65de8332fcde8543b8158ff11714
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653691"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717516"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Atualizar nós de cluster para usar o Azure Managed disks
 
@@ -365,7 +365,7 @@ Neste tutorial, você aprendeu a atualizar os conjuntos de dimensionamento de m�
 
 Saiba como:
 
-* [Dimensionar um tipo de nó primário do cluster do Service Fabric](service-fabric-scale-up-node-type.md)
+* [Dimensionar um tipo de nó primário do cluster do Service Fabric](service-fabric-scale-up-primary-node-type.md)
 
 * [Converter um modelo de conjunto de dimensionamento para usar discos gerenciados](../virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md.md)
 

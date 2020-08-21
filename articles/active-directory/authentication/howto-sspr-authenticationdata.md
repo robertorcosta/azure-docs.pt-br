@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 116fa2a4c71fc8ebc67387cf02090bbd664b862a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 22037468c47de45513351e1d6126d3f3e5fccadc
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035376"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717788"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>Preencher previamente as informações de contato de autenticação de usuário para Azure Active Directory redefinição de senha de autoatendimento (SSPR)
 
@@ -38,7 +38,7 @@ Os números de telefone devem estar no formato *+ CountryCode PhoneNumber*, como
 
 Se você usar as configurações padrão no Azure AD Connect, os seguintes mapeamentos serão feitos para popular as informações de contato de autenticação para SSPR:
 
-| Active Directory local | Azure AD     |
+| Active Directory local | AD do Azure     |
 |------------------------------|--------------|
 | telephoneNumber              | Telefone comercial |
 | Serviço Móvel                       | Telefone celular |
@@ -88,7 +88,7 @@ Os campos a seguir podem ser definidos usando o PowerShell:
 
 ### <a name="use-powershell-version-1"></a>Usar o PowerShell versão 1
 
-Para começar, [Baixe e instale o módulo do PowerShell do Azure ad](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Depois de instalado, use as etapas a seguir para configurar cada campo.
+Para começar, [Baixe e instale o módulo do PowerShell do Azure ad](/previous-versions/azure/jj151815(v=azure.100)#bkmk_installmodule). Depois de instalado, use as etapas a seguir para configurar cada campo.
 
 #### <a name="set-the-authentication-data-with-powershell-version-1"></a>Definir dados de autenticação com o PowerShell versão 1
 
@@ -126,7 +126,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="use-powershell-version-2"></a>Usar o PowerShell versão 2
 
-Para começar, [Baixe e instale o módulo PowerShell da versão 2 do Azure ad](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0).
+Para começar, [Baixe e instale o módulo PowerShell da versão 2 do Azure ad](/powershell/module/azuread/?view=azureadps-2.0).
 
 Para instalar rapidamente de versões recentes do PowerShell com suporte `Install-Module` , execute os comandos a seguir. A primeira linha verifica se o módulo já está instalado:
 

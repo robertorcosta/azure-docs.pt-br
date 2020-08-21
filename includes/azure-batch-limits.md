@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 8d23da1c3a45ed12193dfd4c1fc2ede453fc6ac7
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
-ms.translationtype: MT
+ms.openlocfilehash: 2a35180e4c5ca26d53be135718e345f9657af6a2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323868"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655274"
 ---
 | **Recurso** | **Limite padrão** | **Limite máximo** |
 | --- | --- | --- |
@@ -32,4 +32,4 @@ ms.locfileid: "84323868"
 > Os limites padrão variam dependendo do tipo de assinatura que você usa para criar uma conta do Lote. As cotas de núcleos mostradas são para as contas do Lote no modo do Serviço de lote. [Exibir as cotas na conta do Lote](../articles/batch/batch-quota-limit.md#view-batch-quotas).
 
 > [!IMPORTANT]
-> Para conseguirmos gerenciar melhor as capacidades durante a pandemia global, as cotas de núcleos padrão para novas contas do Lote, em algumas regiões e para alguns tipos de assinaturas, foram reduzidas em relação aos valores indicados acima. Em alguns casos, a redução foi para zero núcleos. Quando você criar uma conta do Lote, [verifique a sua cota de núcleos](../articles/batch/batch-quota-limit.md#view-batch-quotas) e [solicite um aumento](../articles/batch/batch-quota-limit.md#increase-a-quota), se necessário. 
+> Para conseguirmos gerenciar melhor as capacidades durante a pandemia global, as cotas de núcleos padrão para novas contas do Lote, em algumas regiões e para alguns tipos de assinaturas, foram reduzidas em relação aos valores indicados acima. Em alguns casos, a redução foi para zero núcleos. Quando você criar uma conta do Lote, [verifique a sua cota de núcleos](../articles/batch/batch-quota-limit.md#view-batch-quotas) e [solicite um aumento](../articles/batch/batch-quota-limit.md#increase-a-quota), se necessário. Como alternativa, considere reutilizar contas do Lote que já têm cota suficiente. 

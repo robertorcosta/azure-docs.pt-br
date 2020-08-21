@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7870b62dea01f680126f5b4aac3dc2328407cd61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 759a5fa2be5a3df50160d2fd0ac4231c9f49329b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82143216"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718944"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planejar e implantar a proteção de senha do Azure Active Directory local
 
-Os usuários geralmente criam senhas que usam palavras locais comuns, como uma escola, uma equipe esportiva ou uma pessoa famosa. Essas senhas são fáceis de adivinhar e fracas contra ataques baseados em dicionário. Para impor senhas fortes em sua organização, a proteção de senha do Azure Active Directory (Azure AD) fornece uma lista de senhas excluídas global e personalizada. Uma solicitação de alteração de senha falhará se houver uma correspondência nessa lista de senhas banidas.
+Os usuários geralmente criam senhas que usam palavras locais comuns, como uma escola, uma equipe esportiva ou uma pessoa famosa. Essas senhas são fáceis de serem adivinhadas e fracas contra os ataques baseados em dicionário. Para impor senhas fortes em sua organização, a proteção de senha do Azure Active Directory (Azure AD) fornece uma lista de senhas excluídas global e personalizada. Uma solicitação de alteração de senha falhará se houver uma correspondência nessa lista de senhas banidas.
 
 Para proteger seu ambiente de Active Directory Domain Services (AD DS) local, você pode instalar e configurar a proteção de senha do Azure AD para trabalhar com seu DC local. Este artigo mostra como instalar e registrar o serviço proxy de proteção de senha do Azure AD e o agente DC de proteção de senha do Azure AD em seu ambiente local.
 
@@ -101,7 +101,7 @@ Os seguintes requisitos se aplicam ao agente DC da proteção de senha do Azure 
     * O domínio ou floresta Active Directory não precisa estar no nível funcional de domínio do Windows Server 2012 (DFL) ou no nível funcional de floresta (FFL). Conforme mencionado nos [princípios de design](concept-password-ban-bad-on-premises.md#design-principles), não há nenhum DFL ou FFL mínimo necessário para a execução do agente DC ou do software proxy.
 * Todos os computadores que executam o agente DC de proteção de senha do Azure AD devem ter o .NET 4,5 instalado.
 * Qualquer domínio Active Directory que executa o serviço de agente de DC de proteção de senha do Azure AD deve usar a replicação de Sistema de Arquivos Distribuído (DFSR) para replicação de SYSVOL.
-   * Se o seu domínio ainda não estiver usando o DFSR, você deverá migrar antes de instalar a proteção de senha do Azure AD. Para obter mais informações, consulte [Guia de migração de replicação do SYSVOL: FRS para replicação do DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+   * Se o seu domínio ainda não estiver usando o DFSR, você deverá migrar antes de instalar a proteção de senha do Azure AD. Para obter mais informações, consulte [Guia de migração de replicação do SYSVOL: FRS para replicação do DFS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
     > [!WARNING]
     > O software de agente DC de proteção de senha do Azure AD será instalado no momento em controladores de domínio em domínios que ainda estão usando o FRS (a tecnologia predecessora para DFSR) para replicação de SYSVOL, mas o software não funcionará corretamente nesse ambiente.
@@ -124,14 +124,14 @@ Os seguintes requisitos se aplicam ao serviço de proxy de proteção de senha d
 * Todos os computadores que hospedam o serviço de proxy de proteção de senha do Azure AD devem ser configurados para conceder aos controladores de domínio a capacidade de fazer logon no serviço de proxy. Essa capacidade é controlada por meio da atribuição de privilégio "acessar este computador pela rede".
 * Todos os computadores que hospedam o serviço de proxy de proteção de senha do Azure AD devem ser configurados para permitir o tráfego HTTP de saída TLS 1,2.
 * Uma conta de *administrador global* para registrar o serviço proxy de proteção de senha do Azure AD e a floresta com o Azure AD.
-* O acesso à rede deve ser habilitado para o conjunto de portas e URLs especificadas nos [procedimentos de configuração do ambiente de proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+* O acesso à rede deve ser habilitado para o conjunto de portas e URLs especificadas nos [procedimentos de configuração do ambiente de proxy de aplicativo](../manage-apps/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 ### <a name="microsoft-azure-ad-connect-agent-updater-prerequisites"></a>Pré-requisitos do atualizador do agente do Microsoft Azure AD Connect
 
 O serviço atualizador do agente do Microsoft Azure AD Connect é instalado lado a lado com o serviço de proxy de proteção de senha do Azure AD. A configuração adicional é necessária para que o serviço de atualizador do agente do Microsoft Azure AD Connect seja capaz de funcionar:
 
-* Se o seu ambiente usa um servidor proxy HTTP, siga as diretrizes especificadas em [trabalhar com servidores proxy locais existentes](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
-* O serviço de atualizador do agente do Microsoft Azure AD Connect também requer as etapas do TLS 1,2 especificadas nos [requisitos de TLS](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#tls-requirements).
+* Se o seu ambiente usa um servidor proxy HTTP, siga as diretrizes especificadas em [trabalhar com servidores proxy locais existentes](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md).
+* O serviço de atualizador do agente do Microsoft Azure AD Connect também requer as etapas do TLS 1,2 especificadas nos [requisitos de TLS](../manage-apps/application-proxy-add-on-premises-application.md#tls-requirements).
 
 > [!WARNING]
 > O proxy de proteção por senha do Azure AD e o Azure Proxy de Aplicativo do AD instalar versões diferentes do serviço de atualizador do agente Microsoft Azure AD Connect, que é o motivo pelo qual as instruções se referem ao conteúdo do proxy de aplicativo. Essas versões diferentes são incompatíveis quando instaladas lado a lado e isso impedirá que o serviço atualizador do agente entre em contato com o Azure para atualizações de software, para que você nunca instale o proxy de proteção de senha do Azure AD e o proxy de aplicativo no mesmo computador.

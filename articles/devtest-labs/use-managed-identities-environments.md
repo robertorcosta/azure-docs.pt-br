@@ -3,43 +3,46 @@ title: Usar identidades gerenciadas do Azure para criar ambientes no DevTest Lab
 description: Saiba como usar identidades gerenciadas no Azure para implantar ambientes em um laboratório no Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4d4df9cab17289eba21caf9d7c88eb37626b3349
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5bac4210afee6db1c7617dac1cd6d2ff9149439
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478868"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718962"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Usar identidades gerenciadas do Azure para implantar ambientes em um laboratório 
+
 Como proprietário de um laboratório, você pode usar uma identidade gerenciada para implantar ambientes em um laboratório. Esse recurso é útil em cenários em que o ambiente contém ou tem referências a recursos do Azure, como cofres de chaves, galerias de imagens compartilhadas e redes que são externas ao grupo de recursos do ambiente. Ele permite a criação de ambientes de área restrita que não são limitados ao grupo de recursos desse ambiente.
 
 > [!NOTE]
 > Atualmente, há suporte para uma única identidade atribuída pelo usuário por laboratório. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 - [Crie, liste, exclua ou atribua uma função a uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
+    
+    Verifique se sua identidade gerenciada foi criada na mesma região e assinatura que o seu laboratório. A identidade gerenciada não precisa estar no mesmo grupo de recursos.
 
 ## <a name="use-azure-portal"></a>Usar o portal do Azure
+
 Nesta seção, você, como proprietário do laboratório, usa o portal do Azure para adicionar uma identidade gerenciada pelo usuário ao laboratório. 
 
-1. Na página do laboratório, selecione **configuração e políticas**. 
-1. Selecione **identidade** na seção **configurações** .
-1. Para adicionar uma identidade atribuída ao usuário, selecione **Adicionar** na barra de ferramentas. 
-1. Selecione uma **identidade** em uma lista suspensa preenchida previamente.
-1. Selecione **OK**.
-
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Procure **DevTest Labs**.
+1. Na lista de laboratórios, selecione o laboratório desejado.
+1. Selecione a **configuração e a identidade das políticas**  ->  **(versão prévia)**. 
+1. Para adicionar uma identidade atribuída ao usuário, selecione a guia **atribuído pelo usuário** .
+1. Pressione **Adicionar** .
+1. Selecione um usuário existente que você criou e/ou que tem acesso no menu suspenso.
+ 
     ![Adicionar identidade gerenciada pelo usuário](./media/use-managed-identities-environments/add-user-managed-identity.png)
-2. Você vê a identidade adicionada gerenciada pelo usuário na lista. 
+1. Pressione **salvar** na parte superior da página.
 
-    ![Identidade gerenciada pelo usuário na lista](./media/use-managed-identities-environments/identity-in-list.png)
-
-Depois de salvo, o laboratório usará essa identidade durante a implantação de todos os ambientes de laboratório. Você também pode acessar o recurso de identidade no Azure selecionando a identidade na lista. 
+    Depois de salvo, o laboratório usará essa identidade durante a implantação de todos os ambientes de laboratório. Você também pode acessar o recurso de identidade no Azure selecionando a identidade na lista. 
 
 O proprietário do laboratório não precisa fazer nada especial durante a implantação de um ambiente, contanto que a identidade adicionada ao laboratório tenha permissões para os recursos externos que o ambiente precisa acessar. 
 
 Para alterar a identidade gerenciada pelo usuário atribuída ao laboratório, remova a identidade anexada ao laboratório primeiro e, em seguida, adicione outra ao laboratório. Para remover uma identidade anexada ao laboratório, selecione **... (reticências)** e clique em **remover**. 
-
-![Identidade gerenciada pelo usuário na lista](./media/use-managed-identities-environments/replace-identity.png)  
 
 ## <a name="use-api"></a>Usar API
 
@@ -66,7 +69,7 @@ Para alterar a identidade gerenciada pelo usuário atribuída ao laboratório, r
     }
     ```
  
-    Aqui está um exemplo: 
+    Veja um exemplo: 
 
     ```json
     PUT https://management.azure.com/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/exampleRG/providers/Microsoft.Devtestlab/labs/mylab/serviceRunners/sampleuseridentity

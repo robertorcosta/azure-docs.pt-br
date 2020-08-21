@@ -2,14 +2,14 @@
 title: Executar tarefas em contas de usuário
 description: Conheça os tipos de contas de usuário e como configurá-las.
 ms.topic: how-to
-ms.date: 11/18/2019
+ms.date: 08/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 412947b939d95be29dde374b311776829fa12582
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: cce374e7d7ffb513bed882b048ea54bcbad81b0b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142683"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719352"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de usuário no Lote
 
@@ -49,18 +49,13 @@ O nível de elevação da conta de usuário indica se uma tarefa é executada co
 
 ## <a name="auto-user-accounts"></a>Contas de usuário automático
 
-Por padrão, as tarefas são executadas no Lote em uma conta de usuário automático, como um usuário padrão sem acesso elevado e com escopo de tarefa. Quando a especificação de usuário automático é configurada para o escopo de tarefa, o serviço de Lote cria uma conta de usuário automático apenas para essa tarefa.
+Por padrão, as tarefas são executadas em lote em uma conta de usuário automático, como um usuário padrão sem acesso elevado e com escopo de pool. Escopo de pool significa que a tarefa é executada em uma conta de usuário automático que está disponível para qualquer tarefa no pool. Para obter mais informações sobre o escopo de pool, consulte [executar uma tarefa como um usuário automático com escopo de pool](#run-a-task-as-an-auto-user-with-pool-scope).
 
-A alternativa ao escopo de tarefa é o escopo de pool. Quando a especificação de usuário automático para uma tarefa é configurada para o escopo de pool, a tarefa é executada em uma conta de usuário automático que está disponível para qualquer tarefa no pool. Para obter mais informações sobre o escopo de pool, consulte [executar uma tarefa como um usuário automático com escopo de pool](#run-a-task-as-an-auto-user-with-pool-scope).
-
-O escopo padrão é diferente em nós do Windows e Linux:
-
-- Em nós do Windows, as tarefas são executadas no escopo de tarefa por padrão.
-- Nós do Linux sempre são executados no escopo de pool.
+A alternativa ao escopo do pool é o escopo da tarefa. Quando a especificação de usuário automático é configurada para o escopo de tarefa, o serviço de Lote cria uma conta de usuário automático apenas para essa tarefa.
 
 Há quatro configurações possíveis para a especificação de usuário automático, e cada uma delas corresponde a uma conta de usuário automático exclusiva:
 
-- Acesso de não administrador com escopo de tarefa (a especificação padrão de usuário automático)
+- Acesso não administrador com escopo de tarefa
 - Acesso de administrador (elevado) com escopo de tarefa
 - Acesso de não administrador com escopo de pool
 - Acesso de administrador com escopo de pool
@@ -75,7 +70,7 @@ Você pode configurar a especificação de usuário automático para privilégio
 > [!NOTE]
 > Use o acesso elevado somente quando necessário. A prática recomendada é conceder o privilégio mínimo necessário para obter o resultado desejado. Por exemplo, se uma tarefa de inicialização instala o software para o usuário atual, e não para todos os usuários, você poderá evitar conceder acesso elevado para tarefas. É possível configurar a especificação de usuário automático para escopo de pool e acesso de não administrador para todas as tarefas que precisam ser executadas na mesma conta, incluindo a tarefa de inicialização.
 
-Os snippets de código a seguir mostram como configurar a especificação de usuário automático. Os exemplos definem o nível de elevação para `Admin` e o escopo para `Task`. O escopo de tarefa é a configuração padrão, mas está incluído aqui em virtude do exemplo.
+Os snippets de código a seguir mostram como configurar a especificação de usuário automático. Os exemplos definem o nível de elevação para `Admin` e o escopo para `Task`.
 
 #### <a name="batch-net"></a>.NET no Lote
 
@@ -90,7 +85,7 @@ taskToAdd.withId(taskId)
             .withAutoUser(new AutoUserSpecification()
                 .withElevationLevel(ElevationLevel.ADMIN))
                 .withScope(AutoUserScope.TASK));
-        .withCommandLine("cmd /c echo hello");                        
+        .withCommandLine("cmd /c echo hello");
 ```
 
 #### <a name="batch-python"></a>Python no Lote
@@ -113,7 +108,7 @@ Quando um nó é provisionado, duas contas de usuário automático em todo o poo
 
 Quando você especifica o escopo de pool para o usuário automático, todas as tarefas que são executadas com acesso de administrador o são na mesma conta de usuário automático em todo o pool. Da mesma forma, as tarefas executadas sem permissões de administrador também o são em uma única conta de usuário automático em todo o pool.
 
-> [!NOTE] 
+> [!NOTE]
 > As duas contas de usuário automático em todo o pool são distintas. As tarefas em execução na conta administrativa em todo o pool não podem compartilhar dados com tarefas em execução na conta padrão e vice-versa.
 
 A vantagem da execução na mesma conta de usuário automático é que as tarefas podem compartilhar dados com outras tarefas em execução no mesmo nó.

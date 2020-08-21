@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 034a49793d3a3e416f307741e49446979eb33bb3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 97541a4f8d86b90bf6045fc2a9e5abbe86aee5cd
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090443"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717329"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Standard Load Balancer com métricas, alertas e integridade de recursos
 
@@ -25,7 +25,7 @@ O Standard Load Balancer do Azure expõe os seguintes recursos de diagnóstico:
 
 * **Métricas e alertas multidimensionais**: fornece recursos de diagnóstico multidimensionais por meio de [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para configurações padrão do Load Balancer. Você pode monitorar, gerenciar e solucionar problemas de seus recursos padrão do Load Balancer.
 
-* **Resource Health**: a página Load Balancer na portal do Azure e a página Resource Health (em monitor) expõem a seção Resource Health para Standard Load Balancer. 
+* **Resource Health**: o status de Resource Health do seu Load Balancer está disponível na página Resource Health em monitor. Essa verificação automática informa sobre a disponibilidade atual do recurso de Load Balancer.
 
 Este artigo fornece um tour rápido dessas funcionalidades e oferece maneiras de usá-las para o Load Balancer Standard. 
 
@@ -91,7 +91,7 @@ Para configurar alertas:
 #### <a name="is-the-data-path-up-and-available-for-my-load-balancer-frontend"></a>O caminho de dados está ativo e disponível para o meu front-end Load Balancer?
 <details><summary>Expanda</summary>
 
-A métrica de disponibilidade de disponibilidade de caminho de dados descreve a integridade do caminho de dados dentro da região para o host de computação onde as VMs estão localizadas. A métrica é uma reflexão da integridade da infraestrutura do Azure. É possível usar a métrica para:
+A métrica de disponibilidade do caminho de dados descreve a integridade do caminho de dados dentro da região para o host de computação onde as VMs estão localizadas. A métrica é uma reflexão da integridade da infraestrutura do Azure. É possível usar a métrica para:
 - Monitorar a disponibilidade externa do seu serviço
 - Obter detalhes e entender se a plataforma na qual o serviço é implantado está íntegra ou se a instância do aplicativo ou o SO convidado está íntegro.
 - Isolar se um evento está relacionado ao seu serviço ou o plano de dados subjacente. Não confunda essa métrica com o status da investigação de integridade ("disponibilidade da instância de back-end").
@@ -110,7 +110,7 @@ A métrica é gerada por uma medida de ativa e dentro da faixa. Um serviço de i
 
 Um pacote que corresponde ao front-end e a uma regra de sua implantação é gerado periodicamente. Ele atravessa a região da origem para o host no qual uma VM no pool de back-end está localizada. A infraestrutura do balanceador de carga executa as mesmas operações de balanceamento de carga e de translação, assim como faz para todos os outros tráfegos. Essa investigação é feita dentro da banda no seu ponto de extremidade com balanceamento de carga. Depois que a investigação chega no host de computação no qual uma VM íntegra no pool de back-end está localizada, o host de computação gera uma resposta para o serviço de investigação. A VM não vê esse tráfego.
 
-A disponibilidade de disponibilidade de caminho de DataPath falha pelos seguintes motivos:
+A disponibilidade do caminho de DataPath falha pelos seguintes motivos:
 - Sua implantação não tem nenhuma VM íntegra restante no pool de back-end. 
 - Ocorreu uma interrupção de infraestrutura.
 
@@ -155,14 +155,14 @@ Para obter estatísticas de conexão SNAT:
 #### <a name="how-do-i-check-my-snat-port-usage-and-allocation"></a>Como fazer verificar o uso e a alocação da porta SNAT?
 <details>
   <summary>Expanda</summary>
-A métrica de uso SNAT indica quantos fluxos exclusivos são estabelecidos entre uma origem da Internet e uma VM de back-end ou um conjunto de dimensionamento de máquinas virtuais que está atrás de um balanceador de carga e não tem um endereço IP público. Comparando isso com a métrica de alocação SNAT, você pode determinar se o serviço está experimentando ou em risco de esgotamento de SNAT e falha resultante do fluxo de saída. 
+A métrica portas de SNAT usadas rastreia quantas portas SNAT estão sendo consumidas para manter fluxos de saída. Isso indica quantos fluxos exclusivos são estabelecidos entre uma origem da Internet e uma VM de back-end ou um conjunto de dimensionamento de máquinas virtuais que está atrás de um balanceador de carga e não tem um endereço IP público. Ao comparar o número de portas SNAT que você está usando com a métrica portas de SNAT alocadas, você pode determinar se o serviço está experimentando ou em risco de esgotamento de SNAT e falha resultante do fluxo de saída. 
 
 Se suas métricas indicarem o risco de falha de [fluxo de saída](https://aka.ms/lboutbound) , referencie o artigo e execute as etapas para mitigar isso para garantir a integridade do serviço.
 
 Para exibir o uso e a alocação da porta SNAT:
 1. Defina a agregação de tempo do grafo como 1 minuto para garantir que os dados desejados sejam exibidos.
-1. Selecione **uso de SNAT** e/ou **alocação SNAT** como o tipo de métrica e **média** como a agregação
-    * Por padrão, esse é o número médio de portas SNAT alocadas ou usadas por cada VM de back-end ou VMSSes, correspondendo a todos os IPs públicos de front-ends mapeados para a Load Balancer, agregadas sobre TCP e UDP.
+1. Selecione **portas SNAT usadas** e/ou **portas SNAT alocadas** como o tipo de métrica e **média** como a agregação
+    * Por padrão, essas métricas são o número médio de portas SNAT alocadas ou usadas por cada VM ou VMSS de back-end, correspondentes a todos os IPs públicos de front-end mapeados para a Load Balancer, agregadas sobre TCP e UDP.
     * Para exibir as portas SNAT totais usadas pelo ou alocadas para o balanceador de carga, use a **soma** de agregação de métrica
 1. Filtre para um **tipo de protocolo**específico, um conjunto de **IPS de back-end**e/ou IPS de front- **end**.
 1. Para monitorar a integridade por backend ou por meio de uma instância de front-end, aplique a divisão. 
@@ -252,13 +252,14 @@ Para exibir a integridade dos seus recursos do Load Balancer Standard:
 
    *Figura: modo de exibição de integridade de recurso do Load Balancer*
  
-Os vários status da integridade do recurso e suas descrições estão listadas na seguinte tabela: 
+A descrição do status de integridade do recurso genérico está disponível na [documentação do RHC](https://docs.microsoft.com/azure/service-health/resource-health-overview). Para obter status específicos para os Azure Load Balancer estão listados na tabela abaixo: 
 
 | Status de integridade de recurso | Descrição |
 | --- | --- |
 | Disponível | O recurso padrão do Load Balancer está íntegro e disponível. |
-| Indisponível | O recurso padrão do Load Balancer não está íntegro. Diagnostique a integridade selecionando **Azure monitor**  >  **métricas**.<br>(O status*indisponível* também pode significar que o recurso não está conectado ao balanceador de carga padrão.) |
-| Desconhecido | O status de integridade do recurso para o recurso padrão do Load Balancer ainda não foi atualizado.<br>(O status*desconhecido* também pode significar que o recurso não está conectado ao balanceador de carga padrão.)  |
+| Degradado | O balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo usuário que afetam o desempenho. A métrica de disponibilidade do caminho de dado relatou menos de 90%, mas maior que 25% de integridade por pelo menos dois minutos. Você passará por um impacto de desempenho moderado a severo. [Siga o guia de disponibilidade do caminho de dados de solução de problemas] para determinar se há eventos iniciados pelo usuário causando impacto na disponibilidade.
+| Indisponível | O recurso padrão do Load Balancer não está íntegro. A métrica de disponibilidade do caminho de dado relatou menos a integridade de 25% por pelo menos dois minutos. Você terá um impacto significativo no desempenho ou falta de disponibilidade para a conectividade de entrada. Pode haver eventos de usuário ou plataforma causando indisponibilidade. [Siga o guia de disponibilidade do caminho de dados de solução de problemas] para determinar se há eventos iniciados pelo usuário que afetam sua disponibilidade. |
+| Unknown | O status de integridade do recurso para o recurso de Load Balancer padrão ainda não foi atualizado ou não recebeu informações de disponibilidade do caminho de dados dos últimos 10 minutos. Esse Estado deve ser transitório e refletirá o status correto assim que os dados forem recebidos. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
