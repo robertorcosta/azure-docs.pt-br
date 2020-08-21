@@ -8,12 +8,12 @@ ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: aab06b4870efd88893b4a14c1127de7ffcd2ba68
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: db7ae0bd33bc52f80788db4994dcf2a3ca4d909a
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520509"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705904"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 Os [arquivos do Azure](storage-files-introduction.md) podem ser implantados de duas maneiras principais: montando diretamente os compartilhamentos de arquivos do Azure sem servidor ou armazenando em cache os compartilhamentos de arquivos do Azure no local usando sincronização de arquivos do Azure. A opção de implantação escolhida altera as coisas que você precisa considerar ao planejar sua implantação. 
@@ -37,7 +37,7 @@ Ao implantar compartilhamentos de arquivos do Azure em contas de armazenamento, 
 
 ## <a name="identity"></a>Identidade
 Para acessar um compartilhamento de arquivos do Azure, o usuário do compartilhamento de arquivos deve ser autenticado e ter autorização para acessar o compartilhamento. Isso é feito com base na identidade do usuário que está acessando o compartilhamento de arquivos. Os arquivos do Azure integram-se com três provedores de identidade principais:
-- **Active Directory Domain Services local (AD DS ou AD DS local)** (visualização): as contas de armazenamento do Azure podem ser ingressadas no domínio para um Active Directory Domain Services de Propriedade do cliente, assim como um servidor de arquivos do Windows Server ou um dispositivo nas. Você pode implantar um controlador de domínio local, em uma VM do Azure ou até mesmo como uma VM em outro provedor de nuvem; Os arquivos do Azure são independentes em que o controlador de domínio está hospedado. Quando uma conta de armazenamento está ingressada no domínio, o usuário final pode montar um compartilhamento de arquivos com a conta de usuário com a qual ele entrou em seu PC. A autenticação baseada em AD usa o protocolo de autenticação Kerberos.
+- **Active Directory Domain Services local (AD DS ou AD DS local)**: as contas de armazenamento do Azure podem ser ingressadas no domínio em um Active Directory Domain Services de Propriedade do cliente, assim como um servidor de arquivos do Windows Server ou um dispositivo nas. Você pode implantar um controlador de domínio local, em uma VM do Azure ou até mesmo como uma VM em outro provedor de nuvem; Os arquivos do Azure são independentes em que o controlador de domínio está hospedado. Quando uma conta de armazenamento está ingressada no domínio, o usuário final pode montar um compartilhamento de arquivos com a conta de usuário com a qual ele entrou em seu PC. A autenticação baseada em AD usa o protocolo de autenticação Kerberos.
 - **Azure Active Directory Domain Services (azure AD DS)**: o Azure AD DS fornece um controlador de domínio gerenciado pela Microsoft que pode ser usado para recursos do Azure. Domínio ingressando em sua conta de armazenamento no Azure AD DS fornece benefícios semelhantes ao ingresso no domínio para um Active Directory de Propriedade do cliente. Essa opção de implantação é mais útil para cenários de elevação e deslocamento de aplicativos que exigem permissões baseadas no AD. Como o Azure AD DS fornece autenticação baseada em AD, essa opção também usa o protocolo de autenticação Kerberos.
 - **Chave de conta de armazenamento do Azure**: compartilhamentos de arquivos do Azure também podem ser montados com uma chave de conta de armazenamento do Azure. Para montar um compartilhamento de arquivos dessa forma, o nome da conta de armazenamento é usado como o nome de usuário e a chave da conta de armazenamento é usada como uma senha. Usar a chave de conta de armazenamento para montar o compartilhamento de arquivos do Azure é efetivamente uma operação de administrador, pois o compartilhamento de arquivos montado terá permissões completas para todos os arquivos e pastas no compartilhamento, mesmo que eles tenham ACLs. Ao usar a chave da conta de armazenamento para montar por SMB, o protocolo de autenticação NTLMv2 é usado.
 

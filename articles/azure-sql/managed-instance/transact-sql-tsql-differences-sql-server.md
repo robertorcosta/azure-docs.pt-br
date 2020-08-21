@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 229a74fe760386b59bc83373cc7b1429bd826929
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d611fc7eff2efa7a632f4b5467b5829a8374b95e
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298440"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705377"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças de T-SQL entre SQL Server & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -26,7 +26,7 @@ Este artigo resume e explica as diferenças na sintaxe e no comportamento entre 
 
 O SQL Instância Gerenciada fornece alta compatibilidade com o mecanismo de banco de dados do SQL Server e a maioria dos recursos tem suporte em um Instância Gerenciada SQL.
 
-![Migração](./media/transact-sql-tsql-differences-sql-server/migration.png)
+![Migração fácil de SQL Server](./media/transact-sql-tsql-differences-sql-server/migration.png)
 
 Há algumas limitações de PaaS que são introduzidas no SQL Instância Gerenciada e algumas alterações de comportamento em comparação com SQL Server. As diferenças são divididas nas seguintes categorias: <a name="Differences"></a>
 
@@ -329,7 +329,7 @@ O SQL Instância Gerenciada não pode acessar compartilhamentos de arquivos e pa
 
 - `DATASOURCE` é necessário no comando `BULK INSERT` durante a importação de arquivos do armazenamento de blobs do Azure. Consulte [INSERÇÃO EM MASSA](/sql/t-sql/statements/bulk-insert-transact-sql).
 - `DATASOURCE` é necessário na função `OPENROWSET` quando você ler um conteúdo de um arquivo do armazenamento de blobs do Azure. Consulte [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
-- `OPENROWSET`pode ser usado para ler dados de instâncias do banco de dados SQL do Azure, do Azure SQL Instância Gerenciada ou do SQL Server. Não há suporte para outras fontes, como bancos de dados Oracle ou arquivos do Excel.
+- `OPENROWSET` pode ser usado para ler dados de instâncias do banco de dados SQL do Azure, do Azure SQL Instância Gerenciada ou do SQL Server. Não há suporte para outras fontes, como bancos de dados Oracle ou arquivos do Excel.
 
 ### <a name="clr"></a>CLR
 
@@ -364,7 +364,7 @@ Não há suporte para alguns destinos específicos do Windows para XEvents:
 
 ### <a name="external-libraries"></a>Bibliotecas externas
 
-Bibliotecas externas no banco de dados R e Python ainda não têm suporte. Consulte [Serviços de Machine Learning do SQL Server](/sql/advanced-analytics/r/sql-server-r-services).
+As bibliotecas externas do banco de dados R e Python têm suporte em visualização pública limitada. Consulte [serviços de Machine Learning no SQL instância gerenciada do Azure (versão prévia)](machine-learning-services-overview.md).
 
 ### <a name="filestream-and-filetable"></a>Fluxo de arquivos e FileTable
 
@@ -486,10 +486,10 @@ Não há suporte para agente de serviços entre instâncias:
 As seguintes variáveis, funções e exibições retornam resultados diferentes:
 
 - `SERVERPROPERTY('EngineEdition')` retorna o valor 8. Essa propriedade identifica exclusivamente um Instância Gerenciada do SQL. Consulte [SERVERPROPERTY](/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')`Retorna NULL porque o conceito de instância existente para SQL Server não se aplica ao SQL Instância Gerenciada. Consulte [SERVERPROPERTY('InstanceName')](/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` Retorna NULL porque o conceito de instância existente para SQL Server não se aplica ao SQL Instância Gerenciada. Consulte [SERVERPROPERTY('InstanceName')](/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME` returna o nome completo 'conectável' do DNS, por exemplo, my-managed-instance.wcus17662feb9ce98.database.windows.net. Consulte [@@SERVERNAME](/sql/t-sql/functions/servername-transact-sql). 
 - `SYS.SERVERS` retorna o nome completo 'conectável' do DNS, como `myinstance.domain.database.windows.net`, para propriedades 'name' e 'data_source'. Consulte [SYS.SERVERS](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
-- `@@SERVICENAME`Retorna NULL porque o conceito de serviço existente para SQL Server não se aplica ao SQL Instância Gerenciada. Consulte [@@SERVICENAME](/sql/t-sql/functions/servicename-transact-sql).
+- `@@SERVICENAME` Retorna NULL porque o conceito de serviço existente para SQL Server não se aplica ao SQL Instância Gerenciada. Consulte [@@SERVICENAME](/sql/t-sql/functions/servicename-transact-sql).
 - `SUSER_ID` é compatível. Retornará NULL se o logon do Azure AD não estiver em sys.syslogins. Consulte [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql). 
 - Não há suporte para `SUSER_SID`. Os dados errados são retornados, o que é um problema temporário conhecido. Consulte [SUSER_SID](/sql/t-sql/functions/suser-sid-transact-sql). 
 

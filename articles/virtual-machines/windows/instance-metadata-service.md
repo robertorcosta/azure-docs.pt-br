@@ -11,18 +11,18 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: fe059f684306e2c98e625af72248f03f0932ebad
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: adeba1964ab802a903e82b3ea71bc3248b86cea9
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168262"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705054"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância do Azure
 
 O Serviço de Metadados de Instância (IMDS) do Azure fornece informações sobre instâncias da máquina virtual em execução no momento e pode ser usado para gerenciar e configurar suas máquinas virtuais.
 Essas informações incluem a SKU, o armazenamento, as configurações de rede e os próximos eventos de manutenção. Para obter uma lista completa dos dados disponíveis, confira [APIs de metadados](#metadata-apis).
-O Serviço de Metadados de Instância está disponível para as instâncias de VM e conjunto de dimensionamento de máquinas virtuais. Está disponível somente para a execução de VMs criadas/gerenciadas usando o [Azure Resource Manager](/rest/api/resources/).
+O serviço de metadados de instância está disponível para a execução de instâncias de máquina virtual e conjunto de dimensionamento de máquinas virtuais. Todas as APIs dão suporte a VMs criadas/gerenciadas usando [Azure Resource Manager](/rest/api/resources/). Somente os pontos de extremidade atestados e de rede dão suporte a VMs clássicas (não ARM) e o atestado faz isso apenas para uma extensão limitada.
 
 O IMDS do Azure é um ponto de extremidade REST que está disponível em um endereço IP não roteável conhecido ( `169.254.169.254` ), ele pode ser acessado somente de dentro da VM. A comunicação entre a VM e a IMDS nunca deixa o host.
 É recomendável que seus clientes HTTP ignorem proxies da Web na VM ao consultar IMDS e tratá-los `169.254.169.254` da mesma forma que [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md) .
@@ -685,7 +685,7 @@ Nonce é uma cadeia de caracteres de 10 dígitos opcional. Se não for fornecida
 }
 ```
 
-O blob de assinatura é uma versão assinada do [pkcs7](https://aka.ms/pkcs7) do documento. Ele contém o certificado usado na assinatura, juntamente com os detalhes da VM, como vmId, sku, nonce, subscriptionId e timeStamp para a criação e a expiração do documento e informações do plano sobre a imagem. As informações do plano são preenchidas apenas para as imagens do Azure Marketplace. O certificado pode ser extraído da resposta e usado para validar que a resposta é válida e proveniente do Azure.
+O blob de assinatura é uma versão assinada do [pkcs7](https://aka.ms/pkcs7) do documento. Ele contém o certificado usado para assinar junto com determinados detalhes específicos da VM. Para VMs ARM, isso inclui vmId, SKU, nonce, SubscriptionId, carimbo de data/hora para a criação e expiração do documento e as informações do plano sobre a imagem. As informações do plano são preenchidas apenas para as imagens do Azure Marketplace. Para VMs clássicas (não ARM), somente o vmId tem a garantia de ser populada. O certificado pode ser extraído da resposta e usado para validar que a resposta é válida e proveniente do Azure.
 O documento contém os seguintes campos:
 
 Dados | Descrição
@@ -697,6 +697,9 @@ timestamp/expiresOn | O carimbo de data/hora UTC para quando o documento assinad
 vmId |  [Identificador exclusivo](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para a máquina virtual
 subscriptionId | Assinatura do Azure para a Máquina Virtual, apresentada em `2019-04-30`
 sku | SKU específico para a imagem da máquina virtual, apresentado em `2019-11-01`
+
+> [!NOTE]
+> Para VMs clássicas (não ARM), somente o vmId tem a garantia de ser populada.
 
 ### <a name="sample-2-validating-that-the-vm-is-running-in-azure"></a>Exemplo 2: Validar que a VM está em execução no Azure
 

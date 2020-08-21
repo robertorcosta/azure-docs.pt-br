@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 1f72b14dd503f9b5a5f4065661cf9d35b68680e3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: db2ee7adac19da7f7f5e1c6f60394d94dbf29ad5
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88657997"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705207"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introdução aos discos gerenciados do Azure
 
@@ -95,7 +95,7 @@ Esse disco tem uma capacidade máxima de 2.048 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporário
 
-Cada VM contém um disco temporário, que não é um disco gerenciado. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados, como arquivos de paginação ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](~/articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou durante a [reimplantação de uma VM](~/articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Durante uma reinicialização padrão bem-sucedida da VM, os dados no disco temporário devem persistir.  
+A maioria das VMs contém um disco temporário, que não é um disco gerenciado. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados, como arquivos de paginação ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou durante a [reimplantação de uma VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Durante uma reinicialização padrão bem-sucedida da VM, os dados no disco temporário devem persistir. Para obter mais informações sobre VMs sem disco temporário, veja [tamanhos de VM do Azure sem disco temporário local](../articles/virtual-machines/azure-vms-no-temp-disk.md)
 
 Em VMs do Linux do Azure, o disco temporário é normalmente /dev/sdb e em VMs do Windows, o disco temporário é D: por padrão. O disco temporário não é criptografado pela criptografia do servidor, a menos que você habilite a criptografia no host.
 

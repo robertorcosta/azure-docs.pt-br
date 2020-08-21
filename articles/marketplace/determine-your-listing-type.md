@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/30/2020
-ms.openlocfilehash: 1b0846c68f6860b5c7dac9e93808088dac4f6a05
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 4a27ace4e45d00a2fbb35b9e0e3e9b7c03383681
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607426"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705870"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a opção de publicação
 
@@ -47,9 +47,9 @@ A tabela a seguir mostra as opções de publicação para tipos de oferta no Mic
 
 &#42;&#42; As ofertas de Microsoft 365 são gratuitas para instalação e podem ser monetizadas por meio de uma oferta de SaaS como um serviço de licenciamento. Para obter mais informações, consulte [Monetizar seu suplemento do Office 365 por meio do marketplace comercial da Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
-## <a name="choose-a-call-to-action"></a>Escolha uma chamada para ação
+## <a name="choose-a-listing-option"></a>Escolha uma opção de listagem
 
-As opções de publicação disponíveis oferecem envolvimento do cliente diferenciado, dando a ele acesso ao compartilhamento de leads e [benefícios do marketplace comercial](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Observe as chamadas de ação que correspondem à opção de publicação:
+As opções de listagem disponíveis oferecem o envolvimento do cliente diferenciado, oferecendo acesso a benefícios de compartilhamento de leads e do [Marketplace comercial](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Observe as opções de listagem que correspondem à opção de publicação:
 
 | **Opção de publicação**    | **Descrição**  |
 | :------------------- | :-------------------|

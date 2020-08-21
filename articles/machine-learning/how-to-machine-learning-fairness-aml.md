@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ec0c39bad8a7c12822e5ebf5cd4a958aa8653050
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: a0f06c2db0a5bf196ae610efadd85ef1df8defe8
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844636"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691302"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Usar Azure Machine Learning com o pacote Fairlearn Open-Source para avaliar a imparcialidade dos modelos de ML (versão prévia)
 
@@ -33,7 +33,7 @@ Neste guia de instruções, você aprenderá a usar o pacote Python de software 
 
 ## <a name="azure-machine-learning-fairness-sdk"></a>SDK de imparcialidade Azure Machine Learning 
 
-O SDK de imparcialidade Azure Machine Learning, `azureml-contrib-fairness` , integra o pacote Python de software livre, [Fairlearn](http://fairlearn.github.io), em Azure Machine Learning. Para saber mais sobre a integração do Fairlearn no Azure Machine Learning, confira estes [blocos de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). Para obter mais informações sobre o Fairlearn, consulte o [Guia de exemplo](https://fairlearn.github.io/auto_examples/notebooks/index.html) e os [notebooks de exemplo](https://github.com/fairlearn/fairlearn/tree/master/notebooks). 
+O SDK de imparcialidade Azure Machine Learning, `azureml-contrib-fairness` , integra o pacote Python de software livre, [Fairlearn](http://fairlearn.github.io), em Azure Machine Learning. Para saber mais sobre a integração do Fairlearn no Azure Machine Learning, confira estes [blocos de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). Para obter mais informações sobre o Fairlearn, consulte o [Guia de exemplo](https://fairlearn.github.io/auto_examples/) e os [notebooks de exemplo](https://github.com/fairlearn/fairlearn/tree/master/notebooks). 
 
 Use os seguintes comandos para instalar os `azureml-contrib-fairness` `fairlearn` pacotes e:
 ```bash

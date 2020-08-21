@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: e38d59ff1eb31dd5fc3ecf6b7df6b12504141d5e
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: ff70beef89f6db240db244de1e11e54193858be0
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082899"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705768"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Visão geral do agente de Azure Monitor (versão prévia)
 O agente de Azure Monitor (AMA) coleta dados de monitoramento do sistema operacional convidado de máquinas virtuais e as entrega ao Azure Monitor. Este artigo fornece uma visão geral do agente de Azure Monitor, incluindo como instalá-lo e como configurar a coleta de dados.
@@ -68,7 +68,7 @@ A tabela a seguir lista os tipos de dados que você pode coletar atualmente com 
 
 O agente de Azure Monitor envia dados para Azure Monitor métricas ou um espaço de trabalho Log Analytics que oferece suporte a logs de Azure Monitor.
 
-| fonte de dados | Destinos | Descrição |
+| Fonte de dados | Destinos | Descrição |
 |:---|:---|:---|
 | Desempenho        | Métricas do Azure Monitor<br>Workspace do Log Analytics | Valores numéricos que medem o desempenho de diferentes aspectos do sistema operacional e das cargas de trabalho. |
 | Log de eventos do Windows | Workspace do Log Analytics | Informações enviadas ao sistema de registro de evento do Windows. |
@@ -107,7 +107,7 @@ O agente de Azure Monitor é implementado como uma [extensão de VM do Azure](..
 |:---|:---|:---|
 | Publicador | Microsoft. Azure. monitor  | Microsoft. Azure. monitor |
 | Type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
-| TypeHandlerVersion  | 1.0 | 0.9 |
+| TypeHandlerVersion  | 1.0 | 1.5 |
 
 Instale o agente de Azure Monitor usando qualquer um dos métodos para instalar agentes de máquina virtual, incluindo o seguinte usando o PowerShell ou a CLI. Como alternativa, você pode instalar o agente e configurar a coleta de dados em máquinas virtuais em sua assinatura do Azure usando o portal com o procedimento descrito em [Configurar coleta de dados para o agente de Azure monitor (versão prévia)](data-collection-rule-azure-monitor-agent.md#create-using-the-azure-portal).
 
@@ -116,14 +116,14 @@ Instale o agente de Azure Monitor usando qualquer um dos métodos para instalar 
 # <a name="cli"></a>[CLI](#tab/CLI1)
 
 ```azurecli
-az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --version 1.0 --ids {resource ID of the VM}
+az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
 
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell1)
 
 ```powershell
-Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -Version 1.0 -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
+Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
 ```
 ---
 
@@ -133,14 +133,14 @@ Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publ
 # <a name="cli"></a>[CLI](#tab/CLI2)
 
 ```azurecli
-az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --version 0.9 --ids {resource ID of the VM}
+az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
 
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell2)
 
 ```powershell
-Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -Version 0.9 -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
+Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
 ```
 ---
 

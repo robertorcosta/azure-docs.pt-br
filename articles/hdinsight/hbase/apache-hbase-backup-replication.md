@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: b1830ddef44ef33d19c953622951779632e33e71
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5a3760956dfe9a713d344fd6684d75ea240ab7de
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076735"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705717"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurar backup e replicação para Apache HBase e Apache Phoenix no HDInsight
 
@@ -213,7 +213,13 @@ O `<hdfsHBaseLocation>` pode ser qualquer um dos locais de armazenamento acessí
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
 ```
 
-Depois de o instantâneo ser exportado, execute o SSH no nó principal do cluster de destino e restaure o instantâneo usando o comando restore_snapshot, conforme descrito anteriormente.
+Se você não tiver uma conta de armazenamento do Azure secundária anexada ao seu cluster de origem ou se o seu cluster de origem for um cluster local (ou cluster não HDI), você poderá enfrentar problemas de autorização ao tentar acessar a conta de armazenamento do cluster do HDI. Para resolver isso, especifique a chave para sua conta de armazenamento como um parâmetro de linha de comando, conforme mostrado no exemplo a seguir. Você pode obter a chave para sua conta de armazenamento no portal do Azure.
+
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.myaccount.blob.core.windows.net=mykey -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
+```
+
+Depois que o instantâneo for exportado, use o SSH no nó principal do cluster de destino e restaure o instantâneo usando o `restore_snapshot` comando, conforme descrito anteriormente.
 
 Os instantâneos fornecem um backup completo de uma tabela no momento do comando `snapshot`. Os instantâneos não fornecem a capacidade de executar instantâneos incrementais por janelas de tempo, nem para especificar subconjuntos de famílias de colunas a serem incluídas no instantâneo.
 

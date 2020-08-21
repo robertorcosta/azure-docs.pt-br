@@ -4,35 +4,39 @@ description: Este artigo descreve as considerações de preços, cobrança, fatu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 5058f37fcf96c7c556b55f0afb8753390f51f4d1
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 04a984a2dfa473502fd9e534e52b60b33be52757
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607355"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88704953"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Recursos de transação do marketplace comercial
 
-## <a name="transactions-by-publishing-option"></a>Opção de transações por publicação
+Este artigo descreve as considerações sobre preços, cobrança, faturamento e pagamento para o Marketplace comercial da Microsoft. 
 
-O editor ou a Microsoft é responsável por gerenciar transações de licença de software para ofertas no marketplace comercial. A opção de publicação que você escolher para sua oferta determinará quem gerencia a transação. Consulte [Determinar sua opção de publicação](./determine-your-listing-type.md#choose-a-call-to-action) para obter disponibilidade e explicações de cada opção de publicação.
+## <a name="transactions-by-listing-option"></a>Transações por opção de listagem
 
-### <a name="list-trial-and-byol-publishing-options"></a>Opções de publicação de lista, avaliação e BYOL
+O editor ou a Microsoft é responsável por gerenciar transações de licença de software para ofertas no marketplace comercial. A opção de listagem escolhida para sua oferta determina quem gerencia a transação. Consulte [escolher uma opção de listagem](./determine-your-listing-type.md#choose-a-listing-option) para obter disponibilidade e explicações de cada opção de publicação.
 
-Os editores com recursos de comércio existentes podem escolher opções de publicação de lista, avaliação e BYOL (traga sua própria licença) para fins de aquisição promocional e de usuário. Com essas opções, a Microsoft não participa diretamente das transações de licença de software do editor e não há nenhum valor de transação associado. Os editores são responsáveis por dar suporte a todos os aspectos da transação de licença de software, incluindo, entre outros, pedido, atendimento, medição, faturamento, faturamento, pagamento e cobrança. Com as opções de publicação de lista e avaliação, os editores mantêm 100% dos valores de licenciamento de software do editor coletadas do cliente.
+### <a name="contact-me-free-trial-and-byol-options"></a>Contate-me, avaliação gratuita e opções de BYOL
+
+Os editores podem escolher o _contato comigo_ e a _avaliação gratuita_, opções para fins de aquisição promocional e de usuário. Para alguns tipos de oferta, os editores podem escolher a opção BYOL (traga sua própria licença) para permitir que os clientes comprem uma assinatura para sua oferta usando uma licença que adquiriu diretamente de você. Com essas opções, a Microsoft não participa diretamente das transações de licença de software do editor e não há nenhum valor de transação associado. 
+
+Os Publicadores são responsáveis por dar suporte a todos os aspectos da transação de licença de software. Isso inclui, mas não se limita a ordem, preenchimento, medição, cobrança, faturamento, pagamento e coleção. Com a opção de listagem entre em contato comigo, os editores mantêm 100% das taxas de licenciamento de software do Publicador coletadas do cliente.
 
 ### <a name="transact-publishing-option"></a>Opção de publicação de transação
 
-A opção de publicação de transação aproveita os recursos comerciais da Microsoft e fornece uma experiência de ponta a ponta desde a descoberta e a avaliação até a compra e a implementação. As ofertas de transação são cobradas em uma assinatura da Microsoft existente ou em um cartão de crédito, permitindo que a Microsoft hospede transações do marketplace na nuvem em nome do editor.
+A escolha de vender pela Microsoft aproveita os recursos do Microsoft Commerce e fornece uma experiência de ponta a ponta da descoberta e da avaliação até a compra e a implementação. Uma oferta que é propagada é aquela na qual a Microsoft facilita a troca de dinheiro por uma licença de software em nome do editor. As ofertas transdesejadas são cobradas em relação a uma assinatura da Microsoft existente ou a um cartão de crédito, permitindo que a Microsoft hospede transações do Marketplace de nuvem em nome do Publicador.
 
-Escolha a opção de transação ao criar uma nova oferta no Partner Center. Na página **Oferecer instalação** em **Detalhes da instalação**, selecione “Sim, eu gostaria de vender pela Microsoft e ter transações de host da Microsoft em meu nome”. Esta opção será mostrada somente se a transação estiver disponível para seu tipo de oferta.
+Escolha a opção de transação ao criar uma nova oferta no Partner Center. Esta opção será mostrada somente se a transação estiver disponível para seu tipo de oferta.
 
 ## <a name="transact-overview"></a>Visão geral da transação
 
-Ao usar a opção de publicação de transação, a Microsoft permite a venda de software de terceiros e a implantação de alguns tipos de oferta na assinatura do Azure do cliente. O editor deve considerar a cobrança de valores de infraestrutura e seus próprios valores de licenciamento de software ao selecionar um modelo de cobrança e um tipo de oferta.
+Ao usar a opção Transact, a Microsoft permite a venda de software de terceiros e a implantação de alguns tipos de oferta para a assinatura do Azure do cliente. O editor deve considerar a cobrança de taxas de infraestrutura e suas próprias tarifas de licenciamento de software ao selecionar um modelo de preços para uma oferta.
 
 Atualmente, a opção de publicação de transação tem suporte para os seguintes tipos de oferta:
 
@@ -44,31 +48,37 @@ Atualmente, a opção de publicação de transação tem suporte para os seguint
 
 Para **máquinas virtuais** e **aplicativos do Azure**, as tarifas de uso da infraestrutura do Azure são cobradas na assinatura do Azure do cliente. Os valores de uso da infraestrutura são precificados e apresentados separadamente dos valores de licenciamento do provedor de software na fatura do cliente.
 
-Para **Aplicativos SaaS**, você como editor deve contabilizar os valores de uso da infraestrutura do Azure e os valores de licenciamento de software como um item de custo único.  Ele é representado como um valor fixo para o cliente. O uso da infraestrutura do Azure é gerenciado e faturado diretamente para o parceiro. Os valores reais de uso da infraestrutura não são vistos pelo cliente. Em geral, os editores optam por incluir os valores de uso da infraestrutura do Azure em seus preços de licença de software. Os valores de licenciamento de software não são medidos ou baseados no consumo.
+Para **Aplicativos SaaS**, você como editor deve contabilizar os valores de uso da infraestrutura do Azure e os valores de licenciamento de software como um item de custo único.  Ele é representado como um valor fixo para o cliente. O uso da infraestrutura do Azure é gerenciado e cobrado diretamente no Publicador. Os valores reais de uso da infraestrutura não são vistos pelo cliente. Em geral, os editores optam por incluir os valores de uso da infraestrutura do Azure em seus preços de licença de software. As taxas de licenciamento de software não são limitadas ou baseadas no consumo do usuário.
 
-## <a name="transact-billing-models"></a>Transact modelos de cobrança
+## <a name="pricing-models"></a>Modelos de preço
 
-Dependendo da opção de transação usada, os valores de licença de software são os seguintes:
+Dependendo da opção de transação usada, as cobranças de assinatura são as seguintes:
 
-- **Gratuito** – sem custos para as licenças de software.
-- **Traga sua própria licença** (BYOL) – todas as cobranças aplicáveis por licenças de software são gerenciadas diretamente entre o editor e o cliente. A Microsoft só passa pelos valores de uso da infraestrutura do Azure. Isso se aplica somente a máquinas virtuais e aplicativos do Azure.
-- **Pague conforme o uso** – os valores de licença de software são apresentados como uma taxa de preços por vCPU (por hora e por núcleo) com base na infraestrutura do Azure usada. Isso se aplica somente a máquinas virtuais e aplicativos do Azure.
-- **Preços de assinatura** – os valores de licença de software são apresentados como uma taxa de recorrência mensal ou anual, cobrada como um valor fixo ou por estação. Isso se aplica aos aplicativos SaaS (mensal ou anual) e somente aos aplicativos gerenciados pelo aplicativo do Azure (mensal).
-- **Avaliação gratuita de software** – sem cobrança de licenças de software por 30 dias ou 90 dias.
+- **Obtenha agora (gratuito)** – sem custos para as licenças de software. Os clientes não são cobrados pelas tarifas do Azure Marketplace para usar uma oferta gratuita. Ofertas gratuitas não podem ser convertidas em uma oferta paga. Os clientes devem solicitar uma oferta paga.
+- **Traga sua própria licença** (BYOL) – todas as cobranças aplicáveis por licenças de software são gerenciadas diretamente entre o editor e o cliente. A Microsoft só passa pelos valores de uso da infraestrutura do Azure. Se uma oferta estiver listada no mercado comercial, os clientes que obtiverem acesso ou uso da oferta fora do mercado comercial não serão cobrados pelas tarifas do Marketplace comercial.
+- **Preços de assinatura** – as taxas de licença de software são apresentadas como uma taxa de assinatura recorrente mensal ou anual, cobrada como uma taxa fixa ou por estação. As taxas de assinatura recorrente não são rateada para cancelamentos de clientes de médio prazo ou serviços não utilizados. As taxas de assinatura recorrentes podem ser rateada se o cliente atualizar ou fizer downgrade de sua assinatura no meio do período da assinatura.
+- **Preço com base no uso** – para ofertas de máquina virtual do Azure, os clientes são cobrados com base na extensão do uso da oferta. Para imagens de máquina virtual, os clientes são cobrados uma taxa por hora do Azure Marketplace, conforme definido pelos publicadores, para uso de máquinas virtuais implantadas a partir das imagens de VM. O valor por hora pode ser uniforme ou variado entre vários tamanhos de máquina virtual. As horas parciais são cobradas por minuto. Os planos são cobrados mensalmente.
+- **Preços limitados** – para ofertas de aplicativo Azure e ofertas de SaaS, os editores podem usar o [serviço de medição do Marketplace](./partner-center-portal/marketplace-metering-service-apis.md) para cobrar pelo consumo com base nas dimensões de medidor escolhidas. Por exemplo, largura de banda, tíquetes ou emails processados. Os editores podem definir uma ou mais dimensões de medidor para cada plano. Os editores são responsáveis por acompanhar o uso de clientes individuais, com cada medidor definido na oferta. Os eventos devem ser relatados à Microsoft em uma hora. A Microsoft cobra os clientes com base nas informações de uso relatadas pelos editores para o período de cobrança aplicável.
+- **Avaliação gratuita** – sem custos para licenças de software que variam de 30 dias até seis meses, dependendo do tipo de oferta. Se os editores fornecerem uma avaliação gratuita em vários planos na mesma oferta, os clientes poderão alternar para uma avaliação gratuita em outro plano, mas o período de avaliação não será reiniciado. Para ofertas de máquina virtual, os clientes são cobrados pelos custos de infraestrutura do Azure para usar a oferta durante um período de avaliação. Após a expiração do período de avaliação, os clientes são cobrados automaticamente pelo último plano que tentaram com base nas taxas padrão, a menos que sejam cancelados antes do final do período de avaliação.
 
-### <a name="free-and-bring-your-own-license-byol-pricing"></a>Preços gratuitos e traga sua própria licença (BYOL)
+> [!NOTE]
+> Ofertas que são cobradas de acordo com o consumo depois que uma solução é usada não se qualificam para reembolsos.
 
-Ao publicar uma oferta de transação gratuita ou com licença própria, a Microsoft não desempenha nenhum papel na facilitação da transação de vendas para os valores de licença de software. Como a lista e as opções de publicação de avaliação, o editor mantém 100% dos valores de licença de software.
+Os editores que desejam alterar as tarifas de uso associadas a uma oferta, devem primeiro remover a oferta (ou o plano específico dentro da oferta) do Marketplace comercial. A remoção deve ser feita de acordo com os requisitos do [contrato do Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560). Em seguida, o Publicador pode publicar uma nova oferta (ou um plano dentro de uma oferta) que inclui as novas tarifas de uso. Para obter informações sobre como remover uma oferta ou um plano, consulte [parar de vender uma oferta ou um plano](./partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
 
-### <a name="pay-as-you-go-and-subscription-site-based-pricing"></a>Preço pré-pago e assinatura (site-based)
+### <a name="free-contact-me-and-bring-your-own-license-byol-pricing"></a>Os preços gratuitos, entre em contato comigo e BYOL (traga sua própria licença)
 
-Ao publicar uma oferta de transação pré-paga ou assinatura, a Microsoft fornece a tecnologia e os serviços para processar compras, devoluções e estornos de licenças de software. Nesse cenário, o editor autoriza a Microsoft a agir como um agente para essas finalidades. A editora permite que a Microsoft facilite a transação de licenciamento de software, mantendo sua designação como vendedor, provedor, distribuidor e licenciador.
+Ao publicar uma oferta com a opção obter agora (gratuito), entrar em contato comigo ou BYOL, a Microsoft não desempenha uma função na facilitação da transação de vendas para suas taxas de licença de software. Assim como a lista e as opções de publicação de avaliação gratuita, o Publicador mantém 100% das taxas de licença de software.
+
+### <a name="usage-based-and-subscription-pricing"></a>Preço com base no uso e assinatura
+
+Ao publicar uma oferta de uma transação baseada em usuário ou assinatura, a Microsoft fornece a tecnologia e os serviços para processar compras, Devoluções e estorno de licenças de software. Nesse cenário, o editor autoriza a Microsoft a agir como um agente para essas finalidades. A editora permite que a Microsoft facilite a transação de licenciamento de software, mantendo sua designação como vendedor, provedor, distribuidor e licenciador.
 
 A Microsoft permite aos clientes solicitar, licenciar e usar seu software, sujeito aos termos e condições do marketplace comercial da Microsoft e do seu contrato de licenciamento de usuário final. Você deve fornecer seu próprio contrato de licenciamento de usuário final ou selecionar o [Contrato Standard](./standard-contract.md) ao criar a oferta.
 
 ### <a name="free-software-trials"></a>Avaliações de software livre
 
-Para cenários de publicação de transações, você pode disponibilizar uma licença de software gratuitamente por 30 ou 90 dias. Esse recurso de aplicação de desconto não inclui o custo do uso de infraestrutura do Azure orientado pelo uso da solução do parceiro.
+Para cenários de publicação Transact, você pode disponibilizar uma licença de software gratuita por 30 a 120 dias, dependendo da assinatura. Esse recurso de aplicação de desconto não inclui o custo do uso de infraestrutura do Azure orientado pelo uso da solução do parceiro.
 
 ### <a name="private-offers"></a>Ofertas privadas
 
@@ -78,9 +88,9 @@ Essa opção permite um estabelecer um preço mais alto ou mais baixo do que a o
 
 ### <a name="examples"></a>Exemplos
 
-**Pré-paga** 
+**Com base no uso** 
 
-O Pagamento Conforme o Uso tem a seguinte estrutura de custo:
+O preço com base no uso tem a seguinte estrutura de custo:
 
 |Custo de sua licença  | US $ 1,00 por hora   |
 |---------|---------|
@@ -127,8 +137,6 @@ Essa opção deve ser configurada para ser vendida pela Microsoft e pode ser cob
 
 Nesse cenário, a Microsoft cobra US $ 100,00 pela sua licença de software e paga US $ 80,00 ao editor.
 
-Os parceiros qualificados para a redução do valor do serviço do marketplace verão um valor de transação reduzido nas ofertas de SaaS de maio de 2019 até junho de 2020.
-
 Nesse cenário, a Microsoft cobra US$ 100,00 pela sua licença de software e paga US$ 90,00 ao editor:
 
 |Faturas da Microsoft  | US $100,00 por mês  |
@@ -136,7 +144,7 @@ Nesse cenário, a Microsoft cobra US$ 100,00 pela sua licença de software e pag
 |A Microsoft paga para você 80% do seu custo de licença <br> \* A Microsoft paga 90% do seu custo de licença para qualquer aplicativo SaaS qualificado   |   US $80,00 por mês <br> \* US $90,00 por mês    |
 |A Microsoft mantém 20% do seu custo de licença <br> \* A Microsoft mantém 10% do seu custo de licença para qualquer aplicativo SaaS qualificado.  |  US $20,00 por mês <br> \* US $10,00     |
 
-Para determinadas ofertas que você publica no mercado comercial, a Microsoft reduzirá sua taxa de serviço do Marketplace de 20% (conforme descrito no contrato do Microsoft Publisher) para 10%. Para que suas ofertas sejam qualificadas, suas ofertas devem ter sido designadas pela Microsoft como o IP do Azure co-vender incentivados. A qualificação deve ser atendida pelo menos cinco (5) dias úteis antes do fim de cada mês civil para receber a taxa de serviço do Marketplace reduzida para o mês. A taxa reduzida de serviço do Marketplace se aplica ao IP do Azure covenda de incentivados SaaS, VMs, aplicativos gerenciados e qualquer outra oferta de IaaS transactável qualificada disponibilizada por meio do Marketplace comercial.
+Para determinadas ofertas que você publica no mercado comercial, a Microsoft reduzirá sua taxa de serviço do Marketplace de 20% (conforme descrito no [contrato do Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560)) para 10%. Para que suas ofertas sejam qualificadas, suas ofertas devem ter sido designadas pela Microsoft como o IP do Azure co-vender incentivados. A qualificação deve ser atendida pelo menos cinco dias úteis antes do término de cada mês do calendário para receber a taxa de serviço do Marketplace reduzida para o mês. A taxa reduzida de serviço do Marketplace se aplica ao IP do Azure covenda de incentivados SaaS, VMs, aplicativos gerenciados e qualquer outra oferta de IaaS transactável qualificada disponibilizada por meio do Marketplace comercial.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Faturamento, pagamento, faturamento e cobrança do cliente
 
@@ -163,7 +171,7 @@ Os clientes normalmente compram usando o Enterprise Agreement ou um contrato de 
 
 #### <a name="billing-questions-and-support"></a>Perguntas sobre cobrança e suporte
 
-Para obter mais informações e políticas legais, consulte o [Contrato do Editor](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx) (disponível no Partner Center).
+Para obter mais informações e políticas legais, consulte o [contrato do Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560) (disponível no Partner Center).
 
 Para obter ajuda sobre dúvidas de cobrança, entre em contato com o [suporte do editor do marketplace comercial](https://aka.ms/marketplacepublishersupport).
 
@@ -182,7 +190,7 @@ Para obter mais informações sobre como configurar essas contas, consulte [gere
 
 A opção de publicação de transações está disponível apenas para uso com os seguintes tipos de oferta de mercado:
 
-- **Máquina virtual** – selecione dentre os modelos gratuitos, traga sua própria licença ou pague conforme o uso de preços e apresente os planos definidos no nível da oferta. Na fatura do cliente do Azure, a Microsoft apresenta os valores de licença de software do editor separadamente dos valores de infraestrutura subjacentes do Azure. Os valores de infraestrutura do Azure são impulsionadas pelo uso do software do editor.
+- **Máquina virtual do Azure** – selecione dentre os modelos de preços gratuitos, traga sua própria licença ou com base no uso e apresente os planos definidos no nível da oferta. Na fatura do cliente do Azure, a Microsoft apresenta os valores de licença de software do editor separadamente dos valores de infraestrutura subjacentes do Azure. Os valores de infraestrutura do Azure são impulsionadas pelo uso do software do editor.
 
 - **Aplicativo do Azure: modelo de solução ou aplicativo gerenciado** – deve provisionar uma ou mais máquinas virtuais e efetuar pull da soma dos preços da máquina virtual. Para aplicativos gerenciados em um único plano, uma assinatura mensal de taxa fixa pode ser selecionada como o modelo de preço, em vez do preço da máquina virtual. Em alguns os casos, os valores de uso da infraestrutura do Azure são passados para o cliente separadamente dos valores de licença de software, mas no mesmo extrato de faturamento. No entanto, se você configurar uma oferta de aplicativo gerenciado para encargos de infraestrutura de ISV, os recursos do Azure serão cobrados para o Publicador e o cliente receberá uma tarifa fixa que inclui o custo de infraestrutura, licenças de software e serviços de gerenciamento.
 

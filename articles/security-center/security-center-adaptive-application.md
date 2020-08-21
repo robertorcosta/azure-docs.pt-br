@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: cbbfddca1a6a07625a69be8ffb0409640d825793
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d4ed88dea0d230fd3488621c217ef9ea086310d5
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036927"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691472"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Use controles de aplicativo adaptáveis para reduzir as superfícies de ataque de suas máquinas
 
@@ -83,7 +83,7 @@ Selecione a recomendação ou abra a página controles de aplicativo adaptáveis
     - **Nenhuma recomendação** – máquinas sem uma lista de permissões definida de aplicativos e que não dão suporte ao recurso. Seu computador pode estar nesta guia pelos seguintes motivos:
       - Falta um agente de Log Analytics
       - O agente de Log Analytics não está enviando eventos
-      - É um computador Windows com uma política [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker) já existente habilitada por um GPO ou uma política de segurança local
+      - É um computador Windows com uma política [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) já existente habilitada por um GPO ou uma política de segurança local
 
       > [!TIP]
       > A central de segurança precisa de pelo menos duas semanas de dados para definir as recomendações exclusivas por grupo de computadores. As máquinas que foram criadas recentemente ou que pertencem a assinaturas que foram habilitadas recentemente com a camada Standard serão exibidas na guia **sem recomendação** .
@@ -187,7 +187,7 @@ Quando você move um computador de um grupo para outro, a política de controle 
 
 1. Na página **controles de aplicativo adaptáveis** , na guia **configurada** , selecione o grupo que contém o computador a ser movido.
 
-1. Abra a lista de **computadores configurados**.
+1. Abra a lista de  **computadores configurados**.
 
 1. Abra o menu do computador de três pontos no final da linha e selecione **mover**. O painel **mover computador para um grupo diferente** é aberto.
 

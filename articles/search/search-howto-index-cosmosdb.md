@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 180bb78b66bc04e7c3d2aaf68a3dd6d30cfb671c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1a7f2983b65c3568ae07e4bcd9d21b7dbd3435a9
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496546"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705344"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Como indexar dados do Cosmos DB usando um indexador no Azure Cognitive Search 
 
@@ -71,7 +71,9 @@ Na página **fonte de dados** , a origem deve ser **Cosmos DB**, com as seguinte
 
 + **Nome** é o nome do objeto de fonte de dados. Depois de criado, você pode escolher para outras cargas de trabalho.
 
-+ A **conta de Cosmos DB** deve ser a cadeia de conexão primária ou secundária do cosmos DB, com um `AccountEndpoint` e um `AccountKey` . Para coleções do MongoDB, adicione **ApiKind = MongoDB** ao final da cadeia de conexão e separe-a da cadeia de conexão com um ponto-e-vírgula. Para a API Gremlin e API do Cassandra, use as instruções para a [API REST](#cosmosdb-indexer-rest).
++ A **conta de Cosmos DB** deve ser a cadeia de conexão primária ou secundária de Cosmos DB com o seguinte formato: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;` .
+    + Para as **coleções do MongoDB** da versão 3,2 e 3,6, use o seguinte formato para a conta de Cosmos DB no portal do Azure: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;ApiKind=MongoDb`
+    + Para **gráficos Gremlin e tabelas Cassandra**, Inscreva-se na [visualização do indexador restrito](https://aka.ms/azure-cognitive-search/indexer-preview) para obter acesso à visualização e informações sobre como formatar as credenciais.
 
 + **Banco** de dados é um banco de dados existente da conta. 
 
@@ -180,7 +182,7 @@ O corpo da solicitação contém a definição da fonte de dados, que deve inclu
 |---------|-------------|
 | **name** | Obrigatórios. Escolha qualquer nome para representar o objeto da fonte de dados. |
 |**tipo**| Obrigatórios. Deve ser `cosmosdb`. |
-|**credentials** | Obrigatórios. Deve ser uma cadeia de conexão Cosmos DB.<br/>Para coleções SQL, as cadeias de conexão estão neste formato:`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>Para coleções do MongoDB, adicione **ApiKind = MongoDB** à cadeia de conexão:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>Para gráficos Gremlin e tabelas Cassandra, inscreva-se na [versão prévia restrita do indexador](https://aka.ms/azure-cognitive-search/indexer-preview) para obter acesso à versão prévia e informações sobre como formatar as credenciais.<br/><br/>Evite números de porta na url do ponto de extremidade. Se você incluir o número da porta, o Azure Pesquisa Cognitiva não poderá indexar o banco de dados Azure Cosmos DB.|
+|**credentials** | Obrigatórios. Deve ser uma cadeia de conexão Cosmos DB.<br/><br/>Para **coleções SQL**, as cadeias de conexão estão neste formato: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>Para as **coleções do MongoDB** da versão 3,2 e 3,6, use o seguinte formato para a cadeia de conexão: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>Para **gráficos Gremlin e tabelas Cassandra**, Inscreva-se na [visualização do indexador restrito](https://aka.ms/azure-cognitive-search/indexer-preview) para obter acesso à visualização e informações sobre como formatar as credenciais.<br/><br/>Evite números de porta na url do ponto de extremidade. Se você incluir o número da porta, o Azure Pesquisa Cognitiva não poderá indexar o banco de dados Azure Cosmos DB.|
 | **contêiner** | Contém os seguintes elementos: <br/>**nome**: Obrigatórios. Especifique a ID da coleção do banco de dados a ser indexada.<br/>**query**: Opcional. Você pode especificar uma consulta para nivelar um documento JSON arbitrário, criando um esquema nivelado que o Azure Cognitive Search possa indexar.<br/>Para a API do MongoDB, API do Gremlin e API do Cassandra, não há suporte para consultas. |
 | **dataChangeDetectionPolicy** | Recomendável. Consulte a seção [Indexando documentos alterados](#DataChangeDetectionPolicy).|
 |**dataDeletionDetectionPolicy** | Opcional. Consulte a seção [Indexando documentos excluídos](#DataDeletionDetectionPolicy).|
@@ -269,7 +271,7 @@ Verifique se o esquema do índice de destino é compatível com o esquema dos do
 | Bool |Edm.Boolean, Edm.String |
 | Números que se parecem com inteiros |Edm.Int32, Edm.Int64, Edm.String |
 | Números que se parecem com pontos flutuantes |Edm.Double, Edm.String |
-| Cadeia de caracteres |Edm.String |
+| String |Edm.String |
 | Matrizes de tipos primitivos, por exemplo, [“a”, “b”, “c”] |Collection(Edm.String) |
 | Cadeias de caracteres que se parecem com datas |Edm.DateTimeOffset, Edm.String |
 | Objetos GeoJSON, por exemplo, { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |

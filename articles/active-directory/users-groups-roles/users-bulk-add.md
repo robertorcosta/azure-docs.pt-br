@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4cb24a89d19abb753e2be704dbad7fd5b2ddcad
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 64fc4e1192a1ec33b1d13c38d66e9aab5cbe256b
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236549"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705615"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Criar usuários em massa no Azure Active Directory
 
@@ -35,7 +35,7 @@ Baixe e preencha o modelo CSV de carregamento em massa para ajudá-lo a criar em
 ![Planilha para upload e limites de chamada que explicam a finalidade e os valores de cada linha e coluna](./media/users-bulk-add/create-template-example.png)
 
 > [!WARNING]
-> Se você tentar adicionar apenas uma entrada no modelo CSV, deverá preservar a linha 3 e adicionar a nova entrada à linha 4. 
+> Se você estiver adicionando apenas uma entrada usando o modelo CSV, deverá preservar a linha 3 e adicionar a nova entrada à linha 4.
 
 ### <a name="csv-template-structure"></a>Estrutura do modelo CSV
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/24/2020
 ms.author: allensu
-ms.openlocfilehash: ea73a4164a2f23a51ce1702cd85d29d7fb4c6790
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 738b54d9fcd86313c2581c5d0f055a7cca8230b8
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650393"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88706057"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexões de saída no Azure
 
@@ -136,7 +136,7 @@ Se um NSG bloquear solicitações de investigação de integridade da marcação
 - O número máximo de portas efêmeras utilizáveis por endereço IP de front-end é 64.000.
 - O intervalo do tempo limite de ociosidade de saída configurável é de 4 a 120 minutos (240 a 7.200 segundos).
 - O Load Balancer não dá suporte a ICMP para NAT de saída.
-- As regras de saída só podem ser aplicadas à configuração de IP primário de uma NIC.  Há suporte para várias NICs.
+- As regras de saída só podem ser aplicadas à configuração de IP primário de uma NIC.  Você não pode criar uma regra de saída para o IP secundário de uma VM ou NVA. Há suporte para várias NICs.
 - Funções de trabalho sem uma rede virtual e outros serviços da plataforma Microsoft podem ser acessados quando apenas um Standard Load Balancer interno é usado devido a um efeito colateral de como os serviços pré-VNet e outros serviços da plataforma funcionam. Não confie neste efeito colateral como o próprio serviço em si ou a plataforma subjacente pode mudar sem aviso prévio. Você sempre deve supor que precisa criar conectividade de saída explicitamente se desejado ao usar apenas um Standard Load Balancer interno. O cenário 3 descrito neste artigo não está disponível.
 
 ## <a name="next-steps"></a>Próximas etapas

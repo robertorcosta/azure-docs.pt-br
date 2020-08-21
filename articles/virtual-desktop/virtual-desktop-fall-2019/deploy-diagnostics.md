@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c456f7e82bb605909f31b35cdd838145900396e2
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 61c31b24b01b40da4d73a308a4f304f6ff242e41
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009181"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691404"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Implantar a ferramenta de diagnóstico da área de trabalho virtual do Windows (clássico)
 
@@ -112,7 +112,7 @@ Veja como configurar manualmente os contadores de desempenho recomendados:
 
 1. Abra seu navegador da Internet e entre no [portal do Azure](https://portal.azure.com/) com sua conta administrativa.
 2. Em seguida, vá para **log Analytics espaços de trabalho** para examinar os contadores de desempenho do Windows configurados.
-3. Na seção **configurações** , selecione **Configurações avançadas**.
+3. Na seção **configurações** , selecione  **Configurações avançadas**.
 4. Depois disso, navegue até **dados**  >  **contadores de desempenho do Windows** e adicione os seguintes contadores:
 
     -   LogicalDisk ( \* ) \\ % de espaço livre
@@ -196,7 +196,7 @@ Para definir o URI de redirecionamento:
    > [!div class="mx-imgBorder"]
    > ![A página URI de redirecionamento](../media/redirect-uri-page.png)
 
-8. Agora, vá para os recursos do Azure, selecione o recurso serviços de Azure App com o nome fornecido no modelo e navegue até a URL associada a ele. (Por exemplo, se o nome do aplicativo usado no modelo era `contosoapp45` , então, a URL associada é <https://contosoapp45.azurewebsites.net> ).
+8. Agora, vá para os recursos do Azure, selecione o recurso serviços de Azure App com o nome fornecido no modelo e navegue até a URL associada a ele. (Por exemplo, se o nome do aplicativo usado no modelo era `contosoapp45` , então, a URL associada é <http://contoso.azurewebsites.net> ).
 9. Entre usando a conta de usuário do Azure Active Directory apropriada.
 10.   Selecione **Aceitar**.
 
