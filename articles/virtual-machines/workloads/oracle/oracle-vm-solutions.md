@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: rogardle
-ms.openlocfilehash: 4489aae873c3fa4153974209074e14959307c772
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c22c5fa9c1a1680734a8cf5d8f4079e8c7b5c5f7
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690333"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723409"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imagens da VM Oracle e sua implantação no Microsoft Azure
 
@@ -118,7 +118,7 @@ Ao migrar o software e as cargas de trabalho do Oracle do local para o Microsoft
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application Cluster (Oracle RAC)
 
-O Oracle Real Application Cluster (Oracle RAC) foi projetado para atenuar a falha de um único nó em uma configuração de cluster local de vários nós. Ele se baseia em duas tecnologias locais que não são nativas em ambientes de nuvem pública de hiperescala: multicast de rede e disco compartilhado. Se sua solução de banco de dados exigir o Oracle RAC no Azure, será necessário um software de terceiros para habilitar essas tecnologias. Para obter mais informações sobre o Oracle RAC, confira a [página de solução do FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+O Oracle Real Application Cluster (Oracle RAC) foi projetado para atenuar a falha de um único nó em uma configuração de cluster local de vários nós. Ele se baseia em duas tecnologias locais que não são nativas em ambientes de nuvem pública de hiperescala: multicast de rede e disco compartilhado. Se sua solução de banco de dados exigir o Oracle RAC no Azure, você precisará de software de terceiros para habilitar essas tecnologias. Para obter mais informações sobre o Oracle RAC, confira a [página de solução do FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Considerações sobre alta disponibilidade e recuperação de desastres
 

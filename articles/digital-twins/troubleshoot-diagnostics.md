@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 5091edbf9138cb8ff03df193dcbeed692aaf13e3
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: fc397b6d6beb719e11dc3959bbcf4d75c08a8dda
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612394"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723921"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solução de problemas do Azure digital gêmeos: log de diagnóstico
 
@@ -49,7 +49,7 @@ Aqui está como habilitar as configurações de diagnóstico para sua instância
     
 4. Salve as novas configurações. 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Captura de tela mostrando a página de configurações de diagnóstico e o botão para adicionar":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Captura de tela mostrando a página de configuração de diagnóstico em que o usuário preencheu um nome de configuração de diagnóstico e fez algumas seleções de caixa de seleção para detalhes de categoria e detalhes de destino. O botão salvar é realçado.":::
 
 As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecem no destino configurado de volta na página **configurações de diagnóstico** da instância do. 
 
@@ -93,6 +93,135 @@ Aqui está uma lista abrangente das operações e das [chamadas da API REST do A
 |  | Microsoft. DigitalTwins/DigitalTwins/Read | Digital gêmeos Get por ID, obter componente, obter relação por ID, listar relações de entrada, relações de lista |
 |  | Microsoft. DigitalTwins/DigitalTwins/Delete | Gêmeos digital excluir, excluir relação |
 |  | Microsoft. DigitalTwins/DigitalTwins/Action | Telemetria do componente de envio digital gêmeos, enviar telemetria |
+
+## <a name="log-schemas"></a>Esquemas de log 
+
+Cada categoria de log tem um esquema que define como os eventos nessa categoria são relatados. Cada entrada de log individual é armazenada como texto e formatada como um blob JSON. Os campos no log e os corpos JSON de exemplo são fornecidos para cada tipo de log abaixo. 
+
+`ADTDigitalTwinsOperation`, `ADTModelsOperation` e `ADTQueryOperation` usam um esquema de log de API consistente; `ADTEventRoutesOperation` tem seu próprio esquema separado.
+
+### <a name="api-log-schemas"></a>Esquemas de log de API
+
+Esse esquema de log é consistente para `ADTDigitalTwinsOperation` , `ADTModelsOperation` e `ADTQueryOperation` . Ele contém informações pertinentes a chamadas de API para uma instância do gêmeos digital do Azure.
+
+Aqui estão as descrições de campo e propriedade para logs de API.
+
+| Nome do campo | Tipo de dados | Descrição |
+|-----|------|-------------|
+| `Time` | Datetime | A data e a hora em que esse evento ocorreu, em UTC |
+| `ResourceID` | Cadeia de caracteres | A ID de recurso Azure Resource Manager para o recurso em que o evento ocorreu |
+| `OperationName` | Cadeia de caracteres  | O tipo de ação que está sendo executada durante o evento |
+| `OperationVersion` | Cadeia de caracteres | A versão da API utilizada durante o evento |
+| `Category` | Cadeia de caracteres | O tipo de recurso que está sendo emitido |
+| `ResultType` | Cadeia de caracteres | Resultado do evento |
+| `ResultSignature` | Cadeia de caracteres | Código de status HTTP para o evento |
+| `ResultDescription` | Cadeia de caracteres | Detalhes adicionais sobre o evento |
+| `DurationMs` | Cadeia de caracteres | Quanto tempo demorou para executar o evento em milissegundos |
+| `CallerIpAddress` | Cadeia de caracteres | Um endereço IP de origem mascarado para o evento |
+| `CorrelationId` | Guid | Identificador exclusivo fornecido pelo cliente para o evento |
+| `Level` | Cadeia de caracteres | A severidade de log do evento |
+| `Location` | Cadeia de caracteres | A região onde o evento ocorreu |
+| `RequestUri` | Uri | O ponto de extremidade utilizado durante o evento |
+
+Veja a seguir os corpos de JSON de exemplo para esses tipos de logs.
+
+#### <a name="adtdigitaltwinsoperation"></a>ADTDigitalTwinsOperation
+
+```json
+{
+  "time": "2020-03-14T21:11:14.9918922Z",
+  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "operationName": "Microsoft.DigitalTwins/digitaltwins/write",
+  "operationVersion": "2020-05-31-preview",
+  "category": "DigitalTwinOperation",
+  "resultType": "Success",
+  "resultSignature": "200",
+  "resultDescription": "",
+  "durationMs": "314",
+  "callerIpAddress": "13.68.244.*",
+  "correlationId": "2f6a8e64-94aa-492a-bc31-16b9f0b16ab3",
+  "level": "4",
+  "location": "southcentralus",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-05-31-preview"
+}
+```
+
+#### <a name="adtmodelsoperation"></a>ADTModelsOperation
+
+```json
+{
+  "time": "2020-10-29T21:12:24.2337302Z",
+  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "operationName": "Microsoft.DigitalTwins/models/write",
+  "operationVersion": "2020-05-31-preview",
+  "category": "ModelsOperation",
+  "resultType": "Success",
+  "resultSignature": "201",
+  "resultDescription": "",
+  "durationMs": "935",
+  "callerIpAddress": "13.68.244.*",
+  "correlationId": "9dcb71ea-bb6f-46f2-ab70-78b80db76882",
+  "level": "4",
+  "location": "southcentralus",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/Models?api-version=2020-05-31-preview",
+}
+```
+
+#### <a name="adtqueryoperation"></a>ADTQueryOperation
+
+```json
+{
+  "time": "2020-12-04T21:11:44.1690031Z",
+  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "operationName": "Microsoft.DigitalTwins/query/action",
+  "operationVersion": "2020-05-31-preview",
+  "category": "QueryOperation",
+  "resultType": "Success",
+  "resultSignature": "200",
+  "resultDescription": "",
+  "durationMs": "255",
+  "callerIpAddress": "13.68.244.*",
+  "correlationId": "1ee2b6e9-3af4-4873-8c7c-1a698b9ac334",
+  "level": "4",
+  "location": "southcentralus",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/query?api-version=2020-05-31-preview",
+}
+```
+
+### <a name="egress-log-schemas"></a>Esquemas de log de egresso
+
+Este é o esquema para `ADTEventRoutesOperation` logs. Eles contêm detalhes referentes a exceções e as operações de API em relação aos pontos de extremidade de saída conectados a uma instância de gêmeos digital do Azure.
+
+|Nome do campo | Tipo de dados | Descrição |
+|-----|------|-------------|
+| `Time` | Datetime | A data e a hora em que esse evento ocorreu, em UTC |
+| `ResourceId` | Cadeia de caracteres | A ID de recurso Azure Resource Manager para o recurso em que o evento ocorreu |
+| `OperationName` | Cadeia de caracteres  | O tipo de ação que está sendo executada durante o evento |
+| `Category` | Cadeia de caracteres | O tipo de recurso que está sendo emitido |
+| `ResultDescription` | Cadeia de caracteres | Detalhes adicionais sobre o evento |
+| `Level` | Cadeia de caracteres | A severidade de log do evento |
+| `Location` | Cadeia de caracteres | A região onde o evento ocorreu |
+| `EndpointName` | Cadeia de caracteres | O nome do ponto de extremidade de egresso criado no gêmeos digital do Azure |
+
+Veja a seguir os corpos de JSON de exemplo para esses tipos de logs.
+
+#### <a name="adteventroutesoperation"></a>ADTEventRoutesOperation
+
+```json
+{
+  "time": "2020-11-05T22:18:38.0708705Z",
+  "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
+  "operationName": "Microsoft.DigitalTwins/eventroutes/action",
+  "category": "EventRoutesOperation",
+  "resultDescription": "Unable to send EventGrid message to [my-event-grid.westus-1.eventgrid.azure.net] for event Id [f6f45831-55d0-408b-8366-058e81ca6089].",
+  "correlationId": "7f73ab45-14c0-491f-a834-0827dbbf7f8e",
+  "level": "3",
+  "location": "southcentralus",
+  "properties": {
+    "endpointName": "endpointEventGridInvalidKey"
+  }
+}
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

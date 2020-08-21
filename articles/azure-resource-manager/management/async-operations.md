@@ -2,14 +2,14 @@
 title: Status de operações assíncronas
 description: Descreve como rastrear operações assíncronas no Azure. Mostra os valores que você pode usar para obter o status de uma operação de longa execução.
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 08/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 68a00e50c7d3e0da757ee7a3a09274c5f1dbecad
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: e2c5ba137d5277466cf1b382d2b0b1bc02259f00
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718417"
+ms.locfileid: "88723445"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Rastrear operações assíncronas no Azure
 
@@ -31,7 +31,7 @@ Consulte a [Documentação da API REST](/rest/api/azure/) para ver as respostas 
 
 Depois de obter o código de resposta 201 ou 202, você estará pronto para monitorar o status da operação.
 
-## <a name="use-url-to-monitor-status"></a>Usar URL para monitorar o status
+## <a name="url-to-monitor-status"></a>URL para monitorar o status
 
 Há duas maneiras diferentes de monitorar o status da operação assíncrona. Você determina a abordagem correta examinando os valores de cabeçalho que são retornados de sua solicitação original. Primeiro, procure por:
 
@@ -45,7 +45,9 @@ Se `Azure-AsyncOperation` não for um dos valores de cabeçalho, procure por:
 
 ## <a name="azure-asyncoperation-request-and-response"></a>Solicitação e resposta de Azure-AsyncOperation
 
-Se você tiver uma URL do `Azure-AsyncOperation` valor do cabeçalho, envie uma solicitação get para essa URL. Use o valor de `Retry-After` para agendar a frequência de verificação do status. As propriedades de resposta podem variar, mas sempre incluem o status da operação assíncrona.
+Se você tiver uma URL do `Azure-AsyncOperation` valor do cabeçalho, envie uma solicitação get para essa URL. Use o valor de `Retry-After` para agendar a frequência de verificação do status. Você obterá um objeto de resposta que indica o status da operação. Uma resposta diferente é retornada ao verificar o status da operação com a `Location` URL. Para obter mais informações sobre a resposta de uma URL de local, consulte [criar conta de armazenamento (202 com local e tentar novamente-após)](#create-storage-account-202-with-location-and-retry-after).
+
+As propriedades de resposta podem variar, mas sempre incluem o status da operação assíncrona.
 
 ```json
 {

@@ -2,17 +2,17 @@
 title: Habilitar o TLS de ponta a ponta no Gateway de Aplicativo Azure
 description: Este artigo é uma visão geral do suporte a TLS de ponta a ponta do Gateway de Aplicativo.
 services: application-gateway
-author: amsriva
+author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 5/13/2020
+ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: 1986955c7135cb9296937392b23635ae62d8d9f7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3d714b579bebb096745a47410da3f8f458e27161
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962094"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723292"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Visão geral do encerramento de TLS e TLS de ponta a ponta com um Gateway de Aplicativo
 
@@ -30,7 +30,7 @@ O Gateway de Aplicativo dá suporte ao encerramento de TLS no gateway, pelo qual
 Para configurar o encerramento de TLS, é necessário que um certificado TLS/SSL seja adicionado ao ouvinte para permitir que o Gateway de Aplicativo derive uma chave simétrica de acordo com a especificação do protocolo TLS/SSL. A chave simétrica então é usada para criptografar e descriptografar o tráfego enviado para o gateway. O certificado TLS/SSL precisa estar no formato PFX (Troca de Informações Pessoais). Esse formato de arquivo permite exportar a chave privada que é exigida pelo gateway de aplicativo para realizar a criptografia e descriptografia do tráfego.
 
 > [!IMPORTANT] 
-> Observe que o certificado no ouvinte requer que toda a cadeia de certificados seja carregada. 
+> O certificado no ouvinte exige que toda a cadeia de certificados seja carregada (o certificado raiz da autoridade de certificação, os intermediários e o certificado de folha) para estabelecer a cadeia de confiança. 
 
 
 > [!NOTE] 

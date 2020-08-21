@@ -1,20 +1,20 @@
 ---
-title: Componentes do Gateway de Aplicativo
+title: Componentes do gateway de aplicativo
 description: Este artigo fornece informações sobre os vários componentes em um gateway de aplicativo
 services: application-gateway
-author: abshamsft
+author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.author: absha
-ms.openlocfilehash: 20d43666919f8528c25735592c2727601af10bbb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/21/2020
+ms.author: surmb
+ms.openlocfilehash: ebd06b0b78ee511dce535ff4220df03087fb6906
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088080"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723309"
 ---
-# <a name="application-gateway-components"></a>Componentes do Gateway de Aplicativo
+# <a name="application-gateway-components"></a>Componentes do gateway de aplicativo
 
  Um gateway de aplicativo serve como o único ponto de contato para clientes. Ele distribui o tráfego de aplicativo de entrada entre vários pools de back-end, que incluem VMs do Azure, conjuntos de dimensionamento de máquinas virtuais, serviço de Azure App e servidores locais/externos. Para distribuir o tráfego, um gateway de aplicativo usa vários componentes descritos neste artigo.
 
@@ -69,9 +69,9 @@ Há dois tipos de ouvintes:
 
 - **Básico**. Esse tipo de ouvinte escuta um único site de domínio, em que ele tem um único mapeamento de DNS para o endereço IP do gateway de aplicativo. Essa configuração de ouvinte é necessária quando você hospeda um único site por trás de um gateway de aplicativo.
 
-- **Multissite**. Essa configuração de ouvinte é necessária quando você deseja configurar o roteamento com base no nome do host ou nome de domínio para mais de um aplicativo Web no mesmo gateway de aplicativo. Ele permite que você configure uma topologia mais eficiente para suas implantações adicionando até mais de 100 sites a um gateway de aplicativo. Cada site pode ser direcionado para seu próprio pool de back-end. Por exemplo, três domínios, contoso.com, fabrikam.com e adatum.com, apontam para o endereço IP do gateway de aplicativo. Você criaria três [ouvintes multissite](multiple-site-overview.md) e configuraria cada ouvinte para as respectivas configurações de porta e protocolo. 
+- **Multissite**. Essa configuração de ouvinte é necessária quando você deseja configurar o roteamento com base no nome do host ou nome de domínio para mais de um aplicativo Web no mesmo gateway de aplicativo. Permite que você configure a topologia mais eficiente para suas implantações adicionando até mais de 100 sites a um gateway de aplicativo. Cada site pode ser direcionado para seu próprio pool de back-end. Por exemplo, três domínios, contoso.com, fabrikam.com e adatum.com, apontam para o endereço IP do gateway de aplicativo. Você criaria três [ouvintes multissite](multiple-site-overview.md) e configuraria cada ouvinte para as respectivas configurações de porta e protocolo. 
 
-    Você também pode definir nomes de host curinga em um ouvinte multissite e até 5 nomes de host por ouvinte. Para saber mais, confira [nomes de host curinga no ouvinte (versão prévia)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
+    Você também pode definir nomes do host curinga em um ouvinte com vários sites e até cinco nomes do host por ouvinte. Para saber mais, confira [nomes de host curinga no ouvinte (versão prévia)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
     Para obter mais informações sobre como configurar um ouvinte multissite, consulte [Hospedagem de vários sites no gateway de aplicativo usando portal do Azure](create-multiple-sites-portal.md).
 
@@ -99,7 +99,7 @@ Você pode escolher o destino de redirecionamento para outro ouvinte (que pode a
 
 Para obter mais informações, consulte [redirecionar o tráfego no seu gateway de aplicativo](redirect-overview.md).
 
-### <a name="rewrite-http-headers-and-url"></a>Reescrever cabeçalhos e URL HTTP
+### <a name="rewrite-http-headers-and-url"></a>Reescrever cabeçalhos HTTP e URL
 
 Usando regras de reescrita, você pode adicionar, remover ou atualizar os cabeçalhos de solicitação e resposta HTTP (S), bem como o caminho da URL e os parâmetros da cadeia de caracteres de consulta, pois os pacotes de solicitação e resposta são movidos entre o cliente e os pools de back-end por meio do gateway de aplicativo.
 

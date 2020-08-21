@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Conectar um cluster do Kubernetes habilitado para o Azure Arc com o Azure Arc
 keywords: Kubernetes, Arc, Azure, K8s, containers
 ms.custom: references_regions
-ms.openlocfilehash: 761263a4cb8c83475142c2afcc39695bb84d46cd
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: eb3921d3ab2090b6bac54c9b68e9def3949ed4b5
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080483"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723734"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Conectar um cluster do Kubernetes habilitado para o Azure Arc (versão prévia)
 
@@ -72,6 +72,7 @@ Os agentes do Azure Arc exigem que protocolos/portas/URLs de saída a seguir fun
 | `https://github.com`, git://github.com                                                                         | Os exemplos de repositórios GitOps estão hospedados no GitHub. O agente de configuração requer conectividade com qualquer ponto de extremidade git especificado. |
 | `https://login.microsoftonline.com`                                                                            | Necessário para obter e atualizar tokens do Azure Resource Manager                                                                                    |
 | `https://azurearcfork8s.azurecr.io`                                                                            | Necessário para efetuar pull de imagens de contêiner para agentes do Azure Arc                                                                  |
+| `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`                                                                            |  Necessário para efetuar pull de certificados de identidade gerenciados atribuídos pelo sistema                                                                  |
 
 ## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Registre os dois provedores de Kubernetes habilitados para o Azure Arc:
 
@@ -174,7 +175,7 @@ Você também pode exibir esse recurso no [portal do Azure](https://portal.azure
 
 ## <a name="connect-using-an-outbound-proxy-server"></a>Conectar-se usando um servidor proxy de saída
 
-Se o cluster estiver protegido por um servidor proxy de saída, CLI do Azure e os agentes kubernetes habilitados para Arc precisarão rotear suas solicitações por meio do servidor proxy de saída. A configuração a seguir ajuda a conseguir isso:
+Se o cluster estiver protegido por um servidor proxy de saída, CLI do Azure e os agentes kubernetes habilitados para Arc precisarão rotear suas solicitações por meio do servidor proxy de saída. A configuração a seguir permite que:
 
 1. Verifique a versão da `connectedk8s` extensão instalada em seu computador executando este comando:
 

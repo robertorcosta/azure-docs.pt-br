@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: 50a8e4f6d966a63a8e727dbacefbc7bb21f5f98b
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 893085179c27ce88c3e310170715e2f83a59ddc7
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506321"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723156"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Criar uma floresta de recursos de Azure Active Directory Domain Services e uma relação de confiança de floresta de saída para um domínio local usando Azure PowerShell
 
@@ -104,9 +104,9 @@ Para criar uma floresta de recursos de domínio gerenciado, use o `New-AzureAadd
 
     | Nome                         | Parâmetro de script          | Descrição |
     |:-----------------------------|---------------------------|:------------|
-    | Assinatura                 | *-azureSubscriptionId*    | ID da assinatura usada para a cobrança do AD DS do Azure. Você pode obter a lista de assinaturas usando o cmdlet [Get-AzureRMSubscription][Get-AzureRMSubscription] . |
+    | Subscription                 | *-azureSubscriptionId*    | ID da assinatura usada para a cobrança do AD DS do Azure. Você pode obter a lista de assinaturas usando o cmdlet [Get-AzureRMSubscription][Get-AzureRMSubscription] . |
     | Grupo de recursos               | *-aaddsResourceGroupName* | Nome do grupo de recursos para o domínio gerenciado e recursos associados. |
-    | Location                     | *-aaddsLocation*          | A região do Azure para hospedar seu domínio gerenciado. Para as regiões disponíveis, consulte [regiões com suporte para o AD DS do Azure.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
+    | Local                     | *-aaddsLocation*          | A região do Azure para hospedar seu domínio gerenciado. Para as regiões disponíveis, consulte [regiões com suporte para o AD DS do Azure.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
     | Administrador de AD DS do Azure    | *-aaddsAdminUser*         | O nome principal do usuário do primeiro administrador de domínio gerenciado. Essa conta deve ser uma conta de usuário de nuvem existente no seu Azure Active Directory. O usuário e o usuário que executa o script são adicionados ao grupo de *Administradores de DC do AAD* . |
     | Nome de domínio do AD DS do Azure      | *-aaddsDomainName*        | O FQDN do domínio gerenciado, com base nas diretrizes anteriores sobre como escolher um nome de floresta. |
 
@@ -148,15 +148,15 @@ Antes de começar, certifique-se de entender as [considerações e as recomenda�
 
 1. Crie a conectividade híbrida para sua rede local para o Azure usando uma VPN do Azure ou uma conexão do Azure ExpressRoute. A configuração de rede híbrida está além do escopo desta documentação e talvez já exista em seu ambiente. Para obter detalhes sobre cenários específicos, consulte os seguintes artigos:
 
-    * [VPN site a site do Azure](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-    * [Visão geral do Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
+    * [VPN site a site do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+    * [Visão geral do Azure ExpressRoute](../expressroute/expressroute-introduction.md).
 
     > [!IMPORTANT]
     > Se você criar a conexão diretamente com a rede virtual do seu domínio gerenciado, use uma sub-rede de gateway separada. Não crie o gateway na sub-rede do domínio gerenciado.
 
 1. Para administrar um domínio gerenciado, crie uma VM de gerenciamento, ingresse-a no domínio gerenciado e instale as ferramentas de gerenciamento de AD DS necessárias.
 
-    Enquanto a floresta de recursos de domínio gerenciado estiver sendo implantada, [crie uma VM do Windows Server](https://docs.microsoft.com/azure/active-directory-domain-services/join-windows-vm) e [Instale as ferramentas de gerenciamento de AD DS básicas](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-management-vm) para instalar as ferramentas de gerenciamento necessárias. Aguarde para unir a VM de gerenciamento ao domínio gerenciado até uma das etapas a seguir depois que o domínio for implantado com êxito.
+    Enquanto a floresta de recursos de domínio gerenciado estiver sendo implantada, [crie uma VM do Windows Server](./join-windows-vm.md) e [Instale as ferramentas de gerenciamento de AD DS básicas](./tutorial-create-management-vm.md) para instalar as ferramentas de gerenciamento necessárias. Aguarde para unir a VM de gerenciamento ao domínio gerenciado até uma das etapas a seguir depois que o domínio for implantado com êxito.
 
 1. Valide a conectividade de rede entre sua rede local e a rede virtual do Azure.
 
@@ -260,7 +260,7 @@ Você deve ter a máquina virtual do Windows Server ingressada no domínio do re
 1. Conecte-se à VM do Windows Server ingressada na floresta de recursos de domínio gerenciado usando Área de Trabalho Remota e suas credenciais de administrador de domínio gerenciado. Se você receber um erro de Autenticação no Nível da Rede (NLA), verifique se a conta de usuário usada não é uma conta de usuário de domínio.
 
     > [!TIP]
-    > Para se conectar com segurança às suas VMs ingressadas no Azure AD Domain Services, você pode usar o [serviço do host de bastiões do Azure](https://docs.microsoft.com/azure/bastion/bastion-overview) em regiões do Azure com suporte.
+    > Para se conectar com segurança às suas VMs ingressadas no Azure AD Domain Services, você pode usar o [serviço do host de bastiões do Azure](../bastion/bastion-overview.md) em regiões do Azure com suporte.
 
 1. Abra um prompt de comando e use o comando `whoami` para mostrar o nome diferenciado do usuário autenticado no momento:
 
@@ -286,7 +286,7 @@ Usando a VM do Windows Server unida à floresta de recursos de domínio gerencia
 1. Conecte-se à VM do Windows Server ingressada na floresta de recursos de domínio gerenciado usando Área de Trabalho Remota e suas credenciais de administrador de domínio gerenciado. Se você receber um erro de Autenticação no Nível da Rede (NLA), verifique se a conta de usuário usada não é uma conta de usuário de domínio.
 
     > [!TIP]
-    > Para se conectar com segurança às suas VMs ingressadas no Azure AD Domain Services, você pode usar o [serviço do host de bastiões do Azure](https://docs.microsoft.com/azure/bastion/bastion-overview) em regiões do Azure com suporte.
+    > Para se conectar com segurança às suas VMs ingressadas no Azure AD Domain Services, você pode usar o [serviço do host de bastiões do Azure](../bastion/bastion-overview.md) em regiões do Azure com suporte.
 
 1. Abra as **Configurações do Windows**, pesquise e selecione **Central de Rede e Compartilhamento**.
 1. Escolha a opção para as configurações **Alterar compartilhamento avançado**.

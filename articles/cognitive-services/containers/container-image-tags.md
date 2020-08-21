@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: cabc3d2a0f8eb3a75938d1768bb0085aab528391
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e0df3de5eadfd2cc5c00c52da5c4942b42a68b2b
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584596"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722561"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Marcas de imagem de contêiner de serviços cognitivas do Azure
 
@@ -35,13 +35,29 @@ Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
 ## <a name="computer-vision"></a>Pesquisa Visual Computacional
 
-A imagem de contêiner [Pesquisa Visual computacional][cv-containers] pode ser encontrada no `containerpreview.azurecr.io` registro de contêiner. Ele reside no `microsoft` repositório e é nomeado `cognitive-services-read` . O nome da imagem de contêiner totalmente qualificado é, `containerpreview.azurecr.io/microsoft/cognitive-services-read` .
+A imagem de contêiner de OCR de [Pesquisa Visual computacional][cv-containers] leitura pode ser encontrada no `containerpreview.azurecr.io` registro de contêiner. Ele reside no `microsoft` repositório e é nomeado `cognitive-services-read` . O nome da imagem de contêiner totalmente qualificado é, `containerpreview.azurecr.io/microsoft/cognitive-services-read` .
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
 | Marcas de imagem                    | Observações |
 |-------------------------------|:------|
-| `latest`                      |       |
+| `latest ( (2.0.013250001-amd64-preview)` | • Diminuir ainda mais o uso de memória para o contêiner. |
+|                                          | • O cache externo é necessário para a configuração de vários pods. Por exemplo, configure Redis para Caching. |
+|                                          | • Corrigir resultados que faltam de problemas quando o cache Redis é configurado e ResultExpirationPeriod = 0.  |
+|                                          | • Remova a limitação do tamanho do corpo da solicitação de 26MB. O contêiner agora pode aceitar >arquivos 26MB.  |
+|                                          | • Adicionar carimbo de data/hora e versão de compilação ao log do console.  |
+| `1.1.013050001-amd64-preview`            | * Adicionou ReadEngineConfig: configuração de inicialização de contêiner ResultExpirationPeriod para especificar quando o sistema deve limpar os resultados de reconhecimento. |
+|                                          | A configuração é em horas, e o valor padrão é 48hr.   |
+|                                          |   A configuração pode reduzir o uso de memória para o armazenamento de resultados, especialmente quando o armazenamento na memória do contêiner é usado.  |
+|                                          |    * Exemplo 1. ReadEngineConfig: ResultExpirationPeriod = 1, o sistema limpará o resultado de reconhecimento 1h após o processo.   |
+|                                          |    * Exemplo 2. ReadEngineConfig: ResultExpirationPeriod = 0, o sistema limpará o resultado de reconhecimento após a recuperação do resultado.  |
+|                                          | Foi corrigido um erro de servidor interno 500 quando um formato de imagem inválido é passado para o sistema. Agora, ele retornará um erro 400:   |
+|                                          | `{`  |
+|                                          | `"error": {`  |
+|                                          |      `"code": "InvalidImageSize",`  |
+|                                          |      `"message": "Image must be between 1024 and 209715200 bytes."`  |
+|                                          |          `}`  |
+|                                          | `}`  |
 | `1.1.011580001-amd64-preview` |       |
 | `1.1.009920003-amd64-preview` |       |
 | `1.1.009910003-amd64-preview` |       |

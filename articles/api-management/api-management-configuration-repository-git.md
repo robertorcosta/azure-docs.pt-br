@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 183a3561a7c01d8f0911a70846384cf8ebc7dd9c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: fb252ac0b4863138fb2a9c3008dc6475bc988e5f
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254836"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723938"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git
 
@@ -82,7 +82,7 @@ Para gerar uma senha, primeiro verifique se **Vencimento** está definido como a
 
 Os exemplos a seguir usam a ferramenta Git Bash do [Git para Windows](https://www.git-scm.com/downloads) , mas você pode usar qualquer ferramenta Git com a qual esteja familiarizado.
 
-Abra sua ferramenta Git na pasta desejada e execute o comando a seguir para clonar o repositório git em seu computador local usando o comando fornecido pelo portal do Azure.
+Abra a ferramenta git na pasta desejada e execute o comando a seguir para clonar o repositório git em seu computador local, usando o comando fornecido pelo portal do Azure.
 
 ```
 git clone https://{name}.scm.azure-api.net/

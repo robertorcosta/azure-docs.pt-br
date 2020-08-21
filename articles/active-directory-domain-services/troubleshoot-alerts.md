@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 91a060e8a5fe1bdaf3e6ea08811814297c355108
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 29bd7490ea9a03118f134ba11923ede2075e6fd5
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86222965"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722578"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problemas conhecidos: alertas e resoluções comuns no Azure Active Directory Domain Services
 
@@ -106,7 +106,7 @@ O Azure AD DS requer uma assinatura ativa e não pode ser movido para uma assina
 
 O AD DS do Azure requer uma assinatura ativa. Se a assinatura do Azure à qual o domínio gerenciado estava associado não estiver ativa, você deverá renová-la para reativar a assinatura.
 
-1. [Renovar sua assinatura do Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
+1. [Renovar sua assinatura do Azure](../cost-management-billing/manage/subscription-disabled.md).
 2. Depois que a assinatura é renovada, uma notificação AD DS do Azure permite reabilitar o domínio gerenciado.
 
 Quando o domínio gerenciado é habilitado novamente, a integridade do domínio gerenciado se atualiza automaticamente dentro de duas horas e remove o alerta.
@@ -162,7 +162,7 @@ Esse erro é irrecuperável. Para resolver o alerta, [exclua o domínio gerencia
 
 Algumas entidades de serviço geradas automaticamente são usadas para gerenciar e criar recursos para um domínio gerenciado. Se as permissões de acesso para uma dessas entidades de serviço forem alteradas, o domínio não poderá gerenciar corretamente os recursos. As etapas a seguir mostram como entender e conceder permissões de acesso a uma entidade de serviço:
 
-1. Leia sobre [o controle de acesso baseado em função e como conceder acesso a aplicativos no portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+1. Leia sobre [o controle de acesso baseado em função e como conceder acesso a aplicativos no portal do Azure](../role-based-access-control/role-assignments-portal.md).
 2. Examine o acesso que a entidade de serviço com a ID *abba844e-bc0e-44b0-947a-dc74e5d09022* tem e conceda o acesso que foi negado em uma data anterior.
 
 ## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: Não há endereços IP suficientes disponíveis no domínio gerenciado
@@ -276,7 +276,7 @@ Os motivos comuns a seguir fazem com que a sincronização pare em um domínio g
 
 O AD DS do Azure requer uma assinatura ativa. Se a assinatura do Azure à qual o domínio gerenciado estava associado não estiver ativa, você deverá renová-la para reativar a assinatura.
 
-1. [Renovar sua assinatura do Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
+1. [Renovar sua assinatura do Azure](../cost-management-billing/manage/subscription-disabled.md).
 2. Depois que a assinatura é renovada, uma notificação AD DS do Azure permite reabilitar o domínio gerenciado.
 
 Quando o domínio gerenciado é habilitado novamente, a integridade do domínio gerenciado se atualiza automaticamente dentro de duas horas e remove o alerta.

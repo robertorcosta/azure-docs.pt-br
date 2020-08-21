@@ -1,14 +1,14 @@
 ---
 title: Noções básicas da linguagem de consulta
 description: Descreve as tabelas do Resource Graph e os tipos de dados, operadores e funções do Kusto disponíveis utilizáveis com o Azure Resource Graph.
-ms.date: 08/03/2020
+ms.date: 08/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: b59811ecd877b9b2e22a43c00329ed7d02dfb97d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: ea274c349c968852b77f3c3f2d39637f91484335
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541814"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723427"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do Azure Resource Graph
 
@@ -93,7 +93,7 @@ Essa consulta usa primeiro a consulta compartilhada e, em seguida, usa `limit` p
 
 ## <a name="supported-kql-language-elements"></a>Elementos da linguagem KQL com suporte
 
-O Resource Graph dá suporte a todos os [tipos de dados](/azure/kusto/query/scalar-data-types/), [funções escalares](/azure/kusto/query/scalarfunctions), [operadores escalares](/azure/kusto/query/binoperators), e [funções de agregação](/azure/kusto/query/any-aggfunction) da linguagem KQL. O Resource Graph dá suporte a [operadores de tabela](/azure/kusto/query/queries) específicos e alguns destes operadores apresentam comportamentos diferentes.
+O grafo de recursos dá suporte a um subconjunto de [tipos de dados](/azure/kusto/query/scalar-data-types/)KQL, [funções escalares](/azure/kusto/query/scalarfunctions), [operadores escalares](/azure/kusto/query/binoperators)e [funções de agregação](/azure/kusto/query/any-aggfunction). O Resource Graph dá suporte a [operadores de tabela](/azure/kusto/query/queries) específicos e alguns destes operadores apresentam comportamentos diferentes.
 
 ### <a name="supported-tabulartop-level-operators"></a>Operadores de tabela/nível superior com suporte
 
@@ -124,7 +124,7 @@ O escopo das assinaturas dos quais os recursos são retornados por uma consulta 
 Na API REST e em todos os outros SDKs, a lista de assinaturas para incluir recursos deve ser explicitamente definida como parte da solicitação.
 
 Como uma **Visualização**, a versão da API REST `2020-04-01-preview` adiciona uma propriedade para o escopo da consulta a um [grupo de gerenciamento](../../management-groups/overview.md). Essa API de visualização também torna a propriedade de assinatura opcional. Se o grupo de gerenciamento ou a lista de assinaturas não forem definidos, o escopo da consulta será todos os recursos que o usuário autenticado pode acessar. A nova `managementGroupId` propriedade usa a ID do grupo de gerenciamento, que é diferente do nome do grupo de gerenciamento.
-Quando `managementGroupId` é especificado, os recursos das primeiras assinaturas 5000 no ou na hierarquia do grupo de gerenciamento especificado são incluídos. `managementGroupId`Não pode ser usado ao mesmo tempo que `subscriptions` .
+Quando `managementGroupId` é especificado, os recursos das primeiras assinaturas 5000 no ou na hierarquia do grupo de gerenciamento especificado são incluídos. `managementGroupId` Não pode ser usado ao mesmo tempo que `subscriptions` .
 
 Exemplo: consultar todos os recursos na hierarquia do grupo de gerenciamento denominado ' meu grupo de gerenciamento ' com a ID ' myMG '.
 
