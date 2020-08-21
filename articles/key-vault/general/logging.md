@@ -1,21 +1,21 @@
 ---
 title: Registro em Log do Azure Key Vault | Microsoft Docs
-description: Use este tutorial para ajudá-lo a começar a usar os logs do Cofre da Chave do Azure.
+description: Saiba como monitorar o acesso aos seus cofres de chaves habilitando o log no Azure Key Vault, que salva as informações em uma conta de armazenamento do Azure fornecida por você.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9c5b07d402219907337a590e1131691fb1e24cc2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e9507525dc2c52f584bd7883a12da401b5999f50
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090579"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585909"
 ---
 # <a name="azure-key-vault-logging"></a>Log do Azure Key Vault
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e3425407fdb131fb1499b2cd085fbe6d427804a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9c8557457e3a1dc7d0ed1e50da3070360b1fd76f
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035291"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717720"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para o gerenciamento de senhas do Azure AD
 
@@ -53,7 +53,7 @@ Na experiência do portal do Azure, melhoramos a maneira de exibir a redefiniç�
 
 ### <a name="combined-registration"></a>Registro combinado
 
-Se você tiver habilitado o [registro combinado](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined), as informações relacionadas à atividade do usuário nos logs de auditoria serão encontradas em métodos de autenticação de **segurança**  >  **Authentication Methods**.
+Se você tiver habilitado o [registro combinado](./concept-registration-mfa-sspr-combined.md), as informações relacionadas à atividade do usuário nos logs de auditoria serão encontradas em métodos de autenticação de **segurança**  >  **Authentication Methods**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrição das colunas do relatório no portal do Azure
 
@@ -179,7 +179,7 @@ A seguinte lista explica essa atividade em detalhes:
 * [Quais dados são usados pelo SSPR e quais dados você deve preencher para seus usuários?](howto-sspr-authenticationdata.md)
 * [Quais métodos de autenticação estão disponíveis para os usuários?](concept-sspr-howitworks.md#authentication-methods)
 * [Quais são as opções de política com o SSPR?](concept-sspr-policy.md)
-* [O que é o write-back de senha e por que devo me importar com isso?](howto-sspr-writeback.md)
+* [O que é o write-back de senha e por que devo me importar com isso?](./tutorial-enable-sspr-writeback.md)
 * [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
 * [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)
 * [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)

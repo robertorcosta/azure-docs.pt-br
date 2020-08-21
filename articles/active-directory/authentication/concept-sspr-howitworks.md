@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89d9d06433e2b915b8a96375bb39157adbce6ef2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fce07575fe95ffbd4fd906bcde7d76d89e50d48b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027627"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716309"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha de autoatendimento do Azure AD
 
@@ -139,7 +139,7 @@ Os usuários não têm a opção de registrar seu aplicativo móvel ao se regist
 >
 > Ao configurar políticas de SSPR que incluem o aplicativo autenticador como um método, pelo menos um método adicional deve ser selecionado quando um método é necessário e pelo menos dois métodos adicionais devem ser selecionados quando a configuração de dois métodos é necessária.
 >
-> Esse requisito é porque a atual experiência de registro de SSPR não inclui a opção de registrar o aplicativo autenticador. A opção para registrar o aplicativo autenticador está incluída na nova [experiência de registro combinada](concept-registration-mfa-sspr-converged.md).
+> Esse requisito é porque a atual experiência de registro de SSPR não inclui a opção de registrar o aplicativo autenticador. A opção para registrar o aplicativo autenticador está incluída na nova [experiência de registro combinada](./concept-registration-mfa-sspr-combined.md).
 >
 > Permitir políticas que usam apenas o aplicativo autenticador (quando um método é necessário) ou o aplicativo autenticador e apenas um método adicional (quando dois métodos são necessários) pode levar os usuários sendo impedidos de se registrarem para SSPR até que eles sejam configurados para usar a nova experiência de registro combinado.
 
@@ -191,13 +191,13 @@ O Azure AD verifica sua conectividade híbrida atual e fornece uma das seguintes
 * O Azure Active Directory está online e conectado ao seu cliente de write-back local. No entanto, parece que a versão instalada do Azure AD Connect está desatualizada. Considere [Atualizar o Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) para garantir que você tenha os recursos de conectividade e correções de bugs importantes mais recentes.
 * Infelizmente, não é possível verificar seu status do cliente de write-back local porque a versão instalada do Azure AD Connect está desatualizada. [Atualize o Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) para poder verificar o status da conexão.
 * Infelizmente, parece que neste momento não é possível conectarmos ao seu cliente de write-back local. [Solucionar problemas do Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar a conexão.
-* Infelizmente, não podemos nos conectar ao seu cliente de write-back local porque o write-back de senha não foi configurado corretamente. [Configurar o write-back de senha](howto-sspr-writeback.md) para restaurar a conexão.
+* Infelizmente, não podemos nos conectar ao seu cliente de write-back local porque o write-back de senha não foi configurado corretamente. [Configurar o write-back de senha](./tutorial-enable-sspr-writeback.md) para restaurar a conexão.
 * Infelizmente, parece que neste momento não é possível conectarmos ao seu cliente de write-back local. Isso pode ocorrer devido a problemas temporários em nossa extremidade. Se o problema persistir, consulte [Solucionar problemas o Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar a conexão.
 
 Para começar a usar o write-back da SSPR, conclua o seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Habilitar a redefinição de senha self-service (SSPR)](tutorial-enable-writeback.md)
+> [Tutorial: Habilitar a redefinição de senha self-service (SSPR)](./tutorial-enable-sspr-writeback.md)
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Write-back de senhas para o diretório local
 
@@ -223,7 +223,7 @@ A reinicialização e a mudança de senha são totalmente suportadas em todas as
 
 * **Usuários de uma organização parceira com um locatário existente do Azure ad**: se a organização com a qual você se parceiro tiver um locatário existente do AD do Azure, respeitaremos quaisquer políticas de redefinição de senha habilitadas nesse locatário. Para que a reinicialização da senha funcione, a organização parceira precisa ter certeza de que a SSPR do Azure Active Directory está habilitada. Não há custo adicional para os clientes do Office 365.
 * **Usuários que se inscrevem por meio** de inscrição de autoatendimento: se a organização com a qual você se parceiro usou o recurso de [inscrição de autoatendimento](../users-groups-roles/directory-self-service-signup.md) para entrar em um locatário, permitimos que eles redefinam a senha com o email que eles registraram.
-* **Usuários B2B**: quaisquer novos usuários B2B criados usando os novos [recursos B2B do Azure ad](../b2b/what-is-b2b.md) também podem redefinir suas senhas com o email que eles registraram durante o processo de convite.
+* **Usuários B2B**: quaisquer novos usuários B2B criados usando os novos [recursos B2B do Azure ad](../external-identities/what-is-b2b.md) também podem redefinir suas senhas com o email que eles registraram durante o processo de convite.
 
 Para testar este cenário, acesse https://passwordreset.microsoftonline.com com um desses usuários parceiros. Se eles possuem um email alternativo ou um email de autenticação definido, a redefinição de senha funcionará como esperado.
 

@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 440815d7d24cde9708c214bf407a2dd9206a1706
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: c510d6f1cc2aa4a7e71f64e0c296e14a9896614e
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642037"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717975"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Configurar um aplicativo PHP para Azure App serviço
 
@@ -408,15 +408,15 @@ As instalações internas do PHP contêm as extensões usadas com mais frequênc
 
 Para habilitar extensões adicionais, siga estas etapas:
 
-Adicione um diretório `bin` ao diretório raiz do seu aplicativo e coloque os arquivos de extensão `.so` nele (por exemplo, *mongodb.so*). Verifique se as extensões são compatíveis com a versão do PHP no Azure e também com nts (non-thread-safe) e VC9.
+Adicione um `bin` diretório ao diretório raiz do seu aplicativo e coloque os `.dll` arquivos de extensão nele (por exemplo, *mongodb.dll*). Verifique se as extensões são compatíveis com a versão do PHP no Azure e também com nts (non-thread-safe) e VC9.
 
 Implante suas alterações.
 
 Siga as etapas em [Personalizar diretivas PHP_INI_SYSTEM](#customize-php_ini_system-directives) e adicione as extensões ao arquivo personalizado *.ini* com as diretivas [extension](https://www.php.net/manual/ini.core.php#ini.extension) ou [zend_extension](https://www.php.net/manual/ini.core.php#ini.zend-extension).
 
 ```
-extension=d:\home\site\wwwroot\bin\mongodb.so
-zend_extension=d:\home\site\wwwroot\bin\xdebug.so
+extension=d:\home\site\wwwroot\bin\mongodb.dll
+zend_extension=d:\home\site\wwwroot\bin\xdebug.dll
 ```
 
 Para que as alterações entrem em vigor, reinicie o aplicativo.

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 42faf4ba0a596fc5b2b34f403a5117e5ceea82ed
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ac934f88d00521b13fd2b134c80f19656c63117b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903333"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718808"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Fazer backup e recuperar seus modelos de reconhecedor de formulário
 
@@ -39,6 +39,9 @@ O processo para copiar um modelo personalizado consiste nas seguintes etapas:
 1. Primeiro, você emite uma solicitação de cópia de autorização para o recurso de destino &mdash; que é, o recurso que receberá o modelo copiado. Você obtém novamente a URL do modelo de destino recém-criado, que receberá os dados copiados.
 1. Em seguida, você envia a solicitação de cópia para o recurso &mdash; de origem o recurso que contém o modelo a ser copiado. Você obterá uma URL que pode consultar para acompanhar o progresso da operação.
 1. Você usará suas credenciais de recurso de origem para consultar a URL de progresso até que a operação seja bem-sucedida. Você também pode consultar a nova ID do modelo no recurso de destino para obter o status do novo modelo.
+
+> [!CAUTION]
+> Atualmente, a API de cópia não dá suporte a IDs de modelo para [modelos personalizados compostos](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/Compose). A composição de modelo é um recurso de visualização na versão prévia de v 2.1-Preview. 1. 
 
 ## <a name="generate-copy-authorization-request"></a>Gerar solicitação de autorização de cópia
 
@@ -88,9 +91,9 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 ### <a name="common-errors"></a>Erros comuns
 
-|Erro|Resolução|
+|Erro do|Resolução|
 |:--|:--|
-| 400/solicitação inadequada com`"code:" "1002"` | Indica erro de validação ou solicitação de cópia mal formada. Problemas comuns incluem: a) carga inválida ou modificada `copyAuthorization` . b) valor expirado para o `expirationDateTimeTicks` token (a `copyAuhtorization` carga é válida por 24 horas). c) inválido ou sem suporte `targetResourceRegion` . d) cadeia de caracteres inválida ou malformada `targetResourceId` .
+| 400/solicitação inadequada com `"code:" "1002"` | Indica erro de validação ou solicitação de cópia mal formada. Problemas comuns incluem: a) carga inválida ou modificada `copyAuthorization` . b) valor expirado para o `expirationDateTimeTicks` token (a `copyAuhtorization` carga é válida por 24 horas). c) inválido ou sem suporte `targetResourceRegion` . d) cadeia de caracteres inválida ou malformada `targetResourceId` .
 |
 
 ## <a name="track-copy-progress"></a>Acompanhar o progresso da cópia
@@ -112,7 +115,7 @@ Content-Type: application/json; charset=utf-8
 
 ### <a name="common-errors"></a>Erros comuns
 
-|Erro|Resolução|
+|Erro do|Resolução|
 |:--|:--|
 |"Errors": [{"Code": "AuthorizationError",<br>"mensagem": "falha de autorização devido a <br>declarações de autorização ausentes ou inválidas. "}]   | Ocorre quando a `copyAuthorization` carga ou o conteúdo é modificado a partir do que foi retornado pela `copyAuthorization` API. Verifique se a carga tem o mesmo conteúdo exato que foi retornado da chamada anterior `copyAuthorization` .|
 |"Errors": [{"Code": "AuthorizationError",<br>"Message": "não foi possível recuperar a autorização <br>los. Se esse problema persistir, use outro <br>modelo de destino para copiar em. "}] | Indica que a `copyAuthorization` carga está sendo reutilizada com uma solicitação de cópia. Uma solicitação de cópia com sucesso não permitirá nenhuma solicitação adicional que use a mesma `copyAuthorization` carga. Se você gerar um erro separado (como aqueles indicados abaixo) e depois tentar novamente a cópia com a mesma carga de autorização, esse erro será gerado. A resolução é gerar uma nova `copyAuthorization` carga e, em seguida, emitir novamente a solicitação de cópia.|

@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ede7ddb81bae69d92983e787e779ee9d410bd87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 584fb5c370fa0be629d057eb94dc4c2a8b9edc15
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82144079"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716428"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticação baseada em certificado do Azure Active Directory no iOS
 
@@ -61,15 +61,15 @@ Os seguintes requisitos e considerações do ADFS (Serviços de Federação do A
 
 Para que o Azure AD revogue um certificado de cliente, o token do ADFS deve ter as seguintes declarações. O Azure AD adiciona essas declarações ao token de atualização se elas estiverem disponíveis no token do ADFS (ou qualquer outro token SAML). Quando o token de atualização precisa ser validado, essas informações são usadas para verificar a revogação:
 
-* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`-Adicionar o número de série do seu certificado de cliente
-* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`-Adicionar a cadeia de caracteres para o emissor do seu certificado de cliente
+* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>` -Adicionar o número de série do seu certificado de cliente
+* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>` -Adicionar a cadeia de caracteres para o emissor do seu certificado de cliente
 
 Como prática recomendada, você também deve atualizar as páginas de erro do ADFS de sua organização com as seguintes informações:
 
 * O requisito para instalar o Microsoft Authenticator no iOS.
 * Instruções sobre como obter um certificado de usuário.
 
-Para obter mais informações, consulte [Personalizando a página de entrada AD FS](https://technet.microsoft.com/library/dn280950.aspx).
+Para obter mais informações, consulte [Personalizando a página de entrada AD FS](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)).
 
 ## <a name="use-modern-authentication-with-office-apps"></a>Usar autenticação moderna com aplicativos do Office
 

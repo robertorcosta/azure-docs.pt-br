@@ -3,12 +3,12 @@ title: Habilitar identidades gerenciadas em suas VMs de laboratório no Azure De
 description: Este artigo mostra como um proprietário de laboratório pode habilitar identidades gerenciadas atribuídas pelo usuário em suas máquinas virtuais de laboratório.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 886dc3b541c624d9f7a300fbbe696e1d2e143641
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4bf2900acebaeecd5cbc4cb65635aee6de87dda
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85475995"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717618"
 ---
 # <a name="enable-user-assigned-managed-identities-on-lab-virtual-machines-in-azure-devtest-labs"></a>Habilitar identidades gerenciadas atribuídas pelo usuário em máquinas virtuais de laboratório no Azure DevTest Labs
 Como proprietário de um laboratório, você pode habilitar identidades gerenciadas atribuídas pelo usuário em suas VMs (máquinas virtuais) de laboratório em Azure DevTest Labs.
@@ -25,14 +25,16 @@ Para adicionar uma identidade gerenciada atribuída ao usuário para VMs do labo
 
 1. [Criar uma identidade gerenciada atribuída pelo usuário em sua assinatura](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)
 1. Navegue até a página **configuração e políticas** do seu laboratório.
-2. Selecione **identidade (versão prévia)** no menu à esquerda.
-3. Selecione a guia **máquina virtual** .
-4. Selecione **Adicionar** para selecionar uma identidade existente de uma lista suspensa preenchida previamente. 
+1. Selecione **identidade (versão prévia)** no menu à esquerda.
+1. Selecione a guia **máquina virtual** .
+1. Selecione **Adicionar** para selecionar uma identidade existente de uma lista suspensa preenchida previamente. 
 
-    ![Botão Adicionar identidade](./media/enable-managed-identities-lab-vms/add-identity-button.png)
-5. Selecione uma **identidade gerenciada pelo usuário** existente na lista suspensa e selecione **OK**. 
+    > [!div class="mx-imgBorder"]
+    > ![Botão Adicionar identidade](./media/enable-managed-identities-lab-vms/add-identity-button.png)
+1. Selecione uma **identidade gerenciada pelo usuário** existente na lista suspensa e selecione **OK**. 
 
-    ![Adicionar identidade](./media/enable-managed-identities-lab-vms/add-identity.png)
+    > [!div class="mx-imgBorder"]
+    > ![Adicionar identidade](./media/enable-managed-identities-lab-vms/add-identity.png)
 
 ## <a name="use-api"></a>Usar API
 

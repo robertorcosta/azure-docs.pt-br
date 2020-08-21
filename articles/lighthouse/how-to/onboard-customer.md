@@ -1,14 +1,14 @@
 ---
 title: Integrar um cliente ao Azure Lighthouse
 description: Saiba como integrar um cliente ao Azure Lighthouse, permitindo que seus recursos sejam acessados e gerenciados por meio de seu próprio locatário usando o gerenciamento de recursos delegado do Azure.
-ms.date: 08/12/2020
+ms.date: 08/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f20df54a4bc689effad210746f93928defdaf0f5
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: db6a819c72f1ef46f542ed47cad6caae23c0d191
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167310"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719046"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Integrar um cliente ao Azure Lighthouse
 
@@ -121,7 +121,7 @@ Para integrar seu cliente, você precisará criar um modelo do [Azure Resource M
 
 |Campo  |Definição  |
 |---------|---------|
-|**mspOfferName**     |Um nome que descreve essa definição. Esse valor é exibido para o cliente como o título da oferta.         |
+|**mspOfferName**     |Um nome que descreve essa definição. Esse valor é exibido para o cliente como o título da oferta e deve ser um valor exclusivo.        |
 |**mspOfferDescription**     |Uma breve descrição da sua oferta (por exemplo, "oferta de gerenciamento de VM da Contoso").      |
 |**managedByTenantId**     |ID do locatário.          |
 |**autorizações**     |Os valores de **principalId** dos usuários/grupos/SPNs do seu locatário, cada um com uma **principalIdDisplayName** para ajudar seu cliente a entender a finalidade da autorização, mapeados no valor interno de **roleDefinitionId** para especificar o nível de acesso.      |
@@ -138,7 +138,7 @@ O modelo escolhido dependerá se você está integrando uma assinatura inteira, 
 |Assinatura (ao usar uma oferta publicada no Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> O processo descrito aqui requer uma implantação de nível de assinatura separada para cada assinatura integrada, mesmo se você estiver integrando assinaturas no mesmo locatário do cliente. Também serão necessárias implantações separadas se você estiver integrando vários grupos de recursos em assinaturas diferentes no mesmo locatário do cliente. No entanto, a integração de múltiplos grupos de recursos em uma única assinatura pode ser feita em uma implantação de nível de assinatura.
+> O processo descrito aqui requer uma implantação separada para cada assinatura sendo integrada, mesmo se você estiver integrando assinaturas no mesmo locatário do cliente. Também serão necessárias implantações separadas se você estiver integrando vários grupos de recursos em assinaturas diferentes no mesmo locatário do cliente. No entanto, a integração de múltiplos grupos de recursos em uma única assinatura pode ser feita em uma implantação.
 >
 > Implantações separadas também são necessárias para várias ofertas que estão sendo aplicadas à mesma assinatura (ou grupos de recursos dentro de uma assinatura). Cada oferta aplicada deve usar um **mspOfferName** diferente.
 
@@ -199,12 +199,22 @@ A última autorização no exemplo acima adiciona **principalId** com a função
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Implantar os modelos do Azure Resource Manager
 
-Depois de atualizar o arquivo de parâmetros, um usuário no locatário do cliente deve implantar o modelo do Azure Resource Manager no locatário como uma implantação em nível de assinatura. Uma implantação separada é necessária para cada assinatura que você deseja integrar (ou para cada assinatura que contém os grupos de recursos que você deseja carregar). A implantação pode ser feita usando a CLI do PowerShell ou do Azure, como mostrado abaixo.
+Depois de atualizar o arquivo de parâmetros, um usuário no locatário do cliente deve implantar o modelo de Azure Resource Manager dentro de seu locatário. Uma implantação separada é necessária para cada assinatura que você deseja integrar (ou para cada assinatura que contém os grupos de recursos que você deseja carregar).
 
 > [!IMPORTANT]
-> A implantação de nível de assinatura deve ser feita por uma conta que não seja de convidado no locatário do cliente que tem a [função interna de Proprietário](../../role-based-access-control/built-in-roles.md#owner) na assinatura que está sendo integrada (ou que contém os grupos de recursos a integrar). Para ver todos os usuários que podem delegar a assinatura, um usuário do locatário do cliente poderá selecionar a assinatura no portal do Azure, abrir o **IAM (Controle de acesso)** e [exibir todos os usuários com a função Proprietário](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+> Essa implantação deve ser feita por uma conta que não seja de convidado no locatário do cliente que tem a [função interna de proprietário](../../role-based-access-control/built-in-roles.md#owner) para a assinatura que está sendo integrada (ou que contém os grupos de recursos que estão sendo integrados). Para ver todos os usuários que podem delegar a assinatura, um usuário do locatário do cliente poderá selecionar a assinatura no portal do Azure, abrir o **IAM (Controle de acesso)** e [exibir todos os usuários com a função Proprietário](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription). 
 >
 > Se a assinatura foi criada por meio do programa [CSP (provedor de soluções na nuvem)](../concepts/cloud-solution-provider.md), qualquer usuário que tenha a função de [Agente de administração](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) no locatário do provedor de serviços pode executar a implantação.
+
+A implantação pode ser feita no portal do Azure, usando o PowerShell ou usando CLI do Azure, conforme mostrado abaixo.
+
+### <a name="azure-portal"></a>Portal do Azure
+
+1. Em nosso [repositório GitHub](https://github.com/Azure/Azure-Lighthouse-samples/), selecione o botão **implantar no Azure** mostrado ao lado do modelo que você deseja usar. O modelo será aberto no portal do Azure.
+1. Insira seus valores para **nome da oferta MSP**, **Descrição da oferta MSP**, **gerenciado por ID do locatário**e **autorizações**. Se preferir, você pode selecionar **Editar parâmetros** para inserir valores para `mspOfferName` , `mspOfferDescription` , `managedbyTenantId` e `authorizations` diretamente no arquivo de parâmetro. Certifique-se de atualizar esses valores em vez de usar os valores padrão do modelo.
+1. Selecione **revisar e criar e**, em seguida, selecionar **criar**.
+
+Após alguns minutos, você deverá ver uma notificação informando que a implantação foi concluída.
 
 ### <a name="powershell"></a>PowerShell
 

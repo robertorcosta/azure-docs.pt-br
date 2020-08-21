@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d949f4b10bc6b7b592556d78edfcf02a05ec7144
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 433cfa3789aa37f4145982da97719526c0abfc47
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565767"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719488"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Habilitar a Autenticação Multifator individual do Azure para proteção de acesso
 
@@ -76,7 +76,7 @@ Para alterar o estado da autenticação multifator do Azure por usuário para um
 
 1. Confirme sua seleção na janela pop-up que é aberta.
 
-Depois de habilitar os usuários, notifique-os por email. Informe aos usuários que um aviso é exibido para pedir que eles se registrem no próximo acesso. Além disso, se sua organização usar aplicativos sem navegador que não dão suporte à autenticação moderna, eles precisam criar senhas de aplicativo. Para obter mais informações, confira [Guia do usuário final para Autenticação Multifator do Azure](../user-help/multi-factor-authentication-end-user.md) para ajudá-los a começar a usar este recurso.
+Depois de habilitar os usuários, notifique-os por email. Informe aos usuários que um aviso é exibido para pedir que eles se registrem no próximo acesso. Além disso, se sua organização usar aplicativos sem navegador que não dão suporte à autenticação moderna, eles precisam criar senhas de aplicativo. Para obter mais informações, confira [Guia do usuário final para Autenticação Multifator do Azure](../user-help/multi-factor-authentication-end-user-first-time.md) para ajudá-los a começar a usar este recurso.
 
 ## <a name="change-state-using-powershell"></a>Alteração do estado usando o PowerShell
 

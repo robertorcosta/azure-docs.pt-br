@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 4c8a536086e426a2d83d26538f9d0efe1ea63eb4
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: d6662259494bba5747e01c4574186e9030112247
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705785"
+ms.locfileid: "88719403"
 ---
 # <a name="durable-functions-versions-overview"></a>Visão geral das versões do Durable Functions
 
@@ -46,7 +46,7 @@ Esta seção descreve como migrar suas Durable Functions existentes da versão 1
 
 Instale a versão 2. x mais recente da extensão de associações de Durable Functions em seu projeto.
 
-#### <a name="javascript-and-python"></a>JavaScript e Python
+#### <a name="javascript-python-and-powershell"></a>JavaScript, Python e PowerShell
 
 O Durable Functions 2. x está disponível na versão 2. x do [pacote de extensão de Azure Functions](../functions-bindings-register.md#extension-bundles).
 

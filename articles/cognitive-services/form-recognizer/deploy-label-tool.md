@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 3bb8f0e809ae1acbec1479c20e24c90fd81905d4
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: c7c4e1cc854fdd2fbf03d2274992bbc4a3bb93af
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212438"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717890"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implantar a ferramenta de rotulagem de exemplos
 
@@ -70,14 +70,27 @@ Siga estas etapas para criar um novo recurso usando o portal do Azure:
 
 6. Agora, vamos configurar o contêiner do Docker. Todos os campos são necessários, a menos que indicado de outra forma:
 
+    # <a name="v20"></a>[v2.0](#tab/v2-0)  
    * Opções-selecione **um único contêiner**
    * Origem da imagem – selecionar **registro privado** 
-   * URL do servidor-defina como`https://mcr.microsoft.com`
+   * URL do servidor-defina como `https://mcr.microsoft.com`
    * Nome de usuário (opcional)-criar um nome de usuário. 
    * Senha (opcional) – crie uma senha segura que você vai lembrar.
-   * Imagem e marca-defina isso como`mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+   * Imagem e marca-defina isso como `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
    * Implantação contínua – defina como **ativado** se você quiser receber atualizações automáticas quando a equipe de desenvolvimento fizer alterações na ferramenta de rotulagem de exemplo.
-   * Comando de inicialização – defina como`./run.sh eula=accept`
+   * Comando de inicialização – defina como `./run.sh eula=accept`
+
+    # <a name="v21-preview"></a>[versão prévia do v 2.1](#tab/v2-1) 
+   * Opções-selecione **um único contêiner**
+   * Origem da imagem – selecionar **registro privado** 
+   * URL do servidor-defina como `https://mcr.microsoft.com`
+   * Nome de usuário (opcional)-criar um nome de usuário. 
+   * Senha (opcional) – crie uma senha segura que você vai lembrar.
+   * Imagem e marca-defina isso como `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview`
+   * Implantação contínua – defina como **ativado** se você quiser receber atualizações automáticas quando a equipe de desenvolvimento fizer alterações na ferramenta de rotulagem de exemplo.
+   * Comando de inicialização – defina como `./run.sh eula=accept`
+    
+    ---
 
    > [!div class="mx-imgBorder"]
    > ![Configurar o Docker](./media/quickstarts/formre-configure-docker.png)
@@ -93,13 +106,15 @@ Como alternativa ao uso do portal do Azure, você pode criar um recurso usando o
 
 Há algumas coisas que você precisa saber sobre este comando:
 
-* `DNS_NAME_LABEL=aci-demo-$RANDOM`gera um nome DNS aleatório. 
+* `DNS_NAME_LABEL=aci-demo-$RANDOM` gera um nome DNS aleatório. 
 * Este exemplo pressupõe que você tenha um grupo de recursos que você pode usar para criar um recurso. Substituir `<resource_group_name>` por um grupo de recursos válido associado à sua assinatura. 
 * Você precisará especificar onde deseja criar o recurso. Substitua `<region name>` pela região desejada para o aplicativo Web. 
 * Esse comando aceita automaticamente o EULA.
 
 No CLI do Azure, execute este comando para criar um recurso de aplicativo Web para a ferramenta de rotulagem de exemplo: 
 
+
+# <a name="v20"></a>[v2.0](#tab/v2-0)   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
@@ -113,7 +128,24 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
+``` 
+# <a name="v21-preview"></a>[versão prévia do v 2.1](#tab/v2-1)    
+```azurecli
+DNS_NAME_LABEL=aci-demo-$RANDOM
+
+az container create \
+  --resource-group <resource_group_name> \
+  --name <name> \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview \
+  --ports 3000 \
+  --dns-name-label $DNS_NAME_LABEL \
+  --location <region name> \
+  --cpu 2 \
+  --memory 8 \
+  --command-line "./run.sh eula=accept"
 ```
+
+---
 
 ### <a name="connect-to-azure-ad-for-authorization"></a>Conectar-se ao Azure AD para autorização
 

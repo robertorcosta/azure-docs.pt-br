@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 4949a83ac2aac664c19be46a367fce2bbff4cb02
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 28a01bbc54f752ffc1f25b57dcf2eca566aa635a
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904812"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718094"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planejamento de capacidade de cluster do Service Fabric
 
@@ -56,7 +56,7 @@ O número de tipos de nós iniciais depende da finalidade do cluster e dos aplic
 
     O Service Fabric dá suporte a clusters que se estendem por [zonas de disponibilidade](../availability-zones/az-overview.md) implantando tipos de nós que são fixados em zonas específicas, garantindo a alta disponibilidade de seus aplicativos. Zonas de Disponibilidade exigir o planejamento de tipo de nó adicional e requisitos mínimos. Para obter detalhes, consulte [topologia recomendada para o tipo de nó primário de clusters de Service Fabric que abrangem entre zonas de disponibilidade](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
 
-Ao determinar o número e as propriedades de tipos de nó para a criação inicial do cluster, tenha em mente que você sempre poderá adicionar, modificar ou remover tipos de nó (não primários) depois que o cluster for implantado. Os [tipos de nó primários também podem ser modificados](service-fabric-scale-up-node-type.md) em clusters em execução (embora essas operações exijam uma grande quantidade de planejamento e cuidado em ambientes de produção).
+Ao determinar o número e as propriedades de tipos de nó para a criação inicial do cluster, tenha em mente que você sempre poderá adicionar, modificar ou remover tipos de nó (não primários) depois que o cluster for implantado. Os [tipos de nó primários também podem ser modificados](service-fabric-scale-up-primary-node-type.md) em clusters em execução (embora essas operações exijam uma grande quantidade de planejamento e cuidado em ambientes de produção).
 
 Uma consideração adicional para suas propriedades de tipo de nó é nível de durabilidade, que determina os privilégios que as VMs de um tipo de nó têm na infraestrutura do Azure. Use o tamanho das VMs que você escolher para o cluster e a contagem de instâncias que você atribui para tipos de nós individuais para ajudar a determinar a camada de durabilidade apropriada para cada um dos tipos de nós, conforme descrito a seguir.
 
@@ -105,7 +105,7 @@ Use a durabilidade prateada ou ouro para todos os tipos de nó que hospedam serv
 Siga estas recomendações para gerenciar tipos de nós com durabilidade prata ou ouro:
 
 * Mantenha sempre a integridade do cluster e dos aplicativos e verifique se os aplicativos respondem a todos os [eventos de ciclo de vida de réplica do Serviço](service-fabric-reliable-services-lifecycle.md) (como quando a réplica sendo compilada está paralisada) de maneira oportuna.
-* Adote maneiras mais seguras de fazer uma alteração no tamanho da VM (escalar verticalmente). Alterar o tamanho da VM de um conjunto de dimensionamento de máquinas virtuais requer planejamento cuidadoso e cuidado. Para obter detalhes, consulte [escalar verticalmente um tipo de nó de Service Fabric](service-fabric-scale-up-node-type.md)
+* Adote maneiras mais seguras de fazer uma alteração no tamanho da VM (escalar verticalmente). Alterar o tamanho da VM de um conjunto de dimensionamento de máquinas virtuais requer planejamento cuidadoso e cuidado. Para obter detalhes, consulte [escalar verticalmente um tipo de nó de Service Fabric](service-fabric-scale-up-primary-node-type.md)
 * Mantenha uma contagem mínima de cinco nós para qualquer conjunto de dimensionamento de máquinas virtuais que tenha o nível de durabilidade Ouro ou Prata habilitado. O cluster entrará em estado de erro se você reduzir abaixo desse limite e precisará limpar manualmente o estado ( `Remove-ServiceFabricNodeState` ) para os nós removidos.
 * Cada escala de máquina virtual definida com nível de durabilidade Silver ou Gold deve ser mapeada para seu próprio tipo de nó no cluster do Service Fabric. O mapeamento de vários conjuntos de escala de máquinas virtuais para um único tipo de nó impedirá que a coordenação entre o cluster do Service Fabric e a infraestrutura do Azure funcione corretamente.
 * Não exclua instâncias de VM aleatórias, sempre use a escala do conjunto de dimensionamento de máquinas virtuais no recurso. A exclusão de instâncias de VM aleatórias tem um potencial de criar desequilíbrios na instância de VM espalhada entre [domínios de atualização](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) e [domínios de falha](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains). Esse desequilíbrio pode afetar negativamente a capacidade dos sistemas de balancear adequadamente a carga entre as instâncias de serviço/réplicas de serviço.

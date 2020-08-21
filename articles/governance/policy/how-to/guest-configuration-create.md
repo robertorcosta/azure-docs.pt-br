@@ -3,12 +3,12 @@ title: Como criar políticas de Configuração de Convidado para o Windows
 description: Saiba como criar uma política de Configuração de Convidado do Azure Policy para Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 4ee0c9d1912338235e53eb287bfc86a14b75cc97
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 36e71f00a4613e1723645f48d9e57aed9e1e9a8a
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547657"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719386"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de Configuração de Convidado para o Windows
 
@@ -26,8 +26,7 @@ Use as ações a seguir para criar sua própria configuração para validar o es
 > As políticas personalizadas com a Configuração de Convidado são uma versão prévia do recurso.
 >
 > A extensão de Configuração de Convidado é necessária para executar auditorias em máquinas virtuais do Azure.
-> Para implantar a extensão em escala em todos os computadores Windows, atribua a seguinte definição de política:
->   - [Implantar os pré-requisitos para habilitar a Política de Configuração de Convidado nas VMs do Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> Para implantar a extensão em escala em todas as máquinas com Windows, atribua as seguintes definições de política: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
 
 ## <a name="install-the-powershell-module"></a>Instalar o módulo do PowerShell
 
@@ -53,7 +52,7 @@ Sistemas operacionais em que é possível instalar o módulo:
 
 O módulo do recurso de Configuração de Convidado requer o seguinte software:
 
-- PowerShell 6.2 ou posterior. Se ainda não estiver instalado, siga [estas instruções](/powershell/scripting/install/installing-powershell).
+- PowerShell 6.2 ou superior. Se ainda não estiver instalado, siga [estas instruções](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 ou superior. Se ainda não estiver instalado, siga [estas instruções](/powershell/azure/install-az-ps).
   - Somente os módulos AZ ' AZ. Accounts ' e ' AZ. Resources ' são necessários.
 

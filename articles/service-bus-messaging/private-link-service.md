@@ -5,12 +5,12 @@ author: spelluru
 ms.author: spelluru
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: ef469eb74c3dd7d82dec908dba8c53136df206e4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4f3b67794d1a7f3935c79c70f18b8bd4a1e0d7ef
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423415"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716615"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Permitir acesso aos namespaces do barramento de serviço do Azure por meio de pontos de extremidade privados
 
@@ -234,7 +234,7 @@ Há quatro estados de provisionamento:
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Validar se a conexão de link privado funciona
 
-Valide se os recursos dentro da mesma sub-rede do recurso de ponto de extremidade privado estão se conectando ao namespace do Barramento de Serviço por um endereço IP privado e se eles têm a integração de zona DNS privada correta.
+Você deve validar se os recursos dentro da rede virtual do ponto de extremidade privado estão se conectando ao namespace do barramento de serviço por meio de um endereço IP privado e se eles têm a integração de zona DNS privada correta.
 
 Primeiro, crie uma máquina virtual seguindo as etapas em [Criar uma máquina virtual do Windows no portal do Azure](../virtual-machines/windows/quick-create-portal.md)
 

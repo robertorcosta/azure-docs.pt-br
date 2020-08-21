@@ -3,14 +3,14 @@ title: Como criar implantações de atualização para a automação do Azure Ge
 description: Este artigo descreve como agendar implantações de atualização e revisar seu status.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2a81376b284e0d1df84a69b969335c0e63999a00
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 4336ba272dd83ad2a35060c1c7524a564b928484
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449890"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717686"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Como implantar atualizações e examinar os resultados
 
@@ -41,8 +41,10 @@ Para agendar uma nova implantação de atualização:
 
 6. Use a região **Classificações de atualização** para especificar [classificações de atualização](update-mgmt-view-update-assessments.md#work-with-update-classifications) para os produtos. para cada produto, desmarque todas as classificações de atualização com suporte, exceto as que serão incluídas na implantação da atualização.
 
-7. Use a região **Incluir/excluir atualizações** para selecionar atualizações específicas para implantação. A página Incluir/excluir exibe as atualizações pelos números da ID do artigo na KB para inclusão ou exclusão.
-    
+    Se sua implantação for destinada a aplicar apenas um conjunto selecionado de atualizações, será necessário desmarcar todas as classificações de atualização pré-selecionadas ao configurar a opção **incluir/excluir atualizações** , conforme descrito na próxima etapa. Isso garante que somente as atualizações que você especificou para *incluir* nessa implantação sejam instaladas nos computadores de destino.
+
+7. Use a região **incluir/excluir atualizações** para adicionar ou excluir as atualizações selecionadas da implantação. Na página **incluir/excluir** , insira os números de ID do artigo da base de conhecimento a serem incluídos ou excluídos.
+
    > [!IMPORTANT]
    > Lembre-se de que as exclusões substituem as inclusões. Por exemplo, se você definir uma regra de exclusão de `*`, o Gerenciamento de Atualizações excluirá todos os patches ou pacotes da instalação. Correções excluídas ainda são mostradas como ausentes dos computadores. Para computadores Linux, se você incluir um pacote que tem um pacote dependente que foi excluído, o Gerenciamento de Atualizações não instalará o pacote principal.
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 08/11/2020
-ms.openlocfilehash: a53ac9387664aafc218f13834e0499fde417d87d
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.date: 08/20/2020
+ms.openlocfilehash: 883eede5296f3f280bf30c9a459c02a9243f9081
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566073"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719522"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
@@ -725,7 +725,7 @@ Aqui estão algumas maneiras de ajudar a proteger pontos de extremidade que rece
 
 * Adicionar autenticação a solicitações de saída.
 
-  Quando você trabalha com um gatilho ou uma ação baseada em HTTP que faz chamadas de saída, como HTTP, HTTP + Swagger ou Webhook, você pode adicionar uma autenticação à solicitação enviada pelo seu aplicativo lógico. Por exemplo, você pode selecionar estes tipos de autenticação:
+  Quando você usa um gatilho ou uma ação baseada em HTTP que faz chamadas de saída, por exemplo, HTTP, você pode adicionar autenticação à solicitação enviada pelo seu aplicativo lógico. Por exemplo, você pode selecionar estes tipos de autenticação:
 
   * [Autenticação Básica](#basic-authentication)
 
@@ -792,7 +792,7 @@ Esta tabela identifica os tipos de autenticação que estão disponíveis nos ga
 | [Certificado do Cliente](#client-certificate-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, HTTP, HTTP + Swagger, Webhook HTTP |
 | [OAuth do Active Directory](#azure-active-directory-oauth-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, Azure Functions, HTTP, HTTP + Swagger, Webhook HTTP |
 | [Bruta](#raw-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, Azure Functions, HTTP, HTTP + Swagger, Webhook HTTP |
-| [Identidade gerenciada](#managed-identity-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, Azure Functions, HTTP, HTTP + Swagger, Webhook HTTP |
+| [Identidade gerenciada](#managed-identity-authentication) | Gerenciamento de API do Azure, serviços de Azure App, Azure Functions, HTTP |
 |||
 
 <a name="basic-authentication"></a>

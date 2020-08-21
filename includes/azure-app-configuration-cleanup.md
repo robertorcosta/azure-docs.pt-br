@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 1/31/2020
 ms.author: lcozzens
 ms.custom: include file
-ms.openlocfilehash: e49f68f43044b93f329295181717ec2d3ade9fc6
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 751613e7b3b2252b62dff2c3e1adad83bdc8c393
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116981"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88638991"
 ---
 Se não deseja continuar usando os recursos criados neste artigo, exclua o grupo de recursos que você criou aqui para evitar encargos.
 
@@ -22,7 +22,7 @@ Se não deseja continuar usando os recursos criados neste artigo, exclua o grupo
 
 1. Entre no [portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 1. Na caixa **Filtrar por nome...**, digite o nome do seu grupo de recursos. 
-1. Na lista de resultados, escolha o grupo de recursos e clique com o botão direito do mouse na linha ou use o botão de **reticências** (**...**) para abrir o menu de contexto.
+1. Na lista de resultados, selecione o nome do grupo de recursos para conferir uma visão geral.
 1. Selecione **Excluir grupo de recursos**.
 1. Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Insira o nome do grupo de recursos para confirmar e selecione **Excluir**.
 

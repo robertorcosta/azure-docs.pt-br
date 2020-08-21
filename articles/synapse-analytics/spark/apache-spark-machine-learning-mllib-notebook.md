@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: f31e238c705a4b03c400a38fa6eb5f42db7204b0
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e1ece0add7b0749cfd808b0a3ec7962dd43a302d
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535018"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719335"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Criar um aplicativo de aprendizado de máquina com o Apache Spark MLlib e o Azure Synapse Analytics
 
@@ -71,7 +71,7 @@ Nas etapas a seguir, você desenvolverá um modelo para prever se uma corrida es
 
 Como os dados brutos estão no formato Parquet, você pode usar o contexto do Spark para extrair o arquivo diretamente na memória como um dataframe. Embora o código a seguir use as opções padrão, é possível forçar o mapeamento dos tipos de dados e outros atributos de esquema, se necessário.
 
-1. Execute as linhas a seguir para criar um dataframe do Spark, colando o código em uma nova célula. Isso recupera os dados por meio da API de conjuntos de dados abertos. A extração de todos esses dados gera cerca de 1,5 bilhão de linhas. Dependendo do tamanho do pool do Spark (versão prévia), os dados brutos podem ser muito grandes ou levar muito tempo para a operação. Você pode filtrar esses dados para um volume menor. O uso de start_date e end_date aplica um filtro que retorna um mês de dados.
+1. Execute as linhas a seguir para criar um dataframe do Spark, colando o código em uma nova célula. Isso recupera os dados por meio da API de conjuntos de dados abertos. A extração de todos esses dados gera cerca de 1,5 bilhão de linhas. Dependendo do tamanho do pool do Spark (versão prévia), os dados brutos podem ser muito grandes ou levar muito tempo para a operação. Você pode filtrar esses dados para um volume menor. O exemplo de código a seguir usa start_date e end_date para aplicar um filtro que retorna um único mês de dados.
 
     ```python
     from azureml.opendatasets import NycTlcYellow
@@ -96,7 +96,7 @@ Como os dados brutos estão no formato Parquet, você pode usar o contexto do Sp
     display(sampled_taxi_df)
     ```
 
-4. Dependendo do tamanho do conjunto de dados gerado e da necessidade de experimentar ou executar o bloco de notas muitas vezes, pode ser aconselhável armazenar em cache o conjunto de dados localmente no espaço de trabalho. Há três maneiras de realizar o armazenamento em cache explícito:
+4. Dependendo do tamanho do conjunto de dados gerado e da necessidade de experimentar ou executar o bloco de notas muitas vezes, pode ser aconselhável armazenar em cache o conjunto de dados localmente no espaço de trabalho. Há três maneiras de executar o cache explícito:
 
    - Salvar o dataframe localmente como arquivo
    - Salvar o dataframe como tabela ou exibição temporária
@@ -126,7 +126,7 @@ ax1.set_ylabel('Counts')
 plt.suptitle('')
 plt.show()
 
-# How many passengers tip'd by various amounts
+# How many passengers tipped by various amounts
 ax2 = sampled_taxi_pd_df.boxplot(column=['tipAmount'], by=['passengerCount'])
 ax2.set_title('Tip amount by Passenger count')
 ax2.set_xlabel('Passenger count')
@@ -157,7 +157,7 @@ No código abaixo, quatro classes de operações são realizadas:
 - A remoção de exceções/valores incorretos por meio da filtragem.
 - A remoção de colunas que não são necessárias.
 - A criação de novas colunas derivadas dos dados brutos para fazer com que o modelo funcione com mais eficiência, às vezes chamada de caracterização.
-- Rotulagem, como você está realizando a classificação binária (haverá gorjeta ou não em determinada corrida), é necessário converter o valor das gorjetas em um valor 0 ou 1.
+- Rotulagem-como você está executando a classificação binária (haverá uma gorjeta ou não em uma determinada viagem), há a necessidade de converter o valor da gorjeta em um valor 0 ou 1.
 
 ```python
 taxi_df = sampled_taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'paymentType', 'rateCodeId', 'passengerCount'\
@@ -196,7 +196,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 A tarefa final é converter os dados rotulados para um formato que possa ser analisado pela regressão logística. A entrada para um algoritmo de regressão logística precisa ser um conjunto de *pares de vetor de recurso de rótulo*, em que o *vetor de recurso* é um vetor de números que representa o ponto de entrada. Portanto, é necessário converter as colunas categóricas em números. As colunas `trafficTimeBins` e `weekdayString` precisam ser convertidas em representações de inteiros. Há várias abordagens para realizar a conversão, no entanto, a abordagem adotada neste exemplo é *OneHotEncoding*, uma abordagem comum.
 
 ```python
-# The sample uses an algorithm that only works with numeric features convert them so they can be consumed
+# Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed
 sI1 = StringIndexer(inputCol="trafficTimeBins", outputCol="trafficTimeBinsIndex")
 en1 = OneHotEncoder(dropLast=False, inputCol="trafficTimeBinsIndex", outputCol="trafficTimeBinsVec")
 sI2 = StringIndexer(inputCol="weekdayString", outputCol="weekdayIndex")
@@ -225,7 +225,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 Agora que há dois DataFrames, a próxima tarefa é criar a fórmula do modelo e executá-la no DataFrames de treinamento e depois validar em relação ao DataFrames de teste. Você deve fazer experiências com versões diferentes da fórmula do modelo para ver o impacto de diferentes combinações.
 
 > [!Note]
-> Para salvar o modelo, você precisará da função do Azure de colaborador de dados de blob de armazenamento. Na conta de armazenamento, navegue até o Controle de Acesso (IAM) e selecione Adicionar atribuição de função. Atribua a função de colaborador de dados do armazenamento de BLOBs do Azure ao servidor do banco de dados SQL Somente membros com o privilégio Proprietário podem executar essa etapa. Para várias funções internas do Azure, consulte este [guia](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+> Para salvar o modelo, você precisará da função do Azure de colaborador de dados de blob de armazenamento. Em sua conta de armazenamento, navegue até controle de acesso (IAM) e selecione **Adicionar atribuição de função**. Atribua a função de colaborador de dados do armazenamento de BLOBs do Azure ao servidor do banco de dados SQL Somente membros com o privilégio Proprietário podem executar essa etapa. Para obter várias funções internas do Azure, confira este [guia](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```python
 ## Create a new LR object for the model
@@ -250,7 +250,7 @@ metrics = BinaryClassificationMetrics(predictionAndLabels)
 print("Area under ROC = %s" % metrics.areaUnderROC)
 ```
 
-A saída desta célula é
+A saída desta célula é:
 
 ```shell
 Area under ROC = 0.9779470729751403

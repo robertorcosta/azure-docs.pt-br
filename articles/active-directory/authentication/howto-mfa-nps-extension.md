@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ca244136178c9c05f2b88a917219035451d5e391
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 35842520b26d3a98342660244295e26e934e7d3c
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848468"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717363"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar sua infraestrutura do NPS existente à Autenticação Multifator do Azure
 
@@ -50,7 +50,7 @@ A extensão do NPS deve trabalhar com sua infraestrutura existente. Verifique se
 
 ### <a name="licenses"></a>Licenças
 
-A extensão NPS para Azure MFA está disponível para clientes com [licenças para Autenticação Multifator do Microsoft Azure](multi-factor-authentication.md) (incluído com Azure AD Premium, EMS ou uma licença autônoma de MFA). Licenças baseadas em consumo para a MFA do Azure como licenças por usuário ou por autenticação não são compatíveis com a extensão do NPS. 
+A extensão NPS para Azure MFA está disponível para clientes com [licenças para Autenticação Multifator do Microsoft Azure](./concept-mfa-howitworks.md) (incluído com Azure AD Premium, EMS ou uma licença autônoma de MFA). Licenças baseadas em consumo para a MFA do Azure como licenças por usuário ou por autenticação não são compatíveis com a extensão do NPS. 
 
 ### <a name="software"></a>Software
 
@@ -290,7 +290,7 @@ Você pode optar por criar essa chave e defini-la como FALSE, e os usuários est
 
 O script a seguir está disponível para executar as etapas básicas de verificação de integridade ao solucionar problemas da extensão do NPS.
 
-[MFA_NPS_Troubleshooter.ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
+[MFA_NPS_Troubleshooter.ps1](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
 ---
 
@@ -365,7 +365,7 @@ Para verificar se você tem um certificado válido, verifique o repositório de 
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Como gerenciar protocolos TLS/SSL e conjuntos de codificação
 
-É recomendável que os conjuntos de codificação mais antigos ou mais fracos sejam desabilitados ou removidos, a menos que eles sejam exigidos por sua organização. Você pode obter informações sobre como concluir esta tarefa no artigo [Gerenciar protocolos SSL/TLS e conjuntos de codificação para o AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
+É recomendável que os conjuntos de codificação mais antigos ou mais fracos sejam desabilitados ou removidos, a menos que eles sejam exigidos por sua organização. Você pode obter informações sobre como concluir esta tarefa no artigo [Gerenciar protocolos SSL/TLS e conjuntos de codificação para o AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
 ### <a name="additional-troubleshooting"></a>Soluções de problemas adicionais
 
@@ -373,7 +373,7 @@ Diretrizes de soluções de problemas adicionais e possíveis soluções podem s
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Visão geral e configuração do Servidor de Políticas de Rede no Windows Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)
+- [Visão geral e configuração do Servidor de Políticas de Rede no Windows Server](/windows-server/networking/technologies/nps/nps-top)
 
 - Configurar IDs alternativos para logon ou configurar uma lista de exceções para IPs que não devem executar a verificação em duas etapas nas [Opções de configuração avançadas para a extensão do NPS para autenticação multifator](howto-mfa-nps-extension-advanced.md)
 

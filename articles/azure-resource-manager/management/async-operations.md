@@ -2,78 +2,85 @@
 title: Status de operações assíncronas
 description: Descreve como rastrear operações assíncronas no Azure. Mostra os valores que você pode usar para obter o status de uma operação de longa execução.
 ms.topic: conceptual
-ms.date: 12/09/2018
+ms.date: 08/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1cf8898e5fd63e35447f6580e13347ba6d7fc413
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68a00e50c7d3e0da757ee7a3a09274c5f1dbecad
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75485436"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718417"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Rastrear operações assíncronas no Azure
+
 Algumas operações REST do Azure são executadas de forma assíncrona porque a operação não pode ser concluída com rapidez. Este artigo descreve como controlar o status das operações assíncronas por meio de valores retornados na resposta.  
 
 ## <a name="status-codes-for-asynchronous-operations"></a>Códigos de status de operações assíncronas
+
 Uma operação assíncrona inicialmente retorna um dos seguintes códigos de status HTTP:
 
 * 201 (Criado)
-* 202 (Aceito) 
+* 202 (Aceito)
 
 Quando a operação for concluída com êxito, ela retorna um dos seguintes:
 
 * 200 (OK)
-* 204 (Sem Conteúdo) 
+* 204 (Sem Conteúdo)
 
-Consulte a [Documentação da API REST](/rest/api/) para ver as respostas para a operação que você está executando.
+Consulte a [Documentação da API REST](/rest/api/azure/) para ver as respostas para a operação que você está executando.
 
-## <a name="monitor-status-of-operation"></a>Monitorar o status da operação
-As operações REST assíncronas retornam valores de cabeçalho, que você pode usar para determinar o status da operação. Há potencialmente três valores de cabeçalho a examinar:
+Depois de obter o código de resposta 201 ou 202, você estará pronto para monitorar o status da operação.
 
-* `Azure-AsyncOperation` ‑ A URL para verificar o status da operação em andamento. Se a operação retornar esse valor, sempre o use (em vez de Location) para acompanhar o status da operação.
-* `Location` ‑ A URL para determinar quando uma operação foi concluída. Use esse valor somente quando Azure-AsyncOperation não for retornado.
+## <a name="use-url-to-monitor-status"></a>Usar URL para monitorar o status
+
+Há duas maneiras diferentes de monitorar o status da operação assíncrona. Você determina a abordagem correta examinando os valores de cabeçalho que são retornados de sua solicitação original. Primeiro, procure por:
+
+* `Azure-AsyncOperation` ‑ A URL para verificar o status da operação em andamento. Se a operação retornar esse valor, use-o para acompanhar o status da operação.
 * `Retry-After` ‑ O número de segundos de espera antes de verificar o status da operação assíncrona.
 
-No entanto, nem toda operação assíncrona retorna todos esses valores. Por exemplo, você precisará avaliar o valor do cabeçalho Azure-AsyncOperation para uma operação e o valor do cabeçalho Location para outra operação. 
+Se `Azure-AsyncOperation` não for um dos valores de cabeçalho, procure por:
 
-Recupere os valores de cabeçalho da mesma forma que faria com qualquer valor de cabeçalho para uma solicitação. Por exemplo, em C#, recupere o valor de cabeçalho de um objeto `HttpWebResponse` chamado `response` com o código a seguir:
-
-```cs
-response.Headers.GetValues("Azure-AsyncOperation").GetValue(0)
-```
+* `Location` ‑ A URL para determinar quando uma operação foi concluída. Só use esse valor quando Azure-AsyncOperation não for retornado.
+* `Retry-After` ‑ O número de segundos de espera antes de verificar o status da operação assíncrona.
 
 ## <a name="azure-asyncoperation-request-and-response"></a>Solicitação e resposta de Azure-AsyncOperation
 
-Para obter o status da operação assíncrona, envie uma solicitação GET para a URL no valor do cabeçalho Azure-AsyncOperation.
+Se você tiver uma URL do `Azure-AsyncOperation` valor do cabeçalho, envie uma solicitação get para essa URL. Use o valor de `Retry-After` para agendar a frequência de verificação do status. As propriedades de resposta podem variar, mas sempre incluem o status da operação assíncrona.
 
-O corpo da resposta dessa operação contém informações sobre a operação. O exemplo a seguir mostra os possíveis valores retornados da operação:
+```json
+{
+    "status": "{status-value}"
+}
+```
+
+O exemplo a seguir mostra outros valores que podem ser retornados da operação:
 
 ```json
 {
     "id": "{resource path from GET operation}",
-    "name": "{operation-id}", 
-    "status" : "Succeeded | Failed | Canceled | {resource provider values}", 
+    "name": "{operation-id}",
+    "status" : "Succeeded | Failed | Canceled | {resource provider values}",
     "startTime": "2017-01-06T20:56:36.002812+00:00",
     "endTime": "2017-01-06T20:56:56.002812+00:00",
     "percentComplete": {double between 0 and 100 },
     "properties": {
         /* Specific resource provider values for successful operations */
     },
-    "error" : { 
+    "error" : {
         "code": "{error code}",  
-        "message": "{error description}" 
+        "message": "{error description}"
     }
 }
 ```
 
-Somente `status` é retornado para todas as respostas. O objeto de erro é retornado quando o status é Falha ou Cancelado. Todos os outros valores são opcionais, portanto, a resposta recebida pode parecer diferente do exemplo.
+O objeto de erro é retornado quando o status é Falha ou Cancelado. Todos os outros valores são opcionais. A resposta recebida pode parecer diferente do exemplo.
 
 ## <a name="provisioningstate-values"></a>Valores de provisioningState
 
-Operações que criam, atualizam ou excluem (PUT, PATCH, DELETE) um recurso geralmente retornam um valor `provisioningState`. Quando uma operação for concluída, um dos três valores a seguir será retornado: 
+Operações que criam, atualizam ou excluem (PUT, PATCH, DELETE) um recurso geralmente retornam um valor `provisioningState`. Quando uma operação for concluída, um dos três valores a seguir será retornado:
 
-* Êxito
-* Falhou
+* Com sucesso
+* Com falha
 * Canceled
 
 Todos os outros valores indicam que a operação ainda está em execução. O provedor de recursos pode retornar um valor personalizado que indica o estado. Por exemplo, você pode receber **Aceito** quando a solicitação é recebida e está em execução.
@@ -81,24 +88,25 @@ Todos os outros valores indicam que a operação ainda está em execução. O pr
 ## <a name="example-requests-and-responses"></a>Exemplo de solicitações e respostas
 
 ### <a name="start-virtual-machine-202-with-azure-asyncoperation"></a>Iniciar a máquina virtual (202 com Azure-AsyncOperation)
-Este exemplo mostra como determinar o status da operação **start** para máquinas virtuais. A solicitação inicial está no seguinte formato:
+
+Este exemplo mostra como determinar o status da [operação de inicialização para máquinas virtuais](/rest/api/compute/virtualmachines/start). A solicitação inicial está no seguinte formato:
 
 ```HTTP
 POST 
-https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Compute/virtualMachines/{vm-name}/start?api-version=2016-03-30
+https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Compute/virtualMachines/{vm-name}/start?api-version=2019-12-01
 ```
 
 Ele retorna um código de status 202. Entre os valores de cabeçalho, você verá:
 
 ```HTTP
-Azure-AsyncOperation : https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/locations/{region}/operations/{operation-id}?api-version=2016-03-30
+Azure-AsyncOperation : https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/locations/{region}/operations/{operation-id}?api-version=2019-12-01
 ```
 
 Para verificar o status da operação assíncrona, envie outra solicitação para a URL.
 
 ```HTTP
 GET 
-https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/locations/{region}/operations/{operation-id}?api-version=2016-03-30
+https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/locations/{region}/operations/{operation-id}?api-version=2019-12-01
 ```
 
 O corpo da resposta contém o status da operação:
@@ -113,11 +121,11 @@ O corpo da resposta contém o status da operação:
 
 ### <a name="deploy-resources-201-with-azure-asyncoperation"></a>Implantar recursos (201 com Azure-AsyncOperation)
 
-Este exemplo mostra como determinar o status da operação **deployments** para implantação de recursos no Azure. A solicitação inicial está no seguinte formato:
+Este exemplo mostra como determinar o status da [operação de implantações para implantar recursos](/rest/api/resources/deployments/createorupdate) no Azure. A solicitação inicial está no seguinte formato:
 
 ```HTTP
 PUT
-https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/microsoft.resources/deployments/{deployment-name}?api-version=2016-09-01
+https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/microsoft.resources/deployments/{deployment-name}?api-version=2020-06-01
 ```
 
 Ele retorna um código de status 201. O corpo da resposta inclui:
@@ -129,47 +137,58 @@ Ele retorna um código de status 201. O corpo da resposta inclui:
 Entre os valores de cabeçalho, você verá:
 
 ```HTTP
-Azure-AsyncOperation: https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Resources/deployments/{deployment-name}/operationStatuses/{operation-id}?api-version=2016-09-01
+Azure-AsyncOperation: https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Resources/deployments/{deployment-name}/operationStatuses/{operation-id}?api-version=2020-06-01
 ```
 
 Para verificar o status da operação assíncrona, envie outra solicitação para a URL.
 
 ```HTTP
 GET 
-https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Resources/deployments/{deployment-name}/operationStatuses/{operation-id}?api-version=2016-09-01
+https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Resources/deployments/{deployment-name}/operationStatuses/{operation-id}?api-version=2020-06-01
 ```
 
 O corpo da resposta contém o status da operação:
 
 ```json
-{"status":"Running"}
+{
+    "status": "Running"
+}
 ```
 
 Quando a implantação for concluída, a resposta conterá:
 
 ```json
-{"status":"Succeeded"}
+{
+    "status": "Succeeded"
+}
 ```
 
 ### <a name="create-storage-account-202-with-location-and-retry-after"></a>Criar conta de armazenamento (202 com Location e Retry-After)
 
-Este exemplo mostra como determinar o status da operação **create** para contas de armazenamento. A solicitação inicial está no seguinte formato:
+Este exemplo mostra como determinar o status da operação de [criação para contas de armazenamento](/rest/api/storagerp/storageaccounts/create). A solicitação inicial está no seguinte formato:
 
 ```HTTP
 PUT
-https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}?api-version=2016-01-01
+https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}?api-version=2019-06-01
 ```
 
 E o corpo da solicitação contém as propriedades da conta de armazenamento:
 
 ```json
-{ "location": "South Central US", "properties": {}, "sku": { "name": "Standard_LRS" }, "kind": "Storage" }
+{
+    "location": "South Central US",
+    "properties": {},
+    "sku": {
+        "name": "Standard_LRS"
+    },
+    "kind": "Storage"
+}
 ```
 
 Ele retorna um código de status 202. Entre os valores de cabeçalho, você verá os dois valores a seguir:
 
 ```HTTP
-Location: https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Storage/operations/{operation-id}?monitor=true&api-version=2016-01-01
+Location: https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Storage/operations/{operation-id}?monitor=true&api-version=2019-06-01
 Retry-After: 17
 ```
 
@@ -177,12 +196,12 @@ Depois de aguardar o número de segundos especificado em Retry-After, verifique 
 
 ```HTTP
 GET 
-https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Storage/operations/{operation-id}?monitor=true&api-version=2016-01-01
+https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Storage/operations/{operation-id}?monitor=true&api-version=2019-06-01
 ```
 
 Se a solicitação ainda estiver em execução, você receberá um código de status 202. Se a solicitação tiver sido concluída, você receberá um código de status 200 e o corpo da resposta conterá as propriedades da conta de armazenamento que foi criada.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para ver a documentação sobre cada operação REST, consulte [Documentação da API REST](/rest/api/).
+* Para ver a documentação sobre cada operação REST, consulte [Documentação da API REST](/rest/api/azure/).
 * Para obter informações sobre como implantar modelos por meio da API REST do Gerenciador de recursos, consulte [implantar recursos com modelos do Resource Manager e API REST do Gerenciador de recursos](../templates/deploy-rest.md).

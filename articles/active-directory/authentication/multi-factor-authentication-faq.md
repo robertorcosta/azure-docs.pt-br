@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f5cabace81d53edf36ac6be0a2eb8830e6cc5f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e4e09637a7d990e1555b5443b9931cf8ff8c271b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035070"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718859"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas frequentes sobre a Autenticação Multifator do Azure
 
@@ -190,7 +190,7 @@ Em alguns casos, Sim.
 
 Para o SMS unidirecional com o Servidor MFA v7.0 ou posterior do Azure, você pode configurar o tempo limite de configuração definindo uma chave do registro. Depois que o serviço de nuvem MFA envia a mensagem de texto, o código de verificação (ou a senha de uso único) é retornada para o Servidor MFA. O Servidor MFA armazena o código na memória para 300 segundos por padrão. Se o usuário insere seu código depois de 300 segundos, a autenticação será negada. Siga estas etapas para alterar a configuração de tempo limite padrão:
 
-1. Acesse `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`.
+1. Ir para `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`.
 2. Crie uma chave de registro **DWORD** chamada *pfsvc_pendingSmsTimeoutSeconds* e defina o tempo em segundos que você deseja que o servidor do Azure MFA armazene senhas de uso único.
 
 >[!TIP]
@@ -234,7 +234,7 @@ Há vários motivos que os usuários podem ser solicitados para registrar as inf
 - A organização criou e ativado uma diretiva de registro de MFA que foi aplicada ao usuário.
 - O usuário registrado para MFA anteriormente, mas escolher um método de verificação que um administrador como desabilitado. O usuário, portanto, deve passar pelo registro MFA novamente para selecionar um novo método de verificação padrão.
 
-## <a name="errors"></a>Erros
+## <a name="errors"></a>Errors
 
 * [O que os usuários devem fazer se receberem uma mensagem de erro "a solicitação de autenticação não é para uma conta ativada" ao usar notificações de aplicativo móvel?](#what-should-users-do-if-they-see-an-authentication-request-is-not-for-an-activated-account-error-message-when-using-mobile-app-notifications)
 * [O que os usuários devem fazer se receberem uma mensagem de erro 0x800434D4L ao entrar em um aplicativo sem navegador?](#what-should-users-do-if-they-see-a-0x800434d4l-error-message-when-signing-in-to-a-non-browser-application)
@@ -259,6 +259,6 @@ Uma solução alternativa para esse erro é ter contas de usuário separadas par
 Se sua pergunta não for respondida aqui, as seguintes opções de suporte estarão disponíveis:
 
 * Pesquise a [Base de Dados de Conhecimento de Suporte da Microsoft](https://support.microsoft.com) para obter soluções para problemas técnicos comuns.
-* Pesquise e procure perguntas e respostas técnicas da Comunidade ou faça sua própria pergunta no [Azure Active Directory Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
+* Pesquise e procure perguntas e respostas técnicas da Comunidade ou faça sua própria pergunta no [Azure Active Directory Q&A](/answers/topics/azure-active-directory.html).
 * Entre em contato com o suporte do Microsoft Professional por meio [do Azure servidor de autenticação multifator](https://support.microsoft.com/oas/default.aspx?prid=14947). Ao entrar em contato conosco, é útil incluir o máximo possível de informações sobre o problema. As informações que você pode fornecer incluem a página em que viu o erro, o código de erro específico, a ID da sessão específica e a ID do usuário que viu o erro.
 * Se você for um cliente herdado do PhoneFactor e tiver dúvidas ou precisar de ajuda para redefinir uma senha, use o [phonefactorsupport@microsoft.com](mailto:phonefactorsupport@microsoft.com) endereço de email para abrir um caso de suporte.

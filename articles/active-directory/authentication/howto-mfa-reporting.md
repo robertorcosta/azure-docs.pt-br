@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8584ca84efc889afebe6758e254bda845912316
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c550576a5bd762d3333aa8a533ee6106369193c3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418229"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719505"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Use o relatório de entradas para examinar os eventos da Autenticação Multifator do Azure
 
@@ -90,7 +90,7 @@ Os detalhes a seguir são mostrados na janela *Detalhes de Autenticação* para 
 
 ## <a name="powershell-reporting-on-users-registered-for-mfa"></a>Relatórios do PowerShell sobre usuários registrados para MFA
 
-Primeiro, verifique se você instalou o [módulo MSOnline V1 PowerShell ](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0).
+Primeiro, verifique se você instalou o [módulo MSOnline V1 PowerShell ](/powershell/azure/active-directory/overview?view=azureadps-1.0).
 
 Identifique os usuários que se registraram para MFA usando o PowerShell a seguir. Esse conjunto de comandos exclui usuários desabilitados, pois essas contas não podem se autenticar no Azure AD:
 
@@ -145,8 +145,8 @@ A tabela a seguir pode ajudar a solucionar problemas de eventos usando a versão
 | FAILED_INVALID_EXTENSION | Ramal Inválido | O ramal contém caracteres inválidos.  Apenas dígitos, vírgulas, * e # são permitidos.  O prefixo @ também pode ser usado. |
 | FAILED_FRAUD_CODE_ENTERED | Código de Fraude Inserido | O usuário escolheu relatar uma fraude durante a chamada, fazendo com que a autenticação fosse negada e o número de telefone, bloqueado.| 
 | FAILED_SERVER_ERROR | Não é Possível Fazer Chamada | O serviço de Autenticação Multifator não pôde fazer a chamada. |
-| FAILED_SMS_NOT_SENT | Não foi possível enviar uma mensagem de texto | Não foi possível enviar a mensagem de texto. A autenticação foi negada. |
-| FAILED_SMS_OTP_INCORRECT | OTP da mensagem de texto incorreta | O usuário inseriu uma senha de uso único (OTP) incorreta na mensagem de texto recebida. A autenticação foi negada. |
+| FAILED_SMS_NOT_SENT | Não foi possível enviar uma mensagem de texto | Não foi possível enviar a mensagem de texto.  A autenticação foi negada. |
+| FAILED_SMS_OTP_INCORRECT | OTP da mensagem de texto incorreta | O usuário inseriu uma senha de uso único (OTP) incorreta na mensagem de texto recebida.  A autenticação foi negada. |
 | FAILED_SMS_OTP_PIN_INCORRECT | OTP + PIN da mensagem de texto incorretos | O usuário inseriu uma senha de uso único (OTP) incorreta e/ou um PIN de usuário incorreto.  A autenticação foi negada. |
 | FAILED_SMS_MAX_OTP_RETRY_REACHED | Excedidas as Tentativas Máximas de OTP de Mensagem de Texto | O usuário excedeu o número máximo de tentativas de senha de uso único (OTP). |
 | FAILED_PHONE_APP_DENIED | Aplicativos móveis negados | O usuário negou a autenticação no aplicativo móvel ao pressionar o botão Negar. |

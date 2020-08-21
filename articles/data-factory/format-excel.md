@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 08/21/2020
 ms.author: jingwang
-ms.openlocfilehash: a937548c9318d98e8832720706626b74167d32d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dd5e116f0c6844abeffc27820da03462c6e1cbbc
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044402"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718196"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Formato do Excel no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -32,11 +32,11 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 | type             | A propriedade Type do conjunto de conjuntos deve ser definida como **Excel**.   | Sim      |
 | local         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location` . | Sim      |
 | sheetName        | O nome da planilha do Excel para ler os dados.                       | Sim      |
-| range            | O intervalo de células na planilha fornecida para localizar os dados seletivos, por exemplo, `A3:H5` (uma tabela de a3 a H5), `A3` (uma tabela que começa na célula a3), `A3:A3` (célula única). Se não for especificado, o ADF lerá da planilha inteira como uma tabela. | Não       |
+| range            | O intervalo de células na planilha fornecida para localizar os dados seletivos, por exemplo:<br>-Não especificado: lê a planilha inteira como uma tabela da primeira linha e coluna não vazias<br>- `A3`: lê uma tabela a partir da célula especificada, detecta dinamicamente todas as linhas abaixo e todas as colunas à direita<br>- `A3:H5`: lê este intervalo fixo como uma tabela<br>- `A3:A3`: lê esta única célula | Não       |
 | firstRowAsHeader | Especifica se deve tratar a primeira linha na planilha/intervalo fornecido como uma linha de cabeçalho com nomes de colunas.<br>Os valores permitidos são **true** e **false** (padrão). | Não       |
 | nullValue        | Especifica a representação de cadeia de caracteres do valor nulo. <br>O valor padrão é uma **cadeia de caracteres vazia**. | Não       |
 | compactação | Grupo de propriedades para configurar a compactação de arquivo. Configure esta seção quando desejar fazer compactação/descompactação durante a execução da atividade. | Não |
-| tipo<br/>(*em `compression` *) | O codec de compactação usado para ler/gravar arquivos JSON. <br>Os valores permitidos são **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snapshot**ou **lz4**. para usar ao salvar o arquivo. O padrão não é compactado.<br>**Observação** a atividade de cópia atualmente não dá suporte a "encaixar" & "lz4" e o fluxo de dados de mapeamento não dá suporte a "ZipDeflate".<br>**Observação** ao usar a atividade de cópia para descompactar arquivo (s) **ZipDeflate** e gravar no armazenamento de dados de coletor baseado em arquivo, os arquivos são extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/` . | Não.  |
+| type<br/>(*em `compression` *) | O codec de compactação usado para ler/gravar arquivos JSON. <br>Os valores permitidos são **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snapshot**ou **lz4**. para usar ao salvar o arquivo. O padrão não é compactado.<br>**Observação** a atividade de cópia atualmente não dá suporte a "encaixar" & "lz4" e o fluxo de dados de mapeamento não dá suporte a "ZipDeflate".<br>**Observação** ao usar a atividade de cópia para descompactar arquivo (s) **ZipDeflate** e gravar no armazenamento de dados de coletor baseado em arquivo, os arquivos são extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/` . | Não.  |
 | nível<br/>(*em `compression` *) | A taxa de compactação. <br>Os valores permitidos são **ideal** ou **mais rápido**.<br>- **Mais rápido:** A operação de compactação deve ser concluída o mais rápido possível, mesmo que o arquivo resultante não seja compactado de maneira ideal.<br>- **Ideal**: a operação de compactação deve ser corretamente compactada, mesmo se a operação levar mais tempo para ser concluída. Para saber mais, veja o tópico [Nível de compactação](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Não       |
 
 Veja abaixo um exemplo de conjunto de um banco de uma no armazenamento de BLOBs do Azure:
@@ -106,13 +106,13 @@ No mapeamento de fluxos de dados, você pode ler o formato do Excel nos seguinte
 
 A tabela abaixo lista as propriedades com suporte por uma origem do Excel. Você pode editar essas propriedades na guia **Opções de origem** . Ao usar o conjunto de linhas embutido, você verá configurações de arquivo adicionais que são iguais às propriedades descritas na seção [Propriedades do conjunto](#dataset-properties) de linha.
 
-| Nome                      | Descrição                                                  | Obrigatório | Valores permitidos                                            | Propriedade de script de fluxo de dados         |
+| Name                      | Descrição                                                  | Obrigatório | Valores permitidos                                            | Propriedade de script de fluxo de dados         |
 | ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
 | Caminhos curinga           | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | não       | String[]                                                  | wildcardPaths                     |
-| Caminho raiz da partição       | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | não       | Cadeia de caracteres                                                    | partitionRootPath                 |
+| Caminho raiz da partição       | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | não       | String                                                    | partitionRootPath                 |
 | Lista de arquivos             | Se sua fonte está apontando para um arquivo de texto que lista os arquivos a serem processados | não       | `true` ou `false`                                         | File                          |
-| Coluna para armazenar o nome do arquivo | Criar uma nova coluna com o nome e o caminho do arquivo de origem       | não       | Cadeia de caracteres                                                    | rowUrlColumn                      |
-| Após a conclusão          | Exclua ou mova os arquivos após o processamento. O caminho do arquivo inicia a partir da raiz do contêiner | não       | Excluir: `true` ou`false` <br> Prosseguir`['<from>', '<to>']` | purgeFiles <br> MoveFile         |
+| Coluna para armazenar o nome do arquivo | Criar uma nova coluna com o nome e o caminho do arquivo de origem       | não       | String                                                    | rowUrlColumn                      |
+| Após a conclusão          | Exclua ou mova os arquivos após o processamento. O caminho do arquivo inicia a partir da raiz do contêiner | não       | Excluir: `true` ou `false` <br> Prosseguir `['<from>', '<to>']` | purgeFiles <br> MoveFile         |
 | Filtrar por última modificação   | Escolher filtrar arquivos com base na última alteração | não       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
 
 ### <a name="source-example"></a>Exemplo de origem

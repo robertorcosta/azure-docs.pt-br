@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: b581242ad5a23072731fc7d30e09e461590ec1ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0cf343ccd89ac5b00740d8c559538a0f97ec7905
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801318"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716564"
 ---
 # <a name="what-are-application-templates"></a>O que são modelos de aplicativo?
 
@@ -47,10 +47,11 @@ O Azure IoT Central é uma plataforma de aplicativo independente do setor. Os mo
   - Análise na loja – Monitoramento de condição
   - Análise na loja – finalizar compra
   - Gerenciamento de inventário inteligente
+  - Análise de vídeo – detecção de objetos e de movimento
 - [Energia](../energy/overview-iot-central-energy.md)
   - Monitoramento do medidor inteligente
   - Monitoramento do painel solar
-- [Governamental](../government/overview-iot-central-government.md)
+- [Governo](../government/overview-iot-central-government.md)
   - Gerenciamento de resíduos conectado
   - Monitoramento de consumo de água
   - Monitoramento de qualidade da água

@@ -3,12 +3,12 @@ title: Integração dos Hubs de Eventos do Azure com o Serviço de Link Privado 
 description: Saiba como integrar os Hubs de Eventos do Azure com o Serviço de Link Privado do Azure
 ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: 8d6d5c13e1a5eab55998d3b98596ce845de104eb
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 817ec7b9256829ace61a0d1dad98f1f34683c95e
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185461"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716784"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Permitir acesso aos namespaces dos hubs de eventos do Azure por meio de pontos de extremidade privados 
 O Serviço de Link Privado do Azure permite acessar os Serviços do Azure (por exemplo, os Hubs de Eventos do Azure, o Armazenamento do Azure e o Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um **ponto de extremidade privado** em sua rede virtual.
@@ -222,7 +222,7 @@ Há quatro estados de provisionamento:
 2. Selecione o **ponto de extremidade privado** que você deseja aprovar
 3. Selecione o botão **Aprovar**.
 
-    ![Imagem](./media/private-link-service/approve-private-endpoint.png)
+    ![Aprovar ponto de extremidade privado](./media/private-link-service/approve-private-endpoint.png)
 4. Na página **Aprovar conexão**, adicione um comentário (opcional) e selecione **Sim**. Se selecionar **Não**, nada acontecerá. 
 5. O status da conexão de ponto de extremidade privado exibido na lista muda para **Aprovado**. 
 
@@ -230,7 +230,7 @@ Há quatro estados de provisionamento:
 
 1. Se houver conexões de ponto de extremidade privado que você deseja rejeitar, seja uma solicitação pendente ou uma conexão existente, selecione a conexão e clique no botão **Rejeitar**.
 
-    ![Imagem](./media/private-link-service/private-endpoint-reject-button.png)
+    ![Rejeitar ponto de extremidade privado](./media/private-link-service/private-endpoint-reject-button.png)
 2. Na página **Rejeitar conexão**, adicione um comentário (opcional) e selecione **Sim**. Se selecionar **Não**, nada acontecerá. 
 3. O status da conexão de ponto de extremidade privado exibido na lista muda para **Rejeitado**. 
 
@@ -242,7 +242,7 @@ Há quatro estados de provisionamento:
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Validar se a conexão de link privado funciona
 
-Valide se os recursos dentro da mesma sub-rede do recurso de ponto de extremidade privado estão se conectando ao namespace do Hubs de Eventos por um endereço IP privado e se eles têm a integração de zona DNS privada correta.
+Você deve validar se os recursos dentro da rede virtual do ponto de extremidade privado estão se conectando ao namespace de seus hubs de eventos por um endereço IP privado e se eles têm a integração de zona DNS privada correta.
 
 Primeiro, crie uma máquina virtual seguindo as etapas em [Criar uma máquina virtual do Windows no portal do Azure](../virtual-machines/windows/quick-create-portal.md)
 

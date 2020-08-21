@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81cd2649ff056ab107491cf60602f0da7435b228
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f20da2d2ecb4426c0deb1c01591ead5933090f6
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550631"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716989"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Habilitar entrada de chave de segurança sem senha para recursos locais com Azure Active Directory (versão prévia)
 
@@ -48,10 +48,10 @@ As organizações também devem atender aos seguintes requisitos de software.
 
 - Os dispositivos devem estar executando o Windows 10 Insider Build 18945 ou mais recente.
 - Você deve ter a versão 1.4.32.0 ou posterior do [Azure ad Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
-  - Para obter mais informações sobre as opções de autenticação híbrida do Azure AD disponíveis, consulte [escolher o método de autenticação correto para sua solução de identidade híbrida Azure Active Directory](../../security/fundamentals/choose-ad-authn.md) e [selecionar qual tipo de instalação usar para Azure ad Connect](../hybrid/how-to-connect-install-select-installation.md).
+  - Para obter mais informações sobre as opções de autenticação híbrida do Azure AD disponíveis, consulte [escolher o método de autenticação correto para sua solução de identidade híbrida Azure Active Directory](../hybrid/choose-ad-authn.md) e [selecionar qual tipo de instalação usar para Azure ad Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Os controladores de domínio do Windows Server devem ter os seguintes patches instalados:
-    - Para o Windows Server 2016-https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
-    - Para o Windows Server 2019-https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
+    - Para o Windows Server 2016- https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
+    - Para o Windows Server 2019- https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
 
 ### <a name="supported-scenarios"></a>Cenários com suporte
 
@@ -75,7 +75,7 @@ Os cenários a seguir não têm suporte:
 Os administradores usam as ferramentas do PowerShell de seu servidor Azure AD Connect para criar um objeto de servidor Kerberos do Azure AD em seu diretório local. Execute as seguintes etapas em cada domínio e floresta em sua organização que contenha usuários do Azure AD:
 
 1. Atualize para a versão mais recente do Azure AD Connect. As instruções pressupõem que você já tenha configurado Azure AD Connect para dar suporte ao seu ambiente híbrido.
-1. No Azure AD Connect Server, abra um prompt do PowerShell com privilégios elevados e navegue até`C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\`
+1. No Azure AD Connect Server, abra um prompt do PowerShell com privilégios elevados e navegue até `C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\`
 1. Execute os comandos do PowerShell a seguir para criar um novo objeto de servidor Kerberos do Azure AD no domínio Active Directory local e Azure Active Directory locatário.
 
 > [!NOTE]
@@ -109,12 +109,12 @@ Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 
 Esse comando gera as propriedades do servidor Kerberos do Azure AD. Você pode examinar as propriedades para verificar se tudo está em uma ordem boa.
 
-| Property | Descrição |
+| Propriedade | Descrição |
 | --- | --- |
 | ID | A ID exclusiva do objeto AD DS DC. Às vezes, essa ID é chamada de "slot" ou é "ID do Branch". |
 | DomainDnsName | O nome de domínio DNS do Domínio do Active Directory. |
 | ComputerAccount | O objeto de conta de computador do objeto de servidor Kerberos do Azure AD (o DC). |
-| UserAccount | O objeto de conta de usuário desabilitado que contém a chave de criptografia de TGT do servidor Kerberos do Azure AD. O DN desta conta é`CN=krbtgt_AzureAD,CN=Users,<Domain-DN>` |
+| UserAccount | O objeto de conta de usuário desabilitado que contém a chave de criptografia de TGT do servidor Kerberos do Azure AD. O DN desta conta é `CN=krbtgt_AzureAD,CN=Users,<Domain-DN>` |
 | Keyversion | A versão de chave da chave de criptografia de TGT do servidor Kerberos do Azure AD. A versão é atribuída quando a chave é criada. Em seguida, a versão é incrementada toda vez que a chave é girada. Os incrementos são baseados nos metadados de replicação e provavelmente maiores que um. Por exemplo, a *keyversion* inicial poderia ser *192272*. Na primeira vez que a chave é girada, a versão pode avançar para *212621*. A coisa importante a ser verificada é que o *keyversion* para o objeto local e o *CloudKeyVersion* para o objeto Cloud são os mesmos. |
 | Atualização de | A data e a hora em que a chave de criptografia de TGT do servidor Kerberos do Azure AD foi atualizada ou criada. |
 | KeyUpdatedFrom | O controlador de domínio em que a chave de criptografia TGT do servidor Kerberos do AD foi atualizada pela última vez. |

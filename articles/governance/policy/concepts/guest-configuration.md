@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como o Azure Policy usa o agente de Configuração de Convidado para auditar as configurações dentro de máquinas virtuais.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 21034aaae42aa4abfa6848ce22db5fa4c21a11ce
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: af913a6bb1fb7c871a7f6740a0fb2d66efa3f712
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685758"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717569"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -70,7 +70,7 @@ A tabela a seguir mostra uma lista de sistemas operacionais compatíveis em imag
 |Microsoft|Windows Client|Windows 10|
 |OpenLogic|CentOS|7.3 e posterior|
 |Red Hat|Red Hat Enterprise Linux|7,4-7,8|
-|Suse|SLES|12 SP3 e posterior|
+|Suse|SLES|12 SP3-SP5|
 
 As imagens de máquina virtual personalizadas são compatíveis com as políticas de Configuração de Convidado, desde que sejam um dos sistemas operacionais na tabela acima.
 
@@ -95,6 +95,11 @@ O tráfego é roteado usando o [endereço IP público virtual](../../../virtual-
 Os nós localizados fora do Azure que estão conectados pelo Arc do Azure exigem conectividade com o serviço de configuração do convidado. Detalhes sobre os requisitos de rede e proxy fornecidos na [documentação do Arc do Azure](../../../azure-arc/servers/overview.md).
 
 Para se comunicar com o provedor de recursos de Configuração de Convidado no Azure, as máquinas virtuais exigem acesso de saída aos datacenters do Azure na porta **443**. Se uma rede no Azure não permitir tráfego de saída, configure exceções com regras de [grupo de segurança de rede](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). A [tag de serviço](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" pode ser usada para fazer referência ao serviço de Configuração de Convidado.
+
+Para servidores conectados em arco em data centers privados, permita o tráfego usando os seguintes padrões:
+
+- Porta: Somente a TCP 443 é necessária para acesso à Internet de saída
+- URL global: `*.guestconfiguration.azure.com`
 
 ## <a name="managed-identity-requirements"></a>Requisitos de identidade gerenciada
 
@@ -139,9 +144,12 @@ Se você atribuir a política usando um modelo de Azure Resource Manager (modelo
 
 #### <a name="applying-configurations-using-guest-configuration"></a>Aplicando configurações usando a Configuração de Convidado
 
-O recurso mais recente do Azure Policy define as configurações dentro de máquinas virtuais. A definição _Configurar o fuso horário em máquinas virtuais do Windows_ faz alterações no computador configurando o fuso horário.
+Somente a definição _Configurar o fuso horário em computadores Windows_ faz alterações no computador Configurando o fuso horário. Não há suporte para definições de política personalizadas para definir configurações dentro de computadores.
 
 Ao atribuir definições que começam com _Configurar_, você também deve atribuir a definição _Implantar pré-requisitos para habilitar a política de Configuração de Convidado em VMs do Windows_. Você pode combinar essas definições em uma mesma iniciativa, se assim escolher.
+
+> [!NOTE]
+> A diretiva de zona de tempo interna é a única definição que dá suporte à configuração de configurações dentro de computadores e políticas personalizadas que definem configurações dentro de computadores não têm suporte.
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Atribuindo políticas a computadores fora do Azure
 

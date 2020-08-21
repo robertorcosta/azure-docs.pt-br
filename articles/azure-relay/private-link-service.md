@@ -3,12 +3,12 @@ title: Integrar a Retransmissão do Azure ao Serviço de Link Privado do Azure
 description: Saiba como integrar a Retransmissão do Azure ao Serviço de Link Privado do Azure
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: a113e52b892a25fd2b12a18d73df443d9a9866f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5c35f9333378a5f0b87956e8a916491d51e3cb3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317311"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719420"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integrar a Retransmissão do Azure com o Link Privado do Azure (versão prévia)
 O Serviço de Link Privado do Azure permite acessar os Serviços do Azure (por exemplo, Retransmissão do Azure, Barramento de Serviço do Azure, Hubs de Eventos do Azure, Armazenamento do Microsoft Azure e Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um **ponto de extremidade privado** da sua rede virtual. Para obter mais informações, confira [O que é o Link Privado do Azure (versão prévia)?](../private-link/private-link-overview.md)
@@ -207,7 +207,7 @@ Há quatro estados de provisionamento:
 3. O status muda para **Desconectado**. Em seguida, o ponto de extremidade desaparecerá da lista. 
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Validar se a conexão de link privado funciona
-Você deve validar que os recursos dentro da mesma sub-rede do ponto de extremidade privado se conectam ao namespace de Retransmissão do Azure por meio de seu endereço IP privado.
+Você deve validar que os recursos dentro da rede virtual do ponto de extremidade privado estão se conectando ao namespace de retransmissão do Azure por meio de seu endereço IP privado.
 
 Para este teste, crie uma máquina virtual seguindo as etapas em [Criar uma máquina virtual do Windows no portal do Azure](../virtual-machines/windows/quick-create-portal.md)
 

@@ -3,12 +3,12 @@ title: 'Tutorial: Criar uma biblioteca de conteúdo para implantar VMs na AVS (S
 description: Neste tutorial da AVS (Solução VMware no Azure), você criará uma biblioteca de conteúdo para implantar uma VM em uma nuvem privada da AVS.
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.openlocfilehash: d5f0f26293af9eb146cfb4b2f3adf47fe8cce94f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d86f9cb92dcb8a852b9b178a5e160da0d1a3a692
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079376"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612785"
 ---
 # <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution-avs"></a>Tutorial: Criar uma biblioteca de conteúdo para implantar VMs na AVS (Solução VMware no Azure)
 
@@ -22,7 +22,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Um segmento de comutador lógico do NSX-T e um serviço DHCP gerenciado são necessários para concluir este tutorial.  Confira [Como gerenciar o DHCP na versão prévia da AVS (Solução VMWare no Azure)](manage-dhcp.md) para obter detalhes.
+Um segmento de comutador lógico do NSX-T e um serviço DHCP gerenciado são necessários para concluir este tutorial.  Confira [Como gerenciar o DHCP na versão prévia da AVS (Solução VMware no Azure)](manage-dhcp.md) para obter mais detalhes.
 
 ## <a name="create-a-content-library"></a>Criar uma biblioteca de conteúdo
 

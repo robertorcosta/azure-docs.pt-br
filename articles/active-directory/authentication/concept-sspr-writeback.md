@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f76073a1ed98dcc51cf7e14219beca914b5b77a4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3959fc7df78a5c1f255f7551a018eec6b7279eb1
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027590"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717431"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Como funciona a redefinição de senha self-service no Azure Active Directory?
 
@@ -47,7 +47,7 @@ O write-back de senha fornece os seguintes recursos:
 Para começar a usar o write-back da SSPR, conclua o seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Habilitar a redefinição de senha self-service (SSPR)](tutorial-enable-writeback.md)
+> [Tutorial: Habilitar a redefinição de senha self-service (SSPR)](./tutorial-enable-sspr-writeback.md)
 
 ## <a name="how-password-writeback-works"></a>Como funciona o write-back de senha
 
@@ -140,7 +140,7 @@ O tamanho de cada mensagem descrita anteriormente normalmente é inferior a 1 KB
    * Qualquer operação para forçar o autoatendimento de alteração de senha do administrador, por exemplo, expiração de senha.
    * Qualquer redefinição de senha de autoatendimento do administrador originada do [portal de redefinição de senha](https://passwordreset.microsoftonline.com).
    * Qualquer redefinição de senha do usuário final iniciada pelo administrador no [portal do Azure](https://portal.azure.com).
-   * Qualquer redefinição de senha do usuário final iniciada pelo administrador na [API do Microsoft Graph beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http).
+   * Qualquer redefinição de senha do usuário final iniciada pelo administrador na [API do Microsoft Graph beta](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta).
 
 ## <a name="unsupported-writeback-operations"></a>Operações de write-back sem suporte
 
@@ -149,7 +149,7 @@ Não é feito o write-back das senhas em nenhuma das seguintes situações:
 * **Operações do usuário final sem suporte**
    * Qualquer usuário final que redefine sua própria senha usando o PowerShell versão 1, versão 2 ou a API do Microsoft Graph.
 * **Operações do administrador sem suporte**
-   * Qualquer redefinição de senha do usuário final iniciada pelo administrador do PowerShell versão 1, versão 2 ou da API do Microsoft Graph (a [API do Microsoft Graph beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http) é suportada).
+   * Qualquer redefinição de senha do usuário final iniciada pelo administrador do PowerShell versão 1, versão 2 ou da API do Microsoft Graph (a [API do Microsoft Graph beta](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta) é suportada).
    * Qualquer redefinição de senha do usuário final iniciada pelo administrador no [centro de administração do Microsoft 365](https://admin.microsoft.com).
    * Nenhum administrador pode usar a ferramenta de redefinição de senha para redefinir sua própria senha para write-back de senha.
 
@@ -161,4 +161,4 @@ Não é feito o write-back das senhas em nenhuma das seguintes situações:
 Para começar a usar o write-back da SSPR, conclua o seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Habilitar a redefinição de senha self-service (SSPR)](tutorial-enable-writeback.md)
+> [Tutorial: Habilitar a redefinição de senha self-service (SSPR)](./tutorial-enable-sspr-writeback.md)

@@ -1,20 +1,20 @@
 ---
 title: Azure Key Vault – Como usar a exclusão reversível com PowerShell
-description: Usar exemplos de caso de exclusão reversível com trechos de código do PowerShell
+description: Saiba como usar o Azure PowerShell para aproveitar o recurso de exclusão reversível do Azure Key Vault que permite a recuperação de cofres de chaves e objetos do cofre de chaves.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 55e4bd20b6cc17a5cbad620d3a404d6ada41b81a
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 6ec784048d2c30d215fe046ccda39ef6f8a3daa5
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136466"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585535"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como usar a exclusão reversível do Key Vault com o PowerShell
 

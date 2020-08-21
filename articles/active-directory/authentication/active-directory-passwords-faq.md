@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eff16e0d1aa242ed4ca8b427c7af8e8defa7804
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6e210a11dbcde17c8a5dfd16c46c0d3b3d5c6523
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051304"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716326"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Perguntas frequentes sobre redefinição de senha de autoatendimento
 
 Veja a seguir algumas perguntas frequentes (FAQ) para todas as coisas relacionadas à redefinição de senha de autoatendimento.
 
-Caso você tenha uma pergunta geral sobre o Azure Active Directory (Azure AD) e o autoatendimento de redefinição de senha (SSPR) que não foi respondida aqui, peça ajuda à comunidade na [página de perguntas e respostas da Microsoft sobre o Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). Os membros da comunidade incluem engenheiros, gerentes de produto, MVPs e colegas profissionais de TI.
+Caso você tenha uma pergunta geral sobre o Azure Active Directory (Azure AD) e o autoatendimento de redefinição de senha (SSPR) que não foi respondida aqui, peça ajuda à comunidade na [página de perguntas e respostas da Microsoft sobre o Azure Active Directory](/answers/topics/azure-active-directory.html). Os membros da comunidade incluem engenheiros, gerentes de produto, MVPs e colegas profissionais de TI.
 
 Esta seção de perguntas frequentes é dividida nas seguintes seções:
 
@@ -197,7 +197,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P:  Os usuários poderão ser notificados no Portal do Office quando suas senhas locais expirarem?**
 
-  > **R:** Sim, isso é possível hoje mesmo se você usa os Serviços de Federação do Active Directory (AD FS). Se você usar o AD FS, siga as instruções no artigo [Envio de declarações de política de senha com o AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Se você usar a sincronização de hash de senha, isso não será possível atualmente. Nós não sincronizamos políticas de senha locais e, portanto, não é possível postar as notificações de expiração para experiências de nuvem. Em ambos os casos, também é possível [notificar os usuários cujas senhas estejam prestes a expirar usando o PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  > **R:** Sim, isso é possível hoje mesmo se você usa os Serviços de Federação do Active Directory (AD FS). Se você usar o AD FS, siga as instruções no artigo [Envio de declarações de política de senha com o AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Se você usar a sincronização de hash de senha, isso não será possível atualmente. Nós não sincronizamos políticas de senha locais e, portanto, não é possível postar as notificações de expiração para experiências de nuvem. Em ambos os casos, também é possível [notificar os usuários cujas senhas estejam prestes a expirar usando o PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
   >
 * **P:  Posso impedir os usuários de alterarem suas senhas?**
@@ -243,7 +243,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 
 * **P:  Como funciona os bastidores do write-back de senha?**
 
-  > **R:** Confira o artigo [Como funciona o write-back de senha](howto-sspr-writeback.md) para obter uma explicação detalhada do que acontece quando você habilita o write-back de senha e como os dados fluem pelo sistema novamente ao ambiente local.
+  > **R:** Confira o artigo [Como funciona o write-back de senha](./tutorial-enable-sspr-writeback.md) para obter uma explicação detalhada do que acontece quando você habilita o write-back de senha e como os dados fluem pelo sistema novamente ao ambiente local.
   >
   >
 * **P:  Quanto tempo leva para o write-back de senha funcionar? Há um atraso de sincronização como com a sincronização com hash de senha?**
@@ -273,7 +273,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P:  O write-back de senha é seguro?  Como posso ter certeza de que não serei invadido por um hacker?**
 
-  > **R:** Sim, o write-back de senha é seguro. Para ler mais sobre as várias camadas de segurança implementadas pelo serviço de write-back de senha, verifique a seção [Segurança de write-back de senha](concept-sspr-writeback.md#password-writeback-security) no artigo [Visão geral do write-back de senha](howto-sspr-writeback.md).
+  > **R:** Sim, o write-back de senha é seguro. Para ler mais sobre as várias camadas de segurança implementadas pelo serviço de write-back de senha, verifique a seção [Segurança de write-back de senha](concept-sspr-writeback.md#password-writeback-security) no artigo [Visão geral do write-back de senha](./tutorial-enable-sspr-writeback.md).
   >
   >
 
@@ -286,7 +286,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 * [Quais dados são usados pelo SSPR e quais dados você deve preencher para seus usuários?](howto-sspr-authenticationdata.md)
 * [Quais métodos de autenticação estão disponíveis para os usuários?](concept-sspr-howitworks.md#authentication-methods)
 * [Quais são as opções de política com o SSPR?](concept-sspr-policy.md)
-* [O que é o write-back de senha e por que devo me importar com isso?](howto-sspr-writeback.md)
+* [O que é o write-back de senha e por que devo me importar com isso?](./tutorial-enable-sspr-writeback.md)
 * [Como faço para informar sobre a atividade no SSPR?](howto-sspr-reporting.md)
 * [Quais são todas as opções no SSPR e o que elas significam?](concept-sspr-howitworks.md)
 * [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2055730505b360ef8d5bf50cd83532627fb8e08
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 70f7082de204cedd25b3b87b7157376505598712
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245410"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718077"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação com senha para Azure Active Directory
 
@@ -52,7 +52,7 @@ As etapas a seguir mostram como o processo de entrada funciona com o Azure AD:
 1. O provedor de AP de nuvem recebe o PRT criptografado com chave de sessão. Usando a chave de transporte privada do dispositivo, o provedor de AP de nuvem descriptografa a chave de sessão e protege a chave de sessão usando o Trusted Platform Module do dispositivo (TPM).
 1. O provedor de AP de nuvem retorna uma resposta de autenticação bem-sucedida para o Windows. O usuário é então capaz de acessar o Windows, bem como aplicativos locais e na nuvem sem a necessidade de autenticar novamente (SSO).
 
-O [Guia de planejamento](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) do Windows Hello para empresas pode ser usado para ajudá-lo a tomar decisões sobre o tipo de implantação do Windows Hello para empresas e as opções que você precisará considerar.
+O [Guia de planejamento](/windows/security/identity-protection/hello-for-business/hello-planning-guide) do Windows Hello para empresas pode ser usado para ajudá-lo a tomar decisões sobre o tipo de implantação do Windows Hello para empresas e as opções que você precisará considerar.
 
 ## <a name="microsoft-authenticator-app"></a>Aplicativo Microsoft Authenticator
 
@@ -60,7 +60,7 @@ Você também pode permitir que o telefone de seu funcionário se torne um méto
 
 ![Entrar no Microsoft Edge com o aplicativo Microsoft Authenticator](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
-O aplicativo autenticador transforma qualquer telefone iOS ou Android em uma credencial forte e com senha. Os usuários podem entrar em qualquer plataforma ou navegador, obtendo uma notificação para seu telefone, correspondendo a um número exibido na tela para aquele em seu telefone e, em seguida, usando sua biométrica (toque ou face) ou PIN para confirmar. Consulte [baixar e instalar o aplicativo Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) para obter detalhes de instalação.
+O aplicativo autenticador transforma qualquer telefone iOS ou Android em uma credencial forte e com senha. Os usuários podem entrar em qualquer plataforma ou navegador, obtendo uma notificação para seu telefone, correspondendo a um número exibido na tela para aquele em seu telefone e, em seguida, usando sua biométrica (toque ou face) ou PIN para confirmar. Consulte [baixar e instalar o aplicativo Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) para obter detalhes de instalação.
 
 A autenticação com senha usando o aplicativo autenticador segue o mesmo padrão básico do Windows Hello para empresas. É um pouco mais complicado, pois o usuário precisa ser identificado para que o Azure AD possa encontrar a versão do aplicativo Microsoft Authenticator que está sendo usada:
 

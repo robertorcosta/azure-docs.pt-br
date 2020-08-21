@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 053b052abf6f23c385dc7447639aa40b6c2c58a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f75c08f0a390e798435b70bbe2409ec4a9732214
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81680197"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717159"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Uso de métodos de autenticação & insights (versão prévia)
 
@@ -33,7 +33,7 @@ As funções a seguir podem acessar o uso e as informações:
 
 Nenhum licenciamento adicional é necessário para acessar o uso e as informações. A autenticação multifator do Azure e as informações de licenciamento de redefinição de senha de autoatendimento (SSPR) podem ser encontradas no [site de preços Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Para acessar o uso e as informações do método de autenticação:
 
@@ -65,7 +65,7 @@ Clicar nos blocos **usuários registrados**, **usuários habilitados**ou **usuá
 
 O relatório detalhes do registro mostra as seguintes informações para cada usuário:
 
-- Nome
+- Name
 - Nome de usuário
 - Status do registro (tudo, registrado, não registrado)
 - Status habilitado (tudo, habilitado, não habilitado)
@@ -80,7 +80,7 @@ Clicar nos gráficos de registros ou redefinições irá levá-lo para os detalh
 
 O relatório detalhes de redefinir mostra o registro e a redefinição dos eventos dos últimos 30 dias, incluindo:
 
-- Nome
+- Name
 - Nome de usuário
 - Recurso (tudo, registro, redefinição)
 - Método de autenticação (notificação do aplicativo, código do aplicativo, chamada telefônica, chamada do Office, SMS, email, perguntas de segurança)
@@ -98,6 +98,6 @@ O relatório não pode ser filtrado no momento para excluir usuários externos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Trabalhando com a API de relatório de uso dos métodos de autenticação](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [Trabalhando com a API de relatório de uso dos métodos de autenticação](/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
 - [Escolhendo métodos de autenticação para sua organização](concept-authentication-methods.md)
 - [Experiência de registro combinada](concept-registration-mfa-sspr-combined.md)

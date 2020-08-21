@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6ede429de686dd005785b44cf5c6d9571aac5a2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 4a75b6be3796a21e3f765ad69eee0578d5f2e9d0
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117015"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717839"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a infraestrutura do seu Gateway de Área de Trabalho Remota usando a extensão do Servidor de Políticas de Rede (NPS) e o Azure AD
 
 Este artigo fornece os detalhes para integração da infraestrutura do seu Gateway de Área de Trabalho Remota com a Autenticação Multifator do Azure (MFA) usando a extensão do Servidor de Políticas de Rede (NPS) para o Microsoft Azure.
 
-A extensão do servidor de políticas de rede (NPS) para o Azure permite que os clientes protejam a autenticação de cliente do serviço RADIUS (RADIUS) usando a [MFA (autenticação multifator](multi-factor-authentication.md)baseada em nuvem) do Azure. Essa solução fornece uma verificação em duas etapas para adicionar uma segunda camada de segurança para logons de usuário e transações.
+A extensão do servidor de políticas de rede (NPS) para o Azure permite que os clientes protejam a autenticação de cliente do serviço RADIUS (RADIUS) usando a [MFA (autenticação multifator](./concept-mfa-howitworks.md)baseada em nuvem) do Azure. Essa solução fornece uma verificação em duas etapas para adicionar uma segunda camada de segurança para logons de usuário e transações.
 
 Este artigo fornece instruções passo a passo para integrar a infraestrutura do NPS com a Autenticação Multifator do Azure usando a extensão do NPS do Azure. Isso permite a verificação dos usuários que tentarem entrar em um Gateway de Área de Trabalho Remota.
 
@@ -75,7 +75,7 @@ Esta seção fornece detalhes sobre os pré-requisitos necessários para integra
 Você deve ter uma infraestrutura de Serviços de Área de Trabalho Remota (RDS) em vigor. Se você não fizer isso, poderá criar rapidamente essa infraestrutura no Azure usando o seguinte modelo de início rápido: [criar área de trabalho remota implantação de coleção de sessão](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment).
 
 Se você quiser criar manualmente uma infraestrutura de RDS local rapidamente para fins de teste, siga as etapas para implantar uma.
-**Saiba mais**: [implante o RDS com o início rápido do Azure e a](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) [implantação da infraestrutura básica do RDS](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+**Saiba mais**: [implante o RDS com o início rápido do Azure e a](/windows-server/remote/remote-desktop-services/rds-in-azure) [implantação da infraestrutura básica do RDS](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 ### <a name="azure-mfa-license"></a>Licença do Azure MFA
 
@@ -89,7 +89,7 @@ A extensão NPS requer o Windows Server 2008 R2 SP1 ou superior com o serviço d
 
 O serviço de função NPS fornece o servidor RADIUS e a funcionalidade do cliente, bem como o serviço de integridade de Política de Acesso de Rede. Essa função deve ser instalada em pelo menos dois computadores na sua infraestrutura: O Gateway de Área de Trabalho Remota e outro servidor membro ou controlador de domínio. Por padrão, a função já está presente no computador configurado como o Gateway de Área de Trabalho Remota.  Você deve também instalar a função NPS em pelo menos um outro computador, como um controlador de domínio ou servidor membro.
 
-Para obter informações sobre como instalar a função do NPS do serviço Windows Server 2012 ou anterior, consulte [Instalar um Servidor de Política de Integridade de NAP](https://technet.microsoft.com/library/dd296890.aspx). Para obter uma descrição das práticas recomendadas para o NPS, incluindo a recomendação para instalar o NPS em um controlador de domínio, consulte [práticas recomendadas para o NPS](https://technet.microsoft.com/library/cc771746).
+Para obter informações sobre como instalar a função do NPS do serviço Windows Server 2012 ou anterior, consulte [Instalar um Servidor de Política de Integridade de NAP](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd296890(v=ws.10)). Para obter uma descrição das práticas recomendadas para o NPS, incluindo a recomendação para instalar o NPS em um controlador de domínio, consulte [práticas recomendadas para o NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771746(v=ws.10)).
 
 ### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>Azure Active Directory sincronizado com o Active Directory local
 
@@ -109,7 +109,7 @@ Siga as etapas em [Guia de introdução à Autenticação Multifator do Azure na
 
 Depois que uma conta tiver sido habilitada para MFA, não será possível entrar nos recursos controlados pela política de MFA até que você tenha configurado com êxito um dispositivo confiável a ser usado para o segundo fator de autenticação e autenticar-se usando a verificação em duas etapas.
 
-Siga as etapas em [O que a Autenticação Multifator do Azure significa para mim?](../user-help/multi-factor-authentication-end-user.md) para compreender e configurar corretamente os dispositivos para MFA com sua conta de usuário.
+Siga as etapas em [O que a Autenticação Multifator do Azure significa para mim?](../user-help/multi-factor-authentication-end-user-first-time.md) para compreender e configurar corretamente os dispositivos para MFA com sua conta de usuário.
 
 > [!IMPORTANT]
 > O comportamento de entrada para Área de Trabalho Remota gateway não fornece a opção de inserir um código de verificação com a autenticação multifator do Azure. Uma conta de usuário deve ser configurada para verificação de telefone ou o aplicativo Microsoft Authenticator com notificações por push.
@@ -250,7 +250,7 @@ Por padrão, quando você configurar o Gateway de Área de Trabalho Remota para 
 1. Clique em **Cancelar**.
 
 >[!NOTE]
-> Para obter mais informações sobre como criar uma política de solicitação de conexão, consulte o artigo a documentação [Configurar políticas de solicitação de conexão](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy) para o mesmo. 
+> Para obter mais informações sobre como criar uma política de solicitação de conexão, consulte o artigo a documentação [Configurar políticas de solicitação de conexão](/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy) para o mesmo. 
 
 ## <a name="configure-nps-on-the-server-where-the-nps-extension-is-installed"></a>Configurar o NPS no servidor onde a extensão NPS está instalada
 
@@ -378,13 +378,13 @@ Abaixo está um evento relacionado dos logs do AzureMFA:
 
 Para executar opções de solução de problemas avançadas, consulte os arquivos de log de formato do banco de dados NPS onde o serviço NPS está instalado. Esses arquivos de log são criados na pasta _%SystemRoot%\System32\Logs_ como arquivos de texto separado por vírgula.
 
-Para obter uma descrição desses arquivos de log, consulte [Interpretar arquivos de log de formato de banco de dados de NPS](https://technet.microsoft.com/library/cc771748.aspx). As entradas nesses arquivos de log podem ser difícil de interpretar sem importá-los para uma planilha ou um banco de dados. Você pode encontrar vários analisadores de IAS on-line para ajudá-lo a interpretar os arquivos de log.
+Para obter uma descrição desses arquivos de log, consulte [Interpretar arquivos de log de formato de banco de dados de NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771748(v=ws.10)). As entradas nesses arquivos de log podem ser difícil de interpretar sem importá-los para uma planilha ou um banco de dados. Você pode encontrar vários analisadores de IAS on-line para ajudá-lo a interpretar os arquivos de log.
 
 A imagem abaixo mostra a saída de um desses [aplicativos shareware](https://www.deepsoftware.com/iasviewer) que pode ser baixado.
 
 ![Exemplo de analisador de IAS do aplicativo shareware](./media/howto-mfa-nps-extension-rdg/image35.png)
 
-E, por último, para mais opções de solução de problemas, você pode usar um analisador de protocolo, como o [Analisador de Mensagens da Microsoft](https://technet.microsoft.com/library/jj649776.aspx).
+E, por último, para mais opções de solução de problemas, você pode usar um analisador de protocolo, como o [Analisador de Mensagens da Microsoft](/message-analyzer/microsoft-message-analyzer-operating-guide).
 
 A imagem abaixo do Microsoft Message Analyzer mostra o tráfego de rede filtrado no protocolo RADIUS que contém o nome de usuário **CONTOSO\AliceC**.
 

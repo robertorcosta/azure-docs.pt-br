@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebcb79088ebac761632e882e98e00f165cc4bd05
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a51d8c45f652173e5b2b0731d64a8e6f14ee46c7
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035224"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717345"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Habilitar a Azure Active Directory redefinição de senha de autoatendimento na tela de entrada do Windows
 
@@ -35,7 +35,7 @@ As seguintes limitações se aplicam ao uso do SSPR na tela de entrada do Window
 
 - Atualmente, a redefinição de senha não tem suporte de uma Área de Trabalho Remota ou de sessões avançadas do Hyper-V.
 - Alguns provedores de credenciais de terceiros são conhecidos por causar problemas com esse recurso.
-- Desabilitação do UAC por meio da modificação de [chave do registro EnableLUA](https://docs.microsoft.com/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) é conhecida por causar problemas.
+- Desabilitação do UAC por meio da modificação de [chave do registro EnableLUA](/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) é conhecida por causar problemas.
 - Esse recurso não funciona para redes com autenticação de rede 802.1 x implantada e a opção "executar imediatamente antes do logon do usuário". Para redes com autenticação de rede 802.1 x implantada, é recomendável usar a autenticação do computador para habilitar esse recurso.
 - Os computadores ingressados no Azure Active Directory híbrido devem ter a linha de visão de conectividade de rede para um controlador de domínio para usar a nova senha e atualizar as credenciais armazenadas em cache. Isso significa que os dispositivos devem estar na rede interna da organização ou em uma VPN com acesso à rede para um controlador de domínio local.
 - Se estiver usando uma imagem, antes de executar o sysprep, veja se o cache da Web está desmarcado para o Administrador interno, antes de executar a etapa CopyProfile. Mais informações sobre esse assunto podem ser encontradas no artigo de suporte [Desempenho insatisfatório ao usar perfil de usuário padrão personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
@@ -59,7 +59,7 @@ Para configurar um dispositivo Windows 10 para SSPR na tela de entrada, examine 
 ### <a name="windows-10-prerequisites"></a>Pré-requisitos do Windows 10
 
 - Um administrador [deve habilitar a redefinição de senha de autoatendimento do Azure AD no portal do Azure](tutorial-enable-sspr.md).
-- Os usuários devem se registrar no SSPR antes de usar esse recurso em[https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
+- Os usuários devem se registrar no SSPR antes de usar esse recurso em [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
     - Não exclusivo para usar o SSPR da tela de entrada do Windows, todos os usuários devem fornecer as informações de contato de autenticação antes que possam redefinir sua senha.
 - Requisitos de proxy de rede:
     - Porta 443 para `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com`
@@ -126,7 +126,7 @@ Para configurar um dispositivo Windows 7, 8 ou 8,1 para SSPR na tela de entrada,
 ### <a name="windows-7-8-and-81-prerequisites"></a>Pré-requisitos do Windows 7, 8 e 8.1
 
 - Um administrador [deve habilitar a redefinição de senha de autoatendimento do Azure AD no portal do Azure](tutorial-enable-sspr.md).
-- Os usuários devem se registrar no SSPR antes de usar esse recurso em[https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
+- Os usuários devem se registrar no SSPR antes de usar esse recurso em [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
     - Não exclusivo para usar o SSPR da tela de entrada do Windows, todos os usuários devem fornecer as informações de contato de autenticação antes que possam redefinir sua senha.
 - Requisitos de proxy de rede:
     - Porta 443 para `passwordreset.microsoftonline.com`
@@ -143,7 +143,7 @@ Para o Windows 7, 8 e 8,1, um pequeno componente deve ser instalado no computado
 
 1. Baixe o instalador correto para a versão do Windows que você quer habilitar.
 
-    O instalador de software está disponível no centro de download da Microsoft em[https://aka.ms/sspraddin](https://aka.ms/sspraddin)
+    O instalador de software está disponível no centro de download da Microsoft em [https://aka.ms/sspraddin](https://aka.ms/sspraddin)
 1. Entre no computador em que você quer instalar e execute o instalador.
 1. Após a instalação, uma reinicialização é altamente recomendável.
 1. Após a reinicialização, na tela de entrada, escolha um usuário e selecione "esqueceu a senha?" para iniciar o fluxo de trabalho de redefinição de senha.

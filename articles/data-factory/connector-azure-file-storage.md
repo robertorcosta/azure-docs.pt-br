@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/18/2020
-ms.openlocfilehash: be12393591d534b4141594439f0409d0db331bd0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.date: 08/21/2020
+ms.openlocfilehash: 135993a39a3b06bdabfff4a219df92d41c736a51
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522667"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718247"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copiar dados de ou para o Armazenamento de Arquivos do Azure usando o Azure Data Factory
 
@@ -33,7 +33,12 @@ Este conector de armazenamento de arquivos do Azure oferece suporte às seguinte
 - [Atividade GetMetadata](control-flow-get-metadata-activity.md)
 - [Excluir atividade](delete-activity.md)
 
-Especificamente, este conector do Armazenamento de Arquivos do Azure dá suporte à cópia de arquivos no estado em que se encontram ou à análise/geração de arquivos com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
+Você pode copiar dados de qualquer Armazenamento de Arquivos do Azure para qualquer armazenamento de dados do coletor com suporte ou copiar dados de qualquer armazenamento de dados de origem com suporte para o Armazenamento de Arquivos do Azure. Para obter uma lista de armazenamentos de dados que o Copy Activity suporta como fontes e coletores, consulte [Armazenamentos de dados e formatos compatíveis](copy-activity-overview.md#supported-data-stores-and-formats).
+
+Especificamente, esse conector de armazenamento de arquivos do Azure dá suporte a:
+
+- Copiar arquivos usando as autenticações de chave de conta ou de assinatura de acesso compartilhado (SAS) do serviço.
+- Cópia de arquivos no estado em que se encontram ou análise/geração de arquivos com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="getting-started"></a>Introdução
 
@@ -43,7 +48,139 @@ As seções a seguir dão detalhes sobre as propriedades usadas para definir ent
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 
-As propriedades a seguir têm suporte no serviço vinculado do Armazenamento de Arquivos do Azure:
+Este conector de armazenamento de arquivos do Azure dá suporte aos seguintes tipos de autenticação. Consulte as seções correspondentes para obter detalhes.
+
+- [Autenticação de chave de conta](#account-key-authentication)
+- [Autenticação de assinatura de acesso compartilhado](#shared-access-signature-authentication)
+
+>[!NOTE]
+> Se você estava usando o serviço vinculado do armazenamento de arquivos do Azure com o [modelo herdado](#legacy-model), em que na interface do usuário de criação do ADF mostrada como "autenticação básica", ainda é suportada como está, enquanto você é sugerido para usar o novo modelo no futuro. O modelo herdado transfere dados de/para o armazenamento no protocolo SMB, enquanto o novo modelo utiliza o SDK de armazenamento que tem uma melhor taxa de transferência. Para atualizar, você pode editar seu serviço vinculado para alternar o método de autenticação para "chave de conta" ou "URI de SAS"; nenhuma alteração necessária no conjunto de uma atividade de DataSet ou de cópia.
+
+### <a name="account-key-authentication"></a>Autenticação de chave de conta
+
+O Data Factory dá suporte às seguintes propriedades para autenticação de chave de conta de armazenamento de arquivos do Azure:
+
+| Propriedade | Descrição | Obrigatório |
+|:--- |:--- |:--- |
+| type | A propriedade type deve ser definida como: **AzureFileStorage**. | Sim |
+| connectionString | Especifique as informações necessárias para se conectar ao armazenamento de arquivos do Azure. <br/> Você também pode colocar a chave de conta em Azure Key Vault e `accountKey` efetuar pull da configuração da cadeia de conexão. Para obter mais informações, consulte os exemplos a seguir e as [credenciais de armazenamento no artigo Azure Key Vault](store-credentials-in-key-vault.md) . |Sim |
+| fileShare | Especifique o compartilhamento de arquivos. | Sim |
+| instantâneo | Especifique a data do [instantâneo de compartilhamento de arquivos](../storage/files/storage-snapshots-files.md) se você quiser copiar de um instantâneo. | Não |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
+
+**Exemplo:**
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>;EndpointSuffix=core.windows.net;",
+            "fileShare": "<file share name>"
+        },
+        "connectVia": {
+          "referenceName": "<name of Integration Runtime>",
+          "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exemplo: armazenar a chave de conta no Azure Key Vault**
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;",
+            "fileShare": "<file share name>",
+            "accountKey": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }            
+    }
+}
+```
+
+### <a name="shared-access-signature-authentication"></a>Autenticação de assinatura de acesso compartilhado
+
+Uma assinatura de acesso compartilhado fornece acesso delegado aos recursos da sua conta de armazenamento. Você pode usar uma assinatura de acesso compartilhado para conceder a um cliente permissões limitadas para objetos em sua conta de armazenamento por determinado tempo. Para obter mais informações sobre assinaturas de acesso compartilhado, consulte [Assinaturas de acesso compartilhado: Entender o modelo de assinatura de acesso compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+
+O Data Factory dá suporte às seguintes propriedades para usar a autenticação de assinatura de acesso compartilhado:
+
+| Propriedade | Descrição | Obrigatório |
+|:--- |:--- |:--- |
+| type | A propriedade type deve ser definida como: **AzureFileStorage**. | Sim |
+| sasUri | Especifique o URI da assinatura de acesso compartilhado para os recursos. <br/>Marque este campo como **SecureString** para armazená-lo com segurança em data Factory. Você também pode colocar o token SAS em Azure Key Vault para usar a rotação automática e remover a parte do token. Para obter mais informações, consulte os exemplos a seguir e [armazenar credenciais em Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| fileShare | Especifique o compartilhamento de arquivos. | Sim |
+| instantâneo | Especifique a data do [instantâneo de compartilhamento de arquivos](../storage/files/storage-snapshots-files.md) se você quiser copiar de um instantâneo. | Não |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
+
+**Exemplo:**
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {
+            "sasUri": {
+                "type": "SecureString",
+                "value": "<SAS URI of the resource e.g. https://<accountname>.file.core.windows.net/?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>"
+            },
+            "fileShare": "<file share name>",
+            "snapshot": "<snapshot version>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Exemplo: armazenar a chave de conta no Azure Key Vault**
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {
+            "sasUri": {
+                "type": "SecureString",
+                "value": "<SAS URI of the Azure Storage resource without token e.g. https://<accountname>.file.core.windows.net/>"
+            },
+            "sasToken": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName with value of SAS token e.g. ?sv=<storage version>&st=<start time>&se=<expire time>&sr=<resource>&sp=<permissions>&sip=<ip range>&spr=<protocol>&sig=<signature>>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="legacy-model"></a>Modelo herdado
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -52,13 +189,6 @@ As propriedades a seguir têm suporte no serviço vinculado do Armazenamento de 
 | userid | Especifica o usuário para acessar o Armazenamento de Arquivos do Azure como: <br/>\- Usando a interface do usuário: especifique `AZURE\<storage name>`<br/>\- Usando o JSON: `"userid": "AZURE\\<storage name>"`. | Sim |
 | password | Especifique a chave de acesso de armazenamento. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não para fonte, Sim para o coletor |
-
->[!IMPORTANT]
-> - Para copiar dados para o Armazenamento de Arquivos do Azure usando o Azure Integration Runtime, [crie um Azure IR](create-azure-integration-runtime.md#create-azure-ir) com o local do seu Armazenamento de Arquivos e associe no serviço vinculado como o exemplo a seguir.
-> - Para copiar dados de/para o Armazenamento de Arquivos do Azure usando Integration Runtime auto-hospedado fora do Azure, lembre-se de abrir a porta de saída TCP 445 na sua rede local.
-
->[!TIP]
->Ao usar a interface do usuário do Azure Data Factory para criação, você pode encontrar a entrada específica de "Armazenamento de Arquivos do Azure" para a criação de serviço vinculado, que gera o tipo de objeto `FileServer`.
 
 **Exemplo:**
 
@@ -93,9 +223,9 @@ As propriedades a seguir oferecem suporte para Azure File Storage em configuraç
 
 | Propriedade   | Descrição                                                  | Obrigatório |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | A propriedade de tipo em `location` no conjunto de dados deve ser definida como **FileServerLocation**. | Sim      |
-| folderPath | O caminho para a pasta. Se você quiser usar um caractere curinga para filtrar a pasta, ignore essa configuração e especifique nas configurações de origem da atividade. | Não       |
-| fileName   | O nome do arquivo sob o folderPath fornecido. Se você quiser usar um caractere curinga para filtrar os arquivos, ignore essa configuração e especifique nas configurações de origem da atividade. | Não       |
+| type       | A propriedade de tipo em `location` no conjunto de dados deve ser definida para **FileServerLocation**. | Sim      |
+| folderPath | O caminho para a pasta. Se quiser usar um caractere curinga para filtrar a pasta, ignore essa configuração e especifique nas configurações de origem da atividade. | Não       |
+| fileName   | O nome do arquivo sob o folderPath fornecido. Se quiser usar um caractere curinga para filtrar os arquivos, ignore essa configuração e especifique nas configurações de origem da atividade. | Não       |
 
 **Exemplo:**
 
@@ -135,12 +265,13 @@ As propriedades a seguir oferecem suporte para Azure File Storage em configuraç
 
 | Propriedade                 | Descrição                                                  | Obrigatório                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | A propriedade de tipo em `storeSettings` deve ser definida como **FileServerReadSettings**. | Sim                                           |
+| type                     | A propriedade de tipo em `storeSettings` deve ser definida para **FileServerReadSettings**. | Sim                                           |
 | ***Localize os arquivos a serem copiados:*** |  |  |
-| OPÇÃO 1: caminho estático<br> | Copiar do caminho de pasta/arquivo especificado no conjunto de dados. Se você quiser copiar todos os arquivos de uma pasta, especifique também `wildcardFileName` como `*`. |  |
-| OPÇÃO 2: curinga<br>- wildcardFolderPath | O caminho da pasta com caracteres curinga para filtrar as pastas de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape. <br>Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Não                                            |
-| OPÇÃO 2: curinga<br>- wildcardFileName | O nome do arquivo com caracteres curinga sob folderPath/wildcardFolderPath fornecido para filtrar os arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape.  Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim |
-| OPÇÃO 3: uma lista de arquivos<br>- fileListPath | Indica a cópia de um determinado conjunto de arquivos. Aponte para um arquivo de texto que inclui uma lista de arquivos que você deseja copiar, um arquivo por linha, que é o caminho relativo para o caminho configurado no conjunto de um.<br/>Ao usar essa opção, não especifique o nome do arquivo no conjunto de dados. Veja mais exemplos em [Exemplos de lista de arquivos](#file-list-examples). |Não |
+| OPÇÃO 1: caminho estático<br> | Copiar do caminho de pasta/arquivo especificado no conjunto de dados. Se quiser copiar todos os arquivos de uma pasta, especifique também `wildcardFileName` como `*`. |  |
+| OPÇÃO 2: prefixo do arquivo<br>- prefix | Prefixo do nome do arquivo no compartilhamento de arquivo fornecido configurado em um conjunto de dados para filtrar os arquivos de origem. Os arquivos com nome começando com `fileshare_in_linked_service/this_prefix` são selecionados. Ele utiliza o filtro do lado do serviço para o armazenamento de arquivos do Azure, que fornece melhor desempenho do que um filtro curinga. Não há suporte para esse recurso ao usar um [modelo de serviço vinculado herdado](#legacy-model). | Não                                                          |
+| OPÇÃO 3: curinga<br>- wildcardFolderPath | O caminho da pasta com caracteres curinga para filtrar as pastas de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape. <br>Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Não                                            |
+| OPÇÃO 3: curinga<br>- wildcardFileName | O nome do arquivo com caracteres curinga sob o folderPath/wildcardFolderPath fornecido para filtrar os arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape.  Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim |
+| OPÇÃO 4: uma lista de arquivos<br>- fileListPath | Indica a cópia de um determinado conjunto de arquivos. Aponte para um arquivo de texto que inclui uma lista de arquivos que você deseja copiar, um arquivo por linha, que é o caminho relativo para o caminho configurado no conjunto de um.<br/>Ao usar essa opção, não especifique o nome do arquivo no conjunto de dados. Veja mais exemplos em [Exemplos de lista de arquivos](#file-list-examples). |Não |
 | ***Configurações adicionais:*** |  | |
 | recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor. <br>Os valores permitidos são **true** (padrão) e **false**.<br>Essa propriedade não se aplica quando você configura `fileListPath`. |Não |
 | deleteFilesAfterCompletion | Indica se os arquivos binários serão excluídos do repositório de origem após a movimentação com êxito para o repositório de destino. A exclusão do arquivo é por arquivo, portanto, quando a atividade de cópia falhar, você verá que alguns arquivos já foram copiados para o destino e excluídos da origem, enquanto outros ainda permanecem no repositório de origem. <br/>Essa propriedade só é válida em cenário de cópia binária, em que os repositórios de fontes de dados são BLOB, ADLS Gen1, ADLS Gen2, S3, armazenamento em nuvem do Google, arquivo, arquivo do Azure, SFTP ou FTP. O valor padrão: false. |Não |

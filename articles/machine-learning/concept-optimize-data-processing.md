@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 6bb85ada5ab1cd443d47ed85024b45d98354e97f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c73a5c5339403ecd91d45968405682c59f2f23b4
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500956"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719267"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Otimizar o processamento de dados com Azure Machine Learning
 
@@ -33,9 +33,9 @@ Os arquivos CSV são comumente usados para importar e exportar dados, já que s�
 
 ## <a name="pandas-dataframe"></a>Dataframe do Pandas
 
-Os [dataframes do pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html) são comumente usados para análise e manipulação de dados. `Pandas`funciona bem para tamanhos de dados menores que 1 GB, mas os tempos de processamento para `pandas` dataframes ficam lentos quando os tamanhos de arquivo atingem cerca de 1 GB. Essa lentidão ocorre porque o tamanho dos dados no armazenamento não é igual ao tamanho dos dados em um dataframe. Por exemplo, os dados em arquivos CSV podem ser expandidos até 10 vezes em um dataframe, de modo que um arquivo CSV de 1 GB pode se tornar 10 GB em um dataframe.
+Os [dataframes do pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html) são comumente usados para análise e manipulação de dados. `Pandas` funciona bem para tamanhos de dados menores que 1 GB, mas os tempos de processamento para `pandas` dataframes ficam lentos quando os tamanhos de arquivo atingem cerca de 1 GB. Essa lentidão ocorre porque o tamanho dos dados no armazenamento não é igual ao tamanho dos dados em um dataframe. Por exemplo, os dados em arquivos CSV podem ser expandidos até 10 vezes em um dataframe, de modo que um arquivo CSV de 1 GB pode se tornar 10 GB em um dataframe.
 
-`Pandas`é de thread único, o que significa que as operações são feitas uma de cada vez em uma única CPU. Você pode facilmente paralelizar cargas de trabalho para várias CPUs virtuais em uma única instância de computação Azure Machine Learning com pacotes como [Modin](https://modin.readthedocs.io/en/latest/) que encapsulam `Pandas` usando um back-end distribuído.
+`Pandas` é de thread único, o que significa que as operações são feitas uma de cada vez em uma única CPU. Você pode facilmente paralelizar cargas de trabalho para várias CPUs virtuais em uma única instância de computação Azure Machine Learning com pacotes como [Modin](https://modin.readthedocs.io/en/latest/) que encapsulam `Pandas` usando um back-end distribuído.
 
 Para paralelizar suas tarefas com `Modin` e [Dask](https://dask.org), basta alterar essa linha de código `import pandas as pd` para `import modin.pandas as pd` .
 
@@ -46,6 +46,16 @@ Normalmente, um erro *de memória insuficiente* ocorre quando o dataframe se exp
 Uma solução é aumentar a RAM para ajustar o dataframe na memória. Recomendamos que o tamanho de computação e a potência de processamento contenham duas vezes o tamanho da RAM. Portanto, se o dataframe for de 10 GB, use um destino de computação com, pelo menos, 20 GB de RAM para garantir que o dataframe possa se ajustar confortavelmente à memória e ser processado. 
 
 Para várias CPUs virtuais, vCPU, tenha em mente que você deseja que uma partição se ajuste confortavelmente à RAM que cada vCPU pode ter no computador. Ou seja, se você tiver 16 GB de RAM 4 vCPUs, você desejará cerca de 2 GB de quadros de segundo por cada vCPU.
+
+### <a name="local-vs-remote"></a>Local vs remoto
+
+Você pode observar que alguns comandos do dataframe do pandas são executados mais rapidamente ao trabalhar em seu PC local em vez de uma VM remota provisionada com Azure Machine Learning. Seu PC local normalmente tem um arquivo de paginação habilitado, que permite que você carregue mais do que cabe na memória física, que é o seu disco rígido está sendo usado como uma extensão de sua RAM. Atualmente, Azure Machine Learning VMs são executadas sem um arquivo de paginação, portanto, só pode carregar o máximo de dados que a RAM física disponível. 
+
+Para trabalhos de computação intensa, recomendamos que você escolha uma VM maior para melhorar as velocidades de processamento.
+
+Saiba mais sobre a [série de VMs e os tamanhos disponíveis](concept-compute-target.md#supported-vm-series-and-sizes) para Azure Machine Learning. 
+
+Para obter especificações de RAM, consulte as páginas da série de VMs correspondentes, como [Dv2-Dsv2 Series](../virtual-machines/dv2-dsv2-series-memory.md) ou [NC Series](../virtual-machines/nc-series.md).
 
 ### <a name="minimize-cpu-workloads"></a>Minimizar cargas de trabalho de CPU
 
@@ -71,10 +81,10 @@ A tabela a seguir recomenda estruturas distribuídas que são integradas com Azu
 
 Experiência ou tamanho dos dados | Recomendação
 ------|------
-Se você estiver familiarizado com`Pandas`| `Modin`ou `Dask` dataframe
-Se você preferir`Spark` | `PySpark`
-Para dados com menos de 1 GB | `Pandas`instância de computação de Azure Machine Learning local **ou** remota
-Para dados maiores que 10 GB| Mover para um cluster usando `Ray` , `Dask` ou`Spark`
+Se você estiver familiarizado com `Pandas`| `Modin` ou `Dask` dataframe
+Se você preferir `Spark` | `PySpark`
+Para dados com menos de 1 GB | `Pandas` instância de computação de Azure Machine Learning local **ou** remota
+Para dados maiores que 10 GB| Mover para um cluster usando `Ray` , `Dask` ou `Spark`
 
 Você pode criar `Dask` clusters no cluster de computação do Azure ml com o pacote [Dask-cloudprovider](https://cloudprovider.dask.org/en/latest/#azure) . Ou você pode executar `Dask` localmente em uma instância de computação.
 

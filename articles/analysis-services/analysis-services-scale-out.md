@@ -4,15 +4,15 @@ description: Replicar servidores Azure Analysis Services com escala horizontal. 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 08/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3ea304d038618fc428f20e7ad72b398f593d09a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ceed2a287fb210a421972e9c9f9e6c77c6cb1879
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78247985"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716921"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escala horizontal do Azure Analysis Services
 
@@ -30,7 +30,7 @@ Independentemente do número de réplicas de consulta que você tem em um pool d
 
 Ao escalar horizontalmente, pode levar até cinco minutos para que novas réplicas de consulta sejam adicionadas incrementalmente ao pool de consulta. Quando todas as novas réplicas de consulta estiverem em funcionamento, novas conexões de cliente serão balanceadas com carga entre os recursos no pool de consultas. As conexões de clientes existentes não são alteradas a partir do recurso ao qual elas estão conectadas atualmente. Ao dimensionar, quaisquer conexões de cliente existentes para um recurso de pool de consulta que está sendo removido do pool de consulta são finalizadas. Os clientes podem se reconectar a um recurso do pool de consultas restante.
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Ao configurar a expansão na primeira vez, os bancos de dados de modelo em seu servidor primário são sincronizados *automaticamente* com novas réplicas em um novo pool de consulta. A sincronização automática ocorre apenas uma vez. Durante a sincronização automática, os arquivos de dados do servidor primário (criptografados em repouso no armazenamento de BLOB) são copiados para um segundo local, também criptografados em repouso no armazenamento de BLOBs. As réplicas no pool de consultas são então *alimentadas* com dados do segundo conjunto de arquivos. 
 
@@ -50,7 +50,7 @@ Ao executar uma operação de expansão subsequente, por exemplo, aumentar o nú
 
 ### <a name="synchronization-mode"></a>Modo de sincronização
 
-Por padrão, as réplicas de consulta são alimentadas de forma completa, não incrementalmente. Reidratação acontece em estágios. Eles são desanexados e anexados dois de cada vez (supondo que haja pelo menos três réplicas) para garantir que pelo menos uma réplica seja mantida online para consultas em um determinado momento. Em alguns casos, os clientes podem precisar se reconectar a uma das réplicas online enquanto esse processo está ocorrendo. Usando a configuração de **ReplicaSyncMode** (em visualização), agora você pode especificar que a sincronização de réplica de consulta ocorra em paralelo. A sincronização paralela oferece os seguintes benefícios: 
+Por padrão, as réplicas de consulta são alimentadas de forma completa, não incrementalmente. Reidratação acontece em estágios. Eles são desanexados e anexados dois de cada vez (supondo que haja pelo menos três réplicas) para garantir que pelo menos uma réplica seja mantida online para consultas em um determinado momento. Em alguns casos, os clientes podem precisar se reconectar a uma das réplicas online enquanto esse processo está ocorrendo. Usando a configuração **ReplicaSyncMode** , agora você pode especificar que a sincronização da réplica de consulta ocorra em paralelo. A sincronização paralela oferece os seguintes benefícios: 
 
 - Redução significativa no tempo de sincronização. 
 - Os dados entre réplicas têm maior probabilidade de serem consistentes durante o processo de sincronização. 
@@ -61,7 +61,7 @@ Por padrão, as réplicas de consulta são alimentadas de forma completa, não i
 
 Use o SSMS para definir ReplicaSyncMode em Propriedades avançadas. Os valores possíveis são: 
 
-- `1`(padrão): reidratação de banco de dados de réplica completa em estágios (incremental). 
+- `1` (padrão): reidratação de banco de dados de réplica completa em estágios (incremental). 
 - `2`: Sincronização otimizada em paralelo. 
 
 ![Configuração de RelicaSyncMode](media/analysis-services-scale-out/aas-scale-out-sync-mode.png)
@@ -137,7 +137,7 @@ Códigos de status de retorno:
 |0     | Replicating        |
 |1     |  Reidratar       |
 |2     |   Concluído       |
-|3     |   Falhou      |
+|3     |   Com falha      |
 |4     |    Finalizando     |
 |||
 
@@ -170,7 +170,7 @@ Para SSMS, Visual Studio e cadeias de conexão no PowerShell, aplicativos de fun
 
 Você pode alterar o tipo de preço em um servidor com várias réplicas. O mesmo tipo de preço se aplica a todas as réplicas. Uma operação de escala primeiro desativará todas as réplicas ao mesmo tempo e, em seguida, abrirá todas as réplicas no novo tipo de preço.
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 **Problema:** Os usuários obtêm erro **não podem encontrar a \<Name of the server> instância do servidor ' ' no modo de conexão ' ReadOnly '.**
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ab69e3f4ca89e2069ff25470773e597009ec238
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 4fc459e63dd48adb49ab916c368b68cc3a1ccbaf
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641068"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717023"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planejar uma implantação da Autenticação Multifator do Azure
 
@@ -74,7 +74,7 @@ Use cartazes personalizáveis e modelos de email em [materiais de distribuição
 
 As políticas de Acesso Condicional impõem o registro, exigindo que usuários não registrados concluam o registro no primeiro acesso, uma consideração de segurança importante.
 
-O [Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) contribui com a Autenticação Multifator do Azure com uma política de registro e com políticas de detecção de riscos e correção automatizadas. As políticas podem ser criadas para forçar alterações de senha quando há uma ameaça de identidade comprometida ou exigir a MFA quando um acesso é considerado arriscado pelos seguintes [eventos](../reports-monitoring/concept-risk-events.md):
+O [Azure AD Identity Protection](../identity-protection/howto-identity-protection-configure-risk-policies.md) contribui com a Autenticação Multifator do Azure com uma política de registro e com políticas de detecção de riscos e correção automatizadas. As políticas podem ser criadas para forçar alterações de senha quando há uma ameaça de identidade comprometida ou exigir a MFA quando um acesso é considerado arriscado pelos seguintes [eventos](../identity-protection/overview-identity-protection.md):
 
 * Credenciais vazadas
 * Entradas de endereços IP anônimos
@@ -151,7 +151,7 @@ Os administradores devem determinar como os usuários registrarão seus métodos
 
 ### <a name="registration-with-identity-protection"></a>Registro com o Identity Protection
 
-Caso sua organização esteja usando o Azure Active Directory Identity Protection, [configure a política de registro com MFA](../identity-protection/howto-mfa-policy.md) para solicitar que os usuários se registrem na próxima vez que entrarem de forma interativa.
+Caso sua organização esteja usando o Azure Active Directory Identity Protection, [configure a política de registro com MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) para solicitar que os usuários se registrem na próxima vez que entrarem de forma interativa.
 
 ### <a name="registration-without-identity-protection"></a>Registro sem o Identity Protection
 
@@ -165,7 +165,7 @@ Com o uso das etapas a seguir, uma política de Acesso Condicional pode obrigar 
 2. Com o Acesso Condicional, imponha a Autenticação Multifator a esse grupo para acesso a todos os recursos.
 3. Periodicamente, reavalie os membros do grupo e remova os usuários que se registraram.
 
-Você pode identificar usuários registrados e não registrados do Azure MFA com comandos do PowerShell que dependem do [módulo do MSOnline PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+Você pode identificar usuários registrados e não registrados do Azure MFA com comandos do PowerShell que dependem do [módulo do MSOnline PowerShell](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
 
 #### <a name="identify-registered-users"></a>Identificar usuários registrados
 
@@ -281,7 +281,7 @@ A extensão do NPS atua como um adaptador entre o RADIUS e o Azure MFA baseado e
 
 #### <a name="implementing-your-nps-server"></a>Implementar o servidor NPS
 
-Se você já tiver uma instância do NPS implantada e em uso, acesse [Integrar sua Infraestrutura de NPS existente com a Autenticação Multifator do Azure](howto-mfa-nps-extension.md). Caso esteja configurando o NPS pela primeira vez, confira [NPS (Servidor de Políticas de Rede)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) para obter instruções. Um guia para a solução de problemas pode ser encontrado no artigo [Resolver mensagens de erro da extensão do NPS para a Autenticação Multifator do Azure](howto-mfa-nps-extension-errors.md).
+Se você já tiver uma instância do NPS implantada e em uso, acesse [Integrar sua Infraestrutura de NPS existente com a Autenticação Multifator do Azure](howto-mfa-nps-extension.md). Caso esteja configurando o NPS pela primeira vez, confira [NPS (Servidor de Políticas de Rede)](/windows-server/networking/technologies/nps/nps-top) para obter instruções. Um guia para a solução de problemas pode ser encontrado no artigo [Resolver mensagens de erro da extensão do NPS para a Autenticação Multifator do Azure](howto-mfa-nps-extension-errors.md).
 
 #### <a name="prepare-nps-for-users-that-arent-enrolled-for-mfa"></a>Preparar o NPS para usuários não registrados na Autenticação Multifator
 
@@ -325,7 +325,7 @@ O log padrão dos AD FS 2016 e 2019 no Registro de Segurança do Windows e no lo
 
 Em cada servidor AD FS, no Meu Repositório do computador local, haverá um certificado do Azure MFA autoassinado intitulado OU=Microsoft AD FS Azure MFA, que contém a data de validade do certificado. Verifique o período de validade desse certificado em cada servidor AD FS para determinar essa data.
 
-Se o período de validade de seus certificados estiver perto da expiração, [gere e verifique um novo certificado de MFA em cada servidor AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
+Se o período de validade de seus certificados estiver perto da expiração, [gere e verifique um novo certificado de MFA em cada servidor AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
 As diretrizes a seguir detalham como gerenciar os certificados de Autenticação Multifator do Microsoft Azure em seus servidores AD FS. Quando você configura os AD FS com o Azure MFA, os certificados gerados por meio do cmdlet `New-AdfsAzureMfaTenantCertificate` do PowerShell são válidos por dois anos. Renove e instale os certificados renovados antes da expiração para evitar interrupções no serviço deMFA.
 
@@ -336,7 +336,7 @@ Agora que você planejou sua solução, poderá implementá-la seguindo as etapa
 1. Atender a todos os pré-requisitos necessários
    1. Implantar o [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) em qualquer cenário híbrido
    1. Implantar o [Proxy de Aplicativo do AD do Azure](../manage-apps/application-proxy.md) em qualquer aplicativo local publicado para acesso à nuvem
-   1. Implantar [NPS](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) para qualquer autenticação RADIUS
+   1. Implantar [NPS](/windows-server/networking/technologies/nps/nps-top) para qualquer autenticação RADIUS
    1. Garantir que os usuários atualizaram para as versões com suporte do Microsoft Office com autenticação moderna habilitada
 1. Configurar os [métodos de autenticação](#choose-verification-options) escolhidos
 1. Definir seus [locais de rede nomeados](../conditional-access/location-condition.md#named-locations)
@@ -344,7 +344,7 @@ Agora que você planejou sua solução, poderá implementá-la seguindo as etapa
 1. Configurar [política de Acesso Condicional](#create-conditional-access-policy)
 1. Configurar política de registro com MFA
    1. [MFA e SSPR combinadas](howto-registration-mfa-sspr-combined.md)
-   1. Com [Identity Protection](../identity-protection/howto-mfa-policy.md)
+   1. Com [Identity Protection](../identity-protection/howto-identity-protection-configure-mfa-policy.md)
 1. Enviar comunicações aos usuários e pedir para que se registrem em [https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [Controlar quem está registrado](#identify-non-registered-users)
 

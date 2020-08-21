@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 5748f758d8ac2f1723a20858920a4f261c07f938
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: a1ef0e9fe3805f1c6d4d1000a9ea70accc64f4d2
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88608727"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718689"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Solucionando problemas de replicação na migração de VM do VMware sem agente
 
@@ -59,7 +59,7 @@ O componente que está tentando replicar os dados para o Azure está inoperante 
 
    2.  Abra o snap-in MMC de serviços da Microsoft (execute > Services. msc) e verifique se o "serviço de gateway Microsoft Azure" está em execução. Se o serviço for interrompido ou não estiver em execução, inicie o serviço. Como alternativa, você pode abrir o prompt de comando ou o PowerShell e fazer o: "net start asrgwy"
 
-3. Verifique se há problemas de conectividade entre o dispositivo de migração do Azure e a conta de armazenamento em cache: 
+3. Verifique se há problemas de conectividade entre o dispositivo de migração do Azure e a conta de armazenamento do dispositivo: 
 
     Execute o seguinte comando após baixar o azcopy no dispositivo de migrações para Azure:
     
@@ -149,7 +149,7 @@ As possíveis causas incluem:
     
       1. [Baixar](https://go.microsoft.com/fwlink/?linkid=2138966) o azcopy
         
-      2. Procure a conta de armazenamento do dispositivo no grupo de recursos. A conta de armazenamento tem um nome que se assemelha a migrategwsa \* \* \* \* \* \* \* \* \* \* . Esse é o valor do parâmetro [Account] no comando acima.
+      2. Procure a conta de armazenamento do dispositivo no grupo de recursos. A conta de armazenamento tem um nome que se assemelha a migratelsa \* \* \* \* \* \* \* \* \* \* . Esse é o valor do parâmetro [Account] no comando acima.
         
       3. Pesquise sua conta de armazenamento no portal do Azure. Verifique se a assinatura que você usa para Pesquisar é a mesma assinatura (assinatura de destino) na qual a conta de armazenamento é criada. Vá para contêineres na seção serviço BLOB. Clique em + contêiner e crie um contêiner. Deixe nível de acesso público para o valor selecionado padrão.
         
@@ -226,7 +226,7 @@ Por exemplo: mensagem de erro: ocorreu um erro interno. [Foi detectada uma confi
 
 A seção a seguir lista alguns dos erros do VMware comumente vistos e como você pode atenuá-los.
 
-## <a name="error-message-an-internal-error-occurred-server-refused-connection"></a>Mensagem de erro: ocorreu um erro interno. [Conexão do servidor recusada]
+### <a name="error-message-an-internal-error-occurred-server-refused-connection"></a>Mensagem de erro: ocorreu um erro interno. [Conexão do servidor recusada]
 
 O problema é um problema conhecido do VMware e ocorre no VDDK 6,7. Você precisa interromper o serviço de gateway em execução no dispositivo de migrações para Azure, [baixar uma atualização do VMware KB](https://go.microsoft.com/fwlink/?linkid=2138889)e reiniciar o serviço de gateway.
 
@@ -240,33 +240,33 @@ Etapas para iniciar o serviço de gateway:
 1. Pressione Windows + R, abra Services. msc. Clique com o botão direito do mouse em "serviço de gateway Microsoft Azure" e inicie-o.
 2. Como alternativa, você pode abrir o prompt de comando ou o PowerShell e: net start asrgwy.
 
-## <a name="error-message-an-internal-error-occurred-an-invalid-snapshot-configuration-was-detected"></a>Mensagem de erro: ocorreu um erro interno. [' Uma configuração de instantâneo inválida foi detectada. ']
+### <a name="error-message-an-internal-error-occurred-an-invalid-snapshot-configuration-was-detected"></a>Mensagem de erro: ocorreu um erro interno. [' Uma configuração de instantâneo inválida foi detectada. ']
 
 Se você tiver uma máquina virtual com vários discos, poderá encontrar esse erro se remover um disco da máquina virtual. Para corrigir esse problema, consulte as etapas neste [artigo do VMware](https://go.microsoft.com/fwlink/?linkid=2138890).
 
-## <a name="error-message-an-internal-error-occurred-generate-snapshot-hung"></a>Mensagem de erro: ocorreu um erro interno. [Gerar instantâneo suspenso]
+### <a name="error-message-an-internal-error-occurred-generate-snapshot-hung"></a>Mensagem de erro: ocorreu um erro interno. [Gerar instantâneo suspenso]
 
 Esse problema ocorre quando a geração de instantâneo está suspensa. Quando esse problema ocorrer, você poderá ver a tarefa criar instantâneo parar às 95% ou 99%. Consulte este [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138969) para superar esse problema.
 
-## <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Mensagem de erro: ocorreu um erro interno. [Falha ao consolidar os discos na VM _[motivos]_]
+### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Mensagem de erro: ocorreu um erro interno. [Falha ao consolidar os discos na VM _[motivos]_]
 
 Quando consolidamos discos no final do ciclo de replicação, a operação falha. Siga as instruções em [KB do VMware](https://go.microsoft.com/fwlink/?linkid=2138970) selecionando o _motivo_ apropriado para resolver o problema.
 
 Os seguintes erros ocorrem quando as operações relacionadas ao instantâneo do VMware – criar, excluir ou consolidar discos falham. Siga as orientações na próxima seção para corrigir os erros:
 
-## <a name="error-message-an-internal-error-occurred-another-task-is-already-in-progress"></a>Mensagem de erro: ocorreu um erro interno. [Outra tarefa já está em andamento]
+### <a name="error-message-an-internal-error-occurred-another-task-is-already-in-progress"></a>Mensagem de erro: ocorreu um erro interno. [Outra tarefa já está em andamento]
 
 Esse problema ocorre quando há tarefas de máquina virtual em conflito em execução em segundo plano ou quando uma tarefa dentro do vCenter Server atinge o tempo limite. Siga a resolução fornecida nos seguintes [KB do VMware](https://go.microsoft.com/fwlink/?linkid=2138891).
 
-## <a name="error-message-an-internal-error-occurred-operation-not-allowed-in-current-state"></a>Mensagem de erro: ocorreu um erro interno. [Operação não permitida no estado atual]
+### <a name="error-message-an-internal-error-occurred-operation-not-allowed-in-current-state"></a>Mensagem de erro: ocorreu um erro interno. [Operação não permitida no estado atual]
 
 Esse problema ocorre quando vCenter Server agentes de gerenciamento param de funcionar. Para resolver esse problema, consulte a resolução no seguinte [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138971).
 
-## <a name="error-message-an-internal-error-occurred-snapshot-disk-size-invalid"></a>Mensagem de erro: ocorreu um erro interno. [Tamanho do disco de instantâneo inválido]
+### <a name="error-message-an-internal-error-occurred-snapshot-disk-size-invalid"></a>Mensagem de erro: ocorreu um erro interno. [Tamanho do disco de instantâneo inválido]
 
 Esse é um problema conhecido do VMware no qual o tamanho do disco indicado pelo instantâneo se torna zero. Siga a resolução fornecida no [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138972).
 
-## <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Mensagem de erro: ocorreu um erro interno. [Falha na alocação de memória. Memória insuficiente.]
+### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Mensagem de erro: ocorreu um erro interno. [Falha na alocação de memória. Memória insuficiente.]
 
 Isso acontece quando o buffer de host NFC está sem memória. Para resolver esse problema, você precisa mover a VM (Compute vMotion) para um host diferente, que tem recursos gratuitos.
 
