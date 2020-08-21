@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 89c79f668da3ff924dbb7f27574260118003655f
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c283ef2f6eb28dca7ca5bc5e391ef30465c65dc0
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433237"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691268"
 ---
 # <a name="create-and-share-an-machine-learning-studio-classic-workspace"></a>Criar e compartilhar um espaço de trabalho Machine Learning Studio (clássico)
 
-**aplica-se a:** ![ Sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ sem](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 Para usar Azure Machine Learning Studio (clássico), você precisa ter um espaço de trabalho Machine Learning Studio (clássico). Esse workspace contém as ferramentas necessárias para criar, gerenciar e publicar testes.
 
@@ -70,7 +70,7 @@ Se você encontrar um problema ao criar seu espaço de trabalho, consulte [Guia 
 
 
 ## <a name="share-an-azure-machine-learning-studio-classic-workspace"></a>Compartilhar um espaço de trabalho Azure Machine Learning Studio (clássico)
-Quando um espaço de trabalho Machine Learning Studio (clássico) é criado, você pode convidar usuários para seu espaço de trabalho para compartilhar o acesso ao seu espaço de trabalho e a todos os seus experimentos, conjuntos de anotações, notebooks, etc. Você pode adicionar usuários em uma das duas funções:
+Quando um espaço de trabalho Machine Learning Studio (clássico) é criado, você pode convidar usuários para seu espaço de trabalho para compartilhar o acesso ao seu espaço de trabalho e a todos os seus experimentos, conjuntos de seus, etc. Você pode adicionar usuários em uma das duas funções:
 
 * **Usuário**: um usuário do workspace pode criar, abrir, modificar e excluir conjuntos de dados, experimentos etc. no workspace.
 * **Proprietário**: um proprietário pode convidar e remover usuários no workspace, além do que o usuário pode fazer.
@@ -82,7 +82,7 @@ Quando um espaço de trabalho Machine Learning Studio (clássico) é criado, voc
 
 ### <a name="to-share-a-studio-classic-workspace"></a>Para compartilhar um espaço de trabalho do Studio (clássico)
 
-1. Entre no Machine Learning Studio (clássico) em[https://studio.azureml.net/Home](https://studio.azureml.net/Home)
+1. Entre no Machine Learning Studio (clássico) em [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
 2. No painel esquerdo, clique em **CONFIGURAÇÕES**
 

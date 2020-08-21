@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como o Azure Policy usa o agente de Configuração de Convidado para auditar as configurações dentro de máquinas virtuais.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 624f0a2464323e8002b9940471c93b3030f053d5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 21034aaae42aa4abfa6848ce22db5fa4c21a11ce
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544665"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685758"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -36,7 +36,7 @@ Para auditar as configurações dentro de um computador, uma [extensão de máqu
 > [!IMPORTANT]
 > A extensão de configuração de convidado e uma identidade gerenciada são necessárias para auditar as máquinas virtuais do Azure. Para implantar a extensão em escala, atribua a seguinte iniciativa de política:
 > 
-> - [Implantar pré-requisitos para habilitar as políticas de Configuração de Convidado em máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
+> `Deploy prerequisites to enable Guest Configuration policies on virtual machines`
 
 ### <a name="limits-set-on-the-extension"></a>Limites definidos na extensão
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: aahi
-ms.openlocfilehash: e6b90e17c96f7636fa509e31354f9413b312803f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 10a75d19b7fb134b8e7498c422742e00f6475da5
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289034"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690197"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Perguntas frequentes sobre os contêineres do serviço de fala
 
@@ -289,7 +289,7 @@ O carbono corrigiu isso na versão 1,8.
 
 Você pode ajudar a preencher as seguintes métricas de teste, incluindo quais funções testar e como testar o SDK e as APIs REST? Especialmente, as diferenças em "interativo" e "conversa", que não vi do documento/exemplo existente.
 
-| Ponto de extremidade                                                | Teste funcional                                                   | . | API REST |
+| Ponto de Extremidade                                                | Teste funcional                                                   | . | API REST |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
 | `/speech/synthesize/cognitiveservices/v1`               | Sintetizar texto (conversão de texto em fala)                                  |     | Sim      |
 | `/speech/recognition/dictation/cognitiveservices/v1`    | Serviços cognitivas ponto de extremidade do WebSocket v1 do ditado        | Sim | Não       |
@@ -305,7 +305,7 @@ Você pode ajudar a preencher as seguintes métricas de teste, incluindo quais f
 - Carbono com as declarações acionadas em builds de versão (eliminando o processo).
 
 A solução alternativa é alternar para o uso do reconhecimento contínuo em seu código ou (mais rápido) conectar-se aos pontos de extremidade interativos ou contínuos no contêiner.
-Para seu código, defina o ponto de extremidade para <host: porta>/Speech/Recognition/Interactive/cognitiveservices/v1
+Para seu código, defina o ponto de extremidade como `host:port` /Speech/Recognition/Interactive/cognitiveservices/v1
 
 Para os vários modos, consulte modos de fala-Veja abaixo:
 
@@ -396,25 +396,25 @@ Quantas solicitações simultâneas serão um identificador de 4 núcleos e 4 GB
 
 # <a name="speech-to-text"></a>[Conversão de fala em texto](#tab/stt)
 
-| Contêiner      | Mínimo             | Recomendadas         |
+| Contêiner      | Mínimo             | Recomendado         |
 |----------------|---------------------|---------------------|
 | Conversão de fala em texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 
 # <a name="custom-speech-to-text"></a>[Fala Personalizada para texto](#tab/cstt)
 
-| Contêiner             | Mínimo             | Recomendadas         |
+| Contêiner             | Mínimo             | Recomendado         |
 |-----------------------|---------------------|---------------------|
 | Fala Personalizada para texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 
 # <a name="text-to-speech"></a>[Conversão de texto em fala](#tab/tts)
 
-| Contêiner      | Mínimo             | Recomendadas         |
+| Contêiner      | Mínimo             | Recomendado         |
 |----------------|---------------------|---------------------|
 | Conversão de texto em fala | 1 núcleo, 2 GB de memória | 2 núcleos, 3 GB de memória |
 
 # <a name="custom-text-to-speech"></a>[Conversão de texto em fala personalizada](#tab/ctts)
 
-| Contêiner             | Mínimo             | Recomendadas         |
+| Contêiner             | Mínimo             | Recomendado         |
 |-----------------------|---------------------|---------------------|
 | Conversão de texto em fala personalizada | 1 núcleo, 2 GB de memória | 2 núcleos, 3 GB de memória |
 
@@ -559,8 +559,8 @@ Eles são para finalidades diferentes e são usados de forma diferente.
 
 Em C# para habilitar o ditado, invoque a `SpeechConfig.EnableDictation()` função.
 
-### <a name="fromendpoint-apis"></a>`FromEndpoint`API
-| Linguagem | Detalhes da API |
+### <a name="fromendpoint-apis"></a>`FromEndpoint` API
+| Idioma | Detalhes da API |
 |----------|:------------|
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-dotnet" target="_blank">`SpeechConfig.FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -579,9 +579,9 @@ Em C# para habilitar o ditado, invoque a `SpeechConfig.EnableDictation()` funç�
 
 **Resposta:** Há uma nova `FromHost` API. Isso não substitui nem modifica nenhuma API existente. Ele apenas adiciona uma maneira alternativa de criar uma configuração de fala usando um host personalizado.
 
-### <a name="fromhost-apis"></a>`FromHost`API
+### <a name="fromhost-apis"></a>`FromHost` API
 
-| Linguagem | Detalhes da API |
+| Idioma | Detalhes da API |
 |--|:-|
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -597,8 +597,8 @@ O formato para host é o `protocol://hostname:port` que `:port` é opcional (vej
 - Se o contêiner estiver em execução em um servidor remoto, use o nome do host ou o endereço IPv4 desse servidor.
 
 Exemplos de parâmetro de host para conversão de fala em texto:
-- `ws://localhost:5000`-conexão não segura para um contêiner local usando a porta 5000
-- `ws://some.host.com:5000`-conexão não segura a um contêiner em execução em um servidor remoto
+- `ws://localhost:5000` -conexão não segura para um contêiner local usando a porta 5000
+- `ws://some.host.com:5000` -conexão não segura a um contêiner em execução em um servidor remoto
 
 Exemplos de Python acima, mas use o `host` parâmetro em vez de `endpoint` :
 

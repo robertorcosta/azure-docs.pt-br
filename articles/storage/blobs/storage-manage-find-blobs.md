@@ -3,17 +3,17 @@ title: Gerenciar e localizar dados no armazenamento de BLOBs do Azure com índic
 description: Saiba como usar marcas de índice de BLOB para categorizar, gerenciar e consultar para descobrir objetos de BLOB.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/24/2020
+ms.date: 08/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 5b41609ec2b7cc9880fb22a76b9e3b40c315bc3c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ed70a05e0a6213ce00a6e0514f0741e8abbaeef9
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499867"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690367"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Gerenciar e localizar dados no armazenamento de BLOBs do Azure com índice de BLOB (versão prévia)
 
@@ -103,9 +103,9 @@ A tabela abaixo mostra todos os operadores válidos para FindBlobsByTags:
 |     >      |  Maior que |  "Date" > ' 2018-06-18 ' |
 |     >=     |  Maior ou igual | "Priority" >= ' 5 ' | 
 |     <      |  Menor que    | "Idade" < ' 32 ' |
-|     <=     |  Menor ou igual a  | "Empresa" <= ' contoso ' |
+|     <=     |  Menor ou igual  | "Empresa" <= ' contoso ' |
 |    AND     |  And lógico  | "Rank" >= ' 010 ' e "Rank" < ' 100 ' |
-| @container |  Escopo para um contêiner específico   | @container= ' videofiles ' e "status" = ' done ' |
+| @container |  Escopo para um contêiner específico   | @container = ' videofiles ' e "status" = ' done ' |
 
 > [!NOTE]
 > Esteja familiarizado com a ordenação de lexicográfica ao configurar e consultar marcas.
@@ -128,7 +128,7 @@ A tabela abaixo mostra todos os operadores válidos para operações condicionai
 |     >      |  Maior que |  "Date" > ' 2018-06-18 ' |
 |     >=     |  Maior ou igual | "Priority" >= ' 5 ' | 
 |     <      |  Menor que    | "Idade" < ' 32 ' |
-|     <=     |  Menor ou igual a  | "Empresa" <= ' contoso ' |
+|     <=     |  Menor ou igual  | "Empresa" <= ' contoso ' |
 |    AND     |  And lógico  | "Rank" >= ' 010 ' e "Rank" < ' 100 ' |
 |     OU     |  OR lógico   | "Status" = ' done ' ou "Priority" >= ' 05 ' |
 

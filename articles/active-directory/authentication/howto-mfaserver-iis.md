@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2377ca4b929200ecd0a3a7de01dd3a58be6b7863
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: dbd4ea4438e82ea9fb1d503b262bfda1b22b2737
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845433"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690299"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Configurar o Servidor de Autenticação Multifator do Azure para aplicativos Web do IIS
 
@@ -58,7 +58,7 @@ Para proteger um aplicativo Web do IIS que usa a autenticação HTTP integrada d
 1. No Servidor de Autenticação Multifator do Azure, clique no ícone de Autenticação do IIS no menu esquerdo.
 2. Clique na guia **HTTP**.
 3. Clique em **Adicionar**.
-4. Na caixa de diálogo Adicionar URL Base, insira a URL para o site em que a autenticação HTTP é realizada (como <http://localhost/owa>) e forneça um nome de aplicativo (opcional). O nome do aplicativo aparece nos relatórios da Autenticação Multifator do Azure e pode ser exibido nas mensagens de autenticação por SMS ou Aplicativo Móvel.
+4. Na caixa de diálogo Adicionar URL Base, insira a URL para o site em que a autenticação HTTP é realizada (como `http://localhost/owa`) e forneça um nome de aplicativo (opcional). O nome do aplicativo aparece nos relatórios da Autenticação Multifator do Azure e pode ser exibido nas mensagens de autenticação por SMS ou Aplicativo Móvel.
 5. Ajuste o tempo limite de ociosidade e o tempo máximo de sessão se o padrão não for suficiente.
 6. Marque a caixa **Exigir correspondência do usuário da Autenticação Multifator** se todos os usuários foram ou vierem a ser importados para o Servidor e estiverem sujeitos à autenticação multifator. Se um número significativo de usuários ainda não tiver sido importado no Servidor e/ou for isentado da autenticação multifator, deixe a caixa desmarcada.
 7. Marque a caixa de **Cache de cookie**, se desejado.

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 70938bf1dcd06ce9936767c66ffead0f8627c5a7
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: be33841206fa30a5b4975a604af1b5d9e38551a8
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235461"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690248"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Criar um ponto de extremidade SCIM e configurar o provisionamento de usuários com o Azure AD
 
@@ -153,6 +153,7 @@ Dentro da [especificação do protocolo SCIM 2.0](http://www.simplecloud.info/#S
 * Dar suporte a consultas de usuário por ID e pelo gerenciador, de acordo com a seção 3.4.2 do protocolo SCIM.  
 * Dar suporte a consultas de grupos por ID e por membro, de acordo com a seção 3.4.2 do protocolo SCIM.  
 * Aceitar um único token de portador para autenticação e autorização do Azure AD para seu aplicativo.
+* Dá suporte à exclusão reversível de um usuário `active=false` e à restauração do usuário `active=true` .
 
 Siga estas diretrizes gerais ao implementar um ponto de extremidade SCIM para garantir a compatibilidade com o Azure AD:
 

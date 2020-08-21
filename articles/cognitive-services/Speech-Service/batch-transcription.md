@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 08/20/2020
 ms.author: wolfma
-ms.openlocfilehash: 519a9cdac678e8852bef9bd66e3fbb98278cbb3b
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: b30a314977755b94bdcfdf7526d1b9ae61fcf100
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660867"
+ms.locfileid: "88689738"
 ---
 # <a name="how-to-use-batch-transcription"></a>Como usar a transcrição do lote
 
@@ -174,7 +174,7 @@ Use essas propriedades opcionais para configurar a transcrição:
 
 ### <a name="storage"></a>Armazenamento
 
-A transcrição do lote pode ler áudio de um URI da Internet e pode ler o áudio ou gravar transcrições usando o [armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
+A transcrição do lote pode ler áudio de um URI da Internet disponível para o público e pode ler as transcrições de áudio ou gravação usando um URI de SAS com o [armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
 
 ## <a name="batch-transcription-result"></a>Resultado da transcrição do lote
 
@@ -243,7 +243,7 @@ Cada arquivo de resultado da transcrição tem este formato:
 }
 ```
 
-O resultado contém os seguintes formulários:
+O resultado contém os seguintes campos:
 
 :::row:::
    :::column span="1":::
@@ -309,7 +309,8 @@ Os carimbos de data/hora de nível de palavra devem ser habilitados, já que os 
 
 ## <a name="best-practices"></a>Práticas recomendadas
 
-O serviço de transcrição do lote pode lidar com um grande número de transcrições enviadas. Você pode consultar o status de suas transcrições por meio de um `GET` em [obter transcrições](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). Chame [excluir transcrição](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regularmente do serviço depois de recuperar os resultados. Como alternativa, defina a `timeToLive` propriedade como um valor razoável para garantir a exclusão eventual dos resultados.
+O serviço de transcrição do lote pode lidar com um grande número de transcrições enviadas. Você pode consultar o status de suas transcrições com [obter transcrições](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions).
+Chame [excluir transcrição](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regularmente do serviço depois de recuperar os resultados. Como alternativa, defina a `timeToLive` propriedade para garantir a exclusão eventual dos resultados.
 
 ## <a name="sample-code"></a>Código de exemplo
 

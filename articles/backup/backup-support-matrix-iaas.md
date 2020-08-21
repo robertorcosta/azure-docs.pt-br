@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações ao
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: cfa8a6c7cb2da35929151dfce09c0bc31ee69bb2
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 66c712eca86b01c5815638c9ea58042580791ea6
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611527"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685469"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 
@@ -165,7 +165,7 @@ Fazer backup e restaurar VMs/discos com eliminação de duplicação | O backup 
 Adicionar o disco à VM protegida | Com suporte.
 Redimensionar o disco em uma VM protegida | Com suporte.
 Armazenamento compartilhado| Não há suporte para o backup de VMs usando Volume Compartilhado Clusterizado (CSV) ou Servidor de Arquivos de Escalabilidade Horizontal. Os gravadores de CSV provavelmente falharão durante o backup. Na restauração, os discos que contêm volumes CSV podem não aparecer.
-[Discos compartilhados](../virtual-machines/windows/disks-shared-enable.md) | Sem suporte.
+[Discos compartilhados](../virtual-machines/disks-shared-enable.md) | Sem suporte.
 
 ## <a name="vm-network-support"></a>Suporte de rede de VM
 

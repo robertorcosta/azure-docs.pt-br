@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 0d3e49fbb11af92d016910e91b0144f6de998238
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3f051d9fc1599c0877e1e8a58935d09d224ce22b
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829366"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689670"
 ---
 # <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Mitigar a imparcialidade em modelos de aprendizado de máquina (versão prévia)
 
@@ -51,7 +51,7 @@ Juntos, esses componentes permitem que os cientistas de dados e os líderes de n
 
 ## <a name="assess-fairness-in-machine-learning-models"></a>Avaliar a imparcialidade em modelos de aprendizado de máquina
 
-No pacote de código-fonte aberto do Fairlearn, a imparcialidade é conceituada por meio de uma abordagem conhecida como **imparcialidade de grupo**, que pergunta: quais grupos de indivíduos estão em risco de sofrer danos? Os grupos relevantes, também conhecidos como subpopulações, são definidos por meio de **recursos sensíveis** ou atributos sensíveis. Os recursos confidenciais são passados para um estimador no pacote de código-fonte aberto do Fairlearn como um vetor ou uma matriz chamada `sensitive_features` . O termo sugere que o designer do sistema deve ser sensível a esses recursos ao avaliar a imparcialidade de grupo. 
+No pacote de código-fonte aberto do Fairlearn, a imparcialidade é conceituada por meio de uma abordagem conhecida como **imparcialidade de grupo**, que pergunta: quais grupos de indivíduos estão em risco de sofrer danos? Os grupos relevantes, também conhecidos como subpopulações, são definidos por meio de **recursos sensíveis** ou atributos sensíveis. Os recursos confidenciais são passados para um estimador no pacote de código-fonte aberto do Fairlearn como um vetor ou uma matriz chamada  `sensitive_features` . O termo sugere que o designer do sistema deve ser sensível a esses recursos ao avaliar a imparcialidade de grupo. 
 
 Algo a ser cuidadoso é se esses recursos contêm implicações de privacidade devido a dados privados. Mas a palavra “sensível” não significa que esses recursos não devem ser usados para fazer previsões.
 
@@ -108,6 +108,6 @@ O pacote Fairlearn Open-Source fornece algoritmos de mitigação de desprocessam
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como usar os diferentes componentes, conferindo o [GitHub](https://github.com/fairlearn/fairlearn/), guia do [usuário](https://fairlearn.github.io/user_guide/index.html), [exemplos](https://fairlearn.github.io/auto_examples/notebooks/index.html)e [notebooks de exemplo](https://github.com/fairlearn/fairlearn/tree/master/notebooks)do Fairlearn.
+- Saiba como usar os diferentes componentes, conferindo o [GitHub](https://github.com/fairlearn/fairlearn/), guia do [usuário](https://fairlearn.github.io/user_guide/index.html), [exemplos](https://fairlearn.github.io/auto_examples/)e [notebooks de exemplo](https://github.com/fairlearn/fairlearn/tree/master/notebooks)do Fairlearn.
 - Saiba [como habilitar a](how-to-machine-learning-fairness-aml.md) avaliação de imparcialidade de modelos de aprendizado de máquina no Azure Machine Learning.
 - Consulte os [blocos de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) para cenários de avaliação de imparcialidade adicionais no Azure Machine Learning. 

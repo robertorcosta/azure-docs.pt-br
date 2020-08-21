@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: carlrab, davidph
 manager: cgronlun
 ms.date: 06/03/2020
-ms.openlocfilehash: b5daf283df1ef5d6b42da5bf0a4652aedf2f6284
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad25a9a62757e1e031ce8b93a44e6f2ada4d9964
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708732"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689500"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Serviços de Machine Learning no SQL Instância Gerenciada do Azure (versão prévia)
 
@@ -52,7 +52,23 @@ As distribuições base do Python e do R estão incluídas nos Serviços de Mach
 
 Essa visualização pública limitada está sujeita aos [termos de visualização do Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-Se estiver interessado em ingressar no programa de visualização e aceitar esses termos, você poderá solicitar o registro criando um tíquete de suporte do Azure em [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/) . Em "tipo de problema", selecione "técnico", em "serviço", selecione "Instância Gerenciada do Banco de Dados SQL" e, para "tipo de problema", selecione "outro". Em sua solicitação, declare que você gostaria de se inscrever na visualização pública limitada do Machine Learning para Instância Gerenciada de SQL com estas informações: nome do servidor lógico, região e ID da assinatura.
+Se estiver interessado em ingressar no programa de visualização e aceitar esses termos, você poderá solicitar o registro criando um tíquete de suporte do Azure em [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/) . 
+
+1. Selecione as seguintes opções:
+   - Tipo de problema- **técnico**
+   - Assinatura – *Selecione sua assinatura*
+   - **Instância gerenciada do banco de dados SQL** de serviço
+   - Resumo – *Insira uma breve descrição da sua solicitação*
+   - Tipo de problema- **serviços de Machine Learning para SQL instância gerenciada (versão prévia)**
+   - Subtipo de problema- **outro problema ou perguntas "como"**
+
+1. Clique em **Avançar: soluções**.
+
+1. Leia as informações sobre a visualização e clique em **detalhes**.
+
+1. Em **Descrição**, insira as especificidades de sua solicitação, incluindo o nome do servidor lógico, a região e a ID da assinatura que você deseja registrar na visualização. Insira outros detalhes conforme apropriado.
+
+1. Quando tiver terminado, clique em **Avançar: revisar + criar**e, em seguida, clique em **criar**.
 
 Após se inscrever no programa, a Microsoft integrará você à visualização pública e habilitará os Serviços do Machine Learning para seu banco de dados novo ou existente.
 

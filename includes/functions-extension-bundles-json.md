@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 11/14/2019
 ms.author: glenga
-ms.openlocfilehash: f64892193eb6cfcce8f948b54e5557b5fa3d90ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: b67e2bf2ae5af2feb334e898ce69fd5b959c7cf0
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80878231"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689533"
 ---
 ```json
 {
@@ -21,13 +21,9 @@ ms.locfileid: "80878231"
 }
 ```
 
-As seguintes propriedades estão disponíveis em `extensionBundle` :
+As propriedades a seguir estão disponíveis em `extensionBundle`:
 
-| Property | Descrição |
+| Propriedade | Descrição |
 | -------- | ----------- |
-| id | O namespace para pacotes de extensão do Microsoft Azure functions. |
-| version | A versão do pacote a ser instalado. O tempo de execução do Functions sempre escolhe a versão máxima permitida definida pelo intervalo de versão ou intervalo. O valor da versão acima permite todas as versões do pacote da 1.0.0 até, mas não incluindo 2.0.0. Para obter mais informações, consulte a [notação de intervalo para especificar intervalos de versão](/nuget/reference/package-versioning#version-ranges). |
-
-As versões do pacote são incrementadas como pacotes na alteração do pacote. As alterações de versão principal ocorrem quando os pacotes no pacote são incrementados por uma versão principal. As alterações de versão principais no pacote geralmente coincidem com uma alteração na versão principal do tempo de execução do functions.  
-
-O conjunto atual de extensões instaladas pelo pacote padrão é enumerado neste [extensions.jsno arquivo](https://github.com/Azure/azure-functions-extension-bundles/blob/dev/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).
+| id | O namespace dos pacotes de extensão do Microsoft Azure Functions. |
+| version | A versão do pacote a ser instalado. O runtime do Functions sempre escolhe a versão máxima permitida definida pelo intervalo de versões. O valor de versão acima permite todas as versões de pacote da 1.0.0 até a 2.0.0, mas sem incluir a última. Para obter mais informações, confira a [notação de intervalo para especificar intervalos de versões](/nuget/reference/package-versioning#version-ranges). |

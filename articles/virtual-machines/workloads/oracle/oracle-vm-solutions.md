@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: rogardle
-ms.openlocfilehash: 2201cae66aae8c2d9d106871db0d4ebbd003f361
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4489aae873c3fa4153974209074e14959307c772
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052150"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690333"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imagens da VM Oracle e sua implantação no Microsoft Azure
 
@@ -112,7 +112,7 @@ Esses recursos são possíveis porque o Azure NetApp Files se baseia nos sistema
 ## <a name="licensing-oracle-database--software-on-azure"></a>Licenciamento do Oracle Database e software no Azure
 
 O Microsoft Azure é um ambiente de nuvem autorizado para execução do Oracle Database. A tabela de fatores de núcleo Oracle não é aplicável ao licenciar bancos de dados Oracle na nuvem. Em vez disso, ao usar VMs com a tecnologia Hyper-Threading habilitada para bancos de dados Enterprise Edition, conte duas vCPUs como equivalentes a uma licença de processador Oracle se o hyperthreading estiver habilitado (conforme indicado no documento da política). Os detalhes da política podem ser encontrados [aqui](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
-Os bancos de dados da Oracle geralmente exigem mais memória e e/s. Por esse motivo, são recomendadas [VMs com otimização de memória](../../sizes-memory.md) para essas cargas de trabalho. Para otimizar suas cargas de trabalho ainda mais, são recomendadas [vCPUs de Núcleos Restritas](../../linux/constrained-vcpu.md) para cargas de trabalho do Oracle Database que exigem alta largura de banda de memória, armazenamento e e/s, mas não uma contagem de núcleo alto.
+Os bancos de dados da Oracle geralmente exigem mais memória e e/s. Por esse motivo, são recomendadas [VMs com otimização de memória](../../sizes-memory.md) para essas cargas de trabalho. Para otimizar suas cargas de trabalho ainda mais, são recomendadas [vCPUs de Núcleos Restritas](../../constrained-vcpu.md) para cargas de trabalho do Oracle Database que exigem alta largura de banda de memória, armazenamento e e/s, mas não uma contagem de núcleo alto.
 
 Ao migrar o software e as cargas de trabalho do Oracle do local para o Microsoft Azure, a Oracle fornece mobilidade de licenças conforme indicado nas [Perguntas frequentes sobre o Oracle no Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 

@@ -8,12 +8,12 @@ ms.date: 07/16/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: dc2509aad3f42e1e7d93d867da832fef60965a68
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0f51c8fe3bf92526bc7e132275255e116381ba06
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088403"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689687"
 ---
 # <a name="azure-shared-disks"></a>Discos compartilhados do Azure
 
@@ -21,4 +21,4 @@ ms.locfileid: "87088403"
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você estiver interessado em habilitar e usar discos compartilhados para seus discos gerenciados, vá para nosso artigo [habilitar disco compartilhado](disks-shared-enable.md).
+Se você estiver interessado em habilitar e usar discos compartilhados para seus discos gerenciados, vá para nosso artigo [habilitar disco compartilhado](../disks-shared-enable.md).

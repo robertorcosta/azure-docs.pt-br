@@ -3,12 +3,12 @@ title: Conceito de grafo de mídia-Azure
 description: Um grafo de mídia permite definir onde a mídia deve ser capturada, como ela deve ser processada e onde os resultados devem ser entregues. Este artigo fornece uma descrição detalhada do conceito de grafo de mídia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 02e960e917a059afdb0d688c7429d27d8e8a48eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9889c7135a23a8817f4922d3e537eb51f26cdae0
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300800"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690673"
 ---
 # <a name="media-graph"></a>Grafo de mídia
 
@@ -80,6 +80,10 @@ O nó do processador de filtro de taxa de quadros permite que você exemplo de q
 #### <a name="http-extension-processor"></a>Processador de extensão HTTP
 
 O nó processador de extensão HTTP permite que você conecte seu próprio módulo IoT Edge a um grafo de mídia. Esse nó usa quadros de vídeo decodificados como entrada e transmite esses quadros para um ponto de extremidade HTTP REST exposto pelo seu módulo. Esse nó tem a capacidade de se autenticar com o ponto de extremidade REST, se necessário. Além disso, o nó tem um formatador de imagem interno para dimensionamento e codificação de quadros de vídeo antes que eles sejam retransmitidos para o ponto de extremidade REST. O scaler tem opções para que a taxa de proporção da imagem seja preservada, preenchida ou ampliada. O codificador de imagem dá suporte aos formatos JPEG, png ou bmp.
+
+#### <a name="grpc-extension-processor"></a>processador de extensão gRPC
+
+O nó do processador de extensão gRPC usa quadros de vídeo decodificados como entrada e transmite esses quadros para um ponto de extremidade gRPC exposto pelo seu módulo. Além disso, o nó tem um formatador de imagem interno para dimensionamento e codificação de quadros de vídeo antes que eles sejam retransmitidos para o ponto de extremidade gRPC. O scaler tem opções para que a taxa de proporção da imagem seja preservada, preenchida ou ampliada. O codificador de imagem dá suporte aos formatos JPEG, png ou bmp.
 
 #### <a name="signal-gate-processor"></a>Processador da porta do sinal  
 

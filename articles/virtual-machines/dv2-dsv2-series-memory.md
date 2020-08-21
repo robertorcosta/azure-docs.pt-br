@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e2c1b9bb8d8fa1e7b82bebfa31963be19d9024af
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: aee88420fe8b88de9af9a2397316dd065144e610
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648489"
+ms.locfileid: "88685282"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Dv2 com otimização de memória e série Dsv2
 
@@ -65,7 +65,7 @@ Atualizações de preservação de memória: Com suporte
 | Standard_DS14_v2 <sup>3</sup> | 16 | 112 | 224 | 64 | 64000/512 (576) | 51200/768 | 8|12000 |
 | Standard_DS15_v2 <sup>2</sup> | 20 | 140 | 280 | 64 | 80000/640 (720) | 64000/960 | 8|25000 <sup>4</sup> |
 
-<sup>1</sup> A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série DSv2 pode ser limitada pelo número, tamanho e distribuição dos discos anexados.  Para obter detalhes, confira o artigo [Projetar para um alto desempenho](./windows/premium-storage-performance.md).
+<sup>1</sup> A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série DSv2 pode ser limitada pelo número, tamanho e distribuição dos discos anexados.  Para obter detalhes, confira o artigo [Projetar para um alto desempenho](./premium-storage-performance.md).
 <sup>2</sup>  a instância é isolada para o hardware baseado em Intel Haswell e dedicada a um único cliente.  
 <sup>3</sup> Tamanhos limitados de núcleos disponíveis.  
 <sup>4</sup> 25000 Mbps com Rede Acelerada.

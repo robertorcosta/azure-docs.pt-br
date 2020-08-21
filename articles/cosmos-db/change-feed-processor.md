@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 8353b7290f0e0073faf93b4ea23bcc0ba50bb89e
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: faf46a90a04e35eb041deb31913980575b1e0d28
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236464"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688038"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB
 
@@ -100,8 +100,8 @@ Você é cobrado pelas RUs consumidas, pois a movimentação de dados para dentr
 O processador do feed de alterações pode ser hospedado em qualquer plataforma que dê suporte a processos ou tarefas de execução longa:
 
 * Um [WebJob do Azure](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/)em execução contínua.
-* Um processo em uma [máquina virtual do Azure](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-virtual-machines).
-* Um trabalho em segundo plano no [serviço kubernetes do Azure](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-kubernetes-service).
+* Um processo em uma [máquina virtual do Azure](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
+* Um trabalho em segundo plano no [serviço kubernetes do Azure](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
 * Um [serviço hospedado ASP.net](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
 
 Embora o processador do feed de alterações possa ser executado em ambientes de vida curta, porque o contêiner de concessão mantém o estado, o ciclo de início e parada desses ambientes adicionará atraso para receber as notificações (devido à sobrecarga de iniciar o processador sempre que o ambiente for iniciado).

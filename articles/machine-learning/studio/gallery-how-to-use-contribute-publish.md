@@ -9,19 +9,19 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 7918f684fea1092cbd7c11fade3d8f40c1e44240
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 1c03f52802881bcf4c916ce3ed438e465e574090
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431194"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691251"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Compartilhar e descobrir recursos na Galeria de IA do Azure
 
-**aplica-se a:** ![ Sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ sem](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 
 **[Galeria de AI do Azure](https://gallery.azure.ai)** é um site voltado para a comunidade para descobrir e compartilhar soluções criadas com o AI do Azure.
 A Galeria tem vários recursos que você pode usar para desenvolver suas próprias soluções de análise.
@@ -34,7 +34,6 @@ A Galeria de IA do Azure contém uma série de diferentes recursos contribuídos
 * **Tutoriais** – uma série de tutoriais está disponível para orientá-lo por conceitos e tecnologias de aprendizado de máquina ou para descrever métodos avançados a fim de solucionar vários problemas de aprendizado de máquina.
 * **Coleções** – uma coleção permite agrupar experimentos, APIs e outros recursos da Galeria que abordam uma solução ou um conceito específico.
 * **Módulos personalizados** – você pode baixar módulos personalizados em seu espaço de trabalho do estúdio (clássico) para usar em seus próprios experimentos.
-* **Jupyter Notebooks** – os Jupyter Notebooks incluem código, visualizações de dados e documentação em uma única tela interativa. Os notebooks na Galeria fornecem tutoriais e explicações detalhadas de técnicas e soluções avançadas de aprendizado de máquina.
 
 ## <a name="discover-and-contribute"></a>Descubra e contribua
 
@@ -49,12 +48,12 @@ Você pode até mesmo compartilhar um recurso de interesse com amigos ou colegas
 
 Quando você entra, vira um membro da comunidade da Galeria. Isso permite que você baixe recursos ou contribua com seus próprios itens da galeria, de modo que outras pessoas possam se beneficiar das soluções descobertas.
 
-Baixe **experimentos**, **módulos personalizados** e **Jupyter notebooks** para usá-los no desenvolvimento de suas próprias soluções de análise.
+Você pode baixar **experimentos**, **módulos personalizados** para usar no desenvolvimento de suas próprias soluções de análise.
 Contribua com **experimentos**, **tutoriais** e **coleções** para a Galeria.
 
-## <a name="download-experiments-modules-notebooks"></a>Baixar experimentos, módulos e notebooks
+## <a name="download-experiments-modules"></a>Baixar experimentos, módulos
 
-Você pode baixar **experimentos**, **módulos personalizados**e **notebooks Jupyter** em seu próprio espaço de trabalho Machine Learning Studio (clássico) para usar no desenvolvimento de suas próprias soluções.
+Você pode baixar **testes**, **módulos personalizados** em seu próprio espaço de trabalho Machine Learning Studio (clássico) para usar no desenvolvimento de suas próprias soluções.
 
 Para baixar um recurso na Galeria de IA:
 
@@ -125,7 +124,7 @@ Você pode alterar qualquer uma das seguintes informações para o seu experimen
 * Nome do experimento
 * Resumo ou descrição
 * Marcas
-* Imagem
+* Image
 * Configuração de visibilidade (**Público** ou **Não listado**)
 
 Você também pode excluir o experimento da Galeria.
@@ -151,7 +150,7 @@ Ajude outras pessoas escrevendo um **tutorial** na Galeria que explique os conce
 
 1. Selecione sua imagem no canto superior direito da página e, em seguida, seu nome.
 
-1. Selecione **novo item**.
+1. Selecione **Novo Item**.
 
 1. Na página **Descrição**, em **TIPO DE ITEM**, selecione **Tutorial** ou **Coleção**. Insira um nome, um breve resumo, uma descrição detalhada e marcas que possam ajudar outros usuários a encontrar sua contribuição. Em seguida, clique em **Próximo**.
 

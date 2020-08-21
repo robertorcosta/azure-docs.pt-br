@@ -3,17 +3,17 @@ title: Usar o Criador para criar mapas internos
 description: Use o Criador do Azure Mapas para criar mapas internos.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/17/2020
+ms.date: 08/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 7ea1995b6d1232b3e4c6371313e5b3d45bdbb756
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bf2fbb48c34631bc74a3b712e135b618a1718d8e
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075408"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688072"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Usar o Criador para criar mapas internos
 
@@ -64,13 +64,13 @@ A API de upload de dados é uma transação de execução prolongada que impleme
 
 5. Clique no botão azul **Enviar** e aguarde a solicitação ser processada. Depois que a solicitação for concluída, vá para a guia **Cabeçalhos** da resposta. Copie o valor da chave **Local**, que é `status URL`.
 
-6. Para verificar o status da chamada à API, crie uma solicitação HTTP **Get** no `status URL` . Você precisará acrescentar sua chave de assinatura primária à URL para autenticação. A solicitação **Get** deve ser semelhante à seguinte URL:
+6. Para verificar o status da chamada à API, crie uma solicitação HTTP **GET** em `status URL`. Você precisará acrescentar sua chave de assinatura primária à URL para autenticação. A solicitação **Get** deve ser semelhante à seguinte URL:
 
     ```http
     https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-7. Quando a solicitação HTTP **Get** for concluída com êxito, ela retornará um `resourceLocation` . O `resourceLocation` contém o exclusivo `udid` para o conteúdo carregado. Opcionalmente, você pode usar a `resourceLocation` URL para recuperar metadados desse recurso na próxima etapa.
+7. Quando a solicitação HTTP **GET** for concluída com êxito, ela retornará um `resourceLocation`. O `resourceLocation` contém o `udid` exclusivo para o conteúdo carregado. Opcionalmente, você poderá usar a URL do `resourceLocation` para recuperar metadados desse recurso na próxima etapa.
 
     ```json
     {
@@ -79,13 +79,13 @@ A API de upload de dados é uma transação de execução prolongada que impleme
     }
     ```
 
-8. Para recuperar metadados de conteúdo, crie uma solicitação HTTP **Get** na `resourceLocation` URL que foi recuperada na etapa 7. Certifique-se de acrescentar sua chave de assinatura primária à URL para autenticação. A solicitação **Get** deve ser semelhante à seguinte URL:
+8. Para recuperar metadados de conteúdo, crie uma solicitação HTTP **GET** na URL do `resourceLocation` que foi recuperada na etapa 7. Certifique-se de acrescentar a sua chave de assinatura primária à URL para autenticação. A solicitação **GET** deve ser semelhante à seguinte URL:
 
     ```http
    https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-9. Quando a solicitação HTTP **Get** for concluída com êxito, o corpo da resposta conterá o `udid` especificado na `resourceLocation` da etapa 7, o local para acessar/baixar o conteúdo no futuro e outros metadados sobre o conteúdo, como data de criação/atualização, tamanho e assim por diante. Um exemplo da resposta geral é:
+9. Quando o a solicitação HTTP **GET** for concluída com êxito, o corpo da resposta conterá o `udid` especificado no `resourceLocation` da etapa 7, a localização para acessar/baixar o conteúdo no futuro e outros metadados sobre o conteúdo, como data de criação/atualização, tamanho e assim por diante. Um exemplo da resposta geral é:
 
     ```json
     {
@@ -109,16 +109,25 @@ A API de upload de dados é uma transação de execução prolongada que impleme
     ```http
     https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
     ```
+
     >[!IMPORTANT]
     > As URLs de API neste documento podem precisar ser ajustadas de acordo com o local do recurso de criador. Para obter mais detalhes, consulte [acesso aos serviços do criador](how-to-manage-creator.md#access-to-creator-services).
 
-3. Clique no botão **Enviar** e aguarde a solicitação ser processada. Depois que a solicitação for concluída, vá para a guia **Cabeçalhos** da resposta e procure pela chave **Local**. Copie o valor da chave **Local**, que é `status URL`, para a solicitação de conversão.
+3. Clique no botão **Enviar** e aguarde a solicitação ser processada. Depois que a solicitação for concluída, vá para a guia **Cabeçalhos** da resposta e procure pela chave **Local**. Copie o valor da chave **Local**, que é `status URL`, para a solicitação de conversão. Você usará isso na próxima etapa.
 
-4. Inicie um novo método HTTP **GET** na guia do construtor. Acrescente sua chave de assinatura primária do Azure Mapas ao `status URL`. Faça uma solicitação **GET** em `status URL` da etapa anterior. Se o processo de conversão ainda não tiver sido concluído, você poderá ver algo semelhante à seguinte resposta JSON:
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/copy-location-uri-dialog.png" border="true" alt-text="Copiar o valor da chave de local":::
+
+4. Inicie um novo método HTTP **GET** na guia do construtor. Acrescente sua chave de assinatura primária do Azure Mapas ao `status URL`. Faça uma solicitação **Get** no `status URL` que você copiou na etapa 3. O `status URL` é semelhante à seguinte URL:
+
+    ```http
+    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0
+    ```
+
+    Se o processo de conversão ainda não tiver sido concluído, você poderá ver algo semelhante à seguinte resposta JSON:
 
     ```json
     {
-        "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Running"
     }
@@ -128,7 +137,7 @@ A API de upload de dados é uma transação de execução prolongada que impleme
 
     ```json
    {
-        "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Succeeded",
         "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
@@ -143,7 +152,7 @@ O pacote de exemplo do Drawing deve ser convertido sem erros ou avisos. No entan
 
 ```json
 {
-    "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+    "operationId": "<operationId>",
     "created": "2020-04-22T19:39:54.9518496+00:00",
     "status": "Failed",
     "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
@@ -177,7 +186,7 @@ O conjunto de dados é uma coleção de recursos de mapa, como edifícios, níve
 
     ```json
     {
-        "operationId": "a93570cb-3e4f-4e45-a2b1-360df174180a",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:52:38.9352189+00:00",
         "status": "Succeeded",
         "resourceLocation": "https://azure.microsoft.com/dataset/{datasetiId}?api-version=1.0"
@@ -206,7 +215,7 @@ Um conjunto de peças é um conjunto de peças de vetor que são renderizadas no
 
     ```json
     {
-        "operationId": "a93570cb-3e4f-4e45-a2b1-360df174180a",
+        "operationId": "<operationId>",
         "createdDateTime": "3/11/2020 8:45:13 PM +00:00",
         "status": "Succeeded",
         "resourceLocation": "https://atlas.microsoft.com/tileset/{tilesetId}?api-version=1.0"

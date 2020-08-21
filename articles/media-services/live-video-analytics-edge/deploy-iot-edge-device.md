@@ -3,17 +3,16 @@ title: Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge – Azu
 description: Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo ao vivo em seu dispositivo IoT Edge. Você faria isso, por exemplo, se tiver acesso a um computador Linux local e/ou tiver criado anteriormente uma conta dos serviços de mídia do Azure.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 26be76a46fa514917ee1c89cab7d1f112ee85431
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 774fdb440307d0df92e9735a8bdf055687f450a2
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652450"
+ms.locfileid: "88684092"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge
 
 Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo ao vivo em seu dispositivo IoT Edge. Você faria isso, por exemplo, se tiver acesso a um computador Linux local e/ou tiver criado anteriormente uma conta dos serviços de mídia do Azure.
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,6 +22,7 @@ Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo
 * [Registrar IoT Edge dispositivo](../../iot-edge/how-to-register-device.md)
 * [Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Criar uma conta de Serviços de Mídia do Azure](../latest/create-account-howto.md)
+
     * Use uma destas regiões: leste dos EUA 2, EUA Central, norte EUA Central, leste do Japão, oeste dos EUA 2, Oeste EUA Central, leste do Canadá, Sul do Reino Unido, França central, sul da França, Norte da Suíça, Oeste da Suíça e oeste do Japão.
     * É recomendável que você use contas de armazenamento de uso geral v2 (GPv2)
 
@@ -190,6 +190,7 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos i
     "armEndpoint": "https://management.azure.com/",
     "allowUnsecuredEndpoints": true
     ```
+
    > [!Note]
    > A propriedade **biallowUnsecuredEndpoints** é definida como true para a finalidade dos tutoriais e dos guias de início rápido.   
    Você deve definir essa propriedade como **false** ao executar no ambiente de produção. Isso garantirá que o aplicativo bloqueará todos os pontos de extremidade não seguros e, para executar as topologias do grafo, serão necessárias credenciais de conexão válidas.  
@@ -210,8 +211,8 @@ Examine as informações de implantação e, em seguida, selecione criar.
 
 Depois de criar a implantação, você retorna para a página de IoT Edge do Hub IoT.
 
-1.  Selecione o dispositivo do IoT Edge ao qual você direcionou a implantação para abrir os detalhes.
-2.  Nos detalhes do dispositivo, verifique se o módulo de armazenamento de blob é listado como **Especificado na implantação e Relatado por dispositivo**.
+1. Selecione o dispositivo do IoT Edge ao qual você direcionou a implantação para abrir os detalhes.
+2. Nos detalhes do dispositivo, verifique se o módulo de armazenamento de blob é listado como **Especificado na implantação e Relatado por dispositivo**.
 
 Pode levar alguns instantes para que o módulo seja iniciado no dispositivo e, em seguida, seja relatado de volta para o Hub IoT. Atualize a página para ver o status atualizado.
 Código de status: 200 – OK significa que [o tempo de execução do IOT Edge](../../iot-edge/iot-edge-runtime.md) está íntegro e funcionando bem.
@@ -247,6 +248,7 @@ Em seguida, vamos testar o exemplo invocando um método direto. Leia [métodos d
     ![A mensagem de status 200](./media/deploy-iot-edge-device/connection-timeout.png) 
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Experimente o [início rápido: introdução-análise de vídeo ao vivo em IOT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
 > [!TIP]

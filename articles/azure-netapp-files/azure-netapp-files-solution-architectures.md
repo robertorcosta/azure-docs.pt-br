@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 08/20/2020
 ms.author: b-juche
-ms.openlocfilehash: 79ad95179f4ad6d332a848e59ca341b8a9f90b1f
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: e7bdf6ce35e2649a068de234b4b52e13efe72c44
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258226"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690537"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquiteturas da solução usando o Azure NetApp Files
 Este artigo fornece referências a práticas recomendadas que podem ajudá-lo a entender as arquiteturas de solução para usar o Azure NetApp Files.  
@@ -68,6 +68,7 @@ Esta seção fornece referências ao SAP em soluções do Azure.
 ### <a name="sap-hana"></a>SAP HANA 
 
 * [Configurações de armazenamento de máquina virtual do SAP HANA no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+* [Alta disponibilidade de SAP HANA escalar verticalmente com Azure NetApp Files no Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat)
 * [SAP HANA escalar horizontalmente com o nó em espera em VMs do Azure com Azure NetApp Files no SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
 * [SAP HANA escalar horizontalmente com o nó em espera em VMs do Azure com Azure NetApp Files no Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
 
@@ -85,7 +86,7 @@ Esta seção fornece referências para soluções de infraestrutura de área de 
 
 ### <a name="windows-virtual-desktop"></a>Área de Trabalho Virtual do Windows
 
-* [Benefícios do uso do Azure NetApp Files com a área de trabalho virtual do Windows](solutions-windows-virtual-desktop.md)
+* [Benefícios de usar o Azure NetApp Files com a Área de Trabalho Virtual do Windows](solutions-windows-virtual-desktop.md)
 * [Opções de armazenamento para contêineres de perfil FSLogix na área de trabalho virtual do Windows](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
 * [Criar um contêiner de perfil do FSLogix para um pool de hosts usando Azure NetApp Files](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
 * [Área de trabalho virtual do Windows em escala empresarial](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)

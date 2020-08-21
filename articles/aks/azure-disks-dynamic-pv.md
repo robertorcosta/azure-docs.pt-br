@@ -5,12 +5,12 @@ description: Saiba como criar dinamicamente um volume persistente com discos do 
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 3d01b2c2098dcbe896ecaa7f854d91477eba2cab
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 06aad076836c0f6fdc59c4ed5d0116231080d15c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648761"
+ms.locfileid: "88683599"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Criar e usar dinamicamente um volume persistente com discos do Azure no AKS (Serviço de Kubernetes do Azure)
 
@@ -40,7 +40,7 @@ Cada cluster AKS inclui quatro classes de armazenamento criadas previamente, dua
     
 Se você usar uma das classes de armazenamento padrão, não poderá atualizar o tamanho do volume depois que a classe de armazenamento for criada. Para poder atualizar o tamanho do volume depois que uma classe de armazenamento é criada, adicione a linha `allowVolumeExpansion: true` a uma das classes de armazenamento padrão ou você pode criar sua própria classe de armazenamento personalizada. Observe que não há suporte para reduzir o tamanho de um PVC (para evitar a perda de dados). Você pode editar uma classe de armazenamento existente usando o `kubectl edit sc` comando. 
 
-Por exemplo, se você quiser usar um disco de tamanho 4 TiB, deverá criar uma classe de armazenamento que defina `cachingmode: None` porque o [cache de disco não tem suporte em discos 4 TIB e maiores](../virtual-machines/windows/premium-storage-performance.md#disk-caching).
+Por exemplo, se você quiser usar um disco de tamanho 4 TiB, deverá criar uma classe de armazenamento que defina `cachingmode: None` porque o [cache de disco não tem suporte em discos 4 TIB e maiores](../virtual-machines/premium-storage-performance.md#disk-caching).
 
 Para obter mais informações sobre classes de armazenamento e como criar sua própria classe de armazenamento, consulte [Opções de armazenamento para aplicativos no AKs][storage-class-concepts].
 

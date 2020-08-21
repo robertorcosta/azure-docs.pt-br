@@ -10,16 +10,16 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 8255a4c6556dc1a36d763e48f6bcc5eec012b553
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6276d5c8d333f29c55720f2255f2cdf27e1e36cc
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292989"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690741"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Exibir e excluir dados de usuário do produto da Galeria de IA do Azure
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 
 Você pode exibir e excluir seus dados de usuário do produto da Galeria de IA do Azure usando a interface ou a API de Catálogo da Galeria de IA. Este artigo informa como fazer isso.
 

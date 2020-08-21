@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: 83208ec792f40661861dd558ac2c1a1521c1d7fb
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 6880706300597e925267dae1230a87d17cd5c028
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660962"
+ms.locfileid: "88688344"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Atualizar para o Azure Pesquisa Cognitiva SDK do .NET versão 11
 
@@ -28,6 +28,9 @@ Algumas das principais diferenças que você observará na nova versão incluem:
 + Um novo nome de pacote: `Azure.Search.Documents` em vez de `Microsoft.Azure.Search` .
 + Três clientes em vez de dois: `SearchClient` , `SearchIndexClient` , `SearchIndexerClient`
 + Diferenças de nomenclatura em uma variedade de APIs e pequenas diferenças estruturais que simplificam algumas tarefas
+
+> [!NOTE]
+> Examine o [**log de alterações**](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) para obter uma lista discriminada de alterações no SDK do .NET versão 11.
 
 ## <a name="package-and-library-consolidation"></a>Consolidação de pacote e biblioteca
 
@@ -114,19 +117,23 @@ Cada versão de uma biblioteca de cliente do Azure Pesquisa Cognitiva destina-se
 
 A versão 11 tem como alvo o [serviço de pesquisa 2020-06-30](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/search/data-plane/Azure.Search/preview/2020-06-30/searchservice.json). Como a versão 11 também é uma nova biblioteca de clientes criada desde o início, a maior parte do esforço de desenvolvimento se concentrou na equivalência da versão 10, com algum suporte a recursos da API REST ainda pendente.
 
-A versão 11 dá suporte total aos seguintes objetos e operações:
+A versão 11,0 dá suporte total aos seguintes objetos e operações:
 
 + Criação e gerenciamento de índice
 + Criação e gerenciamento de mapa de sinônimos
 + Todos os tipos de consulta e sintaxe (exceto filtros geoespaciais)
 + Objetos e operações do indexador para indexação de fontes de dados do Azure, incluindo fontes de dados e habilidades
 
+A versão 11,1 adiciona o seguinte:
+
++ [FieldBuilder](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.fieldbuilder) (adicionado em 11,1)
++ [Propriedade de serializador](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclientoptions.serializer) (adicionada em 11,1) para dar suporte à serialização personalizada
+
 ### <a name="pending-features"></a>Recursos pendentes
 
-Os seguintes recursos da versão 10 ainda não estão disponíveis na versão 11. Se você usar esses recursos, aguarde a migração até que eles tenham suporte.
+Os seguintes recursos da versão 10 ainda não estão disponíveis na versão 11. Se você precisar desses recursos, aguarde a migração até que eles tenham suporte.
 
 + tipos geoespaciais
-+ [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) (embora você possa usar [essa solução alternativa](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/tests/Samples/FieldBuilder/FieldBuilder.cs)).
 + [Repositório de conhecimento](knowledge-store-concept-intro.md)
 
 <a name="UpgradeSteps"></a>
@@ -176,7 +183,7 @@ As etapas a seguir o ajudarão a começar a usar uma migração de código ao pe
 
 Considerando as alterações de varredura em bibliotecas e APIs, uma atualização para a versão 11 não é trivial e constitui uma alteração significativa no sentido de que seu código não será mais compatível com a versão 10 e anterior. Para obter uma revisão completa das diferenças, consulte o [log de alterações](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) para `Azure.Search.Documents` .
 
-Em termos de versões de serviço, mover de 10 para 11 apresenta as seguintes alterações de comportamento: 
+Em termos de atualizações de versão de serviço, nas quais as alterações de código na versão 11 estão relacionadas à funcionalidade existente (e não apenas a uma refatoração das APIs), você encontrará as seguintes alterações de comportamento:
 
 + O [algoritmo de classificação BM25](index-ranking-similarity.md) substitui o algoritmo de classificação anterior por uma tecnologia mais nova. Novos serviços usarão esse algoritmo automaticamente. Para os serviços existentes, você deve definir parâmetros para usar o novo algoritmo.
 

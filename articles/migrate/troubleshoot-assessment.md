@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 24e7a1660da4dd021ef7ceb2594b4db2340cf104
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: e9b9e0b27e46c95ca4c2bc3a5c547259bada5fda
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263020"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685401"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Solucionar problemas de visualização de avaliação/dependência
 
@@ -36,10 +36,10 @@ Requer uma assinatura Microsoft Visual Studio | O computador está executando um
 VM não encontrada para o desempenho de armazenamento necessário | O desempenho de armazenamento (operações de entrada/saída por segundo [IOPS] e taxa de transferência) necessários para o computador excede o suporte à VM do Azure. Reduza os requisitos de armazenamento para a máquina antes da migração.
 VM não encontrada para o desempenho de rede necessário | O desempenho de rede (entrada/saída) necessário para a máquina excede o suporte de VM do Azure. Reduza os requisitos de rede para a máquina.
 VM não encontrada no local especificado | Use um local de destino diferente antes da migração.
-Um ou mais discos inadequados | Um ou mais discos anexados à VM não atendem aos requisitos do Azure. Um<br/><br/> Migrações para Azure: a avaliação do servidor atualmente não dá suporte a discos SSD Ultra e avalia os discos com base nos limites de disco para discos gerenciados Premium (32 TB).<br/><br/> Para cada disco anexado à VM, verifique se o tamanho do disco é < 64 TB (com suporte de discos SSD Ultra).<br/><br/> Se não estiver, reduza o tamanho do disco antes de migrar para o Azure, ou use vários discos no Azure e distribua [-os juntos](../virtual-machines/windows/premium-storage-performance.md#disk-striping) para obter limites de armazenamento maiores. Certifique-se de que o desempenho (IOPS e taxa de transferência) necessário para cada disco tem suporte dos [discos de máquina virtual gerenciada](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)pelo Azure.
+Um ou mais discos inadequados | Um ou mais discos anexados à VM não atendem aos requisitos do Azure. Um<br/><br/> Migrações para Azure: a avaliação do servidor atualmente não dá suporte a discos SSD Ultra e avalia os discos com base nos limites de disco para discos gerenciados Premium (32 TB).<br/><br/> Para cada disco anexado à VM, verifique se o tamanho do disco é < 64 TB (com suporte de discos SSD Ultra).<br/><br/> Se não estiver, reduza o tamanho do disco antes de migrar para o Azure, ou use vários discos no Azure e distribua [-os juntos](../virtual-machines/premium-storage-performance.md#disk-striping) para obter limites de armazenamento maiores. Certifique-se de que o desempenho (IOPS e taxa de transferência) necessário para cada disco tem suporte dos [discos de máquina virtual gerenciada](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)pelo Azure.
 Um ou mais adaptadores de rede inadequados. | Remova os adaptadores de rede não utilizados do computador antes da migração.
 A contagem de disco excede o limite | Remova os discos não utilizados do computador antes da migração.
-O tamanho do disco excede o limite | Migrações para Azure: a avaliação do servidor atualmente não dá suporte a discos SSD Ultra e avalia os discos com base nos limites de disco Premium (32 TB).<br/><br/> No entanto, o Azure dá suporte a discos com tamanho de até 64 TB (com suporte de discos SSD Ultra). Reduza os discos para menos de 64 TB antes da migração ou use vários discos no Azure e distribua [-os juntos](../virtual-machines/windows/premium-storage-performance.md#disk-striping) para obter limites de armazenamento mais altos.
+O tamanho do disco excede o limite | Migrações para Azure: a avaliação do servidor atualmente não dá suporte a discos SSD Ultra e avalia os discos com base nos limites de disco Premium (32 TB).<br/><br/> No entanto, o Azure dá suporte a discos com tamanho de até 64 TB (com suporte de discos SSD Ultra). Reduza os discos para menos de 64 TB antes da migração ou use vários discos no Azure e distribua [-os juntos](../virtual-machines/premium-storage-performance.md#disk-striping) para obter limites de armazenamento mais altos.
 O disco não está disponível no local especificado | Verifique se o disco está em seu local de destino antes de migrar.
 O disco não está disponível para a redundância especificada | O disco deve usar o tipo de armazenamento de redundância definido nas configurações de avaliação (LRS por padrão).
 Não foi possível determinar a adequação do disco devido a um erro interno | Tente criar uma nova avaliação para o grupo.

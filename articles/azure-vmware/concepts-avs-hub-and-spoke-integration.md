@@ -2,13 +2,13 @@
 title: Conceito – integrar uma implantação de solução do Azure VMware em uma arquitetura de Hub e spoke
 description: Saiba mais sobre as recomendações para integrar uma implantação de solução do Azure VMware a uma arquitetura de Hub e spoke existente ou nova no Azure.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: a1ba75369a1d6f19ca7ae1f36107170f219f72d0
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.date: 08/20/2020
+ms.openlocfilehash: deb2756f7e83250ff58836098dc4954ec482fbda
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649577"
+ms.locfileid: "88684466"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrar a solução do Azure VMware em uma arquitetura de Hub e spoke
 
@@ -28,10 +28,7 @@ O tráfego entre o datacenter local, a nuvem privada da solução Azure VMware e
 
 O diagrama mostra um exemplo de implantação de Hub e spoke no Azure conectado à solução local e do Azure VMware por meio do ExpressRoute.
 
-:::image type="content" source="./media/hub-spoke/avs-hub-and-spoke-deployment.png" alt-text="Implantação do hub de solução do Azure VMware e integração de spoke":::
-
-
-
+:::image type="content" source="./media/hub-spoke/avs-hub-and-spoke-deployment.png" alt-text="Implantação do hub de solução do Azure VMware e integração de spoke" border="false":::
 
 A arquitetura tem os seguintes componentes principais:
 
@@ -64,12 +61,12 @@ A conectividade local também pode usar o ExpressRoute Alcance Global, mas não 
 
 * **Fluxo de tráfego de solução local para o Azure VMware**
 
-  :::image type="content" source="media/hub-spoke/on-prem-to-avs-traffic-flow.png" alt-text="Fluxo de tráfego de solução local para o Azure VMware":::
+  :::image type="content" source="media/hub-spoke/on-prem-to-avs-traffic-flow.png" alt-text="Fluxo de tráfego de solução local para o Azure VMware" border="false":::
 
 
 * **Solução do Azure VMware para o fluxo de tráfego de VNET do Hub**
 
-  :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="Solução do Azure VMware para o fluxo de tráfego de rede virtual do Hub":::
+  :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="Solução do Azure VMware para o fluxo de tráfego de rede virtual do Hub" border="false":::
 
 
 Você pode encontrar mais detalhes sobre os conceitos de rede e interconectividade da solução do Azure VMware na [documentação do produto da solução Azure VMware](./concepts-networking.md).
@@ -97,7 +94,7 @@ Um segundo nível de segmentação de tráfego usando os grupos de segurança de
 
 Aplicativo Azure gateway v1 e v2 foram testados com aplicativos Web que são executados em VMs de solução do Azure VMware como um pool de back-end. Atualmente, o gateway de aplicativo é o único método com suporte para expor aplicativos Web em execução em VMs de solução do Azure VMware para a Internet. Ele também pode expor os aplicativos a usuários internos com segurança.
 
-:::image type="content" source="media/hub-spoke/avs-second-level-traffic-segmentation.png" alt-text="Segundo nível de segmentação de tráfego usando os grupos de segurança de rede":::
+:::image type="content" source="media/hub-spoke/avs-second-level-traffic-segmentation.png" alt-text="Segundo nível de segmentação de tráfego usando os grupos de segurança de rede" border="false":::
 
 
 ### <a name="jumpbox-and-azure-bastion"></a>Jumpbox e bastiões do Azure
@@ -110,7 +107,7 @@ Como prática recomendada de segurança, implante [Microsoft Azure](../bastion/i
 > Não forneça um endereço IP público para a VM Jumpbox ou expor a porta 3389/TCP para a Internet pública. 
 
 
-:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Rede virtual do hub de bastiões do Azure":::
+:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Rede virtual do hub de bastiões do Azure" border="false":::
 
 
 ## <a name="azure-dns-resolution-considerations"></a>Considerações sobre a resolução de DNS do Azure

@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 7af711ebe21c46663ecd8e803b0f636c34c362ee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 110d39791b3779a30e6541e77c0c6062cd51144c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076058"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688548"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -468,7 +468,7 @@ Se o seu aplicativo do cliente está emitindo erros HTTP 403 (Proibido), uma pos
 | Fonte | Detalhamento | Detalhamento | ID de solicitação do cliente | Texto de operação |
 | --- | --- | --- | --- | --- |
 | Microsoft.Azure.Storage |Informações |3 |85d077ab-… |Inicialização da operação com o local principal por modo de local PrimaryOnly. |
-| Microsoft.Azure.Storage |Informações |3 |85d077ab -… |Iniciando solicitação síncrona para <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14>. |
+| Microsoft.Azure.Storage |Informações |3 |85d077ab -… |Iniciando solicitação síncrona para <https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Synchronous_and_Asynchronous_Requests#Synchronous_request>. |
 | Microsoft.Azure.Storage |Informações |3 |85d077ab -… |Esperando uma resposta. |
 | Microsoft.Azure.Storage |Aviso |2 |85d077ab -… |Exceção acionada ao aguardar a resposta: O servidor remoto retornou um erro: (403) Proibido. |
 | Microsoft.Azure.Storage |Informações |3 |85d077ab -… |Resposta recebida. Status code = 403, Request ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
@@ -503,7 +503,7 @@ Você pode usar o log do lado do cliente a partir da biblioteca do cliente de ar
 
 O seguinte log do lado do cliente gerado pela biblioteca do cliente de armazenamento ilustra o problema quando o cliente não pode encontrar o contêiner para o blob que está criando. Esse log inclui detalhes das seguintes operações de armazenamento:
 
-| ID da Solicitação | Operação |
+| ID de solicitação | Operação |
 | --- | --- |
 | 07b26a5d-... |**DeleteIfExists** para excluir o contêiner do blob. Observe que essa operação inclui uma solicitação **HEAD** para verificar a existência do contêiner. |
 | e2d06d78… |**CreateIfNotExists** para criar o contêiner do blob. Observe que essa operação inclui uma solicitação **HEAD** que verifica a existência do contêiner. **HEAD** retorna uma mensagem 404, porém continua. |

@@ -10,12 +10,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: f0673732bd657b237ed0f4b4db276b8bf9a3a2b5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 95fb9798bc62236d785c911ec75db8d6e11f6e97
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424368"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685707"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Azure Key Vault códigos de erro da API REST
  
@@ -89,7 +89,7 @@ Os tokens são codificados em Base64 e os valores podem ser decodificados em sit
 
 Podemos ver muitas partes importantes nesse token:
 
-- AUD (Audience): o recurso do token. Observe que isso é <https://vault.azure.net> . Esse token não funcionará para nenhum recurso que não corresponda explicitamente a esse valor, como grafo.
+- AUD (Audience): o recurso do token. Observe que isso é `https://vault.azure.net` . Esse token não funcionará para nenhum recurso que não corresponda explicitamente a esse valor, como grafo.
 - IAT (emitido em): o número de tiques desde o início da época em que o token foi emitido.
 - NBF (não antes): o número de tiques desde o início da época em que esse token se torna válido.
 - exp (expiração): o número de tiques desde o início da época em que esse token expira.

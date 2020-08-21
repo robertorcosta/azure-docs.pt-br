@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eca304901e391c931aba892abf3cb2a19d4ae3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18c3b0397a0ad3e9e368d1a14e20a999ced5545b
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367743"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690265"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não é possível Acessar este Aplicativo Corporativo" ao usar um aplicativo de Proxy de Aplicativo
 
@@ -35,7 +35,7 @@ Quando você vir esse erro, localize o código de status na página de erro. Ess
 - **Gateway Incorreto**: O conector não consegue alcançar o aplicativo back-end. Esse erro indicar uma configuração incorreta do aplicativo.
 - **Proibido**: O usuário não está autorizado a acessar o aplicativo. Esse erro pode acontecer quando o usuário não está atribuído ao aplicativo no Azure Active Directory ou, se no back-end o usuário não tiver permissão para acessar o aplicativo.
 
-Para localizar o código observe no texto, na parte inferior esquerda da mensagem de erro, o campo "Código de Status". Além disso, procure quaisquer dicas adicionais na parte inferior da página.
+Para localizar o código, examine o texto na parte inferior esquerda da mensagem de erro do campo "código de status". Além disso, procure quaisquer dicas adicionais na parte inferior da página.
 
 ![Exemplo: Erro de tempo limite de gateway](./media/application-proxy-sign-in-bad-gateway-timeout-error/connection-problem.png)
 
@@ -50,7 +50,7 @@ Um tempo limite de gateway ocorre quando o serviço tenta alcançar o conector e
 Um erro de gateway incorreto indica que o conector não consegue alcançar o aplicativo back-end. certifique-se de que você publicou o aplicativo correto. Os erros comuns que causam esse erro são:
 
 - Um erro de digitação ou erro na URL interna
-- Não publicar a raiz do aplicativo. Por exemplo, publicar <http://expenses/reimbursement> mas tentar acessar <http://expenses>
+- Não publicar a raiz do aplicativo. Por exemplo, publicar `http://expenses/reimbursement` mas tentar acessar `http://expenses`
 - Problemas com a configuração Delegação Restrita de Kerberos (KCD)
 - Problemas com o aplicativo back-end
 
@@ -71,12 +71,12 @@ Como uma primeira etapa rápida, verifique novamente e corrija a URL interna, ab
 Para verificar se o aplicativo está atribuído a um Grupo de Conectores de trabalho:
 
 1. Abra o aplicativo no portal, acessando o **Azure Active Directory**, clicando em **Aplicativos Empresariais** e, em seguida, em **Todos os Aplicativos.** Abra o aplicativo e, em seguida, selecione **Proxy de aplicativo** no menu esquerdo.
-1. Analise o campo Grupo de Conectores. Se não houver conectores ativos no grupo, você verá um aviso. Se nenhum aviso surgir, avence para verificar se todas as [portas necessárias](application-proxy-add-on-premises-application.md) estão na lista de permissões.
+1. Analise o campo Grupo de Conectores. Se não houver conectores ativos no grupo, você verá um aviso. Se você não vir nenhum aviso, passe para verificar se todas as [portas necessárias](application-proxy-add-on-premises-application.md) são permitidas.
 1. Se o Grupo de Conectores incorreto for exibido, use o menu suspenso para selecionar o grupo correto e confirme se nenhum aviso é exibido. Se o Grupo de Conectores pretendido for exibido, clique na mensagem de aviso para abrir a página com o gerenciamento do Conector.
 1. A partir daqui, há algumas maneiras de aprofundar-se ainda mais:
 
-   - Mover um conector ativo para o grupo: Se você tiver um conector ativo que deve pertencer ao grupo e tem metas claras para o aplicativo de back-end de destino, você poderá mover o conector para o grupo atribuído. Para fazer isso, clique no Conector. No campo "Grupo de Conectores", use a lista suspensa para selecionar o grupo correto e clique em Salvar.
-   - Baixar um novo conector para o grupo: Nesta página, você pode obter o link para [baixar um novo Conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale o Conector em um computador com a linha direta de visão para o aplicativo de back-end. Em geral, o Conector está instalado no mesmo servidor que o aplicativo. Use o link de download do Connector para baixar de um conector no computador de destino. Em seguida, clique no Conector e use o menu suspenso "Grupo de Conectores" para certificar-se de que ele pertence ao grupo correto.
+   - Mover um conector ativo para o grupo: Se você tiver um conector ativo que deve pertencer ao grupo e tem metas claras para o aplicativo de back-end de destino, você poderá mover o conector para o grupo atribuído. Para fazer isso, clique no Conector. No campo "grupo de conectores", use a lista suspensa para selecionar o grupo correto e clique em salvar.
+   - Baixar um novo conector para o grupo: Nesta página, você pode obter o link para [baixar um novo Conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale o Conector em um computador com a linha direta de visão para o aplicativo de back-end. Em geral, o Conector está instalado no mesmo servidor que o aplicativo. Use o link de download do Connector para baixar de um conector no computador de destino. Em seguida, clique no conector e use a lista suspensa "grupo de conectores" para verificar se ele pertence ao grupo correto.
    - Investigar um conector inativo: Se um conector for exibido como inativo, ele não conseguirá alcançar o serviço. Esse erro geralmente é devido a algumas portas exigidas sendo bloqueadas. Para resolver esse problema, avance para “verificar se todas as portas exigidas estão na lista de permissões”.
 
 Após usar essas etapas para garantir que o aplicativo está atribuído a um grupo com Conectores funcionando, teste o aplicativo novamente. Se ainda não estiver funcionando, continue na próxima seção.
@@ -93,13 +93,13 @@ Você também pode examinar diretamente os logs do Conector para identificar qua
 
 ## <a name="additional-resolutions"></a>Resoluções Adicionais
 
-Se os itens acima não corrigirem o problema, há algumas causas possíveis diferentes. Para identificar o problema:
+Se o problema acima não foi corrigido, há algumas causas possíveis diferentes. Para identificar o problema:
 
-Se seu aplicativo é configurado para usar a Autenticação Integrada do Windows (IWA), teste o aplicativo sem logon único. Se não, avance para o próximo parágrafo. Para verificar o aplicativo sem logon único, abra o aplicativo pelo **Aplicativos Empresariais,** e vá para o menu **Logon Único**. Altere a lista suspensa de "Autenticação Integrada do Windows" para "Logon único do Azure AD desabilitado".
+Se seu aplicativo é configurado para usar a Autenticação Integrada do Windows (IWA), teste o aplicativo sem logon único. Se não, avance para o próximo parágrafo. Para verificar o aplicativo sem logon único, abra o aplicativo pelo **Aplicativos Empresariais,** e vá para o menu **Logon Único**. Altere a lista suspensa de "autenticação integrada do Windows" para "logon único do Azure AD desabilitado".
 
 Agora, abra um navegador e tente acessar o aplicativo novamente. Você deve ser solicitado a fazer autenticação e entrar no aplicativo. Se você conseguir autenticar, isso significa que o problema está na configuração de Delegação Restrita de Kerberos (KCD) que habilita o logon único. Para obter mais informações, consulte a página Solução de Problemas de KCD.
 
-Se você continuar vendo o erro, vá para o computador no qual o Conector está instalado, abra um navegador e tente alcançar a URL interna usada para o aplicativo. O Conector atua como outro cliente do mesmo computador. Se você não conseguir alcançar o aplicativo, investigue por que esse computador não consegue alcançar o aplicativo ou use um conector em um servidor que possa acessar o aplicativo.
+Se você continuar vendo o erro, vá para o computador no qual o Conector está instalado, abra um navegador e tente alcançar a URL interna usada para o aplicativo. O Conector atua como outro cliente do mesmo computador. Se você não conseguir acessar o aplicativo, investigue por que esse computador não consegue acessar o aplicativo ou use um conector em um servidor que possa acessar o aplicativo.
 
 Se você pode alcançar o aplicativo do computador, pesquise problemas ou erros com o próprio Conector. É possível ver alguns erros comuns no [Documento de solução de problemas](application-proxy-troubleshoot.md#connector-errors). Você também pode examinar diretamente os logs do Conector para identificar quaisquer erros. Muitas de nossas mensagens de erro podem compartilhar recomendações mais específicas para correções. Para saber como exibir os logs, consulte [nossa documentação de conectores](application-proxy-connectors.md#under-the-hood).
 

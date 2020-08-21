@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: cea08022b992395862fcf75e0592efd54c805a98
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: bbec605f25c2e74178bdb5c28d0a7995e4e265f1
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649118"
+ms.locfileid: "88690384"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
 
@@ -157,7 +157,7 @@ Os parâmetros opcionais de cadeia de consulta de URL incluem a definição de u
 
 | Parâmetro de consulta opcional | Descrição | Versão |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Tempo limite do lado do servidor para a execução da solicitação HTTP. Aplicável somente às APIs [Obter Eventos de Ambiente](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) e [Obter Agregações de Ambiente](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api). O valor do tempo limite deve estar no formato de duração ISO 8601, por exemplo, `"PT20S"` e deve estar no intervalo `1-30 s`. O valor padrão é `30 s`. | Gen1 |
+| `timeout=<timeout>` | Tempo limite do lado do servidor para a execução da solicitação HTTP. Aplicável somente às APIs [Obter Eventos de Ambiente](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) e [Obter Agregações de Ambiente](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api). O valor do tempo limite deve estar no formato de duração ISO 8601, por exemplo, `"PT20S"` e deve estar no intervalo `1-30 s`. O valor padrão é `30 s`. | Gen1 |
 | `storeType=<storeType>` | Para ambientes Gen2 com armazenamento quente habilitado, a consulta pode ser executada no ou no `WarmStore` `ColdStore` . Esse parâmetro na consulta define em qual armazenamento a consulta deve ser executada. Se ele não estiver definido, a consulta será executada no armazenamento cold. Para consultar o armazenamento warm, **storeType** precisa ser definido como `WarmStore`. Se ele não estiver definido, a consulta será executada no armazenamento cold. | Gen2 |
 
 ## <a name="next-steps"></a>Próximas etapas
