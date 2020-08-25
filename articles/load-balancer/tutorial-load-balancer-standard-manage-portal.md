@@ -16,10 +16,10 @@ ms.date: 03/11/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: 8961a50490bdbf8b456e87e1c00577c2c8afd050
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80240373"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutorial: balancear a carga de tráfego de Internet para VMs que estejam usando o portal do Azure
@@ -162,7 +162,7 @@ O Standard Load Balancer só dá suporte a VMs com endereços IP Standard no poo
 1. Selecione a guia **Gerenciamento** ou selecione **Avançar** > **Gerenciamento**. Em **Monitoramento**, defina **Diagnóstico de inicialização** como **Desativado**. 
 1. Selecione **Examinar + criar**.   
 1. Examine as configurações e selecione **Criar**.
-1. Siga as etapas para criar duas VMs adicionais: *myVM2* e *myVM3*, com um endereço IP público do SKU Standard na **Zona de disponibilidade** **2** e **3**, respectivamente, e todas as outras configurações iguais às de *myVM1*.  
+1. Siga as etapas para criar duas VMs adicionais – *myVM2* e *myVM3*, com um endereço IP público do SKU Standard na **Zona de disponibilidade** **2** e **3**, respectivamente, e defina todas as outras configurações iguais às de *myVM1*.  
 
 ### <a name="create-network-security-group-rule"></a>Criar regra de grupo de segurança de rede
 
@@ -237,7 +237,7 @@ Para adicionar *myVM1* de volta ao pool de back-end, conclua as seguintes etapas
    2. Para **Selecionar um balanceador de carga**, selecione *myLoadBalancer*.
    3. Para **Selecionar um pool de back-end**, selecione *myBackendPool*. 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando eles não forem mais necessários, exclua o grupo de recursos, o Load Balancer e todos os recursos relacionados. Para isso, selecione o grupo de recursos *myResouceGroupSLB* que contém o Load Balancer e clique em **Excluir**.
 

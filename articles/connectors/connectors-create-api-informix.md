@@ -4,17 +4,17 @@ description: Automatizar tarefas e fluxos de trabalho que gerenciam os recursos 
 services: logic-apps
 ms.suite: integration
 author: gplarsen
-ms.author: plarsen
+ms.author: daberry
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
-ms.openlocfilehash: dccb715c974037b4e3080f3e51576feae34c03df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4995a91783c2302f3bda5cc9409f017248ca29fa
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76757961"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761637"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Gerenciar recursos do banco de dados IBM Informix usando aplicativos lógicos do Azure
 
@@ -62,10 +62,10 @@ Este tópico mostra como usar o Conector em um aplicativo lógico para processar
    |--------|-------------|-----------------------------|
    | **Obter tabelas** | Listar tabelas de banco de dados executando uma instrução de chamada Informix. | Nenhum |
    | **Obter linhas** | Busque todas as linhas na tabela especificada executando uma `SELECT *` instrução Informix. | **Nome da tabela**: o nome da tabela Informix que você deseja <p><p>Para adicionar outras propriedades a essa ação, selecione-as na lista **Adicionar novo parâmetro** . Para obter mais informações, consulte o [tópico de referência do conector](/connectors/informix/). |
-   | **Obter linha** | Busque uma linha da tabela especificada executando uma `SELECT WHERE` instrução Informix. | - **Nome da tabela**: o nome da tabela Informix que você deseja <br>- **ID da linha**: a ID exclusiva da linha, por exemplo,`9999` |
+   | **Obter linha** | Busque uma linha da tabela especificada executando uma `SELECT WHERE` instrução Informix. | - **Nome da tabela**: o nome da tabela Informix que você deseja <br>- **ID da linha**: a ID exclusiva da linha, por exemplo, `9999` |
    | **Inserir linha** | Adicione uma linha à tabela Informix especificada executando uma `INSERT` instrução Informix. | - **Nome da tabela**: o nome da tabela Informix que você deseja <br>- **Item**: a linha com os valores a serem adicionados |
-   | **Atualizar linha** | Altere uma linha na tabela Informix especificada executando uma `UPDATE` instrução Informix. | - **Nome da tabela**: o nome da tabela Informix que você deseja <br>- **ID da linha**: a ID exclusiva da linha a ser atualizada, por exemplo,`9999` <br>- **Row**: a linha com os valores atualizados, por exemplo,`102` |
-   | **Excluir linha** | Remova uma linha da tabela Informix especificada executando uma `DELETE` instrução Informix. | - **Nome da tabela**: o nome da tabela Informix que você deseja <br>- **ID da linha**: a ID exclusiva da linha a ser excluída, por exemplo,`9999` |
+   | **Atualizar linha** | Altere uma linha na tabela Informix especificada executando uma `UPDATE` instrução Informix. | - **Nome da tabela**: o nome da tabela Informix que você deseja <br>- **ID da linha**: a ID exclusiva da linha a ser atualizada, por exemplo, `9999` <br>- **Row**: a linha com os valores atualizados, por exemplo, `102` |
+   | **Excluir linha** | Remova uma linha da tabela Informix especificada executando uma `DELETE` instrução Informix. | - **Nome da tabela**: o nome da tabela Informix que você deseja <br>- **ID da linha**: a ID exclusiva da linha a ser excluída, por exemplo, `9999` |
    ||||
 
 1. Salve seu aplicativo lógico. Agora, [teste seu aplicativo lógico](#test-logic-app) ou continue criando seu aplicativo lógico.
@@ -78,10 +78,10 @@ Este tópico mostra como usar o Conector em um aplicativo lógico para processar
 
 1. Forneça essas informações de conexão e, em seguida, selecione **criar**.
 
-   | Property | Propriedade JSON | Obrigatório | Valor de exemplo | Descrição |
+   | Propriedade | Propriedade JSON | Obrigatório | Valor de exemplo | Descrição |
    |----------|---------------|----------|---------------|-------------|
    | Nome da conexão | `name` | Sim | `informix-demo-connection` | O nome a ser usado para a conexão com o banco de dados Informix |
-   | Servidor | `server` | Sim | Nuvem`informixdemo.cloudapp.net:9089` <br>-Local:`informixdemo:9089` | O endereço TCP/IP ou alias que está no formato IPv4 ou IPv6, seguido por dois-pontos e um número de porta TCP/IP |
+   | Servidor | `server` | Sim | Nuvem `informixdemo.cloudapp.net:9089` <br>-Local: `informixdemo:9089` | O endereço TCP/IP ou alias que está no formato IPv4 ou IPv6, seguido por dois-pontos e um número de porta TCP/IP |
    | Banco de dados | `database` | Sim | `nwind` | O nome do banco de dados relacional DRDA (RDBNAM) ou o nome do banco de dados Informix (dbname). A Informix aceita uma cadeia de caracteres de 128 bytes. |
    | Autenticação | `authentication` | Somente local | **Básico** ou **Windows** (Kerberos) | O tipo de autenticação exigido pelo seu banco de dados Informix. Essa propriedade só aparece quando você seleciona **conectar por meio do gateway de dados local**. |
    | Nome de Usuário | `username` | Não | <*nome de usuário do banco de dados*> | Um nome de usuário para o banco de dados |

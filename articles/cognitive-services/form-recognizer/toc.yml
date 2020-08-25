@@ -34,6 +34,10 @@
               href: quickstarts/curl-receipts.md
             - name: Python
               href: quickstarts/python-receipts.md
+        - name: Usar modelo de cartão de visita predefinido
+          items:
+            - name: Python
+              href: quickstarts/python-business-cards.md
         - name: Obter informações de layout de texto
           items:
             - name: Python
@@ -44,6 +48,12 @@
       href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
     - name: Usar o Reconhecimento de Formulários com o AI Builder
       href: tutorial-ai-builder.md
+- name: Conceitos
+  items:
+    - name: Recebimentos
+      href: concept-receipts.md
+    - name: Cartões de visita
+      href: concept-business-cards.md
 - name: Guias de instruções
   items:
     - name: Criar um conjunto de dados de treinamento
@@ -64,6 +74,8 @@
       href: disaster-recovery.md
 - name: Referência
   items:
+    - name: Versão prévia da API de Reconhecimento de Formulários v2.1
+      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync'
     - name: API de Reconhecimento de Formulários v2.0
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
     - name: SDKs

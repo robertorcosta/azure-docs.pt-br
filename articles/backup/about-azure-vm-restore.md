@@ -3,12 +3,12 @@ title: Sobre o processo de restauração da máquina virtual do Azure
 description: Saiba como o serviço de backup do Azure restaura as máquinas virtuais do Azure
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: a604e146dbe387675e9ed82030639921cfc03167
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb3f6bf729047dc6fe1c13c5ead1191188e30e5c
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067466"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761382"
 ---
 # <a name="about-azure-vm-restore"></a>Sobre a restauração da VM do Azure
 
@@ -46,12 +46,6 @@ Este artigo descreve como o [serviço de backup do Azure](./backup-overview.md) 
 | [Restaurar arquivos específicos dentro da VM](./backup-azure-restore-files-from-vm.md) | Escolha o ponto de restauração, procure, selecione arquivos e restaure-os no mesmo sistema operacional (ou compatível) que a VM de backup. |  Se você souber quais arquivos específicos restaurar, use essa opção em vez de restaurar toda a VM. |
 | [Restaurar uma VM criptografada](./backup-azure-vms-encryption.md) | No portal, restaure os discos e, em seguida, use o PowerShell para criar a VM | <li> [VM criptografada com Azure Active Directory (AAD)](../virtual-machines/windows/disk-encryption-windows-aad.md)  <li> [VM criptografada sem AAD](../virtual-machines/windows/disk-encryption-windows.md) <li> [VM criptografada *com AAD* migrado para *sem AAD*](../virtual-machines/windows/disk-encryption-faq.md#can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app) |
 | [Restauração Entre Regiões](./backup-azure-arm-restore-vms.md#cross-region-restore) | Criar uma nova VM ou restaurar discos para uma região secundária (região emparelhada do Azure) | <li> **Interrupção completa**: com o recurso de restauração entre regiões, não há tempo de espera para recuperar dados na região secundária. Você pode iniciar restaurações na região secundária mesmo antes de o Azure declarar uma interrupção. <li> **Interrupção parcial**: o tempo de inatividade pode ocorrer em clusters de armazenamento específicos em que o backup do Azure armazena os dados de backup ou mesmo na rede, conectando os clusters de backup e armazenamento do Azure associados aos seus dados de backup. Com a restauração entre regiões, você pode executar uma restauração na região secundária usando uma réplica de dados de backup na região secundária. <li> **Sem interrupção**: você pode realizar análises de BCDR (continuidade dos negócios e recuperação de desastre) para fins de auditoria ou conformidade com os dados da região secundária. Isso permite que você execute uma restauração dos dados de backup na região secundária, mesmo se não houver uma interrupção completa ou parcial na região primária para a continuidade dos negócios e as análises de recuperação de desastre.  |
-
-------
-
-
-
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

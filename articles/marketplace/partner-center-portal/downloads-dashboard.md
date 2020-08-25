@@ -1,31 +1,55 @@
 ---
-title: Painel de downloads no Microsoft Commercial Marketplace Analytics no Partner Center
+title: Painel de downloads no Microsoft Commercial Marketplace Analytics no Partner Center-Azure Marketplace
 description: Saiba como acessar solicitações de download para suas ofertas do Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/11/2019
+ms.topic: article
+ms.date: 08/21/2020
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: 5b688d64641f6dd8779d699bcd1d646e40b19b87
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: f426b0466046b366655c183a9372b2468937565b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245665"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750310"
 ---
-# <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Painel de downloads na análise do marketplace comercial
+# <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Painel de downloads na análise do Marketplace comercial
 
 Este artigo fornece informações sobre o painel de downloads no Partner Center. Este painel exibe uma lista de suas solicitações de download nos últimos 30 dias.
 
-Para acessar o painel de downloads, abra o painel **[analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** em Marketplace comercial.
+Para acessar o painel de downloads, abra o painel **[analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** no Marketplace comercial.
 
 >[!NOTE]
 > Para obter definições detalhadas da terminologia de análise, confira [Perguntas frequentes e terminologia para análise do marketplace comercial](./faq-terminology.md).
 
 ## <a name="downloads-dashboard"></a>Painel de downloads
 
-O painel de **downloads** do menu **analisar** exibe solicitações para quaisquer downloads que contenham mais de 1000 linhas de dados do cliente ou do pedido. Esses downloads de dados estarão disponíveis por 30 dias e, em seguida, removidos.
+O painel de **downloads** do menu **analisar** exibe solicitações para quaisquer downloads que contenham mais de 1000 linhas de dados do cliente ou do pedido.
+
+Você receberá uma notificação pop-up contendo um link para o painel de **downloads** sempre que solicitar um download com mais de 1000 linhas de dados. Esses downloads de dados estarão disponíveis por um período de 30 dias e, em seguida, removidos.
+
+## <a name="lifetime-export-of-commercial-marketplace-analytics-reports"></a>Exportação de tempo de vida de relatórios de análise do Marketplace comercial
+
+Na página Downloads, o usuário final pode fazer o seguinte:
+
+- Exportação de tempo de vida de relatórios de análise do Marketplace comercial no formato CSV e TSV.
+- Exportação de relatórios de análise do Marketplace comercial para qualquer intervalo de datas.
+- Exportação de relatórios de análise do Marketplace comercial para duração de 6 ou 12 meses.
+
+Suporte para capacidade de exportação de tempo de vida de relatórios de análise:
+
+| Relatório | Exportação de tempo de vida | Qualquer duração com base na data |
+| - | - | - |
+| Pedidos | ![Sinal de verificação verde](media/check-green-yes.png) | ![Sinal de verificação verde](media/check-green-yes.png) |
+| Clientes | ![Sinal de verificação verde](media/check-green-yes.png) | ![Sinal de verificação verde](media/check-green-yes.png) |
+| Informações do Marketplace | ![Sinal de verificação verde](media/check-green-yes.png) | ![Sinal de verificação verde](media/check-green-yes.png) |
+| Uso | ![Marca X preta](media/check-black-no.png) | Máximo de um ano |
+|
+
+Um usuário pode agendar downloads assíncronos de relatórios na seção de downloads:
+
+[![agendando downloads assíncronos de relatórios na seção de downloads](media/download-reports.png)](media/download-reports.png#lightbox)
 
 ## <a name="next-steps"></a>Próximas etapas
 
