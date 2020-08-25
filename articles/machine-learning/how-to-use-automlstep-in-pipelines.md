@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 06/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: c2fc0b0bc1b59bcb3fa4a84235135d9b8ff1fc27
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 7eac92a3d438c6a9ee67ae5d5b06829f3ef77528
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510242"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88754916"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Usar o ML automatizado em um pipeline de Azure Machine Learning no Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,12 @@ O ML automatizado em um pipeline é representado por um `AutoMLStep` objeto. A c
 
 Há várias subclasses de `PipelineStep` . Além do `AutoMLStep` , este artigo mostrará um para a `PythonScriptStep` preparação de dados e outro para registrar o modelo.
 
-A maneira preferida de _mover dados inicialmente para um_ pipeline ml é com `Dataset` objetos. Para mover dados _entre_ etapas, a maneira preferida é com `PipelineData` objetos. Para ser usado com `AutoMLStep` o, o `PipelineData` objeto deve ser transformado em um `PipelineOutputTabularDataset` objeto. Para obter mais informações, consulte [dados de entrada e saída de pipelines de ml](how-to-move-data-in-out-of-pipelines.md).
+A maneira preferida de _mover dados inicialmente para um_ pipeline ml é com `Dataset` objetos. Para mover dados _entre_ etapas e possivelmente salvar a saída de dados de execuções, a maneira preferida é com `OutputFileDatasetConfig` objetos. Para obter mais informações, consulte [dados de entrada e saída de pipelines de ml](how-to-move-data-in-out-of-pipelines.md).
+
+> [!NOTE]
+>As `OutputFileDatasetConfig` `OutputTabularDatasetConfig` classes e são recursos de visualização experimental e podem mudar a qualquer momento.
+>
+>Para obter mais informações, consulte https://aka.ms/azuremlexperimental.
 
 O `AutoMLStep` é configurado por meio de um `AutoMLConfig` objeto. `AutoMLConfig` é uma classe flexível, conforme discutido em [Configurar experimentos de ml automatizados no Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings). 
 
@@ -145,7 +150,7 @@ O conjunto de dados Titanic de linha de base consiste em um texto numérico mist
 - Transformar dados categóricos em inteiros
 - Remover colunas que não pretendem usar
 - Dividir os dados em conjuntos de treinamento e teste
-- Gravar os dados transformados nos `PipelineData` caminhos de saída
+- Gravar os dados transformados nos `OutputFileDatasetConfig` caminhos de saída
 
 ```python
 %%writefile dataprep.py
@@ -215,7 +220,7 @@ O trecho de código acima é um exemplo completo, mas mínimo, de preparação d
 
 As várias `prepare_` funções no trecho acima modificam a coluna relevante no conjunto de dados de entrada. Essas funções funcionam nos dados depois de serem alterados em um objeto pandas `DataFrame` . Em cada caso, os dados ausentes são preenchidos com dados aleatórios representativos ou dados categóricos indicando "desconhecido". Dados categóricos baseados em texto são mapeados para números inteiros. Colunas não mais necessárias são substituídas ou descartadas. 
 
-Depois que o código define as funções de preparação de dados, o código analisa o argumento de entrada, que é o caminho para o qual desejamos escrever nossos dados. (Esses valores serão determinados por `PipelineData` objetos que serão discutidos na próxima etapa.) O código recupera o registrado `'titanic_cs'` `Dataset` , converte-o em um pandas `DataFrame` e chama as várias funções de preparação de dados. 
+Depois que o código define as funções de preparação de dados, o código analisa o argumento de entrada, que é o caminho para o qual desejamos escrever nossos dados. (Esses valores serão determinados por `OutputFileDatasetConfig` objetos que serão discutidos na próxima etapa.) O código recupera o registrado `'titanic_cs'` `Dataset` , converte-o em um pandas `DataFrame` e chama as várias funções de preparação de dados. 
 
 Como o `output_path` é totalmente qualificado, a função `os.makedirs()` é usada para preparar a estrutura do diretório. Neste ponto, você pode usar `DataFrame.to_csv()` para gravar os dados de saída, mas os arquivos parquet são mais eficientes. Essa eficiência provavelmente seria irrelevante com um conjunto de informações pequeno, mas usar **PyArrow** o pacote PyArrow `from_pandas()` e as `write_table()` funções são apenas mais alguns pressionamentos de teclas do que `to_csv()` .
 
@@ -223,28 +228,25 @@ Os arquivos parquet têm suporte nativo na etapa de ML automatizada discutida ab
 
 ### <a name="write-the-data-preparation-pipeline-step-pythonscriptstep"></a>Gravar a etapa do pipeline de preparação de dados ( `PythonScriptStep` )
 
-O código de preparação de dados descrito acima deve ser associado a um `PythonScripStep` objeto a ser usado com um pipeline. O caminho para o qual a saída de preparação de dados parquet é gravada é gerado por um `PipelineData` objeto. Os recursos preparados anteriormente, como `ComputeTarget` , `RunConfig` e `'titanic_ds' Dataset` são usados para concluir a especificação.
+O código de preparação de dados descrito acima deve ser associado a um `PythonScripStep` objeto a ser usado com um pipeline. O caminho para o qual a saída de preparação de dados parquet é gravada é gerado por um `OutputFileDatasetConfig` objeto. Os recursos preparados anteriormente, como `ComputeTarget` , `RunConfig` e `'titanic_ds' Dataset` são usados para concluir a especificação.
 
 ```python
-from azureml.pipeline.core import PipelineData
+from azureml.data import OutputFileDatasetConfig
 from azureml.pipeline.steps import PythonScriptStep
 
-prepped_data_path = PipelineData("titanic_train", datastore).as_dataset()
-prepped_data_path = PipelineData("titanic_train", datastore).as_dataset()
+prepped_data_path = OutputFileDatasetConfig(name="titanic_train", (destination=(datastore, 'outputdataset')))
 
 dataprep_step = PythonScriptStep(
     name="dataprep", 
     script_name="dataprep.py", 
     compute_target=compute_target, 
     runconfig=aml_run_config,
-    arguments=["--output_path", prepped_data_path],
-    inputs=[titanic_ds.as_named_input("titanic_ds")],
-    outputs=[prepped_data_path],
+    arguments=[titanic_ds.as_named_input('titanic_ds').as_mount(), prepped_data_path],
     allow_reuse=True
 )
 ```
 
-O `prepped_data_path` objeto é do tipo `PipelineOutputFileDataset` . Observe que ele é especificado nos `arguments` `outputs` argumentos e. Se você examinar a etapa anterior, verá que, dentro do código de preparação de dados, o valor do argumento `'--output_path'` será o caminho do arquivo para o qual o arquivo parquet foi gravado. 
+O `prepped_data_path` objeto é do tipo `OutputFileDatasetConfig` que aponta para um diretório.  Observe que ele está especificado no `arguments` parâmetro. 
 
 ## <a name="train-with-automlstep"></a>Treinar com o AutoMLStep
 
@@ -252,50 +254,33 @@ A configuração de uma etapa de pipeline de ML automatizada é feita com a `Aut
 
 ### <a name="send-data-to-automlstep"></a>Enviar dados para `AutoMLStep`
 
-Em um pipeline de ML, os dados de entrada devem ser um `Dataset` objeto. A maneira de desempenho mais alto é fornecer os dados de entrada na forma de `PipelineOutputTabularDataset` objetos. Você cria um objeto desse tipo com o `parse_parquet_files()` ou `parse_delimited_files()` em um `PipelineOutputFileDataset` , como o `prepped_data_path` objeto.
+Em um pipeline de ML, os dados de entrada devem ser um `Dataset` objeto. A maneira de desempenho mais alto é fornecer os dados de entrada na forma de `OutputTabularDatasetConfig` objetos. Você cria um objeto desse tipo com o `read_delimited_files()` em a `OutputFileDatasetConfig` , como o `prepped_data_path` objeto.
 
 ```python
-# type(prepped_data_path) == PipelineOutputFileDataset
-# type(prepped_data) == PipelineOutputTabularDataset
-prepped_data = prepped_data_path.parse_parquet_files(file_extension=None)
+# type(prepped_data_path) == OutputFileDatasetConfig
+# type(prepped_data) == OutputTabularDatasetConfig
+prepped_data = prepped_data_path.read_delimited_files()
 ```
 
-O trecho acima cria uma alta execução `PipelineOutputTabularDataset` a partir da `PipelineOutputFileDataset` saída da etapa de preparação de dados.
-
-Outra opção é usar `Dataset` objetos registrados no espaço de trabalho:
-
-```python
-prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
-```
-
-Comparando as duas técnicas:
-
-| Técnica | Benefícios e desvantagens | 
-|-|-|
-|`PipelineOutputTabularDataset`| Maior desempenho | 
-|| Rota natural de `PipelineData` | 
-|| Os dados não são persistidos após a execução do pipeline |
-|| [Laptop mostrando `PipelineOutputTabularDataset` técnica](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |
-| Registrados `Dataset` | Desempenho inferior |
-| | Pode ser gerado de várias maneiras | 
-| | Os dados persistem e ficam visíveis em todo o espaço de trabalho |
-| | [Bloco de anotações mostrando a técnica registrada `Dataset`](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/continuous-retraining/auto-ml-continuous-retraining.ipynb)
+O trecho acima cria uma alta execução `OutputTabularDatasetConfig` a partir da `OutputFileDatasetConfig` saída da etapa de preparação de dados.
 
 ### <a name="specify-automated-ml-outputs"></a>Especificar saídas de ML automatizadas
 
-As saídas das `AutoMLStep` são as pontuações de métricas finais do modelo de maior desempenho e o próprio modelo. Para usar essas saídas em etapas de pipeline adicionais, prepare `PipelineData` objetos para recebê-las.
+As saídas das `AutoMLStep` são as pontuações de métricas finais do modelo de maior desempenho e o próprio modelo. Para usar essas saídas em etapas de pipeline adicionais, prepare `OutputFileDatasetConfig` objetos para recebê-las.
 
 ```python
+
 from azureml.pipeline.core import TrainingOutput
 
 metrics_data = PipelineData(name='metrics_data',
-                           datastore=datastore,
-                           pipeline_output_name='metrics_output',
-                           training_output=TrainingOutput(type='Metrics'))
+                            datastore=datastore,
+                            pipeline_output_name='metrics_output',
+                            training_output=TrainingOutput(type='Metrics'))
+
 model_data = PipelineData(name='best_model_data',
-                           datastore=datastore,
-                           pipeline_output_name='model_output',
-                           training_output=TrainingOutput(type='Model'))
+                          datastore=datastore,
+                          pipeline_output_name='model_output',
+                          training_output=TrainingOutput(type='Model'))
 ```
 
 O trecho acima cria os dois `PipelineData` objetos para as métricas e a saída do modelo. Cada um é nomeado, atribuído ao repositório de armazenamento padrão recuperado anteriormente e associado com o específico `type` de `TrainingOutput` do `AutoMLStep` . Como atribuímos `pipeline_output_name` esses `PipelineData` objetos, seus valores estarão disponíveis não apenas da etapa de pipeline individual, mas do pipeline como um todo, como serão discutidos abaixo na seção "examinar os resultados do pipeline". 
@@ -341,7 +326,7 @@ O `automl_settings` dicionário é passado para o `AutoMLConfig` Construtor como
 - `path` e `debug_log` descrevem o caminho para o projeto e um arquivo local no qual as informações de depuração serão gravadas 
 - `compute_target` é o anteriormente definido `compute_target` , neste exemplo, é um computador baseado em CPU de baixo custo. Se você estiver usando os recursos de aprendizado profundo do AutoML, você desejaria alterar o destino de computação para ser baseado em GPU
 - `featurization` é definido como `auto`. Mais detalhes podem ser encontrados na seção [Data personalização](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#data-featurization) do documento de configuração do ml automatizado 
-- `training_data` é definido para os `PipelineOutputTabularDataset` objetos feitos das saídas da etapa de preparação de dados 
+- `training_data` é definido para os `OutputTabularDatasetConfig` objetos feitos das saídas da etapa de preparação de dados 
 - `label_column_name` indica em qual coluna estamos interessados em prever 
 
 A `AutoMLStep` si mesma usa `AutoMLConfig` e tem, como saídas, os `PipelineData` objetos criados para manter as métricas e os dados do modelo. 

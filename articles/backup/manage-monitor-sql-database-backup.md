@@ -3,12 +3,12 @@ title: Gerenciar e monitorar bancos de SQL Server em uma VM do Azure
 description: Este artigo descreve como gerenciar e monitorar SQL Server bancos de dados que estão em execução em uma VM do Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: ada367e94b75c30a98bedf5848b248cadfe9acc2
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: c9d8b9b56820182f7bf7866d38d40df8f5488a7a
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88659493"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756309"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerenciar e monitorar backup de bancos de dados do SQL Server
 
@@ -16,15 +16,11 @@ Este artigo descreve as tarefas comuns para gerenciar e monitorar SQL Server ban
 
 Se você ainda não tiver configurado backups para seus bancos de dados SQL Server, consulte [fazer backup de bancos de dados SQL Server em VMs do Azure](backup-azure-sql-database.md)
 
-## <a name="monitor-manual-backup-jobs-in-the-portal"></a>Monitorar trabalhos de backup manuais no portal
+## <a name="monitor-backup-jobs-in-the-portal"></a>Monitorar trabalhos de backup no portal
 
-O backup do Azure mostra todos os trabalhos disparados manualmente no portal de **trabalhos de backup** . Os trabalhos que você vê nesse portal incluem descoberta de banco de dados e registro e operações de backup e restauração.
+O backup do Azure mostra todas as operações agendadas e sob demanda em **trabalhos de backup** no portal, exceto os backups de log agendados, pois eles podem ser muito frequentes. Os trabalhos que você vê neste portal incluem descoberta e registro de banco de dados, configurar backup e operações de backup e restauração.
 
 ![O portal de trabalhos de backup](./media/backup-azure-sql-database/jobs-list.png)
-
-> [!NOTE]
-> O portal de **trabalhos de backup** não mostra os trabalhos de backup agendados. Use o SQL Server Management Studio para monitorar trabalhos de backup agendados, conforme descrito na próxima seção.
->
 
 Para obter detalhes sobre cenários de monitoramento, acesse [monitoramento na portal do Azure](backup-azure-monitoring-built-in-monitor.md) e [monitoramento usando Azure monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
@@ -162,7 +158,7 @@ Cancele o registro de uma instância de SQL Server depois de desabilitar a prote
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Registrar novamente a extensão na VM SQL Server
 
-Às vezes, a extensão de carga de trabalho na VM pode ser afetada por um motivo ou outra. Nesses casos, todas as operações disparadas na VM começarão a falhar. Você pode precisar registrar novamente a extensão na VM. A operação de **novo registro** reinstala a extensão de backup de carga de trabalho na VM para que as operações continuem. Você pode encontrar essa opção em **infraestrutura de backup** no cofre do serviço de recuperação.
+Às vezes, a extensão de carga de trabalho na VM pode ser afetada por um motivo ou outra. Nesses casos, todas as operações disparadas na VM começarão a falhar. Você pode precisar registrar novamente a extensão na VM. A operação de **novo registro** reinstala a extensão de backup de carga de trabalho na VM para que as operações continuem. Você pode encontrar essa opção em **infraestrutura de backup** no cofre dos serviços de recuperação.
 
 ![Servidores protegidos em infraestrutura de backup](./media/backup-azure-sql-database/protected-servers-backup-infrastructure.png)
 

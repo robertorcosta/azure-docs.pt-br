@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0524e8756e86771ab555eaa853e3955fe69c8549
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7e8beb8d694b0ee155e3707faef34dff6d56eb3
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727646"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797744"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Atribuir licenças a usuários por meio da associação a grupos no Azure Active Directory
 
@@ -97,9 +97,9 @@ Ao atribuir licenças a um grupo, o Azure AD processa todos os membros existente
 
 Para saber mais sobre o conjunto de recursos para atribuição de licença usando grupos, consulte os seguintes artigos:
 
-- [O que é o licenciamento baseado em grupo no Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context)
+- [O que é o licenciamento baseado em grupo no Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
 - [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](licensing-groups-resolve-problems.md)
 - [Como migrar usuários individuais licenciados para licenciamento baseado em grupo no Azure Active Directory](licensing-groups-migrate-users.md)
 - [Como migrar usuários entre licenças de produto usando o licenciamento baseado em grupo no Microsoft Azure Active Directory](licensing-groups-change-licenses.md)
-- [Cenários adicionais de licenciamento baseado em grupo do Azure Active Directory](../active-directory-licensing-group-advanced.md)
+- [Cenários adicionais de licenciamento baseado em grupo do Azure Active Directory](./licensing-group-advanced.md)
 - [Exemplos do PowerShell para licenciamento baseado em grupo no Azure Active Directory](licensing-ps-examples.md)

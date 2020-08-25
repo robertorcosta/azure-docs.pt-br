@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d21e0358e2226f93a6c7088906d1146e5e2cf740
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c0b203647bc57c7c7eb48e321895cf3b3fa7d44
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84729023"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795415"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Excluir um novo locatário no Azure Active Directory
 
@@ -85,7 +85,7 @@ Você pode colocar uma assinatura no estado **Desprovisionado** a ser excluída 
 
    ![Link de exclusão para excluir assinatura](./media/directory-delete-howto/delete-command.png)
 
-6. Selecione **Excluir assinatura** para excluir a assinatura e aceitar os termos e condições. Todos os dados são excluídos permanentemente em até três dias. Se você mudar de ideia, será possível [reativar a assinatura](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) durante esse período de três dias.
+6. Selecione **Excluir assinatura** para excluir a assinatura e aceitar os termos e condições. Todos os dados são excluídos permanentemente em até três dias. Se você mudar de ideia, será possível [reativar a assinatura](/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) durante esse período de três dias.
   
    ![Leia atentamente os termos e condições](./media/directory-delete-howto/delete-terms.png)
 
@@ -97,18 +97,18 @@ Você pode colocar uma assinatura no estado **Desprovisionado** a ser excluída 
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>Tenho uma assinatura de avaliação que bloqueia a exclusão
 
-Há [produtos de inscrição para autoatendimento](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide) como Microsoft Power BI, Rights Management Services, Microsoft Power Apps ou Dynamics 365, usuários individuais podem se inscrever por meio do Office 365, que também cria um usuário convidado para autenticação na sua organização do Azure Active Directory. Esses produtos de autoatendimento bloqueiam exclusões de diretório até que os produtos sejam totalmente excluídos da organização, para evitar a perda de dados. Eles podem ser excluídos somente pelo administrador do Azure Active Directory, apesar de o usuário ter se inscrito individualmente ou ter atribuído o produto.
+Há [produtos de inscrição para autoatendimento](/office365/admin/misc/self-service-sign-up?view=o365-worldwide) como Microsoft Power BI, Rights Management Services, Microsoft Power Apps ou Dynamics 365, usuários individuais podem se inscrever por meio do Office 365, que também cria um usuário convidado para autenticação na sua organização do Azure Active Directory. Esses produtos de autoatendimento bloqueiam exclusões de diretório até que os produtos sejam totalmente excluídos da organização, para evitar a perda de dados. Eles podem ser excluídos somente pelo administrador do Azure Active Directory, apesar de o usuário ter se inscrito individualmente ou ter atribuído o produto.
 
 Há dois tipos de produtos de inscrição para autoatendimento, dependendo de como eles são atribuídos: 
 
 * Atribuição de nível de organização: Um administrador do Azure Active Directory atribui o produto a toda a organização e um usuário pode usar ativamente o serviço com essa atribuição de nível de organização, mesmo que ele não seja licenciado individualmente.
 * Atribuição de nível de usuário: Um usuário individual durante a inscrição para autoatendimento atribui o produto a si mesmo sem um administrador. Depois que a organização for gerenciada por um administrador (consulte [tomada pelo administrador de uma organização não gerenciada](domains-admin-takeover.md), o administrador poderá atribuir diretamente o produto a usuários sem inscrição para autoatendimento.  
 
-Quando você inicia a exclusão do produto de inscrição para autoatendimento, a ação exclui permanentemente os dados e remove todo o acesso do usuário ao serviço. Qualquer usuário atribuído à oferta individualmente ou no nível da organização será impedido de entrar ou acessar os dados existentes. Se você quiser evitar a perda de dados com o produto de inscrição de autoatendimento, como [dashboards do Microsoft Power BI](https://docs.microsoft.com/power-bi/service-export-to-pbix) ou [configuração de política de serviço do Rights Management](https://docs.microsoft.com/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), verifique se os dados foram copiados em backup e salvos em outro lugar.
+Quando você inicia a exclusão do produto de inscrição para autoatendimento, a ação exclui permanentemente os dados e remove todo o acesso do usuário ao serviço. Qualquer usuário atribuído à oferta individualmente ou no nível da organização será impedido de entrar ou acessar os dados existentes. Se você quiser evitar a perda de dados com o produto de inscrição de autoatendimento, como [dashboards do Microsoft Power BI](/power-bi/service-export-to-pbix) ou [configuração de política de serviço do Rights Management](/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), verifique se os dados foram copiados em backup e salvos em outro lugar.
 
-Para obter mais informações sobre produtos e serviços de inscrição para autoatendimento disponíveis no momento, consulte [Programas de autoatendimento disponíveis](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
+Para obter mais informações sobre produtos e serviços de inscrição para autoatendimento disponíveis no momento, consulte [Programas de autoatendimento disponíveis](/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
 
-Para saber o que esperar quando uma assinatura de avaliação do Office 365 expirar (não incluindo Parceiro/CSP, Contrato Enterprise ou Licenciamento por Volume), confira a tabela a seguir. Para obter mais informações sobre a retenção de dados e o ciclo de vida de assinatura do Office 365, confira [O que acontecerá com meus dados e o acesso ao Office 365 para empresas quando a assinatura terminar?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+Para saber o que esperar quando uma assinatura de avaliação do Office 365 expirar (não incluindo Parceiro/CSP, Contrato Enterprise ou Licenciamento por Volume), confira a tabela a seguir. Para obter mais informações sobre a retenção de dados e o ciclo de vida de assinatura do Office 365, confira [O que acontecerá com meus dados e o acesso ao Office 365 para empresas quando a assinatura terminar?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
 
 Estado do produto | Dados | Acesso a dados
 ------------- | ---- | --------------
@@ -143,4 +143,4 @@ Você pode colocar um produto de inscrição para autoatendimento, como o Micros
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
+[Documentação do Azure Active Directory](../index.yml)

@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: bd8b8deed2afafc22e99ac15f2bcffdf65af83c4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: bb0f0b93f3890a06f4ecbdc6cf39a173ea048940
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422429"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798169"
 ---
 # <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Gerenciar suas organizações conectadas na página Organizações
 
@@ -30,7 +30,7 @@ A página **Organizações** do portal **Minha Conta** ajuda a gerenciar as orga
 - **Outras organizações.** Outras organizações incluem qualquer grupo que você tenha entrado anteriormente usando sua conta corporativa ou de estudante. Você pode sair de tais organizações a qualquer momento.
 
 >[!Important]
->Este artigo destina-se a usuários que tentam atualizar as informações da organização conectadas a uma conta corporativa ou de estudante. Se você for um administrador procurando informações sobre gerenciamento de grupos e usuários para seus funcionários ou outros usos, consulte a [Documentação de gerenciamento de usuário corporativo](https://docs.microsoft.com/azure/active-directory/users-groups-roles/index).
+>Este artigo destina-se a usuários que tentam atualizar as informações da organização conectadas a uma conta corporativa ou de estudante. Se você for um administrador procurando informações sobre gerenciamento de grupos e usuários para seus funcionários ou outros usos, consulte a [Documentação de gerenciamento de usuário corporativo](../users-groups-roles/index.yml).
 
 ## <a name="view-your-organizations"></a>Exibir suas organizações
 
@@ -61,7 +61,7 @@ Você pode sair de qualquer organização que não seja a organização inicial.
 
 Depois de exibir suas organizações, é possível:
 
-- Exibir ou gerenciar suas [informações de segurança](user-help-security-info-overview.md).
+- Exibir ou gerenciar suas [informações de segurança](./security-info-setup-signin.md).
 
 - Exibir ou gerenciar seus [dispositivos](my-account-portal-devices-page.md) conectados.
 
@@ -69,4 +69,4 @@ Depois de exibir suas organizações, é possível:
 
 - Exibir como a organização [usa os dados relacionados à privacidade](my-account-portal-privacy-page.md).
 
-- Alterar [as configurações do portal da minha conta](my-account-portal-settings.md)
+- Alterar as [configurações do portal Minha Conta](my-account-portal-settings.md)

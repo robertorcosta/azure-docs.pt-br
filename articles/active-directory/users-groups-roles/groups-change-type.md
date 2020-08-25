@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05bcf589e685d0a35a58bb1e8069a6ce3699b61c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6ee5af5d7489835f125319050d291a89ab252a6
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728377"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797115"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Alterar o tipo de associação de grupo estático para dinâmico no Microsoft Azure Active Directory
 
@@ -33,7 +33,7 @@ Você pode alterar a associação do grupo de estático para dinâmico (ou vice-
 ## <a name="change-the-membership-type-for-a-group"></a>Alterar o tipo de associação para um grupo
 
 1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta que seja um administrador global ou um administrador de usuário na sua organização do Azure AD.
-2. Selecione **grupos**.
+2. Selecione **Grupos**.
 3. Na lista **Todos os grupos**, abra o grupo que você deseja alterar.
 4. Selecione **Propriedades**.
 5. Na página **Propriedades**do grupo, selecione um **Tipo de Associação** entre Atribuído (estático), Usuário Dinâmico ou Dispositivo Dinâmico, dependendo do tipo de associação desejado. Para associação dinâmica, é possível usar o construtor de regras para selecionar opções para uma regra simples ou gravar uma regra avançada de associação. 
@@ -57,7 +57,7 @@ As etapas a seguir são um exemplo de alteração de um grupo de associação es
 ## <a name="change-membership-type-for-a-group-powershell"></a>Alterar o tipo de associação para um grupo (PowerShell)
 
 > [!NOTE]
-> Para alterar as propriedades de grupo dinâmico, você precisará usar os cmdlets **da versão prévia da** [versão 2 do PowerShell do Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Você pode instalar a versão prévia da [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
+> Para alterar as propriedades de grupo dinâmico, você precisará usar os cmdlets **da versão prévia da** [versão 2 do PowerShell do Azure AD](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Você pode instalar a versão prévia da [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Aqui está um exemplo de funções que alternam o gerenciamento de associação em um grupo existente. Neste exemplo, é preciso ter cuidado para manipular corretamente a propriedade GroupTypes e preservar quaisquer valores não relacionados à associação dinâmica.
 

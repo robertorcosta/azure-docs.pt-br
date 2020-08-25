@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.openlocfilehash: 577a80f04ad186ab1575fa78db3fa59402d6058f
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83697390"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutorial: Analisar os dados de uma chamada telefônica com o Stream Analytics e visualizar os resultados em um dashboard do Power BI
@@ -52,16 +52,16 @@ Use as seguintes etapas para criar um Hub de Eventos e enviar dados de chamada p
    |**Configuração**  |**Valor sugerido** |**Descrição**  |
    |---------|---------|---------|
    |Nome     | myEventHubsNS        |  Um nome exclusivo para identificar o namespace de hub de eventos.       |
-   |Subscription     |   \<Sua assinatura\>      |   Selecione uma assinatura do Azure em que deseja criar o hub de eventos.      |
+   |Subscription     |   \<Your subscription\>      |   Selecione uma assinatura do Azure em que deseja criar o hub de eventos.      |
    |Resource group     |   MyASADemoRG      |  Selecione **Criar Novo** e insira um novo nome de grupo de recursos para a conta.       |
-   |Location     |   Oeste dos EUA 2      |    Local onde o namespace do hub de eventos pode ser implantado.     |
+   |Local     |   Oeste dos EUA 2      |    Local onde o namespace do hub de eventos pode ser implantado.     |
 
 4. Use as opções padrão nas configurações restantes e selecione **Criar**.
 
    ![Criar um namespace do hub de eventos no portal do Azure](media/stream-analytics-manage-job/create-event-hub-namespace.png)
 
 5. Quando o namespace concluir a implantação, vá para **Todos os recursos** e localize *myEventHubsNS* na lista de recursos do Azure. Escolha *myEventHubsNS* para abri-lo.
-6. Em seguida, escolha **+Hub de Eventos** e insira como **Nome** *MyEventHub* ou um nome diferente de sua escolha. Use as opções padrão nas configurações restantes e escolha **Criar**. Aguarde até que a implantação tenha êxito.
+6. Em seguida, escolha **+Hub de Eventos** e insira como **Nome***MyEventHub* ou um nome diferente de sua escolha. Use as opções padrão nas configurações restantes e escolha **Criar**. Aguarde até que a implantação tenha êxito.
 
    ![Configuração do Hub de Eventos no portal do Azure](media/stream-analytics-manage-job/create-event-hub-portal.png)
 
@@ -135,9 +135,9 @@ Agora que você tem um fluxo de eventos de chamada, pode criar um trabalho do St
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
    |Nome do trabalho     |  ASATutorial       |   Um nome exclusivo para identificar o namespace de hub de eventos.      |
-   |Subscription    |  \<Sua assinatura\>   |   Selecione uma assinatura do Azure em que deseja criar o trabalho.       |
+   |Subscription    |  \<Your subscription\>   |   Selecione uma assinatura do Azure em que deseja criar o trabalho.       |
    |Resource group   |   MyASADemoRG      |   Selecione **Usar existente** e insira um novo nome de grupo de recursos para sua conta.      |
-   |Location   |    Oeste dos EUA 2     |      Local onde o trabalho pode ser implantado. É recomendável colocar o trabalho e o hub de eventos na mesma região para melhor desempenho e para que não seja necessário pagar para transferir dados entre regiões.      |
+   |Local   |    Oeste dos EUA 2     |      Local onde o trabalho pode ser implantado. É recomendável colocar o trabalho e o hub de eventos na mesma região para melhor desempenho e para que não seja necessário pagar para transferir dados entre regiões.      |
    |Ambiente de hospedagem    | Nuvem        |     Os trabalhos do Stream Analytics podem ser implantados na nuvem ou na borda. O Cloud permite que você implante no Azure Cloud e o Edge permite que você implante em um dispositivo IoT Edge.    |
    |Unidades de transmissão     |    1       |      As unidades de streaming representam os recursos de computação necessários para executar um trabalho. Por padrão, esse valor é definido como 1. Para saber mais sobre como dimensionar unidades de streaming, confira o artigo [Entendendo e ajustando as unidades de streaming](stream-analytics-streaming-unit-consumption.md).      |
 
@@ -158,7 +158,7 @@ A próxima etapa é definir uma fonte de entrada para o trabalho ler os dados us
    |**Configuração**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
    |Alias de entrada     |  CallStream       |  Forneça um nome amigável para identificar a entrada. O alias de entrada pode conter somente caracteres alfanuméricos, hifens e sublinhados e deve ter entre 3 e 63 caracteres.       |
-   |Subscription    |   \<Sua assinatura\>      |   Selecione a assinatura do Azure em que você criou o hub de eventos. O hub de eventos pode estar na mesma assinatura ou em uma diferente da do trabalho do Stream Analytics.       |
+   |Subscription    |   \<Your subscription\>      |   Selecione a assinatura do Azure em que você criou o hub de eventos. O hub de eventos pode estar na mesma assinatura ou em uma diferente da do trabalho do Stream Analytics.       |
    |Namespace do Hub de Eventos    |  myEventHubsNS       |  Selecione o namespace do hub de eventos criado na seção anterior. Todos os namespaces de hub de eventos disponíveis na sua assinatura atual aparecem na lista suspensa.       |
    |Nome do Hub de Eventos    |   MyEventHub      |  Selecione o hub de eventos criado na seção anterior. Todos os hubs de eventos disponíveis na sua assinatura atual aparecem na lista suspensa.       |
    |Nome da política do Hub de Eventos   |  MyPolicy       |  Selecione a política de acesso compartilhado de hub de eventos criada na seção anterior. Todas as políticas de hubs de eventos disponíveis na sua assinatura atual aparecem na lista suspensa.       |

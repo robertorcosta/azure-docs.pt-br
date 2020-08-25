@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 0a24339d728c43817b6a7ae6eac8782ad0e27b09
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 46568bf3969d050fd964c85278debd9d599db266
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142512"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796554"
 ---
 # <a name="features"></a>Recursos
 
@@ -21,9 +21,9 @@ A API do Azure para FHIR fornece uma implantação totalmente gerenciada do Micr
 
 ## <a name="fhir-version"></a>Versão do FHIR
 
-Versão mais recente com suporte:`4.0.1`
+Versão mais recente com suporte: `4.0.1`
 
-As versões anteriores também têm suporte no momento incluem:`3.0.2`
+As versões anteriores também têm suporte no momento incluem: `3.0.2`
 
 ## <a name="rest-api"></a>API REST
 
@@ -46,7 +46,7 @@ As versões anteriores também têm suporte no momento incluem:`3.0.2`
 | lote                          | Sim       | Sim       | Sim       |                                                     |
 | transaction                    | Não        | Sim       | Não        |                                                     |
 | history                        | Sim       | Sim       | Sim       |                                                     |
-| paginação                         | Parcial   | Parcial   | Parcial   | `self`e `next` têm suporte                     |
+| paginação                         | Parcial   | Parcial   | Parcial   | `self` e `next` têm suporte                     |
 | intermediários                 | Não        | Não        | Não        |                                                     |
 
 ## <a name="search"></a>Search
@@ -72,14 +72,14 @@ Todos os tipos de parâmetro de pesquisa têm suporte.
 |`:exact`               | Sim       | Sim       | Sim       |         |
 |`:contains`            | Sim       | Sim       | Sim       |         |
 |`:text`                | Sim       | Sim       | Sim       |         |
-|`:in`token          | Não        | Não        | Não        |         |
-|`:below`token       | Não        | Não        | Não        |         |
-|`:above`token       | Não        | Não        | Não        |         |
-|`:not-in`token      | Não        | Não        | Não        |         |
-|`:[type]`referência  | Não        | Não        | Não        |         |
-|`:below`URI         | Sim       | Sim       | Sim       |         |
+|`:in` token          | Não        | Não        | Não        |         |
+|`:below` token       | Não        | Não        | Não        |         |
+|`:above` token       | Não        | Não        | Não        |         |
+|`:not-in` token      | Não        | Não        | Não        |         |
+|`:[type]` referência  | Não        | Não        | Não        |         |
+|`:below` URI         | Sim       | Sim       | Sim       |         |
 |`:not`                 | Não        | Não        | Não        |         |
-|`:above`URI         | Não        | Não        | Não        | Problema [#158](https://github.com/Microsoft/fhir-server/issues/158) |
+|`:above` URI         | Não        | Não        | Não        | Problema [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 
 | Parâmetro de pesquisa comum | Com suporte-PaaS | Com suporte-OSS (SQL) | Com suporte-OSS (Cosmos DB) | Comentário |
 |-------------------------| ----------| ----------| ----------|---------|
@@ -90,7 +90,7 @@ Todos os tipos de parâmetro de pesquisa têm suporte.
 | `_security`             | Sim       | Sim       | Sim       |         |
 | `_text`                 | Não        | Não        | Não        |         |
 | `_content`              | Não        | Não        | Não        |         |
-| `_list`                 | Não        | Sim       | Sim       |         |
+| `_list`                 | Sim       | Sim       | Sim       |         |
 | `_has`                  | Não        | Não        | Não        |         |
 | `_type`                 | Sim       | Sim       | Sim       |         |
 | `_query`                | Não        | Não        | Não        |         |

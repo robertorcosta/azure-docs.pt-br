@@ -11,19 +11,19 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: d1191fdd757b4614eca543660eccddea5c20d033
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 55df08b0782c446d7313e709de9b8ceaeb58ab2b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422497"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798186"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Alterar a senha da conta corporativa ou de estudante na página Alterar senha
 
 A página **Alterar a senha** do portal **Minha conta** ajuda a atualizar uma senha existente para a conta corporativa ou de estudante, supondo que você se lembre da senha e que você não está bloqueado na conta. Se você não se lembrar da sua senha, se estiver bloqueado na sua conta ou se nunca recebeu uma senha da sua organização, pode usar suas informações de segurança e seu dispositivo móvel para redefinir sua senha.
 
 >[!Important]
->Este artigo destina-se a usuários que tentam atualizar uma senha conhecida para uma conta corporativa ou de estudante existente. Se você for um usuário que está tentando voltar a uma conta pessoal como Xbox, Hotmail ou Outlook.com, experimente as sugestões no artigo [Quando não for possível entrar em sua conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant). Se você for um administrador que está tentando encontrar mais informações sobre como testar a redefinição de senha por autoatendimento para seus funcionários ou outros usuários, confira [Redefinição de senha por autoatendimento](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr).
+>Este artigo destina-se a usuários que tentam atualizar uma senha conhecida para uma conta corporativa ou de estudante existente. Se você for um usuário que está tentando voltar a uma conta pessoal como Xbox, Hotmail ou Outlook.com, experimente as sugestões no artigo [Quando não for possível entrar em sua conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant). Se você for um administrador que está tentando encontrar mais informações sobre como testar a redefinição de senha por autoatendimento para seus funcionários ou outros usuários, confira [Redefinição de senha por autoatendimento](../authentication/tutorial-enable-sspr.md).
 
 ## <a name="update-a-password-from-the-change-password-page"></a>Atualizar uma senha na página Alterar senha
 
@@ -45,7 +45,7 @@ A página **Alterar a senha** do portal **Minha conta** ajuda a atualizar uma se
 
 Depois de alterar sua senha, você pode:
 
-- Exibir ou gerenciar as [informações de segurança](user-help-security-info-overview.md).
+- Exibir ou gerenciar as [informações de segurança](./security-info-setup-signin.md).
 
 - Exibir ou gerenciar os [dispositivos](my-account-portal-devices-page.md) conectados.
 
@@ -55,4 +55,4 @@ Depois de alterar sua senha, você pode:
 
 - Exibir como a organização [usa os dados relacionados à privacidade](my-account-portal-privacy-page.md).
 
-- Alterar [as configurações do portal da minha conta](my-account-portal-settings.md)
+- Alterar as [configurações do portal Minha Conta](my-account-portal-settings.md)

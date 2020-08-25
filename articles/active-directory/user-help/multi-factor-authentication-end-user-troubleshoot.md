@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: curtand
 ms.reviewer: kexia
 metadata ms.custom: contperfq1
-ms.openlocfilehash: b21b2a9f2d2bd483ed48a4c30b504908bb54a101
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 61ba06054e86d544ae4ab1edbdef8d86667ef3b2
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661430"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796571"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemas comuns com a verificação de dois fatores e sua conta corporativa ou de estudante
 
@@ -33,7 +33,7 @@ Quando 2FV estiver on, sua entrada de conta exigirá uma combinação dos seguin
 o 2FV é mais seguro do que apenas uma senha, porque o 2FV requer algo que você _conhece_ , além de algo que você _tem_. Nenhum hacker tem seu telefone físico.
 
 >[!Important]
->Se você for um administrador, é possível encontrar mais informações sobre como configurar e gerenciar seu ambiente do Azure AD na [Documentação do Azure AD](https://docs.microsoft.com/azure/active-directory).
+>Se você for um administrador, é possível encontrar mais informações sobre como configurar e gerenciar seu ambiente do Azure AD na [Documentação do Azure AD](../index.yml).
 
 Este conteúdo destina-se a ajudá-lo com sua conta corporativa ou de estudante, que é a conta fornecida por sua organização (por exemplo, dritan@contoso.com ). Se você estiver tendo problemas com a verificação de dois fatores em um conta Microsoft pessoal, que é uma conta que você configura para si mesmo (por exemplo, danielle@outlook.com ), consulte [Ativar ou desativar a verificação de dois fatores para seu conta Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 

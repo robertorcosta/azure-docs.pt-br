@@ -12,12 +12,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/06/2020
 ms.author: curtand
-ms.openlocfilehash: 259468d0d3b04b354e782529cefa2149974c9ca0
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: e0a6c566e8e0dfb77b5899f735020d0f1facf3d1
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983298"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798373"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Alterar as configurações do método de verificação de dois fatores
 
@@ -31,10 +31,10 @@ Depois de configurar seus métodos de verificação de segurança para sua conta
 
 ## <a name="using-the-additional-security-verification-page"></a>Abra a página de Verificação de segurança adicional
 
-Se a sua organização forneceu etapas específicas sobre como ativar e gerenciar sua verificação de dois fatores, você deve seguir essas instruções primeiro. Caso contrário, você pode obter as configurações do método de verificação de segurança na página [Verificação de segurança adicional](https://docs.microsoft.com/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time).
+Se a sua organização forneceu etapas específicas sobre como ativar e gerenciar sua verificação de dois fatores, você deve seguir essas instruções primeiro. Caso contrário, você pode obter as configurações do método de verificação de segurança na página [Verificação de segurança adicional](./multi-factor-authentication-end-user-first-time.md).
 
 >[!Note]
->Se o que você está vendo na tela não corresponder ao que está sendo abordado neste artigo, isso significa que o administrador ativou a experiência **Informações de segurança (versão prévia)** ou a sua organização forneceu seu próprio portal personalizado. Para saber mais sobre a nova experiência de informações de segurança, consulte [Visão geral sobre as informações de segurança (versão prévia)](user-help-security-info-overview.md). Para obter mais informações sobre o portal personalizado da sua organização, você deve entrar em contato com a Ajuda.
+>Se o que você está vendo na tela não corresponder ao que está sendo abordado neste artigo, isso significa que o administrador ativou a experiência **Informações de segurança (versão prévia)** ou a sua organização forneceu seu próprio portal personalizado. Para saber mais sobre a nova experiência de informações de segurança, consulte [Visão geral sobre as informações de segurança (versão prévia)](./security-info-setup-signin.md). Para obter mais informações sobre o portal personalizado da sua organização, você deve entrar em contato com a Ajuda.
 
 ### <a name="to-get-to-the-additional-security-verification-page"></a>Para ir até a página Verificação de segurança adicional
 

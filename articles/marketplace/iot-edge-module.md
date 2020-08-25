@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/15/2020
-ms.openlocfilehash: 168d343ea4582d8c19a577cedadf6f1bc3c39971
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: f7a4997117c8730b767f245050caa3f3157fb6fd
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607358"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750252"
 ---
 # <a name="iot-edge-modules"></a>Módulos do IoT Edge
 
@@ -76,6 +76,5 @@ Os principais requisitos técnicos de um IoT Edge Module, para que ele seja cert
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba mais](https://azuremarketplace.microsoft.com/sell) sobre o Marketplace comercial.
-- [Criar uma IoT Edge oferta de módulo] no Partner Center.
 - Entre na [Central de Parceiros](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar ou concluir sua oferta.
-- Confira como publicar uma oferta na [Visão geral da oferta do módulo do IoT Edge](./partner-center-portal/azure-iot-edge-module-creation.md).
+- [Criar uma oferta de módulo IOT Edge](./partner-center-portal/azure-iot-edge-module-creation.md) no Partner Center.

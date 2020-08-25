@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: ae431d27af4a1717a32e348ba852f9b2b9fe9331
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 8034a7a520cc50b2e57e0ad26205da2e408296a1
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87451121"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88760577"
 ---
 | Recurso | Compartilhamentos de arquivos padrão | Compartilhamentos de arquivos Premium |
 |----------|---------------|------------------------------------------|
@@ -17,7 +17,7 @@ ms.locfileid: "87451121"
 | Tamanho máximo de um compartilhamento de arquivo | 100 TiB*, 5 TiB | 100 TiB |
 | Tamanho máximo de um arquivo em um compartilhamento de arquivo | 1 TiB | 4 TiB |
 | Número máximo de arquivos em um compartilhamento de arquivo | Sem limite | Sem limite |
-| IOPS máxima por compartilhamento | 10.000 IOPS*, 1.000 IOPS | 100.000 IOPS |
+| IOPS máxima por compartilhamento | 10 mil IOPS*, 1 mil IOPS ou 100 solicitações em 100 ms | 100.000 IOPS |
 | Número máximo de políticas de acesso armazenadas por compartilhamento de arquivo | 5 | 5 |
 | Taxa de transferência de destino para um compartilhamento de arquivo único | até 300 MiB/s*, até 60 MiB/s,  | Consulte os valores de entrada e de saída do compartilhamento de arquivo Premium|
 | Saída máxima para um compartilhamento de arquivo | Consulte a taxa de transferência de destino do compartilhamento de arquivo padrão | Até 6.204 MiB/s |

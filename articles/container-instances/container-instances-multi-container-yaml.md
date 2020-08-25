@@ -3,12 +3,12 @@ title: Tutorial – implantar grupo com vários contêineres – YAML
 description: Neste tutorial, saiba como implantar um grupo de contêiner com vários contêineres nas Instâncias de Contêiner do Azure usando um arquivo YAML com a CLI do Azure.
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 2673f1066db705e4d2e850230c5f96dc2690a85c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f6ba9152003c68192ddc0fdffa5652bc0b6daa86
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259550"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750908"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Tutorial: Implantar um grupo com vários contêineres usando um arquivo YAML
 
@@ -76,7 +76,7 @@ properties:
       port: 80
     - protocol: tcp
       port: 8080
-tags: null
+tags: {exampleTag: tutorial}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 

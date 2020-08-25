@@ -4,12 +4,12 @@ description: Sintomas, causas e resoluções para falhas do Backup do Azure rela
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: d690ed23f49d3aa3f77b88c8d57c963ae2a98682
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 26050dfb9fdde5988fe3ae922dae5486d17f4317
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611850"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755361"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha do Backup do Azure: problemas com o agente ou a extensão
 
@@ -176,7 +176,7 @@ Sua operação de backup pode falhar ao fazer backup de uma VM com um tamanho de
 O trabalho de backup recente falhou porque há um trabalho de backup existente em andamento. Você não pode iniciar um novo trabalho de backup antes que o trabalho atual seja concluído. Verifique se a operação de backup em andamento foi concluída antes de iniciar ou agendar outras operações de backup. Para verificar o status dos trabalhos de backup, execute as seguintes etapas:
 
 1. Entre no portal do Azure, selecione **todos os serviços**. Digite serviços de recuperação e selecione **cofres dos serviços de recuperação**. A lista de cofres de Serviços de Recuperação aparecerá.
-2. Na lista de cofres dos serviços de recuperação, selecione um cofre no qual o backup esteja configurado.
+2. Na lista de cofres dos serviços de recuperação, selecione um cofre no qual o backup está configurado.
 3. No menu do painel do cofre, selecione **trabalhos de backup** ele exibe todos os trabalhos de backup.
    - Se um trabalho de backup estiver em andamento, aguarde a sua conclusão ou cancele-o.
      - Para cancelar o trabalho de backup, clique com o botão direito do mouse no trabalho de backup e selecione **Cancelar** ou usar o [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).

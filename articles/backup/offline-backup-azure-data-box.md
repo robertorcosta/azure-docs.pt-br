@@ -3,25 +3,25 @@ title: Backup offline usando Azure Data Box
 description: Saiba como você pode usar Azure Data Box para propagar grandes dados de backup inicial offline do agente MARS para um cofre dos serviços de recuperação.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: e377ccde714c1486ff731d24d5a0cd64364bca37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6ad97ee60c3c7debea72357cf7fc8d483a3c1d46
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091021"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761552"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Backup offline do Backup do Azure usando Azure Data Box
 
-Você pode usar [Azure data Box](../databox/data-box-overview.md) para propagar seus BACKUPs MARS (serviços de recuperação do Microsoft Azure inicial) grandes offline (sem usar a rede) para um cofre dos serviços de recuperação. Esse processo poupa tempo e largura de banda de rede que, de outra forma, seriam consumidos movendo grandes quantidades de dados de backup online em uma rede de alta latência. No momento, esse aprimoramento está em versão prévia. O backup offline baseado em Azure Data Box fornece duas vantagens distintas sobre [o backup offline com base no serviço de importação/exportação do Azure](./backup-azure-backup-import-export.md):
+Você pode usar [Azure data Box](../databox/data-box-overview.md) para propagar seus BACKUPs MARS (serviços de recuperação do Microsoft Azure inicial) grandes offline (sem usar a rede) para um cofre dos serviços de recuperação. Esse processo poupa tempo e largura de banda de rede que, de outra forma, seriam consumidos durante a migração online de grandes quantidades de dados de backups em uma rede de alta latência. No momento, esse aprimoramento está em versão prévia. O backup offline baseado no Azure Data Box fornece duas vantagens distintas em relação ao [backup offline baseado no serviço de Importação/Exportação do Azure](./backup-azure-backup-import-export.md):
 
-- Não é necessário adquirir seus próprios discos e conectores compatíveis com o Azure. Azure Data Box envia os discos associados à SKU de [Data Box](https://azure.microsoft.com/services/databox/data/)selecionada.
-- O backup do Azure (agente MARS) pode gravar dados de backup diretamente nas SKUs com suporte do Azure Data Box. Esse recurso elimina a necessidade de provisionar um local de preparo para os dados de backup iniciais. Você também não precisa de utilitários para formatar e copiar esses dados nos discos.
+- Não é necessário adquirir seus próprios discos e conectores compatíveis com o Azure. O Azure Data Box envia os discos associados ao [SKU de Data Box](https://azure.microsoft.com/services/databox/data/) selecionado.
+- O Backup do Azure (Agente MARS) pode gravar dados de backup diretamente nos SKUs compatíveis do Azure Data Box. Essa funcionalidade elimina a necessidade de provisionar um local de preparo para os dados do backup inicial. Também não é necessário usar utilitários para formatar e copiar esses dados nos discos.
 
 ## <a name="azure-data-box-with-the-mars-agent"></a>Azure Data Box com o agente MARS
 
 Este artigo explica como você pode usar Azure Data Box para propagar grandes dados de backup inicial offline do agente MARS para um cofre dos serviços de recuperação.
 
-## <a name="supported-platforms"></a>Plataformas com Suporte
+## <a name="supported-platforms"></a>Plataformas compatíveis
 
 O processo para propagar dados do agente MARS usando Azure Data Box tem suporte nas seguintes SKUs do Windows.
 
@@ -43,9 +43,9 @@ O processo para propagar dados do agente MARS usando Azure Data Box tem suporte 
 | Windows Server 2008 R2 SP1 de 64 bits     | Standard, Enterprise, Datacenter, Foundation                |
 | Windows Server 2008 SP2 64 bits        | Standard, Enterprise, Datacenter                            |
 
-## <a name="backup-data-size-and-supported-data-box-skus"></a>Tamanho dos dados de backup e SKUs de Data Box com suporte
+## <a name="backup-data-size-and-supported-data-box-skus"></a>Tamanho dos dados de backup e SKUs de Data Box compatíveis
 
-| Tamanho dos dados de backup (pós-compactação por MARS) * por servidor | SKU Azure Data Box com suporte                                      |
+| Tamanho dos dados de backup (pós-compactação por MARS) * por servidor | SKU de Azure Data Box compatível                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | <= 7,2 TB                                                    | [Azure Data Box disco](../databox/data-box-disk-overview.md) |
 | >7,2 TB e <= 80 TB * *                                      | [Azure Data Box (100 TB)](../databox/data-box-overview.md) |
@@ -111,7 +111,7 @@ Ou você pode:
 
 Azure PowerShell também pode ter sido instalado usando um arquivo MSI. Para removê-lo, desinstale-o usando a opção **desinstalar programas** no painel de controle.
 
-### <a name="order-and-receive-the-data-box-device"></a>Solicitar e receber o dispositivo Data Box
+### <a name="order-and-receive-the-data-box-device"></a>Solicitar e receber o dispositivo do Data Box
 
 O processo de backup offline usando MARS e Azure Data Box requer que os dispositivos Data Box estejam em um estado entregue antes de disparar o backup offline usando o agente MARS. Para solicitar o SKU mais adequado para seu requisito, consulte [backup data size e data Box SKUs com suporte](#backup-data-size-and-supported-data-box-skus). Siga as etapas em [tutorial: encomendar um disco Azure data Box](../databox/data-box-disk-deploy-ordered.md) para solicitar e receber seus dispositivos de data box.
 
@@ -208,7 +208,7 @@ Para garantir que você possa montar seu dispositivo de Data Box como um sistema
     ![Insira o caminho de rede](./media/offline-backup-azure-data-box/enter-network-path.png)
 
     >[!IMPORTANT]
-    > Forneça o caminho de rede para o diretório raiz do disco de Azure Data Box. Esse diretório deve conter um diretório com o nome *PageBlob*.
+    > Forneça o caminho de rede para o diretório raiz do Azure Data Box Disk. Esse diretório deve conter um diretório com o nome *PageBlob*.
     >
     >![Diretório raiz de Azure Data Box disco](./media/offline-backup-azure-data-box/root-directory.png)
     >
@@ -240,7 +240,7 @@ Esta seção explica as etapas a serem executadas depois que o backup dos dados 
 
 - Siga as etapas neste artigo para [enviar o disco Azure data box para o Azure](../databox/data-box-disk-deploy-picked-up.md). Se você usou um dispositivo Azure Data Box 100-TB, siga estas etapas para [enviar o dispositivo de Azure data box para o Azure](../databox/data-box-deploy-picked-up.md).
 
-- [Monitore o trabalho de data Box](../databox/data-box-disk-deploy-upload-verify.md) no portal do Azure. Depois que o trabalho de Azure Data Box for concluído, o agente MARS moverá automaticamente os dados da conta de armazenamento para o cofre dos serviços de recuperação no momento do próximo backup agendado. Em seguida, ele marcará o trabalho de backup como *trabalho concluído* se um ponto de recuperação for criado com êxito.
+- [Monitore o trabalho do Data Box](../databox/data-box-disk-deploy-upload-verify.md) no portal do Azure. Depois que o trabalho de Azure Data Box for concluído, o agente MARS moverá automaticamente os dados da conta de armazenamento para o cofre dos serviços de recuperação no momento do próximo backup agendado. Em seguida, ele marcará o trabalho de backup como *trabalho concluído* se um ponto de recuperação for criado com êxito.
 
     >[!NOTE]
     >O agente MARS dispara backups nos horários agendados durante a criação da política. Esses trabalhos sinalizam "aguardando Azure Data Box trabalho seja concluído" até a hora em que o trabalho for concluído.
@@ -259,13 +259,13 @@ Ao configurar o backup offline, você pode enfrentar um problema devido a um bug
 
 Para ver se o problema é o mesmo descrito anteriormente, execute uma das etapas a seguir.
 
-#### <a name="step-1"></a>Etapa 1
+#### <a name="step-1-of-verification"></a>Etapa 1 da verificação
 
 Verifique se a seguinte mensagem de erro aparece no console do MAB quando você configurou o backup offline.
 
 ![Não é possível criar a política de backup offline para a conta atual do Azure](./media/offline-backup-azure-data-box/unable-to-create-policy.png)
 
-#### <a name="step-2"></a>Etapa 2
+#### <a name="step-2-of-verification"></a>Etapa 2 da verificação
 
 1. Abra a pasta **Temp** no caminho de instalação. O caminho padrão da pasta Temp é *C:\Program Files\Microsoft Azure Recovery Services Agent\Temp*. Procure o arquivo *CBUICurr* e abra o arquivo.
 
@@ -275,11 +275,11 @@ Verifique se a seguinte mensagem de erro aparece no console do MAB quando você 
 
 Como solução alternativa para resolver esse problema, execute as etapas a seguir e repita a configuração da política.
 
-#### <a name="step-1"></a>Etapa 1
+#### <a name="step-1-of-workaround"></a>Etapa 1 da solução alternativa
 
 Entre no PowerShell que aparece na interface do usuário do amMAB usando uma conta diferente com acesso de administrador na assinatura que terá o trabalho de importação ou exportação criado.
 
-#### <a name="step-2"></a>Etapa 2
+#### <a name="step-2-of-workaround"></a>Etapa 2 da solução alternativa
 
 Se nenhum outro servidor tiver a propagação offline configurada e nenhum outro servidor depender do `AzureOfflineBackup_<Azure User Id>` aplicativo, exclua este aplicativo. Selecione **portal do Azure**  >  **Azure Active Directory**  >  **registros de aplicativo**.
 
@@ -307,7 +307,7 @@ No servidor que você está tentando configurar para o backup offline, execute a
     >[!NOTE]
     > Para obter a ID de usuário do Azure, execute uma destas ações:
     >
-    >- No PowerShell conectado ao Azure, execute o `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"` comando.
+    >- No PowerShell conectado ao Azure, execute o comando `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as defined in the portal"`.
     > - Vá para o caminho do registro `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` com o nome *CurrentUserId*.
 
 6. Clique com o botão direito do mouse na cadeia de caracteres adicionada na etapa anterior e selecione **Modificar**. No valor, forneça a impressão digital do certificado que você exportou na etapa 2. Selecione **OK**.

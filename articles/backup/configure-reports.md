@@ -3,12 +3,12 @@ title: Configurar relatórios de Backup do Azure
 description: Configurar e exibir relatórios para o Backup do Azure usando o Log Analytics e as pastas de trabalho do Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 94298c5826f7158655367ae1dd6b7dd54cb88d24
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: bcb9e75cea06be6ce69c6baccb5ac252c1666d4d
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612428"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755255"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 
@@ -89,7 +89,7 @@ Use essa guia para exibir os principais parâmetros de cobrança para seus backu
    ![Guia Uso](./media/backup-azure-configure-backup-reports/usage.png)
 
 > [!NOTE]
-> Para cargas de trabalho do DPM, os usuários podem ver uma pequena diferença (da ordem de 20 MB por servidor DPM) entre os valores de uso mostrados nos relatórios em comparação com o valor de uso agregado, conforme mostrado na guia Visão geral do cofre dos Serviços de Recuperação. Essa diferença é contabilizada pelo fato de que cada servidor DPM que está sendo registrado para backup tem uma fonte de dados de 'metadados' associada que não está sendo exibida como um artefato para relatórios.
+> Para cargas de trabalho do DPM, os usuários podem ver uma pequena diferença (da ordem de 20 MB por servidor DPM) entre os valores de uso mostrados nos relatórios em comparação com o valor de uso agregado, conforme mostrado na guia **visão geral** do cofre dos serviços de recuperação. Essa diferença é contabilizada pelo fato de que cada servidor DPM que está sendo registrado para backup tem uma fonte de fontes de "metadados" associada que não está na superfície como um artefato para relatórios.
 
 ##### <a name="jobs"></a>Trabalhos
 

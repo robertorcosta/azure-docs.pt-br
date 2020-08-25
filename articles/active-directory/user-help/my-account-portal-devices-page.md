@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: e150143e726c75d96372b11fb3d451f0dc9956bc
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 784ee418c3713cce53d7e99e30fd445e75d144da
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422464"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798203"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Gerenciar seus dispositivos conectados na página Dispositivos
 
@@ -27,7 +27,7 @@ A página **Dispositivos** do portal **Minha conta** ajuda a gerenciar os dispos
 - Desabilitar todos os dispositivos que você não possui mais, que foram perdidos ou que foram roubados.
 
 >[!Important]
->Este artigo destina-se a usuários que tentam atualizar as informações dos dispositivos conectados a uma conta corporativa ou de estudante. Se você for um administrador procurando informações sobre gerenciamento de dispositivos para seus funcionários ou outros usos, consulte a [documentação Identidades de Dispositivo](https://docs.microsoft.com/azure/active-directory/devices/index).
+>Este artigo destina-se a usuários que tentam atualizar as informações dos dispositivos conectados a uma conta corporativa ou de estudante. Se você for um administrador procurando informações sobre gerenciamento de dispositivos para seus funcionários ou outros usos, consulte a [documentação Identidades de Dispositivo](../devices/index.yml).
 
 ## <a name="view-your-connected-devices"></a>Exibir seus dispositivos conectados
 
@@ -68,7 +68,7 @@ Se você estiver bloqueado em seu dispositivo ou tiver um erro fatal, poderá ir
 
 Depois de exibir os dispositivos conectados, você pode:
 
-- Selecionar para exibir ou gerenciar suas [informações de segurança](user-help-security-info-overview.md).
+- Selecionar para exibir ou gerenciar suas [informações de segurança](./security-info-setup-signin.md).
 
 - Exibir e gerenciar suas [organizações](my-account-portal-organizations-page.md).
 
@@ -76,7 +76,7 @@ Depois de exibir os dispositivos conectados, você pode:
 
 - Exibir como a organização [usa os dados relacionados à privacidade](my-account-portal-privacy-page.md).
 
-- Alterar [as configurações do portal da minha conta](my-account-portal-settings.md)
+- Alterar as [configurações do portal Minha Conta](my-account-portal-settings.md)
 
 ## <a name="related-office-content"></a>Conteúdo relacionado do Office
 
