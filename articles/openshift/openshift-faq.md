@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: 93507bae3f817f92cfa427ceca10f651352a46bc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a8b5ec48b64341ad9eabd087d7ee20bb703198c6
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497572"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816228"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Perguntas frequentes sobre o Azure Red Hat OpenShift
 
@@ -65,25 +65,9 @@ Nos clusters do Azure Red Hat OpenShift 4. x, os nós de infraestrutura não est
 
 Nos clusters do Azure Red Hat OpenShift 3,11, os nós de infraestrutura são incluídos por padrão.
 
-## <a name="upgrades"></a>Atualizações
+## <a name="how-do-i-handle-cluster-upgrades"></a>Como fazer lidar com atualizações de cluster?
 
-###  <a name="what-is-the-general-upgrade-process"></a>O que é o processo de atualização geral?
-
-Os patches são aplicados automaticamente ao cluster. Você não precisa realizar nenhuma ação para receber atualizações de patch no cluster.
-
-A execução de uma atualização é um processo seguro para ser executado e não deve interromper os serviços de cluster. A equipe conjunta Microsoft-Red Hat pode disparar o processo de atualização quando novas versões estão disponíveis ou vulnerabilidades e exposições comuns estão pendentes. As atualizações disponíveis são testadas em um ambiente de preparo e, em seguida, aplicadas a clusters de produção. As práticas recomendadas a seguir ajudam a garantir um mínimo de sem tempo de inatividade.
-
-A manutenção planejada não é preprogramada com o cliente. As notificações relacionadas à manutenção podem ser enviadas por email.
-
-### <a name="what-is-the-azure-red-hat-openshift-maintenance-process"></a>O que é o processo de manutenção do Azure Red Hat OpenShift?
-
-Há dois tipos de manutenção para o Azure Red Hat OpenShift: atualizações e manutenção iniciada pelo provedor de nuvem.
-- As atualizações incluem atualizações de software e exposições e vulnerabilidades comuns.
-- A manutenção iniciada pelo provedor de nuvem inclui interrupções de rede, armazenamento e regionais. A manutenção depende do provedor de nuvem e depende das atualizações fornecidas pelo provedor.
-
-### <a name="what-about-emergency-vs-planned-maintenance-windows"></a>E quanto à emergência versus as janelas de manutenção planejadas?
-
-Não fazemos distinção entre os dois tipos de manutenção. Nossas equipes estão disponíveis 24/7/365 e não usam janelas de manutenção tradicionais programadas "fora de horas".
+Para obter informações sobre atualizações, manutenção e versões com suporte, consulte o [Guia do ciclo de vida de suporte](support-lifecycle.md).
 
 ### <a name="how-will-the-host-operating-system-and-openshift-software-be-updated"></a>Como o sistema operacional host e o software OpenShift serão atualizados?
 
@@ -157,7 +141,7 @@ Os administradores de projetos individuais e de clientes podem personalizar a re
 
 ### <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Estou tentando emparelhar em uma rede virtual em uma assinatura diferente, mas falha ao obter o erro de CIDR VNet.
 
-Na assinatura que tem a rede virtual, certifique-se de registrar `Microsoft.ContainerService` o provedor com o seguinte comando:`az provider register -n Microsoft.ContainerService --wait`
+Na assinatura que tem a rede virtual, certifique-se de registrar `Microsoft.ContainerService` o provedor com o seguinte comando: `az provider register -n Microsoft.ContainerService --wait`
 
 ### <a name="can-we-specify-ip-ranges-for-deployment-on-the-private-vnet-avoiding-clashes-with-other-corporate-vnets-once-peered"></a>Podemos especificar intervalos de IP para implantação na VNet privada, evitando conflitos com outros VNets corporativos uma vez emparelhados?
 

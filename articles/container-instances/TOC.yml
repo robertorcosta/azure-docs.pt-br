@@ -4,7 +4,7 @@
   items:
     - name: Sobre as Instâncias de Contêiner do Azure
       href: container-instances-overview.md
-- name: Inícios rápidos
+- name: Guias de Início Rápido
   expanded: true
   items:
     - name: Implantar uma instância de contêiner – CLI
@@ -41,7 +41,7 @@
 - name: Exemplos
   items:
     - name: Exemplos de código
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&term=aci'
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=container%20instance'
     - name: Modelos do Gerenciador de Recursos
       href: container-instances-samples-rm.md
 - name: Conceitos
