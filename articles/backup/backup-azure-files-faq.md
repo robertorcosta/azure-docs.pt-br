@@ -3,12 +3,12 @@ title: Perguntas frequentes sobre fazer backup de Arquivos do Azure
 description: Neste artigo, descubra respostas para perguntas comuns sobre como proteger seus compartilhamentos de arquivo do Azure com o serviço de Backup do Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6c2ef95a6303fd061b1ce486e893ba9812b83e14
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0db30de655bfc0b98baa81a4ef20532e697fc1f8
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382705"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824722"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre como fazer backup de Arquivos do Azure
 
@@ -36,7 +36,7 @@ Ao tentar fazer backup, a seleção de uma Conta de Armazenamento para ver os co
 
 ### <a name="why-cant-i-change-the-vault-to-configure-backup-for-the-file-share"></a>Por que não posso alterar o cofre para configurar o backup para o compartilhamento de arquivos?
 
-Se a conta de armazenamento já estiver registrada com um cofre ou outros compartilhamentos de arquivos na conta de armazenamento forem protegidos usando um cofre, você não receberá uma opção para alterá-la, pois todos os compartilhamentos de arquivos em uma conta de armazenamento podem ser protegidos somente pelo mesmo cofre. Caso deseje alterar o cofre, você precisará [interromper a proteção de todos os compartilhamentos de arquivos na conta de armazenamento](manage-afs-backup.md#stop-protection-on-a-file-share) do cofre conectado, [cancelar o registro](manage-afs-backup.md#unregister-a-storage-account) da conta de armazenamento e, em seguida, escolher um cofre diferente para proteção.
+Se a conta de armazenamento já estiver registrada com um cofre ou outros compartilhamentos de arquivos na conta de armazenamento forem protegidos usando um cofre, você não terá a opção de alterá-la. Todos os compartilhamentos de arquivos em uma conta de armazenamento podem ser protegidos somente pelo mesmo cofre. Se desejar alterar o cofre, você precisará [interromper a proteção de todos os compartilhamentos de arquivos na conta de armazenamento](manage-afs-backup.md#stop-protection-on-a-file-share) do cofre conectado, cancelar o [registro](manage-afs-backup.md#unregister-a-storage-account) da conta de armazenamento e, em seguida, escolher um cofre diferente para proteção.
 
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>É possível alterar o Cofre em que faço backup dos meus compartilhamentos de arquivos?
 
@@ -104,7 +104,7 @@ Exemplo de como isso funciona:
 | Tempo de retenção | Agenda                       | Retenção |
 | -------------- | ------------------------------ | --------- |
 | Diário          | Todos os dias às 21:00              | 50 dias   |
-| Semanalmente         | No domingo às 21:00              | 3 semanas   |
+| Semanal         | No domingo às 21:00              | 3 semanas   |
 | Mensal        | Na última segunda-feira às 21:00         | 1 mês   |
 | Anual         | Em janeiro, no terceiro domingo às 21:00 | 4 anos   |
 
@@ -132,7 +132,7 @@ Exemplo de como isso funciona:
 | Tempo de retenção | Agenda           | Retenção |
 | -------------- | ------------------ | --------- |
 | Diário          | Todos os dias às 20:00 | 50 dias   |
-| Semanalmente         | Na segunda-feira às 20:00  | 3 semanas   |
+| Semanal         | Na segunda-feira às 20:00  | 3 semanas   |
 
 #### <a name="new-policy-modified-p2"></a>Nova política [P2 modificada]
 

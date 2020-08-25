@@ -3,12 +3,12 @@ title: Visão geral de recursos de segurança
 description: Saiba mais sobre as funcionalidades de segurança no Backup do Azure que ajudam a proteger seus dados de backup e a atender às necessidades de segurança de sua empresa.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: aa35f93e23a369381341aade32d877477e40e8a8
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 0354e319c82e02072a8771f9aae383bf0b6240f6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757397"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824587"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Visão geral dos recursos de segurança no Backup do Azure
 

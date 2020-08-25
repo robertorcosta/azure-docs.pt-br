@@ -3,12 +3,12 @@ title: Criptografia de dados de backup usando chaves gerenciadas pelo cliente
 description: Saiba como o backup do Azure permite que você criptografe seus dados de backup usando chaves gerenciadas pelo cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 2c83350acad59e72cfabc8e40069aab46d785b63
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 9e299095709e07d3c73c8e8c847042cc51f549dd
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763109"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827334"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Criptografia de dados de backup usando chaves gerenciadas pelo cliente
 
@@ -39,7 +39,7 @@ Este artigo discute o seguinte:
 
 - Esse recurso é atualmente configurável somente do portal do Azure.
 
-Se você não criou e configurou seu cofre de serviços de recuperação, você pode [ler como fazer isso aqui](backup-create-rs-vault.md).
+Se você ainda não criou e configurou seu cofre de serviços de recuperação, você pode [ler como fazer isso aqui](backup-create-rs-vault.md).
 
 ## <a name="configuring-a-vault-to-encrypt-using-customer-managed-keys"></a>Configurando um cofre para criptografar usando chaves gerenciadas pelo cliente
 
@@ -60,7 +60,7 @@ Esta seção envolve as seguintes etapas:
 O backup do Azure usa a identidade gerenciada atribuída pelo sistema para autenticar o cofre dos serviços de recuperação para acessar as chaves de criptografia armazenadas no Azure Key Vault. Para habilitar a identidade gerenciada para seu cofre de serviços de recuperação, siga as etapas mencionadas abaixo.
 
 >[!NOTE]
->Uma vez habilitada, a identidade gerenciada não deve ser desabilitada (até mesmo temporariamente). Desabilitar a identidade gerenciada pode levar a um comportamento inconsistente.
+>Uma vez habilitada, a identidade gerenciada **não** deve ser desabilitada (até mesmo temporariamente). Desabilitar a identidade gerenciada pode levar a um comportamento inconsistente.
 
 1. Vá para o cofre dos serviços de recuperação-> **identidade**
 
@@ -138,7 +138,7 @@ Você também pode habilitar a exclusão reversível e limpar a proteção por m
 > - Todas as etapas mencionadas acima foram concluídas com êxito:
 >   - A identidade gerenciada do cofre dos serviços de recuperação foi habilitada e recebeu as permissões necessárias
 >   - A Azure Key Vault tem exclusão reversível e limpeza-proteção habilitada
-> - O cofre dos serviços de recuperação para o qual você deseja habilitar a criptografia CMK não tem nenhum item protegido ou registrado nele
+> - O cofre dos serviços de recuperação para o qual você deseja habilitar **a criptografia CMK não tem** nenhum item protegido ou registrado nele
 
 Depois que as versões acima tiverem sido verificadas, Continue selecionando a chave de criptografia para seu cofre.
 
@@ -160,7 +160,7 @@ Para atribuir a chave:
 
         ![Selecionar chave do Key Vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 1. **Acompanhamento do progresso da atualização da chave de criptografia:** Você pode acompanhar o progresso da atribuição de chave usando o **log de atividades** no cofre dos serviços de recuperação. O status deve ser alterado em breve para **êxito**. Agora, seu cofre criptografará todos os dados com a chave especificada como KEK.
 
@@ -252,7 +252,7 @@ Não, este artigo aborda apenas a criptografia de dados de backup. Por Azure Sit
 
 ### <a name="i-missed-one-of-the-steps-in-this-article-and-went-on-to-protect-my-data-source-can-i-still-use-cmk-encryption"></a>Eu perdi uma das etapas neste artigo e passei para proteger minha fonte de dados. Ainda posso usar a criptografia CMK?
 
-Não seguir as etapas no artigo e continuar a proteger os itens pode levar o cofre a não ser capaz de usar a criptografia usando chaves gerenciadas pelo cliente. Portanto, é recomendável que você consulte [esta lista de verificação](#backing-up-to-a-vault-encrypted-with-customer-managed-keys) antes de continuar a proteger os itens.
+Não seguir as etapas no artigo e continuar a proteger os itens pode levar o cofre a não conseguir usar a criptografia usando chaves gerenciadas pelo cliente. Portanto, é recomendável que você consulte [esta lista de verificação](#backing-up-to-a-vault-encrypted-with-customer-managed-keys) antes de continuar a proteger os itens.
 
 ### <a name="does-using-cmk-encryption-add-to-the-cost-of-my-backups"></a>O uso de CMK-Encryption adiciona ao custo de meus backups?
 

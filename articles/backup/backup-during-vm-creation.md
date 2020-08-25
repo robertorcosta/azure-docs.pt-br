@@ -3,12 +3,12 @@ title: Habilitar o backup ao criar uma VM do Azure
 description: Descreve como habilitar o backup ao criar uma VM do Azure com o backup do Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: c744f6aa2bef6d3d6800aa6b6dc077915fc5205b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 8612061ca21b4609600f5b9822ca4f6fe3b673f1
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586691"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825946"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Habilitar o backup ao criar uma VM do Azure
 
@@ -61,12 +61,12 @@ Pontos a serem observados:
 2. Você fornece o padrão de nome RG como entrada durante a criação da política de backup da VM. O nome RG deve ter o seguinte formato: `<alpha-numeric string>* n <alpha-numeric string>` . ' n' é substituído por um inteiro (começando em 1) e é usado para escalar horizontalmente se o primeiro RG estiver cheio. Um RG pode ter um máximo de 600 RPCs atualmente.
               ![Escolher nome ao criar política](./media/backup-during-vm-creation/create-policy.png)
 3. O padrão deve seguir as regras de nomenclatura RG abaixo e o comprimento total não deve exceder o comprimento máximo permitido do nome RG.
-    1. Os nomes dos grupos de recursos só permitem caracteres alfanuméricos, pontos, sublinhados, hifens e parênteses. Eles não podem terminar com um ponto.
+    1. Os nomes dos grupos de recursos só permitem caracteres alfanuméricos, pontos, sublinhados, hifens e parênteses. Eles não podem terminar em um período.
     2. Os nomes de grupos de recursos podem conter até 74 caracteres, incluindo o nome do RG e o sufixo.
 4. O primeiro `<alpha-numeric-string>` é obrigatório, enquanto o segundo depois de ' n' é opcional. Isso se aplicará somente se você fornecer um nome personalizado. Se você não inserir nada em nenhuma das caixas de Text, o nome padrão será usado.
 5. Você pode editar o nome do RG modificando a política se e quando necessário. Se o padrão de nome for alterado, o novo RPs será criado no novo RG. No entanto, o antigo RPs ainda residirá no RG antigo e não será movido, pois a coleta de RP não oferece suporte à movimentação de recursos. Eventualmente, o RPs receberá o lixo coletado conforme os pontos expirarem.
 ![Alterar o nome ao modificar a política](./media/backup-during-vm-creation/modify-policy.png)
-6. É aconselhável não bloquear o grupo de recursos criado para uso pelo serviço de backup.
+6. É recomendável não bloquear o grupo de recursos criado para uso pelo serviço de backup.
 
 Para configurar o grupo de recursos de backup do Azure para máquinas virtuais usando o PowerShell, consulte [criando o grupo de recursos de backup do Azure durante a retenção de instantâneo](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention).
 

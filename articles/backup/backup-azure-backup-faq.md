@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas para perguntas comuns sobre: recursos de Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 96ff7fedf0574d5eb1b7bb540ccb425f4d7e9ade
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 332b86d58e4c3f64dfbc528b4fe30399ef69d2a3
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757193"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827385"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 
@@ -214,7 +214,7 @@ Sim. Os dados no Azure são criptografados em repouso.
 - Para backup local, a criptografia em repouso é realizada usando a frase secreta que você fornece ao fazer backup no Azure.
 - Para VMs do Azure, os dados são criptografados em repouso usando SSE (Criptografia do Serviço de Armazenamento).
 
-A Microsoft não descriptografa os dados de backup em nenhum momento.
+A Microsoft não descriptografa os dados de backup a qualquer momento.
 
 ### <a name="what-is-the-minimum-length-of-the-encryption-key-used-to-encrypt-backup-data"></a>Qual é o comprimento mínimo da chave de criptografia usada para criptografar os dados de backup?
 
@@ -222,7 +222,7 @@ A chave de criptografia usada pelo agente de Serviços de Recuperação do Micro
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-can-microsoft-recover-the-data"></a>O que acontecerá se eu inserir a chave de criptografia incorretamente? Posso recuperar os dados? A Microsoft pode recuperar os dados?
 
-A chave usada para criptografar os dados de backup está presente apenas no seu site. A Microsoft não mantém uma cópia no Azure e não tem qualquer acesso à chave. Se você perder a chave, a Microsoft não poderá recuperar os dados de backup.
+A chave usada para criptografar os dados de backup está presente apenas no seu site. A Microsoft não mantém uma cópia no Azure e não tem nenhum acesso à chave. Se você perder a chave, a Microsoft não poderá recuperar os dados de backup.
 
 ## <a name="next-steps"></a>Próximas etapas
 

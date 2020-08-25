@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 973eeebfdf9164cb50cf98ae8edc845a80a7e080
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d528ff41d8b7098e313e070dfe734960cdc89eaa
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794501"
+ms.locfileid: "88827521"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteger o gêmeos digital do Azure
 
@@ -79,7 +79,7 @@ Se um usuário tentar executar uma ação não permitida por sua função, ele p
 
 ## <a name="encryption-of-data-at-rest"></a>Criptografia de dados em repouso
 
-O Azure digital gêmeos fornece criptografia de dados em repouso e em trânsito conforme eles são gravados em nossos data centers e descriptografa-os para você conforme você o acessa.
+O Azure digital gêmeos fornece criptografia de dados em repouso e em trânsito conforme eles são gravados em nossos data centers e descriptografa-os para você conforme você o acessa. Essa criptografia ocorre usando uma chave de criptografia gerenciada da Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 

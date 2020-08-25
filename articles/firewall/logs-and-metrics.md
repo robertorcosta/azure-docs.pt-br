@@ -5,20 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 07/21/2020
+ms.date: 08/25/2020
 ms.author: victorh
-ms.openlocfilehash: 9d0a46135e5f763e6253540fe62d63cb59026ccb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 51804a9f98bfa17dcfbeb90a268b91b2d28dbbde
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086584"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827215"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Logs e métricas do Firewall do Azure
 
 Você pode monitorar o Firewall do Azure usando os logs de firewall. Você também pode usar os logs de atividades para auditar operações nos recursos do Firewall do Azure.
 
-Você pode acessar alguns desses logs por meio do portal. Os logs podem ser enviados para os [logs do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), o Armazenamento e os Hubs de Eventos e analisados nos logs do Azure Monitor ou por ferramentas diferentes, como Excel e Power BI.
+Você pode acessar alguns desses logs por meio do portal. Os logs podem ser enviados para [Azure monitor logs](../azure-monitor/insights/azure-networking-analytics.md), armazenamento e hubs de eventos e analisados em logs de Azure monitor ou ferramentas diferentes, como Excel e Power bi.
 
 As métricas são leves e podem dar suporte a cenários quase em tempo real, tornando-as úteis para alertas e detecção rápida de problemas.
 
@@ -115,7 +115,7 @@ As seguintes métricas estão disponíveis para o Firewall do Azure:
   - Status: os valores possíveis estão *íntegros*, *degradados*, não *íntegros*.
   - Motivo: indica o motivo do status correspondente do firewall. 
 
-     Se as portas SNAT forem usadas > 95%, elas serão consideradas esgotadas e a integridade será 50% com status =**degradado** e motivo =**porta SNAT**. O firewall mantém o tráfego de processamento e as conexões existentes não são afetadas. No entanto, novas conexões podem não ser estabelecidas de forma intermitente.
+     Se as portas SNAT forem usadas > 95%, elas serão consideradas esgotadas e a integridade será 50% com status =**degradado** e motivo =**porta SNAT**. O firewall mantém o tráfego de processamento, e as conexões existentes não são afetadas. No entanto, novas conexões podem não ser estabelecidas de forma intermitente.
 
      Se as portas SNAT forem usadas < 95%, o firewall será considerado íntegro e a integridade será mostrada como 100%.
 
@@ -125,7 +125,7 @@ As seguintes métricas estão disponíveis para o Firewall do Azure:
 
     Unidade: porcentagem
 
-   Quando você adiciona mais endereços IP públicos ao firewall, mais portas SNAT estão disponíveis, reduzindo a utilização de portas SNAT. Além disso, quando o firewall é dimensionado por diferentes motivos (por exemplo, CPU ou taxa de transferência) portas SNAT adicionais também ficam disponíveis. De modo eficaz, um determinado percentual de utilização de portas SNAT pode ficar inativo sem a adição de endereços IP públicos, apenas porque o serviço foi expandido. Você pode controlar diretamente o número de endereços IP públicos disponíveis para aumentar as portas disponíveis no firewall. Mas, você não pode controlar diretamente o dimensionamento de firewall. Atualmente, as portas SNAT são adicionadas somente aos cinco primeiros endereços IP públicos.   
+   Quando você adiciona mais endereços IP públicos ao firewall, mais portas SNAT ficam disponíveis, reduzindo a utilização de portas SNAT. Além disso, quando o firewall é dimensionado por diferentes motivos (por exemplo, CPU ou taxa de transferência), portas SNAT adicionais também ficam disponíveis. De modo eficaz, um determinado percentual de utilização de portas SNAT pode ficar inativo sem a adição de endereços IP públicos, apenas porque o serviço foi expandido. Você pode controlar diretamente o número de endereços IP públicos disponíveis para aumentar as portas disponíveis no firewall. Mas, você não pode controlar diretamente o dimensionamento de firewall.
 
 
 ## <a name="next-steps"></a>Próximas etapas

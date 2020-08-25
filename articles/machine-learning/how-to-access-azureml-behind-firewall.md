@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 990a2d5279c796f354055328e6968ea705ea10b2
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 7d270ac9a6597645c5a98b6af77d19021ef00329
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873629"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827419"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Usar o espaço de trabalho por trás de um firewall para Azure Machine Learning
 
@@ -51,12 +51,13 @@ Os hosts nesta seção são de propriedade da Microsoft e fornecem os serviços 
 | **\*. aether.ms** | Usado ao executar pipelines de Azure Machine Learning |
 | **\*. instances.azureml.net** | Azure Machine Learning instâncias de computação |
 | **\*. instances.azureml.ms** | Azure Machine Learning instâncias de computação quando o espaço de trabalho tem o link privado habilitado |
-| **windows.net** | Armazenamento de Blobs do Azure |
+| **windows.net** | Armazenamento do Blobs do Azure |
 | **vault.azure.net** | Cofre de Chave do Azure |
 | **azurecr.io** | Registro de Contêiner do Azure |
 | **mcr.microsoft.com** | Registro de contêiner da Microsoft para imagens base do Docker |
 | **your-acr-server-name.azurecr.io** | Necessário somente se o registro de contêiner do Azure estiver por trás da rede virtual. Nessa configuração, um link privado é criado do ambiente da Microsoft para a instância do ACR em sua assinatura. Use o nome do servidor ACR para seu espaço de trabalho Azure Machine Learning. |
 | **\*. notebooks.azure.net** | Necessário para os notebooks no Azure Machine Learning Studio. |
+| **graph.windows.net** | Necessário para notebooks |
 
 ## <a name="python-hosts"></a>Hosts do Python
 
@@ -78,6 +79,15 @@ Os hosts nesta seção são usados para instalar pacotes do R. Eles são necess�
 | **Nome do host** | **Finalidade** |
 | ---- | ---- |
 | **cloud.r-project.org** | Usado ao instalar pacotes do CRAN. |
+
+## <a name="azure-government-region"></a>Região do Azure Governamental
+
+URLs necessárias para as regiões do Azure governamental.
+
+| **Nome do host** | **Finalidade** |
+| ---- | ---- |
+| **usgovarizona.api.ml.azure.us** | A região de US-Arizona |
+| **usgovvirginia.api.ml.azure.us** | A região de US-Virgínia |
 
 ## <a name="next-steps"></a>Próximas etapas
 

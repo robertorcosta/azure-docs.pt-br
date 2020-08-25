@@ -4,12 +4,12 @@ description: Saiba como fazer backup de um servidor do Exchange no Backup do Azu
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 2e3e89d93ab35724a09138d48863badad6a41b71
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 043122271bfa91b1cbaa490760da712cd1b867cc
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514111"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825028"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Fazer backup de um servidor do Exchange no Azure com o Servidor de Backup do Azure
 
@@ -47,7 +47,7 @@ Execute estas etapas para instalar o agente de proteção do MABS no servidor do
 
    * Desejo a proteção de curto prazo usando Disco.
    * Desejo a proteção online.
-6. Clique em **Avançar**.
+6. Clique em **Próximo**.
 7. Escolha a opção **Executar Eseutil para verificar a integridade dos dados** se você quiser verificar a integridade dos bancos de dados do Exchange Server.
 
     Depois de selecionar essa opção, a verificação de consistência do backup será executada em MABS para evitar o tráfego de e/s gerado com a execução do comando **Eseutil** no servidor Exchange.
@@ -57,7 +57,7 @@ Execute estas etapas para instalar o agente de proteção do MABS no servidor do
    > ![erro de eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. Clique em **Avançar**.
+8. Clique em **Próximo**.
 9. Escolha o banco de dados para **Copiar o Backup** e clique em **Próximo**.
 
    > [!NOTE]

@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações do
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5871e61229277d8036727c11b42d9d7a061bad99
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 41bc06e2c63b1b35bb789636bcd269439078be70
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612513"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825181"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte Backup do Azure
 
@@ -135,7 +135,7 @@ O backup dá suporte à compactação do tráfego de backup, conforme resumido n
 
 **Configuração** | **Limites**
 --- | ---
-**Número máximo de pontos de recuperação por instância protegida (computador ou carga de trabalho)** | 9\.999
+**Pontos de recuperação máximos por instância protegida (máquina ou carga de trabalho)** | 9\.999
 **Tempo máximo de expiração para um ponto de recuperação** | Sem limite
 **Frequência máxima de backup para o DPM/MABS** | A cada 15 minutos para o SQL Server<br/><br/> Uma vez por hora para outras cargas de trabalho
 **Frequência máxima de backup para o cofre** | **Computadores Windows locais ou VMs do Azure executando MARS:** Três por dia<br/><br/> **DPM/MABS:** Dois por dia<br/><br/> **Backup de VM do Azure:** Um por dia

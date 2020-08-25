@@ -3,12 +3,12 @@ title: Fazer backup de estado do sistema para o Windows Azure
 description: Saiba como fazer backup do estado do sistema de computadores Windows Server no Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: a56e500cc0330a6406b4465ab5baeafa39b544aa
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 8ce30b93ebaecec1e69c6c6a6f1064c6cdd3d0f6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263037"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824454"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Fazer backup de estado do sistema para o Windows Azure
 
@@ -98,7 +98,7 @@ Agora que você criou um cofre, configure-o para fazer backup do Estado do Siste
 ## <a name="install-and-register-the-agent"></a>Instalar e registrar o agente
 
 > [!NOTE]
-> A habilitação do backup pelo portal do Azure ainda não está disponível. Use o agente de Serviços de Recuperação do Microsoft Azure para fazer backup do Estado do Sistema do Windows Server.
+> A habilitação do backup por meio do portal do Azure não está disponível. Use o agente de Serviços de Recuperação do Microsoft Azure para fazer backup do Estado do Sistema do Windows Server.
 >
 
 1. Localize e clique duas vezes no **MARSagentinstaller.exe** na pasta Downloads (ou em outro local salvo).
@@ -116,7 +116,7 @@ Agora que você criou um cofre, configure-o para fazer backup do Estado do Siste
    * Salve a senha de criptografia em um local seguro.
 
      > [!NOTE]
-     > Se você perder ou esquecer a senha, a Microsoft não poderá ajudar a recuperar os dados de backup. Salve o arquivo em um local seguro. Isso é necessário para restaurar um backup.
+     > Se você perder ou esquecer a senha, a Microsoft não poderá ajudar a recuperar os dados de backup. Salve o arquivo em um local seguro. É necessário restaurar um backup.
      >
      >
 
@@ -132,7 +132,7 @@ O backup inicial inclui duas tarefas:
 Para concluir o backup inicial, use o agente dos Serviços de Recuperação do Microsoft Azure.
 
 > [!NOTE]
-> Você pode fazer backup do Estado do Sistema no Windows Server 2008 R2 por meio do Windows Server 2016. O Backup do Estado do Sistema não tem suporte em SKUs do cliente. O Estado do Sistema não é mostrado como uma opção para clientes do Windows ou máquinas do Windows Server 2008 SP2.
+> Você pode fazer backup do Estado do Sistema no Windows Server 2008 R2 por meio do Windows Server 2016. Não há suporte para backup de estado do sistema em SKUs do cliente. O estado do sistema não é mostrado como uma opção para clientes Windows ou computadores com Windows Server 2008 SP2.
 >
 >
 
@@ -158,7 +158,7 @@ Para concluir o backup inicial, use o agente dos Serviços de Recuperação do M
 
 8. Na página confirmação, examine as informações e selecione **concluir**.
 
-9. Depois que o assistente terminar de criar o agendamento de backup, selecione **fechar**.
+9. Depois que o assistente terminar de criar o agendamento de backup, escolha **Fechar**.
 
 ### <a name="to-back-up-windows-server-system-state-for-the-first-time"></a>Para fazer backup do Estado do Sistema do Windows Server pela primeira vez
 
@@ -170,9 +170,9 @@ Para concluir o backup inicial, use o agente dos Serviços de Recuperação do M
 
 3. Selecione **estado do sistema** na tela **selecionar item de backup** que aparece e selecione **Avançar**.
 
-4. Na página Confirmação, examine as configurações que o Assistente Fazer Backup Agora usará para fazer backup do computador. Em seguida, selecione **fazer backup**.
+4. Na página Confirmação, examine as configurações que o Assistente Fazer Backup Agora usará para fazer backup do computador. Em seguida, selecione **Fazer Backup**.
 
-5. Selecione **fechar** para fechar o assistente. Se você fechar o assistente antes da conclusão do processo de backup, o assistente continuará a ser executado em segundo plano.
+5. Selecione **Fechar** para fechar o assistente. Se você fechar o assistente antes da conclusão do processo de backup, o assistente continuará a ser executado em segundo plano.
     > [!NOTE]
     > O agente MARS é disparado `SFC /verifyonly` como parte das preverificações antes de todos os backups de estado do sistema. Isso é para garantir que os arquivos submetidos a backup como parte do estado do sistema tenham as versões corretas correspondentes à versão do Windows. Saiba mais sobre o verificador de arquivos do sistema (SFC) neste [artigo](/windows-server/administration/windows-commands/sfc).
     >

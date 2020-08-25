@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 1fdc6b79bf86272afac038d8f91e4663514830fe
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e7be96fcab0807ac8c6500c3b360f9380b4d2b28
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905578"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824943"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consultar o grafo gêmeos do Azure digital
 
@@ -187,7 +187,7 @@ Pode haver um atraso de até 10 segundos antes que as alterações em sua instâ
 
 Há limitações adicionais no uso `JOIN` durante a visualização.
 * Nenhuma subconsulta é suportada na `FROM` instrução.
-* `OUTER JOIN`Não há suporte para semântica, o que significa que, se a relação tiver uma classificação igual a zero, a "linha" inteira será eliminada do conjunto de resultados de saída.
+* `OUTER JOIN` Não há suporte para semântica, o que significa que, se a relação tiver uma classificação igual a zero, a "linha" inteira será eliminada do conjunto de resultados de saída.
 * Durante a visualização, a profundidade de percurso do grafo é restrita a cinco `JOIN` níveis por consulta.
 * A origem das `JOIN` operações é restrita: a consulta deve declarar o gêmeos onde a consulta começa.
 
@@ -222,7 +222,6 @@ Abaixo estão algumas dicas para consultar com o Azure digital gêmeos.
         AND IS_OF_MODEL(Room, 'dtmi:com:contoso:Room;1')
         ```
 * Nomes de propriedade e valores diferenciam maiúsculas de minúsculas, portanto, tome cuidado para usar os nomes exatos definidos nos modelos. Se os nomes de propriedade forem digitados incorretamente ou em maiúsculas e minúsculas, o conjunto de resultados estará vazio sem erros retornados.
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

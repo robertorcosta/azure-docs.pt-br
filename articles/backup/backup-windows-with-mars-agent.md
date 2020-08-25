@@ -3,12 +3,12 @@ title: Fazer backup de computadores Windows usando o agente MARS
 description: Use o agente de Serviços de Recuperação do Microsoft Azure (MARS) para fazer backup de computadores Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 34fa0906ec63eb51d37c192f9dadddc57dbf1cdf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 381df40dfe4149b2f43dc22bb2186ec1f17b0515
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538625"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825878"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Fazer backup de arquivos e pastas do Windows Server no Azure
 
@@ -89,7 +89,7 @@ Para criar uma política de backup:
 
     ![Confirmar o tipo de backup](./media/backup-azure-manage-mars/confirm-backup-type.png)
 
-1. Depois que o assistente terminar de criar o agendamento de backup, selecione **fechar**.
+1. Depois que o assistente terminar de criar o agendamento de backup, escolha **Fechar**.
 
     ![Exibir o progresso do agendamento de backup](./media/backup-azure-manage-mars/confirm-modify-backup-process.png)
 
@@ -125,7 +125,7 @@ Para habilitar a limitação de rede:
 1. Na guia **limitação** , selecione **habilitar limitação de uso de largura de banda da Internet para operações de backup**.
 
     ![Configurar a limitação de rede para operações de backup](./media/backup-configure-vault/throttling-dialog.png)
-1. Especifique a largura de banda permitida durante as horas de trabalho e as horas não úteis. Os valores de largura de banda começam em 512 kbps e vão até 1.023 MBps. Em seguida, selecione **OK**.
+1. Especifique a largura de banda permitida durante as horas de trabalho e as horas não úteis. Os valores de largura de banda começam em 512 kbps e vão até 1.023 MBps. Depois, selecione **OK**.
 
 ## <a name="run-an-on-demand-backup"></a>Executar um backup sob demanda
 
@@ -138,7 +138,7 @@ Para habilitar a limitação de rede:
    ![Usar o calendário para personalizar uma data de retenção](./media/backup-configure-vault/mars-ondemand.png)
 
 1. Na página **confirmação** , examine as configurações e selecione **fazer backup**.
-1. Selecione **fechar** para fechar o assistente. Se você fechar o assistente antes de o backup ser concluído, o assistente continuará a ser executado em segundo plano.
+1. Selecione **Fechar** para fechar o assistente. Se você fechar o assistente antes de o backup ser concluído, o assistente continuará a ser executado em segundo plano.
 
 Depois que o backup inicial for concluído, o status do **trabalho concluído** será exibido no console de backup.
 

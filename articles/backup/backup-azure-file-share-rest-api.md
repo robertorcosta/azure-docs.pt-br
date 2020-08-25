@@ -3,12 +3,12 @@ title: Fazer backup de compartilhamentos de arquivos do Azure com a API REST
 description: Saiba como usar a API REST para fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: b3d83104b699740c43b0c6506c00694c2b2ac063
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 8d2d8ed88da133986540a293185c8e37000ab87b
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757125"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824858"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Fazer backup do compartilhamento de arquivos do Azure usando o backup do Azure via API REST
 
@@ -373,7 +373,7 @@ Em nosso exemplo, a ID do compartilhamento de arquivos que desejamos proteger é
 Ou você pode consultar o atributo **Name** do contêiner de proteção e as respostas de itens protegíveis.
 
 >[!NOTE]
->Sempre use o atributo Name da resposta e preencha-o nesta solicitação. Não codifique nem crie o formato de nome de contêiner ou de nome de item protegido. Se você criar ou embutir em código, a chamada à API falhará se o formato do nome do contêiner ou o formato do nome do item protegido for alterado no futuro.
+>Sempre use o atributo Name da resposta e preencha-o nesta solicitação. Não codifique ou crie o formato de nome de contêiner ou o formato de nome de item protegido. Se você criar ou embutir em código, a chamada à API falhará se o formato do nome do contêiner ou o formato do nome do item protegido for alterado no futuro.
 
 <br>
 

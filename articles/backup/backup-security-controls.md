@@ -3,12 +3,12 @@ title: Controles de segurança
 description: Saiba mais sobre os controles de segurança usados no serviço de backup do Azure. Esses controles ajudam o serviço a prevenir, detectar e responder a vulnerabilidades de segurança.
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 4a59ab0edeeba480475ac593d2721f95c7b5f48a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e69053d4646207b34e8df31b949410994c967303
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371712"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827283"
 ---
 # <a name="security-controls-for-azure-backup"></a>Controles de segurança para o backup do Azure
 
@@ -22,7 +22,7 @@ Este artigo documenta os controles de segurança incorporados ao backup do Azure
 |---|---|--|--|
 | Suporte ao ponto de extremidade de serviço| Não |  |  |
 | Suporte à injeção de VNet| Não |  |  |
-| Isolamento de rede e suporte de firewall| Sim | Há suporte para túnel forçado no backup de VM. Não há suporte para túnel forçado em cargas de trabalho em execução dentro de VMs. |  |
+| Isolamento de rede e suporte de firewall| Sim | Há suporte para túnel forçado no backup de VM. O túnel forçado não tem suporte para cargas de trabalho em execução dentro de VMs. |  |
 | Suporte a túnel forçado| Não |  |  |
 
 ## <a name="monitoring--logging"></a>Monitorando & log

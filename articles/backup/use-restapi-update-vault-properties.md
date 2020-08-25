@@ -4,12 +4,12 @@ description: Neste artigo, saiba como atualizar a configuração do cofre usando
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: c3f964032d10988bf7ae615eb64d3b56b99a7747
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: c68d3accfc6963d7a5eebfef128e3521b45ac886
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757295"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827249"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar as configurações do cofre dos serviços de recuperação do Azure usando a API REST
 
@@ -19,7 +19,7 @@ Este artigo descreve como atualizar configurações relacionadas a backup no cof
 
 Excluir backups de um item protegido é uma operação significativa que deve ser monitorada. Para proteger contra exclusões acidentais, o cofre dos serviços de recuperação do Azure tem uma funcionalidade de exclusão reversível. Essa funcionalidade permite que os clientes restaurem backups excluídos, se necessário, dentro de um período de tempo após a exclusão.
 
-Mas há cenários em que esse recurso não é necessário. Um cofre dos serviços de recuperação do Azure não poderá ser excluído se houver itens de backup dentro dele, até mesmo os excluídos de maneira reversível. Isso pode representar um problema se o cofre precisar ser excluído imediatamente. Por exemplo: as operações de implantação geralmente limpam os recursos criados no mesmo fluxo de trabalho. Uma implantação pode criar um cofre, configurar backups para um item, fazer uma restauração de teste e, em seguida, continuar a excluir os itens de backup e o cofre. Se a exclusão do cofre falhar, a implantação inteira poderá falhar. Desabilitar a exclusão reversível é a única maneira de garantir a exclusão imediata.
+Mas há cenários em que esse recurso não é necessário. Um cofre dos serviços de recuperação do Azure não poderá ser excluído se houver itens de backup dentro dele, mesmo os excluiu de maneira reversível. Isso pode representar um problema se o cofre precisar ser excluído imediatamente. Por exemplo: as operações de implantação geralmente limpam os recursos criados no mesmo fluxo de trabalho. Uma implantação pode criar um cofre, configurar backups para um item, fazer uma restauração de teste e, em seguida, continuar a excluir os itens de backup e o cofre. Se a exclusão do cofre falhar, a implantação inteira poderá falhar. Desabilitar a exclusão reversível é a única maneira de garantir a exclusão imediata.
 
 Portanto, você precisa escolher cuidadosamente se deseja ou não desabilitar a exclusão reversível para um cofre específico, dependendo do cenário. Para obter mais informações, consulte o [artigo exclusão reversível](backup-azure-security-feature-cloud.md).
 
@@ -85,8 +85,8 @@ Para obter mais detalhes, consulte [a documentação da API REST](/rest/api/back
 
 |Nome  |Obrigatório  |Type  |Descrição  |
 |---------|---------|---------|---------|
-|eTag     |         |   String      |  eTag Opcional       |
-|local     |  true       |String         |   Localização do recurso      |
+|eTag     |         |   Cadeia de caracteres      |  eTag Opcional       |
+|local     |  true       |Cadeia de caracteres         |   Localização do recurso      |
 |properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
 |marcas     |         | Objeto        |     Marcações de recursos    |
 
