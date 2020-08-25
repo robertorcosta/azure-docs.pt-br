@@ -16,17 +16,17 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66f8020ec2561bf06716db0720a7ec4292f36eb3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 77c560ffd01fe6d0b93e18b963574136c086fdc4
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034115"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783188"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gerenciar o acesso de convidado com revisões de acesso do Azure AD
 
 
-Com o Azure AD (Azure Active Directory), você pode habilitar com facilidade a colaboração em limites organizacionais usando o [recurso B2B do Azure AD](../b2b/what-is-b2b.md). Usuários convidados de outros locatários podem ser [convidados por administradores](../b2b/add-users-administrator.md) ou por [outros usuários](../b2b/what-is-b2b.md). Isso também se aplica às identidades sociais, como contas da Microsoft.
+Com o Azure AD (Azure Active Directory), você pode habilitar com facilidade a colaboração em limites organizacionais usando o [recurso B2B do Azure AD](../external-identities/what-is-b2b.md). Usuários convidados de outros locatários podem ser [convidados por administradores](../external-identities/add-users-administrator.md) ou por [outros usuários](../external-identities/what-is-b2b.md). Isso também se aplica às identidades sociais, como contas da Microsoft.
 
 Você também pode assegurar com facilidade que os usuários convidados tenham o acesso apropriado. Você pode pedir que os próprios convidados ou que um tomador de decisão participem de uma revisão de acesso e reconfirmem (ou atestem) o acesso de convidado. Revisores podem fornecer a sua entrada na necessidade de cada usuário de acesso contínuo, com base nas sugestões do Azure AD. Quando uma revisão de acesso for finalizada, você poderá alterar e remover o acesso de convidados que não precisam mais dela.
 
@@ -120,10 +120,3 @@ Em algumas organizações, talvez os convidados não estejam cientes de suas ass
 ## <a name="next-steps"></a>Próximas etapas
 
 [Criar uma revisão de acesso de grupos ou aplicativos](create-access-review.md)
-
-
-
-
-
-
-

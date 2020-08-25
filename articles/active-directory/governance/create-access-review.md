@@ -15,12 +15,12 @@ ms.date: 08/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1be8a714d57d0f84b195c9f3846964aa2bf2525b
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c2b3a838e52bb0b9f3a3be7195bd528c08e499c0
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605095"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783647"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Criar uma revisão de acesso de grupos e aplicativos nas revisões de acesso do Azure AD
 
@@ -158,7 +158,7 @@ Se você tiver atribuído convidados como revisores e eles não tiverem aceitado
 
 ## <a name="create-reviews-via-apis"></a>Criar revisões via APIs
 
-Você também pode criar as revisões de acesso usando as APIs. O que você faz para gerenciar as revisões de acesso dos grupos e usuários do aplicativo no portal do Azure também pode ser feito usando as APIs do Microsoft Graph. Para obter mais informações, consulte a [referência da API de revisões de acesso do Azure ad](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). Para obter um exemplo de código, consulte o [exemplo de recuperação de revisões de acesso do Azure ad via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
+Você também pode criar as revisões de acesso usando as APIs. O que você faz para gerenciar as revisões de acesso dos grupos e usuários do aplicativo no portal do Azure também pode ser feito usando as APIs do Microsoft Graph. Para obter mais informações, consulte a [referência da API de revisões de acesso do Azure ad](/graph/api/resources/accessreviews-root?view=graph-rest-beta). Para obter um exemplo de código, consulte o [exemplo de recuperação de revisões de acesso do Azure ad via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
 ## <a name="next-steps"></a>Próximas etapas
 

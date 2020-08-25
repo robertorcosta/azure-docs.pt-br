@@ -3,12 +3,12 @@ title: Usar o Servidor de Backup do Azure para fazer backup de cargas de trabalh
 description: Neste artigo, veja como preparar o ambiente para proteger e fazer backup de cargas de trabalho usando o MABS (Servidor de Backup do Microsoft Azure).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 9ae8fd824144c70edeb1e084155e8cdff95cd8b9
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 802b7919abcd510db68396b2d9576f8cacc06a6e
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612326"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756003"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o Servidor de Backup do Azure
 
@@ -101,7 +101,7 @@ Para editar a configuração de replicação de armazenamento:
    * Na lista de recursos, digite **Serviços de Recuperação**.
    * Quando você começar a digitar, a lista será filtrada com base em sua entrada. Quando você vir a opção **cofres de Serviços de Recuperação**, selecione-a.
 
-     ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
+     ![Criar cofre de serviços de recuperação-etapa 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
      A lista de cofres de Serviços de Recuperação aparecerá.
    * Na lista de cofres de Serviços de Recuperação, selecione um cofre.
@@ -135,7 +135,7 @@ Para editar a configuração de replicação de armazenamento:
 
     ![Guia de Introdução do assistente para alterar](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
 
-6. No painel **preparar infraestrutura** que é aberto, selecione os links de **Download** para instalar servidor de backup do Azure e baixar as credenciais do cofre. Você usa as credenciais do cofre durante o registro do Servidor de Backup do Azure para o cofre dos serviços de recuperação. Os links levam você para o Centro de Download, onde o pacote de software pode ser baixado.
+6. No painel **preparar infraestrutura** que é aberto, selecione os links de **Download** para instalar servidor de backup do Azure e baixar as credenciais do cofre. Você usa as credenciais do cofre durante o registro de Servidor de Backup do Azure para o cofre dos serviços de recuperação. Os links levam você para o Centro de Download, onde o pacote de software pode ser baixado.
 
     ![Preparar a infraestrutura para o Servidor de Backup do Azure](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
@@ -143,7 +143,7 @@ Para editar a configuração de replicação de armazenamento:
 
     ![Centro de download 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    Como o tamanho do download de todos os arquivos juntos é superior a 3G, ele poderá levar até 60 minutos para ser concluído em um link de download de 10 Mbps.
+    Como o tamanho do download de todos os arquivos juntos é > 3 GB, em um link de download de 10 Mbps, pode levar até 60 minutos para que o download seja concluído.
 
 ### <a name="extracting-the-software-package"></a>Extraindo o pacote de software
 

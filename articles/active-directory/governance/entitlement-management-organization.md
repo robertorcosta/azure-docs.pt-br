@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c4869859e11cb6c0cc868ec9deacb3e5cb972c6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 50c5c02327aa9f48a605607de901258827b14896
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586563"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783936"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicionar uma organização conectada no gerenciamento de direitos do Azure AD
 
@@ -42,9 +42,9 @@ Nesse caso, você pode configurar duas organizações conectadas. Você cria uma
 
 A forma como os usuários do diretório do Azure AD ou do domínio se autenticam depende do tipo de autenticação. Os tipos de autenticação para organizações conectadas são:
 
-- AD do Azure
-- [Federação direta](../b2b/direct-federation.md)
-- [Senha de uso único](../b2b/one-time-passcode.md) (domínio)
+- Azure AD
+- [Federação direta](../external-identities/direct-federation.md)
+- [Senha de uso único](../external-identities/one-time-passcode.md) (domínio)
 
 Para ver uma demonstração de como adicionar uma organização conectada, Assista ao vídeo a seguir:
 
@@ -79,7 +79,7 @@ Para adicionar um diretório ou domínio do Azure AD externo como uma organizaç
 1. Selecione **Adicionar** para adicionar o diretório ou domínio do Azure AD. No momento, você pode adicionar apenas um diretório ou domínio do Azure AD por organização conectada.
 
     > [!NOTE]
-    > Todos os usuários do diretório ou domínio do Azure AD poderão solicitar esse pacote de acesso. Isso inclui os usuários no Azure AD de todos os subdomínios associados ao diretório, a menos que esses domínios estejam bloqueados pela lista de permitidos ou negações B2B (Business to Business) do Azure AD. Para obter mais informações, consulte [Permitir ou bloquear convites para usuários B2B de organizações específicas](../b2b/allow-deny-list.md).
+    > Todos os usuários do diretório ou domínio do Azure AD poderão solicitar esse pacote de acesso. Isso inclui os usuários no Azure AD de todos os subdomínios associados ao diretório, a menos que esses domínios estejam bloqueados pela lista de permitidos ou negações B2B (Business to Business) do Azure AD. Para obter mais informações, consulte [Permitir ou bloquear convites para usuários B2B de organizações específicas](../external-identities/allow-deny-list.md).
 
 1. Depois de adicionar o diretório ou domínio do Azure AD, selecione **selecionar**.
 
@@ -89,7 +89,7 @@ Para adicionar um diretório ou domínio do Azure AD externo como uma organizaç
 
 1. Selecione a guia **patrocinadores** e, em seguida, adicione patrocinadores opcionais para esta organização conectada.
 
-    Os patrocinadores são usuários internos ou externos que já estão em seu diretório que são o ponto de contato para a relação com essa organização conectada. Os patrocinadores internos são usuários Membros em seu diretório. Os patrocinadores externos são usuários convidados da organização conectada que foram convidados anteriormente e já estão em seu diretório. Os patrocinadores podem ser utilizados como aprovadores quando os usuários nesta organização conectada solicitam acesso a esse pacote de acesso. Para obter informações sobre como convidar um usuário convidado para seu diretório, consulte [adicionar Azure Active Directory usuários de colaboração B2B no portal do Azure](../b2b/add-users-administrator.md).
+    Os patrocinadores são usuários internos ou externos que já estão em seu diretório que são o ponto de contato para a relação com essa organização conectada. Os patrocinadores internos são usuários Membros em seu diretório. Os patrocinadores externos são usuários convidados da organização conectada que foram convidados anteriormente e já estão em seu diretório. Os patrocinadores podem ser utilizados como aprovadores quando os usuários nesta organização conectada solicitam acesso a esse pacote de acesso. Para obter informações sobre como convidar um usuário convidado para seu diretório, consulte [adicionar Azure Active Directory usuários de colaboração B2B no portal do Azure](../external-identities/add-users-administrator.md).
 
     Quando você seleciona **Adicionar/remover**, um painel é aberto no qual você pode escolher patrocinadores internos ou externos. O painel exibe uma lista não filtrada de usuários e grupos em seu diretório.
 
@@ -134,9 +134,9 @@ Se você não tiver mais uma relação com um diretório ou domínio do Azure AD
 
 ## <a name="managing-a-connected-organization-programmatically"></a>Gerenciando uma organização conectada programaticamente
 
-Você também pode criar, listar, atualizar e excluir organizações conectadas usando Microsoft Graph. Um usuário em uma função apropriada com um aplicativo que tem a permissão delegada `EntitlementManagement.ReadWrite.All` pode chamar a API para gerenciar objetos [connectedOrganization](https://docs.microsoft.com/graph/api/resources/connectedorganization?view=graph-rest-beta) e definir os patrocinadores para eles.
+Você também pode criar, listar, atualizar e excluir organizações conectadas usando Microsoft Graph. Um usuário em uma função apropriada com um aplicativo que tem a permissão delegada `EntitlementManagement.ReadWrite.All` pode chamar a API para gerenciar objetos [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) e definir os patrocinadores para eles.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Administrar o acesso de usuários externos](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users)
+- [Administrar o acesso de usuários externos](./entitlement-management-external-users.md)
 - [Controlar o acesso para usuários que não estão em seu diretório](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aa84faea43846a2f930373529769e62f76e5bbf
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: b9072c5611f5bd5a4b8cca082cb2bfd7a1e3f1b2
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419539"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718893"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Tutorial: Proteger eventos de entrada do usuário com a Autenticação Multifator do Azure
 
@@ -133,4 +133,4 @@ Neste tutorial, você habilitou a Autenticação Multifator do Azure usando pol�
 > * Testar o processo de MFA como um usuário
 
 > [!div class="nextstepaction"]
-> [Habilitar o write-back de senha na SSPR (redefinição de senha self-service)](tutorial-enable-writeback.md)
+> [Habilitar o write-back de senha na SSPR (redefinição de senha self-service)](./tutorial-enable-sspr-writeback.md)

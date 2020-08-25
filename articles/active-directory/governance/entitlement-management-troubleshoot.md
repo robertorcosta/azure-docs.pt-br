@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bf19123888dd26073016131c93047b0cd0afaf4
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 216cff03ac6ce64dee9aae1e9daa4a86385eeb0e
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145749"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783324"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Solucionar problemas de gerenciamento de direitos do Azure AD
 
@@ -45,9 +45,9 @@ Este artigo descreve alguns itens que você deve verificar para ajudá-lo a solu
 
 * Se houver usuários que já tenham sido atribuídos a um recurso que você deseja gerenciar com um pacote de acesso, verifique se os usuários estão atribuídos ao pacote de acesso com uma política apropriada. Por exemplo, talvez você queira incluir um grupo em um pacote de acesso que já tenha usuários no grupo. Se esses usuários no grupo exigirem acesso contínuo, eles deverão ter uma política apropriada para os pacotes de acesso para que não percam seu acesso ao grupo. Você pode atribuir o pacote de acesso tanto pedindo que os usuários solicitem o pacote de acesso que contém esse recurso quanto atribuindo-os diretamente ao pacote de acesso. Para obter mais informações, consulte [alterar as configurações de solicitação e aprovação para um pacote de acesso](entitlement-management-access-package-request-policy.md).
 
-* Quando você remove um membro de uma equipe, eles são removidos do grupo de Microsoft 365 também. A remoção da funcionalidade de chat da equipe pode ser atrasada. Para obter mais informações, consulte [Associação de grupo](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
+* Quando você remove um membro de uma equipe, eles são removidos do grupo de Microsoft 365 também. A remoção da funcionalidade de chat da equipe pode ser atrasada. Para obter mais informações, consulte [Associação de grupo](/microsoftteams/office-365-groups#group-membership).
 
-* Verifique se o diretório não está configurado para várias áreas geográficas. No momento, o gerenciamento de direitos não dá suporte a locais de várias áreas geográficas para o SharePoint Online. Os sites do SharePoint Online devem estar na localização geográfica padrão para serem governados com o gerenciamento de direitos. Para obter mais informações, consulte [recursos de várias regiões geográficas no onedrive e no SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+* Verifique se o diretório não está configurado para várias áreas geográficas. No momento, o gerenciamento de direitos não dá suporte a locais de várias áreas geográficas para o SharePoint Online. Os sites do SharePoint Online devem estar na localização geográfica padrão para serem governados com o gerenciamento de direitos. Para obter mais informações, consulte [recursos de várias regiões geográficas no onedrive e no SharePoint Online](/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
 ## <a name="access-packages"></a>Pacotes de acesso
 
@@ -69,7 +69,7 @@ Este artigo descreve alguns itens que você deve verificar para ajudá-lo a solu
 
 * Quando um usuário que ainda não está no seu diretório entrar no portal Meus Acessos para solicitar um pacote de acesso, verifique se ele se autenticou usando uma conta organizacional. A conta organizacional pode ser uma conta tanto no diretório de recursos quanto em um diretório incluído em uma das políticas do pacote de acesso. Se a conta do usuário não for uma conta organizacional ou se o diretório em que ele se autenticar não estiver incluído na política, o usuário não verá o pacote de acesso. Para obter mais informações, consulte [solicitar acesso a um pacote de acesso](entitlement-management-request-access.md).
 
-* Se um usuário estiver impedido de entrar no diretório de recursos, ele não poderá solicitar acesso no portal Meus Acessos. Antes que o usuário possa solicitar acesso, você deve remover o bloco de entrada do perfil do usuário. Para remover o bloco de entrada, na portal do Azure, clique em **Azure Active Directory**, clique em **usuários**, clique no usuário e, em seguida, clique em **perfil**. Edite a seção **configurações** e altere a **entrada de bloco** para **não**. Para obter mais informações, consulte [Adicionar ou atualizar as informações de perfil de um usuário usando Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  Você também pode verificar se o usuário foi bloqueado devido a uma [política de proteção de identidade](../identity-protection/howto-unblock-user.md).
+* Se um usuário estiver impedido de entrar no diretório de recursos, ele não poderá solicitar acesso no portal Meus Acessos. Antes que o usuário possa solicitar acesso, você deve remover o bloco de entrada do perfil do usuário. Para remover o bloco de entrada, na portal do Azure, clique em **Azure Active Directory**, clique em **usuários**, clique no usuário e, em seguida, clique em **perfil**. Edite a seção **configurações** e altere a **entrada de bloco** para **não**. Para obter mais informações, consulte [Adicionar ou atualizar as informações de perfil de um usuário usando Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  Você também pode verificar se o usuário foi bloqueado devido a uma [política de proteção de identidade](../identity-protection/howto-identity-protection-remediate-unblock.md).
 
 * No portal meu acesso, se um usuário for um solicitante e um aprovador, ele não verá a solicitação de um pacote de acesso na página **aprovações** . Esse comportamento é intencional: um usuário não pode aprovar a própria solicitação. Verifique se o pacote de acesso sendo solicitado tem aprovadores adicionais configurados na política. Para obter mais informações, consulte [alterar as configurações de solicitação e aprovação para um pacote de acesso](entitlement-management-access-package-request-policy.md).
 

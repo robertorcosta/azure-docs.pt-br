@@ -14,18 +14,18 @@ ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea3e307df95fe4cb18986ed8e68a7f3381c5fbe7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: 95b0b026b75b9b77c94451245ac4f18d487fc2e4
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742888"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783511"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>APIs do Microsoft Graph para Privileged Identity Management (versão prévia)
 
-Você pode executar tarefas do Privileged Identity Management usando as [APIs do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/overview) para o Azure Active Directory. Este artigo descreve conceitos importantes para uso das APIs do Microsoft Graph para Privileged Identity Management.
+Você pode executar tarefas do Privileged Identity Management usando as [APIs do Microsoft Graph](/graph/overview) para o Azure Active Directory. Este artigo descreve conceitos importantes para uso das APIs do Microsoft Graph para Privileged Identity Management.
 
-Para obter detalhes sobre as APIs do Microsoft Graph, confira a [Referência de API do Azure AD Privileged Identity Management](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root).
+Para obter detalhes sobre as APIs do Microsoft Graph, confira a [Referência de API do Azure AD Privileged Identity Management](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta).
 
 > [!IMPORTANT]
 > APIs na versão /beta no Microsoft Graph estão em versão prévia e estão sujeitas a alterações. Não há suporte para o uso dessas APIs em aplicativos de produção.
@@ -61,4 +61,4 @@ Caso esteja usando o Graph Explorer para testar suas chamadas, você pode especi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Referência de API do Azure AD Privileged Identity Management](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root)
+- [Referência de API do Azure AD Privileged Identity Management](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta)

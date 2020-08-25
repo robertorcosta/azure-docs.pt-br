@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b6fe3238a2ad602b388ff24faaee3a200084ae0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a4cdeff5e08813140c45d0a30877c3789d1bc21b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419471"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718842"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os usuários desbloqueiem sua conta ou redefinam senhas usando a redefinição de senha por autoatendimento do Microsoft Azure Active Directory
 
@@ -148,4 +148,4 @@ Neste tutorial, você habilitou a redefinição de senha por autoatendimento do 
 > * Testar o processo SSPR como um usuário
 
 > [!div class="nextstepaction"]
-> [Habilitar a Autenticação Multifator do Microsoft Azure](tutorial-mfa-applications.md)
+> [Habilitar a Autenticação Multifator do Microsoft Azure](./tutorial-enable-azure-mfa.md)

@@ -4,15 +4,15 @@ description: Descreve as fontes de fonte de dados e os conectores com suporte pa
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 72a1a37bf240355e6bc87cbfd62b0dc2d25ce68b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b99ac957c9c5030b484b244223847be4aa53a39d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503592"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749092"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -120,7 +120,7 @@ Para fontes de dados de nuvem:
 
 ## <a name="oauth-credentials"></a>Credenciais OAuth
 
-Para modelos de tabela no nível de compatibilidade 1400 e superior usando o modo na memória, o banco de dados SQL do Azure, o Azure Synapse (anteriormente SQL Data Warehouse), o Dynamics 365 e a lista do SharePoint dão suporte a credenciais OAuth. O Azure Analysis Services gerencia a atualização de token para fontes de dados OAuth para evitar tempos limite para operações de atualização de execução de longa duração. Para gerar tokens válidos, defina as credenciais usando o SSMS.
+Para modelos de tabela no nível de compatibilidade 1400 e superior usando o modo na memória, o banco de dados SQL do Azure, o Azure Synapse (anteriormente SQL Data Warehouse), o Dynamics 365 e a lista do SharePoint dão suporte a credenciais OAuth. O Azure Analysis Services gerencia a atualização de token para fontes de dados OAuth para evitar tempos limite para operações de atualização de execução de longa duração. Para gerar tokens válidos, defina as credenciais usando Power Query.
 
 Não há suporte para o modo Direct Query com credenciais OAuth.
 

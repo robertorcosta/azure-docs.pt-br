@@ -3,18 +3,18 @@ title: Gerenciar servidores e cofres dos Serviços de Recuperação do Microsoft
 description: Neste artigo, saiba como usar o painel Visão geral do cofre dos serviços de recuperação para monitorar e gerenciar seus cofres dos serviços de recuperação.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: ee96acf624f1c313c85b21840c142e1e2d6f40d8
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a34ac44e3fe8d3a0b7789b37b0b0308d42d4e3da
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654201"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756054"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorar e gerenciar cofres dos Serviços de Recuperação
 
 Este artigo explica como usar o painel de **Visão geral** do cofre dos Serviços de Recuperação para monitorar e gerenciar os cofres dos Serviços de Recuperação. Quando você abre um cofre dos Serviços de Recuperação na lista, o painel de **Visão geral** do cofre selecionado será aberto. O painel fornece vários detalhes sobre o cofre. Há *blocos* que mostram: o status de alertas críticos e de aviso, trabalhos de backup em andamento e com falha e a quantidade de armazenamento com redundância local (LRS) e o armazenamento com redundância geográfica (GRS) usados. Se você fizer backup de VMs do Azure no cofre, o bloco [**Status da Pré-Verificação de Backup** exibe todos os itens críticos ou de aviso](#backup-pre-check-status). A imagem a seguir é o painel de **Visão geral** do **cofre da Contoso**. O bloco **Itens de Backup** mostra que existem nove itens registrados no cofre.
 
-![painel do cofre dos serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
+![Painel do cofre dos serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
 Os pré-requisitos para este artigo são: uma assinatura do Azure, um cofre dos Serviços de Recuperação e a existência de pelo menos um item de backup configurado para o cofre.
 
@@ -32,11 +32,11 @@ Para monitorar alertas ou exibir dados de gerenciamento sobre um cofre dos Servi
 
 3. Na caixa de diálogo **Todos os Serviços**, digite **Serviços de Recuperação**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Quando a opção **cofres dos serviços de recuperação** for exibida, selecione-a para abrir a lista de cofres dos serviços de recuperação em sua assinatura.
 
-    ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
+    ![Criar cofre de serviços de recuperação-etapa 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
 4. Na lista de cofres, selecione um cofre para abrir seu painel de **visão geral** .
 
-    ![painel do cofre dos serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
+    ![Painel do cofre dos serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
     O painel de Visão geral usa blocos para fornecer alertas e dados do trabalho de backup.
 

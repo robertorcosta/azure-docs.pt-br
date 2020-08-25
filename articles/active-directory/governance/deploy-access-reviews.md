@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cccab009ddd5624fcc98ad6f871fe40d9540823
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: bb74fae150d4c8e5dda6978c272d358bdec6ca25
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88603962"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783596"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planejamento Azure Active Directory implantação de revisões de acesso
 
@@ -180,7 +180,7 @@ Os destinos típicos para análise incluem:
 
 * [Aplicativos integrados ao Azure ad para logon único](../manage-apps/what-is-application-management.md) (como SaaS, linha de negócios).
 
-* [Associação](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) de grupo (sincronizada com o Azure ad ou criada no Azure ad ou no Office 365, incluindo o Microsoft Teams).
+* [Associação](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) de grupo (sincronizada com o Azure ad ou criada no Azure ad ou no Office 365, incluindo o Microsoft Teams).
 
 * O [pacote do Access](/entitlement-management-overview.md) que agrupa recursos (grupos, aplicativos e sites) em um único pacote para gerenciar o acesso.
 
@@ -389,7 +389,7 @@ As revisões de acesso podem ser de membros de um grupo ou usuários que foram a
 
 ## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>Revisão do plano do Azure AD e das funções de recurso do Azure
 
-O [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) simplifica o modo como as empresas gerenciam o acesso privilegiado aos recursos no Azure AD. Isso mantém a lista de funções privilegiadas, tanto no [Azure ad](../users-groups-roles/directory-assign-admin-roles.md) quanto em [recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) muito menores e aumenta a segurança geral do diretório.
+O [Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) simplifica o modo como as empresas gerenciam o acesso privilegiado aos recursos no Azure AD. Isso mantém a lista de funções privilegiadas, tanto no [Azure ad](../users-groups-roles/directory-assign-admin-roles.md) quanto em [recursos do Azure](../../role-based-access-control/built-in-roles.md) muito menores e aumenta a segurança geral do diretório.
 
 As revisões de acesso permitem que os revisores atestam se os usuários ainda precisam estar em uma função. Assim como as revisões de acesso para pacotes de acesso, as revisões para funções do Azure AD e recursos do Azure são integradas à experiência do usuário de administrador do PIM. Recomendamos que você revise as seguintes atribuições de função regularmente:
 
@@ -452,9 +452,9 @@ Siga as instruções nos links abaixo:
 
 | Artigos de instruções | Descrição |
 | - | - |
- [Criar revisões de acesso](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review?toc=/azure/active-directory/governance/toc.json)| Criar revisões de acesso para funções privilegiadas do Azure AD no PIM |
-| [Examine automaticamente seu acesso](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review?toc=/azure/active-directory/governance/toc.json)| Se você estiver atribuído a uma função administrativa, aprove ou negue o acesso à sua função |
-| [Concluir uma revisão de acesso](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-complete-review?toc=/azure/active-directory/governance/toc.json)| Exibir uma revisão de acesso e aplicar os resultados |
+ [Criar revisões de acesso](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Criar revisões de acesso para funções privilegiadas do Azure AD no PIM |
+| [Examine automaticamente seu acesso](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Se você estiver atribuído a uma função administrativa, aprove ou negue o acesso à sua função |
+| [Concluir uma revisão de acesso](../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Exibir uma revisão de acesso e aplicar os resultados |
 
 
 ### <a name="review-azure-resource-roles"></a>Examinar funções de recurso do Azure
@@ -467,14 +467,14 @@ Siga as instruções nos links abaixo:
 
 | Artigos de instruções| Descrição |
 | - | -|
-| [Criar revisões de acesso](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-start-access-review?toc=/azure/active-directory/governance/toc.json)| Criar revisões de acesso para funções de recursos do Azure com privilégios no PIM |
-| [Examine automaticamente seu acesso](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-perform-access-review?toc=/azure/active-directory/governance/toc.json)| Se você estiver atribuído a uma função administrativa, aprove ou negue o acesso à sua função |
-| [Concluir uma revisão de acesso](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-complete-access-review?toc=/azure/active-directory/governance/toc.json)| Exibir uma revisão de acesso e aplicar os resultados |
+| [Criar revisões de acesso](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Criar revisões de acesso para funções de recursos do Azure com privilégios no PIM |
+| [Examine automaticamente seu acesso](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Se você estiver atribuído a uma função administrativa, aprove ou negue o acesso à sua função |
+| [Concluir uma revisão de acesso](../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Exibir uma revisão de acesso e aplicar os resultados |
 
 
 ## <a name="use-the-access-reviews-api"></a>Usar a API de revisões de acesso
 
-Consulte [métodos da API do Graph](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) e as [verificações de autorização de permissão de aplicativo e função](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) para interagir com e gerenciar recursos reviewáveis. Os métodos de revisões de acesso na API Microsoft Graph estão disponíveis para contextos de aplicativo e de usuário. Ao executar scripts no contexto do aplicativo, a conta usada para executar a API (a entidade de serviço) deve receber a permissão "AccessReview. Read. All" para consultar informações de revisões de acesso.
+Consulte [métodos da API do Graph](/graph/api/resources/accessreviews-root?view=graph-rest-beta) e as [verificações de autorização de permissão de aplicativo e função](/graph/api/resources/accessreviews-root?view=graph-rest-beta) para interagir com e gerenciar recursos reviewáveis. Os métodos de revisões de acesso na API Microsoft Graph estão disponíveis para contextos de aplicativo e de usuário. Ao executar scripts no contexto do aplicativo, a conta usada para executar a API (a entidade de serviço) deve receber a permissão "AccessReview. Read. All" para consultar informações de revisões de acesso.
 
 As tarefas populares de revisões de acesso para automatizar o uso do API do Graph para revisões de acesso são:
 
@@ -519,4 +519,3 @@ Saiba mais sobre as tecnologias relacionadas abaixo.
 
 * [O que é o Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
 
- 

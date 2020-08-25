@@ -10,12 +10,12 @@ ms.date: 07/29/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e7bb996b3d42e2db2b4fa65d050ec1cb6a935bc6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 2439bec08c16ce109b271844dc72b8fd2569aa07
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533369"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755901"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Impor uma versão mínima necessária da TLS (segurança da camada de transporte) para solicitações a uma conta de armazenamento
 
@@ -338,6 +338,10 @@ Depois de criar a política com o efeito de negação e atribuí-la a um escopo,
 A imagem a seguir mostra o erro que ocorre se você tentar criar uma conta de armazenamento com a versão mínima do TLS definida como TLS 1,0 (o padrão para uma nova conta) quando uma política com um efeito de negação exigir que a versão mínima do TLS seja definida como TLS 1,2.
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Captura de tela mostrando o erro que ocorre ao criar uma conta de armazenamento em violação de política":::
+
+## <a name="network-considerations"></a>Considerações de rede
+
+Quando um cliente envia uma solicitação para a conta de armazenamento, o cliente estabelece uma conexão com o ponto de extremidade público da conta de armazenamento primeiro, antes de processar qualquer solicitação. A configuração de versão mínima do TLS é verificada depois que a conexão é estabelecida. Se a solicitação usar uma versão anterior do TLS do que a especificada pela configuração, a conexão continuará a ser bem-sucedida, mas a solicitação eventualmente falhará. Para obter mais informações sobre pontos de extremidade públicos para o armazenamento do Azure, consulte [sintaxe de URI de recurso](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#resource-uri-syntax).
 
 ## <a name="next-steps"></a>Próximas etapas
 

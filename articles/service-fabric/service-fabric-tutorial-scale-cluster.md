@@ -4,12 +4,12 @@ description: Neste tutorial, você aprenderá a reduzir horizontalmente e expand
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 05fd29f874d59601942216f907010b94bb7c4058
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d9699103f5e13301cce408d2e54f0e15780e0a35
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257097"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716870"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
 
@@ -833,7 +833,7 @@ Foreach($node in $nodes)
 ```
 
 ## <a name="increase-node-resources"></a>Aumentar os recursos do nó 
-Após criar um cluster do Service Fabric, será possível dimensionar verticalmente um tipo de nó de cluster (alterar os recursos dos nós) ou atualizar o sistema operacional das VMs do tipo de nó substituindo o tipo de nó original por um novo tipo de nó (com o SKU da VM atualizado ou a imagem do sistema operacional). Para obter mais detalhes, confira [Escalar verticalmente um tipo de nó do Azure Service Fabric](service-fabric-scale-up-node-type.md).
+Após criar um cluster do Service Fabric, será possível dimensionar verticalmente um tipo de nó de cluster (alterar os recursos dos nós) ou atualizar o sistema operacional das VMs do tipo de nó substituindo o tipo de nó original por um novo tipo de nó (com o SKU da VM atualizado ou a imagem do sistema operacional). Para obter mais detalhes, confira [Escalar verticalmente um tipo de nó do Azure Service Fabric](service-fabric-scale-up-primary-node-type.md).
 
 > [!IMPORTANT]
 > Nunca tente uma alteração in-loco do SKU da VM ou da imagem do sistema operacional, pois essa é uma operação perigosa e sem suporte.

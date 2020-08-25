@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9d4f293f3835e26def97aa2f52dd0c42d9137c7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a98ff68500593c644e6f0fa5eacb338ab90f5604
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421715"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795396"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gerenciar contas de acesso de emergência no Microsoft Azure Active Directory
 
@@ -44,7 +44,7 @@ Crie duas ou mais contas de acesso de emergência. Elas devem ser contas somente
 Ao configurar essas contas, os seguintes requisitos devem ser atendidos:
 
 - As contas de emergência não devem ser associadas a nenhum usuário individual na organização. Certifique-se de que suas contas não estejam conectadas a nenhum telefone celular fornecido pelo funcionário, tokens de hardware que viajam com funcionários específicos ou outras credenciais específicas do funcionário. Essa precaução abrange instâncias em que um funcionário individual está inacessível quando a credencial é necessária. É importante garantir que todos os dispositivos registrados sejam mantidos em uma localização segura e conhecida que tenha vários meios de comunicação com o Azure AD.
-- O mecanismo de autenticação usado para uma conta de acesso de emergência deve ser diferente do usado por outras contas administrativas, incluindo outras contas de acesso de emergência.  Por exemplo, se sua entrada normal no administrador é por meio da Autenticação Multifator do Microsoft Azure (MFA) local, o Azure MFA seria um mecanismo diferente.  No entanto, se Azure MFA é a parte primária de autenticação para suas contas administrativas, considere uma abordagem diferente para elas, como o uso de Acesso Condicional com um provedor MFA de terceiros via [Controles personalizados](https://docs.microsoft.com/azure/active-directory/conditional-access/controls).
+- O mecanismo de autenticação usado para uma conta de acesso de emergência deve ser diferente do usado por outras contas administrativas, incluindo outras contas de acesso de emergência.  Por exemplo, se sua entrada normal no administrador é por meio da Autenticação Multifator do Microsoft Azure (MFA) local, o Azure MFA seria um mecanismo diferente.  No entanto, se Azure MFA é a parte primária de autenticação para suas contas administrativas, considere uma abordagem diferente para elas, como o uso de Acesso Condicional com um provedor MFA de terceiros via [Controles personalizados](../conditional-access/controls.md).
 - O dispositivo ou a credencial não deve expirar ou estar no escopo de limpeza automatizado devido à falta de uso.  
 - A atribuição de função de Administrador Global deve ser permanente para suas contas de acesso de emergência. 
 
@@ -74,7 +74,7 @@ As organizações devem monitorar a atividade de entrada e log de auditoria das 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. [Enviar logs de entrada do Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) para o Azure Monitor.
+1. [Enviar logs de entrada do Azure AD](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) para o Azure Monitor.
 
 ### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>Obter IDs de objeto das contas de interrupção
 
@@ -156,5 +156,5 @@ Essas etapas devem ser realizadas em intervalos regulares e para alterações de
 - [Adicionar um usuário usando o Microsoft Azure Active Directory](../fundamentals/add-users-azure-active-directory.md) e [atribuir ao novo usuário à função de administrador global](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 - [Inscreva-se no Azure AD Premium](../fundamentals/active-directory-get-started-premium.md), se você ainda não tiver se inscrito
 - [Como exigir a verificação em duas etapas para um usuário](../authentication/howto-mfa-userstates.md)
-- [Configurar proteções adicionais para administradores globais no Microsoft 365](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts), se você estiver usando Microsoft 365
+- [Configurar proteções adicionais para administradores globais no Microsoft 365](/office365/enterprise/protect-your-global-administrator-accounts), se você estiver usando Microsoft 365
 - [Executar uma análise de acesso de Administradores Globais](../privileged-identity-management/pim-how-to-start-security-review.md) e [transicionar os Administradores Globais existentes para funções de administrador mais específicas](directory-assign-admin-roles.md)

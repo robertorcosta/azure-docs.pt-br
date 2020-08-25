@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: 1d11318d2af640a0cf417286ee777ce833297a4f
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: f9c5b8ae16cb43576d788f72478e2cfba521a736
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873595"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749878"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configure os clusters no HDInsight com o Apache Hadoop, o Apache Spark, o Apache Kafka e muito mais
 
@@ -32,7 +32,7 @@ Se você estiver usando vários clusters juntos, desejará criar uma rede virtua
 
 A tabela a seguir mostra os diferentes métodos que você pode usar para configurar um cluster HDInsight.
 
-| Clusters criados com | Navegador da Web | Linha de comando | API REST | . |
+| Clusters criados com | Navegador da Web | Linha de Comando | API REST | . |
 | --- |:---:|:---:|:---:|:---:|
 | [Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
@@ -43,7 +43,7 @@ A tabela a seguir mostra os diferentes métodos que você pode usar para configu
 
 Este artigo orienta você pela instalação no [portal do Azure](https://portal.azure.com), onde você pode criar um cluster HDInsight.
 
-## <a name="basics"></a>Básico
+## <a name="basics"></a>Noções básicas
 
 ![início rápido personalizado de opções de criação do hdinsight](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
 
@@ -97,13 +97,13 @@ Com os clusters HDInsight, você pode configurar duas contas de usuário durante
 
 O nome de usuário HTTP tem as seguintes restrições:
 
-* Caracteres especiais permitidos: `_` e`@`
+* Caracteres especiais permitidos: `_` e `@`
 * Caracteres não permitidos: #;. "', \/ : '! *? $ () {} [] <>|&--= +% ~ ^ espaço
 * Comprimento máximo: 20
 
 O nome de usuário do SSH tem as seguintes restrições:
 
-* Caracteres especiais permitidos: `_` e`@`
+* Caracteres especiais permitidos: `_` e `@`
 * Caracteres não permitidos: #;. "', \/ : '! *? $ () {} [] <>|&--= +% ~ ^ espaço
 * Comprimento máximo: 64
 * Nomes reservados: Hadoop, usuários, oozie, Hive, mapred, ambari-QA, Zookeeper, tez, HDFS, sqoop, yarn, hcat, AMS, HBase, Storm, administrador, admin, usuário, Usuário1, teste, Usuário2, Test1, usuário3, admin1, 1, 123, a, actuser, ADM, admin2, ASPNET, backup, console, David, convidado, John, proprietário, test3,, Spark, suporte, support_388945a0, sys, test2, User4,, User5,
@@ -133,6 +133,9 @@ Durante a configuração, para o ponto de extremidade de armazenamento padrão, 
 
 > [!IMPORTANT]
 > Habilitar a transferência de armazenamento seguro depois de criar um cluster pode resultar em erros ao usar sua conta de armazenamento e não é recomendado. É melhor criar um novo cluster usando uma conta de armazenamento com a transferência segura já habilitada.
+
+> [!Note]  
+> O Azure HDInsight não transfere, move ou copia automaticamente os dados armazenados no armazenamento do Azure de uma região para outra.
 
 ### <a name="metastore-settings"></a>Configurações de metastore
 
