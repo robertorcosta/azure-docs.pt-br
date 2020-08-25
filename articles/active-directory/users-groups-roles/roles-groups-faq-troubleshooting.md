@@ -13,14 +13,14 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84bf041f64a2f85f3aa3eada1dc1955c93dc034a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a3f2a23da5baa3a5d1955b10d18411fcedc3acd1
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208187"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798288"
 ---
-# <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Solucionando problemas de funções atribuídas a grupos de nuvem
+# <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Solução de problemas de funções atribuídas a grupos de nuvem
 
 Aqui estão algumas perguntas comuns e dicas de solução de problemas para atribuir funções a grupos no Azure Active Directory (AD do Azure).
 
@@ -40,8 +40,8 @@ Aqui estão algumas perguntas comuns e dicas de solução de problemas para atri
 
 **R:** O usuário pode ser um proprietário de um grupo de função atribuível. Protegemos os proprietários de grupos de função atribuíveis para evitar a elevação de privilégio. Um exemplo pode ser se um grupo Contoso_Security_Admins for atribuído à função de administrador de segurança, onde Bob é o proprietário do grupo e Alice é administrador de senha na organização. Se essa proteção não estivesse presente, Alice poderia redefinir as credenciais de Bob e assumir sua identidade. Depois disso, Alice poderia adicionar a si mesmo ou qualquer pessoa ao grupo Contoso_Security_Admins grupo para se tornar um administrador de segurança na organização. Para descobrir se um usuário é um proprietário de grupo, obtenha a lista de objetos de propriedade desse usuário e veja se algum dos grupos tem isAssignableToRole definido como true. Em caso afirmativo, esse usuário será protegido e o comportamento será por design. Consulte estas documentações para obter objetos de propriedade:
 
-- [Get-AzureADUserOwnedObject](https://docs.microsoft.com/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
-- [Listar ownedObjects](https://docs.microsoft.com/graph/api/user-list-ownedobjects?view=graph-rest-1.0&tabs=http)
+- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
+- [Listar ownedObjects](/graph/api/user-list-ownedobjects?tabs=http&view=graph-rest-1.0)
 
 **P:** Posso criar uma revisão de acesso em grupos que podem ser atribuídos às funções do Azure AD (especificamente, grupos com a propriedade isAssignableToRole definida como true)?  
 

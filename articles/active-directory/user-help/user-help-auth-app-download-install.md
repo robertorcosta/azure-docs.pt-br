@@ -12,17 +12,17 @@ ms.topic: end-user-help
 ms.date: 05/31/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: d4053d4979861146705489dc02e628f03f3c4d85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5aac6c0b903a3b2adf481a2c63847272122ce2d7
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266212"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798968"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Baixar e instalar o aplicativo Microsoft Authenticator
 
 >[!Important]
->Este conteúdo destina-se aos usuários. Se você for um administrador, poderá encontrar mais informações sobre como configurar e gerenciar seu ambiente Azure Active Directory (AD do Azure) na [documentação administrativa do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>Este conteúdo destina-se aos usuários. Se você for um administrador, poderá encontrar mais informações sobre como configurar e gerenciar seu ambiente Azure Active Directory (AD do Azure) na [documentação administrativa do Azure Active Directory](../index.yml).
 >
 > Caso esteja tendo problemas ao entrar em sua conta, confira [Quando você não consegue entrar em sua conta Microsoft](https://support.microsoft.com/help/12429) para obter ajuda.  Além disso, você pode obter mais informações sobre o que fazer ao receber a mensagem ["esse conta Microsoft não existe"](https://support.microsoft.com/help/13811) ao tentar entrar no seu conta Microsoft.
 

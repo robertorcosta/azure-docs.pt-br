@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/22/2020
-ms.openlocfilehash: 0499d52a6fe3da7349d31748ca3b5add16369571
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/24/2020
+ms.openlocfilehash: 1e66774d4239bdad6c8af426a28af6081bb0da3c
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137647"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782168"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Módulo de árvore de decisão aumentada de duas classes
 
@@ -22,9 +22,11 @@ Este artigo descreve um módulo no designer do Azure Machine Learning (versão p
 
 Use este módulo para criar um modelo de aprendizado de máquina baseado no algoritmo árvores de decisão aumentada. 
 
-Uma árvore de decisão aumentada é um método de aprendizado Ensemble no qual a segunda árvore corrige os erros da primeira árvore, a terceira árvore corrige os erros da primeira e segunda árvores e assim por diante.  As previsões são baseadas em toda a Ensemble de árvores juntas que faz a previsão.
+Uma árvore de decisão aumentada é um método de aprendizado Ensemble no qual a segunda árvore corrige os erros da primeira árvore, a terceira árvore corrige os erros da primeira e segunda árvores e assim por diante. As previsões são baseadas em toda a Ensemble de árvores juntas que faz a previsão.
   
 Geralmente, quando configuradas corretamente, as árvores de decisão aumentadas são os métodos mais fáceis com os quais obter o melhor desempenho em uma ampla variedade de tarefas de aprendizado de máquina. No entanto, eles também são um dos mais aprendizes com uso intensivo de memória e a implementação atual contém tudo na memória. Portanto, um modelo de árvore de decisão impulsionado pode não ser capaz de processar os grandes conjuntos de altos que alguns aprendizes lineares podem manipular.
+
+Este módulo é baseado no algoritmo LightGBM.
 
 ## <a name="how-to-configure"></a>Como configurar
 

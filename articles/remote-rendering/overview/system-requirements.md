@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 9754636063e29592595ee57d09164ae1134341a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81480bea735017d3fc59e9c6cf126c2146a0c968
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300599"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798458"
 ---
 # <a name="system-requirements"></a>Requisitos do sistema
 
@@ -24,7 +24,7 @@ Este capítulo lista os requisitos mínimos do sistema para trabalhar com a *ren
 
 * Windows 10 versão 1903 ou superior.
 * Drivers gráficos atualizados.
-* Opcional: decodificador de vídeo de hardware H265, se você quiser usar a visualização local do conteúdo renderizado remotamente (por exemplo, no Unity).
+* Opcional: [decodificador de vídeo de hardware H265](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7), se você quiser usar a visualização local do conteúdo renderizado remotamente (por exemplo, no Unity).
 
 > [!IMPORTANT]
 > O Windows Update nem sempre fornece os drivers de GPU mais recentes, verifique o site do fabricante da GPU para obter os drivers mais recentes:
@@ -52,7 +52,7 @@ A renderização remota do Azure atualmente dá suporte apenas ao **HoloLens 2**
 1. Inicie o **Microsoft Store**.
 1. Clique no botão **"..."** no canto superior direito.
 1. Selecione **downloads e atualizações**.
-1. Pesquise a lista de **extensões de vídeo HEVC do fabricante do dispositivo**.
+1. Pesquise a lista de **extensões de vídeo HEVC do fabricante do dispositivo**. Se esse item não estiver listado em atualizações, a versão mais recente já estará instalada.
 1. Verifique se o codec listado tem pelo menos a versão **1.0.21821.0**.
 1. Clique no botão **obter atualizações** e aguarde a instalação.
 
@@ -74,7 +74,7 @@ O seguinte software deve ser instalado:
   * **Desenvolvimento da UWP (Plataforma Universal do Windows)**
 * **SDK do Windows 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * **Git** [(download)](https://git-scm.com/downloads)
-* Opcional: para exibir o fluxo de vídeo do servidor em um computador desktop, você precisa das **extensões de vídeo HEVC** [(link Microsoft Store)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7).
+* Opcional: para exibir o fluxo de vídeo do servidor em um computador desktop, você precisa das **extensões de vídeo HEVC** [(link Microsoft Store)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7). Verifique se a versão mais recente está instalada verificando se há atualizações na loja.
 
 ## <a name="unity"></a>Unity
 

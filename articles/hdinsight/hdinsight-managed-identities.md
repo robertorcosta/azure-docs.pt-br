@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 1081865a2e138af38ba171197719f08dedf6ffdb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07a8c26f7fc314680c51270ebafe03d4e3a84757
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81408935"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749849"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identidades gerenciadas no Azure HDInsight
 
@@ -25,7 +25,9 @@ Há dois tipos de identidades gerenciadas: atribuído pelo usuário e atribuído
 
 ## <a name="hdinsight-managed-identity-implementation"></a>Implementação de identidade gerenciada do HDInsight
 
-No Azure HDInsight, as identidades gerenciadas são provisionadas em cada nó do cluster. No entanto, esses componentes de identidade só podem ser usados pelo serviço HDInsight. Atualmente, não há um método com suporte para gerar tokens de acesso usando as identidades gerenciadas instaladas em nós de cluster HDInsight. Para alguns serviços do Azure, as identidades gerenciadas são implementadas com um ponto de extremidade que você pode usar para adquirir tokens de acesso. Use os tokens para interagir com outros serviços do Azure por conta própria.
+No Azure HDInsight, as identidades gerenciadas só são utilizáveis pelo serviço HDInsight para componentes internos. Atualmente, não há um método com suporte para gerar tokens de acesso usando as identidades gerenciadas instaladas em nós de cluster HDInsight para acessar serviços externos. Para alguns serviços do Azure, como VMs de computação, as identidades gerenciadas são implementadas com um ponto de extremidade que você pode usar para adquirir tokens de acesso. Este ponto de extremidade não está disponível no momento em nós do HDInsight.
+
+Se você precisar inicializar seus aplicativos para evitar colocar segredos/senhas nos trabalhos de análise (por exemplo, trabalhos ESCALAres), poderá distrubte seus próprios certificados para os nós de cluster usando as ações de script e, em seguida, usar esse certificado para obtenção um token de acesso (por exemplo, para acessar o Azure keyvault).
 
 ## <a name="create-a-managed-identity"></a>Criar uma identidade gerenciada
 

@@ -11,18 +11,18 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 04/07/2020
 ms.author: curtand
-ms.openlocfilehash: 7de8a5bcc2f7883b00ec25e2674b1dc6bd6871c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: 016e0de26bf3a9513940be161cfecf6d1c2b9d02
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747281"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798492"
 ---
 # <a name="set-up-your-security-info-from-a-sign-in-prompt"></a>Configurar as informações de segurança de um prompt de entrada
 
 Você poderá seguir estas etapas se for solicitado a você que configure suas informações de segurança imediatamente após entrar na sua conta corporativa ou de estudante.
 
-Você verá esse prompt apenas se não tiver configurado as informações de segurança exigidas pela sua organização. Se já tiver configurado suas informações de segurança mas quiser fazer alterações, você poderá seguir as etapas nos diversos artigos explicativos baseados em método. Para obter mais informações, confira [Adicionar ou atualizar sua visão de geral de informações de segurança](security-info-add-update-methods-overview.md).
+Você verá esse prompt apenas se não tiver configurado as informações de segurança exigidas pela sua organização. Se já tiver configurado suas informações de segurança mas quiser fazer alterações, você poderá seguir as etapas nos diversos artigos explicativos baseados em método. Para obter mais informações, confira [Adicionar ou atualizar sua visão de geral de informações de segurança](./security-info-setup-auth-app.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 

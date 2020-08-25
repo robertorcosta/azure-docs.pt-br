@@ -3,12 +3,12 @@ title: Use o Armazenamento de Backup Moderno com o Servidor de Backup do Azure
 description: Conheça os novos recursos do Servidor de Backup do Azure. Este artigo descreve como atualizar sua instalação do servidor de Backup.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: ee55355b0f2cabe97f5d2a838edcbd5cfddf44e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5c7533a5ee2fc65beb86c0c803a522e0acb1df6d
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513703"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762429"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adicionar armazenamento ao Servidor de Backup do Azure
 
@@ -18,7 +18,7 @@ O Servidor de Backup do Azure V2 (ou posterior) é compatível com o Armazenamen
 > Para usar o Armazenamento de Backup Moderno, você deve executar o Servidor de Backup V2 ou V3 no Windows Server 2016 ou V3 no Windows Server 2019.
 > Se você executar o Backup Server V2 em uma versão anterior do Windows Server, o Servidor de Backup do Azure não poderá aproveitar o Armazenamento de Backup Moderno. Em vez disso, ele protege as cargas de trabalho como acontece com o Backup Server V1. Para obter mais informações, consulte a versão do servidor de Backup [matriz proteção](backup-mabs-protection-matrix.md).
 >
-> Para obter desempenho de backup aprimorado, recomendamos implantar o MABS v3 com armazenamento em camadas no Windows Server 2019. Veja o artigo do DPM "[Configurar MBS com armazenamento em camadas](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" para obter as etapas para configurar o armazenamento em camadas.
+> Para obter desempenho de backup aprimorado, recomendamos implantar o MABS v3 com armazenamento em camadas no Windows Server 2019. Consulte o artigo do DPM "[Configurar MBS com armazenamento em camadas](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)" para obter as etapas para configurar o armazenamento em camadas.
 
 ## <a name="volumes-in-backup-server"></a>Volumes no servidor de Backup
 
@@ -38,7 +38,7 @@ Usar o Backup Server V2 ou posterior com volumes como armazenamento em disco pod
 
 1. Em Gerenciador do servidor, selecione **serviços de arquivo e armazenamento**  >  **volumes**  >  **pools de armazenamento**. Em **DISCOS FÍSICOS**, selecione **novo Pool de armazenamento**.
 
-    ![Crie um novo pool de armazenamento](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
+    ![Criar novo pool de armazenamento](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
 2. Em **TAREFAS** caixa suspensa, selecione **novo Disco Virtual**.
 

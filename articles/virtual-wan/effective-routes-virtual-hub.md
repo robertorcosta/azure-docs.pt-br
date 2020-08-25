@@ -7,42 +7,29 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: a7e42ddeb4abacd8707dda4cd558933b0d7a34f4
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 0f5481531d23eeb579dcabe80e028ed7b482b09f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513699"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762259"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>Exibir rotas efetivas do hub virtual
 
 Você pode exibir todas as rotas do seu hub de WAN virtual no portal do Azure. Este artigo orienta você pelas etapas para exibir rotas efetivas. Para obter mais informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
 
-> [!NOTE]
-> No portal do Azure, alguns desses recursos ainda poderão ser distribuídos e não estarão disponíveis até a semana de 17 de agosto. 
->
-
 ## <a name="select-connections-or-route-tables"></a><a name="routing"></a>Selecionar conexões ou tabelas de rotas
 
 1. Navegue até o Hub virtual e selecione **Roteamento**. Na página roteamento, selecione **rotas efetivas**.
-1. No menu suspenso, você pode selecionar o **tipo de conexão** ou uma tabela de **rotas**. Se você não vir uma opção de tabela de rotas, isso significa que você não tem uma tabela de rotas personalizada ou padrão configurada nesse Hub virtual.
-1. No menu suspenso de **conexões/tabelas de rotas**, você pode selecionar um dos seguintes itens:
-
-   * Conexão de rede virtual
-   * Conexão de site VPN
-   * Conexão ExpressRoute
-   * Conexão ponto a site
-   * Tabela de rotas
-
-   :::image type="content" source="./media/effective-routes-virtual-hub/routing.png" alt-text="Roteiros":::
+1. No menu suspenso, você pode selecionar **tabela de rotas**. Se você não vir uma opção de tabela de rotas, isso significa que você não tem uma tabela de rotas personalizada ou padrão configurada nesse Hub virtual.
 
 ## <a name="view-output"></a><a name="output"></a>Exibir saída
 
 A saída da página mostra os seguintes campos:
 
-* **Prefixo**: prefixo de endereço conhecido pela entidade atual.
+* **Prefixo**: prefixo de endereço conhecido para a entidade atual (Aprenda com o roteador do Hub virtual)
 * **Tipo do próximo salto**: pode ser conexão de rede Virtual, VPN_S2S_Gateway, ExpressRouteGateway, Hub remoto ou firewall do Azure.
-* **Próximo salto**: esse é o IP ou simplesmente mostra o no link para implicar o Hub atual.
+* **Próximo salto**: esse é o link para a ID de recurso do próximo salto ou simplesmente mostra no link para implicar o Hub atual.
 * **Origem**: a ID de recurso da fonte de roteamento.
 * **Como caminho**: o atributo BGP como caminho (sistema autônomo) lista todos os números de as que precisam ser percorridos para alcançar o local onde o prefixo ao qual o caminho está anexado, é anunciado.
 
@@ -54,13 +41,15 @@ Use a barra de rolagem na parte inferior da tabela para exibir o "caminho AS".
 
 | **Prefix** |  **Tipo do próximo salto** | **Próximo salto** |  **Origem da rota** |**Caminho AS** |
 | ---        | ---                | ---          | ---               | ---         |
-| 10.2.0.0/24| VPN_S2S_Gateway |10.1.0.6, 10.1.0.7|/subscriptions/ `<sub id>` /ResourceGroups/ `<resource group name>` /Providers/Microsoft.Network/vpnGateways/vpngw| 20000|
+| 10.2.0.0/24| VPN_S2S_Gateway |/subscriptions/ `<sub id>` /ResourceGroups/ `<resource group name>` /Providers/Microsoft.Network/vpnGateways/vpngw|/subscriptions/ `<sub id>` /ResourceGroups/ `<resource group name>` /Providers/Microsoft.Network/vpnGateways/vpngw| 20000|
 
 **Considerações:**
 
 * Se você vir 0.0.0.0/0 na saída **obter rotas efetivas** , ele implica que a rota existe em uma das tabelas de rotas. No entanto, se essa rota foi configurada para Internet, um sinalizador adicional **"enableInternetSecurity": true** é necessário na conexão. A rota efetiva na NIC da VM não mostrará a rota se o sinalizador "enableInternetSecurity" na conexão for "false".
 
 * O campo **propagar a rota padrão** é visto no portal de WAN virtual do Azure quando você edita uma conexão de rede virtual, uma conexão VPN ou uma conexão de ExpressRoute. Esse campo indica o sinalizador **enableInternetSecurity** , que é sempre por padrão "false" para conexões de EXPRESSROUTE e VPN, mas "true" para conexões de rede virtual.
+
+* Ao exibir rotas efetivas em uma NIC de VM, se você vir o próximo salto como "gateway de rede virtual", isso implica o roteador do Hub virtual quando a VM está em um spoke conectado a um hub de WAN virtual.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -6,18 +6,18 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 07/31/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a216714939dc45fd1b220f24414a527969ab7fcb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a506f59d3f2d331e4c7680565f3c110b9cd12956
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029546"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799155"
 ---
-# <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente com o Azure Key Vault usando o portal do Azure
+# <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente com o Azure Key Vault, usando o portal do Azure
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
@@ -45,11 +45,11 @@ Para habilitar as chaves gerenciadas pelo cliente no portal do Azure, siga estas
 
 ## <a name="specify-a-key"></a>Especificar uma chave
 
-Depois de habilitar as chaves gerenciadas pelo cliente, você terá a oportunidade de especificar uma chave a ser associada à conta de armazenamento. Você também pode indicar se o armazenamento do Azure deve girar automaticamente a chave gerenciada pelo cliente ou se você vai girar a chave manualmente.
+Depois de habilitar as chaves gerenciadas pelo cliente, você terá a oportunidade de especificar uma chave a ser associada à conta de armazenamento. Você também pode indicar se o armazenamento do Azure deve atualizar automaticamente a chave gerenciada pelo cliente para a versão mais recente ou se você atualizará a versão de chave manualmente.
 
 ### <a name="specify-a-key-from-a-key-vault"></a>Especificar uma chave de um cofre de chaves
 
-Quando você seleciona uma chave gerenciada pelo cliente de um cofre de chaves, a rotação automática da chave é habilitada automaticamente. Para gerenciar manualmente a versão da chave, especifique o URI da chave e inclua a versão da chave. Para obter mais informações, consulte [especificar uma chave como um URI](#specify-a-key-as-a-uri).
+Quando você seleciona uma chave gerenciada pelo cliente de um cofre de chaves, a atualização automática da versão de chave é habilitada. Para gerenciar manualmente a versão da chave, especifique o URI da chave e inclua a versão da chave. Para obter mais informações, consulte [especificar uma chave como um URI](#specify-a-key-as-a-uri).
 
 Para especificar uma chave de um cofre de chaves, siga estas etapas:
 
@@ -60,11 +60,16 @@ Para especificar uma chave de um cofre de chaves, siga estas etapas:
 
    ![Captura de tela mostrando como selecionar o cofre de chaves e a chave](./media/storage-encryption-keys-portal/portal-select-key-from-key-vault.png)
 
-1. Salve as alterações.
+1. Salve suas alterações.
 
 ### <a name="specify-a-key-as-a-uri"></a>Especificar uma chave como URI
 
-Ao especificar o URI da chave, omita a versão da chave para habilitar a rotação automática da chave gerenciada pelo cliente. Se você incluir a versão de chave no URI de chave, a rotação automática não estará habilitada e você deverá gerenciar a versão de chave por conta própria. Para obter mais informações sobre como atualizar a versão da chave, consulte [atualizar manualmente a versão da chave](#manually-update-the-key-version).
+O armazenamento do Azure pode atualizar automaticamente a chave gerenciada pelo cliente que é usada para criptografia para usar a versão de chave mais recente. Quando a chave gerenciada pelo cliente é girada no Azure Key Vault, o armazenamento do Azure começará automaticamente a usar a versão mais recente da chave para criptografia.
+
+> [!NOTE]
+> Para girar uma chave, crie uma nova versão da chave em Azure Key Vault. O armazenamento do Azure não manipula a rotação da chave no Azure Key Vault, portanto, você precisará girar a chave manualmente ou criar uma função para girá-la em um agendamento.
+
+Quando você especifica o URI de chave, omita a versão de chave do URI para habilitar a atualização automática para a versão de chave mais recente. Se você incluir a versão de chave no URI de chave, a atualização automática não estará habilitada e você deverá gerenciar a versão de chave por conta própria. Para obter mais informações sobre como atualizar a versão da chave, consulte [atualizar manualmente a versão da chave](#manually-update-the-key-version).
 
 Para especificar uma chave como um URI, siga estas etapas:
 
@@ -74,26 +79,26 @@ Para especificar uma chave como um URI, siga estas etapas:
     ![Captura de tela mostrando o URI da chave do Key Vault](media/storage-encryption-keys-portal/portal-copy-key-identifier.png)
 
 1. Nas configurações de **chave de criptografia** para sua conta de armazenamento, escolha a opção **inserir URI de chave** .
-1. Cole o URI que você copiou no campo **URI da chave** . Omita a versão de chave do URI para habilitar a rotação automática.
+1. Cole o URI que você copiou no campo **URI da chave** . Omita a versão de chave do URI para habilitar a atualização automática da versão de chave.
 
    ![Captura de tela mostrando como inserir o URI da chave](./media/storage-encryption-keys-portal/portal-specify-key-uri.png)
 
 1. Especifique a assinatura que contém o cofre de chaves.
-1. Salve as alterações.
+1. Salve suas alterações.
 
-Depois de especificar a chave, o portal do Azure indica se a rotação de chaves automática está habilitada e exibe a versão de chave atualmente em uso para criptografia.
+Depois de especificar a chave, o portal do Azure indica se a atualização automática da versão de chave está habilitada e exibe a versão de chave atualmente em uso para criptografia.
 
-:::image type="content" source="media/storage-encryption-keys-portal/portal-auto-rotation-enabled.png" alt-text="Captura de tela mostrando a rotação automática de chaves gerenciadas pelo cliente habilitada":::
+:::image type="content" source="media/storage-encryption-keys-portal/portal-auto-rotation-enabled.png" alt-text="Captura de tela mostrando a atualização automática da versão de chave habilitada":::
 
 ## <a name="manually-update-the-key-version"></a>Atualizar manualmente a versão de chave
 
-Por padrão, o armazenamento do Azure gira automaticamente as chaves gerenciadas pelo cliente para você, conforme descrito nas seções anteriores. Se você optar por gerenciar a versão de chave por conta própria, deverá atualizar a versão de chave especificada para a conta de armazenamento sempre que criar uma nova versão da chave.
+Por padrão, quando você cria uma nova versão de uma chave gerenciada pelo cliente no Key Vault, o armazenamento do Azure usa automaticamente a nova versão para criptografia com chaves gerenciadas pelo cliente, conforme descrito nas seções anteriores. Se você optar por gerenciar a versão de chave por conta própria, deverá atualizar a versão de chave que está associada à conta de armazenamento sempre que criar uma nova versão da chave.
 
 Para atualizar a conta de armazenamento para usar a nova versão de chave, siga estas etapas:
 
 1. Navegue até sua conta de armazenamento e exiba as configurações de **criptografia** .
-1. Insira o URI para a nova versão de chave. Como alternativa, você pode selecionar o cofre de chaves e a chave novamente para atualizar a versão.
-1. Salve as alterações.
+1. Insira o URI para a nova versão da chave. Como alternativa, você pode selecionar o cofre de chaves e a chave novamente para atualizar a versão.
+1. Salve suas alterações.
 
 ## <a name="switch-to-a-different-key"></a>Alternar para uma chave diferente
 
@@ -101,7 +106,7 @@ Para alterar a chave usada para a criptografia de armazenamento do Azure, siga e
 
 1. Navegue até sua conta de armazenamento e exiba as configurações de **criptografia** .
 1. Insira o URI para a nova chave. Como alternativa, você pode selecionar o cofre de chaves e escolher uma nova chave.
-1. Salve as alterações.
+1. Salve suas alterações.
 
 ## <a name="disable-customer-managed-keys"></a>Desabilitar chaves gerenciadas pelo cliente
 

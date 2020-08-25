@@ -2,18 +2,18 @@
 title: Tutorial para exportar dados do Azure Data Box | Microsoft Docs
 description: Conheça os pré-requisitos de implantação e como exportar dados de um Azure Data Box
 services: databox
-author: priestlg
+author: twooley
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.author: v-grpr
-ms.openlocfilehash: 5b17488ebab8dc29221723fabf8efe0c00467509
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.author: twooley
+ms.openlocfilehash: 0ddadd8d2bddda0fdff6a126fe6c09d863139b44
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209185"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783613"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Tutorial: criar ordem de exportação para Azure Data Box (versão prévia)
 
@@ -84,8 +84,8 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
     |Configuração  |Valor  |
     |---------|---------|
-    |Subscription     | A assinatura é preenchida automaticamente com base na sua seleção anterior.|
-    |Resource group | O grupo de recursos que você selecionou anteriormente. |
+    |Subscription     | A assinatura é preenchida automaticamente com base na seleção anterior.|
+    |Resource group | O grupo de recursos selecionado anteriormente. |
     |Nome da ordem de exportação     |  Forneça um nome amigável para acompanhar o pedido. <br> O nome pode ter entre 3 e 24 caracteres que podem ser letras, números e hífens. <br> O nome deve começar e terminar com uma letra ou um número.      |
 
     ![Noções básicas de ordem de exportação](media/data-box-deploy-export-ordered/azure-data-box-export-03.png)

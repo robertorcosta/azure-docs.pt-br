@@ -3,12 +3,12 @@ title: Fazer backup de um banco de dados SAP HANA no Azure com o Backup do Azure
 description: Neste artigo, saiba como fazer backup de um banco de dados SAP HANA em máquinas virtuais do Azure com o serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 0efd26272bbfc4c8f63f7f02a605d48e53577390
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: b4917129b7b6dd3799f5e79dab881a1bcaa130d5
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809129"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761654"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer backup de bancos de dados do SAP HANA em VMs do Azure
 
@@ -25,7 +25,7 @@ Neste artigo, você aprenderá a:
 > * Executar um trabalho de backup sob demanda
 
 >[!NOTE]
->A partir de 1º de agosto de 2020, o backup de SAP HANA para RHEL (7,4, 7,6, 7,7 & 8,1) está disponível para o público geral.
+>Desde 1º de agosto de 2020, o backup do SAP HANA para RHEL (7.4, 7.6, 7.7 e 8.1) está em disponibilidade geral.
 
 >[!NOTE]
 >**A exclusão temporária para o SQL Server na VM do Azure e a exclusão temporária para SAP HANA nas cargas de trabalho de VM do Azure** já estão disponíveis na versão prévia.<br>
@@ -67,7 +67,7 @@ Se você usar o NSG (grupo de segurança de rede), use a tag de serviço *AzureB
 
 1. Clique em **Adicionar** para salvar a regra de segurança de saída recém-criada.
 
-De maneira semelhante, é possível criar regras de segurança de saída de NSG para o Armazenamento do Azure e o Azure AD. Para obter mais informações sobre marcas de serviço, consulte [Este artigo](../virtual-network/service-tags-overview.md).
+De maneira semelhante, é possível criar regras de segurança de saída de NSG para o Armazenamento do Azure e o Azure AD. Para obter mais informações sobre as marcas de serviço, confira este [artigo](../virtual-network/service-tags-overview.md).
 
 #### <a name="azure-firewall-tags"></a>Marcas do Firewall do Azure
 

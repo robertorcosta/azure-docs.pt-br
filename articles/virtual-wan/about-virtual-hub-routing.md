@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3d680fb105b6bde26e5b02544359009f316647bb
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: f29a7e48fc1872f83b5a6ce127f38c1a559b2691
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513716"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762310"
 ---
 # <a name="about-virtual-hub-routing"></a>Sobre o roteamento de hub virtual
 
@@ -25,10 +25,6 @@ Para configurar o roteamento, consulte [como configurar o roteamento de Hub virt
 ## <a name="routing-concepts"></a><a name="concepts"></a>Conceitos de roteamento
 
 As seções a seguir descrevem os principais conceitos no roteamento de Hub virtual.
-
-> [!NOTE]
-> Alguns desses novos conceitos para tabela de rotas de Hub, associação, propagação e rotas estáticas em uma conexão de rede virtual ainda podem ser distribuídos e devem ser concluídos na semana de agosto de 17.
->
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Tabela de rotas do Hub
 
@@ -77,9 +73,9 @@ As tabelas de rotas agora têm recursos para associação e propagação. Uma ta
 
 * **Clientes de WAN virtual padrão com rotas pré-existentes no Hub virtual**:
 
-Para usar novos recursos de tabela de rotas, aguarde até a semana de 17 de agosto para que a distribuição seja concluída no Azure. Se você tiver rotas pré-existentes na seção de roteamento para o Hub no portal do Azure, você precisará primeiro excluí-las e, em seguida, tentar criar novas tabelas de rotas (disponíveis na seção de tabelas de rotas para o Hub em portal do Azure)
+Se você tiver rotas pré-existentes na seção de roteamento para o Hub no portal do Azure, você precisará primeiro excluí-las e, em seguida, tentar criar novas tabelas de rotas (disponíveis na seção de tabelas de rotas para o Hub em portal do Azure)
 
-* **Clientes básicos de WAN virtual com rotas pré-existentes no Hub virtual**: para usar os novos recursos de tabela de rotas, aguarde até a semana de 17 de agosto para que a distribuição seja concluída no Azure. Se você tiver rotas pré-existentes da seção Roteamento para o hub no portal do Azure, precisará primeiro excluí-las e depois **atualizar** sua WAN Virtual Básica para a WAN Virtual Standard. Confira [Atualizar uma WAN Virtual de Básica para Standard](upgrade-virtual-wan.md).
+* **Clientes básicos de WAN virtual com rotas pré-existentes no Hub virtual**: se você tiver rotas pré-existentes na seção de roteamento para o hub no portal do Azure, será necessário primeiro excluí-las e, em seguida, **Atualizar** sua Wan virtual básica para a WAN virtual padrão. Confira [Atualizar uma WAN Virtual de Básica para Standard](upgrade-virtual-wan.md).
 
 ## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>Considerações sobre roteamento de WAN virtual
 
@@ -89,6 +85,8 @@ Considere o seguinte ao configurar o roteamento de WAN virtual:
 * Todas as conexões de ramificação precisam propagar suas rotas para o mesmo conjunto de tabelas de rotas. Por exemplo, se você decidir que as ramificações devem ser propagadas para a tabela de rotas padrão, essa configuração deverá ser consistente em todas as ramificações. Como resultado, todas as conexões associadas à tabela de rotas padrão poderão alcançar todas as ramificações.
 * No momento, não há suporte para Branch a Branch por meio do firewall do Azure.
 * Ao usar o Firewall do Azure em várias regiões, todas as redes virtuais spoke devem ser associadas à mesma tabela de rotas. Por exemplo, ter um subconjunto do VNets passando pelo firewall do Azure enquanto outros VNets ignoram o Firewall do Azure no mesmo Hub virtual não é possível.
+* Um único IP do próximo salto pode ser configurado por conexão VNet.
+* O Hub virtual não dá suporte à rota estática para 0.0.0.0/0 e conexão de rede virtual do próximo salto (ou um IP de um dispositivo na conexão VNet)
 
 ## <a name="next-steps"></a>Próximas etapas
 

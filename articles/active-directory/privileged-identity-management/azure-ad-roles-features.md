@@ -14,12 +14,12 @@ ms.date: 07/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a286ed63d842dba08ad545b17498cb4000a5cf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c039842a04923bc02aa288576570d51c39156c40
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256621"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88784004"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Recursos de gerenciamento para funções do Azure AD no Privileged Identity Management
 
@@ -47,16 +47,16 @@ Também estamos adicionando novas configurações para as funções do Azure AD.
 
 ## <a name="extend-and-renew-assignments"></a>Estender e renovar atribuições
 
-Assim que você descobrir a atribuição de tempo limite, a primeira pergunta que você pode fazer é o que acontece se uma função tiver expirado? Nesta nova versão, fornecemos duas opções para este cenário:
+Assim que você descobrir a atribuição de tempo limite, a primeira pergunta que você pode fazer é o que acontece se uma função tiver expirado? Nesta nova versão, fornecemos duas opções para esse cenário:
 
 - **Estender**: quando uma atribuição de função se aproxima de sua expiração, o usuário pode usar Privileged Identity Management para solicitar uma extensão para essa atribuição de função
 - **Renovar**: quando uma atribuição de função tiver expirado, o usuário poderá usar Privileged Identity Management para solicitar uma renovação para essa atribuição de função
 
-As duas ações iniciadas pelo usuário exigem uma aprovação de um administrador global ou de um administrador de função com privilégios. Os administradores não precisarão mais estar no negócio de gerenciar essas expirações. Eles só precisam aguardar as solicitações de extensão ou renovação e aprová-las se a solicitação for válida.
+As duas ações iniciadas pelo usuário exigem uma aprovação de um Administrador global ou de um Administrador de funções com privilégios. Os administradores não precisarão mais se preocupar com o gerenciamento dessas expirações. Eles só precisam aguardar as solicitações de extensão ou renovação e aprová-las se a solicitação for válida.
 
 ## <a name="api-changes"></a>Alterações de API
 
-Quando os clientes tiverem a versão atualizada distribuída para sua organização do Azure AD, a API do Graph existente deixará de funcionar. Você deve fazer a transição para usar o [API do Graph para funções de recurso do Azure](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). Para gerenciar funções do Azure AD usando essa API, troque `/azureResources` com `/aadroles` na assinatura e use a ID de diretório para o `resourceId` .
+Quando os clientes tiverem a versão atualizada distribuída para sua organização do Azure AD, a API do Graph existente deixará de funcionar. Você deve fazer a transição para usar o [API do Graph para funções de recurso do Azure](/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). Para gerenciar funções do Azure AD usando essa API, troque `/azureResources` com `/aadroles` na assinatura e use a ID de diretório para o `resourceId` .
 
 Nós experimentamos o nosso melhor para entrar em contato com todos os clientes que estão usando a API anterior para que eles saibam sobre essa alteração antes do tempo. Se a sua organização do Azure AD foi movida para a nova versão e você ainda depende da API antiga, entre em contato com a equipe em pim_preview@microsoft.com .
 

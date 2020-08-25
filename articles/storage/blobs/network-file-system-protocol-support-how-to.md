@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: cb3cb41b46c2def4f99af7f1811e4ff96dff7070
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 985fbc70f15c0806c45ae43d62995590e10b1bb2
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167021"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798917"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montar o armazenamento de BLOBs usando o protocolo NFS (sistema de arquivos de rede) 3,0 (versão prévia)
 
@@ -98,8 +98,8 @@ Ao configurar a conta, escolha estes valores:
 |Replicação|Armazenamento com redundância local (LRS)|
 |Método de conectividade|Ponto de extremidade público (redes selecionadas) ou ponto de extremidade privado|
 |Transferência segura é necessária|Desabilitado|
-|Namespace hierárquico|habilitado|
-|NFS V3|habilitado|
+|Namespace hierárquico|Habilitada|
+|NFS V3|Habilitada|
 
 Você pode aceitar os valores padrão para todas as outras configurações. 
 
@@ -154,6 +154,15 @@ Crie um diretório em seu sistema Windows ou Linux e, em seguida, monte um cont�
 
    - Substitua o `<container-name>` espaço reservado pelo nome do seu contêiner.
 
+3. Se você precisar de permissões de gravação, talvez seja necessário alterar o UID e o GID padrão que o Windows usa para se conectar ao compartilhamento. Para fazer isso, execute os seguintes comandos do PowerShell como administrador:
+
+   ```
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUid -PropertyType DWord -Value 0
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGid -PropertyType DWord -Value 0
+   ```
+   
+   - Reinicie o serviço de cliente NFS ou reinicialize o servidor depois de fazer essa alteração.
+
 ---
 
 ## <a name="resolve-common-issues"></a>Resolver problemas comuns
@@ -163,7 +172,7 @@ Crie um diretório em seu sistema Windows ou Linux e, em seguida, monte um cont�
 |`Access denied by server while mounting`|Verifique se o cliente está sendo executado em uma sub-rede com suporte. Consulte os [locais de rede com suporte](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Verifique se o contêiner que você está montando foi criado após verificar se o recurso foi registrado. Consulte [etapa 2: verificar se o recurso está registrado](#step-2-verify-that-the-feature-is-registered). Além disso, certifique-se de digitar o comando mount e os parâmetros diretamente no terminal. Se você copiar e colar qualquer parte deste comando no terminal de outro aplicativo, os caracteres ocultos nas informações coladas poderão causar esse erro.|
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [Suporte ao protocolo NFS (sistema de arquivos de rede) 3,0 no armazenamento de BLOBs do Azure (versão prévia)](network-file-system-protocol-support.md)
 

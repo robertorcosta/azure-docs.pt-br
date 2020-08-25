@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e8cba89abd65844d238120726572481457f27cb
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 28125ff55fe6ab3e68d56dc26a074d0498c2b413
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706142"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798424"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restringir as permissões de acesso de convidado (versão prévia) no Azure Active Directory
 
@@ -50,11 +50,11 @@ Fizemos alterações nos controles de portal do Azure existentes para permissõe
 
     ![Página de configurações de colaboração externa do Azure AD](./media/users-restrict-guest-permissions/external-collaboration-settings.png)
 
-1. Clique em **Salvar**. As alterações podem levar até 15 minutos para entrar em vigor para os usuários convidados.
+1. Selecione **Salvar**. As alterações podem levar até 15 minutos para entrar em vigor para os usuários convidados.
 
 ## <a name="update-with-the-microsoft-graph-api"></a>Atualizar com a API de Microsoft Graph
 
-Adicionamos uma nova API de Microsoft Graph para configurar permissões de convidado em sua organização do Azure AD. As seguintes chamadas à API podem ser feitas para atribuir qualquer nível de permissão. O valor de guestUserRoleId usado aqui é ilustrar a configuração de usuário convidado mais restrita. Para obter mais informações sobre como usar o Microsoft Graph para definir permissões de convidado, consulte [tipo de recurso authorizationPolicy](https://docs.microsoft.com/graph/api/resources/authorizationpolicy).
+Adicionamos uma nova API de Microsoft Graph para configurar permissões de convidado em sua organização do Azure AD. As seguintes chamadas à API podem ser feitas para atribuir qualquer nível de permissão. O valor de guestUserRoleId usado aqui é ilustrar a configuração de usuário convidado mais restrita. Para obter mais informações sobre como usar o Microsoft Graph para definir permissões de convidado, consulte [tipo de recurso authorizationPolicy](/graph/api/resources/authorizationpolicy).
 
 ### <a name="configuring-for-the-first-time"></a>Configurando pela primeira vez
 
@@ -150,7 +150,7 @@ O serviço sem suporte atual pode ter problemas de compatibilidade com a nova co
 - Formulários
 - Planejador nas equipes
 - Aplicativo do Planner
-- Projeto
+- Project
 - Yammer
 
 ## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
@@ -168,5 +168,5 @@ Há algum requisito de licença para esse recurso? | Não, não há nenhum novo 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre as permissões de convidado existentes no Azure AD, consulte [quais são as permissões de usuário padrão no Azure Active Directory?](../fundamentals/users-default-permissions.md).
-- Para ver os métodos de API de Microsoft Graph para restringir o acesso de convidado, consulte [tipo de recurso authorizationPolicy](https://docs.microsoft.com/graph/api/resources/authorizationpolicy).
+- Para ver os métodos de API de Microsoft Graph para restringir o acesso de convidado, consulte [tipo de recurso authorizationPolicy](/graph/api/resources/authorizationpolicy).
 - Para revogar todo o acesso de um usuário, consulte [revogar o acesso do usuário no Azure ad](users-revoke-access.md).

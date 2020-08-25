@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: f06f8d3450f8907aa1be34b738565ac55e5e3d2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 160912ef53b5c079d026c5d16230f49eadf66366
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559143"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794430"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Conectar dados da proteção de informações do Azure
 
@@ -35,7 +35,7 @@ No entanto, se as informações de log da proteção de informações do Azure e
     
     Se você alterar o espaço de trabalho, novos dados de relatório para a proteção de informações do Azure agora serão armazenados no espaço de trabalho que você está usando para o Azure Sentinel, e os dados históricos não estarão disponíveis para o Azure Sentinel. Além disso, se o espaço de trabalho anterior estiver configurado para consultas personalizadas, alertas ou APIs REST, eles deverão ser reconfigurados para o espaço de trabalho do Azure Sentinel se você quiser usá-los para a proteção de informações do Azure. Nenhuma reconfiguração é necessária para clientes e serviços que usam a proteção de informações do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 - Uma das seguintes funções de administrador do Azure AD para seu locatário: 
     - Administrador da Proteção de Informações do Azure
@@ -57,15 +57,17 @@ No entanto, se as informações de log da proteção de informações do Azure e
 
 Use as instruções a seguir se você não tiver configurado um espaço de trabalho Log Analytics para a proteção de informações do Azure ou se precisar alterar o espaço de trabalho que armazena as informações de log da proteção de informações do Azure.
 
-1. No Azure Sentinel, selecione **conectores de dados**e, em seguida, **proteção de informações do Azure (versão prévia)**.
+1. No Azure Sentinel, selecione **conectores de dados**  >  **proteção de informações do Azure (versão prévia)**.
 
 2. Selecione a **página abrir conector**.
 
-3. Na folha **Configurar análise (versão prévia)** , selecione o espaço de trabalho que você está usando no momento para o Azure Sentinel. Se você selecionar um espaço de trabalho diferente, os dados de relatório da proteção de informações do Azure não estarão disponíveis para o Azure Sentinel.
+3. Em **configuração**, selecione **conectar logs da proteção de informações do Azure**.
 
-4. Quando você selecionar um espaço de trabalho, selecione **OK** e o **status** do conector agora deverá mudar para **conectado**.
+4. Na folha **Configurar análise (versão prévia)** , selecione o espaço de trabalho que você usa atualmente para o Azure Sentinel. Se você selecionar um espaço de trabalho diferente, os dados de relatório da proteção de informações do Azure não estarão disponíveis para o Azure Sentinel.
 
-5. Os dados de relatório da proteção de informações do Azure são armazenados na tabela de **InformationProtectionLogs_CL** dentro do espaço de trabalho selecionado. 
+5. Depois de selecionar um espaço de trabalho, selecione **OK**. O **status** do conector é alterado para **conectado**.
+
+6. Os dados de relatório da proteção de informações do Azure são armazenados na tabela **InformationProtectionLogs_CL** no espaço de trabalho selecionado. 
     
     Para usar o esquema relevante no Azure Monitor para esses dados de relatório, procure **InformationProtectionEvents**. Para obter informações sobre essas funções de evento, consulte a seção [referência de esquema amigável para funções de evento](https://docs.microsoft.com/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions) da documentação da proteção de informações do Azure.
 

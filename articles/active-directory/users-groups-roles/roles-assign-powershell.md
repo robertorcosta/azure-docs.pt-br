@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2180451a1d0c377af1e6c3e7377e64d9cb62ef8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 243bc48f7e84951c78ecab3e7f5ee47a85a538bf
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732048"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798815"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Atribuir funções personalizadas com o escopo de recurso usando o PowerShell no Azure Active Directory
 
-Este artigo descreve como criar uma atribuição de função em escopo de toda a organização no Azure Active Directory (AD do Azure). Atribuir uma função em escopo de toda a organização concede acesso na organização do Azure AD. Para criar uma atribuição de função com um escopo de um único recurso do Azure AD, consulte [como criar uma função personalizada e atribuí-la no escopo do recurso](roles-create-custom.md). Este artigo usa o módulo [Azure Active Directory PowerShell versão 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) .
+Este artigo descreve como criar uma atribuição de função em escopo de toda a organização no Azure Active Directory (AD do Azure). Atribuir uma função em escopo de toda a organização concede acesso na organização do Azure AD. Para criar uma atribuição de função com um escopo de um único recurso do Azure AD, consulte [como criar uma função personalizada e atribuí-la no escopo do recurso](roles-create-custom.md). Este artigo usa o módulo [Azure Active Directory PowerShell versão 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) .
 
 Para obter mais informações sobre as funções de administrador do Azure AD, consulte [atribuindo funções de administrador no Azure Active Directory](directory-assign-admin-roles.md).
 
@@ -69,7 +69,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-Para atribuir a função a uma entidade de serviço em vez de um usuário, use o [cmdlet Get-AzureADMSServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
+Para atribuir a função a uma entidade de serviço em vez de um usuário, use o [cmdlet Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
 
 ## <a name="operations-on-roledefinition"></a>Operações no RoleDefinition
 

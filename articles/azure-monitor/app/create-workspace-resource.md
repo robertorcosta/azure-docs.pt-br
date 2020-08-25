@@ -4,13 +4,13 @@ description: Saiba mais sobre as etapas necessárias para habilitar os novos rec
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 186d4c510b58e06fcb0b823ca0d5770a2684196e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/24/2020
+ms.openlocfilehash: d6d6731ae087604e0a53a6721bb76dfba5fbf40c
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824980"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783834"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Recurso baseado em espaço de trabalho do Application Insights (versão prévia)
 
@@ -27,7 +27,7 @@ Para testar a nova experiência, entre no [portal do Azure](https://portal.azure
 
 Se você ainda não tiver um espaço de trabalho do Log Analytics, [confira a documentação de criação de espaço de trabalho do Log Analytics](../learn/quick-create-workspace.md).
 
-Para a versão preliminar pública, **os recursos baseados em espaço de trabalho estão limitados atualmente ao Oeste dos EUA 2, ao Leste dos EUA e ao Centro-Sul dos EUA.**
+**Os recursos baseados em espaço de trabalho estão disponíveis atualmente em todas as regiões comerciais e Azure governamental**
 
 Depois que o recurso for criado, você verá as informações de espaço de trabalho correspondentes no painel **Visão Geral**:
 
@@ -184,6 +184,14 @@ No momento, o comando `New-AzApplicationInsights` do PowerShell não dá suporte
 }
 
 ```
+
+## <a name="new-capabilities"></a>Novos recursos
+
+Os Application Insights baseados em espaço de trabalho permitem aproveitar todos os recursos mais recentes do Azure Monitor, incluindo:
+
+* [As chaves gerenciadas pelo cliente (CMK)](../platform/customer-managed-keys.md) fornecem criptografia em repouso para seus dados com chaves de criptografia somente às quais você tem acesso.
+* O [Link Privado do Azure](../platform/private-link-security.md) permite vincular com segurança os serviços PaaS do Azure a sua rede virtual usando pontos de extremidade privados.
+* [Traga seu próprio armazenamento (BYOS) para o criador de perfil e depurador de instantâneos](./profiler-bring-your-own-storage.md) oferece controle total sobre a política de criptografia em repouso, a política de gerenciamento de tempo de vida e o acesso à rede para todos os dados associados a Application Insights Profiler e depurador de instantâneos. 
 
 ## <a name="modifying-the-associated-workspace"></a>Modificação do espaço de trabalho associado
 

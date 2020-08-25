@@ -2,18 +2,18 @@
 title: Notas de versão do Azure Stack Edge & Gateway do Azure Data Box 2007 | Microsoft Docs
 description: Descreve os problemas e as resoluções críticas em aberto para o Azure Stack Edge e Gateway do Data Box versão 2007 em execução.
 services: databox
-author: priestlg
+author: twooley
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
 ms.date: 07/14/2020
-ms.author: v-grpr
-ms.openlocfilehash: 4964454a5636120840fbdb5f3fbdd3aee30d8e74
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: twooley
+ms.openlocfilehash: f9a08cda1466dbe284a0ac3c0e34b109be236883
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530975"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783919"
 ---
 # <a name="azure-stack-edge-and-azure-data-box-gateway-2007-release-notes"></a>Notas de versão do Azure Stack Edge e Gateway do Azure Data Box 2007
 
@@ -29,7 +29,7 @@ Esta versão corresponde às versões de software:
 > [!NOTE]
 > A atualização 2007 pode ser aplicada somente a todos os dispositivos que executam versões de GA (disponibilidade geral) do software ou posterior.
 
-## <a name="whats-new"></a>O que há de novo
+## <a name="whats-new"></a>Novidades
 
 Esta versão contém a correção de bug a seguir:
 
