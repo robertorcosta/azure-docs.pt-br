@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/17/2020
-ms.openlocfilehash: 01e33f7b0133eb5d081e6e8f3c3c9497c11bae95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 916d23670e1db22efe43e2966d96aa1c82f1852a
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983405"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782151"
 ---
 # <a name="tune-model-hyperparameters"></a>Ajustar os hiperparâmetros de modelo
 
@@ -77,11 +77,11 @@ Esta seção descreve como executar uma varredura de parâmetro básica, que tre
 
 Quando o treinamento for concluído:
 
-+ Para exibir um conjunto de métricas de precisão para o melhor modelo, clique com o botão direito do mouse no módulo e selecione **Visualizar**.
++ Para exibir os resultados da varredura, clique com o botão direito do mouse no módulo e selecione **Visualizar**.
 
-    A saída inclui todas as métricas de precisão que se aplicam ao tipo de modelo, mas a métrica que você selecionou para classificação determina qual modelo é considerado "melhor".
+    A saída inclui todas as métricas de limpeza e de precisão do parâmetro que se aplicam ao tipo de modelo, mas a métrica que você selecionou para classificação determina qual modelo é considerado "melhor".
 
-+ Para salvar um instantâneo do modelo treinado, selecione a guia **saídas** no painel direito do módulo modelo de **treinamento** . Selecione o ícone **registrar conjunto de registros** para salvar o modelo como um módulo reutilizável.
++ Para salvar um instantâneo do modelo treinado, selecione a guia **saídas + logs** no painel direito do módulo modelo de **treinamento** . Selecione o ícone **registrar conjunto de registros** para salvar o modelo como um módulo reutilizável.
 
 
 ## <a name="technical-notes"></a>Observações técnicas

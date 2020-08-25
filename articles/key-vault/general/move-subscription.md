@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: d37fae18cd2f3e3bfad647cc176253dc6bb101ab
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b37b327a535b716bbce845cd5883e58ec5379c48
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585722"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782712"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Movendo um Azure Key Vault para outra assinatura
 
@@ -59,7 +59,9 @@ Certifique-se de ir para a página Azure Policy na portal do Azure e examine as 
 
 ## <a name="procedure"></a>Procedimento
 
-### <a name="initial-steps-moving-key-vault"></a>Etapas iniciais (movendo Key Vault)
+Se você 
+
+### <a name="moving-key-vault-to-a-new-subscription-within-the-same-tenant"></a>Movendo Key Vault para uma nova assinatura dentro do mesmo locatário
 
 1. Faça logon no Portal do Azure
 2. Navegue até o Key Vault
@@ -70,9 +72,9 @@ Certifique-se de ir para a página Azure Policy na portal do Azure e examine as 
 7. Reconhecer o aviso sobre a movimentação de recursos
 8. Selecione "OK"
 
-### <a name="additional-steps-post-move"></a>Etapas adicionais (após a movimentação)
+### <a name="additional-steps-if-you-moved-key-vault-to-a-subscription-in-a-new-tenant"></a>Etapas adicionais se você moveu o cofre de chaves para uma assinatura em um novo locatário
 
-Agora que você moveu o cofre de chaves para a nova assinatura, precisa atualizar a ID do locatário e remover as políticas de acesso antigas. Aqui estão os tutoriais para essas etapas no PowerShell e CLI do Azure.
+Se você moveu o cofre de chaves para uma assinatura em um novo locatário, precisa atualizar manualmente a ID do locatário e remover políticas de acesso antigas. Aqui estão os tutoriais para essas etapas no PowerShell e CLI do Azure. Se você estiver usando o PowerShell, talvez seja necessário executar o comando clear-AzContext documentado abaixo para permitir que você veja os recursos fora do escopo atual selecionado. 
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription
