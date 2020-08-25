@@ -3,12 +3,12 @@ title: Solucionar erros de backup de bancos de dados SAP HANA
 description: Descreve como solucionar erros comuns que podem ocorrer ao usar o Backup do Microsoft Azure nos bancos de dados SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 88d8f5e500c39f51e5bc1afbc2ec7804b9bc79db
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6216c39231ad17a55f0d428fe5e1f85e64cef403
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503601"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826983"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Solucionar problemas de backup dos bancos de dados SAP HANA no Azure
 
@@ -96,7 +96,7 @@ Suponha que foi feito o backup de uma instância do SDC HANA "H21". A página do
 Observe os seguintes pontos:
 
 - Por padrão, o nome do banco de dados restaurado será preenchido com o nome do item de backup. Neste caso, h21(sdc).
-- Selecionar o destino como H11 NÃO altera o nome do banco de dados restaurado automaticamente. **Ele deve ser editado para h11(sdc)** . Para SDC, o nome do banco de dados restaurado será a ID da instância de destino com letras minúsculas e 'sdc' entre parênteses.
+- Selecionar o destino como H11 não alterará automaticamente o nome do banco de BD restaurado. **Ele deve ser editado para h11(sdc)** . Para SDC, o nome do banco de dados restaurado será a ID da instância de destino com letras minúsculas e 'sdc' entre parênteses.
 - Como o SDC só pode ter banco de dados individual, você também precisa clicar na caixa de seleção para permitir a substituição dos dados do banco de dados existentes pelos dados do ponto de recuperação.
 - O Linux diferencia maiúsculas de minúsculas. Portanto, tenha cuidado para manter as maiúsculas e minúsculas.
 

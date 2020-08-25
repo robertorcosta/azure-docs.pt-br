@@ -3,12 +3,12 @@ title: Diretrizes e melhores práticas
 description: Descubra as práticas recomendadas e as diretrizes para fazer backup da carga de trabalho local e na nuvem para a nuvem
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 21d3d6b8983d8ce3d0b563785423bc1e503649f3
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 6daa3051a00093f74b8b5dac5c81befe006107a4
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757584"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825572"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Fazer backup de cargas de trabalho locais e na nuvem para a nuvem
 
@@ -247,13 +247,13 @@ Como um usuário ou administrador de backup, você deve ser capaz de monitorar t
 
 * O backup do Azure fornece um mecanismo **de notificação de alerta interno** por email para falhas, avisos e operações críticas. Você pode especificar endereços de email individuais ou listas de distribuição a serem notificadas quando um alerta for gerado. Você também pode escolher se deseja ser notificado para cada alerta individual ou agrupá-lo em um resumo por hora e, em seguida, ser notificado.
   * Esses alertas são definidos pelo serviço e fornecem suporte para cenários limitados-falhas de backup/restauração, interromper a proteção com reter dados/parar proteção com excluir dados e assim por diante. [Saiba mais aqui](backup-azure-monitoring-built-in-monitor.md#alert-scenarios).
-  * Se uma operação destrutiva, como parar proteção com dados de exclusão, for executada, um alerta será gerado e um email será enviado para proprietários, administradores e coadministradores de assinatura, mesmo que as notificações não estejam configuradas para o cofre dos serviços de recuperação.
+  * Se uma operação destrutiva, como parar proteção com dados de exclusão, for executada, um alerta será gerado e um email será enviado para proprietários, administradores e coadministradores de assinatura, mesmo que as notificações **não** estejam configuradas para o cofre dos serviços de recuperação.
   * Determinadas cargas de trabalho podem gerar alta frequência de falhas (por exemplo, SQL Server a cada 15 minutos). Para evitar ficar sobrecarregado com alertas gerados para cada ocorrência de falha, os alertas são consolidados. [Saiba mais aqui](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts).
   * Os alertas internos não podem ser personalizados e são restritos a emails definidos no portal do Azure.
 
 * Se você precisar **criar alertas personalizados** (por exemplo, alertas de trabalhos com êxito), use log Analytics. No Azure Monitor, você pode criar seus alertas em um workspace do Log Analytics. As cargas de trabalho híbridas (DPM/MABS) também podem enviar dados para LA e usar LA para fornecer alertas comuns entre cargas de trabalho com suporte do backup do Azure.
 
-* Você também pode obter notificações por meio de logs internos de **atividade**do cofre de serviços de recuperação; no entanto, ele dá suporte a cenários limitados e não é adequado para operações como backup agendado, que se alinha melhor com os logs de recursos do que com os logs de atividade. Para saber mais sobre essas limitações e como você pode usar Log Analytics espaço de trabalho para monitoramento e alertas em escala para todas as suas cargas que são protegidas pelo backup do Azure, consulte este [artigo](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
+* Você também pode obter notificações por meio de **logs de atividade**do cofre de serviços de recuperação internos. No entanto, ele dá suporte a cenários limitados e não é adequado para operações como backup agendado, que se alinha melhor com os logs de recursos do que com os logs de atividade. Para saber mais sobre essas limitações e como você pode usar Log Analytics espaço de trabalho para monitoramento e alertas em escala para todas as suas cargas que são protegidas pelo backup do Azure, consulte este [artigo](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
 
 ## <a name="next-steps"></a>Próximas etapas
 

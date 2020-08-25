@@ -4,12 +4,12 @@ description: Este artigo fornece informações sobre os problemas conhecidos e s
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 1f4900bb129ee67cd75d2b793f4179e3135569a6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 26d30a56b3117642678f98ba3e7927c27bfd6a69
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032554"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826609"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Notas de versão do Serviço de Backup do Azure
 
@@ -78,10 +78,10 @@ Este artigo fornece os problemas conhecidos e soluções alternativas para o Ser
 **Solução alternativa**: para substituir os arquivos RDL, siga as etapas abaixo:
 
 1. No computador MABS, abra o SQL Reporting Services URL do portal da Web.
-1. Na URL do portal da Web, a pasta DPMReports está presente no formato de**`DPMReports_<GUID>`**
+1. Na URL do portal da Web, a pasta DPMReports está presente no formato de **`DPMReports_<GUID>`**
 
     >[!NOTE]
-    >Sempre há apenas uma pasta com essa Convenção de nomenclatura. Se o MABS for atualizado de uma versão anterior, pode haver outra pasta mais antiga também, mas você não poderá abri-la.
+    >Sempre há apenas uma pasta com essa Convenção de nomenclatura. Se o MABS for atualizado de uma versão anterior, talvez haja outra pasta mais antiga, mas você não poderá abri-la.
 
     ![Pasta DPMReports](./media/backup-mabs-release-notes-v3/dpm-reports-folder.png)
 
@@ -95,13 +95,13 @@ Este artigo fornece os problemas conhecidos e soluções alternativas para o Ser
 
 1. Na página novo, selecione a opção **substituir** para substituir os arquivos pelos arquivos de relatório mais recentes.
 
-    Os arquivos de relatório mais recentes podem ser encontrados no caminho`<MABS Installation Directory>\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
+    Os arquivos de relatório mais recentes podem ser encontrados no caminho `<MABS Installation Directory>\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
 
     Por exemplo: `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
 
     ![Substituir os arquivos pelos arquivos de relatório mais recentes](./media/backup-mabs-release-notes-v3/replace-files.png)
 
-    Depois que os arquivos forem substituídos, verifique se o **nome** e a **Descrição** estão intactos e não estão vazios.
+    Depois que os arquivos forem substituídos, verifique se o **Nome** e a **Descrição** estão intactos e não estão vazios.
 
 1. Depois que os arquivos forem substituídos, reinicie os serviços MABS e use os arquivos de relatório.
 

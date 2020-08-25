@@ -3,12 +3,12 @@ title: Exclusão reversível para o backup do Azure
 description: Saiba como usar recursos de segurança no backup do Azure para tornar os backups mais seguros.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: b3ccd944ce1f6a30b4441c205a83e71374e7aff2
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: d791b76698330cd14c56f01cf5da62c8a64bec29
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763432"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826966"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Exclusão reversível para o backup do Azure
 
@@ -44,9 +44,9 @@ Para desabilitar a exclusão reversível, siga estas etapas:
 ### <a name="disabling-soft-delete-using-azure-powershell"></a>Desabilitando a exclusão reversível usando o Azure PowerShell
 
 > [!IMPORTANT]
-> A versão AZ. Recoveryservices necessária para usar a exclusão reversível usando o Azure PS é min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
+> A versão AZ. Recoveryservices necessária para usar a exclusão reversível usando Azure PowerShell é o mínimo de 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
 
-Para desabilitar, use o cmdlet [set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) do PS.
+Para desabilitar, use o cmdlet do PowerShell [set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) .
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable

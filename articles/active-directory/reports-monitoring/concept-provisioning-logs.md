@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/04/2019
+ms.date: 08/25/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38cffdcc9c99cdec2aeac8bf6fe1dc1575691c8d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e2a45e6cff7d62dd8841d9d482f799be6977340e
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924023"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826864"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisionando relatórios no portal de Azure Active Directory (versão prévia)
 
@@ -118,7 +118,7 @@ Ao selecionar um período de tempo personalizado, você pode configurar uma data
 
 O filtro **Status** permite que você selecione:
 
-- Todos
+- Tudo
 - Sucesso
 - Falha
 - Ignorado
@@ -128,10 +128,10 @@ O filtro **Status** permite que você selecione:
 O filtro de **ação** permite filtrar o:
 
 - Criar 
-- Atualização
+- Atualizar
 - Excluir
 - Desabilitar
-- Outros
+- Outro
 
 Além disso, para os filtros do modo de exibição padrão, você também pode definir os seguintes filtros:
 
@@ -175,7 +175,7 @@ Os detalhes são agrupados com base nas seguintes categorias:
 - Resumo
 
 
-![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Guias")
+![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Tabulações")
 
 
 
@@ -242,6 +242,8 @@ Use a tabela a seguir para entender melhor como resolver erros que podem ser enc
 |LicenseLimitExceeded|Não foi possível criar o usuário no aplicativo de destino porque não há licenças disponíveis para esse usuário. Adquira licenças adicionais para o aplicativo de destino ou examine as atribuições de usuário e a configuração de mapeamento de atributo para garantir que os usuários corretos sejam atribuídos com os atributos corretos.|
 |DuplicateTargetEntries  |A operação não pôde ser concluída porque mais de um usuário no aplicativo de destino foi encontrado com os atributos correspondentes configurados. Remova o usuário duplicado do aplicativo de destino ou RECONFIGURE os mapeamentos de atributo conforme descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
 |DuplicateSourceEntries | A operação não pôde ser concluída porque mais de um usuário foi encontrado com os atributos correspondentes configurados. Remova o usuário duplicado ou RECONFIGURE os mapeamentos de atributo conforme descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|ImportSkipped | Quando cada usuário é avaliado, tentamos importar o usuário do sistema de origem. Esse erro geralmente ocorre quando o usuário que está sendo importado não tem a propriedade correspondente definida em seus mapeamentos de atributo. Sem um valor presente no objeto de usuário para o atributo correspondente, não podemos avaliar as alterações de escopo, correspondência ou exportação. Observação: a presença desse erro não indica que o usuário está no escopo, pois ainda não avaliamos o escopo do usuário.|
+|EntrySynchronizationSkipped | O serviço de provisionamento consultou com êxito o sistema de origem e identificou o usuário. Nenhuma ação adicional foi realizada no usuário e elas foram ignoradas. O Skip pode ser devido ao usuário estar fora do escopo ou ao usuário já existente no sistema de destino sem nenhuma alteração adicional necessária.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

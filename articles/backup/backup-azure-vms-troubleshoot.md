@@ -4,12 +4,12 @@ description: Neste artigo, saiba como solucionar problemas encontrados com backu
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 104fb177a1379d5a09dc54cf6f78c401744d697f
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: bf2a811098138663f1b7f2acd174d6bca4aa6150
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763296"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826233"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
 
@@ -71,7 +71,7 @@ A operação de backup falhou porque a VM está em estado de falha. Para ter um 
 Código de erro: UserErrorFsFreezeFailed <br/>
 Mensagem de erro: Falha ao congelar um ou mais pontos de montagem da VM para tirar um instantâneo consistente do sistema de arquivos.
 
-* Desmonte os dispositivos para os quais o estado do sistema de arquivos não foi limpo, usando o comando **umount**.
+* Desmonte os dispositivos para os quais o estado do sistema de arquivos não foi limpo, usando o comando **umount** .
 * Execute uma verificação de consistência do sistema de arquivos nesses dispositivos usando o comando **fsck**.
 * Monte os dispositivos novamente e tente novamente a operação de backup.</ol>
 
@@ -114,7 +114,7 @@ Outro procedimento que pode ajudar é executar o comando a seguir de um prompt d
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
 
-Adicionar essa chave do registro fará com que os threads não sejam criados para instantâneos de BLOB e evitará o tempo limite.
+Adicionar essa chave do registro fará com que os threads não sejam criados para instantâneos de BLOB e evitarão o tempo limite.
 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure- Falha na análise da configuração da extensão de backup
 
@@ -167,12 +167,12 @@ Mensagem de erro: Falha na operação de instantâneo porque o limite de instant
 
 A operação de instantâneo falhou porque o limite de instantâneos foi excedido em alguns dos discos anexados. Conclua as seguintes etapas de solução de problemas e repita a operação.
 
-* Exclua o blob de disco-instantâneos que não são necessários. Tenha cuidado para não excluir o blob de disco, somente os blobs de instantâneo devem ser excluídos.
-* Se a exclusão reversível estiver habilitada no armazenamento em disco da VM, configure a retenção de exclusão reversível de modo que os instantâneos existentes sejam menores do que o máximo permitido a qualquer momento.
+* Exclua o blob de disco-instantâneos que não são necessários. Tenha cuidado para não excluir blobs de disco. Somente blobs de instantâneo devem ser excluídos.
+* Se a exclusão reversível estiver habilitada no armazenamento em disco da VM, configure a retenção de exclusão reversível para que os instantâneos existentes sejam menores do que o máximo permitido a qualquer momento.
 * Se Azure Site Recovery estiver habilitado na VM de backup, execute as etapas abaixo:
 
   * Verifique se o valor de **isanysnapshotfailed** está definido como false em /etc/azure/vmbackup.conf
-  * Agendar Azure Site Recovery em um momento diferente, de modo que ele não entra em conflito com a operação de backup.
+  * Agendar Azure Site Recovery em um momento diferente, portanto, ele não entra em conflito com a operação de backup.
 
 ### <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>Falha na operação ExtensionFailedTimeoutVMNetworkUnresponsive-snapshot devido a recursos inadequados da VM
 

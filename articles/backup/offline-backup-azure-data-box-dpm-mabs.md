@@ -3,12 +3,12 @@ title: Backup offline com Azure Data Box para o DPM e o MABS
 description: Você pode usar Azure Data Box para propagar dados de backup inicial offline do DPM e do MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: d6305607170e02c2f6e104ff8b18011b8657947b
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 974be6d337c3376d10e09ba6211f7804c2c8cada
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762446"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824552"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Propagação offline usando Azure Data Box para o DPM e MABS (visualização)
 
@@ -234,7 +234,7 @@ Para resolver esse problema, execute as etapas a seguir e tente a configuração
 2. Caso nenhum outro servidor tenha a propagação offline configurada, nem seja dependente do aplicativo `AzureOfflineBackup_<Azure User Id>`, exclua esse aplicativo em **portal do Azure > Azure Active Directory > Registros de aplicativo**.
 
    > [!NOTE]
-   > Verifique se o aplicativo `AzureOfflineBackup_<Azure User Id>` não tem nenhuma outra propagação offline configurada, nem outro servidor dependente desse aplicativo. Acesse **Configurações > Chaves** na seção Chaves Públicas. Ele não deverá ter outras **chaves públicas** adicionadas. Confira a seguinte captura de tela para referência:
+   > Verifique se o aplicativo `AzureOfflineBackup_<Azure User Id>` não tem nenhuma outra propagação offline configurada e se nenhum outro servidor depende desse aplicativo. Vá para **configurações > chaves** na seção chaves públicas. Ele não deve ter outras **chaves públicas** adicionadas. Confira a seguinte captura de tela para referência:
    >
    > ![Chaves públicas](./media/offline-backup-azure-data-box-dpm-mabs/public-keys.png)
 

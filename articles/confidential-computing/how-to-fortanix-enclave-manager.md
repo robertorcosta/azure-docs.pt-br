@@ -9,19 +9,19 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: d46354b18d5c3317cc1ed67d839feb26b7b6b5d0
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b5b0f9acc45dba81bb7653c844bb8c78a8bd29ba
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815837"
+ms.locfileid: "88826286"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Como executar um aplicativo com o Fortanix enclave Manager 
 
 Comece a executar seu aplicativo na computação confidencial do Azure usando o [Fortanix enclave Manager](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.enclave_manager?tab=Overview) e o [Fortanix node Agent](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.rte_node_agent) do [Fortanix](https://www.fortanix.com/).
 
 
-O Fortanix é um fornecedor de software de terceiros com produtos e serviços criados com base na infraestrutura do Azure. Há outros [provedores de terceiros](https://sconedocs.github.io)que oferecem serviços de computação confidencial semelhantes no Azure, como [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) e o  
+O Fortanix é um fornecedor de software de terceiros com produtos e serviços criados com base na infraestrutura do Azure. Há outros provedores de terceiros que oferecem serviços de computação confidencial semelhantes no Azure.
 
 > [!Note] 
  > OS PRODUTOS MENCIONADOS NESTE DOCUMENTO NÃO ESTÃO SOB O CONTROLE DA MICROSOFT. A MICROSOFT ESTÁ FORNECENDO ESSAS INFORMAÇÕES A VOCÊ APENAS COMO UMA CONVENIÊNCIA, E A REFERÊNCIA A ESSES PRODUTOS QUE NÃO SÃO DA MICROSOFT NÃO IMPLICA O ENDOSSO DA MICROSOFT.
@@ -162,7 +162,7 @@ onde:
 
 Quando não for mais necessário, você poderá excluir o grupo de recursos, a máquina virtual e os recursos associados. A exclusão do grupo de recursos cancelará o registro dos nós associados à imagem convertida. 
 
-Selecione o grupo de recursos da máquina virtual e, em seguida, selecione **Excluir**. Confirme o nome do grupo de recursos para concluir a exclusão dos recursos. \
+Selecione o grupo de recursos da máquina virtual e, em seguida, selecione **Excluir**. Confirme o nome do grupo de recursos terminar de excluir os recursos.
 
 Para excluir a conta do Gerenciador de Fortanix enclave que você criou, acesse a [página contas](https://em.fortanix.com/accounts) no Gerenciador de enclave. Passe o mouse sobre a conta que você deseja excluir. Selecione os pontos pretos verticais no canto superior direito e selecione **Excluir conta**.
 
@@ -174,3 +174,4 @@ Neste guia de início rápido, você usou as ferramentas Fortanix para converter
 
 Para saber mais sobre as ofertas de computação confidencial do Azure, confira [visão geral da computação confidencial do Azure](overview.md)
 
+ Saiba como concluir tarefas semelhantes usando outras ofertas de terceiros no Azure, como [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) [e o](https://sconedocs.github.io)  

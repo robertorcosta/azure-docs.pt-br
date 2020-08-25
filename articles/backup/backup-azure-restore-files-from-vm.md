@@ -4,12 +4,12 @@ description: Este artigo explica como recuperar arquivos e pastas de um ponto de
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ca523370a887ed1178312c48a577695f5ba6da8f
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: ac121195ba46389798acc7f099829fde96da72e1
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763449"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827130"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -17,7 +17,7 @@ O Backup do Azure fornece a capacidade de restaurar [máquinas virtuais (VMs) do
 
 > [!NOTE]
 > Esse recurso está disponível para máquinas virtuais do Azure implantadas usando o modelo do Resource Manager e protegidas em um cofre dos Serviços de Recuperação.
-> Não há suporte para a recuperação de arquivos de um backup criptografado de VM.
+> Não há suporte para a recuperação de arquivo de um backup de VM criptografado.
 >
 
 ## <a name="mount-the-volume-and-copy-files"></a>Montar os volume e copiar arquivos
@@ -87,7 +87,7 @@ Quando os discos tiverem sido desmontados, você receberá uma mensagem. Pode le
 No Linux, após a conexão com o ponto de recuperação ser interrompida, o sistema operacional não removerá automaticamente os caminhos de montagem correspondentes. Os caminhos de montagem existem como volumes "órfãos" e são visíveis, mas geram um erro ao acessar/gravar os arquivos. Eles podem ser removidos manualmente. O script, quando executado, identifica esses volumes existentes em qualquer ponto de recuperação anterior e limpa mediante consentimento.
 
 > [!NOTE]
-> Certifique-se de que a conexão seja fechada depois que os arquivos necessários forem restaurados. Isso é importante, especialmente no cenário em que o computador no qual o script é executado também é configurado para backup. Caso a conexão ainda esteja aberta, o backup subsequente pode falhar com um erro "UserErrorUnableToOpenMount". Isso acontece porque os volumes/unidades montadas devem estar disponíveis e, quando acessados, eles podem falhar porque o armazenamento subjacente, ou seja, o servidor de destino iSCSI pode não estar disponível. A limpeza da conexão removerá essas unidades/volumes e, portanto, elas não estarão disponíveis durante o backup.
+> Certifique-se de que a conexão seja fechada depois que os arquivos necessários forem restaurados. Isso é importante, especialmente no cenário em que o computador no qual o script é executado também é configurado para backup. Se a conexão ainda estiver aberta, o backup subsequente poderá falhar com o erro "UserErrorUnableToOpenMount". Isso acontece porque os volumes/unidades montadas devem estar disponíveis e, quando acessados, eles podem falhar porque o armazenamento subjacente, ou seja, o servidor de destino iSCSI pode não estar disponível. A limpeza da conexão removerá essas unidades/volumes e, portanto, elas não estarão disponíveis durante o backup.
 
 ## <a name="selecting-the-right-machine-to-run-the-script"></a>Seleção do computador certo para executar o script
 
@@ -234,7 +234,7 @@ mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 > [!WARNING]
-> Não use ' mount-a '. Esse comando monta todos os dispositivos descritos em '/etc/fstab '. Isso pode significar que dispositivos duplicados podem ser montados. Os dados podem ser redirecionados para dispositivos criados pelo script, que não persistem os dados e, portanto, podem resultar em perda de dados.
+> Não use ' mount-a '. Esse comando monta todos os dispositivos descritos em '/etc/fstab '. Isso pode significar que dispositivos duplicados podem ser montados. Os dados podem ser redirecionados para dispositivos criados por um script, que não persistem os dados e, portanto, podem resultar em perda de dados.
 
 #### <a name="for-raid-arrays"></a>Para matrizes RAID
 
@@ -355,7 +355,7 @@ Se você tiver problemas durante a recuperação de arquivos de máquinas virtua
 | Mensagem de erro/Cenário | Causas prováveis | Ação recomendada |
 | ------------------------ | -------------- | ------------------ |
 | Saída de exe: *Exceção detectada ao conectar-se ao destino* | O script não consegue acessar o ponto de recuperação    | Verifique se o computador preenche os [requisitos de acesso anteriores](#access-requirements). |  
-| Saída de exe: *o destino já foi acessado por meio de uma sessão iSCSI.* | O script já foi executado na mesma máquina e as unidades foram anexadas | Os volumes do ponto de recuperação já foram anexados. Eles NÃO podem ser montados com as mesmas letras de unidade da VM original. Navegue por todos os volumes disponíveis no Explorer para encontrar o arquivo. |
+| Saída de exe: *o destino já foi acessado por meio de uma sessão iSCSI.* | O script já foi executado na mesma máquina e as unidades foram anexadas | Os volumes do ponto de recuperação já foram anexados. Eles não podem ser montados com as mesmas letras de unidade da VM original. Navegue por todos os volumes disponíveis no Explorer para encontrar o arquivo. |
 | Saída de exe: *esse script é inválido porque os discos foram desmontados por meio do portal/o limite de 12 horas foi excedido. Baixe um novo script a partir do portal.* |    Os discos foram desmontados do portal ou o limite de 12 horas foi excedido | Esse exe agora é inválido e não pode ser executado. Se você desejar acessar os arquivos dessa recuperação pontual, visite o portal para obter um novo exe.|
 | No computador em que o exe é executado: Os novos volumes não serão desmontados depois que o botão de desmontagem for clicado | O iniciador iSCSI no computador não está respondendo/atualizando sua conexão para o destino e manutenção do cache. |  Depois de clicar em **Desmontar**, aguarde alguns minutos. Se os novos volumes não estiverem desmontados, navegue por todos os volumes. Navegar por todos os volumes força o iniciador a atualizar a conexão, e o volume é desmontado com uma mensagem de erro de que o disco não está disponível.|
 | Saída de exe: O script é executado com êxito, mas a mensagem “Novos volumes anexados” não é exibida na saída do script |    Esse é um problema temporário    | Os volumes já terão sido anexados. Abra o Explorer para navegar. Se você estiver usando sempre o mesmo computador para todas as execuções de scripts, considere reiniciar o computador, e a lista deverá ser exibida nas execuções subsequentes do exe. |

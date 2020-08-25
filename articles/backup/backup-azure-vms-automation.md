@@ -3,12 +3,12 @@ title: Fazer backup e recuperar VMs do Azure com o PowerShell
 description: Descreve como fazer backup e recuperar VMs do Azure usando o backup do Azure com o PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 23ae2b5b04823bc809712190a3e1617fec65e73a
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: f5d2e10213970ce6f9d1f9c77ff8f7f4c36c3547
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763364"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826439"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Fazer backup e restaurar VMs do Azure com o PowerShell
 
@@ -96,7 +96,7 @@ As etapas a seguir orientarão você durante a criação de um cofre dos Serviç
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. Especifique o tipo de redundância de armazenamento a ser usado; Você pode usar o [LRS (armazenamento com redundância local)](../storage/common/storage-redundancy.md) ou o [grs (armazenamento com redundância geográfica)](../storage/common/storage-redundancy.md). O exemplo a seguir mostra que a opção BackupStorageRedundancy para o testvault está definida como GeoRedundant.
+3. Especifique o tipo de redundância de armazenamento a usar. Você pode usar o [LRS (armazenamento com redundância local)](../storage/common/storage-redundancy.md) ou o [grs (armazenamento com redundância geográfica)](../storage/common/storage-redundancy.md). O exemplo a seguir mostra que a opção BackupStorageRedundancy para o testvault está definida como GeoRedundant.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -228,7 +228,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 Depois de definir a política de proteção, você deve habilitar a política para um item. Use [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) para habilitar a proteção. Habilitar a proteção envolve dois objetos – o item e a política. Depois de a política ter sido associada ao cofre, o fluxo de trabalho de backup será disparado no momento definido no agendamento da política.
 
 > [!IMPORTANT]
-> Ao usar o PS para habilitar o backup para várias VMs de uma vez, verifique se uma única política não tem mais de 100 VMs associadas a ela. Essa é uma [melhor prática recomendada](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Atualmente, o cliente PS não bloqueia explicitamente se houver mais de 100 VMs, mas há planos de adicionar essa verificação no futuro.
+> Ao usar o PowerShell para habilitar o backup para várias VMs de uma vez, verifique se uma única política não tem mais de 100 VMs associadas a ela. Essa é uma [melhor prática recomendada](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Atualmente, o cliente do PowerShell não bloqueia explicitamente se há mais de 100 VMs, mas a verificação está planejada para ser adicionada no futuro.
 
 Os exemplos a seguir permitem a proteção do item, V2VM, usando a política NewPolicy. Os exemplos diferem com base em se a VM está criptografada e em qual tipo de criptografia.
 
@@ -315,7 +315,7 @@ Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $Ret
 #### <a name="configuring-instant-restore-snapshot-retention"></a>Configurando a retenção de instantâneo de restauração instantânea
 
 > [!NOTE]
-> De AZ PS versão 1.6.0 em diante, é possível atualizar o período de retenção do instantâneo de restauração instantânea na política usando o PowerShell
+> Do Azure PowerShell versão 1.6.0 em diante, é possível atualizar o período de retenção do instantâneo de restauração instantânea na política usando o PowerShell
 
 ````powershell
 $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM" -VaultId $targetVault.ID
@@ -328,7 +328,7 @@ O valor padrão será 2, o usuário poderá definir o valor com um mínimo de 1 
 #### <a name="creating-azure-backup-resource-group-during-snapshot-retention"></a>Criando o grupo de recursos de backup do Azure durante a retenção de instantâneo
 
 > [!NOTE]
-> Do Azure PS versão 3.7.0 em diante, é possível criar e editar o grupo de recursos criado para armazenar instantâneos instantâneos.
+> Do Azure PowerShell versão 3.7.0 em diante, é possível criar e editar o grupo de recursos criado para armazenar instantâneos instantâneos.
 
 Para saber mais sobre as regras de criação do grupo de recursos e outros detalhes relevantes, consulte a documentação [grupo de recursos do backup do Azure para máquinas virtuais](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines) .
 
@@ -385,7 +385,7 @@ TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM 
 
 #### <a name="retain-data"></a>Reter dados
 
-Se o usuário quiser interromper a proteção, ele poderá usar o cmdlet [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) do PS. Isso interromperá os backups agendados, mas os dados submetidos a backup até agora são mantidos para sempre.
+Se você quiser interromper a proteção, poderá usar o cmdlet [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) do PowerShell. Isso interromperá os backups agendados, mas os dados submetidos a backup até agora são mantidos para sempre.
 
 ````powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -Name "<backup item name>" -VaultId $targetVault.ID
@@ -481,7 +481,7 @@ $restorejob
 Forneça um parâmetro adicional **TargetResourceGroupName** para especificar o RG para o qual os discos gerenciados serão restaurados.
 
 > [!IMPORTANT]
-> É altamente recomendável usar o parâmetro **TargetResourceGroupName** para a restauração de discos gerenciados, pois isso resulta em melhorias significativas de desempenho. Se esse parâmetro não for fornecido, os clientes não poderão se beneficiar da funcionalidade de restauração instantânea e a operação de restauração será mais lenta em comparação. Se a finalidade for restaurar discos gerenciados como discos não gerenciados, não forneça esse parâmetro e torne a intenção clara fornecendo o parâmetro-RestoreAsUnmanagedDisks. O parâmetro-RestoreAsUnmanagedDisks está disponível em AZ PS 3.7.0 em diante. Em versões futuras, será obrigatório fornecer qualquer um desses parâmetros para a experiência de restauração correta
+> É altamente recomendável usar o parâmetro **TargetResourceGroupName** para a restauração de discos gerenciados, pois isso resulta em melhorias significativas de desempenho. Se esse parâmetro não for fornecido, você não poderá se beneficiar da funcionalidade de restauração instantânea e a operação de restauração será mais lenta em comparação. Se a finalidade for restaurar discos gerenciados como discos não gerenciados, não forneça esse parâmetro e torne a intenção clara fornecendo o `-RestoreAsUnmanagedDisks` parâmetro. O `-RestoreAsUnmanagedDisks` parâmetro está disponível de Azure PowerShell 3.7.0 em diante. Em versões futuras, será obrigatório fornecer qualquer um desses parâmetros para a experiência de restauração correta.
 >
 >
 
@@ -529,8 +529,8 @@ Depois de restaurar os discos, use as seguintes etapas para criar e configurar a
 > [!NOTE]
 >
 > 1. O módulo AzureAz 3.0.0 ou superior é necessário. <br>
-> 2. Para criar VMs criptografadas de discos restaurados, a função do Azure deverá ter permissão para executar a ação **Microsoft.KeyVault/vaults/deploy/action**. Se sua função não tem essa permissão, crie uma função personalizada com esta ação. Para obter mais informações, veja [Funções personalizadas no RBAC do Azure](../role-based-access-control/custom-roles.md). <br>
-> 3. Após a restauração dos discos, você pode obter um modelo de implantação para criar diretamente uma nova VM. Não há mais cmdlets diferentes do PS para criar VMs gerenciadas/não gerenciadas que são criptografadas/descriptografadas.<br>
+> 2. Para criar VMs criptografadas de discos restaurados, a função do Azure deverá ter permissão para executar a ação **Microsoft.KeyVault/vaults/deploy/action**. Se sua função não tiver essa permissão, crie uma função personalizada com essa ação. Para obter mais informações, veja [Funções personalizadas no RBAC do Azure](../role-based-access-control/custom-roles.md). <br>
+> 3. Após a restauração dos discos, você pode obter um modelo de implantação para criar diretamente uma nova VM. Você não precisa de cmdlets diferentes do PowerShell para criar VMs gerenciadas/não gerenciadas que são criptografadas/descriptografadas.<br>
 > <br>
 
 ### <a name="create-a-vm-using-the-deployment-template"></a>Criar uma VM usando o modelo de implantação

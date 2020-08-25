@@ -3,12 +3,12 @@ title: Preparar o servidor DPM para fazer backup de cargas de trabalho
 description: Neste artigo, saiba como preparar os backups do System Center Data Protection Manager (DPM) para o Azure usando o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 7043b4411856addf0fae26ee5402c4d3878e7f12
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 86becc2b989c55ac080b9bdcbfcca182987e9fb2
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612649"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827300"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparar-se para fazer backup de cargas de trabalho no Azure com o System Center DPM
 
@@ -127,7 +127,7 @@ Todos os computadores cujo backup é feito pelo Backup do Azure devem ter o agen
 7. O agente do Backup do Azure instala o .NET Framework 4.5 e o Windows PowerShell (se não estiverem instalados) para concluir a instalação.
 8. Depois que o agente for instalado, você pode **Fechar** a janela.
 
-    ![Feche](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
+    ![Fechar](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
 
 ## <a name="register-the-dpm-server-in-the-vault"></a>Registrar o servidor DPM no cofre
 
@@ -161,7 +161,7 @@ Todos os computadores cujo backup é feito pelo Backup do Azure devem ter o agen
 
     > [!WARNING]
     > Você possui a frase secreta de criptografia e a Microsoft não tem visibilidade sobre ela.
-    > Se a senha for perdida ou esquecida, a Microsoft não poderá ajudar na recuperação dos dados de backup.
+    > Se a senha for perdida ou esquecida, a Microsoft não poderá ajudar a recuperar os dados de backup.
 
 7. Selecione **registrar** para registrar o servidor DPM no cofre.
 

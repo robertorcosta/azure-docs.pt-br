@@ -3,12 +3,12 @@ title: Configurar relatórios de Backup do Azure
 description: Configurar e exibir relatórios para o Backup do Azure usando o Log Analytics e as pastas de trabalho do Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: bcb9e75cea06be6ce69c6baccb5ac252c1666d4d
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4e5e9258540e5cdab14e438cde96cd89aad7498d
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755255"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826847"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 
@@ -89,7 +89,7 @@ Use essa guia para exibir os principais parâmetros de cobrança para seus backu
    ![Guia Uso](./media/backup-azure-configure-backup-reports/usage.png)
 
 > [!NOTE]
-> Para cargas de trabalho do DPM, os usuários podem ver uma pequena diferença (da ordem de 20 MB por servidor DPM) entre os valores de uso mostrados nos relatórios em comparação com o valor de uso agregado, conforme mostrado na guia **visão geral** do cofre dos serviços de recuperação. Essa diferença é contabilizada pelo fato de que cada servidor DPM que está sendo registrado para backup tem uma fonte de fontes de "metadados" associada que não está na superfície como um artefato para relatórios.
+> Para cargas de trabalho do DPM, os usuários podem ver uma pequena diferença (da ordem de 20 MB por servidor DPM) entre os valores de uso mostrados nos relatórios em comparação com o valor de uso agregado, conforme mostrado na guia **visão geral** do cofre dos serviços de recuperação. Essa diferença é contabilizada pelo fato de que cada servidor DPM que está sendo registrado para backup tem uma fonte de fontes de "metadados" associada que não é exibido como um artefato para relatórios.
 
 ##### <a name="jobs"></a>Trabalhos
 
@@ -109,7 +109,7 @@ Use essa guia para obter visibilidade de possíveis oportunidades de otimizaçã
 
 ###### <a name="inactive-resources"></a>Recursos inativos
 
-Usando essa exibição, você pode identificar os itens de backup que não tiveram um backup bem-sucedido por uma duração significativa de tempo. Isso pode significar que a máquina subjacente que está sendo submetida a backup não existe mais (e isso resulta em backups com falha), ou há algum problema com o computador que está impedindo que os backups sejam feitos de forma confiável.
+Usando essa exibição, você pode identificar os itens de backup que não tiveram um backup bem-sucedido por uma duração significativa. Isso pode significar que a máquina subjacente que está sendo submetida a backup não existe mais (e isso resulta em backups com falha), ou há algum problema com o computador que está impedindo que os backups sejam feitos de forma confiável.
 
 Para exibir recursos inativos, navegue até a guia **otimizar** e selecione o bloco **recursos inativos** . Selecionar este bloco exibe uma grade que contém detalhes de todos os recursos inativos existentes no escopo selecionado. Por padrão, a grade mostra os itens que não têm um ponto de recuperação nos últimos sete dias. Para localizar recursos inativos para um intervalo de tempo diferente, você pode ajustar o filtro de **intervalo de tempo** na parte superior da guia.
 

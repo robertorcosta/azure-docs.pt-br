@@ -4,12 +4,12 @@ description: Sintomas, causas e resoluções para falhas do Backup do Azure rela
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 26050dfb9fdde5988fe3ae922dae5486d17f4317
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 99e175f20247058a57bb64a47465cce1ce7fbd75
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755361"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826046"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha do Backup do Azure: problemas com o agente ou a extensão
 
@@ -119,7 +119,7 @@ Esse erro ocorre quando uma das falhas de extensão coloca a VM em estado de fal
 Ação recomendada:<br>
 Para resolver esse problema, remova o bloqueio do grupo de recursos da VM e repita a operação para disparar a limpeza.
 > [!NOTE]
-> O serviço de backup cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de pontos de restauração. Os clientes são aconselhados a não bloquear o grupo de recursos criado para uso pelo serviço de Backup. O formato de nomenclatura do grupo de recursos criado pelo serviço de Backup é: AzureBackupRG_`<Geo>`_`<number>` Por exemplo: AzureBackupRG_northeurope_1
+> O serviço de backup cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de pontos de restauração. Você é aconselhado a não bloquear o grupo de recursos criado para uso pelo serviço de backup. O formato de nomenclatura do grupo de recursos criado pelo serviço de backup é: AzureBackupRG_ `<Geo>` _ `<number>` . Por exemplo: *AzureBackupRG_northeurope_1*
 
 **Etapa 1: [ Remover bloqueio do grupo de recursos do ponto de restauração](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Etapa 2: [limpar a coleção de pontos de restauração](#clean_up_restore_point_collection)**<br>
@@ -297,7 +297,7 @@ Para limpar os pontos de restauração, siga qualquer um dos seguintes métodos:
 
 #### <a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a><a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a>Limpar a coleta do ponto de restauração executando backup sob demanda
 
-Depois de remover o bloqueio, dispare um backup sob demanda. Essa ação garantirá que os pontos de restauração sejam limpos automaticamente. Espera que essa operação sob demanda falhe na primeira vez; no entanto, ele garantirá a limpeza automática em vez da exclusão manual de pontos de restauração. Após a limpeza, seu próximo backup agendado deverá ter sucesso.
+Depois de remover o bloqueio, dispare um backup sob demanda. Essa ação garantirá que os pontos de restauração sejam limpos automaticamente. Espere que essa operação sob demanda falhe na primeira vez. No entanto, ele garantirá a limpeza automática em vez da exclusão manual de pontos de restauração. Após a limpeza, seu próximo backup agendado deverá ter sucesso.
 
 > [!NOTE]
 > A limpeza automática ocorrerá após algumas horas de acionamento do backup sob demanda. Se o backup agendado ainda falhar, tente excluir manualmente a coleção de pontos de restauração usando as etapas listadas [aqui](#clean-up-restore-point-collection-from-azure-portal).
@@ -320,4 +320,4 @@ Para limpar manualmente a coleção de pontos de restauração, que não é limp
 6. Tente a operação de backup novamente.
 
 > [!NOTE]
- >Se o recurso (coleção de RP) tiver um grande número de pontos de restauração, a exclusão deles do portal poderá expirar e falhar. Esse é um problema conhecido do CRP, em que todos os pontos de restauração não são excluídos no tempo determinado e a operação atinge o tempo limite; no entanto, a operação de exclusão geralmente terá êxito após 2 ou 3 tentativas.
+ >Se o recurso (coleção de RP) tiver um grande número de pontos de restauração, a exclusão deles do portal poderá expirar e falhar. Trata-se de um problema de CRP conhecido, em que todos os pontos de restauração não são excluídos no tempo estipulado e a operação expira. No entanto, a operação de exclusão geralmente é realizada com sucesso após duas ou três tentativas.

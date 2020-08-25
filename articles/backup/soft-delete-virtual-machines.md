@@ -4,12 +4,12 @@ description: Saiba como a exclusão reversível para máquinas virtuais torna os
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: references_regions
-ms.openlocfilehash: 19de26024a6a31a213130ec419132fd7dd8134a0
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 90d55e8ed6c831adf4efaf0663d191697177ea63
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763687"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826473"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>Exclusão temporária para máquinas virtuais
 
@@ -38,7 +38,7 @@ A exclusão reversível atualmente é suportada no EUA Central ocidental, Ásia 
    ![Captura de tela de portal do Azure, VM no estado de exclusão reversível](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
    > [!NOTE]
-   > Se algum item de backup excluído por software estiver presente no cofre, o cofre não poderá ser excluído nesse momento. Tente excluir o cofre depois que os itens de backup forem excluídos permanentemente e não houver nenhum item no estado de exclusão reversível no cofre.
+   > Se algum item de backup excluído por software estiver presente no cofre, o cofre não poderá ser excluído nesse momento. Tente excluir o cofre depois que os itens de backup forem excluídos permanentemente e não houver itens no estado de exclusão reversível no cofre.
 
 4. Para restaurar a VM com exclusão reversível, primeiro ela deve ser restaurada. Para restaurar, escolha a VM com exclusão reversível e, em seguida, selecione a opção **restaurar**.
 
@@ -62,13 +62,13 @@ A exclusão reversível atualmente é suportada no EUA Central ocidental, Ásia 
 ## <a name="soft-delete-for-vms-using-azure-powershell"></a>Exclusão reversível para VMs usando Azure PowerShell
 
 > [!IMPORTANT]
-> A versão AZ. Recoveryservices necessária para usar a exclusão reversível usando o Azure PS é min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
+> A versão AZ. Recoveryservices necessária para usar a exclusão reversível usando Azure PowerShell é o mínimo de 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` para obter a versão mais recente.
 
 Conforme descrito acima para portal do Azure, a sequência de etapas é a mesma ao usar o Azure PowerShell também.
 
 ### <a name="delete-the-backup-item-using-azure-powershell"></a>Excluir o item de backup usando Azure PowerShell
 
-Exclua o item de backup usando o cmdlet [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) do PS.
+Exclua o item de backup usando o cmdlet [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) do PowerShell.
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -95,7 +95,7 @@ VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
 ```
 
-Em seguida, execute a operação de desfazer exclusão usando o cmdlet [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) do PS.
+Em seguida, execute a operação de desfazer exclusão usando o cmdlet do PowerShell [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) .
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force

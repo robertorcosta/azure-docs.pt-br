@@ -4,12 +4,12 @@ description: Saiba como usar os recursos de segurança no Backup do Azure para t
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 170ecf364e01ba4b098da289f9d213716e74e0ee
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: a793b67b88f11988a584e3f57a296c69606cdd5f
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757023"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826898"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Recursos de segurança para ajudar a proteger backups híbridos usando o Backup do Azure
 
@@ -20,14 +20,14 @@ Preocupações sobre problemas de segurança, como malware, ransomware e invasã
 - **Recuperação**. Os dados de backup excluídos são retidos por mais 14 dias desde a data da exclusão. Isso garante a capacidade de recuperação de dados em um determinado período de tempo de maneira que não haja perda de dados mesmo se houver um ataque. Além disso, mais pontos de recuperação mínimos são mantidos para proteção contra dados corrompidos.
 
 > [!NOTE]
-> Os recursos de segurança não devem ser habilitados se você estiver usando a infraestrutura como um serviço (IaaS) do backup da VM. Esses recursos ainda não estão disponíveis para o backup de VM do IaaS e, portanto, habilitá-los não terá qualquer impacto. Os recursos de segurança só deverão ser habilitados se você estiver usando: <br/>
+> Os recursos de segurança não devem ser habilitados se você estiver usando um backup de VM de IaaS (infraestrutura como serviço). Esses recursos ainda não estão disponíveis para backup de VM IaaS, portanto, habilitá-los não terá nenhum impacto. Os recursos de segurança só deverão ser habilitados se você estiver usando: <br/>
 >
 > - **Agente de backup do Azure**. Versão mínima do agente 2.0.9052. Depois de habilitar esses recursos, você deverá atualizar para esta versão do agente para realizar operações críticas. <br/>
 > - **Servidor de backup do Azure**. Versão mínima do agente de Backup do Azure 2.0.9052 com o Servidor de Backup do Azure atualização 1. <br/>
 > - **Data Protection Manager do System Center**. Versão mínima do agente de Backup do Azure 2.0.9052 com o Data Protection Manager 2012 R2 UR12 ou Data Protection Manager 2016 UR2. <br/>
 
 > [!NOTE]
-> Esses recursos estão disponíveis somente para o cofre dos Serviços de Recuperação. Todos os cofres dos Serviços de Recuperação recém-criados têm esses recursos habilitados por padrão. Para cofres dos Serviços de Recuperação existentes, os usuários habilitam esses recursos usando as etapas mencionadas na seção a seguir. Após a habilitação dos recursos, eles se aplicam a todos computadores do agente dos Serviços de Recuperação, instâncias do Servidor de Backup do Azure e servidores Data Protection Manager registrados com o cofre. Habilitar essa configuração é uma ação única e você não poderá desabilitar esses recursos depois de habilitá-los.
+> Esses recursos estão disponíveis somente para o cofre dos Serviços de Recuperação. Todos os cofres dos Serviços de Recuperação recém-criados têm esses recursos habilitados por padrão. Para cofres dos Serviços de Recuperação existentes, os usuários habilitam esses recursos usando as etapas mencionadas na seção a seguir. Após a habilitação dos recursos, eles se aplicam a todos computadores do agente dos Serviços de Recuperação, instâncias do Servidor de Backup do Azure e servidores Data Protection Manager registrados com o cofre. A habilitação dessa configuração é uma ação única, e você não pode desabilitar esses recursos depois de habilitá-los.
 >
 
 ## <a name="enable-security-features"></a>Habilitar recursos de segurança
@@ -84,11 +84,11 @@ Como parte da adição de uma camada extra de autenticação para operações cr
 
 > [!NOTE]
 >
-> Atualmente, o PIN de segurança não tem suporte para **Interromper a proteção com Excluir dados** para DPM e MABS.
+> Atualmente, o PIN de segurança não tem suporte para **interromper a proteção com dados de exclusão** para o DPM e o mAbs.
 
 Para receber esse PIN:
 
-1. Entre no portal do Azure.
+1. Entre no Portal do Azure.
 2. Navegue até **serviços de recuperação**  >  **configurações**do cofre  >  **Propriedades**.
 3. Em **PIN de segurança**, selecione **gerar**. Isso abre um painel que contém o PIN a ser inserido na interface do usuário do agente dos serviços de recuperação do Azure.
     Esse PIN é válido somente por cinco minutos e é gerado automaticamente após esse período.

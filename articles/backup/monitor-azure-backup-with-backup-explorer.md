@@ -4,12 +4,12 @@ description: Este artigo descreve como usar o Backup Explorer para executar o mo
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: f514f899f2db70ecb2924c2e627f3bed28e3dcad
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a50b9ee05be48113221f2a12f968540bd3a00b3b
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092789"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824405"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Monitorar seus backups com o Backup Explorer
 
@@ -28,8 +28,8 @@ Essas funcionalidades são fornecidas de maneira integrada pela integração nat
 > * O Backup Explorer está disponível no momento apenas para dados de VMs (máquinas virtuais) do Azure.
 > * O Backup Explorer é destinado a ser um painel operacional para exibição de informações sobre seus backups nos últimos sete dias (máximo).
 > * O Backup Explorer atualmente não é compatível com as nuvens nacionais.
-> * Atualmente, a personalização do modelo do Backup Explorer não é compatível.
-> * Não recomendamos escrever automações personalizadas em dados do Azure Resource Graph.
+> * Atualmente, não há suporte para a personalização do modelo do Gerenciador de backup.
+> * Não recomendamos a gravação de automaçãos personalizadas em dados do grafo de recursos do Azure.
 > * Atualmente, o Backup Explorer permite monitorar backups em um máximo de 1.000 assinaturas (entre locatários).
 
 ## <a name="get-started"></a>Introdução
@@ -78,7 +78,7 @@ Você pode selecionar a guia **Políticas** para exibir informações importante
 
 ### <a name="the-backup-not-enabled-tab"></a>A guia Backup Não Habilitado
 
-O backup deve ser habilitado para todos os computadores que exigem proteção. Com o Backup Explorer, os administradores de backup podem identificar rapidamente quais computadores de uma organização ainda não estão protegidos pelo backup. Para exibir essas informações, selecione a guia **Backup Não Habilitado**.
+O backup deve ser habilitado para todos os computadores que exigem proteção. Com o Gerenciador de backup, os administradores de backup podem identificar rapidamente quais computadores de uma organização ainda não estão protegidos pelo backup. Para exibir essas informações, selecione a guia **Backup Não Habilitado**.
 
 O painel **Backup Não Habilitado** exibe uma tabela com uma lista de computadores desprotegidos. Sua organização pode atribuir marcas diferentes a computadores de produção e computadores de teste ou a computadores que atendem a uma variedade de funções. Como cada classe de computadores precisa de uma política de backup separada, filtrar por marcas ajuda a exibir informações específicas a cada uma delas. Selecionar o nome de qualquer computador o redireciona para o painel **Configurar Backup** desse computador, em que você pode optar por aplicar uma política de backup apropriada.
 

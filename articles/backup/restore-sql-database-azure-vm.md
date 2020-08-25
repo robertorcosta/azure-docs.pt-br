@@ -3,12 +3,12 @@ title: Restaurar bancos de dados SQL Server em uma VM do Azure
 description: Este artigo descreve como restaurar SQL Server bancos de dados que estão em execução em uma VM do Azure e cujo backup é feito com o backup do Azure.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 97cf8a7d7fcae0e31dde14e045b222c5899dbb02
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 682540e498c7531777032b5375f0105c03ce4ec6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921139"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826549"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bancos de dados do SQL Server em VMs do Azure
 
@@ -126,7 +126,7 @@ Para restaurar os dados de backup como arquivos. bak, em vez de em um banco de d
     >
     >- Executar `PsExec -s cmd` para entrar no Shell NT AUTHORITY\SYSTEM
     >   - Execute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
-    >   - Verificar o acesso com`dir \\<storageacct>.file.core.windows.net\<filesharename>`
+    >   - Verificar o acesso com `dir \\<storageacct>.file.core.windows.net\<filesharename>`
     >- Disparar uma restauração como arquivos do cofre de backup para `\\<storageacct>.file.core.windows.net\<filesharename>` como o caminho<BR>
     Você pode baixar o PsExec na página do [Sysinternals](/sysinternals/downloads/psexec) .
 
@@ -165,7 +165,7 @@ Se você tiver selecionado **Completo e Diferencial** como o tipo de restauraç�
 
 ### <a name="restore-databases-with-large-number-of-files"></a>Restaurar bancos de dados com um grande número de arquivos
 
-Se o tamanho total da cadeia de caracteres de arquivos em um banco de dados for maior que um [limite específico](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), o backup do Azure armazenará a lista de arquivos de banco de dados em um componente Pit diferente, de modo que você não pode definir o caminho de restauração de destino durante a operação de restauração. Em vez disso, os arquivos serão restaurados no caminho padrão do SQL.
+Se o tamanho total da cadeia de caracteres de arquivos em um banco de dados for maior que um [limite específico](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), o backup do Azure armazenará a lista de arquivos de banco de dados em um componente Pit diferente, para que você não possa definir o caminho de restauração de destino durante a operação de restauração. Em vez disso, os arquivos serão restaurados no caminho padrão do SQL.
 
   ![Restaurar banco de dados com arquivo grande](./media/backup-azure-sql-database/restore-large-files.jpg)
 

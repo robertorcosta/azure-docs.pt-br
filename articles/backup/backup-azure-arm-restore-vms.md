@@ -4,12 +4,12 @@ description: Restaure uma máquina virtual do Azure de um ponto de recuperação
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 66d29294d74e9fee28dd88d34f67ed3bdc4b8e7b
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 0607133f26113123f1c75d714c6c71f19cf2db63
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756479"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826507"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar dados de VM do Azure no portal do Azure
 
@@ -17,7 +17,7 @@ Este artigo descreve como restaurar os dados da VM do Azure a partir dos pontos 
 
 ## <a name="restore-options"></a>Opções de restauração
 
-O Backup do Azure proporciona várias maneiras de restaurar uma VM.
+O Backup do Azure fornece várias maneiras de restaurar uma VM.
 
 **Opção de restauração** | **Detalhes**
 --- | ---
@@ -172,7 +172,7 @@ A experiência do usuário de restauração da região secundária será semelha
 >[!NOTE]
 >
 >- Depois que a restauração é disparada e na fase de transferência de dados, o trabalho de restauração não pode ser cancelado.
->- O recurso de restauração entre regiões restaura as VMs do Azure habilitadas para CMK (chaves gerenciadas pelo cliente), que não são submetidas a backup em um cofre de serviços de recuperação habilitado para o CMK, como VMs não-CMK habilitadas na região secundária.
+>- O recurso de restauração entre regiões restaura as VMs do Azure habilitadas para CMK (chaves gerenciadas pelo cliente), cujo backup não é feito em um cofre de serviços de recuperação habilitado para o CMK, como VMs não habilitadas para CMK na região secundária.
 >- As funções do Azure necessárias para restaurar na região secundária são as mesmas da região primária.
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>Monitorando trabalhos de restauração de região secundária

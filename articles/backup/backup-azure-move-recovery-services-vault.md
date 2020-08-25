@@ -4,12 +4,12 @@ description: Instruções sobre como mover um cofre dos serviços de recuperaç�
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: b4de4c58e6a6551fa7c27db9755bb02a11700721
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 0b06b12c2bb989e4c0fc4e04440fc5f452df2da3
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755731"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827113"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre dos serviços de recuperação entre assinaturas e grupos de recursos do Azure
 
@@ -106,7 +106,7 @@ Você pode mover um cofre dos Serviços de Recuperação e seus recursos associa
 7. Selecione **eu entendo que ferramentas e scripts associados a recursos movidos não funcionarão até que eu os atualize para usar a opção de novas IDs de recurso** para confirmar e, em seguida, selecione **OK**.
 
 > [!NOTE]
-> Backup entre assinaturas (cofre RS e VMs protegidas estão em assinaturas diferentes) não é um cenário com suporte. Além disso, a opção de redundância de armazenamento de LRS (armazenamento com redundância local) para GRS (armazenamento com redundância global) e vice-versa não pode ser modificada durante a operação de movimentação de cofre.
+> O backup de assinatura cruzada (cofre RS e VMs protegidas estão em assinaturas diferentes) não é um cenário com suporte. Além disso, a opção de redundância de armazenamento do LRS (armazenamento redundante local) para o armazenamento com redundância global (GRS) e vice-versa não pode ser modificada durante a operação de movimentação do cofre.
 >
 >
 

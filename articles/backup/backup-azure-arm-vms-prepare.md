@@ -3,12 +3,12 @@ title: Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de 
 description: Descreve como fazer backup de VMs do Azure em um cofre dos Serviços de Recuperação no Backup do Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 1ae501be57be672238c8b55f431b6f5962a5fd99
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: fd958fe658306fd068356764100e6aaa15f4fc67
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261932"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826303"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação
 
@@ -89,7 +89,7 @@ Configure uma política de backup para o cofre.
      ![Painel "Selecionar máquinas virtuais"](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
     >[!NOTE]
-    > Todas as VMs na mesma região e assinatura que o do cofre estão disponíveis para configurar o backup. Ao configurar o backup, você pode navegar até o nome da máquina virtual e seu grupo de recursos, mesmo que não tenha a permissão necessária nessas VMs. Se sua VM estiver no estado de exclusão reversível, ela não será visível nessa lista. Se você precisar proteger novamente a VM, precisará aguardar até que o período de exclusão reversível expire ou restaurar a VM da lista de exclusão reversível. Para obter mais informações, consulte [o artigo exclusão reversível para VMs](soft-delete-virtual-machines.md#soft-delete-for-vms-using-azure-portal).
+    > Todas as VMs na mesma região e assinatura que o do cofre estão disponíveis para configurar o backup. Ao configurar o backup, você pode navegar até o nome da máquina virtual e seu grupo de recursos, mesmo que não tenha a permissão necessária nessas VMs. Se sua VM estiver no estado de exclusão reversível, ela não estará visível nessa lista. Se você precisar proteger novamente a VM, precisará aguardar até que o período de exclusão reversível expire ou restaurar a VM da lista de exclusão reversível. Para obter mais informações, consulte [o artigo exclusão reversível para VMs](soft-delete-virtual-machines.md#soft-delete-for-vms-using-azure-portal).
 
 1. Em **Backup**, escolha **Habilitar backup**. Isso implantará a política no cofre e nas VMs e instalará a extensão de backup no agente da VM em execução na VM do Azure.
 

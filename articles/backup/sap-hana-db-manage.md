@@ -3,12 +3,12 @@ title: Gerenciar bancos de dados do SAP HANA com backup em VMs do Azure
 description: Neste artigo, aprenda tarefas comuns para gerenciar e monitorar bancos de dados SAP HANA que estão em execução em máquinas virtuais do Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 98dd67668d1b88a25dfa3b91174cd96730c435e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7e23ffc2fe39389725519f7b94a0fe6ffaecf69c
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049458"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826694"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gerenciar e monitorar backup de bancos de dados do SAP HANA
 
@@ -129,7 +129,7 @@ Você pode alterar a política subjacente para um item de backup do SAP HANA.
 >[!NOTE]
 > Qualquer alteração no período de retenção será aplicada de forma retrospectiva a todos os pontos de recuperação mais antigos além dos novos.
 >
-> As políticas de backup incremental não podem ser usadas para bancos de dados do SAP HANA. Atualmente, não há suporte para backup incremental para esses bancos de dados.
+> As políticas de backup incremental não podem ser usadas para bancos de dados SAP HANA. Atualmente, o backup incremental não tem suporte para esses bancos de dados.
 
 ### <a name="modify-policy"></a>Modificar a política
 
@@ -171,7 +171,7 @@ Você pode interromper a proteção de um banco de dados SAP HANA de algumas man
 
 Se você optar por deixar os pontos de recuperação, tenha em mente estes detalhes:
 
-* Todos os pontos de recuperação permanecerão intactos para sempre, toda a remoção será interrompida ao parar a proteção com os dados de retenção.
+* Todos os pontos de recuperação permanecerão intactos para sempre, e toda a remoção será interrompida em parar proteção com reter dados.
 * Você será cobrado pela instância protegida e pelo armazenamento consumido. Para saber mais, confira [Preços do Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
 * Se você excluir uma fonte de dados sem interromper os backups, os novos backups falharão.
 

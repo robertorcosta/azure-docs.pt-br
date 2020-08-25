@@ -3,12 +3,12 @@ title: Backup offline para Data Protection Manager (DPM) e Backup do Microsoft A
 description: Com o backup do Azure, você pode enviar dados da rede usando o serviço de importação/exportação do Azure. Este artigo explica o fluxo de trabalho de backup offline para versões anteriores do DPM e Servidor de Backup do Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: e986baaf6ac2943bd210761ff2194eacdee5984a
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 45518607b96848dc211c1a787ecfa85432cd842e
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261915"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826592"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Fluxo de trabalho de backup offline para o DPM e o Servidor de Backup do Azure (versões anteriores)
 
@@ -46,7 +46,7 @@ O backup offline tem suporte para todos os modelos de implantação do backup do
 > * Backup de todas as cargas de trabalho e arquivos com MABS.
 
 >[!NOTE]
->Não há suporte para assinaturas do Azure CSP para uso com propagação offline para o DPM 2019 RTM e versões anteriores, e MABS v3 RTM e versões anteriores. Os backups online pela rede ainda têm suporte.
+>As assinaturas do Azure CSP não têm suporte para uso com a propagação offline para o DPM 2019 RTM e versões anteriores e o MABS v3 RTM e versões anteriores. Os backups online pela rede ainda têm suporte.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -87,7 +87,7 @@ Verifique se os pré-requisitos a seguir foram atendidos antes de iniciar o flux
 * A ferramenta de *AzureOfflineBackupCertGen.exe* gera um arquivo de *OfflineApplicationParams.xml* . Copie esse arquivo para o servidor com o MABS ou o DPM.
 * Instale o [agente Mars mais recente](https://aka.ms/azurebackup_agent) na instância do DPM ou no servidor de backup do Azure.
 * Registre o servidor no Azure.
-* Execute o seguinte comando:
+* Execute o comando a seguir:
 
     ```cmd
     AzureOfflineBackupCertGen.exe AddRegistryEntries SubscriptionId:<subscriptionid> xmlfilepath:<path of the OfflineApplicationParams.xml file>  storageaccountname:<storageaccountname to be used for offline backup>
@@ -99,7 +99,7 @@ Verifique se os pré-requisitos a seguir foram atendidos antes de iniciar o flux
 
 Siga estas etapas para carregar manualmente o certificado de backup offline para um aplicativo de Azure Active Directory criado anteriormente destinado ao backup offline.
 
-1. Entre no portal do Azure.
+1. Entre no Portal do Azure.
 1. Vá para **Azure Active Directory**  >  **registros de aplicativo**.
 1. Na guia **aplicativos de propriedade** , localize um aplicativo com o formato de nome de exibição `AzureOfflineBackup _<Azure User Id` .
 
@@ -121,7 +121,7 @@ Siga estas etapas para carregar manualmente o certificado de backup offline para
     >[!NOTE]
     > Para localizar a ID de usuário do Azure, execute uma das seguintes etapas:
     >
-    >* No PowerShell conectado ao Azure, execute o `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as appears in the portal"` comando.
+    >* No PowerShell conectado ao Azure, execute o comando `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as appears in the portal"`.
     >* Vá para o caminho do registro `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;` .
 
 1. Clique com o botão direito do mouse na cadeia de caracteres adicionada na etapa anterior e selecione **Modificar**. No valor, forneça a impressão digital do certificado que você exportou na etapa 7. Depois, selecione **OK**.
@@ -183,7 +183,7 @@ O utilitário *AzureOfflineBackupDiskPrep* é usado para preparar as unidades SA
      > [!IMPORTANT]
      > Se o computador de origem for uma máquina virtual, será obrigatório usar um servidor físico ou computador cliente diferente como o computador de cópia.
 
-1. Abra um prompt de comando com privilégios elevados no computador de cópia com o diretório do utilitário *AzureOfflineBackupDiskPrep* como o diretório atual. Execute o seguinte comando:
+1. Abra um prompt de comando com privilégios elevados no computador de cópia com o diretório do utilitário *AzureOfflineBackupDiskPrep* como o diretório atual. Execute o comando a seguir:
 
     `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to AzurePublishSettingsFile*>]`
 

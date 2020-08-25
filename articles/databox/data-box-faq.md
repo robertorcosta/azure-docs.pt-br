@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 7d300252893a72ef6296e941f5a573a67807779f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c6b524fb76c623273c60d39f4102500664c487cb
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652569"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88823974"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas frequentes
 
@@ -57,7 +57,7 @@ a.  Para obter informações sobre em quais países/regiões o Data Box está di
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>Q. Em quais regiões posso armazenar dados com o Data Box?
 a. O Data Box é compatível com todas as regiões nos EUA, na Europa Ocidental, no Norte da Europa, na França, no Reino Unido, no Japão, na Austrália e no Canadá. Para saber mais, acesse [Disponibilidade por região](data-box-overview.md#region-availability).
 
-### <a name="q-how-can-i-import-my-on-premises-source-data-to-an-azure-region-in-a-different-countryregion-or-export-data-from-an-azure-region-in-one-country-to-a-different-countryregion"></a>Q. Como importar meus dados de origem locais para uma região do Azure em um país/região diferente ou exportar dados de uma região do Azure em um país para um país/região diferente?
+### <a name="q-how-can-i-import-source-data-at-my-location-in-a-particular-country-to-an-azure-region-in-a-different-countryregion-or-export-data-from-an-azure-region-in-one-country-to-a-different-countryregion"></a>Q. Como importar dados de origem em meu local em um país específico para uma região do Azure em um país/região diferente ou exportar dados de uma região do Azure em um país para um país/região diferente?
 
 Data Box dá suporte à ingestão de dados ou egresso somente dentro do mesmo país/região que seu destino e não cruzará nenhuma borda internacional. A única exceção é para pedidos na União Europeia (UE), em que as caixas de dados podem ser enviadas de e para qualquer país/região da UE.
 

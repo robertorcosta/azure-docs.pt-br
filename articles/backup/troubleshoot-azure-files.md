@@ -3,12 +3,12 @@ title: Solucionar problemas de backup de compartilhamento de arquivos do Azure
 description: Este artigo tem informações sobre a solução de problemas que ocorrem ao proteger seus compartilhamentos de arquivos no Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 2030620446f414f985f86218b96c6db78ab090a1
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: e6aec34bea32d33e7a202cb9afb1aae6e1047f18
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763670"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825453"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Solucionar problemas ao fazer backup de compartilhamentos de arquivos do Azure
 
@@ -251,7 +251,7 @@ Mensagem de erro: não foi possível encontrar o instantâneo de compartilhament
 - Verifique se o instantâneo de compartilhamento de arquivos, correspondente ao ponto de recuperação que você está tentando usar para recuperação, ainda existe.
 
   >[!NOTE]
-  >Se você excluir um instantâneo de compartilhamento de arquivos que foi criado pelo backup do Azure, os pontos de recuperação correspondentes se tornarão inutilizáveis. É recomendável não excluir instantâneos para garantir a recuperação garantida.
+  >Se você excluir um instantâneo de compartilhamento de arquivos que foi criado pelo backup do Azure, os pontos de recuperação correspondentes se tornarão inutilizáveis. Recomendamos não excluir instantâneos para garantir a recuperação garantida.
 
 - Tente selecionar outro ponto de restauração para recuperar os dados.
 

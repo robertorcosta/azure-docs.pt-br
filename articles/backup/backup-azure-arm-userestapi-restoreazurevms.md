@@ -4,12 +4,12 @@ description: Neste artigo, saiba como gerenciar operações de restauração do 
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: eef30808dddfb20d01fcb6e25a88b9a64e4445d8
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 03815cd9956e323583d6d66097e0eeaa3d492f44
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763534"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826354"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurar máquinas virtuais do Azure usando a API REST
 
@@ -31,7 +31,7 @@ O URI *GET* tem todos os parâmetros necessários. Não há necessidade de um co
 
 ### <a name="responses"></a>Respostas
 
-|Nome  |Type  |DESCRIÇÃO  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [RecoveryPointResourceList](/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -144,7 +144,7 @@ O disparo de qualquer operação de restauração é uma [operação assíncrona
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|Nome  |Type  |DESCRIÇÃO  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |202 Aceito     |         |     Aceito    |
 
@@ -210,13 +210,13 @@ Como o trabalho de restauração é uma operação de execução demorada, ele d
 
 ### <a name="restore-disks"></a>Restaurar discos
 
-Se houver a necessidade de personalizar a criação de uma VM a partir dos dados de backup, será possível apenas restaurar os discos em uma conta de armazenamento escolhida e criar uma VM a partir desses discos de acordo com seus requisitos. A conta de armazenamento deve estar na mesma região que o cofre dos serviços de recuperação e não deve ter redundância de zona. Os discos, bem como a configuração da VM de backup ("vmconfig.jsem"), serão armazenados na conta de armazenamento específica. Conforme explicado [acima](#restore-operations), o corpo de solicitação relevante para discos de restauração é fornecido abaixo.
+Se houver a necessidade de personalizar a criação de uma VM a partir dos dados de backup, você poderá apenas restaurar os discos em uma conta de armazenamento escolhida e criar uma VM a partir desses discos de acordo com seus requisitos. A conta de armazenamento deve estar na mesma região que o cofre dos serviços de recuperação e não deve ter redundância de zona. Os discos, bem como a configuração da VM de backup ("vmconfig.jsem"), serão armazenados na conta de armazenamento determinada. Conforme explicado [acima](#restore-operations), o corpo de solicitação relevante para discos de restauração é fornecido abaixo.
 
 #### <a name="create-request-body"></a>Criar o corpo da solicitação
 
 Para acionar uma restauração de disco a partir de um backup de VM do Azure, a seguir estão os componentes do corpo da solicitação.
 
-|Nome  |Type  |DESCRIÇÃO  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -254,7 +254,7 @@ Enquanto os discos de restauração criam discos do ponto de recuperação, o Re
 
 Para disparar uma substituição de disco de um backup de VM do Azure, estes são os componentes do corpo da solicitação.
 
-|Nome  |Type  |DESCRIÇÃO  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 

@@ -4,12 +4,12 @@ description: Monitore as cargas de trabalho de Backup do Azure e crie alertas pe
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: fbd1c7f5e7fab9f77815e782160e855a9a854dc9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3f5f663a2f0ed0f91cc414d352e975a2ff3b9649
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054605"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827147"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorar em escala usando o Azure Monitor
 
@@ -46,7 +46,7 @@ A característica de definição de um alerta é sua condição de disparo. Sele
 Se necessário, você pode editar a consulta do Kusto. Escolha um limite, um período e uma frequência. O limite determina quando o alerta será gerado. O período é a janela de tempo em que a consulta é executada. Por exemplo, se o limite for maior que 0, o período será de 5 minutos e a frequência será de 5 minutos, então a regra executará a consulta a cada 5 minutos, examinando os 5 minutos anteriores. Se o número de resultados for maior que 0, você será notificado pelo grupo de ações selecionado.
 
 > [!NOTE]
-> Para executar a regra de alertas uma vez por dia, em todos os eventos/logs que foram criados no dia determinado, altere o valor de 'period' e 'frequency' para 1440, ou seja, 24 horas.
+> Para executar a regra de alerta uma vez por dia, em todos os eventos/logs que foram criados no dia determinado, altere o valor de ' Period ' e ' Frequency ' para 1440, ou seja, 24 horas.
 
 #### <a name="alert-action-groups"></a>Alertar grupos de ações
 

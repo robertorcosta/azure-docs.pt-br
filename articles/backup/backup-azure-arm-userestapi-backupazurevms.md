@@ -4,12 +4,12 @@ description: Neste artigo, saiba como configurar, iniciar e gerenciar operaçõe
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 89bf2df0b5b9279053ca8258e6d21b00e2789557
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: a0ad08e9fd750166f8df82a1b3a36cecd8f12f27
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762871"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826405"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Fazer backup de uma VM do Azure usando o Backup do Azure por meio da API REST
 
@@ -41,7 +41,7 @@ A operação “atualizar” é uma [operação assíncrona](../azure-resource-m
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|Nome  |Type  |DESCRIÇÃO  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |204 Sem Conteúdo     |         |  OK sem conteúdo retornado      |
 |202 Aceito     |         |     Aceito    |
@@ -104,7 +104,7 @@ O URI *GET* tem todos os parâmetros necessários. Nenhum corpo da solicitação
 
 #### <a name="responses-to-get-operation"></a>Respostas para a operação de obtenção
 
-|Nome  |Type  |DESCRIÇÃO  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
@@ -180,7 +180,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Para criar um item protegido, confira a seguir os componentes do corpo da solicitação.
 
-|Nome  |Type  |DESCRIÇÃO  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |Propriedades do recurso ProtectedItem         |
 
@@ -208,7 +208,7 @@ A criação de um item protegido é uma [operação assíncrona](../azure-resour
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|Nome  |Type  |DESCRIÇÃO  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |200 OK     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 Aceito     |         |     Aceito    |
@@ -294,7 +294,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 Para disparar um backup sob demanda, a seguir estão os componentes do corpo da solicitação.
 
-|Nome  |Type  |DESCRIÇÃO  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Propriedades de BackupRequestResource         |
 
@@ -302,7 +302,7 @@ Para obter uma lista de definições de corpo da solicitação e outros detalhes
 
 #### <a name="example-request-body-for-on-demand-backup"></a>Corpo de solicitação de exemplo para backup sob demanda
 
-O corpo da solicitação a seguir define as propriedades necessárias para disparar um backup para um item protegido. Se a retenção não for especificada, ele será retido por 30 dias a partir do momento em que o trabalho de backup foi disparado.
+O corpo da solicitação a seguir define as propriedades necessárias para disparar um backup para um item protegido. Se a retenção não for especificada, ela será retida por 30 dias a partir da hora do gatilho do trabalho de backup.
 
 ```json
 {
@@ -319,7 +319,7 @@ Disparar um backup sob demanda é uma [operação assíncrona](../azure-resource
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|Nome  |Type  |DESCRIÇÃO  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |202 Aceito     |         |     Aceito    |
 
@@ -439,13 +439,13 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 204 (NoContent) quando a operação é concluída.
 
-|Nome  |Type  |DESCRIÇÃO  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 Aceito     |         |     Aceito    |
 
 > [!IMPORTANT]
-> Para se proteger contra cenários de exclusão acidental, há um [recurso de exclusão reversível disponível](use-restapi-update-vault-properties.md#soft-delete-state) para o cofre dos serviços de recuperação. Se o estado de exclusão reversível do cofre for definido como habilitado, a operação de exclusão não excluirá imediatamente os dados. Ele será mantido por 14 dias e, em seguida, limpo permanentemente. O cliente não é cobrado pelo armazenamento durante este período de 14 dias. Para desfazer a operação de exclusão, consulte a [seção desfazer-excluir](#undo-the-deletion).
+> Para se proteger contra cenários de exclusão acidental, há um [recurso de exclusão reversível disponível](use-restapi-update-vault-properties.md#soft-delete-state) para o cofre dos serviços de recuperação. Se o estado de exclusão reversível do cofre for definido como habilitado, a operação de exclusão não excluirá imediatamente os dados. Ele será mantido por 14 dias e, em seguida, limpo permanentemente. Você não é cobrado pelo armazenamento durante esse período de 14 dias. Para desfazer a operação de exclusão, consulte a [seção desfazer-excluir](#undo-the-deletion).
 
 ### <a name="undo-the-deletion"></a>Desfazer a exclusão
 

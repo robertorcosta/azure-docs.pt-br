@@ -3,12 +3,12 @@ title: Fazer backup de máquinas virtuais do Hyper-V com MABS
 description: Este artigo contém os procedimentos para fazer backup e recuperação de máquinas virtuais usando o Backup do Microsoft Azure Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: bf267285e47f6695f2c6104cbc1817f5e733fa29
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 364426956d665d54885182e7b63af93df3d30e1f
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514537"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88823957"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Fazer backup de máquinas virtuais do Hyper-V com Servidor de Backup do Azure
 
@@ -90,13 +90,13 @@ Estes são os pré-requisitos para fazer backup de máquinas virtuais do Hyper-V
     >
     >Se você estiver protegendo cargas de trabalho do aplicativo, os pontos de recuperação serão criados de acordo com a frequência de sincronização, desde que o aplicativo dê suporte a backups incrementais. Se não estiver, o MABS executará um backup completo expresso, em vez de um backup incremental, e criará pontos de recuperação de acordo com o agendamento de backup expresso.
 
-7. Na página **rever alocação do disco** , examine o espaço em disco do pool de armazenamento alocado para o grupo de proteção.
+7. Na página **Examinar alocação de disco**, examine o espaço em disco do pool de armazenamento alocado para o grupo de proteção.
 
    O **Tamanho total dos dados** é o tamanho dos dados de que você deseja fazer backup e **Espaço em disco a ser provisionado no MABS** é o espaço que o MABS recomenda para o grupo de proteção. O MABS escolhe o volume de backup ideal com base nas configurações. No entanto, você pode editar as opções de volume de backup nos **Detalhes de alocação do disco**. Para as cargas de trabalho, no menu suspenso, selecione o armazenamento preferido. Suas edições alteram os valores de **Armazenamento Total** e **Armazenamento Gratuito** no painel de **Armazenamento em Disco Disponível**. Espaço subprovisionado é a quantidade de MABS de armazenamento que sugere que você adicione ao volume para continuar com os backups sem problemas no futuro.
 
 8. Na página **Escolher método de criação de réplica**, especifique como a replicação inicial de dados no grupo de proteção será executada. Se você optar por **replicar automaticamente pela rede**, recomendamos que você escolha um horário de pico. Para grandes quantidades de dados ou condições de rede abaixo do ideal, considere selecionar **manualmente**, o que requer a replicação de dados offline usando mídia removível.
 
-9. Na página **Opções de verificação de consistência**, selecione como deseja automatizar as verificações de consistência. Você pode habilitar uma verificação para ser executada somente quando os dados de réplica se tornarem inconsistentes, ou de acordo com uma agenda. Se não quiser configurar a verificação de consistência automática, você poderá executar uma verificação manual a qualquer momento clicando com o botão direito do mouse no grupo de proteção e selecionando **Executar Verificação de Consistência**.
+9. Na página **Opções de verificação de consistência**, selecione como deseja automatizar as verificações de consistência. Você pode habilitar uma verificação para ser somente executada quando os dados de réplica se tornarem inconsistentes ou de acordo com uma agenda. Se não quiser configurar a verificação de consistência automática, você poderá executar uma verificação manual a qualquer momento clicando com o botão direito do mouse no grupo de proteção e selecionando **Executar Verificação de Consistência**.
 
     Depois de criar o grupo de proteção, a replicação inicial dos dados ocorrerá de acordo com o método selecionado. Após a replicação inicial, cada backup ocorrerá em conformidade com as configurações do grupo de proteção. Se você precisar recuperar os dados de backup, observe o seguinte:
 
@@ -132,14 +132,14 @@ Quando for possível recuperar uma máquina virtual do backup, use o Assistente 
 
 3. No menu **Ações**, clique em **Recuperar** para abrir o Assistente de Recuperação.
 
-    A VM e o ponto de recuperação selecionados aparecem na tela **Examinar Seleção de Recuperação**. Clique em **Avançar**.
+    A VM e o ponto de recuperação selecionados aparecem na tela **Examinar Seleção de Recuperação**. Clique em **Próximo**.
 
 4. Na tela **Selecionar Tipo de Recuperação**, selecione onde você deseja restaurar os dados e clique em **Avançar**.
 
     - **Recuperar na instância original**: ao recuperar na instância original, o VHD original é excluído. MABS recupera o VHD e outros arquivos de configuração para o local original usando o gravador VSS do Hyper-V. Ao término do processo de recuperação, as máquinas virtuais ainda estarão altamente disponíveis.
         O grupo de recursos deve estar presente para recuperação. Se não estiver disponível, recupere em um local alternativo e crie a máquina virtual altamente disponível.
 
-    - **Recuperar como máquina virtual em qualquer host**: o mAbs dá suporte à ALR (recuperação de local alternativo), que fornece uma recuperação direta de uma máquina virtual protegida do Hyper-v para um host Hyper-v diferente, independentemente da arquitetura do processador. As máquinas virtuais do Hyper-V que forem recuperadas em um nó de cluster não estarão altamente disponíveis. Se você escolher essa opção, o Assistente de Recuperação apresentará uma tela adicional para identificar o destino e o caminho de destino.
+    - **Recuperar como máquina virtual em qualquer host**: o mAbs dá suporte à ALR (recuperação de local alternativo), que fornece uma recuperação direta de uma máquina virtual protegida do Hyper-v para um host Hyper-v diferente, independentemente da arquitetura do processador. As máquinas virtuais do Hyper-V que são recuperadas para um nó de cluster não estarão altamente disponíveis. Se você escolher essa opção, o Assistente de Recuperação apresentará uma tela adicional para identificar o destino e o caminho de destino.
 
     - **Copiar para uma pasta de rede**: o mAbs dá suporte à ILR (recuperação em nível de item), que permite fazer a recuperação em nível de item de arquivos, pastas, volumes e VHDs (discos rígidos virtuais) de um backup em nível de host de máquinas virtuais do Hyper-V em um volume ou compartilhamento de rede em um servidor mAbs protegido. O agente de proteção do MABS não precisa ser instalado dentro do convidado para executar a recuperação em nível de item. Se você escolher essa opção, o Assistente de Recuperação apresentará uma tela adicional para identificar o destino e o caminho de destino.
 

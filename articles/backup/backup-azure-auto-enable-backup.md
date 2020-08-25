@@ -3,12 +3,12 @@ title: Habilitar automaticamente o backup na criação da VM usando o Azure Poli
 description: Um artigo que descreve como usar Azure Policy para habilitar o backup automaticamente para todas as VMs criadas em um determinado escopo
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: fd54c25899bc1e58a753821d2c7c2df8ff213865
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: de4923000bc842203535e03727fd532c67a8f517
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763585"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826065"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Habilitar automaticamente o backup na criação da VM usando o Azure Policy
 
@@ -52,7 +52,7 @@ Para atribuir a política ao escopo necessário, siga as etapas abaixo:
 
 > [!NOTE]
 >
-> É recomendável que essa política não esteja atribuída a mais de 200 VMs por vez. Se a política for atribuída a mais de 200 VMs, isso poderá fazer com que o backup seja disparado algumas horas depois daquela especificada pela agenda.
+> É recomendável que essa política não seja atribuída a mais de 200 VMs por vez. Se a política for atribuída a mais de 200 VMs, isso poderá fazer com que o backup seja disparado algumas horas depois daquela especificada pela agenda.
 
 ## <a name="next-steps"></a>Próximas etapas
 
