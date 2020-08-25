@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 2ca0031d3ae9fc1347c3a8bd7bf24c2780e502a8
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: afcca913b8a9c8fb31fa6e18d0570aebd68b8ef3
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607444"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814715"
 ---
 # <a name="consulting-service-offers"></a>Ofertas de serviço de consultoria
 
@@ -72,40 +72,40 @@ Para obter mais informações sobre competências, acesse a página [Competênci
 
 Os parceiros integradores de sistema podem enviar ofertas de serviço de consultoria para os 20 países/regiões a seguir:
 
-| Países  | (continuação...)   | (continuação...)  | (continuação...)  |
+| Países | (cont.) |  (cont.) |  (cont.) |
 |---------|----------|----------|----------|
 | Austrália | Bélgica | Canada | Dinamarca |
 | Finlândia  | França | Alemanha  | Índia   |
 | Itália    | Japão  |  México  |  Países Baixos  |
 |  Nova Zelândia  |  Noruega  |  Polônia  | África do Sul |
 |  Suécia  | Suíça  |  Estados Unidos  | United Kingdom  |
-||
+|
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>Registrar-se em serviços de consultoria no marketplace comercial
 
-Comece [registrando](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) as informações da sua empresa no marketplace. Para obter uma lista de verificação completa dos requisitos de registro, consulte [Tornar-se um publicador no marketplace](become-publisher.md). 
+Comece [registrando](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) as informações da sua empresa no marketplace. Para obter uma lista de verificação completa dos requisitos de registro, consulte [Tornar-se um publicador no marketplace](become-publisher.md).
 
 ## <a name="prepare-your-publishing-artifacts"></a>Preparar os artefatos de publicação
 Antes do registro, você pode iniciar a coleta e preparação do conteúdo que ajudará sua listagem a articular o valor do serviço e solução para seu cliente-alvo. 
 
 |Configuração para novos publicadores  |
-|---------|
-|ID MPN     |
-|Logotipos da empresa (48 x 48, 216 x 216 pixels)     |
-|Destino do cliente potencial     |
-||
+| - |
+| ID MPN |
+| Logotipos da empresa (48 x 48, 216 x 216 pixels) |
+| Destino do cliente potencial |
+|
 
 |Configuração para novas ofertas  |
-|---------|
-|Nome da oferta (200 caracteres) e descrição (2.000 caracteres)    |
-|Competências     |
-|Disponibilidade por país/região     |
-|Duração do compromisso     |
-|Setores aplicáveis, categorias e palavras-chave de pesquisa     |
-|Vídeo da visão geral do produto    |
-|Capturas de tela (máximo de 5, 1280 x 720 pixels)     |
-|Documentos de marketing (máximo de 3)     |
-||
+| - |
+| Nome da oferta (200 caracteres) e descrição (2.000 caracteres) |
+| Competências  |
+| Disponibilidade por país/região |
+| Duração do compromisso  |
+| Setores aplicáveis, categorias e palavras-chave de pesquisa |
+| Vídeo da visão geral do produto |
+| Capturas de tela (máximo de 5, 1280 x 720 pixels) |
+| Documentos de marketing (máximo de 3) |
+|
 
 ## <a name="the-publishing-process"></a>O processo de publicação
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: f91b5879922fc473ff1e46f817b3d649b1b30a9c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fee57efb3517131049f986c743125f17573fdc34
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088726"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816721"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de Metadados do Azure: Eventos Agendados para VMs do Linux
 
@@ -42,7 +42,7 @@ Os eventos agendados fornecem eventos nos seguintes casos de uso:
 - [Manutenção iniciada pela plataforma](../maintenance-and-updates.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json) (por exemplo, reinicialização de VM, migração ao vivo ou atualizações de preservação de memória para host)
 - A máquina virtual está em execução no [hardware de host degradado](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) que tem previsão para falhar em breve
 - Manutenção iniciada pelo usuário (por exemplo, um usuário reinicia ou reimplanta uma VM)
-- Remoção de instâncias [VM spot](spot-vms.md) e [Conjunto de dimensionamento spot](../../virtual-machine-scale-sets/use-spot.md).
+- Remoção de instâncias [VM spot](../spot-vms.md) e [Conjunto de dimensionamento spot](../../virtual-machine-scale-sets/use-spot.md).
 
 ## <a name="the-basics"></a>Noções básicas  
 
@@ -75,11 +75,11 @@ O serviço de Eventos Agendados tem controle de versão. As versões são obriga
 
 | Versão | Tipo de Versão | Regiões | Notas de versão | 
 | - | - | - | - | 
-| 01-08-2019 | Disponibilidade geral | Tudo | <li> Adição de suporte para o EventSource |
+| 01-08-2019 | Disponibilidade geral | Todos | <li> Adição de suporte para o EventSource |
 | 01-04-2019 | Disponibilidade geral | Todos | <li> Adição de suporte para a Descrição do Evento |
-| 2019-01-01 | Disponibilidade geral | Tudo | <li> Suporte adicionado para conjuntos de dimensionamento de máquinas virtuais EventType “Terminate” |
-| 2017-11-01 | Disponibilidade geral | Tudo | <li> Suporte adicionado para o EventType de remoção de VM spot “Preempt”<br> | 
-| 2017-08-01 | Disponibilidade geral | Tudo | <li> Removido o sublinhado inicial dos nomes de recursos para as VMs de IaaS<br><li>Requisito de cabeçalho de metadados imposto para todas as solicitações | 
+| 2019-01-01 | Disponibilidade geral | Todos | <li> Suporte adicionado para conjuntos de dimensionamento de máquinas virtuais EventType “Terminate” |
+| 2017-11-01 | Disponibilidade geral | Todos | <li> Suporte adicionado para o EventType de remoção de VM spot “Preempt”<br> | 
+| 2017-08-01 | Disponibilidade geral | Todos | <li> Removido o sublinhado inicial dos nomes de recursos para as VMs de IaaS<br><li>Requisito de cabeçalho de metadados imposto para todas as solicitações | 
 | 2017-03-01 | Visualização | Todos | <li>Versão inicial |
 
 
@@ -139,7 +139,7 @@ No caso de haver eventos agendados, a resposta contém uma matriz de eventos.
 | EventStatus | Status desse evento. <br><br> Valores: <ul><li>`Scheduled`: Esse evento está agendado para ser iniciado após o tempo especificado na propriedade `NotBefore`.<li>`Started`: Esse evento foi iniciado.</ul> Nenhum `Completed` ou status semelhante é fornecido em nenhum momento. O evento não é mais retornado quando é concluído.
 | NotBefore| Tempo após o qual esse evento pode começar. <br><br> Exemplo: <br><ul><li> Segunda-feira, 19 de setembro de 2016 18:29:47 GMT  |
 | Descrição | A descrição deste evento. <br><br> Exemplo: <br><ul><li> O servidor host está passando por manutenção. |
-| EventSource | Iniciador do evento. <br><br> Exemplo: <br><ul><li> `Platform`: esse evento é iniciado pela plataforma. <li>`User`: esse evento é iniciado pelo usuário. |
+| EventSource | Iniciador do evento. <br><br> Exemplo: <br><ul><li> `Platform`: Esse evento é iniciado pela plataforma. <li>`User`: esse evento é iniciado pelo usuário. |
 
 ### <a name="event-scheduling"></a>Agendamento do evento
 Cada evento é agendado uma quantidade mínima de tempo no futuro com base no tipo de evento. Esse tempo é refletido na propriedades `NotBefore` de um evento. 

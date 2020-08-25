@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: db66137ac4b233a7e5d3040cf38dc69a089b0c9a
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 8ee6449f357a578b30809bb03723ac1556e4f459
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185206"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816146"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Solucionar problemas de instalação por push do serviço de mobilidade
 
@@ -130,6 +130,28 @@ Para resolver o erro:
 
 Esse erro ocorre quando a rede na qual o computador de origem reside não é encontrada, pode ter sido excluída ou não está mais disponível. A única maneira de resolver o erro é garantir que a rede exista.
 
+## <a name="check-access-for-network-shared-folders-on-source-machine-errorid-9510595523"></a>Verificar o acesso para pastas compartilhadas de rede no computador de origem (errorID: 95105, 95523)
+
+Verifique se as pastas de rede compartilhadas em sua máquina virtual estão acessíveis remotamente usando as credenciais especificadas. Para confirmar o acesso: 
+
+1. Faça logon no computador do servidor de processo.
+2. Abra o Explorador de Arquivos. Na barra de endereços, digite `\\<SOURCE-MACHINE-IP>\C$` e clique em Enter.
+
+    ![Abrir pasta no PS](./media/vmware-azure-troubleshoot-push-install/open-folder-process-server.PNG)
+
+3. O Explorador de Arquivos solicitará as credenciais. Insira o nome de usuário e a senha e clique em OK. <br><br/>
+
+    ![Fornecer credenciais](./media/vmware-azure-troubleshoot-push-install/provide-credentials.PNG)
+
+    >[!NOTE]
+    > Se o computador de origem estiver ingressado no domínio, forneça o nome de domínio junto com o nome de usuário como `<domainName>\<username>` . Se o computador de origem estiver no grupo de trabalho, forneça apenas o nome de usuário.
+
+4. Se a conexão for bem-sucedida, as pastas do computador de origem ficarão visíveis remotamente do servidor de processo.
+
+    ![Pastas visíveis do computador de origem](./media/vmware-azure-troubleshoot-push-install/visible-folders-from-source.png)
+
+Se a conexão não for bem-sucedida, verifique se todos os pré-requisitos foram atendidos.
+
 ## <a name="file-and-printer-sharing-services-check-errorid-95105--95106"></a>Verificação dos serviços de compartilhamento arquivos / impressoras (ErrorID: 95105 & 95106)
 
 Após uma verificação de conectividade, verifique se o serviço de compartilhamento de arquivos e impressoras está habilitado em sua máquina virtual. Essas configurações são necessárias para copiar o agente de mobilidade para o computador de origem.
@@ -204,7 +226,7 @@ Antes da versão 9,20, uma partição raiz ou configuração de volume em vário
 
 Os arquivos de configuração do GRUB (carregador unificado geral) (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/Grub2/grub.cfg_ou _/etc/default/grub_) podem conter o valor para a **raiz** dos parâmetros e **retomar** como os nomes de dispositivo reais em vez de um UUID (identificador universalmente exclusivo). Site Recovery exige a abordagem do UUID, pois os nomes dos dispositivos podem mudar na reinicialização da VM. Por exemplo, a VM pode não ficar online com o mesmo nome no failover e que resulte em problemas.
 
-Por exemplo: 
+Por exemplo:
 
 - A linha a seguir é do arquivo GRUB _/boot/Grub2/grub.cfg_:
 
@@ -223,7 +245,7 @@ os nomes de dispositivo devem ser substituídos pelo UUID correspondente.
 
 1. Localize o UUID do dispositivo executando o comando `blkid \<device name>` .
 
-   Por exemplo: 
+   Por exemplo:
 
    ```shell
    blkid /dev/sda1
@@ -260,7 +282,7 @@ Quando o agente de mobilidade é copiado para o computador de origem, pelo menos
 
 ## <a name="low-system-resources"></a>Recursos do sistema insuficientes
 
-Esse problema ocorre quando o sistema tem pouca memória disponível e não é capaz de alocar memória para a instalação do serviço de mobilidade. Certifique-se de que memória suficiente tenha sido liberada para que a instalação prossiga e seja concluída com êxito.
+As possíveis IDs de erro vistas para esse problema são 95572 e 95573. Esse problema ocorre quando o sistema tem pouca memória disponível e não é capaz de alocar memória para a instalação do serviço de mobilidade. Certifique-se de que memória suficiente tenha sido liberada para que a instalação prossiga e seja concluída com êxito.
 
 ## <a name="vss-installation-failures"></a>Falhas na instalação do VSS
 

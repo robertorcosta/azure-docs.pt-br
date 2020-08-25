@@ -7,14 +7,14 @@ ms.topic: include
 author: dannyevers
 ms.author: mingshen
 ms.reviewer: trkeya
-ms.date: 08/07/2020
-ms.openlocfilehash: 5dcf1f932e72473b6d4bc2442b19b5a674becaa4
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 08/18/2020
+ms.openlocfilehash: 3659b9dbdd6108a650ffc44169bed1d33b140345
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031474"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815616"
 ---
--   O logotipo pequeno (48 x 48 pixels) aparece nos resultados da pesquisa do Azure Marketplace.
--   O logotipo médio (90 x 90 pixels) é exibido quando você cria um novo recurso no Microsoft Azure.
--   O logotipo grande (entre 216 x 216 e 350 x 350 pixels) aparece na sua página de listagem de ofertas no Azure Marketplace.
+- O logotipo grande aparece na sua página de listagem de ofertas no Azure Marketplace.
+- O logotipo médio (opcional) é exibido quando você cria um novo recurso no Microsoft Azure.
+- O logotipo pequeno (opcional) aparece nos resultados da pesquisa do Azure Marketplace.

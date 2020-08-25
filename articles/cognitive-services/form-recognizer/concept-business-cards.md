@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 2fc87f08b30d648ec38d2b93e96a32d125b856be
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 039f7343bcef64db9ad9eae558cd3e97f3678c59
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757907"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799274"
 ---
 # <a name="business-card-concepts"></a>Conceitos de cartão de visita
 
@@ -61,7 +61,7 @@ O [cartão de visita de análise](https://westcentralus.dev.cognitive.microsoft.
 
 A segunda etapa é chamar a operação [obter resultado do cartão de negócios Get Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeBusinessCardResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de análise de cartão de negócios. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
 
-|Campo| Type | Valores possíveis |
+|Campo| Tipo | Valores possíveis |
 |:-----|:----:|:----|
 |status | string | não iniciado: a operação de análise não foi iniciada. |
 | |  | em execução: a operação de análise está em andamento. |
@@ -70,7 +70,7 @@ A segunda etapa é chamar a operação [obter resultado do cartão de negócios 
 
 Quando o campo **status** tiver o valor **êxito** , a resposta JSON incluirá os resultados de reconhecimento de texto e compreensão do cartão de negócios. O resultado da compreensão do cartão de visita é organizado como um dicionário de valores de campo nomeados, em que cada valor contém o texto extraído, o valor normalizado, a caixa delimitadora, a confiança e os elementos correspondentes do Word. O resultado do reconhecimento de texto é organizado como uma hierarquia de linhas e palavras, com informações de texto, de caixa delimitadora e de confiança.
 
-![Resultados da Contoso smample](./media/business-card-results.png)
+![saída do cartão de visita de exemplo](./media/business-card-results.png)
 
 ### <a name="sample-json-output"></a>Saída JSON de exemplo
 
@@ -90,8 +90,8 @@ Consulte o exemplo a seguir de uma resposta JSON bem-sucedida: o nó "readResult
                 "width": 4032,
                 "height": 3024,
                 "unit": "pixel",
-    "lines": 
-         {
+                "lines": 
+                          {
                         "text": "Dr. Avery Smith",
                         "boundingBox": [
                             419.3,

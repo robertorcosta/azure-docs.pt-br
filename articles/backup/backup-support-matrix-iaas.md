@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações ao
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 66c712eca86b01c5815638c9ea58042580791ea6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f0783d937178c88265c33c8b7339f71520506fc5
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685469"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816109"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 
@@ -149,7 +149,7 @@ Fazer backup com [configuração de diagnóstico](../azure-monitor/platform/plat
 Restaurar VMs fixadas por zona | Com suporte (para a VM com backup depois de janeiro de 2019 e onde a [zona de disponibilidade](https://azure.microsoft.com/global-infrastructure/availability-zones/) está disponível).<br/><br/>Atualmente, damos suporte à restauração para a mesma zona que está fixada nas VMs. No entanto, se a zona não estiver disponível, a restauração falhará.
 VMs Gen2 | Com suporte <br> O Backup do Azure dá suporte ao backup e à restauração de [VMs Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Quando essas VMs são restauradas do ponto de recuperação, elas são restauradas como [VMs Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Backup de VMs do Azure com bloqueios | Sem suporte para VMs não gerenciadas. <br><br> Com suporte para VMs gerenciadas.
-[VMs do Spot](../virtual-machines/windows/spot-vms.md) | Sem suporte. As restaurações de backup do Azure identificam VMs como VMs regulares do Azure.
+[VMs do Spot](../virtual-machines/spot-vms.md) | Sem suporte. As restaurações de backup do Azure identificam VMs como VMs regulares do Azure.
 
 ## <a name="vm-storage-support"></a>Suporte ao armazenamento de VM
 

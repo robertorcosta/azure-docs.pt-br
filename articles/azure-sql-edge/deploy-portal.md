@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 43359b66ba747dba7b3294d022a2c1aa2a3e624c
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 7af4264860f8d9950515cd5302f03822e7cbac39
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233251"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816857"
 ---
 # <a name="deploy-azure-sql-edge-preview"></a>Implantar o SQL do Azure no Edge (versão prévia) 
 
@@ -114,9 +114,114 @@ O Azure Marketplace é um marketplace online de aplicativos e serviços onde voc
 12. Clique em **Próximo**.
 13. Clique em **Enviar**.
 
-Neste início rápido, você implantou um módulo do SQL no Edge em um dispositivo IoT Edge.
+## <a name="connect-to-azure-sql-edge"></a>Conectar-se ao SQL do Azure no Edge
+
+As etapas a seguir usam a ferramenta de linha de comando do Azure SQL Edge, **sqlcmd**, dentro do contêiner para se conectar ao Azure SQL Edge.
+
+> [!NOTE]
+> a ferramenta sqlcmd não está disponível na versão ARM64 dos contêineres do SQL Edge.
+
+1. Use o comando `docker exec -it` para iniciar um shell bash interativo dentro do contêiner em execução. No exemplo a seguir `azuresqledge` , é nome especificado pelo `Name` parâmetro do seu módulo de IOT Edge.
+
+   ```bash
+   sudo docker exec -it azuresqledge "bash"
+   ```
+
+2. Quando estiver dentro do contêiner, conecte-se localmente com a sqlcmd. A sqlcmd não está no caminho por padrão, portanto, você precisará especificar o caminho completo.
+
+   ```bash
+   /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"
+   ```
+
+   > [!TIP]
+   > É possível omitir a senha na linha de comando para receber uma solicitação para inseri-la.
+
+3. Se isso funcionar, você será levado a um prompt de comando **sqlcmd**: `1>`.
+
+## <a name="create-and-query-data"></a>Criar e consultar dados
+
+As seções a seguir descrevem como usar o **sqlcmd** e o Transact-SQL para criar um novo banco de dados, adicionar dados e executar uma consulta simples.
+
+### <a name="create-a-new-database"></a>Criar um novo banco de dados
+
+As etapas a seguir criam um novo banco de dados denominado `TestDB`.
+
+1. No prompt de comando **sqlcmd**, cole o seguinte comando Transact-SQL para criar um banco de dados de teste:
+
+   ```sql
+   CREATE DATABASE TestDB
+   Go
+   ```
+
+2. Na próxima linha, grave uma consulta para retornar o nome de todos os bancos de dados do servidor:
+
+   ```sql
+   SELECT Name from sys.Databases
+   Go
+   ```
+
+### <a name="insert-data"></a>Inserir dados
+
+Em seguida, crie uma nova tabela, `Inventory`, e insira duas novas linhas.
+
+1. No prompt de comando **sqlcmd**, altere o contexto para o novo banco de dados `TestDB`:
+
+   ```sql
+   USE TestDB
+   ```
+
+2. Criar nova tabela denominada `Inventory`:
+
+   ```sql
+   CREATE TABLE Inventory (id INT, name NVARCHAR(50), quantity INT)
+   ```
+
+3. Inserir dados na nova tabela:
+
+   ```sql
+   INSERT INTO Inventory VALUES (1, 'banana', 150); INSERT INTO Inventory VALUES (2, 'orange', 154);
+   ```
+
+4. Digite `GO` para executar os comandos anteriores:
+
+   ```sql
+   GO
+   ```
+
+### <a name="select-data"></a>Selecionar dados
+
+Agora, execute uma consulta para retornar da tabela `Inventory`.
+
+1. No prompt de comando **sqlcmd**, digite uma consulta que retorna linhas de tabela `Inventory` em que a quantidade é maior que 152:
+
+   ```sql
+   SELECT * FROM Inventory WHERE quantity > 152;
+   ```
+
+2. Execute o comando:
+
+   ```sql
+   GO
+   ```
+
+### <a name="exit-the-sqlcmd-command-prompt"></a>Saia do prompt de comando sqlcmd
+
+1. Para encerrar a sessão **sqlcmd**, digite `QUIT`:
+
+   ```sql
+   QUIT
+   ```
+
+2. Para sair do prompt de comando interativo no contêiner, digite `exit`. O contêiner continuará a ser executado depois que você sair do shell bash interativo.
+
+## <a name="connect-from-outside-the-container"></a> Conectar-se de fora do contêiner
+
+Você pode conectar e executar consultas SQL em sua instância do Azure SQL Edge de qualquer ferramenta externa do Linux, Windows ou macOS que ofereça suporte a conexões SQL. Para obter mais informações sobre como se conectar a um contêiner do SQL Edge de fora, consulte [conectar e consultar o Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/connect).
+
+Neste início rápido, você implantou um módulo do SQL no Edge em um dispositivo IoT Edge. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Machine learning e inteligência artificial com o ONNX no SQL no Edge](onnx-overview.md).
 - [Como criar uma solução de IoT de ponta a ponta com o SQL no Edge usando o IoT Edge](tutorial-deploy-azure-resources.md).
+- [Streaming de dados no Azure SQL Edge](stream-data.md)

@@ -7,15 +7,15 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: ae9a421a165d6c8bda688819c5233ae5bb1a8562
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38686ba35285159d7a27724b5402a6b6e2f3a696
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79139089"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815514"
 ---
 # <a name="azure-red-hat-openshift-customer-administrator-role"></a>Função de administrador de clientes do Red Hat OpenShift do Azure
-
+ 
 Você é o administrador de cluster de um cluster do Azure Red Hat OpenShift. Sua conta aumentou as permissões e o acesso a todos os projetos criados pelo usuário.
 
 Quando sua conta tiver a função de autorização Customer-admin-cluster associada a ela, ela poderá gerenciar automaticamente um projeto.
@@ -37,7 +37,7 @@ Você pode configurar a função de cluster Customer-admin-cluster somente duran
 
 ## <a name="confirm-membership-in-the-customer-administrator-role"></a>Confirmar associação na função de administrador do cliente
 
-Para confirmar sua associação no grupo administrador do cliente, tente os comandos da CLI do OpenShift `oc get nodes` ou `oc projects` . `oc get nodes`mostrará uma lista de nós se você tiver a função Customer-admin-cluster e um erro de permissão se você tiver apenas a função Customer-admin-Project. `oc projects`mostrará todos os projetos no cluster em vez de apenas os projetos nos quais você está trabalhando.
+Para confirmar sua associação no grupo administrador do cliente, tente os comandos da CLI do OpenShift `oc get nodes` ou `oc projects` . `oc get nodes` mostrará uma lista de nós se você tiver a função Customer-admin-cluster e um erro de permissão se você tiver apenas a função Customer-admin-Project. `oc projects` mostrará todos os projetos no cluster em vez de apenas os projetos nos quais você está trabalhando.
 
 Para explorar ainda mais as funções e permissões no cluster, você pode usar o [`oc policy who-can <verb> <resource>`](https://docs.openshift.com/container-platform/3.11/admin_guide/manage_rbac.html#managing-role-bindings) comando.
 

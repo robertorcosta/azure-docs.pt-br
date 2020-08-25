@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d997c6d4eae93290cbb1e4cafe6c7ad662a65933
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4de682bd315eef100bdbf8dd24faa128c5b8c2a1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336869"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815786"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -49,7 +49,7 @@ Abaixo há uma visão geral de exemplo do ciclo de vida de CI/CD em um Azure Dat
 
 1.  Depois que uma solicitação de pull for aprovada e as alterações forem mescladas no branch mestre, as alterações serão publicadas no alocador de desenvolvimento.
 
-1.  Quando a equipe estiver pronta para implantar as alterações em um alocador de teste ou UAT, ela acessará a versão do Azure Pipelines e implantará a versão desejada do alocador de desenvolvimento em UAT. Essa implantação ocorre como parte de uma tarefa do Azure Pipelines e usa parâmetros do modelo do Resource Manager para aplicar a configuração apropriada.
+1.  Quando a equipe estiver pronta para implantar as alterações em uma fábrica de teste ou UAT (teste de aceitação do usuário), a equipe vai para o Azure Pipelines versão e implanta a versão desejada da fábrica de desenvolvimento em UAT. Essa implantação ocorre como parte de uma tarefa do Azure Pipelines e usa parâmetros do modelo do Resource Manager para aplicar a configuração apropriada.
 
 1.  Depois que as alterações tiverem sido verificadas no alocador de testes, implante no alocador de produção usando a próxima tarefa da versão de pipelines.
 
@@ -113,7 +113,7 @@ A seguir há um guia para configurar uma versão do Azure Pipelines que automati
     h. Selecione **Incremental** para o **Modo de implantação**.
 
     > [!WARNING]
-    > Se você selecionar **Concluído** para o **Modo de implantação**, os recursos existentes poderão ser excluídos, incluindo todos os recursos no grupo de recursos de destino que não estiverem definidos no modelo do Resource Manager.
+    > No modo de implantação completa, os recursos existentes no grupo de recursos, mas não são especificados no novo modelo do Resource Manager, serão **excluídos**. Para obter mais informações, consulte [Azure Resource Manager modos de implantação](../azure-resource-manager/templates/deployment-modes.md)
 
     ![Implantação de Produção do Data Factory](media/continuous-integration-deployment/continuous-integration-image9.png)
 

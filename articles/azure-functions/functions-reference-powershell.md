@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: dd3978ee1f371d59119e406c5f023718d57ad99b
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 206f941360b5c7912db548c6d2cfdc9d3d6a41dc
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642207"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816398"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia do desenvolvedor do PowerShell do Azure Functions
 
@@ -233,7 +233,7 @@ O registro em log nas funções do PowerShell funciona como log normal do PowerS
 
 | Nível de log de funções | Cmdlet de registro em log |
 | ------------- | -------------- |
-| Erro do | **`Write-Error`** |
+| Erro | **`Write-Error`** |
 | Aviso | **`Write-Warning`**  | 
 | Informação | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informação | Grava no log do nível de _informações_ . |
 | Depurar | **`Write-Debug`** |
@@ -375,7 +375,7 @@ param([string] $myBlob)
 
 No PowerShell, há o conceito de um perfil do PowerShell. Se você não estiver familiarizado com os perfis do PowerShell, consulte [about Profiles](/powershell/module/microsoft.powershell.core/about/about_profiles).
 
-Em funções do PowerShell, o script de perfil é executado quando o aplicativo de funções é iniciado. Os aplicativos de funções começam quando são implantados pela primeira vez e depois ficam ociosos ([inicialização a frio](#cold-start)).
+No PowerShell functions, o script de perfil é executado uma vez por instância de trabalho do PowerShell no aplicativo quando implantado pela primeira vez e depois de ficar ocioso ([inicialização a frio](#cold-start). Quando a simultaneidade é habilitada definindo o valor [PSWorkerInProcConcurrencyUpperBound](#concurrency) , o script de perfil é executado para cada runspace criado.
 
 Quando você cria um aplicativo de funções usando ferramentas, como Visual Studio Code e Azure Functions Core Tools, um padrão `profile.ps1` é criado para você. O perfil padrão é mantido [no repositório GitHub das ferramentas principais](https://github.com/Azure/azure-functions-core-tools/blob/dev/src/Azure.Functions.Cli/StaticResources/profile.ps1) e contém:
 
@@ -417,7 +417,10 @@ Quando você cria um novo projeto de funções do PowerShell, o gerenciamento de
 Quando você atualiza o arquivo requirements.psd1, os módulos atualizados são instalados após uma reinicialização.
 
 > [!NOTE]
-> As dependências gerenciadas exigem acesso ao www.powershellgallery.com para baixar módulos. Ao executar localmente, verifique se o tempo de execução pode acessar essa URL adicionando as regras de firewall necessárias. 
+> As dependências gerenciadas exigem acesso ao www.powershellgallery.com para baixar módulos. Ao executar localmente, verifique se o tempo de execução pode acessar essa URL adicionando as regras de firewall necessárias.
+
+> [!NOTE]
+> As dependências gerenciadas atualmente não dão suporte a módulos que exigem que o usuário aceite uma licença, seja aceitando a licença interativamente ou fornecendo a `-AcceptLicense` opção ao invocar `Install-Module` .
 
 As configurações de aplicativo a seguir podem ser usadas para alterar a forma como as dependências gerenciadas são baixadas e instaladas. A atualização do aplicativo é iniciada no `MDMaxBackgroundUpgradePeriod` e o processo de atualização é concluído em aproximadamente `MDNewSnapshotCheckPeriod` .
 
@@ -435,6 +438,7 @@ No functions, o `PSModulePath` contém dois caminhos:
 
 * Uma `Modules` pasta que existe na raiz do seu aplicativo de funções.
 * Um caminho para uma `Modules` pasta que é controlada pelo operador de idioma do PowerShell.
+
 
 ### <a name="function-app-level-modules-folder"></a>Pasta de nível de aplicativo de função `Modules`
 
@@ -502,17 +506,22 @@ Por padrão, o tempo de execução do PowerShell do Functions só pode processar
 * Quando você está tentando lidar com um grande número de invocações ao mesmo tempo.
 * Quando você tem funções que invocam outras funções dentro do mesmo aplicativo de funções.
 
-Você pode alterar esse comportamento definindo a seguinte variável de ambiente como um valor inteiro:
+Há alguns modelos de simultaneidade que você pode explorar dependendo do tipo de carga de trabalho:
 
-```
-PSWorkerInProcConcurrencyUpperBound
-```
+* Aumentar ```FUNCTIONS_WORKER_PROCESS_COUNT``` . Isso permite manipular invocações de função em vários processos dentro da mesma instância, o que introduz determinada sobrecarga de CPU e memória. Em geral, as funções vinculadas a e/s não serão afetadas dessa sobrecarga. Para funções associadas à CPU, o impacto pode ser significativo.
 
-Você define essa variável de ambiente nas [configurações de aplicativo](functions-app-settings.md) de seu aplicativo de funções.
+* Aumente o ```PSWorkerInProcConcurrencyUpperBound``` valor de configuração do aplicativo. Isso permite a criação de vários Runspaces dentro do mesmo processo, o que reduz significativamente a sobrecarga de CPU e de memória.
+
+Defina essas variáveis de ambiente nas [configurações de aplicativo](functions-app-settings.md) do seu aplicativo de funções.
+
+Dependendo do seu caso de uso, Durable Functions pode melhorar significativamente a escalabilidade. Para saber mais, consulte [padrões de aplicativo Durable Functions](/azure/azure-functions/durable/durable-functions-overview?tabs=powershell#application-patterns).
+
+>[!NOTE]
+> Você pode receber avisos de "solicitações sendo enfileiradas devido a nenhum Runspaces disponível", observe que isso não é um erro. A mensagem está informando que as solicitações estão sendo enfileiradas e elas serão tratadas quando as solicitações anteriores forem concluídas.
 
 ### <a name="considerations-for-using-concurrency"></a>Considerações sobre o uso de simultaneidade
 
-O PowerShell é uma linguagem de script de _thread único_ por padrão. No entanto, a simultaneidade pode ser adicionada usando vários espaços de uso do PowerShell no mesmo processo. A quantidade de Runspaces criados corresponderá à configuração do aplicativo PSWorkerInProcConcurrencyUpperBound. A taxa de transferência será afetada pela quantidade de CPU e memória disponíveis no plano selecionado.
+O PowerShell é uma linguagem de script de _thread único_ por padrão. No entanto, a simultaneidade pode ser adicionada usando vários espaços de uso do PowerShell no mesmo processo. A quantidade de Runspaces criados corresponderá à ```PSWorkerInProcConcurrencyUpperBound``` configuração do aplicativo. A taxa de transferência será afetada pela quantidade de CPU e memória disponíveis no plano selecionado.
 
 Azure PowerShell usa alguns contextos de _nível de processo_ e um estado para ajudá-lo a evitar a digitação de excesso de tipos. No entanto, se você ativar a simultaneidade em seu aplicativo de funções e invocar ações que alteram o estado, poderá acabar com condições de corrida. Essas condições de corrida são difíceis de depurar porque uma invocação depende de um determinado Estado e a outra invocação alterou o estado.
 

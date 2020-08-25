@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: fd819f0b819007611f5232d0fdfb324173d9c4b4
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 1a5ed324ae109a151bf21050993bff02434410df
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797914"
+ms.locfileid: "88814443"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Criptografia do Armazenamento do Azure para dados em repouso
 
@@ -47,7 +47,7 @@ A tabela a seguir compara as principais opções de gerenciamento de criptografi
 |--|--|--|--|
 | Operações de criptografia/descriptografia | Azure | Azure | Azure |
 | Serviços de armazenamento do Azure com suporte | Tudo | Armazenamento de BLOBs, arquivos do Azure<sup>1, 2</sup> | Armazenamento de Blobs |
-| Armazenamento de chave | Repositório de chaves da Microsoft | Azure Key Vault | Repositório de chaves próprio do cliente |
+| Armazenamento de chave | Repositório de chaves da Microsoft | Cofre de Chave do Azure | Repositório de chaves próprio do cliente |
 | Responsabilidade de rotação de chave | Microsoft | Cliente | Cliente |
 | Controle de chave | Microsoft | Cliente | Cliente |
 
@@ -68,7 +68,7 @@ Você pode criar um ou mais escopos de criptografia para uma conta de armazename
 Depois de criar um escopo de criptografia, você pode especificar esse escopo de criptografia em uma solicitação para criar um contêiner ou um blob. Para obter mais informações sobre como criar um escopo de criptografia, consulte [criar e gerenciar escopos de criptografia (versão prévia)](../blobs/encryption-scope-manage.md).
 
 > [!NOTE]
-> Não há suporte para escopos de criptografia com contas de armazenamento com redundância geográfica com acesso de leitura (RA-GRS) durante a visualização.
+> Não há suporte para escopos de criptografia com o armazenamento com redundância geográfica com acesso de leitura (RA-GRS) e contas de armazenamento com redundância de acesso de leitura (RA-GZRS) durante a visualização.
 
 > [!IMPORTANT]
 > A visualização dos escopos de criptografia é destinada somente ao uso de não produção. SLAs (Contratos de Nível de Serviço) não estão disponíveis atualmente.

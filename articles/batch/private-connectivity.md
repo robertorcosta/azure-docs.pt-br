@@ -4,12 +4,12 @@ description: Saiba como conectar-se de forma privada a uma conta do lote do Azur
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: fac9523dc2ecabaec5d1c108e0ddd7536f01f077
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0fd16e4e11d0b3f08a7ba0e2f425785e3cce7927
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004245"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814103"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Usar pontos de extremidade privados com contas do Lote do Azure
 
@@ -19,7 +19,8 @@ Usando o [link privado do Azure](../private-link/private-link-overview.md), voc�
 
 O link privado permite que os usuários acessem uma conta do lote do Azure de dentro da rede virtual ou de qualquer rede virtual emparelhada. Os recursos mapeados para o link privado também podem ser acessados localmente no emparelhamento privado por meio de VPN ou [do Azure ExpressRoute](../expressroute/expressroute-introduction.md). Você pode se conectar a uma conta do lote do Azure configurada com o link privado usando o [método de aprovação automática ou manual](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
-O suporte para conectividade privada no lote do Azure está disponível atualmente nas seguintes regiões do Azure: Oeste EUA Central, oeste dos EUA 2, leste dos EUA, Sul EUA Central, US Gov-Virgínia, US Gov Arizona, Ásia Oriental, França e Sul do Reino Unido.
+> [!IMPORTANT]
+> O suporte para conectividade privada no lote do Azure está disponível atualmente nas seguintes regiões do Azure: EUA Central, norte EUA Central, Sul EUA Central, Oeste EUA Central, leste dos EUA, leste dos Estados Unidos 2, oeste dos EUA, oeste dos EUA 2, Ásia Oriental, França central, Sul do Reino Unido, Europa Setentrional, Europa Ocidental, leste do Japão, oeste do Japão, leste da Austrália e todas as US Gov e US DoD regiões.
 
 Este artigo descreve as etapas para criar uma conta do lote particular e acessá-la usando um ponto de extremidade privado.
 

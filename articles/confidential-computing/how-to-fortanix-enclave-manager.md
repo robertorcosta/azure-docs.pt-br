@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: 8996673cf8f01334e3dcd35aab8544643bd37360
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d46354b18d5c3317cc1ed67d839feb26b7b6b5d0
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88802139"
+ms.locfileid: "88815837"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Como executar um aplicativo com o Fortanix enclave Manager 
 
@@ -33,7 +33,7 @@ Este tutorial mostra como converter a imagem do aplicativo em uma imagem confide
  Para obter suporte específico a Fortanix, junte-se à [comunidade de margem de atraso Fortanix](https://fortanix.com/community/) e use o canal #enclavemanager.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. Se você não tiver uma conta do Fortanix enclave Manager, [Inscreva-](https://em.fortanix.com/auth/sign-up) se antes de começar.
 1. Um registro do [Docker](https://docs.docker.com/) privado para enviar imagens de aplicativo convertidas.
@@ -46,7 +46,6 @@ Este tutorial mostra como converter a imagem do aplicativo em uma imagem confide
 1. Entrar em [Fortanix](https://fortanix.com) em
 1. Navegue até a página **contas** e selecione **adicionar conta** para criar uma nova conta. 
     
-[!div class="mx-imgBorder"]
 ![Criar uma conta](media/how-to-fortanix-enclave-manager/create-account.png)
 
 1. Depois que sua conta for criada, clique em **selecionar** para selecionar a conta recém-criada. Agora, podemos começar a registrar os nós de computação e criar aplicativos. 
@@ -159,7 +158,7 @@ onde:
 1. Verifique se há um aplicativo em execução com um nó de computação associado
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não for mais necessário, você poderá excluir o grupo de recursos, a máquina virtual e os recursos associados. A exclusão do grupo de recursos cancelará o registro dos nós associados à imagem convertida. 
 

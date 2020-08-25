@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 5b9752107aac1f90a67fb7c87a14492a74a124aa
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: ebc3ad6957890423314bb2d8623c7b4708aed10b
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604624"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815396"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Criar uma oferta do aplicativo Power BI
 
@@ -209,13 +209,16 @@ Forneça logotipos e imagens para usar com sua oferta. O logotipo precisa estar 
 
 #### <a name="store-logos"></a>Armazenar logotipos
 
-Forneça arquivos PNG do logotipo da sua oferta em dois tamanhos de pixel:
-- **Pequeno** (48 x 48)
-- **Grande** (216 x 216)
+Forneça um arquivo PNG para o logotipo de tamanho **grande** . O Partner Center o usará para criar um logotipo **pequeno** . Você pode, opcionalmente, substituir isso por uma imagem diferente mais tarde.
 
-Todos os logotipos são necessários e são usados em locais diferentes na lista do marketplace.
+- **Grande** (de 216 x 216 a 350 x 350 px, required)
+- **Pequeno** (48 x 48 px, opcional)
+
+Esses logotipos são usados em locais diferentes na listagem:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de tela
 

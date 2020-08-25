@@ -7,13 +7,13 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 11/19/2019
-ms.openlocfilehash: 39179c9b6d02d810561485f6a4af0102711ad0ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/24/2020
+ms.openlocfilehash: cae8647d970020a22d59dc49b058d43fe28dd00c
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186627"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816449"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: erros de criação de cluster
 
@@ -24,19 +24,17 @@ Este artigo descreve as resoluções para erros que podem surgir durante a cria�
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: falha na validação de DeploymentDocument ' CsmDocument_2_0 '
 
-### <a name="error"></a>Erro do
+**Erro**: "o local da ação de script não pode ser acessado URI: \<SCRIPT ACTION URL\> "
 
-"O local da ação de script não pode ser acessado URI: \<SCRIPT ACTION URL\> "
-
-#### <a name="error-message"></a>Mensagem de erro
+### <a name="error-message-1"></a>Mensagem de erro 1
 
 "O servidor remoto retornou um erro: (404) não encontrado."
 
-### <a name="cause"></a>Causa
+#### <a name="cause"></a>Causa
 
 O serviço HDInsight não pode acessar a URL de ação de script que você forneceu como parte da solicitação criar cluster. O serviço recebe a mensagem de erro anterior ao tentar acessar a ação de script.
 
-### <a name="resolution"></a>Resolução
+#### <a name="resolution"></a>Resolução
 
 - Para uma URL HTTP ou HTTPS, verifique a URL tentando ir para ela em uma janela do navegador Incognito.
 - Para uma URL WASB, verifique se o script existe na conta de armazenamento que você atribuiu na solicitação. Verifique também se a chave de armazenamento desta conta de armazenamento está correta.
@@ -44,37 +42,29 @@ O serviço HDInsight não pode acessar a URL de ação de script que você forne
 
 ---
 
-## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: falha na validação de DeploymentDocument ' CsmDocument_2_0 '
-
-### <a name="error"></a>Erro do
-
-"O local da ação de script não pode ser acessado URI: \<SCRIPT_ACTION_URL\> "
-
-#### <a name="error-message"></a>Mensagem de erro
+### <a name="error-message-2"></a>Mensagem de erro 2
 
 "O URI de script fornecido \<SCRIPT_URI\> está em ADLS, mas este cluster não tem uma entidade de armazenamento data Lake"
 
-### <a name="cause"></a>Causa
+#### <a name="cause"></a>Causa
 
 O serviço HDInsight não pode acessar a URL de ação de script que você forneceu como parte da solicitação criar cluster. O serviço recebe a mensagem de erro anterior ao tentar acessar a ação de script.
 
-### <a name="resolution"></a>Resolução
+#### <a name="resolution"></a>Resolução
 
 Adicione a conta Azure Data Lake Storage Gen 1 correspondente ao cluster. Além disso, adicione a entidade de serviço que acessa a conta Data Lake Storage Gen 1 ao cluster.
 
 ---
 
-## <a name="error-code-deploymentdocument-csmdocument_2_0-failed-the-validation"></a>Código de erro: falha na validação de DeploymentDocument ' CsmDocument_2_0 '
-
-### <a name="error"></a>Erro do
+### <a name="error-message-3"></a>Mensagem de erro 3
 
 "O tamanho da VM ' \<CUSTOMER_SPECIFIED_VM_SIZE\> ' fornecido na solicitação é inválido ou não tem suporte para a função ' \<ROLE\> '. Os valores válidos são: \<VALID_VM_SIZE_FOR_ROLE\> . "
 
-### <a name="cause"></a>Causa
+#### <a name="cause"></a>Causa
 
 O tamanho da máquina virtual especificado não é permitido para a função. Esse erro pode ocorrer porque o valor do tamanho da VM não funciona conforme o esperado ou não é adequado para a função do computador.
 
-### <a name="resolution"></a>Resolução
+#### <a name="resolution"></a>Resolução
 
 A mensagem de erro lista os valores válidos para o tamanho da VM. Selecione um desses valores e tente a solicitação criar cluster novamente.
 
@@ -82,7 +72,7 @@ A mensagem de erro lista os valores válidos para o tamanho da VM. Selecione um 
 
 ## <a name="error-codeinvalidvirtualnetworkid"></a>Código de erro: InvalidVirtualNetworkId  
 
-### <a name="error"></a>Erro do
+### <a name="error"></a>Erro
 
 "O VirtualNetworkId não é válido. VirtualNetworkId ' \<USER_VIRTUALNETWORKID\> ' * "
 
@@ -94,7 +84,7 @@ O valor de **VirtualNetworkId** especificado durante a criação do cluster não
 
 Verifique se os valores de **VirtualNetworkId** e sub-rede estão no formato correto. Para obter o valor de **VirtualNetworkId** :
 
-1. Vá para o portal do Azure.
+1. Acesse o portal do Azure.
 1. Selecione sua rede virtual.
 1. Selecione o item de menu **Propriedades** . O valor da propriedade **ResourceId** é o valor **VirtualNetworkId** .
 
@@ -106,7 +96,7 @@ Aqui está um exemplo de uma ID de rede virtual:
 
 ## <a name="error-code-customizationfailederrorcode"></a>Código de erro: CustomizationFailedErrorCode
 
-### <a name="error"></a>Erro do
+### <a name="error"></a>Erro
 
 "Falha na implantação do cluster devido a um erro na ação de script personalizado. Ações com falha: \<SCRIPT_NAME\> , acesse a interface do usuário do amAmbari para depurar ainda mais a falha. "
 
@@ -122,7 +112,7 @@ Como o script é seu script personalizado, recomendamos que você solucione o pr
 
 ## <a name="error-codeinvaliddocumenterrorcode"></a>Código de erro: InvalidDocumentErrorCode
 
-### <a name="error"></a>Erro do
+### <a name="error"></a>Erro
 
 "A \<META_STORE_TYPE\> versão do esquema do metastore \<METASTORE_MAJOR_VERSION\> no banco de dados \<DATABASE_NAME\> é incompatível com a versão do cluster \<CLUSTER_VERSION\> "
 
@@ -138,7 +128,7 @@ Use somente as versões do metastore com suporte da versão do cluster HDInsight
 
 ## <a name="error-code-failedtoconnectwithclustererrorcode"></a>Código de erro: FailedToConnectWithClusterErrorCode 
 
-### <a name="error"></a>Erro do
+### <a name="error"></a>Erro
 
 "Não é possível conectar ao ponto de extremidade de gerenciamento de cluster para executar a operação de dimensionamento. Verifique se as regras de segurança de rede não estão bloqueando o acesso externo ao cluster e se a interface do usuário do Gerenciador de cluster (Ambari) pode ser acessada com êxito. "
 
@@ -159,7 +149,7 @@ Se você planeja usar grupos de segurança de rede para controlar o tráfego de 
 
 ## <a name="error-code-storagepermissionsblockedformsi"></a>Código de erro: StoragePermissionsBlockedForMsi
 
-### <a name="error"></a>Erro do
+### <a name="error"></a>Erro
 
 "A identidade gerenciada não tem permissões na conta de armazenamento. Verifique se a função ' proprietário de dados do blob de armazenamento ' está atribuída à identidade gerenciada para a conta de armazenamento. Armazenamento:/subscriptions/ \<Subscription ID\> /ResourceGroups/ \< Resource Group Name\> /Providers/Microsoft.Storage/storageAccounts/ \<Storage Account Name\> , identidade gerenciada:/subscriptions/ \<Subscription ID\> /resourceGroups// \< Resource Group Name\> /Providers/Microsoft.ManagedIdentity/userAssignedIdentities/ \<User Managed Identity Name\> "
 
@@ -180,7 +170,7 @@ Para obter mais informações, consulte [configurar permissões para a identidad
 
 ## <a name="error-code-invalidnetworksecuritygroupsecurityrules"></a>Código de erro: InvalidNetworkSecurityGroupSecurityRules
 
-### <a name="error"></a>Erro do
+### <a name="error"></a>Erro
 
 "As regras de segurança no grupo de segurança de rede/subscriptions/ \<SubscriptionID\> /resourceGroups/<nome do grupo de recursos \> Default/Providers/Microsoft. Network/networkSecurityGroups/ \<Network Security Group Name\> configurada com subnet/subscriptions/ \<SubscriptionID\> /resourceGroups/ \<Resource Group name\> RG-westeurope-vnet-TomTom-default/Providers/Microsoft. Network/virtualNetworks/ \<Virtual Network Name\> /Subnets/não \<Subnet Name\> permite conectividade de entrada e/ou saída necessária. Para obter mais informações, visite [planejar uma rede virtual para o Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)ou contate o suporte. "
 
@@ -200,7 +190,7 @@ Se você planeja usar grupos de segurança de rede para controlar o tráfego de 
 
 ## <a name="error-code-cluster-setup-failed-to-install-components-on-one-or-more-hosts"></a>Código de erro: a instalação do cluster falhou ao instalar componentes em um ou mais hosts
 
-### <a name="error"></a>Erro do
+### <a name="error"></a>Erro
 
 "Falha da instalação do cluster ao instalar componentes em um ou mais hosts. Repita sua solicitação. "
 
@@ -216,7 +206,7 @@ Verifique a página de [status do Azure](https://status.azure.com) para qualquer
 
 ## <a name="error-code-failedtoconnectwithclustererrorcode"></a>Código de erro: FailedToConnectWithClusterErrorCode
 
-### <a name="error"></a>Erro do
+### <a name="error"></a>Erro
 
 Não é possível conectar ao ponto de extremidade de gerenciamento de cluster. Tente novamente mais tarde.
 
@@ -230,7 +220,7 @@ Se você estiver usando o NSGs (grupo de segurança de rede de VNet) personaliza
 
 ---
 
-## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Código de erro: falha nas implantações devido à violação de política: ' recurso ' <Resource URI> ' não foi permitido pela política. Identificadores de política: ' [{"policyAssignment": {"Name": " <Policy Name> ", "ID": "/Providers/Microsoft.Management/managementGroups/ <Management Group Name> Providers/Microsoft. Authorization/policyAssignments/ <Policy Name> "}, "policyDefinition":<Policy Definition>
+## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Código de erro: falha nas implantações devido à violação de política: ' recurso ' <Resource URI> ' não foi permitido pela política. Identificadores de política: ' [{"policyAssignment": {"Name": " <Policy Name> ", "ID": "/Providers/Microsoft.Management/managementGroups/ <Management Group Name> Providers/Microsoft. Authorization/policyAssignments/ <Policy Name> "}, "policyDefinition": <Policy Definition>
 
 ### <a name="cause"></a>Causa
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
-ms.openlocfilehash: 213d9fe2db148c6260a1271c3c2b22978b98a8f3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b6e877f4e4ce7b50a2e50a2925850b9f533b7f97
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508195"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814817"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de Metadados do Azure: Eventos Agendados para VMs do Windows
 
@@ -42,7 +42,7 @@ Os eventos agendados fornecem eventos nos seguintes casos de uso:
 - [Manutenção iniciada pela plataforma](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json) (por exemplo, reinicialização de VM, migração ao vivo ou atualizações de preservação de memória para host)
 - A máquina virtual está em execução no [hardware de host degradado](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) que tem previsão para falhar em breve
 - Manutenção iniciada pelo usuário (por exemplo, um usuário reinicia ou reimplanta uma VM)
-- Remoção de instâncias [VM spot](spot-vms.md) e [Conjunto de dimensionamento spot](../../virtual-machine-scale-sets/use-spot.md).
+- Remoção de instâncias [VM spot](../spot-vms.md) e [Conjunto de dimensionamento spot](../../virtual-machine-scale-sets/use-spot.md).
 
 ## <a name="the-basics"></a>Noções básicas  
 
@@ -73,11 +73,11 @@ O serviço de Eventos Agendados tem controle de versão. As versões são obriga
 
 | Versão | Tipo de Versão | Regiões | Notas de versão | 
 | - | - | - | - | 
-| 01-08-2019 | Disponibilidade geral | Tudo | <li> Adição de suporte para o EventSource |
+| 01-08-2019 | Disponibilidade geral | Todos | <li> Adição de suporte para o EventSource |
 | 01-04-2019 | Disponibilidade geral | Todos | <li> Adição de suporte para a Descrição do Evento |
-| 2019-01-01 | Disponibilidade geral | Tudo | <li> Suporte adicionado para conjuntos de dimensionamento de máquinas virtuais EventType “Terminate” |
-| 2017-11-01 | Disponibilidade geral | Tudo | <li> Suporte adicionado para o EventType de remoção de VM spot “Preempt”<br> | 
-| 2017-08-01 | Disponibilidade geral | Tudo | <li> Removido o sublinhado inicial dos nomes de recursos para as VMs de IaaS<br><li>Requisito de cabeçalho de metadados imposto para todas as solicitações | 
+| 2019-01-01 | Disponibilidade geral | Todos | <li> Suporte adicionado para conjuntos de dimensionamento de máquinas virtuais EventType “Terminate” |
+| 2017-11-01 | Disponibilidade geral | Todos | <li> Suporte adicionado para o EventType de remoção de VM spot “Preempt”<br> | 
+| 2017-08-01 | Disponibilidade geral | Todos | <li> Removido o sublinhado inicial dos nomes de recursos para as VMs de IaaS<br><li>Requisito de cabeçalho de metadados imposto para todas as solicitações | 
 | 2017-03-01 | Visualização | Todos | <li>Versão inicial |
 
 

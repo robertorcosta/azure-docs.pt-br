@@ -1,6 +1,6 @@
 ---
 title: Criptografia do lado do servidor dos Managed Disks do Azure - CLI do Azure
-description: O Armazenamento do Microsoft Azure protege os dados com criptografia em repouso, antes de enviá-los para clusters de armazenamento. Você pode contar com chaves gerenciadas pela Microsoft para a criptografia dos discos gerenciados ou usar chaves gerenciadas pelo cliente para gerenciar a criptografia com suas próprias chaves.
+description: O Armazenamento do Microsoft Azure protege os dados com criptografia em repouso, antes de enviá-los para clusters de armazenamento. Você pode usar chaves gerenciadas pelo cliente para gerenciar a criptografia com suas próprias chaves ou pode contar com chaves gerenciadas pela Microsoft para a criptografia de seus discos gerenciados.
 author: roygara
 ms.date: 07/10/2020
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: e0a1f97cc7467d115ecc8462a301e45f90d73818
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e541fd90f0cb9c8f0e2763f16541824c5a7b3000
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449149"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816891"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Criptografia do lado do servidor de Armazenamento em Disco do Azure
 
@@ -58,7 +58,7 @@ Os discos temporários são criptografados em repouso com chaves gerenciadas pel
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
 
-#### <a name="supported-regions"></a>Regiões compatíveis
+#### <a name="supported-regions"></a>Regiões com suporte
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
@@ -70,7 +70,7 @@ Os discos temporários são criptografados em repouso com chaves gerenciadas pel
 
 Clientes confidenciais de alta segurança que se preocupam com o risco associado a qualquer algoritmo de criptografia, implementação ou chave em particular comprometidos agora podem optar por uma camada adicional de criptografia usando um algoritmo/modo de criptografia diferente na camada de infraestrutura usando chaves de criptografia gerenciadas pela plataforma. Essa nova camada pode ser aplicada a discos, instantâneos e imagens, todos os quais serão criptografados em repouso com criptografia dupla.
 
-### <a name="supported-regions"></a>Regiões compatíveis
+### <a name="supported-regions"></a>Regiões com suporte
 
 [!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
 
@@ -80,7 +80,7 @@ Clientes confidenciais de alta segurança que se preocupam com o risco associado
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Habilite a criptografia de ponta a ponta usando a criptografia no host com a [CLI](disks-enable-host-based-encryption-cli.md) ou a [portal do Azure](disks-enable-host-based-encryption-portal.md).
-- Habilite a criptografia dupla em repouso para discos gerenciados com a [CLI](disks-enable-double-encryption-at-rest-cli.md) ou a [portal do Azure](disks-enable-double-encryption-at-rest-portal.md).
-- Habilite chaves gerenciadas pelo cliente para discos gerenciados com a [CLI](disks-enable-customer-managed-keys-cli.md) ou a [portal do Azure](disks-enable-customer-managed-keys-portal.md).
+- Habilite a criptografia de ponta a ponta usando a criptografia no host com a [CLI](disks-enable-host-based-encryption-cli.md) ou a [portal do Azure](../disks-enable-host-based-encryption-portal.md).
+- Habilite a criptografia dupla em repouso para discos gerenciados com a [CLI](disks-enable-double-encryption-at-rest-cli.md) ou a [portal do Azure](../disks-enable-double-encryption-at-rest-portal.md).
+- Habilite chaves gerenciadas pelo cliente para discos gerenciados com a [CLI](disks-enable-customer-managed-keys-cli.md) ou a [portal do Azure](../disks-enable-customer-managed-keys-portal.md).
 - [O que é o Cofre da Chave do Azure?](../../key-vault/general/overview.md)

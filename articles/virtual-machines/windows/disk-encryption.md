@@ -8,14 +8,14 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 413ca677bc778069b92def043bf35ab7bb87b038
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 6174fbeb45c23c0ff04597305c6f65aef05bd26e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448930"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815582"
 ---
-# <a name="server-side-encryption-of-azure-disk-storage"></a>Criptografia do lado do servidor de Armazenamento em Disco do Azure
+# <a name="server-side-encryption-of-azure-disk-storage-for-powershell"></a>Criptografia do Armazenamento em Disco do Azure no lado do servidor para o PowerShell
 
 A criptografia do lado do servidor (SSE) ajuda a proteger os dados e atender aos compromissos de conformidade e segurança de sua organização. A SSE criptografa automaticamente os dados armazenados nos discos gerenciados do Azure (so e discos de dados) em repouso por padrão, ao mantê-los na nuvem. 
 
@@ -58,7 +58,7 @@ Discos temporários e discos do sistema operacional efêmero são criptografados
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
 
-#### <a name="supported-regions"></a>Regiões compatíveis
+#### <a name="supported-regions"></a>Regiões com suporte
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
@@ -70,7 +70,7 @@ Discos temporários e discos do sistema operacional efêmero são criptografados
 
 Clientes confidenciais de alta segurança que se preocupam com o risco associado a qualquer algoritmo de criptografia, implementação ou chave em particular comprometidos agora podem optar por uma camada adicional de criptografia usando um algoritmo/modo de criptografia diferente na camada de infraestrutura usando chaves de criptografia gerenciadas pela plataforma. Essa nova camada pode ser aplicada ao sistema operacional persistente e discos de dados, instantâneos e imagens, todos os quais serão criptografados em repouso com criptografia dupla.
 
-### <a name="supported-regions"></a>Regiões compatíveis
+### <a name="supported-regions"></a>Regiões com suporte
 
 [!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
 
@@ -84,8 +84,8 @@ O [Azure Disk Encryption](../../security/fundamentals/azure-disk-encryption-vms-
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Habilite a criptografia de ponta a ponta usando a criptografia no host com o [PowerShell](disks-enable-host-based-encryption-powershell.md) ou o [portal do Azure](disks-enable-host-based-encryption-portal.md).
-- Habilite a criptografia dupla em repouso para discos gerenciados com o [PowerShell](disks-enable-double-encryption-at-rest-powershell.md) ou o [portal do Azure](disks-enable-double-encryption-at-rest-portal.md).
-- Habilite chaves gerenciadas pelo cliente para discos gerenciados com o [PowerShell](disks-enable-customer-managed-keys-powershell.md) ou o [portal do Azure](disks-enable-customer-managed-keys-portal.md).
+- Habilite a criptografia de ponta a ponta usando a criptografia no host com o [PowerShell](disks-enable-host-based-encryption-powershell.md) ou o [portal do Azure](../disks-enable-host-based-encryption-portal.md).
+- Habilite a criptografia dupla em repouso para discos gerenciados com o [PowerShell](disks-enable-double-encryption-at-rest-powershell.md) ou o [portal do Azure](../disks-enable-double-encryption-at-rest-portal.md).
+- Habilite chaves gerenciadas pelo cliente para discos gerenciados com o [PowerShell](disks-enable-customer-managed-keys-powershell.md) ou o [portal do Azure](../disks-enable-customer-managed-keys-portal.md).
 - [Conheça os modelos do Azure Resource Manager para criar discos criptografados com chaves gerenciadas pelo cliente](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [O que é o Cofre da Chave do Azure?](../../key-vault/general/overview.md)

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/15/2020
+ms.date: 08/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c92994fee6de4c56257343af2ef418393b505ad
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 3ecb25e9bb9625a5ada70be2df61898a462c86af
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507426"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815045"
 ---
 # <a name="what-is-risk"></a>O que é risco?
 
@@ -39,6 +39,7 @@ Esses riscos são calculados offline usando fontes de inteligência contra amea�
 | Detecção de riscos | Descrição |
 | --- | --- |
 | Credenciais vazadas | Esse tipo de detecção de risco indica que as credenciais válidas do usuário foram vazadas. Quando criminosos cibernéticos comprometem senhas válidas de usuários legítimos, geralmente compartilham essas credenciais. Normalmente, esse compartilhamento é feito postando-se publicamente na Web escura, colando sites ou negociando e vendendo as credenciais no mercado preto. Quando o serviço de credenciais vazadas da Microsoft adquire credenciais de usuário da Web escura, colar sites ou outras fontes, eles são verificados em relação às credenciais válidas atuais dos usuários do Azure AD para encontrar correspondências válidas. Para obter mais informações sobre credenciais vazadas, consulte [perguntas comuns](#common-questions). |
+| Irrigação de senha | Um ataque de irrigação de senha é onde vários nomes de usuários são atacados usando senhas comuns em uma maneira de força bruta unificada para obter acesso não autorizado. Essa detecção de risco é disparada quando um ataque de irrigação de senha é executado. |
 | Inteligência contra ameaças do Azure AD | Esse tipo de detecção de risco indica a atividade do usuário que é incomum para o usuário determinado ou é consistente com padrões de ataque conhecidos com base nas fontes de inteligência contra ameaças internas e externas da Microsoft. |
 
 ### <a name="sign-in-risk"></a>Risco de entrada
@@ -68,9 +69,9 @@ Esses riscos podem ser calculados em tempo real ou calculados offline usando fon
 
 ### <a name="risk-levels"></a>Níveis de risco
 
-A proteção de identidade categoriza o risco em três camadas: baixa, média e alta. 
+O Identity Protection categoriza os riscos em três camadas: baixa, média e alta. 
 
-Embora a Microsoft não forneça detalhes específicos sobre como o risco é calculado, dizemos que cada nível traz maior confiança de que o usuário ou a entrada é comprometido. Por exemplo, algo como uma instância de propriedades de entrada desconhecidas para um usuário pode não ser tão ameaçado quanto credenciais vazadas para outro usuário.
+Embora a Microsoft não forneça detalhes específicos sobre como o risco é calculado, diremos que cada nível traz uma maior confiança de que a entrada ou o usuário está comprometido. Por exemplo, algo como uma instância de propriedades de entrada desconhecidas para um usuário pode não ser tão ameaçador quanto as credenciais vazadas para outro usuário.
 
 ### <a name="leaked-credentials"></a>Credenciais vazadas
 

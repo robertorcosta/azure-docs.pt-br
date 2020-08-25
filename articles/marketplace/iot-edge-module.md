@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2020
-ms.openlocfilehash: f7a4997117c8730b767f245050caa3f3157fb6fd
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 08/18/2020
+ms.openlocfilehash: c475e548cc8e29a83f2d440df43fb8ac31dc1c1e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750252"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816245"
 ---
 # <a name="iot-edge-modules"></a>Módulos do IoT Edge
 
@@ -40,13 +40,13 @@ O tipo de oferta de módulo do IoT Edge é um tipo específico de contêiner em 
 
 **Selecionando a loja online correta**
 
-Os módulos do IoT Edge só são publicados no Azure Marketplace. O AppSource não se aplica.  Para obter mais informações sobre as diferenças e o público-alvo em lojas online, consulte [determinar sua opção de publicação](determine-your-listing-type.md).
- 
+IoT Edge módulos são publicados apenas no Azure Marketplace; AppSource não se aplica. Para obter mais informações sobre as diferenças e o público-alvo em lojas online, consulte [determinar sua opção de publicação](determine-your-listing-type.md).
+
 **Opções de cobrança**
 
 No momento, o Marketplace dá suporte às opções de cobrança **Gratuito** e **BYOL (traga sua própria licença)** para os módulos do IoT Edge.
- 
-**Opções de publicação**
+
+### <a name="publishing-options"></a>Opções de publicação
 
 Em todos os casos, é necessário selecionar a opção de publicação **Transação** para os módulos do IoT Edge.  Confira [Escolher uma opção de publicação](determine-your-listing-type.md) para obter mais detalhes sobre as opções de publicação.  
 
@@ -54,22 +54,22 @@ Em todos os casos, é necessário selecionar a opção de publicação **Transa�
 
 Todos os termos dos contratos e das políticas do Microsoft Azure Marketplace aplicam-se a ofertas de módulo do IoT Edge.  Além disso, há pré-requisitos e requisitos técnicos para os módulos do IoT Edge.  
 
-**Pré-requisitos**
+### <a name="prerequisites"></a>Pré-requisitos
 
 Para publicar um módulo do IoT Edge no Azure Marketplace, você precisa atender aos seguintes pré-requisitos:
 
 - Acesso à Central de Parceiros. Para obter mais informações, confira [Guia de publicação do Azure Marketplace e do AppSource](marketplace-publishers-guide.md).
-- Hospedar seu módulo do IoT Edge em um Registro de Contêiner do Azure. 
-- Preparar os metadados do módulo do IoT Edge como (lista parcial): 
+- Hospedar seu módulo do IoT Edge em um Registro de Contêiner do Azure.
+- Preparar os metadados do módulo do IoT Edge como (lista parcial):
     - Um título
     - Uma descrição (no formato HTML)
-    - Uma imagem de logotipo (formato PNG e tamanhos de imagem fixa, incluindo 40 x 40 px, 90 x 90 px, 115 x 115 px, 255 x 115 px)
+    - Uma imagem de logotipo (em tamanhos de 48 x 48 (opcional), 90 x 90 (opcional) e de 216 x 216 para 350 x 350 px, tudo no formato PNG)
     - Um termo de uso e uma política de privacidade
     - Configuração de módulo padrão (rota, propriedades desejadas do gêmeo, createOptions, variáveis de ambiente)
     - Documentação
     - Contatos de suporte
 
-**Requisitos técnicos**
+### <a name="technical-requirements"></a>Requisitos técnicos
 
 Os principais requisitos técnicos de um IoT Edge Module, para que ele seja certificado e publicado no Azure Marketplace, estão detalhados no [Prepare os recursos técnicos do módulo IoT Edge](./partner-center-portal/create-iot-edge-module-asset.md).
 

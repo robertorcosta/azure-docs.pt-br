@@ -4,12 +4,12 @@ description: Este artigo explica como recuperar arquivos e pastas de um ponto de
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: e913fa1e609eff687b5757a566583539b32b1b8e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: ca523370a887ed1178312c48a577695f5ba6da8f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757142"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763449"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -200,13 +200,13 @@ Agora, temos todos os nomes de VG com IDs exclusivos.
 
 ###### <a name="active-volume-groups"></a>Grupos de volume ativos
 
-Verifique se os grupos de volumes correspondentes aos volumes do script estão ativos. O comando abaixo é usado para exibir grupos de volume ativos. Verifique se os grupos de volume relacionados do script estão presentes nesta lista.
+Verifique se os grupos de volumes correspondentes aos volumes do script estão ativos. O comando a seguir é usado para exibir grupos de volume ativos. Verifique se os grupos de volume relacionados do script estão presentes nesta lista.
 
 ```bash
 vgdisplay -a
 ```  
 
-Caso contrário, ative o grupo de volumes usando o comando abaixo.
+Caso contrário, ative o grupo de volumes usando o comando a seguir.
 
 ```bash
 #!/bin/bash
@@ -215,7 +215,7 @@ vgchange –a y  <volume-group-name>
 
 ##### <a name="listing-logical-volumes-within-volume-groups"></a>Listando volumes lógicos em grupos de volumes
 
-Depois de obtermos a lista exclusiva e ativa de VGs relacionados ao script, os volumes lógicos presentes nesses grupos de volumes podem ser listados usando o comando abaixo.
+Depois de obtermos a lista exclusiva e ativa de VGs relacionados ao script, os volumes lógicos presentes nesses grupos de volumes poderão ser listados usando o comando a seguir.
 
 ```bash
 #!/bin/bash

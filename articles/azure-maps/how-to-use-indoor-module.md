@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b9ec42620ee5ffaaf5fd79da5dabc944fc3bc422
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4bfb017bb085d22c187e8074ba4f2b026d17f442
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287093"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815939"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Usar o módulo Mapas do Azure Mapas Interno
 
@@ -35,10 +35,8 @@ Você pode instalar e inserir o módulo *Mapas do Interior do Azure Mapas* de du
 Para usar a versão de Rede de Distribuição de Conteúdo do Azure hospedada globalmente do módulo *Mapas do Azure Mapas Interno*, referencie as seguintes referências de JavaScript e da folha de estilo no elemento `<head>` do arquivo HTML:
 
 ```html
-<script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-<script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
-<link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
 <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
+<script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
 ```
 
  Ou então, você pode baixar o módulo de *Mapas do Interior do Azure Mapas*. O módulo de *Mapas do Interior do Azure Mapas* contém uma biblioteca de clientes para acessar os serviços do Azure Mapas. Siga as etapas abaixo para instalar e carregar o módulo de *Mapas do Interior* em seu aplicativo Web.  
@@ -46,15 +44,14 @@ Para usar a versão de Rede de Distribuição de Conteúdo do Azure hospedada gl
   1. Instale o [pacote Azure-Maps-interno](https://www.npmjs.com/package/azure-maps-indoor).
   
       ```powershell
-      >npm install azure-maps-control
       >npm install azure-maps-indoor
       ```
 
   2. Faça referência ao módulo de *Mapas do Interior do Azure Mapas* de JavaScript e da folha de estilo do elemento `<head>` do arquivo HTML:
 
       ```html
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
+      <link rel="stylesheet" href="node_modules/azure-maps-drawing-tools/dist/atlas-indoor.min.css" type="text/css" />
+      <script src="node_modules/azure-maps-drawing-tools/dist/atlas-indoor.min.js"></script>
       ```
 
 ## <a name="instantiate-the-map-object"></a>Instanciar o objeto Mapa

@@ -4,12 +4,12 @@ description: Resume o suporte para a recuperação de desastre de VMs do Azure e
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: c648387547e9543c9e509344aa86285504dced7a
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 3006522f75ed732c08e453a266e660cf4c577917
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761365"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815361"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação de desastre de VM do Azure entre regiões do Azure
 
@@ -195,6 +195,7 @@ Grupos de posicionamento de proximidade | Com suporte | As máquinas virtuais lo
 -- | ---
 Redimensionar o disco na VM replicada | Compatível com a VM de origem antes do failover. Não é necessário desabilitar/reabilitar a replicação.<br/><br/> Se você alterar a VM de origem após o failover, as alterações não serão capturadas.<br/><br/> Se você alterar o tamanho do disco na VM do Azure após o failover, as alterações não serão capturadas por Site Recovery e o failback será para o tamanho original da VM.
 Adicionar um disco a uma VM replicada | Com suporte
+Alterações offline em discos protegidos | Desconectar discos e fazer modificações offline para eles exigem o disparo de uma ressincronização completa.
 
 ## <a name="replicated-machines---storage"></a>Máquinas replicadas - armazenamento
 
@@ -254,6 +255,7 @@ A tabela a seguir resume os limites do Site Recovery.
 - Esses limites baseiam-se nos nossos testes, mas obviamente não abrangem todas as combinações possíveis de E/S de aplicativos.
 - Os resultados reais podem variar dependendo da combinação de E/S do aplicativo.
 - Há dois limites a considerar, a rotatividade de dados por disco e a rotatividade de dados da máquina virtual.
+- O limite atual para a variação de dados por máquina virtual é de 54 MB/s, independentemente do tamanho.
 
 **Destino de armazenamento** | **E/S média de disco de origem** |**Variação nos dados média do disco de origem** | **Total de variação de dados de disco de origem por dia**
 ---|---|---|---

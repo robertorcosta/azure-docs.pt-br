@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: f8ddbc66b8e7775fa35d2407bf3aa8614fe8e835
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 03fa302d2e8aa173419912b99d60734c7a4e0356
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606163"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814257"
 ---
 # <a name="create-a-consulting-service-offer"></a>Criar uma oferta de serviço de consultoria
 
@@ -209,15 +209,14 @@ Forneça logotipos e imagens para usar com sua oferta. Todas as imagens precisam
 
 #### <a name="store-logos"></a>Armazenar logotipos
 
-Forneça arquivos PNG do logotipo da sua oferta em cada um dos seguintes três tamanhos de pixel:
+Forneça um arquivo PNG para o logotipo de tamanho **grande** . O Partner Center o usará para criar um logotipo **pequeno** . Você pode, opcionalmente, substituir isso por uma imagem diferente mais tarde.
 
-- **Pequeno (48 x 48)**
-- **Grande (216 x 216)**
+- **Grande** (de 216 x 216 a 350 x 350 px, required)
+- **Pequeno** (48 x 48 px, opcional)
 
-Todos os logotipos são necessários e são usados em locais diferentes na lista do Marketplace.
+Esses logotipos são usados em locais diferentes na lista.
 
--   O logotipo pequeno (48 x 48 pixels) aparece nos resultados da pesquisa do Azure Marketplace e na página de Microsoft AppSource página principal e nos resultados da pesquisa. 
--   O logotipo grande (entre 216 x 216 e 350 x 350 pixels) aparece em sua página de listagem de ofertas no Azure Marketplace e Microsoft AppSource.
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Capturas de tela (opcional)
 

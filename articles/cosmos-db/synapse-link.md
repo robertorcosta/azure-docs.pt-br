@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 9e8dd4b7d7e6f0de1f3ce19238e4ab1e3cf958e1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: f200fe96478e15e938899d294ecd5491d6a03206
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034171"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814383"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>O que é o Link do Azure Synapse para Azure Cosmos DB (versão prévia)?
 
@@ -75,7 +75,7 @@ Se você tiver uma conta do Azure Cosmos DB distribuída globalmente, depois de 
 
 ### <a name="integration-with-azure-synapse-analytics"></a><a id="synapse-link-integration"></a>Integração com o Azure Synapse Analytics
 
-Com o Link do Synapse, agora você pode se conectar diretamente aos seus contêineres do Azure Cosmos DB do Azure Synapse Analytics e acessar o repositório analítico sem conectores separados. Atualmente, o Azure Synapse Analytics tem suporte para o Link do Synapse com o [Synapse Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) e o [SQL do Synapse Sem Servidor](../synapse-analytics/sql/on-demand-workspace-overview.md).
+Com o Link do Synapse, agora você pode se conectar diretamente aos seus contêineres do Azure Cosmos DB do Azure Synapse Analytics e acessar o repositório analítico sem conectores separados. A análise de Synapse do Azure atualmente dá suporte ao link Synapse com [Synapse Apache Spark](../synapse-analytics/spark/apache-spark-concepts.md) e [Synapse SQL Server](../synapse-analytics/sql/on-demand-workspace-overview.md).
 
 Você pode consultar os dados do repositório analítico do Azure Cosmos DB simultaneamente com a interoperabilidade entre diferentes tempos de execução de análise suportados pelo Azure Synapse Analytics. Não é necessária nenhuma transformação de dados adicional para analisar os dados operacionais. Você pode consultar e analisar os dados do repositório analítico usando:
 

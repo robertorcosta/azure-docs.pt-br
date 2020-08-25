@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81daa7696c645c1353cdd5e6d3cbca90ac4f03da
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6440e71eade32bfea4ed19448fd2f2007b519cc8
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388111"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816075"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
@@ -47,11 +47,7 @@ Este artigo fornece uma visão geral do relatório de entradas.
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Qual licença do Azure AD você precisa para acessar a atividade de entrada?
 
-- O relatório de atividade de entrada está disponível em [todas as edições do Azure ad](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data).
-
-- Se você quiser acessar os dados de entrada usando uma API, seu locatário deverá ter uma licença de [Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) associada a ele.
-
-
+O relatório de atividade de entrada está disponível em [todas as edições do Azure ad](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) e também pode ser acessado por meio da API Microsoft Graph.
 
 ## <a name="sign-ins-report"></a>Relatório de entradas
 
@@ -230,7 +226,7 @@ Cada linha na lista de atividades de entrada mostra:
 
 Ao clicar em um item, você verá mais detalhes sobre a operação de entrada:
 
-- ID do Usuário
+- Id de Usuário
 - Usuário
 - Nome de Usuário
 - ID do aplicativo

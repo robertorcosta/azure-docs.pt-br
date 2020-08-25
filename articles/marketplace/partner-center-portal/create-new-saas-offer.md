@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 7500eddc2416a1cb705ef207930c5fe4c6f1068a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6344cb5f1a4bd52395378f97ba2848eeec336572
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604752"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817010"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Criar uma oferta de SaaS no Marketplace comercial
 
@@ -144,7 +144,7 @@ Aqui está um exemplo de como as informações de oferta são exibidas no Micros
 
 #### <a name="call-out-descriptions"></a>Descrições de chamada
 
-1. Title
+1. Título
 2. Descrição
 3. Links úteis
 4. Capturas de tela
@@ -282,18 +282,19 @@ Esse campo é obrigatório.
 #### <a name="files-and-images"></a>Arquivos e imagens
 
 - **Documentos** (obrigatório) – adicione documentos de marketing relacionados para sua oferta, em formato PDF, de pelo menos um e até três documentos por oferta.
-- **Imagens**  – carregar imagens de logotipo no formato png:
+- **Imagens** (obrigatórias) – há vários locais onde as imagens de logotipo da sua oferta podem aparecer em todo o Marketplace. Forneça um arquivo PNG para o logotipo de tamanho **grande** . O Partner Center usará isso para criar um logotipo **pequeno** e **médio** . Opcionalmente, você pode substituí-los por imagens diferentes posteriormente.
 
-  - **Pequeno** (48 x 48 pixels, obrigatório)
-  - **Médio** (90 x 90 pixels, obrigatório)
-  - **Grande** (216 x 216 pixels, obrigatório)
-  - **Largo** (255 x 115 pixels) (opcional)
+  - **Grande** (de 216 x 216 a 350 x 350 px, required)
+  - **Médio** (90 x 90 px, opcional)
+  - **Pequeno** (48 x 48 px, opcional)
+  
+  Esses logotipos são usados em locais diferentes na listagem:
 
-   Esses três tamanhos de logotipo são usados em locais diferentes nas lojas online:
+   - O logotipo grande aparece na sua página de listagem de ofertas no Azure Marketplace e Microsoft AppSource.
+   - O logotipo médio é exibido quando você cria um novo recurso no Microsoft Azure.
+   - O logotipo pequeno aparece nos resultados da pesquisa do Azure Marketplace e na página de Microsoft AppSource página principal e nos resultados da pesquisa.
 
-   -   O logotipo pequeno (48 x 48 pixels) aparece nos resultados da pesquisa do Azure Marketplace e na página de Microsoft AppSource página principal e nos resultados da pesquisa. 
-   -   O logotipo médio (90 x 90 pixels) é exibido quando você cria um novo recurso no Microsoft Azure.
-   -   O logotipo grande (entre 216 x 216 e 350 x 350 pixels) aparece em sua página de listagem de ofertas no Azure Marketplace e Microsoft AppSource.
+   [!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 - **Capturas de tela** (obrigatórias) – adicione um máximo de cinco capturas de tela demonstrando sua oferta, dimensionada em 1280 x 720 pixels. Todas as imagens precisam estar no formato .PNG.
 - **Vídeos** (opcional) – adicione links para vídeos que demonstrem sua oferta. É possível usar links para vídeos do YouTube e/ou do Vimeo, que são mostrados juntamente com sua oferta aos clientes. Você também precisará inserir uma imagem em miniatura do vídeo, dimensionada para 1280 x 720 pixels em formato PNG. É possível exibir um máximo de quatro vídeos por oferta.

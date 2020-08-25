@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 08/20/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: dcb8f709bc75fdf9fe80ee26497acb78cc023327
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 662bda03fc2d389ed316bd2c7141d5e6a30cef1a
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116335"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814579"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar seu aplicativo na galeria de aplicativos do Azure Active Directory
 
@@ -45,7 +45,7 @@ Este artigo mostra como listar um aplicativo na Galeria de aplicativos Azure Act
 
 **Como obter o Azure AD para desenvolvedores?**
 
-Você pode obter uma conta de teste gratuita com todos os recursos premium do Azure AD-90 dias gratuitos e pode ser estendido desde que os desenvolvedores trabalhem com ele:https://docs.microsoft.com/office/developer-program/office-365-developer-program
+Você pode obter uma conta de teste gratuita com todos os recursos premium do Azure AD-90 dias gratuitos e pode ser estendido desde que os desenvolvedores trabalhem com ele: https://docs.microsoft.com/office/developer-program/office-365-developer-program
 
 ## <a name="submit-the-request-in-the-portal"></a>Enviar a solicitação no portal
 
@@ -113,7 +113,7 @@ Crie um aplicativo da Web que tenha uma página de login HTML para configurar a 
 
 ![Listando um aplicativo SSO de senha na Galeria](./media/howto-app-gallery-listing/passwordsso.png)
 
-* Se você quiser adicionar seu aplicativo para listar na Galeria usando o SSO de senha, selecione **SSO de senha** , conforme mostrado.
+* Se você quiser adicionar seu aplicativo para listar na Galeria usando o SSO de senha, selecione **SSO de senha (nome de usuário & senha)** , conforme mostrado.
 * Se você tiver problemas com o Access, entre em contato com a [equipe de integração de SSO do Azure ad](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="request-for-user-provisioning"></a>Solicitação de provisionamento de usuário

@@ -3,17 +3,17 @@ title: Criptografar discos do sistema operacional usando chaves gerenciadas pelo
 description: Saiba como criptografar discos de sistema operacional (SO) usando chaves gerenciadas pelo cliente no Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/28/2020
-ms.openlocfilehash: 209ab1f74dce0982af66777f211c41066d53b8f9
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 241f53f0c8f289b43b8de465eb7509489345b955
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566192"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815914"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Criptografar discos do sistema operacional (SO) usando chaves gerenciadas pelo cliente no Azure DevTest Labs
 A criptografia do lado do servidor (SSE) ajuda a proteger os dados e atender aos compromissos de conformidade e segurança de sua organização. A SSE criptografa automaticamente os dados armazenados em discos gerenciados no Azure (so e discos de dados) em repouso, por padrão, ao mantê-los para a nuvem. Saiba mais sobre a [criptografia de disco](../virtual-machines/windows/disk-encryption.md) no Azure. 
 
-No DevTest Labs, todos os discos do sistema operacional e os discos de dados criados como parte de um laboratório são criptografados usando chaves gerenciadas por plataforma. No entanto, como um proprietário de laboratório, você pode optar por criptografar discos de so de máquina virtual de laboratório usando suas próprias chaves. Se você optar por gerenciar a criptografia com suas próprias chaves, poderá especificar uma **chave gerenciada pelo cliente** a ser usada para criptografar dados em discos do sistema operacional do laboratório. Para saber mais sobre criptografia do lado do servidor (SSE) com chaves gerenciadas pelo cliente e outros tipos de criptografia de disco gerenciado, confira [chaves gerenciadas pelo cliente](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). Além disso, consulte [restrições com o uso de chaves gerenciadas pelo cliente](../virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#restrictions).
+No DevTest Labs, todos os discos do sistema operacional e os discos de dados criados como parte de um laboratório são criptografados usando chaves gerenciadas por plataforma. No entanto, como um proprietário de laboratório, você pode optar por criptografar discos de so de máquina virtual de laboratório usando suas próprias chaves. Se você optar por gerenciar a criptografia com suas próprias chaves, poderá especificar uma **chave gerenciada pelo cliente** a ser usada para criptografar dados em discos do sistema operacional do laboratório. Para saber mais sobre criptografia do lado do servidor (SSE) com chaves gerenciadas pelo cliente e outros tipos de criptografia de disco gerenciado, confira [chaves gerenciadas pelo cliente](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). Além disso, consulte [restrições com o uso de chaves gerenciadas pelo cliente](../virtual-machines/disks-enable-customer-managed-keys-portal.md#restrictions).
 
 
 > [!NOTE]
@@ -25,7 +25,7 @@ A seção a seguir mostra como um proprietário de laboratório pode configurar 
 
 ## <a name="pre-requisites"></a>Pré-requisitos
 
-1. Se você não tiver um conjunto de criptografia de disco, siga este artigo para [configurar um Key Vault e um conjunto de criptografia de disco](../virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#set-up-your-azure-key-vault). Observe os seguintes requisitos para o conjunto de criptografia de disco: 
+1. Se você não tiver um conjunto de criptografia de disco, siga este artigo para [configurar um Key Vault e um conjunto de criptografia de disco](../virtual-machines/disks-enable-customer-managed-keys-portal.md). Observe os seguintes requisitos para o conjunto de criptografia de disco: 
 
     - O conjunto de criptografia de disco precisa estar **na mesma região e assinatura que o seu laboratório**. 
     - Verifique se você (proprietário do laboratório) tem pelo menos um **acesso em nível de leitor** ao conjunto de criptografia de disco que será usado para criptografar os discos do sistema operacional de laboratório. 

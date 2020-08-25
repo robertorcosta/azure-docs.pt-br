@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 985fbc70f15c0806c45ae43d62995590e10b1bb2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 09206b8189f03a37f8bd7d073238609a3f1bd3ad
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798917"
+ms.locfileid: "88816092"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montar o armazenamento de BLOBs usando o protocolo NFS (sistema de arquivos de rede) 3,0 (versão prévia)
 
@@ -90,9 +90,9 @@ Na versão de visualização desse recurso, o protocolo NFS 3,0 tem suporte apen
 
 Ao configurar a conta, escolha estes valores:
 
-|Configuração | Valor|
+|Setting | Valor|
 |----|---|
-|Local|Uma das seguintes regiões: leste dos EUA, Centro dos EUA, centro-oeste dos EUA, sudeste da Austrália, Europa Setentrional, Oeste do Reino Unido, Coreia central, sul da Coreia e Canadá central |
+|Location|Uma das seguintes regiões: leste dos EUA, Centro dos EUA, centro-oeste dos EUA, sudeste da Austrália, Europa Setentrional, Oeste do Reino Unido, Coreia central, sul da Coreia e Canadá central |
 |Desempenho|Premium|
 |Tipo de conta|BlockBlobStorage|
 |Replicação|Armazenamento com redundância local (LRS)|
@@ -109,11 +109,11 @@ Crie um contêiner em sua conta de armazenamento usando qualquer uma dessas ferr
 
 |Ferramentas|SDKs|
 |---|---|
-|[Gerenciador de Armazenamento do Azure](data-lake-storage-explorer.md#create-a-container)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
+|[Azure portal](https://portal.azure.com)|[.NET](data-lake-storage-directory-file-acl-dotnet.md#create-a-container)|
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[CLI do Azure](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-|[Portal do Azure](https://portal.azure.com)|[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
+||[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
 
 ## <a name="step-7-mount-the-container"></a>Etapa 7: montar o contêiner
 
@@ -172,7 +172,7 @@ Crie um diretório em seu sistema Windows ou Linux e, em seguida, monte um cont�
 |`Access denied by server while mounting`|Verifique se o cliente está sendo executado em uma sub-rede com suporte. Consulte os [locais de rede com suporte](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Verifique se o contêiner que você está montando foi criado após verificar se o recurso foi registrado. Consulte [etapa 2: verificar se o recurso está registrado](#step-2-verify-that-the-feature-is-registered). Além disso, certifique-se de digitar o comando mount e os parâmetros diretamente no terminal. Se você copiar e colar qualquer parte deste comando no terminal de outro aplicativo, os caracteres ocultos nas informações coladas poderão causar esse erro.|
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 [Suporte ao protocolo NFS (sistema de arquivos de rede) 3,0 no armazenamento de BLOBs do Azure (versão prévia)](network-file-system-protocol-support.md)
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: d831d40733f9fa1d0db4c53d72de22898e493639
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: b3d1371f486a73b40d352007e3681fd451a8a8b7
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795857"
+ms.locfileid: "88815820"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é o repositório analítico do Azure Cosmos DB (versão prévia)?
 
@@ -22,7 +22,7 @@ O repositório analítico do Azure Cosmos DB é um repositório de coluna totalm
 
 ## <a name="challenges-with-large-scale-analytics-on-operational-data"></a>Desafios com análise em larga escala sobre dados operacionais
 
-Os dados operacionais multimodelo em um contêiner do Azure Cosmos DB são armazenados internamente em um "repositório transacional" baseado em linha e indexado. O formato de repositório de linha foi projetado para permitir leituras e gravações transacionais rápidas nos tempos de resposta na casa de milissegundos e consultas operacionais. Se seu conjunto de dados gera consultas analíticas grandes e complexas, isso poderá ser caro em termos de taxa de transferência provisionada nos dados armazenados nesse formato. Por outro lado, o alto consumo de produtividade provisionada afeta o desempenho de cargas de trabalho transacionais que são usadas por seus aplicativos e serviços em tempo real.
+Os dados operacionais multimodelo em um contêiner do Azure Cosmos DB são armazenados internamente em um "repositório transacional" baseado em linha e indexado. O formato de repositório de linha foi projetado para permitir leituras e gravações transacionais rápidas nos tempos de resposta na casa de milissegundos e consultas operacionais. Se o conjunto de dados aumentar, as consultas analíticas complexas poderão ser caras em termos de produtividade provisionada nos dados armazenados nesse formato. O alto consumo de produtividade provisionada, por sua vez, afeta o desempenho de cargas de trabalho transacionais que são usadas por seus aplicativos e serviços em tempo real.
 
 Tradicionalmente, para analisar grandes quantidades de dados, os dados operacionais são extraídos do repositório transacional do Azure Cosmos DB e armazenados em uma camada de dados separada. Por exemplo, os dados são armazenados em um data warehouse ou em um data lake em um formato adequado. Esses dados são usados posteriormente para a análise em larga escala e são analisados usando o um mecanismo de computação, como os clusters do Apache Spark. Essa separação do armazenamento analítico e das camadas de computação dos dados operacionais resulta em latência adicional, pois os pipelines de ETL (extração, transformação e carregamento) são executados com menos frequência para minimizar o impacto potencial em suas cargas de trabalho transacionais.
 
@@ -131,7 +131,7 @@ O repositório analítico segue um modelo de preço baseado em consumo no qual v
 
 * Operações de gravação analítica: a sincronização totalmente gerenciada de atualizações de dados operacionais para o repositório analítico a partir do repositório transacional (sincronização automática).
 
-* Operações de leitura analítica: as operações de leitura executadas no repositório analítico do Synapse Analytics Spark e os tempos de execução do SQL sem servidor.
+* Operações de leitura analítica: as operações de leitura executadas no repositório analítico do Synapse Analytics Spark e tempos de execução sem SQL Server.
 
 > [!NOTE]
 > Azure Cosmos DB repositório analítico está disponível atualmente na visualização pública gratuita de quaisquer encargos.

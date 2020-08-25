@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2020
+ms.date: 08/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 556d3df41b7ee66bfb2b32b8a566d7172f45e313
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 30839fac6a264ad9defb565663b28a5b12b571b5
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034457"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814511"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -24,7 +24,7 @@ A redundância do Armazenamento do Azure sempre armazena várias cópias dos seu
 Ao decidir qual opção de redundância é melhor para seu cenário, considere os benefícios comparativos entre custos menores e maior disponibilidade e durabilidade. Os fatores que ajudam a determinar qual opção de redundância você deve escolher incluem:  
 
 - Como os dados são replicados na região primária
-- Se os dados são replicados para um segundo local que está geograficamente distante da região primária, para protegê-los contra desastres regionais
+- Se seus dados são replicados para uma segunda região que está geograficamente distante para a região primária, para proteger contra desastres regionais
 - Se o aplicativo requer acesso de leitura aos dados replicados na região secundária se a região primária ficar indisponível por qualquer motivo
 
 ## <a name="redundancy-in-the-primary-region"></a>Redundância na região primária
@@ -64,8 +64,8 @@ A tabela a seguir mostra quais tipos de contas de armazenamento dão suporte ao 
 | Tipo de conta de armazenamento | Regiões com suporte | Serviços com suporte |
 |--|--|--|
 | Uso geral v2<sup>1</sup> | Sudeste da Ásia<br /> Leste da Austrália<br /> Norte da Europa<br />  Europa Ocidental<br /> França Central<br /> Leste do Japão<br /> Norte da África do Sul<br /> Sul do Reino Unido<br /> EUA Central<br /> Leste dos EUA<br /> Leste dos EUA 2<br /> Oeste dos EUA 2 | Blobs de bloco<br /> Blobs de páginas<sup>2</sup><br /> Compartilhamentos de arquivos (padrão)<br /> Tabelas<br /> Filas<br /> |
-| BlockBlobStorage<sup>1</sup> | Sudeste da Ásia<br /> Leste da Austrália<br /> Europa Ocidental<br /> Leste dos EUA | Somente blobs de blocos Premium |
-| FileStorage | Sudeste da Ásia<br /> Leste da Austrália<br /> Europa Ocidental<br /> Leste dos EUA | Somente compartilhamentos de arquivos Premium |
+| BlockBlobStorage<sup>1</sup> | Sudeste da Ásia<br /> Leste da Austrália<br /> Europa Ocidental<br /> Leste dos EUA <br /> Oeste dos EUA 2| Somente blobs de blocos Premium |
+| FileStorage | Sudeste da Ásia<br /> Leste da Austrália<br /> Europa Ocidental<br /> Leste dos EUA <br /> Oeste dos EUA 2 | Somente compartilhamentos de arquivos Premium |
 
 <sup>1</sup> A camada de arquivamento não tem suporte atualmente para contas de ZRS.<br />
 <sup>2</sup> Contas de armazenamento que contêm discos gerenciados do Azure para máquinas virtuais sempre usam LRS. Os discos não gerenciados do Azure também devem usar LRS. É possível criar uma conta de armazenamento para discos não gerenciados do Azure que usam GRS, mas isso não é recomendável devido a possíveis problemas de consistência em relação à replicação geográfica assíncrona. Os discos gerenciados ou não gerenciados dão suporte a ZRS ou GZRS. Para saber mais sobre discos gerenciados, confira [Preços para discos gerenciados do Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -83,9 +83,9 @@ O Armazenamento do Azure oferece duas opções para copiar seus dados para uma r
 - O **armazenamento com redundância geográfica (GRS)** copia seus dados de forma síncrona três vezes em um único local físico na região primária usando o LRS. Em seguida, ele copia os dados de forma assíncrona para um único local físico na região secundária.
 - O **armazenamento com redundância de zona geográfica (GZRS)** copia seus dados de forma síncrona em três zonas de disponibilidade do Azure na região primária usando o ZRS. Em seguida, ele copia os dados de forma assíncrona para um único local físico na região secundária.
 
-A principal diferença entre o GRS e o GZRS é como os dados são replicados na região primária. No local secundário, os dados são sempre replicados três vezes de forma síncrona, usando o LRS. O LRS na região secundária protege seus dados contra falhas de hardware.
+A principal diferença entre o GRS e o GZRS é como os dados são replicados na região primária. Na região secundária, os dados são sempre replicados três vezes de forma síncrona, usando LRS. O LRS na região secundária protege seus dados contra falhas de hardware.
 
-Com o GRS ou o GZRS, os dados no local secundário não estão disponíveis para acesso de leitura ou gravação, a menos que ocorra um failover na região secundária. Para obter acesso de leitura para o local secundário, configure sua conta de armazenamento para usar o armazenamento com redundância geográfica com acesso de leitura (RA-GRS) ou o armazenamento com redundância de zona com acesso de leitura (RA-GZRS). Para saber mais, confira [Acesso de leitura aos dados na região secundária](#read-access-to-data-in-the-secondary-region).
+Com GRS ou GZRS, os dados na região secundária não estão disponíveis para acesso de leitura ou gravação, a menos que haja um failover para a região secundária. Para acesso de leitura para a região secundária, configure sua conta de armazenamento para usar o armazenamento com redundância geográfica com acesso de leitura (RA-GRS) ou o armazenamento com redundância de acesso de leitura (RA-GZRS). Para saber mais, confira [Acesso de leitura aos dados na região secundária](#read-access-to-data-in-the-secondary-region).
 
 Se a região primária ficar indisponível, você poderá optar por fazer failover para a região secundária. Após a conclusão do failover, a região secundária se tornará a região primária e você poderá ler e gravar os dados novamente. Para saber mais sobre a recuperação de desastres e sobre como fazer failover para a região secundária, confira [Recuperação de desastres e failover da conta de armazenamento](storage-disaster-recovery-guidance.md).
 

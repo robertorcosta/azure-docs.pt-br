@@ -8,14 +8,14 @@ ms.author: gwallace
 ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: d4f53238951784a74e6e3fc8a73d1f112ce75608
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35474df96254b158a39b6d913171c553bf30aea4
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79139106"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816432"
 ---
-# <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Gerenciar projetos, modelos, fluxos de imagens em um cluster do Azure Red Hat OpenShift 
+# <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Gerenciar projetos, modelos, fluxos de imagens em um cluster do Azure Red Hat OpenShift
 
 Em uma plataforma de contêiner OpenShift, os projetos são usados para agrupar e isolar objetos relacionados. Como administrador, você pode dar aos desenvolvedores acesso a projetos específicos, permitir que eles criem seus próprios projetos e conceder a eles direitos administrativos a projetos individuais.
 
@@ -45,7 +45,7 @@ O acesso à API é concedido aos desenvolvedores com a associação de função 
    oc edit template project-request -n openshift
    ```
 
-3. Remova o modelo de projeto padrão do processo de atualização da toa (Red Hat OpenShift) do Azure adicionando a seguinte anotação:`openshift.io/reconcile-protect: "true"`
+3. Remova o modelo de projeto padrão do processo de atualização da toa (Red Hat OpenShift) do Azure adicionando a seguinte anotação: `openshift.io/reconcile-protect: "true"`
 
    ```
    ...
@@ -112,7 +112,7 @@ Para desabilitar atualizações para todos os `Templates` e `ImageStreams` no `o
    oc edit namespace openshift
    ```
 
-3. Remova `openshift` o namespace do processo de atualização da toa adicionando a seguinte anotação:`openshift.io/reconcile-protect: "true"`
+3. Remova `openshift` o namespace do processo de atualização da toa adicionando a seguinte anotação: `openshift.io/reconcile-protect: "true"`
 
    ```
    ...

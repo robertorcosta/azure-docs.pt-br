@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: b3485ebbdf9cf428b09364b73197220e02e9ffa8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: ddd1f61ada539ebb00341dd83919f1c851a0f3e1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751082"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816364"
 ---
 # <a name="whats-new-in-form-recognizer"></a>O que há de novo no Reconhecimento de Formulários?
 
@@ -28,12 +28,12 @@ O serviço do reconhecedor de formulário é atualizado em uma base contínua. U
 
 
 - A **referência da API REST está disponível** -Veja a [referência v 2.1-Preview. 1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
-- **Novos idiomas com suporte além do inglês**, agora há suporte para os seguintes idiomas: para `Layout` e `Train Custom Model` : Inglês (EN), chinês (simplificado) (ZH-ZH), holandês (NL), francês (FR), alemão (de), italiano (IT), Português (Portugal) e espanhol (es).
+- **Novos idiomas com suporte além do inglês**, agora há suporte para os seguintes [idiomas](language-support.md) : para `Layout` e `Train Custom Model` : Inglês ( `en` ), chinês (simplificado) ( `zh-Hans` ), holandês ( `nl` ), francês ( `fr` ), alemão () `de` , italiano () `it` , Português ( `pt` ) e espanhol ( `es` ).
 - **Detecção de seleção/marca de seleção** – o reconhecedor de formulário dá suporte à detecção e extração de marcas de seleção, como caixas de seleção e botões de opção. As marcas de seleção são extraídas no `Layout` e agora você pode também rotular e treinar em `Train Custom Model`  -  _treinamento com rótulos_ para extrair pares de chave-valor para marcas de seleção. 
 - A **composição de modelo** permite que vários modelos sejam compostos e chamados com uma única ID de modelo. Quando um documento é enviado para ser analisado com uma ID de modelo composto, uma etapa de classificação é executada primeiro para encaminhá-la para o modelo personalizado correto. A composição de modelo está disponível para `Train Custom Model`  -  _treinamento com rótulos_.
 - **Nome do modelo** adicione um nome amigável aos modelos personalizados para facilitar o gerenciamento e o controle.
-- **Novo modelo predefinido para cartões de negócios** para extrair campos comuns em inglês, cartões de visita de idioma.
-- **Novas localidades para recebimentos pré-criados** , além do en-US, o suporte agora está disponível para en-au, en-CA, en-GB, en-in
+- **[Novo modelo predefinido para cartões de negócios](concept-business-cards.md)** para extrair campos comuns em inglês, cartões de visita de idioma.
+- **[Novas localidades para recebimentos pré-criados](concept-receipts.md)** , além do en-US, o suporte agora está disponível para en-au, en-CA, en-GB, en-in
 - **Aprimoramentos de qualidade** para `Layout` , `Train Custom Model`  -  _treine sem rótulos_ e _treine com rótulos_.
 
 
@@ -43,6 +43,7 @@ o **v 2.0** inclui a seguinte atualização:
 
 **Novos exemplos** estão disponíveis no github. 
 - O [guia estratégico de receitas de extração de conhecimento](https://github.com/microsoft/knowledge-extraction-recipes-forms) coleta as práticas recomendadas de compromissos do cliente do reconhecedor de formato real e fornece exemplos de código, listas de verificação e pipelines de exemplo utilizáveis usados no desenvolvimento desses projetos. 
+- A [ferramenta de rotulagem de exemplo](https://github.com/microsoft/OCR-Form-Tools) foi atualizada para dar suporte à nova funcionalidade v 2.1. Consulte este guia de [início rápido](quickstarts/label-tool.md) para começar a usar a ferramenta. 
 - O exemplo de reconhecedor de formulário de [quiosque inteligente](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) mostra como integrar `Analyze Receipt` e `Train Custom Model`  -  _treinar sem rótulos_.
 
 

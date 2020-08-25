@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 08/24/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cad6c41b465e14b11d4fa7b8e7fa6037d49e8eae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bad5b0256ee445767689ea2752e918a1fbf5fae
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742893"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815990"
 ---
 # <a name="start-using-privileged-identity-management"></a>Começar usando o Privileged Identity Management
 
@@ -38,9 +38,7 @@ Para obter mais informações, consulte [requisitos de licença para usar Privil
 
 ## <a name="prepare-pim-for-azure-ad-roles"></a>Preparar o PIM para funções do Azure AD
 
-Depois de habilitar Privileged Identity Management para seu diretório, você pode preparar Privileged Identity Management para gerenciar funções do Azure AD.
-
-Aqui estão as tarefas que recomendamos para você se preparar para as funções do Azure AD, na ordem:
+Aqui estão as tarefas que recomendamos para você preparar Privileged Identity Management para gerenciar funções do Azure AD:
 
 1. [Defina as configurações de função do Azure ad](pim-how-to-change-default-settings.md).
 1. [Dê atribuições qualificadas](pim-how-to-add-role-to-user.md).
@@ -48,9 +46,7 @@ Aqui estão as tarefas que recomendamos para você se preparar para as funções
 
 ## <a name="prepare-pim-for-azure-roles"></a>Preparar o PIM para funções do Azure
 
-Depois de habilitar Privileged Identity Management para seu diretório, você pode preparar Privileged Identity Management para gerenciar funções do Azure para o acesso a recursos do Azure em uma assinatura.
-
-Aqui estão as tarefas que recomendamos para você se preparar para as funções do Azure, na ordem:
+Aqui estão as tarefas que recomendamos para você preparar Privileged Identity Management para gerenciar funções do Azure para uma assinatura:
 
 1. [Recursos de descoberta do Azure](pim-resource-roles-discover-resources.md)
 1. [Defina as configurações de função do Azure](pim-resource-roles-configure-role-settings.md).
@@ -82,15 +78,15 @@ Para facilitar a abertura de Privileged Identity Management, adicione um bloco d
 
     ![Azure AD Privileged Identity Management em Todos os serviços](./media/pim-getting-started/pim-all-services-find.png)
 
-1. Selecione o guia de início rápido do Privileged Identity Management.
+1. Selecione o **início rápido**do Privileged Identity Management.
 
-1. Marque a **folha fixar no painel** para fixar a folha Privileged Identity Management início rápido no painel.
+1. Selecione **fixar folha no painel** para fixar a Privileged Identity Management página de **início rápido** no painel.
 
-    ![Ícone de pino para fixar Privileged Identity Management folha no painel](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![Ícone de pino para fixar Privileged Identity Management página no painel](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     No painel do Azure, você verá um bloco como este:
 
-    ![Bloco Privileged Identity Management início rápido no painel](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
+    ![Bloco de início rápido do Privileged Identity Management no painel](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

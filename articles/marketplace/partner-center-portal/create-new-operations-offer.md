@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: bdce311efbe7e41e09a3be76562c6be752a4b5c1
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 79bf5f0d6b7e3fa4735d94c7b26c1736ab25113e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606114"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816993"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Criar uma oferta do Dynamics 365 for Operations
 
@@ -21,7 +21,7 @@ Este tópico explica como criar uma oferta do Dynamics 365 for Operations. O Mic
 Antes de começar, [crie uma conta do marketplace comercial no Partner Center](create-account.md) se você ainda não tiver feito isso. Verifique se sua conta está inscrita no programa do marketplace comercial.
 
 >[!NOTE]
-> Depois que uma oferta tiver sido publicada, edições para a oferta feita no Partner Center serão atualizadas somente no sistema e em frentes de loja após a republicação. É necessário que você envie a oferta para publicação depois de fazer alterações.
+> Depois que uma oferta for publicada, as edições na oferta só serão atualizadas no Partner Center e na loja online depois que você enviar novamente a oferta para publicação.
 
 ## <a name="create-a-new-offer"></a>Criar uma oferta
 
@@ -38,7 +38,7 @@ Antes de começar, [crie uma conta do marketplace comercial no Partner Center](c
 
 Insira uma **ID da oferta**. Esse é um identificador exclusivo para cada oferta em sua conta.
 
-- Essa ID é visível para os clientes no endereço web para a oferta do Marketplace e nos modelos do Azure Resource Manager, se aplicável.
+- Essa ID é visível para os clientes no endereço da Web para a oferta do Marketplace e nos modelos do Azure Resource Manager, se aplicável.
 - Use apenas letras minúsculas e números. Ela pode incluir hifens e sublinhados, mas sem espaços, e está limitada a 50 caracteres. Por exemplo, se você inserir **test-offer-1** aqui, o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - A ID da oferta não pode ser alterada depois que você seleciona **Criar**.
 
@@ -108,7 +108,7 @@ Insira o número de versão da sua oferta. Os clientes verão essa versão lista
 
 Forneça seus termos e condições legais no campo **Termos e condições**. Você também pode fornecer a URL na qual os termos e condições podem ser encontrados. Os clientes precisarão aceitar esses termos antes de poderem testar a oferta.
 
-Selecione **Salvar rascunho** antes de continuar.
+Selecione **Salvar rascunho** para continuar.
 
 ## <a name="offer-listing"></a>Listagem de ofertas
 
@@ -193,12 +193,16 @@ Nesta seção, você pode fornecer logotipos e imagens que serão usados ao most
 
 #### <a name="store-logos"></a>Armazenar logotipos
 
-Forneça o logotipo de sua oferta em dois tamanhos de pixel:
+Forneça um arquivo PNG para o logotipo de tamanho **grande** . O Partner Center o usará para criar um logotipo **pequeno** . Você pode, opcionalmente, substituir isso por uma imagem diferente mais tarde.
 
-- **Pequeno** (48 x 48)
-- **Grande** (216 x 216)
+- **Grande** (de 216 x 216 a 350 x 350 px, required)
+- **Pequeno** (48 x 48 px, opcional)
+
+Esses logotipos são usados em locais diferentes na listagem:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de tela
 

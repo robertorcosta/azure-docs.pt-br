@@ -7,12 +7,12 @@ ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 08/07/2020
-ms.openlocfilehash: 75c604df2f44e9c732fa9c2ce2093237e4e484a4
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 9ff11312b6d231927f5053868b64e0b825df371e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606063"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816976"
 ---
 # <a name="create-a-managed-service-offer"></a>Criar uma oferta de serviço gerenciado
 
@@ -85,7 +85,7 @@ Aqui está um exemplo de como as informações de oferta são exibidas no portal
 
 #### <a name="call-out-descriptions"></a>Descrições de chamada
 
-1. Title
+1. Título
 2. Descrição
 3. Links úteis
 4. Capturas de tela
@@ -135,18 +135,19 @@ Nesta seção, você pode fornecer logotipos e imagens que serão usados ao most
 >[!NOTE]
 >Se você está enfrentando um problema ao carregar arquivos, verifique se sua rede local não bloqueia o serviço https://upload.xboxlive.com que é usado pela Central de Parceiros.
 
-#### <a name="marketplace-logos"></a>Logotipos do Marketplace
+#### <a name="store-logos"></a>Armazenar logotipos
 
-Forneça o logotipo de sua oferta em quatro tamanhos de pixel:
+Forneça um arquivo PNG para o logotipo de tamanho **grande** . O Partner Center usará isso para criar um logotipo **pequeno** e **médio** . Opcionalmente, você pode substituí-los por imagens diferentes posteriormente.
 
-- **Pequeno** (48 x 48)
-- **Médio** (90 x 90)
-- **Grande** (216 x 216)
-- **Largo** (255 x 115)
+- **Grande** (de 216 x 216 a 350 x 350 px, required)
+- **Médio** (90 x 90 px, opcional)
+- **Pequeno** (48 x 48 px, opcional)
 
-Esses logotipos são usados em locais diferentes no Azure Marketplace:
+Esses logotipos são usados em locais diferentes na listagem:
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de tela
 
@@ -255,9 +256,9 @@ Se for a primeira vez que você publicar essa oferta, você poderá:
 - Ver o status de conclusão de cada seção da oferta.
   - **Não iniciada** –  A seção não foi tocada e precisa ser concluída.
   - **Incompleta** –  A seção tem erros que precisam ser corrigidos ou requer que mais informações sejam fornecidas. Volte para as seções e atualize-as.
-  - **Concluída**: a seção está concluída, todos os dados necessários foram fornecidos e não há erros. Todas as seções da oferta precisam estar no estado concluída para que você possa enviar a oferta.
+  - **Concluída** - A seção está concluída, todos os dados necessários foram fornecidos e não há erros. Todas as seções da oferta precisam estar no estado concluída para que você possa enviar a oferta.
 - Na seção **Notas para certificação**, forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de eventuais notas suplementares úteis para compreensão do seu aplicativo.
-- Envie a oferta para publicação selecionando **Enviar**. Nós enviaremos um e-mail a você quando uma versão prévia da oferta estiver disponível para revisão e aprovação. Retorne ao Partner Center e selecione **Ativar** a oferta para publicar sua oferta para o público (ou, se uma oferta privada, para o público-alvo privado).
+- Envie a oferta para publicação selecionando **Enviar**. Nós lhe enviaremos um e-mail quando uma versão prévia da oferta estiver disponível para revisão e aprovação. Retorne ao Partner Center e selecione **Ativar** a oferta para publicar sua oferta para o público (ou, se uma oferta privada, para o público-alvo privado).
 
 ### <a name="customer-experience-and-offer-management"></a>Experiência do cliente e gerenciamento de ofertas
 
