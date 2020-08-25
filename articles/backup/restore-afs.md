@@ -3,12 +3,12 @@ title: Restaurar compartilhamentos de arquivos do Azure
 description: Saiba como usar o portal do Azure para restaurar um compartilhamento de arquivos inteiro ou arquivos específicos de um ponto de restauração criado pelo backup do Azure.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: f0e232fcde12a0c035afa139e3043bfa52fbe714
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 92cc40d1a6b332ab524049322eb2d1afcb76082e
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503635"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761841"
 ---
 # <a name="restore-azure-file-shares"></a>Restaurar compartilhamentos de arquivos do Azure
 
@@ -66,7 +66,7 @@ Você pode usar essa opção de restauração para restaurar o compartilhamento 
     * **Local original**: restaure o compartilhamento de arquivos completo para o mesmo local que a origem original.
     * **Local alternativo**: restaure o compartilhamento de arquivos completo para um local alternativo e mantenha o compartilhamento de arquivos original como está.
 
-#### <a name="restore-to-the-original-location"></a>Restaurar no local original
+#### <a name="restore-to-the-original-location-full-share-recovery"></a>Restaurar no local original (recuperação de compartilhamento completo)
 
 1. Selecione **local original** como o **destino de recuperação**e selecione se deseja ignorar ou substituir se houver conflitos, escolhendo a opção apropriada na lista suspensa **no caso de conflitos** .
 
@@ -74,7 +74,7 @@ Você pode usar essa opção de restauração para restaurar o compartilhamento 
 
     ![Selecione restaurar para iniciar](./media/restore-afs/click-restore.png)
 
-#### <a name="restore-to-an-alternate-location"></a>Restaurar para um local alternativo
+#### <a name="restore-to-an-alternate-location-full-share-recovery"></a>Restaurar para um local alternativo (recuperação completa do compartilhamento)
 
 1. Selecione o **local alternativo** como o **destino de recuperação**.
 1. Selecione a conta de armazenamento de destino na qual você deseja restaurar o conteúdo de backup da lista suspensa **conta de armazenamento** .
@@ -106,7 +106,7 @@ Você pode usar essa opção de restauração para restaurar arquivos ou pastas 
     * **Local original**: restaure os arquivos ou pastas selecionados para o mesmo compartilhamento de arquivos que a origem original.
     * **Local alternativo**: restaure os arquivos ou pastas selecionados em um local alternativo e mantenha o conteúdo do compartilhamento de arquivos original como está.
 
-#### <a name="restore-to-the-original-location"></a>Restaurar no local original
+#### <a name="restore-to-the-original-location-item-level-recovery"></a>Restaurar para o local original (recuperação em nível de item)
 
 1. Selecione **local original** como o **destino de recuperação**e selecione se deseja ignorar ou substituir se houver conflitos, escolhendo a opção apropriada na lista suspensa **no caso de conflitos** .
 
@@ -125,7 +125,7 @@ Você pode usar essa opção de restauração para restaurar arquivos ou pastas 
 
     ![Selecione restaurar para iniciar](./media/restore-afs/click-restore.png)
 
-#### <a name="restore-to-an-alternate-location"></a>Restaurar para um local alternativo
+#### <a name="restore-to-an-alternate-location-item-level-recovery"></a>Restaurar para um local alternativo (recuperação em nível de item)
 
 1. Selecione o **local alternativo** como o **destino de recuperação**.
 1. Selecione a conta de armazenamento de destino na qual você deseja restaurar o conteúdo de backup da lista suspensa **conta de armazenamento** .

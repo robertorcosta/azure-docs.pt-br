@@ -8,23 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 27e26bb37b444b49797d46dd4e12b61f8fe11b16
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: b0574c41042e172af78365bb273c81729ce204ab
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782527"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749303"
 ---
 # <a name="speech-service-supported-regions"></a>Regiões com suporte do serviço de fala
 
 O Serviço de Fala permite que seu aplicativo converta áudio em texto, realize a tradução de fala e converta texto em Fala. O serviço está disponível em várias regiões com pontos de extremidade exclusivos para o SDK de Fala e APIs de REST.
 
-O portal de fala para executar configurações personalizadas para sua experiência de fala para todas as regiões está disponível aqui:https://speech.microsoft.com
+O portal de fala para executar configurações personalizadas para sua experiência de fala para todas as regiões está disponível aqui: https://speech.microsoft.com
 
-Para invocações de seu serviço de fala, verifique se a chamada corresponde à região da sua assinatura.
+Tenha em mente os seguintes pontos ao considerar as regiões:
+
+* Se seu aplicativo usar um [SDK de fala](speech-sdk.md), você fornecerá o identificador de região, como `westus` , ao criar uma configuração de fala.
+* Se o aplicativo usar uma das [APIs REST](rest-apis.md) do serviço de Fala, a região fará parte do URI do ponto de extremidade usado ao fazer solicitações.
+* As chaves criadas para uma região são válidas somente nessa região. A tentativa de usá-las com outras regiões resultará em erros de autenticação.
 
 ## <a name="speech-sdk"></a>SDK de fala
 
@@ -32,7 +36,7 @@ No [SDK de Fala](speech-sdk.md), regiões são especificadas como uma cadeia de 
 
 ### <a name="speech-to-text-text-to-speech-and-translation"></a>Conversão de fala em texto, texto em fala e tradução
 
-O portal de personalização de fala está disponível aqui:https://speech.microsoft.com
+O portal de personalização de fala está disponível aqui: https://speech.microsoft.com
 
 O serviço de fala está disponível nessas regiões para **reconhecimento de fala**, conversão de **texto em fala**e **tradução**:
 

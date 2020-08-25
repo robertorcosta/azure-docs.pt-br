@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 19fcde522c5cb0355e53a5616145f27fada7dad9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aea29cfff6b3827cfb9169722e48120e3a5a3709
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78302178"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794317"
 ---
 # <a name="replicate-azure-cosmos-db"></a>REPLICAte (Azure Cosmos DB)
  Repete um valor da cadeia de caracteres um número especificado de vezes.
@@ -36,7 +36,8 @@ REPLICATE(<str_expr>, <num_expr>)
   Retorna uma expressão de cadeia de caracteres.
   
 ## <a name="remarks"></a>Comentários
-  O comprimento máximo do resultado é de 10.000 caracteres, ou seja, (length (*str_expr*) * *num_expr*) <= 10.000.
+
+  O comprimento máximo do resultado é de 10.000 caracteres, ou seja, (length (*str_expr*) *  *num_expr*) <= 10.000. Essa função do sistema não usará o índice.
 
 ## <a name="examples"></a>Exemplos
   
@@ -51,10 +52,6 @@ SELECT REPLICATE("a", 3) AS replicate
 ```json
 [{"replicate": "aaa"}]
 ```  
-
-## <a name="remarks"></a>Comentários
-
-Essa função do sistema não usará o índice.
 
 ## <a name="next-steps"></a>Próximas etapas
 

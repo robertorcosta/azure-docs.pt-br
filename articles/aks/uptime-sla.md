@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: cc23e32db71439067421a9be8b18a1827515bd9c
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 6523e16bfe3bf0592b78da544d7d52dc3d969af4
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563272"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749128"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA de tempo de atividade do Serviço de Kubernetes do Azure (AKS)
 
@@ -25,9 +25,8 @@ Os clientes ainda podem criar clusters grátis ilimitados com um objetivo de ní
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-O SLA de tempo de atividade está disponível em regiões públicas em que há [suporte para AKs](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+O SLA de tempo de atividade está disponível em regiões públicas e regiões do Azure governamental em que há [suporte para AKs](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
-* Atualmente, o Azure governamental não tem suporte.
 * Atualmente, não há suporte para o Azure China 21Vianet.
 
 ## <a name="limitations"></a>Limitações

@@ -8,7 +8,14 @@
   expanded: true
   items:
     - name: Criar seu primeiro aplicativo Web estático
-      href: getting-started.md
+      expanded: true
+      items:
+        - name: Visual Studio Code
+          href: getting-started.md
+        - name: Portal do Azure
+          href: get-started-portal.md
+        - name: CLI do Azure
+          href: get-started-cli.md
 - name: Conceitos
   items:
     - name: Suporte a API com o Azure Functions

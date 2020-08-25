@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 115cf589c6aa0786026f68eff839a7a2ad6aa9ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 059828336288eeadc0567fed060db07e323f885c
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706198"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761858"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitetura de conectividade de uma Instância Gerenciada de SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -89,7 +89,12 @@ Para atender aos requisitos de segurança e gerenciamento do cliente, o SQL Inst
 
 Com a configuração de sub-rede auxiliada por serviço, o usuário está no controle total do tráfego de dados (TDS), enquanto o SQL Instância Gerenciada é responsável por garantir o fluxo ininterrupto do tráfego de gerenciamento para atender a um SLA.
 
-A configuração de sub-rede auxiliada por serviço se baseia no recurso de [delegação de sub-rede](../../virtual-network/subnet-delegation-overview.md) de rede virtual para fornecer gerenciamento automático de configuração de rede e habilitar pontos de extremidade de serviço. Os pontos de extremidade de serviço podem ser usados para configurar regras de firewall de rede virtual em contas de armazenamento que mantêm backups e logs de auditoria.
+A configuração de sub-rede auxiliada por serviço se baseia no recurso de [delegação de sub-rede](../../virtual-network/subnet-delegation-overview.md) de rede virtual para fornecer gerenciamento automático de configuração de rede e habilitar pontos de extremidade de serviço. 
+
+Os pontos de extremidade de serviço podem ser usados para configurar regras de firewall de rede virtual em contas de armazenamento que mantêm backups e logs de auditoria. Mesmo com os pontos de extremidade de serviço habilitados, os clientes são incentivados a usar o [link privado](../../private-link/private-link-overview.md) que fornece segurança adicional sobre os pontos de extremidade de serviço.
+
+> [!IMPORTANT]
+> Devido às especificidades de configuração do plano de controle, a configuração de sub-rede auxiliada por serviço não habilitará pontos de extremidade de serviço em nuvens nacionais. 
 
 ### <a name="network-requirements"></a>Requisitos de rede
 
@@ -294,7 +299,7 @@ Implante o SQL Instância Gerenciada em uma sub-rede dedicada dentro da rede vir
 |Mi-204-79-180-24-nexthop-Internet|204.79.180.0/24|Internet|
 ||||
 
-\*A sub-rede MI refere-se ao intervalo de endereços IP para a sub-rede no formato x.x.x. x/y. Você pode encontrar essas informações na portal do Azure, em Propriedades da sub-rede.
+\* A sub-rede MI refere-se ao intervalo de endereços IP para a sub-rede no formato x.x.x. x/y. Você pode encontrar essas informações na portal do Azure, em Propriedades da sub-rede.
 
 Além disso, você pode adicionar entradas à tabela de rotas para rotear o tráfego que tem intervalos IP privados locais como um destino por meio do gateway de rede virtual ou NVA (dispositivo de rede virtual).
 
@@ -342,7 +347,7 @@ Implante o SQL Instância Gerenciada em uma sub-rede dedicada dentro da rede vir
 > [!IMPORTANT]
 > Verifique se há apenas uma regra de entrada para as portas 9000, 9003, 1438, 1440 e 1452, e uma regra de saída para as portas 443 e 12000. O provisionamento do SQL Instância Gerenciada por meio de implantações de Azure Resource Manager falhará se as regras de entrada e saída forem configuradas separadamente para cada porta. Se essas portas estiverem em regras separadas, a implantação falhará com o código de erro `VnetSubnetConflictWithIntendedPolicy` .
 
-\*A sub-rede MI refere-se ao intervalo de endereços IP para a sub-rede no formato x.x.x. x/y. Você pode encontrar essas informações na portal do Azure, em Propriedades da sub-rede.
+\* A sub-rede MI refere-se ao intervalo de endereços IP para a sub-rede no formato x.x.x. x/y. Você pode encontrar essas informações na portal do Azure, em Propriedades da sub-rede.
 
 > [!IMPORTANT]
 > Embora as regras de segurança de entrada necessárias permitam o tráfego de _qualquer_ fonte nas portas 9000, 9003, 1438, 1440 e 1452, essas portas são protegidas por um firewall interno. Para obter mais informações, consulte [determinar o endereço do ponto de extremidade de gerenciamento](management-endpoint-find-ip-address.md).

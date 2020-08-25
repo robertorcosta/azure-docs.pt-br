@@ -3,12 +3,12 @@ title: Reproduzir gravações de vários dias – Azure
 description: Neste tutorial, você aprenderá a usar as APIs do Serviço de Mídia do Azure para reproduzir uma gravação de vídeo contínua de vários dias.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 52ef33e8c4380e9c21e99c4ba45b7f25f7c57780
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 19a42c61ef250fecce4503d3aed70b36d71ee3cf
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433666"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649084"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Tutorial: Reproduzir gravações de vários dias  
 
@@ -40,7 +40,7 @@ Este tutorial mostra como:
 
 ## <a name="run-the-sample"></a>Execute o exemplo 
 
-Como parte do tutorial do [CVR](continuous-video-recording-tutorial.md), você teria criado uma conta do Serviço de Mídia. Para esse tutorial, você precisará ter acesso completo à API para essa conta. Você pode usar as etapas em [Obter credenciais para acessar a API dos Serviços de Mídia](../latest/access-api-howto.md#use-the-azure-portal) para criar uma entidade de serviço. Você deve ser capaz de obter um bloco JSON do portal do Azure semelhante a este:
+Como parte do tutorial do [CVR](continuous-video-recording-tutorial.md), você teria criado uma conta do Serviço de Mídia. Para esse tutorial, você precisará ter acesso completo à API para essa conta. Você pode usar as etapas em [Obter credenciais para acessar a API dos Serviços de Mídia](../latest/access-api-howto.md?tabs=portal) para criar uma entidade de serviço. Você deve ser capaz de obter um bloco JSON do portal do Azure semelhante a este:
 
 ```
 {

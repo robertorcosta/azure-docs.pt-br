@@ -4,12 +4,12 @@ description: Neste artigo, saiba como gerenciar operações de restauração do 
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: aabf687fb1f21473c7239d3fab26819b2ea2bea6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: add4bdeaa202c244ce2e0e83f999f29afdca5c28
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079291"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761467"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurar máquinas virtuais do Azure usando a API REST
 
@@ -25,13 +25,13 @@ Os pontos de recuperação disponíveis de um item de backup podem ser listados 
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13
 ```
 
-O `{containerName}` e `{protectedItemName}` são como construídos [aqui](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` é o "Azure".
+O `{containerName}` e `{protectedItemName}` são como construídos [aqui](backup-azure-arm-userestapi-backupazurevms.md#example-responses-to-get-operation). `{fabricName}` é o "Azure".
 
 O URI *GET* tem todos os parâmetros necessários. Não há necessidade de um corpo de solicitação adicional
 
 ### <a name="responses"></a>Respostas
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|
 |200 OK     |   [RecoveryPointResourceList](/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -117,7 +117,7 @@ O ponto de recuperação é identificado com o campo `{name}` na resposta acima.
 
 ## <a name="restore-disks"></a>Restaurar discos
 
-Se houver a necessidade de personalizar a criação de uma VM a partir dos dados de backup, será possível apenas restaurar os discos em uma conta de armazenamento escolhida e criar uma VM a partir desses discos de acordo com seus requisitos. A conta de armazenamento deve estar na mesma região que o cofre de serviços de recuperação e não deve ser redundante de zona. Os discos, bem como a configuração da VM de backup ("vmconfig.jsem"), serão armazenados na conta de armazenamento específica.
+Se houver a necessidade de personalizar a criação de uma VM a partir dos dados de backup, será possível apenas restaurar os discos em uma conta de armazenamento escolhida e criar uma VM a partir desses discos de acordo com seus requisitos. A conta de armazenamento deve estar na mesma região que o cofre dos serviços de recuperação e não deve ter redundância de zona. Os discos, bem como a configuração da VM de backup ("vmconfig.jsem"), serão armazenados na conta de armazenamento específica.
 
 Disparar a restauração de discos é uma *POST* solicitação. Para saber mais sobre a operação Restaurar discos, consulte a API REST ["acionador de restauração" REST](/rest/api/backup/restores/trigger).
 
@@ -125,13 +125,13 @@ Disparar a restauração de discos é uma *POST* solicitação. Para saber mais 
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
 ```
 
-O `{containerName}` e `{protectedItemName}` são como construídos [aqui](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` é "Azure" e `{recoveryPointId}` é o campo `{name}` do ponto de recuperação mencionado [ acima de ](#example-response).
+O `{containerName}` e `{protectedItemName}` são como construídos [aqui](backup-azure-arm-userestapi-backupazurevms.md#example-responses-to-get-operation). `{fabricName}` é "Azure" e `{recoveryPointId}` é o campo `{name}` do ponto de recuperação mencionado [ acima de ](#example-response).
 
 ### <a name="create-request-body"></a>Criar o corpo da solicitação
 
 Para acionar uma restauração de disco a partir de um backup de VM do Azure, a seguir estão os componentes do corpo da solicitação.
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -165,7 +165,7 @@ O disparo de um disco de restauração é um [operação assíncrona](../azure-r
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|
 |202 Aceito     |         |     Aceito    |
 

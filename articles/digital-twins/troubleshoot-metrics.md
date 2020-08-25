@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 5e061e4d6f9e67cc7d92548f54add94097ede7d1
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: dafea083e68b2afe6b6bcf45b4cff8779f817049
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905187"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749028"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solução de problemas do Azure digital gêmeos: métricas
 
@@ -88,9 +88,9 @@ Métricas que têm a ver com o roteamento:
 
 | Métrica | Nome de exibição da métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| MessagesRouted | Mensagens roteadas (visualização) | Contagem | Total | O número de mensagens roteadas para um serviço do Azure de ponto de extremidade, como o Hub de eventos, o barramento de serviço ou a grade de eventos. | Operacional <br>Result |
-| RoutingFailureRate | Taxa de falha de roteamento (versão prévia) | Porcentagem | Média | A porcentagem de eventos que resultam em um erro à medida que são roteados do Azure digital gêmeos para um serviço do Azure de ponto de extremidade, como o Hub de eventos, o barramento de serviço ou a grade de eventos. | Operacional <br>Result |
-| RoutingLatency | Latência de roteamento (versão prévia) | Milissegundos | Média | Tempo decorrido entre um evento sendo roteado do Azure digital gêmeos para quando ele é Postado para o serviço do Azure do ponto de extremidade, como o Hub de eventos, o barramento de serviço ou a grade de eventos. | Operacional <br>Result |
+| MessagesRouted | Mensagens roteadas (visualização) | Contagem | Total | O número de mensagens roteadas para um serviço do Azure de ponto de extremidade, como o Hub de eventos, o barramento de serviço ou a grade de eventos. | Tipo de ponto de extremidade, <br>Result |
+| RoutingFailureRate | Taxa de falha de roteamento (versão prévia) | Porcentagem | Média | A porcentagem de eventos que resultam em um erro à medida que são roteados do Azure digital gêmeos para um serviço do Azure de ponto de extremidade, como o Hub de eventos, o barramento de serviço ou a grade de eventos. | Tipo de ponto de extremidade, <br>Result |
+| RoutingLatency | Latência de roteamento (versão prévia) | Milissegundos | Média | Tempo decorrido entre um evento sendo roteado do Azure digital gêmeos para quando ele é Postado para o serviço do Azure do ponto de extremidade, como o Hub de eventos, o barramento de serviço ou a grade de eventos. | Tipo de ponto de extremidade, <br>Result |
 
 ## <a name="dimensions"></a>Dimensões
 
@@ -100,7 +100,7 @@ As dimensões ajudam a identificar mais detalhes sobre as métricas. Algumas das
 | --- | --- |
 | Autenticação | OAuth |
 | Operação (para solicitações de API) | Microsoft. DigitalTwins/DigitalTwins/Delete, <br>Microsoft. DigitalTwins/DigitalTwins/Write, <br>Microsoft. DigitalTwins/DigitalTwins/Read, <br>Microsoft. DigitalTwins/eventroutes/Read, <br>Microsoft. DigitalTwins/eventroutes/Write, <br>Microsoft. DigitalTwins/eventroutes/Delete, <br>Microsoft. DigitalTwins/Models/Read, <br>Microsoft. DigitalTwins/Models/Write, <br>Microsoft. DigitalTwins/Models/Delete, <br>Microsoft. DigitalTwins/consulta/ação |
-| Operação (para roteamento) | Grade de eventos, <br>Hub de eventos, <br>Barramento de Serviço |
+| Tipo de Ponto de Extremidade | Grade de eventos, <br>Hub de eventos, <br>Barramento de Serviço |
 | Protocolo | HTTPS |
 | Result | Êxito <br>Falha |
 | Código de status | 200, 404, 500 e assim por diante. |

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 1755c2d572b44f1e0d8597a108ca83d429405f25
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 515e23fa318e8e77024dadefe9a13e795999f820
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565648"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761688"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento de filas do Azure para Azure Functions
 
@@ -299,7 +299,7 @@ public class QueueTriggerDemo {
 }
 ```
 
-| Propriedade    | Descrição |
+| Propriedade    | DESCRIÇÃO |
 |-------------|-----------------------------|
 |`name`       | Declara o nome do parâmetro na assinatura da função. Quando a função é disparada, o valor desse parâmetro tem o conteúdo da mensagem da fila. |
 |`queueName`  | Declara o nome da fila na conta de armazenamento. |
@@ -363,7 +363,7 @@ A anotação [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.q
 
 O gatilho de fila fornece várias propriedades de [metadados](./functions-bindings-expressions-patterns.md#trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. As propriedades são membros da classe [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) .
 
-|Propriedade|Type|Descrição|
+|Propriedade|Type|DESCRIÇÃO|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Conteúdo da fila (se for uma cadeia de caracteres válida). Se a carga da mensagem da fila for uma cadeia de caracteres, `QueueTrigger` o terá o mesmo valor que a variável nomeada pela `name` propriedade em *function.js*.|
 |`DequeueCount`|`int`|O número de vezes que essa mensagem foi removida da fila.|
@@ -408,7 +408,7 @@ O arquivo [host.json](functions-host-json.md#queues) contém configurações que
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Gravar mensagens de armazenamento de fila (Associação de saída)](./functions-bindings-storage-blob-output.md)
+- [Gravar mensagens de armazenamento de BLOBs (Associação de saída)](./functions-bindings-storage-blob-output.md)
 
 <!-- LINKS -->
 

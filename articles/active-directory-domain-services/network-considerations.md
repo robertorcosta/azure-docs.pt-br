@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 307b1a6838c3a78c04ba6a36ffd52bd6b98aae04
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: ec38f16c5a658848eab505794ed1a2d072f22aea
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722816"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749617"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considerações de design de rede virtual e opções de configuração para Azure Active Directory Domain Services
 
@@ -104,7 +104,7 @@ Um domínio gerenciado cria alguns recursos de rede durante a implantação. Ess
 
 ## <a name="network-security-groups-and-required-ports"></a>Grupos de segurança de rede e portas necessárias
 
-Um [NSG (grupo de segurança de rede)](../virtual-network/virtual-network-vnet-plan-design-arm.md) contém uma lista de regras que permitem ou negam o tráfego de rede para o tráfego em uma rede virtual do Azure. Um grupo de segurança de rede é criado quando você implanta um domínio gerenciado que contém um conjunto de regras que permitem que o serviço forneça funções de autenticação e gerenciamento. Esse grupo de segurança de rede padrão é associado à sub-rede da rede virtual em que seu domínio gerenciado está implantado.
+Um [NSG (grupo de segurança de rede)](../virtual-network/security-overview.md) contém uma lista de regras que permitem ou negam o tráfego de rede para o tráfego em uma rede virtual do Azure. Um grupo de segurança de rede é criado quando você implanta um domínio gerenciado que contém um conjunto de regras que permitem que o serviço forneça funções de autenticação e gerenciamento. Esse grupo de segurança de rede padrão é associado à sub-rede da rede virtual em que seu domínio gerenciado está implantado.
 
 As regras do grupo de segurança de rede a seguir são necessárias para que o domínio gerenciado forneça serviços de autenticação e gerenciamento. Não edite ou exclua essas regras de grupo de segurança de rede para a sub-rede da rede virtual em que seu domínio gerenciado está implantado.
 
