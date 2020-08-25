@@ -5,16 +5,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: abc9a42c7ced6a71f93c00968eb825f28f720843
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: dc027d034c50b49044f4a350fe4d239c18060fc7
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87375587"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226433"
 ---
 Neste início rápido, você aprenderá a usar o SDK de Dispositivos de Fala para Android para criar um produto habilitado para fala ou usá-lo como um dispositivo de [transcrição de conversas](../conversation-transcription-service.md).
 
-Este guia exige uma conta dos [Serviços Cognitivos do Azure](../get-started.md) com o recurso do Serviço de Fala. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de assinatura.
+Este guia exige uma conta dos [Serviços Cognitivos do Azure](../get-started.md) com o recurso do Serviço de Fala.
 
 O código-fonte para o aplicativo de exemplo é incluído com o SDK de Dispositivos de Fala. Também está [disponível no GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -31,7 +31,7 @@ Antes de começar a usar o SDK de Dispositivos de Fala, você precisará:
 
 - Para obter uma [chave de assinatura do Azure para o Serviço de Fala](../get-started.md)
 
-- Se você pretende usar a transcrição de conversas, use um [dispositivo de microfone circular](../get-speech-devices-sdk.md); atualmente, esse recurso só está disponível para "en-US" e "zh-CN" nas regiões “centralus” e “eastasia”. Você precisará ter uma chave de fala em uma dessas regiões para usar a transcrição de conversas.
+- Se você pretende usar a Transcrição de Conversas, use um [dispositivo de microfone circular](../get-speech-devices-sdk.md). Atualmente, esse recurso só está disponível para "en-US" e "zh-CN" nas regiões "centralus" e "eastasia". Você precisará ter uma chave de fala em uma dessas regiões para usar a transcrição de conversas.
 
 - Se pretende usar o Serviço de Fala para identificar intenções (ou ações) com base em enunciados do usuário, você precisará de uma assinatura do [LUIS (Serviço de Reconhecimento Vocal)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). Para saber mais sobre o LUIS e o reconhecimento de intenção, confira [Reconhecer intenções de fala com o LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
@@ -126,7 +126,7 @@ Para validar sua instalação do kit de desenvolvimento, crie e instale o aplica
 
    Para usar uma nova palavra-chave, atualize as duas linhas a seguir em `MainActivity.java` e copie o pacote de palavras-chave para o aplicativo. Por exemplo, para usar a palavra-chave “Computador” do pacote de palavras-chave kws-machine.zip:
 
-   - Copie o pacote de palavras-chave para a pasta “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\”.
+   - Copie o pacote de palavras-chave para a pasta "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\".
    - Atualize o `MainActivity.java` com a palavra-chave e o nome do pacote:
 
      ```java

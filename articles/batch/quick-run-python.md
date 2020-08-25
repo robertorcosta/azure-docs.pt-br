@@ -1,32 +1,34 @@
 ---
-title: Usar a API do Python para executar um trabalho do Lote do Azure
-description: Execute rapidamente um trabalho e tarefas de exemplo do Lote do Azure usando a biblioteca de cliente Python do Lote. Conheça os principais conceitos do serviço de Lote.
+title: Guia de Início Rápido – Usar a API do Python para executar um trabalho do Lote do Azure
+description: Neste guia de início rápido, você executará um trabalho e tarefas de exemplo do Lote do Azure usando a biblioteca de clientes Python do Lote. Conheça os principais conceitos do serviço de Lote.
 ms.topic: quickstart
-ms.date: 11/27/2018
+ms.date: 08/17/2020
 ms.custom:
 - seo-python-october2019
 - mvc
 - devx-track-python
-ms.openlocfilehash: 7cef08c81a4122fcbfcc18160ad8e6602f335569
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e3792a88104c359b014a7a12cf6e48e690c2a865
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852558"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511007"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Início Rápido: Usar a API do Python para executar um trabalho do Lote do Azure
 
-Neste início rápido, você usará a API do Python para executar um trabalho do Lote do Azure em um aplicativo. O aplicativo carrega arquivos de dados de entrada no Armazenamento do Azure e cria um *pool* de nós de computação (máquinas virtuais) do Lote. Em seguida, ele cria um *trabalho* que executa *tarefas* para processar cada arquivo de entrada no pool usando um comando básico.
+Comece a usar o Lote do Azure usando a API do Python para executar um trabalho do Lote do Azure em um aplicativo. O aplicativo carrega arquivos de dados de entrada no Armazenamento do Azure e cria um pool de nós de computação (máquinas virtuais) do Lote. Em seguida, ele cria um trabalho que executa tarefas para processar cada arquivo de entrada no pool usando um comando básico.
 
-Aqui, você aprenderá os conceitos principais do serviço Lote e estará pronto para experimentar o Lote com cargas de trabalho mais realistas em maior escala.
+Depois de concluir este guia de início rápido, você entenderá os principais conceitos do serviço Lote e estará pronto para experimentá-lo com cargas de trabalho mais realistas em maior escala.
 
 ![Visão geral do fluxo de trabalho do Lote do Azure](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Uma conta do **Lote do Azure** e uma conta do **Armazenamento do Azure** vinculada. Use o [portal do Azure](quick-create-portal.md) ou a [CLI](quick-create-cli.md) para criar essas contas.
-- [Python](https://python.org/downloads), versão 2.7 ou 3.3 ou posterior, incluindo o gerenciador de pacotes do [pip](https://pip.pypa.io/en/stable/installing/)
+- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- Uma conta do Lote e uma conta de Armazenamento do Azure vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md).
+
+- [Python](https://python.org/downloads) versão 2.7 ou 3.3 ou posterior, incluindo o gerenciador de pacotes do [pip](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -68,7 +70,7 @@ Para ver o fluxo de trabalho do Lote em ação, execute o script:
 python python_quickstart_client.py
 ```
 
-Depois de executar o script, examine o código para saber o que cada parte do aplicativo faz. 
+Depois de executar o script, examine o código para saber o que cada parte do aplicativo faz.
 
 Quando você executa o aplicativo de exemplo, a saída do console fica mais ou menos assim. Durante a execução, você tem uma pausa em `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` enquanto os nós de computação do pool são iniciados. As tarefas são enfileiradas para execução assim que o primeiro nó de computação estiver em execução. Vá para sua conta do Lote no [Portal do Azure](https://portal.azure.com) para monitorar o pool, os nós de computação, os trabalhos e as tarefas em sua conta do Lote.
 
@@ -102,9 +104,9 @@ O tempo de execução típico é de aproximadamente 3 minutos ao executar o apli
 
 O aplicativo Python neste guia de início rápido faz o seguinte:
 
-* Carrega três arquivos de texto pequenos em um contêiner de blob em sua conta de Armazenamento do Azure. Esses arquivos são entradas para o processamento de tarefas do Lote.
-* Cria um pool de dois nós de computação executando o Ubuntu 18.04 LTS.
-* Cria um trabalho e três tarefas a serem executadas em nós. Cada tarefa processa um dos arquivos de entrada usando uma linha de comando do Shell Bash.
+- Carrega três arquivos de texto pequenos em um contêiner de blob em sua conta de Armazenamento do Azure. Esses arquivos são entradas para o processamento de tarefas do Lote.
+- Cria um pool de dois nós de computação executando o Ubuntu 18.04 LTS.
+- Cria um trabalho e três tarefas a serem executadas em nós. Cada tarefa processa um dos arquivos de entrada usando uma linha de comando do Shell Bash.
 * Exibe os arquivos retornados pelas tarefas.
 
 Confira o arquivo `python_quickstart_client.py` e as seções a seguir para obter mais detalhes.
@@ -182,7 +184,7 @@ batch_service_client.job.add(job)
 
 O aplicativo cria uma lista de objetos de tarefa usando a classe [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter). Cada tarefa processa um objeto `resource_files` de entrada usando um parâmetro `command_line`. No exemplo, a linha de comando executa o comando do shell Bash `cat` para exibir o arquivo de texto. Esse comando é um exemplo simples para fins de demonstração. Quando você usa o Lote, a linha de comando é onde você especifica seu aplicativo ou script. O Lote fornece várias maneiras para implantar aplicativos e scripts em nós de computação.
 
-Depois, o aplicativo adiciona tarefas ao trabalho com o método [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations), que as enfileira para execução em nós de computação. 
+Depois, o aplicativo adiciona tarefas ao trabalho com o método [task.add_collection](/python/api/azure-batch/azure.batch.operations.taskoperations), que as enfileira para execução em nós de computação.
 
 ```python
 tasks = list()

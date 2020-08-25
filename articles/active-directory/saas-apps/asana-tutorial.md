@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao Asana | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Asana.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 837e38fe-8f55-475c-87f4-6394dc1fee2b
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5531a7c1a95e472239c639e3307623fc4ccedd37
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: dd2c02f25584fd32acd32277a1dd2300c6a98e73
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73157874"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549493"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Tutorial: Integração do Azure Active Directory ao Asana
 
@@ -128,7 +123,7 @@ Para configurar o logon único do Azure AD com o Asana, execute as seguintes eta
 
 ### <a name="configure-asana-single-sign-on"></a>Configurar logon único do Asana
 
-1. Em uma janela de navegador diferente, entre em seu aplicativo Asana. Para configurar o SSO no Asana, acesse as configurações de workspace clicando no nome do workspace no canto superior direito da tela. Em seguida, clique em **\<nome do workspace\>Configurações**.
+1. Em uma janela de navegador diferente, entre em seu aplicativo Asana. Para configurar o SSO no Asana, acesse as configurações de workspace clicando no nome do workspace no canto superior direito da tela. Em seguida, clique em **\<your workspace name\>Configurações**.
 
     ![configurações de sso do Asana](./media/asana-tutorial/tutorial_asana_09.png)
 

@@ -3,17 +3,17 @@ title: Tutorial – Criar e gerenciar dados exportados do Gerenciamento de Custo
 description: Este artigo mostra como você pode criar e gerenciar dados exportados do Gerenciamento de Custos do Azure para que você possa usá-los em sistemas externos.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/27/2020
+ms.date: 08/05/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 90334d29ed2f649854863f9ad86f03811728a945
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 69b7b4bff46ba2998ca931ba1cb6bc9e7c1d9096
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142292"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272171"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerenciar dados exportados
 
@@ -49,40 +49,38 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com/
 
 ## <a name="create-a-daily-export"></a>Criar uma exportação diária
 
-Para criar ou exibir uma exportação de dados ou para agendar uma exportação, abra o escopo desejado no portal do Azure e selecione **Análise de custo** no menu. Por exemplo, navegue até **Inscrições**, selecione uma assinatura na lista e, em seguida, selecione **Análise de custo** no menu. Na parte superior da página Análise de custo, selecione **Configurações** e **Exportações** e escolha uma opção de exportação.
+Para criar ou exibir uma exportação de dados ou para agendar uma exportação, abra o escopo desejado no portal do Azure e selecione **Análise de custo** no menu. Por exemplo, navegue até **Inscrições**, selecione uma assinatura na lista e, em seguida, selecione **Análise de custo** no menu. Na parte superior da página Análise de custo, selecione **Configurações** e **Exportações**.
 
 > [!NOTE]
-> - Além de assinaturas, você pode criar exportações em registros, contas, departamentos e grupos de recursos. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
+> - Além de assinaturas, você pode criar exportações em grupos de recursos, grupos de gerenciamento, departamentos e registros. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 >- Quando estiver conectado como um parceiro no escopo da conta de cobrança ou no locatário de um cliente, você poderá exportar dados para uma conta do Armazenamento do Azure que esteja vinculada à conta de armazenamento do parceiro. No entanto, você precisa ter uma assinatura ativa em seu locatário do CSP.
 
-Selecione **Adicionar**, digite um nome para a exportação e, em seguida, selecione a opção **Exportação diária de custos do mês atual**. Selecione **Avançar**.
+1. Selecione **Adicionar** e digite um nome para a exportação. 
+1. Para a **Métrica**, faça uma seleção:
+    - **Custo real (Uso e Compras)** : selecione essa opção para exportar o uso e as compras padrão
+    - **Custo amortizado (Uso e Compras)** : selecione essa opção para exportar os custos amortizados de compras como as reservas do Azure
+1. Em **Tipo de exportação**, faça uma seleção:
+    - **Exportação diária de custos do mês atual**: fornece um novo arquivo de exportação diariamente para seus custos do mês atual. Os últimos dados são agregados com base nas exportações diárias anteriores.
+    - **Exportação semanal de custo dos últimos 7 dias**: cria uma exportação semanal dos custos dos últimos sete dias a partir da data de início selecionada da exportação.  
+    - **Exportação mensal de custos do mês passado**: fornece uma exportação dos custos do mês passado em comparação com o mês atual em que a exportação foi criada. Mais adiante, o agendamento executa uma exportação no quinto dia de cada mês, com os custos dos meses anteriores.  
+    - **Exportação avulsa**: permite que você escolha um intervalo de datas para que os dados históricos sejam exportados para o Armazenamento de Blobs do Azure. Você pode exportar, no máximo, 90 dias de custos históricos a partir do dia escolhido. Essa exportação é executada imediatamente e fica disponível na sua conta de armazenamento em até duas horas.  
+        Dependendo do tipo de exportação, escolha uma data de início ou uma data **De** e **Para**.
+1. Especifique a assinatura para a sua conta de armazenamento do Azure e selecione um grupo de recursos ou crie um. 
+1. Selecione o nome da conta de armazenamento ou crie uma. 
+1. Selecione a localização (região do Azure).
+1. Especifique o contêiner de armazenamento e o caminho do diretório para o qual deseja enviar o arquivo de exportação. 
+    :::image type="content" source="./media/tutorial-export-acm-data/basics_exports.png" alt-text="Exemplo de nova exportação" lightbox="./media/tutorial-export-acm-data/basics_exports.png":::
+1. Examine os detalhes da exportação e selecione **Criar**.
 
-[![Novo exemplo de exportação mostrando o tipo de exportação](./media/tutorial-export-acm-data/basics_exports.png)](./media/tutorial-export-acm-data/basics_exports.png#lightbox)
+A nova exportação será exibida na lista de exportações. Por padrão, as novas exportações estão habilitadas. Se quiser desabilitar ou excluir uma exportação agendada, selecione qualquer item na lista e, em seguida, selecione **Desabilitar** ou **Excluir**.
 
-Especifique a assinatura da sua conta de Armazenamento do Azure e, depois, selecione sua conta de armazenamento.  Especifique o contêiner de armazenamento e o caminho do diretório para o qual você gostaria de enviar o arquivo de exportação. Selecione **Avançar**.
+Inicialmente, podem ser necessárias de 12 a 24 horas antes que a exportação seja executada. No entanto, pode levar até mais tempo para que os dados sejam mostrados nos arquivos exportados.
 
-![Novo exemplo de exportação mostrando detalhes da conta de armazenamento](./media/tutorial-export-acm-data/storage_exports.png)
+### <a name="export-schedule"></a>Exportar agenda
 
-Examine os detalhes da exportação e selecione **Criar**.
+As exportações agendadas são afetadas pela hora e pelo dia da semana de quando a exportação foi inicialmente criada. Quando você cria uma exportação agendada, a exportação é executada na mesma frequência para cada ocorrência seguinte de exportação. Por exemplo, para um conjunto de exportação de custos do mês atual definido com uma frequência diária, a exportação é executada diariamente. Da mesma forma, para uma exportação semanal, a exportação é executada todas as semanas no mesmo dia em que foi agendada. O tempo de entrega exato da exportação não é garantido, e os dados exportados ficam disponíveis em até quatro horas após a hora da execução.
 
-Sua nova exportação aparece na lista de exportações. Por padrão, as novas exportações estão habilitadas. Se quiser desabilitar ou excluir uma exportação agendada, selecione qualquer item na lista e, em seguida, selecione **Desabilitar** ou **Excluir**.
-
-Inicialmente, pode levar uma ou duas horas até que a exportação seja executada. No entanto, pode levar até quatro horas para que os dados sejam mostrados em arquivos exportados.
-
-### <a name="export-schedule"></a>Agendamento de exportação
-
-As exportações agendadas são afetadas pela hora e pelo dia da semana de quando a exportação foi inicialmente criada. Quando você cria uma exportação agendada, a exportação é executada na mesma frequência para cada ocorrência seguinte de exportação. Por exemplo, para um conjunto de exportação do mês atual definido a uma frequência diária, a exportação é executada diariamente. Da mesma forma, para uma exportação semanal, a exportação é executada todas as semanas no mesmo dia em que foi agendada. O tempo de entrega exato da exportação não é garantido e os dados exportados ficam disponíveis dentro de quatro horas após a hora da execução."
-Cada exportação cria um arquivo e, portanto, as exportações mais antigas não são substituídas.
-
-Há dois tipos de opções de exportação:
-
-**Exportação diária dos custos do mês atual** – a exportação inicial é executada imediatamente. As exportações seguintes são executadas no dia seguinte, na mesma hora da exportação inicial. Os últimos dados são agregados das exportações diárias anteriores.
-
-**Personalizado** – permite que você agende exportações semanal e mensalmente com opções de semana e mês atual. *A exportação inicial será executada imediatamente.*
-
-Se você tiver uma assinatura de Pagamento Conforme o Uso, do MSDN ou do Visual Studio, o período de cobrança da fatura talvez não esteja alinhado ao mês do calendário. Para esses tipos de assinaturas e grupos de recursos, você pode criar uma exportação alinhada ao período da fatura ou aos meses do calendário. Para criar uma exportação alinhada ao mês da fatura, navegue até **Personalizado**, em seguida, selecione **Período de cobrança até a data**.  Para criar uma exportação alinhada ao mês do calendário, selecione **Mês até a data**.
-
-![Guia Nova exportação – Informações Básicas mostrando uma seleção semanal personalizada da semana atual](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
+Cada exportação cria um arquivo; portanto, as exportações mais antigas não são substituídas.
 
 #### <a name="create-an-export-for-multiple-subscriptions"></a>Criar uma exportação para várias assinaturas
 
@@ -90,14 +88,15 @@ Caso você tenha um Contrato Enterprise, use um grupo de gerenciamento para agre
 
 Não há suporte para exportações de grupos de gerenciamento de outros tipos de assinaturas.
 
-1. Crie um grupo de gerenciamento e atribua assinaturas a ele.
-1. Em Exportações, selecione **Escopo**.
-1. Escolha **Selecionar este grupo de gerenciamento**.
-1. Crie uma exportação no escopo para obter os dados de gerenciamento de custos para as assinaturas do grupo de gerenciamento.
+1. Se você ainda não criou um grupo de gerenciamento, crie um e atribua assinaturas a ele.
+1. Na análise de custo, defina o escopo para o grupo de gerenciamento e escolha **Selecionar este grupo de gerenciamento**.  
+    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Exemplo mostrando a opção Selecionar este grupo de gerenciamento" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
+1. Crie uma exportação no escopo para obter os dados de gerenciamento de custos para as assinaturas do grupo de gerenciamento.  
+    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Exemplo mostrando a opção Criar exportação com um escopo de grupo de gerenciamento":::
 
-## <a name="verify-that-data-is-collected"></a>Verificar se os dados são coletados
+## <a name="verify-that-data-is-collected"></a>Verificar se os dados foram coletados
 
-Você pode verificar facilmente se os dados do Gerenciamento de Custos estão sendo coletados e exibir o arquivo CSV exportado usando o Gerenciador de Armazenamento do Azure.
+Verifique com facilidade se os dados do Gerenciamento de Custos estão sendo coletados e veja o arquivo CSV exportado usando o Gerenciador de Armazenamento do Azure.
 
 Na lista de exportação, selecione o nome da conta de armazenamento. Na página da conta de armazenamento, selecione Abrir no Explorador. Se vir uma caixa de confirmação, selecione **Sim** para abrir o arquivo no Gerenciador de Armazenamento do Azure.
 
@@ -123,6 +122,16 @@ Baixe também o arquivo CSV exportado no portal do Azure. As etapas a seguir exp
 1. Selecione o arquivo CSV e escolha **Baixar**.
 
 [![Exemplo de download de exportação](./media/tutorial-export-acm-data/download-export.png)](./media/tutorial-export-acm-data/download-export.png#lightbox)
+
+## <a name="view-export-run-history"></a>Exibir o histórico de execuções da exportação  
+
+Veja o histórico de execuções da exportação agendada selecionando uma exportação individual na página de lista de exportações. A página de lista de exportações também fornece acesso rápido para ver o runtime das exportações anteriores e a próxima vez em que a exportação será executada. Veja um exemplo que mostra o histórico de execuções.
+
+:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Exemplo mostrando o histórico de execuções da exportação":::
+
+Selecione uma exportação para ver o histórico de execuções.
+
+:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Exemplo mostrando o histórico de execuções da exportação":::
 
 ## <a name="access-exported-data-from-other-systems"></a>Acessar dados exportados de outros sistemas
 

@@ -3,12 +3,12 @@ title: 'Início Rápido: Testar a base de dados de conhecimento com o perguntas 
 description: Use a ferramenta de teste em lotes do QnA Maker para testar as bases de dados de conhecimento em seu recurso do QnA Maker para respostas esperadas, pontuações de confiança e prompts de vários turnos.
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.openlocfilehash: 01c767a6fbea5061f644052234f7462857dd342b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: bcee98678212a3bc233c36a831f6bcde7e6ae550
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84337726"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88531062"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Início Rápido: Testar a base de dados de conhecimento com perguntas em lotes e respostas esperadas
 
@@ -16,7 +16,7 @@ Use a ferramenta de teste em lotes do QnA Maker para testar as bases de dados de
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
 * [Crie um serviço do QnA Maker](create-publish-knowledge-base.md) ou use um serviço existente, que usa o idioma inglês.
 * Baixar o [arquivo `.docx` de exemplo de vários turnos](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
 * Baixe a [ferramenta de teste em lotes](https://aka.ms/qnamakerbatchtestingtool) e extraia o arquivo executável do arquivo `.zip`.
@@ -61,7 +61,7 @@ Use a ferramenta de teste em lotes do QnA Maker para testar as bases de dados de
 
 ## <a name="create-batch-test-file-with-question-ids"></a>Criar arquivo de teste de lote com IDs de pergunta
 
-Para usar a ferramenta de teste de lote, crie um arquivo chamado `batch-test-data-1.tsv` com um editor de texto. O arquivo precisa ter as colunas a seguir separadas por uma tabulação.
+Para usar a ferramenta de teste de lote, crie um arquivo chamado `batch-test-data-1.tsv` com um editor de texto. O arquivo deve estar no formato UTF-8 e precisa ter as colunas a seguir separadas por uma tabulação.
 
 |Campos do arquivo de entrada TSV|Observações|Exemplo|
 |--|--|--|

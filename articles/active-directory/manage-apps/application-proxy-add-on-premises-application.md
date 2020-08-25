@@ -11,13 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4db0956b1a2dec7626a24de2939941c2384d6a8a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: e44de0058af0210ecb42eaa4be8b55d543d66103
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080755"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212807"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de Aplicativo no Azure Active Directory
 
@@ -32,7 +31,7 @@ Este tutorial:
 > * Adiciona um aplicativo local ao locatário do Azure AD
 > * Verifica se um usuário de teste pode fazer logon no aplicativo usando uma conta do Azure AD
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para adicionar um aplicativo local ao Azure AD, você precisará:
 
@@ -235,6 +234,10 @@ Para testar o logon no aplicativo:
 
 Para solucionar problemas, confira [Solucionar problemas e mensagens de erro do Proxy do Aplicativo](application-proxy-troubleshoot.md).
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Quando não forem mais necessários, exclua todos os recursos criados neste tutorial.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você preparou seu ambiente local para trabalhar com o Proxy de Aplicativo e, em seguida, instalou e registrou o conector de Proxy de Aplicativo. Em seguida, você adicionou um aplicativo ao locatário do Azure AD. Você verificou que um usuário pode entrar no aplicativo usando uma conta do Azure AD.
@@ -250,4 +253,4 @@ Você fez essas coisas:
 Você está pronto para configurar o aplicativo para logon único. Use o link a seguir para escolher um método de logon único e encontrar tutoriais sobre logon único.
 
 > [!div class="nextstepaction"]
-> [Configurar Logon Único](what-is-single-sign-on.md#choosing-a-single-sign-on-method)
+> [Configurar Logon Único](sso-options.md#choosing-a-single-sign-on-method)

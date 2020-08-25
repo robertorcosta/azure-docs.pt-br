@@ -4,22 +4,22 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 01/28/2020
 ms.author: larryfr
-ms.openlocfilehash: 5102e8f75da14c58e948e81aaa418539dd18869a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: f500df6a592769928470d22468ff2fdff18293a5
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80159397"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88748773"
 ---
-As entradas no `inferenceconfig.json` documento são mapeadas para os parâmetros da classe [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) . A tabela a seguir descreve o mapeamento entre entidades no documento JSON e os parâmetros para o método:
+As entradas no documento `inferenceconfig.json` são mapeadas para os parâmetros da classe [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py). A seguinte tabela descreve o mapeamento entre as entidades no documento JSON e os parâmetros do método:
 
-| Entidade JSON | Parâmetro do método | Descrição |
+| Entidade JSON | Parâmetro de método | Descrição |
 | ----- | ----- | ----- |
 | `entryScript` | `entry_script` | Caminho para um arquivo local que contém o código a ser executado para a imagem. |
-| `sourceDirectory` | `source_directory` | Opcional. Caminho para pastas que contêm todos os arquivos para criar a imagem, o que facilita o acesso a todos os arquivos nessa pasta ou subpasta. Você pode carregar uma pasta inteira do seu computador local como dependências para o WebService. Observação: os caminhos entry_script, conda_file e extra_docker_file_steps são caminhos relativos para o caminho source_directory. |
-| `environment` | `environment` | Opcional.  Azure Machine Learning [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py).|
+| `sourceDirectory` | `source_directory` | Opcional. Caminho para as pastas que contêm todos os arquivos para criar a imagem, o que facilita o acesso a arquivos dessa pasta ou subpasta. É possível fazer upload de uma pasta inteira do computador local como dependências do Webservice. Observação: entry_script, conda_file e extra_docker_file_steps são caminhos relativos para o caminho source_directory. |
+| `environment` | `environment` | Opcional.  [Ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) do Azure Machine Learning.|
 
-Você pode incluir especificações completas de um [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) de Azure Machine Learning no arquivo de configuração de inferência. Se esse ambiente não existir no seu espaço de trabalho, Azure Machine Learning o criará. Caso contrário, Azure Machine Learning atualizará o ambiente, se necessário. O JSON a seguir é um exemplo:
+É possível incluir especificações completas de um [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) do Azure Machine Learning no arquivo de configuração da inferência. Se esse ambiente não existir no seu workspace, o Azure Machine Learning o criará. Caso contrário, se necessário, o Azure Machine Learning atualizará o ambiente. Este JSON é um exemplo:
 
 ```json
 {
@@ -49,7 +49,7 @@ Você pode incluir especificações completas de um [ambiente](https://docs.micr
                         "pip": [
                             "azureml-defaults",
                             "azureml-telemetry",
-                            "scikit-learn",
+                            "scikit-learn==0.22.1",
                             "inference-schema[numpy-support]"
                         ]
                     }
@@ -65,7 +65,7 @@ Você pode incluir especificações completas de um [ambiente](https://docs.micr
 }
 ```
 
-Você também pode usar um [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) de Azure Machine Learning existente em parâmetros separados da CLI e remover a chave "ambiente" do arquivo de configuração de inferência. Use-e para o nome do ambiente e--EV para a versão do ambiente. Se você não especificar--EV, a versão mais recente será usada. Aqui está um exemplo de um arquivo de configuração de inferência:
+Também é possível usar um [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) existente do Azure Machine Learning em parâmetros separados da CLI e remover a chave do "ambiente" do arquivo de configuração da inferência. Use -e para o nome do ambiente e --ev para a versão do ambiente. Se você não especificar --ev, a versão mais recente será usada. Veja um exemplo de arquivo de configuração de inferência:
 
 ```json
 {
@@ -74,9 +74,9 @@ Você também pode usar um [ambiente](https://docs.microsoft.com/python/api/azur
 }
 ```
 
-O comando a seguir demonstra como implantar um modelo usando o arquivo de configuração de inferência anterior (chamado myInferenceConfig.jsem). 
+O comando a seguir demonstra como implantar um modelo usando o arquivo de configuração de inferência anterior, chamado myInferenceConfig.json. 
 
-Ele também usa a versão mais recente de um [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) de Azure Machine Learning existente (chamado AzureML-Minimal).
+Ele também usa a versão mais recente de um [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) existente do Azure Machine Learning, chamado AzureML-Minimal.
 
 ```azurecli-interactive
 az ml model deploy -m mymodel:1 --ic myInferenceConfig.json -e AzureML-Minimal --dc deploymentconfig.json

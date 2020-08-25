@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: iainfou
-ms.openlocfilehash: 69bb61012082404dfd6488b5e0606e5966c2fcef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 6f166cdcb5f3764d7b264fdb4ebc082ece4c798b
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504646"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245087"
 ---
 # <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>Tutorial: Criar e usar conjuntos de réplicas para resiliência ou geolocalização no Azure Active Directory Domain Services (versão prévia)
 
@@ -42,11 +42,11 @@ Para concluir este tutorial, você precisará dos seguintes recursos e privilég
     * Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Um locatário do Azure Active Directory associado com a assinatura, sincronizado com um diretório local ou somente em nuvem.
     * Se necessário, [crie um locatário do Azure Active Directory][create-azure-ad-tenant] ou [associe uma assinatura do Azure à sua conta][associate-azure-ad-tenant].
-* Um domínio gerenciado do Azure Active Directory Domain Services criado usando um conjunto de réplicas e configurado no locatário do Azure AD.
+* Um domínio gerenciado do Azure Active Directory Domain Services criado usando um modelo de implantação do Azure Resource Manager e configurado no locatário do Azure AD.
     * Se necessário, [crie e configure um domínio gerenciado do Azure Active Directory Domain Services][tutorial-create-instance].
 
     > [!IMPORTANT]
-    > Crie um domínio gerenciado usando conjuntos de réplicas. Um domínio gerenciado existente criado antes dessa versão prévia não dá suporte a conjuntos de réplicas. Você também precisa usar o mínimo do SKU *Enterprise* para seu domínio gerenciado. Se necessário, [altere o SKU de um domínio gerenciado][howto-change-sku].
+    > Os domínios gerenciados criados usando o modelo de implantação Clássico não podem usar conjuntos de réplicas. Você também precisa usar o mínimo do SKU *Enterprise* para seu domínio gerenciado. Se necessário, [altere o SKU de um domínio gerenciado][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 

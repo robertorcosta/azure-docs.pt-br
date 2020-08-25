@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: db3eae5cd31fff0db465389ea4a09b1666453634
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 480e22b319edd03dc9bb9d666dd43718fb3c841b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386989"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507023"
 ---
 # <a name="what-is-azure-virtual-network"></a>O que é a Rede Virtual do Azure?
 
@@ -37,7 +37,7 @@ Ao criar sua rede no Azure, é importante se lembrar dos seguintes princípios d
 
 - Cuidado para não sobrepor espaços de endereço. Verifique se o espaço de endereço de sua VNet (bloco CIDR) não se sobrepõe aos outros intervalos de rede da sua organização.
 - Suas sub-redes não devem abranger todo o espaço de endereço da VNet. Planeje com antecedência e reserve algum espaço de endereço para o futuro.
-- Recomendamos que você tenha menos VNets maiores do que várias VNets pequenas. Isso evitará a sobrecarga no gerenciamento.
+- Recomendamos que você tenha menos VNETs maiores do que várias VNETs pequenas. Isso evitará a sobrecarga no gerenciamento.
 - Projeta suas VNets atribuindo NSGs (Grupos de Segurança de Rede) às sub-redes abaixo deles.
 
 ## <a name="communicate-with-the-internet"></a>Comunicação com a Internet

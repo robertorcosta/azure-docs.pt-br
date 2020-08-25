@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: f16df87ca72b66003d8870dcd9d778616ea840d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 550c9ff57b9c558f2f175165c7f06ead45991be9
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038538"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225998"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início Rápido: Integrar sua assinatura do Azure à Central de Segurança Standard
 A Central de Segurança do Azure fornece um gerenciamento de segurança unificado e proteção contra ameaças nas cargas de trabalho da sua nuvem híbrida. Enquanto a Camada gratuita oferece segurança limitada para somente os recursos do Azure, o nível Standard estende esses recursos para o local e outras nuvens. A Central de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controles de acesso e de aplicativo para bloquear atividades mal-intencionadas, detectar ameaças usando a análise e inteligência e responder rapidamente quando sob ataque. Você pode experimentar a Central de Segurança Standard sem nenhum custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
@@ -34,7 +34,8 @@ Para atualizar uma assinatura para o nível Standard, a você deve ser atribuíd
 ## <a name="enable-your-azure-subscription"></a>Habilitar sua assinatura do Azure
 
 1. Faça logon no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
-2. No menu **Microsoft Azure**, selecione **Central de Segurança**. **Central de Segurança - Visão geral** é aberto.
+
+1. No menu **Microsoft Azure**, selecione **Central de Segurança**. **Central de Segurança - Visão geral** é aberto.
 
    ![Visão geral da Central de Segurança][2]
 
@@ -49,21 +50,25 @@ Em poucos minutos após iniciar a Central de Segurança pela primeira vez, você
 
 Para aproveitar por completo a Central de Segurança, você precisará concluir as etapas abaixo para atualizar para o nível Standard e instalar o agente do Log Analytics.
 
-## <a name="upgrade-to-the-standard-pricing-tier"></a>Atualizar para o tipo de preço padrão
-Para os guias de início rápido e tutoriais da Central de Segurança, você deve atualizar para o nível Standard. Há uma avaliação gratuita da Central de Segurança Standard. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). 
 
-1. No menu principal da Central de Segurança, selecione **Introdução**.
+## <a name="upgrade-to-the-standard-tier"></a>Atualizar para a camada Standard
+
+Para os guias de início rápido e tutoriais da Central de Segurança, você deve atualizar para a camada Standard. Há uma avaliação gratuita da Central de Segurança Standard. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). 
+
+1. Na barra lateral da Central de Segurança, selecione **Introdução**.
  
-   ![Introdução][4]
+   ![Introdução](./media/security-center-get-started/get-started-upgrade-tab.png)
 
-2. Em **Atualização**, a Central de Segurança lista as assinaturas e os workspaces qualificados para a integração. 
-   - Você pode clicar em **Aplicar sua avaliação** expansível para ver uma lista de todas as assinaturas e workspaces com seu status de qualificação de avaliação.
-   -    Você pode atualizar as assinaturas e os workspaces que não são qualificados para avaliação.
-   -    Você pode selecionar workspaces e assinaturas qualificados para iniciar sua avaliação.
-3. Clique em **Iniciar avaliação** para iniciar sua avaliação das assinaturas selecionadas.
+    A guia **Atualização** lista as assinaturas e os workspaces qualificados para a integração.
+
+1. Na lista **Selecionar workspaces para habilitar o nível Standard na lista**, selecione os workspaces a serem atualizados.
 
 
-  ![Alertas de segurança][9]
+    > [!TIP]
+    > Se você selecionar um workspace qualificado para uma avaliação gratuita, a próxima etapa iniciará uma avaliação. Se os workspaces não estiverem qualificados para avaliação, eles serão atualizados e começarão a ser cobrados.
+
+1. Selecione **Atualizar** para atualizar os workspaces selecionados para o nível Standard.
+
 
 ## <a name="automate-data-collection"></a>Automatizar a coleta de dados
 A Central de Segurança coleta dados de suas VMs do Azure e dos computadores não Azure a fim de monitorar as ameaças e vulnerabilidades de segurança. Os dados são coletados usando o agente do Log Analytics, que lê uma variedade de configurações e logs de eventos relacionados à segurança do computador e copia os dados para o seu workspace visando a análise. Por padrão, a Central de Segurança criará um novo workspace para você.
@@ -73,9 +78,9 @@ Quando o provisionamento automático estiver habilitado, a Central de Segurança
 Para habilitar o provisionamento automático do agente de Log Analytics:
 
 1. No menu principal da Central de Segurança, selecione **Preço e configurações**.
-2. Na linha da assinatura, clique na assinatura cujas configurações você gostaria de alterar.
-3. Na guia **Coleta de Dados**, defina **Provisionamento automático** como **Ativado**.
-4. Clique em **Salvar**.
+1. Na linha da assinatura, clique na assinatura cujas configurações você gostaria de alterar.
+1. Na guia **Coleta de Dados**, defina **Provisionamento automático** como **Ativado**.
+1. Clique em **Salvar**.
 ---
   ![Habilitar o provisionamento automático][6]
 

@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 08/10/2020
+ms.date: 08/18/2020
 ms.author: victorh
-ms.openlocfilehash: 0fcf1c8a3800a52e8fa8659fe4bf97e83103c79d
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: b4ef35f2892925919ca9c8eda37a9b0e0d11835e
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056985"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88590397"
 ---
 # <a name="what-is-azure-firewall-manager"></a>O que é o Gerenciador de Firewall do Azure?
 
@@ -85,6 +85,8 @@ O Gerenciador de Firewall do Azure apresenta os seguintes problemas conhecidos:
 |Spokes em uma região diferente do hub virtual|Não há suporte para spokes em uma região diferente do hub virtual.|Investigando<br><br>Crie um hub por região e emparelhe as VNETs na mesma região do hub.|
 |Tráfego de branch a branch com a filtragem de tráfego privado habilitada|Não há suporte para o tráfego de branch para branch quando a filtragem de tráfego privado está habilitada. |Em investigação.<br><br>Não proteja o tráfego privado se a conectividade de branch a branch for crítica.|
 |Todos os Hubs Virtuais Seguros que compartilham a mesma WAN virtual devem estar no mesmo grupo de recursos.|Esse comportamento está alinhado aos Hubs da WAN Virtual hoje.|Crie várias WANs Virtuais para permitir que os Hubs Virtuais Seguros sejam criados em diferentes grupos de recursos.|
+|Falha na adição de endereço IP em massa|O firewall do hub seguro entrará em um estado de falha se você adicionar vários endereços IP públicos.|Adicione incrementos menores de endereços IP públicos. Por exemplo, adicione 10 de cada vez.|
+|As regras de aplicativo falham em um hub seguro com DNS personalizado (versão prévia) configurado.|O proxy DNS/DNS personalizado (versão prévia) não funciona em cenários em que uma NIC de gerenciamento de firewall está configurada. Isso inclui implantações do hub seguro e casos em que o túnel forçado está habilitado.|Correção sob investigação.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

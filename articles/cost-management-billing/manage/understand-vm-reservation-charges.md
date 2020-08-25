@@ -4,14 +4,14 @@ description: Saiba como o desconto de Instância de VM Reservada do Azure é apl
 author: yashesvi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 08/13/2020
 ms.author: banders
-ms.openlocfilehash: a9d9a5661e8a094b7d92a9dd83db3cdcd76b8b65
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ddf232dbe6c6ff61f685e2910286188fb92e1f17
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018375"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192213"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Como o desconto de reserva do Azure é aplicado a máquinas virtuais
 
@@ -56,11 +56,15 @@ Quando você executa instâncias de VM Windows, a reserva é aplicada para cobri
 
 ## <a name="discount-can-apply-to-different-sizes"></a>O desconto pode se aplicar a diferentes tamanhos
 
-Ao comprar uma instância de VM Reservada, se você selecionar **Otimizado para**: **flexibilidade de tamanho da instância**, a cobertura de desconto dependerá do tamanho de VM selecionado. A reserva pode ser aplicada aos tamanhos de VMs (máquinas virtuais) no mesmo grupo de série de tamanho. Para obter mais informações, confira [Flexibilidade de tamanho de máquina virtual com Instâncias de VM Reservadas](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Ao comprar uma Instância de VM Reservada e selecionar **Otimizado para flexibilidade de tamanho da instância**, a cobertura do desconto se aplicará ao tamanho de VM que você selecionar. Ele também poderá se aplicar a outros tamanhos de VMs que estejam no mesmo grupo de flexibilidade de tamanho da instância da série. Para obter mais informações, confira [Flexibilidade de tamanho de máquina virtual com Instâncias de VM Reservadas](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
-## <a name="discount-applies-to-matching-servicetype-only"></a>O desconto se aplica somente ao ServiceType correspondente
+## <a name="premium-storage-vms-dont-get-non-premium-discounts"></a>As VMs de armazenamento Premium não recebem descontos não Premium
 
-Um desconto de reserva se aplica somente ao uso da VM em que o valor `ServiceType` em `AdditionalInfo` corresponde à reserva comprada. O aplicativo de desconto de reserva ignora o medidor usado para VMs e só `ServiceType` é avaliado. Saiba para qual tipo de serviço você comprou a VM. É possível trocar uma reserva de VM de armazenamento não premium por uma reserva de armazenamento premium ou vice-versa.
+Veja um exemplo. Suponha que você comprou uma reserva de cinco VMs Standard_D1; o desconto de reserva se aplicará somente a VMs Standard_D1 ou a outras VMs na mesma família de instâncias. O desconto não se aplicará à VM Standard_DS1 ou a outros tamanhos no grupo de flexibilidade de tamanho da instância DS1.
+
+A aplicação do desconto de reserva ignora o medidor usado para as VMs e só avalia o ServiceType. Examine o valor `ServiceType` em `AdditionalInfo` para determinar as informações de série/grupo de flexibilidade de instância para suas VMs. Os valores estão no arquivo CSV do uso.
+
+Não é possível alterar diretamente o grupo/a série de flexibilidade da instância da reserva após a compra. No entanto, você pode *trocar* uma reserva de VM de um grupo/uma série de flexibilidade de instância para outro.
 
 ## <a name="services-that-get-vm-reservation-discounts"></a>Serviços que têm descontos de reserva de VM
 

@@ -4,12 +4,12 @@ description: Neste tutorial, saiba como criar um cofre dos Serviços de Recupera
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7a8849bba51939a0c40cba81925e1b4b4a6e3826
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ed91105488b812131d3a908c509998c955cec299
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372545"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263411"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Use o portal do Azure para fazer backup de várias máquinas virtuais
 
@@ -156,7 +156,7 @@ Se planejar continuar trabalhando com os tutoriais subsequentes, não limpe os r
 
 1. No painel **myRecoveryServicesVault**, selecione o número **3** em **Itens de Backup** para abrir o menu Itens de Backup.
 
-    ![Itens de Backup](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
+    ![Abrir menu Itens de backup](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
 
 1. No menu **Itens de Backup**, selecione **Máquina Virtual do Azure** para abrir a lista das máquinas virtuais associadas ao cofre.
 
@@ -185,7 +185,7 @@ Se planejar continuar trabalhando com os tutoriais subsequentes, não limpe os r
 
 1. Quando não houver nenhum outro item no cofre, selecione **Excluir**.
 
-    ![Selecione Interromper backup para excluir o cofre](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
+    ![Selecione excluir](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
 
     Depois que o cofre for excluído, você retornará para a lista de cofres dos Serviços de Recuperação.
 

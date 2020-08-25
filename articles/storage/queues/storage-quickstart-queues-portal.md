@@ -3,17 +3,17 @@ title: 'Início Rápido: Criar filas do Armazenamento do Azure no portal'
 description: Use o portal do Azure para criar uma fila. Em seguida, use o portal do Azure para adicionar uma mensagem, exibir as propriedades da mensagem e remover a mensagem da fila.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 03/06/2019
+ms.date: 08/13/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
-ms.openlocfilehash: af3f812c8018f059f26c29cd373714e4ab3c8a49
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 11c6cdff852a0695d4b2071f1d0a60c05dba2410
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808963"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213479"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Início Rápido: Criar uma fila e adicionar uma mensagem com o portal do Azure
 
@@ -40,8 +40,8 @@ Para criar uma fila no portal do Azure, siga estas etapas:
 Em seguida, adicione uma mensagem à nova fila. Uma mensagem pode ter tamanho de até 64 KB.
 
 1. Selecione a nova fila na lista de filas na conta de armazenamento.
-1. Selecione o botão **+ Adicionar mensagem** para adicionar uma mensagem à fila. Insira uma mensagem no campo **Texto da mensagem**. 
-1. Especifique quando a mensagem expira. O tempo máximo que uma mensagem pode permanecer na fila é 7 dias.
+1. Selecione o botão **+ Adicionar mensagem** para adicionar uma mensagem à fila. Insira uma mensagem no campo **Texto da mensagem**.
+1. Especifique quando a mensagem expira. Os valores válidos que podem ser inseridos no campo **Expira em** estão entre 1 segundo e 7 dias. Selecione **Mensagem nunca expira** para indicar uma mensagem que permanecerá na fila até que ela seja explicitamente removida.
 1. Indique se você deseja codificar a mensagem como Base64. A codificação de dados binários é recomendada.
 1. Selecione o botão **OK** para adicionar a mensagem.
 

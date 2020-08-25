@@ -10,16 +10,19 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 8289b21da5009459d2eb7ddc8d26b549f0920317
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 274228ea5aa9ac9de9725176c8b6221ee9e9542e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083347"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182673"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Início Rápido: Criar um aplicativo Java no Serviço de Aplicativo do Azure
 
 O [Serviço de Aplicativo do Azure](overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches.  Este início rápido mostra como usar a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) com o [Plug-in de Aplicativo Web do Azure para Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) para implantar um arquivo WAR (Arquivo Web) Java.
+
+> [!NOTE]
+> Neste artigo, estamos trabalhando apenas com aplicativos Java empacotados em arquivos WAR. O plug-in também oferece suporte a aplicativos Web JAR, visite [Implantar um arquivo JAR do Java SE para o Serviço de Aplicativo no Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para experimentá-lo.
 
 > [!NOTE]
 > A mesma coisa também pode ser feita usando IDEs populares, como o IntelliJ e o Eclipse. Confira nossos documentos semelhantes em [Início Rápido: Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app) ou [Início Rápido: Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
@@ -53,12 +56,12 @@ Execute o comando do Maven abaixo para configurar a implantação
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
 
-::: zone pivot="platform-windows"  
+::: zone pivot="platform-windows" 
 Você precisará selecionar 
 * **Sistema Operacional (Padrão: `linux`)**
 * **Versão do Java (Padrão: `1.8`)**
 * **Contêiner da Web (Padrão: `tomcat 8.5`)** 
-
+ 
 Tenha cuidado para inserir **`2`** a fim de escolher o sistema operacional **Windows** na primeira etapa. Mantenha as outras configurações com o padrão clicando em **ENTER**. Por fim, clique em **`Y`** no aviso **Confirmar (S/N)** para concluir a configuração.
 
 Um processo de exemplo é semelhante a este:
@@ -137,6 +140,13 @@ Confirm (Y/N)? :
 ```
 ::: zone-end
 ::: zone pivot="platform-linux"  
+
+Você precisará selecionar 
+* **Sistema Operacional (Padrão: `linux`)**
+* **Versão do Java (Padrão: `Java 8`)**
+* **Contêiner da Web (Padrão: `Tomcat 8.5`)** 
+
+Todas as configurações podem ser deixadas com o padrão pressionando **ENTER**. Por fim, clique em **`Y`** no aviso **Confirmar (S/N)** para concluir a configuração.
 Um processo de exemplo é semelhante a este:
 
 ```cmd
@@ -174,16 +184,7 @@ Confirm (Y/N)? : Y
 ```
 ::: zone-end
 
-> [!NOTE]
-> Neste artigo, estamos trabalhando apenas com aplicativos Java empacotados em arquivos WAR. O plug-in também oferece suporte a aplicativos Web JAR, visite [Implantar um arquivo JAR do Java SE para o Serviço de Aplicativo no Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para experimentá-lo.
-
-Abra `pom.xml` para ver a configuração atualizada.
-
-```bash
-code pom.xml
-```
-
-Você poderá modificar as configurações do Serviço de Aplicativo diretamente em seu arquivo pom, se necessário. Algumas comuns estão listadas abaixo:
+Você poderá modificar as configurações do Serviço de Aplicativo diretamente em seu `pom.xml`, se necessário. Algumas configurações comuns estão listadas abaixo:
 
  Propriedade | Obrigatório | Descrição | Versão
 ---|---|---|---
@@ -195,11 +196,8 @@ Você poderá modificar as configurações do Serviço de Aplicativo diretamente
 `<runtime>` | true | A configuração do ambiente de runtime. Você pode ver os detalhes [aqui](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
 `<deployment>` | true | A configuração de implantação. Você pode ver os detalhes [aqui](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
 
-::: zone pivot="platform-windows"
 Tenha cuidado com os valores de `<appName>` e `<resourceGroup>`(`helloworld-1590394316693` e `helloworld-1590394316693-rg` de acordo com a demonstração), que serão usados posteriormente.
-::: zone-end
-::: zone pivot="platform-linux"
-::: zone-end
+
 > [!div class="nextstepaction"]
 > [Encontrei um problema](https://www.research.net/r/javae2e?tutorial=quickstart-java&step=config)
 
@@ -216,21 +214,11 @@ Em seguida, você poderá implantar seu aplicativo Java no Azure usando o seguin
 mvn package azure-webapp:deploy
 ```
 
-::: zone pivot="platform-windows"
 Depois que a implantação for concluída, seu aplicativo estará pronto em `http://<appName>.azurewebsites.net/`(`http://helloworld-1590394316693.azurewebsites.net` na demonstração). Abra a URL com o navegador da Web local para ver
 
-![Aplicativo de exemplo em execução no Serviço de Aplicativo do Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
+![Aplicativo de exemplo em execução no Serviço de Aplicativo do Azure](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
-**Parabéns!** Você implantou seu primeiro aplicativo Java no Serviço de Aplicativo no Windows.
-
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
-::: zone-end
-::: zone pivot="platform-linux"
-Após a conclusão da implantação, navegue até o aplicativo implantado usando a URL a seguir no navegador da Web, por exemplo, `http://<webapp>.azurewebsites.net`. 
-
-![Aplicativo de exemplo em execução no Serviço de Aplicativo do Azure](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
-
-**Parabéns!** Você implantou seu primeiro aplicativo Java no Serviço de Aplicativo no Linux.
+**Parabéns!** Você implantou seu primeiro aplicativo Java no Serviço de Aplicativo.
 
 > [!div class="nextstepaction"]
 > [Encontrei um problema](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=deploy)
@@ -244,19 +232,6 @@ az group delete --name <your resource group name; for example: helloworld-155840
 ```
 
 Esse comando pode demorar um pouco para ser executado.
-::: zone-end
-
-Depois que a implantação for concluída, seu aplicativo estará pronto em `http://<appName>.azurewebsites.net/`(`http://helloworld-1590394316693.azurewebsites.net` na demonstração). Abra a URL com o navegador da Web local para ver
-
-![Aplicativo de exemplo em execução no Serviço de Aplicativo do Azure](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
-
-**Parabéns!** Você implantou seu primeiro aplicativo Java no Serviço de Aplicativo.
-
-> [!div class="nextstepaction"]
-> [Encontrei um problema](https://www.research.net/r/javae2e?quickstart-java&step=deploy)
-
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
-
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]

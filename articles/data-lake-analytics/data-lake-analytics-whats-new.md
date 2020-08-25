@@ -1,31 +1,29 @@
 ---
 title: Alterações recente do Data Lake Analytics
 description: Este artigo fornece uma lista contínua das alterações recentes feitas no Data Lake Analytics.
-services: data-lake-analytics
 author: xujiang1
 ms.service: data-lake-analytics
-ms.devlang: na
 ms.topic: overview
 ms.author: xujiang1
 ms.date: 07/31/2020
-ms.openlocfilehash: e78389ffc06f1b4cd4e39c15ac66215d514e9bc1
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 6f4885594e4f67d91c595d8afdddc15e8ed4ae75
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476307"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263173"
 ---
 # <a name="whats-new-in-data-lake-analytics"></a>Novidades no Data Lake Analytics
 
 O Azure Data Lake Analytics é atualizado periodicamente em componentes específicos. Para se manter a par das atualizações mais recentes, este artigo fornece informações sobre:
 
 - Notificação da versão prévia beta do componente principal
-- Informações importantes de versão do componente, por exemplo: a lista de versões disponíveis do componente, a versão padrão atual e assim por diante.
+- As informações importantes de versão do componente, por exemplo: a lista de versões disponíveis do componente, a versão padrão atual etc.
 
 
 ## <a name="notification-of-key-component-beta-preview"></a>Notificação da versão prévia beta do componente principal
 
-Não há nenhuma versão beta do componente principal disponível na versão prévia. 
+Nenhuma versão beta do componente principal disponível na versão prévia. 
 
 ## <a name="u-sql-runtime"></a>Runtime U-SQL
 
@@ -35,14 +33,13 @@ Quando você envia o trabalho do Azure Data Lake Analytics de qualquer ferrament
 
 A versão do runtime será atualizada periodicamente. E o runtime anterior permanecerá disponível por algum tempo. Quando uma nova versão beta estiver pronta para versão prévia, ela também ficará disponível lá.
 
-A seguir estão as versões de runtime disponíveis no momento.
+> [!CAUTION]
+> - A escolha de um runtime diferente do padrão apresenta o potencial de interromper seus trabalhos do U-SQL. Recomendamos expressamente que você não use essas versões não padrão para produção, mas apenas para teste.
+> - A versão de runtime não padrão tem um ciclo de vida fixo. Ela expira automaticamente.
 
-- release-20200124live_adl_16283022_2 --> **a versão padrão atual**
-- release_20200124live_adl_16283022
-- release_20200124_adl_14480125
-- release_20190904_adl_10236248_1
-- release_20190904_adl_10236248
-- release_20190904_adl_9225818
+A versão a seguir é a versão atual do runtime padrão.
+
+- release-20200124live_adl_16283022_2
 
 Para saber como solucionar falhas no runtime U-SQL, confira [Solucionar falhas do runtime U-SQL](runtime-troubleshoot.md).
 

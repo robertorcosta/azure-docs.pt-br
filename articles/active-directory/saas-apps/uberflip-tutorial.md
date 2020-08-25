@@ -2,25 +2,21 @@
 title: 'Tutorial: integração do Azure Active Directory com o Uberflip | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Uberflip.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 754b1f5b-6694-4fd6-9e1e-9fad769c64db
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: d20c05e6ec5a413b81ede9cb4906de2595967115
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8936c2150c32a22877f9b56736ecc4b8f3424b32
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80048466"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88533122"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: integração do Azure Active Directory com o Uberflip
 
@@ -153,7 +149,7 @@ Nesta seção, você criará uma usuária de teste no portal do Azure chamada B.
 
     1. Na caixa **Nome**, insira **BFernandes**.
   
-    1. Na caixa **Nome de usuário**, insira **BFernandes\@\<domíniodaempresa>.\<extensão>** . Por exemplo, **BFernandes\@contoso.com**.
+    1. Na caixa **Nome de usuário**, insira **BFernandes\@\<yourcompanydomain>.\<extension>** . Por exemplo, **BFernandes\@contoso.com**.
 
     1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
 

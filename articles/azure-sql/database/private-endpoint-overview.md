@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 730109a096b352b6d179693293128b465e0be83f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5fcc50670973c361d830e4e6bbf2ce26101b8582
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87063259"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213376"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Link Privado do Azure para o Banco de Dados SQL do Azure e o Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -175,9 +175,9 @@ Para estabelecer a conectividade de um ambiente local com o banco de dados no Ba
 - [Circuito do ExpressRoute](../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 
-## <a name="connecting-from-azure-synapse-analytics-to-azure-storage-using-polybase"></a>Conectar-se do Azure Synapse Analytics ao Armazenamento do Azure usando o Polybase
+## <a name="connecting-from-azure-synapse-analytics-to-azure-storage-using-polybase-and-the-copy-statement"></a>Conectar-se do Azure Synapse Analytics para o Armazenamento do Azure usando o Polybase e a instrução COPY
 
-O PolyBase costuma ser usado para carregar dados no Azure Synapse Analytics de contas do Armazenamento do Azure. Se a conta de Armazenamento do Azure da qual você está carregando dados limita o acesso somente a um conjunto de sub-redes da rede virtual por meio de pontos de extremidade privados, pontos de extremidade de serviço ou firewalls baseados em IP, a conectividade do PolyBase com a conta será interrompida. Para habilitar os cenários de importação e exportação do PolyBase com o Azure Synapse Analytics conectando-se ao Armazenamento do Azure protegido com uma rede virtual, siga as etapas fornecidas [aqui](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
+O PolyBase e a instrução COPY costumam a ser usados para carregar dados no Azure Synapse Analytics de contas de Armazenamento do Azure. Se a conta de Armazenamento do Azure da qual você está carregando dados limitar o acesso somente a um conjunto de sub-redes da rede virtual por meio de Pontos de Extremidade Privados, Pontos de Extremidade de Serviço ou firewalls baseados em IP, a conectividade do PolyBase e da instrução COPY com a conta será interrompida. Para habilitar os cenários de importação e de exportação com o Azure Synapse Analytics conectando-se ao Armazenamento do Azure protegido com uma rede virtual, siga as etapas fornecidas [aqui](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

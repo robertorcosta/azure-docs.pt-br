@@ -1,14 +1,14 @@
 ---
 title: Concluir uma recuperação de desastre de máquinas virtuais
-description: Este artigo mostra como concluir uma recuperação de desastre de máquinas virtuais usando a AVS
+description: Este artigo mostra como concluir uma recuperação de desastre de máquinas virtuais usando a solução VMware do Azure
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 5ccaa009c8e3e059597636a8bb78cc3bd255fe68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76a417b9ba00c4c0e6e958e5a04d19aecfe24563
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749947"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752274"
 ---
 # <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Concluir uma recuperação de desastre de máquinas virtuais usando a solução VMware do Azure
 
@@ -46,7 +46,7 @@ Insira a área de **recuperação de desastre** e clique em **proteger VMs**.
 
 :::image type="content" source="./media/disaster-recovery/protect-virtual-machine.png" alt-text="Selecione proteger VMs" border="true":::
 
-Na janela que é aberta, selecione a origem e os sites remotos, o site remoto, nesse caso, deve ser a nuvem privada da AVS.
+Na janela que é aberta, selecione a origem e os sites remotos, o site remoto, nesse caso, deve ser a nuvem privada da solução Azure VMware.
 
 :::image type="content" source="./media/disaster-recovery/protect-virtual-machines.png" alt-text="janela proteger VMs" border="true":::
 
@@ -56,7 +56,7 @@ Se necessário, selecione as opções de replicação padrão:
 
 - **Habilitar quiescence:** Pausa a VM para garantir que uma cópia consistente seja sincronizada com o site remoto.
 
-- **Armazenamento de destino:** Selecione o repositório de armazenamento remoto para as VMs protegidas. Em uma nuvem privada de AVS, essa seleção deve ser o armazenamento de datavsan.
+- **Armazenamento de destino:** Selecione o repositório de armazenamento remoto para as VMs protegidas. Em uma nuvem privada da solução Azure VMware, essa seleção deve ser o armazenamento de repositório vSAN.
 
 - **Contêiner de computação:** O cluster vSphere remoto ou o pool de recursos.
 
@@ -95,7 +95,7 @@ Quando a máquina virtual estiver ligada, ela iniciará o processo de sincroniza
 
 ## <a name="complete-a-test-recover-of-virtual-machines"></a>Concluir uma recuperação de teste de máquinas virtuais
 
-Faça logon no **vSphere Client** no site remoto, que é a nuvem privada da AVS. No **plug-in HCX**, na área recuperação de desastres, selecione as reticências verticais em qualquer VM para exibir o menu operações. Selecione **testar recuperar VM**.
+Faça logon no **vSphere Client** no site remoto, que é a nuvem privada da solução Azure VMware. No **plug-in HCX**, na área recuperação de desastres, selecione as reticências verticais em qualquer VM para exibir o menu operações. Selecione **testar recuperar VM**.
 
 :::image type="content" source="./media/disaster-recovery/test-recover-virtual-machine.png" alt-text="Selecione testar recuperação de VM" border="true":::
 
@@ -105,7 +105,7 @@ Na nova janela, selecione as opções para o teste. Selecione o instantâneo que
 
 Depois de clicar no **teste**, a operação de recuperação será iniciada.
 
-Quando a operação de recuperação de teste for concluída, a nova VM poderá ser verificada no vCenter de nuvem privada da AVS.
+Quando a operação de recuperação de teste for concluída, a nova VM poderá ser verificada na nuvem privada da solução Azure VMware vCenter.
 
 :::image type="content" source="./media/disaster-recovery/verify-test-recovery.png" alt-text="verificar a operação de recuperação" border="true":::
 
@@ -115,7 +115,7 @@ Finalmente, após o teste ter sido feito na VM ou em qualquer aplicativo em exec
 
 ## <a name="recover-virtual-machines"></a>Recuperar as máquinas virtuais
 
-Faça logon no **vSphere Client** no site remoto, que é a nuvem privada da AVS e acesse o **plug-in do HCX**.
+Faça logon no **vSphere Client** no site remoto, que é a nuvem privada da solução Azure VMware e acesse o **plug-in HCX**.
 
 Para o cenário de recuperação, um grupo de máquinas virtuais usado para este exemplo.
 
@@ -131,7 +131,7 @@ Depois que a operação de recuperação for concluída, as novas VMs serão exi
 
 ## <a name="complete-a-reverse-replication-on-virtual-machines"></a>Concluir uma replicação inversa em máquinas virtuais
 
-Faça logon no **cliente vSphere** na sua nuvem privada da AVS e acesse o **plug-in HCX**.
+Faça logon no **vSphere Client** em sua nuvem privada da solução Azure VMware e acesse o **plug-in HCX**.
 É necessário que as máquinas virtuais originais no site de origem sejam desligadas antes de você iniciar a replicação inversa. A operação falhará se as máquinas virtuais não estiverem desligadas.
 
 Selecione as máquinas virtuais a serem replicadas de volta para o site de origem na lista, abra o menu **ações** e selecione **reverter**. Na janela pop-up, clique em **reverter** para iniciar a replicação.

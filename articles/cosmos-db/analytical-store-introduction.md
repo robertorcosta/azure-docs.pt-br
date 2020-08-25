@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: 3b210ea558f857d017504d07e571e94e34c0d4f6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d831d40733f9fa1d0db4c53d72de22898e493639
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037092"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795857"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é o repositório analítico do Azure Cosmos DB (versão prévia)?
 
@@ -134,7 +134,7 @@ O repositório analítico segue um modelo de preço baseado em consumo no qual v
 * Operações de leitura analítica: as operações de leitura executadas no repositório analítico do Synapse Analytics Spark e os tempos de execução do SQL sem servidor.
 
 > [!NOTE]
-> O repositório analítico do Azure Cosmos DB está disponível em visualização pública sem nenhum encargo até 30 de agosto de 2020.
+> Azure Cosmos DB repositório analítico está disponível atualmente na visualização pública gratuita de quaisquer encargos.
 
 O preço do repositório analítico é separado do modelo de preços do repositório transacional. Não há nenhum conceito de RUs provisionadas no repositório analítico. Consulte a [página de preços do Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter detalhes completos sobre o modelo de preços do repositório analítico.
 
@@ -144,7 +144,7 @@ Para obter uma estimativa de custo de alto nível para habilitar o repositório 
 
 A TTL analítica indica por quanto tempo os dados devem ser retidos em seu repositório analítico, para um contêiner. 
 
-As inserções, atualizações, exclusões em dados operacionais são sincronizadas automaticamente do repositório transacional para o repositório analítico, independentemente da configuração da TTL transacional. A retenção desses dados operacionais no repositório analítico pode ser controlada pelo valor da TTL Analítico no nível de contêiner, conforme especificado abaixo:
+Se o repositório analítico estiver habilitado, as inserções, as atualizações, as exclusões nos dados operacionais serão sincronizadas automaticamente do repositório transacional para o repositório analítico, independentemente da configuração de TTL transacional. A retenção desses dados operacionais no repositório analítico pode ser controlada pelo valor da TTL Analítico no nível de contêiner, conforme especificado abaixo:
 
 A TTL Analítico em um contêiner é definida usando a propriedade `AnalyticalStoreTimeToLiveInSeconds`:
 
@@ -152,7 +152,7 @@ A TTL Analítico em um contêiner é definida usando a propriedade `AnalyticalSt
 
 * Se presente e o valor for definido como "-1": o repositório analítico manterá todos os dados históricos, independentemente da retenção dos dados no repositório transacional. Essa configuração indica que o repositório analítico tem retenção infinita dos seus dados operacionais
 
-* Se presente e o valor for definido como algum número positivo “n”: os itens expirarão do repositório analítico “n” segundos após a hora da última modificação no repositório transacional. Essa configuração poderá ser usada se você quiser manter seus dados operacionais por um período de tempo limitado no repositório analítico, independentemente da retenção dos dados no repositório transacional.
+* Se presente e o valor for definido como algum número positivo “n”: os itens expirarão do repositório analítico “n” segundos após a hora da última modificação no repositório transacional. Essa configuração poderá ser utilizada se você quiser manter seus dados operacionais por um período de tempo limitado no repositório analítico, independentemente da retenção dos dados no armazenamento transacional
 
 Considere o seguinte:
 *   Depois que o repositório analítico for habilitado com um determinado valor de TTL analítico, é possível atualizá-lo posteriormente com um valor válido diferente. 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 91448f55f0ebb88ba6c685b960ece9d91cb98e25
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 169a3149a2d8d02d486bc126071b17e9a4f7ed72
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73826234"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167463"
 ---
 # <a name="what-is-opc-twin"></a>O que é um OPC Twin?
 
@@ -29,7 +29,7 @@ O OPC Twin permite que os operadores de fábrica verifiquem a rede de fábrica d
 O OPC Twin permite que os operadores de fábrica reajam a eventos e reconfigurem seus computadores de chão de fábrica da nuvem manual ou automaticamente em tempo real. O OPC Twin fornece APIs REST para invocar os serviços no servidor da UA de OPC, procurar seu espaço de endereço, bem como ler/gravar variáveis e executar métodos. Por exemplo, uma caldeira usa KPI de temperatura para controlar a linha de produção. O sensor de temperatura publica a alteração nos dados usando o OPC Publisher. O operador de fábrica recebe o alerta de que a temperatura atingiu o limite. A linha de produção é resfriada automaticamente por meio do OPC Twin. O operador de fábrica é notificado do resfriamento.
 
 ## <a name="authentication"></a>Autenticação
-Você pode usar o OPC Twin para autenticação e uma experiência de desenvolvedor simples.
+Você pode usar o OPC Twin para autenticação simples e para uma experiência de desenvolvedor simples.
 
 ### <a name="simple-authentication"></a>Autenticação simples 
 O OPC Twin usa autenticação baseada em AAD (Azure Active Directory) e auditoria de ponta a ponta. Por exemplo, o OPC Twin permite que o aplicativo seja criado sobre o OPC Twin para determinar o que um operador executou em um computador. No lado do computador, é por meio de auditoria da UA de OPC. No lado da nuvem, é por meio de armazenamento de um log de auditoria de cliente imutável e autenticação do AAD na API REST.

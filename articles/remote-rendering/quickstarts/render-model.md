@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 62669457f73ba78186614433fb6d10cc4dc01089
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: b5865f2fd76c1159f7f72633362a96335af8a059
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565508"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509358"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Início Rápido: Renderizar um modelo com o Unity
 
@@ -84,7 +84,7 @@ Posteriormente, convém implantar esse projeto em um HoloLens e conectar-ao serv
 
 ### <a name="create-a-session-and-view-the-default-model"></a>Criar uma sessão e ver o modelo padrão
 
-Pressione o botão **Reproduzir** do Unity para iniciar a sessão. Você deve ver uma sobreposição com texto de status na parte inferior do visor no painel *Jogo*. A sessão passará por uma série de transições de estado. No estado **Inicial**, a VM remota é criada, o que leva vários minutos. Após o êxito, ela faz a transição para o estado **Pronto**. Agora, a sessão entra no estado **Conectando**, em que ela tenta atingir o runtime de renderização nessa VM. Quando bem-sucedido, o exemplo faz a transição para o estado **Conectado**. Neste ponto, ele começará a baixar o modelo para renderização. Devido ao tamanho do modelo, o download pode levar alguns minutos. Em seguida, o modelo renderizado remotamente será exibido.
+Pressione o botão **Reproduzir** do Unity para iniciar a sessão. Você deve ver uma sobreposição com texto de status na parte inferior do visor no painel *Jogo*. A sessão passará por uma série de transições de estado. No estado **Inicial**, o servidor é criado, o que leva vários minutos. Após o êxito, ela faz a transição para o estado **Pronto**. Agora, a sessão entra no estado **Conectando**, em que ela tenta atingir o runtime de renderização nesse servidor. Quando bem-sucedido, o exemplo faz a transição para o estado **Conectado**. Neste ponto, ele começará a baixar o modelo para renderização. Devido ao tamanho do modelo, o download pode levar alguns minutos. Em seguida, o modelo renderizado remotamente será exibido.
 
 ![Saída do exemplo](media/arr-sample-output.png)
 

@@ -1,7 +1,7 @@
 ---
 title: Atualizar para a v3.0 da API da Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Saiba como atualizar da v2.0 e da v2.1 para a v3.0 da API da Pesquisa Visual Computacional.
+description: Saiba como atualizar a API de Leitura da Pesquisa Visual Computacional v2.0/v2.1 para a v3.0.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: 16add0dce88d0f809dc291d3c9de33e1a853f257
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 6e695fcfacac19ca82273d84d049bdb2afe14b54
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136564"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214185"
 ---
-# <a name="upgrade-to-v30-of-computer-vision-api-from-v20-and-v21"></a>Atualizar da v.2.0 e da v2.1 para a v3.0 da API da Pesquisa Visual Computacional
+# <a name="upgrade-to-computer-vision-v30-read-api-from-v20v21"></a>Atualizar a API de Leitura da Pesquisa Visual Computacional v2.0/v2.1 para a v3.0
 
-Este guia mostra como modificar o código existente para migrar da v2.0 ou da v2.1 para a v3.0 da API da Pesquisa Visual Computacional para usuários da API REST. 
+Este guia mostra como atualizar o código da API REST da Pesquisa Visual Computacional v2.0 ou v2.1 existente para operações de Leitura da v3.0. 
 
 ## <a name="upgrade-batch-read-file-to-read"></a>Fazer upgrade de `Batch Read File` para `Read`
 

@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao Yodeck | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Yodeck.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b2c8dccb-eeb0-4f4d-a24d-8320631ce819
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: af0748f36e8d2299921f987c517f7a4923bd0d55
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8eed884ed9d957ede4ae9fc192ae5a8e501b652e
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67086467"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546229"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Tutorial: Integração do Active Directory do Azure ao Yodeck
 
@@ -119,13 +115,23 @@ Para configurar o logon único do Azure AD com o Yodeck, execute as seguintes et
 
 ### <a name="configure-yodeck-single-sign-on"></a>Configurar o logon único do Yodeck
 
+1. Para automatizar a configuração no **Yodeck**, é necessário instalar a **extensão do navegador Entrada Segura dos Meus Aplicativos** clicando em **Instalar a extensão**.
+
+    ![image](./media/target-process-tutorial/install_extension.png)
+
+1. Depois de adicionar a extensão ao navegador, clique em **Configurar o Yodeck** para ser direcionado ao aplicativo Yodeck. Nele, forneça as credenciais de administrador para entrar no Yodeck. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 5.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+    **Se desejar configurar o aplicativo manualmente, realize as seguintes etapas:**
+
 1. Em outra janela do navegador da Web, entre em seu site de empresa do Yodeck como administrador.
 
-2. Clique no formulário de opções **Configurações do usuário** no canto superior direito da página e selecione **Configurações da conta**.
+1. Clique no formulário de opções **Configurações do usuário** no canto superior direito da página e selecione **Configurações da conta**.
 
     ![Configuração do Yodeck](./media/yodeck-tutorial/configure1.png)
 
-3. Selecione **SAML** e execute as seguintes etapas:
+1. Selecione **SAML** e execute as seguintes etapas:
 
     ![Configuração do Yodeck](./media/yodeck-tutorial/configure2.png)
 
@@ -203,7 +209,7 @@ Para permitir que os usuários do Azure AD entrem no Yodeck, eles devem ser prov
 
     ![Adicionar Funcionário](./media/yodeck-tutorial/user2.png)
 
-4. Na página do diálogo **Detalhes do Usuário** , realize as seguintes etapas:
+4. Na página de diálogo **Detalhes do Usuário**, realize as etapas seguintes:
 
     ![Adicionar Funcionário](./media/yodeck-tutorial/user3.png)
 
@@ -229,5 +235,5 @@ Ao clicar no bloco do Yodeck no Painel de Acesso, você deverá ser conectado au
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

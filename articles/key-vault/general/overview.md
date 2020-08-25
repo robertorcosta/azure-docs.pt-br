@@ -1,6 +1,6 @@
 ---
 title: Visão geral do Azure Key Vault – Azure Key Vault | Microsoft Docs
-description: O Azure Key Vault é um serviço de nuvem que funciona como um repositório de segredos seguro.
+description: O Azure Key Vault é um armazenamento de segredos seguro, fornecendo gerenciamento de segredos, chaves e certificados, todos com suporte de módulos de segurança de hardware.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,12 +11,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7ef31a11414fad1b9a3d06d00055c36c995adcce
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 98f681494ca73bd2698cd3068441cf02cd6730ac
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84216313"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190557"
 ---
 # <a name="about-azure-key-vault"></a>Sobre o Azure Key Vault
 

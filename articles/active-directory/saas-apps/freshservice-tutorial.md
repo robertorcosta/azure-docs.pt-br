@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Freshservice | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Freshservice.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3dd22b1f-445d-45c6-8eda-30207eb9a1a8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/29/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06b52ec552434f74c56333d1afe00cde2a285418
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 9e53881d5b28b61cd220b14e02c411db53d19d36
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905390"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550989"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Freshservice
 
@@ -60,7 +56,7 @@ Para configurar a integração do Freshservice ao Azure AD, você precisa adicio
 1. Na seção **Adicionar por meio da galeria**, digite **Freshservice** na caixa de pesquisa.
 1. Escolha **Freshservice** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-freshservice"></a>Configurar e testar o logon único do Azure AD para o Freshservice
+## <a name="configure-and-test-azure-ad-sso-for-freshservice"></a>Configurar e testar o SSO do Azure AD para o Freshservice
 
 Configure e teste o SSO do Azure AD com o Freshservice usando um usuário de teste chamado **B. Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Freshservice.
 
@@ -132,7 +128,15 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure con
 
 ## <a name="configure-freshservice-sso"></a>Configurar o SSO do Freshservice
 
-1. Abra uma nova janela do navegador da Web e entre em seu site de empresa do Freshservice como administrador.
+1. Para automatizar a configuração no Freshservice, é necessário instalar a **Extensão do navegador de Entrada Segura dos Meus Aplicativos**, clicando em **Instalar a extensão**.
+
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
+
+1. Depois de adicionar a extensão ao navegador, clique em **Configurar o Freshservice** para ser direcionado ao aplicativo Freshservice. Nele, forneça as credenciais de administrador para entrar no Freshservice. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 6.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+1. Caso deseje configurar o Freshservice manualmente, faça logon no seu site de empresa do Freshservice como administrador.
 
 1. No menu à esquerda, clique em **Administração** e selecione **Segurança de Helpdesk** em **Configurações Gerais**.
 

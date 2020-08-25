@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/27/2020
+ms.date: 08/14/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 0dc79132ae75be511b53bf272e578ff0ce7a7775
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 068c2dc698e9f0b6d6f2f6486dff863c1343b178
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986807"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258277"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limites de dados e taxa para a API de Análise de Texto
 <a name="data-limits"></a>
@@ -31,8 +31,8 @@ Use este artigo para localizar os limites para o tamanho e as tarifas para as qu
 
 | Limite | Valor |
 |------------------------|---------------|
-| Tamanho máximo de um único documento | 5\.120 caracteres conforme medidos por [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Tamanho máximo de toda a solicitação | 1 MB |
+| Tamanho máximo de um único documento | 5\.120 caracteres conforme medidos por [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). Também se aplica à Análise de Texto do contêiner de integridade. |
+| Tamanho máximo de toda a solicitação | 1 MB. Também se aplica à Análise de Texto do contêiner de integridade. |
 
 O número máximo de documentos que você pode enviar em uma solicitação dependerá da versão da API e do recurso que você está usando.
 
@@ -48,7 +48,7 @@ Os limites a seguir mudaram na v3 da API. Exceder os limites abaixo vai gerar um
 | Extração de Frases-Chave | 10 |
 | Reconhecimento de Entidade Nomeada | 5 |
 | Vinculação de Identidade | 5 |
-
+| Análise de Texto do contêiner de integridade | 1000 |
 #### <a name="version-2"></a>[Versão 2](#tab/version-2)
 
 | Recurso | Máximo de documentos por solicitação | 
@@ -63,7 +63,7 @@ Os limites a seguir mudaram na v3 da API. Exceder os limites abaixo vai gerar um
 
 ## <a name="rate-limits"></a>Limites de taxa
 
-O limite de taxa varia de acordo com o [tipo de preço](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). Esses limites são os mesmos para as duas versões da API.
+O limite de taxa varia de acordo com o [tipo de preço](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/). Esses limites são os mesmos para as duas versões da API. Esses limites de taxa não se aplicam à Análise de Texto do contêiner de integridade, que não tem um limite de taxa definido.
 
 | Camada          | Solicitações por segundo | Solicitações por minuto |
 |---------------|---------------------|---------------------|

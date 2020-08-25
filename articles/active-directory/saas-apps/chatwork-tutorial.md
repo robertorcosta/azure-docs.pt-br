@@ -2,25 +2,21 @@
 title: 'Tutorial: integração do SSO (logon único) do Azure Active Directory ao Chatwork | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Chatwork.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 0982ee1d-7ae2-415b-9e47-cfc72e1885ca
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 368b87a4abd5b55a807f7184c3a56876169b2517
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fdf9e16e5578f794d01671d391f3568eae6555cc
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293234"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586232"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-chatwork"></a>Tutorial: integração do SSO (logon único) do Azure Active Directory ao Chatwork
 
@@ -87,7 +83,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://www.chatwork.com/s/<TENANT_NAME>`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do Chatwork](mailto:info@support.chatwork.com) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > O valor não é real. Atualize o valor com a URL de logon particular definida após **Configuração do SSO do Chatwork**.
+
+1. O aplicativo Chatwork espera que o valor do atributo **Identificador Exclusivo do Usuário** corresponda ao endereço de email registrado no Chatwork. O atributo é mapeado para **user.principalname** por padrão. Se o principalname for diferente do endereço de email, mapeie o **Identificador Exclusivo do Usuário** para **user.mail**.
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
@@ -129,11 +127,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 ## <a name="configure-chatwork-sso"></a>Configurar SSO do Chatwork
 
-Para configurar o logon único no lado do **Chatwork**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Chatwork](mailto:info@support.chatwork.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Chatwork**, leia o [Guia do Administrador do Chatwork](https://download.chatwork.com/Chatwork_AdminGuide.pdf) e defina a configuração no Chatwork.
 
 ### <a name="create-chatwork-test-user"></a>Criar usuário de teste do Chatwork
 
-Nesta seção, você criará um usuário chamado B.Fernandes no Chatwork. Trabalhe com a  [equipe de suporte do Chatwork](mailto:info@support.chatwork.com) para adicionar os usuários à plataforma do Chatwork. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado B.Fernandes no Chatwork. Acesse o [Guia de Administração do Chatwork](https://download.chatwork.com/Chatwork_AdminGuide.pdf) e adicione o usuário na plataforma Chatwork.
 
 ## <a name="test-sso"></a>Testar o SSO 
 

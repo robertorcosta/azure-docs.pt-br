@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9f140594ef18df7f9a6a3b919998962c966cde76
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 995d621ffbabd6743d248812c88ebe7e65da24ca
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587592"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796945"
 ---
 # <a name="manage-digital-twins"></a>Gerenciar gêmeos digitais
 
@@ -104,8 +104,10 @@ object result = await client.GetDigitalTwin(id);
 
 Essa chamada retorna dados de texto como uma cadeia de caracteres JSON. 
 
-> [!TIP]
-> Somente as propriedades que foram definidas pelo menos uma vez são retornadas quando você recupera um conjunto de entrelaças com `GetDigitalTwin` .
+Somente as propriedades que foram definidas pelo menos uma vez são retornadas quando você recupera um conjunto de entrelaças com `GetDigitalTwin` .
+
+>[!TIP]
+>O `displayName` para um papel de cópia é parte de seus metadados de modelo, portanto, ele não será exibido ao obter dados para a instância de a. Para ver esse valor, você pode [recuperá-lo a partir do modelo](how-to-manage-model.md#retrieve-models).
 
 Para recuperar vários gêmeos usando uma única chamada à API, consulte os exemplos de API de consulta em [*instruções: consultar o gráfico de entrelaçamento*](how-to-query-graph.md).
 
@@ -164,7 +166,7 @@ O resultado da chamada `object result = await client.DigitalTwins.GetByIdAsync("
 As propriedades definidas de 10 digitais são retornadas como propriedades de nível superior no digital. Metadados ou informações do sistema que não fazem parte da definição DTDL são retornados com um `$` prefixo. As propriedades de metadados incluem:
 * A ID do cópia digital nesta instância de gêmeos digital do Azure, como `$dtId` .
 * `$etag`, um campo HTTP padrão atribuído pelo servidor Web
-* Outras propriedades em uma `$metadata` seção. Eles incluem:
+* Outras propriedades em uma `$metadata` seção. Elas incluem:
     - O DTMI do modelo do teledigital.
     - Status de sincronização para cada propriedade gravável. Isso é mais útil para dispositivos, em que é possível que o serviço e o dispositivo tenham status divergente (por exemplo, quando um dispositivo estiver offline). Atualmente, essa propriedade só se aplica a dispositivos físicos conectados ao Hub IoT. Com os dados na seção de metadados, é possível entender o status completo de uma propriedade, bem como os últimos carimbos de data/hora modificados. Para obter mais informações sobre o status de sincronização, consulte [este tutorial do Hub IOT](../iot-hub/tutorial-device-twins.md) sobre como sincronizar o estado do dispositivo.
     - Metadados específicos do serviço, como do Hub IoT ou do gêmeos digital do Azure. 
@@ -273,7 +275,7 @@ Por exemplo, considere o seguinte documento de patch JSON que substitui o campo 
 
 Esta operação só terá sucesso se o tipo de atualização digital estiver sendo modificado pelo patch estiver em conformidade com o novo modelo. 
 
-Considere o exemplo a seguir:
+Considere o seguinte exemplo:
 1. Imagine um "up digital" com um modelo de *foo_old*. *foo_old* define uma propriedade necessária *em massa*.
 2. O novo modelo *foo_new* define uma propriedade em massa e adiciona uma nova *temperatura*de propriedade necessária.
 3. Após o patch, o FileUp digital deve ter uma propriedade Mass e de temperatura. 

@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 04/29/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3370a2631a81ce36fd994da73c871fb1e409c667
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 8dda8c742a0aafe7ec3f46a0a9dbf0abd4a516b4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84728360"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213793"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Associação dinâmica do Azure Active Directory para grupos
 
-No Active Directory do Azure (Azure AD), você pode criar regras complexas baseadas em atributos para habilitar associações dinâmicas para grupos. Associação de grupos dinâmica reduz a sobrecarga administrativa de adicionar e remover usuários. Este artigo detalha as propriedades e a sintaxe para criar regras de associação dinâmica para usuários ou dispositivos. Você pode configurar uma regra de associação dinâmica em grupos de segurança ou em grupos do Office 365.
+No Active Directory do Azure (Azure AD), você pode criar regras complexas baseadas em atributos para habilitar associações dinâmicas para grupos. Associação de grupos dinâmica reduz a sobrecarga administrativa de adicionar e remover usuários. Este artigo detalha as propriedades e a sintaxe para criar regras de associação dinâmica para usuários ou dispositivos. Você pode configurar uma regra de associação dinâmica em grupos de segurança ou em grupos do Microsoft 365.
 
 Quando os atributos de um usuário ou um dispositivo são alterados, o sistema avalia todas as regras de grupo dinâmicas em um diretório para ver se a alteração dispararia adições ou remoções de grupo. Se um usuário ou dispositivo atender a uma regra em um grupo, ele será adicionado como membro desse grupo. Se não atenderem mais à regra, eles serão removidos. Manualmente, não é possível adicionar nem remover um membro de um grupo dinâmico.
 
@@ -269,7 +269,7 @@ assignedPlans é uma propriedade de valores múltiplos que lista todos os planos
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-Uma regra como esta pode ser usada para agrupar todos os usuários para quem um Office 365 (ou outro serviço Online da Microsoft) o recurso está habilitado. Você poderia aplicar com um conjunto de políticas ao grupo.
+Uma regra como esta pode ser usada para agrupar todos os usuários para os quais uma funcionalidade do Microsoft 365 (ou de outro Serviço Online da Microsoft) está habilitada. Você poderia aplicar com um conjunto de políticas ao grupo.
 
 #### <a name="example-2"></a>Exemplo 2
 

@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SAP Fiori | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o SAP Fiori.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 77ad13bf-e56b-4063-97d0-c82a19da9d56
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 917ba9274276fec5d01a40bdf7219e8d4fee1395
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4d2f6766fa32beb9cebaa8f77c04f6865e15e14d
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78897756"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543385"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SAP Fiori
 
@@ -126,7 +121,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 1. Na caixa **Nome do Provedor**, substitua **T01122** com **http:\//T01122** e, em seguida, selecione **Salvar**.
 
     > [!NOTE]
-    > Por padrão, o nome do provedor está no formato \<sid>\<cliente>. O Azure AD espera o nome no formato \<protocolo>://\<nome>. Recomendamos que você mantenha o nome do provedor como https\://\<sid>\<cliente> para que você possa configurar vários mecanismos de ABAP do SAP Fiori no Azure AD.
+    > Por padrão, o nome do provedor está no formato \<sid>\<client>. O Azure AD espera o nome no formato \<protocol>://\<name>. Recomendamos que você mantenha o nome do provedor como https\://\<sid>\<client> para que você possa configurar vários mecanismos de ABAP do SAP Fiori no Azure AD.
 
     ![O nome do provedor atualizado na página de Configuração de SAML 2.0 do sistema ABAP T01/122 no SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-providername.png)
 

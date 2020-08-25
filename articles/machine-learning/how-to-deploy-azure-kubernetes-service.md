@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 5c253abf0fa6ae95dff178847209be407fb5bca5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 03477fa46aaec04c0563ed38b085605dce5b87a1
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120823"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751746"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implantar um modelo em um cluster do serviço kubernetes do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,9 @@ Saiba como usar Azure Machine Learning para implantar um modelo como um serviço
 - Opções de __aceleração de hardware__ , como a GPU e as FPGA (matrizes de porta programável por campo).
 
 > [!IMPORTANT]
-> O dimensionamento do cluster não é fornecido por meio do SDK do Azure Machine Learning. Para obter mais informações sobre como dimensionar os nós em um cluster AKS, consulte [dimensionar a contagem de nós em um cluster AKs](../aks/scale-cluster.md).
+> O dimensionamento do cluster não é fornecido por meio do SDK do Azure Machine Learning. Para obter mais informações sobre como dimensionar os nós em um cluster AKS, consulte 
+- [Dimensionar manualmente a contagem de nós em um cluster AKS](../aks/scale-cluster.md)
+- [Configurar o dimensionamento de cluster em AKS](../aks/cluster-autoscaler.md)
 
 Ao implantar no serviço kubernetes do Azure, você implanta em um cluster AKS que está __conectado ao seu espaço de trabalho__. Há duas maneiras de conectar um cluster AKS ao seu espaço de trabalho:
 
@@ -43,7 +45,7 @@ O cluster AKS e o espaço de trabalho AML podem estar em grupos de recursos dife
 > [!IMPORTANT]
 > Recomendamos que você depure localmente antes de implantar no serviço Web. Para obter mais informações, consulte [depurar localmente](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
 >
-> Você também pode consultar a Azure Machine Learning- [implantar no bloco de anotações local](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
+> Você também pode ver o Azure Machine Learning - [Implantar no notebook local](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -55,9 +57,9 @@ O cluster AKS e o espaço de trabalho AML podem estar em grupos de recursos dife
 
 - Os trechos de código __Python__ neste artigo pressupõem que as seguintes variáveis sejam definidas:
 
-    * `ws`-Defina para seu espaço de trabalho.
-    * `model`-Defina para o modelo registrado.
-    * `inference_config`– Defina para a configuração de inferência para o modelo.
+    * `ws` -Defina para seu espaço de trabalho.
+    * `model` -Defina para o modelo registrado.
+    * `inference_config` – Defina para a configuração de inferência para o modelo.
 
     Para obter mais informações sobre como definir essas variáveis, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 
@@ -65,9 +67,16 @@ O cluster AKS e o espaço de trabalho AML podem estar em grupos de recursos dife
 
 - Se você precisar de um SLB (Standard Load Balancer) implantado em seu cluster em vez de um Load Balancer básico (BLB), crie um cluster no portal do AKS/CLI/SDK e anexe-o ao espaço de trabalho AML.
 
-- Se você anexar um cluster AKS, que tem um [intervalo de IP autorizado habilitado para acessar o servidor de API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), habilite os intervalos de IP do plano de controle AML para o cluster AKs. O plano de controle AML é implantado em regiões emparelhadas e implanta inferência pods no cluster AKS. Sem acesso ao servidor de API, os pods inferência não podem ser implantados. Use os [intervalos de IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) para ambas as [regiões emparelhadas]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) ao habilitar os intervalos de IP em um cluster AKs.
+- Se você tiver um Azure Policy que restringe a criação de IPS públicos, a criação do cluster AKS falhará. O AKS requer um IP público para o [tráfego de saída](https://docs.microsoft.com/azure/aks/limit-egress-traffic). Este artigo também fornece orientação para bloquear o tráfego de saída do cluster por meio do IP público, exceto por alguns FQDN. Há duas maneiras de habilitar um IP público:
+  - O cluster pode usar o IP público criado por padrão com o BLB ou SLB, ou
+  - O cluster pode ser criado sem um IP público e, em seguida, um IP público é configurado com um firewall com uma rota definida pelo usuário, conforme documentado [aqui](https://docs.microsoft.com/azure/aks/egress-outboundtype) 
+  
+  O plano de controle AML não se comunica com esse IP público. Ele se comunica com o plano de controle AKS para implantações. 
 
-__Os intervalos de IP Authroized funcionam apenas com Standard Load Balancer.__
+- Se você anexar um cluster AKS, que tem um [intervalo de IP autorizado habilitado para acessar o servidor de API](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), habilite os intervalos de IP do plano controle AML para o cluster AKs. O plano de controle AML é implantado em regiões emparelhadas e implanta inferência pods no cluster AKS. Sem acesso ao servidor de API, os pods inferência não podem ser implantados. Use os [intervalos de IP](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) para ambas as [regiões emparelhadas]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) ao habilitar os intervalos de IP em um cluster AKs.
+
+
+  Os intervalos de IP Authroized funcionam apenas com Standard Load Balancer.
  
  - O nome de computação deve ser exclusivo em um espaço de trabalho
    - O nome é obrigatório e deve ter entre 3 e 24 caracteres.
@@ -76,10 +85,6 @@ __Os intervalos de IP Authroized funcionam apenas com Standard Load Balancer.__
    - O nome deve ser exclusivo em todas as computações existentes em uma região do Azure. Você verá um alerta se o nome escolhido não for exclusivo
    
  - Se você quiser implantar modelos em nós de GPU ou nós FPGA (ou qualquer SKU específico), deverá criar um cluster com o SKU específico. Não há suporte para a criação de um pool de nós secundário em um cluster existente e a implantação de modelos no pool de nós secundário.
- 
- 
-
-
 
 ## <a name="create-a-new-aks-cluster"></a>Criar um novo cluster AKS
 
@@ -290,7 +295,7 @@ No Azure Machine Learning, a "implantação" é usada no sentido mais geral de d
     1. Se não for encontrado, o sistema criará uma nova imagem (que será armazenada em cache e registrada com o ACR do espaço de trabalho)
 1. Baixando seu arquivo de projeto compactado para armazenamento temporário no nó de computação
 1. Descompactando o arquivo de projeto
-1. O nó de computação em execução`python <entry script> <arguments>`
+1. O nó de computação em execução `python <entry script> <arguments>`
 1. Salvando logs, arquivos de modelo e outros arquivos gravados na `./outputs` conta de armazenamento associada ao espaço de trabalho
 1. Reduzindo a computação, incluindo a remoção de armazenamento temporário (relacionado a kubernetes)
 
@@ -409,7 +414,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Se você precisar regenerar uma chave, use[`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
+> Se você precisar regenerar uma chave, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
 
 ### <a name="authentication-with-tokens"></a>Autenticação com tokens
 

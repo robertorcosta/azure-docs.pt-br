@@ -9,21 +9,23 @@ ms.topic: tutorial
 ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 07/16/2020
+ms.date: 08/14/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 960b59275885efd547df63febab37d2403c1c7cf
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: dddb332498f41437eba77d75c38218c58b8c8379
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847696"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507107"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Executar inferência de lote em grandes quantidades de dados usando o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Saiba como executar a inferência de lote em grandes quantidades de dados de maneira assíncrona e em paralelo usando o Azure Machine Learning. O ParallelRunStep fornece funcionalidades de paralelismo prontas para uso.
+Este artigo mostra como executar seu modelo do Azure Machine Learning em paralelo, avaliando rapidamente grandes volumes de dados. 
 
-Com ParallelRunStep, é simples dimensionar inferências offline para grandes clusters de computadores em terabytes de estruturados ou não estruturados com maior produtividade e custo otimizado.
+A inferência de conjuntos de dados grandes ou com modelos complicados pode ser demorada. A classe `ParallelRunStep` permite que você execute o processamento em paralelo, potencialmente obtendo resultados gerais com mais rapidez. Mesmo quando a execução de uma só avaliação é razoavelmente rápida, muitos cenários (detecção de objetos, processamento de vídeo, processamento de idioma natural etc.) envolvem a execução de muitas avaliações. 
+
+Com a `ParallelRunStep`, é simples dimensionar as inferências em lote para grandes clusters de computadores. Esses clusters podem lidar com terabytes de dados estruturados ou não estruturados com produtividade aprimorada e custo otimizado.
 
 Neste artigo, você aprenderá as seguintes tarefas:
 

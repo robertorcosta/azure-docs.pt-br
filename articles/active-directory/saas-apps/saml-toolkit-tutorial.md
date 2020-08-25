@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Azure AD SAML Toolkit | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Kit de Ferramentas SAML do Azure AD.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 3f4348e7-c34e-43c7-926e-f1b26ffacf6d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/24/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d2681c09030ff0f36938d7a09e1d1b2e9aa645c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aa37cef84bb1d2cb92f2bb0e4a227c5be60fa345
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82166303"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543407"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Azure AD SAML Toolkit
 
@@ -161,7 +157,7 @@ Nesta seção, você permitirá que o B.Fernandes use o logon único do Azure, c
 
 ### <a name="create-azure-ad-saml-toolkit-test-user"></a>Criar usuário de teste do Kit de Ferramentas do SAML do Azure AD
 
-Nesta seção, um usuário chamado B.Fernandes é criado no Kit de Ferramentas do SAML do Azure AD. O Kit de Ferramentas do SAML do Azure AD oferece suporte ao provisionamento de usuário just-in-time, que é ativado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no Kit de Ferramentas do SAML do Azure AD, um novo é criado após a autenticação.
+Nesta seção, um usuário chamado B.Fernandes é criado no Kit de Ferramentas do SAML do Azure AD. Crie um usuário de teste na ferramenta registrando um novo usuário e forneça todos os detalhes dele. 
 
 ## <a name="test-sso"></a>Testar o SSO 
 

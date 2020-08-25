@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 67a66ae94508a8d7f54d6112de95fa65a8fd5f09
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: d7502414f6476cafcc85bbefd28a4ec463f62099
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185410"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751692"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -76,7 +76,7 @@ Para obter mais informações sobre como usar o SDK para se conectar a um espaç
 ---
 
 
-## <a name="register-your-model"></a><a id="registermodel"></a>Registrar seu modelo
+## <a name="register-your-model"></a><a id="registermodel"></a> Registrar seu modelo
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)
 
@@ -218,12 +218,12 @@ A configuração de inferência usa ambientes Azure Machine Learning para defini
 
 name: project_environment
 dependencies:
-    - python=3.6.2
-    - scikit-learn=0.20.0
-    - pip:
-        # You must list azureml-defaults as a pip dependency
-    - azureml-defaults>=1.0.45
-    - inference-schema[numpy-support]
+- python=3.6.2
+- scikit-learn=0.22.1
+- pip:
+ # You must list azureml-defaults as a pip dependency
+ - azureml-defaults>=1.0.45
+ - inference-schema[numpy-support]
 ```
 
 > [!IMPORTANT]
@@ -357,12 +357,12 @@ A tabela a seguir descreve os diferentes Estados de serviço:
 | Íntegros | O serviço está íntegro e o ponto de extremidade está disponível. | Sim |
 
 
-### <a name="batch-inference"></a><a id="azuremlcompute"></a>Inferência de lote
+### <a name="batch-inference"></a><a id="azuremlcompute"></a> Inferência de lote
 Azure Machine Learning destinos de computação são criados e gerenciados pelo Azure Machine Learning. Eles podem ser usados para previsão de lote de pipelines de Azure Machine Learning.
 
 Para obter uma explicação sobre a inferência de lote com Azure Machine Learning computação, consulte [como executar previsões de lote](tutorial-pipeline-batch-scoring-classification.md).
 
-### <a name="iot-edge-inference"></a><a id="iotedge"></a>Inferência de IoT Edge
+### <a name="iot-edge-inference"></a><a id="iotedge"></a> Inferência de IoT Edge
 O suporte para a implantação no Edge está em versão prévia. Para obter mais informações, consulte [implantar Azure Machine Learning como um módulo IOT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning).
 
 ## <a name="delete-resources"></a>Excluir recursos
@@ -371,7 +371,7 @@ O suporte para a implantação no Edge está em versão prévia. Para obter mais
 
 Para excluir um WebService implantado, use `az ml service <name of webservice>` .
 
-Para excluir um modelo registrado do seu espaço de trabalho, use`az ml model delete <model id>`
+Para excluir um modelo registrado do seu espaço de trabalho, use `az ml model delete <model id>`
 
 Leia mais sobre como [excluir um WebService](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) e [excluir um modelo](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete).
 

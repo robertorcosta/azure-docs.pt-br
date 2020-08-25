@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: e6d61e329ba91f53b11ace4d258b35950e188dcb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3d38fa2afe35976283e5129eab7d7f8ef3a1103b
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76771210"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236481"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Como usar o Armazenamento de Tabelas do Azure e a API da tabela do Azure Cosmos DB com C++
 
@@ -91,14 +91,14 @@ const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=ht
 
 Use o nome de sua conta do Azure Cosmos DB para `<your_cosmos_db_account>`. Insira sua chave primária para `<your_cosmos_db_account_key>`. Insira o ponto de extremidade listado no [portal do Azure](https://portal.azure.com) para `<your_cosmos_db_endpoint>`.
 
-Para testar seu aplicativo no computador local baseado em Windows, você pode usar o emulador de armazenamento do Azure instalado com o [SDK do Azure](https://azure.microsoft.com/downloads/). O emulador de armazenamento é um utilitário que simula os serviços de Blob, Fila e Tabela do Azure disponíveis em seu computador de desenvolvimento local. O exemplo a seguir mostra como declarar um campo estático para manter a cadeia de conexão em seu emulador de armazenamento local:  
+Para testar o seu aplicativo no computador local baseado em Windows, você pode usar o Emulador de Armazenamento do Azure instalado com o [SDK do Azure](https://azure.microsoft.com/downloads/). O Emulador de Armazenamento é um utilitário que simula os serviços de Tabela, Fila e Blob do Azure disponíveis no seu computador de desenvolvimento local. O exemplo a seguir mostra como declarar um campo estático para manter a cadeia de conexão em seu emulador de armazenamento local:  
 
 ```cpp
 // Define the connection string with Azure storage emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Para iniciar o emulador de armazenamento do Azure, em sua área de trabalho do Windows, selecione o botão **Iniciar** ou a tecla Windows. Insira e execute o *Emulador de Armazenamento do Microsoft Azure*. Para saber mais, confira [Usar o emulador de armazenamento do Azure para desenvolvimento e teste](../storage/common/storage-use-emulator.md).
+Para iniciar o Emulador de Armazenamento do Azure, na sua área de trabalho do Windows, selecione o botão **Iniciar** ou a tecla Windows. Insira e execute o *Emulador de Armazenamento do Microsoft Azure*. Para saber mais, confira [Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste](../storage/common/storage-use-emulator.md).
 
 ### <a name="retrieve-your-connection-string"></a>Recuperar sua cadeia de conexão
 

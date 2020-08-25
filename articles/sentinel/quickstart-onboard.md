@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d895ff3a16f8e21f73845c03d8bec83ded9bcd43
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 3efd0303b447242c0229bc71720e55c8aa3a2f2d
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564550"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566243"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Início Rápido: Integração do Azure Sentinel
 
@@ -58,7 +58,10 @@ Depois de conectar suas fontes de dados, escolha em uma galeria de pastas de tra
    > - O Azure Sentinel pode ser executado em workspaces em qualquer [região de GA do Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), exceto nas regiões China e Alemanha (soberanas). Os dados gerados pelo Azure Sentinel (como incidentes, indicadores e regras de alerta, que podem conter alguns dados do cliente provenientes desses workspaces) são salvos na Europa (para workspaces localizados na Europa), na Austrália (para workspaces localizados na Austrália) ou no Leste dos EUA (para os workspaces localizados em qualquer outra região).
 
    >[!IMPORTANT]
-   > - Depois que o Azure Sentinel tiver sido habilitado em um workspace, não haverá suporte à migração desse workspace para outros grupos de recursos ou assinaturas. Se você precisar migrar o workspace, entre em contato com o [Azure Sentinel](mailto:AzureSentinel@microsoft.com).
+   >
+   > - Após a implantação em um workspace, atualmente o Azure Sentinel **não dá suporte** para mover o workspace para outros grupos de recursos ou assinaturas. 
+   >
+   >   Se você já tiver movido o workspace, desabilite todas as regras ativas em **Análise** e habilite-as novamente após cinco minutos. Isso deve ser eficaz na maioria dos casos, porém, para reiterar, não há suporte para esse procedimento e ele traz riscos.
 
 1. Selecione **Adicionar o Azure Sentinel**.
   

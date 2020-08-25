@@ -1,18 +1,18 @@
 ---
 title: Obtenha ajuda com a implantação de solução do Azure VMware ou falhas de provisionamento
-description: Como obter as informações de que você precisa de sua nuvem privada da AVS (solução VMware) do Azure para arquivar uma solicitação de serviço para implantação de AVS ou falhas de provisionamento.
+description: Como obter as informações de que você precisa de sua nuvem privada da solução Azure VMware para arquivar uma solicitação de serviço para implantação de solução do Azure VMware ou falhas de provisionamento.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 05c9dee088b37c37cdcdee7e745cdcd2222b63e0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 63d5440a9e2b15463e465e1d32762889508feca1
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514570"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752226"
 ---
 # <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Obtenha ajuda com a implantação de solução do Azure VMware ou falhas de provisionamento
 
-Neste artigo, você aprenderá a obter ajuda com a implantação da AVS (solução do Azure VMware) ou falhas de provisionamento em sua nuvem privada, abrindo uma solicitação de serviço (SR) no portal do Azure. No entanto, primeiro você precisa coletar algumas informações importantes na portal do Azure. Na maioria dos casos, você precisa do:
+Neste artigo, você aprende a obter ajuda com a implantação de solução do Azure VMware ou falhas de provisionamento em sua nuvem privada, abrindo uma solicitação de serviço (SR) no portal do Azure. No entanto, primeiro você precisa coletar algumas informações importantes na portal do Azure. Na maioria dos casos, você precisa do:
 
 - ID de correlação (da implantação com falha)
 - ID de circuito do ExpressRoute (ao tentar dimensionar ou emparelhar uma nuvem privada existente com o circuito de ExpressRoute da nuvem privada e falha)
@@ -27,10 +27,10 @@ Aqui está um exemplo da saída de uma implantação de nuvem privada com falha,
 
 Copie e salve essa ID de correlação para incluir na solicitação de serviço. Para obter detalhes, consulte [criar sua solicitação de suporte](#create-your-support-request) no final deste artigo.
 
-Se a falha ocorrer nos estágios de validação prévia, antes da implantação de uma nuvem privada, nenhuma ID de correlação será gerada. Nesse caso, você pode simplesmente fornecer as informações que usou ao criar a nuvem privada da AVS, incluindo:
+Se a falha ocorrer nos estágios de validação prévia, antes da implantação de uma nuvem privada, nenhuma ID de correlação será gerada. Nesse caso, você pode simplesmente fornecer as informações que usou ao criar a nuvem privada da solução Azure VMware, incluindo:
 
-- Localização
-- Grupo de recursos
+- Local
+- Resource group
 - Nome do recurso
  
 ### <a name="collect-a-summary-of-errors"></a>Coletar um resumo de erros
@@ -53,7 +53,7 @@ Em notificações, selecione **mais eventos no log de atividades**.
 
 Em seguida, pesquise o nome do recurso ou em outra informação exclusiva usada na criação do recurso, para localizar a implantação com falha e sua ID de correlação. O exemplo a seguir mostra os resultados da pesquisa em um recurso de nuvem privada (pc03).
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Encontrar implantações de AVS com falha anteriores.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Encontre as implantações da solução Azure VMware com falha.":::
  
 Selecionar o nome da operação da implantação com falha abre uma janela com detalhes. Selecione a guia JSON e procure CorrelationId. Copie e inclua no SR. 
  
@@ -63,7 +63,7 @@ Talvez você já tenha uma nuvem privada e ocorra uma falha quando estiver tenta
 
 Ao exibir uma nuvem privada no portal, selecione **conectividade > ExpressRoute** e copie a **ID do expressroute** para a área de transferência.
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Colete uma ID do ExpressRoute."::: 
+:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Copie a ID do ExpressRoute para a área de transferência."::: 
  
 Cole a ID do ExpressRoute no campo apropriado na nova solicitação de suporte. Para obter mais informações, consulte a seção a seguir, [criar sua solicitação de suporte](#create-your-support-request).
  
@@ -74,11 +74,11 @@ Cole a ID do ExpressRoute no campo apropriado na nova solicitação de suporte. 
 
 Para obter diretrizes gerais sobre como criar sua solicitação de suporte, consulte [como criar uma solicitação de suporte do Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
-Aqui estão as diretrizes adicionais específicas para a criação de uma implantação do SR for AVS ou falhas de provisionamento.
+Aqui estão as diretrizes adicionais específicas para a criação de uma implantação da solução do SR para Azure ou falhas de provisionamento.
 
 1. Selecione o ícone de **ajuda** e **+ nova solicitação de suporte**.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Colete uma ID do ExpressRoute.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Colete uma ID do ExpressRoute para seu SR.":::
 
 2. Preencha todos os campos obrigatórios e na guia **noções básicas** :
 

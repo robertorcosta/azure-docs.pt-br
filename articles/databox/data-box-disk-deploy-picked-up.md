@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 692ddbf1e17e316bdcee6c34062ffa51ef278bc7
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 638ab84658c36536966ef990570684a047521ee6
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923774"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257451"
 ---
 ::: zone target="docs"
 
@@ -224,7 +224,7 @@ Siga as etapas a seguir se estiver devolvendo o dispositivo na China.
 
 ### <a name="self-managed"></a>[Autogerenciado](#tab/in-selfmanaged)
 
-Se estiver usando o Data Box Disk no Japão, em Singapura, na Coreia do Sul, no Oeste da Europa ou na Índia e tiver selecionado a opção de remessa autogerenciada durante a criação do pedido, siga estas instruções.
+Se você estiver usando o Data Box Disk no US Government, no Japão, em Singapura, na Coreia do Sul, no Oeste da Europa, na África do Sul ou na Índia e tiver selecionado a opção de remessa autogerenciada durante a criação do pedido, siga estas instruções.
 
 1. Vá para a folha **Visão geral** de seu pedido no portal do Azure. Examine as instruções que são exibidas ao selecionar **Agendar retirada**. Você deverá ver um código de Autorização, que será usado no momento de entrega do pedido.
 

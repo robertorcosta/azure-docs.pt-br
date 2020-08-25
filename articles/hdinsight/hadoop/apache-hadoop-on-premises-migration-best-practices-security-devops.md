@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: d190d3f133c4b12b58dade878dc66755c25e1ed8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 99c5ff39820b652a33ab670e63ca709f8747c4cf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078367"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751287"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – segurança e melhores práticas de DevOps
 
@@ -83,7 +83,7 @@ A segurança empresarial de ponta a ponta pode ser alcançada usando os seguinte
 
 Para obter mais informações, consulte os seguintes artigos:
 
-- [Visão geral das Redes Virtuais do Azure](../../virtual-network/virtual-networks-overview.md)
+- [Visão geral das redes virtuais do Azure](../../virtual-network/virtual-networks-overview.md)
 - [Visão geral dos Grupos de Segurança de Rede do Azure](../../virtual-network/security-overview.md)
 - [Emparelhamento de Rede Virtual do Azure](../../virtual-network/virtual-network-peering-overview.md)
 - [Guia de segurança do Armazenamento do Microsoft Azure](../../storage/blobs/security-recommendations.md)
@@ -111,8 +111,6 @@ Atualize regularmente para a versão mais recente do HDInsight para aproveitar o
 Para obter mais informações, consulte o artigo: [atualizar o cluster HDInsight para uma nova versão](../hdinsight-upgrade-cluster.md).
 
 ## <a name="patch-cluster-operating-systems"></a>Aplicar patch no sistema operacional do cluster
-
-Como um serviço Hadoop gerenciado, o HDInsight se encarrega da aplicação de patch no SO das VMs usadas por clusters HDInsight.
 
 Para obter mais informações, consulte o artigo: [aplicação de patch de so para HDInsight](../hdinsight-os-patching.md).
 

@@ -4,12 +4,12 @@ description: Este tutorial oferece detalhes de como fazer backups do Windows Ser
 ms.topic: tutorial
 ms.date: 08/22/2018
 ms.custom: mvc
-ms.openlocfilehash: 560a4907fc812aae027ad9e1a1c262fc994c0da9
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: d2990b5950cf8812367c3a59c6cace39e4085e2a
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295534"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88261898"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Fazer backup do Windows Server para o Azure
 
@@ -29,13 +29,13 @@ Entre no Portal do Azure em <https://portal.azure.com>.
 
 Antes que possa fazer backup do Windows Server, você deverá criar um local para que os backups ou os pontos de restauração, sejam armazenados. Um [Cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) é um contêiner do Azure que armazena os backups do Windows Server. Siga as etapas abaixo para criar um Cofre dos Serviços de Recuperação no Portal do Azure.
 
-1. No menu à esquerda, selecione **Todos os serviços** e na lista de serviços, digite **Serviços de Recuperação**. Clique em **Cofres dos Serviços de Recuperação**.
+1. No menu à esquerda, selecione **Todos os serviços** e na lista de serviços, digite **Serviços de Recuperação**. Selecione **Cofres de Serviços de Recuperação**.
 
-   ![Abra o cofre dos Serviços de Recuperação](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
+   ![Abrir cofre de Serviços de Recuperação](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
-2. No menu **Cofres de Serviços de Recuperação**, clique em **Adicionar**.
+2. No menu **Cofres de Serviços de Recuperação**, selecione **Adicionar**.
 
-   ![Forneça informações para o cofre](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
+   ![Fornecer informações para o cofre](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
 
 3. No menu **Cofre dos Serviços de Recuperação**,
 
@@ -43,7 +43,7 @@ Antes que possa fazer backup do Windows Server, você deverá criar um local par
     * A ID da assinatura atual aparecerá em **Assinatura**.
     * Em **Grupo de recursos**, selecione **Usar existente** e selecione *myResourceGroup*. Se *myResourceGroup* não existir, selecione **Criar novo** e digite *myResourceGroup*.
     * No menu suspenso **Localização**, escolha *Europa Ocidental*.
-    * Clique em **Criar** para criar seu Cofre dos Serviços de Recuperação.
+    * Selecione **Criar** para criar o cofre dos Serviços de Recuperação.
 
 Depois que o cofre é criado, ele aparece na lista de cofres dos Serviços de Recuperação.
 
@@ -53,44 +53,44 @@ O Agente MARS (Serviços de Recuperação do Microsoft Azure) cria uma associaç
 
 1. Na lista de Cofres dos Serviços de Recuperação, selecione **myRecoveryServicesVault** para abrir seu painel.
 
-   ![Forneça informações para o cofre](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
+   ![Selecionar o cofre para abrir o painel](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
 
-2. No menu do painel do cofre, clique em **Backup**.
+2. No menu do painel do cofre, selecione **Backup**.
 
 3. No menu **Meta de Backup**:
 
    * em **Onde sua carga de trabalho é executada?** , selecione **Local**
    * Em **Do que você deseja fazer backup?** , selecione **Arquivos e pastas** e **Estado do Sistema**
 
-   ![Forneça informações para o cofre](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
+   ![Menu Meta de Backup](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
 
-4. Clique em **Preparar Infraestrutura** para abrir o menu **Preparar Infraestrutura**.
+4. Selecione **Preparar Infraestrutura** para abrir o menu **Preparar infraestrutura**.
 
-5. No menu **Preparar infraestrutura**, clique em **Baixar agente do Windows Server ou do Windows Client** para baixar o *MARSAgentInstaller.exe*.
+5. No menu **Preparar infraestrutura**, selecione **Baixar Agente do Windows Server ou do Windows Client** para baixar o *MARSAgentInstaller.exe*.
 
-    ![Preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
+    ![Baixar Agente para o Windows Server ou Windows Client](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
 
     O instalador abrirá um navegador separado e baixará o **MARSAgentInstaller.exe**.
 
-6. Antes de executar o arquivo baixado, no menu de Preparar infraestrutura, clique em **Baixar** e salve o arquivo **Credenciais do Cofre**. As credenciais do cofre são necessárias para conectar o Agente MARS com o cofre dos Serviços de Recuperação.
+6. Antes de executar o arquivo baixado, no menu Preparar infraestrutura, selecione **Baixar** e salve o arquivo **Credenciais do Cofre**. As credenciais do cofre são necessárias para conectar o Agente MARS com o cofre dos Serviços de Recuperação.
 
-    ![Preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
+    ![Baixar as credenciais do cofre](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
 
 ## <a name="install-and-register-the-agent"></a>Instalar e registrar o agente
 
 1. Localize e clique duas vezes no **MARSagentinstaller.exe** baixado.
-2. O **Assistente de Instalação do Agente de Serviços de Recuperação do Microsoft Azure** aparecerá. Conforme avançar no assistente, forneça as informações a seguir quando solicitado e clique em **Registrar**.
+2. O **Assistente de Instalação do Agente de Serviços de Recuperação do Microsoft Azure** aparecerá. Conforme avançar no assistente, forneça as informações a seguir quando solicitado e selecione **Registrar**.
    * Local para a instalação e a pasta de cache.
    * Informações do servidor proxy, se você usar um servidor proxy para se conectar à Internet.
    * Seus detalhes de nome de usuário e senha, se você usar um proxy autenticado.
 
-     ![Preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/mars-installer.png)
+     ![Assistente de configuração de serviços de recuperação do Microsoft Azure](./media/tutorial-backup-windows-server-to-azure/mars-installer.png)
 
-3. No final do assistente, clique em **Prosseguir com o Registro** e forneça o arquivo **Credenciais do Cofre** baixado no procedimento anterior.
+3. No final do assistente, selecione **Prosseguir com o Registro** e forneça o arquivo **Credenciais do Cofre** baixado no procedimento anterior.
 
-4. Quando solicitado, forneça uma frase secreta de criptografia para criptografar os backups pelo Windows Server. Salve a frase secreta em um local seguro, pois a Microsoft não poderá recuperá-la se ela for perdida.
+4. Quando solicitado, forneça uma frase secreta de criptografia para criptografar os backups pelo Windows Server. Salve a frase secreta em uma localização segura, pois a Microsoft não poderá recuperá-la se ela for perdida.
 
-5. Clique em **Concluir**.
+5. Selecione **Concluir**.
 
 ## <a name="configure-backup-and-retention"></a>Configurar Backup e Retenção
 
@@ -98,39 +98,39 @@ Você pode usar o Agente de Serviços de Recuperação do Microsoft Azure para a
 
 1. Abra o agente dos Serviços de Recuperação do Microsoft Azure Você pode localizá-lo pesquisando no seu computador por **Backup do Microsoft Azure**.
 
-2. No console do agente dos Serviços de Recuperação, clique em **Agendar Backup** no **Painel de Ações**.
+2. No console do agente dos Serviços de Recuperação, selecione **Agendar Backup** no **painel Ações**.
 
-    ![Preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![Agendar backup](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
-3. Clique em **Avançar** para navegar até a página **Selecionar itens para fazer backup**.
+3. Selecione **Avançar** para acessar a página **Selecionar Itens para Fazer Backup**.
 
-4. Clique em **Adicionar Itens** e, na caixa de diálogo que é aberta, selecione **Estado do Sistema** e as pastas ou os arquivos dos quais você deseja fazer backup. Em seguida, clique em **OK**.
+4. Selecione **Adicionar Itens** e, na caixa de diálogo que será aberta, selecione **Estado do Sistema** e as pastas ou os arquivos dos quais deseja fazer backup. Depois, selecione **OK**.
 
-5. Clique em **Próximo**.
+5. Selecione **Avançar**.
 
-6. Na página **Especificar Agendamento de Backup (Estado do Sistema)** , especifique a hora do dia ou da semana e que os backups precisam ser disparados para o Estado do Sistema e clique em **Avançar**.
+6. Na página **Especificar Agendamento de Backup (Estado do Sistema)** , especifique a hora do dia ou da semana em que os backups precisam ser disparados para o Estado do Sistema e selecione **Avançar**.
 
-7. Na página **Selecionar Política de Retenção (Estado do Sistema)** , selecione a Política de Retenção para a cópia de backup do Estado do Sistema e clique em **Avançar**.
+7. Na página **Selecionar Política de Retenção (Estado do Sistema)** , selecione a Política de Retenção para a cópia de backup do Estado do Sistema e selecione **Avançar**.
 
 8. Da mesma forma, selecione o agendamento de backup e a política de retenção para as pastas e os arquivos selecionados.
 
-9. Na página **Escolher Tipo Inicial de Backup**, selecione **Automaticamente pela rede** e clique em **Avançar**.
+9. Na página **Escolher Tipo Inicial de Backup**, selecione **Automaticamente pela rede** e escolha **Avançar**.
 
-10. Na página **Confirmação**, examine as informações e clique em **Concluir**.
+10. Na página **Confirmação**, examine as informações e selecione **Concluir**.
 
-11. Depois que o assistente terminar de criar o agendamento de backup, clique em **Fechar**.
+11. Depois que o assistente terminar de criar o agendamento de backup, escolha **Fechar**.
 
 ## <a name="perform-an-on-demand-backup"></a>Executar um backup sob demanda
 
-Você estabeleceu a agenda de quando os trabalhos de backup serão executados. No entanto, você não fez backup do servidor. Uma melhor prática de recuperação de desastre é executar um backup sob demanda para garantir a resiliência de dados para o servidor.
+Você estabeleceu o agendamento de quando os trabalhos de backup serão executados. No entanto, você não fez backup do servidor. Uma melhor prática de recuperação de desastre é executar um backup sob demanda para garantir a resiliência de dados para o servidor.
 
-1. No console do Agente de Serviços de Recuperação do Microsoft Azure, clique em **Fazer backup agora**.
+1. No console do agente de Serviços de Recuperação do Microsoft Azure, selecione **Fazer Backup Agora**.
 
-    ![Preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
+    ![Fazer Backup Agora](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
-2. No assistente **Fazer Backup Agora**, selecione um dos **Arquivos e Pastas** ou o **Estado do Sistema** que você deseja fazer backup e clique em **Avançar**
-3. Na página **Confirmação**, examine as configurações que o assistente **Fazer Backup Agora** usa para fazer backup do servidor. Em seguida, clique em **Fazer Backup**.
-4. Clique em **Fechar** para fechar o assistente. Se você fechar o assistente antes da conclusão do processo de backup, o assistente continuará a ser executado em segundo plano.
+2. No assistente **Fazer Backup Agora**, selecione uma opção em **Arquivos e Pastas** ou **Estado do Sistema** da qual deseja fazer backup e escolha **Avançar**
+3. Na página **Confirmação**, examine as configurações que o assistente **Fazer Backup Agora** usa para fazer backup do servidor. Em seguida, selecione **Fazer Backup**.
+4. Selecione **Fechar** para fechar o assistente. Se você fechar o assistente antes da conclusão do processo de backup, o assistente continuará a ser executado em segundo plano.
 5. Depois que o backup inicial for concluído, o status **Trabalho concluído** aparecerá no painel **Trabalhos** do console do Agente MARS.
 
 ## <a name="next-steps"></a>Próximas etapas

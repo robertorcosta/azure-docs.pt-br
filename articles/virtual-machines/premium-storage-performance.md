@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0e0f6df04eda45af04659edc2010e8d68b013892
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0fab0bf956790db2860daf75866d84173bfa6cbf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88701355"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751495"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: projeto para alto desempenho
 
@@ -31,16 +31,16 @@ Este artigo ajudará a responder às perguntas comuns a seguir sobre como otimiz
 Fornecemos estas diretrizes especificamente para Armazenamento Premium porque as cargas de trabalho em execução no Armazenamento Premium são altamente sensíveis ao desempenho. Fornecemos exemplos onde apropriado. Também é possível aplicar algumas destas diretrizes a aplicativos em execução nas VMs da IaaS com discos de Armazenamento Padrão.
 
 > [!NOTE]
-> Às vezes, o que parece ser um problema de desempenho de disco é, na verdade, um gargalo de rede. Nessas situações, você deve otimizar seu [desempenho de rede](~/articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
+> Às vezes, o que parece ser um problema de desempenho de disco é, na verdade, um gargalo de rede. Nessas situações, você deve otimizar seu [desempenho de rede](../virtual-network/virtual-network-optimize-network-bandwidth.md).
 >
 > Se você pretende avaliar o benchmark de seu disco, consulte nossos artigos sobre benchmarking de um disco:
 >
-> * Para o Linux: [avaliar o aplicativo no armazenamento em disco do Azure](./linux/disks-benchmarks.md)
-> * Para Windows: [benchmarking de um disco](./windows/disks-benchmarks.md).
+> * Para o Linux: [avaliar o aplicativo no armazenamento em disco do Azure](linux/disks-benchmarks.md)
+> * Para Windows: [benchmarking de um disco](windows/disks-benchmarks.md).
 >
-> Se sua VM oferecer suporte a rede acelerada, verifique se ela está ativada. Se não estiver ativado, você poderá ativá-lo em VMs já implementadas nos [Windows](~/articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) e [Linux](~/articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
+> Se sua VM oferecer suporte a rede acelerada, verifique se ela está ativada. Se não estiver ativado, você poderá ativá-lo em VMs já implementadas nos [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) e [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Antes de começar, se você não estiver familiarizado com o Armazenamento Premium, leia primeiro os artigos [Selecionar um tipo de disco do Azure para VMs IaaS](./linux/disks-types.md) e [Metas de escalabilidade para contas de Armazenamento de Blobs de Páginas Premium](~/articles/storage/blobs/scalability-targets-premium-page-blobs.md).
+Antes de começar, se você não estiver familiarizado com o Armazenamento Premium, leia primeiro os artigos [Selecionar um tipo de disco do Azure para VMs IaaS](disks-types.md) e [Metas de escalabilidade para contas de Armazenamento de Blobs de Páginas Premium](../storage/blobs/scalability-targets-premium-page-blobs.md).
 
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho de aplicativo
 
@@ -62,7 +62,7 @@ Quando você anexa um disco do armazenamento Premium a uma VM de alta escala, o 
 
 Há uma relação entre a taxa de transferência e a IOPS, como mostrado na fórmula abaixo.
 
-![Relação de IOPS e taxa de transferência](~/articles/virtual-machines/linux/media/premium-storage-performance/image1.png)
+![Relação de IOPS e taxa de transferência](linux/media/premium-storage-performance/image1.png)
 
 Portanto, é importante determinar os valores ideais de taxa de transferência e de IOPS que o aplicativo exige. Ao tentar otimizar um deles, o outro também é afetado. Em uma seção mais adiante, *Otimizando o desempenho do aplicativo*, abordaremos em mais detalhes como otimizar a IOPS e Taxa de Transferência.
 
@@ -144,7 +144,7 @@ Ao longo desta seção, consulte a lista de verificação de requisitos de aplic
 
 A tabela abaixo resume os fatores de desempenho e as etapas necessárias para otimizar a IOPS, taxa de transferência e latência. As seções a seguir deste resumo descreverão cada fator mais detalhadamente.
 
-Para obter mais informações sobre tamanhos de VM e sobre o IOPS, taxa de transferência e latência disponível para cada tipo de VM, consulte [tamanhos de VM Linux](~/articles/virtual-machines/linux/sizes.md) ou [tamanhos de VM Windows](~/articles/virtual-machines/windows/sizes.md).
+Para obter mais informações sobre tamanhos de VM e sobre IOPS, taxa de transferência e latência disponíveis para cada tipo de VM, consulte [tamanhos de máquinas virtuais no Azure](sizes.md).
 
 | | **IOPS** | **Taxa de transferência** | **Latência** |
 | --- | --- | --- | --- |
@@ -206,7 +206,7 @@ As VMs de alta escala estão disponíveis em diferentes tamanhos com diferentes 
 | Standard_DS14 |16 |112 GB |SO = 1023 GB <br> SSD local = 224 GB |32 |576 GB |50.000 IOPS <br> 512 MB por segundo |4\.000 IOPS e 33 MB por segundo |
 | Standard_GS5 |32 |448 GB |SO = 1023 GB <br> SSD local = 896 GB |64 |4224 GB |80.000 IOPS <br> 2.000 MB por segundo |5\.000 IOPS e 50 MB por segundo |
 
-Para exibir uma lista completa de todos os tamanhos de VM do Azure disponíveis, consulte [tamanhos de VM do Windows](~/articles/virtual-machines/windows/sizes.md) ou [tamanhos de VM do Linux](~/articles/virtual-machines/linux/sizes.md). Escolha um tamanho de VM que possa atender aos requisitos de desempenho de aplicativo desejados. Além disso, leve em consideração as seguintes considerações importantes ao escolher tamanhos de VM.
+Para exibir uma lista completa de todos os tamanhos de VM do Azure disponíveis, consulte [tamanhos de máquinas virtuais no Azure](sizes.md) ou. Escolha um tamanho de VM que possa atender aos requisitos de desempenho de aplicativo desejados. Além disso, leve em consideração as seguintes considerações importantes ao escolher tamanhos de VM.
 
 *Limites de Escala*  
 Os limites máximos de IOPS por VM e por disco são diferentes e independentes um do outro. Verifique se o aplicativo está impulsionando a IOPS dentro dos limites da VM, bem como os discos premium anexados a ela. Caso contrário, o desempenho do aplicativo será limitado.
@@ -238,7 +238,7 @@ Ao executar Linux com Armazenamento Premium, verifique as últimas atualizaçõe
 
 O Armazenamento Premium do Azure oferece uma variedade de tamanhos para que você possa escolher um que melhor atenda às suas necessidades. Cada tamanho de disco tem um limite de escala diferente para IOPS, largura de banda e armazenamento. Escolha o tamanho certo do disco do Armazenamento Premium de acordo com os requisitos do aplicativo e o tamanho da VM de alta escala. A tabela abaixo mostra os três tamanhos de disco e seus recursos. Atualmente, os tamanhos de disco 4, P6, P15, P60, P70, e P80 têm suporte apenas para o Managed Disks.
 
-[!INCLUDE [disk-storage-premium-ssd-sizes](~/includes/disk-storage-premium-ssd-sizes.md)]
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
 Quantos discos você escolhe depende do tamanho do disco escolhido. Você pode usar um único disco P50 ou vários discos P10 para atender aos requisitos do aplicativo. Leve em conta as considerações listadas abaixo ao fazer sua escolha.
 
@@ -353,14 +353,14 @@ No Windows, você pode usar Espaços de Armazenamento para dividir discos em con
 
 Importante: Usando a interface de usuário do Gerenciador do Servidor UI, você pode definir o número total de colunas até 8 para um volume distribuído. Ao anexar mais de oito discos, use o PowerShell para criar o volume. Usando o PowerShell, é possível definir o número de colunas como igual ao número de discos. Por exemplo, se houver 16 discos em um único conjunto de distribuição; especifique 16 colunas no parâmetro *NumberOfColumns* do cmdlet *New-VirtualDisk* do PowerShell.
 
-No Linux, use o utilitário MDADM para distribuir os discos em conjunto. Para ver etapas detalhadas sobre como distribuir discos no Linux, consulte [Configurar o Software RAID no Linux](~/articles/virtual-machines/linux/configure-raid.md).
+No Linux, use o utilitário MDADM para distribuir os discos em conjunto. Para ver etapas detalhadas sobre como distribuir discos no Linux, consulte [Configurar o Software RAID no Linux](linux/configure-raid.md).
 
 *Tamanho da distribuição*  
 Uma configuração importante na distribuição de disco é o tamanho dela. O tamanho da distribuição ou tamanho do bloco é a menor parte de dados que o aplicativo pode incluir em um volume distribuído. O tamanho da distribuição que você configura depende do tipo de aplicativo e de seu padrão de solicitação. Se você escolher o tamanho de distribuição errado, isso pode levar ao alinhamento incorreto de E/S, o que leva à degradação de desempenho do aplicativo.
 
 Por exemplo, se uma solicitação de E/S gerada pelo seu aplicativo for maior que o tamanho da distribuição do disco, o sistema de armazenamento a gravará entre limites de unidade de distribuição em mais de um disco. Quando for a hora de acessar esses dados, ele terá que procurar em mais de uma unidade de distribuição para concluir a solicitação. O efeito cumulativo de tal comportamento pode levar à degradação substancial de desempenho. Por outro lado, se o tamanho da solicitação de E/S for menor que o tamanho da distribuição e se ela for de natureza aleatória, as solicitações de E/S poderão ser adicionadas no mesmo disco, causando um gargalo e, por fim, a degradação do desempenho de E/S.
 
-De acordo com o tipo de carga de trabalho que o aplicativo está executando, escolha um tamanho de distribuição apropriado. Para solicitações pequenas e aleatórias de E/S, use um tamanho de distribuição menor. Já para solicitações de E/S grandes e sequenciais, use um tamanho de distribuição maior. Descubra as recomendações de tamanho de distribuição para o aplicativo que será executado no Armazenamento Premium. Para SQL Server, configure o tamanho da distribuição de 64 KB para cargas de trabalho OLTP e 256 KB para cargas de trabalho de data warehouse. Confira [Melhores práticas de desempenho para o SQL Server em VMs do Azure](~/articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md#disks-guidance) para saber mais.
+De acordo com o tipo de carga de trabalho que o aplicativo está executando, escolha um tamanho de distribuição apropriado. Para solicitações pequenas e aleatórias de E/S, use um tamanho de distribuição menor. Já para solicitações de E/S grandes e sequenciais, use um tamanho de distribuição maior. Descubra as recomendações de tamanho de distribuição para o aplicativo que será executado no Armazenamento Premium. Para SQL Server, configure o tamanho da distribuição de 64 KB para cargas de trabalho OLTP e 256 KB para cargas de trabalho de data warehouse. Confira [Melhores práticas de desempenho para o SQL Server em VMs do Azure](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md#disks-guidance) para saber mais.
 
 > [!NOTE]
 > você pode usar a distribuição com um máximo de 32 discos do armazenamento premium em uma VM série DS e 64 discos do armazenamento premium em uma VM série GS.
@@ -414,15 +414,15 @@ O Armazenamento Premium do Azure provisiona um número especificado de IOPS e Ta
 
 Se você pretende avaliar o benchmark de seu disco, consulte nossos artigos sobre benchmarking de um disco:
 
-* Para o Linux: [avaliar o aplicativo no armazenamento em disco do Azure](./linux/disks-benchmarks.md)
-* Para Windows: [benchmarking de um disco](./windows/disks-benchmarks.md).
+* Para o Linux: [avaliar o aplicativo no armazenamento em disco do Azure](linux/disks-benchmarks.md)
+* Para Windows: [benchmarking de um disco](windows/disks-benchmarks.md).
 
 Saiba mais sobre os tipos de disco disponíveis:
 
-* Para Linux: [Selecione um tipo de disco](./linux/disks-types.md)
-* Para Windows: [Selecione um tipo de disco](./windows//disks-types.md)
+* Para Linux: [Selecione um tipo de disco](disks-types.md)
+* Para Windows: [Selecione um tipo de disco](disks-types.md)
 
 Para usuários do SQL Server, leia os artigos sobre Práticas recomendadas de desempenho para o SQL Server:
 
-* [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure](~/articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)
+* [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)
 * [Armazenamento Premium do Azure fornece desempenho mais alto para SQL Server na VM do Azure](https://cloudblogs.microsoft.com/sqlserver/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm/)

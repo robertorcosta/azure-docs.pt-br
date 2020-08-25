@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: c3123d22d2a13be9b9e5360e82990ba3a6320b1a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: daffcbf0a2ceb6f28cbb539906d4c6387840aa20
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008790"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752092"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurar um cluster do AKS
 
@@ -81,17 +81,17 @@ Se você quiser criar pools de nós com a imagem do AKS Ubuntu 16, 4, poderá fa
 
 Um tempo de execução de contêiner é um software que executa contêineres e gerencia imagens de contêiner em um nó. O tempo de execução ajuda a abstrair as chamadas sys ou a funcionalidade específica do sistema operacional (SO) para executar contêineres no Linux ou no Windows. Hoje, o AKS está usando [Moby](https://mobyproject.org/) (upstream enencaixer) como seu tempo de execução de contêiner. 
     
-![CRI do Docker](media/cluster-configuration/docker-cri.png)
+![CRI do Docker 1](media/cluster-configuration/docker-cri.png)
 
-[`Containerd`](https://containerd.io/)é um tempo de execução de contêiner de núcleo em conformidade com o protocolo [OCI](https://opencontainers.org/) (Open container Initiative) que fornece o conjunto mínimo de funcionalidades necessárias para executar contêineres e gerenciar imagens em um nó. Ele foi [donate](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) para a nuvem (CNCF) de computação nativa em março de 2017. A versão atual do Moby que o AKS usa hoje já utiliza e é criada com base em `containerd` , conforme mostrado acima. 
+[`Containerd`](https://containerd.io/) é um tempo de execução de contêiner de núcleo em conformidade com o protocolo [OCI](https://opencontainers.org/) (Open container Initiative) que fornece o conjunto mínimo de funcionalidades necessárias para executar contêineres e gerenciar imagens em um nó. Ele foi [donate](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) para a nuvem (CNCF) de computação nativa em março de 2017. A versão atual do Moby que o AKS usa hoje já utiliza e é criada com base em `containerd` , conforme mostrado acima. 
 
 Com um nó baseado em contêineres e pools de nós, em vez de conversar com o `dockershim` , o kubelet se comunicará diretamente com `containerd` o plug-in do CRI (contêiner de tempo de execução da interface), removendo saltos extras no fluxo quando comparado à implementação do CRI do Docker. Dessa forma, você verá uma melhor latência de inicialização de Pod e o uso de menos recursos (CPU e memória).
 
 Usando `containerd` o para nós AKs, a latência de inicialização de Pod melhora e o consumo de recursos de nó pelo tempo de execução do contêiner diminui. Esses aprimoramentos são habilitados por essa nova arquitetura, na qual o kubelet conversa diretamente com `containerd` o por meio do plug-in do CRI, enquanto na arquitetura Moby/Docker kubelet se comunicaria com o `dockershim` mecanismo do Docker antes de atingir `containerd` , portanto, com saltos extras no fluxo.
 
-![CRI do Docker](media/cluster-configuration/containerd-cri.png)
+![CRI do Docker 2](media/cluster-configuration/containerd-cri.png)
 
-`Containerd`funciona em todas as versões de GA do kubernetes no AKS e em todas as versões de kubernetes upstream acima da versão v 1.10 e dá suporte a todos os recursos kubernetes e AKS.
+`Containerd` funciona em todas as versões de GA do kubernetes no AKS e em todas as versões de kubernetes upstream acima da versão v 1.10 e dá suporte a todos os recursos kubernetes e AKS.
 
 > [!IMPORTANT]
 > Depois `containerd` que o estiver disponível em AKs, ele será o padrão e apenas a opção disponível para o tempo de execução do contêiner em novos clusters. Você ainda pode usar o Moby nodepools e os clusters em versões mais antigas com suporte até que eles fiquem com suporte. 
@@ -159,14 +159,14 @@ az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-gro
 Se você quiser criar pools de nós com o tempo de execução Moby (Docker), poderá fazer isso omitindo a `--aks-custom-headers` marca personalizada.
 
 
-### <a name="containerd-limitationsdifferences"></a>`Containerd`limitações/diferenças
+### <a name="containerd-limitationsdifferences"></a>`Containerd` limitações/diferenças
 
 * Para usar `containerd` como o tempo de execução do contêiner, você deve usar o AKs Ubuntu 18, 4 como sua imagem do sistema operacional base.
 * Embora o conjunto de ferramentas do Docker ainda esteja presente nos nós, o kubernetes usa `containerd` como o tempo de execução do contêiner. Portanto, como o Moby/Docker não gerencia os contêineres criados por kubernetes nos nós, você não pode exibir ou interagir com seus contêineres usando comandos do Docker (como `docker ps` ) ou a API do Docker.
 * Para `containerd` o, é recomendável usar [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) como uma CLI de substituição em vez da CLI do Docker para **solucionar problemas** de pods, contêineres e imagens de contêiner em nós kubernetes (por exemplo, `crictl ps` ). 
    * Ele não fornece a funcionalidade completa da CLI do Docker. Ele destina-se apenas à solução de problemas.
-   * `crictl`oferece uma visão mais kubernetes dos contêineres, com conceitos como pods, etc. sendo presentes.
-* `Containerd`configura o registro em log usando o `cri` formato de log padronizado (que é diferente do que você obtém no momento do driver JSON do Docker). Sua solução de registro em log precisa dar suporte ao `cri` formato de log (como [Azure monitor para contêineres](../azure-monitor/insights/container-insights-enable-new-cluster.md))
+   * `crictl` oferece uma visão mais kubernetes dos contêineres, com conceitos como pods, etc. sendo presentes.
+* `Containerd` configura o registro em log usando o `cri` formato de log padronizado (que é diferente do que você obtém no momento do driver JSON do Docker). Sua solução de registro em log precisa dar suporte ao `cri` formato de log (como [Azure monitor para contêineres](../azure-monitor/insights/container-insights-enable-new-cluster.md))
 * Você não pode mais acessar o mecanismo do Docker, `/var/run/docker.sock` ou usar o Docker-in-Docker (DinD).
   * Se, no momento, você extrair logs de aplicativos ou dados de monitoramento do mecanismo do Docker, use algo como [Azure monitor para contêineres](../azure-monitor/insights/container-insights-enable-new-cluster.md) em vez disso. Além disso, o AKS não dá suporte à execução de nenhum comando fora de banda nos nós do agente que poderiam causar instabilidade.
   * Mesmo ao usar o Moby/Docker, a criação de imagens e o aproveitamento direto do mecanismo do Docker por meio dos métodos acima é fortemente desencorajada. O kubernetes não está totalmente ciente desses recursos consumidos, e essas abordagens apresentam vários problemas detalhados [aqui](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) e [aqui](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), por exemplo.
@@ -236,7 +236,7 @@ Se você quiser criar pools de nós Gen1 regulares, poderá fazer isso omitindo 
 
 ## <a name="ephemeral-os-preview"></a>Sistema operacional efêmero (visualização)
 
-Por padrão, o disco do sistema operacional para uma máquina virtual do Azure é replicado automaticamente para o armazenamento do Azure para evitar a perda de dados caso a VM precise ser realocada para outro host. No entanto, como os contêineres não são projetados para ter o estado local persistido, esse comportamento oferece um valor limitado, fornecendo algumas desvantagens, incluindo provisionamento de nó mais lento e menor latência de leitura/gravação.
+Por padrão, o disco do sistema operacional para uma máquina virtual do Azure é replicado automaticamente para o armazenamento do Azure para evitar a perda de dados caso a VM precise ser realocada para outro host. No entanto, como os contêineres não são projetados para ter o estado local persistido, esse comportamento oferece um valor limitado, fornecendo algumas desvantagens, incluindo o provisionamento mais lento de nós e maior latência de leitura/gravação.
 
 Por outro lado, os discos do sistema operacional efêmero são armazenados apenas no computador host, assim como um disco temporário. Isso fornece menor latência de leitura/gravação, juntamente com o dimensionamento mais rápido de nó e atualizações de cluster.
 

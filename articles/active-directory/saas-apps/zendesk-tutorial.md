@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao Zendesk | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Zendesk.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 9d7c91e5-78f5-4016-862f-0f3242b00680
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/26/2020
+ms.date: 08/13/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f70e7067a78b439d3dcaf0b83460296cad7b4485
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: c7d452803d15bab77df8e85a861de914a5ed08d5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585813"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88546046"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zendesk"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Zendesk
 
@@ -143,13 +139,21 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 ## <a name="configure-zendesk-sso"></a>Configurar SSO do Zendesk
 
+1. Para automatizar a configuração no **Zendesk**, é necessário instalar a **extensão do navegador Entrada Segura dos Meus Aplicativos** clicando em **Instalar a extensão**.
+
+    ![image](./media/target-process-tutorial/install_extension.png)
+
+1. Depois de adicionar a extensão ao navegador, clique em **Configurar o Zendesk** para ser direcionado ao aplicativo Zendesk. Em seguida, forneça as credenciais de administrador para entrar no Zendesk. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 6.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
 1. Caso deseje configurar o Zendesk manualmente, abra uma nova janela do navegador da Web, entre no seu site da empresa do Zendesk como administrador e execute as seguintes etapas:
 
-2. Clique em **Administrador**.
+1. Clique em **Administrador**.
 
-3. No painel de navegação à esquerda, clique em **Configurações** e em **Segurança**.
+1. No painel de navegação à esquerda, clique em **Configurações** e em **Segurança**.
 
-4. Na página **Segurança**, realize as seguintes etapas:
+1. Na página **Segurança**, realize as seguintes etapas:
 
     ![Segurança](./media/zendesk-tutorial/ic773089.png "Segurança")
 

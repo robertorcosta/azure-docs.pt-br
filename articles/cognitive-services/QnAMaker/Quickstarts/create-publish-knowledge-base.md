@@ -1,23 +1,23 @@
 ---
-title: 'Início rápido: criar, treinar e publicar a base de dados de conhecimento-QnA Maker'
+title: 'Início Rápido: Criar, treinar e publicar base de dados de conhecimento – QnA Maker'
 description: É possível criar uma KB (base de dados de conhecimento) do QnA Maker com base no seu próprio conteúdo, como perguntas frequentes ou manuais de produto. Este artigo inclui um exemplo de como criar uma base de dados de conhecimento do QnA Maker com base em uma página da Web simples de perguntas frequentes para responder a perguntas sobre o QnA Maker.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: 12f46e9a72f0a3b027fe67e5b8bf27c940685cfe
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
-ms.translationtype: MT
+ms.openlocfilehash: 77ddb2a0a149729af72066b53c17b1dcb08a2992
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340582"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88540747"
 ---
-# <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Início rápido: criar, treinar e publicar sua base de dados de conhecimento QnA Maker
+# <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Início Rápido: Criar, treinar e publicar sua base de dados de conhecimento do QnA Maker
 
 É possível criar uma KB (base de dados de conhecimento) do QnA Maker com base no seu próprio conteúdo, como perguntas frequentes ou manuais de produto. Este artigo inclui um exemplo de como criar uma base de dados de conhecimento do QnA Maker com base em uma página da Web simples de perguntas frequentes para responder a perguntas sobre o QnA Maker.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
-> * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+> * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 > * Um [recurso](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) do QnA Maker criado no portal do Azure. Lembre-se de sua ID e sua assinatura do Azure Active Directory, bem como do nome do recurso do QnA que você selecionou ao criar o recurso.
 
 ## <a name="create-your-first-qna-maker-knowledge-base"></a>Criar sua primeira base de dados de conhecimento do QnA Maker
@@ -47,7 +47,7 @@ ms.locfileid: "84340582"
     |**+ Adicionar URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
     |**Bate-papo**|Selecione **Professional**|
 
-1. Na **etapa 5**, selecione **criar seu KB**.
+1. Na **Etapa 5**, selecione **Criar sua base de dados**.
 
     O processo de extração leva alguns instantes para ler o documento e identificar perguntas e respostas.
 
@@ -114,7 +114,7 @@ Quando você faz alterações na base de dados de conhecimento e republica, não
 
 1. É aberta uma nova guia do navegador para o portal do Azure com a página de criação do Serviço de Bot do Azure. Configure o serviço de bot do Azure. O bot e o QnA Maker podem compartilhar o plano do serviço de aplicativo Web, mas não podem compartilhar o aplicativo Web. Isso significa que o **nome do aplicativo** para o bot deve ser diferente do nome do aplicativo usado para o serviço do QnA Maker.
 
-    * **Coincide**
+    * **Deve ser feito**
         * Alterar o identificador de bot se ele não for exclusivo.
         * Selecionar a linguagem de programação do SDK. Depois que o bot for criado, você poderá baixar o código em seu ambiente de desenvolvimento local e continuar o processo de desenvolvimento.
     * **O que não fazer**
@@ -124,7 +124,7 @@ Quando você faz alterações na base de dados de conhecimento e republica, não
 
 
 1. Depois que o bot for criado, abra o recurso **Serviço de bot**.
-1. Em **Gerenciamento de bot**, selecione **testar no Web Chat**.
+1. Em **Gerenciamento de Bot**, selecione **Testar no Webchat**.
 1. No prompt de chat de **Digite sua mensagem**, digite:
 
     `Azure services?`
@@ -135,7 +135,7 @@ Quando você faz alterações na base de dados de conhecimento e republica, não
 
 ## <a name="what-did-you-accomplish"></a>O que você realizou?
 
-Você criou uma nova base de dados de conhecimento, adicionou uma URL pública à base de dados de conhecimento, adicionou seu próprio par QnA, treinado, testado e publicou a base de dados de conhecimento.
+Você criou uma base de dados de conhecimento, adicionou uma URL pública a ela, adicionou seu par de pergunta e resposta, além de treinar, testar e publicar a base de dados de conhecimento.
 
 Depois de publicar a base de dados de conhecimento, você criou e testou um bot.
 

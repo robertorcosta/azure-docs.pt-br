@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory com o 8x8 | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o 8x8.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: b34a6edf-e745-4aec-b0b2-7337473d64c5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c81e63a073882dea3a7aea32d5e9f4d3d5c48f7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 52b45bf7457a81b605df91e63a7c6ad539309dd8
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018576"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88538647"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o 8x8
 
@@ -48,7 +44,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * O 8x8 é compatível com SSO iniciado por **SP e IDP**
 
-* Depois de configurar o 8x8, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Depois de configurar o 8x8, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
@@ -64,7 +60,7 @@ Para configurar a integração do 8x8 ao Azure AD, você precisa adicionar o 8x8
 1. Na seção **Adicionar por meio da galeria**, digite **8x8** na caixa de pesquisa.
 1. Selecione **8x8** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-8x8"></a>Configurar e testar o logon único do Azure AD para o 8x8
+## <a name="configure-and-test-azure-ad-sso-for-8x8"></a>Configurar e testar o SSO do Azure AD para o 8x8
 
 Configure e teste o SSO do Azure AD com o 8x8 usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do 8x8.
 
@@ -139,7 +135,15 @@ A próxima parte do tutorial depende do tipo de assinatura que você tem com o 8
 
 ### <a name="configure-8x8-configuration-manager"></a>Configurar Configuration Manager do 8x8
 
-1. Faça logon no [Configuration Manager](https://vo-cm.8x8.com/) do 8x8.
+1. Para automatizar a configuração no 8x8, é necessário instalar a **extensão do navegador Entrada Segura dos Meus Aplicativos** clicando em **Instalar a extensão**.
+
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
+
+1. Depois de adicionar a extensão ao navegador, clique em **Configurar o 8x8** para ser direcionado ao aplicativo 8x8. Nele, forneça as credenciais de administrador para entrar no 8x8. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 6.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+1. Caso deseje configurar o 8x8 manualmente, entre no 8x8 [Configuration Manager](https://vo-cm.8x8.com/) como administrador.
 
 1. Na página inicial clique em **Gerenciamento de Identidades**.
 

@@ -4,12 +4,12 @@ description: Neste tutorial, saiba como usar o Agente do MARS (Serviços de Recu
 ms.topic: tutorial
 ms.date: 02/14/2018
 ms.custom: mvc
-ms.openlocfilehash: c9258b7f95337330e4f1de36e389f6b8f2276976
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 746c901747cf1c0b87612a31fbabcb657d5c4a0c
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78672953"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263105"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Recuperar arquivos do Azure para um Windows Server
 
@@ -21,7 +21,7 @@ O Backup do Azure habilita a recuperação de itens individuais dos backups do s
 > * Selecionar um ponto de recuperação
 > * Restaurar itens de um ponto de recuperação
 
-Este tutorial presume que você já executou as etapas para [Fazer backup de um Windows Server para o Azure](backup-windows-with-mars-agent.md) e tenha, pelo menos, um backup dos seus arquivos do Windows Server no Azure.
+Este tutorial presume que você já tenha executado as etapas necessárias para [Fazer backup de um Windows Server no Azure](backup-windows-with-mars-agent.md) e tenha, pelo menos, um backup dos seus arquivos do Windows Server no Azure.
 
 ## <a name="initiate-recovery-of-individual-items"></a>Iniciar recuperação de itens individuais
 
@@ -29,39 +29,39 @@ Um assistente útil de interface do usuário chamado Backup do Microsoft Azure �
 
 1. Abra o snap-in do **Backup do Microsoft Azure** . Você pode localizá-lo pesquisando no seu computador por **Backup do Microsoft Azure**.
 
-    ![Backup pendente](./media/tutorial-backup-restore-files-windows-server/mars.png)
+    ![Snap-in Backup do Microsoft Azure](./media/tutorial-backup-restore-files-windows-server/mars.png)
 
-2. No assistente, clique em **Recuperar Dados** no **Painel de Ações** do console do agente para iniciar o assistente **Recuperar Dados**.
+2. No assistente, selecione **Recuperar Dados** no **painel Ações** do console do agente para iniciar o assistente **Recuperar Dados**.
 
-    ![Backup pendente](./media/tutorial-backup-restore-files-windows-server/mars-recover-data.png)
+    ![Selecionar Recuperar Dados](./media/tutorial-backup-restore-files-windows-server/mars-recover-data.png)
 
-3. Na página **Introdução**, selecione **Este servidor (nome do servidor)** e clique em **Avançar**.
+3. Na página **Introdução**, selecione **Este servidor (nome do servidor)** e escolha **Avançar**.
 
-4. Na página **Selecionar Modo de Recuperação**, selecione **Arquivos e pastas individuais** e, em seguida, clique em **Avançar** para iniciar o processo de seleção de ponto de recuperação.
+4. Na página **Selecionar Modo de Recuperação**, selecione **Arquivos e pastas individuais** e escolha **Avançar** para iniciar o processo de seleção do ponto de recuperação.
 
-5. No painel **Selecionar Volume e Data**, selecione o volume que contém os arquivos ou pastas que você deseja restaurar e clique em **Montar**. Selecione uma data e uma hora no menu suspenso que correspondam a um ponto de recuperação. As datas em **negrito** indicam a disponibilidade de, pelo menos, um ponto de recuperação naquele dia.
+5. Na página **Selecionar Volume e Data**, selecione o volume que contém os arquivos ou as pastas que deseja restaurar e escolha **Montar**. Selecione uma data e uma hora no menu suspenso que correspondam a um ponto de recuperação. As datas em **negrito** indicam a disponibilidade de, pelo menos, um ponto de recuperação naquele dia.
 
-    ![Backup pendente](./media/tutorial-backup-restore-files-windows-server/mars-select-date.png)
+    ![Selecionar volume e data](./media/tutorial-backup-restore-files-windows-server/mars-select-date.png)
 
-    Quando você clica em **Montar**, o Backup do Azure disponibiliza o ponto de recuperação como um disco. Procurar e recuperar os arquivos do disco.
+    Quando você seleciona **Montar**, o Backup do Azure disponibiliza o ponto de recuperação como um disco. Procurar e recuperar os arquivos do disco.
 
 ## <a name="restore-items-from-a-recovery-point"></a>Restaurar itens de um ponto de recuperação
 
-1. Depois que o volume de recuperação estiver montado, clique em **Procurar** para abrir o Windows Explorer e localizar os arquivos e pastas que deseja recuperar.
+1. Depois que o volume de recuperação estiver montado, selecione **Procurar** para abrir o Windows Explorer e localizar os arquivos e as pastas que deseja recuperar.
 
-    ![Backup pendente](./media/tutorial-backup-restore-files-windows-server/mars-browse-recover.png)
+    ![Selecionar Procurar](./media/tutorial-backup-restore-files-windows-server/mars-browse-recover.png)
 
     Você pode abrir os arquivos diretamente do volume de recuperação e verificá-los.
 
-2. No Windows Explorer, copie os arquivos e/ou pastas que deseja restaurar e cole-os em qualquer local desejado no servidor.
+2. No Windows Explorer, copie os arquivos e as pastas que deseja restaurar e cole-os em qualquer localização desejada no servidor.
 
-    ![Backup pendente](./media/tutorial-backup-restore-files-windows-server/mars-final.png)
+    ![Copiar os arquivos e as pastas](./media/tutorial-backup-restore-files-windows-server/mars-final.png)
 
-3. Quando você terminar de restaurar os arquivos e/ou pastas, na página **Procurar e Recuperar Arquivos** do assistente **Recuperar Dados**, clique em **Desmontar**.
+3. Quando terminar de restaurar os arquivos e as pastas, na página **Procurar e Recuperar Arquivos** do assistente **Recuperar Dados**, selecione **Desmontar**.
 
-    ![Backup pendente](./media/tutorial-backup-restore-files-windows-server/unmount-and-confirm.png)
+    ![Selecione desmontar](./media/tutorial-backup-restore-files-windows-server/unmount-and-confirm.png)
 
-4. Clique em **Sim** para confirmar que deseja desmontar o volume.
+4. Selecione **Sim** para confirmar que deseja desmontar o volume.
 
     Depois que o instantâneo estiver desmontado, a mensagem **Trabalho Concluído** aparecerá no painel **Trabalhos** no console do agente.
 
