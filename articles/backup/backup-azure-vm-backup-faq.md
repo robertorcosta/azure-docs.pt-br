@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas para perguntas comuns sobre como f
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 03e2f004fa54ee235eabc49afd6abd7532a6ee44
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: b29f1a11f6600f013fdf1d5aa71883ab44dfe635
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262765"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761501"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-fazer backup de VMs do Azure
 
@@ -195,8 +195,8 @@ Sim, há um limite de 100 VMs que podem ser associadas à mesma política de bac
 
 ### <a name="how-can-i-view-the-retention-settings-for-my-backups"></a>Como exibir as configurações de retenção para meus backups?
 
-No momento, você pode exibir as configurações de retenção em um nível de item de backup (VM) com base na política de backup atribuída à VM. 
+No momento, você pode exibir as configurações de retenção em um nível de item de backup (VM) com base na política de backup atribuída à VM.
 
 Uma maneira de exibir as configurações de retenção para seus backups é navegar até o [painel](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) do item de backup para sua VM, na portal do Azure. Clicar no link para sua política de backup ajuda a exibir a duração da retenção de todos os pontos de retenção diários, semanais, mensais e anuais associados à VM.
 
-Você também pode usar o [Gerenciador de backup](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) para exibir as configurações de retenção de todas as suas VMs em um único painel de vidro. Navegue até o Gerenciador de backup em qualquer cofre dos serviços de recuperação, vá para a guia **itens de backup** e selecione o modo de exibição avançado para ver informações detalhadas de retenção para cada VM.  
+Você também pode usar o [Gerenciador de backup](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) para exibir as configurações de retenção de todas as suas VMs em um único painel de vidro. Navegue até o Gerenciador de backup em qualquer cofre dos serviços de recuperação, vá para a guia **itens de backup** e selecione o modo de exibição avançado para ver informações detalhadas de retenção para cada VM.

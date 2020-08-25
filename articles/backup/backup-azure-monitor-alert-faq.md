@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas para perguntas comuns sobre o aler
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: f5be97458ba658f315c31ae34e540842b64e3ec4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28645311328a2e2054851af6bacf07927eaa88aa
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76989562"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761110"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alerta de monitoramento do backup do Azure-perguntas frequentes
 
@@ -47,22 +47,6 @@ Sim, você pode exibir relatórios entre cofres e assinaturas, bem como regiões
 ### <a name="can-i-view-reports-across-tenants"></a>Posso exibir relatórios entre locatários?
 
 Se você for um usuário [Lighthouse do Azure](https://azure.microsoft.com/services/azure-lighthouse/) com acesso delegado aos espaços de trabalho assinaturas ou la de seus clientes, poderá usar relatórios de backup para exibir dados em todos os seus locatários.
-
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo leva para refletir no portal o status de trabalho do agente de backup do Azure?
-
-O portal do Azure pode levar até 15 minutos para refletir o status de trabalho do agente de backup do Azure.
-
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Quando um trabalho de backup falha, quanto tempo demora para gerar um alerta?
-
-Um alerta é gerado em 20 minutos após a falha de backup do Azure.
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Há um caso em que um email não será enviado se as notificações forem configuradas?
-
-Sim. Nas situações a seguir, notificações por email não serão enviadas.
-
-* Se as notificações forem configuradas por hora e um alerta for gerado e resolvido em uma hora
-* Quando um trabalho é cancelado
-* Se um segundo trabalho de backup falhou porque o trabalho de backup original estava em andamento
 
 ## <a name="recovery-services-vault"></a>Cofre dos Serviços de Recuperação
 

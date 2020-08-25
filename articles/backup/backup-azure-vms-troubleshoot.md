@@ -4,12 +4,12 @@ description: Neste artigo, saiba como solucionar problemas encontrados com backu
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 0f598e0058d817fbba8d816500ab252134be0eb5
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: f6085554f64c71c66587587ee03a58ee73c6639a
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371729"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761756"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
 
@@ -248,7 +248,7 @@ Erro de código: ExtensionVCRedistInstallationFailure <br/> Mensagem de erro: A 
 * Navegue até `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` e instale vcredist2013_x64.<br/>Certifique-se de que o valor da chave do registro permite que a instalação desse serviço seja definida como o valor correto. Ou seja, defina o valor **Iniciar** em **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** como **3** e não **4**. <br><br>Se você ainda estiver enfrentando problemas com a instalação, reinicie o serviço de instalação executando **MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** em um prompt de comandos com privilégios elevados.
 * Verifique o log de eventos para verificar se você está percebendo problemas relacionados ao acesso. Por exemplo:  *Produto: Tempo de C++ execução mínimo do Microsoft Visual 2013 x64-12.0.21005--Error 1401. não foi possível criar a chave: Software\Classes  Erro do sistema 5.  Verifique se você tem acesso suficiente a essa chave ou entre em contato com a equipe de suporte.* <br><br> Verifique se a conta de administrador ou de usuário tem permissões suficientes para atualizar a chave do registro **HKEY_LOCAL_MACHINE \SOFTWARE\Classes**. Forneça permissões suficientes e reinicie o agente convidado do Windows Azure.<br><br> <li> Se você tiver produtos antivírus em vigor, verifique se eles têm as regras de exclusão corretas para permitir a instalação.
 
-### <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy-uma política inválida está configurada na VM que está impedindo a operação de instantâneo
+### <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy - uma política inválida foi configurada na VM impedindo a operação de Instantâneo
 
 Erro de código:  UserErrorRequestDisallowedByPolicy <BR> Mensagem de erro: Uma política inválida foi configurada na VM impedindo a operação de Instantâneo.
 
@@ -289,23 +289,23 @@ Se o backup levar mais de 12 horas ou a restauração levar mais de 6 horas, exa
 
 Normalmente, o agente de VM já está presente em máquinas virtuais que são criadas na Galeria do Azure. No entanto, as máquinas virtuais que são migradas de datacenters locais não teriam o agente de VM instalado. Para essas VMs, o agente de VM precisa ser instalado explicitamente.
 
-#### <a name="windows-vms"></a>VMs Windows
+#### <a name="windows-vms---set-up-the-agent"></a>VMs do Windows – configurar o agente
 
 * Baixe e instale o [agente MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisa de privilégios de administrador para concluir a instalação.
 * Para máquinas virtuais criadas usando o modelo de implantação clássico, [atualizar a propriedade de VM](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) para indicar que o agente está instalado. Essa etapa não é necessária para máquinas virtuais do Azure Resource Manager.
 
-#### <a name="linux-vms"></a>VMs Linux
+#### <a name="linux-vms---set-up-the-agent"></a>VMs do Linux – configurar o agente
 
 * Instale a versão mais recente do agente do repositório de distribuição. Para obter detalhes sobre o nome do pacote, consulte o [Repositório do agente Linux](https://github.com/Azure/WALinuxAgent).
 * Para VMs criadas usando o modelo de implantação clássico, [atualize a propriedade da VM](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) e verifique se o agente está instalado. Essa etapa não é necessária para máquinas virtuais do Resource Manager.
 
 ### <a name="update-the-vm-agent"></a>Atualizar o agente de VM
 
-#### <a name="windows-vms"></a>VMs Windows
+#### <a name="windows-vms---update-the-agent"></a>VMs do Windows – atualizar o agente
 
 * Para atualizar o Agente da VM, reinstale os [Binários do agente da VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Antes de atualizar o agente, certifique-se de que não ocorram operações de backup durante a atualização do Agente da VM.
 
-#### <a name="linux-vms"></a>VMs Linux
+#### <a name="linux-vms---update-the-agent"></a>VMs do Linux – atualizar o agente
 
 * Para atualizar o Agente da VM do Linux, siga as instruções no artigo, [Atualizar o Agente da VM do Linux](../virtual-machines/extensions/update-linux-agent.md?toc=/azure/virtual-machines/linux/toc.json).
 

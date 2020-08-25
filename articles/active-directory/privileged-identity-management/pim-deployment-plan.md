@@ -14,12 +14,12 @@ ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e8250661fdbd6c67faade31caaed61ee8a399fe
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 14df46a921b482b182e0f17754293af37146d1e7
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008076"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783205"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implantar o Azure AD Privileged Identity Management (PIM)
 
@@ -257,7 +257,7 @@ Antes de implementar sua solução de Privileged Identity Management, é uma pr�
 
 A tabela a seguir descreve cada configuração.
 
-| Setting | Descrição |
+| Configuração | Descrição |
 | --- | --- |
 | Função | Nome da função para a qual você está definindo as configurações. |
 | Exigir MFA | Se o usuário qualificado precisa executar a MFA antes de ativar a função.<br/><br/> : heavy_check_mark: a **Microsoft recomenda** que você aplique a MFA para todas as funções de administrador, especialmente se as funções tiverem usuários convidados. |
@@ -291,7 +291,7 @@ Nesta tabela, identifique os usuários de teste que verificarão se as configura
 
 ### <a name="test-implementation"></a>Implementação de teste
 
-Agora que você identificou os usuários de teste, use esta etapa para configurar Privileged Identity Management para os usuários de teste. Se sua organização quiser incorporar Privileged Identity Management fluxo de trabalho em seu próprio aplicativo interno, em vez de usar Privileged Identity Management na portal do Azure, todas as operações no Privileged Identity Management também têm suporte por meio da nossa [API do Graph](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-root).
+Agora que você identificou os usuários de teste, use esta etapa para configurar Privileged Identity Management para os usuários de teste. Se sua organização quiser incorporar Privileged Identity Management fluxo de trabalho em seu próprio aplicativo interno, em vez de usar Privileged Identity Management na portal do Azure, todas as operações no Privileged Identity Management também têm suporte por meio da nossa [API do Graph](/graph/api/resources/privilegedidentitymanagement-root).
 
 #### <a name="configure-privileged-identity-management-for-azure-ad-roles"></a>Configurar Privileged Identity Management para funções do Azure AD
 

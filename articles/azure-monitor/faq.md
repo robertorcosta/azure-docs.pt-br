@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: bd575eb5f646b749b431516670c64c764f4d4c9c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a78e1b9cc1d9ca8a815fdb586287983020232fd1
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828499"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782933"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Monitor
 
@@ -80,6 +80,10 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
 
 ### <a name="how-do-i-retrieve-log-data"></a>Como faço para recuperar dados de log?
 Todos os dados são recuperados de um workspace do Log Analytics usando uma consulta de log escrita em KQL (Linguagem de Consulta Kusto). Você pode escrever suas consultas ou usar soluções e insights que incluem consultas de log para um determinado aplicativo ou serviço. Confira [Visão geral sobre consultas de log no Azure Monitor](log-query/log-query-overview.md).
+
+### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>Posso excluir dados de um espaço de trabalho Log Analytics?
+Os dados são removidos de um espaço de trabalho de acordo com seu [período de retenção](platform/manage-cost-storage.md#change-the-data-retention-period). Você pode excluir dados específicos por motivos de privacidade ou conformidade. Consulte [como exportar e excluir dados privados](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) para obter mais informações.
+
 
 ### <a name="what-is-a-log-analytics-workspace"></a>O que é um workspace do Log Analytics?
 Todos os dados de log coletados pelo Azure Monitor são armazenados em um workspace do Log Analytics. Um workspace é essencialmente um contêiner em que os dados de log são coletados de uma variedade de fontes. Você pode ter um workspace do Log Analytics para todos os seus dados de monitoramento ou pode ter requisitos para vários workspaces. Confira [Projeto da implantação de logs do Azure Monitor](platform/design-logs-deployment.md).

@@ -4,12 +4,12 @@ description: Neste artigo, saiba como configurar, iniciar e gerenciar operaçõe
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 595291549b4d181967ea168d0dc71bc7e2237a67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 48b5a8c596ec5b23d2962acb9c1f95a1d5aafbc0
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514196"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761671"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Fazer backup de uma VM do Azure usando o Backup do Azure por meio da API REST
 
@@ -35,18 +35,18 @@ O URI POST tem os parâmetros `{subscriptionId}`, `{vaultName}`, `{vaultresource
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses"></a>Respostas
+#### <a name="responses-to-refresh-operation"></a>Respostas para a operação de atualização
 
 A operação “atualizar” é uma [operação assíncrona](../azure-resource-manager/management/async-operations.md). Isso significa que essa operação cria outra operação que precisa ser rastreada separadamente.
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|
 |204 Sem Conteúdo     |         |  OK sem conteúdo retornado      |
 |202 Aceito     |         |     Aceito    |
 
-##### <a name="example-responses"></a>Respostas de exemplo
+##### <a name="example-responses-to-refresh-operation"></a>Respostas de exemplo para a operação de atualização
 
 Após a solicitação *POST* ser enviada, uma resposta 202 (Aceito) será retornada.
 
@@ -92,7 +92,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>Selecionar a VM do Azure relevante
 
- Você pode confirmar que o "armazenamento em cache" foi concluído [listando todos os itens que podem ser protegidos](/rest/api/backup/backupprotectableitems/list) na assinatura e localizando a VM desejada na resposta. [A resposta dessa operação](#example-responses-1) também fornece informações sobre como os serviços de recuperação identificam uma VM.  Quando estiver familiarizado com o padrão, você poderá ignorar esta etapa e ir diretamente para a etapa de [habilitar a proteção](#enabling-protection-for-the-azure-vm).
+ Você pode confirmar que o "armazenamento em cache" foi concluído [listando todos os itens que podem ser protegidos](/rest/api/backup/backupprotectableitems/list) na assinatura e localizando a VM desejada na resposta. [A resposta dessa operação](#example-responses-to-get-operation) também fornece informações sobre como os serviços de recuperação identificam uma VM.  Quando estiver familiarizado com o padrão, você poderá ignorar esta etapa e ir diretamente para a etapa de [habilitar a proteção](#enabling-protection-for-the-azure-vm).
 
 Esta operação é uma operação *GET*.
 
@@ -102,13 +102,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 O URI *GET* tem todos os parâmetros necessários. Nenhum corpo da solicitação adicional é necessário.
 
-#### <a name="responses"></a><a name="responses-1"></a>Respostas
+#### <a name="responses-to-get-operation"></a>Respostas para a operação de obtenção
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
-#### <a name="example-responses"></a><a name="example-responses-1"></a>Respostas de exemplo
+#### <a name="example-responses-to-get-operation"></a>Respostas de exemplo para a operação get
 
 Após uma solicitação *GET* ser enviada, uma resposta 200 (OK) será retornada.
 
@@ -180,7 +180,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Para criar um item protegido, confira a seguir os componentes do corpo da solicitação.
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |Propriedades do recurso ProtectedItem         |
 
@@ -200,20 +200,20 @@ O corpo da solicitação a seguir define as propriedades necessárias para criar
 }
 ```
 
-O `{sourceResourceId}` é o `{virtualMachineId}` mencionado acima da [resposta com a lista de itens que podem ser protegidos](#example-responses-1).
+O `{sourceResourceId}` é o `{virtualMachineId}` mencionado acima da [resposta com a lista de itens que podem ser protegidos](#example-responses-to-get-operation).
 
-#### <a name="responses"></a>Respostas
+#### <a name="responses-to-create-protected-item-operation"></a>Respostas para a operação Criar item protegido
 
 A criação de um item protegido é uma [operação assíncrona](../azure-resource-manager/management/async-operations.md). Isso significa que essa operação cria outra operação que precisa ser rastreada separadamente.
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|
 |200 OK     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 Aceito     |         |     Aceito    |
 
-##### <a name="example-responses"></a>Respostas de exemplo
+##### <a name="example-responses-to-create-protected-item-operation"></a>Respostas de exemplo para a operação Criar item protegido
 
 Depois de enviar a solicitação *PUT* para criação ou atualização do item protegido, a resposta inicial é 202 (Aceito) com um cabeçalho de localização ou Azure-async-header.
 
@@ -284,23 +284,23 @@ Disparar um backup sob demanda é uma operação *POST*.
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/backup?api-version=2016-12-01
 ```
 
-`{containerName}` e `{protectedItemName}` têm a construção descrita [acima](#responses-1). O `{fabricName}` é "Azure". Para nosso exemplo, isso é traduzido como:
+`{containerName}` e `{protectedItemName}` têm a construção descrita [acima](#responses-to-get-operation). O `{fabricName}` é "Azure". Para nosso exemplo, isso é traduzido como:
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2016-12-01
 ```
 
-### <a name="create-the-request-body"></a>Criar o corpo da solicitação
+### <a name="create-the-request-body-for-on-demand-backup"></a>Criar o corpo da solicitação para backup sob demanda
 
 Para disparar um backup sob demanda, a seguir estão os componentes do corpo da solicitação.
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Propriedades de BackupRequestResource         |
 
 Para obter uma lista de definições de corpo da solicitação e outros detalhes, veja o [documento sobre como disparar backups de itens protegidos da API REST](/rest/api/backup/backups/trigger#request-body).
 
-#### <a name="example-request-body"></a>Exemplo do corpo de solicitação
+#### <a name="example-request-body-for-on-demand-backup"></a>Corpo de solicitação de exemplo para backup sob demanda
 
 O corpo da solicitação a seguir define as propriedades necessárias para disparar um backup para um item protegido. Se a retenção não for especificada, ele será retido por 30 dias a partir do momento em que o trabalho de backup foi disparado.
 
@@ -313,17 +313,17 @@ O corpo da solicitação a seguir define as propriedades necessárias para dispa
 }
 ```
 
-### <a name="responses"></a>Respostas
+### <a name="responses-for-on-demand-backup"></a>Respostas para backup sob demanda
 
 Disparar um backup sob demanda é uma [operação assíncrona](../azure-resource-manager/management/async-operations.md). Isso significa que essa operação cria outra operação que precisa ser rastreada separadamente.
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|
 |202 Aceito     |         |     Aceito    |
 
-#### <a name="example-responses"></a><a name="example-responses-3"></a>Respostas de exemplo
+#### <a name="example-responses-for-on-demand-backup"></a>Respostas de exemplo para backup sob demanda
 
 Depois de enviar a solicitação *POST* para um backup sob demanda, a resposta inicial é 202 (Aceito) com um cabeçalho de localização ou cabeçalho assíncrono do Azure.
 
@@ -399,7 +399,7 @@ Para alterar a política com que a VM é protegida, você pode usar o mesmo form
 }
 ```
 
-A resposta seguirá o mesmo formato mencionado [para habilitar a proteção](#responses-2)
+A resposta seguirá o mesmo formato mencionado [para habilitar a proteção](#responses-to-create-protected-item-operation)
 
 ### <a name="stop-protection-but-retain-existing-data"></a>Interromper a proteção, mas manter os dados existentes
 
@@ -415,7 +415,7 @@ Para remover a proteção em uma VM protegida, mas manter os dados dos quais já
 }
 ```
 
-A resposta seguirá o mesmo formato mencionado [para disparar um backup sob demanda](#example-responses-3). O trabalho resultante deve ser monitorado conforme explicado no [documento sobre monitoramento de trabalhos usando a API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+A resposta seguirá o mesmo formato mencionado [para disparar um backup sob demanda](#example-responses-for-on-demand-backup). O trabalho resultante deve ser monitorado conforme explicado no [documento sobre monitoramento de trabalhos usando a API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ### <a name="stop-protection-and-delete-data"></a>Interromper a proteção e excluir dados
 
@@ -427,19 +427,19 @@ Interromper a proteção e excluir dados é uma operação *DELETE*.
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
-`{containerName}` e `{protectedItemName}` têm a construção descrita [acima](#responses-1). `{fabricName}` é o "Azure". Para nosso exemplo, isso é traduzido como:
+`{containerName}` e `{protectedItemName}` têm a construção descrita [acima](#responses-to-get-operation). `{fabricName}` é o "Azure". Para nosso exemplo, isso é traduzido como:
 
 ```http
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
-#### <a name="responses"></a><a name="responses-2"></a>Respostas
+#### <a name="responses-for-delete-protection"></a>Respostas para a proteção de exclusão
 
 *EXCLUIR* a proteção é uma [operação assíncrona](../azure-resource-manager/management/async-operations.md). Isso significa que essa operação cria outra operação que precisa ser rastreada separadamente.
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 204 (NoContent) quando a operação é concluída.
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |DESCRIÇÃO  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 Aceito     |         |     Aceito    |
@@ -451,7 +451,7 @@ Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em
 
 Desfazer a exclusão acidental é semelhante à criação do item de backup. Depois de desfazer a exclusão, o item é retido, mas nenhum backup futuro é disparado.
 
-Desfazer a exclusão é uma operação *Put* que é muito semelhante a [alterar a política](#changing-the-policy-of-protection) e/ou [habilitar a proteção](#enabling-protection-for-the-azure-vm). Basta fornecer a intenção de desfazer a exclusão com a variável *isRehydrate* no [corpo da solicitação](#example-request-body) e enviar a solicitação. Por exemplo: para desfazer a exclusão de testVM, o corpo da solicitação a seguir deve ser usado.
+Desfazer a exclusão é uma operação *Put* que é muito semelhante a [alterar a política](#changing-the-policy-of-protection) e/ou [habilitar a proteção](#enabling-protection-for-the-azure-vm). Basta fornecer a intenção de desfazer a exclusão com a variável *isRehydrate*  no [corpo da solicitação](#example-request-body) e enviar a solicitação. Por exemplo: para desfazer a exclusão de testVM, o corpo da solicitação a seguir deve ser usado.
 
 ```http
 {
@@ -464,7 +464,7 @@ Desfazer a exclusão é uma operação *Put* que é muito semelhante a [alterar 
 }
 ```
 
-A resposta seguirá o mesmo formato mencionado [para disparar um backup sob demanda](#example-responses-3). O trabalho resultante deve ser monitorado conforme explicado no [documento sobre monitoramento de trabalhos usando a API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+A resposta seguirá o mesmo formato mencionado [para disparar um backup sob demanda](#example-responses-for-on-demand-backup). O trabalho resultante deve ser monitorado conforme explicado no [documento sobre monitoramento de trabalhos usando a API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ## <a name="next-steps"></a>Próximas etapas
 

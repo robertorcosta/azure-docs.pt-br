@@ -3,12 +3,12 @@ title: Restaurar compartilhamentos de arquivos do Azure com a API REST
 description: Saiba como usar a API REST para restaurar compartilhamentos de arquivos do Azure ou arquivos específicos de um ponto de restauração criado pelo backup do Azure
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 3a1f2999fa1b50507fd3d1b6f21f508ec9f82841
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60c73caa5db684e38b94b4d5786f2fd24aa65d08
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538149"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761790"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Restaurar compartilhamentos de arquivos do Azure usando a API REST
 
@@ -64,7 +64,7 @@ O URI GET tem todos os parâmetros necessários. Não há necessidade de um corp
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare;azurefiles/recoveryPoints?api-version=2019-05-13
 ```
 
-### <a name="example-response"></a>Exemplo de resposta
+### <a name="example-response-for-fetch-recovery-points"></a>Exemplo de resposta para buscar pontos de recuperação
 
 Depois que o URI de obtenção é enviado, uma resposta 200 é retornada:
 
@@ -160,7 +160,7 @@ POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48a
 
 Para disparar uma restauração para um compartilhamento de arquivos do Azure, veja a seguir os componentes do corpo da solicitação:
 
-Nome |  Tipo   |   Descrição
+Nome |  Type   |   DESCRIÇÃO
 --- | ---- | ----
 Propriedades | AzureFileShareRestoreRequest | Propriedades de RestoreRequestResource
 
@@ -168,7 +168,7 @@ Para obter a lista completa de definições do corpo da solicitação e outros d
 
 ### <a name="restore-to-original-location"></a>Restaurar no local original
 
-#### <a name="request-body-example"></a>Exemplo de corpo de solicitação
+#### <a name="request-body-example-for-restore-to-original-location"></a>Exemplo de corpo de solicitação para restaurar no local original
 
 O corpo da solicitação a seguir define as propriedades necessárias para disparar uma restauração de compartilhamento de arquivos do Azure:
 
@@ -192,7 +192,7 @@ Especifique os seguintes parâmetros para recuperação de local alternativo:
 * **nome**: o compartilhamento de arquivos na conta de armazenamento de destino para a qual o conteúdo de backup é restaurado.
 * **targetFolderPath**: a pasta sob o compartilhamento de arquivos para o qual os dados são restaurados.
 
-#### <a name="request-body-example"></a>Exemplo de corpo de solicitação
+#### <a name="request-body-example-for-restore-to-alternate-location"></a>Exemplo de corpo de solicitação para restauração em local alternativo
 
 O corpo da solicitação a seguir restaura o compartilhamento de arquivos *azurefiles* na conta de armazenamento *afsaccount* para o compartilhamento de arquivos *azurefiles1* na conta de armazenamento *afaccount1* .
 
@@ -366,17 +366,17 @@ Os valores {ContainerName} e {protectedItemName} estão definidos [aqui](#fetch-
 POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare%3Bazurefiles/recoveryPoints/932886657837421071/restore?api-version=2019-05-13'
 ```
 
-### <a name="create-request-body"></a>Criar o corpo da solicitação
+### <a name="create-request-body-for-item-level-recovery-using-rest-api"></a>Criar corpo da solicitação para recuperação em nível de item usando a API REST
 
 Para disparar uma restauração para um compartilhamento de arquivos do Azure, veja a seguir os componentes do corpo da solicitação:
 
-Nome |  Tipo   |   Descrição
+Nome |  Type   |   DESCRIÇÃO
 --- | ---- | ----
 Propriedades | AzureFileShareRestoreRequest | Propriedades de RestoreRequestResource
 
 Para obter a lista completa de definições do corpo da solicitação e outros detalhes, consulte o [documento disparar a API REST de restauração](/rest/api/backup/restores/trigger#request-body).
 
-### <a name="restore-to-original-location"></a>Restaurar no local original
+### <a name="restore-to-original-location-for-item-level-recovery-using-rest-api"></a>Restaurar para o local original para recuperação em nível de item usando a API REST
 
 O corpo da solicitação a seguir é restaurar o arquivo de *Restoretest.txt* no compartilhamento de arquivos *azurefiles* na conta de armazenamento *afsaccount* .
 
@@ -402,7 +402,7 @@ Criar corpo da solicitação
 }
 ```
 
-### <a name="restore-to-alternate-location"></a>Restauração em uma localização alternativa
+### <a name="restore-to-alternate-location-for-item-level-recovery-using-rest-api"></a>Restaurar para um local alternativo para recuperação em nível de item usando a API REST
 
 O corpo da solicitação a seguir é restaurar o arquivo de *Restoretest.txt* no compartilhamento de arquivos *azurefiles* na conta de armazenamento *afsaccount* para a pasta *restoredata* do compartilhamento de arquivos *azurefiles1* na conta de armazenamento *afaccount1* .
 

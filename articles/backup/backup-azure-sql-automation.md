@@ -4,12 +4,12 @@ description: Faça backup e restaure bancos de dados SQL em VMs do Azure usando 
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: a5b62b05c36afac078ccc7aeb7ed0e7259072fc1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6bd119b743ad83bcab9f92d386a5091593f6a5c0
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513788"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761314"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Fazer backup e restaurar bancos de dados SQL em VMs do Azure com o PowerShell
 
@@ -522,6 +522,7 @@ Para editar uma política existente, use o comando [set-AzRecoveryServicesBackup
 ```powershell
 Set-AzRecoveryServicesBackupProtectionPolicy -Policy $Pol -SchedulePolicy $SchPol -RetentionPolicy $RetPol
 ```
+
 Verifique os trabalhos de backup depois que algum tempo tiver passado para controlar as falhas. Se houver, você precisará corrigir os problemas. Em seguida, execute novamente o comando Edit Policy com o parâmetro **FixForInconsistentItems** para tentar editar a política novamente em todos os itens de backup para os quais a operação falhou anteriormente.
 
 ```powershell

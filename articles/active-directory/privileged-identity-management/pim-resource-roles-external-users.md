@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 046a0d61bb7a6d715a1d732790d2b472b3e83c13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 763441d023e4a707c6a1edc09abfb6d8e5525723
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743772"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782729"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Convide usuários convidados e atribua funções de recursos do Azure no Privileged Identity Management
 
@@ -45,7 +45,7 @@ Aqui estão alguns exemplos de quando você pode convidar convidados para sua or
 
 ## <a name="how-does-collaboration-using-b2b-guests-work"></a>Como funciona a colaboração usando os convidados B2B?
 
-Ao usar a colaboração B2B, você pode convidar um usuário externo para sua organização como um convidado. O convidado pode ser gerenciado como um usuário em sua organização, mas um convidado precisa ser autenticado em sua organização inicial e não em sua organização do Azure AD. Isso significa que, se o convidado não tiver mais acesso à sua organização inicial, eles também perderão o acesso à sua organização. Por exemplo, se o convidado deixar sua organização, ele perderá automaticamente o acesso a todos os recursos que você compartilhou com eles no Azure AD sem precisar fazer nada. Para obter mais informações sobre a colaboração B2B, consulte [o que é acesso de usuário convidado em Azure Active Directory B2B?](../b2b/what-is-b2b.md).
+Ao usar a colaboração B2B, você pode convidar um usuário externo para sua organização como um convidado. O convidado pode ser gerenciado como um usuário em sua organização, mas um convidado precisa ser autenticado em sua organização inicial e não em sua organização do Azure AD. Isso significa que, se o convidado não tiver mais acesso à sua organização inicial, eles também perderão o acesso à sua organização. Por exemplo, se o convidado deixar sua organização, ele perderá automaticamente o acesso a todos os recursos que você compartilhou com eles no Azure AD sem precisar fazer nada. Para obter mais informações sobre a colaboração B2B, consulte [o que é acesso de usuário convidado em Azure Active Directory B2B?](../external-identities/what-is-b2b.md).
 
 ![Diagrama mostrando como um usuário convidado é autenticado em seu diretório base](./media/pim-resource-roles-external-users/b2b-external-user.png)
 
@@ -166,4 +166,4 @@ Você pode exibir os logs de auditoria para controlar o que os convidados estão
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Atribuir funções de administrador do Azure AD no Privileged Identity Management](pim-how-to-add-role-to-user.md)
-- [O que é o acesso de usuário convidado na colaboração B2B do Azure AD?](../b2b/what-is-b2b.md)
+- [O que é o acesso de usuário convidado na colaboração B2B do Azure AD?](../external-identities/what-is-b2b.md)

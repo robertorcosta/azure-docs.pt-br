@@ -14,12 +14,12 @@ ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80762511591d10bd2823101e2ff233fdd0f0eb00
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 862b304d1f36567aecd4452f91f31d1a50c3198a
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495617"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782474"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Funções que você não pode gerenciar no Privileged Identity Management
 
@@ -37,7 +37,7 @@ Para obter mais informações sobre as funções de administrador de assinatura 
 
 ## <a name="what-about-office-365-admin-roles"></a>E as funções de administrador do Office 365?
 
-Damos suporte a todas as funções do Office365 na experiência do portal de funções e administradores do Azure AD, como administrador do Exchange e administrador do SharePoint, mas não damos suporte a funções específicas no RBAC do Exchange ou no RBAC do SharePoint. Para saber mais sobre esses serviços do Office 365, confira [Funções de administrador do Office 365](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles).
+Damos suporte a todas as funções do Office365 na experiência do portal de funções e administradores do Azure AD, como administrador do Exchange e administrador do SharePoint, mas não damos suporte a funções específicas no RBAC do Exchange ou no RBAC do SharePoint. Para saber mais sobre esses serviços do Office 365, confira [Funções de administrador do Office 365](/office365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
 > Usuários qualificados para a função de administrador do SharePoint, a função de administrador do dispositivo e todas as funções que tentam acessar o centro de conformidade e segurança da Microsoft podem enfrentar atrasos de até algumas horas após a ativação de sua função. Estamos trabalhando com essas equipes para corrigir os problemas.
