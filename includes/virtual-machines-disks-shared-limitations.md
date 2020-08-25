@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/14/2020
+ms.date: 08/21/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4a204be0730a0ce4edcd2e343364ed8fc724430e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: cdee82ddae7f6edf43765063bb610b743dbf0121
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88655301"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88809840"
 ---
 A habilitação de discos compartilhados só está disponível para um subconjunto de tipos de disco. No momento, apenas ultra discos e o SSDs Premium podem habilitar discos compartilhados. Cada disco gerenciado que tem discos compartilhados habilitados está sujeito às seguintes limitações, organizadas por tipo de disco:
 
@@ -30,7 +30,7 @@ Ultra discos compartilhados estão disponíveis em todas as regiões que dão su
 
 ### <a name="premium-ssds"></a>SSDs Premium
 
-- Atualmente, só tem suporte na região EUA Central ocidental.
+- Atualmente, só tem suporte em [um subconjunto de regiões](#regional-availability).
 - Atualmente limitado a suporte a Azure Resource Manager ou SDK. 
 - Só pode ser habilitado em discos de dados, não em discos do sistema operacional.
 - O cache de host **ReadOnly** não está disponível para o SSDs Premium com `maxShares>1` .
@@ -39,5 +39,22 @@ Ultra discos compartilhados estão disponíveis em todas as regiões que dão su
 - Ao usar [PPG (grupos de posicionamento de proximidade)](../articles/virtual-machines/windows/proximity-placement-groups.md), todas as máquinas virtuais que compartilham um disco devem fazer parte do mesmo PPG.
 - Somente discos básicos podem ser usados com algumas versões do cluster de failover do Windows Server, para obter detalhes, consulte [requisitos de hardware de clustering de failover e opções de armazenamento](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 - O backup do Azure e o suporte a Azure Site Recovery ainda não estão disponíveis.
+
+#### <a name="regional-availability"></a>Disponibilidade regional
+
+O SSDs Premium compartilhado só tem suporte nas seguintes regiões:
+
+- Leste dos EUA
+- Leste dos EUA 2
+- Oeste dos EUA
+- Oeste dos EUA 2
+- Centro-Oeste dos EUA
+- Centro-Sul dos Estados Unidos
+- Centro dos EUA
+- Coreia Central
+- Canadá Central
+- Leste do Canadá
+- Gov. dos EUA – Virgínia
+- Governo dos EUA do Arizona
 
 Se você estiver interessado em experimentar o SSDs Premium compartilhado, [Inscreva-](https://aka.ms/AzureSharedDiskGASignUp)se no Access.

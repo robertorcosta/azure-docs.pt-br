@@ -4,12 +4,12 @@ description: Neste artigo, saiba como solucionar problemas encontrados com backu
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: f6085554f64c71c66587587ee03a58ee73c6639a
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 104fb177a1379d5a09dc54cf6f78c401744d697f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761756"
+ms.locfileid: "88763296"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
 
@@ -90,11 +90,11 @@ A operação de backup falhou devido a um problema com o serviço Windows **apli
 
 * Tente iniciar/reiniciar o serviço do Windows **Aplicativo do sistema COM +**  (em um prompt de comando elevado  **- net start COMSysApp**).
 * Verifique se **Coordenador de Transações Distribuídas serviço de** está sendo executado como **conta de** de serviço de rede. Caso contrário, altere-o para executar como **serviço de rede** conta e reinicie **aplicativo de sistema COM+** .
-* Se não for possível reiniciar o serviço, reinstale **Coordenador de Transações Distribuídas serviço** seguindo as etapas abaixo:
+* Se não for possível reiniciar o serviço, reinstale **Coordenador de transações distribuídas** serviço seguindo as etapas abaixo:
   * Interrompa o serviço MSDTC
   * Abra um prompt de comando (cmd)
-  * Execute o comando “msdtc -uninstall”
-  * Execute o comando “msdtc -install”
+  * Executar o comando `msdtc -uninstall`
+  * Executar o comando `msdtc -install`
   * Inicie o serviço MSDTC
 * Inicie o serviço Windows **COM+ System Application**. Depois que o **Aplicativo do Sistema COM+** for iniciado, dispare um trabalho de backup no portal do Azure.</ol>
 
@@ -165,7 +165,7 @@ A operação de backup falhou devido ao estado inconsistente da extensão de bac
 Código de erro: ExtensionFailedSnapshotLimitReachedError  <br/>
 Mensagem de erro: Falha na operação de instantâneo porque o limite de instantâneos foi excedido em alguns dos discos anexados
 
-A operação de instantâneo falhou porque o limite de instantâneos foi excedido em alguns dos discos anexados. Conclua as etapas de solução de problemas abaixo e tente novamente a operação.
+A operação de instantâneo falhou porque o limite de instantâneos foi excedido em alguns dos discos anexados. Conclua as seguintes etapas de solução de problemas e repita a operação.
 
 * Exclua o blob de disco-instantâneos que não são necessários. Tenha cuidado para não excluir o blob de disco, somente os blobs de instantâneo devem ser excluídos.
 * Se a exclusão reversível estiver habilitada no armazenamento em disco da VM, configure a retenção de exclusão reversível de modo que os instantâneos existentes sejam menores do que o máximo permitido a qualquer momento.
@@ -183,7 +183,7 @@ A operação de backup na VM falhou devido ao atraso nas chamadas de rede ao exe
 
 **Etapa 1**: Criar o instantâneo por meio do host
 
-Em um prompt de comando com privilégios elevados (administrador), execute o comando abaixo:
+Em um prompt de comando elevado (administrador), execute o seguinte comando:
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f

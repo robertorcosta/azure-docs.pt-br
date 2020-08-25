@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: d7efe781f1ba2beb1fa7dd4fdaaad280fc789de2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 226cf29b1a94b4508a9d68f02b7400a18eba4bc2
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204738"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587847"
 ---
 # <a name="tutorial-connect-to-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Conectar-se a um cluster do Red Hat OpenShift 4 no Azure
 
@@ -25,7 +25,7 @@ Neste tutorial, parte dois de três, você se conectará a um cluster do Red Hat
 
 Nos tutoriais anteriores, um cluster do Red Hat OpenShift no Azure foi criado. Se você ainda não realizou essas etapas e gostaria de acompanhar, comece com o [Tutorial 1 – Criar um cluster do Red Hat OpenShift no Azure 4.](tutorial-create-cluster.md)
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.75 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="connect-to-the-cluster"></a>Conectar-se ao cluster
 
@@ -86,7 +86,7 @@ Recupere o endereço do servidor de API.
 apiServer=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query apiserverProfile.url -o tsv)
 ```
 
-Faça logon no servidor de API do cluster OpenShift usando o comando a seguir. Substitua **\<senha do kubeadmin>** pela senha que você acabou de recuperar.
+Faça logon no servidor de API do cluster OpenShift usando o comando a seguir. Substitua **\<kubeadmin password>** pela senha que você recuperou.
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>

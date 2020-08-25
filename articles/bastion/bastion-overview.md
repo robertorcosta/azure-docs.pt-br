@@ -1,18 +1,18 @@
 ---
 title: Azure Bastion | Microsoft Docs
-description: Saiba mais sobre o Azure Bastion
+description: Saiba mais sobre o Azure Bastion, que fornece conectividade RDP/SSH segura e perfeita para suas máquinas virtuais sem expor as portas RDP/SSH externamente.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: overview
 ms.date: 01/31/2020
 ms.author: cherylmc
-ms.openlocfilehash: 299a69675eed1ba958c6d13cf447407450df2abb
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 8b27a7c2fd03ed0a80f1775465f1f1bbb44f0202
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411123"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270335"
 ---
 # <a name="what-is-azure-bastion"></a>O que é o Azure Bastion?
 

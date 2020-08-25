@@ -2,22 +2,22 @@
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
-ms.date: 04/14/2020
-ms.openlocfilehash: de0c8fd674872a48a302a76a3f0951df13041206
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 08/17/2020
+ms.openlocfilehash: 758d288480c8d6a7ef5185cff33a857633c5e95b
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82135068"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88508493"
 ---
-Este artigo fornece informações e código de exemplo para ajudar você a começar a usar o SDK da Visão Personalizada com C# para criar um modelo de classificação de imagem. Depois de criada, você poderá adicionar marcas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo .NET. Se você quiser passar pelo processo de criar e usar um modelo de classificação _sem_ código, confira as [diretrizes baseadas em navegador](../../getting-started-build-a-classifier.md).
+Este artigo fornece informações e um código de exemplo para ajudar você a começar a usar a biblioteca de clientes da Visão Personalizada com o C# a fim de criar um modelo de classificação de imagem. Depois de criada, você poderá adicionar marcas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo .NET. Se você quiser passar pelo processo de criar e usar um modelo de classificação _sem_ código, confira as [diretrizes baseadas em navegador](../../getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Prerequisites
 
 - Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/)
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Obter o SDK de Visão Personalizada e um exemplo de código
+## <a name="get-the-custom-vision-client-library-and-sample-code"></a>Obter a biblioteca de clientes da Visão Personalizada e o código de exemplo
 
 Para escrever um aplicativo .NET que usa a Visão Personalizada, você precisará dos pacotes NuGet da Visão Personalizada. Esses pacotes estão incluídos no projeto de exemplo que você baixará, mas é possível acessá-los individualmente aqui.
 

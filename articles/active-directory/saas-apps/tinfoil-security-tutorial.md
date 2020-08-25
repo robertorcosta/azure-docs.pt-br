@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao TINFOIL SECURITY | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o TINFOIL SECURITY.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: da02da92-e3b0-4c09-ad6c-180882b0f9f8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d3078b553843922cd51e4e0f43ea84b6dcde16
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 35ff822b4439a48a922fe5ccd4530dfb5d40ffae
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74170759"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88552013"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tinfoil-security"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao TINFOIL SECURITY
 
@@ -176,7 +171,7 @@ Para permitir que os usuários do Azure AD entrem no TINFOIL SECURITY, eles deve
 
 1. Se o usuário fizer parte de uma conta Enterprise, será necessário [contatar a equipe de suporte do TINFOIL SECURITY](https://www.tinfoilsecurity.com/contact) para que a conta de usuário seja criada.
 
-1. Se o usuário for um usuário de SaaS do TINFOIL SECURITY regular, ele poderá adicionar um colaborador a qualquer um dos sites do usuário. Isso dispara um processo para enviar um convite ao email especificado para criar uma nova conta de usuário do TINFOIL SECURITY.
+1. Se o usuário for um usuário normal do SaaS do TINFOIL SECURITY, ele poderá adicionar um colaborador a um dos sites do usuário. Isso dispara um processo para enviar um convite ao email especificado para criar uma nova conta de usuário do TINFOIL SECURITY.
 
 > [!NOTE]
 > É possível usar qualquer outra ferramenta de criação de conta de usuário do TINFOIL SECURITY ou APIs fornecidas pelo TINFOIL SECURITY para provisionar as contas de usuário do Azure AD.

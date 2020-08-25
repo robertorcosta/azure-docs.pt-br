@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory aos Pega Systems | Microsoft Docs'
 description: Neste tutorial você aprenderá a configurar o logon único entre o Azure Active Directory e o Pega Systems.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 31acf80f-1f4b-41f1-956f-a9fbae77ee69
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: bd54466e054055ff84cd5bb2b28c5cc074ac0017
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3dd09770ef5f747f008090368c35b1f274374c5f
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "72026810"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549053"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Tutorial: Integração do Azure Active Directory ao Pega Systems
 
@@ -234,7 +230,7 @@ Nesta seção, você criará um usuário de teste chamado Brenda Fernandes no po
 
     a. Na caixa **Nome**, insira **BrendaFernandes**.
   
-    b. Na caixa **Nome de usuário**, insira **brendafernandes@\<domíniodaempresa>.\<extensão>** . (Por exemplo, BrittaSimon@contoso.com.)
+    b. Na caixa **Nome de usuário**, insira **brendafernandes@\<yourcompanydomain>.\<extension>** . (Por exemplo, BrittaSimon@contoso.com.)
 
     c. Selecione **Mostrar senha** e, em seguida, anote o valor mostrado na caixa **Senha**.
 

@@ -14,12 +14,12 @@ ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb464f758aca33e0b6547f69e2a9cc842582ea3f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 230ccb3d10c7ba6f3abcac9d83309fd7fa3c5c3f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025210"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797676"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Exemplos do PowerShell e do Graph para licenciamento baseado em grupo no Azure AD
 
@@ -445,7 +445,7 @@ HTTP/1.1 200 OK
 
 ## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>Remover licenças diretas para usuários com licenças de grupo
 
-A finalidade deste script é remover licenças diretas desnecessárias de usuários que já herdam a mesma licença de um grupo; por exemplo, como parte de uma [transição para o licenciamento baseado em grupo](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
+A finalidade deste script é remover licenças diretas desnecessárias de usuários que já herdam a mesma licença de um grupo; por exemplo, como parte de uma [transição para o licenciamento baseado em grupo](./licensing-groups-migrate-users.md).
 > [!NOTE]
 > É importante validar primeiro que as licenças diretas a serem removidas não habilitem mais funcionalidades de serviço que as licenças herdadas. Caso contrário, remover a licença direta pode desabilitar o acesso aos serviços e a dados de usuários. No momento, não é possível verificar por meio do PowerShell quais serviços são habilitados por meio de licenças herdadas versus diretas. No script, especificamos o nível mínimo de serviços que sabemos que estão sendo herdados de grupos e verificamos isso para garantir que os usuários não percam inesperadamente o acesso aos serviços.
 

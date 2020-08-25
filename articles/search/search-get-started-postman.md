@@ -8,13 +8,13 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 02/10/2020
-ms.openlocfilehash: 07c5e73ecd53bad0e5d5ec7959b288e0b6237a87
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 08/17/2020
+ms.openlocfilehash: 04619df8009aca3fecf317481d030280d5532281
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171917"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88510905"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure no Postman usando APIs REST
 > [!div class="op_single_selector"]
@@ -25,9 +25,9 @@ ms.locfileid: "86171917"
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-Uma das maneiras mais fáceis de explorar as [APIs REST da Pesquisa Cognitiva do Azure](https://docs.microsoft.com/rest/api/searchservice) é usar o Postman ou outra ferramenta de teste da Web para formular solicitações HTTP e inspecionar as respostas. Com as ferramentas certas e essas instruções, você pode enviar pedidos e exibir respostas antes de escrever qualquer código.
+Este artigo explica como formular solicitações à API REST de maneira interativa usando as APIs REST do [Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice) e um cliente de API para enviar e receber solicitações. Com o cliente de API e essas instruções, você poderá enviar solicitações e ver as respostas antes da codificação.
 
-Este artigo explica como formular solicitações de maneira interativa. Como alternativa, você pode [baixar e importar uma coleção do Postman](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) para usar solicitações predefinidas.
+O artigo usa o aplicativo Postman. [Baixe e importe uma coleção do Postman](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) se preferir usar solicitações predefinidas. 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -61,14 +61,14 @@ Para qualquer uma dessas ferramentas, você precisa escolher um comando (GET, PO
 
 Observe o prefixo HTTPS, o nome do serviço, o nome de um objeto (nesse caso, a coleção de índices) e a [versão da API](search-api-versions.md). A versão da API é uma cadeia de caracteres em minúsculas obrigatória especificada como `?api-version=2020-06-30` para a versão atual. As versões de API são atualizadas regularmente. Incluir a versão de API em cada solicitação lhe dá controle total sobre qual é usada.  
 
-A composição do cabeçalho da solicitação inclui dois elementos, o tipo de conteúdo e a chave de API usada para autenticar a Pesquisa Cognitiva do Azure. Substitua a chave de API de administração (SUA-CHAVE-DE-API-DE-ADMINISTRAÇÃO-DO-AZURE-SEARCH) por um valor válido. 
+A composição do cabeçalho da solicitação inclui dois elementos: o `Content-Type` e a `api-key` usada para autenticar o Azure Cognitive Search. Substitua a chave de API de administração (SUA-CHAVE-DE-API-DE-ADMINISTRAÇÃO-DO-AZURE-SEARCH) por um valor válido. 
 
 ```http
 api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
 Content-Type: application/json
 ```
 
-No Postman, formule uma solicitação semelhante à captura de tela a seguir. Escolha **GET** como o verbo, forneça a URL e clique em **Enviar**. Esse comando se conecta à Pesquisa Cognitiva do Azure, lê a coleção de índices e retorna o código de status HTTP 200 em uma conexão bem-sucedida. Se o serviço já tiver índices, a resposta também incluirá as definições de índice.
+No Postman, formule uma solicitação semelhante à captura de tela a seguir. Escolha **GET** como o comando, forneça a URL e clique em **Enviar**. Esse comando se conecta à Pesquisa Cognitiva do Azure, lê a coleção de índices e retorna o código de status HTTP 200 em uma conexão bem-sucedida. Se o serviço já tiver índices, a resposta também incluirá as definições de índice.
 
 ![URL e cabeçalho da solicitação do Postman](media/search-get-started-postman/postman-url.png "URL e cabeçalho da solicitação do Postman")
 
@@ -80,7 +80,7 @@ A URL é estendida para incluir o nome do índice `hotels`.
 
 Para fazer isso no Postman:
 
-1. Altere o verbo para **PUT**.
+1. Altere o comando para **PUT**.
 
 2. Copie nesta URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2020-06-30`.
 
@@ -92,7 +92,7 @@ Para fazer isso no Postman:
 
 ### <a name="index-definition"></a>Definição do índice
 
-A coleção de campos define a estrutura do documento. Cada documento deve ter esses campos, e cada campo deve ter um tipo de dados. Os campos de cadeia de caracteres são usados na pesquisa de texto completo, portanto, talvez você queira converter dados numéricos como cadeias de caracteres, se você precisa que esse conteúdo seja pesquisável.
+A coleção de campos define a estrutura do documento. Cada documento deve ter esses campos, e cada campo deve ter um tipo de dados. Os campos de cadeia de caracteres são usados na pesquisa de texto completo. Caso precise que os dados numéricos sejam pesquisáveis, converta-os em cadeias de caracteres.
 
 Os atributos no campo determinam a ação repetida. As APIs REST permitem muitas ações por padrão. Por exemplo, todas as cadeias de caracteres são pesquisáveis, recuperáveis, podem ser filtradas e podem possuir faceta por padrão. Geralmente, você só precisa definir atributos quando você precisa desabilitar um comportamento.
 
@@ -128,13 +128,13 @@ Quando você enviar esta solicitação, você deve obter uma resposta HTTP 201, 
 
 ## <a name="2---load-documents"></a>2 - Carregar documentos
 
-Criar o índice e popular o índice são etapas separadas. Na Pesquisa Cognitiva do Azure, o índice contém todos os dados pesquisáveis, os quais você pode fornecer como documentos JSON. A [API REST Adicionar, Atualizar ou Excluir Documentos ](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) é usada para essa tarefa. 
+Criar o índice e popular o índice são etapas separadas. No Azure Cognitive Search, o índice contém todos os dados pesquisáveis. Nesse cenário, os dados são fornecidos como documentos JSON. A [API REST Adicionar, Atualizar ou Excluir Documentos ](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) é usada para essa tarefa. 
 
 A URL é estendida para incluir as coleções `docs` e a operação `index`.
 
 Para fazer isso no Postman:
 
-1. Altere o verbo para **POST**.
+1. Altere o comando para **POST**.
 
 2. Copie nesta URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2020-06-30`.
 
@@ -241,13 +241,13 @@ Se você obtiver um 207, houve falha no carregamento de pelo menos um documento.
 
 ## <a name="3---search-an-index"></a>3 - Pesquisar um índice
 
-Como um índice e documentos foram carregados, agora é possível emitir consultas usando a [API REST Pesquisar Documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Agora que um índice e um conjunto de documentos foram carregados, você poderá emitir consultas neles usando a [API REST Pesquisar Documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 A URL é estendida para incluir uma expressão de consulta, especificada usando o operador de pesquisa.
 
 Para fazer isso no Postman:
 
-1. Altere o verbo para **GET**.
+1. Altere o comando para **GET**.
 
 2. Copie nesta URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2020-06-30`.
 

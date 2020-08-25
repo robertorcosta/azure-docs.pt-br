@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 18acbd94fa3d717fc20b9e1020b9bf7c6db7744d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b00fe7a515d1d27ce9be2ab62a96c719d5e045a5
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78302909"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798577"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
  Retorna a expressão convertida em uma matriz. Se a expressão não puder ser convertida, retornará indefinido.  
@@ -33,7 +33,7 @@ StringToArray(<str_expr>)
   Retorna uma expressão de matriz ou indefinido. 
   
 ## <a name="remarks"></a>Comentários
-  Valores de cadeia de caracteres aninhados devem ser gravados com aspas duplas para serem JSON válidos. Para obter detalhes sobre o formato JSON, consulte [JSON.org](https://json.org/)
+  Valores de cadeia de caracteres aninhados devem ser gravados com aspas duplas para serem JSON válidos. Para obter detalhes sobre o formato JSON, consulte [JSON.org](https://json.org/). Essa função do sistema não usará o índice.
   
 ## <a name="examples"></a>Exemplos
   
@@ -90,10 +90,6 @@ Este é o conjunto de resultados.
 ```json
 [{}]
 ```
-
-## <a name="remarks"></a>Comentários
-
-Essa função do sistema não usará o índice.
 
 ## <a name="next-steps"></a>Próximas etapas
 

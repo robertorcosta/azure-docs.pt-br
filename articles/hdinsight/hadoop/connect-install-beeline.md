@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020
+ms.custom: contperfq1
 ms.date: 05/27/2020
-ms.openlocfilehash: e93d750dd2feaa70692ab1077ee4333c835417db
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5495e6c6392ba2e824a0a70717bd19747db9b754
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076769"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88754949"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>Conectar-se ao Apache beeline no HDInsight ou instalá-lo localmente
 
@@ -146,7 +146,7 @@ Embora o beeline esteja incluído nos nós de cabeçalho, talvez você queira in
 
 1. Modifique ainda mais o arquivo bashrc. Você precisará identificar o caminho para onde os arquivos mortos foram desempacotados. Se você estiver usando o [subsistema do Windows para Linux](https://docs.microsoft.com/windows/wsl/install-win10)e seguiu as etapas exatamente, o caminho será `/mnt/c/Users/user/` , onde `user` é seu nome de usuário.
 
-    1. Abra o arquivo:`nano ~/.bashrc`
+    1. Abra o arquivo: `nano ~/.bashrc`
 
     1. Modifique os comandos abaixo com o caminho apropriado e insira-os no final do arquivo bashrc:
 

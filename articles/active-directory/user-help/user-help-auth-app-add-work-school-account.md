@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 8f084057c8bc2d0be1e04dc1821378c9733cc050
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e003c45aa1e7d75b709b7fbf99532fb1302fcbb9
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741533"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797642"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Adicionar sua conta corporativa ou de estudante ao aplicativo Microsoft Authenticator
 
@@ -30,7 +30,7 @@ Se a organização usa a verificação de dois fatores, você pode configurar su
 1. Em seu computador, vá para a página [Verificação de segurança adicional](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1).
 
     >[!Note]
-    >Caso não veja a página **Verificação de segurança adicional**, é possível que o administrador tenha ativado a experiência de informações de segurança (versão prévia). Se esse for o caso, você deverá seguir as instruções da seção [Configurar informações de segurança para usar um aplicativo Authenticator](security-info-setup-auth-app.md). Se não for o caso, você precisará entrar em contato com o suporte técnico da sua organização para obter assistência. Para saber mais sobre as informações de segurança, consulte [Visão geral sobre as informações de segurança (versão prévia)](user-help-security-info-overview.md).
+    >Caso não veja a página **Verificação de segurança adicional**, é possível que o administrador tenha ativado a experiência de informações de segurança (versão prévia). Se esse for o caso, você deverá seguir as instruções da seção [Configurar informações de segurança para usar um aplicativo Authenticator](security-info-setup-auth-app.md). Se não for o caso, você precisará entrar em contato com o suporte técnico da sua organização para obter assistência. Para saber mais sobre as informações de segurança, consulte [Visão geral sobre as informações de segurança (versão prévia)](./security-info-setup-signin.md).
 
 2. Marque a caixa ao lado de **aplicativo do autenticador** e selecione **Configurar**.
 

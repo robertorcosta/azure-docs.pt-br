@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: rosouz
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b13585b4a839bfcf6c0645c911e98d1f1885f3ca
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b5bf7cc74a5444e5f51aaddb1d088f6b0c1e52a8
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036701"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798883"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Fluxos de alteração na API do Azure Cosmos DB para MongoDB
 
@@ -21,26 +21,6 @@ O suporte do [feed de alterações](change-feed.md) na API do Azure Cosmos DB pa
 
 > [!NOTE]
 > Para usar os fluxos de alteração, crie a conta com a versão 3.6 da API do Azure Cosmos DB para MongoDB ou uma versão posterior. Se você executar os exemplos de fluxo de alterações em uma versão anterior, poderá ver o erro de `Unrecognized pipeline stage name: $changeStream`.
-
-## <a name="current-limitations"></a>Limitações atuais
-
-As seguintes limitações são aplicáveis ao usar fluxos de alteração:
-
-* As propriedades `operationType` e `updateDescription` ainda não têm suporte no documento de saída.
-* Atualmente, há suporte para os tipos de operações `insert`, `update` e `replace`. 
-* Ainda não há suporte para a operação de exclusão ou outros eventos.
-
-Devido a essas limitações, as opções de fase $match, fase $project e fullDocument são necessárias, conforme mostrado nos exemplos anteriores.
-
-Ao contrário do feed de alterações na API do SQL do Azure Cosmos DB, não há uma [Biblioteca de Processador do Feed de Alterações](change-feed-processor.md) separada para consumir fluxos de alteração ou uma necessidade de um contêiner de concessões. Atualmente, não há suporte para [gatilhos do Azure Functions](change-feed-functions.md) para processamento de fluxos de alteração.
-
-## <a name="error-handling"></a>Tratamento de erros
-
-Há suporte para os seguintes códigos de erro e mensagens ao usar os fluxo de alterações:
-
-* **Código de erro HTTP 16500** – quando o fluxo de alterações é limitado, ele retorna uma página vazia.
-
-* **NamespaceNotFound (OperationType Invalidate)** – se você executar o fluxo de alterações na coleção que não existe ou se a coleção for solta, um erro `NamespaceNotFound` será retornado. Como a propriedade `operationType` não pode ser retornada no documento de saída, em vez do erro `operationType Invalidate`, o erro `NamespaceNotFound` será retornado.
 
 ## <a name="examples"></a>Exemplos
 
@@ -156,15 +136,17 @@ var cursor = db.coll.watch(
 As seguintes limitações são aplicáveis ao usar fluxos de alteração:
 
 * As propriedades `operationType` e `updateDescription` ainda não têm suporte no documento de saída.
-* Atualmente, há suporte para os tipos de operações `insert`, `update` e `replace`. Ainda não há suporte para a operação de exclusão ou outros eventos.
+* Atualmente, há suporte para os tipos de operações `insert`, `update` e `replace`. No entanto, a operação de exclusão ou outros eventos ainda não têm suporte.
 
 Devido a essas limitações, as opções de fase $match, fase $project e fullDocument são necessárias, conforme mostrado nos exemplos anteriores.
+
+Ao contrário do feed de alterações na API do SQL do Azure Cosmos DB, não há uma [Biblioteca de Processador do Feed de Alterações](change-feed-processor.md) separada para consumir fluxos de alteração ou uma necessidade de um contêiner de concessões. Atualmente, não há suporte para [gatilhos do Azure Functions](change-feed-functions.md) para processamento de fluxos de alteração.
 
 ## <a name="error-handling"></a>Tratamento de erros
 
 Há suporte para os seguintes códigos de erro e mensagens ao usar os fluxo de alterações:
 
-* **Código de erro HTTP 429** – quando o fluxo de alterações é limitado, ele retorna uma página vazia.
+* **Código de erro HTTP 16500** – quando o fluxo de alterações é limitado, ele retorna uma página vazia.
 
 * **NamespaceNotFound (OperationType Invalidate)** – se você executar o fluxo de alterações na coleção que não existe ou se a coleção for solta, um erro `NamespaceNotFound` será retornado. Como a propriedade `operationType` não pode ser retornada no documento de saída, em vez do erro `operationType Invalidate`, o erro `NamespaceNotFound` será retornado.
 

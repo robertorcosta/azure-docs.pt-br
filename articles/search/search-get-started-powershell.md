@@ -8,13 +8,13 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 02/10/2020
-ms.openlocfilehash: eb7dcc0956cd9ce214ad3894aa8cc2b99beed942
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/17/2020
+ms.openlocfilehash: b74deaecd1a71fec14e31f0a6aca2fed34361d76
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519806"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505998"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure no PowerShell usando as APIs REST
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "86519806"
 > * [Portal](search-get-started-portal.md)
 > 
 
-Este artigo percorre o processo de criação, carregamento e consulta de um índice da Pesquisa Cognitiva do Azure usando o PowerShell e as [APIs REST da Pesquisa Cognitiva do Azure](https://docs.microsoft.com/rest/api/searchservice/). Este artigo explica como executar os comandos do PowerShell interativamente. Ou você pode [baixar e executar um script do PowerShell](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) que executa as mesmas operações.
+Este artigo percorre o processo de criação, carregamento e consulta de um índice da Pesquisa Cognitiva do Azure usando o PowerShell e as [APIs REST da Pesquisa Cognitiva do Azure](https://docs.microsoft.com/rest/api/searchservice/). Este artigo explica como executar os comandos do PowerShell interativamente. Como alternativa, você pode [baixar e executar um script do PowerShell](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) que executa as mesmas operações.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -89,7 +89,7 @@ A menos que você esteja usando o portal, deve haver um índice no serviço ante
 
 Os elementos necessários de um índice incluem um nome e uma coleção de campos. A coleção de campos define a estrutura de um *documento*. Cada campo tem um nome, tipo e atributos que determinam como ele é usado (por exemplo, se for pesquisável de texto completo, filtrável ou recuperável nos resultados da pesquisa). Dentro de um índice, um dos campos do tipo `Edm.String` deve ser designado como a *chave* para a identidade do documento.
 
-Esse índice é denominado "hotels-quickstart" e tem as definições de campo que você vê abaixo. É um subconjunto de um [Índice de hotéis](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) maior usado em outros passo a passos. Nós o cortamos neste guia de início rápido para fins de brevidade.
+Esse índice é denominado "hotels-quickstart" e tem as definições de campo que você vê abaixo. É um subconjunto de um [índice de Hotéis](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) maior usado em outros artigos de passo a passo. Para resumir, as definições de campo foram excluídas deste guia de início rápido.
 
 1. Cole este exemplo no PowerShell para criar um objeto **$Body** que contém o esquema de índice.
 
@@ -179,7 +179,7 @@ Esse índice é denominado "hotels-quickstart" e tem as definições de campo qu
 
 ## <a name="2---load-documents"></a>2 - Carregar documentos
 
-Para efetuar push de documentos, use uma solicitação HTTP POST para o ponto de extremidade de URL do seu índice. A API REST desta tarefa é [Adicionar, Atualizar ou Excluir Comentários](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+Para efetuar push de documentos, use uma solicitação HTTP POST para o ponto de extremidade de URL do índice. A API REST desta tarefa é [Adicionar, Atualizar ou Excluir Comentários](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 1. Cole este exemplo no PowerShell para criar um objeto **$body** que contém os documentos que você deseja carregar. 
 
@@ -319,7 +319,7 @@ Para efetuar push de documentos, use uma solicitação HTTP POST para o ponto de
 
 Esta etapa mostra como consultar um índice usando a [API Pesquisar Documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-Use aspas simples na pesquisa $urls. As cadeias de caracteres de consulta incluem os caracteres **$** , e você poderá omitir a necessidade de escapá-los se toda a cadeia de caracteres estiver entre aspas simples.
+Use aspas simples na pesquisa $urls. As cadeias de consulta incluem os caracteres **$** , e você poderá omitir a necessidade de usar o caractere de escape com elas se toda a cadeia de caracteres estiver entre aspas simples.
 
 1. Defina o ponto de extremidade para a coleção de documentos *hotels-quickstart* e adicione um parâmetro **search** a ser passado em uma cadeia de caracteres de consulta. 
   
@@ -378,7 +378,7 @@ Experimente alguns outros exemplos de consulta para ter uma ideia da sintaxe. Vo
 $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=restaurant wifi&$count=true&$select=HotelName,Description,Tags'
 
 # Query example 2 
-# Apply a filter to the index to find hotels rated 4 or highter
+# Apply a filter to the index to find hotels rated 4 or higher
 # Returns the HotelName and Rating. Two documents match.
 $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2020-06-30&search=*&$filter=Rating gt 4&$select=HotelName,Rating'
 

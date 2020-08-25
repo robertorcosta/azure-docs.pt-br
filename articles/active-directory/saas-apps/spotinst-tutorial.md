@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Spotinst | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Active Directory do Azure e o Spotinst.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2f6dbd70-c2db-4ae9-99ee-976c3090d214
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5490ff6c6143dff258d74e013bb9d4c821aab625
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3b8297175c24aac132fd7d83580e0889e0da4730
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76263278"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587932"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Spotinst
 
@@ -79,20 +75,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP** execute as seguintes etapas:
+1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por IDP, conclua estas etapas:
 
-    a. Clique em **Definir URLs adicionais**.
+   1. Verifique se a **URL de resposta** está definida como: https://console.spotinst.com/auth/saml.
+   1. No **Estado de Retransmissão**, insira sua ID da Organização do Spotinst, que você também pode confirmar na guia **SSO**.
+   1. A **URL de Logon** deve estar vazia.
 
-    b. No **estado de retransmissão** caixa de texto, digite um valor: `<ID>`
-
-1. Clique em **Definir URLs adicionais** e execute as seguintes etapas caso deseje configurar o aplicativo no modo iniciado por **SP**:
-
-    Na caixa de texto **URL de Logon**, digite a URL: `https://console.spotinst.com/auth/saml`
-
-    > [!NOTE]
-    > O valor de estado de retransmissão não é real. Você atualizará o valor do estado do relé com o valor atual do estado do relé, que será explicado posteriormente no tutorial.
-
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 
 1. O aplicativo Spotinst espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 

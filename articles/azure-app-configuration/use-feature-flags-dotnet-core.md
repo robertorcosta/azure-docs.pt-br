@@ -11,15 +11,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/19/2019
+ms.date: 08/12/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 3182961f928a9befc5a55fb6d58e22c74ba81089
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: 3f8a43a1ff28206a4bcc5fd059f69492c83eb34d
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79473431"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224706"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Usar sinalizadores de recursos em um aplicativo ASP.NET Core
 
@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá a:
 
 ## <a name="set-up-feature-management"></a>Configurar o gerenciamento de recursos
 
-Adicione uma referência ao pacote do NuGet `Microsoft.FeatureManagement` para utilizar o gerenciador de recursos do .NET Core.
+Adicione uma referência aos pacotes do NuGet `Microsoft.FeatureManagement.AspNetCore` e `Microsoft.FeatureManagement` para utilizar o gerenciador de recursos do .NET Core.
     
 O gerenciador de recursos `IFeatureManager` do .NET Core obtém os sinalizadores de recursos do sistema de configuração nativa da estrutura. Como resultado, você pode definir os sinalizadores de recursos do aplicativo usando qualquer fonte de configuração compatível com o .NET Core, incluindo o arquivo *appsettings.json* local ou variáveis de ambiente. O `IFeatureManager` se baseia na injeção de dependência do .NET Core. Você pode registrar os serviços de gerenciamento de recursos usando convenções padrão:
 
@@ -206,6 +206,8 @@ public class HomeController : Controller
 Em controladores MVC, use o atributo `FeatureGate` para controlar se uma classe de controlador inteira ou uma ação específica será habilitada. O seguinte controlador `HomeController` exige que `FeatureA` esteja *ativado* antes de executar qualquer ação contida pela classe do controlador:
 
 ```csharp
+using Microsoft.FeatureManagement.Mvc;
+
 [FeatureGate(MyFeatureFlags.FeatureA)]
 public class HomeController : Controller
 {
@@ -216,6 +218,8 @@ public class HomeController : Controller
 A seguinte ação `Index` exige que `FeatureA` esteja *ativado* para ser executada:
 
 ```csharp
+using Microsoft.FeatureManagement.Mvc;
+
 [FeatureGate(MyFeatureFlags.FeatureA)]
 public IActionResult Index()
 {

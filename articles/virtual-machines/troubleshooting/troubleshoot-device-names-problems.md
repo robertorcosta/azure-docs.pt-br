@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 6d3e35f44d11cd9ed41badbc64ff7528b5b15558
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 31f64a504156134b1d622705d5301d9cd5a5f5b1
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084385"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756819"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Solucionar problemas de mudança de nome do dispositivo de VM Linux no Azure
 
@@ -42,7 +42,7 @@ O problema ocorre porque a varredura de dispositivo no Linux agendada pelo subsi
 
 Para resolver esse problema, use nomenclatura persistente. Há quatro maneiras de usar uma nomenclatura persistente: por rótulo de sistema de arquivos, por UUID, por ID ou por caminho. Recomendamos o uso do rótulo do sistema de arquivos ou UUID para VMs Linux do Azure.
 
-A maioria das distribuições fornece os parâmetros `fstab` **nofail** ou **nobootwait**. Esses parâmetros permitem que um sistema inicialize quando a montagem do disco falha na inicialização. Consulte a documentação de sua distribuição para obter mais informações sobre esses parâmetros. Para saber mais sobre como configurar uma VM do Linux para usar um UUID quando você adiciona um disco de dados, consulte [Conectar-se à VM Linux para montar o novo disco](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
+A maioria das distribuições fornece os parâmetros `fstab` **nofail** ou **nobootwait**. Esses parâmetros permitem que um sistema inicialize quando a montagem do disco falha na inicialização. Consulte a documentação de sua distribuição para obter mais informações sobre esses parâmetros. Para saber mais sobre como configurar uma VM do Linux para usar um UUID quando você adiciona um disco de dados, consulte [Conectar-se à VM Linux para montar o novo disco](../linux/add-disk.md#format-and-mount-the-disk).
 
 Quando o agente Linux do Azure é instalado em uma VM, ele usa regras Udev para construir um conjunto de links simbólicos no caminho /dev/disk/azure. Aplicativos e scripts usam regras Udev para identificar os discos anexados à VM, junto com o tipo de disco e LUNs de disco.
 

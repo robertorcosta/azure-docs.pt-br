@@ -4,21 +4,21 @@ description: O armazenamento do Azure protege seus dados criptografando-os autom
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 07/16/2020
+ms.date: 08/21/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 002eeaedf4ae479408cd1ba0c7a373d8a2661cdc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a5e7060b31a936bd54dc0a1f084f823beb076044
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089389"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756802"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Criptografia do Armazenamento do Azure para dados em repouso
 
-O armazenamento do Azure criptografa automaticamente os dados quando eles são persistidos para a nuvem. A criptografia de armazenamento do Azure protege seus dados e para ajudá-lo a atender aos compromissos de segurança e conformidade da organização.
+O armazenamento do Azure criptografa automaticamente os dados quando eles são persistidos na nuvem. A criptografia de armazenamento do Azure protege seus dados e para ajudá-lo a atender aos compromissos de segurança e conformidade da organização.
 
 ## <a name="about-azure-storage-encryption"></a>Sobre a criptografia de armazenamento do Azure
 
@@ -46,7 +46,7 @@ A tabela a seguir compara as principais opções de gerenciamento de criptografi
 | Parâmetro de gerenciamento de chaves | Chaves gerenciadas pela Microsoft | Chaves gerenciadas pelo cliente | Chaves fornecidas pelo cliente |
 |--|--|--|--|
 | Operações de criptografia/descriptografia | Azure | Azure | Azure |
-| Serviços de armazenamento do Azure com suporte | Tudo | Armazenamento de BLOBs, arquivos do Azure<sup>1, 2</sup> | Armazenamento de blob |
+| Serviços de armazenamento do Azure com suporte | Todos | Armazenamento de BLOBs, arquivos do Azure<sup>1, 2</sup> | Armazenamento de Blobs |
 | Armazenamento de chave | Repositório de chaves da Microsoft | Cofre de Chave do Azure | Repositório de chaves próprio do cliente |
 | Responsabilidade de rotação de chave | Microsoft | Cliente | Cliente |
 | Controle de chave | Microsoft | Cliente | Cliente |

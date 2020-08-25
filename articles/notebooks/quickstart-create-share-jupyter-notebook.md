@@ -1,21 +1,21 @@
 ---
-title: Criar e compartilhar um Jupyter notebook na versão prévia do Azure Notebooks
-description: Crie e execute rapidamente um Jupyter notebook na versão prévia do Azure Notebooks e, em seguida, compartilhe esse notebook com outras pessoas.
+title: Criar e compartilhar um Jupyter Notebook na versão prévia do Azure Notebooks
+description: Crie e execute rapidamente um Jupyter Notebook na versão prévia do Azure Notebooks e, em seguida, compartilhe esse notebook com outras pessoas.
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.custom: devx-track-python
-ms.openlocfilehash: 19773a6857d58f5b6af2a02ac28a3414c51fc917
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 77575b5b9e006ac9881d03dc95509d55c53c26d7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849391"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589326"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Início Rápido: Criar e compartilhar um notebook na versão prévia do Azure Notebooks
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-Neste início rápido, você criará e executará um Jupyter notebook no Azure Notebooks e, em seguida, compartilhará esse notebook com outras pessoas. O Jupyter permite combinar com facilidade o texto Markdown, o código executável, os dados persistentes, os gráficos e as visualizações em uma só tela compartilhável, o notebook. O Azure Notebooks é um serviço hospedado gratuito para desenvolver e executar os notebooks do Jupyter na nuvem sem instalação.
+Neste início rápido, você criará e executará um Jupyter Notebook no Azure Notebooks e, em seguida, compartilhará esse notebook com outras pessoas. O Jupyter permite combinar com facilidade o texto Markdown, o código executável, os dados persistentes, os gráficos e as visualizações em uma só tela compartilhável, o notebook. O Azure Notebooks é um serviço hospedado gratuito para desenvolver e executar os Jupyter Notebooks na nuvem sem instalação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Nenhum.
@@ -106,4 +106,4 @@ Na página do projeto, também é possível usar o menu **Compartilhar** para ob
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: criar e executar um Jupyter notebook para fazer uma regressão linear](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: criar e executar um Jupyter Notebook para fazer uma regressão linear](tutorial-create-run-jupyter-notebook.md)

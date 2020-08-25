@@ -1,29 +1,31 @@
 ---
-title: Início rápido do Azure - Executar trabalho do Lote - .NET
-description: Execute rapidamente um trabalho de exemplo do Lote do Azure e tarefas de um aplicativo C# com a biblioteca de cliente .NET do Lote.
+title: Guia de Início Rápido – Executar seu primeiro trabalho do Lote do Azure com a API do .NET
+description: Neste guia de início rápido, você executará um trabalho e tarefas de exemplo do Lote do Azure em um aplicativo C# com a biblioteca de clientes .NET do Lote.
 ms.topic: quickstart
-ms.date: 11/29/2018
+ms.date: 08/17/2020
 ms.custom: mvc
-ms.openlocfilehash: 1163d63f8cbd6afedfb6e5323fa469059fa8021c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f17fc2103e4b8512e050d79f5a639b38d90a2a95
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117209"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88511024"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Início Rápido: Executar o primeiro trabalho em Lote do Azure com a API do .NET
 
-Este guia de início rápido executa um trabalho do Lote do Azure de um aplicativo em C# criado na API do .NET do Lote do Azure. O aplicativo carrega vários arquivos de dados de entrada no armazenamento do Azure e, em seguida, cria um *pool* de nós de computação (máquinas virtuais) do Lote. Em seguida, ele cria um exemplo de *trabalho* que executa *tarefas* para processar cada arquivo de entrada no pool usando um comando básico. Depois de concluir este guia de início rápido, você entenderá os conceitos principais do serviço Lote e estará pronto para experimentar o Lote com cargas de trabalho mais realistas em maior escala.
+Comece a usar o Lote do Azure executando um trabalho em um aplicativo C# criado na API do .NET do Lote do Azure. O aplicativo carrega vários arquivos de dados de entrada no armazenamento do Azure e, em seguida, cria um pool de nós de computação (máquinas virtuais) do Lote. Em seguida, ele cria um exemplo de trabalho que executa tarefas para processar cada arquivo de entrada no pool usando um comando básico.
 
-![Fluxo de trabalho de aplicativo do início rápido](./media/quick-run-dotnet/sampleapp.png)
+Depois de concluir este guia de início rápido, você entenderá os conceitos principais do serviço Lote e estará pronto para experimentar o Lote com cargas de trabalho mais realistas em maior escala.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+![Diagrama mostrando uma visão geral do fluxo de trabalho do aplicativo do Lote do Azure.](./media/quick-run-dotnet/sampleapp.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Visual Studio 2017 ou posterior](https://www.visualstudio.com/vs) ou [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, macOS ou Windows. 
+- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Uma conta do Lote e uma conta de Armazenamento do Azure vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md). 
+- Uma conta do Lote e uma conta de Armazenamento do Azure vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md).
+
+- [Visual Studio 2017 ou posterior](https://www.visualstudio.com/vs) ou [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, macOS ou Windows. 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -60,11 +62,11 @@ private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfw
 
 Para ver o fluxo de trabalho do Lote em ação, compile e execute o aplicativo no Visual Studio ou na linha de comando com os comandos `dotnet build` e `dotnet run`. Depois de executar o aplicativo, examine o código para saber o que cada parte do aplicativo faz. Por exemplo, no Visual Studio:
 
-* Clique com botão direito do mouse na solução no Gerenciador de Soluções e clique em **Compilar Solução**. 
+- Clique com botão direito do mouse na solução no Gerenciador de Soluções e clique em **Compilar Solução**. 
 
-* Confirme a restauração de qualquer pacote NuGet, se solicitado. Se você precisar baixar pacotes ausentes, verifique se o [Gerenciador de Pacotes do NuGet](https://docs.nuget.org/consume/installing-nuget) está instalado.
+- Confirme a restauração de qualquer pacote NuGet, se solicitado. Se você precisar baixar pacotes ausentes, verifique se o [Gerenciador de Pacotes do NuGet](https://docs.nuget.org/consume/installing-nuget) está instalado.
 
-Em seguida, execute-o. Quando você executa o aplicativo de exemplo, a saída do console fica mais ou menos assim. Durante a execução, você tem uma pausa em `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` enquanto os nós de computação do pool são iniciados. As tarefas são enfileiradas para execução assim que o primeiro nó de computação estiver em execução. Vá para sua conta do Lote no [portal do Azure](https://portal.azure.com) para monitorar o pool, os nós de computação, os trabalhos e as tarefas.
+Quando você executa o aplicativo de exemplo, a saída do console fica mais ou menos assim. Durante a execução, você tem uma pausa em `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` enquanto os nós de computação do pool são iniciados. As tarefas são enfileiradas para execução assim que o primeiro nó de computação estiver em execução. Vá para sua conta do Lote no [portal do Azure](https://portal.azure.com) para monitorar o pool, os nós de computação, os trabalhos e as tarefas.
 
 ```
 Sample start: 11/16/2018 4:02:54 PM
@@ -93,17 +95,16 @@ stderr:
 
 O tempo de execução típico é de aproximadamente cinco minutos ao executar o aplicativo em sua configuração padrão. A instalação inicial do pool leva mais tempo. Para executar o trabalho novamente, exclua o trabalho da execução anterior e não exclua o pool. Em um pool pré-configurado, o trabalho é concluído em alguns segundos.
 
-
 ## <a name="review-the-code"></a>Examine o código
 
 O aplicativo .NET neste guia de início rápido faz o seguinte:
 
-* Carrega três arquivos de texto pequenos em um contêiner de blob em sua conta de Armazenamento do Azure. Esses arquivos são entradas para o processamento pelo Lote.
-* Cria um conjunto de nós de computação executando o Windows Server.
-* Cria um trabalho e três tarefas a serem executadas em nós. Cada tarefa processa um dos arquivos de entrada usando uma linha de comando do Windows. 
-* Exibe os arquivos retornados pelas tarefas.
+- Carrega três arquivos de texto pequenos em um contêiner de blob em sua conta de Armazenamento do Azure. Esses arquivos são entradas para o processamento pelo Lote.
+- Cria um conjunto de nós de computação executando o Windows Server.
+- Cria um trabalho e três tarefas a serem executadas em nós. Cada tarefa processa um dos arquivos de entrada usando uma linha de comando do Windows. 
+- Exibe os arquivos retornados pelas tarefas.
 
-Confira o arquivo `Program.cs` e as seções a seguir para obter mais detalhes. 
+Confira o arquivo `Program.cs` e as seções a seguir para obter mais detalhes.
 
 ### <a name="preliminaries"></a>Etapas preliminares
 
@@ -245,7 +246,6 @@ Quando não forem mais necessário, exclua o grupo de recursos, a conta do Lote 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste guia de início rápido, você executou um pequeno aplicativo compilado com a API de .NET do Lote para criar um pool do Lote e um trabalho do Lote. O trabalho executou os exemplos de tarefas e baixou a saída criada nos nós. Agora que você conhece os conceitos principais do serviço Lote, está pronto para experimentar o Lote com cargas de trabalho mais realistas em maior escala. Para saber mais sobre o Lote do Azure e percorrer uma carga de trabalho paralela com um aplicativo real, continue com o tutorial de .NET do Lote.
-
 
 > [!div class="nextstepaction"]
 > [Processar uma carga de trabalho paralela com o .NET](tutorial-parallel-dotnet.md)

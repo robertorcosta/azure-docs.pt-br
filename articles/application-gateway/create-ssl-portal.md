@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 07/24/2020
+ms.date: 08/14/2020
 ms.author: victorh
-ms.openlocfilehash: baadd52a931a28e1502fe0da2286d541db9face4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0d0522dd2f206e02ad8b63b13a9537c049232db2
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290116"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245733"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutorial: Configurar um gateway de aplicativo com o encerramento de TLS usando o portal do Azure
 
@@ -30,7 +30,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Entrar no Azure
+## <a name="prerequisites"></a>Pré-requisitos
 
 Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
@@ -259,6 +259,10 @@ Neste exemplo, você instala IIS nas máquinas virtuais apenas para verificar se
     Seu site de IIS protegido é exibido, como no exemplo a seguir:
 
     ![Testar a URL de base no gateway de aplicativo](./media/create-ssl-portal/application-gateway-iistest.png)
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Quando não forem mais necessários, exclua o grupo de recursos e todos os recursos relacionados. Para fazer isso, selecione o grupo de recursos e selecione **Excluir grupo de recursos**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: fc95e988b3f89402967cdbedd06c4b945a99f99a
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
-ms.translationtype: HT
+ms.openlocfilehash: e5b07f8f7ae766d110c87a495a3e1623b815e526
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266246"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795976"
 ---
 # <a name="what-is-the-additional-verification-page"></a>O que é a página de Verificação adicional?
 
@@ -33,7 +33,7 @@ A verificação de dois fatores é mais segura do que apenas uma senha, porque s
 A verificação de dois fatores pode ajudar a impedir que hackers mal-intencionados finjam que são você. Mesmo que eles tenham sua senha, é improvável que também estejam com seu dispositivo.
 
 >[!Important]
->Caso seja um administrador que busca informações sobre como ativar a verificação de dois fatores para seus funcionários ou outros usuários, confira a [documentação da Autenticação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/). Este artigo destina-se aos usuários que estão tentando usar a verificação de dois fatores com uma conta corporativa ou de estudante (como alain@contoso.com).
+>Caso seja um administrador que busca informações sobre como ativar a verificação de dois fatores para seus funcionários ou outros usuários, confira a [documentação da Autenticação do Azure Active Directory](../authentication/index.yml). Este artigo destina-se aos usuários que estão tentando usar a verificação de dois fatores com uma conta corporativa ou de estudante (como alain@contoso.com).
 
 ## <a name="who-decides-if-you-use-this-feature"></a>Quem decide se você usa esse recurso?
 

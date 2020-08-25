@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Gerenciar a governança de marcas'
 description: Neste tutorial, use o efeito Modificar do Azure Policy para criar e impor um modelo de governança de tag em recursos novos e existentes.
-ms.date: 04/21/2020
+ms.date: 08/17/2020
 ms.topic: tutorial
-ms.openlocfilehash: 8b3d0db100a601950ec82824897a3ba3e5145b79
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: f49eedb00c98d3c362140fdca9b195a086903f10
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142258"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545498"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Gerenciar a governança de marca com o Azure Policy
 
@@ -45,7 +45,7 @@ Como qualquer implementação de qualidade dos controles de governança, os requ
 
 ## <a name="configure-the-costcenter-tag"></a>Configurar a marca CostCenter
 
-Em termos específicos a um ambiente do Azure gerenciado pelo Azure Policy, os requisitos da marca _CostCenter_ exigem o seguinte:
+Em termos específicos a um ambiente do Azure gerenciado pelo Azure Policy, os requisitos da marca _CostCenter_ exigem os seguintes resultados:
 
 - Negar grupos de recursos que não tenham a marca _CostCenter_
 - Modificar recursos para adicionar a marca _CostCenter_ do grupo de recursos pai quando esta não estiver presente
@@ -107,7 +107,7 @@ Essa regra de política usa a operação **add** em vez de **addOrReplace**, poi
 
 ## <a name="configure-the-env-tag"></a>Configurar a marca Env
 
-Em termos específicos a um ambiente do Azure gerenciado pelo Azure Policy, os requisitos da marca _Env_ exigem o seguinte:
+Em termos específicos a um ambiente do Azure gerenciado pelo Azure Policy, os requisitos da marca _Env_ exigem os seguintes resultados:
 
 - Modificar a marca _Env_ no grupo de recursos com base no esquema de nomenclatura do grupo de recursos
 - Modificar a marca _Env_ em todos os recursos do grupo de recursos para que seja a mesma do grupo de recursos pai

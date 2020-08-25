@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020
-ms.date: 04/17/2020
-ms.openlocfilehash: 3614fac027dd32ab5f5d70f5835432ac3b9b512d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 08/21/2020
+ms.custom: contperfq1
+ms.openlocfilehash: f6d8f804fa26383435d191af27289ffd2ecb3e0b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207733"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755085"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar o cliente Apache Beeline com Apache Hive
 
@@ -25,7 +25,7 @@ O Beeline é um cliente Hive que está incluído em nós principais do cluster H
 
 * Um cluster Hadoop no HDInsight. Consulte [Introdução ao HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-* Observe o esquema de URI para o armazenamento primário do seu cluster. Por exemplo, `wasb://` para o armazenamento do Azure, `abfs://` por Azure data Lake Storage Gen2 ou `adl://` para Azure data Lake Storage Gen1. Se a transferência segura estiver habilitada para o armazenamento do Azure, o URI será `wasbs://` . Para obter mais informações, consulte [transferência segura](../../storage/common/storage-require-secure-transfer.md).
+* Observe o esquema de URI para o armazenamento primário do seu cluster. Por exemplo,  `wasb://` para o armazenamento do Azure, `abfs://` por Azure data Lake Storage Gen2 ou `adl://` para Azure data Lake Storage Gen1. Se a transferência segura estiver habilitada para o armazenamento do Azure, o URI será `wasbs://` . Para obter mais informações, consulte [transferência segura](../../storage/common/storage-require-secure-transfer.md).
 
 * Opção 1: um cliente SSH. Para saber mais, confira [Conectar-se ao HDInsight (Apache Hadoop) usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). A maioria das etapas neste documento pressupõe que você esteja usando o beeline de uma sessão SSH para o cluster.
 

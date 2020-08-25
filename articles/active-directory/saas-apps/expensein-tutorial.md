@@ -2,25 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao ExpenseIn | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o ExpenseIn.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: 6ac8053b-a216-45d8-bf5e-ecd37d808e57
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 377499b1dd263398e1be42379f8db60e8a0477f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7d0b0a6c935182737a7f207b7c7831fefcd491ea
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87017492"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555282"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Tutorial: Integrar o ExpenseIn ao Azure Active Directory
 
@@ -127,7 +123,15 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure per
 
 ## <a name="configure-expensein-sso"></a>Configurar o SSO do ExpenseIn
 
-1. Abra uma nova janela do navegador da Web e entre em seu site de empresa do ExpenseIn como administrador.
+1. Para automatizar a configuração no ExpenseIn, é necessário instalar a **Extensão do navegador de Entrada Segura dos Meus Aplicativos**, clicando em **Instalar a extensão**.
+
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
+
+1. Depois de adicionar a extensão ao navegador, clique em **Instalar ExpenseIn**. Você será direcionado ao aplicativo ExpenseIn. Em seguida, forneça as credenciais de administrador para entrar no ExpenseIn. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 5.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+1. Caso deseje configurar o ExpenseIn manualmente, faça logon no seu site de empresa do ExpenseIn como administrador.
 
 1. Clique em **Administrador** na parte superior da página e, em seguida, navegue até **Logon único** e clique em **Adicionar provedor**.
 

@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory ao HubSpot | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o HubSpot.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 57343ccd-53ea-4e62-9e54-dee2a9562ed5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4b235426a7029abb9bb79ba56e582cccc3b14a6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 51e27526b10bcdd74d6e2bffb8bf620d7b022aac
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68944440"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88551425"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutorial: Integração do Azure Active Directory ao HubSpot
 
@@ -106,9 +101,9 @@ Nesta seção, você configurará o logon único do Azure AD com o HubSpot no po
 
 1. No painel **Configuração Básica de SAML**, para configurar o *modo iniciado por IDP*, conclua as seguintes etapas:
 
-    1. Na caixa **Identificador**, digite uma URL que tenha o seguinte padrão: https:\//api.hubspot.com/login-api/v1/saml/login?portalId=\<CUSTOMER ID\>.
+    1. Na caixa **Identificador**, insira uma URL que tenha o seguinte padrão: https:\//api.hubspot.com/login-api/v1/saml/login?portalId=\<CUSTOMER ID\>.
 
-    1. Na caixa **URL de resposta**, digite uma URL que tenha o seguinte padrão: https:\//api.hubspot.com/login-api/v1/saml/acs?portalId=\<CUSTOMER ID\>.
+    1. Na caixa **URL de Resposta**, insira uma URL que tenha o seguinte padrão: https:\//api.hubspot.com/login-api/v1/saml/acs?portalId=\<CUSTOMER ID\>.
 
     ![Informações sobre domínio e URLs de logon único do HubSpot](common/idp-intiated.png)
 
@@ -183,7 +178,7 @@ Nesta seção, você criará uma usuária de teste no portal do Azure chamada Br
 
     1. Na caixa **Nome**, insira **BrendaFernandes**.
   
-    1. Na caixa **Nome de usuário**, insira **brendafernandes\@\<domíniodaempresa>.\<extensão\>** . Por exemplo, **brendafernandes\@contoso.com**.
+    1. Na caixa **Nome de usuário**, insira **brendafernandes\@\<your-company-domain>.\<extension\>** . Por exemplo, **brendafernandes\@contoso.com**.
 
     1. Selecione a caixa de seleção **Mostrar Senha**. Anote o valor exibido na caixa **Senha**.
 

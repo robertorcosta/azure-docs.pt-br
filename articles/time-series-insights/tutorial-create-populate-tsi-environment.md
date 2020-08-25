@@ -7,14 +7,14 @@ ms.author: dpalled
 manager: diviso
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/30/2020
+ms.date: 08/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9f74be239bee1d6da3dfdb516c4fc410669e338d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 36687f6394ef03a3fceb70c73601680dd262d90c
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020644"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245393"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Tutorial: Criar um ambiente do Azure Time Series Insights Gen1
 
@@ -37,13 +37,13 @@ Este tutorial orientará você pelo processo de criação de um ambiente do Azur
 
 ## <a name="review-video"></a>Ver um vídeo
 
-### <a name="learn-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-and-get-started-with-azure-time-series-insights-br"></a>Saiba como usar um acelerador de solução de IoT do Azure para gerar dados e começar a usar o Azure Time Series Insights. </br>
+Saiba como usar um acelerador de solução de IoT do Azure para gerar dados e começar a usar o Azure Time Series Insights.
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
 
 ## <a name="overview"></a>Visão geral
 
-O ambiente do Azure Time Series Insights é o local em que os dados do dispositivo são coletados e armazenados. Uma vez armazenados, o [Gerenciador do Azure Time Series Insights](time-series-quickstart.md) e a [API de Consulta do Azure Time Series Insights](/rest/api/time-series-insights/ga-query-api) poderão ser usados para consultar e analisar os dados.
+O ambiente do Azure Time Series Insights é o local em que os dados do dispositivo são coletados e armazenados. Uma vez armazenados, o [Gerenciador do Azure Time Series Insights](time-series-quickstart.md) e a [API de Consulta do Azure Time Series Insights](/rest/api/time-series-insights/gen1-query-api) poderão ser usados para consultar e analisar os dados.
 
 O Hub IoT do Azure é a origem do evento usada por todos os dispositivos (simulados ou físicos) no tutorial para conectar e transmitir com segurança os dados à sua nuvem do Azure.
 
@@ -86,7 +86,7 @@ Primeiramente, crie a solução de simulação de dispositivo que gera dados de 
 
 ## <a name="create-an-environment"></a>Criar um ambiente
 
-Em segundo lugar, crie um ambiente do Azure Time Series Insights em sua assinatura do Azure.
+Em segundo lugar, crie um ambiente do Azure Time Series Insights na sua assinatura do Azure.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando sua conta da assinatura do Azure.
 1. Selecione **+ Criar um recurso** no canto superior esquerdo.
@@ -98,7 +98,7 @@ Em segundo lugar, crie um ambiente do Azure Time Series Insights em sua assinatu
 
    Parâmetro|Descrição
    ---|---
-   **Nome do ambiente** | Escolha um nome exclusivo para o ambiente do Azure Time Series Insights. Os nomes são usados pelo Gerenciador do Azure Time Series Insights e pelas [APIs de Consulta](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
+   **Nome do ambiente** | Escolha um nome exclusivo para o ambiente do Azure Time Series Insights. Os nomes são usados pelo Gerenciador do Azure Time Series Insights e pelas [APIs de Consulta](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
    **Assinatura** | As assinaturas são contêineres para recursos do Azure. Escolha uma assinatura para criar o ambiente do Azure Time Series Insights.
    **Grupo de recursos** | Um grupo de recursos é um contêiner para os recursos do Azure. Escolha um grupo de recursos existente ou crie um para o recurso de ambiente do Azure Time Series Insights.
    **Localidade** | Escolha uma região do data center para o seu ambiente do Azure Time Series Insights. Para evitar latência adicional, crie o ambiente do Azure Time Series Insights na mesma região que outros recursos de IoT.
@@ -197,7 +197,7 @@ Neste tutorial, você aprendeu a:
 > * Executar uma simulação de dispositivo para transmitir dados para o ambiente do Azure Time Series Insights.
 > * Verificar os dados telemétricos simulados.
 
-Agora que você sabe como criar o próprio ambiente do Azure Time Series Insights, saiba como criar um aplicativo Web que recebe dados de um ambiente do Azure Time Series Insights:
+Agora que você sabe como criar o próprio ambiente do Azure Time Series Insights, saiba como criar um aplicativo Web que consome dados de um ambiente do Azure Time Series Insights:
 
 > [!div class="nextstepaction"]
 > [Ler exemplos de visualização do SDK do cliente hospedado](https://tsiclientsample.azurewebsites.net/)

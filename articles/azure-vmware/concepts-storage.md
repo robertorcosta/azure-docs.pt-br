@@ -1,18 +1,18 @@
 ---
 title: Conceitos-armazenamento
-description: Saiba mais sobre os principais recursos de armazenamento em nuvens de versão do Azure VMware (AVS) Preview privadas.
+description: Saiba mais sobre os principais recursos de armazenamento nas nuvens privadas da visualização de solução do Azure VMware.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 7f92e8f961422f8354e55192ebdddd077d61acd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91484c1baae9801684bc49b931fa2080db676a00
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84604109"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752218"
 ---
-# <a name="azure-vmware-solution-avs-preview-storage-concepts"></a>Conceitos de armazenamento da solução de VMware Azure (AVS) Preview
+# <a name="azure-vmware-solution-preview-storage-concepts"></a>Conceitos de armazenamento da visualização da solução do Azure VMware
 
-As nuvens privadas da AVS fornecem armazenamento nativo em todo o cluster com a vSAN do VMware. Todo o armazenamento local de cada host em um cluster é usado em um armazenamento de dados vSAN, e a criptografia em repouso está disponível e habilitada por padrão. Você pode usar os recursos de armazenamento do Azure para estender os recursos de armazenamento de suas nuvens privadas.
+As nuvens privadas da solução Azure VMware fornecem armazenamento nativo em todo o cluster com a vSAN do VMware. Todo o armazenamento local de cada host em um cluster é usado em um armazenamento de dados vSAN, e a criptografia em repouso está disponível e habilitada por padrão. Você pode usar os recursos de armazenamento do Azure para estender os recursos de armazenamento de suas nuvens privadas.
 
 ## <a name="vsan-clusters"></a>clusters vSAN
 

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/14/2019
+ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 8d48ea133aaabbe9fd44bda545d672e68c93c08d
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 02332e190def7770fa57977461d57766f3dee13a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81312190"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205568"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Tutorial: Criar um gateway de aplicativo com regras de roteamentos com base no caminho usando o portal do Azure
 
@@ -33,9 +33,9 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Entrar no Azure
+## <a name="prerequisites"></a>Pré-requisitos
 
-Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com)
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
@@ -204,7 +204,11 @@ Examine as configurações na guia **Examinar + criar** e selecione **Criar** pa
 
    O ouvinte na porta 8080 encaminha esta solicitação para o pool de back-end de *Vídeos*.
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Quando não forem mais necessários, exclua o grupo de recursos e todos os recursos relacionados. Para fazer isso, selecione o grupo de recursos e selecione **Excluir grupo de recursos**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Habilitar o TLS de ponta a ponta no Gateway de Aplicativo Azure](application-gateway-backend-ssl.md)
+> [!div class="nextstepaction"]
+> [Habilitar o TLS de ponta a ponta no Gateway de Aplicativo do Azure](application-gateway-backend-ssl.md)

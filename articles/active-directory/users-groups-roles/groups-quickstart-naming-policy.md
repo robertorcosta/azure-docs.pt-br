@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 11/08/2019
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4253f5bd702abd061cf1cddd4badd68c9cd5d475
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: e5b54af39401ba8c3fede4c9ad80ec8edc963b1d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582826"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213675"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Início Rápido: política de nomenclatura para grupos no Azure Active Directory
 
-Neste início rápido, você configurará a política de nomenclatura em sua organização do Azure AD (Azure Active Directory) para grupos do Office 365 criados pelo usuário, para ajudar você a classificar e pesquisar os grupos da sua organização. Por exemplo, você poderia usar a política de nomenclatura para:
+Neste início rápido, você vai configurar a política de nomenclatura na sua organização do Azure AD (Azure Active Directory) para grupos do Microsoft 365 criados pelo usuário, para ajudar você a classificar e pesquisar os grupos da sua organização. Por exemplo, você poderia usar a política de nomenclatura para:
 
 * Comunicar a função de um grupo, associação, região geográfica ou quem criou o grupo.
 * Ajude a categorizar grupos no catálogo de endereços.

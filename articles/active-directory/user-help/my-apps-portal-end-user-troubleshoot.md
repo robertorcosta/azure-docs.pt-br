@@ -12,12 +12,12 @@ ms.date: 03/21/2019
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: ed1f06e4747492c43d19a00c1091b2b4d7f7050f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c5d1b08944417493d175de23c7738db58f1c7bd3
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741874"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797999"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Solucionar problemas com o portal Meus Aplicativos
 
@@ -51,7 +51,7 @@ Se você estiver com problemas para entrar no portal **Meus Aplicativos**, tente
 
 - Verifique se sua senha está correta e não expirou. Para obter mais informações, consulte [Redefinir sua senha corporativa ou de estudante](active-directory-passwords-update-your-own-password.md).
 
-- Verifique se suas informações de verificação estão atualizadas e precisas. Para obter mais informações, confira [O que a Autenticação Multifator do Azure significa para mim?](multi-factor-authentication-end-user.md) ou [Como alterar seus métodos e informações de segurança da informação](security-info-add-update-methods-overview.md).
+- Verifique se suas informações de verificação estão atualizadas e precisas. Para obter mais informações, confira [O que a Autenticação Multifator do Azure significa para mim?](./multi-factor-authentication-end-user-first-time.md) ou [Como alterar seus métodos e informações de segurança da informação](./security-info-setup-auth-app.md).
 
 - Adicione a URL do portal **Meu Aplicativo** à configuração **Propriedades da Internet > Segurança > Sites confiáveis**.
 
@@ -75,7 +75,7 @@ Se você está recebendo uma mensagem de **Acesso Negado** depois de iniciar um 
 
 - Verifique se sua senha está correta e não expirou. Para obter mais informações, consulte [Redefinir sua senha corporativa ou de estudante](active-directory-passwords-update-your-own-password.md).
 
-- Verifique se suas informações de verificação estão atualizadas e precisas. Para obter mais informações, confira [O que a Autenticação Multifator do Azure significa para mim?](multi-factor-authentication-end-user.md) ou [Como alterar seus métodos e informações de segurança da informação](security-info-add-update-methods-overview.md).
+- Verifique se suas informações de verificação estão atualizadas e precisas. Para obter mais informações, confira [O que a Autenticação Multifator do Azure significa para mim?](./multi-factor-authentication-end-user-first-time.md) ou [Como alterar seus métodos e informações de segurança da informação](./security-info-setup-auth-app.md).
 
 - Limpe o cache do navegador e tente entrar novamente.
 

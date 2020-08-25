@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 08/05/2020
-ms.openlocfilehash: 31bdcd9994ebfcea77b25422997463cc6a9bfddc
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.date: 08/19/2020
+ms.openlocfilehash: 821b2a36a40f828edf37ff1c2f3eab58b10b4162
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053500"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607578"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Início Rápido: Criar uma conta, um banco de dados, um contêiner e itens do Azure Cosmos usando o portal do Azure
 
@@ -53,6 +53,7 @@ Vá para o [portal do Azure](https://portal.azure.com/) para criar uma conta do 
     |Grupo de recursos|Nome do grupo de recursos|Selecione um grupo de recursos ou selecione **Criar novo**, então insira um nome exclusivo para o novo grupo de recursos. |
     |Nome da Conta|Um nome exclusivo|Insira um nome para identificar a conta do Azure Cosmos. Já que *documents.Azure.com* é acrescentado ao nome que você fornece para criar o URI, use um nome exclusivo.<br><br>O nome pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ela deve ter entre 3 e 31 caracteres.|
     |API|O tipo de conta a ser criada|Selecione **Núcleo (SQL)** para criar uma consulta e um banco de dados de documento usando a sintaxe SQL. <br><br>A API determina o tipo de conta a ser criada. O Azure Cosmos DB fornece cinco APIs: Núcleo (SQL) e MongoDB para dados de documento, Gremlin para dados de grafo, Tabela do Azure e Cassandra. No momento, você deve criar uma conta separada para cada API. <br><br>[Saiba mais sobre a API do SQL](introduction.md).|
+    |Modo de capacidade|Taxa de transferência provisionada ou sem servidor|Selecione **Taxa de transferência provisionada** para criar uma conta no modo [taxa de transferência provisionada](set-throughput.md). Selecione **Sem servidor** para criar uma conta no modo [sem servidor](serverless.md).<br><br>**Observação**: atualmente, o modo sem servidor está disponível somente para contas de API Core (SQL).|
     |Aplicar desconto por nível gratuito|Aplicar ou não aplicar|Com o nível gratuito do Azure Cosmos DB, você receberá os primeiros 400 RU/s e 5 GB de armazenamento gratuitamente em uma conta. Saiba mais sobre o [nível gratuito](https://azure.microsoft.com/pricing/details/cosmos-db/).|
     |Location|A região mais próxima dos usuários|Selecione uma localização geográfica para hospedar a sua conta do Azure Cosmos DB. Use a localização mais próxima dos usuários para fornecer a eles acesso mais rápido aos dados.|
     |Tipo de Conta|Produção ou não produção|Selecione **Produção** se a conta for usada para uma carga de trabalho de produção. Selecione **Não produção** se a conta for usada para não produção, por exemplo, desenvolvimento, teste, garantia de qualidade ou de preparo. Essa é uma configuração de marca de recurso do Azure que ajusta a experiência do Portal, mas não afeta a conta do Azure Cosmos DB subjacente. Você pode alterar esse valor a qualquer momento.|
@@ -60,9 +61,14 @@ Vá para o [portal do Azure](https://portal.azure.com/) para criar uma conta do 
     |Gravações de várias regiões|Habilitar ou Desabilitar|A capacidade de gravação de várias regiões permite que você aproveite a taxa de transferência provisionada para seus bancos de dados e contêineres em todo o mundo.|
     |Zonas de Disponibilidades|Habilitar ou Desabilitar|As Zonas de Disponibilidade ajudam a aprimorar a disponibilidade e a resiliência do seu aplicativo.|
 
-
 > [!NOTE]
 > Você pode ter no máximo uma conta do nível gratuito do Azure Cosmos DB por assinatura do Azure e deve aceitar ao criar a conta. Se você não vir a opção de aplicar o desconto por nível gratuito, significa que outra conta da assinatura já foi habilitada com o nível gratuito.
+
+> [!NOTE]
+> As seguintes opções não estarão disponíveis se você selecionar **Sem servidor** como **Modo de capacidade**:
+> - Aplicar desconto por nível gratuito
+> - Redundância geográfica
+> - Gravações de várias regiões
    
    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="A página da nova conta do Azure Cosmos DB":::
 
@@ -92,7 +98,7 @@ Você pode usar o Data Explorer no portal do Azure para criar um banco de dados 
     |Configuração|Valor sugerido|Descrição
     |---|---|---|
     |**ID do banco de dados**|ToDoList|Insira *ToDoList* como o nome para o novo banco de dados. Os nomes dos banco de dados devem conter de 1 a 255 caracteres e não podem conter `/, \\, #, ?` nem um espaço à direita. Marque a opção **Provisionar a produtividade do banco de dados**; ela permite que você compartilhe a produtividade provisionada para o banco de dados em todos os contêineres no banco de dados. Essa opção também ajuda na economia de custo. |
-    |**Taxa de transferência**|400|Deixe a taxa de transferência em 400 unidades de solicitação por segundo (RU/s). Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde.| 
+    |**Taxa de transferência**|400|Deixe a taxa de transferência em 400 unidades de solicitação por segundo (RU/s). Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde.<br><br>**Observação**: esta configuração não está disponível ao criar um contêiner em uma conta sem servidor.| 
     |**ID do contêiner**|Itens|Insira *Itens* como o nome do novo contêiner. As IDs do contêiner têm os mesmos requisitos de caractere dos nomes de bancos de dados.|
     |**Chave de partição**| /category| O exemplo descrito neste artigo usa */category* como a chave de partição.|
 

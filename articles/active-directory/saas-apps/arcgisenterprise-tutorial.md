@@ -2,26 +2,21 @@
 title: 'Tutorial: Integração do Azure Active Directory com o ArcGIS Enterprise | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o ArcGIS Enterprise.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-ms.assetid: 24809e9d-a4aa-4504-95a9-e4fcf484f431
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57eda7e1d5ffedf7d5b867bfa7a59850fbadaf99
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: a544a98b3a9d5c2d30f95240325e91018d2f40c9
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904965"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549591"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Tutorial: Integração do Azure Active Directory com o ArcGIS Enterprise
 
@@ -48,8 +43,6 @@ Para configurar a integração do Azure AD com o ArcGIS Enterprise, você precis
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
-
-
 
 * O ArcGIS Enterprise é compatível com SSO iniciado por **SP e IDP**
 * O ArcGIS Enterprise é compatível com o provisionamento de usuário **Just In Time**
@@ -132,21 +125,30 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
 ### <a name="configure-arcgis-enterprise-single-sign-on"></a>Configurar o logon único do ArcGIS Enterprise
 
-1. Em outra janela do navegador da Web, entre no site da empresa do ArcGIS Enterprise como administrador.
+1. Para automatizar a configuração no ArcGIS Enterprise, é necessário instalar a **extensão do navegador Entrada Segura dos Meus Aplicativos** clicando em **Instalar a extensão**.
 
-2. Selecione **Organização > EDITAR CONFIGURAÇÕES**.
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
+
+1. Depois de adicionar a extensão ao navegador, clique em **Configurar o ArcGIS Enterprise** para ser direcionado ao aplicativo ArcGIS Enterprise. Nele, forneça as credenciais de administrador para entrar no ArcGIS Enterprise. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 7.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+1. Caso deseje configurar o ArcGIS Enterprise manualmente, faça logon no seu site de empresa do ArcGIS Enterprise como administrador.
+
+
+1. Selecione **Organização > EDITAR CONFIGURAÇÕES**.
 
     ![Configuração do ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure1.png)
 
-3. Selecione a guia **Segurança**.
+1. Selecione a guia **Segurança**.
 
     ![Configuração do ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure2.png)
 
-4. Role para baixo até a seção **Logons corporativos via SAML** e selecione **DEFINIR LOGON CORPORATIVO**.
+1. Role para baixo até a seção **Logons corporativos via SAML** e selecione **DEFINIR LOGON CORPORATIVO**.
 
     ![Configuração do ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure3.png)
 
-5. Na seção **Configurar Provedores de Identidade**, execute as seguintes etapas:
+1. Na seção **Configurar Provedores de Identidade**, execute as seguintes etapas:
 
     ![Configuração do ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure4.png)
 

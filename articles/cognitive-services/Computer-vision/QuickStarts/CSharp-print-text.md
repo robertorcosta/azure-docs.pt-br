@@ -1,29 +1,29 @@
 ---
-title: 'Início Rápido: Extrair texto impresso (OCR) – REST, C#'
+title: 'Início Rápido: Extraia texto usando a operação de OCR da API REST da Pesquisa Visual Computacional 2.0 e o C#'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, você extrairá texto impresso de uma imagem usando a API de Pesquisa Visual Computacional com C#.
+description: Neste início rápido, você extrairá um texto de uma imagem usando a operação de OCR da API REST da Pesquisa Visual Computacional com o C#.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4ce9e530f536893fe3d9753e43928cf53f9dde53
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4306b82793dd62765c07dfa808add4e16dc06be5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835384"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209175"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-c"></a>Início Rápido: Extrair um texto impresso (OCR) usando a API REST da Pesquisa Visual Computacional e o C#
+# <a name="quickstart-extract-text-using-the-computer-vision-20-rest-api-ocr-operation-and-c"></a>Início Rápido: Extraia texto usando a operação de OCR da API REST da Pesquisa Visual Computacional 2.0 e o C#
 
-> [!NOTE]
-> Se você estiver extraindo texto no idioma inglês, considere o uso da nova [Operação de leitura](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Há um [Início Rápido do C#](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) disponível. 
+> [!IMPORTANT]
+> Se você estiver extraindo texto em inglês, holandês, francês, alemão, italiano, português, espanhol ou chinês simplificado (versão prévia), recomendamos que você use a [Operação de leitura](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) mais recente. Há um [Início Rápido do C#](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) disponível. 
 
-Neste início rápido, você extrairá texto impresso com o OCR (reconhecimento óptico de caracteres) de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o recurso [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), você pode detectar o texto impresso em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres utilizável por computador.
+Neste início rápido, você extrairá o texto impresso de uma imagem usando o recurso da [Operação de OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) da API REST da Pesquisa Visual Computacional. Com essa operação, você pode detectar texto impresso em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres utilizável por computador.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

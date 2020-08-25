@@ -10,40 +10,44 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: overview
 ms.workload: identity
-ms.date: 04/29/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a61bd162baf6f079b625dc07d4faa397493ba618
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d52384f04fd8a2a2bc3c42af713378ad15d01c42
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015860"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192715"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>O que é inscrição por autoatendimento no Azure Active Directory?
 
 Este artigo explica como usar a inscrição por autoatendimento para preencher uma organização no Azure AD (Azure Active Directory). Se você deseja assumir um nome de domínio de uma organização do Azure AD não gerenciada, confira [Assumir um diretório não gerenciado como administrador](domains-admin-takeover.md).
 
 ## <a name="why-use-self-service-sign-up"></a>Por que usar a inscrição por autoatendimento?
+
 * Leve aos clientes os serviços que eles desejam mais rápido
 * Crie ofertas baseadas em email para um serviço
 * Crie fluxos de inscrição baseados em email que permitem rapidamente que os usuários criem identidades usando seus aliases de email de trabalho fáceis de lembrar
 * Um autoatendimento criado no diretório do Azure AD pode ser convertido em um diretório gerenciado que pode ser usado para outros serviços
 
 ## <a name="terms-and-definitions"></a>Termos e definições
+
 * **Inscrição por autoatendimento**: Esse é o método pelo qual um usuário se inscreve em um serviço de nuvem e tem uma identidade criada automaticamente para ele no Azure AD, com base em seu domínio de email.
 * **Diretório não gerenciado do Azure AD**: Esse é o diretório no qual essa identidade é criada. Um diretório não gerenciado é um diretório sem nenhum administrador global.
 * **Usuário verificado por email**: Esse é um tipo de conta de usuário do Azure AD. Um usuário que tem uma identidade criada automaticamente após a inscrição para uma oferta de autoatendimento é conhecido como um usuário verificado por email. Um usuário verificadas por email é um membro comum de um diretório marcado com creationmethod=EmailVerified.
 
 ## <a name="how-do-i-control-self-service-settings"></a>Como controlar as configurações de autoatendimento?
+
 Os administradores têm dois controles de autoatendimento atualmente. Eles podem controlar se:
 
 * Os usuários podem ingressar no diretório por email
 * Os usuários podem licenciar eles próprios para aplicativos e serviços
 
 ### <a name="how-can-i-control-these-capabilities"></a>Como posso controlar esses recursos?
+
 Um administrador pode configurar esses recursos usando os parâmetros Set-MsolCompanySettings do cmdlet do Azure AD a seguir:
 
 * **AllowEmailVerifiedUsers** controla se um usuário pode criar ou ingressar em um diretório não gerenciado. Se você definir esse parâmetro como $false, nenhum usuário verificado por email poderá ingressar no diretório.
@@ -57,7 +61,7 @@ AllowEmailVerifiedUsers e AllowAdHocSubscriptions são as configurações de tod
 
 Se as condições anteriores forem verdadeiras, em seguida, um usuário de membro é criado no diretório inicial e um usuário de convidado B2B é criado no diretório que convida.
 
-Assinaturas de avaliação do Flow e do PowerApps não são controladas pela configuração **AllowAdHocSubscriptions**. Para obter mais informações, consulte os seguintes artigos:
+Para obter mais informações sobre as inscrições na avaliação gratuita do Flow e do PowerApps, consulte os seguintes artigos:
 
 * [Como posso impedir meus usuários existentes de começarem a usar o Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
 * [Perguntas e respostas sobre o Flow na sua organização](https://docs.microsoft.com/flow/organization-q-and-a)

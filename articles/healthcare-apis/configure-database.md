@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: adc6fdf144927d10f811a00aa33f244cfdc25042
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 652445a96acfa0358211d1d97e0fcf288989d6ba
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84870956"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795772"
 ---
 # <a name="configure-database-settings"></a>Definir configurações de banco de dados 
 
@@ -25,8 +25,11 @@ A taxa de transferência deve ser provisionada para garantir que recursos sufici
 > [!NOTE]
 > Conforme operações diferentes consomem um número diferente de RU, retornamos o número real de RUs consumidas em cada chamada à API no cabeçalho de resposta. Dessa forma, você pode criar o perfil do número de RUs consumidas pelo seu aplicativo.
 
-## <a name="update-throughput"></a>Atualizar taxa de transferência
+## <a name="update-throughput"></a>Atualizar a taxa de transferência
+
 Para alterar essa configuração na portal do Azure, navegue até a API do Azure para FHIR e abra a folha banco de dados. Em seguida, altere a taxa de transferência provisionada para o valor desejado dependendo das suas necessidades de desempenho. Você pode alterar o valor até um máximo de 10.000 RU/s. Se você precisar de um valor mais alto, entre em contato com o suporte do Azure.
+
+Se a taxa de transferência do banco de dados for maior do que 10.000 RU/s ou se o dado armazenado no banco de dados tiver mais de 50 GB, seu aplicativo cliente deverá ser capaz de lidar com tokens de continuação. Uma nova partição é criada no banco de dados para cada aumento de taxa de transferência de 10.000 RU/s ou se a quantidade de dados armazenados for maior que 50 GB. Várias partições cria uma resposta de várias páginas na qual a paginação é implementada usando tokens de continuação.
 
 > [!NOTE] 
 > Maior valor significa maior API do Azure para taxa de transferência FHIR e custo mais alto do serviço.

@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8b6ed41333a0ea113d939ab79bd9e9291a0dae9c
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: ca1419fe95e9ca383c09c7bc33a16ce148549cb6
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244016"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755068"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Crie e execute pipelines de machine learning com o SDK do Azure Machine Learning
 
@@ -55,7 +55,11 @@ Crie os recursos necessários para executar um pipeline de ML:
 
 * Configurar um repositório de dados usado para acessar os dados necessários nas etapas de pipeline.
 
-* Configure um `Dataset` objeto para apontar para dados persistentes que residem no, ou que podem ser acessados em um datastore. Configure um `PipelineData` objeto para dados temporários passados entre etapas de pipeline. 
+* Configure um `Dataset` objeto para apontar para dados persistentes que residem no, ou que podem ser acessados em um datastore. Configure um `OutputFileDatasetConfig` objeto para dados temporários passados entre etapas de pipeline ou para criar saídas. 
+> [!NOTE]
+>A `OutputFileDatasetConfig` classe é um recurso de visualização experimental e pode mudar a qualquer momento.
+>
+>Para obter mais informações, consulte https://aka.ms/azuremlexperimental.
 
 * Configure os [destinos de computação](concept-azure-machine-learning-architecture.md#compute-targets) em que suas etapas de pipeline serão executadas.
 
@@ -90,7 +94,7 @@ Um pipeline consiste em uma ou mais etapas. Uma etapa é uma unidade executada e
 
 Para saber mais sobre como conectar seu pipeline a seus dados, confira os artigos [como acessar dados](how-to-access-data.md) e [como registrar os DataSets](how-to-create-register-datasets.md). 
 
-### <a name="configure-data-using-dataset-and-pipelinedata-objects"></a>Configurar dados usando `Dataset` `PipelineData` objetos e
+### <a name="configure-data-with-dataset-and-outputfiledatasetconfig-objects"></a>Configurar dados com `Dataset` `OutputFileDatasetConfig` objetos e
 
 Você acabou de criar uma fonte de dados que pode ser referenciada em um pipeline como entrada para uma etapa. A maneira preferida de fornecer dados a um pipeline é um objeto [DataSet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) . O `Dataset` objeto aponta para os dados que residem no ou podem ser acessados por um armazenamento ou por uma URL da Web. A `Dataset` classe é abstrata, portanto, você criará uma instância de um `FileDataset` (referindo-se a um ou mais arquivos) ou um `TabularDataset` que é criado por um ou mais arquivos com colunas delimitadas de dados.
 
@@ -104,18 +108,17 @@ from azureml.core import Dataset
 iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 'train-dataset/iris.csv')])
 ```
 
-Dados intermediários (ou a saída de uma etapa) são representados por um objeto [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). `output_data1` é produzido como a saída de uma etapa e usado como a entrada de um ou mais etapas futuras. O `PipelineData` introduz uma dependência de dados entre etapas e cria uma ordem de execução implícita no pipeline. Esse objeto será usado mais tarde ao criar etapas de pipeline.
+Os dados intermediários (ou a saída de uma etapa) são representados por um objeto [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) . `output_data1` é produzido como a saída de uma etapa e usado como a entrada de um ou mais etapas futuras. O `OutputFileDatasetConfig` introduz uma dependência de dados entre etapas e cria uma ordem de execução implícita no pipeline. Esse objeto será usado mais tarde ao criar etapas de pipeline.
+
+`OutputFileDatasetConfig` os objetos retornam um diretório e, por padrão, grava a saída no repositório de armazenamento padrão do espaço de trabalho.
 
 ```python
-from azureml.pipeline.core import PipelineData
+from azureml.data import OutputFileDatasetConfig
 
-output_data1 = PipelineData(
-    "output_data1",
-    datastore=def_blob_store,
-    output_name="output_data1")
+output_data1 = OutputFileDatasetConfig()
 ```
 
-Mais detalhes e código de exemplo para trabalhar com conjuntos de dados e de pipeline estão [movendo dados para e entre as etapas de pipeline de ml (Python)](how-to-move-data-in-out-of-pipelines.md).
+Mais detalhes e o código de exemplo para trabalhar com conjuntos de dados e objetos OutputFileConfig estão na [movimentação e entre as etapas de pipeline do ml (Python)](how-to-move-data-in-out-of-pipelines.md).
 
 ## <a name="set-up-a-compute-target"></a>Configurar um destino de computação
 
@@ -316,8 +319,6 @@ data_prep_step = PythonScriptStep(
     script_name=entry_point,
     source_directory=dataprep_source_dir,
     arguments=["--input", ds_input.as_download(), "--output", output_data1],
-    inputs=[ds_input],
-    outputs=[output_data1],
     compute_target=compute_target,
     runconfig=aml_run_config,
     allow_reuse=True
@@ -326,7 +327,7 @@ data_prep_step = PythonScriptStep(
 
 O código acima mostra uma etapa típica de pipeline inicial. O código de preparação de dados está em um subdiretório (neste exemplo, `"prepare.py"` no diretório `"./dataprep.src"` ). Como parte do processo de criação de pipeline, esse diretório é compactado e carregado no `compute_target` e a etapa executa o script especificado como o valor para `script_name` .
 
-Os `arguments` `inputs` valores,, e `outputs` especificam as entradas e saídas da etapa. No exemplo acima, os dados de linha de base são o `my_dataset` DataSet. Os dados correspondentes serão baixados para o recurso de computação, uma vez que o código especifica como `as_download()` . O script `prepare.py` faz quaisquer tarefas de transformação de dados apropriadas para a tarefa em questão e gera os dados para `output_data1` , do tipo `PipelineData` . Para obter mais informações, consulte [movendo dados para e entre as etapas de pipeline de ml (Python)](how-to-move-data-in-out-of-pipelines.md). 
+Os `arguments` valores especificam as entradas e saídas da etapa. No exemplo acima, os dados de linha de base são o `my_dataset` DataSet. Os dados correspondentes serão baixados para o recurso de computação, uma vez que o código especifica como `as_download()` . O script `prepare.py` faz quaisquer tarefas de transformação de dados apropriadas para a tarefa em questão e gera os dados para `output_data1` , do tipo `OutputFileDatasetConfig` . Para obter mais informações, consulte [movendo dados para e entre as etapas de pipeline de ml (Python)](how-to-move-data-in-out-of-pipelines.md). 
 
 A etapa será executada no computador definido pelo `compute_target` , usando a configuração `aml_run_config` . 
 
@@ -338,24 +339,20 @@ A reutilização de resultados anteriores ( `allow_reuse` ) é fundamental ao us
 train_source_dir = "./train_src"
 train_entry_point = "train.py"
 
-training_results = PipelineData(
-    "training_results",
-    datastore=def_blob_store,
-    output_name="training_results")
+training_results = OutputFileDatasetConfig(name = "training_results",
+                                           destination = def_blob_store)
 
 train_step = PythonScriptStep(
     script_name=train_entry_point,
     source_directory=train_source_dir,
     arguments=["--prepped_data", output_data1, "--training_results", training_results],
-    inputs=[output_data1],
-    outputs=[training_results],
     compute_target=compute_target,
     runconfig=aml_run_config,
     allow_reuse=True
 )
 ```
 
-O código acima é muito semelhante ao da etapa de preparação de dados. O código de treinamento está em um diretório separado do código de preparação de dados. A `PipelineData` saída da etapa de preparação de dados `output_data1` é usada como a _entrada_ para a etapa de treinamento. Um novo `PipelineData` objeto `training_results` é criado para manter os resultados de uma comparação subseqüente ou etapa de implantação. 
+O código acima é muito semelhante ao da etapa de preparação de dados. O código de treinamento está em um diretório separado do código de preparação de dados. A `OutputFileDatasetConfig` saída da etapa de preparação de dados `output_data1` é usada como a _entrada_ para a etapa de treinamento. Um novo `OutputFileDatasetConfig` objeto `training_results` é criado para manter os resultados de uma comparação subseqüente ou etapa de implantação. 
 
 Depois de definir suas etapas, você pode criar o pipeline usando algumas ou todas essas etapas.
 
@@ -397,10 +394,10 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 
 ### <a name="use-a-dataset"></a>Usar um conjunto de dados 
 
-Conjuntos de dados criados a partir do armazenamento de BLOBs do Azure, arquivos do Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, banco de dados SQL do Azure e Azure Database para PostgreSQL podem ser usados como entrada para qualquer etapa de pipeline. Você pode gravar a saída em um [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py), [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)ou se quiser gravar dados em um repositório de armazenamento específico usar [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). 
+Conjuntos de dados criados a partir do armazenamento de BLOBs do Azure, arquivos do Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, banco de dados SQL do Azure e Azure Database para PostgreSQL podem ser usados como entrada para qualquer etapa de pipeline. Você pode gravar a saída em um [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py), [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)ou se quiser gravar dados em um repositório de armazenamento específico usar [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py). 
 
 > [!IMPORTANT]
-> Só há suporte para gravar dados de saída em um datastore usando PipelineData para repositórios de armazenamento de blob do Azure e compartilhamento de arquivos do Azure. No momento, não há suporte para essa funcionalidade em [repositórios de armazenamento do ADLS Gen 2](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py) .
+> A gravação de dados de saída de volta em um datastore usando `OutputFileDatasetConfig` só tem suporte para o blob do Azure, o compartilhamento de arquivos do Azure, os repositórios de dados ADLS Gen 1 e ADLS Gen 2.
 
 ```python
 dataset_consuming_step = PythonScriptStep(
@@ -454,7 +451,7 @@ Quando você executar um pipeline pela primeira vez, o Azure Machine Learning:
 * Baixa o instantâneo do projeto para o destino de computação do armazenamento de Blobs associado ao workspace.
 * Cria uma imagem do Docker correspondente a cada etapa no pipeline.
 * Baixa a imagem do Docker para cada etapa do destino de computação do registro de contêiner.
-* Configura o acesso a `Dataset` objetos e `PipelineData` . Para o `as_mount()` modo de acesso do as, o fusível é usado para fornecer acesso virtual. Se a montagem não for suportada ou se o usuário tiver especificado o acesso como `as_download()` , os dados serão copiados para o destino de computação.
+* Configura o acesso a `Dataset` objetos e `OutputFileDatasetConfig` . Para o `as_mount()` modo de acesso, o fusível é usado para fornecer acesso virtual. Se a montagem não for suportada ou se o usuário tiver especificado o acesso como `as_upload()` , os dados serão copiados para o destino de computação.
 * Executa a etapa no destino de computação especificado na definição da etapa. 
 * Cria artefatos como logs, stdout e stderr, métricas e saída especificados pela etapa. Em seguida, esses artefatos são carregados e mantidos no repositório de armazenamento padrão do usuário.
 

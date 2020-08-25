@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: da00d77138eb3ff737c26d7fa52ab0bb56ec6ae4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
-ms.translationtype: HT
+ms.openlocfilehash: 95947a9350f19f0f0ff45b7c65e14729b66f26cf
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422396"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798152"
 ---
 # <a name="what-is-the-my-account-portal"></a>O que é o portal Minha Conta?
 
@@ -33,11 +33,11 @@ Acesse o portal **Minha Conta** (https://myaccount.microsoft.com), da versão at
 ![Página de visão geral do portal Minha Conta](media/my-account-portal/my-account-portal-overview.png)
 
 >[!Important]
->Este artigo destina-se a usuários que estão tentando acessar o portal Minha Conta para atualizar as informações de segurança, informações do dispositivo, senha, organizações conectadas, configurações de idioma, privacidade ou informações de entrada anteriores. Caso seja um administrador que está em busca de informações sobre como ativar a autenticação e outros recursos do Azure AD (Azure Active Directory) para seus funcionários ou outros usuários, confira a [Documentação do Azure AD para administradores](https://docs.microsoft.com/azure/active-directory/).
+>Este artigo destina-se a usuários que estão tentando acessar o portal Minha Conta para atualizar as informações de segurança, informações do dispositivo, senha, organizações conectadas, configurações de idioma, privacidade ou informações de entrada anteriores. Caso seja um administrador que está em busca de informações sobre como ativar a autenticação e outros recursos do Azure AD (Azure Active Directory) para seus funcionários ou outros usuários, confira a [Documentação do Azure AD para administradores](../index.yml).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Selecionar para exibir ou gerenciar suas [informações de segurança](user-help-security-info-overview.md)
+- Selecionar para exibir ou gerenciar suas [informações de segurança](./security-info-setup-signin.md)
 
 - Exibir ou gerenciar seus [dispositivos](my-account-portal-devices-page.md) conectados
 

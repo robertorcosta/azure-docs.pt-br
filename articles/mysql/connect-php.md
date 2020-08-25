@@ -1,5 +1,5 @@
 ---
-title: Conectar-se usando PHP – Banco de Dados do Azure para MySQL
+title: 'Início Rápido: Conectar-se usando PHP – Banco de Dados do Azure para MySQL'
 description: Este guia de início rápido fornece vários exemplos de código PHP que você pode usar para se conectar e consultar dados do Banco de Dados do Azure para MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,14 +7,14 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: ea1042d28102734429640c7e3c66fc6f1a70f950
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: ec4b4d705e6cc8b9cfc26952083292b74b3d4abf
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870140"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185869"
 ---
-# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: Usar PHP para se conectar e consultar dados
+# <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql"></a>Início Rápido: Usar PHP para se conectar e consultar dados no Banco de Dados do Azure para MySQL
 Este guia de início rápido demonstra como se conectar a um banco de dados do Azure para MySQL usando aplicativo [PHP](https://secure.php.net/manual/intro-whatis.php). Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. Este tópico pressupõe que você está familiarizado com o desenvolvimento usando PHP e começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos

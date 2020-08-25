@@ -1,15 +1,15 @@
 ---
-title: Tutorial – criar e executar um Jupyter notebook – Versão prévia do Azure Notebooks
-description: Saiba como criar e executar um Jupyter Notebook na Versão prévia do Azure Notebooks que demonstra o processo de regressão linear na ciência de dados.
+title: Tutorial – criar e executar um Jupyter Notebook – Versão prévia do Azure Notebooks
+description: Saiba como criar e executar um Jupyter Notebook na Versão Prévia do Azure Notebooks que demonstra o processo de regressão linear na ciência de dados.
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: f6480a93610761061462be8e83ce3e719f3e8bdf
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: cb8be1618de7e95a7096e4ea9dec78bf4aa277f6
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846905"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589244"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um Jupyter Notebook com Python
 
@@ -219,7 +219,7 @@ Você usará vários desses comandos para preencher o notebook nas seções a se
 
 ## <a name="create-a-code-cell-with-commands"></a>Criar uma célula de código com comandos
 
-Conforme explicado na célula de Markdown anterior, você pode incluir comandos diretamente no notebook. Você pode usar comandos para instalar pacotes, executar curl ou wget para recuperar dados, ou qualquer outra coisa. Os notebooks Jupyter são executados efetivamente em uma máquina virtual Linux, para que você tenha o comando completo do Linux configurado à disposição.
+Conforme explicado na célula de Markdown anterior, você pode incluir comandos diretamente no notebook. Você pode usar comandos para instalar pacotes, executar curl ou wget para recuperar dados, ou qualquer outra coisa. Os Jupyter Notebooks são executados efetivamente em uma máquina virtual Linux, para que você tenha o comando completo do Linux configurado à disposição.
 
 1. Digite os comandos abaixo na célula de código que apareceu depois que você usou **Executar** na célula de Markdown anterior. Se você não vir uma nova célula, crie uma com **Inserir** > **Inserir Célula Abaixo** ou use o botão **+** na barra de ferramentas.
 
@@ -419,7 +419,7 @@ Felizmente, você pode baixar o arquivo *.ipynb* do notebook e, em seguida, abri
 
 Para obter mais informações, confira [Depurar um Jupyter Notebook](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) na documentação do Visual Studio Code.
 
-Confira também [Visual Studio Code – suporte do Jupyter](https://code.visualstudio.com/docs/python/jupyter-support) para recursos adicionais do Visual Studio Code para notebooks Jupyter.
+Confira também [Visual Studio Code – suporte do Jupyter](https://code.visualstudio.com/docs/python/jupyter-support) para recursos adicionais do Visual Studio Code para Jupyter Notebooks.
 
 ## <a name="next-steps"></a>Próximas etapas
 

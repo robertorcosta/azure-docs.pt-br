@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/29/2020
 ms.topic: sample
-ms.openlocfilehash: 0c28d36c7934fbbac0ddd11562c8dc237b0360ee
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 8e5dcb6c9dfa08efc0889fcab779d6cb333d2330
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80678487"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507528"
 ---
 # <a name="sample-models"></a>Modelos de amostra
 
@@ -26,7 +26,7 @@ Estatísticas do modelo:
 
 | Nome | Valor |
 |-----------|:-----------|
-| [Tamanho da VM necessário](../how-tos/session-rest-api.md#create-a-session) | padrão |
+| [Tamanho de servidor necessário](../how-tos/session-rest-api.md#create-a-session) | padrão |
 | Número de triângulos | 18,7 milhões |
 | Número de blocos móveis | 2073 |
 | Número de materiais | 94 |

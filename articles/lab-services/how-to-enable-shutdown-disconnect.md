@@ -3,12 +3,12 @@ title: Configurar o desligamento automático de VMs para um laboratório no Azur
 description: Saiba como habilitar ou desabilitar o desligamento automático de VMs quando uma conexão de área de trabalho remota for desconectada.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 3188117ac651f31057b4db88e32dfb42c45abb60
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 0df3fdcaea99c00461caac37a3b655d152a0e527
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604890"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798475"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>Configurar o desligamento automático de VMs para um laboratório
 
@@ -20,7 +20,7 @@ Você pode habilitar vários recursos de controle de custos de desligamento auto
 * Desligar automaticamente as máquinas virtuais quando os usuários se desconectarem (Windows & Linux).
 * Desligar automaticamente as máquinas virtuais que são iniciadas, mas os usuários não se conectam.
 
-Examine mais detalhes sobre os recursos de desligamento automático na seção [maximizar controle de custo com configurações de desligamento automático](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings) .
+Examine mais detalhes sobre os recursos de desligamento automático na seção [maximizar controle de custo com configurações de desligamento automático](cost-management-guide.md#automatic-shutdown-settings-for-cost-control) .
 
 Um administrador da conta de laboratório pode definir essa configuração para a conta de laboratório na qual você cria laboratórios. Para obter mais informações, consulte [Configurar o desligamento automático de VMs para uma conta de laboratório](how-to-configure-lab-accounts.md). Como proprietário de um laboratório, você poderá substituir a configuração ao criar um laboratório ou depois que o laboratório for criado. 
 
@@ -34,7 +34,7 @@ Você pode definir a configuração de desligamento automático no [Azure Lab Se
 > [!div class="mx-imgBorder"]
 > ![Configurar no momento da criação do laboratório](./media/how-to-enable-shutdown-disconnect/configure-lab-creation.png)
 
-Certifique-se de examinar os detalhes sobre o desligamento automático na seção [maximizar controle de custo com as configurações de desligamento automático](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings) .
+Certifique-se de examinar os detalhes sobre o desligamento automático na seção [maximizar controle de custo com as configurações de desligamento automático](cost-management-guide.md#automatic-shutdown-settings-for-cost-control) .
 
 > [!WARNING]
 > Se você desligar o SO (sistema operacional) Windows em uma VM antes de desconectar uma sessão RDP com a VM, o recurso de desligamento automático não funcionará corretamente.  

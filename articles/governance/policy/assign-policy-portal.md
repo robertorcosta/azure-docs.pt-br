@@ -1,14 +1,14 @@
 ---
 title: 'Início Rápido: Nova atribuição de política com o portal'
 description: Neste início rápido, use o portal do Azure para criar uma atribuição do Azure Policy para identificar recursos sem conformidade.
-ms.date: 03/24/2020
+ms.date: 08/17/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3a514478f3cefa49c37c3431a80b578dff480584
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: eb3f97ab2f8da3ff2809cb969c8442779e173983
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80240001"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88548372"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Início Rápido: Criar uma atribuição de política para identificar recursos sem conformidade
 
@@ -37,7 +37,7 @@ Neste guia de início rápido, crie uma atribuição de política e atribua a de
 
    :::image type="content" source="./media/assign-policy-portal/select-assign-policy.png" alt-text="Atribuir uma definição de política na página Atribuições" border="false":::
 
-1. Na página **Atribuir Política**, selecione o **Escopo** clicando no botão de reticências e selecionando uma assinatura ou então um grupo de gerenciamento. Opcionalmente, selecione um grupo de recursos. Um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta. Em seguida, clique em **Selecionar** na parte inferior da página **Escopo**.
+1. Na página **Atribuir Política**, defina o **Escopo** selecionando o botão de reticências e escolhendo uma assinatura ou um grupo de gerenciamento. Opcionalmente, selecione um grupo de recursos. Um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta. Em seguida, use o botão **Selecionar** na parte inferior da página **Escopo**.
 
    Este exemplo usa a assinatura da **Contoso**. Sua assinatura será diferente.
 
@@ -51,7 +51,7 @@ Neste guia de início rápido, crie uma atribuição de política e atribua a de
 
    Para ver uma lista parcial das políticas internas disponíveis, confira [Exemplos do Azure Policy](./samples/index.md).
 
-1. Pesquise a lista de definições de política para encontrar a definição _Auditar VMs que não usam discos gerenciados_. Clique na política e clique em **Selecionar**.
+1. Pesquise a lista de definições de política para encontrar a definição _Auditar VMs que não usam discos gerenciados_. Escolha essa política e use o botão **Selecionar**.
 
    :::image type="content" source="./media/assign-policy-portal/select-available-definition.png" alt-text="Encontre a definição de política correta" border="false":::
 
@@ -60,13 +60,13 @@ Neste guia de início rápido, crie uma atribuição de política e atribua a de
 
 1. Deixe a opção **Criar uma identidade gerenciada** desmarcada. Esta caixa _precisa_ ser marcada quando a política ou iniciativa inclui uma política com o efeito [deployIfNotExists](./concepts/effects.md#deployifnotexists). Já que esse não é o caso da política usada para este início rápido, deixe essa opção em branco. Para obter mais informações, confira [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md) e [como funciona a segurança de correção](./how-to/remediate-resources.md#how-remediation-security-works).
 
-1. Clique em **Atribuir**.
+1. Selecione **Atribuir**.
 
 Agora você está pronto para identificar recursos fora de conformidade para entender o estado de conformidade do ambiente.
 
 ## <a name="identify-non-compliant-resources"></a>Identificar recursos sem conformidade
 
-Selecione **Conformidade** no lado esquerdo da página. Em seguida, localize as **VMs de auditoria que não usam a atribuição de política de discos gerenciados** que você criou.
+Selecione **Conformidade** no lado esquerdo da página. Em seguida, localize as _VMs de auditoria que não usam a atribuição de política de discos gerenciados_ que você criou.
 
 :::image type="content" source="./media/assign-policy-portal/policy-compliance.png" alt-text="Detalhes de conformidade na página Conformidade com a Política" border="false":::
 
@@ -88,9 +88,9 @@ Os efeitos também exigem que a condição de existência seja FALSE para não e
 
 Para remover a atribuição criada, siga estas etapas:
 
-1. Selecione **Conformidade** (ou **Atribuições**) no lado esquerdo da página e localize as **VMs de auditoria que não usam a atribuição  de política de discos gerenciados** que você criou.
+1. Selecione **Conformidade** (ou **Atribuições**) no lado esquerdo da página e localize as _VMs de auditoria que não usam a atribuição  de política de discos gerenciados_ que você criou.
 
-1. Clique com o botão direito do mouse na atribuição de política **Auditar VMs que não usam discos gerenciados** e selecione **Excluir atribuição**.
+1. Clique com o botão direito do mouse na atribuição de política _Auditar VMs que não usam discos gerenciados_ e selecione **Excluir atribuição**.
 
    :::image type="content" source="./media/assign-policy-portal/delete-assignment.png" alt-text="Excluir uma atribuição da página Conformidade" border="false":::
 

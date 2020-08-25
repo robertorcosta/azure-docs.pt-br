@@ -4,12 +4,12 @@ description: Restaure uma máquina virtual do Azure de um ponto de recuperação
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 4aca863dd4e9c418872cd67bdf54df616a7a0c5b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 66d29294d74e9fee28dd88d34f67ed3bdc4b8e7b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651141"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756479"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar dados de VM do Azure no portal do Azure
 
@@ -65,7 +65,7 @@ Se você não tiver permissões, poderá [restaurar um disco](#restore-disks)e, 
     - **Criar novo**: Use esta opção se desejar criar uma nova VM. Você pode criar uma VM com configurações simples ou restaurar um disco e criar uma VM personalizada.
     - **Substituir existente**: Use esta opção se desejar substituir discos em uma VM existente.
 
-        ![Assistente de configuração de restauração](./media/backup-azure-arm-restore-vms/restore-configuration.png)
+        ![Assistente para restaurar configuração de máquina virtual](./media/backup-azure-arm-restore-vms/restore-configuration.png)
 
 1. Especifique as configurações para sua opção de restauração selecionada.
 
@@ -79,7 +79,7 @@ Como uma das [opções de restauração](#restore-options), você pode criar uma
 1. Em **Rede virtual**, selecione a rede virtual na qual a VM será colocada. Todas as redes virtuais associadas à assinatura são exibidas. Escolher a sub-rede. A primeira sub-rede será selecionada por padrão.
 1. Em **local de preparo**, especifique a conta de armazenamento para a VM. [Saiba mais](#storage-accounts).
 
-    ![Assistente de configuração de restauração](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
+    ![Assistente de configuração de restauração – escolher opções de restauração](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
 1. Selecione **restaurar** para disparar a operação de restauração.
 

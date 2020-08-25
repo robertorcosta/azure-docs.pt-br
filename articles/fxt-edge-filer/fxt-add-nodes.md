@@ -1,17 +1,17 @@
 ---
 title: 'Tutorial: Adicionar nós a um cluster do Azure FXT Edge Filer'
-description: Como adicionar nós ao cache de armazenamento do Azure FXT Edge Filer
+description: Saiba como adicionar nós de cluster ao cache de armazenamento do Azure FXT Edge Filer e como habilitar o recurso de HA (alta disponibilidade).
 author: ekpgh
 ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 6251fe8f88b7db25e3c09898540e07754d72fb0d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5b62927930212fc7e59fc4329a29ceecbe2815e5
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75551940"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185325"
 ---
 # <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>Tutorial: Adicionar nós de cluster a um cluster do Azure FXT Edge Filer
 

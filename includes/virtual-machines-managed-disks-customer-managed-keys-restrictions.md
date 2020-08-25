@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/10/2020
+ms.date: 08/24/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c303527c7411ead585e70fc2e31db4dd2d35e996
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f45ecf9985f17008ce7f751b21a04deefc285461
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259805"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88809807"
 ---
 - Somente [chaves de software e HSM RSA](../articles/key-vault/keys/about-keys.md) de tamanhos de 2.048 bits, 3.072 bits e 4.096 bits têm suporte, sem outras chaves ou tamanhos.
     - As chaves [HSM](../articles/key-vault/keys/hsm-protected-keys.md) exigem a camada **Premium** de cofres de chaves do Azure.
@@ -21,6 +21,6 @@ ms.locfileid: "86259805"
 - Os instantâneos criados a partir de discos criptografados com criptografia do lado do servidor e chaves gerenciadas pelo cliente devem ser criptografados com as mesmas chaves gerenciadas pelo cliente.
 - Todos os recursos relacionados às chaves gerenciadas pelo cliente (Azure Key Vaults, conjuntos de criptografia de disco, VMs, discos e instantâneos) devem estar na mesma assinatura e região.
 - Discos, instantâneos e imagens criptografadas com chaves gerenciadas pelo cliente não podem migrar para outra assinatura.
-- Discos gerenciados criptografados com chaves gerenciadas pelo cliente também não podem ser criptografados com Azure o Disk Encryption.
+- Os discos gerenciados atualmente ou criptografados anteriormente usando Azure Disk Encryption não podem ser criptografados usando chaves gerenciadas pelo cliente.
 - Só é possível criar até 50 conjuntos de criptografia de disco por região por assinatura.
 - Para obter informações sobre o uso de chaves gerenciadas pelo cliente com galerias de imagens compartilhadas, confira [Preview: Use chaves gerenciadas pelo cliente para criptografar imagens](../articles/virtual-machines/image-version-encryption.md).

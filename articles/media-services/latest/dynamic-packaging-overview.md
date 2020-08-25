@@ -2,7 +2,7 @@
 title: Empacotamento dinâmico nos Serviços de Mídia do Azure v3
 titleSuffix: Azure Media Services
 description: Este artigo apresenta uma visão geral do empacotamento dinâmico nos Serviços de Mídia do Azure.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/31/2020
-ms.author: juliako
-ms.openlocfilehash: 032a3c719610d658ec32492033a04a610117643d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/18/2020
+ms.author: inhenkel
+ms.openlocfilehash: 8a5d52f2705a04c290f1122335430c12db8d294c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489768"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604585"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Empacotamento dinâmico nos Serviços de Mídia v3
 
@@ -80,8 +80,10 @@ O cliente de streaming pode especificar os seguintes formatos de Smooth Streamin
 
 Os procedimentos a seguir mostram um fluxo de trabalho de streaming comum dos Serviços de Mídia, em que o empacotamento dinâmico é usado juntamente com o Media Encoder Standard, nos Serviços de Mídia do Microsoft Azure.
 
-1. Carregue um arquivo de entrada, como um arquivo QuickTime/MOV ou MXF. Esse arquivo também é denominado arquivo de mezanino ou de origem. Para obter a lista de formatos com suporte, confira [Formatos compatíveis com o Encoder Standard](media-encoder-standard-formats.md).
+1. [Carregue um arquivo de entrada](job-input-from-http-how-to.md), por exemplo, um MP4, um QuickTime/MOV ou outro formato de arquivo com suporte. Esse arquivo também é denominado arquivo de mezanino ou de origem. Para obter a lista de formatos com suporte, confira [Formatos compatíveis com o Encoder Standard](media-encoder-standard-formats.md).
 1. [Codifique](#encode-to-adaptive-bitrate-mp4s) seu arquivo de mezanino em um conjunto de taxa de bits adaptável H.264/AAC MP4.
+
+    Se já tiver arquivos codificados e quiser apenas copiar e transmitir os arquivos, use: APIs [CopyVideo](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) e [CopyAudio](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio). Um novo arquivo MP4 com um manifesto de streaming (arquivo .ism) será criado como resultado.
 1. Publicar o ativo de saída que contém o conjunto MP4 de taxa de bits adaptável. Você publica criando um [localizador de streaming](streaming-locators-concept.md).
 1. Criar URLs que segmentam diferentes formatos (HLS, MPEG-DASH e Smooth Streaming). O *ponto de extremidade de streaming* cuidaria de servir o manifesto correto e solicitações para todos esses formatos diferentes.
     

@@ -4,15 +4,15 @@ description: Tutorial – saiba como executar scripts do Python como parte de um
 author: mammask
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 08/12/2020
 ms.author: komammas
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 9b58aa06b67f01cf9ce0b30cef0326185124306c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f4c71cffe00faa6dd8cc440c59f94b8c2d60f712
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853306"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185104"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Executar scripts do Python por meio de Azure Data Factory usando o Lote do Azure
 
@@ -67,8 +67,7 @@ Aqui você vai criar contêineres de blob que armazenarão arquivos de entrada e
 1. Entre no Gerenciador de Armazenamento usando suas credenciais do Azure.
 1. Usando a conta de armazenamento vinculada à sua conta do Lote, crie dois contêineres de blob (um para arquivos de entrada, um para arquivos de saída) seguindo as etapas em [Criar um contêiner de blob](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
     * Neste exemplo, chamaremos nosso contêiner de entrada `input` e nosso contêiner de saída `output`.
-1. Carregue `main.py` e [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) no contêiner de entrada `input` usando o Gerenciador de Armazenamento seguindo as etapas em [Gerenciar blobs em um contêiner de blobs](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
-
+1. Carregue [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) no contêiner de entrada `input` usando o Gerenciador de Armazenamento, seguindo as etapas em [Gerenciar blobs em um contêiner de blobs](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
 
 ## <a name="develop-a-script-in-python"></a>Desenvolver um script em Python
 

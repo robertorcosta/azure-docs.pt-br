@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 60c2b3ed1f367dc5c501a51ed52440f7d9d3ed6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: 7d630fac1f848e691ddb96dc47596a2e9927309f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741181"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799427"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>O que é o aplicativo Microsoft Authenticator?
 
@@ -33,7 +33,7 @@ Você pode usar o aplicativo Microsoft Authenticator de várias maneiras, inclui
 > [!Important]
 > O aplicativo Microsoft Authenticator funciona com qualquer conta que use a verificação de dois fatores e dê suporte a padrões de Senhas Avulsas por Tempo Limitado (TOTP).
 >
->Este artigo destina-se aos usuários que estão tentando baixar e usar o aplicativo Microsoft Authenticator como um método de verificação de segurança. Caso seja um administrador que busca informações sobre como ativar a conexão sem senha usando o aplicativo Authenticator para seus funcionários e outros usos, confira [Habilitar a conexão sem senha com o aplicativo Microsoft Authenticator (versão prévia)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-phone).
+>Este artigo destina-se aos usuários que estão tentando baixar e usar o aplicativo Microsoft Authenticator como um método de verificação de segurança. Caso seja um administrador que busca informações sobre como ativar a conexão sem senha usando o aplicativo Authenticator para seus funcionários e outros usos, confira [Habilitar a conexão sem senha com o aplicativo Microsoft Authenticator (versão prévia)](../authentication/howto-authentication-passwordless-phone.md).
 
 ## <a name="terminology"></a>Terminologia
 

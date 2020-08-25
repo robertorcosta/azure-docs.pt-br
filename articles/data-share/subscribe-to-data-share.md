@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/30/2020
-ms.openlocfilehash: 999d99b0ed4701eb6758ed0bf7a71ca625e622b5
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 08/14/2020
+ms.openlocfilehash: 409f143ce67e301e3b2a973d8d2db80380fbd50e
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512084"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258670"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceitar e receber dados usando o Azure Data Share  
 
@@ -93,38 +93,35 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
    Para o campo **Nome do Compartilhamento Recebido**, deixe o padrão especificado pelo provedor de dados ou especifique um novo nome para o compartilhamento recebido. 
 
-   ![Conta de compartilhamento de dados de destino](./media/target-data-share.png "Conta de compartilhamento de dados de destino") 
-
-1. Depois de aceitar os termos de uso e especificar uma localização para seu compartilhamento, selecione *Aceitar e configurar*. Uma assinatura de compartilhamento será criada.
-
-   Para o compartilhamento baseado em instantâneo, a próxima tela solicitará que você selecione uma conta de armazenamento de destino para a qual seus dados deverão ser copiados. 
+   Depois de concordar com os termos de uso e especificar uma conta do Data Share para gerenciar seu compartilhamento recebido, selecione **Aceitar e configurar**. Uma assinatura de compartilhamento será criada. 
 
    ![Aceitar opções](./media/accept-options.png "Aceitar opções") 
 
-   Se você preferir aceitar o convite agora, mas configurar o armazenamento de dados de destino depois, selecione *Aceitar e configurar mais tarde*. Para continuar configurando o armazenamento mais tarde, confira a página [configurar mapeamentos de conjunto de dados](how-to-configure-mapping.md) para obter as etapas detalhadas sobre como retomar a configuração do seu compartilhamento de dados. 
-
-   Para compartilhamento no local, confira a página [configurar mapeamentos de conjunto de dados](how-to-configure-mapping.md) para obter as etapas detalhadas sobre como retomar a configuração do seu compartilhamento de dados. 
+   Isso redirecionará você para o compartilhamento recebido na sua conta do Data Share. 
 
    Se você não quiser aceitar o convite, selecione *Rejeitar*. 
 
-## <a name="configure-storage"></a>Configurar o armazenamento
-1. Em *Configurações de Armazenamento de Destino*, selecione a Assinatura, o Grupo de recursos e a conta de armazenamento em que você gostaria de receber seus dados. 
+## <a name="configure-received-share"></a>Configurar o compartilhamento recebido
+Siga as etapas abaixo para configurar o local em que deseja receber os dados.
 
-   ![Configurações do armazenamento de destino](./media/target-storage-settings.png "Armazenamento de destino") 
+1. Selecione a guia **Conjuntos de Dados**. Marque a caixa ao lado do conjunto de dados ao qual deseja atribuir um destino. Selecione **+ Mapear para o destino** para escolher um armazenamento de dados de destino. 
 
-1. Para receber atualizações regulares de seus dados, habilite as configurações de instantâneo. Observe que você só verá um agendamento de configuração de instantâneo se o provedor de dados estiver incluído no compartilhamento de dados. 
+   ![Mapear para o destino](./media/dataset-map-target.png "Mapear para o destino") 
 
-   ![Configurações de instantâneo](./media/snapshot-settings.png "Configurações de instantâneo") 
+1. Selecione um tipo de armazenamento de dados de destino no qual deseja que os dados sejam inseridos. Todos os arquivos de dados ou tabelas no armazenamento de dados de destino com o mesmo caminho e nome serão substituídos. 
 
-1. Clique em *Salvar*. 
+   Para o compartilhamento in-loco, selecione um armazenamento de dados na Localização especificada. A Localização é o data center do Azure no qual o armazenamento de dados de origem do provedor de dados está localizado. Depois que o conjunto de dados for mapeado, siga o link no Caminho de Destino para acessar os dados.
 
-> [!IMPORTANT]
-> Se você estiver recebendo dados baseados em SQL e quiser receber esses dados em uma fonte baseada em SQL, visite o guia de instruções [configurar um mapeamento de conjunto de dados](how-to-configure-mapping.md) para saber como configurar um SQL Server como o destino do conjunto de dados. 
+   ![Conta de armazenamento de destino](./media/dataset-map-target-sql.png "Armazenamento de destino") 
+
+1. Para o compartilhamento baseado em instantâneo, se o provedor de dados tiver criado um agendamento de instantâneo para fornecer atualização regular aos dados, você também poderá habilitar o agendamento de instantâneo selecionando a guia **Agendamento de Instantâneos**. Marque a caixa ao lado do agendamento de instantâneo e selecione **+ Habilitar**.
+
+   ![Habilitar o agendamento de instantâneo](./media/enable-snapshot-schedule.png "Habilitar o agendamento de instantâneo")
 
 ## <a name="trigger-a-snapshot"></a>Disparar um instantâneo
 Essas etapas se aplicam somente ao compartilhamento baseado em instantâneo.
 
-1. Você pode disparar um instantâneo na guia Compartilhamentos Recebidos -> Detalhes selecionando **Disparar Instantâneo**. Aqui, você pode disparar um instantâneo completo ou incremental de seus dados. Se esta for a primeira vez que você está recebendo dados de seu provedor de dados, selecione a cópia completa. 
+1. Você pode disparar um instantâneo selecionando a guia **Detalhes** seguido de **Disparar instantâneo**. Aqui, você pode disparar um instantâneo completo ou incremental de seus dados. Se esta for a primeira vez que você está recebendo dados de seu provedor de dados, selecione a cópia completa. 
 
    ![Disparar instantâneo](./media/trigger-snapshot.png "Disparar instantâneo") 
 
@@ -133,7 +130,7 @@ Essas etapas se aplicam somente ao compartilhamento baseado em instantâneo.
    ![Conjuntos de dados do consumidor](./media/consumer-datasets.png "Mapeamento de conjunto de dados do consumidor") 
 
 ## <a name="view-history"></a>Exibir histórico
-Para exibir um histórico de seus instantâneos, navegue até Compartilhamentos Recebidos -> Histórico. Aqui, você encontrará um histórico de todos os instantâneos gerados nos últimos 60 dias. 
+Esta etapa só se aplica ao compartilhamento baseado em instantâneo. Para ver o histórico dos seus instantâneos, selecione a guia **Histórico**. Aqui, você encontrará o histórico de todos os instantâneos gerados nos últimos 30 dias. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu a aceitar e receber um Azure Data Share. Para saber mais sobre conceitos do Azure Data Share, prossiga para [Conceitos: terminologia do Azure Data Share](terminology.md).
