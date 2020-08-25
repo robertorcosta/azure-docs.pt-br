@@ -3,10 +3,8 @@
 - name: Visão geral
   expanded: true
   items:
-    - name: O que é Serviço de fala?
+    - name: Visão geral do serviço de Fala
       href: overview.md
-    - name: Experimente o serviço de Fala gratuitamente
-      href: get-started.md
     - name: Suporte a idiomas e voz
       displayName: 'languages,locales,voice,gender,language code,locale,locale code,neural voice,standard voice'
       href: language-support.md

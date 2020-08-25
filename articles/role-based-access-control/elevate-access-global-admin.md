@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
-ms.openlocfilehash: a93901bd95d57b29aeb1464652737a77a1a84376
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 343f6b7a78ca98615d512d31d7ac1c10d9de8f10
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791989"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799325"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure
 
@@ -144,6 +144,22 @@ Para remover a atribuição de função de administrador de acesso do usuário p
     ```
 
 ## <a name="azure-cli"></a>CLI do Azure
+
+### <a name="elevate-access-for-a-global-administrator"></a>Elevar o acesso de um administrador global
+
+Use as etapas básicas a seguir para elevar o acesso para um administrador global usando o CLI do Azure.
+
+1. Use o comando [AZ REST](/cli/azure/reference-index?view=azure-cli-latest#az-rest) para chamar o `elevateAccess` ponto de extremidade, que concede a você a função de administrador de acesso do usuário no escopo raiz ( `/` ).
+
+    ```azurecli
+    az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
+    ```
+
+1. Faça as alterações que você precisa fazer em acesso elevado.
+
+    Para obter informações sobre como atribuir funções, consulte [Adicionar ou remover atribuições de função do Azure usando o CLI do Azure](role-assignments-cli.md).
+
+1. Execute as etapas em uma seção posterior para remover o acesso elevado.
 
 ### <a name="list-role-assignment-at-root-scope-"></a>Listar atribuição de função no escopo raiz (/)
 

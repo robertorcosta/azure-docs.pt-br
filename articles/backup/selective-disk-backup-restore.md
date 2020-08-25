@@ -4,12 +4,12 @@ description: Neste artigo, saiba mais sobre o backup e a restauração de disco 
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 6a5e574795dfded98260da20711dab7d16cabd5b
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: dd4691f6248099bdc4fa713c84d396adac6011fa
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566226"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757431"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Backup e restauração de disco seletivo para máquinas virtuais do Azure
 
@@ -38,7 +38,7 @@ Verifique se você está usando AZ CLI versão 2.0.80 ou superior. Você pode ob
 az --version
 ```
 
-Entre na ID da assinatura onde reside o cofre dos serviços de recuperação e a VM:
+Entre na ID da assinatura em que reside o cofre dos serviços de recuperação e a VM:
 
 ```azurecli
 az account set -s {subscriptionID}

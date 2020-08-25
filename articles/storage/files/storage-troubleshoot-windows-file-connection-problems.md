@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f9e4fdb0fe8872c505bbbbb10da11d8fb74a22b3
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 322a3b4e8d362d1b751b2c016e6f7cf904f11d7e
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927208"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752344"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucionar problemas de Arquivos do Azure no Windows
 
@@ -364,6 +364,16 @@ Você pode ter qualquer um dos sintomas descritos abaixo ao tentar configurar AC
 ### <a name="solution"></a>Solução
 
 Recomendamos que você use a [ferramenta icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) para configurar as permissões de nível de diretório/arquivo como uma solução alternativa. 
+
+## <a name="errors-when-running-join-azstorageaccountforauth-cmdlet"></a>Erros ao executar o cmdlet Join-AzStorageAccountForAuth
+
+### <a name="error-the-directory-service-was-unable-to-allocate-a-relative-identifier"></a>Erro: "o serviço de diretório não pôde alocar um identificador relativo"
+
+Esse erro poderá ocorrer se um controlador de domínio que mantém a função FSMO mestre RID estiver indisponível ou removido do domínio e restaurado do backup.  Confirme se todos os controladores de domínio estão em execução e disponíveis.
+
+### <a name="error-cannot-bind-positional-parameters-because-no-names-were-given"></a>Erro: "Não é possível associar parâmetros posicionais porque nenhum nome foi fornecido"
+
+Este erro provavelmente é acionado por um erro de sintaxe no comando Join-AzStorageAccountforAuth.  Verifique o comando em busca de erros de ortografia ou de sintaxe e verifique se a versão mais recente do módulo AzFilesHybrid ( https://github.com/Azure-Samples/azure-files-samples/releases) está instalada.  
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 Caso ainda precise de ajuda, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.

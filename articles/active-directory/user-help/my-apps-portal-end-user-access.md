@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: aa9813480425d179bdd11bac6f6f944f9f65e3ab
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 78204be967bafdd7d01af4f9f286bd15347e4a9f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741957"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798033"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Conecte-se a aplicativos e inicie-os no portal Meus Aplicativos
 
@@ -33,7 +33,7 @@ Se você não tiver acesso ao portal **Meus Aplicativos**, entre em contato com 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 > [!Important]
-> Este conteúdo destina-se aos usuários do portal Meus Aplicativos. Se você for administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na [Documentação de Gerenciamento do Aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps).
+> Este conteúdo destina-se aos usuários do portal Meus Aplicativos. Se você for administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na [Documentação de Gerenciamento do Aplicativo](../manage-apps/index.yml).
 
 ## <a name="supported-browsers"></a>Navegadores com suporte
 
@@ -59,7 +59,7 @@ Essa extensão ajuda você a:
 
 - Consultar os últimos aplicativos usados na seção **Usados recentemente**.
 
-- Você pode usar URLs internas da empresa enquanto trabalha remotamente por meio do [Proxy de Aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
+- Você pode usar URLs internas da empresa enquanto trabalha remotamente por meio do [Proxy de Aplicativo](../manage-apps/application-proxy.md).
 
 ### <a name="to-download-and-install-the-extension"></a>Para baixar e instalar a extensão
 

@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 4ed8ada306720b7a8b44ddd59cefe399238c906a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b60a86d09e5d6f7d1108595253349bbd0784e4d3
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80128065"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799342"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Transmitir conteúdo com integração CDN
 
@@ -47,7 +47,7 @@ Este tópico discute a habilitação da [integração da CDN](#enable-azure-cdn-
 
 Depois que um ponto de extremidade de streaming é provisionado com a CDN habilitada, há um tempo de espera definido nos serviços de mídia antes que a atualização de DNS seja feita para mapear o ponto de extremidade de streaming para o ponto de extremidade CDN.
 
-Se quiser desabilitar/habilitar a CDN depois, o ponto de extremidade de streaming deverá estar no estado **interrompido**. Para que a integração da CDN do Azure seja habilitada e as alterações estejam ativas em todos os POPs da CDN talvez sejam necessárias até duas horas. No entanto, você pode iniciar seu ponto de extremidade de streaming e transmitir sem interrupções do ponto de extremidade de streaming. Depois que a integração for concluída, o fluxo será entregue da CDN. Durante o período de provisionamento, o ponto de extremidade de streaming estará no estado **inicial** e você poderá observar o desempenho degradado.
+Se quiser desabilitar/habilitar a CDN depois, o ponto de extremidade de streaming deverá estar no estado **interrompido**. Depois que o ponto de extremidade de streaming é iniciado, pode levar até duas horas para a integração da CDN do Azure ser habilitada e para que as alterações estejam ativas em todos os POPs da CDN. No entanto, você pode iniciar seu ponto de extremidade de streaming e transmitir sem interrupções do ponto de extremidade de streaming. Depois que a integração for concluída, o fluxo será entregue da CDN. Durante o período de provisionamento, o ponto de extremidade de streaming estará no estado **inicial** e você poderá observar o desempenho degradado.
 
 Quando o ponto de extremidade de streaming padrão é criado, ele é configurado por padrão com a Verizon padrão. Você pode configurar provedores da Verizon Premium ou Standard Akamai usando APIs REST.
 
@@ -82,7 +82,7 @@ Os benefícios do recurso de *ajuda da CDN-Assist de origem* incluem:
 > [!NOTE]
 > Este recurso ainda não é aplicável à CDN da Akamai integrada com o ponto de extremidade de streaming dos serviços de mídia. No entanto, ele está disponível para os clientes dos serviços de mídia que têm um contrato Akamai já existente e exigem integração personalizada entre o Akamai CDN e a origem dos serviços de mídia.
 
-### <a name="how-it-works"></a>Como isso funciona
+### <a name="how-it-works"></a>Como ele funciona
 
 O suporte da CDN para os `Origin-Assist CDN-Prefetch` cabeçalhos (para streaming ao vivo e de vídeo sob demanda) está disponível para clientes que têm contrato direto com a AKAMAI CDN. O recurso envolve as seguintes trocas de cabeçalho HTTP entre o Akamai CDN e a origem dos serviços de mídia:
 

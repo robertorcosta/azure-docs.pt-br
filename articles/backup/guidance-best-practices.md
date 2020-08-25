@@ -3,12 +3,12 @@ title: Diretrizes e melhores práticas
 description: Descubra as práticas recomendadas e as diretrizes para fazer backup da carga de trabalho local e na nuvem para a nuvem
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 1e2680c5fbcdb685e13b6ad990aaf98b013c98bb
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 21d3d6b8983d8ce3d0b563785423bc1e503649f3
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650869"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757584"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Fazer backup de cargas de trabalho locais e na nuvem para a nuvem
 
@@ -48,7 +48,7 @@ O backup do Azure permite a proteção de dados para várias cargas de trabalho 
 
 ### <a name="management-plane"></a>Plano de gerenciamento
 
-* **Controle de acesso** – o cofre do serviço de recuperação fornece os recursos de gerenciamento e é acessível por meio do portal do Azure, SDK, CLI e até mesmo APIs REST. Ele também é um limite de RBAC, fornecendo a opção de restringir o acesso a backups somente para administradores de backup autorizados.
+* **Controle de acesso** – o cofre dos serviços de recuperação fornece os recursos de gerenciamento e é acessível por meio do portal do Azure, SDK, CLI e até mesmo APIs REST. Ele também é um limite de RBAC, fornecendo a opção de restringir o acesso a backups somente para administradores de backup autorizados.
 
 * **Gerenciamento de políticas** – as políticas de backup do Azure em cada cofre definem quando os backups devem ser disparados e por quanto tempo eles precisam ser retidos. Você também pode gerenciar essas políticas e aplicá-las em vários itens.
 
@@ -143,7 +143,7 @@ Para ajudá-lo a proteger seus dados de backup e atender às necessidades de seg
 
 * O backup do Azure tem vários controles de segurança incorporados ao serviço para impedir, detectar e responder a vulnerabilidades de segurança (Saiba mais)
 
-* As contas de armazenamento usadas pelos cofres dos Serviços de Recuperação são isoladas e não podem ser acessadas por usuários para fins mal-intencionados. O acesso é permitido somente por meio de operações de gerenciamento do Backup do Azure, como a restauração.
+* As contas de armazenamento usadas pelos cofres dos serviços de recuperação são isoladas e não podem ser acessadas por usuários para fins mal-intencionados. O acesso é permitido somente por meio de operações de gerenciamento do Backup do Azure, como a restauração.
 
 ### <a name="encryption-of-data-in-transit-and-at-rest"></a>Criptografia de dados em trânsito e em repouso
 
@@ -247,7 +247,7 @@ Como um usuário ou administrador de backup, você deve ser capaz de monitorar t
 
 * O backup do Azure fornece um mecanismo **de notificação de alerta interno** por email para falhas, avisos e operações críticas. Você pode especificar endereços de email individuais ou listas de distribuição a serem notificadas quando um alerta for gerado. Você também pode escolher se deseja ser notificado para cada alerta individual ou agrupá-lo em um resumo por hora e, em seguida, ser notificado.
   * Esses alertas são definidos pelo serviço e fornecem suporte para cenários limitados-falhas de backup/restauração, interromper a proteção com reter dados/parar proteção com excluir dados e assim por diante. [Saiba mais aqui](backup-azure-monitoring-built-in-monitor.md#alert-scenarios).
-  * Se uma operação destrutiva, como parar proteção com dados de exclusão, for executada, um alerta será gerado e um email será enviado para proprietários, administradores e coadministradores de assinatura, mesmo que as notificações não estejam configuradas para o cofre do serviço de recuperação.
+  * Se uma operação destrutiva, como parar proteção com dados de exclusão, for executada, um alerta será gerado e um email será enviado para proprietários, administradores e coadministradores de assinatura, mesmo que as notificações não estejam configuradas para o cofre dos serviços de recuperação.
   * Determinadas cargas de trabalho podem gerar alta frequência de falhas (por exemplo, SQL Server a cada 15 minutos). Para evitar ficar sobrecarregado com alertas gerados para cada ocorrência de falha, os alertas são consolidados. [Saiba mais aqui](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts).
   * Os alertas internos não podem ser personalizados e são restritos a emails definidos no portal do Azure.
 

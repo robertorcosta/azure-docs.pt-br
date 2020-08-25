@@ -11,21 +11,21 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 58ec2c00e75b12d6010b106ca7daed0da234bf1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b83cdf0b069eac2e46cfdd54edc11a1aa5a41075
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266110"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799036"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Redefinir sua senha corporativa ou de estudante usando informações de segurança
 
-Caso você tenha esquecido sua senha corporativa ou de estudante, nunca tenha recebido uma da empresa ou sua conta tenha sido bloqueada, você pode usar suas informações de segurança e o dispositivo móvel para redefinir sua senha corporativa ou de estudante. Seu administrador deve ativar esse recurso para que você possa configurar suas informações e [redefinir sua senha](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-reset-register).
+Caso você tenha esquecido sua senha corporativa ou de estudante, nunca tenha recebido uma da empresa ou sua conta tenha sido bloqueada, você pode usar suas informações de segurança e o dispositivo móvel para redefinir sua senha corporativa ou de estudante. Seu administrador deve ativar esse recurso para que você possa configurar suas informações e [redefinir sua senha](./active-directory-passwords-reset-register.md).
 
-Se você souber sua senha e quiser alterá-la, consulte as seções [alterar as etapas de senha](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) deste artigo.
+Se você souber sua senha e quiser alterá-la, consulte as seções [alterar as etapas de senha](#how-to-change-your-password) deste artigo.
 
 >[!Important]
->Este artigo destina-se aos usuários que estão tentando redefinir uma senha de conta corporativa ou de estudante esquecida ou desconhecida. Se você for um administrador procurando informações sobre como ativar a redefinição de senha por autoatendimento para seus funcionários ou outros usuários, confira [Implantar a redefinição de senha por autoatendimento do Azure AD e outros artigos](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>Este artigo destina-se aos usuários que estão tentando redefinir uma senha de conta corporativa ou de estudante esquecida ou desconhecida. Se você for um administrador procurando informações sobre como ativar a redefinição de senha por autoatendimento para seus funcionários ou outros usuários, confira [Implantar a redefinição de senha por autoatendimento do Azure AD e outros artigos](../authentication/howto-sspr-deployment.md).
 
 ## <a name="how-to-reset-or-unlock-your-password-for-a-work-or-school-account"></a>Como redefinir ou desbloquear sua senha para uma conta corporativa ou de estudante
 
@@ -164,6 +164,6 @@ Aqui estão alguns casos de erro comuns e suas soluções:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre as informações de segurança no artigo [Visão geral da informação de segurança (visualização)](user-help-security-info-overview.md).
+- Saiba mais sobre as informações de segurança no artigo [Visão geral da informação de segurança (visualização)](./security-info-setup-signin.md).
 
 - Se você estiver tentando voltar a uma conta pessoal como Xbox, hotmail.com ou outlook.com, experimente as sugestões no artigo [Quando não for possível entrar em sua conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

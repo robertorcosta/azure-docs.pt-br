@@ -3,12 +3,12 @@ title: Conceito de grafo de mídia-Azure
 description: Um grafo de mídia permite definir onde a mídia deve ser capturada, como ela deve ser processada e onde os resultados devem ser entregues. Este artigo fornece uma descrição detalhada do conceito de grafo de mídia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 9889c7135a23a8817f4922d3e537eb51f26cdae0
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8c6775da6804b5079c89cae73d4621dd8067e90a
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690673"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798832"
 ---
 # <a name="media-graph"></a>Grafo de mídia
 
@@ -17,7 +17,7 @@ ms.locfileid: "88690673"
 * [Visão geral da Análise de Vídeo ao vivo no IoT Edge](overview.md)
 * [Análise de Vídeo ao vivo na terminologia do IoT Edge](terminology.md)
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 Um grafo de mídia permite definir onde a mídia deve ser capturada, como ela deve ser processada e onde os resultados devem ser entregues. Isso é feito por meio da conexão de componentes, ou nós, da maneira desejada. O diagrama a seguir fornece uma representação gráfica de um grafo de mídia.  
 
@@ -79,11 +79,11 @@ O nó do processador de filtro de taxa de quadros permite que você exemplo de q
 
 #### <a name="http-extension-processor"></a>Processador de extensão HTTP
 
-O nó processador de extensão HTTP permite que você conecte seu próprio módulo IoT Edge a um grafo de mídia. Esse nó usa quadros de vídeo decodificados como entrada e transmite esses quadros para um ponto de extremidade HTTP REST exposto pelo seu módulo. Esse nó tem a capacidade de se autenticar com o ponto de extremidade REST, se necessário. Além disso, o nó tem um formatador de imagem interno para dimensionamento e codificação de quadros de vídeo antes que eles sejam retransmitidos para o ponto de extremidade REST. O scaler tem opções para que a taxa de proporção da imagem seja preservada, preenchida ou ampliada. O codificador de imagem dá suporte aos formatos JPEG, png ou bmp.
+O nó processador de extensão HTTP permite que você conecte seu próprio módulo IoT Edge a um grafo de mídia. Esse nó usa quadros de vídeo decodificados como entrada e transmite esses quadros para um ponto de extremidade HTTP REST exposto pelo seu módulo. Esse nó tem a capacidade de se autenticar com o ponto de extremidade REST, se necessário. Além disso, o nó tem um formatador de imagem interno para dimensionamento e codificação de quadros de vídeo antes que eles sejam retransmitidos para o ponto de extremidade REST. O scaler tem opções para que a taxa de proporção da imagem seja preservada, preenchida ou ampliada. O codificador de imagem dá suporte aos formatos JPEG, PNG ou BMP.
 
 #### <a name="grpc-extension-processor"></a>processador de extensão gRPC
 
-O nó do processador de extensão gRPC usa quadros de vídeo decodificados como entrada e transmite esses quadros para um ponto de extremidade gRPC exposto pelo seu módulo. Além disso, o nó tem um formatador de imagem interno para dimensionamento e codificação de quadros de vídeo antes que eles sejam retransmitidos para o ponto de extremidade gRPC. O scaler tem opções para que a taxa de proporção da imagem seja preservada, preenchida ou ampliada. O codificador de imagem dá suporte aos formatos JPEG, png ou bmp.
+O nó do processador de extensão gRPC usa quadros de vídeo decodificados como entrada e transmite esses quadros para um ponto de extremidade [gRPC](terminology.md#grpc) exposto pelo seu módulo. Além disso, o nó tem um formatador de imagem interno para dimensionamento e codificação de quadros de vídeo antes que eles sejam retransmitidos para o ponto de extremidade gRPC. O scaler tem opções para que a taxa de proporção da imagem seja preservada, preenchida ou ampliada. O codificador de imagem dá suporte aos formatos JPEG, png ou bmp.
 
 #### <a name="signal-gate-processor"></a>Processador da porta do sinal  
 
@@ -105,7 +105,7 @@ Um nó de coletor de mensagens do Hub IoT permite que você publique eventos no 
 
 ## <a name="rules-on-the-use-of-nodes"></a>Regras sobre o uso de nós
 
-Confira [cotas](quotas-limitations.md#limitations-on-graph-topologies-at-preview) para regras adicionais sobre como nós diferentes podem ser usados em um grafo de mídia.
+Consulte [limitações em topologias de grafo](quotas-limitations.md#limitations-on-graph-topologies-at-preview) para obter regras adicionais sobre como nós diferentes podem ser usados em um grafo de mídia.
 
 ## <a name="scenarios"></a>Cenários
 

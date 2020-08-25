@@ -3,12 +3,12 @@ title: Excluir um cofre de Serviços de Recuperação do Microsoft Azure
 description: Neste artigo, saiba como remover dependências e, em seguida, excluir um cofre dos serviços de recuperação de backup do Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: ffe8005ed6c2583763a10ba515ff19f0ef62ae0d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a7e922069f567a0b907c2f2cd28fe09de040cdee
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652811"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757210"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Excluir um cofre dos serviços de recuperação de backup do Azure
 
@@ -303,7 +303,7 @@ Primeiro, leia a seção **[antes de começar](#before-you-start)** para entende
 > [!NOTE]
 > Atualmente, a CLI do backup do Azure dá suporte ao gerenciamento apenas de backups de VM do Azure, portanto, o seguinte comando para excluir o cofre funciona apenas se o cofre contiver backups de VM do Azure. Você não poderá excluir um cofre usando a CLI de backup do Azure, se o cofre contiver qualquer item de backup do tipo diferente de VMs do Azure.
 
-Para excluir o cofre de serviços de recuperação existente, execute o seguinte:
+Para excluir o cofre de serviços de recuperação existente, execute as seguintes etapas:
 
 - Para interromper a proteção e excluir os dados de backup
 
@@ -357,13 +357,13 @@ Para obter mais informações sobre o comando ARMClient, consulte [ARMCLIENT REA
 1. Execute o comando a seguir usando sua ID de assinatura, o nome do grupo de recursos e o nome do cofre. Se você não tiver nenhuma dependência, o cofre será excluído quando você executar o seguinte comando:
 
    ```azurepowershell
-   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<Recovery Services vault name>?api-version=2015-03-15
    ```
 
 2. Se o cofre não estiver vazio, você receberá a seguinte mensagem de erro: o *cofre não pode ser excluído, pois há recursos existentes nesse cofre.* Para remover um contêiner ou item protegido em um cofre, execute o seguinte comando:
 
    ```azurepowershell
-   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<Recovery Services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
 3. No portal do Azure, verifique se o cofre foi excluído.

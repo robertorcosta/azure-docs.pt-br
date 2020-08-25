@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/21/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: 3069ee020d5f127eb0bdb8cbaf251cd3f3cef8d9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e037607d1f86e6df4d3f5b12e29ba8fde447ebc9
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118402"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757924"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Configurar a proteção avançada contra ameaças para o armazenamento do Azure
 
@@ -33,6 +33,17 @@ Contas com namespaces hierárquicos habilitados para Data Lake Storagem transaç
 
 Para obter detalhes de preços, incluindo uma avaliação gratuita de 30 dias, consulte a [página de preços da central de segurança do Azure](https://azure.microsoft.com/pricing/details/security-center/).
 
+A lista a seguir resume a disponibilidade da proteção avançada contra ameaças para o armazenamento do Azure:
+
+- Estado da versão:
+  - [Armazenamento de BLOBs](https://azure.microsoft.com/services/storage/blobs/) (disponibilidade geral)
+  - [Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (versão prévia dá suporte a transações SMB e REST)
+  - Azure Data Lake Storage Gen2 (versão prévia)
+- Nuvens:<br>
+    ✔ Nuvens comerciais<br>
+    ✔ US Gov<br>
+    ✘ China gov, outros gov
+
 ## <a name="set-up-advanced-threat-protection"></a>Configurar a proteção avançada contra ameaças
 
 Você pode configurar a proteção avançada contra ameaças de várias maneiras, descritas nas seções a seguir.
@@ -45,13 +56,13 @@ Quando você assina a camada Standard na central de segurança do Azure, a prote
 1. No menu principal, clique em **preços & configurações**.
 1. Clique na assinatura que você deseja habilitar ou desabilitar a proteção contra ameaças para suas contas de armazenamento.
 
-    ![Selecionar uma assinatura](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
+    ![Selecionar assinatura](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
 
 1. Clique em **tipo de preço**.
 1. Na seção **selecionar camada de preços por tipo de recurso** , na **linha contas de armazenamento** , clique em **habilitado** ou **desabilitado**.
 
     ![Habilitar ATP na central de segurança](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -107,7 +118,7 @@ Use os seguintes cmdlets do PowerShell:
 Quando ocorrerem anomalias na atividade de armazenamento, você receberá uma notificação por email com informações sobre o evento de segurança suspeito. Os detalhes do evento incluem:
 
 * A natureza da anomalia
-* o nome da conta de armazenamento
+* O nome da conta de armazenamento
 * A hora do evento
 * O tipo de armazenamento
 * As possíveis causas

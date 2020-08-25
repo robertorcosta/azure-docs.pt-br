@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 44c43505bb779c3e00af19bed3a3fd3844c16bfe
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 262c12b1fb1d5c768b178d6e56c2964527f34495
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923825"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607205"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga público para balancear cargas de VMs usando o Portal do Azure
 
@@ -36,14 +36,12 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 ---
 
-# <a name="option-1-default-create-a-public-load-balancer-standard-sku"></a>[Opção 1 (padrão): Criar um balanceador de carga público (SKU Standard)](#tab/option-1-create-load-balancer-standard)
+# <a name="standard-sku"></a>[**SKU Standard**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >O balanceador de carga de SKU Standard é recomendado para cargas de trabalho de produção.  Para obter mais informações sobre SKUs, confira **[SKUs do Azure Load Balancer](skus.md)** .
 
 Nesta seção, você criará um balanceador de carga que faz o balanceamento da carga de máquinas virtuais. 
-
-Crie um balanceador de carga público ou um balanceador de carga interno. 
 
 Quando você criar um balanceador de carga público, crie um endereço IP público configurado como o front-end (chamado de **LoadBalancerFrontend** por padrão) para o balanceador de carga.
 
@@ -194,7 +192,7 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 
     | Configuração            | Valor                      |
     |--------------------|----------------------------|
-    | Nome do Bastion | Insira **myBastionHost** |
+    | Nome do bastion | Insira **myBastionHost** |
     | Espaço de endereço da AzureBastionSubnet | Insira **10.1.1.0/24** |
     | Endereço IP público | Selecione **Criar novo**. </br> Em **Nome**, insira **myBastionIP**. </br> Selecione **OK**. |
 
@@ -317,14 +315,12 @@ Confira mais informações sobre conexões de saída em [Conexões de saída no 
 
 8. Clique em **Salvar**.
 
-# <a name="option-2-create-a-public-load-balancer-basic-sku"></a>[Opção 2: Criar um balanceador de carga público (SKU Básico)](#tab/option-1-create-load-balancer-basic)
+# <a name="basic-sku"></a>[**SKU Básico**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >O balanceador de carga de SKU Standard é recomendado para cargas de trabalho de produção.  Para obter mais informações sobre SKUs, confira **[SKUs do Azure Load Balancer](skus.md)** .
 
 Nesta seção, você criará um balanceador de carga que faz o balanceamento da carga de máquinas virtuais. 
-
-Crie um balanceador de carga público ou um balanceador de carga interno. 
 
 Quando você criar um balanceador de carga público, crie um endereço IP público configurado como o front-end (chamado de **LoadBalancerFrontend** por padrão) para o balanceador de carga.
 
@@ -402,7 +398,7 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 
     | Configuração            | Valor                      |
     |--------------------|----------------------------|
-    | Nome do Bastion | Insira **myBastionHost** |
+    | Nome do bastion | Insira **myBastionHost** |
     | Espaço de endereço da AzureBastionSubnet | Insira **10.1.1.0/24** |
     | Endereço IP público | Selecione **Criar novo**. </br> Em **Nome**, insira **myBastionIP**. </br> Selecione **OK**. |
 

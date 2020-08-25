@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como o Azure Policy usa o agente de Configuração de Convidado para auditar as configurações dentro de máquinas virtuais.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: af913a6bb1fb7c871a7f6740a0fb2d66efa3f712
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 951960793ebda50fdb87d266c4dc8561f2fcd70f
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717569"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756683"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -111,25 +111,16 @@ Se o computador tiver atualmente uma identidade de sistema atribuída pelo usuá
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definição da Configuração de Convidado
 
-Cada auditoria executada pela Configuração de Convidado exige duas definições de política, uma definição **DeployIfNotExists** e uma definição **AuditIfNotExists**. As definições de política **DeployIfNotExists** gerenciam dependências para executar auditorias em cada computador.
+As políticas de configuração de convidado usam o efeito **AuditIfNotExists** . Quando a definição é atribuída, um serviço de back-end manipula automaticamente o ciclo de vida de todos os requisitos no `Microsoft.GuestConfiguration` provedor de recursos do Azure.
 
-A definição de política **DeployIfNotExists** valida e corrige os seguintes itens:
+As políticas de **AuditIfNotExists** não retornarão resultados de conformidade até que todos os requisitos sejam atendidos no computador. As exigências são descritas na seção [implantar requisitos para máquinas virtuais do Azure](#deploy-requirements-for-azure-virtual-machines)
 
-- Validar se uma configuração foi atribuída ao computador para avaliação. Se não houver nenhuma atribuição no momento, obtenha a atribuição e prepare o computador fazendo o seguinte:
-  - Autenticar-se no computador usando uma [identidade gerenciada](../../../active-directory/managed-identities-azure-resources/overview.md)
-  - Instalando a versão mais recente da extensão **Microsoft.GuestConfiguration**
-  - Instalando [ferramentas de validação](#validation-tools) e dependências se necessário
+> [!IMPORTANT]
+> Em uma versão anterior da configuração de convidado, era necessária uma iniciativa para combinar as definições **DeployIfNoteExists** e **AuditIfNotExists** . As definições de **DeployIfNotExists** não são mais necessárias. As definições e intiaitives são rotuladas `[Deprecated]` , mas as atribuições existentes continuarão a funcionar.
+>
+> Uma etapa manual é necessária. Se você tiver atribuído anteriormente as iniciativas de política na categoria `Guest Configuration` , exclua a atribuição de política e atribua a nova definição. As políticas de configuração de convidado têm um padrão de nome da seguinte maneira: `Audit <Windows/Linux> machines that <non-compliant condition>`
 
-Se a atribuição **DeployIfNotExists** estiver sem conformidade, uma [tarefa de correção](../how-to/remediate-resources.md#create-a-remediation-task) poderá ser usada.
-
-Depois que a atribuição **DeployIfNotExists** for compatível, a atribuição de política **AuditIfNotExists** determinará se a atribuição de convidado está em conformidade ou não. A ferramenta de validação fornece os resultados para o cliente de Configuração de Convidado. O cliente encaminha os resultados para a Extensão de Convidado, o que os disponibiliza por meio do provedor de recursos da Configuração de Convidado.
-
-O Azure Policy usa a propriedade **complianceStatus** dos provedores de recursos da Configuração de Convidado para relatar a conformidade no nó **Conformidade**. Para obter mais informações, confira [Obtendo dados de conformidade](../how-to/get-compliance-data.md).
-
-> [!NOTE]
-> A política **DeployIfNotExists** é necessária para a política **AuditIfNotExists** retornar resultados. Sem **DeployIfNotExists**, a política **AuditIfNotExists** mostra "0 de 0" recursos como status.
-
-Todas as políticas internas da Configuração de Convidado são incluídas em uma iniciativa para agrupar as definições a serem usadas em atribuições. A iniciativa interna chamada _\[Versão Prévia\]: Auditar a segurança de Senha em máquinas virtuais do Linux e do Windows_ contém 18 políticas. Há seis pares de **DeployIfNotExists** e **AuditIfNotExists** para o Windows e três para o Linux. A [definição de política](definition-structure.md#policy-rule) lógica valida que apenas o sistema operacional de destino é avaliado.
+Azure Policy usa a propriedade **complianceStatus** do provedor de recursos de configuração do convidado para relatar a conformidade no nó **conformidade** . Para obter mais informações, confira [Obtendo dados de conformidade](../how-to/get-compliance-data.md).
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Auditar configurações do sistema operacional seguindo as linhas de base do setor
 

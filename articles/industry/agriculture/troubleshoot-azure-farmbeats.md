@@ -5,16 +5,16 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 110fef2dcb4c1581d49fcb776276ebd9c4ae2235
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c66d3d6fd3ee0bcba01db61183f40cd3ccf3f39d
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497056"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797931"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Solução de problemas do Azure FarmBeats
 
-Este artigo fornece soluções para problemas comuns do FarmBeats do Azure. Para obter ajuda adicional, entre em contato com nosso [Fórum de Suporte](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) ou envie um email para farmbeatssupport@microsoft.com.
+Este artigo fornece soluções para problemas comuns do FarmBeats do Azure. Para obter ajuda adicional, entre em contato com nosso [p&um fórum de suporte](https://aka.ms/farmbeatssupport) ou envie um email para farmbeatssupport@microsoft.com .
 
 > [!NOTE]
   > Se você tiver instalado o FarmBeats em abril e seus trabalhos estiverem falhando com uma mensagem de erro vazia, talvez sua instalação não tenha sido alocada a nenhuma cota de lote para priorizar o suporte para as organizações de saúde e segurança críticas. Consulte [aqui](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) para obter mais informações. Você precisará solicitar que as VMs sejam alocadas para a conta do lote para executar trabalhos com êxito.

@@ -5,15 +5,15 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 08/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 9c2a87f3d70d3873771b3a59114b424efffe4fb9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 12bf87e16bf4506f2015dd75fb360f8de8399902
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130181"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797812"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Como monitorar o Azure Cosmos DB
 
@@ -56,7 +56,7 @@ O Azure Monitor para Azure Cosmos DB baseia-se no [recurso pastas de trabalho do
 > [!NOTE]
 > Ao criar contêineres, não crie dois contêineres com o mesmo nome, mas com maiúsculas e minúsculas diferentes. Isso porque algumas partes da plataforma Azure não diferenciam maiúsculas de minúsculas, o que pode resultar em confusão/colisão de telemetria e ações em contêineres com tais nomes.
 
-## <a name="monitor-data-collected-from-azure-cosmos-db-portal"></a><a id="monitoring-from-azure-cosmos-db"></a>Monitorar dados coletados do portal Azure Cosmos DB
+## <a name="monitor-data-collected-from-azure-cosmos-db-portal"></a><a id="monitoring-from-azure-cosmos-db"></a> Monitorar dados coletados do portal Azure Cosmos DB
 
 O Azure Cosmos DB coleta os mesmos tipos de dados de monitoramento que outros recursos do Azure, que são descritos em [Dados de monitoramento dos recursos do Azure](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). Confira [Referência de dados de monitoramento do Azure Cosmos DB](monitor-cosmos-db-reference.md) para obter uma referência detalhada dos logs e métricas criados pelo Azure Cosmos DB.
 
@@ -64,7 +64,7 @@ A página **Visão Geral** no portal do Azure para cada banco de dados do Azure 
 
 :::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="Página de visão geral":::
 
-## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a>Analisando dados de métrica
+## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a> Analisando dados de métrica
 
 O Azure Cosmos DB fornece uma experiência personalizada para trabalhar com métricas. Confira [Monitorar e depurar as métricas do Azure Cosmos DB usando o Azure Monitor](cosmos-db-azure-monitor-metrics.md) para obter detalhes sobre como usar essa experiência e para analisar diferentes cenários do Azure Cosmos DB.
 
@@ -104,7 +104,7 @@ Você pode agrupar as métricas usando a opção **Aplicar divisão**. Por exemp
 
 :::image type="content" source="./media/monitor-cosmos-db/apply-metrics-splitting.png" alt-text="Adicionar filtro de divisão de aplicação":::
 
-## <a name="analyzing-log-data"></a><a id="analyze-log-data"></a>Analisando dados de log
+## <a name="analyzing-log-data"></a><a id="analyze-log-data"></a> Analisando dados de log
 
 Os dados em Logs do Azure Monitor são armazenados em tabelas, cada uma com o próprio conjunto de propriedades exclusivas. O Azure Cosmos DB armazena dados nas tabelas a seguir.
 
@@ -147,7 +147,7 @@ Veja a seguir as consultas que podem ser usadas para ajudar você a monitorar se
     | summarize count() by Resource
     ```
 
-## <a name="monitor-azure-cosmos-db-programmatically"></a><a id="monitor-cosmosdb-programmatically"></a>Monitorar Azure Cosmos DB programaticamente
+## <a name="monitor-azure-cosmos-db-programmatically"></a><a id="monitor-cosmosdb-programmatically"></a> Monitorar Azure Cosmos DB programaticamente
 
 As métricas no nível da conta disponíveis no portal, como o uso de armazenamento da conta e o total de solicitações, não estão disponíveis por meio das APIs do SQL. No entanto, você pode recuperar os dados de uso no nível da coleção usando as APIs do SQL. Para recuperar os dados do nível de coleção, faça o seguinte:
 
@@ -158,14 +158,16 @@ As métricas no nível da conta disponíveis no portal, como o uso de armazename
 Para acessar outras métricas, use o [SDK do Azure Monitor](https://www.nuget.org/packages/Microsoft.Azure.Insights). As definições de métricas disponíveis podem ser recuperadas chamando:
 
 ```http
-https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metricDefinitions?api-version=2015-04-08
+https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01
 ```
 
-As consultas para recuperar métricas individuais usam o seguinte formato:
+Para recuperar métricas individuais, use o seguinte formato:
 
 ```http
-https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
+https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/providers/microsoft.insights/metrics?timespan={StartTime}/{EndTime}&interval={AggregationInterval}&metricnames={MetricName}&aggregation={AggregationType}&`$filter={Filter}&api-version=2018-01-01
 ```
+
+Para saber mais, confira o artigo da [API REST de monitoramento do Azure](../azure-monitor/platform/rest-api-walkthrough.md) .
 
 ## <a name="next-steps"></a>Próximas etapas
 

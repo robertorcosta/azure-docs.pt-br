@@ -3,12 +3,12 @@ title: Fazer backup de uma VM SQL Server no painel VM
 description: Neste artigo, saiba como fazer backup de bancos de dados do SQL Server em máquinas virtuais do Azure por meio do painel VM.
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.openlocfilehash: dd30ca1fb138d3e3bd44633b9d5e71beae6d96be
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: d7cdf0a04acc57341200b363da4d012f04fe3454
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226988"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755238"
 ---
 # <a name="back-up-a-sql-server-from-the-vm-pane"></a>Fazer backup de um SQL Server no painel de VM
 
@@ -62,7 +62,7 @@ Você pode habilitar o backup em sua VM SQL Server do painel **backup** na VM. E
 
     ![A preparação do backup não está pronta](./media/backup-sql-server-vm-from-vm-pane/backup-readiness-not-ready.png)
 
-8. Para operações adicionais ou monitoramento que você precisa fazer na VM de backup SQL Server, vá para o cofre do serviço de recuperação correspondente. Vá para **itens de backup** para ver todos os bancos de dados dos quais foi feito backup nesse cofre e acione operações como backup e restauração sob demanda. Da mesma forma, acesse **trabalhos de backup** para [monitorar](manage-monitor-sql-database-backup.md) trabalhos correspondentes a operações como configurar a proteção, o backup e a restauração.
+8. Para operações adicionais ou monitoramento que você precisa fazer na VM de backup SQL Server, vá para o cofre dos serviços de recuperação correspondente. Vá para **itens de backup** para ver todos os bancos de dados dos quais foi feito backup nesse cofre e acione operações como backup e restauração sob demanda. Da mesma forma, acesse **trabalhos de backup** para [monitorar](manage-monitor-sql-database-backup.md) trabalhos correspondentes a operações como configurar a proteção, o backup e a restauração.
 
     ![Consulte backup de bancos de dados em itens de backup](./media/backup-sql-server-vm-from-vm-pane/backup-items.png)
 

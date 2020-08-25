@@ -4,12 +4,12 @@ description: Saiba como os recursos de criptografia no backup do Azure ajudam a 
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.custom: references_regions
-ms.openlocfilehash: 1350be3fb869e7b81eaba14f91aff7f0e9e3c992
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 71183e99522707737812096567d877df740c4bae
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586640"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763636"
 ---
 # <a name="encryption-in-azure-backup"></a>Criptografia no Backup do Azure
 
@@ -27,7 +27,7 @@ O backup do Azure inclui criptografia em dois níveis:
   - **Backup de máquina virtual do Azure**: o backup do Azure dá suporte ao backup de VMs com discos criptografados usando [chaves gerenciadas por plataforma](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys), bem como [chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) de propriedade e gerenciadas por você. Além disso, você também pode fazer backup de suas máquinas virtuais do Azure que têm seu sistema operacional ou discos de dados criptografados usando [Azure Disk Encryption](backup-azure-vms-encryption.md#encryption-support-using-ade). O ADE usa o BitLocker para VMs do Windows e o DM-cript para VMs do Linux para executar a criptografia no convidado.
 
 >[!NOTE]
->A criptografia de infraestrutura está atualmente em visualização limitada e está disponível no leste dos EUA, nos EUA West2, centro-sul dos EUA, US Gov Arizona e nas regiões do GOV. EUA. Se você quiser usar o recurso em qualquer uma dessas regiões, preencha [este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) e envie-nos um email para [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+>A criptografia de infraestrutura está atualmente em visualização limitada e está disponível no leste dos EUA, nos EUA West2, centro-sul dos EUA, US Gov Arizona e nas regiões do GOV. EUA. Se você quiser usar o recurso em qualquer uma dessas regiões, preencha [este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) e envie um email para [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 ## <a name="next-steps"></a>Próximas etapas
 

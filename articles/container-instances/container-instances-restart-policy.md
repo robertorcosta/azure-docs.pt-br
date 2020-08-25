@@ -2,19 +2,19 @@
 title: Reinicie a política para tarefas de execução única
 description: Saiba como usar as Instâncias de Contêiner do Azure para executar tarefas que são executadas até a conclusão, como na compilação, teste ou trabalhos de renderização de imagem.
 ms.topic: article
-ms.date: 04/15/2019
-ms.openlocfilehash: a582036ae54a0b100b768e37bcf0d952521559d9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 08/11/2020
+ms.openlocfilehash: 336a31a03cdc9dfdfebe79ef47b59ef90053f523
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261349"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798934"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Executar tarefas em contêineres com políticas de reinício
 
 A facilidade e a velocidade de implantação de contêineres nas Instâncias de Contêiner do Azure fornece uma plataforma atraente para executar tarefas de execução única como compilação, teste e renderização de imagem em uma instância de contêiner.
 
-Com uma política de reinicialização configurável, você pode especificar que os contêineres são interrompidos quando os seus processos são concluídos. Como as instâncias de contêiner são cobradas por segundo, você será cobrado somente pelos recursos de computação usados enquanto o contêiner que executa a tarefa estiver em execução.
+Com uma política de reinicialização configurável, você pode especificar que os contêineres devem ser interrompidos quando os processos são concluídos. Como a cobrança das instâncias de contêiner é feita por segundo, você só paga pelos recursos de computação usados durante a execução do contêiner que realiza a tarefa.
 
 Os exemplos apresentados neste artigo usam a CLI do Azure. Você precisa ter a CLI do Azure versão 2.0.21 ou superior [instalada localmente][azure-cli-install] ou usar a CLI no [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -24,9 +24,11 @@ Quando cria um [grupo de contêineres](container-instances-container-groups.md) 
 
 | Política de reinicialização   | Descrição |
 | ---------------- | :---------- |
-| `Always` | Contêineres no grupo de contêiner sempre são reiniciados. Este é a configuração **padrão** aplicada quando nenhuma política de reinicialização é especificada na criação do contêiner. |
-| `Never` | Os contêineres no grupo de contêineres nunca reiniciados. Os contêineres são executados no máximo uma vez. |
+| `Always` | Os contêineres no grupo de contêineres sempre são reiniciados. Essa é a configuração **padrão** aplicada quando nenhuma política de reinicialização é especificada na criação do contêiner. |
+| `Never` | Os contêineres no grupo de contêineres nunca são reiniciados. Os contêineres são executados no máximo uma vez. |
 | `OnFailure` | Os contêineres no grupo de contêineres são reiniciados somente quando o processo executado no contêiner falha (quando ele termina com um código de saída diferente de zero). Os contêineres são executados pelo menos uma vez. |
+
+[!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 
 ## <a name="specify-a-restart-policy"></a>Especificar uma política de reinicialização
 

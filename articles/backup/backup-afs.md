@@ -3,12 +3,12 @@ title: Fazer backup de compartilhamentos de arquivo do Azure no portal do Azure
 description: Saiba como usar o portal do Azure para fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: e0d9edbcb89dbdcac51893eb720da880a150bc7b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 40b966d719360570a472b17fbf733aa4c8795b4d
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532604"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757788"
 ---
 # <a name="back-up-azure-file-shares"></a>Backup de compartilhamentos de arquivos do Azure
 
@@ -31,7 +31,7 @@ Neste artigo, você aprenderá a:
 
 ## <a name="configure-backup-from-the-recovery-services-vault"></a>Configurar o backup do cofre dos serviços de recuperação
 
-As etapas a seguir explicam como você pode configurar o backup para vários compartilhamentos de arquivos no painel cofre do serviço de recuperação:
+As etapas a seguir explicam como você pode configurar o backup para vários compartilhamentos de arquivos no painel cofre dos serviços de recuperação:
 
 1. No [portal do Azure](https://portal.azure.com/), abra o cofre dos serviços de recuperação que você deseja usar para configurar o backup para o compartilhamento de arquivos.
 
@@ -80,7 +80,7 @@ As etapas a seguir explicam como você pode configurar o backup para vários com
 
       1. Para criar uma nova política de backup para seu compartilhamento de arquivos, selecione o texto do link abaixo da lista suspensa na seção **política de backup** .<br>
 
-         ![Criar nova política](./media/backup-afs/create-new-policy.png)
+         ![Criar política](./media/backup-afs/create-new-policy.png)
 
       1. O painel contexto da **política de backup** é aberto à direita. Especifique um nome de política na caixa de texto e escolha o período de retenção de acordo com seu requisito. Somente a opção de retenção diária é habilitada por padrão. Se você quiser ter uma retenção semanal, mensal ou anual, marque a caixa de seleção correspondente e forneça o valor de retenção desejado.
 
@@ -123,11 +123,11 @@ As etapas a seguir explicam como você pode configurar o backup para compartilha
 
 1. Para a seleção do cofre dos serviços de recuperação, siga um destes procedimentos:
 
-    * Se você já tiver um cofre, selecione o botão de opção Selecionar cofre de serviço de recuperação **existente** e escolha um dos cofres existentes no menu suspenso **nome do cofre** .
+    * Se você já tiver um cofre, selecione o botão de opção Selecionar cofre de serviços de recuperação **existente** e escolha um dos cofres existentes no menu suspenso **nome do cofre** .
 
        ![Selecionar cofre existente](./media/backup-afs/select-existing-vault.png)
 
-    * Se você não tiver um cofre, selecione o botão de opção **criar novo** cofre de serviço de recuperação. Especifique um nome para o cofre. Ele é criado na mesma região que o compartilhamento de arquivos. Por padrão, o cofre é criado no mesmo grupo de recursos que o compartilhamento de arquivos. Se você quiser escolher um grupo de recursos diferente, selecione **criar novo** link abaixo do menu suspenso **tipo de recurso** e especifique um nome para o grupo de recursos. Selecione **OK** para continuar.
+    * Se você não tiver um cofre, selecione o botão de opção **criar novo** cofre de serviços de recuperação. Especifique um nome para o cofre. Ele é criado na mesma região que o compartilhamento de arquivos. Por padrão, o cofre é criado no mesmo grupo de recursos que o compartilhamento de arquivos. Se você quiser escolher um grupo de recursos diferente, selecione **criar novo** link abaixo do menu suspenso **tipo de recurso** e especifique um nome para o grupo de recursos. Selecione **OK** para continuar.
 
        ![Criar novo cofre](./media/backup-afs/create-new-vault.png)
 

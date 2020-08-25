@@ -4,12 +4,12 @@ description: Encontre respostas para perguntas comuns sobre como fazer backup de
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 2781646e548f4f530b26ca41466f158597e817d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a5fdbb78f6d700d14c2458a8d87a4b0f9a971207
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090970"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762837"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Perguntas frequentes sobre SQL Server bancos de dados que estão em execução em um backup de VM do Azure
 
@@ -52,7 +52,7 @@ O valor padrão de DefaultBackupTasksThreshold é **20**.
  Embora esse método ajude se o aplicativo de backup está consumindo uma grande quantidade de recursos, SQL Server [resource governor](/sql/relational-databases/resource-governor/resource-governor) é uma maneira mais genérica de especificar limites na quantidade de CPU, e/s física e memória que as solicitações de aplicativos de entrada podem usar.
 
 > [!NOTE]
-> No UX, você ainda pode prosseguir e agendar quantos backups a qualquer momento, no entanto, eles serão processados em uma janela deslizante de digamos, 5, de acordo com o exemplo acima.
+> No UX, você ainda pode prosseguir e agendar quantos backups em um determinado momento. No entanto, eles serão processados em uma janela deslizante de digamos, 5, de acordo com o exemplo acima.
 
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Posso executar um backup completo usando uma réplica secundária?
 

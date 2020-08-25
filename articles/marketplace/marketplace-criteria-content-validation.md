@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 69be4118aca45582c38bb49a996782d661d8084f
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 2f472f15f5f15fb48563aba90df273e31bb1b665
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604414"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88812862"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Diretrizes de listagem do Azure Marketplace
 
@@ -24,7 +24,7 @@ Este artigo explica os requisitos e as diretrizes para listar novas ofertas e se
 |:--- |:--- |:--- |:--- |
 | 1 | Destino do cliente potencial | Tem um destino do cliente potencial configurado.| O catálogo OCP (único parceiro comercial) tem as informações do CRM de destino do lead que também estão listadas na guia solução de parceiro. |
 | 2 | Título da oferta | Descreve brevemente a oferta da solução. Corresponde à promoção online da solução no site do parceiro. | Contém palavras-chave de pesquisa. |
-| 3 | Logotipo | O logotipo é exibido corretamente. | O logotipo é exibido corretamente. |
+| 3 | Logotipo | O logotipo é exibido corretamente.  | O logotipo é exibido corretamente.  |
 | 4 |  Descrição da oferta | <ul><li> Contém 2 a 3 parágrafos.</li><li>A oferta de solução pode ser entendida de modo fácil e rápido.</li><li>Não contém erros de ortografia e gramática.</li><li>É abrangente e captura público de destino, tipo de usuário e por que ela é valiosa (proposição de valor).</li><li>Está em formato narrativo de parágrafo, com frases curtas que são fáceis de entender.</li></ul> | <ul><li> O setor de destino é indicado (se relevante).</li><li>Boa formatação de estilo, com cada cabeçalho de parágrafo tendo uma única sentença ou frase que resume o conteúdo e que segue, usando marcadores, conforme o caso, para enfatizar os principais benefícios. O objetivo é que o leitor entenda a oferta de forma rápida, em um formato de fácil exibição, sem precisar ler longos parágrafos.</li><li>Há espaçamento entre cada parágrafo. Pode ser lido como um panfleto de carro. Ou seja, é abrangente e descreve a oferta de maneira simples, sem o jargão técnico. | 
 | 5 | Categorias e setores | <ul><li>Categorias e subcategorias devem corresponder aos recursos da oferta </li><li>Não selecione categorias/subcategorias que não caibam em seus recursos de oferta. </li></ul> | <ul><li>Selecione até duas categorias, incluindo uma categoria primária e uma secundária (opcional).</li><li>Selecione até duas subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for selecionada, sua oferta ainda será detectável na categoria selecionada.</li></ul> |
 | 6 | Imagens | <ul><li>Os requisitos de imagem são listados no Partner Center.</li><li>O texto incluso na captura de tela é legível e a imagem é clara. | A oferta de solução pode ser entendida de modo fácil e rápido. |
@@ -53,7 +53,7 @@ Este artigo explica os requisitos e as diretrizes para listar novas ofertas e se
 | 4 | Detalhes da loja online: Resumo da oferta | Aparecerá na página de pesquisa do seu aplicativo e tem no máximo 100 caracteres. | |
 | 5 | Detalhes da loja online: setores | Setores (máx. de 2): Selecione os setores aos quais seu aplicativo é mais adequado e aplicável. | |
 | 6 | Descrição da oferta | <ul><li>HTML simples é permitido, incluindo \<p> , \<em> , \<ul> , \<li> , \<ol> e marcas de cabeçalho. Máx. 3000 caracteres.</li><li>Contém 2 a 3 parágrafos.</li><li>A oferta de solução pode ser entendida de modo fácil e rápido.</li><li>A descrição é abrangente e captura público de destino, tipo de usuário e por que ela é valiosa (proposição de valor).</li><li>Está em formato narrativo de parágrafo, com frases curtas que são fáceis de entender. | <ul><li>O setor de destino é indicado (se relevante).</li><li>Boa formatação de estilo, com cada cabeçalho de parágrafo tendo uma única sentença ou frase que resume o conteúdo e que segue, usando marcadores, conforme o caso, para enfatizar os principais benefícios. O objetivo é que o leitor entenda a oferta de forma rápida, em um formato de fácil exibição, sem precisar ler parágrafos.</li><li>Há espaçamento entre cada parágrafo. Pode ser lido como um panfleto de carro. Ou seja, é abrangente e descreve a oferta de maneira simples, sem o jargão técnico. | 
-| 7 | Artefatos de marketing | Os logotipos são exibidos corretamente. | <ul><li>Logotipos: pequeno (48 x 48 pixels), médio (90 x 90 pixels) e grande (entre 216 x 216 e 350 x 350 pixels) são necessários.</li><li>Captura de tela (máx. 5): requer um. Imagem PNG com uma resolução de 1280x720 pixels. |
+| 7 | Artefatos de marketing | Os logotipos são exibidos corretamente. | <ul><li>Logotipos: pequeno (48 x 48 px, optional), Medium (90 x 90 px, optional) e Large (de 216 x 216 a 350 x 350 px, required).</li><li>Captura de tela (máx. 5): requer um. Imagem PNG com uma resolução de 1280x720 pixels. |
 | 8 | Categorias e setores | <ul><li>As categorias correspondem aos recursos da oferta de solução.</li><li>Selecione pelo menos um item na janela pop-up.</li><li>Não selecione categorias para as quais a solução não se ajusta.</li><li>Setor ideal ou todos os setores selecionados, se não forem os setores ideais. | Máx. Três categorias selecionadas, se aplicável. |
 | 9 | Gerenciamento de clientes potenciais | Selecione o sistema no qual seus clientes potenciais serão armazenados. Confira [obter clientes potenciais](./partner-center-portal/commercial-marketplace-get-customer-leads.md) para conectar seu sistema CRM. |  |
 | 10 | Contatos: Suporte e ajuda da solução | <ul><li>Nome do contato de engenharia: O nome do contato de engenharia do aplicativo. Esse contato receberá comunicações técnicas da Microsoft.</li><li>Email de contato de engenharia: O endereço de email do contato de engenharia.</li><li>Telefone de contato de engenharia: Número de telefone do contato de engenharia. Há suporte para [notações de número de telefone ISO.](https://en.wikipedia.org/wiki/E.123)</li><li>Nome do contato de suporte: O nome do contato de suporte do aplicativo. Esse contato receberá comunicações relacionadas a suporte da Microsoft.</li><li>Email do contato de suporte: O endereço de email do contato de suporte do aplicativo.</li><li>Telefone do contato de suporte: O número de telefone do contato de suporte. Há suporte para [notações de número de telefone ISO.](https://en.wikipedia.org/wiki/E.123)</li><li>URL do suporte: A URL da página de suporte. | <ul><li>Todos os métodos de suporte são listados.</li><li>Suporte pago oferecido gratuitamente durante o período da *avaliação gratuita* ou do *test drive*. |
@@ -66,7 +66,7 @@ Este artigo explica os requisitos e as diretrizes para listar novas ofertas e se
 |:--- |:--- |:--- |:--- |
 |1 |Configurações da oferta | <ul><li>ID da Oferta: Máx. 50 caracteres.</li><li>ID do Editor: Selecione na lista suspensa.</li><li>Nome: Máx. 50 caracteres. | Espelha o estilo de título já disponível na descrição. Evite usar títulos longos. |
 | 2 | Planos | O parceiro seleciona novos planos.| O título espelha o estilo de título já disponível na descrição. Evite usar títulos longos.  |
-| 3 | Artefatos do Marketplace | Os logotipos são exibidos corretamente. |<ul><li>Logotipos: pequeno (48 x 48 pixels), médio (90 x 90 pixels) e grande (entre 216 x 216 e 350 x 350 pixels) são necessários.</li><li>Captura de tela (máx. 5): requer um. Imagem PNG com uma resolução de 1280 x 720 pixels.|
+| 3 | Artefatos do Marketplace | Os logotipos são exibidos corretamente. |<ul><li>Logotipos: pequeno (48 x 48 px, optional), Medium (90 x 90 px, optional) e Large (de 216 x 216 a 350 x 350 px, required).</li><li>Captura de tela (máx. 5): requer um. Imagem PNG com uma resolução de 1280 x 720 pixels.|
 | 4 | Gerenciamento de clientes potenciais |<ul><li>Gerenciamento de clientes potenciais: Selecione o sistema no qual seus clientes potenciais serão armazenados.</li><li>Confira [obter clientes potenciais](./partner-center-portal/commercial-marketplace-get-customer-leads.md) para conectar seu sistema CRM. | |
 |||
 

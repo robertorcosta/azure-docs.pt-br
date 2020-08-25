@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 999b458985d8ab486e8dbd6bcaa48ddd9e02fc28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e460f3fd383286b1e61a979b87a9dfa09f272313
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266093"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799019"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registre suas informações do método de verificação para redefinir sua própria senha
 
@@ -26,7 +26,7 @@ Caso você tenha esquecido sua senha corporativa ou de estudante, nunca tenha re
 Seu administrador deve ativar esse recurso para que você possa registrar suas informações e redefinir sua própria senha. Se você não vir a opção **Esqueci minha senha**, significa que seu administrador não ativou o recurso para sua organização. Se você acredita que isso esteja incorreto, entre em contato com o suporte técnico para obter ajuda.
 
 >[!Important]
->Este artigo destina-se a usuários que estão tentando usar a inscrição para redefinição de senha de autoatendimento. Isso significa que você poderá redefinir sua própria senha corporativa ou de estudante (como alain@contoso.com ), sem exigir a ajuda do administrador. Se você for um administrador procurando informações sobre como ativar a redefinição de senha de autoatendimento para seus funcionários ou outros usuários, consulte [Implantar a redefinição de senha de autoatendimento do Microsoft Azure Active Directory e outros artigos](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>Este artigo destina-se a usuários que estão tentando usar a inscrição para redefinição de senha de autoatendimento. Isso significa que você poderá redefinir sua própria senha corporativa ou de estudante (como alain@contoso.com ), sem exigir a ajuda do administrador. Se você for um administrador procurando informações sobre como ativar a redefinição de senha de autoatendimento para seus funcionários ou outros usuários, consulte [Implantar a redefinição de senha de autoatendimento do Microsoft Azure Active Directory e outros artigos](../authentication/howto-sspr-deployment.md).
 
 ## <a name="set-up-your-password-reset-verification-method"></a>Configurar o método de verificação de redefinição de senha
 

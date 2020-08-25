@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1c9e40738d70b6fbb9fed267a6a047d8330023b7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 2fc87f08b30d648ec38d2b93e96a32d125b856be
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749270"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757907"
 ---
 # <a name="business-card-concepts"></a>Conceitos de cartão de visita
 
@@ -391,9 +391,8 @@ A API do cartão de negócios também alimenta o [recurso de processamento do ca
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Siga o guia de início rápido para começar 
-- [Início rápido da API de cartões de visita para Python](./quickstarts/python-business-cards.md)
-- Saiba mais sobre a [API REST do reconhecedor de formulário](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api)
+- Siga o guia de início rápido para começar a [API de cartões de visita do Python início rápido](./quickstarts/python-business-cards.md)
+- Saiba mais sobre a [API REST do reconhecedor de formulário](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
 - Saiba mais sobre o [reconhecedor de formulário](overview.md)
 
 

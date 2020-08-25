@@ -13,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: dc4e71f4283d78c2b241441810a8c1313f002152
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: da358ecb126dda21d18120bbe698fec234c85e4f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850901"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798951"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gerenciar seus usuários com minha equipe (versão prévia)
 
@@ -64,7 +64,7 @@ Depois de configurar a AUs, você pode aplicar esse escopo aos usuários que ace
 
 Você pode proteger o portal minha equipe usando a política de acesso condicional do Azure AD. Use-o para tarefas como exigir a autenticação multifator antes de acessar a minha equipe.
 
-É altamente recomendável que você proteja minha equipe usando [as políticas de acesso condicional do Azure ad](https://docs.microsoft.com/azure/active-directory/conditional-access/). Para aplicar uma política de acesso condicional à minha equipe, você deve criar manualmente a entidade de serviço minha equipe usando o PowerShell.
+É altamente recomendável que você proteja minha equipe usando [as políticas de acesso condicional do Azure ad](../conditional-access/index.yml). Para aplicar uma política de acesso condicional à minha equipe, você deve criar manualmente a entidade de serviço minha equipe usando o PowerShell.
 
 ### <a name="apply-a-conditional-access-policy-to-my-staff"></a>Aplicar uma política de acesso condicional à minha equipe
 
@@ -119,7 +119,7 @@ Para gerenciar o número de telefone de um usuário, você deve receber uma das 
 - [Administrador de autenticação privilegiada](directory-assign-admin-roles.md#privileged-authentication-administrator)
 - [Administrador global](directory-assign-admin-roles.md#global-administrator--company-administrator)
 
-## <a name="search"></a>Search
+## <a name="search"></a>Pesquisar
 
 Você pode pesquisar a AUs e os usuários em sua organização usando a barra de pesquisa na minha equipe. Você pode pesquisar em toda a AUs e todos os usuários em sua organização, mas só pode fazer alterações aos usuários que estão em uma AU sobre a qual você recebeu permissões de administrador.
 

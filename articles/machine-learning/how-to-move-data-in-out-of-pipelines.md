@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 07/20/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 740ca2d991f9447e8a3a04c7795c8a6f3011fd39
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1b6b5af2e6533c13165ae8253813a52b2c7ad261
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843021"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756955"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Movendo dados para e entre as etapas de pipeline de ML (Python)
 
@@ -28,9 +28,14 @@ Esta artigo mostrará como:
 - Usar `Dataset` objetos para dados preexistentes
 - Acessar dados em suas etapas
 - Dividir `Dataset` dados em subconjuntos, como subconjuntos de treinamento e validação
-- Criar `PipelineData` objetos para transferir dados para a próxima etapa do pipeline
-- Usar `PipelineData` objetos como entrada para etapas de pipeline
-- Criar novos `Dataset` objetos a partir dos `PipelineData` quais deseja persistir
+- Criar `OutputFileDatasetConfig` objetos para transferir dados para a próxima etapa do pipeline
+- Usar `OutputFileDatasetConfig` objetos como entrada para etapas de pipeline
+- Criar novos `Dataset` objetos a partir dos `OutputFileDatasetConfig` quais deseja persistir
+
+> [!NOTE]
+>As `OutputFileDatasetConfig` `OutputTabularDatasetConfig` classes e são recursos de visualização experimental e podem mudar a qualquer momento.
+>
+>Para obter mais informações, consulte https://aka.ms/azuremlexperimental.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -57,7 +62,7 @@ Você precisará de:
 
 ## <a name="use-dataset-objects-for-pre-existing-data"></a>Usar `Dataset` objetos para dados preexistentes 
 
-A maneira preferida de ingerir dados em um pipeline é usar um objeto [DataSet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) . `Dataset`os objetos representam dados persistentes disponíveis em um espaço de trabalho.
+A maneira preferida de ingerir dados em um pipeline é usar um objeto [DataSet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) . `Dataset` os objetos representam dados persistentes disponíveis em um espaço de trabalho.
 
 Há várias maneiras de criar e registrar `Dataset` objetos. Os conjuntos de dados tabulares são para a disponibilidade delimitada em um ou mais arquivos. Os conjuntos de dados de arquivo são para dado binário (como imagens) ou para dados que você analisará. As maneiras programáticas mais simples de criar `Dataset` objetos são usar BLOBs existentes no armazenamento do espaço de trabalho ou URLs públicas:
 
@@ -146,33 +151,36 @@ ws = run.experiment.workspace
 ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 ```
 
-## <a name="use-pipelinedata-for-intermediate-data"></a>Usar `PipelineData` para dados intermediários
+## <a name="use-outputfiledatasetconfig-for-intermediate-data"></a>Usar `OutputFileDatasetConfig` para dados intermediários
 
-Embora `Dataset` os objetos representem dados persistentes, os objetos [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) são usados para dados temporários que são gerados de etapas de pipeline. Como o tempo de vida de um `PipelineData` objeto é maior do que uma única etapa de pipeline, você os define no script de definição de pipeline. Ao criar um `PipelineData` objeto, você deve fornecer um nome e um repositório de dados no qual os mesmos serão armazenados. Passe seus `PipelineData` objetos para o `PythonScriptStep` usando _os_ `arguments` `outputs` argumentos e:
+Embora `Dataset` os objetos representem apenas dados persistentes, os [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) objetos podem ser usados para saída de dados temporários de etapas de pipeline **e** dados de saída persistentes. 
+
+ `OutputFileDatasetConfig` o comportamento padrão do objeto é gravar no repositório de armazenamento padrão do espaço de trabalho. Passe seus `OutputFileDatasetConfig` objetos para o `PythonScriptStep` com o `arguments` parâmetro.
 
 ```python
-default_datastore = workspace.get_default_datastore()
-dataprep_output = PipelineData("clean_data", datastore=default_datastore)
+from azureml.data import OutputFileDatasetConfig
+dataprep_output = OutputFileDatasetConfig()
+input_dataset = Dataset.get_by_name(workspace, 'raw_data')
 
 dataprep_step = PythonScriptStep(
     name="prep_data",
     script_name="dataprep.py",
     compute_target=cluster,
-    arguments=["--output-path", dataprep_output]
-    inputs=[Dataset.get_by_name(workspace, 'raw_data')],
-    outputs=[dataprep_output]
-)
+    arguments=[input_dataset.as_named_input('raw_data').as_mount(), dataprep_output]
+    )
 ```
 
-Você pode optar por criar o `PipelineData` objeto usando um modo de acesso que forneça um carregamento imediato. Nesse caso, ao criar seu `PipelineData` , defina o `upload_mode` como `"upload"` e use o `output_path_on_compute` argumento para especificar o caminho para o qual você irá gravar os dados:
+Você pode optar por carregar o conteúdo do seu `OutputFileDatasetConfig` objeto no final de uma execução. Nesse caso, use a `as_upload()` função junto com seu `OutputFileDatasetConfig` objeto e especifique se deseja substituir os arquivos existentes no destino. 
 
 ```python
-PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", output_path_on_compute="clean_data_output/")
+#get blob datastore already registered with the workspace
+blob_store= ws.datastores['my_blob_store']
+OutputFileDatasetConfig(name="clean_data", destination=blob_store).as_upload(overwrite=False)
 ```
 
-### <a name="use-pipelinedata-as-outputs-of-a-training-step"></a>Usar `PipelineData` como saídas de uma etapa de treinamento
+### <a name="use-outputfiledatasetconfig-as-outputs-of-a-training-step"></a>Usar `OutputFileDatasetConfig` como saídas de uma etapa de treinamento
 
-Dentro de seu pipeline `PythonScriptStep` , você pode recuperar os caminhos de saída disponíveis usando os argumentos do programa. Se esta etapa for a primeira e iniciará os dados de saída, você deverá criar o diretório no caminho especificado. Em seguida, você pode gravar quaisquer arquivos que queira que estejam contidos no `PipelineData` .
+Dentro de seu pipeline `PythonScriptStep` , você pode recuperar os caminhos de saída disponíveis usando os argumentos do programa. Se esta etapa for a primeira e iniciará os dados de saída, você deverá criar o diretório no caminho especificado. Em seguida, você pode gravar quaisquer arquivos que queira que estejam contidos no `OutputFileDatasetConfig` .
 
 ```python
 parser = argparse.ArgumentParser()
@@ -185,22 +193,26 @@ with open(args.output_path, 'w') as f:
     f.write("Step 1's output")
 ```
 
-Se você criou seu `PipelineData` com o `is_directory` argumento definido como `True` , seria suficiente apenas executar a `os.makedirs()` chamada e, em seguida, você estaria livre para escrever quaisquer arquivos que desejar no caminho. Para obter mais detalhes, consulte a documentação de referência do [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) .
+### <a name="read-outputfiledatasetconfig-as-inputs-to-non-initial-steps"></a>Ler `OutputFileDatasetConfig` como entradas para etapas não iniciais
 
-### <a name="read-pipelinedata-as-inputs-to-non-initial-steps"></a>Ler `PipelineData` como entradas para etapas não iniciais
+Depois que a etapa inicial do pipeline grava alguns dados no `OutputFileDatasetConfig` caminho e se torna uma saída dessa etapa inicial, ela pode ser usada como uma entrada para uma etapa posterior. 
 
-Depois que a etapa inicial do pipeline grava alguns dados no `PipelineData` caminho e se torna uma saída dessa etapa inicial, ela pode ser usada como uma entrada para uma etapa posterior:
+No código a seguir, 
+
+* `step1_output_data` indica que a saída do PythonScriptStep, `step1` é gravada no repositório de armazenamento do ADLS Gen 2, `my_adlsgen2` no modo carregar acesso. Saiba mais sobre como [configurar permissões de função](how-to-access-data.md#azure-data-lake-storage-generation-2) a fim de gravar dados de volta nos armazenamentos de ADLS Gen 2. 
+
+* Após `step1` a conclusão e a saída ser gravada no destino indicado por `step1_output_data` , etapa 2 estará pronto para ser usado `step1_output_data` como uma entrada. 
 
 ```python
-step1_output_data = PipelineData("processed_data", datastore=def_blob_store, output_mode="upload")
+# get adls gen 2 datastore already registered with the workspace
+datastore = workspace.datastores['my_adlsgen2']
+step1_output_data = OutputFileDatasetConfig(name="processed_data", destination=datastore).as_upload()
 
 step1 = PythonScriptStep(
     name="generate_data",
     script_name="step1.py",
     runconfig = aml_run_config,
-    arguments = ["--output_path", step1_output_data],
-    inputs=[],
-    outputs=[step1_output_data]
+    arguments = ["--output_path", step1_output_data]
 )
 
 step2 = PythonScriptStep(
@@ -208,31 +220,20 @@ step2 = PythonScriptStep(
     script_name="step2.py",
     compute_target=compute,
     runconfig = aml_run_config,
-    arguments = ["--pd", step1_output_data],
-    inputs=[step1_output_data]
+    arguments = ["--pd", step1_output_data.as_input]
+
 )
 
 pipeline = Pipeline(workspace=ws, steps=[step1, step2])
 ```
 
-O valor de uma `PipelineData` entrada é o caminho para a saída anterior. Se, como mostrado anteriormente, a primeira etapa escreveu um único arquivo, consumi-lo pode ser semelhante a: 
+## <a name="register-outputfiledatasetconfig-objects-for-reuse"></a>Registrar `OutputFileDatasetConfig` objetos para reutilização
+
+Se você quiser disponibilizar seu `OutputFileDatasetConfig` período por mais tempo do que o seu experimento, registre-o em seu espaço de trabalho para compartilhar e reutilizar entre experimentos.
 
 ```python
-parser = argparse.ArgumentParser()
-parser.add_argument('--pd', dest='pd', required=True)
-args = parser.parse_args()
-
-with open(args.pd) as f:
-    print(f.read())
-```
-
-## <a name="convert-pipelinedata-objects-to-datasets"></a>Converter `PipelineData` objetos em `Dataset` s
-
-Se você quiser disponibilizar sua `PipelineData` disponibilidade por mais tempo do que a duração de uma execução, use sua `as_dataset()` função para convertê-la em um `Dataset` . Em seguida, você pode registrar o `Dataset` , tornando-o um cidadão de primeira classe em seu espaço de trabalho. Como seu `PipelineData` objeto terá um caminho diferente toda vez que o pipeline for executado, é altamente recomendável que você defina `create_new_version` como `True` ao registrar um `Dataset` criado a partir de um `PipelineData` objeto.
-
-```python
-step1_output_ds = step1_output_data.as_dataset()
-step1_output_ds.register(name="processed_data", create_new_version=True)
+step1_output_ds = step1_output_data.register_on_complete(name='processed_data', 
+                                                         description = 'files from step1`)
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

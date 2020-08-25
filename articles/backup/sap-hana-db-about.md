@@ -3,12 +3,12 @@ title: Sobre o backup de banco de dados SAP HANA em VMs do Azure
 description: Neste artigo, saiba mais sobre como fazer backup de bancos de dados SAP HANA em execução em máquinas virtuais do Azure.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: a6c4f627059a8d536e1d006103650dca5d2f5109
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e30507e433ff9a828266c88ca79e576c508edc31
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533437"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757533"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Sobre o backup de banco de dados SAP HANA em VMs do Azure
 
@@ -31,9 +31,9 @@ Para exibir os cenários de backup e restauração aos quais damos suporte hoje,
 
 ![Diagrama de arquitetura de backup](./media/sap-hana-db-about/backup-architecture.png)
 
-* O processo de backup começa [criando um cofre dos serviços de recuperação](./tutorial-backup-sap-hana-db.md#create-a-recovery-service-vault) no Azure. Este cofre será usado para armazenar os backups e pontos de recuperação criados ao longo do tempo.
+* O processo de backup começa [criando um cofre dos serviços de recuperação](./tutorial-backup-sap-hana-db.md#create-a-recovery-services-vault) no Azure. Este cofre será usado para armazenar os backups e pontos de recuperação criados ao longo do tempo.
 * A VM do Azure que executa o SAP HANA Server é registrada no cofre, e os bancos de dados a serem submetidos a backup são [descobertos](./tutorial-backup-sap-hana-db.md#discover-the-databases). Para habilitar o serviço de backup do Azure para descobrir bancos de dados, um [script de auto-registro](https://aka.ms/scriptforpermsonhana) deve ser executado no servidor Hana como um usuário raiz.
-* Esse script cria o usuário do **AZUREWLBACKUPHANAUSER** DB e uma chave correspondente com o mesmo nome em **hdbuserstore**. Consulte a seção o [que o script de pré-registro faz](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) para entender mais sobre o que o script faz.
+* Esse script cria o usuário do **AZUREWLBACKUPHANAUSER** DB e uma chave correspondente com o mesmo nome em **hdbuserstore**. Consulte a seção o  [que o script de pré-registro faz](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) para entender mais sobre o que o script faz.
 * O serviço de backup do Azure agora instala o **plug-in do backup do Azure para Hana** no servidor de SAP Hana registrado.
 * O usuário do **AZUREWLBACKUPHANAUSER** DB criado pelo script de auto-registro é usado pelo **plug-in do backup do Azure para Hana** para executar todas as operações de backup e restauração. Se você tentar configurar o backup para bancos de SAP HANAs sem executar esse script, você poderá receber o seguinte erro: **UserErrorHanaScriptNotRun**.
 * Para [Configurar o backup](./tutorial-backup-sap-hana-db.md#configure-backup) nos bancos de dados descobertos, escolha a política de backup necessária e habilite os backups.

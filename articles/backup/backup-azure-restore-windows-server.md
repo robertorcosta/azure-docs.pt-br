@@ -3,12 +3,12 @@ title: Restaurar arquivos no Windows Server com o agente MARS
 description: Neste artigo, aprenda a restaurar os dados armazenados no Azure em um computador ou servidor Windows com o agente MARS (Serviços de Recuperação do Microsoft Azure).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: d96c6c54431d0160bd58be0c3491ef2b22753e53
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: d9bc22204156f7562290f53db77272b9cabe6c69
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263394"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757074"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurar arquivos no Windows Server com o agente MARS
 
@@ -72,7 +72,7 @@ Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo co
 
 9. Quando tiver terminado, na página **procurar e recuperar arquivos** , selecione **desmontar**. Selecione **Sim** para confirmar que deseja desmontar o volume.
 
-    ![Captura de tela da página procurar e recuperar arquivos do assistente de dados de recuperação (restaurar para o mesmo computador)](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
+    ![Captura de tela da página procurar e recuperar arquivos do assistente de dados (restaurar para o mesmo computador)-confirmar desmontagem do volume de recuperação](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
     > Se você não selecionar **Desmontar**, o volume de recuperação permanecerá montado por seis horas a partir da hora em que foi montado. No entanto, o tempo de montagem é estendido até um máximo de 24 horas no caso de uma cópia de arquivo em andamento. Não será executada nenhuma operação de backup enquanto o volume estiver montado. Qualquer operação de backup agendada para execução durante o tempo em que o volume estiver montado será executada após o volume de recuperação ser desmontado.

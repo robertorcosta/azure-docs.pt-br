@@ -2,14 +2,14 @@
 title: Cenários para usar uma rede virtual
 description: Cenários, recursos e limitações para implantar grupos de contêineres em uma rede virtual do Azure.
 ms.topic: article
-ms.date: 04/29/2020
+ms.date: 08/11/2020
 ms.author: danlep
-ms.openlocfilehash: c4e983e7d83e661b4ba50ebe2c6d65bce2f42514
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d904f1333ddf4b22bfca2546bd064b1ae8f299dd
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259539"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797846"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Cenários e recursos de rede virtual
 
@@ -42,6 +42,8 @@ Os grupos de contêineres implantados em uma rede virtual do Azure permitem cen�
 * Você não pode usar uma [identidade gerenciada](container-instances-managed-identity.md) em um grupo de contêineres implantado em uma rede virtual.
 * Você não pode habilitar uma investigação de [vida](container-instances-liveness-probe.md) ou [investigação de preparação](container-instances-readiness-probe.md) em um grupo de contêineres implantado em uma rede virtual.
 * Devido aos recursos de rede adicionais envolvidos, as implantações em uma rede virtual normalmente são mais lentas do que a implantação de uma instância de contêiner padrão.
+
+[!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 
 ## <a name="where-to-deploy"></a>Onde implantar
 
