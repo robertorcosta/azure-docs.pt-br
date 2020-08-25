@@ -4,12 +4,12 @@ description: Neste artigo, saiba como configurar, iniciar e gerenciar operaçõe
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 48b5a8c596ec5b23d2962acb9c1f95a1d5aafbc0
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 89bf2df0b5b9279053ca8258e6d21b00e2789557
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761671"
+ms.locfileid: "88762871"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Fazer backup de uma VM do Azure usando o Backup do Azure por meio da API REST
 
@@ -162,7 +162,7 @@ No exemplo, os valores acima são traduzidos para:
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Habilitar a proteção para a VM do Azure
 
-Após a VM relevante ser "armazenada em cache" e "identificada", selecione a política para proteção. Para saber mais sobre as políticas existentes no cofre, veja a [Lista de políticas de API](/rest/api/backup/backuppolicies/list). Em seguida, selecione a [política relevante](/rest/api/backup/protectionpolicies/get) referindo-se ao nome da política. Para criar políticas, veja o [tutorial de criação de políticas](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" está selecionado no exemplo abaixo.
+Após a VM relevante ser "armazenada em cache" e "identificada", selecione a política para proteção. Para saber mais sobre as políticas existentes no cofre, veja a [Lista de políticas de API](/rest/api/backup/backuppolicies/list). Em seguida, selecione a [política relevante](/rest/api/backup/protectionpolicies/get) referindo-se ao nome da política. Para criar políticas, veja o [tutorial de criação de políticas](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" é selecionado no exemplo abaixo.
 
 A habilitação da proteção é uma operação *PUT* assíncrona que cria um “item protegido”.
 
@@ -445,9 +445,9 @@ Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em
 |202 Aceito     |         |     Aceito    |
 
 > [!IMPORTANT]
-> Para se proteger contra cenários de exclusão acidental, há um [recurso de exclusão reversível disponível](use-restapi-update-vault-properties.md#soft-delete-state) para o cofre dos serviços de recuperação. Se o estado de exclusão reversível do cofre for definido como habilitado, a operação de exclusão não excluirá imediatamente os dados. Ele será mantido por 14 dias e, em seguida, limpo permanentemente. O cliente não é cobrado pelo armazenamento durante este período de 14 dias. Para desfazer a operação de exclusão, consulte a [seção desfazer-excluir](#undo-the-stop-protection-and-delete-data).
+> Para se proteger contra cenários de exclusão acidental, há um [recurso de exclusão reversível disponível](use-restapi-update-vault-properties.md#soft-delete-state) para o cofre dos serviços de recuperação. Se o estado de exclusão reversível do cofre for definido como habilitado, a operação de exclusão não excluirá imediatamente os dados. Ele será mantido por 14 dias e, em seguida, limpo permanentemente. O cliente não é cobrado pelo armazenamento durante este período de 14 dias. Para desfazer a operação de exclusão, consulte a [seção desfazer-excluir](#undo-the-deletion).
 
-### <a name="undo-the-stop-protection-and-delete-data"></a>Desfazer a proteção e excluir dados
+### <a name="undo-the-deletion"></a>Desfazer a exclusão
 
 Desfazer a exclusão acidental é semelhante à criação do item de backup. Depois de desfazer a exclusão, o item é retido, mas nenhum backup futuro é disparado.
 

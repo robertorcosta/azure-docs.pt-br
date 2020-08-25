@@ -6,13 +6,13 @@ manager: barbkess
 ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
-ms.custom: security-recommendations
-ms.openlocfilehash: 5e1f2108c5607917c77330f362952f960e57e03a
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: security-recommendations,fasttrack-edit
+ms.openlocfilehash: 39073169fbc4558492a47f78f0840a0e314b3ee8
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447910"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763551"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Solucionando problemas de erros de conexão de saída intermitente no serviço Azure App
 
@@ -64,7 +64,7 @@ Por padrão, as conexões para NodeJS não são mantidas ativas. Abaixo estão o
 Keep-Alive de HTTP
 
 * [agentkeepalive](https://www.npmjs.com/package/agentkeepalive)
-* [Documentação doNode.js v 13.9.0](https://nodejs.org/api/http.html)
+* [ Documentação doNode.js v 13.9.0](https://nodejs.org/api/http.html)
 
 #### <a name="java"></a>Java
 
@@ -120,11 +120,11 @@ Para outros ambientes, examine os documentos específicos do provedor ou do driv
 * Um [teste de carga](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test) deve simular dados do mundo real em uma velocidade de alimentação contínua. O teste de aplicativos e funções sob estresse do mundo real pode identificar e resolver os problemas de esgotamento da porta SNAT antes do tempo.
 * Verifique se os serviços de back-end podem retornar respostas rapidamente. Para solucionar problemas de desempenho com o banco de dados SQL do Azure, examine [solucionar problemas de desempenho do banco de dados SQL do Azure com Intelligent insights](https://docs.microsoft.com/azure/sql-database/sql-database-intelligent-insights-troubleshoot-performance#recommended-troubleshooting-flow).
 * Escalar horizontalmente o plano do serviço de aplicativo para mais instâncias. Para saber mais sobre como dimensionar, consulte [Escalar um aplicativo no Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/app-service/manage-scale-up). Cada instância de trabalho em um plano do serviço de aplicativo é alocada a um número de portas SNAT. Se você distribuir seu uso em mais instâncias, poderá obter o uso da porta SNAT por instância abaixo do limite recomendado de 100 conexões de saída, por ponto de extremidade remoto exclusivo.
-* Considere a mudança para [ambiente do serviço de aplicativo (ase)](https://docs.microsoft.com/azure/app-service/environment/using-an-ase), em que você está alocado para um único endereço IP de saída, e os limites para conexões e portas SNAT são muito maiores.
+* Considere a mudança para [ambiente do serviço de aplicativo (ase)](https://docs.microsoft.com/azure/app-service/environment/using-an-ase), em que você está alocado para um único endereço IP de saída, e os limites para conexões e portas SNAT são muito maiores. Em um ASE, o número de portas SNAT por instância é baseado na [tabela de prealocação do balanceador de carga do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#snatporttable) . portanto, por exemplo, um ase com 1-50 instâncias de trabalho tem 1024 portas prealocadas por instância, enquanto um ase com instâncias de trabalho 51-100 tem 512 portas alocadas por instância.
 
 Evitar os limites de TCP de saída é mais fácil de resolver, pois os limites são definidos pelo tamanho do seu operador. Você pode ver os limites em [área restrita limite de VM entre VMs-conexões TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Nome do limite|Description|Pequeno (a1)|Média (a2)|Grande (a3)|Camada isolada (ASE)|
+|Nome do limite|DESCRIÇÃO|Pequeno (a1)|Média (a2)|Grande (a3)|Camada isolada (ASE)|
 |---|---|---|---|---|---|
 |conexões|Número de conexões em toda a VM|1920|3968|8064|16.000|
 
@@ -156,7 +156,7 @@ As conexões TCP e SNAT não estão diretamente relacionadas. Um detector de uso
 * O limite de conexões TCP ocorre no nível de instância de trabalho. O balanceamento de carga de saída de rede do Azure não usa a métrica de conexões TCP para limitação de porta SNAT.
 * Os limites de conexões TCP são descritos em [área restrita áreas limites numéricos de VM-conexões TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Nome do limite|Description|Pequeno (a1)|Média (a2)|Grande (a3)|Camada isolada (ASE)|
+|Nome do limite|DESCRIÇÃO|Pequeno (a1)|Média (a2)|Grande (a3)|Camada isolada (ASE)|
 |---|---|---|---|---|---|
 |conexões|Número de conexões em toda a VM|1920|3968|8064|16.000|
 

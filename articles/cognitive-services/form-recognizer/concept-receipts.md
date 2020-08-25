@@ -10,24 +10,24 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 7a14b3c93a6c545648faf28c991764e990e487b1
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: fd0a782fc0c54cf14db9cac07712dea6d8f2e523
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724953"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751987"
 ---
 # <a name="receipt-concepts"></a>Conceitos de recebimento
 
-O reconhecedor AzureForm pode analisar recibos usando um de seus modelos predefinidos. A API de recebimento extrai informações de chave de recibos de vendas em inglês, como o nome do comerciante, a data da transação, o total da transação, os itens de linha e muito mais. 
+O reconhecedor de formulários do Azure pode analisar recibos usando um de seus modelos predefinidos. A API de recebimento extrai informações de chave de recibos de vendas em inglês, como o nome do comerciante, a data da transação, o total da transação, os itens de linha e muito mais. 
 
 ## <a name="understanding-receipts"></a>Entendendo os recibos 
 
-Muitas empresas e indivíduos ainda dependem da extração manual de dados de seus recibos de vendas, seja para relatórios de despesas comerciais, reembolsos, fins tributários, orçamento ou outras finalidades. Geralmente nesses cenários, as imagens do recebimento físico são necessárias para fins de validação.  
+Muitas empresas e indivíduos ainda dependem da extração manual de dados de seus recibos de vendas, seja para relatórios de despesas comerciais, reembolsos, auditoria, propósitos fiscais, orçamento, marketing ou outras finalidades. Geralmente nesses cenários, as imagens do recebimento físico são necessárias para fins de validação.  
 
-A extração automática de dados dessas confirmações pode ser complicada. Os recibos podem ser crumpleddos e difíceis de ler e as imagens do smartphone de recibos podem ser de baixa qualidade. Além disso, modelos de recebimento e campos podem variar muito por mercado, região e comerciante. Esses desafios na extração dos dados e na detecção de campos fazem com que o processamento de recibos seja um problema exclusivo.  
+A extração automática de dados dessas confirmações pode ser complicada. Os recibos podem ser crumpleddos e difíceis de ler, as partes impressa ou manuscritas e as imagens do smartphone de recibos podem ser de baixa qualidade. Além disso, modelos de recebimento e campos podem variar muito por mercado, região e comerciante. Esses desafios na extração dos dados e na detecção de campos fazem com que o processamento de recibos seja um problema exclusivo.  
 
-Usando o OCR (reconhecimento óptico de caracteres) e nosso modelo de recebimento predefinido, a API de recebimento permite esses cenários de processamento de recebimento. Como o modelo é previamente treinado em nossos dados, você pode facilmente analisar seus recibos em uma etapa &mdash; sem treinamento de modelo ou rótulo necessário.
+Usando o OCR (reconhecimento óptico de caracteres) e nosso modelo de recebimento precompilado, a API de recebimento permite esses cenários de processamento de recebimento e extrai dados dos recibos, por exemplo, nome do comerciante, gorjeta, total, itens de linha e muito mais. Com essa API, não há necessidade de treinar um modelo que você apenas envia o recibo para a API de análise de recebimento e os dados são extraídos.
 
 ![exemplo de recebimento](./media/contoso-receipt-small.png)
 
@@ -55,6 +55,7 @@ A API de recebimento também retorna as seguintes informações:
 * Tipo de recibo (como discriminado, cartão de crédito e assim por diante)
 * Nível de confiança de campo (cada campo retorna um valor de confiança associado)
 * Texto bruto de OCR (saída de texto extraído por OCR para o recebimento inteiro)
+* Caixa delimitadora para cada valor, linha e palavra
 
 ## <a name="input-requirements"></a>Requisitos de entrada
 
@@ -73,6 +74,363 @@ A API de recebimento também retorna as seguintes informações:
   > Entrada de idioma 
   >
   > Confirmação predefinida v 2.1-Preview. 1 tem um parâmetro de solicitação opcional para especificar uma localidade de recebimento de outros mercados em inglês. Para recibos de vendas em inglês da Austrália (EN-AU), Canadá (EN-CA), Grã-Bretanha (EN-GB) e Índia (EN-IN), você pode especificar a localidade para obter resultados aprimorados. Se nenhuma localidade for especificada em v 2.1-Preview. 1, o modelo usará como padrão o modelo EN-US.
+  
+ ### <a name="input-requirements"></a>Requisitos de entrada 
+
+[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+
+## <a name="the-analyze-receipt-operation"></a>A operação de análise de recebimento
+
+A [confirmação de análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) usa uma imagem ou um PDF de um recibo como entrada e extrai os valores de intrest e texto. A chamada retorna um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é uma URL que contém a ID de resultado a ser usada na próxima etapa.
+
+|Cabeçalho de resposta| URL do resultado |
+|:-----|:----|
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/analyzeResults/56a36454-fc4d-4354-aa07-880cfbf0064f` |
+
+## <a name="the-get-analyze-receipt-result-operation"></a>A operação obter resultado da confirmação de análise
+
+A segunda etapa é chamar a operação [obter resultado de recebimento de análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de confirmação de análise. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
+
+|Campo| Type | Valores possíveis |
+|:-----|:----:|:----|
+|status | string | não iniciado: a operação de análise não foi iniciada. |
+| |  | em execução: a operação de análise está em andamento. |
+| |  | falha: falha na operação de análise. |
+| |  | êxito: a operação de análise foi bem-sucedida. |
+
+Quando o campo **status** tiver o valor **êxito** , a resposta JSON incluirá os resultados de reconhecimento de texto e compreensão de recibo. O resultado da compreensão de recebimento é organizado como um dicionário de valores de campo nomeados, em que cada valor contém o texto extraído, o valor normalizado, a caixa delimitadora, a confiança e os elementos correspondentes do Word. O resultado do reconhecimento de texto é organizado como uma hierarquia de linhas e palavras, com informações de texto, de caixa delimitadora e de confiança.
+
+![resultados de recibo de exemplo](./media/contoso-receipt-2-information.png)
+
+### <a name="sample-json-output"></a>Saída JSON de exemplo
+
+Consulte o exemplo a seguir de uma resposta JSON bem-sucedida: o nó "readResults" contém todo o texto reconhecido. O texto é organizado por página, depois por linha e, em seguida, por palavras individuais. O nó "documentResults" contém os valores específicos do cartão de negócios que o modelo descobriu. É aí que você encontrará pares úteis de chave/valor como nome, sobrenome, nome da empresa e muito mais.
+
+```json
+{ 
+  "status":"succeeded",
+  "createdDateTime":"2019-12-17T04:11:24Z",
+  "lastUpdatedDateTime":"2019-12-17T04:11:32Z",
+  "analyzeResult":{ 
+    "version":"2.0.0",
+    "readResults":[ 
+      { 
+        "page":1,
+        "angle":0.6893,
+        "width":1688,
+        "height":3000,
+        "unit":"pixel",
+        "language":"en",
+        "lines":[ 
+          { 
+            "text":"Contoso",
+            "boundingBox":[ 
+              635,
+              510,
+              1086,
+              461,
+              1098,
+              558,
+              643,
+              604
+            ],
+            "words":[ 
+              { 
+                "text":"Contoso",
+                "boundingBox":[ 
+                  639,
+                  510,
+                  1087,
+                  461,
+                  1098,
+                  551,
+                  646,
+                  604
+                ],
+                "confidence":0.955
+              }
+            ]
+          },
+          ...
+        ]
+      }
+    ],
+    "documentResults":[ 
+      { 
+        "docType":"prebuilt:receipt",
+        "pageRange":[ 
+          1,
+          1
+        ],
+        "fields":{ 
+          "ReceiptType":{ 
+            "type":"string",
+            "valueString":"Itemized",
+            "confidence":0.692
+          },
+          "MerchantName":{ 
+            "type":"string",
+            "valueString":"Contoso Contoso",
+            "text":"Contoso Contoso",
+            "boundingBox":[ 
+              378.2,
+              292.4,
+              1117.7,
+              468.3,
+              1035.7,
+              812.7,
+              296.3,
+              636.8
+            ],
+            "page":1,
+            "confidence":0.613,
+            "elements":[ 
+              "#/readResults/0/lines/0/words/0",
+              "#/readResults/0/lines/1/words/0"
+            ]
+          },
+          "MerchantAddress":{ 
+            "type":"string",
+            "valueString":"123 Main Street Redmond, WA 98052",
+            "text":"123 Main Street Redmond, WA 98052",
+            "boundingBox":[ 
+              302,
+              675.8,
+              848.1,
+              793.7,
+              809.9,
+              970.4,
+              263.9,
+              852.5
+            ],
+            "page":1,
+            "confidence":0.99,
+            "elements":[ 
+              "#/readResults/0/lines/2/words/0",
+              "#/readResults/0/lines/2/words/1",
+              "#/readResults/0/lines/2/words/2",
+              "#/readResults/0/lines/3/words/0",
+              "#/readResults/0/lines/3/words/1",
+              "#/readResults/0/lines/3/words/2"
+            ]
+          },
+          "MerchantPhoneNumber":{ 
+            "type":"phoneNumber",
+            "valuePhoneNumber":"+19876543210",
+            "text":"987-654-3210",
+            "boundingBox":[ 
+              278,
+              1004,
+              656.3,
+              1054.7,
+              646.8,
+              1125.3,
+              268.5,
+              1074.7
+            ],
+            "page":1,
+            "confidence":0.99,
+            "elements":[ 
+              "#/readResults/0/lines/4/words/0"
+            ]
+          },
+          "TransactionDate":{ 
+            "type":"date",
+            "valueDate":"2019-06-10",
+            "text":"6/10/2019",
+            "boundingBox":[ 
+              265.1,
+              1228.4,
+              525,
+              1247,
+              518.9,
+              1332.1,
+              259,
+              1313.5
+            ],
+            "page":1,
+            "confidence":0.99,
+            "elements":[ 
+              "#/readResults/0/lines/5/words/0"
+            ]
+          },
+          "TransactionTime":{ 
+            "type":"time",
+            "valueTime":"13:59:00",
+            "text":"13:59",
+            "boundingBox":[ 
+              541,
+              1248,
+              677.3,
+              1261.5,
+              668.9,
+              1346.5,
+              532.6,
+              1333
+            ],
+            "page":1,
+            "confidence":0.977,
+            "elements":[ 
+              "#/readResults/0/lines/5/words/1"
+            ]
+          },
+          "Items":{ 
+            "type":"array",
+            "valueArray":[ 
+              { 
+                "type":"object",
+                "valueObject":{ 
+                  "Quantity":{ 
+                    "type":"number",
+                    "text":"1",
+                    "boundingBox":[ 
+                      245.1,
+                      1581.5,
+                      300.9,
+                      1585.1,
+                      295,
+                      1676,
+                      239.2,
+                      1672.4
+                    ],
+                    "page":1,
+                    "confidence":0.92,
+                    "elements":[ 
+                      "#/readResults/0/lines/7/words/0"
+                    ]
+                  },
+                  "Name":{ 
+                    "type":"string",
+                    "valueString":"Cappuccino",
+                    "text":"Cappuccino",
+                    "boundingBox":[ 
+                      322,
+                      1586,
+                      654.2,
+                      1601.1,
+                      650,
+                      1693,
+                      317.8,
+                      1678
+                    ],
+                    "page":1,
+                    "confidence":0.923,
+                    "elements":[ 
+                      "#/readResults/0/lines/7/words/1"
+                    ]
+                  },
+                  "TotalPrice":{ 
+                    "type":"number",
+                    "valueNumber":2.2,
+                    "text":"$2.20",
+                    "boundingBox":[ 
+                      1107.7,
+                      1584,
+                      1263,
+                      1574,
+                      1268.3,
+                      1656,
+                      1113,
+                      1666
+                    ],
+                    "page":1,
+                    "confidence":0.918,
+                    "elements":[ 
+                      "#/readResults/0/lines/8/words/0"
+                    ]
+                  }
+                }
+              },
+              ...
+            ]
+          },
+          "Subtotal":{ 
+            "type":"number",
+            "valueNumber":11.7,
+            "text":"11.70",
+            "boundingBox":[ 
+              1146,
+              2221,
+              1297.3,
+              2223,
+              1296,
+              2319,
+              1144.7,
+              2317
+            ],
+            "page":1,
+            "confidence":0.955,
+            "elements":[ 
+              "#/readResults/0/lines/13/words/1"
+            ]
+          },
+          "Tax":{ 
+            "type":"number",
+            "valueNumber":1.17,
+            "text":"1.17",
+            "boundingBox":[ 
+              1190,
+              2359,
+              1304,
+              2359,
+              1304,
+              2456,
+              1190,
+              2456
+            ],
+            "page":1,
+            "confidence":0.979,
+            "elements":[ 
+              "#/readResults/0/lines/15/words/1"
+            ]
+          },
+          "Tip":{ 
+            "type":"number",
+            "valueNumber":1.63,
+            "text":"1.63",
+            "boundingBox":[ 
+              1094,
+              2479,
+              1267.7,
+              2485,
+              1264,
+              2591,
+              1090.3,
+              2585
+            ],
+            "page":1,
+            "confidence":0.941,
+            "elements":[ 
+              "#/readResults/0/lines/17/words/1"
+            ]
+          },
+          "Total":{ 
+            "type":"number",
+            "valueNumber":14.5,
+            "text":"$14.50",
+            "boundingBox":[ 
+              1034.2,
+              2617,
+              1387.5,
+              2638.2,
+              1380,
+              2763,
+              1026.7,
+              2741.8
+            ],
+            "page":1,
+            "confidence":0.985,
+            "elements":[ 
+              "#/readResults/0/lines/19/words/0"
+            ]
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
 
 ## <a name="customer-scenarios"></a>Cenários de clientes  
 
@@ -93,4 +451,12 @@ A saída de recebimento também é útil para o livro geral-mantendo para uso pe
 ### <a name="consumer-behavior"></a>Comportamento do consumidor 
 
 Os recibos contêm dados úteis que você pode usar para analisar o comportamento do consumidor e as tendências de compra.
+
+A API de recebimento também alimenta o [recurso de processamento de recibo AIBuilder](https://docs.microsoft.com/ai-builder/prebuilt-receipt-processing).
+
+## <a name="next-steps"></a>Próximas etapas
+
+- Siga o guia de início rápido para começar o [início rápido do Python da API de recebimento](./quickstarts/python-receipts.md).
+- Saiba mais sobre a [API REST do reconhecedor de formulário](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api).
+- Saiba mais sobre o [reconhecedor de formulário](overview.md).
 

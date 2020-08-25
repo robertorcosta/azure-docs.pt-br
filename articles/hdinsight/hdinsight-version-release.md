@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.openlocfilehash: b2e77049d121a11a45a096017f18f1345f6c6884
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/21/2020
+ms.openlocfilehash: 37f0a8d1f70fa96db505973d097febabe99ab7a8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374841"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749167"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Visão geral do Azure HDInsight 4.0
 
@@ -92,7 +92,7 @@ Não há um caminho de atualização compatível das versões anteriores do HDIn
 * O HDInsight 4.0 não é compatível com o MapReduce para Apache Hive. Use o Apache Tez em vez disso. Saiba mais sobre o [Apache Tez](https://tez.apache.org/).
 * O HDInsight 4.0 não é compatível com o Apache Storm.
 * O HDInsight 4,0 não dá suporte ao tipo de cluster de serviços ML.
-* A exibição do Hive não está mais disponível no HDInsight 4.0.
+* A exibição do hive só está disponível em clusters HDInsight 4,0 com um número de versão igual ou maior que 4,1. Esse número de versão está disponível em versões do > admin – Ambari.
 * O interpretador de shell no Apache Zeppelin não é compatível com clusters do Spark e do Interactive Query.
 * Não é possível *desabilitar* o LLAP em um cluster Spark-LLAP. Você pode apenas desativar o LLAP.
 * O Azure Data Lake Storage Gen2 não é capaz de salvar notebooks do Jupyter em um cluster Spark.

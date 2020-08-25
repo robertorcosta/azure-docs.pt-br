@@ -3,12 +3,12 @@ title: Fazer backup de bancos de dados do SQL Server para o Azure
 description: Este artigo explica como fazer backup do SQL Server para o Azure. O artigo também explica a recuperação do SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 92097f4be02e81d3a8d306f6dc00bb0e8c939005
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: edcc77c98737b9f4e76ade0471d273f5e0070969
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612530"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763415"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre o Backup do SQL Server nas VMs do Azure
 
@@ -27,17 +27,17 @@ Essa solução aproveita as APIs nativas do SQL para fazer backups dos bancos de
 
 * Depois que você especificar a VM do SQL Server que você deseja proteger e na qual consultar os bancos de dados, o serviço de Backup do Azure instalará uma extensão de backup de carga de trabalho na VM pelo nome da extensão `AzureBackupWindowsWorkload`.
 * Essa extensão consiste em um coordenador e um plugin do SQL. Ao passo que o coordenador é responsável por disparar fluxos de trabalho para várias operações, como configurar o backup, backup e restauração, o plugin é responsável por fluxo de dados real.
-* Para poder descobrir bancos de dados nesta VM, o Backup do Azure cria a conta `NT SERVICE\AzureWLBackupPluginSvc`. Essa conta é usada para backup e restauração e exige permissões de sysadmin do SQL. A conta de `NT SERVICE\AzureWLBackupPluginSvc` é uma [Conta de Serviço Virtual](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts) e, portanto, não requer gerenciamento de senhas. O Backup do Azure aproveita a conta `NT AUTHORITY\SYSTEM` para descoberta/consulta de banco de dados e, portanto, essa conta precisa ser um logon público no SQL. Se você não criou a VM SQL Server do Azure Marketplace, você pode receber um erro **UserErrorSQLNoSysadminMembership**. Se isso ocorrer, [siga estas instruções](#set-vm-permissions).
+* Para poder descobrir bancos de dados nesta VM, o Backup do Azure cria a conta `NT SERVICE\AzureWLBackupPluginSvc`. Essa conta é usada para backup e restauração e exige permissões de sysadmin do SQL. A conta de `NT SERVICE\AzureWLBackupPluginSvc` é uma [Conta de Serviço Virtual](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts) e, portanto, não requer gerenciamento de senhas. O Backup do Azure aproveita a conta `NT AUTHORITY\SYSTEM` para descoberta/consulta de banco de dados e, portanto, essa conta precisa ser um logon público no SQL. Caso não tenha criado a VM do SQL Server no Azure Marketplace, você poderá receber o erro **UserErrorSQLNoSysadminMembership**. Se isso ocorrer, [siga estas instruções](#set-vm-permissions).
 * Depois que o gatilho configurar a proteção nos bancos de dados selecionados, o serviço de backup configura o coordenador com as agendas de backup e outros detalhes da política, que aumenta os caches localmente na VM.
 * No horário agendado, o coordenador se comunica com o plugin e ele começa a transmissão dos dados de backup do SQL Server usando o VDI.  
-* O plugin envia os dados diretamente para o cofre de serviços de recuperação, eliminando a necessidade de um local de preparo. Os dados são criptografados e armazenados pelo serviço de Backup do Microsoft Azure em contas de armazenamento.
+* O plug-in envia os dados diretamente para o cofre dos serviços de recuperação, eliminando assim a necessidade de um local de preparo. Os dados são criptografados e armazenados pelo serviço de Backup do Microsoft Azure em contas de armazenamento.
 * Quando a transferência de dados for concluída, o coordenador confirma com o serviço de backup.
 
   ![Arquitetura de backup SQL](./media/backup-azure-sql-database/backup-sql-overview.png)
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Antes de começar, verifique o que está descrito abaixo:
+Antes de começar, verifique os seguintes requisitos:
 
 1. Garanta que você tenha uma Instância do SQL Server em execução no Azure. Você pode [criar uma Instância do SQL Server rapidamente](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md) no marketplace.
 2. Examine as [considerações de recursos](sql-support-matrix.md#feature-considerations-and-limitations) e o [suporte ao cenário](sql-support-matrix.md#scenario-support).

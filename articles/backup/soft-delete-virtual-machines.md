@@ -4,12 +4,12 @@ description: Saiba como a exclusão reversível para máquinas virtuais torna os
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: references_regions
-ms.openlocfilehash: e447db2c3f862d2f577a9e7d8767946375abf4e0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19de26024a6a31a213130ec419132fd7dd8134a0
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503533"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763687"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>Exclusão temporária para máquinas virtuais
 
@@ -110,7 +110,7 @@ O ' Deletestate ' do item de backup será revertido para ' candeleted '. Mas a p
 ## <a name="soft-delete-for-vms-using-rest-api"></a>Exclusão reversível para VMs usando a API REST
 
 - Exclua os backups usando a API REST, conforme mencionado [aqui](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
-- Se o usuário quiser desfazer essas operações de exclusão, consulte as etapas mencionadas [aqui](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+- Se o usuário quiser desfazer essas operações de exclusão, consulte as etapas mencionadas [aqui](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 
 ## <a name="how-to-disable-soft-delete"></a>Como desabilitar a exclusão reversível
 

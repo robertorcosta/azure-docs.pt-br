@@ -3,12 +3,12 @@ title: Restaurar compartilhamentos de arquivos do Azure
 description: Saiba como usar o portal do Azure para restaurar um compartilhamento de arquivos inteiro ou arquivos específicos de um ponto de restauração criado pelo backup do Azure.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: 92cc40d1a6b332ab524049322eb2d1afcb76082e
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: bb846c4615377259a1c17653cc26e96f37dc32ec
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761841"
+ms.locfileid: "88762813"
 ---
 # <a name="restore-azure-file-shares"></a>Restaurar compartilhamentos de arquivos do Azure
 
@@ -59,7 +59,7 @@ Você pode usar essa opção de restauração para restaurar o compartilhamento 
     ![Folha Selecionar ponto de restauração](./media/restore-afs/restore-point.png)
 
     >[!NOTE]
-    >Por padrão, o painel **selecionar ponto de restauração** lista os pontos de restauração dos últimos 30 dias. Se você quiser examinar os pontos de restauração criados durante uma duração específica, especifique o intervalo selecionando a **hora de início** e a **hora de término** apropriadas e clique no botão **Atualizar** .
+    >Por padrão, o painel **selecionar ponto de restauração** lista os pontos de restauração dos últimos 30 dias. Se você quiser examinar os pontos de restauração criados durante uma duração específica, especifique o intervalo selecionando a hora de **início** e a **hora de término** apropriadas e clique no botão **Atualizar** .
 
 1. A próxima etapa é escolher o **local de restauração**. Na seção **destino de recuperação** , especifique onde ou como restaurar os dados. Selecione uma das duas opções a seguir usando o botão de alternância:
 

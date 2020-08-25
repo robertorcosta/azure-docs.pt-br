@@ -4,12 +4,12 @@ description: Solucionar problemas de instalação, registro de Servidor de Backu
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 54b7295eaed5f04a118cf5097ebc7b25b18f67d2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 40f461c1c2e62b12497800bb1a4d1c0ee0b04579
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522837"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763483"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Solucionar problemas de Servidor de Backup do Azure
 
@@ -17,7 +17,7 @@ Use as informações nas tabelas a seguir para solucionar problemas de erros enc
 
 ## <a name="basic-troubleshooting"></a>Solução básica de problemas
 
-Recomendamos que você execute a validação abaixo antes de iniciar a solução de problemas do MABS (Servidor de Backup do Microsoft Azure):
+Recomendamos que você execute a seguinte validação, antes de iniciar a solução de problemas do servidor de Backup do Microsoft Azure (MABS):
 
 - [Verifique se o Agente de MARS (Serviços de Recuperação do Microsoft Azure) está atualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Verifique se há conectividade de rede entre o agente MARS e o Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
@@ -83,7 +83,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Operação | Detalhes do erro | Solução alternativa |
 | --- | --- | --- |
-| Restaurar | **Erro de código**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Mensagem de erro**: Os servidores DPM originais e externos devem ser registrados no mesmo cofre | **Causa**: Esse problema ocorre quando você está tentando restaurar arquivos para o servidor alternativo do servidor original usando a opção de recuperação do DPM externo e se o servidor que está sendo recuperado e o servidor original de onde é realizado o backup dos dados não estiverem associados ao mesmo cofre de Serviço de Recuperação.<br/> <br/>**Solução alternativa** Para resolver esse problema, verifique se tanto o servidor original como o alternativo estão registrados no mesmo cofre.|
+| Restaurar | **Erro de código**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Mensagem de erro**: Os servidores DPM originais e externos devem ser registrados no mesmo cofre | **Causa**: esse problema ocorre quando você está tentando restaurar arquivos para o servidor alternativo a partir do servidor original usando a opção de recuperação externa do DPM e se o servidor que está sendo recuperado e o servidor original do qual os dados são copiados não estão associados ao mesmo cofre dos serviços de recuperação.<br/> <br/>**Solução alternativa** Para resolver esse problema, verifique se tanto o servidor original como o alternativo estão registrados no mesmo cofre.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>Falha em trabalhos de criação de ponto de recuperação online para VM do VMware
 
@@ -119,7 +119,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 | Configurar grupos de proteção | O DPM não pôde enumerar o componente do aplicativo no computador protegido (nome do computador protegido). | Selecione **Atualizar** na tela da interface do usuário configurar grupo de proteção no nível de componente/fonte de dados relevante. |
 | Configurar grupos de proteção | Não é possível configurar a proteção | Se o servidor protegido é um SQL Server, verifique se as permissões da função sysadmin foram fornecidas para a conta do sistema (NTAuthority\System) no computador protegido conforme descrito [neste artigo](/system-center/dpm/back-up-sql-server?view=sc-dpm-2019).
 | Configurar grupos de proteção | Não há espaço livre suficiente no pool de armazenamento para esse grupo de proteção. | Os discos que são adicionados ao pool de armazenamento [não devem conter uma partição](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019). Exclua todos os volumes existentes nos discos. Em seguida, adicione-os ao pool de armazenamento.|
-| Alteração da política |Não foi possível modificar a política de backup. Erro: A operação atual falhou devido a um erro de serviço interno [0x29834]. Repita a operação após algum tempo ter passado. Se o problema persistir, contate o Suporte da Microsoft. | **Causa:**<br/>Esse erro ocorre em três condições: quando as configurações de segurança estiverem habilitadas, quando você tentar reduzir o período de retenção para abaixo dos valores mínimos especificados anteriormente, e quando você estiver usando uma versão sem suporte. (Versões sem suporte são aquelas abaixo da versão 2.0.9052 do Servidor de Backup do Microsoft Azure e atualização do Servidor de Backup do Azure 1). <br/>**Ação recomendada:**<br/> Para continuar com atualizações relacionadas à política, defina o período de retenção acima do período mínimo de retenção especificado. (O período mínimo de retenção é de sete dias para diariamente, quatro semanas para semanal, três semanas para mensal ou um ano para anual.) <br><br>Opcionalmente, outra abordagem preferencial será atualizar o agente de backup e o Servidor de Backup do Azure para utilizar todas as atualizações de segurança. |
+| Alteração da política |Não foi possível modificar a política de backup. Erro: A operação atual falhou devido a um erro de serviço interno [0x29834]. Repita a operação após algum tempo ter passado. Se o problema persistir, contate o Suporte da Microsoft. | **Causa:**<br/>Esse erro ocorre em três condições: quando as configurações de segurança estiverem habilitadas, quando você tentar reduzir o período de retenção para abaixo dos valores mínimos especificados anteriormente, e quando você estiver usando uma versão sem suporte. (As versões sem suporte são aquelas menores que Backup do Microsoft Azure Server versão 2.0.9052 e Servidor de Backup do Azure atualização 1.) <br/>**Ação recomendada:**<br/> Para continuar com atualizações relacionadas à política, defina o período de retenção acima do período mínimo de retenção especificado. (O período mínimo de retenção é de sete dias para diariamente, quatro semanas para semanal, três semanas para mensal ou um ano para anual.) <br><br>Opcionalmente, outra abordagem preferencial será atualizar o agente de backup e o Servidor de Backup do Azure para utilizar todas as atualizações de segurança. |
 
 ## <a name="backup"></a>Backup
 

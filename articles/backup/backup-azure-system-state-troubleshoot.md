@@ -4,12 +4,12 @@ description: Neste artigo, saiba como solucionar problemas no backup de estado d
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: e588ce4e3458634be32a7129b40906c98fc02ac0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: add54955def7df31f8e1688f56382067343616fe
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513834"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763381"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Solucionar problemas de backup do estado do sistema
 
@@ -17,7 +17,7 @@ Este artigo descreve soluções para problemas que você pode chegar ao usar o b
 
 ## <a name="basic-troubleshooting"></a>Solução básica de problemas
 
-Recomendamos que você execute a validação abaixo antes de iniciar a solução de problemas de backup do estado do sistema:
+Recomendamos que você execute as seguintes etapas de validação antes de iniciar a solução de problemas de backup do estado do sistema:
 
 - [Verifique se o Agente de MARS (Serviços de Recuperação do Microsoft Azure) está atualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Certifique-se de que há conectividade de rede entre o agente MARS e o Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
@@ -42,7 +42,7 @@ Recomendamos que você execute a validação abaixo antes de iniciar a solução
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de solucionarmos problemas de backup de estado do sistema com o backup do Azure, execute a verificação de pré-requisitos abaixo.  
+Antes de solucionarmos problemas de backup de estado do sistema com o backup do Azure, execute a verificação de pré-requisitos a seguir.  
 
 ### <a name="verify-windows-server-backup-is-installed"></a>Verificar se Backup do Windows Server está instalado
 
@@ -56,7 +56,7 @@ Se a saída exibir o **estado de instalação** como **disponível**, significa 
 
 #### <a name="method-1-install-windows-server-backup-using-powershell"></a>Método 1: instalar Backup do Windows Server usando o PowerShell
 
-Para instalar Backup do Windows Server usando o PowerShell, execute o comando abaixo:
+Para instalar Backup do Windows Server usando o PowerShell, execute o seguinte comando:
 
   ```powershell
   Install-WindowsFeature -Name Windows-Server-Backup
@@ -64,7 +64,7 @@ Para instalar Backup do Windows Server usando o PowerShell, execute o comando ab
 
 #### <a name="method-2-install-windows-server-backup-using-server-manager"></a>Método 2: instalar Backup do Windows Server usando Gerenciador do Servidor
 
-Para instalar Backup do Windows Server usando Gerenciador do Servidor, execute as etapas abaixo:
+Para instalar Backup do Windows Server usando Gerenciador do Servidor, execute as seguintes etapas:
 
 1. Em **Gerenciador de servidores**, clique em **adicionar funções e recursos**. O **Assistente Adicionar funções e recursos** é exibido.
 
@@ -77,20 +77,20 @@ Para instalar Backup do Windows Server usando Gerenciador do Servidor, execute a
 3. Selecione um servidor no pool de servidores e clique em **Avançar**. Na função de servidor, deixe a seleção padrão e clique em **Avançar**.
 4. Selecione **backup do Windows Server** na guia **recursos** e clique em **Avançar**.
 
-    ![recursos](./media/backup-azure-system-state-troubleshoot/features.png)
+    ![Selecionar janela de recursos](./media/backup-azure-system-state-troubleshoot/features.png)
 
 5. Na guia **confirmação** , clique em **instalar** para iniciar o processo de instalação.
 6. Na guia **resultados** , ele exibirá a backup do Windows Server recurso foi instalado com êxito no Windows Server.
 
-    ![result](./media/backup-azure-system-state-troubleshoot/results.jpg)
+    ![Resultados da instalação](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
 ### <a name="system-volume-information-permission"></a>Permissão de informações de volume do sistema
 
-Verifique se o sistema local tem controle total sobre a pasta **informações de volume do sistema** localizada no volume em que o Windows está instalado. Geralmente, isso é **C:\System informações de volume**. O backup do Windows Server poderá falhar se as permissões acima não estiverem definidas corretamente
+Verifique se o sistema local tem controle total sobre a pasta **informações de volume do sistema** localizada no volume em que o Windows está instalado. Geralmente, isso é **C:\System informações de volume**. O backup do Windows Server poderá falhar se as permissões acima não estiverem definidas corretamente.
 
 ### <a name="dependent-services"></a>Serviços dependentes
 
-Verifique se os serviços a seguir estão em estado de execução:
+Verifique se os serviços abaixo estão no estado executando:
 
 **Nome do Serviço** | **Tipo de inicialização**
 --- | ---
@@ -113,7 +113,7 @@ Para validar Backup do Windows Server status, execute as seguintes etapas:
 
     - Se ele falhar com esse erro, reinstale o recurso Backup do Windows Server no computador servidor, conforme mencionado na etapa 1 dos pré-requisitos.
 
-  - Verifique se o backup do WSB está funcionando corretamente, executando o comando abaixo no prompt de comando elevado:
+  - Verifique se o backup do WSB está funcionando corretamente, executando o seguinte comando em um prompt de comando elevado:
 
       `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 

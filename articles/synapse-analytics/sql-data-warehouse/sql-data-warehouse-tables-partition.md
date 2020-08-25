@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: a77bb5211d13f9b0566f4226163918a5310287bd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ed5c0a140c69e9042fc9b85589719a54b65e985e
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075722"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763126"
 ---
 # <a name="partitioning-tables-in-synapse-sql-pool"></a>Particionando tabelas no pool de SQL do Synapse
 
@@ -30,7 +30,7 @@ O particionamento pode melhorar o desempenho da consulta e a manutenção de dad
 
 ### <a name="benefits-to-loads"></a>Benefícios para cargas
 
-O principal benefício do particionamento no pool do SQL Synapse é melhorar a eficiência e o desempenho do carregamento de dados por meio do uso de exclusão de partição, troca e mesclagem. Na maioria dos casos, os dados são particionados em uma coluna de data que está intimamente ligada à ordem em que os dados são carregados no banco de dados. Uma das maiores vantagens de usar partições para manter dados é evitar o registro de transações em log. Embora a simples inserção, atualização ou exclusão de dados possa ser a abordagem mais simples, com um pouco de empenho, o uso de particionamento durante o processo de carregamento pode melhorar consideravelmente o desempenho.
+O principal benefício do particionamento no pool do SQL Synapse é melhorar a eficiência e o desempenho do carregamento de dados por meio do uso de exclusão de partição, troca e mesclagem. Na maioria dos casos, os dados são particionados em uma coluna de data que está intimamente ligada à ordem em que os dados são carregados no banco de dados. Um dos maiores benefícios do uso de partições para manter dados é a eliminação do log de transações. Embora a simples inserção, atualização ou exclusão de dados possa ser a abordagem mais simples, com um pouco de empenho, o uso de particionamento durante o processo de carregamento pode melhorar consideravelmente o desempenho.
 
 A alternância de partição pode ser usada para remover ou substituir uma seção de uma tabela rapidamente.  Por exemplo, uma tabela de fatos de vendas pode conter apenas dados dos últimos 36 meses. No final de cada mês, o mês de dados de vendas mais antigo é excluído da tabela.  Esses dados poderiam ser excluídos usando uma instrução delete para excluir os dados do mês mais antigo. 
 

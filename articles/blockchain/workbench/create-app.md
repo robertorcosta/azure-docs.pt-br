@@ -1,15 +1,15 @@
 ---
 title: Criar um aplicativo de blockchain – Azure Blockchain Workbench
 description: Tutorial sobre como criar um aplicativo de blockchain na versão prévia do Azure Blockchain Workbench.
-ms.date: 10/14/2019
+ms.date: 08/24/2020
 ms.topic: tutorial
-ms.reviewer: brendal
-ms.openlocfilehash: 7be79757f506ea9fb854a248e77f0ff4f1b74f47
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: ravastra
+ms.openlocfilehash: add790a069d2e0ea66d84bbd632825cf9331fd38
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073107"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88784021"
 ---
 # <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Tutorial: Criar um aplicativo de blockchain no Azure Blockchain Workbench
 
@@ -40,7 +40,7 @@ Siga as etapas para criar os arquivos de aplicativo, ou você pode [fazer o down
 
 ## <a name="configuration-file"></a>Arquivo de configuração
 
-Metadados de configuração definem os fluxos de trabalho de alto nível e modelo de interação do aplicativo de blockchain. Os metadados de configuração definem as etapas de fluxos de trabalho e o modelo de interação do aplicativo blockchain.
+Metadados de configuração definem os fluxos de trabalho de alto nível e modelo de interação do aplicativo de blockchain. Os metadados de configuração definem as etapas de fluxos de trabalho e o modelo de interação do aplicativo blockchain. Para obter mais informações sobre o conteúdo dos arquivos de configuração, consulte [Referência de configuração do fluxo de trabalho do Azure Blockchain](configuration.md).
 
 1. No seu editor favorito, crie um arquivo nomeado `HelloBlockchain.json`.
 2. Adicione o JSON a seguir para definir a configuração do aplicativo blockchain.
@@ -208,11 +208,9 @@ O início do arquivo de configuração contém informações sobre o aplicativo,
 
 A seção de funções de aplicativo define as funções de usuário que podem agir ou participar do aplicativo blockchain. Você define um conjunto de funções diferentes com base na funcionalidade. No cenário de solicitação-resposta, há uma distinção entre a funcionalidade de um solicitante como uma entidade que produz solicitações e um respondente como uma entidade que gera respostas.
 
-### <a name="workflows"></a>Fluxos de trabalho
+### <a name="workflows"></a>Fluxos de Trabalho
 
 Fluxos de trabalho definem uma ou mais etapas e ações do contrato. No cenário de solicitação-resposta, a primeira etapa (estado) do fluxo de trabalho é um solicitante (função) que executa uma ação (transição) para enviar uma solicitação (função). A próxima etapa (estado) é que um respondente (função) que executa uma ação (transição) para enviar uma resposta (função). O fluxo de trabalho de um aplicativo pode envolver propriedades, funções e estados necessários que descrevem o fluxo de um contrato.
-
-Para obter mais informações sobre o conteúdo dos arquivos de configuração, consulte [Referência de configuração do fluxo de trabalho do Azure Blockchain](configuration.md).
 
 ## <a name="smart-contract-code-file"></a>Arquivo de código de contrato inteligente
 

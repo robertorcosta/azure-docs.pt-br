@@ -3,12 +3,12 @@ title: Fazer backup e recuperar VMs do Azure com o PowerShell
 description: Descreve como fazer backup e recuperar VMs do Azure usando o backup do Azure com o PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: e695fae087ca4e10a1d900a45cb02947bd5afa0b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 23ae2b5b04823bc809712190a3e1617fec65e73a
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652739"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763364"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Fazer backup e restaurar VMs do Azure com o PowerShell
 
@@ -196,7 +196,7 @@ Uma política de proteção de backup está associada a pelo menos uma política
 * O cmdlet [New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) cria um objeto do PowerShell que mantém as informações da política de backup.
 * Os objetos de política de retenção e agendamento são usados como entradas para o cmdlet New-AzRecoveryServicesBackupProtectionPolicy.
 
-Por padrão, uma hora de início é definida no objeto de política de agenda. Use o exemplo a seguir para alterar a hora de início para a hora de início desejada. A hora de início desejada também deve estar em UTC. O exemplo abaixo pressupõe que a hora de início desejada seja 01:00 AM UTC para backups diários.
+Por padrão, uma hora de início é definida no objeto de política de agenda. Use o exemplo a seguir para alterar a hora de início para a hora de início desejada. A hora de início desejada também deve estar em UTC. O exemplo a seguir pressupõe que a hora de início desejada seja 01:00 AM UTC para backups diários.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
@@ -462,7 +462,7 @@ BackupManagementType        : AzureVM
 
 ### <a name="restore-the-disks"></a>Restaure os discos
 
-Use o cmdlet [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) para restaurar os dados e a configuração de um item de backup para um ponto de recuperação. Depois de identificar um ponto de recuperação, use-o como o valor para o parâmetro **-RecoveryPoint**. No exemplo acima, **$rp[0]** foi o ponto de recuperação a ser usado. No código de exemplo abaixo, **$rp [0]** é o ponto de recuperação a ser usado para a restauração do disco.
+Use o cmdlet [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) para restaurar os dados e a configuração de um item de backup para um ponto de recuperação. Depois de identificar um ponto de recuperação, use-o como o valor para o parâmetro **-RecoveryPoint**. No exemplo acima, **$RP [0]** foi o ponto de recuperação a ser usado. No código de exemplo abaixo, **$rp [0]** é o ponto de recuperação a ser usado para a restauração do disco.
 
 Para restaurar as informações de discos e de configuração:
 
@@ -516,7 +516,7 @@ Depois de restaurar os discos, vá para a próxima seção para criar a VM.
 
 ## <a name="replace-disks-in-azure-vm"></a>Substituir discos na VM do Azure
 
-Para substituir os discos e as informações de configuração, execute as etapas a seguir:
+Para substituir os discos e as informações de configuração, execute as seguintes etapas:
 
 * Etapa 1: [restaurar os discos](backup-azure-vms-automation.md#restore-the-disks)
 * Etapa 2: [desanexar o disco de dados usando o PowerShell](../virtual-machines/windows/detach-disk.md#detach-a-data-disk-using-powershell)
@@ -638,7 +638,7 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
 
     * **VMs criptografadas e não gerenciadas sem o Azure AD (apenas BEK)** – para VMs criptografadas não gerenciadas sem o Azure AD (criptografadas usando apenas BEK), se **keyVault/segredo de origem não estiverem disponíveis**, restaure os segredos para o cofre de chaves usando o procedimento em [Restore an non-encrypted virtual machine from an Azure Backup recovery point (Restaurar uma máquina virtual não criptografada de um ponto de recuperação do Backup do Azure)](backup-azure-restore-key-secret.md). Em seguida, execute os scripts a seguir para definir detalhes de criptografia no blob restaurado do sistema operacional (essa etapa não é necessária para um blob de dados). O $dekurl pode ser buscado do keyVault restaurado.
 
-    O script abaixo precisa ser executado somente quando o keyvault/segredo de origem não estiver disponível.
+    O script a seguir precisa ser executado somente quando o keyvault/segredo de origem não estiver disponível.
 
     ```powershell
         $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -652,7 +652,7 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
 
     Depois que os **segredos forem disponibilizados** e os detalhes de criptografia também estiverem definidos no blob do sistema operacional, anexe os discos usando o script abaixo.
 
-    Se o keyVault/segredos de origem já estiverem disponíveis, o script acima não precisará ser executado.
+    Se o keyvault/segredos de origem já estiverem disponíveis, o script acima não precisará ser executado.
 
     ```powershell
         Set-AzVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
@@ -680,7 +680,7 @@ A seção a seguir lista as etapas necessárias para criar uma VM usando o arqui
 
     Depois que **chave/segredos forem disponibilizados** e os detalhes de criptografia estiverem definidos no blob do sistema operacional, anexe os discos usando o script abaixo.
 
-    Se o keyVault/chave/segredos de origem estiverem disponíveis, o script acima não precisará ser executado.
+    Se o keyvault/chave/segredos de origem estiverem disponíveis, o script acima não precisará ser executado.
 
     ```powershell
         Set-AzVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
