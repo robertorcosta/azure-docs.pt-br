@@ -1,14 +1,14 @@
 ---
 title: Noções básicas da linguagem de consulta
 description: Descreve as tabelas do Resource Graph e os tipos de dados, operadores e funções do Kusto disponíveis utilizáveis com o Azure Resource Graph.
-ms.date: 08/21/2020
+ms.date: 08/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea274c349c968852b77f3c3f2d39637f91484335
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 4d7ca949e9eef075adb130bb84b2617749950bec
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723427"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798543"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do Azure Resource Graph
 
@@ -63,6 +63,25 @@ Resources
 
 > [!NOTE]
 > Quando os resultados de `join` são limitados com `project`, a propriedade usada por `join` para relacionar as duas tabelas, _subscriptionId_ no exemplo acima, deve ser incluída em `project`.
+
+## <a name="extended-properties-preview"></a><a name="extended-properties"></a>Propriedades estendidas (visualização)
+
+Como um recurso de _Visualização_ , alguns dos tipos de recursos no grafo de recursos têm propriedades adicionais relacionadas a tipos disponíveis para consulta além das propriedades fornecidas pelo Azure Resource Manager. Esse conjunto de valores, conhecido como _Propriedades estendidas_, existe em um tipo de recurso com suporte no `properties.extended` . Para ver quais tipos de recursos têm _Propriedades estendidas_, use a seguinte consulta:
+
+```kusto
+Resources
+| where isnotnull(properties.extended)
+| distinct type
+| order by type asc
+```
+
+Exemplo: obter a contagem de máquinas virtuais por `instanceView.powerState.code` :
+
+```kusto
+Resources
+| where type == 'microsoft.compute/virtualmachines'
+| summarize count() by tostring(properties.extended.instanceView.powerState.code)
+```
 
 ## <a name="resource-graph-custom-language-elements"></a>Elementos de linguagem personalizada do grafo de recursos
 
@@ -123,8 +142,7 @@ A seguir está a lista de operadores de tabela da linguagem KQL com suporte do R
 O escopo das assinaturas dos quais os recursos são retornados por uma consulta depende do método de acesso ao grafo de recursos. CLI do Azure e Azure PowerShell popular a lista de assinaturas a serem incluídas na solicitação com base no contexto do usuário autorizado. A lista de assinaturas pode ser definida manualmente para cada uma com as **assinaturas** e os parâmetros de **assinatura** , respectivamente.
 Na API REST e em todos os outros SDKs, a lista de assinaturas para incluir recursos deve ser explicitamente definida como parte da solicitação.
 
-Como uma **Visualização**, a versão da API REST `2020-04-01-preview` adiciona uma propriedade para o escopo da consulta a um [grupo de gerenciamento](../../management-groups/overview.md). Essa API de visualização também torna a propriedade de assinatura opcional. Se o grupo de gerenciamento ou a lista de assinaturas não forem definidos, o escopo da consulta será todos os recursos que o usuário autenticado pode acessar. A nova `managementGroupId` propriedade usa a ID do grupo de gerenciamento, que é diferente do nome do grupo de gerenciamento.
-Quando `managementGroupId` é especificado, os recursos das primeiras assinaturas 5000 no ou na hierarquia do grupo de gerenciamento especificado são incluídos. `managementGroupId` Não pode ser usado ao mesmo tempo que `subscriptions` .
+Como uma **Visualização**, a versão da API REST `2020-04-01-preview` adiciona uma propriedade para o escopo da consulta a um [grupo de gerenciamento](../../management-groups/overview.md). Essa API de visualização também torna a propriedade de assinatura opcional. Se um grupo de gerenciamento ou uma lista de assinaturas não estiver definida, o escopo da consulta será todos os recursos que o usuário autenticado pode acessar. A nova `managementGroupId` propriedade usa a ID do grupo de gerenciamento, que é diferente do nome do grupo de gerenciamento. Quando `managementGroupId` é especificado, os recursos das primeiras assinaturas 5000 no ou na hierarquia do grupo de gerenciamento especificado são incluídos. `managementGroupId` Não pode ser usado ao mesmo tempo que `subscriptions` .
 
 Exemplo: consultar todos os recursos na hierarquia do grupo de gerenciamento denominado ' meu grupo de gerenciamento ' com a ID ' myMG '.
 

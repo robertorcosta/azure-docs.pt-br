@@ -3,12 +3,12 @@ title: Solucionar problemas de backup de compartilhamento de arquivos do Azure
 description: Este artigo tem informações sobre a solução de problemas que ocorrem ao proteger seus compartilhamentos de arquivos no Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 7b007a9ef893bb772929584eb3137c7a5200d756
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2030620446f414f985f86218b96c6db78ab090a1
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524481"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763670"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Solucionar problemas ao fazer backup de compartilhamentos de arquivos do Azure
 
@@ -25,7 +25,7 @@ Este artigo fornece informações de solução de problemas para resolver os pro
   >Todos os compartilhamentos de arquivos em uma conta de armazenamento podem ser protegidos somente em um cofre dos Serviços de Recuperação. Você pode usar [esse script](scripts/backup-powershell-script-find-recovery-services-vault.md) para localizar o cofre dos serviços de recuperação em que sua conta de armazenamento está registrada.
 
 - Verifique se o compartilhamento de arquivos não está presente em nenhuma das contas de armazenamento sem suporte. Você pode consultar a [matriz de suporte para o backup do compartilhamento de arquivos do Azure](azure-file-share-support-matrix.md) para localizar as contas de armazenamento com suporte.
-- Verifique se o comprimento combinado do nome da conta de armazenamento e do nome do grupo de recursos não excede 84 caracteres no caso de novas contas de armazenamento e 77 caracteres no caso de contas de armazenamento clássicas. 
+- Certifique-se de que o comprimento combinado do nome da conta de armazenamento e do nome do grupo de recursos não exceda 84 caracteres no caso de novas contas de armazenamento e 77 caracteres no caso de contas de armazenamento clássicas.
 - Verifique as configurações de firewall da conta de armazenamento para garantir que a opção de permitir que os serviços confiáveis da Microsoft acessem a conta de armazenamento esteja habilitada.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Erro no portal declara que a descoberta de contas de armazenamento falhou

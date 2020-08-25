@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 322a3b4e8d362d1b751b2c016e6f7cf904f11d7e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e9384dd3865b106488dc8ec303b060736f23ded7
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752344"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797778"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucionar problemas de Arquivos do Azure no Windows
 
@@ -369,7 +369,7 @@ Recomendamos que você use a [ferramenta icacls](https://docs.microsoft.com/wind
 
 ### <a name="error-the-directory-service-was-unable-to-allocate-a-relative-identifier"></a>Erro: "o serviço de diretório não pôde alocar um identificador relativo"
 
-Esse erro poderá ocorrer se um controlador de domínio que mantém a função FSMO mestre RID estiver indisponível ou removido do domínio e restaurado do backup.  Confirme se todos os controladores de domínio estão em execução e disponíveis.
+Esse erro pode ocorrer se um controlador de domínio que mantém a função FSMO mestre RID não estiver disponível ou foi removido do domínio e restaurado do backup.  Confirme se todos os controladores de domínio estão em execução e disponíveis.
 
 ### <a name="error-cannot-bind-positional-parameters-because-no-names-were-given"></a>Erro: "Não é possível associar parâmetros posicionais porque nenhum nome foi fornecido"
 

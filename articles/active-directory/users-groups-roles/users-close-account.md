@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bbc1644294a471bbb704d10c5f684d7404eae95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87e03214e2a00a16064763f35f38bdd3ea0e6123
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374569"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798322"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Fechar sua conta corporativa ou de estudante em uma organização não gerenciada do Azure AD
 
@@ -32,9 +32,9 @@ Os usuários em uma organização não gerenciada geralmente são criados durant
 
 Antes de poder fechar sua conta, você deve confirmar os seguintes itens:
 
-* Verifique se você é um usuário de uma organização não gerenciada do Azure AD. Você não poderá fechar sua conta se você pertencer a uma organização gerenciada. Se você pertencer a uma organização gerenciada e quiser fechar sua conta, deverá entrar em contato com o administrador. Para obter informações sobre como determinar se você pertence a uma organização não gerenciada, consulte [excluir o usuário de um locatário não gerenciado](https://docs.microsoft.com/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
+* Verifique se você é um usuário de uma organização não gerenciada do Azure AD. Você não poderá fechar sua conta se você pertencer a uma organização gerenciada. Se você pertencer a uma organização gerenciada e quiser fechar sua conta, deverá entrar em contato com o administrador. Para obter informações sobre como determinar se você pertence a uma organização não gerenciada, consulte [excluir o usuário de um locatário não gerenciado](/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
 
-* Salve os dados que você deseja manter. Para obter informações sobre como enviar uma solicitação de exportação, consulte [acessando e exportando logs gerados pelo sistema para locatários não gerenciados](https://docs.microsoft.com/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants).
+* Salve os dados que você deseja manter. Para obter informações sobre como enviar uma solicitação de exportação, consulte [acessando e exportando logs gerados pelo sistema para locatários não gerenciados](/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants).
 
 > [!WARNING]
 > Fechar sua conta é irreversível. Quando você fechar sua conta, todos os dados pessoais serão removidos. Você não terá mais acesso à sua conta e aos dados associados à sua conta.
@@ -56,5 +56,5 @@ Para fechar uma conta corporativa ou de estudante não gerenciada, siga estas et
 ## <a name="next-steps"></a>Próximas etapas
 
 - [O que é inscrição por autoatendimento no Azure Active Directory?](directory-self-service-signup.md)
-- [Excluir o usuário do locatário não gerenciado](https://docs.microsoft.com/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)
-- [Acessando e exportando logs gerados pelo sistema para locatários não gerenciados](https://docs.microsoft.com/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants)
+- [Excluir o usuário do locatário não gerenciado](/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)
+- [Acessando e exportando logs gerados pelo sistema para locatários não gerenciados](/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants)

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d18041a746a0c1046a51cf408494ccb81019c9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: fe509879c38f979525a673890c05fcfe5c8e3880
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183200"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798305"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Usar grupos de nuvem para gerenciar atribuições de função no Azure Active Directory (versão prévia)
 
@@ -33,7 +33,7 @@ Crie um novo Office 365 ou grupo de segurança com a propriedade ' isAssignableT
 Se você não quiser que os membros do grupo tenham acesso à função, você poderá usar Azure AD Privileged Identity Management. Atribua um grupo como um membro qualificado de uma função do Azure AD. Em seguida, cada membro do grupo é elegível para que sua atribuição seja ativada para a função à qual o grupo está atribuído. Em seguida, eles podem ativar sua atribuição de função por uma duração fixa.
 
 > [!Note]
-> Você deve estar na versão atualizada do Privileged Identity Management para poder atribuir um grupo à função do Azure AD por meio do PIM. Você pode estar em uma versão mais antiga do PIM porque sua organização do Azure AD aproveita a API de Privileged Identity Management. Entre em contato com o alias pim_preview@microsoft.com para mover sua organização e atualizar sua API. Saiba mais em [funções e recursos do Azure AD no PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-roles-features).
+> Você deve estar na versão atualizada do Privileged Identity Management para poder atribuir um grupo à função do Azure AD por meio do PIM. Você pode estar em uma versão mais antiga do PIM porque sua organização do Azure AD aproveita a API de Privileged Identity Management. Entre em contato com o alias pim_preview@microsoft.com para mover sua organização e atualizar sua API. Saiba mais em [funções e recursos do Azure AD no PIM](../privileged-identity-management/azure-ad-roles-features.md).
 
 ## <a name="why-we-enforce-creation-of-a-special-group-for-assigning-it-to-a-role"></a>Por que impõem a criação de um grupo especial para atribuí-lo a uma função
 
@@ -65,7 +65,7 @@ Os cenários a seguir não têm suporte no momento:
   - No portal do PIM, **minhas funções** podem mostrar apenas uma atribuição de função, independentemente de quantos métodos são concedidos pela atribuição (por meio de um ou mais grupos e diretamente).
 - *Somente clientes licenciados do Azure ad P2* Mesmo após a exclusão do grupo, ele ainda mostra um membro qualificado da função na interface do usuário do PIM. Funcionalmente, não há problema; é apenas um problema de cache na portal do Azure.  
 - O centro de administração do Exchange não reconhece a associação de função via grupo ainda, mas o cmdlet do PowerShell funcionará.
-- O portal da proteção de informações do Azure (o portal clássico) não reconhece a associação de função via grupo ainda. Você pode [migrar para a plataforma de rotulação de sensibilidade unificada](https://docs.microsoft.com/azure/information-protection/configure-policy-migrate-labels) e, em seguida, usar o centro de conformidade do Office 365 Security & para usar atribuições de grupo para gerenciar funções.
+- O portal da proteção de informações do Azure (o portal clássico) não reconhece a associação de função via grupo ainda. Você pode [migrar para a plataforma de rotulação de sensibilidade unificada](/azure/information-protection/configure-policy-migrate-labels) e, em seguida, usar o centro de conformidade do Office 365 Security & para usar atribuições de grupo para gerenciar funções.
 
 Estamos corrigindo esses problemas.
 
