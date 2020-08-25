@@ -3,12 +3,12 @@ title: Sobre o backup do compartilhamento de arquivos do Azure
 description: Saiba como fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 7441157d6346eefc256e9e7c29f9bb1fa5c13b79
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c57537519888138698e9add1a687e0018d330cfa
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289528"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757873"
 ---
 # <a name="about-azure-file-share-backup"></a>Sobre o backup do compartilhamento de arquivos do Azure
 
@@ -42,9 +42,9 @@ O backup de compartilhamento de arquivos do Azure é uma solução de backup nat
     >[!NOTE]
     >Os dados de compartilhamento de arquivos não são transferidos para o serviço de backup, já que o serviço de backup cria e gerencia instantâneos que fazem parte de sua conta de armazenamento e os backups não são transferidos para o cofre.
 
-6. Você pode restaurar o conteúdo do compartilhamento de arquivos do Azure (arquivos individuais ou o compartilhamento completo) de instantâneos disponíveis no compartilhamento de arquivo de origem. Depois que a operação é disparada, a URL do instantâneo é recuperada do repositório de metadados e os dados são listados e transferidos do instantâneo de origem para o compartilhamento de arquivos de destino de sua escolha. 
+6. Você pode restaurar o conteúdo do compartilhamento de arquivos do Azure (arquivos individuais ou o compartilhamento completo) de instantâneos disponíveis no compartilhamento de arquivo de origem. Depois que a operação é disparada, a URL do instantâneo é recuperada do repositório de metadados e os dados são listados e transferidos do instantâneo de origem para o compartilhamento de arquivos de destino de sua escolha.
 
-7. Se você estiver usando Sincronização de Arquivos do Azure, o serviço de backup indicará para o serviço de Sincronização de Arquivos do Azure os caminhos dos arquivos que estão sendo restaurados, o que dispara um processo de detecção de alterações em segundo plano nesses arquivos. Todos os arquivos que foram alterados são sincronizados com o ponto de extremidade do servidor. Esse processo ocorre em paralelo com a restauração original para o compartilhamento de arquivos do Azure. 
+7. Se você estiver usando Sincronização de Arquivos do Azure, o serviço de backup indicará para o serviço de Sincronização de Arquivos do Azure os caminhos dos arquivos que estão sendo restaurados, o que dispara um processo de detecção de alterações em segundo plano nesses arquivos. Todos os arquivos que foram alterados são sincronizados com o ponto de extremidade do servidor. Esse processo ocorre em paralelo com a restauração original para o compartilhamento de arquivos do Azure.
 
 8. Os dados de monitoramento do trabalho de backup e restauração são enviados por push para o serviço de monitoramento do backup do Azure. Isso permite que você monitore os backups de nuvem para seus compartilhamentos de arquivos em um único painel. Além disso, você também pode configurar alertas ou notificações por email quando a integridade do backup for afetada. Os emails são enviados por meio do serviço de email do Azure.
 

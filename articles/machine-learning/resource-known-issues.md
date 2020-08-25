@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 71457be4e572a0e04dfffd0689bfbd458f7c2622
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 02c733c7849c89f9d48ddbe75ffbb2235e1be58e
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190507"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757278"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conhecidos e solução de problemas no Azure Machine Learning
 
@@ -61,7 +61,7 @@ Para obter mais informações sobre solução de problemas, consulte [próximas 
      
 * **O pacote de explicação não tem garantia de ser instalado ao instalar o azureml-Train-automl-Client:** 
    
-   Ao executar uma AutoML remota executar com a explicação do modelo habilitada, você verá uma mensagem de erro "Instale o azureml-explique-Package para obter explicações do modelo." Esse é um problema conhecido. Como alternativa, siga uma das etapas abaixo:
+   Ao executar uma AutoML remota executar com a explicação do modelo habilitada, você verá uma mensagem de erro "Instale o azureml-explique-Package para obter explicações do modelo." Este é um problema conhecido. Como alternativa, siga uma das etapas abaixo:
   
   1. Instale o azureml-explique-Model localmente.
    ```
@@ -121,6 +121,18 @@ Para obter mais informações sobre solução de problemas, consulte [próximas 
     pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
     ```
 
+* **Falha na instalação do SDK do Azure Machine Learning com uma exceção: ModuleNotFoundError: nenhum módulo chamado ' ruamel ' ou ' ImportError: nenhum módulo chamado ruamel. YAML '**
+   
+   Esse problema está sendo encontrado com a instalação do SDK do Azure Machine Learning para Python no PIP (>20.1.1) mais recente no ambiente de base do Conda para todas as versões lançadas do SDK do Azure Machine Learning para Python. Consulte as seguintes soluções alternativas:
+
+    * Evite instalar o SDK do Python no ambiente de base do Conda, em vez disso, crie seu ambiente do Conda e instale o SDK nesse ambiente de usuário recém-criado. O Pip mais recente deve funcionar no novo ambiente Conda.
+
+    * Para criar imagens no Docker, onde você não pode sair do ambiente de base do Conda, fixe o Pip<= 20.1.1 no arquivo do Docker.
+
+    ```Python
+    conda install -c r -y conda python=3.6.2 pip=20.1.1
+    ```
+    
 * **Falha do databricks ao instalar pacotes**
 
     A instalação do SDK do Azure Machine Learning falha em Azure Databricks quando mais pacotes são instalados. Alguns pacotes, como `psutil`, podem causar conflitos. Para evitar erros de instalação, instale pacotes congelando a versão da biblioteca. Esse problema está relacionado ao databricks e não ao SDK do Azure Machine Learning. Você também pode experimentar esse problema com outras bibliotecas. Exemplo:
@@ -169,7 +181,7 @@ Para obter mais informações sobre solução de problemas, consulte [próximas 
   * Chrome (última versão)
   * Firefox (última versão)
 
-## <a name="set-up-your-environment"></a>Configurar seu ambiente
+## <a name="set-up-your-environment"></a>Configure seu ambiente
 
 * **Problemas ao criar AmlCompute**: há uma chance rara de que alguns usuários que criaram seu espaço de trabalho Azure Machine Learning do portal do Azure antes da versão GA talvez não possam criar AmlCompute nesse espaço de trabalho. Você pode gerar uma solicitação de suporte em relação ao serviço ou criar um novo espaço de trabalho por meio do portal ou do SDK para desbloquear-se imediatamente.
 
@@ -369,7 +381,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 Execute estas ações para os seguintes erros:
 
-|Erro  | Resolução  |
+|Erro do  | Resolução  |
 |---------|---------|
 |Falha na criação da imagem ao implantar o serviço Web     |  Adicionar "pynacl = = 1.2.1" como uma dependência Pip ao arquivo Conda para configuração de imagem       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Altere a SKU para VMs usadas em sua implantação para uma que tenha mais memória. |

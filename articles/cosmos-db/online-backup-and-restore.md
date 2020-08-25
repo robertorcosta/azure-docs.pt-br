@@ -1,18 +1,18 @@
 ---
 title: Backup on-line e restauração de dados sob demanda no Azure Cosmos DB
-description: Este artigo descreve como o backup online automático e a restauração de dados sob demanda funcionam no Azure Cosmos DB.
+description: Este artigo descreve como o backup automático, a restauração de dados sob demanda funciona, como configurar o intervalo de backup e a retenção em Azure Cosmos DB.
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 8ed9e23b178b8eeefbd3c3a690491124e6901180
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ac7f27015812756a8de9736351cc1fe0e374e0c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85112915"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799495"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Backup on-line e restauração de dados sob demanda no Azure Cosmos DB
 
@@ -22,19 +22,17 @@ O Azure Cosmos DB faz backups automáticos de seus dados em intervalos regulares
 
 Com o Azure Cosmos DB, não apenas seus dados, mas também os backups de seus dados são altamente redundantes e resilientes a desastres regionais. As etapas a seguir mostram como o Azure Cosmos DB executa o backup de dados:
 
-* O Azure Cosmos DB faz automaticamente um backup de seu banco de dados a cada 4 horas e a qualquer momento, somente os 2 backups mais recentes são armazenados. No entanto, se o contêiner ou banco de dados for excluído, o Azure Cosmos DB reterá os instantâneos existentes de um determinado contêiner ou banco de dados por 30 dias.
+* Azure Cosmos DB faz automaticamente um backup de seu banco de dados a cada 4 horas e a qualquer momento, somente os dois backups mais recentes são armazenados por padrão. Se os intervalos padrão não forem suficientes para suas cargas de trabalho, você poderá alterar o intervalo de backup e o período de retenção do portal do Azure. Você pode alterar a configuração de backup durante ou após a criação da conta do Azure Cosmos. Se o contêiner ou banco de dados for excluído, Azure Cosmos DB manterá os instantâneos existentes de um determinado contêiner ou banco de dados por 30 dias.
 
 * O Azure Cosmos DB armazena esses backups no armazenamento de BLOBs do Azure, enquanto os dados reais residem localmente no Azure Cosmos DB.
 
-*  Para garantir baixa latência, o instantâneo do backup é armazenado no armazenamento de BLOBs do Azure na mesma região que a região de gravação atual (ou uma das regiões de gravação, caso você tenha uma configuração de vários mestres) de sua conta de banco de dados Cosmos do Azure. Para resiliência contra desastres regionais, cada captura instantânea dos dados de backup no armazenamento do Azure Blob é novamente replicada para outra região por meio de armazenamento geo-redundante (GRS). A região na qual o backup é replicado é baseada em sua região de origem e no par regional associado à região de origem. Para saber mais, consulte a [lista de artigos de pares geo-redundantes de regiões do Azure](../best-practices-availability-paired-regions.md). Você não pode acessar esse backup diretamente. O Azure Cosmos DB usará esse backup somente se uma restauração de backup for iniciada.
+*  Para garantir baixa latência, o instantâneo do backup é armazenado no armazenamento de BLOBs do Azure na mesma região que a região de gravação atual (ou **uma** das regiões de gravação, caso você tenha uma configuração de vários mestres). Para resiliência contra desastres regionais, cada captura instantânea dos dados de backup no armazenamento do Azure Blob é novamente replicada para outra região por meio de armazenamento geo-redundante (GRS). A região na qual o backup é replicado é baseada em sua região de origem e no par regional associado à região de origem. Para saber mais, consulte a [lista de artigos de pares geo-redundantes de regiões do Azure](../best-practices-availability-paired-regions.md). Você não pode acessar esse backup diretamente. Azure Cosmos DB equipe irá restaurar o backup quando você solicitar por meio de uma solicitação de suporte.
+
+   A imagem a seguir mostra como é feito o backup de um contêiner do Azure Cosmos com todas as três partições físicas primárias no oeste dos EUA em uma conta remota do Armazenamento de Blobs do Azure no oeste dos EUA e, em seguida, replicada para o leste dos EUA:
+
+  :::image type="content" source="./media/online-backup-and-restore/automatic-backup.png" alt-text="Backups completos periódicos de todas as entidades do Cosmos DB no Armazenamento do Azure GRS" border="false":::
 
 * Os backups são feitos sem afetar o desempenho ou a disponibilidade de seu aplicativo. O Azure Cosmos DB executa backup de dados em segundo plano sem consumir nenhuma taxa de transferência provisionada (RUs) adicional ou afetar o desempenho e a disponibilidade de seu banco de dados.
-
-* Se você acidentalmente excluiu ou danificou seus dados, deve entrar em contato com o [suporte do Azure](https://azure.microsoft.com/support/options/) dentro de 8 horas para que a equipe de Azure Cosmos DB possa ajudá-lo a restaurar os dados dos backups.
-
-A imagem a seguir mostra como é feito o backup de um contêiner do Azure Cosmos com todas as três partições físicas primárias no oeste dos EUA em uma conta remota do Armazenamento de Blobs do Azure no oeste dos EUA e, em seguida, replicada para o leste dos EUA:
-
-:::image type="content" source="./media/online-backup-and-restore/automatic-backup.png" alt-text="Backups completos periódicos de todas as entidades do Cosmos DB no Armazenamento do Azure GRS" border="false":::
 
 ## <a name="options-to-manage-your-own-backups"></a>Opções para gerenciar seus próprios backups
 
@@ -42,48 +40,69 @@ Com as contas da API do Azure Cosmos DB SQL, você também pode manter seus pró
 
 * Use o [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) para mover dados periodicamente para um armazenamento de sua escolha.
 
-* Use o DB do Azure Cosmos [ alterar o feed ](change-feed.md) para ler dados periodicamente para backups completos, bem como para alterações incrementais, e armazene-os em seu próprio armazenamento.
+* Use Azure Cosmos DB [feed de alterações](change-feed.md) para ler dados periodicamente para backups completos ou para alterações incrementais e armazená-los em seu próprio armazenamento.
 
-## <a name="backup-retention-period"></a>Período de retenção do backup
+## <a name="backup-interval-and-retention-period"></a>Intervalo de backup e período de retenção
 
-O Azure Cosmos DB tira instantâneos de seus dados a cada quatro horas. A qualquer momento, somente os últimos dois instantâneos são mantidos. No entanto, se o contêiner ou banco de dados for excluído, o Azure Cosmos DB reterá os instantâneos existentes de um determinado contêiner ou banco de dados por 30 dias.
+Azure Cosmos DB faz automaticamente um backup de seus dados para cada 4 horas e a qualquer momento, os dois backups mais recentes são armazenados. Essa configuração é a opção padrão e é oferecida sem nenhum custo adicional. Se você tiver cargas de trabalho em que o intervalo de backup padrão e o período de retenção não são suficientes, você pode alterá-las. Você pode alterar esses valores durante a criação da conta do Azure Cosmos ou após a criação da conta. A configuração de backup é definida no nível da conta do Azure Cosmos e você precisa configurá-la em cada conta. Depois de configurar as opções de backup para uma conta, ela é aplicada a todos os contêineres dentro dessa conta. No momento, você pode alterar as opções de backup somente de portal do Azure.
 
-## <a name="restoring-data-from-online-backups"></a>Restaurando dados de backups online
+Se você acidentalmente excluiu ou danificou seus dados, **antes de criar uma solicitação de suporte para restaurar os dados, certifique-se de aumentar a retenção de backup para sua conta para pelo menos sete dias. É melhor aumentar sua retenção dentro de 8 horas desse evento.** Dessa forma, a equipe de Azure Cosmos DB tem tempo suficiente para restaurar sua conta.
 
-A exclusão acidental ou modificação de dados pode acontecer em um dos seguintes cenários:  
+Use as etapas a seguir para alterar as opções de backup padrão para uma conta existente do Azure Cosmos:
 
-* Toda a conta do Azure Cosmos é excluída
+1. Entre no [Portal do Azure](https://portal.azure.com/)
+1. Navegue até sua conta do Azure Cosmos e abra o painel **Backup & restauração** . Atualize o intervalo de backup e o período de retenção de backup conforme necessário.
 
-* Um ou mais bancos de dados do Azure Cosmos são excluídos
+   * **Intervalo de backup** – é o intervalo no qual Azure Cosmos DB tenta fazer um backup dos dados. O backup leva um período de tempo diferente de zero e, em algum caso, poderia falhar possivelmente devido a dependências de downstream. O Azure Cosmos DB tenta o melhor fazer um backup no intervalo configurado, no entanto, não garante que o backup seja concluído dentro desse intervalo de tempo. Você pode configurar esse valor em horas ou minutos. O intervalo de backup não pode ser inferior a 1 hora e maior que 24 horas. Quando você altera esse intervalo, o novo intervalo entra em vigor a partir da hora em que o último backup foi feito.
 
-* Um ou mais contêineres do Azure Cosmos são excluídos
+   * **Retenção de backup** – representa o período em que cada backup é retido. Você pode configurá-lo em horas ou dias. O período de retenção mínimo não pode ser menor que duas vezes o intervalo de backup (em horas) e não pode ser maior que 720 horas.
 
-* Os itens do Azure Cosmos (por exemplo, documentos) em um contêiner são excluídos ou modificados. Esse caso específico é normalmente chamado de "dados corrompidos".
+   * **Cópias de dados retidas** -por padrão, duas cópias de backup de seus dados são oferecidas gratuitamente. Se você precisar de cópias adicionais, deverá criar uma solicitação de suporte por meio do portal do Azure e as cópias adicionais serão cobradas. Consulte a seção armazenamento consumido na [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para saber o preço exato de cópias adicionais.
 
-* Um banco de dados de oferta compartilhada ou contêineres dentro de um banco de dados de oferta compartilhada são excluídos ou corrompidos
+   :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Configurar o intervalo de backup e a retenção de uma conta existente do Azure Cosmos" border="true":::
 
-O Azure Cosmos DB pode restaurar dados em todos os cenários acima. O processo de restauração sempre cria uma nova conta do Azure Cosmos para conter os dados restaurados. O nome da nova conta, se não especificado, terá o formato `<Azure_Cosmos_account_original_name>-restored1`. O último dígito é incrementado, se várias restaurações forem tentadas. Não é possível restaurar dados para uma conta do Azure Cosmos criada previamente.
+Se você configurar as opções de backup durante a criação da conta, poderá configurar a **política de backup**, que é **periódica** ou **contínua**. A política periódica permite que você configure o intervalo de backup e a retenção de backup. Atualmente, a política contínua está disponível apenas para inscrição. A equipe de Azure Cosmos DB avaliará sua carga de trabalho e aprovará sua solicitação.
 
-Quando uma conta do Azure Cosmos é excluída, podemos restaurar os dados em uma conta com o mesmo nome, desde que o nome da conta não esteja em uso. Nesses casos, é recomendável não recriar a conta após a exclusão, pois ela não apenas impede que os dados restaurados usem o mesmo nome, mas também faz com que a descoberta da conta correta seja restaurada de forma mais difícil. 
+:::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Configurar a política de backup periódica ou contínua para novas contas do Azure Cosmos" border="true":::
 
-Quando um banco de dados do Azure Cosmos é excluído, é possível restaurar o banco de dados inteiro ou um subconjunto dos contêineres desse banco de dados. Também é possível selecionar contêineres nos bancos de dados e restaurá-los, e todos os dados restaurados são colocados em uma nova conta do Azure Cosmos.
+## <a name="restore-data-from-an-online-backup"></a>Restaurar dados de um backup online
 
-Quando um ou mais itens dentro de um contêiner são excluídos ou alterados acidentalmente (o caso de corrupção de dados), é necessário especificar o tempo para restauração. O tempo é essencial para este caso. Como o contêiner está ativo, o backup ainda está em execução; portanto, se você esperar além do período de retenção (o padrão é oito horas), os backups serão substituídos. No caso de exclusões, os dados não são mais armazenados porque não serão substituídos pelo ciclo de backup. Os backups de bancos de dados ou contêineres excluídos são salvos por 30 dias.
+Você pode excluir ou modificar seus dados acidentalmente em um dos seguintes cenários:  
 
-Se você provisionar a taxa de transferência no nível do banco de dados (isto é, onde um conjunto de contêineres compartilha a taxa de transferência provisionada), o processo de backup e restauração nesse caso acontecerá em todo o nível do banco de dados e não no nível de contêiner individual. Nesses casos, selecionar um subconjunto de contêineres para restauração não é uma opção.
+* Exclua toda a conta do Azure Cosmos.
 
-## <a name="migrating-data-to-the-original-account"></a>Migrando dados para a conta original
+* Exclua um ou mais bancos de dados do Azure Cosmos.
 
-O objetivo principal da restauração de dados é fornecer uma maneira de recuperar todos os dados que você excluir ou modificar acidentalmente. Portanto, recomendamos que você primeiro inspecione o conteúdo dos dados recuperados para garantir que ele contenha o que você está esperando. Em seguida, trabalhe na migração dos dados de volta para a conta principal. Embora seja possível usar a conta restaurada como a conta dinâmica, ela não será uma opção recomendada se você tiver cargas de trabalho de produção.  
+* Exclua um ou mais contêineres de Cosmos do Azure.
+
+* Exclua ou modifique os itens Cosmos do Azure (por exemplo, documentos) dentro de um contêiner. Esse caso específico é normalmente chamado de corrupção de dados.
+
+* Um banco de dados de oferta compartilhado ou contêineres em um banco de dados de oferta compartilhado são excluídos ou corrompidos.
+
+O Azure Cosmos DB pode restaurar dados em todos os cenários acima. Durante a restauração, uma nova conta do Azure cosmos é criada para armazenar os dados restaurados. O nome da nova conta, se não for especificado, terá o formato `<Azure_Cosmos_account_original_name>-restored1` . O último dígito é incrementado quando várias restaurações são tentadas. Não é possível restaurar dados para uma conta do Azure Cosmos criada previamente.
+
+Quando você exclui acidentalmente uma conta do Azure Cosmos, podemos restaurar os dados em uma nova conta com o mesmo nome, desde que o nome da conta não esteja em uso. Portanto, recomendamos que você não crie novamente a conta depois de excluí-la. Porque ele não apenas impede que os dados restaurados usem o mesmo nome, mas também torna a descoberta da conta correta para restaurar de difícil.
+
+Quando você exclui acidentalmente um banco de dados Cosmos do Azure, podemos restaurar todo o banco de dados ou um subconjunto dos contêineres dentro desse banco de dados. Também é possível selecionar contêineres específicos em bancos de dados e restaurá-los para uma nova conta do Azure Cosmos.
+
+Quando você exclui ou modifica acidentalmente um ou mais itens dentro de um contêiner (o caso de corrupção de dados), precisa especificar a hora de restauração. O tempo é importante se houver dados corrompidos. Como o contêiner está ativo, o backup ainda está em execução. portanto, se você aguardar além do período de retenção (o padrão é de oito horas), os backups serão substituídos. **Para impedir que o backup seja substituído, aumente a retenção de backup da sua conta para pelo menos sete dias. É melhor aumentar sua retenção dentro de 8 horas a partir da corrupção de dados.**
+
+Se você acidentalmente excluiu ou danificou seus dados, deve entrar em contato com o [suporte do Azure](https://azure.microsoft.com/support/options/) dentro de 8 horas para que a equipe de Azure Cosmos DB possa ajudá-lo a restaurar os dados dos backups. Dessa forma, a equipe de suporte do Azure Cosmos DB terá tempo suficiente para restaurar sua conta.
+
+Se você provisionar a taxa de transferência no nível do banco de dados, o processo de backup e restauração, nesse caso, ocorrerá em todo o nível do banco de dados, e não no nível de contêineres individuais. Nesses casos, você não pode selecionar um subconjunto de contêineres para restaurar.
+
+## <a name="migrate-data-to-the-original-account"></a>Migrar dados para a conta original
+
+O objetivo principal da restauração de dados é recuperar os dados que você excluiu ou modificou acidentalmente. Portanto, recomendamos que você primeiro inspecione o conteúdo dos dados recuperados para garantir que ele contenha o que você está esperando. Posteriormente, você pode migrar os dados de volta para a conta primária. Embora seja possível usar a conta restaurada como sua nova conta ativa, ela não será uma opção recomendada se você tiver cargas de trabalho de produção.  
 
 Estas são maneiras diferentes de migrar dados de volta para a conta original do Azure Cosmos:
 
-* Usando [Ferramenta de Migração de Dados do BD Cosmos](import-data.md)
-* Usando [Azure data Factory]( ../data-factory/connector-azure-cosmos-db.md)
-* Usando o [feed de alterações](change-feed.md) no Azure Cosmos DB 
-* Escrever código personalizado
+* Use a [ferramenta de migração de dados Azure Cosmos DB](import-data.md).
+* Use o [Azure data Factory](../data-factory/connector-azure-cosmos-db.md).
+* Use o [feed de alterações](change-feed.md) no Azure Cosmos DB.
+* Você pode escrever seu próprio código personalizado.
 
-Excluir restaurado contas assim que você terminar de migrar, porque eles incorrerá em encargos contínuos.
+Certifique-se de excluir as contas restauradas assim que tiver migrado seus dados, pois eles incorrerão em encargos contínuos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

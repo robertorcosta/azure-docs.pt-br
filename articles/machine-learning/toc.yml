@@ -150,41 +150,45 @@
       href: concept-ml-pipelines.md
     - name: Preparação e segurança corporativas
       items:
+        - name: Visão geral de segurança empresarial
+          displayName: authorization authentication encryption aad azure active directory
+          href: concept-enterprise-security.md
         - name: Linha de base de segurança
           href: security-baseline.md
-        - name: Segurança e governança corporativas
+        - name: Gerenciamento de identidades e acesso
           items:
-            - name: Visão geral de segurança empresarial
-              displayName: authorization authentication encryption aad azure active directory
-              href: concept-enterprise-security.md
+            - name: Configurar a autenticação
+              displayName: 'authentication, auth, oauth'
+              href: how-to-setup-authentication.md
             - name: Gerenciar usuários e funções
               href: how-to-assign-roles.md
+            - name: Usar a identidade do Azure AD em implantações do AKS
+              href: how-to-use-azure-ad-identity.md
+        - name: Segurança de rede
+          items:
             - name: Usar redes virtuais
               displayName: 'vnet, blob'
               href: how-to-enable-virtual-network.md
             - name: Usar o Link Privado
               displayName: private endpoint
               href: how-to-configure-private-link.md
-            - name: Proteger serviços Web com o TLS
-              displayName: ssl
+            - name: Configurar serviços Web seguros
+              displayName: 'ssl, tls'
               href: how-to-secure-web-service.md
+            - name: Configurar o firewall
+              href: how-to-access-azureml-behind-firewall.md
+        - name: Proteção de dados
+          items:
             - name: Aumentar resiliência
               displayName: 'high availability, disaster recovery'
               href: how-to-high-availability-machine-learning.md
-            - name: Usar a identidade do Azure AD em implantações do AKS
-              href: how-to-use-azure-ad-identity.md
             - name: Regenerar chaves de acesso de armazenamento
               href: how-to-change-storage-access-key.md
-            - name: Usar o Firewall do Azure
-              href: how-to-access-azureml-behind-firewall.md
-            - name: Codificação segura
-              href: concept-secure-code-best-practice.md
-              displayName: security threat
-        - name: Configurar a autenticação
-          displayName: 'authentication, auth, oauth'
-          href: how-to-setup-authentication.md
         - name: Monitorar o Azure Machine Learning
           href: monitor-azure-machine-learning.md
+        - name: Codificação segura
+          href: concept-secure-code-best-practice.md
+          displayName: security threat
     - name: ML responsável
       items:
         - name: Visão geral do ML responsável

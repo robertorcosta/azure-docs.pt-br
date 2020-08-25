@@ -3,18 +3,18 @@ title: Fazer backup de compartilhamentos de arquivos do Azure com CLI do Azure
 description: Saiba como usar CLI do Azure para fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 273c8fadc25ed60ba9fb57ec69bda0b59f155f87
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9afd1e866c85770a8797493c3f89e531e2ef72fc
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514434"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763177"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Fazer backup de compartilhamentos de arquivos do Azure com a CLI
 
 A CLI (interface de linha de comando) do Azure fornece uma experiência de linha de comando para gerenciar recursos do Azure. É uma excelente ferramenta para a criação de automação personalizada para usar os recursos do Azure. Este artigo fornece detalhes sobre como fazer backup de compartilhamentos de arquivos do Azure com CLI do Azure. Você também pode executar essas etapas usando o [Azure PowerShell](./backup-azure-afs-automation.md) ou o [portal do Azure](backup-afs.md).
 
-Ao final deste tutorial, você aprenderá a executar operações abaixo com CLI do Azure:
+Ao final deste tutorial, você aprenderá a executar as operações abaixo com CLI do Azure:
 
 * Criar um cofre dos Serviços de Recuperação
 * Habilitar backup para compartilhamentos de arquivos do Azure
@@ -24,9 +24,9 @@ Ao final deste tutorial, você aprenderá a executar operações abaixo com CLI 
 
 Para instalar e usar a CLI localmente, você deve executar a CLI do Azure versão 2.0.18 ou posterior. Para localizar a versão da CLI, `run az --version` . Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos serviços de recuperação
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
-Um cofre do serviço de recuperação é uma entidade que fornece uma funcionalidade consolidada de exibição e gerenciamento em todos os itens de backup. Quando o trabalho de backup para um recurso protegido é executado, ele cria um ponto de recuperação no cofre dos Serviços de Recuperação. Você pode usar um desses pontos de recuperação para restaurar dados para um determinado ponto no tempo.
+Um cofre dos serviços de recuperação é uma entidade que oferece um recurso de gerenciamento e exibição consolidado em todos os itens de backup. Quando o trabalho de backup para um recurso protegido é executado, ele cria um ponto de recuperação no cofre dos Serviços de Recuperação. Você pode usar um desses pontos de recuperação para restaurar dados para um determinado ponto no tempo.
 
 Siga estas etapas para criar um cofre dos serviços de recuperação:
 

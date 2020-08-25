@@ -3,12 +3,12 @@ title: Backup offline do DPM e do Servidor de Backup do Azure
 description: Com o backup do Azure, você pode enviar dados da rede usando o serviço de importação/exportação do Azure. Este artigo explica o fluxo de trabalho de backup offline para o DPM e o Servidor de Backup do Azure.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: f27a38657bb43a1d1153a0372db0e1f9e284eccc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 30c8526271a636b8890dde0079e27374df9c38af
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067349"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757261"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Fluxo de trabalho de backup offline para o DPM e o Servidor de Backup do Azure (MABS)
 
@@ -102,7 +102,7 @@ As informações nesta seção ajudam você a concluir o fluxo de trabalho de ba
 
 ## <a name="prepare-sata-drives-and-ship-to-azure"></a>Preparar unidades SATA e enviar para o Azure
 
-O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são enviadas ao datacenter do Azure mais próximo. Esse utilitário está disponível no diretório de instalação do agente de backup do Azure (no seguinte caminho):`*\Microsoft Azure Recovery Services Agent\Utils\\*`
+O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são enviadas ao datacenter do Azure mais próximo. Esse utilitário está disponível no diretório de instalação do agente de backup do Azure (no seguinte caminho): `*\Microsoft Azure Recovery Services Agent\Utils\\*`
 
 1. Vá até o diretório e copie o diretório **AzureOfflineBackupDiskPrep** para outro computador no qual as unidades SATA estão conectadas. No computador com as unidades SATA conectadas, verifique se:
 

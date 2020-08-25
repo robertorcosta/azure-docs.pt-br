@@ -4,12 +4,12 @@ description: Neste artigo, saiba como atualizar a configuração do cofre usando
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 1f0fee505443b15ba2ea97710efc220ef05df738
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c3f964032d10988bf7ae615eb64d3b56b99a7747
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513108"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757295"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar as configurações do cofre dos serviços de recuperação do Azure usando a API REST
 
@@ -43,7 +43,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 A resposta bem-sucedida para a operação ' GET ' é mostrada abaixo:
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
@@ -83,10 +83,10 @@ As seguintes definições comuns são usadas para criar um corpo de solicitaçã
 
 Para obter mais detalhes, consulte [a documentação da API REST](/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
-|Nome  |Obrigatório  |Tipo  |Descrição  |
+|Nome  |Obrigatório  |Type  |Descrição  |
 |---------|---------|---------|---------|
-|eTag     |         |   Cadeia de caracteres      |  eTag Opcional       |
-|local     |  true       |Cadeia de caracteres         |   Localização do recurso      |
+|eTag     |         |   String      |  eTag Opcional       |
+|local     |  true       |String         |   Localização do recurso      |
 |properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
 |marcas     |         | Objeto        |     Marcações de recursos    |
 
@@ -103,15 +103,15 @@ O exemplo a seguir é usado para atualizar o estado de exclusão reversível par
 }
 ```
 
-#### <a name="responses"></a>Respostas
+#### <a name="responses-for-the-patch-operation"></a>Respostas para a operação de PATCH
 
 A resposta bem-sucedida para a operação ' PATCH ' é mostrada abaixo:
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
-##### <a name="example-response"></a>Exemplo de resposta
+##### <a name="example-response-for-the-patch-operation"></a>Exemplo de resposta para a operação de PATCH
 
 Depois que a solicitação ' PATCH ' for enviada, uma resposta 200 (bem-sucedida) será retornada.
 

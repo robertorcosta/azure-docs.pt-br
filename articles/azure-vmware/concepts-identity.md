@@ -1,16 +1,16 @@
 ---
 title: Conceitos-identidade e acesso
-description: Saiba mais sobre os conceitos de identidade e acesso da solução do Azure VMware (AVS)
+description: Saiba mais sobre os conceitos de identidade e acesso da solução do Azure VMware
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ce85b60b38db86af14b9e9aa06e568436dc76658
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d5b7b4c7c2e0d55cffc99a3f371494f40320a16
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82740948"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750578"
 ---
-# <a name="azure-vmware-solution-avs-identity-concepts"></a>Conceitos de identidade da AVS (solução VMware do Azure)
+# <a name="azure-vmware-solution-identity-concepts"></a>Conceitos de identidade da solução VMware do Azure
 
 Um servidor vCenter e o Gerenciador de NSX-T são provisionados quando uma nuvem privada é implantada. Use o vCenter para gerenciar cargas de trabalho de máquina virtual e o Gerenciador de NSX-T para estender a rede de nuvem privada definida pelo software.
 

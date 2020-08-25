@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 6113ee61d4949649b65607c0f1bd606be4edb2ac
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 91157f625b328dfc03927cf0036aea1b6040cdbf
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837152"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783715"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rede para conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -43,28 +43,7 @@ A Rede Acelerada do Azure melhora o desempenho de rede habilitando a SR-IOV (vir
 ```
 
 ## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Conjuntos de dimensionamento de máquinas virtuais do Azure com Azure Load Balancer
-
-Ao trabalhar com conjuntos de dimensionamento de máquinas virtuais e balanceador de carga, os seguintes itens devem ser considerados:
-
-* **Vários conjuntos de dimensionamento de máquinas virtuais não podem usar o mesmo balanceador de carga**.
-* **Regras NAT de encaminhamento de porta e de entrada**:
-  * Cada conjunto de dimensionamento de máquinas virtuais deve ter uma regra NAT de entrada.
-  * Depois que o conjunto de dimensionamento tiver sido criado, a porta de back-end não poderá ser modificada para uma regra de balanceamento de carga usada por uma investigação de integridade do balanceador de carga. Para alterar a porta, você pode remover a investigação de integridade atualizando o conjunto de dimensionamento de máquinas virtuais do Azure, atualizar a porta e, em seguida, configurar a investigação de integridade novamente.
-  * Ao usar o conjunto de dimensionamento de máquinas virtuais no pool de back-end do balanceador de carga, as regras de NAT de entrada padrão são criadas automaticamente.
-* **Pool de NAT de entrada**:
-  * O pool de NAT de entrada é uma coleção de regras de NAT de entrada. Um pool de NAT de entrada não pode dar suporte a vários conjuntos de dimensionamento de máquinas virtuais.
-* **Regras de balanceamento de carga**:
-  * Ao usar o conjunto de dimensionamento de máquinas virtuais no pool de back-end do balanceador de carga, a regra de balanceamento de carga padrão é criada automaticamente.
-* **Regras de saída**:
-  *  Para criar uma regra de saída para um pool de back-end que já é referenciado por uma regra de balanceamento de carga, você precisa primeiro marcar **"criar regras de saída implícitas"** como **não** no portal quando a regra de balanceamento de carga de entrada é criada.
-
-  :::image type="content" source="./media/vmsslb.png" alt-text="Criação de regra de balanceamento de carga" border="true":::
-
-Os métodos a seguir podem ser usados para implantar um conjunto de dimensionamento de máquinas virtuais com um balanceador de carga do Azure existente.
-
-* [Configure um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando o portal do Azure](../load-balancer/configure-vm-scale-set-portal.md).
-* [Configure um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando Azure PowerShell](../load-balancer/configure-vm-scale-set-powershell.md).
-* [Configure um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando o CLI do Azure](../load-balancer/configure-vm-scale-set-cli.md).
+Confira [Azure Load Balancer e conjuntos de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-virtual-machine-scale-sets) para saber mais sobre como configurar seus Standard Load Balancer com conjuntos de dimensionamento de máquinas virtuais com base em seu cenário.
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Criar um conjunto de dimensionamento que referencia um Gateway de Aplicativo
 Para criar um conjunto de dimensionamento que usa um gateway de aplicativo, referencie o pool de endereços de back-end do gateway de aplicativo na seção ipConfigurations do conjunto de dimensionamento como nesta configuração de modelo ARM:

@@ -3,12 +3,12 @@ title: Use o PowerShell para fazer backup de cargas de trabalho do DPM
 description: Saiba como implantar e gerenciar o backup do Azure para o Data Protection Manager (DPM) usando o PowerShell
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 4d8b8f6ca233c997bc2a94f88903d14009481d37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8a60d1c412a36c5c2a7ca264eda524b5d5649f1a
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538846"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762714"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implantar e gerenciar o backup do Azure para servidores do Data Protection Manager (DPM) usando o PowerShell
 
@@ -140,7 +140,7 @@ As opções disponíveis incluem:
 | /pu |UserName do host do proxy |- |
 | /pw |Senha do proxy |- |
 
-## <a name="registering-dpm-to-a-recovery-services-vault"></a>Registrar o DPM para um Cofre dos Serviços de Recuperação
+## <a name="registering-dpm-to-a-recovery-services-vault"></a>Registrando o DPM em um cofre dos serviços de recuperação
 
 Depois de criar o cofre dos Serviços de Recuperação, baixe o agente mais recente e as credenciais do cofre e armazene-os em um local conveniente como C:\Downloads.
 

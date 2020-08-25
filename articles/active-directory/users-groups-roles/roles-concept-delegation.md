@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c26951d5ab7552dc6c63288ce92cdb8134bd58ed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 468b874ae4a19b8b5ea2a9a91a258722cef60e3a
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498218"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798594"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegar administração no Azure Active Directory
 
@@ -60,7 +60,7 @@ Determine as tarefas do Active Directory realizadas por administradores e como s
 Cada tarefa deve ser avaliada por frequência, importância e dificuldade. Esses critérios são aspectos vitais da definição de tarefa, porque decidem se uma permissão deve ser delegada:
 
 * Tarefas que você executa rotineiramente têm risco limitado, e cuja conclusão é trivial, são excelentes candidatas para delegação.
-* Tarefas que você raramente executa, mas têm alto impacto em toda a organização e exigem altos níveis de habilidade devem ser consideradas com muito cuidado antes de delegar. Em vez disso, é possível [elevar temporariamente uma conta para a função requerida](../active-directory-privileged-identity-management-configure.md) ou reatribuir a tarefa.
+* Tarefas que você raramente executa, mas têm alto impacto em toda a organização e exigem altos níveis de habilidade devem ser consideradas com muito cuidado antes de delegar. Em vez disso, é possível [elevar temporariamente uma conta para a função requerida](../privileged-identity-management/pim-configure.md) ou reatribuir a tarefa.
 
 ## <a name="delegate-app-administration"></a>Delegar a administração de aplicativos
 
@@ -110,7 +110,7 @@ Os invasores que recebem o controle de contas com privilégios podem fazer danos
 
 ## <a name="elevate-privilege-temporarily"></a>Elevar o privilégio temporariamente
 
-Na maioria das atividades diárias, nem todos os usuários precisam de direitos de administrador global e nem todos eles devem ser atribuídos permanentemente à função de Administrador Global. Quando os usuários precisam das permissões de um Administrador Global, eles devem ativar a atribuição de função no [Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) do Azure AD em sua própria conta ou em uma conta administrativa alternativa.
+Na maioria das atividades diárias, nem todos os usuários precisam de direitos de administrador global e nem todos eles devem ser atribuídos permanentemente à função de Administrador Global. Quando os usuários precisam das permissões de um Administrador Global, eles devem ativar a atribuição de função no [Privileged Identity Management](../privileged-identity-management/pim-configure.md) do Azure AD em sua própria conta ou em uma conta administrativa alternativa.
 
 ## <a name="next-steps"></a>Próximas etapas
 

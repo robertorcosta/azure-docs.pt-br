@@ -2,13 +2,13 @@
 title: Definição de esquema de aplicativo
 description: O aplicativo LUIS é representado no `.json` ou `.lu` e inclui todas as intenções, entidades, exemplos de declarações, recursos e configurações.
 ms.topic: reference
-ms.date: 05/05/2020
-ms.openlocfilehash: dbbeb4eacbe8e07cf080b3a1527ca39c2b9a5991
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 08/22/2020
+ms.openlocfilehash: 816a6c50129f37a55ab3dba72319358e832a6b8b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684347"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756781"
 ---
 # <a name="app-schema-definition"></a>Definição de esquema de aplicativo
 
@@ -55,12 +55,30 @@ Ao importar e exportar o aplicativo, escolha `.json` ou `.lu` .
   "tokenizerVersion": "1.0.0",
   "patternAnyEntities": [],
   "regex_entities": [],
-  "phraselists": [],
+  "phraselists": [
+  ],
   "regex_features": [],
   "patterns": [],
   "settings": []
 }
 ```
+
+| elemento                  | Comentário                              |
+|--------------------------|--------------------------------------|
+| "hierarquicamente": [],     | Preterido, use [entidades de aprendizado de máquina](luis-concept-entity-types.md).   |
+| "composições": [],        | Preterido, use [entidades de aprendizado de máquina](luis-concept-entity-types.md). Referência de [entidade composta](reference-entity-composite.md) . |
+| "closedLists": [],       | [Listar](reference-entity-list.md) referências de entidades, usadas principalmente como recursos para entidades.    |
+| "VersionId": "0,1",      | Versão de um aplicativo LUIS.|
+| "Name": "example-app",   | Nome do aplicativo LUIS. |
+| "desc": "",              | Descrição opcional do aplicativo LUIS.  |
+| "Culture": "en-US",      | [Idioma](luis-language-support.md) do aplicativo, afeta recursos subjacentes, como entidades predefinidas, aprendizado de máquina e criador.  |
+| "tokenizerVersion": "1.0.0", | [Criador](luis-language-support.md#tokenization)  |
+| "patternAnyEntities": [],   | [Entidade pattern.any](reference-entity-pattern-any.md)    |
+| "regex_entities": [],    |  [Entidade de expressão regular](reference-entity-regular-expression.md)   |
+| "phraselists": [],       |  [Listas de frases (recurso)](luis-concept-feature.md#create-a-phrase-list-for-a-concept)   |
+| "regex_features": [],    |  Preterido, use [entidades de aprendizado de máquina](luis-concept-entity-types.md). |
+| "padrões": [],          |  [Padrões melhoram a precisão da previsão](luis-concept-patterns.md) com [sintaxe de padrão](reference-pattern-syntax.md)   |
+| "configurações": []           | [Configurações do aplicativo](luis-reference-application-settings.md)|
 
 ## <a name="version-6x"></a>Versão 6. x
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 720a768679cdbd45224e5c9a05b8f8d0c9b9ea81
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 34e81076c27086ad838cca23de0e150a3c1b076c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326079"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798900"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução do Monitor de Desempenho de Rede no Azure
 
@@ -38,7 +38,9 @@ Mais informações sobre os diversos recursos de suporte do [Monitor de Desempen
 O NPM pode monitorar a conectividade entre redes e aplicativos em qualquer parte do mundo, de um workspace que está hospedado em uma das seguintes regiões:
 * Norte da Europa
 * Europa Ocidental
+* Norte da Suíça
 * França Central
+* Norte da África do Sul
 * Canadá Central
 * Oeste dos EUA
 * Centro-Oeste dos EUA
@@ -58,6 +60,7 @@ O NPM pode monitorar a conectividade entre redes e aplicativos em qualquer parte
 * Coreia Central
 * Índia Central
 * Virgínia, Governo dos EUA
+* Arizona do governo dos EUA
 * Leste da China 2
 
 
@@ -158,7 +161,7 @@ Todos os nós que têm um agente instalado neles estão listados na guia **Nós*
 
 1. Marque ou desmarque os nós que você deseja monitorar ou parar de monitorar. 
 2. Selecione **Usar para Monitoramento** ou desmarque essa opção, conforme apropriado. 
-3. Clique em **Salvar**. 
+3. Selecione **Salvar**. 
 
 
 Configure os recursos desejados:

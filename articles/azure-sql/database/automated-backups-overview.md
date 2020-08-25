@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: 3e37d907d00acd3e2b368700b70b4e268bad3ec9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 5fd835418a8429fa07325c22b106ee675ba3e2e1
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921938"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756717"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados – banco de dados SQL do Azure & SQL Instância Gerenciada
 
@@ -36,14 +36,12 @@ Quando você restaura um banco de dados, o serviço determina quais backups comp
 
 ### <a name="backup-storage-redundancy"></a>Redundância de armazenamento de backup
 
-> [!IMPORTANT]
-> A redundância de armazenamento configurável para backups está disponível atualmente somente para o SQL Instância Gerenciada e só pode ser especificada durante o processo de criação de instância gerenciada. Depois que o recurso for provisionado, você não poderá alterar a opção de redundância de armazenamento de backup.
+Por padrão, o banco de dados SQL e o SQL Instância Gerenciada armazenam em [blobs de armazenamento](../../storage/common/storage-redundancy.md) com redundância geográfica (ra-grs) que são replicados para uma [região emparelhada](../../best-practices-availability-paired-regions.md). Isso ajuda a proteger contra interrupções que afetam o armazenamento de backup na região primária e permite que você restaure o servidor para uma região diferente em caso de desastre. 
 
-A opção de configurar a redundância de armazenamento de backup fornece a flexibilidade para escolher entre os [blobs de armazenamento](../../storage/common/storage-redundancy.md)com redundância local (LRS), com redundância de zona (ZRS) ou com redundância geográfica (ra-grs). Os mecanismos de redundância de armazenamento armazenam várias cópias de seus dados para que eles sejam protegidos contra eventos planejados e não planejados, incluindo falhas transitórias de hardware, interrupções de rede ou energia ou desastres maciços naturais. No momento, esse recurso está disponível apenas para o SQL Instância Gerenciada.
+O SQL Instância Gerenciada introduz a capacidade de alterar a redundância de armazenamento para BLOBs de armazenamento com redundância local (LRS) ou com redundância de zona (ZRS) para garantir que seus dados permaneçam na mesma região em que a instância gerenciada está implantada. Os mecanismos de redundância de armazenamento armazenam várias cópias de seus dados para que eles sejam protegidos contra eventos planejados e não planejados, incluindo falhas transitórias de hardware, interrupções de rede ou energia ou desastres maciços naturais. 
 
-Os blobs de armazenamento RA-GRS são replicados em uma [região emparelhada](../../best-practices-availability-paired-regions.md) para proteger contra interrupções que afetam o armazenamento de backup na região primária e permitem que você restaure o servidor para uma região diferente em caso de desastre. 
+A opção de configurar a redundância de armazenamento de backup fornece a flexibilidade para escolher entre os blobs de armazenamento LRS, ZRS ou RA-GRS para um SQL Instância Gerenciada. Configure a redundância de armazenamento de backup durante o processo de criação de instância gerenciada assim que o recurso for provisionado, não será mais possível alterar a redundância de armazenamento. (O ZRS (armazenamento com redundância de zona) está disponível atualmente apenas em [determinadas regiões](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
 
-Por outro lado, os blobs de armazenamento LRS e ZRS garantem que seus dados permaneçam dentro da mesma região em que o banco de dados SQL ou o SQL Instância Gerenciada é implantado. O armazenamento com redundância de zona (ZRS) está disponível no momento apenas em [determinadas regiões](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
 
 > [!IMPORTANT]
 > No SQL Instância Gerenciada, a redundância de backup configurada é aplicada a configurações de retenção de backup de curto prazo que são usadas para PITR (restauração pontual) e backups de retenção de longo prazo usados para EPD (backups de longo prazo).
@@ -68,11 +66,11 @@ Você pode tentar a configuração de backup e restaurar as operações usando o
 
 | Operação | Portal do Azure | Azure PowerShell |
 |---|---|---|
-| **Alterar retenção de backup** | [Banco de Dados SQL](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Instância Gerenciada de SQL](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Banco de Dados SQL](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Instância Gerenciada de SQL](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| **Alterar retenção de backup de longo prazo** | [Banco de Dados SQL](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>SQL Instância Gerenciada-N/A  | [Banco de Dados SQL](long-term-backup-retention-configure.md)<br/>[Instância Gerenciada de SQL](../managed-instance/long-term-backup-retention-configure.md)  |
-| **Restaurar um banco de dados a partir de um momento determinado** | [Banco de Dados SQL](recovery-using-backups.md#point-in-time-restore)<br>[Instância Gerenciada de SQL](../managed-instance/point-in-time-restore.md) | [Banco de Dados SQL](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instância Gerenciada de SQL](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| **Restaurar um banco de dados excluído** | [Banco de Dados SQL](recovery-using-backups.md)<br>[Instância Gerenciada de SQL](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [Banco de Dados SQL](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instância Gerenciada de SQL](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| **Restaurar um banco de dados do armazenamento de Blobs do Azure** | Banco de dados SQL-N/A <br/>SQL Instância Gerenciada-N/A  | Banco de dados SQL-N/A <br/>[Instância Gerenciada de SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
+| **Alterar retenção de backup** | [Banco de Dados SQL](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Instância Gerenciada do SQL](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Banco de Dados SQL](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Instância Gerenciada do SQL](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| **Alterar retenção de backup de longo prazo** | [Banco de Dados SQL](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>SQL Instância Gerenciada-N/A  | [Banco de Dados SQL](long-term-backup-retention-configure.md)<br/>[Instância Gerenciada do SQL](../managed-instance/long-term-backup-retention-configure.md)  |
+| **Restaurar um banco de dados a partir de um momento determinado** | [Banco de Dados SQL](recovery-using-backups.md#point-in-time-restore)<br>[Instância Gerenciada do SQL](../managed-instance/point-in-time-restore.md) | [Banco de Dados SQL](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instância Gerenciada do SQL](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| **Restaurar um banco de dados excluído** | [Banco de Dados SQL](recovery-using-backups.md)<br>[Instância Gerenciada do SQL](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [Banco de Dados SQL](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instância Gerenciada do SQL](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| **Restaurar um banco de dados do armazenamento de Blobs do Azure** | Banco de dados SQL-N/A <br/>SQL Instância Gerenciada-N/A  | Banco de dados SQL-N/A <br/>[Instância Gerenciada do SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="backup-scheduling"></a>Agendamento de backup
 
@@ -194,7 +192,7 @@ Adicione um filtro para o **Nome do serviço**e, em seguida, selecione **banco d
 
 ## <a name="encrypted-backups"></a>Backups criptografados
 
-Quando o banco de dados é criptografado com TDE, os backups são criptografados automaticamente em repouso, incluindo os backups de LTR. Todos os novos bancos de dados no Azure SQL são configurados com TDE habilitado por padrão. Para obter mais informações sobre o TDE, consulte [Transparent Data Encryption com o banco de dados sql & sql instância gerenciada](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Quando o banco de dados é criptografado com TDE, os backups são criptografados automaticamente em repouso, incluindo os backups de LTR. Todos os novos bancos de dados no Azure SQL são configurados com TDE habilitado por padrão. Para obter mais informações sobre o TDE, consulte  [Transparent Data Encryption com o banco de dados sql & sql instância gerenciada](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## <a name="backup-integrity"></a>Integridade do backup
 
@@ -230,7 +228,7 @@ Alterações na retenção de backup PITR para banco de dados SQL são feitas na
 
 ![Alterar a retenção de PITR, nível de servidor](./media/automated-backups-overview/configure-backup-retention-sqldb.png)
 
-#### <a name="sql-managed-instance"></a>[Instância Gerenciada de SQL](#tab/managed-instance)
+#### <a name="sql-managed-instance"></a>[Instância Gerenciada do SQL](#tab/managed-instance)
 
 As alterações na retenção de backup PITR para o SQL Instância Gerenciada são feitas em um nível de banco de dados individual. Para alterar a retenção de backup de PITR para um banco de dados de instância no portal do Azure, vá para a folha de visão geral do banco de dados individual. Em seguida, selecione **Configurar retenção de backup** na parte superior da tela:
 
@@ -254,7 +252,7 @@ Para alterar a retenção de backup do PITR para bancos de dados SQL do Azure at
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
 
-#### <a name="sql-managed-instance"></a>[Instância Gerenciada de SQL](#tab/managed-instance)
+#### <a name="sql-managed-instance"></a>[Instância Gerenciada do SQL](#tab/managed-instance)
 
 Para alterar a retenção de backup do PITR de um banco de dados ativo do SQL Instância Gerenciada **individual** , use o seguinte exemplo do PowerShell.
 

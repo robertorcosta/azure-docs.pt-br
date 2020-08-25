@@ -3,12 +3,12 @@ title: Análise de vídeo ao vivo em cotas de IoT Edge – Azure
 description: Este artigo descreve a análise de vídeo ao vivo em IoT Edge cotas e limitações.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 90141fa850c9ab3e3abbea15001249da0736ac45
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 32a24079b36655bfdacd25b07d419009f5012507
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091803"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750232"
 ---
 # <a name="quotas-and-limitations"></a>Cotas e limitações
 
@@ -36,21 +36,23 @@ Com a versão de visualização, há limitações em nós diferentes que podem s
    * Somente uma fonte RTSP é permitida por topologia de grafo.
 * Processador de filtro de taxa de quadros
    * Deve ser imediatamente downstream da fonte RTSP ou do processador de detecção de movimento.
-   * Não pode ser usado downstream de um processador de extensão HTTP.
+   * Não pode ser usado downstream de um processador de extensão HTTP ou gRPC.
    * Não é possível fazer upstream a partir de um processador de detecção de movimento.
 * Processador de extensão HTTP
+   * Pode haver no máximo uma topologia de processador por grafo.
+* processador de extensão gRPC
    * Pode haver no máximo uma topologia de processador por grafo.
 * Processador de detecção de movimento
    * Deve ser imediatamente downstream da origem RTSP.
    * Pode haver no máximo uma topologia de processador por grafo.
-   * Não pode ser usado downstream de um processador de extensão HTTP.
+   * Não pode ser usado downstream de um processador de extensão HTTP ou gRPC.
 * Processador da porta do sinal
    * Deve ser imediatamente downstream da origem RTSP.
 * Coletor de ativos 
    * Deve ser imediatamente downstream da fonte RTSP ou do processador de porta de sinal.
 * Coletor de arquivos
    * Deve ser imediatamente downstream do processador da porta do sinal.
-   * Não pode ser o downstream imediatamente do processador de extensão HTTP ou do processador de detecção de movimento
+   * Não pode ser o downstream imediatamente de um processador de extensão HTTP ou gRPC, ou processador de detecção de movimento
 * Coletor do Hub IoT
    * Não pode ser o downstream imediatamente de uma origem do Hub IoT.
 

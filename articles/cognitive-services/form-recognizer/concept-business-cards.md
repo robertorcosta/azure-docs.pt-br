@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 8519daffd8ee0ad6c12be2f40fd8030caaaf34c8
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 1c9e40738d70b6fbb9fed267a6a047d8330023b7
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724956"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749270"
 ---
 # <a name="business-card-concepts"></a>Conceitos de cartão de visita
 
@@ -69,6 +69,8 @@ A segunda etapa é chamar a operação [obter resultado do cartão de negócios 
 | |  | êxito: a operação de análise foi bem-sucedida. |
 
 Quando o campo **status** tiver o valor **êxito** , a resposta JSON incluirá os resultados de reconhecimento de texto e compreensão do cartão de negócios. O resultado da compreensão do cartão de visita é organizado como um dicionário de valores de campo nomeados, em que cada valor contém o texto extraído, o valor normalizado, a caixa delimitadora, a confiança e os elementos correspondentes do Word. O resultado do reconhecimento de texto é organizado como uma hierarquia de linhas e palavras, com informações de texto, de caixa delimitadora e de confiança.
+
+![Resultados da Contoso smample](./media/business-card-results.png)
 
 ### <a name="sample-json-output"></a>Saída JSON de exemplo
 
@@ -374,7 +376,7 @@ Consulte o exemplo a seguir de uma resposta JSON bem-sucedida: o nó "readResult
 }
 ```
 
-Siga o [guia](./QuickStarts/python-business-cards.md) de início rápido extrair dados do cartão de visita para implementar a extração de dados do cartão de visita usando o Python e a API REST.
+Siga o início rápido [extrair dados do cartão de visita](./QuickStarts/python-business-cards.md) para implementar a extração de dados de cartão de visita usando o Python e a API REST.
 
 ## <a name="customer-scenarios"></a>Cenários de clientes  
 

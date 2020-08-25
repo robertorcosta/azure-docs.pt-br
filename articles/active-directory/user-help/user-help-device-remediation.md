@@ -13,12 +13,12 @@ ms.date: 10/10/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: b76e84f6ae2449347604ab823fde5b74d5c68f07
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: df3941c895ce67862eb53b8e96bc7a6d53c1ed02
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83740989"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799410"
 ---
 # <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Possíveis correções para a mensagem de erro "Você não pode acessar esse lugar daqui"
 
@@ -68,6 +68,6 @@ Se o dispositivo não estiver adicionado à rede da sua organização, você ter
 - **Registrar seu dispositivo pessoal para trabalho.** Registre seu dispositivo pessoal, geralmente um telefone ou tablet, na rede da sua organização. Após o registro do dispositivo, ele poderá acessar os recursos restritos da sua organização. Para saber mais e obter instruções passo a passo, consulte [Registrar seu dispositivo pessoal à rede da sua organização](user-help-register-device-on-network.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-- [O que é o portal MyApps?](active-directory-saas-access-panel-introduction.md)
+- [O que é o portal MyApps?](./my-apps-portal-end-user-access.md)
 
 - [Entre com seu telefone, não com sua senha](user-help-auth-app-sign-in.md)
