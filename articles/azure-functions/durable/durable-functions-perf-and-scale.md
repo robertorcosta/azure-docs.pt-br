@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 58c28160de15bc99c94c84ab23fdbb358125132d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e98792c81604b0f867343db289a44dfec9704b5e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033574"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853701"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Desempenho e escala nas Funções Duráveis (Azure Functions)
 
@@ -224,6 +224,10 @@ Há duas desvantagens potenciais dessa configuração a serem consideradas:
 Por exemplo, se `durableTask/extendedSessionIdleTimeoutInSeconds` é definido como 30 segundos, um orquestrador de curta duração ou um episódio de função de entidade que é executado em menos de 1 segundo ainda ocupa a memória por 30 segundos. Ele também conta com relação à `durableTask/maxConcurrentOrchestratorFunctions` cota mencionada anteriormente, potencialmente impedindo que outras funções de orquestrador ou entidade sejam executadas.
 
 Os efeitos específicos das sessões estendidas no Orchestrator e nas funções de entidade são descritos nas próximas seções.
+
+> [!NOTE]
+> Atualmente, há suporte para sessões estendidas apenas em linguagens .NET, como C# ou F #. `extendedSessionsEnabled`A configuração para `true` outras plataformas pode levar a problemas de tempo de execução, como falha silenciosa ao executar as funções disparadas pela orquestração e atividade.
+
 
 ### <a name="orchestrator-function-replay"></a>Reprodução de função do Orchestrator
 

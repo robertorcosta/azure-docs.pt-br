@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 30b90b89300d6ca63255a000c7a6f7723f648056
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 64b38d0e776a0e3dab155704dcc368cc738c278e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118750"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855415"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplicativo Web que assina usuários: configuração de código
 
@@ -132,7 +132,7 @@ No ASP.NET Core, outro arquivo ([properties\launchSettings.jsem](https://github.
 }
 ```
 
-No portal do Azure, os URIs de resposta que você precisa registrar na página de **autenticação** do seu aplicativo precisam corresponder a essas URLs. Para os dois arquivos de configuração anteriores, eles seriam `https://localhost:44321/signin-oidc` . O motivo é que `applicationUrl` é `http://localhost:3110` , mas `sslPort` é especificado (44321). `CallbackPath`é `/signin-oidc` , conforme definido em `appsettings.json` .
+No portal do Azure, os URIs de resposta que você precisa registrar na página de **autenticação** do seu aplicativo precisam corresponder a essas URLs. Para os dois arquivos de configuração anteriores, eles seriam `https://localhost:44321/signin-oidc` . O motivo é que `applicationUrl` é `http://localhost:3110` , mas `sslPort` é especificado (44321). `CallbackPath` é `/signin-oidc` , conforme definido em `appsettings.json` .
 
 Da mesma forma, o URI de saída seria definido como `https://localhost:44321/signout-oidc` .
 
@@ -225,7 +225,7 @@ Para adicionar autenticação com a plataforma de identidade da Microsoft (anter
 
 1. Adicione os pacotes do NuGet [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) e [Microsoft. Identity. Web. UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) ao seu projeto. Remova o pacote NuGet Microsoft. AspNetCore. Authentication. AzureAD. UI se ele estiver presente.
 
-2. Atualize o código no `ConfigureServices` para que ele use os `AddMicrosoftWebAppAuthentication` `AddMicrosoftIdentityUI` métodos e.
+2. Atualize o código no `ConfigureServices` para que ele use os `AddMicrosoftIdentityWebAppAuthentication` `AddMicrosoftIdentityUI` métodos e.
 
    ```c#
    public class Startup
@@ -234,7 +234,7 @@ Para adicionar autenticação com a plataforma de identidade da Microsoft (anter
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-     services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAd");
+     services.AddMicrosoftIdentityWebAppAuthentication(Configuration, "AzureAd");
 
      services.AddRazorPages().AddMvcOptions(options =>
      {
@@ -245,7 +245,7 @@ Para adicionar autenticação com a plataforma de identidade da Microsoft (anter
      }).AddMicrosoftIdentityUI();
     ```
 
-3. No `Configure` método no *Startup.cs*, habilite a autenticação com uma chamada para`app.UseAuthentication();`
+3. No `Configure` método no *Startup.cs*, habilite a autenticação com uma chamada para `app.UseAuthentication();`
 
    ```c#
    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -259,20 +259,20 @@ Para adicionar autenticação com a plataforma de identidade da Microsoft (anter
    ```
 
 No código acima:
-- O `AddMicrosoftWebAppAuthentication` método de extensão é definido em **Microsoft. Identity. Web**. Fosse
+- O `AddMicrosoftIdentityWebAppAuthentication` método de extensão é definido em **Microsoft. Identity. Web**. Fosse
   - Adiciona o serviço de autenticação.
   - Configura opções para ler o arquivo de configuração (aqui na seção "AzureAD")
   - Configura as opções do OpenID Connect para que a autoridade seja o ponto de extremidade da plataforma Microsoft Identity.
   - Valida o emissor do token.
   - Garante que as declarações correspondentes ao nome sejam mapeadas a partir da `preferred_username` declaração no token de ID.
 
-- Além do objeto de configuração, você pode especificar o nome da seção de configuração ao chamar `AddMicrosoftWebAppAuthentication` . Por padrão, é `AzureAd` .
+- Além do objeto de configuração, você pode especificar o nome da seção de configuração ao chamar `AddMicrosoftIdentityWebAppAuthentication` . Por padrão, é `AzureAd` .
 
-- `AddMicrosoftWebAppAuthentication`tem outros parâmetros para cenários avançados. Por exemplo, rastrear eventos de middleware do OpenID Connect pode ajudá-lo a solucionar problemas de seu aplicativo Web se a autenticação não funcionar. Definir o parâmetro opcional `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` para `true` mostrará como as informações são processadas pelo conjunto de ASP.NET Core middleware à medida que ele progride da resposta http para a identidade do usuário no `HttpContext.User` .
+- `AddMicrosoftIdentityWebAppAuthentication` tem outros parâmetros para cenários avançados. Por exemplo, rastrear eventos de middleware do OpenID Connect pode ajudá-lo a solucionar problemas de seu aplicativo Web se a autenticação não funcionar. Definir o parâmetro opcional `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` para `true` mostrará como as informações são processadas pelo conjunto de ASP.NET Core middleware à medida que ele progride da resposta http para a identidade do usuário no `HttpContext.User` .
 
 - O `AddMicrosoftIdentityUI` método de extensão é definido em **Microsoft. Identity. Web. UI**. Ele fornece um controlador padrão para manipular a entrada e saída.
 
-Você pode encontrar mais detalhes sobre como o Microsoft. Identity. Web permite que você crie aplicativos Web no<https://aka.ms/ms-id-web/webapp>
+Você pode encontrar mais detalhes sobre como o Microsoft. Identity. Web permite que você crie aplicativos Web no <https://aka.ms/ms-id-web/webapp>
 
 > [!WARNING]
 > Atualmente, o Microsoft. Identity. Web não oferece suporte ao cenário de **contas de usuário individuais** (armazenando contas de usuário no aplicativo) ao usar o Azure ad como um provedor de logon externo. Para obter detalhes, consulte: [AzureAD/Microsoft-Identity-Web # 133](https://github.com/AzureAD/microsoft-identity-web/issues/133)
