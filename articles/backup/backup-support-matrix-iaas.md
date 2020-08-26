@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações ao
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: f0783d937178c88265c33c8b7339f71520506fc5
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 6cb9f53bceb6caaac77dddd6828c46842e53d257
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816109"
+ms.locfileid: "88825249"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 
@@ -49,7 +49,7 @@ Backups por dia (por meio do DPM/MABS) | Dois backups agendados por dia.
 Backup mensal/anual| Não tem suporte durante o backup com a extensão de VM do Azure. Só há suporte para diários e semanais.<br/><br/> É possível configurar a política para manter backups diários/semanais por um período de retenção mensal/anual.
 Ajuste automático de relógio | Sem suporte.<br/><br/> O Backup do Azure não é ajustado automaticamente para alterações do horário de verão ao fazer backup de uma VM.<br/><br/>  Modifique a política manualmente, se necessário.
 [Recursos de segurança para backups híbridos](./backup-azure-security-feature.md) |Não há suporte para desabilitar recursos de segurança.
-Fazer backup da VM cuja hora do computador foi alterada | Sem suporte.<br/><br/> Se a hora da máquina for alterada para uma data/hora futura depois de habilitar o backup para essa VM; no entanto, mesmo se a alteração de tempo for revertida, o backup bem-sucedido não será garantido.
+Fazer backup da VM cuja hora do computador foi alterada | Sem suporte.<br/><br/> Se a hora da máquina for alterada para uma data/hora futura depois de habilitar o backup dessa VM, no entanto, mesmo que a alteração de tempo seja revertida, o backup bem-sucedido não será garantido.
 VMs do Azure em [conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/overview.md) | Há suporte para backup e restauração em VMs com o [modo de orquestração](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) definido como 3. <br><br>Não há suporte para conjuntos de disponibilidade.
 
 ## <a name="operating-system-support-windows"></a>Suporte do sistema operacional (Windows)

@@ -3,12 +3,12 @@ title: Usar o Servidor de Backup do Azure para fazer backup de cargas de trabalh
 description: Neste artigo, veja como preparar o ambiente para proteger e fazer backup de cargas de trabalho usando o MABS (Servidor de Backup do Microsoft Azure).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 802b7919abcd510db68396b2d9576f8cacc06a6e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 74d4d01d535f7148d3c3878a431dac2f951ae134
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756003"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827368"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o Servidor de Backup do Azure
 
@@ -62,7 +62,7 @@ Se você não quiser executar o servidor base no Azure, poderá executar o servi
 Você pode eliminar duplicadas do armazenamento DPM usando a Eliminação de Duplicação do Windows Server. Saiba mais sobre como o [DPM e a eliminação de duplicação](/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) funcionam juntos quando implantados em VMs do Hyper-V.
 
 > [!NOTE]
-> O Servidor de Backup do Azure foi projetado para ser executado em um servidor dedicado de finalidade única. Você não pode instalar o Servidor de Backup do Azure em:
+> O Servidor de Backup do Azure foi projetado para ser executado em um servidor dedicado de finalidade única. Não é possível instalar o Servidor de Backup do Azure em:
 >
 > * Um computador que esteja sendo executado como um controlador de domínio
 > * Um computador no qual a função de Servidor de Aplicativos está instalada
@@ -170,7 +170,7 @@ Quando o processo de extração for concluído, marque a caixa para iniciar o *s
 
     >[!NOTE]
     >Se você quiser usar seu servidor SQL, as versões do SQL Server com suporte serão SQL Server 2014 SP1 ou superior, 2016 e 2017.  Todas as versões do SQL Server devem ser Standard ou Enterprise de 64 bits.
-    >O Servidor de Backup do Azure não funcionará com uma instância remota do SQL Server. A instância que está sendo usada pelo Servidor de Backup do Azure precisa ser local. Caso você esteja usando um SQL Server existente para MABS, a configuração do MABS dará suporte apenas para uso de *instâncias nomeadas* do SQL Server.
+    >Servidor de Backup do Azure não funcionará com uma instância de SQL Server remota. A instância que está sendo usada pelo Servidor de Backup do Azure precisa ser local. Se você estiver usando um SQL Server existente para MABS, a instalação do MABS só dará suporte ao uso de *instâncias nomeadas* do SQL Server.
 
     ![Servidor de Backup do Azure - verificação do SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
@@ -333,7 +333,7 @@ Use os procedimentos a seguir para fazer upgrade do MABS.
 
 > [!NOTE]
 >
-> O MABS V2 não é um pré-requisito para instalar o MABS V3. No entanto, é possível fazer upgrade para MABS V3 somente do MABS V2.
+> MABS v2 não é um pré-requisito para instalar o MABS v3. No entanto, é possível fazer upgrade para MABS V3 somente do MABS V2.
 
 Use as etapas a seguir para fazer upgrade do MABS:
 
@@ -343,7 +343,7 @@ Use as etapas a seguir para fazer upgrade do MABS:
 
    > [!NOTE]
    >
-   > Não sair enquanto a instância do SQL estiver sendo atualizada, a saída desinstalará a instância de relatórios SQL e, portanto, uma tentativa de atualizar novamente o MABS falhará.
+   > Não saia enquanto a instância do SQL estiver sendo atualizada. A saída desinstalará a instância de relatórios SQL e, portanto, uma tentativa de atualizar novamente o MABS falhará.
 
    > [!IMPORTANT]
    >

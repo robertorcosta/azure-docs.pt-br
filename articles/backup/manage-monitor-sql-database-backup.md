@@ -3,12 +3,12 @@ title: Gerenciar e monitorar bancos de SQL Server em uma VM do Azure
 description: Este artigo descreve como gerenciar e monitorar SQL Server bancos de dados que estão em execução em uma VM do Azure.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: c9d8b9b56820182f7bf7866d38d40df8f5488a7a
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 26a1a6cf7bc011edce61a8bb60926dad2cb29a16
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756309"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826626"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerenciar e monitorar backup de bancos de dados do SQL Server
 
@@ -53,7 +53,7 @@ Você pode interromper o backup de um banco de dados do SQL Server de duas manei
 
 Se você optar por deixar os pontos de recuperação, tenha em mente estes detalhes:
 
-- Todos os pontos de recuperação permanecerão intactos para sempre, toda a remoção será interrompida ao parar a proteção com os dados de retenção.
+- Todos os pontos de recuperação permanecerão intactos para sempre, e toda a remoção será interrompida em parar proteção com reter dados.
 - Você será cobrado pela instância protegida e pelo armazenamento consumido. Para saber mais, confira [Preços do Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
 - Se você excluir uma fonte de dados sem interromper os backups, os novos backups falharão. Os pontos de recuperação antigos expirarão de acordo com a política, mas um último ponto de recuperação será sempre mantido até que você interrompa os backups e exclua os dados.
 

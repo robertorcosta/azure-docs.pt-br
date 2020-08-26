@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91f5ef4a5065079f0fe385b92af2a1c4bfa5ee84
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ea834ed874f3011d95f8b924df860576f72bc4ee
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007702"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825606"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Criar um contêiner de perfil com arquivos do Azure e AD DS do Azure
 
@@ -96,7 +96,7 @@ Para obter a chave de acesso da conta de armazenamento:
 
 6. Quando você tiver entrado na VM, execute um prompt de comando como administrador.
 
-7. Execute o seguinte comando:
+7. Execute o comando a seguir:
 
      ```cmd
      net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
@@ -113,19 +113,25 @@ Para obter a chave de acesso da conta de armazenamento:
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
      ```
 
-8. Execute o comando a seguir para conceder ao usuário acesso completo ao compartilhamento de arquivos do Azure.
+8. Execute os comandos a seguir para permitir que os usuários da área de trabalho virtual do Windows criem seu próprio contêiner de perfil ao bloquear o acesso aos contêineres de perfil de outros usuários.
 
      ```cmd
-     icacls <mounted-drive-letter>: /grant <user-email>:(f)
+     icacls <mounted-drive-letter>: /grant <user-email>:(M)
+     icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
+     icacls <mounted-drive-letter>: /remove "Authenticated Users"
+     icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
-    - Substitua `<mounted-drive-letter>` pela letra da unidade que você deseja que o usuário use.
-    - Substitua `<user-email>` pelo UPN do usuário que usará esse perfil para acessar as VMs do host de sessão.
+    - Substitua `<mounted-drive-letter>` pela letra da unidade usada para mapear a unidade.
+    - Substitua `<user-email>` pelo UPN do usuário ou grupo de Active Directory que contém os usuários que precisarão de acesso ao compartilhamento.
 
     Por exemplo:
 
      ```cmd
-     icacls y: /grant john.doe@contoso.com:(f)
+     icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
+     icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
+     icacls <mounted-drive-letter>: /remove "Authenticated Users"
+     icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
 ## <a name="create-a-profile-container"></a>Criar um contêiner de perfil

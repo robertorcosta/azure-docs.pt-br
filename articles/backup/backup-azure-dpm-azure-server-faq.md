@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas para perguntas comuns sobre o MABS
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.openlocfilehash: b2994e250c37d707eee5428e83c151728f83a1ab
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 00eb064aaf549ee0d83d0cf7d9c9b47c2dc5ef78
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522922"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827198"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Servidor de Backup do Azure e o DPM-perguntas frequentes
 
@@ -65,7 +65,7 @@ Sim, o item pode ser recuperado para o site do SharePoint original.
 
 ### <a name="can-i-recover-a-sharepoint-database-to-the-original-location-if-sharepoint-is-configured-by-using-sql-alwayson"></a>Poderei recuperar um banco de dados do SharePoint na localização original se o SharePoint estiver configurado usando o AlwaysOn do SQL?
 
-Como os bancos de dados do SharePoint são configurados no SQL AlwaysOn, eles não podem ser modificados a menos que o grupo de disponibilidade seja removido. Por isso, o DPM não pode restaurar o banco de dados para o local original. Não é possível recuperar um banco de dados do SQL Server para outra instância do SQL Server.
+Como os bancos de dados do SharePoint são configurados no SQL AlwaysOn, eles não podem ser modificados, a menos que o grupo de disponibilidade seja removido. Como resultado, o DPM não pode restaurar um banco de dados para o local original. Não é possível recuperar um banco de dados do SQL Server para outra instância do SQL Server.
 
 ## <a name="next-steps"></a>Próximas etapas
 

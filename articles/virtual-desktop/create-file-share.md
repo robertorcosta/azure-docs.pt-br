@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e03d496881b0d563387ee5a5943b60f456530453
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ced763ca4abd32f3b824f05f2f5786a5d9cfd4c4
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009215"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825436"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Criar um contêiner de perfil com arquivos do Azure e AD DS
 
@@ -35,7 +35,7 @@ Para configurar uma conta de armazenamento:
 
 3. Selecione **+Adicionar**.
 
-4. Insira as informações a seguir na página **criar conta de armazenamento** :
+4. Insira as informações a seguir na página  **criar conta de armazenamento** :
 
     - Criar um grupo de recursos.
     - Insira um nome exclusivo para sua conta de armazenamento.
@@ -48,7 +48,7 @@ Para configurar uma conta de armazenamento:
 
 Se você precisar de instruções de configuração mais detalhadas, consulte [disponibilidade regional](../storage/files/storage-files-identity-auth-active-directory-enable.md#regional-availability).
 
-## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivo do Azure
+## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
 
 Em seguida, você precisará criar um compartilhamento de arquivos do Azure.
 
@@ -127,7 +127,7 @@ Veja como obter o caminho UNC:
 
 5. Depois de copiar o URI, faça o seguinte para alterá-lo no UNC:
 
-    - Remover `https://` e substituir por`\\`
+    - Remover `https://` e substituir por `\\`
     - Substitua a barra de avanço `/` por uma barra invertida `\` .
     - Adicione o nome do compartilhamento de arquivos que você criou em [criar um compartilhamento de arquivos do Azure](#create-an-azure-file-share) até o final do UNC.
 
@@ -151,15 +151,15 @@ Para configurar suas permissões NTFS:
 
 1. Abra um prompt de comando em uma VM ingressada no domínio.
 
-2. Execute o seguinte cmdlet para montar o compartilhamento de arquivos do Azure e atribuir a ele uma letra de unidade: 
+2. Execute o seguinte comando para montar o compartilhamento de arquivos do Azure e atribuir a ele uma letra de unidade:
 
-     ```powershell
+     ```cmd
      net use <desired-drive-letter>: <UNC-pat> <SA-key> /user:Azure\<SA-name>
      ```
 
-3. Execute o seguinte cmdlet para revisar as permissões de acesso para o compartilhamento de arquivos do Azure:
+3. Execute o seguinte comando para examinar as permissões de acesso para o compartilhamento de arquivos do Azure:
 
-    ```powershell
+    ```cmd
     icacls <mounted-drive-letter>:
     ```
 
@@ -167,9 +167,9 @@ Para configurar suas permissões NTFS:
 
     Os *usuários do NT Authority\Authenticated* e do *BUILTIN\Users* têm determinadas permissões por padrão. Essas permissões padrão permitem que esses usuários leiam contêineres de perfil de outros usuários. No entanto, as permissões descritas em [configurar permissões de armazenamento para uso com contêineres de perfil e contêineres do Office](/fslogix/fslogix-storage-config-ht) não permitem que os usuários leiam os contêineres de perfil dos outros.
 
-4. Execute os cmdlets a seguir para permitir que os usuários da área de trabalho virtual do Windows criem seus próprios contêineres de perfil ao bloquear o acesso ao seu contêiner de perfil de outros usuários.
+4. Execute os comandos a seguir para permitir que os usuários da área de trabalho virtual do Windows criem seu próprio contêiner de perfil ao bloquear o acesso aos seus contêineres de perfil de outros usuários.
 
-     ```powershell
+     ```cmd
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
      icacls <mounted-drive-letter>: /remove "Authenticated Users"
@@ -181,7 +181,7 @@ Para configurar suas permissões NTFS:
 
      Por exemplo:
 
-     ```powershell
+     ```cmd
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
      icacls <mounted-drive-letter>: /remove "Authenticated Users"
@@ -212,7 +212,7 @@ Para configurar o FSLogix em sua VM host de sessão:
 
 6. Reinicie a VM.
 
-## <a name="testing"></a>Testes
+## <a name="testing"></a>Teste
 
 Depois de instalar e configurar o FSLogix, você pode testar sua implantação entrando com uma conta de usuário que tenha sido atribuída a um grupo de aplicativos ou área de trabalho no pool de hosts. Verifique se a conta de usuário com a qual você se conecta tem permissão no compartilhamento de arquivos.
 
