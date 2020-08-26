@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 24f92443acddb17c0a2d337f51dbf9183996c49f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 62c2193a0045cc2ee35930e87b360446e94ba861
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520508"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864816"
 ---
 Os Arquivos do Azure oferecem quatro camadas diferentes de armazenamento: premium, transação otimizada, quente e fria para permitir que você personalize seus compartilhamentos conforme os requisitos de desempenho e preço de seu cenário:
 
@@ -32,7 +32,22 @@ Os compartilhamentos de arquivos quentes e frios estão disponíveis no seguinte
 - Sudeste da Austrália
 - França Central
 - Sul da França
+- Norte da Alemanha (público)
+- Centro-Oeste da Alemanha (público)
+- Centro da Índia
+- Sul da Índia
+- Oeste da Índia
+- Leste do Japão
+- Oeste do Japão
 - Coreia Central
 - Sul da Coreia
+- Leste da Noruega
+- Oeste da Noruega
+- Norte da África do Sul
+- Oeste da África do Sul
+- EAU Central
+- Norte dos EAU
+- Sul do Reino Unido
+- Oeste do Reino Unido
 
 Para implantar um compartilhamento de arquivo quente ou frio, confira [Criar um compartilhamento de arquivo quente ou frio](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share). 

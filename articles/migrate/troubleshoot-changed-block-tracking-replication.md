@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 55e79877fb186a5ba2aece316c61f542adeda60c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6318f426e42612f21da7a43c9857894ae610f68e
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796928"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871166"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Solucionando problemas de replicação na migração de VM do VMware sem agente
 
@@ -30,13 +30,36 @@ Use as etapas a seguir para monitorar o status de replicação para suas máquin
 
   1. Vá para a página servidores em migrações para Azure no portal do Azure.
   2. Navegue até a página "replicando máquinas" clicando em "replicando servidores" no bloco de migração do servidor.
-  3. Você verá uma lista de servidores de replicação juntamente com informações adicionais, como status, integridade, hora da última sincronização, etc. A coluna de integridade indica a integridade da replicação atual da VM. Um valor ' Critical'or ' de aviso na coluna de integridade normalmente indica que o ciclo de replicação anterior da VM falhou. Para obter mais detalhes, clique com o botão direito do mouse na VM e selecione "detalhes do erro". A página detalhes do erro contém informações sobre o erro e detalhes adicionais sobre como solucionar problemas. Você também verá um link "eventos recentes" que pode ser usado para navegar até a página de eventos da VM.
+  3. Você verá uma lista de servidores de replicação juntamente com informações adicionais, como status, integridade, hora da última sincronização, etc. A coluna de integridade indica a integridade da replicação atual da VM. Um valor ' crítico ' ou ' aviso ' na coluna de integridade normalmente indica que o ciclo de replicação anterior da VM falhou. Para obter mais detalhes, clique com o botão direito do mouse na VM e selecione "detalhes do erro". A página detalhes do erro contém informações sobre o erro e detalhes adicionais sobre como solucionar problemas. Você também verá um link "eventos recentes" que pode ser usado para navegar até a página de eventos da VM.
   4. Clique em "eventos recentes" para ver as falhas do ciclo de replicação anterior da VM. Na página eventos, procure o evento mais recente do tipo "falha no ciclo de replicação" ou "falha no ciclo de replicação para o disco" para a VM.
   5. Clique no evento para entender as possíveis causas do erro e as etapas de correção recomendadas. Use as informações fornecidas para solucionar problemas e corrigir o erro.
     
 ## <a name="common-replication-errors"></a>Erros comuns de replicação
 
 Esta seção descreve alguns dos erros comuns e como você pode solucioná-los.
+
+## <a name="key-vault-operation-failed-error-when-trying-to-replicate-vms"></a>Erro de Key Vault operação com falha ao tentar replicar VMs
+
+**Erro:** "Falha na operação de Key Vault. Operação: configurar a conta de armazenamento gerenciada, Key Vault: Key-Vault-Name, conta de armazenamento: o nome da conta de armazenamento falhou com o erro: "
+
+**Erro:** "Falha na operação de Key Vault. Operação: gerar definição de assinatura de acesso compartilhado, Key Vault: Key-Vault-Name, conta de armazenamento: o nome da conta de armazenamento falhou com o erro: "
+
+![Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
+
+Esse erro normalmente ocorre porque a política de acesso do usuário para o Key Vault não dá ao usuário conectado no momento as permissões necessárias para configurar as contas de armazenamento a serem Key Vault gerenciadas. Para verificar a política de acesso do usuário no cofre de chaves, acesse a página do cofre de chaves no portal do cofre de chaves e selecione políticas de acesso 
+
+Quando o portal cria o cofre de chaves, ele também adiciona uma política de acesso de usuário que concede as permissões de usuário atualmente conectadas para configurar contas de armazenamento a serem Key Vault gerenciadas. Isso pode falhar por dois motivos
+
+- O usuário conectado é uma entidade remota no locatário do Azure de clientes (assinatura do CSP – e o usuário conectado é o administrador do parceiro). A solução alternativa neste caso é excluir o cofre de chaves, fazer logoff do portal e, em seguida, fazer logon com uma conta de usuário do locatário Customers (não uma entidade de segurança remota) e repetir a operação. O parceiro CSP normalmente terá uma conta de usuário no locatário Azure Active Directory do cliente que pode usar. Se não for possível criar uma nova conta de usuário para si própria no locatário clientes Azure Active Directory, faça logon no portal como o novo usuário e, em seguida, repita a operação de replicação. A conta usada deve ter as permissões proprietário ou colaborador + acesso de usuário concedidas à conta no grupo de recursos (migrar grupo de recursos de projeto)
+
+- O outro caso em que isso pode ocorrer é quando um usuário (Usuário1) tentou configurar a replicação inicialmente e encontrou uma falha, mas o cofre de chaves já foi criado (e a política de acesso do usuário foi atribuída apropriadamente a esse usuário). Agora, posteriormente, um usuário diferente (Usuário2) tentará configurar a replicação, mas a operação configurar conta de armazenamento gerenciado ou gerar definição de SAS falhará, pois não há nenhuma política de acesso de usuário correspondente ao Usuário2 no cofre de chaves.
+
+**Resolução**: para resolver esse problema, crie uma política de acesso de usuário para Usuário2 no keyvault concedendo permissão de Usuário2 para configurar a conta de armazenamento gerenciado e gerar definições de SAS. O User2 pode fazer isso a partir de Azure PowerShell usando os cmdlets abaixo:
+
+$userPrincipalId = $ (Get-AzureRmADUser-UserPrincipalName "user2_email_address"). Sessão
+
+Set-AzureRmKeyVaultAccessPolicy-Vaultname "keyvaultname"-ObjectId $userPrincipalId-PermissionsToStorage obter, listar, excluir, definir, atualizar, regeneratekey, getss, Lists, exclusões, sets, recuperar, backup, restaurar, limpar
+
 
 ## <a name="disposeartefactstimedout"></a>DisposeArtefactsTimedOut
 

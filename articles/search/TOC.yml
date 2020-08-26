@@ -155,7 +155,7 @@
           href: search-howto-large-index.md
         - name: Suporte a atualizações simultâneas
           href: search-howto-concurrency.md
-    - name: Ingerir dados do Azure
+    - name: Ingerir dados somente do Azure
       items:
         - name: Configurar indexadores
           href: search-indexer-overview.md
@@ -203,7 +203,7 @@
               href: search-howto-managed-identities-cosmos-db.md
             - name: Banco de Dados SQL
               href: search-howto-managed-identities-sql.md
-    - name: Ingerir usando a IA
+    - name: Usar habilidades (IA)
       items:
         - name: Anexar um recurso dos Serviços Cognitivos
           href: cognitive-search-attach-cognitive-services.md
@@ -215,7 +215,7 @@
               href: cognitive-search-concept-annotations-syntax.md
             - name: Mapear para os campos de índice
               href: cognitive-search-output-field-mapping.md
-            - name: Extrair informações de imagens
+            - name: Processar arquivos de imagem
               href: cognitive-search-concept-image-scenarios.md
             - name: Enriquecimento de cache (adicional)
               href: search-howto-incremental-index.md
@@ -526,5 +526,5 @@
       href: search-faq-frequently-asked-questions.md
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/search/'
-    - name: Vídeos
+    - name: vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

@@ -5,12 +5,12 @@ description: Saiba como atualizar ou redefinir as credenciais do aplicativo de e
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: a824606bc0e77ba069b6b54725645ee3f348de27
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: e787322f421094cf9ac6681df0119ba820b654ea
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386921"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871217"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Atualizar ou girar as credenciais do serviço kubernetes do Azure (AKS)
 
@@ -31,7 +31,8 @@ Quando desejar atualizar as credenciais de um cluster AKS, você poderá optar p
 * Atualize as credenciais para a entidade de serviço existente.
 * Crie uma nova entidade de serviço e atualize o cluster para usar essas novas credenciais. 
 
-> ! ALERTA Se você optar por criar uma *nova* entidade de serviço, atualizar um cluster AKs grande para usar essas credenciais poderá levar muito tempo para ser concluído.
+> [!WARNING]
+> Se você optar por criar uma *nova* entidade de serviço, atualizar um cluster AKs grande para usar essas credenciais poderá levar muito tempo para ser concluído.
 
 ### <a name="check-the-expiration-date-of-your-service-principal"></a>Verificar a data de validade da entidade de serviço
 

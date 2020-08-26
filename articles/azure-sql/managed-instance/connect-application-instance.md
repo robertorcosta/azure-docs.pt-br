@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: a5d002532adb043fa5196231964d5b6e2c81417c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a04f4879bbd06c2fa6c1af921d7adafdef9417d6
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706368"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871438"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Conectar seu aplicativo à Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ Conectar um aplicativo quando ele reside em uma rede virtual diferente do SQL In
 
 Há duas opções para conectar redes virtuais:
 
-- [Emparelhamento de VPN do Azure](../../virtual-network/virtual-network-peering-overview.md)
+- [Emparelhamento VNet do Azure](../../virtual-network/virtual-network-peering-overview.md)
 - Gateway de VPN VNET a VNET ([portal do Azure](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [CLI do Azure](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
 O emparelhamento é preferível porque usa a rede de backbone da Microsoft, portanto, da perspectiva da conectividade, não há nenhuma diferença perceptível na latência entre as máquinas virtuais em uma rede virtual emparelhada e na mesma rede virtual. O emparelhamento de rede virtual é limitado às redes na mesma região.  
@@ -63,7 +63,7 @@ Se você tiver estabelecido uma conexão local para o Azure com êxito e não pu
 
 ## <a name="connect-the-developer-box"></a>Conectar a caixa do desenvolvedor
 
-Também é possível conectar sua caixa de desenvolvedor ao SQL Instância Gerenciada. O SQL Instância Gerenciada pode ser acessado somente por meio de um endereço IP privado, portanto, para acessá-lo na caixa do desenvolvedor, primeiro você precisa fazer uma conexão entre sua caixa de desenvolvedor e a rede virtual do SQL Instância Gerenciada. Para fazer isso, configure uma conexão ponto a site com uma rede virtual usando a autenticação de certificado nativa do Azure. Para obter mais informações, consulte [Configurar uma conexão ponto a site para se conectar ao Azure SQL instância gerenciada de um computador local](point-to-site-p2s-configure.md).
+Também é possível conectar sua caixa de desenvolvedor ao SQL Instância Gerenciada. O SQL Instância Gerenciada pode ser acessado somente por meio de um endereço IP privado, portanto, para acessá-lo na caixa do desenvolvedor, primeiro você precisa fazer uma conexão entre sua caixa de desenvolvedor e a rede virtual do SQL Instância Gerenciada. Para fazer isso, configure uma conexão ponto a site com uma rede virtual usando a autenticação de certificado nativa do Azure. Para obter mais informações, consulte  [Configurar uma conexão ponto a site para se conectar ao Azure SQL instância gerenciada de um computador local](point-to-site-p2s-configure.md).
 
 ## <a name="connect-with-vnet-peering"></a>Conectar-se ao emparelhamento VNet
 

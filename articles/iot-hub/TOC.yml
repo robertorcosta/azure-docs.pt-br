@@ -53,6 +53,9 @@
           href: quickstart-device-streams-proxy-nodejs.md
         - name: C
           href: quickstart-device-streams-proxy-c.md
+    - name: Rotear mensagens automaticamente usando um modelo do Resource Manager
+      displayName: Resource Manager
+      href: horizontal-arm-route-messages.md
 - name: Tutoriais
   items:
     - name: Roteamento de mensagens

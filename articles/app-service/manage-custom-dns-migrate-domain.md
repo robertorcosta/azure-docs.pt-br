@@ -4,14 +4,14 @@ description: Saiba como migrar um nome de domínio DNS personalizado que já est
 tags: top-support-issue
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: bd11690f2a3597d6e1a835ad7ca9c5880117eeea
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: c51745b7760573aa3c6ae067e9a6c1cc315f8e56
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782202"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871387"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS ativo para o Serviço de Aplicativo do Azure
 
@@ -59,31 +59,27 @@ Na página de registros DNS, anote o tipo de registro do nome DNS que você dese
 
 ### <a name="enable-the-domain-for-your-app"></a>Habilitar o domínio para o aplicativo
 
-No [portal do Azure](https://portal.azure.com), no painel de navegação à esquerda da página do aplicativo, selecione **Domínios personalizados**. 
+1. No [portal do Azure](https://portal.azure.com), no painel de navegação à esquerda da página do aplicativo, selecione **Domínios personalizados**. 
 
-![Menu de domínio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Menu de domínio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Na página **Domínios personalizados**, selecione o ícone **+** ao lado de **Adicionar nome do host**.
+1. Na página **domínios personalizados** , selecione **Adicionar domínio personalizado**.
 
-![Adicionar nome do host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![Adicionar nome do host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Digite o nome de domínio totalmente qualificado que você deseja migrar, que corresponde ao registro TXT que você criar, como, `contoso.com` `www.contoso.com` ou `*.contoso.com` .
+1. Digite o nome de domínio totalmente qualificado que você deseja migrar, que corresponde ao registro TXT que você criar, como, `contoso.com` `www.contoso.com` ou `*.contoso.com` . Selecione **Validar**.
 
-Selecione **Validar**.
+    O botão **Adicionar domínio personalizado** está ativado. 
 
-O botão **Adicionar nome do host** é ativado. 
+1. Verifique se **Tipo de registro do nome do host** está definido como o tipo de registro DNS que você deseja migrar. Selecione **Adicionar nome do host**.
 
-Verifique se **Tipo de registro do nome do host** está definido como o tipo de registro DNS que você deseja migrar.
+    ![Adicionar nome DNS para o aplicativo](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-Selecione **Adicionar nome do host**.
+    Pode levar algum tempo para que o novo nome do host seja refletido na página **Domínios personalizados** do aplicativo. Tente atualizar o navegador para atualizar os dados.
 
-![Adicionar nome DNS para o aplicativo](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+    ![Registro CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-Pode levar algum tempo para que o novo nome do host seja refletido na página **Domínios personalizados** do aplicativo. Tente atualizar o navegador para atualizar os dados.
-
-![Registro CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
-
-Agora, o nome DNS personalizado está habilitado no Azure App. 
+    Agora, o nome DNS personalizado está habilitado no Azure App. 
 
 ## <a name="remap-the-active-dns-name"></a>Remapear o nome DNS ativo
 
@@ -96,8 +92,6 @@ Agora só resta remapear o registro DNS ativo para que ele aponte para o Serviç
 Se estiver fazendo o remapeamento de um registro CNAME, ignore esta seção. 
 
 Para remapear um registro A, você precisa do endereço IP externo do aplicativo Serviço de Aplicativo, que é mostrado na página **Domínios personalizados**.
-
-Feche a página **Adicionar nome do host** selecionando **X** no canto superior direito. 
 
 Na página **domínios personalizados**, copie o endereço IP do aplicativo.
 

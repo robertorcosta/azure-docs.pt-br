@@ -8,12 +8,12 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 8/20/2020
 ms.author: allensu
-ms.openlocfilehash: ed6c60b4f66361e87f67f3c64bb60846b2df757b
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c7e6733079dbd867255e604f6f8d4459f647cc93
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817301"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870435"
 ---
 # <a name="azure-cdn-endpoint-multi-origin"></a>Ponto de extremidade da CDN do Azure: várias origens
 
@@ -66,6 +66,7 @@ Configure um ou mais grupos de origem e escolha um grupo de origem padrão. Cada
 
    | Setting           | Valor                                                                 |
    |-------------------|-----------------------------------------------------------------------|
+   | Nome        | Insira um nome para a origem.        |
    | Tipo de origem | Selecione **armazenamento**, **serviço de nuvem**, **aplicativo Web**ou **origem personalizada**.                                   |
    | Nome do host de origem        | Selecione ou insira seu nome de host de origem.  O menu suspenso lista todas as origens disponíveis do tipo especificado na configuração anterior. Se você selecionou **origem personalizada** como seu tipo de origem, insira o domínio do servidor de origem do cliente. |
    | Cabeçalho de host de origem    | Insira o cabeçalho de host que você deseja que a CDN do Azure envie com cada solicitação ou deixe o padrão.                        |
@@ -114,6 +115,34 @@ Depois de ter várias origens e um grupo de origem, você pode adicionar ou remo
 2. Para remover uma origem do grupo de origem, selecione o ícone de Lixeira ao lado da origem e selecione **salvar**:
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-11.png" alt-text="Atualizar origem de exclusão do grupo de origem" border="true":::
+
+## <a name="override-origin-group-with-rules-engine"></a>Substituir grupo de origem pelo mecanismo de regras
+
+Personalize como o tráfego é distribuído para grupos de origem diferentes usando o mecanismo de regras padrão.
+
+Distribua o tráfego para um grupo diferente com base na URL da solicitação.
+
+1. No ponto de extremidade da CDN, selecione **mecanismo de regras** em **configurações**:
+
+:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-12.png" alt-text="Mecanismo de regras" border="true":::
+
+2. Selecione **+ Adicionar regra**.
+
+3. Insira um nome para a regra no **nome**.
+
+4. Selecione **+ condição**e, em seguida, selecione **caminho da URL**.
+
+5. Na suspenso do **operador** , selecione **contém**.
+
+6. Em **valor**, digite **/images**.
+
+7. Selecione **+ Adicionar ação**e, em seguida, selecione **substituição de grupo de origem**.
+
+8. Em **grupo de origem**, selecione o grupo de origem na caixa de pull.
+
+:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-13.png" alt-text="Condições do mecanismo de regras" border="true":::
+
+Para todas as solicitações de entrada, se o caminho da URL contiver **/images**, a solicitação será atribuída ao grupo de origem na seção ação **(myoriginy)**. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você habilitou o ponto de extremidade da CDN do Azure com várias origens.

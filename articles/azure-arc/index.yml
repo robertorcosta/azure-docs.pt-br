@@ -1,68 +1,87 @@
-### YamlMime:Landing
-title: Azure Arc
-summary: O Azure Arc estende as funcionalidades do Azure Resource Manager para servidores Linux e Windows, bem como clusters Kubernetes em qualquer infraestrutura local, em várias nuvens e na borda. Com o Azure Arc, os clientes também podem executar serviços de dados do Azure em qualquer lugar, obtendo os benefícios da inovação de nuvem, incluindo funcionalidades de dados sempre atualizadas, implantação em segundos (em vez de em horas) e escalabilidade dinâmica em qualquer infraestrutura.
+### YamlMime:Hub
+title: Documentação do Azure Arc
+summary: Simplifique ambientes complexos e distribuídos no local, na borda e em várias nuvens.
+brand: azure
 metadata:
   title: Azure Arc
-  description: Aprenda a gerenciar computadores locais no Azure
-  author: mgoedtel
+  description: Saiba como implantar recursos em ambientes complexos e distribuídos no local, na borda e em várias nuvens. O Azure Arc habilita a implantação de serviços do Azure em qualquer lugar e estende o gerenciamento do Azure a qualquer infraestrutura.
   ms.service: azure-arc
-  ms.topic: landing-page
-  ms.date: 08/13/2020
+  ms.topic: hub-page
+  author: MGoedtel
   ms.author: magoedte
-  ms.openlocfilehash: afb1dd4986220bcf3f244532a730faf6b80e6074
-  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+  ms.date: 08/21/2020
+  ms.openlocfilehash: 961d8b892841f2d8761053279f053afe3b859798
+  ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88212772"
-landingContent:
-- title: Sobre o Azure Arc
-  linkLists:
-  - linkListType: overview
+  ms.lasthandoff: 08/24/2020
+  ms.locfileid: "88763313"
+highlightedContent:
+  items:
+  - title: Servidores habilitados para Azure Arc (versão prévia)
+    itemType: overview
+    url: ./servers/overview.md
+  - title: Kubernetes habilitado para Azure Arc (versão prévia)
+    itemType: overview
+    url: ./kubernetes/overview.md
+  - title: Sobre o Azure Arc
+    itemType: overview
+    url: https://azure.microsoft.com/en-us/services/azure-arc
+productDirectory:
+  title: Serviços habilitados para Azure Arc
+  summary: Confira como executar serviços em qualquer lugar.
+  items:
+  - title: Servidores habilitados para Azure Arc
+    imageSrc: ./media/manage-450-machines-azure-arc.svg
     links:
-    - text: O que é o Azure Arc?
-      url: https://aka.ms/Azure-Arc-Info
-- title: Conectar computadores ao Azure usando servidores habilitados para o Azure Arc
-  linkLists:
-  - linkListType: overview
+    - url: ./servers/onboard-portal.md
+      text: Conecte computadores ao Azure Arc usando o portal do Azure
+    - url: ./servers/onboard-service-principal.md
+      text: Conecte computadores em escala usando uma entidade de serviço
+    - url: ./servers/onboard-dsc.md
+      text: Conectar computadores ao Azure com o DSC do PowerShell
+    - url: ./servers/index.yml
+      text: Ver mais...
+  - title: Kubernetes habilitado para Azure Arc
+    imageSrc: ./media/containers-101-kubernetes-services.svg
     links:
-    - text: O que são servidores habilitados para Azure Arc?
-      url: ./servers/overview.md
-  - linkListType: quickstart
+    - url: ./kubernetes/connect-cluster.md
+      text: Conectar cluster
+    - url: ./kubernetes/use-gitops-connected-cluster.md
+      text: Implantar configurações usando GitOps
+    - url: ./kubernetes/index.yml
+      text: Ver mais...
+conceptualContent:
+  title: Introdução
+  items:
+  - title: Servidores habilitados para Azure Arc (versão prévia)
     links:
-    - text: Habilitar o agente de servidores habilitados para Arc
-      url: ./servers/learn/quick-enable-hybrid-vm.md
-  - linkListType: how-to-guide
+    - url: ./servers/learn/quick-enable-hybrid-vm.md
+      itemType: get-started
+      text: Habilitar o agente de servidores habilitados para Arc
+    - url: ./servers/learn/tutorial-enable-vm-insights.md
+      itemType: tutorial
+      text: Monitorar um computador híbrido com o Azure Monitor para VMs
+    - url: ./servers/policy-samples.md
+      itemType: learn
+      text: Políticas de controle de admissão usando o Azure Policy
+    - url: ./servers/manage-vm-extensions.md
+      itemType: how-to-guide
+      text: Gerenciar e usar extensões de VM do Azure
+  - title: Kubernetes habilitado para Azure Arc (versão prévia)
     links:
-    - text: Conecte computadores ao Azure Arc usando o portal do Azure
-      url: ./servers/onboard-portal.md
-    - text: Conecte computadores em escala usando uma entidade de serviço
-      url: ./servers/onboard-service-principal.md
-    - text: Conectar computadores ao Azure com o DSC do PowerShell
-      url: ./servers/onboard-dsc.md
-    - text: Gerenciar e usar extensões de VM do Azure
-      url: ./servers/manage-vm-extensions.md
-- title: Conectar clusters do Kubernetes ao Azure usando o Azure Arc
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: O que é o Kubernetes habilitado para Azure Arc?
-      url: ./kubernetes/overview.md
-  - linkListType: quickstart
-    links:
-    - text: Conectar cluster
-      url: ./kubernetes/connect-cluster.md
-  - linkListType: how-to-guide
-    links:
-    - text: Implantar configurações usando GitOps
-      url: ./kubernetes/use-gitops-connected-cluster.md
-    - text: Implantar gráficos do Helm usando GitOps
-      url: ./kubernetes/use-gitops-with-helm.md
-    - text: Impor GitOps usando o Azure Policy
-      url: ./kubernetes/use-azure-policy.md
-    - text: Monitorar usando o Azure Monitor para contêineres
-      url: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/toc.json
-    - text: Políticas de controle de admissão usando o Azure Policy
-      url: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/toc.json
-    - text: Implantar cargas de trabalho do Azure IoT Edge
-      url: ./kubernetes/deploy-azure-iot-edge-workloads.md
+    - url: ./kubernetes/use-gitops-with-helm.md
+      itemType: deploy
+      text: Implantar gráficos do Helm usando GitOps
+    - url: ./kubernetes/use-azure-policy.md
+      itemType: how-to-guide
+      text: Impor GitOps usando o Azure Policy
+    - url: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/toc.json
+      itemType: tutorial
+      text: Monitorar usando o Azure Monitor para contêineres
+    - url: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/toc.json
+      itemType: learn
+      text: Políticas de controle de admissão usando o Azure Policy
+    - url: ./kubernetes/deploy-azure-iot-edge-workloads.md
+      itemType: deploy
+      text: Implantar cargas de trabalho do Azure IoT Edge

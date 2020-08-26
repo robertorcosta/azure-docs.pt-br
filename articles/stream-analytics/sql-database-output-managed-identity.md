@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: fff44617a5621d4edd84bee8f9b1e6b6e6924cd8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 906311452598d592b73a263ce25d0c8c51cc1cc7
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87305917"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870180"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Usar identidades gerenciadas para acessar o Banco de Dados SQL do Azure de um trabalho do Azure Stream Analytics (Versão prévia)
 
@@ -122,7 +122,7 @@ Verifique se você criou uma tabela em seu Banco de Dados SQL com o esquema de s
 
 1. Selecione **Adicionar > Banco de Dados SQL**. Na janela Propriedades de saída do coletor de saída do Banco de Dados SQL, selecione **Identidade Gerenciada** na lista suspensa do modo de Autenticação.
 
-1. Preencha o restante das propriedades. Para saber mais sobre como criar uma saída do Banco de Dados SQL, consulte [Criar uma saída do Banco de Dados SQL com o Stream Analytics](stream-analytics-define-outputs.md#sql-database). Quando tiver terminado, selecione **Salvar**. 
+1. Preencha o restante das propriedades. Para saber mais sobre como criar uma saída do Banco de Dados SQL, consulte [Criar uma saída do Banco de Dados SQL com o Stream Analytics](sql-database-output.md). Quando tiver terminado, selecione **Salvar**. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

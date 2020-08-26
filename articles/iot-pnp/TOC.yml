@@ -69,6 +69,8 @@
       href: howto-use-iot-pnp-cli.md
     - name: Gerenciar gêmeos digitais
       href: howto-manage-digital-twin.md
+    - name: Certificar um dispositivo
+      href: howto-certify-device.md
 - name: Referência
   items:
     - name: Bibliotecas e SDKs

@@ -4,23 +4,25 @@ description: Saiba como criar um escopo de criptografia para isolar dados de blo
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 08/04/2020
+ms.date: 08/25/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d4dd3f3ced8aac6852fe8516a4a5cadca2ebdc49
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 32b46d21228bcd84fc3da11cc6ed42c740fece39
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564139"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870248"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Criar e gerenciar escopos de criptografia (visualização)
 
-Escopos de criptografia (visualização) permitem que você gerencie a criptografia no nível de um BLOB ou contêiner individual. Um escopo de criptografia isola dados de BLOB em um enclave seguro em uma conta de armazenamento. Você pode usar escopos de criptografia para criar limites seguros entre os dados que residem na mesma conta de armazenamento, mas que pertencem a clientes diferentes. Para obter mais informações sobre escopos de criptografia, consulte [escopos de criptografia para armazenamento de BLOBs (versão prévia)](../common/storage-service-encryption.md#encryption-scopes-for-blob-storage-preview).
+Escopos de criptografia (visualização) permitem que você gerencie a criptografia no nível de um BLOB ou contêiner individual. Um escopo de criptografia isola os dados de blob em um Secure Enclave em uma conta de armazenamento. Você pode usar escopos de criptografia para criar limites seguros entre os dados que residem na mesma conta de armazenamento, mas que pertencem a clientes diferentes. Para obter mais informações sobre escopos de criptografia, consulte [escopos de criptografia para armazenamento de BLOBs (versão prévia)](../common/storage-service-encryption.md#encryption-scopes-for-blob-storage-preview).
 
 Este artigo mostra como criar um escopo de criptografia. Ele também mostra como especificar um escopo de criptografia quando você cria um BLOB ou contêiner.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="create-an-encryption-scope"></a>Criar um escopo de criptografia
 
