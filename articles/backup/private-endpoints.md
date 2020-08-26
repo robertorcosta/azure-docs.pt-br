@@ -3,12 +3,12 @@ title: Pontos de extremidade privados
 description: Entenda o processo de criação de pontos de extremidade privados para o backup do Azure e os cenários em que o uso de pontos de extremidade privados ajuda a manter a segurança de seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: b7f7c6461701b6f4e438cbead60456b327c7c207
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4f41eee7a84308eb9f4da56f087b2c36e09148f0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871540"
+ms.locfileid: "88890885"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos de extremidade privados para o backup do Azure
 
@@ -99,7 +99,7 @@ Há duas zonas DNS obrigatórias que precisam ser criadas:
 
 ### <a name="optional-dns-zone"></a>Zona DNS opcional
 
-Os clientes podem optar por integrar seus pontos de extremidade privados com zonas DNS privadas para o backup do Azure (discutido na seção sobre a criação de pontos de extremidade privados) para comunicação de serviço. Se você não quiser se integrar à zona DNS privada, poderá optar por usar seu próprio servidor DNS ou criar uma zona DNS privada separadamente. Isso é além das duas zonas DNS privadas obrigatórias discutidas na seção anterior.
+Você pode optar por integrar seus pontos de extremidade privados com zonas DNS privadas para o backup do Azure (discutido na seção [criando e usando pontos de extremidade privados para backup](#creating-and-using-private-endpoints-for-backup)) para comunicação de serviço. Se você não quiser se integrar à zona DNS privada, poderá optar por usar seu próprio servidor DNS ou criar uma zona DNS privada separadamente. Isso é além das duas zonas DNS privadas obrigatórias discutidas na seção anterior.
 
 Se você quiser criar uma zona DNS privada separada no Azure, poderá fazer o mesmo usando as mesmas etapas usadas para criar zonas DNS obrigatórias. Os detalhes de nomenclatura e assinatura são compartilhados abaixo:
 

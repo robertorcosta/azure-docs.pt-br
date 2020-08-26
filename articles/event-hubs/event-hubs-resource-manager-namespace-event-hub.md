@@ -4,12 +4,12 @@ description: 'Início Rápido: Criar um namespace de Hubs de Eventos com um Hub 
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/23/2020
-ms.openlocfilehash: 445a52593e95074d9941a1592d688de7eea9c006
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dbec62c182fe804ba45cae2f9e40c189b9bc0279
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522033"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641119"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-arm-template"></a>Início Rápido: Criar um hub de eventos usando um modelo do Resource Manager
 
@@ -29,7 +29,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-eventhubs-create-namespace-and-eventhub/).
 
-:::code language="json" source="~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json" range="1-61" highlight="32-59":::
+:::code language="json" source="~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json":::
 
 Os recursos definidos no modelo incluem:
 

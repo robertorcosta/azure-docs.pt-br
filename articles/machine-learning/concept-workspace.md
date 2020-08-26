@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/08/2020
-ms.openlocfilehash: 53f151c63c85e958aad3bd0eaf16c50294bf250f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 437c2b8e42ed5128cc716eee23b8702ec012b481
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287226"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890907"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um espaço de trabalho Azure Machine Learning?
 
@@ -49,10 +49,10 @@ Você pode interagir com seu espaço de trabalho das seguintes maneiras:
 
 > [!IMPORTANT]
 > As ferramentas marcadas (visualização) abaixo estão atualmente em visualização pública.
-> A versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> A versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 + Na Web:
-    + [Azure Machine Learning Studio](https://ml.azure.com) 
+    + [Azure Machine Learning Studio ](https://ml.azure.com) 
     + [Azure Machine Learning designer (versão prévia)](concept-designer.md) – disponível somente em espaços de trabalho do [Enterprise Edition](overview-what-is-azure-ml.md#sku) .
 + Em qualquer ambiente do Python com o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Em qualquer ambiente de R com o [SDK do Azure Machine Learning para R (versão prévia)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
@@ -87,9 +87,9 @@ Você também pode executar as seguintes tarefas de gerenciamento de espaço de 
 > [!WARNING]
 > Não há suporte para a movimentação do workspace do Azure Machine Learning para outra assinatura nem para a movimentação da assinatura proprietária para um novo locatário. Se você fizer isso, poderá causar erros.
 
-## <a name="create-a-workspace"></a><a name='create-workspace'></a>Criar um espaço de trabalho
+## <a name="create-a-workspace"></a><a name='create-workspace'></a> Criar um espaço de trabalho
 
-Ao criar um espaço de trabalho, você decide se deseja criá-lo com o [Basic ou Enterprise Edition](overview-what-is-azure-ml.md#sku). A edição determina os recursos disponíveis no espaço de trabalho. Entre outros recursos, a Enterprise Edition oferece acesso ao [Azure Machine Learning designer](concept-designer.md) e à versão de estúdio da criação de [experimentos de aprendizado de máquina automatizados](tutorial-first-experiment-automated-ml.md).  Para obter mais detalhes e informações sobre preços, consulte [preços de Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
+Ao criar um espaço de trabalho, você decide se deseja criá-lo com o [Basic ou Enterprise Edition](overview-what-is-azure-ml.md#sku). A edição determina os recursos disponíveis no espaço de trabalho. Entre outros recursos, a Enterprise Edition oferece acesso ao [Azure Machine Learning designer](concept-designer.md) e à versão de estúdio da criação de [experimentos de aprendizado de máquina automatizados](tutorial-first-experiment-automated-ml.md).  Para obter mais informações e informações sobre preços, consulte [preços de Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 Há várias maneiras de criar um espaço de trabalho:  
 
@@ -101,11 +101,11 @@ Há várias maneiras de criar um espaço de trabalho:
 > [!NOTE]
 > O nome do workspace não diferencia maiúsculas de minúsculas.
 
-## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Atualizar para o Enterprise Edition
+## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a> Atualizar para o Enterprise Edition
 
 Você pode [atualizar seu espaço de trabalho de básico para Enterprise Edition](how-to-manage-workspace.md#upgrade) usando o portal do Azure. Não é possível fazer downgrade de um espaço de trabalho Enterprise Edition para um espaço de trabalho básico. 
 
-## <a name="associated-resources"></a><a name="resources"></a>Recursos associados
+## <a name="associated-resources"></a><a name="resources"></a> Recursos associados
 
 Quando você cria um novo workspace, ele automaticamente cria vários recursos do Azure que são usados pelo workspace:
 
@@ -117,8 +117,16 @@ Quando você cria um novo workspace, ele automaticamente cria vários recursos d
 > [!NOTE]
 > Além de criar novas versões, você também pode usar os serviços existentes do Azure.
 
+### <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
+
+A conta de armazenamento do Azure criada por padrão com o espaço de trabalho é uma conta v1 de uso geral. Você pode atualizar isso para o uso geral v2 depois que o espaço de trabalho tiver sido criado seguindo as etapas no artigo [atualizar para uma conta de armazenamento v2 de uso geral](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) .
+
 > [!IMPORTANT]
-> Se você quiser usar uma conta de armazenamento do Azure existente, ela não poderá ser uma conta Premium (Premium_LRS e Premium_GRS). Ele também não pode ter um namespace hierárquico (usado com Azure Data Lake Storage Gen2). Não há suporte para armazenamento Premium ou namespace hierárquico com a conta de armazenamento _padrão_ do espaço de trabalho. Você pode usar o armazenamento Premium ou o namespace hierárquico com contas _de armazenamento não padrão_ .
+> Não habilite o namespace hierárquico na conta de armazenamento após a atualização para o uso geral v2.
+
+Se você quiser usar uma conta de armazenamento do Azure existente, ela não poderá ser uma conta Premium (Premium_LRS e Premium_GRS). Ele também não pode ter um namespace hierárquico (usado com Azure Data Lake Storage Gen2). Não há suporte para namespaces hierárquicos ou de armazenamento Premium com a conta de armazenamento _padrão_ do espaço de trabalho. Você pode usar o armazenamento Premium ou o namespace hierárquico com contas _de armazenamento não padrão_ .
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

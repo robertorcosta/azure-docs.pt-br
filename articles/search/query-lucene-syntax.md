@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 3bf9dc0e69707eaed8c2a844f6ed3169e65a5342
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 088f3c78e0840ca435d70d6844b0eb932a07ccb7
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564085"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891088"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta Lucene no Azure Pesquisa Cognitiva
 
@@ -95,7 +95,7 @@ Verifique se todos os caracteres reservados e não seguros estão codificados em
 
 Os caracteres não seguros são ``" ` < > # % { } | \ ^ ~ [ ]``. Os caracteres reservados são `; / ? : @ = + &`.
 
-###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a>Limites de tamanho de consulta
+###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a> Limites de tamanho de consulta
 
  Há um limite para o tamanho das consultas que você pode enviar para o Azure Pesquisa Cognitiva. Especificamente, você pode ter, no máximo, 1024 cláusulas (expressões separadas por AND, OR e assim por diante). Há também um limite de aproximadamente 32 KB em relação ao tamanho de qualquer termo individual em uma consulta. Se seu aplicativo gerar consultas de pesquisa por meio de programação, é recomendável criá-lo de forma que ele não gere consultas de tamanho ilimitado.  
 
@@ -105,7 +105,7 @@ Os caracteres não seguros são ``" ` < > # % { } | \ ^ ~ [ ]``. Os caracteres r
 
 O agrupamento de campo é semelhante, mas tem como escopo o agrupamento para um único campo. Por exemplo, `hotelAmenities:(gym+(wifi||pool))` pesquisa o campo "comodidadesDoHotel" para "academia" e "wifi" ou "academia" e "piscina".  
 
-##  <a name="boolean-search"></a><a name="bkmk_boolean"></a>Pesquisa booliana
+##  <a name="boolean-search"></a><a name="bkmk_boolean"></a> Pesquisa booliana
 
  Sempre especifique operadores boolianos de texto (AND, OR, NOT) com tudo em maiúsculas.  
 
@@ -123,13 +123,13 @@ O operador NOT é um sinal de subtração. Por exemplo, o `wifi –luxury` procu
 
 O parâmetro **searchmode** em uma solicitação de consulta controla se um termo com o operador NOT é ANDed ou orns com outros termos na consulta (supondo que não haja nenhum `+` `|` operador OR nos outros termos). Os valores válidos incluem `any` ou `all`.
 
-`searchMode=any`aumenta a recall de consultas, incluindo mais resultados e, por padrão, `-` será interpretado como "ou não". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm o termo `wifi` ou aqueles que não contêm o termo `luxury`.
+`searchMode=any` aumenta a recall de consultas, incluindo mais resultados e, por padrão, `-` será interpretado como "ou não". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm o termo `wifi` ou aqueles que não contêm o termo `luxury`.
 
-`searchMode=all`aumenta a precisão das consultas, incluindo menos resultados e, por padrão, será interpretado como "e não". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm o termo `wifi` e não contêm o termo "luxo". Esse é indiscutivelmente um comportamento mais intuitivo para o operador `-`. Portanto, você deve considerar `searchMode=all` o uso do em vez de `searchMode=any` se deseja otimizar as pesquisas de precisão em vez de recall, *e* os usuários frequentemente usam o `-` operador em pesquisas.
+`searchMode=all` aumenta a precisão das consultas, incluindo menos resultados e, por padrão, será interpretado como "e não". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm o termo `wifi` e não contêm o termo "luxo". Esse é indiscutivelmente um comportamento mais intuitivo para o operador `-`. Portanto, você deve considerar `searchMode=all` o uso do em vez de `searchMode=any` se deseja otimizar as pesquisas de precisão em vez de recall, *e* os usuários frequentemente usam o `-` operador em pesquisas.
 
 Ao decidir sobre uma configuração de **searchmode** , considere os padrões de interação do usuário para consultas em vários aplicativos. Os usuários que estão pesquisando informações têm mais probabilidade de incluir um operador em uma consulta, em oposição aos sites de comércio eletrônico que têm estruturas de navegação mais internas.
 
-##  <a name="fielded-search"></a><a name="bkmk_fields"></a>Pesquisa em campo
+##  <a name="fielded-search"></a><a name="bkmk_fields"></a> Pesquisa em campo
 
 Você pode definir uma operação de pesquisa em campo com a `fieldName:searchExpression` sintaxe, em que a expressão de pesquisa pode ser uma única palavra ou frase, ou uma expressão mais complexa entre parênteses, opcionalmente com operadores boolianos. Alguns exemplos incluem o seguinte:  
 
@@ -144,7 +144,7 @@ O campo especificado em `fieldName:searchExpression` deve ser um campo `searchab
 > [!NOTE]
 > Ao usar expressões de pesquisa em campo, você não precisa usar o `searchFields` parâmetro porque cada expressão de pesquisa em campo tem um nome de campo especificado explicitamente. No entanto, você ainda poderá usar o `searchFields` parâmetro se quiser executar uma consulta em que algumas partes têm o escopo de um campo específico, e o restante pode se aplicar a vários campos. Por exemplo, a consulta `search=genre:jazz NOT history&searchFields=description` corresponderia `jazz` apenas ao `genre` campo, enquanto ela corresponderia ao `NOT history` `description` campo. O nome do campo fornecido em `fieldName:searchExpression` sempre tem precedência sobre o `searchFields` parâmetro, que é o motivo neste exemplo, não precisamos incluir `genre` no `searchFields` parâmetro.
 
-##  <a name="fuzzy-search"></a><a name="bkmk_fuzzy"></a>Pesquisa difusa
+##  <a name="fuzzy-search"></a><a name="bkmk_fuzzy"></a> Pesquisa difusa
 
 Uma pesquisa difusa localiza correspondências em termos que têm uma construção semelhante, expandindo um termo até o máximo de 50 termos que atendem aos critérios de distância de dois ou menos. Para obter mais informações, consulte [pesquisa difusa](search-query-fuzzy.md).
 
@@ -152,7 +152,7 @@ Uma pesquisa difusa localiza correspondências em termos que têm uma construç�
 
  A pesquisa difusa só pode ser aplicada a termos, não a frases, mas você pode acrescentar o til a cada termo individualmente em um nome ou frase de várias partes. Por exemplo, "Unviersty ~ de ~" Wshington ~ "corresponderia em" University de Washington ".
  
-##  <a name="proximity-search"></a><a name="bkmk_proximity"></a>Pesquisa de proximidade
+##  <a name="proximity-search"></a><a name="bkmk_proximity"></a> Pesquisa de proximidade
 
 As pesquisas de proximidade são usadas para localizar termos que estejam próximos um do outro em um documento. Insira um símbolo til "~" no final de uma frase seguida pelo número de palavras que criam o limite de proximidade. Por exemplo, `"hotel airport"~5` encontrará os termos "hotel" e "aeroporto" em cinco palavras uma da outra em um documento.  
 
@@ -183,13 +183,22 @@ A correspondência de sufixo, onde `*` ou `?` precede a cadeia de caracteres (co
 > [!NOTE]  
 > Como regra, a correspondência de padrões é lenta, portanto, talvez você queira explorar métodos alternativos, como a geração de tokens de n-grama de borda, que cria tokens para sequências de caracteres em um termo. O índice será maior, mas as consultas poderão ser executadas mais rapidamente, dependendo da construção do padrão e do comprimento das cadeias de caracteres que estão sendo indexadas.
 >
-> Durante a análise de consulta, as consultas que são formuladas como prefixo, sufixo, curinga ou expressões regulares são passadas como estão para a árvore de consulta, ignorando a [análise léxica](search-lucene-query-architecture.md#stage-2-lexical-analysis). As correspondências só serão encontradas se o índice contiver as cadeias de caracteres no formato especificado pela sua consulta. Na maioria dos casos, você precisará de um analisador alternativo durante a indexação que preserva a integridade da cadeia de caracteres para que a correspondência de termos e padrões parciais seja realizada com sucesso. Para obter mais informações, consulte [pesquisa de termo parcial nas consultas de pesquisa cognitiva do Azure](search-query-partial-matching.md).
+
+### <a name="impact-of-an-analyzer-on-wildcard-queries"></a>Impacto de um analisador em consultas curinga
+
+Durante a análise de consulta, as consultas que são formuladas como prefixo, sufixo, curinga ou expressões regulares são passadas como estão para a árvore de consulta, ignorando a [análise léxica](search-lucene-query-architecture.md#stage-2-lexical-analysis). As correspondências só serão encontradas se o índice contiver as cadeias de caracteres no formato especificado pela sua consulta. Na maioria dos casos, você precisará de um analisador durante a indexação que preserva a integridade da cadeia de caracteres para que a correspondência de termos e padrões parciais seja realizada com sucesso. Para obter mais informações, consulte [pesquisa de termo parcial nas consultas de pesquisa cognitiva do Azure](search-query-partial-matching.md).
+
+Considere uma situação em que você pode querer que a consulta de pesquisa ' terminat * ' retorne resultados que contenham termos como ' Terminate ', ' terminação ' e ' encerrações '.
+
+Se você fosse usar o analisador en. Lucene (Inglês Lucene), ele aplicaria uma lematização agressiva de cada termo. Por exemplo, ' Terminate ', ' terminação ', ' finalizações ' serão indexados para baixo até o token ' Termi ' no índice. Por outro lado, os termos em consultas que usam Curingas ou pesquisa difusa não são analisados. portanto, não haveria nenhum resultado que corresponda à consulta ' terminat * '.
+
+Por outro lado, os analisadores da Microsoft (neste caso, o en. Microsoft Analyzer) são um pouco mais avançados e usam lematização em vez de derivar. Isso significa que todos os tokens gerados devem ser palavras válidas em inglês. Por exemplo, ' Terminate ', ' Finalize ' e ' rescisão ' permanecerão em todo o índice e seria uma opção preferida para cenários que dependem muito de curingas e pesquisa difusa.
 
 ##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a> Classificar consultas de caractere curinga e regex
 
 O Azure Pesquisa Cognitiva usa a pontuação baseada em frequência ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) para consultas de texto. No entanto, para consultas curinga e regex em que o escopo de termos pode ser potencialmente amplo, o fator de frequência é ignorado para impedir que a classificação seja direcionada para correspondências de termos mais raros. Todas as correspondências são tratadas da mesma maneira para as pesquisas de caractere curinga e regex.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 + [Exemplos de consulta para pesquisa simples](search-query-simple-examples.md)
 + [Exemplos de consulta para a pesquisa completa do Lucene](search-query-lucene-examples.md)

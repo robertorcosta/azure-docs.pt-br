@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
-ms.openlocfilehash: 92f56f3b405470bc8ae0e9ebab2450ddc31b3c6a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8c22ff3cc79d326da09c44167519adbea48b5643
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77672167"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651328"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>O que é o Apache Kafka no Azure HDInsight
 
@@ -27,7 +27,7 @@ Estas são as características específicas do Kafka no HDInsight:
 
 * Ele usa o Azure Managed Disks como repositório de backup para Kafka. O Managed Disks pode fornecer até 16 TB de armazenamento por agente do Kafka. Para saber mais sobre como configurar discos gerenciados com o Kafka no HDInsight, confira [Aumentar a escalabilidade do Apache Kafka no HDInsight](apache-kafka-scalability.md).
 
-    Para saber mais sobre discos gerenciados, veja [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
+    Para saber mais sobre discos gerenciados, veja [Azure Managed Disks](../../virtual-machines/managed-disks-overview.md).
 
 * O Kafka foi criado com uma exibição única e bidimensional de um rack. O Azure separa um rack em duas dimensões: UD (domínios de atualização) e FD (domínios de falha). A Microsoft fornece ferramentas que redistribuem partições e réplicas do Kafka entre UDs e FDs.
 

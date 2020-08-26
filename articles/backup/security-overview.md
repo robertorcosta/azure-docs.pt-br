@@ -3,12 +3,12 @@ title: Visão geral de recursos de segurança
 description: Saiba mais sobre as funcionalidades de segurança no Backup do Azure que ajudam a proteger seus dados de backup e a atender às necessidades de segurança de sua empresa.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 0354e319c82e02072a8771f9aae383bf0b6240f6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: f9a505723b40df61665a99e898d59ecfb8c03fd5
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824587"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890460"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Visão geral dos recursos de segurança no Backup do Azure
 
@@ -56,7 +56,7 @@ A criptografia protege seus dados e ajuda a atender aos compromissos de conformi
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>Proteção de dados de backup de exclusões não intencionais
 
-O Backup do Azure fornece recursos de segurança para ajudar a proteger os dados de backup mesmo após a exclusão. Com a exclusão reversível, se o usuário excluir o backup de uma VM, os dados de backup serão mantidos por 14 dias adicionais, permitindo a recuperação desse item de backup sem perda de dados. A retenção adicional de 14 dias dos dados de backup no estado de "exclusão reversível" não incorre em nenhum custo para o cliente. [Saiba mais sobre a exclusão temporária](backup-azure-security-feature-cloud.md).
+O Backup do Azure fornece recursos de segurança para ajudar a proteger os dados de backup mesmo após a exclusão. Com a exclusão reversível, se o usuário excluir o backup de uma VM, os dados de backup serão mantidos por 14 dias adicionais, permitindo a recuperação desse item de backup sem perda de dados. A retenção adicional de 14 dias dos dados de backup no estado de "exclusão reversível" não incorre em nenhum custo para você. [Saiba mais sobre a exclusão temporária](backup-azure-security-feature-cloud.md).
 
 ## <a name="monitoring-and-alerts-of-suspicious-activity"></a>Monitoramento e alertas de atividade suspeita
 

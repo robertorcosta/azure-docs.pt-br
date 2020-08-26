@@ -3,12 +3,12 @@ title: Backup offline para Data Protection Manager (DPM) e Backup do Microsoft A
 description: Com o backup do Azure, você pode enviar dados da rede usando o serviço de importação/exportação do Azure. Este artigo explica o fluxo de trabalho de backup offline para versões anteriores do DPM e Servidor de Backup do Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 45518607b96848dc211c1a787ecfa85432cd842e
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: b747fd3c682dc1caf7312ba7279470a1e6b38bd5
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826592"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890086"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Fluxo de trabalho de backup offline para o DPM e o Servidor de Backup do Azure (versões anteriores)
 
@@ -203,7 +203,7 @@ O utilitário *AzureOfflineBackupDiskPrep* é usado para preparar as unidades SA
 
 1. Insira a letra da unidade sem os dois pontos à direita para o disco montado que você deseja preparar para a transferência do Azure. Quando solicitado, forneça a confirmação para a formatação da unidade.
 
-    Em seguida, a ferramenta começa a preparar o disco e copiar os dados de backup. Talvez seja necessário anexar discos adicionais quando solicitado pela ferramenta caso o disco fornecido não tenha espaço suficiente para os dados de backup. <br/>
+    Em seguida, a ferramenta começa a preparar o disco e copiar os dados de backup. Talvez seja necessário anexar discos adicionais quando solicitado pela ferramenta se o disco fornecido não tiver espaço suficiente para os dados de backup. <br/>
 
     Depois que a ferramenta for concluída com êxito, um ou mais discos fornecidos serão preparados para envio ao Azure. Um trabalho de importação com o nome que você forneceu durante o workflow na seção "Iniciar backup offline" também é criado no Azure. Por fim, a ferramenta exibe o endereço de entrega para o datacenter do Azure para onde os discos precisam ser enviados.
 

@@ -4,12 +4,12 @@ description: Encontre respostas para perguntas comuns sobre como fazer backup de
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 577f6637ebe96dcabcb1357ca09da75bd9552c30
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: d69a2aff900dc3185aafbcb2d655a29d2fff06e3
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827232"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890548"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Perguntas frequentes sobre SQL Server bancos de dados que estão em execução em um backup de VM do Azure
 
@@ -68,7 +68,7 @@ O cofre dos serviços de recuperação de backup do Azure pode detectar e proteg
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>Trabalhos de backup bem-sucedidos criam alertas?
 
-Não. Trabalhos de backup bem-sucedidos não geram alertas. Os alertas são enviados somente para trabalhos de backup com falha. O comportamento detalhado para alertas do portal é documentado [aqui](backup-azure-monitoring-built-in-monitor.md). No entanto, caso você esteja interessado em ter alertas mesmo para trabalhos bem-sucedidos, você pode usar o [monitoramento usando Azure monitor](backup-azure-monitoring-use-azuremonitor.md).
+Não. Trabalhos de backup bem-sucedidos não geram alertas. Os alertas são enviados somente para trabalhos de backup com falha. O comportamento detalhado para alertas do portal é documentado [aqui](backup-azure-monitoring-built-in-monitor.md). No entanto, se você estiver interessado em ter alertas mesmo para trabalhos bem-sucedidos, poderá usar o [monitoramento usando Azure monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver trabalhos de backup agendados no menu Trabalhos de Backup?
 
@@ -94,7 +94,7 @@ Se você **parar o backup com excluir dados**, nenhum backup futuro será realiz
 
 Um banco de dados renomeado é tratado como um novo. Portanto, o serviço tratará essa situação como se o banco de dados não fosse encontrado e com a falha dos backups.
 
-Você pode selecionar o banco de dados, que agora é renomeado e configurar a proteção nele. Caso a proteção automática esteja habilitada na instância, o banco de dados renomeado será automaticamente detectado e protegido.
+Você pode selecionar o banco de dados, que agora é renomeado e configurar a proteção nele. Se a proteção automática estiver habilitada na instância, o banco de dados renomeado será automaticamente detectado e protegido.
 
 ## <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Por que não consigo ver um banco de dados adicionado para uma instância autoprotegida?
 

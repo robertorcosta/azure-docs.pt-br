@@ -4,12 +4,12 @@ description: Neste artigo, saiba como gerenciar operações de restauração do 
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 03815cd9956e323583d6d66097e0eeaa3d492f44
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 2588ca87e2dc2209fbaa5eae411fe5895d5f5669
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826354"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889644"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurar máquinas virtuais do Azure usando a API REST
 
@@ -19,7 +19,7 @@ Para qualquer operação de restauração, é necessário identificar primeiro o
 
 ## <a name="select-recovery-point"></a>Selecione um ponto de recuperação
 
-Os pontos de recuperação disponíveis de um item de backup podem ser listados usando a [API REST do ponto de recuperação da lista](/rest/api/backup/recoverypoints/list). É uma simples operação *GET* com todos os valores relevantes.
+Os pontos de recuperação disponíveis de um item de backup podem ser listados usando a [API REST do ponto de recuperação da lista](/rest/api/backup/recoverypoints/list). É uma operação *Get* simples com todos os valores relevantes.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13
@@ -31,7 +31,7 @@ O URI *GET* tem todos os parâmetros necessários. Não há necessidade de um co
 
 ### <a name="responses"></a>Respostas
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [RecoveryPointResourceList](/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -144,7 +144,7 @@ O disparo de qualquer operação de restauração é uma [operação assíncrona
 
 Ele retorna duas respostas: 202 (Aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |202 Aceito     |         |     Aceito    |
 
@@ -216,7 +216,7 @@ Se houver a necessidade de personalizar a criação de uma VM a partir dos dados
 
 Para acionar uma restauração de disco a partir de um backup de VM do Azure, a seguir estão os componentes do corpo da solicitação.
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -254,7 +254,7 @@ Enquanto os discos de restauração criam discos do ponto de recuperação, o Re
 
 Para disparar uma substituição de disco de um backup de VM do Azure, estes são os componentes do corpo da solicitação.
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 

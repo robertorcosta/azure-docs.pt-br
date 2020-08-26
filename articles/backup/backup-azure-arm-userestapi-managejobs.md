@@ -4,12 +4,12 @@ description: Neste artigo, saiba como rastrear e gerenciar trabalhos de backup e
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: b9f69b8815cc8d508d5a10dda82803581216a4eb
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: ced0e0020fe955734bf6cc767480fbadd6eaffc1
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761620"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890273"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Acompanhe as tarefas de backup e restauração usando a API REST
 
@@ -41,11 +41,11 @@ A tarefa de backup da VM do Azure é identificada pelo campo "jobId" e pode ser 
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-O `{jobName}` é "jobId" mencionado acima. A resposta é sempre 200 OK com o campo "status" indicando o status atual do trabalho. Uma vez que é "Completed" ou "CompletedWithWarnings", a seção "extendedInfo" revela mais detalhes sobre o trabalho.
+O `{jobName}` é "jobId" mencionado acima. A resposta é sempre 200 OK com o campo "status" indicando o status atual do trabalho. Depois de ser "concluído" ou "CompletedWithWarnings", a seção "extendedInfo" revela mais detalhes sobre o trabalho.
 
 ### <a name="response"></a>Resposta
 
-|Nome  |Type  |DESCRIÇÃO  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     | [JobResource](/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 
