@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: 6148cedbf004e3e63200ac50b91a40866c5b18db
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 1af3ce7125d30ed0cb9b8ca6b3cb9322dc14c520
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719616"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855258"
 ---
 # <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Solucionar problemas de disponibilidade do Resource Health, frontend e back-end 
 
@@ -30,6 +30,9 @@ A métrica de disponibilidade do caminho de dados é gerada por um ping TCP a ca
 
 ## <a name="health-probe-status"></a>Status de investigação de integridade
 A métrica de status de investigação de integridade é gerada por um ping do protocolo definido na investigação de integridade. Esse ping é enviado para cada instância no pool de back-end e na porta definida na investigação de integridade. Para investigações HTTP e HTTPS, um ping bem-sucedido requer uma resposta HTTP 200 OK, enquanto com investigações TCP qualquer resposta é considerada bem-sucedida. Os sucessos consecutivos ou as falhas de cada investigação determinam se uma instância de back-end está íntegra e pode receber tráfego para as regras de balanceamento de carga às quais o pool de back-end é atribuído. Semelhante à disponibilidade de caminho de dados, usamos a agregação média, que nos informa a média de pings bem-sucedidos/totais durante o intervalo de amostragem. Esse valor de status de investigação de integridade indica a integridade de back-end em isolamento do balanceador de carga, investigando suas instâncias de back-end sem enviar tráfego pelo front-end.
+
+>[!IMPORTANT]
+>O status da investigação de integridade é amostrado em uma base de um minuto. Isso pode levar a flutuações secundárias em um valor de outro tipo constante. Por exemplo, se houver duas instâncias de back-end, uma investigada e uma investigação inativa, o serviço de investigação de integridade poderá capturar 7 amostras para a instância íntegra e 6 para a instância não íntegra. Isso levará a um valor anteriormente estável de 50 mostrado como 46,15 para um intervalo de um minuto. 
 
 ## <a name="diagnose-degraded-and-unavailable-load-balancers"></a>Diagnosticar balanceadores de carga degradados e indisponíveis
 Conforme descrito no [artigo Resource Health](load-balancer-standard-diagnostics.md#resource-health-status), um balanceador de carga degradado é aquele que mostra entre 25% e 90% de disponibilidade de caminho de dados, e um balanceador de carga indisponível é um com menos de 25% de disponibilidade de caminho de dados, em um período de dois minutos. Essas mesmas etapas podem ser executadas para investigar a falha que você vê em qualquer alerta de status de investigação de integridade ou de disponibilidade de caminho de dados que você configurou. Exploraremos o caso em que verificamos o nosso Resource Health e descobrimos que nosso balanceador de carga não está disponível com uma disponibilidade de caminho de dados de 0%-nosso serviço está inativo.

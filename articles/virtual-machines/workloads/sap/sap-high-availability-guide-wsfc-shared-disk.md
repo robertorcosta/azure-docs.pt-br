@@ -13,19 +13,19 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf85632ff062bff5b71451379f37c14830bf6b68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b286812ba0a418d74738837fd5cfb7a7b617a9fa
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82982948"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854448"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Clusterize uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando um disco compartilhado de cluster no Azure
 
-> ![Windows][Logo_Windows] Windows
+> ![Sistema operacional Windows][Logo_Windows] Windows
 >
 
 O Windows Server Failover Clustering é a base de uma instalação do SAP ASCS/SCS de alta disponibilidade e DBMS no Windows.
@@ -40,7 +40,7 @@ Antes de iniciar as tarefas neste artigo, examine o seguinte artigo:
 
 ## <a name="windows-server-failover-clustering-in-azure"></a>Clustering de Failover do Windows Server no Azure
 
-Comparados a implantações de nuvem privada ou bare metal, as Máquinas Virtuais do Azure exigem etapas adicionais para configurar o clustering de failover do Windows Server. Quando você compila um cluster, precisa definir vários endereços IP e nomes de host virtual para a instância do SAP ASCS/SCS.
+O clustering de failover do Windows Server com máquinas virtuais do Azure requer etapas de configuração adicionais. Quando você compila um cluster, precisa definir vários endereços IP e nomes de host virtual para a instância do SAP ASCS/SCS.
 
 ### <a name="name-resolution-in-azure-and-the-cluster-virtual-host-name"></a>Resolução de nomes no Azure e nome do host virtual do cluster
 
@@ -52,7 +52,7 @@ Implante o balanceador de carga interno no grupo de recursos que contém os nós
 
 ![Figura 1: Configuração do clustering de failover do Windows Server no Azure sem um disco compartilhado][sap-ha-guide-figure-1001]
 
-_**Figura 1:** configuração do Clustering de Failover do Windows Server no Azure sem um disco compartilhado_
+_Configuração do Windows Server failover clustering no Azure sem um disco compartilhado_
 
 ### <a name="sap-ascsscs-ha-with-cluster-shared-disks"></a>Alta disponibilidade do SAP ASCS/SCS com discos compartilhados do cluster
 No Windows, uma instância do SAP ASCS/SCS contém os serviços centrais do SAP, o servidor de mensagens do SAP, os processos de servidor de enfileiramento e os arquivos de host global do SAP. Os arquivos de host global SAP armazenam arquivos centrais para todo o sistema SAP.
@@ -73,30 +73,104 @@ Uma instância do SAP ASCS/SCS tem os seguintes componentes:
 
 ![Figura 2: Processos, estrutura de arquivos e compartilhamento de arquivos sapmnt de uma instância do SAP ASCS/SCS][sap-ha-guide-figure-8001]
 
-_**Figura 2:** Processos, estrutura de arquivos e compartilhamento de arquivos sapmnt de host global de uma instância do SAP ASCS/SCS_
+_Processos, estrutura de arquivos e compartilhamento de arquivos sapmnt de host global de uma instância do SAP ASCS/SCS_
 
 Em uma configuração de alta disponibilidade, você clusteriza instâncias do SAP ASCS/SCS. Nós usamos os *discos compartilhados clusterizados* (unidade S, em nosso exemplo), para posicionarmos os arquivos de host global do SAP ASCS/SCS e do SAP.
 
 ![Figura 3: Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado][sap-ha-guide-figure-8002]
 
-_**Figura 3:** Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado_
+_Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado_
 
-> [!IMPORTANT]
-> Estes dois componentes são executados sob a mesma instância SAP ASCS/SCS:
->* O mesmo \<ASCS/SCS virtual host name> é usado para acessar a mensagem SAP e enfileirar processos de servidor e os arquivos de host global do SAP por meio do compartilhamento de arquivos sapmnt.
->* A mesma unidade de disco S compartilhada de cluster é compartilhada entre eles.
->
 
+Com a arquitetura de replicação de servidor de enfileiramento 1:
+* O mesmo \<ASCS/SCS virtual host name> é usado para acessar a mensagem SAP e enfileirar processos de servidor e os arquivos de host global do SAP por meio do compartilhamento de arquivos sapmnt.
+* A mesma unidade de disco S compartilhada de cluster é compartilhada entre eles.  
+
+Com a arquitetura de replicação de servidor de enfileiramento 2: 
+* O mesmo \<ASCS/SCS virtual host name> é usado para acessar o processo do servidor de mensagens SAP e os arquivos de host global do SAP por meio do compartilhamento de arquivos sapmnt.
+* A mesma unidade de disco S compartilhada de cluster é compartilhada entre eles.
+* Há uma separação \<ERS virtual host name> para acessar o processo do servidor de enfileiramento  
 
 ![Figura 4: Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado][sap-ha-guide-figure-8003]
 
-_**Figura 4:** Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado_
+_Arquitetura de alta disponibilidade do SAP ASCS/SCS com disco compartilhado_
+
+#### <a name="shared-disk-and-enqueue-replication-server"></a>Disco compartilhado e servidor de replicação de enfileiramento 
+
+1. O disco compartilhado é compatível com a arquitetura do Queue Server Replication 1, em que a instância do ERS (Enqueue Replication Server):   
+
+   - Não está clusterizado
+   - usa o `localhost` nome
+   - é implantado em discos locais em cada um dos nós de cluster
+
+2. O disco compartilhado também tem suporte com a arquitetura de replicação do servidor de enfileiramento 2, em que a instância do ERS2 (Queue Replication Server 2):  
+
+   - está clusterizado
+   - usa o nome de host de rede/virtual dedicado
+   - precisa que o endereço IP do nome de host virtual ERS seja configurado no Load Balancer interno do Azure, além do endereço IP (A) SCS
+   - é implantado em **discos locais** em cada um dos nós clusterizados, portanto, não há necessidade de disco compartilhado
+
+   > [!TIP]
+   > Você pode encontrar mais informações sobre o Queue Replication Server 1 e 2 (ERS1 e ERS2) aqui:  
+   > [Enfileirar o servidor de replicação em um cluster de failover da Microsoft](https://help.sap.com/viewer/3741bfe0345f4892ae190ee7cfc53d4c/CURRENT_VERSION_SWPM20/en-US/8abd4b52902d4b17a105c2fabdf5c0cf.html)  
+   > [Novo replicador de enfileiramento em ambientes de cluster de failover](https://blogs.sap.com/2019/03/19/new-enqueue-replicator-in-failover-cluster-environments/)  
+
+#### <a name="options-for-shared-disk-in-azure-for-sap-workloads"></a>Opções de disco compartilhado no Azure para cargas de trabalho do SAP
+
+Há duas opções de disco compartilhado em um cluster de failover do Windows no Azure:
+
+- [Discos compartilhados do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared) – recurso, que permite anexar o disco gerenciado do Azure a várias VMs simultaneamente. 
+- Usando o software de terceiros [sios Datakeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster) para criar um armazenamento espelhado que simula o armazenamento compartilhado do cluster. 
+
+Ao selecionar a tecnologia para o disco compartilhado, tenha em mente as seguintes considerações:
+
+**Disco compartilhado do Azure para cargas de trabalho do SAP**
+- Permite anexar o disco gerenciado do Azure a várias VMs simultaneamente, sem a necessidade de software adicional para manter e operar 
+- Você estará operando com um único disco compartilhado do Azure em um cluster de armazenamento. Isso tem um impacto sobre a confiabilidade da solução SAP.
+- Atualmente, a única implantação com suporte é com o disco Premium compartilhado do Azure no conjunto de disponibilidade. Não há suporte para o disco compartilhado do Azure na implantação zonal.     
+- Certifique-se de provisionar o disco Premium do Azure com um tamanho de disco mínimo, conforme especificado em [intervalos de SSD Premium](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared#disk-sizes) para ser capaz de anexar ao número necessário de VMs simultaneamente (normalmente 2 para cluster de failover do Windows ASCS do SAP). 
+- O ultra Disk compartilhado do Azure não tem suporte para cargas de trabalho do SAP, pois não dá suporte à implantação no conjunto de disponibilidade ou na implantação zonal.  
+ 
+**SIOS**
+- A solução SIOS fornece replicação de dados síncrona em tempo real entre dois discos
+- Com a solução SIOS que você opera com dois discos gerenciados e, se estiver usando conjuntos de disponibilidade ou zonas de disponibilidade, os discos gerenciados ficarão em diferentes clusters de armazenamento. 
+- Há suporte para a implantação em zonas de disponibilidade
+- Requer a instalação e a operação de software de terceiros, que você precisará comprar Adicionalmente
+
+### <a name="shared-disk-using-azure-shared-disk"></a>Disco compartilhado usando o disco compartilhado do Azure
+
+A Microsoft está oferecendo [discos compartilhados do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared), que podem ser usados para implementar alta disponibilidade do SAP ASCS/SCS com uma opção de disco compartilhado.
+
+#### <a name="prerequisites-and-limitations"></a>Pré-requisitos e limitações
+
+No momento, você pode usar os discos do Azure SSD Premium como um disco compartilhado do Azure para a instância do SAP ASCS/SCS. As seguintes limitações estão atualmente em vigor:
+
+-  O [ultra Disk do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk) não tem suporte como disco compartilhado do Azure para cargas de trabalho do SAP. Atualmente, não é possível posicionar VMs do Azure, usando o ultra Disk do Azure no conjunto de disponibilidade
+-  O [disco compartilhado do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared) com discos SSD Premium só tem suporte com VMs no conjunto de disponibilidade. Não há suporte na implantação Zonas de Disponibilidade. 
+-  O valor do disco compartilhado do Azure [maxShares](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable?tabs=azure-cli#disk-sizes) determina quantos nós de cluster podem usar o disco compartilhado. Normalmente, para a instância do SAP ASCS/SCS, você configurará dois nós no cluster de failover do Windows, portanto, o valor de `maxShares` deve ser definido como dois.
+-  Todas as VMs de cluster do SAP ASCS/SCS devem ser implantadas no mesmo [grupo de posicionamento de proximidade do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups).   
+   Embora você possa implantar VMs de cluster do Windows no conjunto de disponibilidade com o disco compartilhado do Azure sem PPG, o PPG garantirá o fechamento da proximidade física dos discos compartilhados do Azure e das VMs do cluster, portanto, alcançando a latência mais baixa entre as VMs e a camada de armazenamento.    
+
+Para obter mais detalhes sobre as limitações do disco compartilhado do Azure, Examine cuidadosamente a seção [limitações](https://docs.microsoft.com/azure/virtual-machines/linux/disks-shared#limitations) da documentação do disco compartilhado do Azure.
+
+> [!IMPORTANT]
+> Ao implantar o cluster de failover do Windows do SAP ASCS/SCS com o disco compartilhado do Azure, lembre-se de que sua implantação estará operando com um único disco compartilhado em um cluster de armazenamento. A instância do SAP ASCS/SCS seria afetada, em caso de problemas com o cluster de armazenamento, em que o disco compartilhado do Azure é implantado.    
+
+> [!TIP]
+> Examine o [Guia de planejamento do SAP NetWeaver no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) e o [Guia de armazenamento do Azure para cargas de trabalho do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) para obter considerações importantes, ao planejar a implantação do SAP.
+
+### <a name="supported-os-versions"></a>Versões compatíveis do sistema operacional
+
+Há suporte para o Windows Server 2016 e 2019 (use as últimas imagens de data center).
+
+É altamente recomendável usar o **Windows Server 2019 datacenter**, como:
+- O serviço de cluster de failover do Windows 2019 está ciente do Azure
+- Há integração e reconhecimento adicionais de manutenção de host do Azure e experiência aprimorada por meio do monitoramento de eventos de agenda do Azure.
+- É possível usar o nome de rede distribuída (é a opção padrão). Portanto, não é necessário ter um endereço IP dedicado para o nome de rede do cluster. Além disso, não é necessário configurar esse endereço IP no Load Balancer interno do Azure. 
 
 ### <a name="shared-disks-in-azure-with-sios-datakeeper"></a>Discos compartilhados no Azure com SIOS DataKeeper
 
-Você precisa de armazenamento compartilhado em cluster para uma instância do SAP ASCS/SCS de alta disponibilidade.
-
-Você pode usar o software de terceiros SIOS DataKeeper Cluster Edition para criar um armazenamento espelhado que simula o armazenamento compartilhado de cluster. A solução SIOS fornece replicação síncrona de dados em tempo real.
+Outra opção para o disco compartilhado é usar o software de terceiros SIOS datakeeper Cluster Edition para criar um armazenamento espelhado que simula o armazenamento compartilhado do cluster. A solução SIOS fornece replicação síncrona de dados em tempo real.
 
 Para criar um recurso de disco compartilhado para um cluster:
 
@@ -108,7 +182,7 @@ Saiba mais sobre [SIOS DataKeeper](https://us.sios.com/products/datakeeper-clust
 
 ![Figura 5: Configuração do clustering de failover do Windows Server no Azure com o SIOS DataKeeper][sap-ha-guide-figure-1002]
 
-_**Figura 5:** Configuração do Clustering de Failover do Windows Server no Azure com o SIOS DataKeeper_
+_Configuração do clustering de failover do Windows no Azure com SIOS datakeeper_
 
 > [!NOTE]
 > Você não precisa de discos compartilhados de alta disponibilidade com alguns produtos de DBMS, como o SQL Server. O AlwaysOn do SQL Server replica os arquivos de log e dados do DBMS do disco local de um nó do cluster para o disco local de outro nó do cluster. Nesse caso, a configuração de cluster do Windows não precisa de um disco compartilhado.

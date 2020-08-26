@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a8bed6c46b0660d5bf43863a5c7aaf4eeaf7e26f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6b62f8c33c73ded978c0c2e3a8c3b7fadea49c96
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853187"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852083"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Cenário: rotear o tráfego por meio de um NVA
 
 Ao trabalhar com o roteamento de Hub virtual de WAN virtual, há alguns cenários disponíveis. Nesse cenário de NVA, o objetivo é rotear o tráfego por meio de um NVA (solução de virtualização de rede) para Branch para VNet e VNet para Branch. Para obter informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Alguns dos recursos de roteamento ainda podem estar sendo distribuídos. Se a distribuição ainda não aconteceu em sua região, use as etapas nestas versões dos artigos neste ínterim:
+> Se você já tiver uma configuração com rotas anteriores aos novos recursos [como configurar o roteamento de Hub virtual](how-to-virtual-hub-routing.md) ficando disponível, use as etapas nestas versões dos artigos:
 >* [portal do Azure artigo](virtual-wan-route-table-nva-portal.md)
 >* [Artigo do PowerShell](virtual-wan-route-table-nva.md)
 >

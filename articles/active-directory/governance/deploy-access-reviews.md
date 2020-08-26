@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb74fae150d4c8e5dda6978c272d358bdec6ca25
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 46a56e830c8c9b55c9bbe48cd7d23ad8475b51b8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783596"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853019"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planejamento Azure Active Directory implantação de revisões de acesso
 
@@ -244,7 +244,7 @@ Para criar uma política de revisão de acesso, você deve ter as seguintes info
 | Componente| Valor |
 | - | - |
 | **Recursos a serem examinados**| Acesso ao Microsoft Dynamics |
-| **Frequência de revisão**| Mensal |
+| **Frequência de revisão**| Mensalmente |
 | **Quem executa a revisão**| Gerentes de programa do Dynamics Business Group |
 | **Notificação**| Email 24 horas antes da revisão para o alias Dynamics-PMS<p>Incluir a encorajação de mensagens personalizadas a revisores para proteger sua compra |
 | **Linha do tempo**| 48 horas da notificação |
@@ -283,7 +283,7 @@ Identidades externas podem receber acesso aos recursos da empresa por meio de um
 
 * Atribuiu uma função com privilégios no Azure AD ou em uma assinatura do Azure
 
-Consulte [script de exemplo](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse.). O script mostrará onde as identidades externas convidadas para o locatário são usadas. Você pode ver a associação de grupo, as atribuições de função e as atribuições de aplicativo do usuário externo no Azure AD. O script não mostrará as atribuições fora do Azure AD, por exemplo, atribuição de direitos diretos aos recursos do SharePoint, sem o uso de grupos.
+Consulte [script de exemplo](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse). O script mostrará onde as identidades externas convidadas para o locatário são usadas. Você pode ver a associação de grupo, as atribuições de função e as atribuições de aplicativo do usuário externo no Azure AD. O script não mostrará as atribuições fora do Azure AD, por exemplo, atribuição de direitos diretos aos recursos do SharePoint, sem o uso de grupos.
 
 Ao criar uma revisão de acesso para grupos ou aplicativos, você pode optar por permitir que o revisor se concentre em todos com acesso ou somente a usuários convidados. Ao selecionar somente usuários convidados, os revisores recebem uma lista focada de identidades externas do Azure AD B2B que têm acesso ao recurso.
 

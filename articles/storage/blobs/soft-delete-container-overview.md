@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 47582f941c314933baf378478b1380cb8316935b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 60c7ac6a86c963a4a133f06ba6d9d602cb9090d0
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066603"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854536"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Exclusão reversível para contêineres (visualização)
 
@@ -27,8 +27,8 @@ Para proteção de ponta a ponta para seus dados de BLOB, a Microsoft recomenda 
 - Exclusão reversível de BLOB, para proteger contra exclusão acidental ou substituição de um blob individual. Para saber como habilitar a exclusão reversível de BLOB, consulte [exclusão reversível para BLOBs](soft-delete-blob-overview.md).
 - Controle de versão de BLOB (visualização) para manter automaticamente as versões anteriores de um blob. Quando o controle de versão de blob estiver habilitado, você poderá restaurar uma versão anterior de um blob para recuperar seus dados se eles forem modificados ou excluídos erroneamente. Para saber como habilitar o controle de versão de BLOB, consulte [habilitar e gerenciar o controle de versão de blob](versioning-enable.md).
 
-> [!IMPORTANT]
-> Para evitar a exclusão acidental de uma conta de armazenamento, configure um bloqueio **CannotDelete** no recurso de conta de armazenamento. Para obter mais informações sobre como bloquear recursos do Azure, consulte [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
+> [!WARNING]
+> Não é possível desfazer a exclusão de uma conta de armazenamento. A exclusão reversível não protege contra a exclusão de uma conta de armazenamento. Para evitar a exclusão acidental de uma conta de armazenamento, configure um bloqueio **CannotDelete** no recurso de conta de armazenamento. Para obter mais informações sobre como bloquear recursos do Azure, consulte [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="how-container-soft-delete-works"></a>Como funciona a exclusão reversível de contêiner
 
@@ -122,5 +122,5 @@ Não há nenhum custo adicional para habilitar a exclusão reversível de contê
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Configurar exclusão reversível de contêiner](soft-delete-container-enable.md)
-- [Exclusão reversível para BLOBs](soft-delete-blob-overview.md)
+- [Exclusão reversível para blobs](soft-delete-blob-overview.md)
 - [Controle de versão de blob (versão prévia)](versioning-overview.md)

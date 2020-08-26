@@ -13,12 +13,12 @@ ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: 3de252b22d7b33e45c3b45e2b6c05e4b33df663d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f5950347fff380fcfbaa89834407ff5f497a9719
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027046"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854912"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Arquivo de configuração da biblioteca de autenticação do Android da Microsoft
 
@@ -35,8 +35,8 @@ Este artigo o ajudará a entender as várias configurações no arquivo de confi
 | `client_id` | String | Sim | A ID do cliente do aplicativo na [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `redirect_uri`   | String | Sim | O URI de redirecionamento do seu aplicativo da [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `authorities` | Lista\<Authority> | Não | A lista de autoridades que seu aplicativo precisa |
-| `authorization_user_agent` | AuthorizationAgent (enum) | Não | Valores possíveis: `DEFAULT` , `BROWSER` ,`WEBVIEW` |
-| `http` | HttpConfiguration | Não | Configurar `HttpUrlConnection` `connect_timeout` e`read_timeout` |
+| `authorization_user_agent` | AuthorizationAgent (enum) | Não | Valores possíveis: `DEFAULT` , `BROWSER` , `WEBVIEW` |
+| `http` | HttpConfiguration | Não | Configurar `HttpUrlConnection` `connect_timeout` e `read_timeout` |
 | `logging` | LoggingConfiguration | Não | Especifica o nível de detalhes de log. As configurações opcionais incluem: `pii_enabled` , que usa um valor booliano e `log_level` , que usa `ERROR` , `WARNING` , `INFO` ou `VERBOSE` . |
 
 ### <a name="client_id"></a>client_id
@@ -58,7 +58,7 @@ A lista de autoridades que são conhecidas e confiáveis por você. Além das au
     "audience": {
         "type": "AzureADandPersonalMicrosoftAccount"
     },
-    "default": true // Indicates that this is the default to use if not provided as part of the acquireToken or acquireTokenSilent call
+    "default": true // Indicates that this is the default to use if not provided as part of the acquireToken call
 },
 // Example AzureAD My Organization
 {
@@ -88,7 +88,7 @@ A lista de autoridades que são conhecidas e confiáveis por você. Além das au
 
 | Tipo | Público | ID do locatário | Authority_Url | Ponto de extremidade resultante | Observações |
 |------|------------|------------|----------------|----------------------|---------|
-| AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common`é um alias de locatário para onde a conta é. Como um locatário específico de Azure Active Directory ou o sistema conta Microsoft. |
+| AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common` é um alias de locatário para onde a conta é. Como um locatário específico de Azure Active Directory ou o sistema conta Microsoft. |
 | AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Somente as contas presentes no contoso.com podem adquirir um token. Qualquer domínio verificado, ou o GUID do locatário, pode ser usado como a ID do locatário. |
 | AAD | AzureADMultipleOrgs | | | `https://login.microsoftonline.com/organizations` | Somente contas Azure Active Directory podem ser usadas com esse ponto de extremidade. As contas da Microsoft podem ser membros de organizações. Para adquirir um token usando um conta Microsoft para um recurso em uma organização, especifique o locatário organizacional do qual você deseja o token. |
 | AAD | PersonalMicrosoftAccount | | | `https://login.microsoftonline.com/consumers` | Somente contas da Microsoft podem usar esse ponto de extremidade. |
@@ -103,16 +103,16 @@ A lista de autoridades que são conhecidas e confiáveis por você. Além das au
 
 | Propriedade | Tipo de dados  | Obrigatório | Observações |
 |-----------|-------------|-----------|--------|
-| `type` | String | Sim | Espelha o público ou o tipo de conta de destino do seu aplicativo. Valores possíveis: `AAD` ,`B2C` |
+| `type` | String | Sim | Espelha o público ou o tipo de conta de destino do seu aplicativo. Valores possíveis: `AAD` , `B2C` |
 | `audience` | Objeto | Não | Aplica-se somente quando Type = `AAD` . Especifica a identidade de destino do seu aplicativo. Usar o valor do registro do aplicativo |
 | `authority_url` | String | Sim | Necessário somente quando Type = `B2C` . Especifica a URL ou a política de autoridade que seu aplicativo deve usar  |
-| `default` | boolean | Sim | Um único `"default":true` é necessário quando uma ou mais autoridades são especificadas. |
+| `default` | booleano | Sim | Um único `"default":true` é necessário quando uma ou mais autoridades são especificadas. |
 
 #### <a name="audience-properties"></a>Propriedades do público
 
 | Propriedade | Tipo de Dados  | Obrigatório | Observações |
 |-----------|-------------|------------|-------|
-| `type` | String | Sim | Especifica o público-alvo que seu aplicativo deseja direcionar. Valores possíveis: `AzureADandPersonalMicrosoftAccount` , `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` ,`AzureADMyOrg` |
+| `type` | String | Sim | Especifica o público-alvo que seu aplicativo deseja direcionar. Valores possíveis: `AzureADandPersonalMicrosoftAccount` , `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` , `AzureADMyOrg` |
 | `tenant_id` | String | Sim | Necessário somente quando `"type":"AzureADMyOrg"` . Opcional para outros `type` valores. Pode ser um domínio de locatário, como `contoso.com` , ou uma ID de locatário, como `72f988bf-86f1-41af-91ab-2d7cd011db46` ) |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
@@ -149,9 +149,9 @@ As seguintes configurações globais são para registro em log:
 
 | Propriedade | Tipo de Dados  | Obrigatório | Observações |
 | ----------|-------------|-----------|---------|
-| `pii_enabled`  | boolean | Não | Se os dados pessoais devem ser emitidos |
+| `pii_enabled`  | booleano | Não | Se os dados pessoais devem ser emitidos |
 | `log_level`   | Cadeia de caracteres | No | As mensagens de log para saída. Os níveis de log com suporte incluem `ERROR` ,, `WARNING` `INFO` e `VERBOSE` . |
-| `logcat_enabled` | boolean | Não | Se deve-se gerar uma saída para o Cat de log além da interface de log |
+| `logcat_enabled` | booleano | Não | Se deve-se gerar uma saída para o Cat de log além da interface de log |
 
 ### <a name="account_mode"></a>account_mode
 

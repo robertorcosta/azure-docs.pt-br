@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 719b96c9186d463ca3ee41c6fb401a8f22c4c11c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: b4f3733806eb810cff7722e6432bb274b6d46a37
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431973"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854834"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Introdução ao Azure Machine Learning Studio (clássico) em R
 
-**aplica-se a:** ![ Sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ sem](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 <!-- Stephen F Elston, Ph.D. -->
@@ -225,7 +225,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 
 Já discutimos o carregamento de DataSets em [Load the DataSet](#loading). Após criar e testar o script R mostrado na seção anterior, faça o seguinte:
 
-1. Salve o script R em um arquivo .R. Eu chamo meu arquivo script "simpleplot.R". Este é o conteúdo.
+1. Salve o script R em um arquivo .R. Eu chamo meu arquivo script "simpleplot.R". Aqui está o que está no arquivo:
 
    ```r
    ## Only one of the following two lines should be used
@@ -250,7 +250,7 @@ Já discutimos o carregamento de DataSets em [Load the DataSet](#loading). Após
 
 1. Digite a função `source()` com o nome do arquivo zip na janela de código do módulo [Executar Script R][execute-r-script]. No meu caso, digitei `source("src/simpleplot.R")`.  
 
-1. Certifique-se de selecionar **salvar**.
+1. É necessário que você selecione **Salvar**.
 
 Uma vez concluídas essas etapas, o módulo [Executar Script R][execute-r-script] executará o script R no arquivo zip quando o experimento for executado. Agora seu teste deve ser semelhante à Figura 5.
 
@@ -570,7 +570,7 @@ Parece que tudo está funcionando. Temos a nova coluna com os valores esperados 
 
 Nesta seção, vamos executar algumas transformações simples nos valores de algumas das colunas de nosso dataframe. A linguagem R suporta transformações de valor quase que de forma arbitrária. As referências em [leitura adicional](#appendixb) abaixo contêm exemplos extensivos.
 
-Se examinar os valores nos resumos de nosso datafame, você notará algo estranho. Há mais sorvetes do que leite produzido na Califórnia? Não, certamente não, pois isso não faz sentido, além de triste pois alguns de nós amam sorvetes. As unidades são diferentes. O preço está em unidades de libras dos EUA, o leite está em unidades de um milhão de libras dos EUA, o sorvete está em unidades de 1.000 galões dos EUA e o queijo cottage está em unidades de 1.000 libras dos EUA. Supondo que o sorvete pese aproximadamente 6,5 libras por galão, podemos facilmente fazer a multiplicação a fim de converter esses valores para que eles estejam todos em unidades iguais de 1.000 libras.
+Se você examinar os valores nos resumos de nosso dataframe, verá algo estranho aqui. Há mais sorvetes do que leite produzido na Califórnia? Não, certamente não, pois isso não faz sentido, além de triste pois alguns de nós amam sorvetes. As unidades são diferentes. O preço está em unidades de libras dos EUA, o leite está em unidades de um milhão de libras dos EUA, o sorvete está em unidades de 1.000 galões dos EUA e o queijo cottage está em unidades de 1.000 libras dos EUA. Supondo que os sorvetes de sorvete pesam cerca de 6,5 libras por galão, podemos facilmente fazer a multiplicação para converter esses valores, de modo que eles estão todos em unidades iguais de 1.000 libras.
 
 Para nosso modelo de previsão, usamos um modelo de multiplicação para tendência e ajuste sazonal desses dados. Uma transformação de log nos permite usar um modelo linear, simplificando esse processo. Podemos aplicar a transformação de log na mesma função em que o multiplicador será aplicado.
 
@@ -773,7 +773,7 @@ Há alguma estrutura estranha nas relações entre essas variáveis. Talvez isso
 
 ### <a name="correlation-analysis"></a>Análise de correlação
 
-Para executar análise de correlação, precisamos padronizar e eliminar tendências das variáveis. Poderíamos simplesmente usar a função `scale()` de R, que centraliza e dimensiona variáveis. Essa função também pode ser executada mais rapidamente. No entanto, eu quero mostrar um exemplo de programação defensiva em R.
+Para executar análise de correlação, precisamos padronizar e eliminar tendências das variáveis. Poderíamos simplesmente usar a função `scale()` de R, que centraliza e dimensiona variáveis. Essa função também pode ser executada mais rapidamente. No entanto, quero mostrar um exemplo de programação defensiva em R.
 
 A função `ts.detrend()` abaixo executa ambas essas operações. As duas linhas de código a seguir eliminam os dados de tendência e, em seguida, padronizam os valores.
 
@@ -828,7 +828,7 @@ Já abordamos um exemplo de programação defensiva em Transformações de valor
 
 Observe que a regressão linear usada para a eliminação de tendência é uma regressão de uma série de tempo. A variável preditora é um objeto de série de tempo.  
 
-Quando `ts.detrend()` é definido, aplicamos as variáveis de interesse em nosso dataframe. Devemos forçar a lista resultante criada por `lapply()` nos dados do dataframe usando `as.data.frame()`. Devido aos aspectos defensivos de `ts.detrend()`, se uma das variáveis não for processada, isso não impedirá o processamento correto das outras.  
+Uma vez `ts.detrend()` definido, podemos aplicá-lo às variáveis de interesse em nosso dataframe. Devemos forçar a lista resultante criada por `lapply()` nos dados do dataframe usando `as.data.frame()`. Devido aos aspectos defensivos de `ts.detrend()`, se uma das variáveis não for processada, isso não impedirá o processamento correto das outras.  
 
 A última linha do código cria um par scatterplot. Após a execução do código R, os resultados da dispersão são mostrados na Figura 17.
 
@@ -1136,7 +1136,7 @@ Parece que o modelo de tendência se ajusta aos dados muito bem. Além disso, n�
 
 Com um modelo de tendência em mãos, precisamos continuar e incluir efeitos sazonais. Usaremos o mês do ano como uma variável fictícia no modelo linear para capturar o efeito de mês a mês. Observe que quando você introduz variáveis fator em um modelo, a interceptação não deve ser computada. Se você não fizer isso, a fórmula será muito especificada e R descartará um dos fatores desejados, mas manterá o termo de interceptação.
 
-Como temos um modelo de tendência satisfatório, podemos usar a função `update()` para adicionar novos termos ao modelo existente. -1 na atualização da fórmula descarta o termo de interceptação. Continuando em RStudio:
+Como temos um modelo de tendência satisfatório, podemos usar a `update()` função para adicionar os novos termos ao modelo existente. -1 na atualização da fórmula descarta o termo de interceptação. Continuando em RStudio:
 
 ```r
 milk.lm2 <- update(milk.lm, . ~ . + Month - 1)
@@ -1338,7 +1338,7 @@ RStudio é bem documentado. Aqui estão alguns links para as seções principais
 Este tutorial de programação R aborda as noções básicas do que você precisa para usar a linguagem R com Azure Machine Learning Studio (clássico). Se você não estiver familiarizado com R, duas introduções estão disponíveis no CRAN:
 
 * [R para iniciantes](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) de Emmanuel Paradis é um bom lugar para começar.  
-* [Uma introdução ao R](https://cran.r-project.org/doc/manuals/R-intro.html) por W. N. Venables et. al. apresenta um pouco mais de profundidade.
+* [Uma introdução ao R](https://cran.r-project.org/doc/manuals/R-intro.html) por W. N. Venables et al. leva um pouco mais de profundidade.
 
 Existem muitos livros sobre R que podem ajudá-lo a começar. Aqui estão alguns que considero úteis:
 
@@ -1355,7 +1355,8 @@ A **série de tempo introdutório** de livros com r por Paul Cowpertwait e Andre
 Aqui estão alguns ótimos recursos da Internet:
 
 * O DataCamp ensina R no conforto de seu navegador, com lições em vídeo e exercícios de codificação. Há tutoriais interativos sobre as técnicas de R e os pacotes mais recentes. Faça o [tutorial de R interativo](https://www.datacamp.com/courses/introduction-to-r)gratuito.
-* [Aprenda a programação de R, o guia definitivo](https://www.programiz.com/r-programming) da Programiz.
+* [Aprenda a programação de R, o guia definitivo](https://www.datamentor.io/r-programming/) do datamentor.
+* [codificador de R](https://r-coder.com/). Tutoriais de R detalhados e um curso de R gratuito para iniciantes.
 * Um rápido [tutorial de R](https://www.cyclismo.org/tutorial/R/) por Kelly preto da Clarkson University.
 * Há mais de 60 de recursos de R listados em [recursos de linguagem r superiores para melhorar suas habilidades de dados](https://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html).
 

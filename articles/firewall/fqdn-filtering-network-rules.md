@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 07/30/2020
+ms.date: 08/25/2020
 ms.author: victorh
-ms.openlocfilehash: 6e90a8bc0998b43a84658958215e4b7977f8fdd0
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 1a35d9c48dd46d5d220699589f4ed758d21feca8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461299"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854291"
 ---
 # <a name="use-fqdn-filtering-in-network-rules-preview"></a>Usar a filtragem de FQDN em regras de rede (versão prévia)
 
@@ -22,7 +22,10 @@ ms.locfileid: "87461299"
 
 Um FQDN (nome de domínio totalmente qualificado) representa um nome de domínio de um host ou endereço (s) IP. Você pode usar FQDNs em regras de rede com base na resolução de DNS no firewall do Azure e na política de firewall. Esse recurso permite filtrar o tráfego de saída com qualquer protocolo TCP/UDP (incluindo NTP, SSH, RDP e muito mais). Você deve habilitar o proxy DNS para usar FQDNs em suas regras de rede. Para obter mais informações, consulte [configurações de DNS do firewall do Azure (versão prévia)](dns-settings.md).
 
-## <a name="how-it-works"></a>Como isso funciona
+> [!NOTE]
+> Por design, a filtragem de FQDN não dá suporte a curingas.
+
+## <a name="how-it-works"></a>Como ele funciona
 
 Depois de definir qual servidor DNS sua organização precisa (DNS do Azure ou seu próprio DNS personalizado), o Firewall do Azure converte o FQDN para um ou mais endereços IP com base no servidor DNS selecionado. Essa tradução ocorre para o processamento de regras de aplicativo e de rede.
 

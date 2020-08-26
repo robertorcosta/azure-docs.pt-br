@@ -2,13 +2,13 @@
 title: Exclusão completa de modo
 description: Mostra como os tipos de recurso lidam com a exclusão de modo completo em modelos do Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 07/06/2020
-ms.openlocfilehash: 48a7758ce706612607b97647bc88238957b118d3
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.date: 08/25/2020
+ms.openlocfilehash: 08fed3420cf74d328dd9a92a6a2c9235c5d11300
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371338"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855160"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Exclusão de recursos do Azure para implantações do modo completo
 
@@ -33,6 +33,7 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.AppPlatform](#microsoftappplatform)
 > - [Microsoft.Attestation](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
+> - [Microsoft. autogerenci](#microsoftautomanage)
 > - [Microsoft.Automation](#microsoftautomation)
 > - [Microsoft.AVS](#microsoftavs)
 > - [Microsoft.Azure.Geneva](#microsoftazuregeneva)
@@ -56,6 +57,7 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.ClassicInfrastructureMigrate](#microsoftclassicinfrastructuremigrate)
 > - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
 > - [Microsoft.ClassicStorage](#microsoftclassicstorage)
+> - [Microsoft. Codespaces](#microsoftcodespaces)
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
@@ -83,6 +85,7 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
 > - [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization)
 > - [Microsoft.Devices](#microsoftdevices)
+> - [Microsoft. DeviceUpdate](#microsoftdeviceupdate)
 > - [Microsoft.DevOps](#microsoftdevops)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
@@ -184,7 +187,6 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.VirtualMachineImages](#microsoftvirtualmachineimages)
 > - [Microsoft.VMware](#microsoftvmware)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
-> - [Microsoft. VMwareOnAzure](#microsoftvmwareonazure)
 > - [Microsoft.VnfManager](#microsoftvnfmanager)
 > - [Microsoft.VSOnline](#microsoftvsonline)
 > - [Microsoft.Web](#microsoftweb)
@@ -229,6 +231,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Exclusão completa de modo |
 > | ------------- | ----------- |
+> | advisorScore | Não |
 > | configurações | Não |
 > | generateRecommendations | Não |
 > | metadata | Não |
@@ -272,6 +275,7 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- |
 > | configurationStores | Sim |
 > | configurationStores / eventGridFilters | Não |
+> | configurationStores/valores de valor | Não |
 
 ## <a name="microsoftappplatform"></a>Microsoft.AppPlatform
 
@@ -295,6 +299,8 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Exclusão completa de modo |
 > | ------------- | ----------- |
+> | accessReviewScheduleDefinitions | Não |
+> | accessReviewScheduleSettings | Não |
 > | classicAdministrators | Não |
 > | Aliases de dataalias | Não |
 > | denyAssignments | Não |
@@ -304,13 +310,23 @@ Pule para um namespace de provedor de recursos:
 > | permissões | Não |
 > | policyAssignments | Não |
 > | policyDefinitions | Não |
+> | policyExemptions | Não |
 > | policySetDefinitions | Não |
 > | privateLinkAssociations | Não |
 > | providerOperations | Não |
-> | resourceManagementPrivateLinks | Não |
+> | resourceManagementPrivateLinks | Sim |
 > | roleAssignments | Não |
 > | roleAssignmentsUsageMetrics | Não |
 > | roleDefinitions | Não |
+
+## <a name="microsoftautomanage"></a>Microsoft. autogerenci
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Exclusão completa de modo |
+> | ------------- | ----------- |
+> | accounts | Sim |
+> | configurationProfileAssignments | Não |
+> | configurationProfilePreferences | Sim |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -335,7 +351,15 @@ Pule para um namespace de provedor de recursos:
 > | privateClouds | Sim |
 > | privateClouds/autorizações | Não |
 > | privateClouds/clusters | Não |
+> | privateClouds / globalReachConnections | Não |
 > | privateClouds / hcxEnterpriseSites | Não |
+> | privateClouds / workloadNetworks | Não |
+> | privateClouds / workloadNetworks / dhcpConfigurations | Não |
+> | privateClouds/workloadNetworks/gateways | Não |
+> | privateClouds / workloadNetworks / portMirroringProfiles | Não |
+> | privateClouds/workloadNetworks/segmentos | Não |
+> | privateClouds/workloadNetworks/virtualMachines | Não |
+> | privateClouds / workloadNetworks / vmGroups | Não |
 
 ## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
 
@@ -354,6 +378,7 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- |
 > | b2cDirectories | Sim |
 > | b2ctenants | Não |
+> | guestUsages | Sim |
 
 ## <a name="microsoftazuredata"></a>Microsoft.AzureData
 
@@ -361,9 +386,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Exclusão completa de modo |
 > | ------------- | ----------- |
 > | datacontrollers | Sim |
-> | hybridDataManagers | Sim |
 > | postgresInstances | Sim |
-> | SQLInstances | Sim |
 > | sqlManagedInstances | Sim |
 > | sqlServerInstances | Sim |
 > | sqlServerRegistrations | Sim |
@@ -432,6 +455,7 @@ Pule para um namespace de provedor de recursos:
 > | billingAccounts / billingProfiles / pricesheetDownloadOperations | Não |
 > | billingAccounts/billingProfiles/produtos | Não |
 > | billingAccounts/billingProfiles/transações | Não |
+> | billingAccounts / billingProfiles / validateDetachPaymentMethodEligibility | Não |
 > | billingAccounts / billingRoleAssignments | Não |
 > | billingAccounts / billingRoleDefinitions | Não |
 > | billingAccounts / billingSubscriptions | Não |
@@ -688,12 +712,23 @@ Pule para um namespace de provedor de recursos:
 > | storageAccounts/vmImages | Não |
 > | vmImages | Não |
 
+## <a name="microsoftcodespaces"></a>Microsoft. Codespaces
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Exclusão completa de modo |
+> | ------------- | ----------- |
+> | planos | Sim |
+> | registeredSubscriptions | Não |
+
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Exclusão completa de modo |
 > | ------------- | ----------- |
 > | accounts | Sim |
+> | contas/privateEndpointConnectionProxies | Não |
+> | contas/privateEndpointConnections | Não |
+> | contas/privateLinkResources | Não |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
@@ -709,6 +744,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Exclusão completa de modo |
 > | ------------- | ----------- |
 > | availabilitySets | Sim |
+> | cloudServices | Sim |
 > | diskAccesses | Sim |
 > | diskEncryptionSets | Sim |
 > | disks | Sim |
@@ -842,7 +878,7 @@ Pule para um namespace de provedor de recursos:
 > | CloudConnectors | Não |
 > | Conectores | Sim |
 > | costAllocationRules | Não |
-> | Departamentos | Não |
+> | Departments | Não |
 > | Dimensões | Não |
 > | EnrollmentAccounts | Não |
 > | Port | Não |
@@ -857,6 +893,7 @@ Pule para um namespace de provedor de recursos:
 > | ExternalSubscriptions/previsão | Não |
 > | ExternalSubscriptions/consulta | Não |
 > | Previsão | Não |
+> | Insights | Não |
 > | Consulta | Não |
 > | register | Não |
 > | Reportconfigs | Não |
@@ -910,11 +947,6 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Exclusão completa de modo |
 > | ------------- | ----------- |
 > | catalogs | Sim |
-> | datacatalogs | Sim |
-> | datacatalogs/fontes de fonte | Não |
-> | datacatalogs/fontes de pesquisa/verificações | Não |
-> | datacatalogs/fontes/exames/conjuntos de valores | Não |
-> | datacatalogs/fontes/exames/gatilhos | Não |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -1019,6 +1051,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Exclusão completa de modo |
 > | ------------- | ----------- |
+> | flexibleServers | Sim |
 > | serverGroups | Sim |
 > | servers | Sim |
 > | servers/advisors | Não |
@@ -1032,7 +1065,6 @@ Pule para um namespace de provedor de recursos:
 > | servers / virtualNetworkRules | Não |
 > | servidores/waitStatistics | Não |
 > | serversv2 | Sim |
-> | singleServers | Sim |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
@@ -1075,6 +1107,14 @@ Pule para um namespace de provedor de recursos:
 > | ProvisioningServices | Sim |
 > | usages | Não |
 
+## <a name="microsoftdeviceupdate"></a>Microsoft. DeviceUpdate
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Exclusão completa de modo |
+> | ------------- | ----------- |
+> | accounts | Sim |
+> | contas/instâncias | Sim |
+
 ## <a name="microsoftdevops"></a>Microsoft.DevOps
 
 > [!div class="mx-tableFixed"]
@@ -1116,6 +1156,7 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- |
 > | databaseAccounts | Não |
 > | databaseAccounts | Sim |
+> | restorableDatabaseAccounts | Não |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
@@ -1298,10 +1339,10 @@ Pule para um namespace de provedor de recursos:
 > | dispositivos | Sim |
 > | registeredSubscriptions | Não |
 > | selecionados | Não |
-> | fornecedores/SKUs | Não |
-> | fornecedores/vnfs | Não |
-> | virtualNetworkFunctionSkus | Não |
-> | vnfs | Sim |
+> | fornecedores/vendorskus | Não |
+> | fornecedores/vendorskus/previewSubscriptions | Não |
+> | virtualnetworkfunctions | Sim |
+> | virtualnetworkfunctionvendors | Não |
 
 ## <a name="microsofthydra"></a>Microsoft.Hydra
 
@@ -1367,6 +1408,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Exclusão completa de modo |
 > | ------------- | ----------- |
+> | extensions | Não |
 > | sourceControlConfigurations | Não |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
@@ -1421,6 +1463,9 @@ Pule para um namespace de provedor de recursos:
 > | workspaces | Sim |
 > | workspaces/computes | Não |
 > | espaços de trabalho/eventGridFilters | Não |
+> | espaços de trabalho/inferenceEndpoints | Sim |
+> | espaços de trabalho/inferenceEndpoints/implantações | Sim |
+> | espaços de trabalho/linksservices | Não |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
@@ -1430,6 +1475,7 @@ Pule para um namespace de provedor de recursos:
 > | applyUpdates | Não |
 > | configurationAssignments | Não |
 > | maintenanceConfigurations | Sim |
+> | publicMaintenanceConfigurations | Não |
 > | updates | Não |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
@@ -1485,6 +1531,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Exclusão completa de modo |
 > | ------------- | ----------- |
+> | macc | Não |
 > | offers | Não |
 > | offerTypes | Não |
 > | offerTypes/Publicadores | Não |
@@ -1533,15 +1580,15 @@ Pule para um namespace de provedor de recursos:
 > | mediaservices/liveEventOperations | Não |
 > | mediaservices / liveEvents | Sim |
 > | mediaservices / liveEvents / liveOutputs | Não |
-> | mediaservices/liveEvents/privateEndpointConnectionProxies | Não |
 > | mediaservices/liveOutputOperations | Não |
 > | mediaservices/mediaGraphs | Não |
+> | mediaservices/privateEndpointConnectionOperations | Não |
+> | mediaservices/privateEndpointConnectionProxies | Não |
+> | mediaservices/privateEndpointConnections | Não |
 > | mediaservices/streamingEndpointOperations | Não |
 > | mediaservices / streamingEndpoints | Sim |
-> | mediaservices/streamingEndpoints/privateEndpointConnectionProxies | Não |
 > | mediaservices/streamingLocators | Não |
 > | mediaservices/streamingPolicies | Não |
-> | mediaservices/streamingPrivateEndpointConnectionProxyOperations | Não |
 > | mediaservices/transforms | Não |
 > | mediaservices/transforms/jobs | Não |
 
@@ -1581,7 +1628,7 @@ Pule para um namespace de provedor de recursos:
 > | netAppAccounts / accountBackups | Não |
 > | netAppAccounts / capacityPools | Sim |
 > | netAppAccounts/capacityPools/volumes | Sim |
-> | netAppAccounts/capacityPools/volumes/instantâneos | Sim |
+> | netAppAccounts/capacityPools/volumes/instantâneos | Não |
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1697,6 +1744,7 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- |
 > | HyperVSites | Sim |
 > | ImportSites | Sim |
+> | MasterSites | Sim |
 > | ServerSites | Sim |
 > | VMwareSites | Sim |
 
@@ -1745,6 +1793,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Exclusão completa de modo |
 > | ------------- | ----------- |
+> | atestados | Não |
 > | policyEvents | Não |
 > | policyMetadata | Não |
 > | policyStates | Não |
@@ -1907,6 +1956,7 @@ Pule para um namespace de provedor de recursos:
 > | automations | Sim |
 > | AutoProvisioningSettings | Não |
 > | Compliances | Não |
+> | conectores | Não |
 > | dataCollectionAgents | Não |
 > | deviceSecurityGroups | Não |
 > | discoveredSecuritySolutions | Não |
@@ -1918,7 +1968,10 @@ Pule para um namespace de provedor de recursos:
 > | iotSecuritySolutions / analyticsModels / aggregatedRecommendations | Não |
 > | iotSecuritySolutions / iotAlerts | Não |
 > | iotSecuritySolutions / iotAlertTypes | Não |
+> | iotSecuritySolutions / iotRecommendations | Não |
+> | iotSecuritySolutions / iotRecommendationTypes | Não |
 > | jitNetworkAccessPolicies | Não |
+> | jitPolicies | Não |
 > | políticas | Não |
 > | pricings | Não |
 > | regulatoryComplianceStandards | Não |
@@ -1967,6 +2020,7 @@ Pule para um namespace de provedor de recursos:
 > | officeConsents | Não |
 > | configurações | Não |
 > | threatIntelligence | Não |
+> | watchlists | Não |
 
 ## <a name="microsoftserialconsole"></a>Microsoft.SerialConsole
 
@@ -2180,7 +2234,11 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Exclusão completa de modo |
 > | ------------- | ----------- |
+> | acceptChangeTenant | Não |
+> | aliases | Não |
 > | cancel | Não |
+> | changeTenantRequest | Não |
+> | changeTenantStatus | Não |
 > | CreateSubscription | Não |
 > | enable | Não |
 > | renomear | Não |
@@ -2197,6 +2255,7 @@ Pule para um namespace de provedor de recursos:
 > | workspaces | Sim |
 > | espaços de trabalho/bigDataPools | Sim |
 > | espaços de trabalho/operationStatuses | Não |
+> | espaços de trabalho/bancos de dados | Sim |
 > | espaços de trabalho/sqlpools | Sim |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
@@ -2247,13 +2306,6 @@ Pule para um namespace de provedor de recursos:
 > | dedicatedCloudNodes | Sim |
 > | dedicatedCloudServices | Sim |
 > | virtualMachines | Sim |
-
-## <a name="microsoftvmwareonazure"></a>Microsoft. VMwareOnAzure
-
-> [!div class="mx-tableFixed"]
-> | Tipo de recurso | Exclusão completa de modo |
-> | ------------- | ----------- |
-> | privateClouds | Sim |
 
 ## <a name="microsoftvnfmanager"></a>Microsoft.VnfManager
 

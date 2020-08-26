@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/14/2019
+ms.date: 08/25/2020
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman, hahamil, brianmel
-ms.openlocfilehash: a734589178438fd65d9a2d156fd91fc82807f578
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9042318d29b9a7fc8c2064bdf845d6f0d5a4f3e8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76697890"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853866"
 ---
 # <a name="brokered-authentication-in-android"></a>Autenticação orientada no Android
 
@@ -58,7 +58,7 @@ Se um dispositivo ainda não tiver um aplicativo de agente instalado, o MSAL ins
 
 Quando um agente é instalado em um dispositivo, todas as solicitações de token interativo subsequentes (chamadas para `acquireToken()` ) são tratadas pelo agente em vez de localmente por MSAL. Qualquer estado de SSO disponível anteriormente para MSAL não está disponível para o agente. Como resultado, o usuário precisará autenticar novamente ou selecionar uma conta da lista de contas existente conhecida pelo dispositivo.
 
-A instalação de um agente não exige que o usuário entre novamente. Somente quando o usuário precisar resolver um `MsalUiRequiredException` , a próxima solicitação vai para o agente. `MsalUiRequiredException`é lançada por vários motivos e precisa ser resolvida interativamente. Estes são alguns motivos comuns:
+A instalação de um agente não exige que o usuário entre novamente. Somente quando o usuário precisar resolver um `MsalUiRequiredException` , a próxima solicitação vai para o agente. `MsalUiRequiredException` é lançada por vários motivos e precisa ser resolvida interativamente. Estes são alguns motivos comuns:
 
 - O usuário alterou a senha associada à sua conta.
 - A conta do usuário não atende mais a uma política de acesso condicional.
@@ -76,7 +76,7 @@ Se o Portal da Empresa do Intune estiver instalado e estiver operando como o age
 
 Você deve registrar um URI de redirecionamento que seja compatível com o agente. O URI de redirecionamento para o agente precisa incluir o nome do pacote do aplicativo, bem como a representação codificada em base64 da assinatura do seu aplicativo.
 
-O formato do URI de redirecionamento é:`msauth://<yourpackagename>/<base64urlencodedsignature>`
+O formato do URI de redirecionamento é: `msauth://<yourpackagename>/<base64urlencodedsignature>`
 
 Gere a assinatura codificada da URL base64 usando as chaves de assinatura do aplicativo. Aqui estão alguns comandos de exemplo que usam suas chaves de assinatura de depuração:
 
@@ -122,3 +122,12 @@ Se você receber um `MsalClientException` código de erro com `"BROKER_BIND_FAIL
 
 - Peça ao usuário para desabilitar a otimização de energia para o aplicativo Microsoft Authenticator e o Portal da Empresa do Intune.
 - Peça ao usuário para conceder a `"READ_CONTACTS"` permissão
+
+## <a name="verifying-broker-integration"></a>Verificando a integração do Broker
+
+Talvez não esteja imediatamente claro que a integração do agente está funcionando, mas você pode usar as seguintes etapas para verificar:
+
+1. Em seu dispositivo Android, conclua uma solicitação usando o agente.
+1. Nas configurações em seu dispositivo Android, procure uma conta recém-criada correspondente à conta com a qual você se autenticou. A conta deve ser do tipo *conta de trabalho*.
+
+Você poderá remover a conta das configurações se quiser repetir o teste.

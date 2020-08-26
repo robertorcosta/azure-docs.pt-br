@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 1b296cd942e36817da2832467ab603ebd833f825
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ded2f54379e60e8e3fc26d9c2166930a6f953078
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87908122"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854847"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Solução de problemas do Azure digital gêmeos: alertas
 
@@ -28,13 +28,17 @@ Aqui está como habilitar alertas para sua instância do gêmeos digital do Azur
 
 2. Selecione **alertas** no menu e **+ nova regra de alerta**.
 
-    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Captura de tela mostrando a página alertas e o botão a ser adicionado. Não há alertas configurados ainda" lightbox="media/troubleshoot-alerts/alerts-pre.png":::
-
 3. Na página *criar regra de alerta* a seguir, você pode seguir os prompts para definir condições, ações a serem disparadas e detalhes do alerta.     
-    * Os detalhes do **escopo** devem ser preenchidos automaticamente com os detalhes da sua instância.
-    * Você definirá os detalhes do **grupo de ações** e da **condição** para personalizar gatilhos e respostas de alerta.
+    * Os detalhes do **escopo** devem ser preenchidos automaticamente com os detalhes da sua instância
+    * Você definirá os detalhes do **grupo de ações** e da **condição** para personalizar gatilhos e respostas de alerta
+    * Na seção **detalhes da regra de alerta** , insira o _nome da regra de alerta_, _Descrição (opcional)_. Você pode marcar a caixa de seleção _Habilitar Regra de alerta ao criar_ se desejar que o alerta se torne ativo assim que for criado.
+    * Com base em algumas condições e ações que você adicionar, você precisará selecionar _salvar regra de alerta para o grupo de recursos_ e a _severidade_ nas respectivas listas suspensas.
 
-    :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Captura de tela mostrando a página Criar regra de alerta com seções para escopo, condição e grupo de ações" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
+4. Selecione o botão _criar regra de alerta_ para criar sua regra de alerta.
+
+:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Captura de tela mostrando a página Criar regra de alerta com seções para escopo, condição e grupo de ações" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
+
+:::image type="content" source="media/troubleshoot-alerts/alert-rule-details.png" alt-text="Captura de tela mostrando a seção detalhes da regra de alerta de criação de uma regra de alerta" lightbox="media/troubleshoot-alerts/alert-rule-details.png":::
 
 Para obter uma explicação orientada sobre como preencher esses campos, consulte [*visão geral de alertas no Microsoft Azure*](../azure-monitor/platform/alerts-overview.md). Veja abaixo alguns exemplos de como serão as etapas do Azure digital gêmeos.
 

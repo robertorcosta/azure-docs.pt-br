@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 06/01/2020
 ms.author: cherylmc
-ms.openlocfilehash: d7b9077af50115e912415d784dc98ace081c0c88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0bcd0608796545a4982f72f276399d5f692e765
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84302308"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852703"
 ---
 # <a name="vpn-gateway-design"></a>Design de gateway de VPN
 
@@ -26,6 +26,8 @@ ms.locfileid: "84302308"
 Uma conexão de gateway VPN Site a Site (S2S) é uma conexão por túnel VPN IPsec/IKE (IKEv1 ou IKEv2). As conexões S2S podem ser usadas para configurações entre instalações e híbridas. Uma conexão site a site exige um dispositivo VPN local com um endereço IP público atribuído a ele. Para saber mais sobre como selecionar um dispositivo VPN, confira as [Perguntas Frequentes de Gateway de VPN – dispositivos VPN](vpn-gateway-vpn-faq.md#s2s).
 
 ![Exemplo de conexão Site a Site do Gateway de VPN do Azure](./media/design/vpngateway-site-to-site-connection-diagram.png)
+
+O gateway de VPN pode ser configurado no modo de espera ativo usando um IP público ou em modo ativo-ativo usando dois IPs públicos. No modo de espera ativo, um túnel IPsec está ativo e o outro túnel está em espera. Nessa configuração, o tráfego flui pelo túnel ativo e, se ocorrer algum problema com esse túnel, o tráfego mudará para o túnel em espera. A configuração do gateway de VPN no modo ativo-ativo é *recomendável* no qual ambos os túneis IPsec estão ativos simultaneamente, com dados fluindo por ambos os túneis ao mesmo tempo. Uma vantagem adicional do modo ativo-ativo é que os clientes enfrentam mais taxas de transferência.
 
 ### <a name="multi-site"></a><a name="Multi"></a>Multissite
 
@@ -75,7 +77,7 @@ Talvez você possa usar o emparelhamento VNet para criar sua conexão, desde que
 
 ## <a name="expressroute-private-connection"></a><a name="ExpressRoute"></a>ExpressRoute (conexão privada)
 
-O ExpressRoute permite que você estenda suas redes locais até a nuvem da Microsoft por meio de conexão privada facilitada por um provedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como o Microsoft Azure, o Office 365 e o CRM Online. A conectividade pode ser de uma rede de qualquer para qualquer (IP VPN), uma rede Ethernet ponto a ponto ou uma conexão cruzada virtual por meio de um provedor de conectividade em uma instalação de colocalização.
+O ExpressRoute permite que você estenda as redes locais para a nuvem da Microsoft em uma conexão privada facilitada por um provedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como o Microsoft Azure, o Office 365 e o CRM Online. A conectividade pode ser de uma rede de qualquer para qualquer (IP VPN), uma rede Ethernet ponto a ponto ou uma conexão cruzada virtual por meio de um provedor de conectividade em uma instalação de colocalização.
 
 As conexões de ExpressRoute não passam pela Internet pública. Isso permite que as conexões de ExpressRoute ofereçam mais confiabilidade, mais velocidade, latências menores e muito mais segurança do que as conexões típicas pela Internet.
 

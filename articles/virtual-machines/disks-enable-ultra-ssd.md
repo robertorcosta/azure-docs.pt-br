@@ -8,12 +8,12 @@ ms.date: 05/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4f49d4e78cd58d16627a0b6fda1957baa9f1f085
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4c005bc49780edcb7f322455e37163e78d87619f
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752074"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852680"
 ---
 # <a name="using-azure-ultra-disks"></a>Usando os ultra discos do Azure
 
@@ -128,7 +128,7 @@ Depois que a VM for provisionada, será possível particionar e formatar os disc
 
 ## <a name="deploy-an-ultra-disk-using-the-azure-portal"></a>Implantar um ultra Disk usando o portal do Azure
 
-Esta seção aborda a implantação de uma máquina virtual equipada com um ultra Disk como um disco de dados. Ele pressupõe que você tenha familiaridade com a implantação de uma máquina virtual, se não tiver, consulte nosso [início rápido: criar uma máquina virtual do Windows no portal do Azure](~/articles/virtual-machines/windows/quick-create-portal.md).
+Esta seção aborda a implantação de uma máquina virtual equipada com um ultra Disk como um disco de dados. Ele pressupõe que você tenha familiaridade com a implantação de uma máquina virtual, se não tiver, consulte nosso [início rápido: criar uma máquina virtual do Windows no portal do Azure](./windows/quick-create-portal.md).
 
 - Entre no [portal do Azure](https://portal.azure.com/) e navegue até implantar uma máquina virtual (VM).
 - Certifique-se de escolher um [tamanho de VM e uma região com suporte](#ga-scope-and-limitations).

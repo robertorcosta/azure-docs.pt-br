@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: 6e404c710a244f06676edf50c3f5c95a7d681e35
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 14fd7c2b034077d818d1a1224d3c4c12a7fc07bc
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219231"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855638"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Deslocamentos de texto na saída de API de Análise de Texto
 
-O suporte multilíngue e Emoji levou a codificações Unicode que usam mais de um [ponto de código](https://wikipedia.org/wiki/Code_point) para representar um único caractere exibido, chamado de grafemas. Por exemplo, emojis como 🌷 e 👍 podem usar vários caracteres para compor a forma com caracteres adicionais para atributos visuais, como o tom de capa. Da mesma forma, a `अनुच्छेद` palavra híndi é codificada como cinco letras e três marcas de combinação.
+O suporte multilíngue e Emoji levou a codificações Unicode que usam mais de um [ponto de código](https://wikipedia.org/wiki/Code_point) para representar um único caractere exibido, chamado de grafemas. Por exemplo, emojis como 🌷 e 👍 podem usar vários caracteres para compor a forma com caracteres adicionais para atributos visuais, como o tom de capa. Da mesma forma, a palavra híndi `अनुच्छेद` é codificada como cinco letras e três marcas de combinação.
 
 Devido aos diferentes comprimentos de codificações multilíngues e de emojis, o API de Análise de Texto pode retornar deslocamentos na resposta.
 
@@ -39,6 +39,16 @@ Os deslocamentos podem causar problemas ao usar métodos de subcadeias de caract
 No .NET, considere usar a classe [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) , que permite que você trabalhe com uma cadeia de caracteres como uma série de elementos textuais, em vez de objetos de caractere individuais. Você também pode procurar por bibliotecas de divisores grafemas em seu ambiente de software preferido. 
 
 O API de Análise de Texto também retorna esses elementos textuais, por conveniência.
+
+## <a name="offsets-in-api-version-31-preview"></a>Deslocamentos na versão de API 3,1-Preview
+
+A partir da versão de API 3,1-Preview. 1, todos os API de Análise de Texto pontos de extremidade que retornam um deslocamento oferecerão suporte ao `stringIndexType` parâmetro. Esse parâmetro ajusta os `offset` atributos e `length` na saída da API para corresponder ao esquema de iteração de cadeia de caracteres solicitado. Atualmente, há suporte para três tipos:
+
+1. `textElement_v8`(padrão): itera sobre graphemes conforme definido pelo padrão [Unicode 8.0.0](https://unicode.org/versions/Unicode8.0.0)
+2. `unicodeCodePoint`: itera sobre [pontos de código Unicode](http://www.unicode.org/versions/Unicode13.0.0/ch02.pdf#G25564), o esquema padrão para Python 3
+3. `utf16CodeUnit`: itera em [unidades de código UTF-16](https://unicode.org/faq/utf_bom.html#UTF16), o esquema padrão para JavaScript, Java e .net
+
+Se o `stringIndexType` solicitado corresponder ao ambiente de programação de sua escolha, a extração de subcadeia de caracteres poderá ser feita usando métodos padrão substring ou Slice. 
 
 ## <a name="see-also"></a>Confira também
 

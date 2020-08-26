@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2020
 tags: connectors
-ms.openlocfilehash: d02467fddcce77340b9845fe084bf5a2fb8b01f3
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 13732c6d31f19dfb2548154feb8336a1dff3a529
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815718"
+ms.locfileid: "88853304"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Trocar mensagens na nuvem usando os aplicativos lógicos do Azure e o barramento de serviço do Azure
 
@@ -85,23 +85,23 @@ Confirme se seu aplicativo lógico tem permissões para acessar o namespace do B
 
    1. Forneça um nome para sua conexão e selecione o namespace do seu Barramento de Serviço.
 
-      ![Criar uma conexão do Barramento de Serviço, parte 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
+      ![Captura de tela que mostra fornecer o nome da conexão e selecionar o namespace do barramento de serviço](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
 
       Para inserir manualmente a cadeia de conexão, selecione **inserir manualmente as informações de conexão**. Caso não tenha uma cadeia de conexão, aprenda [como localizar sua cadeia de conexão](#permissions-connection-string).
 
    1. Selecione a política do barramento de serviço e selecione **criar**.
 
-      ![Criar uma conexão do Barramento de Serviço, parte 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
+      ![Captura de tela que mostra a seleção da política do barramento de serviço](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
 
    1. Selecione a entidade de mensagens que você deseja, como uma fila ou um tópico. Para este exemplo, selecione a fila do barramento de serviço.
    
-      ![Selecionar fila do Barramento de Serviço](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
+      ![Captura de tela que mostra a seleção da fila do barramento de serviço](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
 
 1. Forneça as informações necessárias para o gatilho selecionado. Para adicionar outras propriedades disponíveis à ação, abra a lista **Adicionar novo parâmetro** e selecione as propriedades desejadas.
 
    Para o gatilho deste exemplo, selecione o intervalo de sondagem e a frequência para verificar a fila.
 
-   ![Configurar intervalo de sondagem](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
+   ![Captura de tela que mostra a configuração do intervalo de sondagem no gatilho do barramento de serviço](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
    Para obter mais informações sobre gatilhos e propriedades disponíveis, consulte a [página de referência](/connectors/servicebus/)do conector.
 
@@ -123,29 +123,29 @@ Confirme se seu aplicativo lógico tem permissões para acessar o namespace do B
 
    Para este exemplo, selecione a ação **Enviar mensagem** .
 
-   ![Selecionar ação de Barramento de Serviço](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
+   ![Captura de tela que mostra a seleção da ação do barramento de serviço](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
 1. Se sua ação estiver se conectando ao namespace do barramento de serviço pela primeira vez, siga estas etapas quando o designer do aplicativo lógico solicitar informações de conexão.
 
    1. Forneça um nome para sua conexão e selecione o namespace do seu Barramento de Serviço.
 
-      ![Criar uma conexão do Barramento de Serviço, parte 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
+      ![Captura de tela que mostra o fornecimento de um nome de conexão e seleção de um namespace do barramento de serviço](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
 
       Para inserir manualmente a cadeia de conexão, selecione **inserir manualmente as informações de conexão**. Caso não tenha uma cadeia de conexão, aprenda [como localizar sua cadeia de conexão](#permissions-connection-string).
 
    1. Selecione a política do barramento de serviço e selecione **criar**.
 
-      ![Criar uma conexão do Barramento de Serviço, parte 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
+      ![Captura de tela que mostra a seleção de uma política do barramento de serviço e a seleção do botão criar](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
 
    1. Selecione a entidade de mensagens que você deseja, como uma fila ou um tópico. Para este exemplo, selecione a fila do barramento de serviço.
 
-      ![Selecionar fila do Barramento de Serviço](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
+      ![Captura de tela que mostra a seleção de uma fila do barramento de serviço](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
 
 1. Forneça os detalhes necessários para a ação selecionada. Para adicionar outras propriedades disponíveis à ação, abra a lista **Adicionar novo parâmetro** e selecione as propriedades desejadas.
 
    Por exemplo, selecione as propriedades **conteúdo** e **tipo de conteúdo** para adicioná-las à ação. Em seguida, especifique o conteúdo para a mensagem que você deseja enviar.
 
-   ![Fornecer o conteúdo e os detalhes da mensagem](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
+   ![Captura de tela que mostra como fornecer o tipo de conteúdo e os detalhes da mensagem](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 
    Para obter mais informações sobre as ações disponíveis e suas propriedades, consulte a [página de referência](/connectors/servicebus/)do conector.
 

@@ -7,12 +7,12 @@ ms.date: 07/22/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d8efec0517cd0b4bdcba643a0936b474593d58c4
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 2320bed07f574c096be1883a9d82da7311e92fa7
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475457"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854210"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossário de termos para o IoT Plug and Play Preview
 
@@ -54,6 +54,10 @@ Uma cadeia de conexão encapsula as informações necessárias para se conectar 
 
 - As cadeias de conexão do dispositivo permitem que os [dispositivos IoT Plug and Play](#iot-plug-and-play-device) se conectem aos pontos de extremidade voltados para o dispositivo em um hub IoT. O código do cliente em um dispositivo usa a cadeia de conexão para estabelecer uma conexão segura com um hub IoT.
 - Cadeias de conexão do Hub IoT permitem que as soluções e ferramentas de back-end se conectem com segurança aos pontos de extremidade voltados para o dispositivo em um hub IoT. Essas soluções e ferramentas gerenciam o hub IoT e os dispositivos conectados a ele.
+
+## <a name="device-certification"></a>Certificado de dispositivo
+
+O programa de certificação de dispositivo IoT Plug and Play verifica se um dispositivo atende aos requisitos de certificação de Plug and Play de IoT. Você pode adicionar um dispositivo certificado ao [Catálogo de dispositivos do Azure IOT com certificação](https://aka.ms/devicecatalog)pública.
 
 ## <a name="device-model"></a>Modelo do dispositivo
 

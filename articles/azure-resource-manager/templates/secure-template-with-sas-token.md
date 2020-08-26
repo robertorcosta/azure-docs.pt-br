@@ -2,17 +2,20 @@
 title: Implantar o modelo com segurança com o token SAS
 description: Implante recursos no Azure com um modelo de Azure Resource Manager que é protegido por um token SAS. Mostra Azure PowerShell e CLI do Azure.
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: 42eaae316d4fd0575102323933f849a3058228a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/25/2020
+ms.openlocfilehash: 8b35e82da8ebca98ec9fe1fb7441612bf61fb142
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80156388"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855665"
 ---
 # <a name="deploy-private-arm-template-with-sas-token"></a>Implantar modelo de ARM privado com token SAS
 
-Quando seu modelo de Azure Resource Manager (ARM) está localizado em uma conta de armazenamento, você pode restringir o acesso ao modelo para evitar expô-lo publicamente. Você acessa um modelo protegido criando um token de SAS (assinatura de acesso compartilhado) para o modelo e fornecendo esse token durante a implantação. Este artigo explica como usar Azure PowerShell ou CLI do Azure para implantar um modelo com um token SAS.
+Quando seu modelo de Azure Resource Manager (modelo ARM) está localizado em uma conta de armazenamento, você pode restringir o acesso ao modelo para evitar expô-lo publicamente. Você acessa um modelo protegido criando um token de SAS (assinatura de acesso compartilhado) para o modelo e fornecendo esse token durante a implantação. Este artigo explica como usar Azure PowerShell ou CLI do Azure para implantar um modelo com um token SAS.
+
+> [!IMPORTANT]
+> Em vez de proteger seu modelo com um token SAS, considere o uso de [especificações de modelo](template-specs.md). Com as especificações de modelo, você pode compartilhar seus modelos com outros usuários em sua organização e gerenciar o acesso aos modelos por meio do RBAC do Azure.
 
 ## <a name="create-storage-account-with-secured-container"></a>Criar conta de armazenamento com contêiner protegido
 
@@ -110,6 +113,8 @@ New-AzResourceGroupDeployment `
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+O exemplo a seguir funciona com o ambiente bash no Cloud Shell. Outros ambientes podem exigir uma sintaxe diferente para criar o tempo de expiração para o token SAS.
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
