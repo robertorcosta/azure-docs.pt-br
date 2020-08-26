@@ -9,14 +9,14 @@ manager: dviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: 149d1eab696ae8419bed79cd2cdc0b066c32060c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 35a2be5c9f418bc423ae56c456db0062677a33c2
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530896"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856126"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Conceder acesso a dados a um ambiente
 
@@ -64,7 +64,7 @@ A `Guest` função não é uma função de gerenciamento. É um termo usado para
 
 Siga estas etapas para conceder acesso de convidado a um ambiente de Azure Time Series Insights para um usuário do Azure AD de outro locatário.
 
-1. Vá para portal do Azure, clique em **Azure Active Directory**, role para baixo na guia **visão geral** e selecione **usuário convidado**.
+1. Vá para portal do Azure, clique em  **Azure Active Directory**, role para baixo na guia **visão geral** e selecione **usuário convidado**.
 
     [![Selecionar políticas de acesso a dados e + convidar](media/data-access/data-access-invite-another-aad-tenant.png)](media/data-access/data-access-invite-another-aad-tenant.png#lightbox)
 
@@ -106,7 +106,7 @@ Siga estas etapas para conceder acesso de convidado a um ambiente de Azure Time 
 
 1. O administrador [compartilha a URL do ambiente](time-series-insights-parameterized-urls.md) com seu convidado.
 
-1. Depois que o usuário convidado estiver conectado ao endereço de email que você usou para convidá-los e aceitar o convite, eles serão direcionados para portal do Azure. 
+1. Depois que o usuário convidado estiver conectado ao endereço de email que você usou para convidá-los e aceitar o convite, eles serão direcionados para portal do Azure.
 
 1. O convidado agora pode acessar o ambiente compartilhado usando a URL do ambiente fornecida pelo administrador. Eles podem inserir essa URL em seu navegador da Web para acesso imediato.
 
@@ -114,14 +114,14 @@ Siga estas etapas para conceder acesso de convidado a um ambiente de Azure Time 
 
     [![Seleção de avatar em insights.azure.com](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
 
+    Depois que o usuário convidado selecionar o locatário do administrador, ele terá a capacidade de selecionar o ambiente de Azure Time Series Insights compartilhado.
 
-    Depois que o usuário convidado selecionar o locatário do administrador, ele terá a capacidade de selecionar o ambiente de Azure Time Series Insights compartilhado. 
-    
     Agora, eles têm todos os recursos associados à função com a qual você os forneceu na **etapa 5**.
 
     [![O usuário convidado seleciona seu locatário do Azure na lista suspensa](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * Leia [autenticação e autorização](time-series-insights-authentication-and-authorization.md) para Azure Active Directory etapas de registro do aplicativo.
 
-* Exiba [seu ambiente no Azure Time Series insights Gen2 Explorer](./time-series-insights-update-explorer.md).
+* Exiba [seu ambiente no Azure Time Series insights Explorer TSI](./time-series-insights-update-explorer.md).

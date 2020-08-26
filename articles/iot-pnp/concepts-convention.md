@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 126673391b49f884a51521d462060c425a314667
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: ef29be53e776c4c185ac8430b3340c53ca85d855
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475661"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856050"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Convenções do IoT Plug and Play
 
@@ -127,10 +127,10 @@ O dispositivo deve adicionar o `{"__t": "c"}` marcador para indicar que o elemen
 
 O dispositivo deve confirmar que recebeu a propriedade enviando uma propriedade relatada. A propriedade relatada deve incluir:
 
-- `value`-o valor que o dispositivo recebeu.
-- `ac`-um código de confirmação que usa um código de status HTTP.
-- `av`-uma versão de confirmação que se refere ao `$version` da propriedade desejada.
-- `ad`-uma descrição de confirmação opcional.
+- `value` -o valor real da propriedade (normalmente o valor recebido, mas o dispositivo pode decidir relatar um valor diferente).
+- `ac` -um código de confirmação que usa um código de status HTTP.
+- `av` -uma versão de confirmação que se refere ao `$version` da propriedade desejada.
+- `ad` -uma descrição de confirmação opcional.
 
 ### <a name="sample-no-component-writable-property"></a>Exemplo de propriedade não gravável de componente
 
@@ -261,7 +261,7 @@ Em um dispositivo, várias interfaces de componente usam nomes de comando com o 
 
 Agora que você aprendeu sobre as convenções de Plug and Play IoT, aqui estão alguns recursos adicionais:
 
-- [DTDL (digital gêmeos Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl)
+- [DTDL (Linguagem de Definição de Gêmeos Digitais)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [SDK do Dispositivo C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 - [API REST de IoT](https://docs.microsoft.com/rest/api/iothub/device)
 - [Componentes do modelo](./concepts-components.md)

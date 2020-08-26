@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 6344cb5f1a4bd52395378f97ba2848eeec336572
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c1550b941c6d0f58feba7d505c7206993e14226b
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817010"
+ms.locfileid: "88856060"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Criar uma oferta de SaaS no Marketplace comercial
 
@@ -234,7 +234,7 @@ Há dois tipos de aditamentos disponíveis para editores do marketplace comercia
 
 #### <a name="terms-and-conditions"></a>Termos e condições
 
-Se você quiser fornecer seus termos e condições personalizados, poderá optar por inseri-los no campo de termos e condições. Você pode inserir até 10.000 caracteres de texto neste campo. Se os termos e condições exigirem uma descrição mais longa, insira nesse campo um link de URL em que os termos e condições possam ser encontrados. Ele será exibido aos clientes como um link ativo.
+Se você quiser fornecer seus termos e condições personalizados, poderá optar por inseri-los no campo de termos e condições. Você pode inserir até 10.000 caracteres de texto neste campo. Se os termos e condições exigirem uma descrição mais longa, insira nesse campo um link de URL em que os termos e condições possam ser encontrados.
 
 Os clientes precisam aceitar esses termos antes de poderem testar a oferta.
 

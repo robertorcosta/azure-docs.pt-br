@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 6f633a585e4fa6ebd12e8d12408847b5ee758855
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: da75e1d6208db5adf5f0f63d2a5525fc651513b0
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513076"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855910"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager
 
@@ -33,7 +33,7 @@ Primeiro, é importante compreender a diferença entre as operações de plano d
 
 O plano de dados é o mesmo entre o modelo de implantação Clássico e a pilha do Gerenciador de Recursos. A diferença é que, durante o processo de migração, a Microsoft converte a representação dos recursos do modelo de implantação Clássico para aquela da pilha do Gerenciador de Recursos. Como resultado, você precisa usar novas ferramentas, APIs e SDKs para gerenciar seus recursos na pilha do Gerenciador de Recursos.
 
-![Diagrama que mostra a diferença entre o plano de gerenciamento/controle e o plano de dados](~/articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
+![Diagrama que mostra a diferença entre o plano de gerenciamento/controle e o plano de dados](media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
 
 
 > [!NOTE]
@@ -52,7 +52,7 @@ Antes de iniciar a migração:
 
 O fluxo de trabalho de migração está descrito abaixo:
 
-![Diagrama que mostra o fluxo de trabalho de migração](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-workflow.png)
+![Diagrama que mostra o fluxo de trabalho de migração](windows/media/migration-classic-resource-manager/migration-workflow.png)
 
 > [!NOTE]
 > As operações descritas nas seções a seguir são todas idempotentes. Caso você tenha algum problema que não seja um recurso sem suporte ou um erro de configuração, repita a operação de preparação, anulação ou confirmação. O Azure tenta a ação novamente.
@@ -94,17 +94,17 @@ Em seguida, o Azure inicia a migração de metadados do modelo de implantação 
 Assim que a operação de preparação for concluída, você tem a opção de visualizar os recursos no modelo de implantação clássico e no Gerenciador de Recursos. Para todos os serviços de nuvem no modelo de implantação clássica, a plataforma Azure cria um nome de grupo de recursos com o padrão `cloud-service-name>-Migrated`.
 
 > [!NOTE]
-> Não é possível selecionar o nome de um grupo de recursos criado para recursos migrados (ou seja, "-Migrated"). No entanto, após a conclusão da migração, você pode usar o recurso de movimentação do Azure Resource Manager para mover os recursos para qualquer grupo de recursos desejado. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](~/articles/resource-group-move-resources.md).
+> Não é possível selecionar o nome de um grupo de recursos criado para recursos migrados (ou seja, "-Migrated"). No entanto, após a conclusão da migração, você pode usar o recurso de movimentação do Azure Resource Manager para mover os recursos para qualquer grupo de recursos desejado. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 As duas telas a seguir mostram o resultado após uma operação de preparação bem-sucedida. A primeira mostra um grupo de recursos que contém o serviço de nuvem original. A segunda mostra o novo grupo de recursos “-Migrated” que contém os recursos equivalentes do Azure Resource Manager.
 
-![Captura de tela que mostra o serviço de nuvem original](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-classic.png)
+![Captura de tela que mostra o serviço de nuvem original](windows/media/migration-classic-resource-manager/portal-classic.png)
 
-![Captura de tela que mostra os recursos do Azure Resource Manager na operação de preparação](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
+![Captura de tela que mostra os recursos do Azure Resource Manager na operação de preparação](windows/media/migration-classic-resource-manager/portal-arm.png)
 
 Aqui damos uma olhada nos bastidores dos seus recursos após a conclusão da fase de preparação. Observe que o recurso no plano de dados é o mesmo. Ele é representado no plano de gerenciamento (modelo de implantação clássico) e no plano de controle (Resource Manager).
 
-![Diagrama da fase de preparação](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+![Diagrama da fase de preparação](windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
 
 > [!NOTE]
 > Máquinas virtuais que não estão em uma rede virtual no modelo de implantação clássico são interrompidas e desalocadas nesta fase de migração.
@@ -124,7 +124,7 @@ Caso encontre problemas, sempre será possível anular a migração e voltar par
 ### <a name="abort"></a>Anular
 Essa é uma etapa opcional se você quiser reverter as alterações para o modelo de implantação clássico e interromper a migração. Essa operação exclui os metadados dos seus recursos no Gerenciador de Recursos (criados na etapa de preparação). 
 
-![Diagrama da etapa de anulação](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
+![Diagrama da etapa de anulação](windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
 
 
 > [!NOTE]
@@ -139,13 +139,13 @@ Após a conclusão da validação, é possível confirmar a migração. Os recur
 >
 >
 
-![Diagrama da etapa de confirmação](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
+![Diagrama da etapa de confirmação](windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
 
 ## <a name="migration-flowchart"></a>Fluxograma de migração
 
 Aqui está um fluxograma que mostra como proceder com a migração:
 
-![Screenshot that shows the migration steps](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](windows/media/migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>Conversão do modelo de implantação clássico para recursos do Gerenciador de Recursos
 Você pode encontrar o modelo de implantação clássico e representações do Resource Manager dos recursos na tabela a seguir. Atualmente, não há suporte para outros recursos e funcionalidades.

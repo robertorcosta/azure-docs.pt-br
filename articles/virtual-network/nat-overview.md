@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2020
+ms.date: 08/25/2020
 ms.author: allensu
-ms.openlocfilehash: 63c687cdfe3e014617b5a8773136dfb6513178ed
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 3180fa34b85c3ec5f7cb1d2d9da8c2e1b528bd69
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135803"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855802"
 ---
 # <a name="what-is-virtual-network-nat"></a>O que é NAT de Rede Virtual?
 
@@ -123,31 +123,17 @@ Você pode monitorar a operação da NAT por meio de métricas multidimensionais
 
 Em disponibilidade geral, o caminho de dados da NAT tem pelo menos 99,9% de disponibilidade.
 
-
 ## <a name="pricing"></a>Preços
 
-O gateway da NAT é cobrado com dois medidores separados:
-
-| Medidor | Tarifa |
-| --- | --- |
-| Horas do recurso | US$ 0,045/hora |
-| Dados processados | US$ 0,045/GB |
-
-As horas do recurso representam o tempo durante o qual um recurso do gateway da NAT existe.
-Os dados processados representam todo o tráfego processado por um recurso do gateway da NAT.
+Para obter detalhes de preços, consulte [preços de rede virtual](https://azure.microsoft.com/pricing/details/virtual-network).
 
 ## <a name="availability"></a>Disponibilidade
 
-A NAT de rede virtual e o recurso de gateway de NAT estão disponíveis em todas as [regiões](https://azure.microsoft.com/global-infrastructure/regions/) de nuvem pública do Azure.
-
-## <a name="support"></a>Suporte
-
-Há suporte para a NAT por meio de canais de suporte normais.
+O NAT de rede virtual e o recurso de gateway de NAT estão disponíveis em todas as regiões de todas as [regiões](https://azure.microsoft.com/global-infrastructure/regions/)de nuvens do Azure.
 
 ## <a name="suggestions"></a>Sugestões
 
 Desejamos saber como podemos aprimorar o serviço. Proponha e vote em quais itens deveríamos criar em seguida, no [UserVoice para NAT](https://aka.ms/natuservoice).
-
 
 ## <a name="limitations"></a>Limitações
 

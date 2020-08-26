@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: dc5e251fee00ee22edb2261c1abd8404714834ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b5a3ec1d6e33c08b460088c9aeb4fd18f6bf29ff
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78669133"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864894"
 ---
 ## <a name="authentication"></a>Autenticação
 
@@ -82,7 +82,7 @@ $OAuthToken
 cURL é uma ferramenta de linha de comando no Linux (e no Subsistema do Windows para Linux). Este comando cURL ilustra como obter um token de acesso. Substitua `YOUR_SUBSCRIPTION_KEY` pela sua chave de assinatura do serviço de Fala. Certifique-se de usar o endpoint correto para a região que corresponde à sua assinatura. Este exemplo está atualmente definido para o oeste dos EUA.
 
 ```console
-curl -v -X POST
+curl -v -X POST \
  "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
  -H "Content-type: application/x-www-form-urlencoded" \
  -H "Content-Length: 0" \

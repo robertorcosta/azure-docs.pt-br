@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 335b2f345cbebc55ad7ddd60487cfd17288d547d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c0627dd0833e3b20468eb5f50fbeb9fd9d9ae2b3
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88704230"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864826"
 ---
 **Transferências de dados de saída**: as [transferências de dados de saída](https://azure.microsoft.com/pricing/details/bandwidth/) (dados saindo dos datacenters do Azure) incorrem em cobrança por uso de largura de banda.
 
@@ -26,7 +26,7 @@ Para obter informações detalhadas sobre os preços de Managed Disks, incluindo
 As VMs do Azure têm a capacidade de indicar se são compatíveis com ultra discos. Uma VM compatível com um disco ultra aloca a capacidade de largura de banda dedicada entre a instância de VM de computação e a unidade de escala de armazenamento de bloco para otimizar o desempenho e reduzir a latência. A inclusão desse recurso na VM resulta em uma cobrança de reserva que será imposta somente se você habilitar o recurso de disco ultra na VM sem anexar um disco ultra a ela. Quando um disco ultra é anexado à VM compatível com discos ultra, essa cobrança não é aplicada. Essa cobrança é por vCPU provisionada na VM. 
 
 > [!Note]
-> Para [tamanhos de VM de núcleo restritos](~/articles/virtual-machines/constrained-vcpu.md), a taxa de reserva é baseada no número real de vCPUs e não nos núcleos restritos. Para Standard_E32-8s_v3, a taxa de reserva será baseada em núcleos de 32. 
+> Para [tamanhos de VM de núcleo restritos](../articles/virtual-machines/constrained-vcpu.md), a taxa de reserva é baseada no número real de vCPUs e não nos núcleos restritos. Para Standard_E32-8s_v3, a taxa de reserva será baseada em núcleos de 32. 
 
 Consulte a [página de preços dos discos do Azure](https://azure.microsoft.com/pricing/details/managed-disks/) para obter detalhes de preços do ultra Disk.
 

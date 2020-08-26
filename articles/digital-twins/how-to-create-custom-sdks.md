@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a93e0b6d29bb10e5e71f48134916cac9cd563fb2
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3cf14ce3e8ef9b1d783191fe6c01c5e311d57786
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420032"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855944"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Criar SDKs personalizados para o gêmeos digital do Azure usando o REST
 
@@ -41,10 +41,10 @@ npm install -g autorest@2.0.4413
 Para executar o REST no arquivo do Azure digital gêmeos Swagger, siga estas etapas:
 1. Copie o arquivo Swagger do Azure digital gêmeos e sua pasta de exemplos que o acompanha em um diretório de trabalho.
 2. Use uma janela de prompt de comando para alternar para esse diretório de trabalho.
-3. Execute o comando executar como a seguir. Substitua o `<language>` espaço reservado pelo idioma de sua escolha: `--python` , `--java` , `--go` e assim por diante. (Você pode encontrar a lista completa de opções no [Leiame do autorest](https://github.com/Azure/autorest).)
+3. Execute o comando executar como a seguir. Substitua o `<language>` espaço reservado pelo idioma de sua escolha: `python` , `java` , `go` e assim por diante. (Você pode encontrar a lista completa de opções no [Leiame do autorest](https://github.com/Azure/autorest).)
 
 ```cmd/sh
-autorest --input-file=adtApiSwagger.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
+autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
 Como resultado, você verá uma nova pasta chamada *ADTApi* em seu diretório de trabalho. Os arquivos do SDK gerados terão o namespace *ADTApi*. Você continuará a usar esse namespace por meio do restante dos exemplos de uso neste artigo.
@@ -83,7 +83,7 @@ Agora você pode criar o projeto e incluí-lo como uma referência de projeto em
 
 ## <a name="general-guidelines-for-generated-sdks"></a>Diretrizes gerais para SDKs gerados
 
-Esta seção contém informações gerais sobre o e as diretrizes para usar o SDK gerado.
+Esta seção contém informações gerais e diretrizes para usar o SDK gerado.
 
 ### <a name="synchronous-and-asynchronous-calls"></a>Chamadas síncronas e assíncronas
 
