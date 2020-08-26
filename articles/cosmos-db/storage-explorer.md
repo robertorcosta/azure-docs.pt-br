@@ -299,7 +299,7 @@ Não há resposta depois de selecionar o nó "desenvolvimento" no nó "local e a
 
 Se você vir o erro abaixo depois de anexar a conta do Azure Cosmos DB ao nó "Local e Anexado", verifique se você está usando a cadeia de conexão certa.
 
-:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Erro de anexação do Azure Cosmos DB a "Local e Anexado"":::
+:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Erro de anexação do Azure Cosmos DB a Local e Anexado":::
 
 ### <a name="expand-azure-cosmos-db-node-error"></a>Erro de expansão do nó do Azure Cosmos DB
 
