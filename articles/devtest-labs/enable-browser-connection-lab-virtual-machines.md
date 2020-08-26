@@ -3,12 +3,12 @@ title: Habilitar a conexão do navegador em máquinas virtuais Azure DevTest Lab
 description: O DevTest Labs agora se integra à bastiões do Azure, como proprietário do laboratório, você pode habilitar o acesso a todas as máquinas virtuais do laboratório por meio de um navegador.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8c78b872855b3fe21f2cb41d394c599aeca7a790
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 28a3c11f3df578265f9746a173fcb3029a132b26
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272344"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870486"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Habilitar a conexão do navegador em máquinas virtuais Azure DevTest Labs 
 O DevTest Labs integra-se à [bastiões do Azure](../bastion/index.yml), que permite que você se conecte às suas máquinas virtuais por meio de um navegador. Primeiro, você precisa habilitar a conexão do navegador em máquinas virtuais do laboratório.
@@ -19,14 +19,12 @@ Como proprietário de um laboratório, você pode habilitar o acesso a todas as 
 Este artigo mostra como habilitar a conexão do navegador em máquinas virtuais do laboratório.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
-Implante um host bastião na rede virtual do laboratório existente **(ou)** Conecte seu laboratório com uma rede virtual configurada para bastiões. 
-
-Para saber como implantar um host de bastiões em uma rede virtual, consulte [criar um host de bastiões do Azure](../bastion/bastion-create-host-portal.md). Ao criar o host de bastiões, selecione a rede virtual do laboratório. 
-
-Primeiro, você precisa criar uma segunda sub-rede na rede virtual de bastiões porque o AzureBastionSubnet não permite a criação de recursos de não-bastiões nele. 
+- Implante um host bastião na rede virtual do laboratório existente **(ou)** Conecte seu laboratório com uma rede virtual configurada para bastiões.
+Para saber como implantar um host de bastiões em uma rede virtual, consulte  [criar um host de bastiões do Azure](../bastion/bastion-create-host-portal.md). Ao criar o host de bastiões, selecione a rede virtual do laboratório. 
+- O usuário do laboratório precisa ter uma função de **leitor** no host de bastiões e a rede virtual que tem a bastiões configurada. 
 
 ## <a name="create-a-second-sub-net-in-the-bastion-virtual-network"></a>Criar uma segunda sub rede na rede virtual de bastiões
-Não é possível criar VMs de laboratório em uma sub-rede de bastiões do Azure. Crie outra sub-rede dentro da rede virtual de bastiões, conforme mostrado na imagem a seguir:
+Primeiro, você precisa criar uma segunda sub-rede na rede virtual de bastiões porque o AzureBastionSubnet não permite a criação de recursos de não-bastiões nele. Crie outra sub-rede dentro da rede virtual de bastiões, conforme mostrado na imagem a seguir:
 
 ![Segunda sub-rede na rede virtual de bastiões do Azure](./media/connect-virtual-machine-through-browser/second-subnet.png)
 
@@ -50,7 +48,7 @@ Agora, habilite a criação de VMs nesta sub-rede seguindo estas etapas:
     ![Habilitar a criação de VM na sub-rede](./media/connect-virtual-machine-through-browser/enable-vm-creation-subnet.png)
 1. Selecione **usar na opção de criação de máquina virtual** . 
 1. Selecione **Salvar** na barra de ferramentas. 
-1. Se você tiver uma rede virtual antiga para o laboratório, remova-a selecionando **..* .  e **remova**. 
+1. Se você tiver uma rede virtual antiga para o laboratório, remova-a selecionando **..*  .  e **remova**. 
 
 ## <a name="enable-browser-connection"></a>Habilitar conexão do navegador 
 

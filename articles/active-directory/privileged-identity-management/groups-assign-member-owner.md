@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2020
+ms.date: 08/18/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1dcc98366e37455f462fe1a0740aa161201912f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 06e61bb966313265f7e3772dbbf6017a03a42386
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87506219"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869619"
 ---
 # <a name="assign-eligibility-for-a-privileged-access-group-preview-in-privileged-identity-management"></a>Atribuir qualificação para um grupo de acesso privilegiado (versão prévia) no Privileged Identity Management
 
@@ -33,19 +33,14 @@ O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) pode aj
 
 Siga estas etapas para tornar um usuário qualificado para ser um membro ou proprietário de um grupo de acesso privilegiado.
 
-1. Entre em [Privileged Identity Management](https://portal.azure.com/) no portal do Azure com permissões de função de [administrador de função privilegiada](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. [Entre no Azure ad](https://aad.portal.azure.com) com permissões de administrador global ou de proprietário do grupo.
+1. Selecione **grupos** e, em seguida, selecione o grupo de funções que você deseja gerenciar. Você pode pesquisar ou filtrar a lista.
 
-    Para obter informações sobre como conceder a outro administrador acesso para gerenciar Privileged Identity Management, consulte [conceder acesso a outros administradores para gerenciar Privileged Identity Management](pim-how-to-give-access-to-pim.md).
+    ![localizar um grupo de funções que pode ser atribuído para gerenciar no PIM](./media/groups-assign-member-owner/groups-list-in-azure-ad.png)
 
-1. Abra **Azure ad Privileged Identity Management**.
+1. Abra o grupo e selecione **acesso privilegiado (versão prévia)**.
 
-1. Selecione **acesso privilegiado (versão prévia)**.
-
-1. Você pode procurar um nome de grupo e usar o **tipo de grupo** para filtrar a lista e selecionar o grupo que deseja gerenciar.
-
-    ![Lista de grupos de acesso privilegiados a serem gerenciados](./media/groups-assign-member-owner/privileged-access-list.png)
-
-1. Em **gerenciar**, selecione **atribuições**.
+    ![Abrir a experiência de Privileged Identity Management](./media/groups-assign-member-owner/groups-discover-groups.png)
 
 1. Selecione **Adicionar atribuições**.
 
@@ -77,21 +72,20 @@ Siga estas etapas para tornar um usuário qualificado para ser um membro ou prop
 
 Siga estas etapas para atualizar ou remover uma atribuição de função existente.
 
-1. Abra **Azure ad Privileged Identity Management**.
+1. [Entre no Azure ad](https://aad.portal.azure.com) com permissões de administrador global ou de proprietário do grupo.
+1. Selecione **grupos** e, em seguida, selecione o grupo de funções que você deseja gerenciar. Você pode pesquisar ou filtrar a lista.
 
-1. Selecione **acesso privilegiado (versão prévia)**.
+    ![localizar um grupo de funções que pode ser atribuído para gerenciar no PIM](./media/groups-assign-member-owner/groups-list-in-azure-ad.png)
 
-1. Você pode procurar um nome de grupo e usar o **tipo de grupo** para filtrar a lista e selecionar o grupo que deseja gerenciar.
+1. Abra o grupo e selecione **acesso privilegiado (versão prévia)**.
 
-    ![Lista de grupos de acesso privilegiados a serem gerenciados](./media/groups-assign-member-owner/privileged-access-list.png)
-
-1. Em **gerenciar**, selecione **atribuições**.
+    ![Abrir a experiência de Privileged Identity Management](./media/groups-assign-member-owner/groups-discover-groups.png)
 
 1. Selecione a função que você deseja atualizar ou remover.
 
 1. Localize a atribuição de função nas guias **Funções qualificadas** ou **Funções ativas**.
 
-    ![Atualizar ou remover atribuição de função](./media/groups-assign-member-owner/groups-add-assignment.png)
+    ![Atualizar ou remover atribuição de função](./media/groups-assign-member-owner/groups-bring-under-management.png)
 
 1. Selecione **Atualizar** ou **Remover** para atualizar ou remover a atribuição de função.
 

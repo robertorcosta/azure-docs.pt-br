@@ -1,47 +1,47 @@
 ---
 title: Solucionar problemas Azure Cosmos DB HTTP 408 ou solicitar problemas de tempo limite com o SDK do .NET
-description: Como diagnosticar e corrigir a exceção de tempo limite de solicitação do SDK do .NET
+description: Saiba como diagnosticar e corrigir exceções de tempo limite de solicitação do SDK do .NET.
 author: j82w
 ms.service: cosmos-db
 ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 09442e01fa160d3851169a51230fa4cbef7e0980
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 4e7b1fdbcbf85aa4c64a38deeeb03ede9a0e4b87
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118562"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871132"
 ---
-# <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout"></a>Diagnosticar e solucionar problemas Azure Cosmos DB tempo limite de solicitação do SDK do .NET
-O erro HTTP 408 ocorrerá se o SDK não puder concluir a solicitação antes de o tempo limite ser atingido.
+# <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>Diagnosticar e solucionar problemas Azure Cosmos DB exceções de tempo limite de solicitação do SDK .NET
+O erro HTTP 408 ocorrerá se o SDK não puder concluir a solicitação antes da ocorrência do tempo limite.
 
-## <a name="customizing-the-timeout-on-the-azure-cosmos-net-sdk"></a>Personalizando o tempo limite no SDK do .NET Cosmos do Azure
+## <a name="customize-the-timeout-on-the-azure-cosmos-db-net-sdk"></a>Personalizar o tempo limite no SDK do .NET Azure Cosmos DB
 
 O SDK tem duas alternativas distintas para controlar os tempos limite, cada uma com um escopo diferente.
 
 ### <a name="requesttimeout"></a>RequestTimeout
 
-A `CosmosClientOptions.RequestTimeout` configuração (ou `ConnectionPolicy.RequestTimeout` para o SDK v2) permite definir um tempo limite que afeta cada solicitação de rede individual.  Uma operação iniciada por um usuário pode abranger várias solicitações de rede (por exemplo, pode haver limitação) e essa configuração se aplicaria a cada solicitação de rede na nova tentativa. Esse não é um tempo limite de solicitação de operação de ponta a ponta.
+A `CosmosClientOptions.RequestTimeout` configuração (ou `ConnectionPolicy.RequestTimeout` para o SDK v2) permite definir um tempo limite que afeta cada solicitação de rede individual. Uma operação iniciada por um usuário pode abranger várias solicitações de rede (por exemplo, pode haver limitação). Essa configuração se aplicaria a cada solicitação de rede na nova tentativa. Esse tempo limite não é um tempo limite de solicitação de operação de ponta a ponta.
 
 ### <a name="cancellationtoken"></a>CancellationToken
 
-Todas as operações assíncronas no SDK têm um parâmetro CancellationToken opcional. Esse [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) é usado em toda a operação, em todas as solicitações de rede. Entre as solicitações de rede, o CancellationToken pode estar marcado e uma operação cancelada se o token relacionado tiver expirado. CancellationToken deve ser usado para definir um tempo limite aproximado esperado no escopo da operação.
+Todas as operações assíncronas no SDK têm um parâmetro CancellationToken opcional. Esse parâmetro [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) é usado em toda a operação, em todas as solicitações de rede. Entre as solicitações de rede, o token de cancelamento pode estar marcado e uma operação cancelada se o token relacionado tiver expirado. O token de cancelamento deve ser usado para definir um tempo limite aproximado esperado no escopo da operação.
 
 > [!NOTE]
-> CancellationToken é um mecanismo em que a biblioteca verificará o cancelamento quando [não causar um estado inválido](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). A operação pode não ser cancelada exatamente quando o tempo definido no cancelamento estiver ativo, mas, em vez disso, depois que a hora for ativada, ela será cancelada quando for seguro.
+> O `CancellationToken` parâmetro é um mecanismo em que a biblioteca verificará o cancelamento quando [não causar um estado inválido](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). A operação pode não ser cancelada exatamente quando o tempo definido no cancelamento estiver ativo. Em vez disso, depois que o tempo for ativado, ele cancelará quando for seguro fazê-lo.
 
 ## <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 A lista a seguir contém causas conhecidas e soluções para exceções de tempo limite de solicitação.
 
-### <a name="1-high-cpu-utilization-most-common-case"></a>1. alta utilização da CPU (caso mais comum)
-Para uma latência ideal, é recomendável que o uso da CPU seja de aproximadamente 40%. É recomendável usar 10 segundos como o intervalo para monitorar a utilização máxima (não média) da CPU. Os picos de CPU são mais comuns com consultas entre partições, em que ele pode fazer várias conexões para uma única consulta.
+### <a name="high-cpu-utilization"></a>Alta utilização da CPU
+A alta utilização da CPU é o caso mais comum. Para uma latência ideal, o uso da CPU deve ser de aproximadamente 40%. Use 10 segundos como o intervalo para monitorar a utilização máxima (não média) da CPU. Os picos de CPU são mais comuns com consultas entre partições, em que ele pode fazer várias conexões para uma única consulta.
 
 #### <a name="solution"></a>Solução:
-O aplicativo cliente que usa o SDK deve ser escalado verticalmente/horizontalmente.
+O aplicativo cliente que usa o SDK deve ser expandido ou reduzido.
 
-### <a name="2-socket--port-availability-might-be-low"></a>2. a disponibilidade de soquete/porta pode estar baixa
+### <a name="socket-or-port-availability-might-be-low"></a>A disponibilidade de soquete ou porta pode estar baixa
 Ao executar no Azure, os clientes que usam o SDK do .NET podem atingir o esgotamento de porta de SNAT do Azure (PAT).
 
 #### <a name="solution-1"></a>Solução 1:
@@ -51,42 +51,41 @@ Se você estiver executando em VMs do Azure, siga o [Guia de esgotamento de port
 Se você estiver executando o serviço Azure App, siga o [Guia de solução de problemas de erros de conexão](../app-service/troubleshoot-intermittent-outbound-connection-errors.md#cause) e use o diagnóstico do serviço de [aplicativo](https://azure.github.io/AppService/2018/03/01/Deep-Dive-into-TCP-Connections-in-App-Service-Diagnostics.html).
 
 #### <a name="solution-3"></a>Solução 3:
-Se você estiver executando o Azure Functions, verifique se está seguindo a [recomendação Azure Functions](../azure-functions/manage-connections.md#static-clients) de manter clientes singleton/estáticos para todos os serviços envolvidos (incluindo Cosmos DB) e verificar os [limites de serviço](../azure-functions/functions-scale.md#service-limits) com base no tipo e no tamanho de sua hospedagem de aplicativo de funções.
+Se você estiver executando o Azure Functions, verifique se está seguindo a [recomendação Azure Functions](../azure-functions/manage-connections.md#static-clients) de manter clientes singleton ou estáticos para todos os serviços envolvidos (incluindo Azure Cosmos DB). Verifique os [limites de serviço](../azure-functions/functions-scale.md#service-limits) com base no tipo e no tamanho de sua hospedagem de aplicativo de funções.
 
 #### <a name="solution-4"></a>Solução 4:
-Se você usar um proxy HTTP, certifique-se que pode suportar o número de conexões configuradas no SDK `ConnectionPolicy`.
-Caso contrário, você enfrentará problemas de conexão.
+Se você usar um proxy HTTP, certifique-se que pode suportar o número de conexões configuradas no SDK `ConnectionPolicy`. Caso contrário, você enfrentará problemas de conexão.
 
-### <a name="3-creating-multiple-client-instances"></a>3. criando várias instâncias de cliente
+### <a name="create-multiple-client-instances"></a>Criar várias instâncias de cliente
 A criação de várias instâncias de cliente pode levar à contenção de conexão e a problemas de tempo limite.
 
 #### <a name="solution"></a>Solução:
 Siga as [dicas de desempenho](performance-tips-dotnet-sdk-v3-sql.md#sdk-usage)e use uma única instância de CosmosClient em todo o processo.
 
-### <a name="4-hot-partition-key"></a>4. chave de partição ativa
-Azure Cosmos DB distribui a taxa de transferência provisionada de maneira uniforme entre as partições físicas. Quando há uma partição ativa, uma ou mais chaves de partição lógica em uma partição física estão consumindo todas as RU/s da partição física, enquanto os RU/s em outras partições físicas ficam inutilizados. Como sintoma, o total de RU/s consumido será menor do que o RU/s provisionado geral no banco de dados ou contêiner, mas você ainda verá limitação (429s) nas solicitações em relação à chave de partição lógica ativa. Use a [métrica de consumo de ru normalizada](monitor-normalized-request-units.md) para ver se a carga de trabalho está encontrando uma partição ativa. 
+### <a name="hot-partition-key"></a>Chave de partição ativa
+Azure Cosmos DB distribui a taxa de transferência provisionada de maneira uniforme entre as partições físicas. Quando há uma partição ativa, uma ou mais chaves de partição lógica em uma partição física estão consumindo todas as unidades de solicitação por segundo da partição física (RU/s). Ao mesmo tempo, as RU/s em outras partições físicas ficarão não utilizadas. Como sintoma, o total de RU/s consumido será menor do que o RU/s provisionado geral no banco de dados ou contêiner, mas você ainda verá limitação (429s) nas solicitações em relação à chave de partição lógica ativa. Use a [métrica de consumo de ru normalizada](monitor-normalized-request-units.md) para ver se a carga de trabalho está encontrando uma partição ativa. 
 
 #### <a name="solution"></a>Solução:
 Escolha uma boa chave de partição que distribua uniformemente o volume de solicitação e o armazenamento. Saiba como [alterar sua chave de partição](https://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/).
 
-### <a name="5-high-degree-of-concurrency"></a>5. alto grau de simultaneidade
-O aplicativo está fazendo um alto nível de simultaneidade, o que pode levar à contenção no canal
+### <a name="high-degree-of-concurrency"></a>Alto grau de simultaneidade
+O aplicativo está fazendo um alto nível de simultaneidade, o que pode levar à contenção no canal.
 
 #### <a name="solution"></a>Solução:
-O aplicativo cliente que usa o SDK deve ser escalado verticalmente/horizontalmente.
+O aplicativo cliente que usa o SDK deve ser expandido ou reduzido.
 
-### <a name="6-large-requests-andor-responses"></a>6. solicitações e/ou respostas grandes
+### <a name="large-requests-or-responses"></a>Solicitações ou respostas grandes
 Solicitações ou respostas grandes podem levar ao bloqueio de cabeçalho de linha no canal e exacerbar a contenção, mesmo com um grau relativamente baixo de simultaneidade.
 
 #### <a name="solution"></a>Solução:
-O aplicativo cliente que usa o SDK deve ser escalado verticalmente/horizontalmente.
+O aplicativo cliente que usa o SDK deve ser expandido ou reduzido.
 
-### <a name="7-failure-rate-is-within-cosmos-db-sla"></a>7. a taxa de falhas está dentro do SLA Cosmos DB
-O aplicativo deve ser capaz de lidar com falhas transitórias e tentar novamente quando necessário. 408 exceções não são repetidas porque, em criar caminhos, não é possível saber se o serviço criou o item ou se ele não foi feito. O envio do mesmo item novamente para Create causará uma exceção de conflito. A lógica de negócios dos aplicativos do usuário pode ter uma lógica personalizada para lidar com conflitos, o que pode ser interrompido da ambiguidade de um item existente vs em conflito de uma repetição de criação.
+### <a name="failure-rate-is-within-the-azure-cosmos-db-sla"></a>A taxa de falha está dentro do SLA de Azure Cosmos DB
+O aplicativo deve ser capaz de lidar com falhas transitórias e tentar novamente quando necessário. As exceções 408 não são repetidas porque, em Create Paths, é impossível saber se o serviço criou o item ou não. O envio do mesmo item novamente para Create causará uma exceção de conflito. A lógica de negócios dos aplicativos do usuário pode ter uma lógica personalizada para lidar com conflitos, o que pode ser interrompido da ambiguidade de um item existente em comparação com uma repetição de criação.
 
-### <a name="8-failure-rate-is-violating-the-cosmos-db-sla"></a>8. a taxa de falhas está violando o SLA de Cosmos DB
-Entre em contato com o suporte do Azure.
+### <a name="failure-rate-violates-the-azure-cosmos-db-sla"></a>A taxa de falha viola o SLA de Azure Cosmos DB
+Contate o [suporte do Azure](https://aka.ms/azure-support).
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Diagnosticar e solucionar](troubleshoot-dot-net-sdk.md) problemas ao usar o SDK do .net Azure Cosmos DB
-* Saiba mais sobre as diretrizes de desempenho para o [.net v3](performance-tips-dotnet-sdk-v3-sql.md) e o [.net v2](performance-tips.md)
+* [Diagnostique e solucione](troubleshoot-dot-net-sdk.md) problemas ao usar o SDK do .net Azure Cosmos DB.
+* Saiba mais sobre as diretrizes de desempenho para o [.net v3](performance-tips-dotnet-sdk-v3-sql.md) e o [.net v2](performance-tips.md).

@@ -4,12 +4,12 @@ description: Cenários, recursos e limitações para implantar grupos de contêi
 ms.topic: article
 ms.date: 08/11/2020
 ms.author: danlep
-ms.openlocfilehash: d904f1333ddf4b22bfca2546bd064b1ae8f299dd
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0474a5f85829080a89a74195483484c464de5840
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797846"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870758"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Cenários e recursos de rede virtual
 
@@ -80,6 +80,7 @@ No diagrama a seguir, vários grupos de contêineres foram implantados em uma su
 * Para obter exemplos de implantação com o CLI do Azure, consulte [implantar instâncias de contêiner em uma rede virtual do Azure](container-instances-vnet.md).
 * Para implantar uma nova rede virtual, sub-rede, perfil de rede e grupo de contêiner usando um modelo do Resource Manager, consulte [criar um grupo de contêiner do Azure com rede virtual](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
 ).
+* Ao usar o [portal do Azure](container-instances-quickstart-portal.md) para criar uma instância de contêiner, você também pode fornecer configurações para uma rede virtual nova ou do exstinger na guia **rede** .
 
 
 <!-- IMAGES -->

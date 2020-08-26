@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 1717ebd5709c05e33e658d3798494324a702b1d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 830bdd45be4b0365ac45bc3ea366b99a34882a4c
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074052"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871472"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Sincronização de Data/Hora para VMs do Windows no Azure
 
@@ -60,7 +60,7 @@ Por padrão, as imagens de VM do Sistema Operacional do Windows são configurada
 - O provedor NtpClient, que obtém informações de time.windows.com.
 - O serviço VMICTimeSync, usado para comunicar a hora do host para as VMs e fazer correções após a VM ser pausada para manutenção. Os hosts do Azure usam dispositivos Stratum 1 da Microsoft para manter a hora exata.
 
-O w32time preferiria o provedor de horário na seguinte ordem de prioridade: nível de camada, atraso de raiz, dispersão de raiz, diferença de horário. Na maioria dos casos, o w32time preferiria time.windows.com ao host porque time.windows.com reporta uma camada inferior. 
+O w32time preferiria o provedor de horário na seguinte ordem de prioridade: nível de camada, atraso de raiz, dispersão de raiz, diferença de horário. Na maioria dos casos, o W32Time em uma VM do Azure prefere o tempo de host devido à avaliação que ele faria para comparar ambas as fontes de tempo. 
 
 Para máquinas ingressadas no domínio, o domínio em si estabelece a hierarquia de sincronização de data/hora, mas a raiz da floresta ainda exigiria tempo de algum lugar e as seguintes considerações ainda seriam verdadeiras.
 
@@ -115,8 +115,8 @@ w32tm /query /source
 
 Aqui está a saída que você pode ver e o que significaria:
     
-- **time.windows.com** - na configuração padrão, w32time obteria a hora do time.windows.com. A qualidade da sincronização de data/hora depende da conectividade com a Internet e é afetada por atrasos de pacotes. Essa é a saída usual da configuração padrão.
-- **Provedor de sincronização de data/hora de IC da VM**  - a VM está sincronizando a hora do host. Isso geralmente é o resultado se você optar por sincronizar somente o host ou se NtpServer não estiver disponível no momento. 
+- **time.windows.com** - na configuração padrão, w32time obteria a hora do time.windows.com. A qualidade da sincronização de data/hora depende da conectividade com a Internet e é afetada por atrasos de pacotes. Essa é a saída usual que você obteria em um computador físico.
+- **Provedor de sincronização de data/hora de IC da VM**  - a VM está sincronizando a hora do host. Essa é a saída usual que você obteria em uma máquina virtual em execução no Azure. 
 - *Seu servidor de domínio* - a máquina atual está em um domínio e o domínio define a hierarquia de sincronização de data/hora.
 - *Algum outro servidor* - O w32time foi explicitamente configurado para obter a hora desse outro servidor. A qualidade da sincronização de data/hora depende dessa qualidade do servidor de horário.
 - **Relógio CMOS local** - relógio não está sincronizado. É possível obter essa saída se o w32time não tiver tido tempo suficiente para iniciar após um reinício ou quando todas as fontes de tempo configuradas não estiverem disponíveis.
@@ -160,7 +160,7 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\Config /v U
 w32tm /config /update
 ```
 
-Para o w32time poder usar os novos intervalos de sondagem, os NtpServers serão marcados como usando-os. Se os servidores forem anotados com máscara 0x1 bitflag, isso substituirá esse mecanismo e o w32time usaria SpecialPollInterval. Certifique-se de que os servidores NTP especificados estejam usando o sinalizador 0x8 ou nenhum sinalizador:
+Para que o W32Time possa usar os novos intervalos de sondagem, o NtpServers precisa ser marcado como usando-os. Se os servidores forem anotados com máscara 0x1 bitflag, isso substituirá esse mecanismo e o w32time usaria SpecialPollInterval. Certifique-se de que os servidores NTP especificados estejam usando o sinalizador 0x8 ou nenhum sinalizador:
 
 Verifique quais sinalizadores estão sendo usados para os servidores NTP utilizados.
 
@@ -173,6 +173,6 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 Abaixo, são apresentados links para mais detalhes sobre a sincronização de data/hora:
 
 - [Ferramentas e configurações do Serviço de Tempo do Windows](/windows-server/networking/windows-time-service/windows-time-service-tools-and-settings)
-- [Aprimoramentos do Windows Server 2016](/windows-server/networking/windows-time-service/windows-server-2016-improvements)
-- [Tempo preciso para o Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time)
+- [Aprimoramentos do Windows Server 2016 ](/windows-server/networking/windows-time-service/windows-server-2016-improvements)
+- [Hora precisa no Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time)
 - [Limite de suporte para configurar o Serviço de Horário do Windows para ambientes de alta precisão](/windows-server/networking/windows-time-service/support-boundary)

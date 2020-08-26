@@ -3,16 +3,19 @@ title: Repositório de segredos do Azure Service Fabric central
 description: Este artigo descreve como usar o repositório de segredos centrais no Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.openlocfilehash: c48be8945326f0f11ded7c5700cd70043830e4db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9fd435803ad5354b0eb2d4f5de50009a8cbbfe2
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83197757"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869748"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Repositório de segredos centrais no Azure Service Fabric 
 Este artigo descreve como usar o armazenamento de segredos centrais (CSS) no Azure Service Fabric para criar segredos em aplicativos Service Fabric. O CSS é um cache de repositório de segredo local que mantém dados confidenciais, como senha, tokens e chaves, criptografados na memória.
 
+  > [!NOTE] 
+  > Ao ativar o CSS pela primeira vez antes da versão 7,1. CU3, a ativação poderá falhar e deixar o CSS em um estado permanentemente não íntegro se: CSS for ativado em um cluster autenticado do Windows; O CSS é ativado em qualquer cluster, mas `EncryptionCertificateThumbprint` é declarado incorretamente ou o certificado correspondente não está instalado/ACL-Ed em nós. Para o cluster de autenticação do Windows, visite 7,1. CU3 antes de continuar. Para outros clusters, verifique novamente essas invariáveis ou chegue em 7,1. Cu3.
+  
 ## <a name="enable-central-secrets-store"></a>Habilitar repositório de segredos centrais
 Adicione o script a seguir à sua configuração de cluster em `fabricSettings` para habilitar o CSS. Recomendamos que você use um certificado diferente de um certificado de cluster para CSS. Verifique se o certificado de criptografia está instalado em todos os nós e se `NetworkService` tem permissão de leitura para a chave privada do certificado.
   ```json

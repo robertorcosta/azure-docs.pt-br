@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 79f7924b021de9426eeb66adf2ec12f8033efcea
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: ad26fe0d869a2e892a419b1732727c3ff1d1e9a2
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056849"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870707"
 ---
 # <a name="about-the-speech-sdk"></a>Sobre o SDK de Fala
 
@@ -31,17 +31,52 @@ O SDK de fala expõe muitos recursos do serviço de fala, mas não todos eles. O
 
 A [conversão de fala em texto](speech-to-text.md) (também conhecida como reconhecimento de *fala*) transcreve fluxos de áudio para o texto que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. Use a conversão de fala em texto com o [LUIS (Reconhecimento vocal)](../luis/index.yml) para derivar intenções do usuário de dados de fala transcrita e agir com base em comandos de voz. Use a [tradução de fala](speech-translation.md) para traduzir a entrada de fala para um idioma diferente com uma única chamada. Para obter mais informações, consulte [noções básicas de conversão de fala em texto](speech-to-text-basics.md).
 
+O **reconhecimento de fala (Sr), a lista de frases, a intenção, a tradução e os contêineres locais** estão disponíveis nas seguintes plataformas:
+
+  - C++/Windows & Linux & macOS
+  - C# (Framework & .NET Core)/Windows & UWP & Unity & Xamarin & Linux & macOS
+  - Java (JRE e Android)
+  - JavaScript (Brower e NodeJS)
+  - Python
+  - Swift
+  - Objective-C  
+  - Go (somente SR)
+
 ### <a name="text-to-speech"></a>Conversão de texto em fala
 
 Conversão de [texto em fala](text-to-speech.md) (também conhecida como *síntese de fala*) converte o texto em fala sintetizada semelhante à humana. O texto de entrada é um literal de cadeia de caracteres ou o uso da [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md). Para obter mais informações sobre vozes padrão ou neural, consulte [linguagem de conversão de texto em fala e suporte de voz](language-support.md#text-to-speech).
+
+A **conversão de texto em fala (TTS)** está disponível nas seguintes plataformas:
+
+  - C++/Windows & Linux
+  - C#/Windows & UWP & Unity
+  - Java (JRE e Android)
+  - Python
+  - Swift
+  - Objective-C
+  - A API REST de TTS pode ser usada em todas as outras situações.
 
 ### <a name="voice-assistants"></a>Assistentes de voz
 
 Os [assistentes de voz](voice-assistants.md) que usam o SDK de fala permitem que os desenvolvedores criem interfaces de conversação naturais e humanas para seus aplicativos e experiências. O serviço assistente de voz fornece uma interação rápida e confiável entre um dispositivo e um assistente. A implementação usa o canal de fala de linha direta da estrutura de bot ou o serviço de comandos personalizados integrados (versão prévia) para a conclusão da tarefa. Além disso, os assistentes de voz podem usar vozes personalizadas criadas no [portal de voz personalizado](https://aka.ms/customvoice) para adicionar uma experiência de saída de voz exclusiva.
 
+Os **assistentes de voz** estão disponíveis nas seguintes plataformas:
+
+  - C++/Windows & Linux & macOS
+  - C#/Windows
+  - Java/Windows & Linux & macOS & Android (SDK de dispositivos de fala)
+
 #### <a name="keyword-spotting"></a>Palavra-chave parando
 
 O conceito de decepções de [palavra-chave](speech-devices-sdk-create-kws.md) tem suporte no SDK de fala. A palavra-chave que está sendo demarcada é o ato de identificar uma palavra-chave em fala, seguida de uma ação após ouvir a palavra-chave. Por exemplo, "Ei Cortana" ativaria o assistente da Cortana.
+
+A **palavra-chave (KWs)** está disponível nas seguintes plataformas:
+
+  - C++/Windows & Linux
+  - C#/Windows & Linux
+  - Python/Windows & Linux
+  - Java/Windows & Linux & Android (SDK de dispositivos de fala)
+  - A funcionalidade de KWS (palavra-chave) pode funcionar com qualquer tipo de microfone, o suporte oficial do KWS, no entanto, está limitado atualmente às matrizes de microfone encontradas no hardware do Azure Kinect DK ou no SDK dos dispositivos de fala
 
 ### <a name="meeting-scenarios"></a>Cenários de reunião
 
@@ -51,9 +86,20 @@ O SDK de fala é perfeito para transcrever cenários de reunião, seja de um ún
 
 A [transcrição de conversa](conversation-transcription.md) habilita o reconhecimento de fala em tempo real (e assíncrono), a identificação do orador e a atribuição de frase para cada palestrante (também conhecido como *diarization*). É perfeito para transcrição de reuniões presenciais com a capacidade de distinguir os locutores.
 
+A **transcrição de conversa** está disponível nas seguintes plataformas:
+
+  - C++/Windows & Linux
+  - C# (Framework & .NET Core)/Windows & UWP & Linux
+  - Java/Windows & Linux & Android (SDK de dispositivos de fala)
+
 #### <a name="multi-device-conversation"></a>Conversa em vários dispositivos
 
 Com a [conversa com vários dispositivos](multi-device-conversation.md), conecte vários dispositivos ou clientes em uma conversa para enviar mensagens baseadas em fala ou em texto, com suporte fácil para transcrição e tradução.
+
+A **conversa de vários dispositivos** está disponível nas seguintes plataformas:
+
+  - C++/Windows
+  - C# (Framework & .NET Core)/Windows
 
 ### <a name="custom--agent-scenarios"></a>Cenários de agente/personalizado
 
@@ -63,9 +109,17 @@ O SDK de fala pode ser usado para transcrever cenários de Call Center, onde os 
 
 A [transcrição do Call Center](call-center-transcription.md) é um cenário comum de conversão de fala em texto para transcrever grandes volumes de dados de telefonia que podem vir de vários sistemas, como o IVR (resposta interativa de voz). Os modelos de reconhecimento de fala mais recentes do serviço de fala do Excel na transcreveção desses dados de telefonia, mesmo em casos em que os dados são difíceis de entender.
 
+A **transcrição do Call Center** está disponível por meio do serviço de fala em lotes por meio de sua API REST e pode ser usada em qualquer situação.
+
 ### <a name="codec-compressed-audio-input"></a>Entrada de áudio compactada por codec
 
 Várias das linguagens de programação SDK de fala dão suporte a fluxos de entrada de áudio compactados por codec. Para obter mais informações, consulte <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">usar formatos <span class="docon docon-navigate-external x-hidden-focus"></span> de entrada de áudio compactados </a>.
+
+A **entrada de áudio compactada por codec** está disponível nas seguintes plataformas:
+
+  - C++/Linux
+  - /Linux C#
+  - Java/Linux, Android e iOS
 
 ## <a name="rest-api"></a>API REST
 

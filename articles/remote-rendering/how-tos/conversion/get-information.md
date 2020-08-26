@@ -1,20 +1,40 @@
 ---
-title: Obter informações sobre um modelo convertido
-description: Descrição de todos os parâmetros da conversão de modelo
+title: Obter informações sobre conversões
+description: Obter informações sobre conversões
 author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: f5c38ac88503416b37b720a091c9e46d819a3146
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 529bfb61b3af7040f3656c04071683841f5abe86
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509290"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870282"
 ---
-# <a name="get-information-about-a-converted-model"></a>Obter informações sobre um modelo convertido
+# <a name="get-information-about-conversions"></a>Obter informações sobre conversões
 
-O arquivo arrAsset produzido pelo serviço de conversão destina-se exclusivamente ao consumo pelo serviço de renderização. No entanto, pode haver ocasiões em que você deseja acessar informações sobre um modelo sem iniciar uma sessão de renderização. Portanto, o serviço de conversão coloca um arquivo JSON ao lado do arquivo arrAsset no contêiner de saída. Por exemplo, se um arquivo `buggy.gltf` for convertido, o contêiner de saída conterá um arquivo chamado `buggy.info.json` ao lado do ativo convertido `buggy.arrAsset` . Ele contém informações sobre o modelo de origem, o modelo convertido e sobre a conversão em si.
+## <a name="information-about-a-conversion-the-result-file"></a>Informações sobre uma conversão: o arquivo de resultado
+
+Quando o serviço de conversão converte um ativo, ele grava um resumo de quaisquer problemas em um "arquivo de resultado". Por exemplo, se um arquivo `buggy.gltf` for convertido, o contêiner de saída conterá um arquivo chamado `buggy.result.json` .
+
+O arquivo de resultado lista todos os erros e avisos ocorridos durante a conversão e fornece um resumo de resultado, que é um de `succeeded` , `failed` ou `succeeded with warnings` .
+O arquivo de resultado é estruturado como uma matriz JSON de objetos, cada um com uma propriedade de cadeia de caracteres que é um de `warning` , `error` , `internal warning` , `internal error` e `result` . Haverá no máximo um erro ( `error` ou `internal error` ) e sempre haverá um `result` .
+
+## <a name="example-result-file"></a>Exemplo de arquivo de *resultado*
+
+O exemplo a seguir descreve uma conversão que gerou com êxito um arrAsset. No entanto, como havia uma textura ausente, o arrAsset resultante pode não ser o pretendido.
+
+```JSON
+[
+  {"warning":"4004","title":"Missing texture","details":{"texture":"buggy_baseColor.png","material":"buggy_col"}},
+  {"result":"succeeded with warnings"}
+]
+```
+
+## <a name="information-about-a-converted-model-the-info-file"></a>Informações sobre um modelo convertido: o arquivo de informações
+
+O arquivo arrAsset produzido pelo serviço de conversão destina-se exclusivamente ao consumo pelo serviço de renderização. No entanto, pode haver ocasiões em que você deseja acessar informações sobre um modelo sem iniciar uma sessão de renderização. Para dar suporte a esse fluxo de trabalho, o serviço de conversão coloca um arquivo JSON ao lado do arquivo arrAsset no contêiner de saída. Por exemplo, se um arquivo `buggy.gltf` for convertido, o contêiner de saída conterá um arquivo chamado `buggy.info.json` ao lado do ativo convertido `buggy.arrAsset` . Ele contém informações sobre o modelo de origem, o modelo convertido e sobre a conversão em si.
 
 ## <a name="example-info-file"></a>Arquivo de *informações* de exemplo
 
@@ -124,6 +144,11 @@ Esta seção registra as informações calculadas do ativo convertido.
 * `numMeshPartsInstanced`: O número de malhas reutilizadas no arrAsset.
 * `recenteringOffset`: Quando a `recenterToOrigin` opção no [ConversionSettings](configure-model-conversion.md) está habilitada, esse valor é a conversão que moveria o modelo convertido de volta para sua posição original.
 * `boundingBox`: Os limites do modelo.
+
+## <a name="deprecated-features"></a>Recursos preteridos
+
+O serviço de conversão grava os arquivos `stdout.txt` e no `stderr.txt` contêiner de saída, e eles tinham sido a única fonte de avisos e erros.
+Esses arquivos agora estão preteridos. Em vez disso, use [os arquivos de resultado](#information-about-a-conversion-the-result-file) para essa finalidade.
 
 ## <a name="next-steps"></a>Próximas etapas
 

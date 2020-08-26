@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 391692d708adbd542b2cf358f0ac597dc1db3fa0
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 9d3c5a914fe472dd7e4f797cb633e65951bf07e7
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565546"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871455"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Visão geral: automatizar a implantação para aplicativos lógicos do Azure usando modelos de Azure Resource Manager
 
@@ -269,17 +269,7 @@ Seu modelo tem um `resources` objeto, que é uma matriz que contém definições
 
 ### <a name="view-resource-definitions"></a>Exibir definições de recursos
 
-Para examinar as definições de recursos de todos os recursos em um grupo de recursos do Azure, [Baixe seu aplicativo lógico do Azure para o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), que é a maneira mais fácil de criar um modelo de aplicativo lógico com parâmetros válido que está, na maioria das vezes, pronto para implantação, ou siga estas etapas no portal do Azure:
-
-1. Entre no [portal do Azure](https://portal.azure.com) com suas credenciais da conta do Azure.
-
-1. Localize o grupo de recursos do Azure que contém seu aplicativo lógico, conexões e outros recursos.
-
-1. Na barra de ferramentas do grupo de recursos, selecione **visão geral**e selecione todos os recursos no grupo de recursos.
-
-1. Na barra de ferramentas do grupo de recursos, em **configurações**, selecione **Exportar modelo**.
-
-   O portal mostra as definições para os recursos que você selecionou. Para obter mais informações, consulte [exportação única e de vários recursos para um modelo no portal do Azure](../azure-resource-manager/templates/export-template-portal.md).
+Para examinar as definições de recursos de todos os recursos em um grupo de recursos do Azure, [Baixe seu aplicativo lógico do Azure para o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), que é a maneira mais fácil de criar um modelo de aplicativo lógico com parâmetros válido que esteja quase sempre pronto para implantação.
 
 Para obter informações gerais sobre os recursos de modelo e seus atributos, consulte estes tópicos:
 
@@ -584,7 +574,7 @@ Para obter mais informações sobre parâmetros de definição de fluxo de traba
 
 ## <a name="connection-resource-definitions"></a>Definições de recurso de conexão
 
-Quando seu aplicativo lógico cria e usa conexões com outros serviços e sistema usando [conectores gerenciados](../connectors/apis-list.md), o objeto do modelo `resources` contém as definições de recurso para essas conexões.
+Quando seu aplicativo lógico cria e usa conexões com outros serviços e sistema usando [conectores gerenciados](../connectors/apis-list.md), o objeto do modelo `resources` contém as definições de recurso para essas conexões. Embora você crie conexões de dentro de um aplicativo lógico, as conexões são recursos do Azure separados com suas próprias definições de recurso. Para examinar essas definições de recursos de conexão, [Baixe seu aplicativo lógico do Azure para o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), que é a maneira mais fácil de criar um modelo de aplicativo lógico com parâmetros válido que está, na maioria das vezes, pronto para implantação.
 
 ```json
 {

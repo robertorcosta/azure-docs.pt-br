@@ -3,12 +3,12 @@ title: Gerenciar certificados em um cluster do Azure Service Fabric
 description: Descreve como adicionar novos certificados, sobrepor certificados e remover certificados de e para um cluster do Service Fabric.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 43e9c95e0fb8484f7b24c5a0c409d3aa6a68eabc
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b1ccf83e666f9106a31809ff41d55062826be78c
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658377"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869738"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
 É recomendável que você se familiarize com o modo como o Service Fabric usa certificados X.509 e com os [Cenários de segurança do cluster do cluster](service-fabric-cluster-security.md). Você deve entender o que é um certificado de cluster e qual sua finalidade, antes de continuar.
@@ -260,7 +260,7 @@ Além de certificados de cluster, você pode adicionar certificados de cliente p
 
 Você pode adicionar dois tipos de certificados de cliente - Admin ou Somente leitura. Eles então podem ser usados para controlar o acesso a operações de administração e operações de consulta no cluster. Por padrão, os certificados de cluster são adicionados à lista de certificados permitida Admin.
 
-Você pode especificar qualquer número de certificados de cliente. Cada adição ou exclusão resulta em uma atualização de configuração para o cluster de Service Fabric
+Você pode especificar qualquer número de certificados de cliente. Cada adição/exclusão resulta em uma atualização de configuração para o Cluster Service Fabric.
 
 
 ### <a name="adding-client-certificates---admin-or-read-only-via-portal"></a>A adição de certificados de cliente - Admin ou somente leitura por meio do portal

@@ -3,12 +3,12 @@ title: Restaurar arquivos no Windows Server com o agente MARS
 description: Neste artigo, aprenda a restaurar os dados armazenados no Azure em um computador ou servidor Windows com o agente MARS (Serviços de Recuperação do Microsoft Azure).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: e5158681971c5c10e813187fedb61bc0022ee9e1
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 78663edadfdef581dbdd259882a6dd4afe5a4b0b
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827062"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871251"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurar arquivos no Windows Server com o agente MARS
 
@@ -50,7 +50,7 @@ Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo co
    > A opção de restauração de arquivos e pastas individuais exige o .NET Framework 4.5.2 ou posterior. Se você não vir a opção **arquivos e pastas individuais** , será necessário atualizar .NET Framework para a versão 4.5.2 ou posterior e tentar novamente.
 
    > [!TIP]
-   > A opção **Arquivos e pastas individuais** permite acesso rápido aos dados de ponto de recuperação. Ele é adequado para recuperação de arquivos individuais, com tamanhos que totalizam até 80 GB e oferece velocidades de transferência ou cópia de até 6 MBps durante a recuperação. A opção **Volume** recupera todos os backups de dados em um volume especificado. Essa opção fornece velocidades de transferência mais rápidas (até 40 MBps), que é ideal para recuperar dados de tamanho grande ou volumes inteiros.
+   > A opção **Arquivos e pastas individuais** permite acesso rápido aos dados de ponto de recuperação. Ele é adequado para recuperação de arquivos individuais e é recomendado para um tamanho total de menos de 80 GB. Ele oferece velocidades de transferência ou cópia de até 6 MBps durante a recuperação. A opção **Volume** recupera todos os backups de dados em um volume especificado. Essa opção fornece velocidades de transferência mais rápidas (até 40 MBps) e é recomendada para recuperar dados de grande porte ou volumes inteiros.
 
 5. Na página **Selecionar Volume e Data**, selecione o volume que contém os arquivos e pastas que você deseja restaurar.
 
