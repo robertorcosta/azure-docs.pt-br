@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 956e61894113b4728760de519ad49be71ed184cc
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c69a5e153377eee86eaf0c43d6c982dee2938ddf
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604995"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783664"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Quais são as revisões de acesso do Azure AD?
 
@@ -81,7 +81,7 @@ O diretório precisa ter, pelo menos, um número de licenças do Azure AD Premiu
 
 As licenças do Azure AD Premium P2 **não** são necessárias para usuários com funções de Administrador Global ou de Administrador de Usuários que configuram revisões de acesso, definem configurações ou aplicam as decisões das revisões.
 
-Para cada licença paga do Azure AD Premium P2 atribuída a um dos usuários de sua organização, você poderá usar o Azure AD B2B (entre empresas) para convidar até cinco usuários convidados sob a Provisão de Usuário Externo. Esses usuários convidados também poderão usar os recursos do Azure AD Premium P2. Para obter mais informações, confira [Diretrizes de licenciamento de colaboração B2B do Azure AD](../b2b/licensing-guidance.md).
+Para cada licença paga do Azure AD Premium P2 atribuída a um dos usuários de sua organização, você poderá usar o Azure AD B2B (entre empresas) para convidar até cinco usuários convidados sob a Provisão de Usuário Externo. Esses usuários convidados também poderão usar os recursos do Azure AD Premium P2. Para obter mais informações, confira [Diretrizes de licenciamento de colaboração B2B do Azure AD](../external-identities/licensing-guidance.md).
 
 Para obter mais informações sobre licenças, confira [Atribuir ou remover licenças usando o portal do Azure Active Directory](../fundamentals/license-users-groups.md).
 

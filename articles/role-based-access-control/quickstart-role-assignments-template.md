@@ -10,12 +10,12 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 05/21/2020
 ms.author: rolyon
-ms.openlocfilehash: 9320a68684a25949e8a0b4e2c7d72a6267401add
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 622f37fa4fda20fdc854edf5cd7c192b4113c4e3
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252344"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690435"
 ---
 # <a name="quickstart-add-an-azure-role-assignment-using-an-arm-template"></a>Início Rápido: Adicione uma atribuição de função do Azure usando um modelo do ARM
 
@@ -39,7 +39,7 @@ Para adicionar as atribuições de função, você precisa ter:
 
 O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). O modelo tem três parâmetros e uma seção de recursos. Na seção de recursos, observe se ele tem os três elementos de uma atribuição de função: entidade de segurança, definição de função e escopo.
 
-:::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json" highlight="30-32":::
+:::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json":::
 
 O recurso definido no modelo inclui:
 

@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: d6acc16780179654975d63ab2c0b04caf141510c
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 3eec935d0a25f9510cd9a2f6e00b7ac22756e697
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85557038"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796792"
 ---
 # <a name="quickstart-deploy-unity-sample-to-hololens"></a>Início Rápido: Implantar a amostra de Unity no HoloLens
 
@@ -44,7 +44,7 @@ Verifique se suas credenciais foram salvas corretamente com a cena e se você po
 1. Altere a configuração para **Versão** e **ARM64**
 1. Alterne o modo do depurador para **Computador Remoto**\
     ![Configuração da solução](media/unity-deploy-config.png)
-1. Criar a solução (F7)
+1. Compilar a solução
 1. Para o projeto 'Início Rápido', acesse *Propriedades > Depuração*
     1. Verifique se a configuração *Versão* está ativa
     1. Defina *Depurador a iniciar* como **Computador Remoto**

@@ -3,12 +3,12 @@ title: Restaurar o estado do sistema para um Windows Server
 description: Explicação passo a passo para restaurar o estado do sistema do Windows Server de um backup no Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1adf20b08a5c7f93108b3af5077afae9555f2219
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 9237d3d087da7f9e72813baa0056cd6b70f2c914
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827096"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892534"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para Windows Server
 
@@ -154,7 +154,7 @@ Uma vez você tiver recuperado o estado do sistema como arquivos usando o agente
     ![Inicie a restauração de arquivos de estado do sistema](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
 
     >[!NOTE]
-    >Não selecione a opção **reinicializar automaticamente o servidor** se você estiver executando a restauração no modo DSRM.
+    >Não selecione a opção **reinicializar automaticamente o servidor** se estiver executando a restauração no modo DSRM.
 
 1. Depois de concluir uma restauração com êxito, você precisará reiniciar o servidor no modo normal. Abra um prompt de comando e digite o seguinte: `bcdedit /deletevalue safeboot`
 1. Reinicialize o servidor.

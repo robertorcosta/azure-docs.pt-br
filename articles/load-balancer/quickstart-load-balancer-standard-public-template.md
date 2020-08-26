@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: allensu
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: ebf2f926f5be86ffee5f3a3e30277962a6060762
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: d83d58d608fc184f94ae70e60c56fe8fdc1e5eaa
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85479753"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88706040"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Início Rápido: Criar um Load Balancer para balancear a carga de VMs usando um modelo do Resource Manager
 
@@ -42,7 +42,7 @@ O modelo usado neste início rápido é proveniente dos [Modelos de Início Ráp
 
 Os SKUs do Load Balancer e do IP público devem coincidir. Ao criar um Standard Load Balancer, você também precisa criar um endereço IP público Standard configurado como o front-end do Standard Load Balancer. Se você quiser criar um Load Balancer Básico, use [este modelo](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/). A Microsoft recomenda usar o SKU Standard para cargas de trabalho de produção.
 
-:::code language="json" source="~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json" range="1-324" highlight="57-122":::
+:::code language="json" source="~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json":::
 
 Vários recursos do Azure foram definidos no modelo:
 

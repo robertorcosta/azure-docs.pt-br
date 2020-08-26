@@ -4,12 +4,12 @@ description: Sintomas, causas e resoluções para falhas do Backup do Azure rela
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 99e175f20247058a57bb64a47465cce1ce7fbd75
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: a3fe61bf5d116d257ed7aeb32226a437d0193c54
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826046"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892381"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha do Backup do Azure: problemas com o agente ou a extensão
 
@@ -58,7 +58,7 @@ O backup do Azure usa a extensão de instantâneo da VM para obter um backup con
   - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 
 - **Verifique se o acesso à rede é necessário**: os pacotes de extensão são baixados do repositório de extensões de armazenamento do Azure e os carregamentos de status de extensão são postados no armazenamento do Azure. [Saiba mais](../virtual-machines/extensions/features-windows.md#network-access).
-  - Se você estiver usando uma versão sem suporte do agente, será necessário permitir o acesso de saída no armazenamento do Microsoft Azure nessa região por meio da VM.
+  - Se você estiver em uma versão sem suporte do agente, precisará permitir o acesso de saída ao armazenamento do Azure nessa região da VM.
   - Se você tiver bloqueado o acesso ao `168.63.129.16` usando o firewall convidado ou com um proxy, as extensões falharão independentemente das anteriores. As portas 80, 443 e 32526 são necessárias, [saiba mais](../virtual-machines/extensions/features-windows.md#network-access).
 
 - **Verifique se o DHCP está habilitado na VM convidada**: isso é necessário para obter o endereço de host ou de malha do DHCP para que o backup da VM IaaS funcione. Se você precisar de um IP privado estático, deverá configurá-lo por meio do portal do Azure ou do PowerShell e certificar-se de que a opção DHCP dentro da VM esteja habilitada, [saiba mais](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken).

@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: a45a47b36ca0e9c426c84bb4b9f87ee5bdeccb84
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5adc15eb7beab4d54156456ee447a7e6039b6c6d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87309147"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892602"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Use a biblioteca bulk executor Java para executar operações em massa no Azure Cosmos DB
 
@@ -183,7 +183,8 @@ Você pode atualizar os documentos existentes usando a API BulkUpdateAsync. Nest
    |int getNumberOfDocumentsUpdated()  |   O número total de documentos que foram atualizados com êxito sem os documentos fornecidos para a chamada de API de atualização em massa.      |
    |double getTotalRequestUnitsConsumed() |  O total de unidades de solicitação (RU) consumidas pela chamada de API de atualização em massa.       |
    |Duration getTotalTimeTaken()  |   O tempo total gasto pela chamada de API de atualização em massa para concluir a execução.      |
-   |List\<Exception> getErrors()   |       Obtém a lista de erros se alguns documentos fora do lote fornecido para a chamada à API de atualização em massa que não falharam em ser inseridos.      |
+   |List\<Exception> getErrors()   |       Obtém a lista de problemas operacionais ou de rede relacionados à operação de atualização.      |
+   |Listar \<BulkUpdateFailure> getFailedUpdates ()   |       Obtém a lista de atualizações que não puderam ser concluídas junto com as exceções específicas que levam às falhas.|
 
 3. Depois de ter o aplicativo de atualização em massa pronto, compile a ferramenta de linha de comando da origem usando o comando 'mvn clean package'. Este comando gera um arquivo jar na pasta de destino:  
 

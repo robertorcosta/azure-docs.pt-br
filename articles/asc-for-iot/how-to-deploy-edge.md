@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 4dd7ca8f926862487b9505731c0662e68ee3d7c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c646c750cb54228211fadb0a4f6733d495e9219
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311271"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892058"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implantar um módulo de segurança em seu dispositivo IoT Edge
 
@@ -47,7 +47,7 @@ Use as etapas a seguir para implantar um módulo de segurança da central de seg
     - Verifique se a auditoria está ativa executando o seguinte comando:
 
     `sudo systemctl status auditd`<br>
-    - A resposta esperada é:`active (running)`
+    - A resposta esperada é: `active (running)`
 
 ### <a name="deployment-using-azure-portal"></a>Implantação usando portal do Azure
 
@@ -93,11 +93,23 @@ Conclua cada etapa para concluir sua implantação de IoT Edge para a central de
 
 1. Na guia **configurações de configuração do módulo** , adicione a seguinte configuração:
 
-    ``` json
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
-    ```
+   Propriedade de módulo "My":
+   
+   ``` json
+     "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
+   ```
 
-1. Selecione **Atualização**.
+   Conteúdo da propriedade bificada do módulo: 
+
+   ```json
+     {
+
+     }
+   ```
+    
+   Para obter mais informações sobre como configurar o agente, consulte [Configurar agentes de segurança](https://docs.microsoft.com/azure/asc-for-iot/how-to-agent-configuration).
+
+1. Selecione **Atualizar**.
 
 #### <a name="step-2-runtime-settings"></a>Etapa 2: configurações de tempo de execução
 

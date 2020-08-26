@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: bd6891ff4d15dc326c846efbaa37aea997ef2e17
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b09fb7cb5e631d3405adf39d5c92a72288249aff
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320673"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893112"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Práticas recomendadas de segurança do pod no Serviço de Kubernetes do Azure (AKS)
 
@@ -85,7 +85,7 @@ Os seguintes [projetos de software livre AKS associados][aks-associated-projects
 
 Uma identidade gerenciada para recursos do Azure permite que um pod se autentique nos serviços do Azure que oferecem suporte, como o Armazenamento ou o SQL. O pod é atribuído a uma identidade do Azure Identity que permite que eles se autentiquem no Azure Active Directory e recebam um token digital. Esse token digital pode ser apresentado aos outros serviços do Azure que verificam se o pod está autorizado a acessar o serviço e executar as ações necessárias. Essa abordagem significa que não há segredos necessários para cadeias de caracteres de conexão de banco de dados, por exemplo. O fluxo de trabalho simplificado para identidade gerenciada de pod é mostrado no diagrama a seguir:
 
-![Fluxo de trabalho simplificado para pod gerenciado de identidade no Azure](media/developer-best-practices-pod-security/basic-pod-identity.png)
+:::image type="content" source="media/developer-best-practices-pod-security/basic-pod-identity.svg" alt-text="Fluxo de trabalho simplificado para pod gerenciado de identidade no Azure":::
 
 Com uma identidade gerenciada, seu código do aplicativo não precisa incluir as credenciais para acessar um serviço, como o Armazenamento do Microsoft Azure. Uma vez que cada pod é autenticado com sua própria identidade, então, você pode auditar e revisar o acesso. Se seu aplicativo se conecta com outros serviços do Azure, use identidades gerenciadas para reutilização de credenciais de limite e o risco de exposição.
 
@@ -97,7 +97,7 @@ O uso do projeto de identidade do pod habilita a autenticação no suporte aos s
 
 Quando os aplicativos precisam de uma credencial, eles se comunicam com o cofre digital, recuperam o conteúdo secreto mais recente e, em seguida, conectam-se ao serviço necessário. O Azure Key Vault pode ser este cofre digital. O fluxo de trabalho simplificado para recuperar uma credencial de Cofre de Chaves do Azure usando identidades gerenciadas de pod é mostrado no diagrama a seguir:
 
-![Identidade do fluxo de trabalho simplificado para recuperar uma credencial de Cofre de Chaves usando uma identidade gerenciada de pod](media/developer-best-practices-pod-security/basic-key-vault.png)
+:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Identidade do fluxo de trabalho simplificado para recuperar uma credencial de Cofre de Chaves usando uma identidade gerenciada de pod":::
 
 Com o Azure Key Vault, você pode armazenar e regularmente girar segredos, como certificados, chaves de conta de armazenamento ou as credenciais. Você pode integrar o Azure Key Vault com um cluster AKS usando o [Provedor do Azure Key Vault para o driver do CSI de armazenamento de segredos](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage). O driver do CSI de armazenamento de segredos permite que o cluster AKS recupere nativamente o conteúdo secreto do cofre de chaves e os forneça com segurança apenas para o pod solicitante. Trabalhe com seu operador de cluster para implantar o driver do CSI de armazenamento de segredos nos nós de trabalho do AKS. Você pode usar uma identidade gerenciada de pod para solicitar acesso ao cofre de chaves e recuperar o conteúdo secreto necessário através do driver do CSI de armazenamento de segredos.
 

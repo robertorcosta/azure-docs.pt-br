@@ -4,12 +4,12 @@ description: Neste guia de início rápido, você aprende a criar um cofre dos S
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/29/2020
-ms.openlocfilehash: 9112841f6f07808d80fa2b8b61e612d57d0ec20e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 62bfe71c397367282c696eecdf55ab9c900c69a1
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248818"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684109"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Início Rápido: Criar um cofre dos Serviços de Recuperação usando um modelo do ARM
 
@@ -29,7 +29,7 @@ Se você não tiver uma assinatura ativa do Azure, crie uma [conta gratuita](htt
 
 O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
 
-:::code language="json" source="~/quickstart-templates/101-recovery-services-vault-create/azuredeploy.json" range="1-66" highlight="41-65":::
+:::code language="json" source="~/quickstart-templates/101-recovery-services-vault-create/azuredeploy.json":::
 
 Há dois recursos do Azure definidos no modelo:
 

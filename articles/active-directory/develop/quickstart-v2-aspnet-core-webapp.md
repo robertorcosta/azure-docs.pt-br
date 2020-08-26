@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 1bc8a9c06b564282af15d6a6aa53b6fc696857b2
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: fdc1f0db956d0f64938b6a0433fda21dc4462ced
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165763"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691317"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Início Rápido: Adicionar entrada com a Microsoft para um aplicativo Web do ASP.NET Core
 Neste início rápido, você usará um exemplo de código para saber como um aplicativo Web ASP.NET Core pode entrar em contas pessoais (hotmail.com, outlook.com e outras) e contas corporativas e de estudante em qualquer instância do Azure AD (Azure Active Directory). (Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.)
@@ -148,7 +148,7 @@ A linha que contém `.AddAzureAd` adiciona a autenticação de plataforma de ide
 > |Where | Descrição |
 > |---------|---------|
 > | ClientId  | ID do aplicativo (cliente) do aplicativo registrado no portal do Azure. |
-> | Authority | O ponto de extremidade do STS para o usuário autenticar. Geralmente, é <https://login.microsoftonline.com/{tenant}/v2.0> para a nuvem pública, em que {tenant} é o nome ou Id do seu locatário, ou *common* para uma referência ao ponto de extremidade comum (usado para aplicativos multilocatário) |
+> | Authority | O ponto de extremidade do STS para o usuário autenticar. Geralmente, é `https://login.microsoftonline.com/{tenant}/v2.0` para a nuvem pública, em que {tenant} é o nome ou Id do seu locatário, ou *common* para uma referência ao ponto de extremidade comum (usado para aplicativos multilocatário) |
 > | TokenValidationParameters | Uma lista de parâmetros para validação de token. Nesse caso, `ValidateIssuer` é definido como `false` para indicar que pode aceitar entradas de quaisquer contas corporativas, de estudante ou pessoais. |
 
 

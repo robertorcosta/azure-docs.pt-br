@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: f1ae8ca1ef940e45c2d32adc9a002b349f9e1b44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8313243bf680ea1a1d63f2719b647149a04935a9
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783003"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893078"
 ---
 # <a name="material-mapping-for-model-formats"></a>Mapeamento de material para formatos de modelo
 
@@ -101,29 +101,30 @@ O mapeamento acima é a parte mais complexa da conversão de material, devido a 
 Algumas definições são usadas abaixo:
 
 * `Specular` =  `SpecularColor` * `SpecularFactor`
-* `SpecularIntensity` = `Specular`. Vermelho ∗ 0,2125 + `Specular` . Verde ∗ 0,7154 + `Specular` . Blue ∗ 0, 721
-* `DiffuseBrightness`= 0,299 * `Diffuse` . Vermelho<sup>2</sup> + 0,587 * `Diffuse` . Verde<sup>2</sup> + 0,114 * `Diffuse` . Azul<sup>2</sup>
-* `SpecularBrightness`= 0,299 * `Specular` . Vermelho<sup>2</sup> + 0,587 * `Specular` . Verde<sup>2</sup> + 0,114 * `Specular` . Azul<sup>2</sup>
-* `SpecularStrength`= Max ( `Specular` . Vermelho, `Specular` . Verde, `Specular` . Azul
+* `SpecularIntensity` = `Specular`. Vermelho ∗ 0,2125 +  `Specular` . Verde ∗ 0,7154 + `Specular` . Blue ∗ 0, 721
+* `DiffuseBrightness` = 0,299 * `Diffuse` . Vermelho<sup>2</sup> + 0,587 * `Diffuse` . Verde<sup>2</sup> + 0,114 * `Diffuse` . Azul<sup>2</sup>
+* `SpecularBrightness` = 0,299 * `Specular` . Vermelho<sup>2</sup> + 0,587 * `Specular` . Verde<sup>2</sup> + 0,114 * `Specular` . Azul<sup>2</sup>
+* `SpecularStrength` = Max ( `Specular` . Vermelho, `Specular` . Verde, `Specular` . Azul
 
 A fórmula SpecularIntensity é obtida [aqui](https://en.wikipedia.org/wiki/Luma_(video)).
 A fórmula de brilho é descrita nesta [especificação](http://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.601-7-201103-I!!PDF-E.pdf).
 
 ### <a name="roughness"></a>Irregularidade
 
-`Roughness`é calculado a partir de `Specular` e `ShininessExponent` usando [esta fórmula](https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf). A fórmula é uma aproximação de áspero do expoente especular Phong:
+`Roughness` é calculado a partir de `Specular` e `ShininessExponent` usando [esta fórmula](https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf). A fórmula é uma aproximação de áspero do expoente especular Phong:
 
-```Cpp
+```cpp
 Roughness = sqrt(2 / (ShininessExponent * SpecularIntensity + 2))
 ```
 
 ### <a name="metalness"></a>Metal
 
-`Metalness`é calculado de `Diffuse` e `Specular` usando essa [fórmula da especificação glTF](https://github.com/bghgary/glTF/blob/gh-pages/convert-between-workflows-bjs/js/babylon.pbrUtilities.js).
+`Metalness` é calculado de `Diffuse` e `Specular` usando essa [fórmula da especificação glTF](https://github.com/bghgary/glTF/blob/gh-pages/convert-between-workflows-bjs/js/babylon.pbrUtilities.js).
 
 A ideia aqui é que resolvemos a equação: AX<sup>2</sup> + BX + C = 0.
 Basicamente, as superfícies interelétricas refletem cerca de 4% da luz de uma forma especular e o restante é difuso. As superfícies metálicas não refletem nenhuma luz de forma difusa, mas todas de uma maneira especular.
 Essa fórmula tem algumas desvantagens, porque não há como distinguir entre superfícies brilhantes e de superfície metálica brilhante. Assumimos a maior parte do tempo em que a superfície tem propriedades metálicas e, consequentemente, as superfícies de plástico/borracha brilhantes podem não parecer conforme o esperado.
+
 ```cpp
 dielectricSpecularReflectance = 0.04
 oneMinusSpecularStrength = 1 - SpecularStrength
@@ -138,12 +139,12 @@ Metalness = clamp(value, 0.0, 1.0);
 
 ### <a name="albedo"></a>Albedo
 
-`Albedo`é computado de `Diffuse` , `Specular` e `Metalness` .
+`Albedo` é computado de `Diffuse` , `Specular` e `Metalness` .
 
 Conforme descrito na seção de metal, as superfícies interelétricas refletem cerca de 4% da luz.  
 A ideia aqui é interpolar linearmente entre `Dielectric` e `Metal` cores usando `Metalness` valor como um fator. Se a metal for `0.0` , dependendo da especulação, ela será uma cor escura (se especular for alta) ou difusa não será alterada (se nenhum especular estiver presente). Se a metal for um valor grande, a cor difusa desaparecerá em favor da cor especular.
 
-```Cpp
+```cpp
 dielectricSpecularReflectance = 0.04
 oneMinusSpecularStrength = 1 - SpecularStrength
 
@@ -153,13 +154,13 @@ albedoRawColor = lerpColors(dielectricColor, metalColor, metalness * metalness)
 AlbedoRGB = clamp(albedoRawColor, 0.0, 1.0);
 ```
 
-`AlbedoRGB`foi calculado pela fórmula acima, mas o canal alfa requer cálculos adicionais. O formato FBX é vago sobre transparência e tem várias maneiras de defini-lo. Ferramentas de conteúdo diferentes usam métodos diferentes. A ideia aqui é unificar em uma fórmula. Isso faz com que alguns ativos sejam mostrados incorretamente como transparentes, porém, se eles não forem criados de forma comum.
+`AlbedoRGB` foi calculado pela fórmula acima, mas o canal alfa requer cálculos adicionais. O formato FBX é vago sobre transparência e tem várias maneiras de defini-lo. Ferramentas de conteúdo diferentes usam métodos diferentes. A ideia aqui é unificar em uma fórmula. Isso faz com que alguns ativos sejam mostrados incorretamente como transparentes, porém, se eles não forem criados de forma comum.
 
 Isso é computado do `TransparentColor` , `TransparencyFactor` , `Opacity` :
 
 Se `Opacity` for definido, use-o diretamente: `AlbedoAlpha`  =  `Opacity` senão  
 Se `TransparencyColor` for definido, então `AlbedoAlpha` = 1,0-(( `TransparentColor` . Vermelho + `TransparentColor` . Verde + `TransparentColor` . Azul)/3,0) else  
-Se `TransparencyFactor` , em seguida, `AlbedoAlpha` = 1,0-`TransparencyFactor`
+Se `TransparencyFactor` , em seguida, `AlbedoAlpha` = 1,0- `TransparencyFactor`
 
 A `Albedo` cor final tem quatro canais, combinando `AlbedoRGB` com o `AlbedoAlpha` .
 

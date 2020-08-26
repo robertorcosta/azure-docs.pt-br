@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 093f4f3cd54f1e4638a0fbcd161a2af4fecba5da
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 276b6cc8038a7ac8e0ddd27a3c3eb7c87f05ed1b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475780"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795891"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-preview"></a>Gerenciamento de unidades administrativas no Azure Active Directory (versão prévia)
 
@@ -47,8 +47,8 @@ O uso de unidades administrativas requer uma licença do Azure Active Directory 
 Nesta versão prévia, você pode gerenciar unidades administrativas usando o portal do Azure, cmdlets e scripts do PowerShell ou o Microsoft Graph. Você pode consultar nossa documentação para obter detalhes:
 
 - [Criar, remover, popular e adicionar funções a unidades administrativas](roles-admin-units-manage.md): concluir procedimentos detalhados
-- [Trabalhar com Unidades Administrativas](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0): como trabalhar com unidades administrativas usando o PowerShell
-- [Suporte ao Graph da Unidade Administrativa](https://docs.microsoft.com/graph/api/resources/administrativeunit?view=graph-rest-beta): documentação detalhada no Microsoft Graph para unidades administrativas.
+- [Trabalhar com Unidades Administrativas](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0): como trabalhar com unidades administrativas usando o PowerShell
+- [Suporte ao Graph da Unidade Administrativa](/graph/api/resources/administrativeunit?view=graph-rest-beta): documentação detalhada no Microsoft Graph para unidades administrativas.
 
 ### <a name="planning-your-administrative-units"></a>Planejar suas unidades administrativas
 

@@ -3,12 +3,12 @@ title: Definir configurações de diagnóstico de cofre em escala
 description: Definir Log Analytics configurações de diagnóstico para todos os cofres em um determinado escopo usando Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: dabf9798ba80600d638318304c8ef3c7e40d7ecf
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 17a5ee5a541c3317c9ec9a6cfbed57d85f5116b4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824042"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892228"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Definir configurações de diagnóstico de cofre em escala
 
@@ -20,9 +20,9 @@ Para simplificar a criação de configurações de diagnóstico em escala (com L
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
 
-* A política pode ser aplicada de uma vez a todos os cofres dos serviços de recuperação em uma determinada assinatura (ou a um grupo de recursos dentro da assinatura). O usuário que atribui a política precisa ter acesso de ' proprietário ' à assinatura à qual a política está atribuída.
+* A política pode ser aplicada de uma vez a todos os cofres dos serviços de recuperação em uma determinada assinatura (ou a um grupo de recursos dentro da assinatura). O usuário que atribui a política precisa ter acesso de **proprietário** à assinatura à qual a política é atribuída.
 
-* O espaço de trabalho LA conforme especificado pelo usuário (para o qual os dados de diagnóstico serão enviados) pode estar em uma assinatura diferente dos cofres aos quais a política é atribuída. O usuário precisa ter o acesso ' leitor ', ' colaborador ' ou ' proprietário ' à assinatura na qual o espaço de trabalho especificado existe.
+* O espaço de trabalho LA conforme especificado pelo usuário (para o qual os dados de diagnóstico serão enviados) pode estar em uma assinatura diferente dos cofres aos quais a política é atribuída. O usuário precisa ter acesso de **leitor**, **colaborador** ou **proprietário** à assinatura na qual o espaço de trabalho da la especificada existe.
 
 * O escopo do grupo de gerenciamento não tem suporte no momento.
 

@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 6e1a6cb583c0d310cc7ce73995224c42bb84784d
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 26531e80292a53400671ac3507b47371c1fbbcad
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566158"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796809"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Início Rápido: Implantar a amostra de Unity na Área de Trabalho
 
@@ -57,7 +57,7 @@ No momento, há suporte apenas para aplicativos da área de trabalho simples no 
 1. Altere a configuração para **Versão** e **x86**.
 1. Alterne o modo do depurador para **Computador Local**.
   ![Configuração da solução](./media/unity-deploy-config-pc.png)
-1. Crie a solução (F7).
+1. Compile a solução.
 
 ## <a name="launch-the-sample-project"></a>Iniciar o projeto de exemplo
 

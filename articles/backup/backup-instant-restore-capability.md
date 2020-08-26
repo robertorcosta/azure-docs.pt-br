@@ -4,17 +4,17 @@ description: Funcionalidade de restauração instantânea do Azure e perguntas f
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: e8037af9433cc642f57c1ab6ca2709a3d92c2f81
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: ddc8e8fa460943c09f80ebb462b1dbd578f9b23b
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825844"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892619"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obter o melhor backup e restaurar o desempenho com a funcionalidade de restauração instantânea do Backup do Azure
 
 > [!NOTE]
-> Com base nos comentários dos usuários, estamos renomeando a **pilha de backup de VM V2** como **Restauração Instantânea** para diminuir a confusão com a funcionalidade do Azure Stack.
+> Com base nos comentários dos usuários, renomeamos a **pilha de backup da VM v2** para a **restauração instantânea** para reduzir a confusão com Azure Stack funcionalidade.
 > Todos os usuários do backup do Azure agora foram atualizados para **restauração instantânea**.
 
 O novo modelo para Restauração instantânea oferece os seguintes aprimoramentos de recursos:
@@ -76,7 +76,7 @@ $bkpPol.SnapshotRetentionInDays=5
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 
-A retenção de instantâneo padrão para cada política é definida como dois dias. O usuário pode alterar o valor para um mínimo de 1 e um máximo de cinco dias. Para as políticas semanais, a retenção de instantâneos é fixada em cinco dias.
+A retenção de instantâneo padrão para cada política é definida como dois dias. Você pode alterar o valor para um mínimo de 1 e um máximo de cinco dias. Para as políticas semanais, a retenção de instantâneos é fixada em cinco dias.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 

@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
-ms.openlocfilehash: f4af3c202d4f00c4ac3041921175c92226f0db7c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 052e0c93732b99efa37b029cad29dc2efded78ee
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76964050"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88703508"
 ---
 ## <a name="run-the-function-locally"></a>Executar a função localmente
 
@@ -23,7 +23,7 @@ O Visual Studio Code integra-se ao [Azure Functions Core Tools](../articles/azur
 
 1. Com o Core Tools em execução, navegue até a URL a seguir para executar uma solicitação GET, que inclui a cadeia de caracteres de consulta `?name=Functions`.
 
-    <http://localhost:7071/api/HttpExample?name=Functions>
+    `http://localhost:7071/api/HttpExample?name=Functions`
 
 1. Uma resposta é retornada, semelhante ao seguinte em um navegador:
 

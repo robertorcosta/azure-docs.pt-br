@@ -9,12 +9,12 @@ ms.service: azure-app-configuration
 ms.custom:
 - mvc
 - subject-armqs
-ms.openlocfilehash: 9b609d4571d6240f428a0210aa5108ff19dc753b
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 7b7dd00d3495c24733ecdc213e0e25f8bc9640eb
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235172"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661462"
 ---
 # <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template-arm-template"></a>Início Rápido: Implantação automatizada da VM com a Configuração de Aplicativos e o modelo ARM (modelo do Resource Manager)
 
@@ -32,7 +32,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="review-the-templates"></a>Examinar os modelos
 
-Os modelos usados neste início rápido são provenientes dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/). O [primeiro modelo](https://azure.microsoft.comresources/templates/101-app-configuration-store/) cria um repositório de Configuração de Aplicativos:
+Os modelos usados neste início rápido são provenientes dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/). O [primeiro modelo](https://azure.microsoft.com/resources/templates/101-app-configuration-store/) cria um repositório de Configuração de Aplicativos:
 
 :::code language="json" source="~/quickstart-templates/101-app-configuration-store/azuredeploy.json" range="1-37" highlight="27-35":::
 

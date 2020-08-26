@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 06/22/2020
-ms.openlocfilehash: eed333b5e6a83b140df515fc02767b8a7c7a63c7
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: d405cfda3c72ce9c724a7d96925d3346428a3089
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85506632"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660607"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance-using-an-arm-template"></a>Início Rápido: Criar uma Instância Gerenciada de SQL do Azure usando um modelo do ARM
 
@@ -36,7 +36,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
 
-:::code language="json" source="~/quickstart-templates/101-sqlmi-new-vnet/azuredeploy.json" range="001-249" highlight="113,178,188,226":::
+:::code language="json" source="~/quickstart-templates/101-sqlmi-new-vnet/azuredeploy.json":::
 
 Esses recursos do Azure estão definidos no modelo:
 

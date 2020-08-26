@@ -4,12 +4,12 @@ description: Saiba como você pode usar o backup do Azure para enviar dados da r
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: e5761f56106989084f12b80620ffc417b781965d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f3cf44a34babab79d135923db040630a1c8e3dfe
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187822"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892007"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de backup offline no Backup do Azure
 
@@ -102,7 +102,7 @@ Esta seção descreve o fluxo de trabalho de backup offline para que seus dados 
 
 1. Conclua o fluxo de trabalho. No console do agente de backup do Azure, selecione **fazer backup agora**.
 
-    ![Fazer backup agora](./media/backup-azure-backup-import-export/backupnow.png)
+    ![Fazer Backup Agora](./media/backup-azure-backup-import-export/backupnow.png)
 
 1. Na página **confirmação** do assistente, selecione **fazer backup**. O backup inicial é gravado na área de preparo como parte da instalação.
 
@@ -129,7 +129,7 @@ O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são env
      > [!IMPORTANT]
      > Se o computador de origem for uma máquina virtual, o computador de cópia deverá ser um computador cliente ou servidor físico diferente do computador de origem.
 
-1. Abra um prompt de comando com privilégios elevados no computador de cópia com o diretório do utilitário *AzureOfflineBackupDiskPrep* como o diretório atual. Execute o seguinte comando:
+1. Abra um prompt de comando com privilégios elevados no computador de cópia com o diretório do utilitário *AzureOfflineBackupDiskPrep* como o diretório atual. Execute o comando a seguir:
 
     ```.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>```
 
@@ -148,7 +148,7 @@ O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são env
 
     ![Entrada da assinatura do Azure](./media/backup-azure-backup-import-export/signindiskprep.png) <br/>
 
-    Em seguida, a ferramenta começa a preparar o disco e copiar os dados de backup. Talvez seja necessário anexar discos adicionais quando solicitado pela ferramenta caso o disco fornecido não tenha espaço suficiente para os dados de backup. <br/>
+    Em seguida, a ferramenta começa a preparar o disco e copiar os dados de backup. Talvez seja necessário anexar discos adicionais quando solicitado pela ferramenta se o disco fornecido não tiver espaço suficiente para os dados de backup. <br/>
 
     No final da execução bem-sucedida da ferramenta, o prompt de comando fornece três informações principais:
 
@@ -212,7 +212,7 @@ Depois que o trabalho de importação for concluído com êxito, os dados de bac
 
 No horário do próximo backup agendado, o Backup do Azure executará um backup incremental.
 
-### <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois que o backup inicial for concluído, você poderá excluir com segurança os dados importados para o contêiner de armazenamento do Azure e os dados de backup no local de preparo.
 

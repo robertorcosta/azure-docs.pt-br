@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações do
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 41bc06e2c63b1b35bb789636bcd269439078be70
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 9b0698b16d3432c1bfefd3cf909cdfdf5529200e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825181"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892177"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte Backup do Azure
 
@@ -145,7 +145,7 @@ O backup dá suporte à compactação do tráfego de backup, conforme resumido n
 
 ## <a name="cross-region-restore"></a>Restauração Entre Regiões
 
-O Backup do Azure adicionou o recurso de Restauração Entre Regiões para reforçar a disponibilidade de dados e a capacidade de resiliência, dando aos clientes controle total para restaurar dados em uma região secundária. Para configurar esse recurso, veja [o artigo Definição de Restauração Entre Regiões.](backup-create-rs-vault.md#set-cross-region-restore). Esse recurso é compatível com os seguintes tipos de gerenciamento:
+O backup do Azure adicionou o recurso de restauração entre regiões para reforçar a disponibilidade de dados e a capacidade de resiliência, dando a você controle total para restaurar dados em uma região secundária. Para configurar esse recurso, veja [o artigo Definição de Restauração Entre Regiões.](backup-create-rs-vault.md#set-cross-region-restore). Esse recurso é compatível com os seguintes tipos de gerenciamento:
 
 | Tipo de Gerenciamento de Backup | Com suporte                                                    | Regiões com Suporte |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |

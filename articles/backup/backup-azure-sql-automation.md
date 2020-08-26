@@ -4,12 +4,12 @@ description: Faça backup e restaure bancos de dados SQL em VMs do Azure usando 
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 46583a0a26c86a0f77b115178fb53592977aef09
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 1fe3af3b2a12cf6fdfc0e71d36d36046858c50af
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826881"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892415"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Fazer backup e restaurar bancos de dados SQL em VMs do Azure com o PowerShell
 
@@ -44,7 +44,7 @@ Examine a referência de [referência do cmdlet](/powershell/module/az.recoverys
 
 Configure o PowerShell da seguinte maneira:
 
-1. [Baixe a versão mais recente do Azure PowerShell](/powershell/azure/install-az-PowerShell). A versão mínima necessária é 1.5.0.
+1. [Baixe a versão mais recente do Azure PowerShell](/powershell/azure/install-az-ps). A versão mínima necessária é 1.5.0.
 
 2. Localize os cmdlets do PowerShell de backup do Azure com este comando:
 
@@ -203,7 +203,7 @@ Register-AzRecoveryServicesBackupContainer -ResourceId $myVM.ID -BackupManagemen
 O comando retornará um ' contêiner de backup ' desse recurso e o status será ' Registered '
 
 > [!NOTE]
-> Se o parâmetro Force não for fornecido, será solicitado que você confirme com um texto ' deseja desabilitar a proteção para este contêiner '. Ignore este texto e diga "Y" para confirmar. Esse é um problema conhecido e estamos trabalhando para remover o texto e o requisito para o parâmetro Force.
+> Se o parâmetro Force não for fornecido, você será solicitado a confirmar com um texto ' deseja desabilitar a proteção para este contêiner '. Ignore este texto e diga "Y" para confirmar. Esse é um problema conhecido e estamos trabalhando para remover o texto e o requisito para o parâmetro Force.
 
 ### <a name="fetching-sql-dbs"></a>Buscando bancos de os SQL
 
@@ -237,7 +237,7 @@ master           ConfigureBackup      Completed            3/18/2019 6:00:21 PM 
 
 ### <a name="fetching-new-sql-dbs"></a>Buscando novos bancos de os SQL
 
-Depois que o computador for registrado, o serviço de backup buscará os detalhes dos bancos de computadores disponíveis. Se o usuário adicionar instâncias de bancos de usuários/SQL do SQL ao computador registrado posteriormente, será necessário disparar manualmente o serviço de backup para executar uma nova ' consulta ' para obter todos os bancos de computadores desprotegidos (incluindo os recém-adicionados) novamente. Use o cmdlet do PowerShell [Initialize-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/initialize-azrecoveryservicesbackupprotectableitem) na VM do SQL para executar uma nova consulta. O comando aguarda até que a operação seja concluída. Posteriormente, use o cmdlet [Get-AzRecoveryServicesBackupProtectableItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectableitem) do PowerShell para obter a lista de componentes SQL desprotegidos mais recentes
+Depois que o computador for registrado, o serviço de backup buscará os detalhes dos bancos de computadores disponíveis. Se as instâncias do SQL ou bancos de serviços SQL forem adicionadas ao computador registrado posteriormente, você precisará disparar manualmente o serviço de backup para executar uma nova ' consulta ' para obter **todos** os bancos de computadores desprotegidos (incluindo os recém-adicionados) novamente. Use o cmdlet do PowerShell [Initialize-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/initialize-azrecoveryservicesbackupprotectableitem) na VM do SQL para executar uma nova consulta. O comando aguarda até que a operação seja concluída. Posteriormente, use o cmdlet [Get-AzRecoveryServicesBackupProtectableItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectableitem) do PowerShell para obter a lista de componentes SQL desprotegidos mais recentes.
 
 ```powershell
 $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -FriendlyName <VM name> -VaultId $targetvault.ID
@@ -278,7 +278,7 @@ $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload 
 
 ### <a name="fetch-the-relevant-restore-time"></a>Buscar o tempo de restauração relevante
 
-Conforme descrito acima, o usuário pode restaurar o banco de BD SQL de backup para uma cópia completa/diferencial **ou** para um ponto no tempo de log.
+Conforme descrito acima, você pode restaurar o banco de BD SQL de backup para uma cópia completa/diferencial **ou** para um ponto no tempo de log.
 
 #### <a name="fetch-distinct-recovery-points"></a>Buscar pontos de recuperação distintos
 
@@ -307,7 +307,7 @@ $FullRP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $bkpItem -VaultId $tar
 
 #### <a name="fetch-point-in-time-recovery-point"></a>Buscar ponto de recuperação pontual
 
-Se o usuário quiser restaurar o banco de dado para um determinado ponto no tempo, use o cmdlet do PowerShell [Get-AzRecoveryServicesBackupRecoveryLogChain](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverylogchain) . O cmdlet retorna uma lista de datas que representam os horários de início e término de uma cadeia de logs contínua e não quebrada para esse item de backup do SQL. O ponto no tempo desejado deve estar dentro desse intervalo.
+Se você quiser restaurar o banco de dado para um determinado ponto no tempo, use o cmdlet do PowerShell [Get-AzRecoveryServicesBackupRecoveryLogChain](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverylogchain) . O cmdlet retorna uma lista de datas que representam os horários de início e término de uma cadeia de logs contínua e não quebrada para esse item de backup do SQL. O ponto no tempo desejado deve estar dentro desse intervalo.
 
 ```powershell
 Get-AzRecoveryServicesBackupRecoveryLogChain -Item $bkpItem -Item -VaultId $targetVault.ID
@@ -321,14 +321,14 @@ ItemName                       StartTime                      EndTime
 SQLDataBase;MSSQLSERVER;azu... 3/18/2019 8:09:35 PM           3/19/2019 12:08:32 PM
 ```
 
-A saída acima significa que o usuário pode restaurar para qualquer ponto no tempo entre a hora de início e a hora de término exibidas. Os horários estão em UTC. Construa qualquer ponto no tempo no PowerShell que esteja dentro do intervalo mostrado acima.
+A saída acima significa que você pode restaurar para qualquer ponto no tempo entre a hora de início e a hora de término exibidas. Os horários estão em UTC. Construa qualquer ponto no tempo no PowerShell que esteja dentro do intervalo mostrado acima.
 
 > [!NOTE]
 > Quando um ponto no tempo de log é selecionado para restauração, você não precisa especificar o ponto de partida, ou seja, o backup completo do qual o banco de BD é restaurado. O serviço de backup do Azure cuidará de todo o plano de recuperação, ou seja, o backup completo a ser escolhido, quais backups de log serão aplicados e assim por diante.
 
 ### <a name="determine-recovery-configuration"></a>Determinar configuração de recuperação
 
-No caso da restauração do BD SQL, há suporte para os seguintes cenários de restauração.
+No caso de uma restauração do banco de BD SQL, há suporte para os seguintes cenários de restauração.
 
 * Substituindo o banco de dados SQL de backup por um de outro ponto de recuperação-OriginalWorkloadRestore
 * Restaurando o banco de BD SQL como um novo DB na mesma instância SQL-AlternateWorkloadRestore
@@ -479,7 +479,7 @@ MSSQLSERVER/m... Restore              InProgress           3/17/2019 10:02:45 AM
 
 ### <a name="on-demand-backup"></a>Backup sob demanda
 
-Depois que o backup tiver sido habilitado para um banco de usuários, o usuário também poderá disparar um backup sob demanda para o BD usando o cmdlet do PowerShell [backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) . O exemplo a seguir dispara um backup completo em um banco de BD SQL com compactação habilitada e o backup completo deve ser retido por 60 dias.
+Depois que o backup tiver sido habilitado para um BD, você também poderá disparar um backup sob demanda para o BD usando o cmdlet do PowerShell [backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) . O exemplo a seguir dispara um backup completo em um banco de BD SQL com compactação habilitada e o backup completo deve ser retido por 60 dias.
 
 ```powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType MSSQL -Name "<backup item name>" -VaultId $targetVault.ID
@@ -499,7 +499,7 @@ Se a saída for perdida ou se você quiser obter a ID de trabalho relevante, [ob
 
 ### <a name="change-policy-for-backup-items"></a>Alterar política para itens de backup
 
-O usuário pode alterar a política do item de backup de Policy1 para Policy2. Para alternar políticas para um item de backup, busque a política relevante e faça backup do item e use o comando [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) com o item de backup como o parâmetro.
+Você pode alterar a política do item de backup de *Policy1* para *Policy2*. Para alternar políticas para um item de backup, busque a política relevante e faça backup do item e use o comando [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) com o item de backup como o parâmetro.
 
 ```powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -545,7 +545,7 @@ Register-AzRecoveryServicesBackupContainer -Container $SQLContainer -BackupManag
 
 #### <a name="retain-data"></a>Reter dados
 
-Se o usuário quiser interromper a proteção, ele poderá usar o cmdlet [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) do PowerShell. Isso interromperá os backups agendados, mas os dados submetidos a backup até agora são mantidos para sempre.
+Se você quiser interromper a proteção, poderá usar o cmdlet [Disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) do PowerShell. Isso interromperá os backups agendados, mas os dados submetidos a backup até agora são mantidos para sempre.
 
 ```powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType MSSQL -Name "<backup item name>" -VaultId $targetVault.ID
@@ -562,7 +562,7 @@ Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.
 
 #### <a name="disable-auto-protection"></a>Desabilitar proteção automática
 
-Se a autoproteção tiver sido configurada em um SQLInstance, o usuário poderá desabilitá-la usando o cmdlet [Disable-AzRecoveryServicesBackupAutoProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection) do PowerShell.
+Se a autoproteção tiver sido configurada em uma SQLInstance, você poderá desabilitá-la usando o cmdlet [Disable-AzRecoveryServicesBackupAutoProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection) do PowerShell.
 
 ```powershell
 $SQLInstance = Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLInstance -VaultId $targetVault.ID -Name "<Protectable Item name>" -ServerName "<Server Name>"
@@ -571,7 +571,7 @@ Disable-AzRecoveryServicesBackupAutoProtection -InputItem $SQLInstance -BackupMa
 
 #### <a name="unregister-sql-vm"></a>Cancelar registro de VM do SQL
 
-Se todos os bancos de dados de um SQL Server [não estiverem mais protegidos e não houver nenhum dado de backup](#delete-backup-data), o usuário poderá cancelar o registro da VM do SQL desse cofre. Somente o usuário pode proteger os bancos de usuários para outro cofre. Use o cmdlet do PowerShell [Unregister-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) para cancelar o registro da VM do SQL.
+Se todos os bancos de dados de um SQL Server [não estiverem mais protegidos e não houver nenhum dado de backup](#delete-backup-data), você poderá cancelar o registro da VM do SQL nesse cofre. Somente então você pode proteger os bancos de todos em outro cofre. Use o cmdlet do PowerShell [Unregister-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) para cancelar o registro da VM do SQL.
 
 ```powershell
 $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -FriendlyName <VM name> -VaultId $targetvault.ID
@@ -600,7 +600,7 @@ Para cancelar um trabalho em andamento, use o cmdlet [Stop-AzRecoveryServicesBac
 
 Para grupos de disponibilidade do SQL Always On, certifique [-se de registrar todos os nós](#registering-the-sql-vm) do grupo de disponibilidade (AG). Quando o registro é feito para todos os nós, um objeto de grupo de disponibilidade do SQL é criado logicamente em itens protegíveis. Os bancos de dados sob o SQL AG serão listados como ' SQLDatabase '. Os nós aparecerão como instâncias autônomas e os bancos de dados SQL padrão sob eles serão listados como bancos de dados SQL também.
 
-Por exemplo, vamos supor que um AG do SQL tem dois nós: ' SQL-Server-0 ' e ' SQL-Server-1 ' e um BD AG do SQL. Depois que ambos os nós forem registrados, se [o usuário listar os itens protegíveis](#fetching-sql-dbs), ele listará os seguintes componentes
+Por exemplo, vamos supor que um AG do SQL tem dois nós: *SQL-Server-0* e *SQL-Server-1* e 1 SQL AG DB. Depois que ambos os nós forem registrados, se você [listar os itens protegíveis](#fetching-sql-dbs), ele listará os seguintes componentes
 
 * Um tipo de item protegido por objeto do SQL AG como sqlavailability
 * Um SQL AG DB-tipo de item de proteção como SQLDatabase

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2020
 ms.author: radeltch
-ms.openlocfilehash: e018f2320b505a174850472d85ec2ebd59310560
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 9978137edb7874a8b93e0c9a5f1f9979ce449277
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406564"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893163"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Implantar um sistema de expansão SAP HANA com o nó em espera em VMs do Azure usando Azure NetApp Files no Red Hat Enterprise Linux 
 
@@ -110,10 +110,10 @@ Os volumes do Azure NetApp estão em sub-rede separada, [delegados para Azure Ne
 
 Para esta configuração de exemplo, as sub-redes são:  
 
-  - `client`10.9.1.0/26  
-  - `storage`10.9.3.0/26  
-  - `hana`10.9.2.0/26  
-  - `anf`10.9.0.0/26 (sub-rede delegada para Azure NetApp Files)
+  - `client` 10.9.1.0/26  
+  - `storage` 10.9.3.0/26  
+  - `hana` 10.9.2.0/26  
+  - `anf` 10.9.0.0/26 (sub-rede delegada para Azure NetApp Files)
 
 ## <a name="set-up-the-azure-netapp-files-infrastructure"></a>Configurar a infraestrutura de Azure NetApp Files 
 
@@ -239,7 +239,7 @@ As próximas instruções pressupõem que você já criou o grupo de recursos, a
 
 3. Crie três interfaces de rede, uma para cada máquina virtual, para a `storage` sub-rede da rede virtual (neste exemplo, **hanadb1**-Storage, **hanadb2-Storage**e **hanadb3-Storage**).  
 
-4. Crie três interfaces de rede, uma para cada máquina virtual, para a `hana` sub-rede de rede virtual (neste exemplo, **hanadb1-Hana**, **hanadb2-Hana**e **hanadb3-Hana**).  
+4. Crie três interfaces de rede, uma para cada máquina virtual, para a `hana`  sub-rede de rede virtual (neste exemplo, **hanadb1-Hana**, **hanadb2-Hana**e **hanadb3-Hana**).  
 
 5. Anexe as interfaces de rede virtual recém-criadas às máquinas virtuais correspondentes executando as seguintes etapas:  
 
@@ -251,9 +251,9 @@ As próximas instruções pressupõem que você já criou o grupo de recursos, a
 
     d. Selecione **rede**e, em seguida, anexe a interface de rede. Na lista suspensa **anexar interface de rede** , selecione as interfaces de rede já criadas para as `storage` sub-redes e `hana` .  
     
-    e. Clique em **Salvar**. 
+    e. Selecione **Salvar**. 
  
-    f. Repita as etapas b a e para as máquinas virtuais restantes (em nosso exemplo, **hanadb2** e **hanadb3**).
+    f. Repita as etapas b a e para as máquinas virtuais restantes (em nosso exemplo,  **hanadb2** e **hanadb3**).
  
     g. Deixe as máquinas virtuais no estado parado por enquanto. Em seguida, Habilitaremos a [rede acelerada](../../../virtual-network/create-vm-accelerated-networking-cli.md) para todas as interfaces de rede recentemente anexadas.  
 
@@ -349,7 +349,9 @@ Configure e prepare seu sistema operacional executando as seguintes etapas:
     net.core.optmem_max = 16777216
     net.ipv4.tcp_rmem = 65536 16777216 16777216
     net.ipv4.tcp_wmem = 65536 16777216 16777216
-    net.core.netdev_max_backlog = 300000 net.ipv4.tcp_slow_start_after_idle=0 net.ipv4.tcp_no_metrics_save = 1
+    net.core.netdev_max_backlog = 300000 
+    net.ipv4.tcp_slow_start_after_idle=0 
+    net.ipv4.tcp_no_metrics_save = 1
     net.ipv4.tcp_moderate_rcvbuf = 1
     net.ipv4.tcp_window_scaling = 1
     net.ipv4.tcp_timestamps = 1
@@ -563,7 +565,7 @@ Neste exemplo para implantar SAP HANA na configuração de expansão com o nó e
      * Em deseja **adicionar hosts ao sistema?**: digite **y**
      * Para **Adicionar nomes de host separados por vírgulas**: insira **hanadb2, hanadb3**
      * Para o **nome de usuário raiz** [raiz]: pressione ENTER para aceitar o padrão
-     * Para funções para o host hanadb2: insira **1** (para o trabalho)
+     * Para funções para o host hanadb2: insira **1**  (para o trabalho)
      * Para o **grupo de failover de host** para o host hanadb2 [padrão]: pressione ENTER para aceitar o padrão
      * Para o **número de partição de armazenamento** para o host hanadb2 [<<assign automatically>>]: pressione ENTER para aceitar o padrão
      * Para o **grupo de trabalho** para o host hanadb2 [padrão]: pressione ENTER para aceitar o padrão
