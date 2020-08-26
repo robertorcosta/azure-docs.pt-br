@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: dms
-ms.openlocfilehash: dbc09c3fa1dc1878d4feea5c5e7fd8b68e0c11f1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 24a0d16a6ff052df4b7a9bcdd078542987b4fd50
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537438"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661173"
 ---
 # <a name="quickstart-create-instance-of-azure-database-migration-service-using-arm-template"></a>Início Rápido: Criar uma instância do Serviço de Migração de Banco de Dados do Azure usando um modelo do ARM
 
@@ -35,7 +35,7 @@ O modelo do ARM do Serviço de Migração de Banco de Dados do Azure requer o se
 
 O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-azure-database-migration-simple-deploy/).
 
-:::code language="json" source="~/quickstart-templates/101-azure-database-migration-simple-deploy/azuredeploy.json" highlight="33-75":::
+:::code language="json" source="~/quickstart-templates/101-azure-database-migration-simple-deploy/azuredeploy.json":::
 
 Há três recursos do Azure definidos no modelo: 
 

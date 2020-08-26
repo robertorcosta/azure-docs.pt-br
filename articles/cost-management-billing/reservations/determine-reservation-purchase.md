@@ -4,15 +4,16 @@ description: Este artigo ajuda você a determinar qual reserva você deve compra
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: banders
-ms.openlocfilehash: 909d712e0c8e8ea242c27ab93f16a36e22d36aae
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: d89f890d3e2bb8238a00b4a529b8804a8c38fa6f
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759879"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684738"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>Determinar qual reserva comprar
 
@@ -38,7 +39,7 @@ Para restringir o escopo para o uso de VM qualificado, aplique os seguintes filt
 
 Ignore os recursos que têm menos de 24 horas de uso em um dia.
 
-Se você quiser analisar no nível da família de tamanho da instância, poderá obter os valores de flexibilidade de tamanho da instância de [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Combine os valores com os dados para fazer a análise. Para obter mais informações sobre a flexibilidade de tamanho da instância, confira [Flexibilidade de tamanho de máquina virtual com Instâncias de VM Reservadas](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Se você quiser analisar no nível da família de tamanho da instância, poderá obter os valores de flexibilidade de tamanho da instância de [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Combine os valores com os dados para fazer a análise. Para obter mais informações sobre a flexibilidade de tamanho da instância, confira [Flexibilidade de tamanho de máquina virtual com Instâncias de VM Reservadas](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 ### <a name="analyze-usage-for-an-azure-synapse-analytics-reserved-instance-purchase"></a>Analisar o uso de uma compra de instância reservada do Azure Synapse Analytics
 

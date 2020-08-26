@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 6d4710f0b8756ea9b7f824b8b0aa1221ad8b30f0
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0969afa95009255981381d41268f416a615dd9f3
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120381"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88683735"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo de console Python usando a identidade do aplicativo
 
@@ -193,7 +193,7 @@ app = msal.ConfidentialClientApplication(
 > |---------|---------|
 > | `config["secret"]` | É o segredo do cliente criado para o aplicativo no portal do Azure. |
 > | `config["client_id"]` | É a **ID do aplicativo (cliente)** relativa ao aplicativo registrado no portal do Azure. Você pode encontrar esse valor na página **Visão Geral** do aplicativo no portal do Azure. |
-> | `config["authority"]`    | O ponto de extremidade do STS para o usuário autenticar. Normalmente, <https://login.microsoftonline.com/{tenant}> para a nuvem pública, em que {tenant} é o nome do seu locatário ou ID do seu locatário.|
+> | `config["authority"]`    | O ponto de extremidade do STS para o usuário autenticar. Normalmente, `https://login.microsoftonline.com/{tenant}` para a nuvem pública, em que {tenant} é o nome do seu locatário ou ID do seu locatário.|
 
 Para saber mais, confira a [documentação de referência do `ConfidentialClientApplication`](https://msal-python.readthedocs.io/en/latest/#confidentialclientapplication)
 

@@ -3,15 +3,16 @@ title: Revise os dados de faturamento da assinatura do Azure com a API REST
 description: Aprenda a usar as APIs REST do Azure para revisar os detalhes de faturamento da assinatura. Você pode usar filtros para ajudar a personalizar os resultados.
 author: lleonard-msft
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: article
-ms.date: 02/12/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: ac5bbc1d93347654cea118ea9521d6074a9af7c8
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 345535ae52b9a271bcee5ff7a2b651af144624f1
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461826"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684704"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Revise o faturamento de assinatura usando APIs REST
 

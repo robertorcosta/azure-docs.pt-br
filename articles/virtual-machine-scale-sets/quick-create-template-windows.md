@@ -9,12 +9,12 @@ ms.subservice: windows
 ms.date: 03/27/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, subject-armqs
-ms.openlocfilehash: a4cd39186eb55cb03bd97994baa1898e196fb3c2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 03863171cb05c0557611fb8cd3c0ade667e7d79e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082804"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650070"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-arm-template"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais do Windows com um modelo do Resource Manager
 
@@ -36,7 +36,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/201-vmss-windows-webapp-dsc-autoscale/).
 
-:::code language="json" source="~/quickstart-templates/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json" range="1-397" highlight="236-325":::
+:::code language="json" source="~/quickstart-templates/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json":::
 
 Esses recursos estão definidos nestes modelo:
 
@@ -48,7 +48,7 @@ Esses recursos estão definidos nestes modelo:
 
 ### <a name="define-a-scale-set"></a>Definir um conjunto de dimensionamento
 
-A parte realçada é a definição de recurso do conjunto de dimensionamento. Para criar uma escala com um modelo, defina os recursos apropriados. As partes principais do tipo de recurso de conjunto de dimensionamento de máquinas virtuais são:
+Para criar uma escala com um modelo, defina os recursos apropriados. As partes principais do tipo de recurso de conjunto de dimensionamento de máquinas virtuais são:
 
 | Propriedade                     | Descrição da propriedade                                  | Exemplo de valor do modelo                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|

@@ -12,12 +12,12 @@ ms.date: 08/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3d810d14dd6b49bc054e3844a60ec33c62dc084c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 1ce8f376d3264a06618cb7321c75142dcf92d9ea
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271236"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891854"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicar seu aplicativo na Galeria de aplicativos do Azure AD
 
@@ -33,7 +33,7 @@ Alguns dos benefícios de adicionar seu aplicativo à galeria do Azure AD inclue
 
 Além disso, há muitos benefícios quando seus clientes usam o Azure AD como um provedor de identidade para seu aplicativo. Entre eles estão:
 
-- Forneça logon único para seus usuários. Com o SSO, você reduz os custos de suporte, tornando mais fácil para seus clientes o logon único. Se o SSO de um clique estiver habilitado, os administradores de ti de seus clientes não precisarão saber como configurar seu aplicativo para uso em sua organização. Para saber mais sobre o logon único, confira [o que é logon único?](../manage-apps/what-is-single-sign-on.md).
+- Forneça logon único para seus usuários. Com o SSO, você reduz os custos de suporte, tornando mais fácil para seus clientes o logon único. Se o SSO de um clique estiver habilitado, os administradores de ti de seus clientes não precisarão saber como configurar seu aplicativo para uso em sua organização. Para saber mais sobre o logon único, consulte [O que é logon único?](../manage-apps/what-is-single-sign-on.md).
 - Seu aplicativo pode ser detectável na Galeria de aplicativos Microsoft 365, no iniciador de aplicativos Microsoft 365 e no Microsoft Search no Office.com. 
 - Gerenciamento de aplicativo integrado. Para saber mais sobre o gerenciamento de aplicativos no Azure AD, consulte [o que é gerenciamento de aplicativos?](../manage-apps/what-is-application-management.md).
 - Seu aplicativo pode usar o [API do Graph](https://docs.microsoft.com/graph/) para acessar os dados que impulsionam a produtividade do usuário no ecossistema da Microsoft.
@@ -98,7 +98,7 @@ O OAuth 2,0 é um protocolo [padrão da indústria](https://oauth.net/2/) para a
 
 ### <a name="saml-20-or-ws-fed"></a>SAML 2,0 ou WS-alimentado
 
-O SAML é um padrão de logon único maduro e amplamente adotado para aplicativos Web. Para saber mais sobre como o Azure usa SAML, consulte [como o Azure usa o protocolo SAML](active-directory-saml-protocol-reference.md). 
+O SAML é um [padrão de logon único](https://www.oasis-open.org/standards#samlv2.0) maduro e amplamente adotado para aplicativos Web. Para saber mais sobre como o Azure usa SAML, consulte [como o Azure usa o protocolo SAML](active-directory-saml-protocol-reference.md). 
 
 Especificação Web Services Federation (WS-alimentado) é um [padrão do setor](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) geralmente usado para aplicativos Web desenvolvidos usando a plataforma .net.
 
