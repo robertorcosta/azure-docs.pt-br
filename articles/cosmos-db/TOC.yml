@@ -510,6 +510,8 @@
           href: unique-keys.md
         - name: Controle de transações e simultaneidade otimista
           href: database-transactions-optimistic-concurrency.md
+        - name: Anexos
+          href: attachments.md
     - name: Feed de alteração
       items:
         - name: Visão geral do feed de alterações

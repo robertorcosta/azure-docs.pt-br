@@ -4,12 +4,12 @@ description: Neste artigo, saiba mais sobre o backup e a restauração de disco 
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: dd4691f6248099bdc4fa713c84d396adac6011fa
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 44454977a977a85b8735657a439a265467f1bcf5
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757431"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824739"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Backup e restauração de disco seletivo para máquinas virtuais do Azure
 
@@ -190,7 +190,7 @@ Ao executar esses comandos, você verá `"diskExclusionProperties": null` .
 
 ## <a name="using-powershell"></a>Usando o PowerShell
 
-Verifique se você está usando o Azure PS versão 3.7.0 ou superior.
+Verifique se você está usando Azure PowerShell versão 3.7.0 ou superior.
 
 ### <a name="enable-backup-with-powershell"></a>Habilitar backup com o PowerShell
 

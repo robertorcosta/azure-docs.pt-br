@@ -282,7 +282,7 @@
               href: ../reserved-vm-instance-size-flexibility.md
         - name: VMs do Spot
           displayName: 'pre-empt, preempt'
-          href: spot-vms.md
+          href: ../spot-vms.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: VMs do Azure sem disco temporário
           href: ../azure-vms-no-temp-disk.md
         - name: Convenções de nomenclatura de tamanhos de VM do Azure
@@ -879,15 +879,15 @@
             - name: Habilitar criptografia no host – PowerShell
               href: disks-enable-host-based-encryption-powershell.md
             - name: Habilitar criptografia no host – Portal
-              href: disks-enable-host-based-encryption-portal.md
+              href: ../disks-enable-host-based-encryption-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Habilitar chaves gerenciadas pelo cliente – PowerShell
               href: disks-enable-customer-managed-keys-powershell.md
             - name: Habilitar chaves gerenciadas pelo cliente – Portal
-              href: disks-enable-customer-managed-keys-portal.md
+              href: ../disks-enable-customer-managed-keys-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Habilitar criptografia dupla em repouso
               href: disks-enable-double-encryption-at-rest-powershell.md
             - name: Habilitar criptografia dupla em repouso – Portal
-              href: disks-enable-double-encryption-at-rest-portal.md
+              href: ../disks-enable-double-encryption-at-rest-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Migração e conversão
           items:
             - name: Como converter disco entre Standard e Premium
@@ -911,7 +911,7 @@
         - name: Localizar discos desconectados – Portal
           href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Perguntas frequentes de discos
-          href: faq-for-disks.md
+          href: ../faq-for-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Como gerenciar a rede
       href: ps-common-network-ref.md
       items:
