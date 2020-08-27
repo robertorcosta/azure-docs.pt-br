@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: aaba608ba80a751c40cd300dee80f673897c22a8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 236134887728ebc3dd4d03fa4c9d9d450b39eac2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525642"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930665"
 ---
 # <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
 Para criar um compartilhamento de arquivos do Azure, você precisa responder a três perguntas sobre como você irá usá-lo:
@@ -81,7 +81,7 @@ A seção avançado contém várias configurações importantes para compartilha
 
 As outras configurações disponíveis na guia Avançado (exclusão reversível de BLOB, namespace hierárquico para Azure Data Lake armazenamento Gen 2 e NFSv3 para armazenamento de BLOB) não se aplicam aos arquivos do Azure.
 
-#### <a name="tags"></a>Marcações
+#### <a name="tags"></a>Marcas
 Marcas são pares nome/valor que permitem categorizar recursos e exibir a cobrança consolidada por meio da aplicação da mesma marca a vários recursos e grupos de recursos. Eles são opcionais e podem ser aplicados após a criação da conta de armazenamento.
 
 #### <a name="review--create"></a>Examinar + criar
@@ -267,6 +267,9 @@ Update-AzRmStorageShare `
     -AccessTier Cool
 ```
 
+> [!Note]  
+> A capacidade de definir e alterar as camadas por meio do PowerShell é fornecida no módulo de visualização AZ. Storage PowerShell. Esses cmdlets ou sua saída podem ser alterados antes de serem liberados no módulo AZ. Storage PowerShell disponível para o público geral. portanto, crie scripts com isso em mente.
+
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 A funcionalidade para criar ou mover um compartilhamento de arquivos para uma camada específica está disponível na atualização mais recente do CLI do Azure. A atualização CLI do Azure é específica para a distribuição do sistema operacional/Linux que você está usando. Para obter instruções sobre como atualizar CLI do Azure em seu sistema, consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -282,6 +285,10 @@ az storage share-rm create \
     --name $shareName \
     --access-tier "Hot"
 ```
+
+> [!Note]  
+> A capacidade de definir uma camada com o `--access-tier` parâmetro é fornecida uma visualização no pacote de CLI do Azure mais recente. Este comando ou sua saída pode mudar antes de ser marcado como disponível para o público geral, portanto, crie scripts com isso em mente.
+
 ---
 
 ## <a name="next-steps"></a>Próximas etapas

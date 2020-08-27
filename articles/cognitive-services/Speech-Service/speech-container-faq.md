@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: aahi
-ms.openlocfilehash: 10a75d19b7fb134b8e7498c422742e00f6475da5
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b13a6944290f58f5ede239dee60610d67fff8b1c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690197"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918461"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Perguntas frequentes sobre os contêineres do serviço de fala
 
@@ -289,7 +290,7 @@ O carbono corrigiu isso na versão 1,8.
 
 Você pode ajudar a preencher as seguintes métricas de teste, incluindo quais funções testar e como testar o SDK e as APIs REST? Especialmente, as diferenças em "interativo" e "conversa", que não vi do documento/exemplo existente.
 
-| Ponto de Extremidade                                                | Teste funcional                                                   | . | API REST |
+| Ponto de Extremidade                                                | Teste funcional                                                   | SDK | API REST |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
 | `/speech/synthesize/cognitiveservices/v1`               | Sintetizar texto (conversão de texto em fala)                                  |     | Sim      |
 | `/speech/recognition/dictation/cognitiveservices/v1`    | Serviços cognitivas ponto de extremidade do WebSocket v1 do ditado        | Sim | Não       |

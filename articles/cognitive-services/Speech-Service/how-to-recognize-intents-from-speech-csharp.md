@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: trbye
-ms.openlocfilehash: 41ebcb7b44ea88af06a30a611960fd8bb0ceddee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1138a970bf7c52182f13d0fd14d0178a2d0cfeba
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402218"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918784"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Como reconhecer tentativas de fala usando o SDK de fala para C #
 
@@ -91,7 +92,7 @@ Em seguida, adicione o código ao projeto.
 
    [!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
 
-1. Substitua o método `Main()` fornecido com o seguinte equivalente assíncrono:
+1. Substitua o `Main()` método fornecido com o seguinte equivalente assíncrono:
 
    ```csharp
    public static async Task Main()
@@ -164,7 +165,7 @@ Com o reconhecedor criado e as intenções adicionadas, o reconhecimento pode co
 | Pontual | `RecognizeOnceAsync()` | Retorna a intenção reconhecida, se houver, após uma declaração. |
 | Contínuo | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Reconhece vários enunciados; emite eventos (por exemplo, `IntermediateResultReceived`) quando os resultados estão disponíveis. |
 
-O aplicativo usa o modo de captura única e, `RecognizeOnceAsync()` portanto, chamadas para iniciar o reconhecimento. O resultado é um objeto `IntentRecognitionResult` que contém informações sobre a intenção reconhecida. Extraia a resposta JSON do LUIS usando a seguinte expressão:
+O aplicativo usa o modo de captura única e, portanto, chamadas `RecognizeOnceAsync()` para iniciar o reconhecimento. O resultado é um objeto `IntentRecognitionResult` que contém informações sobre a intenção reconhecida. Extraia a resposta JSON do LUIS usando a seguinte expressão:
 
 ```csharp
 result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)
@@ -200,4 +201,4 @@ Procure o código neste artigo na pasta **samples/csharp/sharedcontent/console**
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Início rápido: reconhecer a fala de um microfone](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)
+> [Início Rápido: Reconhecer fala de um microfone](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)

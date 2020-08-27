@@ -2,20 +2,20 @@
 title: incluir arquivo
 description: incluir arquivo
 services: storage
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 04/11/2019
+ms.date: 08/26/2020
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 55e5290630185466ea0801b06ece71069fc94d89
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 897e5b58aed9c47e0b94ee47d1883e2b7a28bacb
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87545300"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930785"
 ---
-## <a name="2-assign-access-permissions-to-an-identity"></a>2 atribuir permissões de acesso a uma identidade
+## <a name="assign-access-permissions-to-an-identity"></a>Atribuir permissões de acesso a uma identidade
 
 Para acessar os recursos de arquivos do Azure com autenticação baseada em identidade, uma identidade (um usuário, grupo ou entidade de serviço) deve ter as permissões necessárias no nível de compartilhamento. Esse processo é semelhante à especificação de permissões de compartilhamento do Windows, em que você especifica o tipo de acesso que um usuário específico tem a um compartilhamento de arquivos. As orientações nesta seção demonstram como atribuir ler, gravar ou excluir as permissões para um compartilhamento de arquivos para uma identidade. 
 
@@ -35,7 +35,9 @@ Você pode usar o portal do Azure, o PowerShell ou o CLI do Azure para atribuir 
 
 A recomendação geral é usar a permissão de nível de compartilhamento para o gerenciamento de acesso de alto nível para um grupo do AD que representa um grupo de usuários e identidades e, em seguida, aproveitar as permissões de NTFS para o controle de acesso granular no nível de diretório/arquivo. 
 
-#### <a name="azure-portal"></a>Portal do Azure
+### <a name="assign-an-azure-role-to-an-ad-identity"></a>Atribuir uma função do Azure a uma identidade do AD
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Para atribuir uma função do Azure a uma identidade do Azure AD, usando o [portal do Azure](https://portal.azure.com), siga estas etapas:
 
 1. No portal do Azure, vá para o compartilhamento de arquivos ou [crie um compartilhamento de arquivos](../articles/storage/files/storage-how-to-create-file-share.md).
@@ -44,7 +46,7 @@ Para atribuir uma função do Azure a uma identidade do Azure AD, usando o [port
 4. Na folha **Adicionar atribuição de função** , selecione a função interna apropriada (leitor de compartilhamento SMB de dados de arquivo de armazenamento, colaborador de compartilhamento SMB de dados de arquivo de armazenamento) na lista de **funções** . Deixe **atribuir acesso à** na configuração padrão: **usuário, grupo ou entidade de serviço do Azure ad**. Selecione a identidade do Azure AD de destino por nome ou endereço de email.
 5. Selecione **salvar** para concluir a operação de atribuição de função.
 
-#### <a name="powershell"></a>PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 O exemplo do PowerShell a seguir mostra como atribuir uma função do Azure a uma identidade do Azure AD, com base no nome de entrada. Para obter mais informações sobre como atribuir funções do Azure com o PowerShell, consulte [gerenciar o acesso usando RBAC e Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
@@ -59,7 +61,7 @@ $scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/provi
 New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $FileShareContributorRole.Name -Scope $scope
 ```
 
-#### <a name="cli"></a>CLI
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
   
 O comando da CLI 2,0 a seguir mostra como atribuir uma função do Azure a uma identidade do Azure AD, com base no nome de entrada. Para obter mais informações sobre como atribuir funções do Azure com CLI do Azure, consulte [gerenciar o acesso usando RBAC e CLI do Azure](../articles/role-based-access-control/role-assignments-cli.md). 
 
@@ -69,8 +71,10 @@ Antes de executar o script de exemplo a seguir, lembre-se de substituir os valor
 #Assign the built-in role to the target identity: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor, Storage File Data SMB Share Elevated Contributor
 az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 ```
+---
 
-## <a name="3-configure-ntfs-permissions-over-smb"></a>3 configurar permissões NTFS em relação ao SMB 
+## <a name="configure-ntfs-permissions-over-smb"></a>Configurar permissões NTFS em SMB
+
 Depois de atribuir permissões no nível de compartilhamento com o RBAC, você deve atribuir permissões de NTFS corretas no nível raiz, de diretório ou de arquivo. Considere as permissões de nível de compartilhamento como o gatekeeper de alto nível que determina se um usuário pode acessar o compartilhamento. Enquanto as permissões de NTFS atuam em um nível mais granular para determinar quais operações o usuário pode fazer no nível do diretório ou do arquivo.
 
 Os arquivos do Azure dá suporte a todo o conjunto de permissões de NTFS básicos e avançados. Você pode exibir e configurar as permissões NTFS em diretórios e arquivos em um compartilhamento de arquivos do Azure montando o compartilhamento e usando o explorador de arquivos do Windows ou executando o comando [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) do Windows ou [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) . 
@@ -108,6 +112,7 @@ Se você tiver problemas ao conectar-se aos arquivos do Azure, consulte [a ferra
 
 
 ### <a name="configure-ntfs-permissions-with-windows-file-explorer"></a>Configurar permissões NTFS com o explorador de arquivos do Windows
+
 Use o explorador de arquivos do Windows para conceder permissão total a todos os diretórios e arquivos no compartilhamento de arquivos, incluindo o diretório raiz.
 
 1. Abra o explorador de arquivos do Windows e clique com o botão direito do mouse no arquivo/diretório e selecione **Propriedades**.
@@ -117,9 +122,10 @@ Use o explorador de arquivos do Windows para conceder permissão total a todos o
 5. Na janela de prompt para adicionar novos usuários, insira o nome de usuário de destino ao qual você deseja conceder permissão na caixa **Inserir os nomes de objeto a serem selecionados** e selecione **verificar nomes** para localizar o nome UPN completo do usuário de destino.
 7.    Selecione **OK**.
 8.    Na guia **segurança** , selecione todas as permissões que você deseja conceder ao novo usuário.
-9.    Escolha **Aplicar**.
+9.    Selecione **Aplicar**.
 
 ### <a name="configure-ntfs-permissions-with-icacls"></a>Configurar permissões NTFS com icacls
+
 Use o seguinte comando do Windows para conceder permissões completas para todos os diretórios e arquivos no compartilhamento de arquivos, incluindo o diretório raiz. Lembre-se de substituir os valores de espaço reservado no exemplo pelos seus próprios valores.
 
 ```
@@ -128,7 +134,7 @@ icacls <mounted-drive-letter>: /grant <user-email>:(f)
 
 Para obter mais informações sobre como usar o icacls para definir permissões NTFS e sobre os diferentes tipos de permissões com suporte, consulte [a referência de linha de comando para icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
 
-## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4 montar um compartilhamento de arquivos de uma VM ingressada no domínio
+## <a name="mount-a-file-share-from-a-domain-joined-vm"></a>Montar um compartilhamento de arquivos de uma VM ingressada no domínio
 
 O processo a seguir verifica se as permissões de acesso e compartilhamento de arquivos foram configuradas corretamente e se você pode acessar um compartilhamento de arquivos do Azure de uma VM ingressada no domínio. Lembre-se de que a atribuição de função do Azure no nível de compartilhamento pode levar algum tempo para estar em vigor. 
 

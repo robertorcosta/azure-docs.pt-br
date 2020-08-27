@@ -3,12 +3,12 @@ title: Enviar eventos do Armazenamento de Blobs para o ponto de extremidade da W
 description: Use a Grade de Eventos do Azure e um modelo do Azure Resource Manager para criar uma conta de Armazenamento de Blobs e assinar os eventos. Envie os eventos para um webhook.
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: e1d266f747671542059e0610cfcdd8cd12594e51
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 32fc17d1af552afa5a81fbc4a5973d69006742b9
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460432"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661258"
 ---
 # <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Rotear eventos do Armazenamento de Blobs para o ponto de extremidade da Web usando um modelo do Resource Manager
 
@@ -41,7 +41,7 @@ Antes de assinar eventos para o armazenamento de Blobs, vamos criar o ponto de e
 
 O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-event-grid-subscription-and-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json" range="1-91" highlight="40-85":::
+:::code language="json" source="~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json":::
 
 Há dois recursos do Azure definidos no modelo:
 

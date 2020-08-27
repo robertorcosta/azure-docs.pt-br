@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 08/21/2020
-ms.openlocfilehash: 04434753949f0e00eaf99610199cc4997ef53caf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 887017f60deb832bd5c53f28bde4b57a3d82bde5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751039"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918036"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Tutorial: Consultar um índice do Cognitive Search por meio do Power Apps
 
@@ -261,5 +261,4 @@ Se você estiver usando um serviço gratuito, estará limitado a três índices,
 O Power Apps permite o método RAD de aplicativos personalizados. Agora que você sabe como se conectar a um índice de pesquisa, saiba mais sobre como criar uma experiência de visualização rica em um Power App personalizado.
 
 > [!div class="nextstepaction"]
-> [Catálogo de aprendizado do Power Apps](https://docs.microsoft.com/powerapps/learning-catalog/get-started)
-
+> [Catálogo de aprendizado do Power Apps](/powerapps/learning-catalog/get-started)
