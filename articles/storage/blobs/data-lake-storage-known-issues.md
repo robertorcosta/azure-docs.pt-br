@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 0309f4d07056e3986138139e10ab29faa675cfcd
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: fd500b80f0c564fc0f4c7e311483790a83a4101a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056071"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923731"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com o Azure Data Lake Storage Gen2 | Microsoft Docs
 
@@ -60,9 +60,9 @@ Discos de VM não gerenciados não são compatíveis com contas que têm um name
 
 <a id="api-scope-data-lake-client-library"></a>
 
-## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Suporte ao sistema de arquivos em SDKs, PowerShell e CLI do Azure
+## <a name="support-for-setting-access-control-lists-acls-recursively"></a>Suporte para configuração de listas de controle de acesso (ACLs) recursivamente
 
-- As operações get e set da ACL não são recursivas no momento.
+A capacidade de aplicar alterações de ACL recursivamente do diretório pai aos itens filho está em [Visualização pública](recursive-access-control-lists.md). Na versão atual desse recurso, você pode aplicar alterações de ACL usando o PowerShell, o SDK do .NET e o SDK do Python. O suporte ainda não está disponível para o SDK do Java, CLI do Azure, portal do Azure ou Gerenciador de Armazenamento do Azure.
 
 <a id="known-issues-tools"></a>
 

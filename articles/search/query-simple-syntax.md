@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 5b585a903267386358552154228705c1921df619
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d07364e20cc11abc52ad9b308eb5daed8a65c146
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255323"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923374"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta simples no Azure Pesquisa Cognitiva
 
@@ -21,7 +21,7 @@ O Azure Pesquisa Cognitiva implementa duas linguagens de consulta baseadas em Lu
 
 O analisador simples é mais flexível e tentará interpretar uma solicitação mesmo que não seja perfeitamente composta. Por causa dessa flexibilidade, é o padrão para consultas no Azure Pesquisa Cognitiva. 
 
-A sintaxe simples é usada para expressões de consulta passadas no `search` parâmetro de uma [solicitação de documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents), não deve ser confundida com a [sintaxe OData](query-odata-filter-orderby-syntax.md) usada para o parâmetro [$Filter Expressions](search-filters.md) da mesma API de documentos de pesquisa. Os `search` `$filter` parâmetros e têm sintaxe diferente, com suas próprias regras para construir consultas, cadeias de caracteres de escape e assim por diante.
+A sintaxe simples é usada para expressões de consulta passadas no `search` parâmetro de uma [solicitação de documentos de pesquisa](/rest/api/searchservice/search-documents), não deve ser confundida com a [sintaxe OData](query-odata-filter-orderby-syntax.md) usada para o parâmetro [$Filter Expressions](search-filters.md) da mesma API de documentos de pesquisa. Os `search` `$filter` parâmetros e têm sintaxe diferente, com suas próprias regras para construir consultas, cadeias de caracteres de escape e assim por diante.
 
 Embora o analisador simples seja baseado na classe [analisador de consulta simples do Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) , a implementação no Azure pesquisa cognitiva exclui a pesquisa difusa. Se você precisar de [pesquisa difusa](search-query-fuzzy.md) ou outros formulários de consulta avançados, considere a [sintaxe de consulta Lucene completa](query-lucene-syntax.md) alternativa em vez disso.
 
@@ -43,7 +43,7 @@ O agrupamento de campo é semelhante, mas tem como escopo o agrupamento para um 
 
 ### <a name="escaping-search-operators"></a>Operadores de escape de pesquisa  
 
-Na sintaxe simples, os operadores de pesquisa incluem estes caracteres:`+ | " ( ) ' \`  
+Na sintaxe simples, os operadores de pesquisa incluem estes caracteres: `+ | " ( ) ' \`  
 
 Se qualquer um desses caracteres fizer parte de um token no índice, faça o escape dele prefixando-o com uma barra invertida única ( `\` ) na consulta. Por exemplo, suponha que você usou um analisador personalizado para geração de tokens de termo inteiro e o índice contém a cadeia de caracteres "luxo + Hotel". Para obter uma correspondência exata desse token, insira um caractere de escape:  `search=luxury\+hotel` . 
 
@@ -66,11 +66,11 @@ Os caracteres não seguros são ``" ` < > # % { } | \ ^ ~ [ ]``. Os caracteres r
 
 Em algumas circunstâncias, talvez você queira procurar um caractere especial, como o emoji ' ❤ ' ou o sinal ' € '. Nesse caso, certifique-se de que o analisador usado não filtre esses caracteres.  O analisador padrão ignora muitos dos caracteres especiais para que não se tornem tokens em seu índice.
 
-Portanto, a primeira etapa é garantir que você use um analisador que considerará esses tokens de elementos. Por exemplo, o analisador "Whitespace" leva em consideração quaisquer sequências de caracteres separadas por espaços em branco como tokens, de modo que a cadeia de caracteres "❤" seria considerada um token. Além disso, um analisador como o Microsoft English Analyzer ("en. Microsoft"), levaria em consideração a cadeia de caracteres "€" como um token. Você pode [testar um analisador](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) para ver quais tokens ele gera para uma determinada consulta.
+Portanto, a primeira etapa é garantir que você use um analisador que considerará esses tokens de elementos. Por exemplo, o analisador "Whitespace" leva em consideração quaisquer sequências de caracteres separadas por espaços em branco como tokens, de modo que a cadeia de caracteres "❤" seria considerada um token. Além disso, um analisador como o Microsoft English Analyzer ("en. Microsoft"), levaria em consideração a cadeia de caracteres "€" como um token. Você pode [testar um analisador](/rest/api/searchservice/test-analyzer) para ver quais tokens ele gera para uma determinada consulta.
 
 Ao usar caracteres Unicode, certifique-se de que os símbolos tenham um escape correto na URL de consulta (por exemplo, para "❤" usaria a sequência de escape `%E2%9D%A4+` ). O postmaster faz essa tradução automaticamente.
 
-###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a>Limites de tamanho de consulta
+###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a> Limites de tamanho de consulta
 
  Há um limite para o tamanho das consultas que você pode enviar para o Azure Pesquisa Cognitiva. Especificamente, você pode ter, no máximo, 1024 cláusulas (expressões separadas por AND, OR e assim por diante). Há também um limite de aproximadamente 32 KB em relação ao tamanho de qualquer termo individual em uma consulta. Se seu aplicativo gerar consultas de pesquisa por meio de programação, é recomendável criá-lo de forma que ele não gere consultas de tamanho ilimitado.  
 
@@ -94,9 +94,9 @@ O operador NOT é um sinal de subtração. Por exemplo, o `wifi –luxury` procu
 
 O parâmetro **searchmode** em uma solicitação de consulta controla se um termo com o operador NOT é ANDed ou orns com outros termos na consulta (supondo que não haja nenhum `+` `|` operador OR nos outros termos). Os valores válidos incluem `any` ou `all`.
 
-`searchMode=any`aumenta a recall de consultas, incluindo mais resultados e, por padrão, `-` será interpretado como "ou não". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm o termo `wifi` ou aqueles que não contêm o termo `luxury`.
+`searchMode=any` aumenta a recall de consultas, incluindo mais resultados e, por padrão, `-` será interpretado como "ou não". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm o termo `wifi` ou aqueles que não contêm o termo `luxury`.
 
-`searchMode=all`aumenta a precisão das consultas, incluindo menos resultados e, por padrão, será interpretado como "e não". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm o termo `wifi` e não contêm o termo "luxo". Esse é indiscutivelmente um comportamento mais intuitivo para o operador `-`. Portanto, você deve considerar `searchMode=all` o uso do em vez de `searchMode=any` se deseja otimizar as pesquisas de precisão em vez de recall, *e* os usuários frequentemente usam o `-` operador em pesquisas.
+`searchMode=all` aumenta a precisão das consultas, incluindo menos resultados e, por padrão, será interpretado como "e não". Por exemplo, `wifi -luxury` corresponderá a documentos que contêm o termo `wifi` e não contêm o termo "luxo". Esse é indiscutivelmente um comportamento mais intuitivo para o operador `-`. Portanto, você deve considerar `searchMode=all` o uso do em vez de `searchMode=any` se deseja otimizar as pesquisas de precisão em vez de recall, *e* os usuários frequentemente usam o `-` operador em pesquisas.
 
 Ao decidir sobre uma configuração de **searchmode** , considere os padrões de interação do usuário para consultas em vários aplicativos. Os usuários que estão pesquisando informações têm mais probabilidade de incluir um operador em uma consulta, em oposição aos sites de comércio eletrônico que têm estruturas de navegação mais internas.
 
@@ -110,15 +110,15 @@ Semelhante aos filtros, uma consulta de prefixo procura uma correspondência exa
 
 Para outras variantes de consulta curinga, como sufixo ou correspondência de infixos em relação ao final ou ao meio de um termo, use a [sintaxe Lucene completa para pesquisa de curinga](query-lucene-syntax.md#bkmk_wildcard).
 
-## <a name="phrase-search-"></a>Pesquisa de frases`"`
+## <a name="phrase-search-"></a>Pesquisa de frases `"`
 
 Uma pesquisa de termo é uma consulta de um ou mais termos, em que qualquer um dos termos é considerado uma correspondência. Uma pesquisa de frase é uma frase exata entre aspas `" "` . Por exemplo, while `Roach Motel` (sem aspas) pesquisaria documentos que contenham `Roach` e/ou em qualquer `Motel` lugar em qualquer ordem, `"Roach Motel"` (com aspas) só corresponderão a documentos que contenham essa frase inteira e nessa ordem (a análise léxica ainda se aplica).
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Confira também  
 
 + [Como funciona a pesquisa de texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Exemplos de consulta para pesquisa simples](search-query-simple-examples.md)
 + [Exemplos de consulta para a pesquisa completa do Lucene](search-query-lucene-examples.md)
-+ [API REST para pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [API REST para pesquisar documentos](/rest/api/searchservice/Search-Documents)
 + [Sintaxe de consulta Lucene](query-lucene-syntax.md)
-+ [Sintaxe de expressão do OData](query-odata-filter-orderby-syntax.md) 
++ [Sintaxe de expressão do OData](query-odata-filter-orderby-syntax.md)

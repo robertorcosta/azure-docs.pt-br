@@ -3,12 +3,12 @@ title: Balancear a carga de partição em várias instâncias – hubs de evento
 description: Descreve como balancear a carga de partição entre várias instâncias do seu aplicativo usando um processador de eventos e o SDK dos hubs de eventos do Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ff68408be15d8160ea7ecd878a05441d82700f99
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8bf3f05b823a784f4f3fc2074719ed346f769f5e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512309"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933786"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Balancear a carga de partição entre várias instâncias do seu aplicativo
 Para dimensionar seu aplicativo de processamento de eventos, você pode executar várias instâncias do aplicativo e fazer com que ele Equilibre a carga entre si. Nas versões mais antigas, o [EventProcessorHost](event-hubs-event-processor-host.md) permitia que você balanceie a carga entre várias instâncias do programa e eventos de ponto de verificação ao receber. Nas versões mais recentes (5,0 em diante), **EventProcessorClient** (.net e Java) ou **EventHubConsumerClient** (Python e JavaScript) permite que você faça o mesmo. O modelo de desenvolvimento é simplificado com o uso de eventos. Você assina os eventos nos quais está interessado registrando um manipulador de eventos.
@@ -78,7 +78,7 @@ Quando o ponto de verificação é executado para marcar um evento como processa
 > Se você estiver usando o armazenamento de BLOBs do Azure como o armazenamento de ponto de verificação em um ambiente que dá suporte a uma versão diferente do SDK do Storage BLOB que os normalmente estão disponíveis no Azure, você precisará usar o código para alterar a versão da API do serviço de armazenamento para a versão específica com suporte desse ambiente. Por exemplo, se você estiver executando os [hubs de eventos em um hub de Azure Stack versão 2002](/azure-stack/user/event-hubs-overview), a versão mais alta disponível para o serviço de armazenamento é a versão 2017-11-09. Nesse caso, você precisa usar o código para direcionar a versão da API do serviço de armazenamento para 2017-11-09. Para obter um exemplo de como direcionar uma versão de API de armazenamento específica, consulte estes exemplos no GitHub: 
 > - [.Net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
-> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) ou [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
+> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) ou  [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/)
 
 ## <a name="thread-safety-and-processor-instances"></a>Instâncias de processador e de segurança do thread
@@ -88,7 +88,7 @@ Por padrão, a função que processa os eventos é chamada sequencialmente para 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte o seguinte início rápido:
 
-- [.NET Core](get-started-dotnet-standard-send-v2.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [Java](event-hubs-java-get-started-send.md)
-- [Python](get-started-python-send-v2.md)
-- [JavaScript](get-started-node-send-v2.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [JavaScript](event-hubs-node-get-started-send.md)

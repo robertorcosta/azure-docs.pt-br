@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 79db94298d190f646393410ec73ba1a25bb48270
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05d0cba2a3751ac010dc26f68137a31dd04c62ce
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560390"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935136"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Solucionando problemas comuns do indexador no Azure Pesquisa Cognitiva
 
@@ -30,7 +30,7 @@ Os indexadores podem ter vários problemas ao indexar dados no Azure Pesquisa Co
 >
 > Você pode descobrir o endereço IP do serviço de pesquisa executando ping no nome de domínio totalmente qualificado (por exemplo, `<your-search-service-name>.search.windows.net` ).
 >
-> Você pode descobrir o intervalo de endereços IP da `AzureCognitiveSearch` [marca de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) usando [arquivos JSON baixáveis](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) ou por meio da [API de descoberta de marca de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). O intervalo de endereços IP é atualizado semanalmente.
+> Você pode descobrir o intervalo de endereços IP da `AzureCognitiveSearch` [marca de serviço](../virtual-network/service-tags-overview.md#available-service-tags) usando [arquivos JSON baixáveis](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) ou por meio da [API de descoberta de marca de serviço](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). O intervalo de endereços IP é atualizado semanalmente.
 
 ### <a name="configure-firewall-rules"></a>Configurar regras de firewall
 
@@ -39,19 +39,19 @@ O armazenamento do Azure, o CosmosDB e o SQL do Azure fornecem um firewall confi
 Há duas opções para permitir que os indexadores acessem esses recursos em uma instância desse tipo:
 
 * Desabilite o firewall, permitindo o acesso de **todas as redes** (se possível).
-* Como alternativa, você pode permitir o acesso para o endereço IP do serviço de pesquisa e o intervalo de endereços IP da `AzureCognitiveSearch` [marca de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) nas regras de firewall do recurso (restrição de intervalo de endereços IP).
+* Como alternativa, você pode permitir o acesso para o endereço IP do serviço de pesquisa e o intervalo de endereços IP da `AzureCognitiveSearch` [marca de serviço](../virtual-network/service-tags-overview.md#available-service-tags) nas regras de firewall do recurso (restrição de intervalo de endereços IP).
 
 Os detalhes para configurar restrições de intervalo de endereços IP para cada tipo de fonte de dados podem ser encontrados nos seguintes links:
 
-* [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
+* [Armazenamento do Azure](../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range)
 
-* [Cosmos DB](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
+* [Cosmos DB](../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range)
 
-* [SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules)
+* [SQL do Azure](../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules)
 
 **Limitação**: conforme indicado na documentação acima para o armazenamento do Azure, as restrições de intervalo de endereços IP só funcionarão se o serviço de pesquisa e sua conta de armazenamento estiverem em regiões diferentes.
 
-O Azure Functions (que pode ser usado como uma [habilidade de API Web personalizada](cognitive-search-custom-skill-web-api.md)) também dá suporte a [restrições de endereço IP](https://docs.microsoft.com/azure/azure-functions/ip-addresses#ip-address-restrictions). A lista de endereços IP a serem configurados seria o endereço IP do serviço de pesquisa e o intervalo de endereços IP da `AzureCognitiveSearch` marca de serviço.
+O Azure Functions (que pode ser usado como uma [habilidade de API Web personalizada](cognitive-search-custom-skill-web-api.md)) também dá suporte a [restrições de endereço IP](../azure-functions/ip-addresses.md#ip-address-restrictions). A lista de endereços IP a serem configurados seria o endereço IP do serviço de pesquisa e o intervalo de endereços IP da `AzureCognitiveSearch` marca de serviço.
 
 Os detalhes para acessar dados no SQL Server em uma VM do Azure são descritos [aqui](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 
@@ -61,13 +61,13 @@ Ao acessar dados em uma instância gerenciada do SQL ou quando uma VM do Azure �
 
 Nesses casos, a VM do Azure ou a instância gerenciada do SQL podem ser configuradas para residir em uma rede virtual. Em seguida, um grupo de segurança de rede pode ser configurado para filtrar o tipo de tráfego de rede que pode fluir para dentro e fora das sub-redes e interfaces de rede da rede virtual.
 
-A `AzureCognitiveSearch` marca de serviço pode ser usada diretamente nas regras de [NSG](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#work-with-security-rules) de entrada sem a necessidade de Pesquisar seu intervalo de endereços IP.
+A `AzureCognitiveSearch` marca de serviço pode ser usada diretamente nas regras de [NSG](../virtual-network/manage-network-security-group.md#work-with-security-rules) de entrada sem a necessidade de Pesquisar seu intervalo de endereços IP.
 
 Mais detalhes para acessar dados em uma instância gerenciada do SQL são descritos [aqui](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
 ### <a name="cosmosdb-indexing-isnt-enabled"></a>A "indexação" do CosmosDB não está habilitada
 
-O Azure Pesquisa Cognitiva tem uma dependência implícita na indexação de Cosmos DB. Se você desativar a indexação automática no Cosmos DB, o Pesquisa Cognitiva do Azure retornará um estado bem-sucedido, mas falhará ao indexar o conteúdo do contêiner. Para obter instruções sobre como verificar as configurações e ative a indexação, consulte [Gerenciar a indexação no Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
+O Azure Pesquisa Cognitiva tem uma dependência implícita na indexação de Cosmos DB. Se você desativar a indexação automática no Cosmos DB, o Pesquisa Cognitiva do Azure retornará um estado bem-sucedido, mas falhará ao indexar o conteúdo do contêiner. Para obter instruções sobre como verificar as configurações e ative a indexação, consulte [Gerenciar a indexação no Azure Cosmos DB](../cosmos-db/how-to-manage-indexing-policy.md#use-the-azure-portal).
 
 ## <a name="document-processing-errors"></a>Erros de processamento de documentos
 
@@ -108,11 +108,11 @@ api-key: [admin key]
 
 ### <a name="missing-documents"></a>Documentos ausentes
 
-Os indexadores encontram documentos de uma [fonte de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source). Às vezes, um documento da fonte de dados que deve ter sido indexado, aparece faltando em um índice. Há duas razões comuns para que esses erros ocorram:
+Os indexadores encontram documentos de uma [fonte de dados](/rest/api/searchservice/create-data-source). Às vezes, um documento da fonte de dados que deve ter sido indexado, aparece faltando em um índice. Há duas razões comuns para que esses erros ocorram:
 
 * O documento ainda não foi indexado. Verifique o portal para uma execução bem-sucedida do indexador.
-* Verifique seu valor de [controle de alterações](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies) . Se o valor de marca d' água alta for uma data definida para um horário futuro, todos os documentos que tiverem uma data menor que isso serão ignorados pelo indexador. Você pode entender o estado de controle de alterações do indexador usando os campos ' initialTrackingState ' e ' finalTrackingState ' no [status do indexador](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status#indexer-execution-result).
-* O documento foi atualizado após o execução do indexador. Se o indexador estiver em um [agendamento](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), eventualmente será executado novamente e pegará o documento.
+* Verifique seu valor de [controle de alterações](/rest/api/searchservice/create-data-source#data-change-detection-policies) . Se o valor de marca d' água alta for uma data definida para um horário futuro, todos os documentos que tiverem uma data menor que isso serão ignorados pelo indexador. Você pode entender o estado de controle de alterações do indexador usando os campos ' initialTrackingState ' e ' finalTrackingState ' no [status do indexador](/rest/api/searchservice/get-indexer-status#indexer-execution-result).
+* O documento foi atualizado após o execução do indexador. Se o indexador estiver em um [agendamento](/rest/api/searchservice/create-indexer#indexer-schedule), eventualmente será executado novamente e pegará o documento.
 * A [consulta](/rest/api/searchservice/create-data-source) especificada nos dados de origem exclui o documento. Os indexadores não podem indexar documentos que não fazem parte da fonte de dados.
-* Os [mapeamentos de campo](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) ou o [enriquecimento de ai](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) alteraram o documento e parecem diferentes do esperado.
-* Use a [API Procurar documento](https://docs.microsoft.com/rest/api/searchservice/lookup-document) para localizar seu documento.
+* Os [mapeamentos de campo](/rest/api/searchservice/create-indexer#fieldmappings) ou o [enriquecimento de ai](./cognitive-search-concept-intro.md) alteraram o documento e parecem diferentes do esperado.
+* Use a [API Procurar documento](/rest/api/searchservice/lookup-document) para localizar seu documento.

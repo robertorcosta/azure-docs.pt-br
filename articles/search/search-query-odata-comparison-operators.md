@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 572b653a49833ae06ee57b1718000e8555239de7
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: fc5803f96c30ea1df362676aa8c4104bb0b69db3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146030"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934864"
 ---
-# <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operadores de comparação OData no Azure pesquisa cognitiva- `eq` ,,,, `ne` `gt` `lt` `ge` e`le`
+# <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operadores de comparação OData no Azure pesquisa cognitiva- `eq` ,,,, `ne` `gt` `lt` `ge` e `le`
 
 A operação mais básica em uma [expressão de filtro OData](query-odata-filter-orderby-syntax.md) no Azure pesquisa cognitiva é comparar um campo com um determinado valor. Dois tipos de comparação são possíveis – comparação de igualdade e comparação de intervalo. Você pode usar os seguintes operadores para comparar um campo com um valor constante:
 
@@ -47,7 +47,7 @@ Você pode usar os operadores de intervalo em combinação com os [operadores l�
 > [!NOTE]
 > Se preferir, você pode colocar o valor constante no lado esquerdo do operador e o nome do campo no lado direito. Para operadores de intervalo, o significado da comparação é invertido. Por exemplo, se o valor constante estiver à esquerda, o `gt` testará se o valor constante é maior que o campo. Você também pode usar os operadores de comparação para comparar o resultado de uma função, como `geo.distance` , com um valor. Para funções booleanas como, comparando `search.ismatch` o resultado para `true` ou `false` é opcional.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática de uma expressão OData que usa os operadores de comparação.
 
@@ -96,11 +96,11 @@ Para comparações que não são permitidas, como comparar um campo do tipo `Edm
 
 <a name="special-case-nan"></a>
 
-### <a name="special-cases-for-null-and-nan"></a>Casos especiais para `null` e`NaN`
+### <a name="special-cases-for-null-and-nan"></a>Casos especiais para `null` e `NaN`
 
 Ao usar operadores de comparação, é importante lembrar que todos os campos que não são de coleção no Azure Pesquisa Cognitiva potencialmente podem ser `null` . A tabela a seguir mostra todos os resultados possíveis para uma expressão de comparação em que um dos lados pode ser `null` :
 
-| Operador | Resultado quando apenas o campo ou a variável for`null` | Resultado quando apenas a constante for`null` | Resultado quando o campo ou a variável e a constante são`null` |
+| Operador | Resultado quando apenas o campo ou a variável for `null` | Resultado quando apenas a constante for `null` | Resultado quando o campo ou a variável e a constante são `null` |
 | --- | --- | --- | --- |
 | `gt` | `false` | HTTP 400: erro de solicitação inadequado | HTTP 400: erro de solicitação inadequado |
 | `lt` | `false` | HTTP 400: erro de solicitação inadequado | HTTP 400: erro de solicitação inadequado |
@@ -113,7 +113,7 @@ Em resumo, `null` é igual apenas a si mesmo e não é menor ou maior que qualqu
 
 Se o índice tiver campos do tipo `Edm.Double` e você carregar `NaN` valores para esses campos, será necessário considerar isso ao gravar filtros. O Azure Pesquisa Cognitiva implementa o padrão IEEE 754 para manipular `NaN` valores e as comparações com esses valores produzem resultados não óbvios, conforme mostrado na tabela a seguir.
 
-| Operador | Resultado quando pelo menos um operando for`NaN` |
+| Operador | Resultado quando pelo menos um operando for `NaN` |
 | --- | --- |
 | `gt` | `false` |
 | `lt` | `false` |
@@ -169,4 +169,4 @@ Rooms/any(room: room/Type eq 'Deluxe Room')
 - [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
 - [Visão geral da linguagem de expressão OData para Azure Pesquisa Cognitiva](query-odata-filter-orderby-syntax.md)
 - [Referência de sintaxe de expressão OData para Pesquisa Cognitiva do Azure](search-query-odata-syntax-reference.md)
-- [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](/rest/api/searchservice/Search-Documents)

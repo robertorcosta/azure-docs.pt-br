@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 321c13e88cb09c7078a169c3e1666cf781ec7787
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8dabf69af8628bb0b168bfea94af5333df341423
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553131"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924122"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Configurar uma conexão do indexador com o banco de dados SQL do Azure usando uma identidade gerenciada (versão prévia)
 
@@ -44,7 +44,7 @@ Depois de selecionar **Salvar**, você verá uma ID do objeto que foi atribuída
 
 Ao se conectar ao banco de dados na próxima etapa, será necessário se conectar a uma conta do Azure AD (Azure Active Directory) que tenha acesso de administrador ao banco de dados para dar permissão de acesso no banco de dados ao seu serviço de pesquisa.
 
-Siga [estas](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) instruções para conceder ao administrador da conta do Azure AD acesso ao banco de dados.
+Siga [estas](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-database) instruções para conceder ao administrador da conta do Azure AD acesso ao banco de dados.
 
 ### <a name="3---assign-the-search-service-permissions"></a>3 – Atribuir as permissões ao serviço de pesquisa
 
@@ -97,9 +97,9 @@ Nesta etapa, você dará permissão ao seu serviço Azure Cognitive Search para 
 
 ### <a name="5---create-the-data-source"></a>5 – Criar a fonte de dados
 
-A [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), portal do Azure e o [SDK do .net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) oferecem suporte à cadeia de conexão de identidade gerenciada. Veja abaixo um exemplo de como criar uma fonte de dados para indexar dados de um banco de dados SQL do Azure usando a [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerenciada. O formato da cadeia de conexão de identidade gerenciada é o mesmo para a API REST, o SDK do .NET e o portal do Azure.
+A [API REST](/rest/api/searchservice/create-data-source), portal do Azure e o [SDK do .net](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) oferecem suporte à cadeia de conexão de identidade gerenciada. Veja abaixo um exemplo de como criar uma fonte de dados para indexar dados de um banco de dados SQL do Azure usando a [API REST](/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerenciada. O formato da cadeia de conexão de identidade gerenciada é o mesmo para a API REST, o SDK do .NET e o portal do Azure.
 
-Ao criar uma fonte de dados usando a [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), a fonte de dados deve ter as seguintes propriedades necessárias:
+Ao criar uma fonte de dados usando a [API REST](/rest/api/searchservice/create-data-source), a fonte de dados deve ter as seguintes propriedades necessárias:
 
 * **name** é o nome exclusivo da fonte de dados dentro de seu serviço de pesquisa.
 * **type** é `azuresql`
@@ -109,7 +109,7 @@ Ao criar uma fonte de dados usando a [API REST](https://docs.microsoft.com/rest/
         * *Initial Catalog|Database=**nome do banco de dados**;ResourceId=/subscriptions/**sua ID de assinatura**/resourceGroups/**nome do seu grupo de recursos**/providers/Microsoft.Sql/servers/**nome do seu SQL Server**/;Connection Timeout=**duração do tempo limite de conexão**;*
 * **container** especifica o nome da tabela ou exibição que você deseja indexar.
 
-Exemplo de como criar um objeto de fonte de dados do SQL do Azure usando a [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
+Exemplo de como criar um objeto de fonte de dados do SQL do Azure usando a [API REST](/rest/api/searchservice/create-data-source):
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
@@ -144,7 +144,7 @@ api-key: [admin key]
 }
 ```
 
-Para obter mais informações sobre a criação de índices, consulte [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
+Para obter mais informações sobre a criação de índices, consulte [Criar Índice](/rest/api/searchservice/create-index)
 
 ### <a name="7---create-the-indexer"></a>7 – Criar o indexador
 
@@ -169,13 +169,13 @@ api-key: [admin key]
 
 Esse indexador será executado a cada duas horas (o intervalo de agendamento é definido como "PT2H"). Para executar um indexador a cada 30 minutos, defina o intervalo para "PT30M". O intervalo mais curto com suporte é de 5 minutos. O agendamento é opcional – se ele for omitido, um indexador será executado apenas uma vez quando for criado. No entanto, você pode executar um indexador sob demanda a qualquer momento.   
 
-Para saber mais sobre a API Criar Indexador, veja [Criar indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Para saber mais sobre a API Criar Indexador, veja [Criar indexador](/rest/api/searchservice/create-indexer).
 
 Para saber mais sobre como definir as agendas do indexador, consulte [Como agendar indexadores para o Azure Cognitive Search](search-howto-schedule-indexers.md).
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-Se você receber um erro quando o indexador tentar se conectar à fonte de dados, indicando que o cliente não tem permissão para acessar o servidor, confira [erros comuns do indexador](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting).
+Se você receber um erro quando o indexador tentar se conectar à fonte de dados, indicando que o cliente não tem permissão para acessar o servidor, confira [erros comuns do indexador](./search-indexer-troubleshooting.md).
 
 ## <a name="see-also"></a>Confira também
 

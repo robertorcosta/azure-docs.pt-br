@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ced05e8ccd04775df189e9dff1af1fdaa990f3b2
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e83faee7d72026dafc50b21d0a0773e663e5a03a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751675"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933097"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e usar destinos de computação para treinamento de modelo 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -224,7 +224,7 @@ During a run there are two applications of an identity:
 1. The user applies an identity to access resources from within the code for a submitted run
     
     * In this case, the user must provide the *client_id* corresponding to the managed identity they want to use to retrieve a credential. 
-    * Alternatively, AML exposes the user-assigned identity's client id through the *DEFAULT_IDENTITY_CLIENT_ID* environment variable.
+    * Alternatively, AML exposes the user-assigned identity's client ID through the *DEFAULT_IDENTITY_CLIENT_ID* environment variable.
     
     For example, to retrieve a token for a datastore with the default managed identity:
     
@@ -423,6 +423,112 @@ except ComputeTargetException:
 
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
+
+### <a name="azure-databricks"></a><a id="databricks"></a>Azure Databricks
+
+As Azure Databricks são um ambiente baseado em Apache Spark na nuvem do Azure. Ele pode ser usado como um destino de computação com um pipeline do Azure Machine Learning.
+
+Crie um workspace do Azure Databricks antes de usá-lo. Para criar um recurso de espaço de trabalho, consulte o documento [executar um trabalho do Spark no Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) .
+
+Para anexar o Azure Databricks como um destino de computação, forneça as seguintes informações:
+
+* __Nome de computação do databricks__: o nome que você deseja atribuir a esse recurso de computação.
+* __Nome do espaço de trabalho do databricks__: o nome do espaço de trabalho Azure Databricks.
+* __Token de acesso do databricks__: o token de acesso usado para autenticar para Azure Databricks. Para gerar um token de acesso, consulte o documento [Autenticação](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html).
+
+O código a seguir demonstra como anexar Azure Databricks como um destino de computação com o SDK do Azure Machine Learning (__o espaço de trabalho do databricks precisa estar presente na mesma assinatura que o seu espaço de trabalho AML__):
+
+```python
+import os
+from azureml.core.compute import ComputeTarget, DatabricksCompute
+from azureml.exceptions import ComputeTargetException
+
+databricks_compute_name = os.environ.get(
+    "AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
+databricks_workspace_name = os.environ.get(
+    "AML_DATABRICKS_WORKSPACE", "<databricks_workspace_name>")
+databricks_resource_group = os.environ.get(
+    "AML_DATABRICKS_RESOURCE_GROUP", "<databricks_resource_group>")
+databricks_access_token = os.environ.get(
+    "AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
+
+try:
+    databricks_compute = ComputeTarget(
+        workspace=ws, name=databricks_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('databricks_compute_name {}'.format(databricks_compute_name))
+    print('databricks_workspace_name {}'.format(databricks_workspace_name))
+    print('databricks_access_token {}'.format(databricks_access_token))
+
+    # Create attach config
+    attach_config = DatabricksCompute.attach_configuration(resource_group=databricks_resource_group,
+                                                           workspace_name=databricks_workspace_name,
+                                                           access_token=databricks_access_token)
+    databricks_compute = ComputeTarget.attach(
+        ws,
+        databricks_compute_name,
+        attach_config
+    )
+
+    databricks_compute.wait_for_completion(True)
+```
+
+Para obter um exemplo mais detalhado, consulte um [exemplo de bloco de anotações](https://aka.ms/pl-databricks) no github.
+
+### <a name="azure-data-lake-analytics"></a><a id="adla"></a>Análise Azure Data Lake
+
+O Azure Data Lake Analytics é uma plataforma de análise de big data na nuvem do Azure. Ele pode ser usado como um destino de computação com um pipeline do Azure Machine Learning.
+
+Crie uma conta do Azure Data Lake Analytics antes de usá-lo. Para criar este recurso, consulte o documento [Introdução ao Google Analytics do Azure Data Lake](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
+
+Para anexar o Data Lake Analytics como um destino de computação, você deve usar o SDK do Aprendizado de Máquina do Azure e fornecer as seguintes informações:
+
+* __Nome da computa__: o nome que você deseja atribuir a este recurso de computação.
+* __Grupo de recursos__: o grupo de recursos que contém a conta de data Lake Analytics.
+* __Nome da conta__: o nome da conta de data Lake Analytics.
+
+O código a seguir demonstra como anexar o Data Lake Analytics como um destino de computação:
+
+```python
+import os
+from azureml.core.compute import ComputeTarget, AdlaCompute
+from azureml.exceptions import ComputeTargetException
+
+
+adla_compute_name = os.environ.get(
+    "AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
+adla_resource_group = os.environ.get(
+    "AML_ADLA_RESOURCE_GROUP", "<adla_resource_group>")
+adla_account_name = os.environ.get(
+    "AML_ADLA_ACCOUNT_NAME", "<adla_account_name>")
+
+try:
+    adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('adla_compute_name {}'.format(adla_compute_name))
+    print('adla_resource_id {}'.format(adla_resource_group))
+    print('adla_account_name {}'.format(adla_account_name))
+    # create attach config
+    attach_config = AdlaCompute.attach_configuration(resource_group=adla_resource_group,
+                                                     account_name=adla_account_name)
+    # Attach ADLA
+    adla_compute = ComputeTarget.attach(
+        ws,
+        adla_compute_name,
+        attach_config
+    )
+
+    adla_compute.wait_for_completion(True)
+```
+
+Para obter um exemplo mais detalhado, consulte um [exemplo de bloco de anotações](https://aka.ms/pl-adla) no github.
+
+> [!TIP]
+> Os pipelines do Azure Machine Learning só podem funcionar com dados armazenados no armazenamento de dados padrão da conta do Data Lake Analytics. Se os dados com os quais você precisa trabalhar estiverem em um repositório não padrão, você poderá usar um [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) para copiar os dados antes do treinamento.
 
 ## <a name="set-up-in-azure-machine-learning-studio"></a>Configurar o estúdio do Azure Machine Learning
 

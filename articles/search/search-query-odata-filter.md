@@ -19,18 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 959adec9f74a8cda7fde941ccea7db75e981a650
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0f33b5a28d7c83be7e546c3f61bc517047c51312
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201541"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934847"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Sintaxe de $filter OData no Azure Pesquisa Cognitiva
 
 O Azure Pesquisa Cognitiva usa [expressões de filtro OData](query-odata-filter-orderby-syntax.md) para aplicar critérios adicionais a uma consulta de pesquisa além dos termos de pesquisa de texto completo. Este artigo descreve a sintaxe de filtros em detalhes. Para obter mais informações gerais sobre quais filtros são e como usá-los para perceber cenários de consulta específicos, consulte [filtros no Azure pesquisa cognitiva](search-filters.md).
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 Um filtro na linguagem OData é uma expressão booleana que, por sua vez, pode ser um dos vários tipos de expressão, conforme mostrado pelo seguinte EBNF ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)):
 
@@ -67,7 +67,7 @@ Os tipos de expressões booleanas incluem:
 - Chamadas para funções booleanas, incluindo:
   - `geo.intersects`, que testa se um determinado ponto está dentro de um determinado polígono. Para obter mais informações, consulte [funções geoespaciais OData no Azure pesquisa cognitiva](search-query-odata-geo-spatial-functions.md).
   - `search.in`, que compara um campo ou variável de intervalo com cada valor em uma lista de valores. Para obter mais informações, [consulte `search.in` função OData no Azure pesquisa cognitiva](search-query-odata-search-in-function.md).
-  - `search.ismatch`e `search.ismatchscoring` , que executam operações de pesquisa de texto completo em um contexto de filtro. Para obter mais informações, consulte [funções de pesquisa de texto completo OData no Azure pesquisa cognitiva](search-query-odata-full-text-search-functions.md).
+  - `search.ismatch` e `search.ismatchscoring` , que executam operações de pesquisa de texto completo em um contexto de filtro. Para obter mais informações, consulte [funções de pesquisa de texto completo OData no Azure pesquisa cognitiva](search-query-odata-full-text-search-functions.md).
 - Caminhos de campo ou variáveis de intervalo do tipo `Edm.Boolean` . Por exemplo, se o índice tiver um campo booliano chamado `IsEnabled` e você desejar retornar todos os documentos em que esse campo é `true` , a expressão de filtro poderá ser apenas o nome `IsEnabled` .
 - Expressões booleanas entre parênteses. O uso de parênteses pode ajudar a determinar explicitamente a ordem das operações em um filtro. Para obter mais informações sobre a precedência padrão dos operadores OData, consulte a próxima seção.
 
@@ -178,7 +178,7 @@ Localiza todos os hotéis em 10 quilômetros de um determinado ponto de referên
     $filter=geo.distance(Location, geography'POINT(-122.131577 47.678581)') le 10
 ```
 
-Localiza todos os hotéis em um determinado visor descrito como um polígono (em que `Location` é um campo do tipo EDM. GeographyPoint). O polígono deve ser fechado, o que significa que os primeiros e os últimos conjuntos de pontos devem ser iguais. Além disso, [os pontos devem estar listados na ordem no sentido anti-horário](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+Localiza todos os hotéis em um determinado visor descrito como um polígono (em que `Location` é um campo do tipo EDM. GeographyPoint). O polígono deve ser fechado, o que significa que os primeiros e os últimos conjuntos de pontos devem ser iguais. Além disso, [os pontos devem estar listados na ordem no sentido anti-horário](/rest/api/searchservice/supported-data-types#Anchor_1).
 
 ```odata-filter-expr
     $filter=geo.intersects(Location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
@@ -214,7 +214,7 @@ Encontre uma correspondência em frases em uma coleção, como "racks de toalha 
     $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
 ```
 
-Localizar documentos com as palavras "orla marítima". Essa consulta de filtro é idêntica a uma [solicitação de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) com `search=waterfront`.
+Localizar documentos com as palavras "orla marítima". Essa consulta de filtro é idêntica a uma [solicitação de pesquisa](/rest/api/searchservice/search-documents) com `search=waterfront`.
 
 ```odata-filter-expr
     $filter=search.ismatchscoring('waterfront')
@@ -249,4 +249,4 @@ Encontre Hotéis em que os termos "Hotel" e "aeroporto" não têm mais do que ci
 - [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
 - [Visão geral da linguagem de expressão OData para Azure Pesquisa Cognitiva](query-odata-filter-orderby-syntax.md)
 - [Referência de sintaxe de expressão OData para Pesquisa Cognitiva do Azure](search-query-odata-syntax-reference.md)
-- [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](/rest/api/searchservice/Search-Documents)

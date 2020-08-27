@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 03d4c2e0685ea165cbad524360a3db6e6c809733
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: faa98f1c52cfe2dd0e19f085f4d33dedb6f01851
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146124"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934881"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Pesquisa difusa para corrigir erros ortográficos e erros de digitação
 
@@ -82,7 +82,7 @@ Quando os resultados são ambíguos, o [realce de ocorrências](search-paginatio
 
 ### <a name="example-1-fuzzy-search-with-the-exact-term"></a>Exemplo 1: pesquisa difusa com o termo exato
 
-Suponha que a cadeia de caracteres a seguir exista em um `"Description"` campo em um documento de pesquisa:`"Test queries with special characters, plus strings for MSFT, SQL and Java."`
+Suponha que a cadeia de caracteres a seguir exista em um `"Description"` campo em um documento de pesquisa: `"Test queries with special characters, plus strings for MSFT, SQL and Java."`
 
 Comece com uma pesquisa difusa em "especial" e adicione o realce de clique ao campo Descrição:
 
@@ -132,9 +132,9 @@ Observe que a mesma resposta é retornada, mas agora, em vez de corresponder ao 
 
 O ponto deste exemplo expandido é ilustrar a clareza de que o realce de pressionamento pode trazer resultados ambíguos. Em todos os casos, o mesmo documento é retornado. Se você confiava em IDs de documento para verificar uma correspondência, talvez tenha perdido a mudança de "especial" para "SQL".
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 + [Como a pesquisa de texto completo funciona no Azure Pesquisa Cognitiva (arquitetura de análise de consulta)](search-lucene-query-architecture.md)
 + [Gerenciador de pesquisa](search-explorer.md)
-+ [Como consultar em .NET](search-query-dotnet.md)
-+ [Como consultar em REST](search-create-index-rest-api.md)
++ [Como consultar em .NET](./search-get-started-dotnet.md)
++ [Como consultar em REST](./search-get-started-powershell.md)

@@ -3,12 +3,13 @@ title: Alteração de dados-LUIS
 description: Saiba como os dados podem ser alterados antes das previsões no LUIS (Reconhecimento vocal)
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 3a88739caa9b35679f10b0cb63a804e9464c871c
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c675ac246f397b5949c870ad91ab936bbd92c7ef
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872256"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934660"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Alterar os dados de declaração antes ou durante a previsão
 O LUIS fornece maneiras de manipular a declaração antes ou durante a previsão. Isso inclui a [correção ortográfica](luis-tutorial-bing-spellcheck.md)e a correção de problemas de fuso horário para [datetimeV2](luis-reference-prebuilt-datetimev2.md)predefinidos.
@@ -80,7 +81,7 @@ Quando um aplicativo LUIS usa a entidade [datetimeV2](luis-reference-prebuilt-da
 Em v3, o `datetimeReference` determina o deslocamento do fuso horário. Saiba mais sobre [previsões v3](luis-migration-api-v3.md#v3-post-body).
 
 ### <a name="v2-prediction-api-to-alter-timezone"></a>V2 API de previsão para alterar o fuso horário
-O fuso horário é corrigido adicionando o fuso horário do usuário ao ponto de extremidade `timezoneOffset` usando o parâmetro com base na versão da API. O valor do parâmetro deve ser o número positivo ou negativo, em minutos, para alterar a hora.
+O fuso horário é corrigido adicionando o fuso horário do usuário ao ponto de extremidade usando o `timezoneOffset` parâmetro com base na versão da API. O valor do parâmetro deve ser o número positivo ou negativo, em minutos, para alterar a hora.
 
 #### <a name="v2-prediction-daylight-savings-example"></a>Exemplo de economia de Verão V2 de previsão
 Se você precisar que os datetimeV2 predefinidos retornados sejam ajustados para o horário de verão, use o parâmetro QueryString com um valor +/-em minutos para a consulta de [ponto de extremidade](https://go.microsoft.com/fwlink/?linkid=2092356) .

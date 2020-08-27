@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/06/2020
-ms.openlocfilehash: ca6324bd27749d9be3f516dbcd8ff99eca39d1a6
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.date: 08/26/2020
+ms.openlocfilehash: e4f9fa554a7c0e45abe1e9686605c95bb79d1739
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875448"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932943"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência do uso de funções em expressões para os Aplicativos Lógicos do Azure e o Power Automate
 
@@ -1128,27 +1128,27 @@ bool(<value>)
 
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Sim | Qualquer | O valor a ser convertido |
+| <*value*> | Sim | Qualquer | O valor a ser convertido em booliano. |
 |||||
+
+Se você estiver usando `bool()` com um objeto, o valor do objeto deverá ser uma cadeia de caracteres ou um inteiro que possa ser convertido em booliano.
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| true ou false | Boolean | A versão booliana do valor especificado |
+| `true` ou `false` | Boolean | A versão booliana do valor especificado. |
 ||||
 
-*Exemplo*
+*Saídas*
 
-Esses exemplos convertem os valores especificados em valores boolianos:
+Estes exemplos mostram os diferentes tipos de entrada com suporte para `bool()` :
 
-```
-bool(1)
-bool(0)
-```
-
-E retorna estes resultados:
-
-* Primeiro exemplo: `true`
-* Segundo exemplo: `false`
+| Valor de entrada | Type | Retornar valor |
+| ----------- | ---------- | ---------------------- |
+| `bool(1)` | Integer | `true` |
+| `bool(0)` | Integer    | `false` |
+| `bool(-1)` | Integer | `true` |
+| `bool('true')` | String | `true` |
+| `bool('false')` | String | `false` |
 
 <a name="coalesce"></a>
 
@@ -1705,7 +1705,7 @@ div(<dividend>, <divisor>)
 
 *Exemplo 1*
 
-Ambos os exemplos retornam esse valor com o tipo Integer:`2`
+Ambos os exemplos retornam esse valor com o tipo Integer: `2`
 
 ```
 div(10,5)
@@ -1714,7 +1714,7 @@ div(11,5)
 
 *Exemplo 2*
 
-Ambos os exemplos retornam esse valor com o tipo float:`2.2`
+Ambos os exemplos retornam esse valor com o tipo float: `2.2`
 
 ```
 div(11,5.0)
@@ -4781,7 +4781,7 @@ A seguir, no exemplo 1, este exemplo passa a expressão XPath, `'/produce/item/n
 
 `xpath(xml(parameters('items')), '/produce/item/name[1]')`
 
-Aqui está o resultado:`Gala`
+Aqui está o resultado: `Gala`
 
 *Exemplo 3*
 
@@ -4789,7 +4789,7 @@ A seguir, no exemplo 1, esse exemplo passa a expressão XPath, `'/produce/item/n
 
 `xpath(xml(parameters('items')), '/produce/item/name[last()]')`
 
-Aqui está o resultado:`Honeycrisp`
+Aqui está o resultado: `Honeycrisp`
 
 *Exemplo 4*
 
@@ -4801,7 +4801,7 @@ Este exemplo passa a expressão XPath, `'//name[@expired]'` para localizar todos
 
 `xpath(xml(parameters('items')), '//name[@expired]')`
 
-Aqui está o resultado:`[ Gala, Honeycrisp ]`
+Aqui está o resultado: `[ Gala, Honeycrisp ]`
 
 *Exemplo 5*
 
@@ -4813,7 +4813,7 @@ Este exemplo passa a expressão XPath, `'//name[@expired = 'true']'` , para loca
 
 `xpath(xml(parameters('items')), '//name[@expired = 'true']')`
 
-Aqui está o resultado:`[ Gala ]`
+Aqui está o resultado: `[ Gala ]`
 
 *Exemplo 6*
 
@@ -4828,7 +4828,7 @@ Este exemplo passa a expressão XPath, `'//name[price>35]'` para localizar todos
 
 `xpath(xml(parameters('items')), '//name[price>35]')`
 
-Aqui está o resultado:`Honeycrisp`
+Aqui está o resultado: `Honeycrisp`
 
 *Exemplo 7*
 
@@ -4840,7 +4840,7 @@ Este exemplo localiza os nós que correspondem ao `<count></count>` nó e adicio
 
 `xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
 
-Aqui está o resultado:`30`
+Aqui está o resultado: `30`
 
 *Exemplo 8*
 
@@ -4873,7 +4873,7 @@ A seguir, no exemplo 8, este exemplo usa a expressão XPath, `'string(/*[name()=
 
 `xpath(xml(body('Http')), 'string(/*[name()="file"]/*[name()="location"])')`
 
-Aqui está o resultado:`Paris`
+Aqui está o resultado: `Paris`
 
 ## <a name="next-steps"></a>Próximas etapas
 

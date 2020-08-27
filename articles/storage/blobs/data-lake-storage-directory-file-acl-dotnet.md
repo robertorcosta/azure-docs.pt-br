@@ -3,17 +3,17 @@ title: Azure Data Lake Storage Gen2 o SDK do .NET para arquivos & ACLs
 description: Use a biblioteca de cliente de armazenamento do Azure para gerenciar diretórios e listas de controle de acesso (ACL) de arquivos e diretórios em contas de armazenamento que têm o namespace hierárquico (HNS) habilitado.
 author: normesta
 ms.service: storage
-ms.date: 03/20/2020
+ms.date: 08/26/2020
 ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 06775948a10b88c123fab4d71d83ec97fb9fc140
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 79d9adb4527be27ca5a502622b343fb430602020
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86528626"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923901"
 ---
 # <a name="use-net-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o .NET para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2
 
@@ -295,7 +295,7 @@ public async Task ManageFileACLs(DataLakeFileSystemClient fileSystemClient)
 
 ## <a name="download-from-a-directory"></a>Baixar de um diretório 
 
-Primeiro, crie uma instância de [DataLakeFileClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient) que representa o arquivo que você deseja baixar. Use o método [DataLakeFileClient. ReadAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.readasync) e analise o valor de retorno para obter um objeto de [fluxo](https://docs.microsoft.com/dotnet/api/system.io.stream) . Use qualquer API de processamento de arquivo .NET para salvar bytes do fluxo em um arquivo. 
+Primeiro, crie uma instância de [DataLakeFileClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient) que representa o arquivo que você deseja baixar. Use o método [DataLakeFileClient. ReadAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.readasync)  e analise o valor de retorno para obter um objeto de [fluxo](https://docs.microsoft.com/dotnet/api/system.io.stream) . Use qualquer API de processamento de arquivo .NET para salvar bytes do fluxo em um arquivo. 
 
 Este exemplo usa um [BinaryReader](https://docs.microsoft.com/dotnet/api/system.io.binaryreader) e um [FileStream](https://docs.microsoft.com/dotnet/api/system.io.filestream) para salvar bytes em um arquivo. 
 
@@ -363,7 +363,11 @@ public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="set-an-acl-recursively-preview"></a>Definir uma ACL recursivamente (visualização)
+
+Você pode adicionar, atualizar e remover ACLs recursivamente nos itens filho existentes de um diretório pai sem precisar fazer essas alterações individualmente para cada item filho. Para obter mais informações, consulte [definir listas de controle de acesso (ACLs) recursivamente para Azure data Lake Storage Gen2](recursive-access-control-lists.md).
+
+## <a name="see-also"></a>Confira também
 
 * [Documentação de referência da API](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake)
 * [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake)

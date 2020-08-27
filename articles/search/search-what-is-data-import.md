@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 86982aa418433ecef6a81252363091714185fe22
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 50c95dc9d045711cb6968b98957d255b4ca73d2c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202290"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932756"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Visão geral de importação de dados-Azure Pesquisa Cognitiva
 
@@ -34,12 +34,12 @@ Essa abordagem é mais flexível do que um modelo de pull, pois você pode carre
 
 Você pode usar as APIs a seguir para carregar um ou vários documentos em um índice:
 
-+ [Adicionar, atualizar ou excluir documentos (API REST)](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [Classe indexAction](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) ou [Classe indexBatch](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 
++ [Adicionar, atualizar ou excluir documentos (API REST)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
++ [Classe indexAction](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) ou [Classe indexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 
 
 Atualmente, não há nenhum suporte de ferramenta para enviar por push dados por meio do portal.
 
-Para obter uma introdução a cada metodologia, consulte [início rápido: criar um índice de pesquisa cognitiva do Azure usando o PowerShell](search-create-index-rest-api.md) ou [o início rápido do C#: criar um índice de pesquisa cognitiva do Azure usando o SDK do .net](search-get-started-dotnet.md).
+Para obter uma introdução a cada metodologia, consulte [início rápido: criar um índice de pesquisa cognitiva do Azure usando o PowerShell](./search-get-started-powershell.md) ou [o início rápido do C#: criar um índice de pesquisa cognitiva do Azure usando o SDK do .net](search-get-started-dotnet.md).
 
 <a name="indexing-actions"></a>
 
@@ -52,7 +52,7 @@ Na API REST, emita solicitações HTTP POST com corpos de solicitação JSON par
 No SDK do .NET, empacote seus dados em um `IndexBatch` objeto. Um `IndexBatch` encapsula uma coleção de `IndexAction` objetos, cada um contendo um documento e uma propriedade que informa ao Azure pesquisa cognitiva qual ação executar nesse documento. Para obter um exemplo de código, consulte o [início rápido do C#](search-get-started-dotnet.md).
 
 
-| @search.action | Descrição | Campos necessários para cada documento | Observações |
+| @search.action | DESCRIÇÃO | Campos necessários para cada documento | Observações |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |Uma ação `upload` é semelhante a um "upsert", em que o documento será inserido se for novo e atualizado/substituído se existir. |chave, além de quaisquer outros campos que você quiser definir |Ao atualizar/substituir um documento existente, qualquer campo não especificado na solicitação terá seu campo definido para `null`. Isso ocorre mesmo quando o campo tiver sido definido anteriormente como um valor não nulo. |
 | `merge` |Atualiza um documento existente com os campos especificados. Se o documento não existir no índice, a mesclagem falhará. |chave, além de quaisquer outros campos que você quiser definir |Qualquer campo que você especificar em uma mesclagem substituirá o campo existente no documento. No SDK do .NET, isso inclui campos do tipo `DataType.Collection(DataType.String)` . Na API REST, isso inclui campos do tipo `Collection(Edm.String)` . Por exemplo, se o documento contiver um campo `tags` com o valor `["budget"]` e você executar uma mesclagem com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Ele não será `["budget", "economy", "pool"]`. |
@@ -61,7 +61,7 @@ No SDK do .NET, empacote seus dados em um `IndexBatch` objeto. Um `IndexBatch` e
 
 ### <a name="formulate-your-query"></a>Formular sua consulta
 
-Há duas maneiras de [pesquisar o índice usando a API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Uma delas consiste em emitir uma solicitação HTTP POST em que os parâmetros de consulta são definidos em um objeto JSON no corpo da solicitação. A outra maneira consiste em emitir uma solicitação HTTP GET em que os parâmetros de consulta são definidos na URL da solicitação. POST tem [limites mais flexíveis](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) quanto ao tamanho dos parâmetros de consulta do que GET. Por esse motivo, é recomendável usar POST, a menos que haja circunstâncias especiais em que o uso de GET seja mais conveniente.
+Há duas maneiras de [pesquisar o índice usando a API REST](/rest/api/searchservice/Search-Documents). Uma delas consiste em emitir uma solicitação HTTP POST em que os parâmetros de consulta são definidos em um objeto JSON no corpo da solicitação. A outra maneira consiste em emitir uma solicitação HTTP GET em que os parâmetros de consulta são definidos na URL da solicitação. POST tem [limites mais flexíveis](/rest/api/searchservice/Search-Documents) quanto ao tamanho dos parâmetros de consulta do que GET. Por esse motivo, é recomendável usar POST, a menos que haja circunstâncias especiais em que o uso de GET seja mais conveniente.
 
 Para POST e GET, você precisa fornecer o nome do *serviço*, o *nome do índice*e uma *versão da API* na URL da solicitação. 
 
@@ -98,7 +98,7 @@ Uma maneira rápida de executar uma verificação preliminar no carregamento do 
 > [!TIP]
 > Vários [exemplos de código do Azure pesquisa cognitiva](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluem conjuntos de valores inseridos ou prontamente disponíveis, oferecendo uma maneira fácil de começar. O portal também fornece um indexador de exemplo e uma fonte de dados que consiste em um conjunto de dados de imóveis pequeno (denominado "realestate-us-sample"). Quando você executa o indexador pré-configurado na fonte de dados de exemplo, um índice é criado e carregado com documentos que podem ser consultados no Search Explorer ou pelo código que você escreve.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 + [Visão geral do indexador](search-indexer-overview.md)
 + [Passo a passo do portal: criar, carregar, consultar um índice](search-get-started-portal.md)

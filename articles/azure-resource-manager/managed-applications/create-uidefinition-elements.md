@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: tomfitz
-ms.openlocfilehash: 221e4dc2e909561c70b1cd1b86df026619c2b31f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b6c6e78c64f83ca39a29f319a103e893d8d8b38
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004300"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923714"
 ---
 # <a name="createuidefinition-elements"></a>Elementos CreateUiDefinition
 
@@ -36,7 +36,7 @@ O esquema para a maioria dos elementos é o seguinte:
 | Propriedade | Obrigatório | Descrição |
 | -------- | -------- | ----------- |
 | name | Sim | Um identificador interno para fazer referência a uma instância específica de um elemento. O uso mais comum do nome do elemento está em `outputs`, onde os valores de saída de elementos especificados são mapeados para os parâmetros do modelo. Você também pode usá-lo para associar o valor de saída de um elemento ao `defaultValue` de outro elemento. |
-| tipo | Sim | O controle de interface do usuário a ser processado para o elemento. Para obter uma lista dos tipos com suporte, consulte [Elementos](#elements). |
+| type | Sim | O controle de interface do usuário a ser processado para o elemento. Para obter uma lista dos tipos com suporte, consulte [Elementos](#elements). |
 | label | Sim | O texto de exibição do elemento. Alguns tipos de elemento contêm vários rótulos e, portanto, o valor pode ser um objeto que contém várias cadeias de caracteres. |
 | defaultValue | Não | O valor padrão do elemento. Alguns tipos de elemento dão suporte a valores padrão complexos e, portanto, o valor pode ser um objeto. |
 | toolTip | Não | O texto exibido na dica de ferramenta do elemento. Semelhante a `label`, alguns elementos dão suporte a várias cadeias de caracteres de dica de ferramenta. Links embutidos podem ser inseridos usando a sintaxe de markdown.
@@ -50,6 +50,7 @@ A documentação para cada elemento contém exemplo de interface do usuário, es
 
 - [Microsoft. Common. CheckBox](microsoft-common-checkbox.md)
 - [Microsoft.Common.DropDown](microsoft-common-dropdown.md)
+- [Microsoft. Common. EditableGrid](microsoft-common-editablegrid.md)
 - [Microsoft.Common.FileUpload](microsoft-common-fileupload.md)
 - [Microsoft.Common.InfoBox](microsoft-common-infobox.md)
 - [Microsoft.Common.OptionsGroup](microsoft-common-optionsgroup.md)

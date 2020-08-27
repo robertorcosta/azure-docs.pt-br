@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 07f3e270e799753a582227abe53223bd05755eb5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d04311fce81d147a0830918aee1d4a2a9c0808d4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165202"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923391"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Visão geral da linguagem OData para `$filter` , `$orderby` e `$select` no Azure pesquisa cognitiva
 
@@ -70,14 +70,14 @@ Um identificador pode se referir ao nome de um campo ou a uma **variável de int
 
 Exemplos de caminhos de campo são mostrados na tabela a seguir:
 
-| Caminho do campo | Descrição |
+| Caminho do campo | DESCRIÇÃO |
 | --- | --- |
 | `HotelName` | Refere-se a um campo de nível superior do índice |
 | `Address/City` | Refere-se ao `City` subcampo de um campo complexo no índice; `Address` é do tipo neste `Edm.ComplexType` exemplo |
 | `Rooms/Type` | Refere-se ao `Type` subcampo de um campo de coleção complexo no índice; `Rooms` é do tipo neste `Collection(Edm.ComplexType)` exemplo |
 | `Stores/Address/Country` | Refere-se ao `Country` subcampo do `Address` subcampo de um campo de coleção complexo no índice; `Stores` é do tipo `Collection(Edm.ComplexType)` e `Address` é do tipo `Edm.ComplexType` neste exemplo |
-| `room/Type` | Refere-se ao `Type` subcampo da `room` variável de intervalo, por exemplo, na expressão de filtro`Rooms/any(room: room/Type eq 'deluxe')` |
-| `store/Address/Country` | Refere-se ao `Country` subcampo do `Address` subcampo da `store` variável de intervalo, por exemplo, na expressão de filtro`Stores/any(store: store/Address/Country eq 'Canada')` |
+| `room/Type` | Refere-se ao `Type` subcampo da `room` variável de intervalo, por exemplo, na expressão de filtro `Rooms/any(room: room/Type eq 'deluxe')` |
+| `store/Address/Country` | Refere-se ao `Country` subcampo do `Address` subcampo da `store` variável de intervalo, por exemplo, na expressão de filtro `Stores/any(store: store/Address/Country eq 'Canada')` |
 
 O significado de um caminho de campo difere dependendo do contexto. Em filtros, um caminho de campo refere-se ao valor de uma *única instância* de um campo no documento atual. Em outros contextos, como **$OrderBy**, **$Select**ou na pesquisa de [campo na sintaxe Lucene completa](query-lucene-syntax.md#bkmk_fields), um caminho de campo se refere ao próprio campo. Essa diferença tem algumas conseqüências para a forma como você usa caminhos de campo em filtros.
 
@@ -91,25 +91,25 @@ Neste exemplo, a variável de intervalo `room` aparece no `room/Type` caminho do
 
 ### <a name="using-field-paths"></a>Usando caminhos de campo
 
-Os caminhos de campo são usados em muitos parâmetros das [APIs REST do Azure pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice/). A tabela a seguir lista todos os locais em que eles podem ser usados, além de quaisquer restrições sobre seu uso:
+Os caminhos de campo são usados em muitos parâmetros das [APIs REST do Azure pesquisa cognitiva](/rest/api/searchservice/). A tabela a seguir lista todos os locais em que eles podem ser usados, além de quaisquer restrições sobre seu uso:
 
 | API | Nome do parâmetro | Restrições |
 | --- | --- | --- |
-| [Criar](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [Atualizar](https://docs.microsoft.com/rest/api/searchservice/update-index) índice | `suggesters/sourceFields` | Nenhum |
-| [Criar](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [Atualizar](https://docs.microsoft.com/rest/api/searchservice/update-index) índice | `scoringProfiles/text/weights` | Só pode fazer referência a campos **pesquisáveis** |
-| [Criar](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [Atualizar](https://docs.microsoft.com/rest/api/searchservice/update-index) índice | `scoringProfiles/functions/fieldName` | Só pode fazer referência a campos **filtráveis** |
-| [Pesquisar](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search`Quando `queryType` é`full` | Só pode fazer referência a campos **pesquisáveis** |
-| [Pesquisar](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Só pode fazer referência aos campos de **facetable** |
-| [Pesquisar](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Só pode fazer referência a campos **pesquisáveis** |
-| [Pesquisar](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Só pode fazer referência a campos **pesquisáveis** |
-| [Sugerir](https://docs.microsoft.com/rest/api/searchservice/suggestions) e [preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | Só pode fazer referência a campos que fazem parte de um [Sugestor](index-add-suggesters.md) |
-| [Pesquisar](https://docs.microsoft.com/rest/api/searchservice/search-documents), [sugerir](https://docs.microsoft.com/rest/api/searchservice/suggestions)e [preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | Só pode fazer referência a campos **filtráveis** |
-| [Pesquisar](https://docs.microsoft.com/rest/api/searchservice/search-documents) e [sugerir](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | Só pode fazer referência a campos **classificável** |
-| [Pesquisar](https://docs.microsoft.com/rest/api/searchservice/search-documents), [sugerir](https://docs.microsoft.com/rest/api/searchservice/suggestions)e [Pesquisar](https://docs.microsoft.com/rest/api/searchservice/lookup-document) | `$select` | Só pode fazer referência a campos **recuperáveis** |
+| [Criar](/rest/api/searchservice/create-index) ou [Atualizar](/rest/api/searchservice/update-index) índice | `suggesters/sourceFields` | Nenhum |
+| [Criar](/rest/api/searchservice/create-index) ou [Atualizar](/rest/api/searchservice/update-index) índice | `scoringProfiles/text/weights` | Só pode fazer referência a campos **pesquisáveis** |
+| [Criar](/rest/api/searchservice/create-index) ou [Atualizar](/rest/api/searchservice/update-index) índice | `scoringProfiles/functions/fieldName` | Só pode fazer referência a campos **filtráveis** |
+| [Pesquisar](/rest/api/searchservice/search-documents) | `search` Quando `queryType` é `full` | Só pode fazer referência a campos **pesquisáveis** |
+| [Pesquisar](/rest/api/searchservice/search-documents) | `facet` | Só pode fazer referência aos campos de **facetable** |
+| [Pesquisar](/rest/api/searchservice/search-documents) | `highlight` | Só pode fazer referência a campos **pesquisáveis** |
+| [Pesquisar](/rest/api/searchservice/search-documents) | `searchFields` | Só pode fazer referência a campos **pesquisáveis** |
+| [Sugerir](/rest/api/searchservice/suggestions) e [preenchimento automático](/rest/api/searchservice/autocomplete) | `searchFields` | Só pode fazer referência a campos que fazem parte de um [Sugestor](index-add-suggesters.md) |
+| [Pesquisar](/rest/api/searchservice/search-documents), [sugerir](/rest/api/searchservice/suggestions)e [preenchimento automático](/rest/api/searchservice/autocomplete) | `$filter` | Só pode fazer referência a campos **filtráveis** |
+| [Pesquisar](/rest/api/searchservice/search-documents) e [sugerir](/rest/api/searchservice/suggestions) | `$orderby` | Só pode fazer referência a campos **classificável** |
+| [Pesquisar](/rest/api/searchservice/search-documents), [sugerir](/rest/api/searchservice/suggestions)e [Pesquisar](/rest/api/searchservice/lookup-document) | `$select` | Só pode fazer referência a campos **recuperáveis** |
 
 ## <a name="constants"></a>Constantes
 
-As constantes no OData são valores literais de um determinado tipo de [modelo de dados de entidade](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM). Consulte [tipos de dados com suporte](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) para obter uma lista de tipos com suporte no Azure pesquisa cognitiva. Não há suporte para constantes de tipos de coleção.
+As constantes no OData são valores literais de um determinado tipo de [modelo de dados de entidade](/dotnet/framework/data/adonet/entity-data-model) (EDM). Consulte [tipos de dados com suporte](/rest/api/searchservice/supported-data-types) para obter uma lista de tipos com suporte no Azure pesquisa cognitiva. Não há suporte para constantes de tipos de coleção.
 
 A tabela a seguir mostra exemplos de constantes para cada um dos tipos de dados com suporte pelo Azure Pesquisa Cognitiva:
 
@@ -239,10 +239,10 @@ Os parâmetros **$Filter**, **$OrderBy**e **$Select** são explorados com mais d
 - [Sintaxe de $orderby OData no Azure Pesquisa Cognitiva](search-query-odata-orderby.md)
 - [Sintaxe de $select OData no Azure Pesquisa Cognitiva](search-query-odata-select.md)
 
-## <a name="see-also"></a>Veja também  
+## <a name="see-also"></a>Confira também  
 
 - [Navegação facetada no Azure Pesquisa Cognitiva](search-faceted-navigation.md)
 - [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
-- [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](/rest/api/searchservice/Search-Documents)
 - [Sintaxe de consulta Lucene](query-lucene-syntax.md)
 - [Sintaxe de consulta simples no Azure Pesquisa Cognitiva](query-simple-syntax.md)

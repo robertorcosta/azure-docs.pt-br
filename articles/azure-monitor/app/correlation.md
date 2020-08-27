@@ -6,13 +6,13 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.custom: devx-track-python
-ms.openlocfilehash: f2645cc76f6b1a59e84ee01cbc8d4c650cd6c789
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-python, devx-track-csharp
+ms.openlocfilehash: b48b02d20ed3d0b731f04d2c6568274bc0262e2e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843617"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933351"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -308,12 +308,12 @@ Você pode exportar os dados de log usando o `AzureLogHandler` . Para obter mais
 
 Ao longo do tempo, o .NET definiu várias maneiras de correlacionar os logs de telemetria e de diagnóstico:
 
-- `System.Diagnostics.CorrelationManager`permite o acompanhamento de [LogicalOperationStack e ActivityId](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1).
+- `System.Diagnostics.CorrelationManager` permite o acompanhamento de [LogicalOperationStack e ActivityId](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1).
 - O `System.Diagnostics.Tracing.EventSource` e o ETW (Rastreamento de Eventos para Windows) definem o método [SetCurrentThreadActivityId](/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid?view=netcore-3.1#overloads).
-- `ILogger`usa [escopos de log](/aspnet/core/fundamentals/logging#log-scopes).
+- `ILogger` usa [escopos de log](/aspnet/core/fundamentals/logging#log-scopes).
 - O WCF (Windows Communication Foundation) e o HTTP conectam a propagação de contexto "atual".
 
-Mas esses métodos não habilitam o suporte automático a rastreamento distribuído. `DiagnosticSource`dá suporte à correlação automática entre computadores. As bibliotecas do .NET dão suporte `DiagnosticSource` e permitem a propagação automática entre computadores do contexto de correlação por meio do transporte, como http.
+Mas esses métodos não habilitam o suporte automático a rastreamento distribuído. `DiagnosticSource` dá suporte à correlação automática entre computadores. As bibliotecas do .NET dão suporte `DiagnosticSource` e permitem a propagação automática entre computadores do contexto de correlação por meio do transporte, como http.
 
 O [Guia do usuário da atividade](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) no `DiagnosticSource` explica os conceitos básicos do acompanhamento de atividades.
 

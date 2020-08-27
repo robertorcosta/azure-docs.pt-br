@@ -19,19 +19,19 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 088f3c78e0840ca435d70d6844b0eb932a07ccb7
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 6ea8bc2551df4f85e4b856dc9cf1c06a9bd571fd
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891088"
+ms.locfileid: "88923442"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta Lucene no Azure Pesquisa Cognitiva
 
 Você pode escrever consultas no Azure Pesquisa Cognitiva com base na sintaxe do [analisador de consulta do Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) avançada para formulários de consulta especializados: curinga, pesquisa difusa, pesquisa por proximidade, expressões regulares são alguns exemplos. Grande parte da sintaxe do analisador de consulta Lucene é [implementada intacta no azure pesquisa cognitiva](search-lucene-query-architecture.md), com exceção das *pesquisas de intervalo* que são construídas no Azure pesquisa cognitiva por meio de `$filter` expressões. 
 
 > [!NOTE]
-> A sintaxe Lucene completa é usada para expressões de consulta passadas no parâmetro de **pesquisa** da API de [documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) , não deve ser confundida com a [sintaxe OData](query-odata-filter-orderby-syntax.md) usada para o parâmetro [$Filter](search-filters.md) dessa API. Essas sintaxes diferentes têm suas próprias regras para construir consultas, cadeias de caracteres de escape e assim por diante.
+> A sintaxe Lucene completa é usada para expressões de consulta passadas no parâmetro de **pesquisa** da API de [documentos de pesquisa](/rest/api/searchservice/search-documents) , não deve ser confundida com a [sintaxe OData](query-odata-filter-orderby-syntax.md) usada para o parâmetro [$Filter](search-filters.md) dessa API. Essas sintaxes diferentes têm suas próprias regras para construir consultas, cadeias de caracteres de escape e assim por diante.
 
 ## <a name="invoke-full-parsing"></a>Invocar a análise completa
 
@@ -60,7 +60,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
 }
 ```
 
-Para obter exemplos adicionais, consulte [exemplos de sintaxe de consulta Lucene para criar consultas no Azure pesquisa cognitiva](search-query-lucene-examples.md). Para obter detalhes sobre como especificar o contingente total dos parâmetros de consulta, consulte [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+Para obter exemplos adicionais, consulte [exemplos de sintaxe de consulta Lucene para criar consultas no Azure pesquisa cognitiva](search-query-lucene-examples.md). Para obter detalhes sobre como especificar o contingente total dos parâmetros de consulta, consulte [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](/rest/api/searchservice/Search-Documents).
 
 > [!NOTE]  
 >  O Azure Pesquisa Cognitiva também dá suporte à [sintaxe de consulta simples](query-simple-syntax.md), uma linguagem de consulta simples e robusta que pode ser usada para pesquisa de palavra-chave direta.  
@@ -139,7 +139,7 @@ Você pode definir uma operação de pesquisa em campo com a `fieldName:searchEx
 
 Coloque várias cadeias de caracteres entre aspas se quiser que ambas cadeias de caracteres sejam avaliadas como uma única entidade, como neste caso, pesquisar duas cidades distintas no campo `artists`.  
 
-O campo especificado em `fieldName:searchExpression` deve ser um campo `searchable`.  Confira [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter detalhes sobre como os atributos de índice são usados em definições de campo.  
+O campo especificado em `fieldName:searchExpression` deve ser um campo `searchable`.  Confira [Criar Índice](/rest/api/searchservice/create-index) para obter detalhes sobre como os atributos de índice são usados em definições de campo.  
 
 > [!NOTE]
 > Ao usar expressões de pesquisa em campo, você não precisa usar o `searchFields` parâmetro porque cada expressão de pesquisa em campo tem um nome de campo especificado explicitamente. No entanto, você ainda poderá usar o `searchFields` parâmetro se quiser executar uma consulta em que algumas partes têm o escopo de um campo específico, e o restante pode se aplicar a vários campos. Por exemplo, a consulta `search=genre:jazz NOT history&searchFields=description` corresponderia `jazz` apenas ao `genre` campo, enquanto ela corresponderia ao `NOT history` `description` campo. O nome do campo fornecido em `fieldName:searchExpression` sempre tem precedência sobre o `searchFields` parâmetro, que é o motivo neste exemplo, não precisamos incluir `genre` no `searchFields` parâmetro.
@@ -202,6 +202,6 @@ O Azure Pesquisa Cognitiva usa a pontuação baseada em frequência ([TF-IDF](ht
 
 + [Exemplos de consulta para pesquisa simples](search-query-simple-examples.md)
 + [Exemplos de consulta para a pesquisa completa do Lucene](search-query-lucene-examples.md)
-+ [Pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [Pesquisar documentos](/rest/api/searchservice/Search-Documents)
 + [Sintaxe de expressão OData para filtros e classificação](query-odata-filter-orderby-syntax.md)   
-+ [Sintaxe de consulta simples no Azure Pesquisa Cognitiva](query-simple-syntax.md)   
++ [Sintaxe de consulta simples no Azure Pesquisa Cognitiva](query-simple-syntax.md)

@@ -2,13 +2,14 @@
 title: Application Insights para serviços de nuvem do Azure | Microsoft Docs
 description: Monitorar suas funções da Web e de trabalho com eficiência com o Application Insights
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 2adcdcdc36fdd41b1f871acbea386beb1d7a9451
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2de853655524e99e958f043b7801ee73e937e7ad
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318429"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923850"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para serviços de nuvem do Azure
 O [Application Insights][start] pode monitorar os [aplicativos de serviço de nuvem do Azure](https://azure.microsoft.com/services/cloud-services/) para analisar a disponibilidade, o desempenho, as falhas e o uso combinando os dados de SDKs do Application Insights com os dados do [Diagnóstico do Azure](../platform/diagnostics-extension-overview.md) a partir de seus serviços de nuvem. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
@@ -242,7 +243,7 @@ Para obter uma experiência de diagnóstico avançada, é possível ver o que oc
 
 Para obter essas exibições das funções de trabalho, use um inicializador de telemetria personalizado para definir um atributo de contexto Operation.Id comum para todas as telemetrias. Ao fazer isso, você vê imediatamente se o problema de latência ou falha foi causado por uma dependência ou pelo código. 
 
-Faça assim:
+Este é o procedimento:
 
 * Defina a ID de correlação em uma CallContext, [conforme mostrado neste exemplo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). Nesse caso, estamos usando a ID de solicitação como correlationId.
 * Adicione uma implementação personalizada de TelemetryInitializer para definir a Operation.Id à correlationId que foi definida anteriormente. Para ver um exemplo, consulte [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13).

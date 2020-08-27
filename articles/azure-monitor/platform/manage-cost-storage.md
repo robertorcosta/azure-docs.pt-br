@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: f6420683d22488abc66b387fd44cb74cc8f8b7bd
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 84a5b1cd7b2229defd4e38a227f75cfbf9ebdd95
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184645"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933657"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs do Azure Monitor    
 
@@ -135,7 +135,7 @@ As etapas a seguir descrevem como configurar por quanto tempo os dados de log s�
 Para definir a retenção padrão do seu workspace: 
  
 1. No portal do Azure, a partir do seu workspace, selecione **Uso e custos estimados** no painel esquerdo.
-2. Na página **uso e custos estimados** , clique em **retenção de dados** na parte superior da página.
+2. Na página **Uso e estimativa de custos**, clique em **Retenção de dados** na parte superior da página.
 3. No painel, mova o controle deslizante para aumentar ou diminuir o número de dias e, em seguida, clique em **Salvar**.  Se você usar a camada *Gratuita*, não será possível modificar o período de retenção de dados, sendo necessário atualizar para a camada paga para controlar essa configuração.
 
     ![Alterar a configuração de retenção de dados do workspace](media/manage-cost-storage/manage-cost-change-retention-01.png)
@@ -199,7 +199,7 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 ## <a name="manage-your-maximum-daily-data-volume"></a>Gerenciar o volume máximo de dados por dia
 
-É possível configurar um limite diário e limitar a ingestão diária para o workspace, mas seja cuidadoso, pois sua meta não deve ser atingir o limite diário.  Caso contrário, você perderá os dados no restante do dia, o que pode afetar outros serviços e soluções do Azure cuja funcionalidade pode depender de dados atualizados no workspace.  Como resultado, sua capacidade de observar e receber alertas quando as condições de integridade dos recursos que dão suporte a serviços de TI forem afetadas.  O limite diário destina-se a ser usado como uma maneira de gerenciar um **aumento inesperado** no volume de dados de seus recursos gerenciados e permanecer dentro do limite ou quando você quiser limitar encargos não planejados para seu espaço de trabalho. Não é apropriado definir um limite diário para que ele seja atendido todos os dias em um espaço de trabalho.
+É possível configurar um limite diário e limitar a ingestão diária para o workspace, mas seja cuidadoso, pois sua meta não deve ser atingir o limite diário.  Caso contrário, você perderá os dados no restante do dia, o que pode afetar outros serviços e soluções do Azure cuja funcionalidade pode depender de dados atualizados no workspace.  Como resultado, sua capacidade de observar e receber alertas quando as condições de integridade dos recursos que dão suporte a serviços de TI forem afetadas.  O limite diário destina-se a ser usado como uma maneira de gerenciar um **aumento inesperado** no volume de dados de seus recursos gerenciados e permanecer dentro do limite ou quando você quiser limitar encargos não planejados para seu espaço de trabalho. Não é apropriado definir um limite diário para que ele seja atendido todos os dias em um workspace.
 
 Cada espaço de trabalho tem seu limite diário aplicado em uma hora diferente do dia. A hora de redefinição é mostrada na página de **limite diário** (veja abaixo). Esta hora de redefinição não pode ser configurada. 
 
@@ -604,7 +604,7 @@ Quando a coleta de dados é interrompida, o OperationStatus torna-se **Aviso**. 
 |Motivo para a interrupção da coleta| Solução| 
 |-----------------------|---------|
 |O limite diário do seu workspace foi atingido|Aguarde para a coleta ser reiniciada automaticamente ou aumente o limite diário de volume de dados descrito em Gerenciar o volume máximo de dados diário. A hora de redefinição de limite diário é mostrada na página de **limite diário** . |
-| Seu espaço de trabalho atingiu a [taxa de volume de ingestão de dados](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) | Um limite de taxa de volume de ingestão padrão de 500 MB (compactado) se aplica a espaços de trabalho, que é aproximadamente **6 GB/min** não compactados, o tamanho real pode variar entre os tipos de dados, dependendo do tamanho do log e de sua taxa de compactação. Esse limite se aplica a todos os dados ingeridos, se enviados de recursos do Azure usando [configurações de diagnóstico](diagnostic-settings.md), API do [coletor de dados](data-collector-api.md) ou agentes. Quando você envia dados para um espaço de trabalho em uma taxa de volume superior a 80% do limite configurado em seu espaço de trabalho, um evento é enviado para a tabela de *operações* no seu espaço de trabalho a cada 6 horas, enquanto o limite continua a ser excedido. Quando a taxa de volume ingerido é maior que o limite, alguns dados são descartados e um evento é enviado para a tabela de *operações* no seu espaço de trabalho a cada 6 horas, enquanto o limite continua a ser excedido. Se a taxa de volume de ingestão continuar excedendo o limite ou você estiver esperando contatá-lo em breve, você poderá solicitar para aumentá-lo em seu espaço de trabalho abrindo uma solicitação de suporte. Para ser notificado sobre esse evento em seu espaço de trabalho, crie uma [regra de alerta de log](alerts-log.md) usando a consulta a seguir com base de lógica de alerta no número de resultados mais rígidos que zero, período de avaliação de 5 minutos e frequência de 5 minutos. A taxa de volume de ingestão atingiu 80% do limite: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"` . Limite atingido na taxa de volume de ingestão: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed the threshold"` . |
+| Seu espaço de trabalho atingiu a [taxa de volume de ingestão de dados](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) | Um limite da taxa do volume de ingestão padrão de 500 MB (compactados) se aplica aos workspaces, que é de aproximadamente **6 GB/min** descompactados. O tamanho real pode variar entre os tipos de dados, dependendo do comprimento do log e da taxa de compactação. Esse limite se aplica a todos os dados ingeridos, sejam eles enviados de recursos do Azure usando as [configurações de diagnóstico](diagnostic-settings.md), a [API do Data Collector](data-collector-api.md) ou os agentes. Ao enviar dados para um workspace a uma taxa de volume superior a 80% do limite configurado no workspace, um evento será enviado para a tabela de *operações* no workspace a cada seis horas, enquanto o limite continua sendo excedido. Quando a taxa do volume ingerido for maior do que o limite, alguns dados serão descartados e um evento será enviado para a tabela de *operações* no workspace a cada seis horas, enquanto o limite continua sendo excedido. Se a taxa do volume de ingestão continuar excedendo o limite ou se você estiver esperando alcançá-la em breve, poderá solicitar o aumento no workspace abrindo uma solicitação de suporte. Para ser notificado sobre esse evento em seu espaço de trabalho, crie uma [regra de alerta de log](alerts-log.md) usando a consulta a seguir com a lógica de alerta com base no número de resultados maior que zero, período de avaliação de 5 minutos e frequência de 5 minutos. A taxa de volume de ingestão atingiu 80% do limite: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"` . Limite atingido na taxa de volume de ingestão: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed the threshold"` . |
 |Limite diário de tipo de preço gratuito herdado atingido |Aguarde até o dia seguinte para que a coleta seja reiniciada automaticamente ou altere para um tipo de preço pago.|
 |Assinatura do Azure está em um estado suspenso devido a:<br> A avaliação gratuita terminou<br> O Azure Pass expirou<br> Limite de gastos mensal atingido (por exemplo, em uma assinatura do MSDN ou do Visual Studio)|Converter para uma assinatura paga<br> Remova o limite ou espere o limite ser redefinido|
 

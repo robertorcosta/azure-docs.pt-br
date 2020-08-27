@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 079e3f9219d649d9740d38a8a8452e51b9d84acf
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: a2f319f7bbd3fa0c6c4efb7e225bfc85a76002f2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066399"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919702"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Criptografia dupla da infraestrutura do banco de dados do Azure para MySQL
 
@@ -32,7 +32,7 @@ A implementação nas camadas de infraestrutura também dá suporte a uma divers
 > [!NOTE]
 > Usar a criptografia dupla de infraestrutura terá impacto no desempenho no banco de dados do Azure para o servidor MySQL devido ao processo de criptografia adicional.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 A criptografia dupla de infraestrutura para o banco de dados do Azure para MySQL oferece os seguintes benefícios:
 
@@ -62,6 +62,12 @@ Os recursos de criptografia fornecidos pelo banco de dados do Azure para MySQL p
 Para o banco de dados do Azure para MySQL, o suporte para criptografia dupla de infraestrutura usando chave gerenciada por serviço tem as seguintes limitações:
 
 * O suporte para essa funcionalidade é limitado a tipos de preço **uso geral** e com **otimização de memória** .
+* Você pode criar um banco de dados do Azure para MySQL com criptografia de infraestrutura habilitada nas seguintes regiões:
+
+   * Leste dos EUA
+   * Centro-Sul dos Estados Unidos
+   * Oeste dos EUA 2
+   
 * * Esse recurso só tem suporte em regiões e servidores, que dão suporte a armazenamento de até 16 TB. Para obter a lista de regiões do Azure que dão suporte a armazenamento de até 16 TB, consulte a [documentação de armazenamento](concepts-pricing-tiers.md#storage).
 
     > [!NOTE]
