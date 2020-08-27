@@ -5,14 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 07/31/2020
+ms.date: 08/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 17ab7ee75e335d686bf308c4b15a53dc4e2e6b0e
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: abc9a2ae130d987c90ce87ffaecbf2bb44b06010
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041741"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929424"
 ---
 # <a name="generate-and-store-ssh-keys-in-the-azure-portal"></a>Gerar e armazenar chaves SSH no portal do Azure
 
@@ -26,9 +26,9 @@ Para obter informações mais detalhadas sobre como criar e usar chaves SSH com 
 
 ## <a name="generate-new-keys"></a>Gerar novas chaves
 
-1. Abra o [Portal do Azure](https://portal.azure.com).
+1. Abra o [portal do Azure](https://portal.azure.com).
 
-1. Na parte superior da página, digite *SSH* para pesquisar. Em **Marketplace*, selecione **chaves SSH**.
+1. Na parte superior da página, digite *SSH* para pesquisar. Em **Marketplace**, selecione **chaves SSH**.
 
 1. Na página **chave SSH** , selecione **criar**.
 
@@ -68,7 +68,7 @@ Por exemplo, digite: `ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.890`
 
 Você também pode carregar uma chave SSH pública para armazenar no Azure. Para obter informações sobre como criar um par de chaves SSH, consulte [usar chaves SSH para se conectar a VMs Linux](./linux/ssh-from-windows.md).
 
-1. Abra o [Portal do Azure](https://portal.azure.com).
+1. Abra o [portal do Azure](https://portal.azure.com).
 
 1. Na parte superior da página, digite *SSH* para pesquisar. Em **Marketplace*, selecione **chaves SSH**.
 
@@ -89,6 +89,20 @@ Você também pode carregar uma chave SSH pública para armazenar no Azure. Para
 1. Depois de concluir a validação, selecione **Criar**. 
 
 Depois que a chave for carregada, você poderá optar por usá-la ao criar uma VM.
+
+## <a name="list-keys"></a>Listar chaves
+
+As chaves SSH criadas no portal são armazenadas como recursos, de modo que você pode filtrar sua exibição de recursos para ver todas elas.
+
+1. No portal, selecione **todos os recursos**.
+1. Nos filtros, selecione **tipo**, desmarque a opção **selecionar tudo** para limpar a lista.
+1. Digite **SSH** no filtro e selecione **chave SSH**.
+
+   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Captura de tela de como filtrar a lista para ver todas as suas chaves SSH.":::
+
+## <a name="get-the-public-key"></a>Obter a chave pública
+
+Se você precisar de sua chave pública, poderá copiá-la facilmente da página do portal para a chave. Basta listar suas chaves (usando o processo na última seção) e, em seguida, selecionar uma chave na lista. A página da sua chave será aberta e você poderá clicar no ícone **Copiar na área de transferência** ao lado da chave para copiá-la.
 
 ## <a name="next-steps"></a>Próximas etapas
 

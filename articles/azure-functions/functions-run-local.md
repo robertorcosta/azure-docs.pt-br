@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: bbdc05d2b5a770791bb81f26a71b9dc3eb7523d5
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8dfc1471955a6d10199a078922151ff3aeda4294
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505709"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929475"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
@@ -37,7 +37,7 @@ Há três versões do Azure Functions Core Tools. A versão usada depende do seu
 
 + **Versão 1. x**: dá suporte à versão 1. x do tempo de execução de Azure functions. Esta versão das ferramentas só tem suporte em computadores Windows e é instalada por meio de um [pacote npm](https://www.npmjs.com/package/azure-functions-core-tools).
 
-Salvo indicação em contrário, os exemplos neste artigo são para a versão 3. x.
+Você só pode instalar uma versão das ferramentas principais em um determinado computador. Salvo indicação em contrário, os exemplos neste artigo são para a versão 3. x.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -194,7 +194,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 `func init` o oferece suporte às seguintes opções, que são a versão 3. x/2. x-only, salvo indicação em contrário:
 
-| Opção     | Descrição                            |
+| Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
 | **`--csx`** | Cria funções do .NET como script C#, que é o comportamento da versão 1. x. Válido somente com `--worker-runtime dotnet` . |
 | **`--docker`** | Cria um Dockerfile para um contêiner usando uma imagem base com base no escolhido `--worker-runtime` . Use esta opção quando planejar publicar em um contêiner do Linux personalizado. |
@@ -257,20 +257,21 @@ Mesmo ao usar o Emulador de Armazenamento do Microsoft Azure para desenvolviment
 
   ![Copiar cadeia de conexão do Gerenciador de Armazenamento](./media/functions-run-local/storage-explorer.png)
 
-+ Use as Ferramentas Básicas para baixar a cadeia de conexão do Azure com um dos seguintes comandos:
++ Use as ferramentas básicas da raiz do projeto para baixar a cadeia de conexão do Azure com um dos seguintes comandos:
 
   + Baixe todas as configurações de um aplicativo de funções existente:
 
     ```
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
+
   + Obtenha a cadeia de conexão para uma conta de armazenamento específica:
 
     ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
-    Quando você ainda não tiver entrado no Azure, você será solicitado a fazê-lo.
+    Quando você ainda não tiver entrado no Azure, você será solicitado a fazê-lo. Esses comandos substituem as configurações existentes no local.settings.jsno arquivo. 
 
 ## <a name="create-a-function"></a><a name="create-func"></a>Criar uma função
 
@@ -376,7 +377,7 @@ npm start
 
 `func start` dá suporte para as seguintes opções:
 
-| Opção     | Descrição                            |
+| Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
 | **`--no-build`** | Não compile o projeto atual antes da execução. Somente para projetos dotnet. O padrão é definido como false. Sem suporte para a versão 1. x. |
 | **`--cors-credentials`** | Permitir solicitações autenticadas entre origens (ou seja, cookies e o cabeçalho de autenticação) sem suporte para a versão 1. x. |
@@ -485,7 +486,7 @@ Na versão 1. x, você também pode invocar uma função diretamente usando `fun
 
 `func run` dá suporte para as seguintes opções:
 
-| Opção     | Descrição                            |
+| Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
 | **`--content`**, **`-c`** | Conteúdo embutido. |
 | **`--debug`**, **`-d`** | Anexe um depurador ao processo de host antes de executar a função.|
@@ -527,14 +528,14 @@ Esse comando publica a um aplicativo de funções existente no Azure. Você rece
 
 As seguintes opções de publicação se aplicam a todas as versões:
 
-| Opção     | Descrição                            |
+| Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Configurações de publicação em local.settings.json do Azure, a solicitação para substituir se a configuração já existe. Se você estiver usando a Emulador de Armazenamento do Microsoft Azure, primeiro altere a configuração do aplicativo para uma [conexão de armazenamento real](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Suprima o prompt para substituir as configurações do aplicativo quando `--publish-local-settings -i` for usado.|
 
 As opções de publicação a seguir têm suporte apenas para a versão 2. x e versões posteriores:
 
-| Opção     | Descrição                            |
+| Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only`**, **`-o`** |  Somente publicar as configurações e ignorar o conteúdo. O padrão é solicitado. |
 |**`--list-ignored-files`** | Exibe uma lista de arquivos que são ignorados durante a publicação, que é baseada no arquivo .funcignore. |
@@ -558,7 +559,7 @@ func deploy
 
 As seguintes opções de implantação de contêiner personalizado estão disponíveis:
 
-| Opção     | Descrição                            |
+| Opção     | DESCRIÇÃO                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | O nome de um Registro do Docker ao qual o usuário atual está conectado. |
 | **`--platform`** | A plataforma de hospedagem do aplicativo de funções. As opções válidas são `kubernetes` |
@@ -596,7 +597,7 @@ Para arquivar uma solicitação de bug ou recurso, [abra um problema do GitHub](
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Portal do Azure]: https://portal.azure.com 
+[Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
