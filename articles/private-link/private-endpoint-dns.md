@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: df1896caaa0cba1f62dc1466124b393337fa8c83
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 5657741a1496084b55d2f76aef12c5e84c274feb
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985777"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918121"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuração de DNS do ponto de extremidade privado do Azure
 
@@ -27,12 +27,15 @@ Você pode usar as seguintes opções para definir as configurações de DNS par
 - **Use o encaminhador DNS (opcional)**. Você pode usar o encaminhador DNS para substituir a resolução DNS para um recurso de link particular específico. Se o [servidor DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) estiver hospedado em uma rede virtual, você poderá criar uma regra de encaminhamento de DNS para usar uma zona DNS privada para simplificar a configuração para todos os recursos de link privado.
  
 > [!IMPORTANT]
-> Não recomendamos que você substitua uma zona que está ativamente em uso para resolver pontos de extremidade públicos. As conexões com recursos não poderão ser resolvidas corretamente sem o encaminhamento de DNS para o DNS público. Para evitar problemas, crie um nome de domínio diferente ou siga o nome sugerido para cada serviço abaixo. 
+> Não é recomendável substituir uma zona que está ativamente em uso para resolver pontos de extremidade públicos. As conexões com recursos não poderão ser resolvidas corretamente sem o encaminhamento de DNS para o DNS público. Para evitar problemas, crie um nome de domínio diferente ou siga o nome sugerido para cada serviço abaixo. 
 
 ## <a name="azure-services-dns-zone-configuration"></a>Configuração de zona de DNS dos serviços do Azure
 Os serviços do Azure criarão um registro DNS de nome canônico (CNAME) no serviço DNS público para redirecionar a resolução para o nome de domínio privado sugerido. Você pode substituir a resolução pelo endereço IP privado dos seus pontos de extremidade privados. 
  
 Seus aplicativos não precisam alterar a URL de conexão. Ao tentar resolver usando um serviço DNS público, o servidor DNS agora será resolvido para seus pontos de extremidade privados. O processo não afeta seus aplicativos existentes. 
+
+> [!IMPORTANT]
+> Redes privadas que já usam a zona DNS privada para um determinado tipo só poderão se conectar a recursos públicos se não tiverem conexões de ponto de extremidade particulares, caso contrário, uma configuração de DNS correspondente será necessária na zona DNS privada para concluir a sequência de resolução DNS. 
 
 Para os serviços do Azure, use os nomes de zona recomendados, conforme descrito na tabela a seguir:
 
@@ -100,7 +103,7 @@ Para configurar corretamente, você precisa dos seguintes recursos:
 
 - Rede virtual de cliente
 
-- DNS privado zona [privatelink.Database.Windows.net](../dns/private-dns-privatednszone.md) com [um registro de tipo A](../dns/dns-zones-records.md#record-types)
+- DNS privado zona [privatelink.Database.Windows.net](../dns/private-dns-privatednszone.md)  com [um registro de tipo A](../dns/dns-zones-records.md#record-types)
 
 - Informações particulares do ponto de extremidade (nome do registro FQDN e endereço IP privado)
 

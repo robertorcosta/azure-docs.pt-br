@@ -4,14 +4,15 @@ description: Em muitos cenários de dimensionamento, o cliente geralmente precis
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 03/27/2019
 ms.author: zhshang
-ms.openlocfilehash: 43d703312cbc1fc067a2d51d5623ed028ba01405
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ecf4a35fc239a70e87550a97e71d7abd3d00ecfa
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74158165"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921980"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Como dimensionar o serviço de Signalr com várias instâncias?
 O SDK do serviço de sinalização mais recente dá suporte a vários pontos de extremidade para instâncias de serviço do Signalr. Você pode usar esse recurso para dimensionar as conexões simultâneas ou usá-las para mensagens entre regiões.
@@ -217,7 +218,7 @@ app.MapAzureSignalR(GetType().FullName, hub, options => {
 
 O `ServiceEndpoint` objeto tem uma `EndpointType` propriedade com valor `primary` ou `secondary` .
 
-`primary`os pontos de extremidade são pontos de extremidade preferenciais para receber o tráfego do cliente e são considerados conexões de rede mais confiáveis; os `secondary` pontos de extremidade são considerados como tendo conexões de rede menos confiáveis e são usados apenas para levar o servidor ao tráfego do cliente, por exemplo, transmitir mensagens, não para levar o cliente ao tráfego do servidor.
+`primary` os pontos de extremidade são pontos de extremidade preferenciais para receber o tráfego do cliente e são considerados conexões de rede mais confiáveis; os `secondary` pontos de extremidade são considerados como tendo conexões de rede menos confiáveis e são usados apenas para levar o servidor ao tráfego do cliente, por exemplo, transmitir mensagens, não para levar o cliente ao tráfego do servidor.
 
 Em casos entre regiões, a rede pode ser instável. Para um servidor de aplicativos localizado no *leste dos EUA*, o ponto de extremidade do serviço signalr localizado na mesma região *leste dos EUA* pode ser configurado como pontos de extremidade `primary` em outras regiões marcadas como `secondary` . Nessa configuração, os pontos de extremidade de serviço em outras regiões podem **receber** mensagens desse servidor de aplicativos *leste dos EUA* , mas não haverá clientes **entre regiões** roteados para esse servidor de aplicativos. A arquitetura é mostrada no diagrama a seguir:
 
