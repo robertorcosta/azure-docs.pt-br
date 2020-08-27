@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 0c008061d2d4fafa96eda934d5026c92839a0bdb
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 01d962db45a58781ca5f2ba494de16ad420b0807
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661479"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921062"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemas conhecidos no Azure digital gêmeos
 
@@ -51,7 +51,9 @@ Para usuários conectados com um [MSA (conta Microsoft pessoal)](https://account
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problema com a autenticação interativa do navegador
 
-Ao gravar o código de autenticação em seus aplicativos do Azure digital gêmeos usando a versão mais recente (versão **1.2.0**) da **biblioteca [do Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) **, você pode ter problemas com o método [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) .
+Ao gravar o código de autenticação em seus aplicativos de gêmeos digital do Azure usando a versão **1.2.0** da biblioteca do ** [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) **, você pode enfrentar problemas com o método [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) .
+
+Esta não é a versão mais recente da biblioteca. A versão mais recente é **1.2.2**.
 
 O método afetado é usado nos seguintes artigos: 
 * [*Tutorial: Codificar um aplicativo cliente*](tutorial-code.md)
@@ -62,10 +64,7 @@ O problema inclui uma resposta de erro "Azure. Identity. AuthenticationFailedExc
 
 ### <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 
-Para resolver, faça com que seus aplicativos usem explicitamente o Azure. Identity versão **1.1.1**. Com esta versão da biblioteca, o navegador deve carregar e autenticar conforme o esperado.
-
->[!NOTE]
-> Não é suficiente adicionar a biblioteca sem especificar nenhuma versão, pois isso ainda usará como padrão a **1.2.0**mais recente. Você precisará especificar a versão **1.1.1** explicitamente.
+Para resolver, atualize seus aplicativos para usar o Azure. Identity versão **1.2.2**. Com esta versão da biblioteca, o navegador deve carregar e autenticar conforme o esperado.
 
 ### <a name="possible-causes"></a>Possíveis causas
 

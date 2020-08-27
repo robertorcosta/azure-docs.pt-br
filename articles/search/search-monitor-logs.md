@@ -8,26 +8,26 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: c940d0dd4c92aca92291bfe1dbd6c15f1091f0b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52230d6b13c4210e0ff8e85d0a3efe39af55f6e2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611604"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935051"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Coletar e analisar dados de log para o Azure Pesquisa Cognitiva
 
 Os logs de diagnóstico ou operacionais fornecem informações sobre as operações detalhadas do Azure Pesquisa Cognitiva e são úteis para monitorar processos de serviço e carga de trabalho. Internamente, algumas informações do sistema existem no back-end por um curto período de tempo, suficiente para investigação e análise se você arquivar um tíquete de suporte. No entanto, se você quiser a autodireção sobre os dados operacionais, deverá configurar uma configuração de diagnóstico para especificar onde as informações de log serão coletadas.
 
-O log de diagnóstico é habilitado por meio da integração com o [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/). 
+O log de diagnóstico é habilitado por meio da integração com o [Azure monitor](../azure-monitor/index.yml). 
 
 Ao configurar o log de diagnóstico, você será solicitado a especificar um mecanismo de armazenamento. A tabela a seguir enumera as opções para coletar e manter dados.
 
-| Recurso | Usada para |
+| Recurso | Usado para |
 |----------|----------|
-| [Enviar para o workspace do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Os eventos e as métricas são enviados para um espaço de trabalho Log Analytics, que pode ser consultado no portal para retornar informações detalhadas. Para obter uma introdução, consulte Introdução [aos logs de Azure monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Arquivar com armazenamento de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Os eventos e as métricas são arquivados em um contêiner de BLOB e armazenados em arquivos JSON. Os logs podem ser bastante granulares (por hora/minuto), úteis para pesquisar um incidente específico, mas não para investigação aberta. Use um editor de JSON para exibir um arquivo de log bruto ou Power BI para agregar e Visualizar dados de log.|
-| [Transmitir para o Hub de eventos](https://docs.microsoft.com/azure/event-hubs/) | Os eventos e as métricas são transmitidos para um serviço de hubs de eventos do Azure. Escolha esta opção como um serviço de coleta de dados alternativo para logs muito grandes. |
+| [Enviar para o workspace do Log Analytics](../azure-monitor/learn/tutorial-resource-logs.md) | Os eventos e as métricas são enviados para um espaço de trabalho Log Analytics, que pode ser consultado no portal para retornar informações detalhadas. Para obter uma introdução, consulte Introdução [aos logs de Azure monitor](../azure-monitor/log-query/get-started-portal.md) |
+| [Arquivar com armazenamento de BLOBs](../storage/blobs/storage-blobs-overview.md) | Os eventos e as métricas são arquivados em um contêiner de BLOB e armazenados em arquivos JSON. Os logs podem ser bastante granulares (por hora/minuto), úteis para pesquisar um incidente específico, mas não para investigação aberta. Use um editor de JSON para exibir um arquivo de log bruto ou Power BI para agregar e Visualizar dados de log.|
+| [Transmitir para o Hub de eventos](../event-hubs/index.yml) | Os eventos e as métricas são transmitidos para um serviço de hubs de eventos do Azure. Escolha esta opção como um serviço de coleta de dados alternativo para logs muito grandes. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +35,7 @@ Crie recursos com antecedência para que você possa selecionar um ou mais ao co
 
 + [Criar um espaço de trabalho do log Analytics](../azure-monitor/learn/quick-create-workspace.md)
 
-+ [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md)
++ [Criar uma conta de armazenamento](../storage/common/storage-account-create.md)
 
 + [Criar um Hub de Eventos](../event-hubs/event-hubs-create.md)
 
@@ -45,7 +45,7 @@ As configurações de diagnóstico especificam como os eventos registrados e as 
 
 1. Em **Monitoramento**, selecione **Configurações de diagnóstico**.
 
-   ![Configurações de Diagnóstico](./media/search-monitor-usage/diagnostic-settings.png "Configurações de Diagnóstico")
+   ![Configurações de diagnóstico](./media/search-monitor-usage/diagnostic-settings.png "Configurações de diagnóstico")
 
 1. Selecione **+ Adicionar configuração de diagnóstico**
 
@@ -120,11 +120,11 @@ AzureDiagnostics
 
 Os eventos registrados pelo Azure Monitor incluem aqueles relacionados à indexação e consultas. A tabela **AzureDiagnostics** no log Analytics coleta dados operacionais relacionados a consultas e indexação.
 
-| OperationName | Descrição |
+| OperationName | DESCRIÇÃO |
 |---------------|-------------|
-| Perstats | Essa operação é uma chamada de rotina para [obter estatísticas de serviço](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), chamadas direta ou implicitamente para preencher uma página de visão geral do portal quando ela é carregada ou atualizada. |
+| Perstats | Essa operação é uma chamada de rotina para [obter estatísticas de serviço](/rest/api/searchservice/get-service-statistics), chamadas direta ou implicitamente para preencher uma página de visão geral do portal quando ela é carregada ou atualizada. |
 | Consulta. Search |  Solicitações de consulta em um índice consulte [monitorar consultas](search-monitor-queries.md) para obter informações sobre consultas registradas.|
-| Indexação. index  | Esta operação é uma chamada para [Adicionar, atualizar ou excluir documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
+| Indexação. index  | Esta operação é uma chamada para [Adicionar, atualizar ou excluir documentos](/rest/api/searchservice/addupdate-or-delete-documents). |
 | índices. Funções | Este é um índice criado pelo assistente de importação de dados. |
 | Indexadores. Create | Crie um indexador explicitamente ou implicitamente por meio do assistente de importação de dados. |
 | Indexadores. Get | Retorna o nome de um indexador sempre que o indexador é executado. |
@@ -138,7 +138,7 @@ Se você estiver criando relatórios personalizados, as estruturas de dados que 
 
 A tabela a seguir é uma lista parcial de campos comuns ao log de recursos.
 
-| Nome | Tipo | Exemplo | Observações |
+| Nome | Type | Exemplo | Observações |
 | --- | --- | --- | --- |
 | timeGenerated |DATETIME |"2018-12-07T00:00:43.6872559Z" |Carimbo de data/hora da operação |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Seu ResourceId |
@@ -154,7 +154,7 @@ A tabela a seguir é uma lista parcial de campos comuns ao log de recursos.
 
 As propriedades abaixo são específicas para Pesquisa Cognitiva do Azure.
 
-| Nome | Tipo | Exemplo | Observações |
+| Nome | Type | Exemplo | Observações |
 | --- | --- | --- | --- |
 | Description_s |string |"GET /indexes('content')/docs" |Ponto de extremidade da operação |
 | Documents_d |INT |42 |Número de documentos processados |
@@ -165,7 +165,7 @@ As propriedades abaixo são específicas para Pesquisa Cognitiva do Azure.
 
 As métricas são capturadas para solicitações de consulta e medidas em intervalos de um minuto. Cada métrica expõe valores mínimo, máximo e médios por minuto. Para obter mais informações, consulte [monitorar solicitações de consulta](search-monitor-queries.md).
 
-| Nome | Tipo | Exemplo | Observações |
+| Nome | Type | Exemplo | Observações |
 | --- | --- | --- | --- |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |sua ID de recurso |
 | metricName |string |"Latency" |o nome da métrica |

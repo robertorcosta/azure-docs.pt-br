@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: f030e382a5378c84df347c545e9426adee6eacb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18646fc92dda7cebb7a8c1030285956d8fe4df74
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85566004"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924153"
 ---
 # <a name="how-to-shape-and-export-enrichments"></a>Como formatar e exportar aprimoramentos
 
@@ -206,7 +206,7 @@ A projeção para tabelas no armazenamento do Azure é útil para relatórios e 
 Vamos criar um painel para visualizar as frases-chave extraídas dos documentos como uma palavra em nuvem. Para criar a estrutura de dados correta, adicione uma habilidade de forma do condador para criar uma forma personalizada que tenha detalhes específicos do documento e frases-chave. A forma personalizada será chamada `pbiShape` no `document` nó raiz.
 
 > [!NOTE] 
-> As projeções de tabela são tabelas de armazenamento do Azure, governadas pelos limites de armazenamento impostos pelo armazenamento do Azure. Para obter mais informações, consulte [limites de armazenamento de tabelas](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). É útil saber que o tamanho da entidade não pode exceder 1 MB e uma única propriedade não pode ser maior que 64 KB. Essas restrições tornam as tabelas uma boa solução para armazenar um grande número de pequenas entidades.
+> As projeções de tabela são tabelas de armazenamento do Azure, governadas pelos limites de armazenamento impostos pelo armazenamento do Azure. Para obter mais informações, consulte [limites de armazenamento de tabelas](/rest/api/storageservices/understanding-the-table-service-data-model). É útil saber que o tamanho da entidade não pode exceder 1 MB e uma única propriedade não pode ser maior que 64 KB. Essas restrições tornam as tabelas uma boa solução para armazenar um grande número de pequenas entidades.
 
 ### <a name="using-a-shaper-skill-to-create-a-custom-shape"></a>Usando uma habilidade de formador para criar uma forma personalizada
 
@@ -677,4 +677,3 @@ Para obter uma visão geral das projeções, saiba mais sobre os recursos como g
 
 > [!div class="nextstepaction"]
 > [Projeções em um repositório de conhecimento](knowledge-store-projection-overview.md)
-

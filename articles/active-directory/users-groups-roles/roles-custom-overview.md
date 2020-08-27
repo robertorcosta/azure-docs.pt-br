@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ce2ea7bed7da5226868afcf4d284ba893f2208a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 915098130c7a8462bc0e009be04a61b5b0a7985d
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828652"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795585"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Funções de administrador personalizadas no Azure Active Directory (versão prévia)
 
@@ -46,7 +46,7 @@ Veja a seguir as etapas de alto nível que o Azure AD usa para determinar se voc
 
 1. Dependendo da circunstância, o Azure AD usa uma das seguintes ações:
 
-    - Avalia as associações de função do usuário com base na [declaração de wids](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) no token de acesso do usuário.
+    - Avalia as associações de função do usuário com base na [declaração de wids](../develop/access-tokens.md) no token de acesso do usuário.
     - Recupera todas as atribuições de função que se aplicam para usuário, diretamente ou por meio da associação de grupo, ao recurso no qual a ação está sendo executada.
 
 1. O Azure AD determina se a ação na chamada à API está incluída nas funções que o usuário tem para este recurso.

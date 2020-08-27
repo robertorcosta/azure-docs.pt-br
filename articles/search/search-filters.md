@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7f2eb7cff5d8fe77a56117a0be57f0edb86889a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75932acb740eeff6f95180cf2eaa332ad0f5fb6a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562299"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923068"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtros no Azure Pesquisa Cognitiva 
 
@@ -61,7 +61,7 @@ No momento da consulta, um analisador de filtro aceita critérios como entrada, 
 A filtragem ocorre em conjunto com a pesquisa, qualificando quais documentos incluir no processamento de downstream para a classificação de documentos e a pontuação de relevância. Quando emparelhado com uma cadeia de caracteres de pesquisa, o filtro reduz efetivamente o conjunto de recuperação da operação de pesquisa subsequente. Quando usado sozinho (por exemplo, quando a cadeia de caracteres de consulta estiver vazio em `search=*`), os critérios de filtro são a única entrada. 
 
 ## <a name="defining-filters"></a>Definir filtros
-Filtros são expressões OData, articuladas usando um [subconjunto de sintaxe OData V4 com suporte no Azure pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+Filtros são expressões OData, articuladas usando um [subconjunto de sintaxe OData V4 com suporte no Azure pesquisa cognitiva](/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
 Você pode especificar um filtro para cada operação de **pesquisa** , mas o próprio filtro pode incluir vários campos, vários critérios e, se você usar uma função **IsMatch** , várias expressões de pesquisa de texto completo. Em uma expressão de filtro de várias partes, você pode especificar predicados em qualquer ordem (sujeito às regras de precedência de operador). Não há nenhum ganho significativo no desempenho se você tentar reorganizar predicados em uma determinada sequência.
 
@@ -95,7 +95,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## <a name="filter-usage-patterns"></a>Padrões de uso de filtro
 
-Os exemplos a seguir ilustram vários padrões de uso para cenários de filtro. Para obter mais ideias, consulte [Sintaxe de expressão do OData > Exemplos](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
+Os exemplos a seguir ilustram vários padrões de uso para cenários de filtro. Para obter mais ideias, consulte [Sintaxe de expressão do OData > Exemplos](./search-query-odata-filter.md#examples).
 
 + **$filter** autônomo, sem uma cadeia de consulta, útil quando a expressão de filtro puder qualificar totalmente documentos de interesse. Sem uma cadeia de caracteres de consulta, não há nenhuma análise linguística ou lexical, nenhuma pontuação e nenhuma classificação. Observe que a cadeia de caracteres de pesquisa é apenas um asterisco, o que significa "corresponder todos os documentos".
 
@@ -135,9 +135,9 @@ Confira estes artigos para obter orientação abrangente sobre casos de uso espe
 
 ## <a name="field-requirements-for-filtering"></a>Requisitos de campo para filtragem
 
-Na API REST, filtrável está *ativado* por padrão para campos simples. Campos que podem ser filtrados aumentam o tamanho do índice. Certifique-se de definir `"filterable": false` para os campos que não planeja usar em um filtro. Para obter mais informações sobre como configurar definições de campo, consulte [Criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Na API REST, filtrável está *ativado* por padrão para campos simples. Campos que podem ser filtrados aumentam o tamanho do índice. Certifique-se de definir `"filterable": false` para os campos que não planeja usar em um filtro. Para obter mais informações sobre como configurar definições de campo, consulte [Criar índice](/rest/api/searchservice/create-index).
 
-No SDK .NET, filtrável está *desabilitado* por padrão. Você pode tornar um campo filtrável definindo a [Propriedade Isfiltrável](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) do objeto [Field](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) correspondente como `true` . Você também pode fazer isso de forma declarativa usando o [atributo Isfiltráable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). No exemplo a seguir, o atributo é definido na `BaseRate` propriedade de uma classe de modelo que é mapeada para a definição de índice.
+No SDK .NET, filtrável está *desabilitado* por padrão. Você pode tornar um campo filtrável definindo a [Propriedade Isfiltrável](/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) do objeto [Field](/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) correspondente como `true` . Você também pode fazer isso de forma declarativa usando o [atributo Isfiltráable](/dotnet/api/microsoft.azure.search.isfilterableattribute). No exemplo a seguir, o atributo é definido na `BaseRate` propriedade de uma classe de modelo que é mapeada para a definição de índice.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]
@@ -193,12 +193,12 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
 ```
 
-Para trabalhar com mais exemplos, consulte [Sintaxe de expressão de filtro OData > Exemplos](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
+Para trabalhar com mais exemplos, consulte [Sintaxe de expressão de filtro OData > Exemplos](./search-query-odata-filter.md#examples).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 + [Como funciona a pesquisa de texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)
-+ [API REST para pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents)
-+ [Sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Sintaxe de consulta Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-+ [Tipos de dados com suporte](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)
++ [API REST para pesquisar documentos](/rest/api/searchservice/search-documents)
++ [Sintaxe de consulta simples](/rest/api/searchservice/simple-query-syntax-in-azure-search)
++ [Sintaxe de consulta Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Tipos de dados com suporte](/rest/api/searchservice/supported-data-types)

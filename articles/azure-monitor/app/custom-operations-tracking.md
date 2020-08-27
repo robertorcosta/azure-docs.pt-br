@@ -2,14 +2,15 @@
 title: Acompanhar operações personalizadas com o SDK do .NET do Aplicativo Azure insights
 description: Acompanhar operações personalizadas com o SDK do .NET do Azure Application Insights
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: bd30f60928df3644b215f185d620393d1edda8c7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 42a5318325f9961483465357403089755feb130d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320367"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933300"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhar operações personalizadas com o SDK do .NET do Application Insights
 
@@ -347,9 +348,9 @@ Ao instrumentar a exclusão de mensagem, verifique se você definiu os identific
 ### <a name="dependency-types"></a>Tipos de dependência
 
 Application Insights usa o tipo de dependência para personalizar experiências de interface do usuário. Para filas, ele reconhece os seguintes tipos de `DependencyTelemetry` que melhoram a [experiência de diagnóstico de transação](./transaction-diagnostics.md):
-- `Azure queue`para filas do armazenamento do Azure
-- `Azure Event Hubs`para hubs de eventos do Azure
-- `Azure Service Bus`para o barramento de serviço do Azure
+- `Azure queue` para filas do armazenamento do Azure
+- `Azure Event Hubs` para hubs de eventos do Azure
+- `Azure Service Bus` para o barramento de serviço do Azure
 
 ### <a name="batch-processing"></a>Processamento em lotes
 Com algumas filas, você pode remover da fila várias mensagens com uma solicitação. O processamento dessas mensagens é supostamente independente e pertence a diferentes operações lógicas. Não é possível correlacionar a `Dequeue` operação a uma mensagem específica que está sendo processada.
@@ -469,11 +470,11 @@ public async Task RunAllTasks()
 ```
 
 ## <a name="applicationinsights-operations-vs-systemdiagnosticsactivity"></a>Operações de ApplicationInsights vs System. Diagnostics. Activity
-`System.Diagnostics.Activity`representa o contexto de rastreamento distribuído e é usado por estruturas e bibliotecas para criar e propagar o contexto dentro e fora do processo e correlacionar os itens de telemetria. A atividade funciona junto com o `System.Diagnostics.DiagnosticSource` mecanismo de notificação entre a estrutura/biblioteca para notificar sobre eventos interessantes (solicitações de entrada ou de saída, exceções, etc.).
+`System.Diagnostics.Activity` representa o contexto de rastreamento distribuído e é usado por estruturas e bibliotecas para criar e propagar o contexto dentro e fora do processo e correlacionar os itens de telemetria. A atividade funciona junto com o `System.Diagnostics.DiagnosticSource` mecanismo de notificação entre a estrutura/biblioteca para notificar sobre eventos interessantes (solicitações de entrada ou de saída, exceções, etc.).
 
 As atividades são cidadãos de primeira classe no Application Insights, e a coleção de solicitações e a dependência automática depende muito delas junto com os `DiagnosticSource` eventos. Se você criar atividade em seu aplicativo, ele não resultará na criação de Application Insights telemetria. Application Insights precisa receber eventos de diagnóstico e conhecer os nomes de eventos e as cargas para converter a atividade na telemetria.
 
-Cada operação de Application Insights (solicitação ou dependência) envolve `Activity` -se-quando `StartOperation` é chamado, ele cria a atividade abaixo. `StartOperation`é a maneira recomendada para controlar a telemetrias de solicitação ou dependência manualmente e garantir que tudo esteja correlacionado.
+Cada operação de Application Insights (solicitação ou dependência) envolve `Activity` -se-quando `StartOperation` é chamado, ele cria a atividade abaixo. `StartOperation` é a maneira recomendada para controlar a telemetrias de solicitação ou dependência manualmente e garantir que tudo esteja correlacionado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

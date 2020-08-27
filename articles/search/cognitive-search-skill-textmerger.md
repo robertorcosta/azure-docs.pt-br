@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: f713eb71d375a3388c4b238656355595354b9806
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b364655f26c6ac29c14d387d69d7b4277d6aeb86
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982009"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924632"
 ---
 #   <a name="text-merge-cognitive-skill"></a>Habilidade de percepção do Text Merge
 
@@ -75,7 +75,7 @@ Este exemplo mostra a saída da entrada anterior, supondo que o *insertPreTag* s
 
 Um cenário comum para o Text Merge é a capacidade de mesclar a representação textual de imagens (texto de uma habilidade OCR ou a legenda de uma imagem) no campo de conteúdo de um documento. 
 
-O conjunto de qualificações do exemplo a seguir usa a habilidade de OCR para extrair o texto de imagens inseridas no documento. Em seguida, cria um campo *merged_text* que contém texto original e OCRed de cada imagem. Saiba mais sobre a habilidade OCR [aqui](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
+O conjunto de qualificações do exemplo a seguir usa a habilidade de OCR para extrair o texto de imagens inseridas no documento. Em seguida, cria um campo *merged_text* que contém texto original e OCRed de cada imagem. Saiba mais sobre a habilidade OCR [aqui](./cognitive-search-skill-ocr.md).
 
 ```json
 {
@@ -148,4 +148,4 @@ O exemplo acima presume que um campo de imagens normalizado existe. Para gerar e
 
 + [Habilidades internas](cognitive-search-predefined-skills.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
-+ [Criar Indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Criar Indexador (REST)](/rest/api/searchservice/create-indexer)

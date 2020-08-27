@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 861e011c4bd368a274998859170e78cf444400a8
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 6af0f2b5221a737687578e939c14cecf3be14509
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206178"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932909"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Noções básicas sobre filtros de coleção OData no Azure Pesquisa Cognitiva
 
@@ -88,14 +88,14 @@ O motivo é que `Rooms/Type` se refere a todos os termos analisados do `Rooms/Ty
 
 Como o `Rooms/Type` é armazenado para pesquisa de texto completo:
 
-| Termo em`Rooms/Type` | IDs de documento |
+| Termo em `Rooms/Type` | IDs de documento |
 | --- | --- |
 | Deluxe | 1, 2 |
 | padrão | 1 |
 
 Como o `Rooms/Description` é armazenado para pesquisa de texto completo:
 
-| Termo em`Rooms/Description` | IDs de documento |
+| Termo em `Rooms/Description` | IDs de documento |
 | --- | --- |
 | courtyard | 2 |
 | city | 1 |
@@ -180,9 +180,9 @@ e cada uma das duas `any` subexpressãos pode ser executada com eficiência usan
 > [!NOTE]
 > Embora os detalhes estejam além do escopo deste documento, esses mesmos princípios se estendem a [testes de distância e interseção para coleções de pontos geoespaciais](search-query-odata-geo-spatial-functions.md) também. É por isso que, em `any` :
 >
-> - `geo.intersects`Não pode ser negado
-> - `geo.distance`deve ser comparado usando `lt` ou`le`
-> - as expressões devem ser combinadas com `or` , não`and`
+> - `geo.intersects` Não pode ser negado
+> - `geo.distance` deve ser comparado usando `lt` ou `le`
+> - as expressões devem ser combinadas com `or` , não `and`
 >
 > As regras de inverso se aplicam ao `all` .
 
@@ -204,4 +204,4 @@ Para obter exemplos específicos de quais tipos de filtros são permitidos e qua
 - [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
 - [Visão geral da linguagem de expressão OData para Azure Pesquisa Cognitiva](query-odata-filter-orderby-syntax.md)
 - [Referência de sintaxe de expressão OData para Pesquisa Cognitiva do Azure](search-query-odata-syntax-reference.md)
-- [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](/rest/api/searchservice/Search-Documents)

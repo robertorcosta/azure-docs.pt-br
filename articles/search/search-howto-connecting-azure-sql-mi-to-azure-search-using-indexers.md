@@ -8,12 +8,12 @@ ms.author: victliu
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 65e483fd772e20daa73b465ea17dfa6ecde42233
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1304ad05e05285aa75167ec21519ec90d157662
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76964882"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922881"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Configurar uma conexão de um indexador Pesquisa Cognitiva do Azure para o SQL Instância Gerenciada
 
@@ -38,11 +38,11 @@ Verifique se o grupo de segurança de rede tem as **regras de segurança de entr
 > Os indexadores ainda exigem que o SQL Instância Gerenciada seja configurado com um ponto de extremidade público para ler os dados.
 > No entanto, você pode optar por restringir o acesso de entrada para esse ponto de extremidade público substituindo a regra atual ( `public_endpoint_inbound` ) pelas duas regras a seguir:
 >
-> * Permitindo o acesso de entrada da `AzureCognitiveSearch` [marca de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("Source" = `AzureCognitiveSearch` , "Name" = `cognitive_search_inbound` )
+> * Permitindo o acesso de entrada da `AzureCognitiveSearch` [marca de serviço](../virtual-network/service-tags-overview.md#available-service-tags) ("Source" = `AzureCognitiveSearch` , "Name" = `cognitive_search_inbound` )
 >
 > * Permitir o acesso de entrada do endereço IP do serviço de pesquisa, que pode ser obtido por meio do ping de seu nome de domínio totalmente qualificado (por exemplo, `<your-search-service-name>.search.windows.net` ). ("SOURCE" = `IP address` , "Name" = `search_service_inbound` )
 >
-> Para cada uma dessas duas regras, defina "porta" = `3342` , "protocolo" = `TCP` , "destino" = `Any` , "ação" =`Allow`
+> Para cada uma dessas duas regras, defina "porta" = `3342` , "protocolo" = `TCP` , "destino" = `Any` , "ação" = `Allow`
 
 ## <a name="get-public-endpoint-connection-string"></a>Obter cadeia de conexão de ponto de extremidade público
 Certifique-se de usar a cadeia de conexão para o **ponto de extremidade público** (porta 3342, não porta 1433).

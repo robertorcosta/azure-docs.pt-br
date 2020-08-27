@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: 5dd061309447dd6037d2dd664e7c5db2c7df38cc
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 182d9a77700577c583bbdcd6f2620c0603569dd0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870197"
+ms.locfileid: "88935221"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Atualizar para o Azure Pesquisa Cognitiva SDK do .NET versão 11
 
-Se você estiver usando a versão 10,0 ou anterior do [SDK do .net](https://docs.microsoft.com/dotnet/api/overview/azure/search), este artigo o ajudará a atualizar para a versão 11.
+Se você estiver usando a versão 10,0 ou anterior do [SDK do .net](/dotnet/api/overview/azure/search), este artigo o ajudará a atualizar para a versão 11.
 
-A versão 11 é uma biblioteca de cliente totalmente reprojetada, liberada pela equipe de desenvolvimento do SDK do Azure (as versões anteriores foram produzidas pela equipe de desenvolvimento do Azure Pesquisa Cognitiva). A biblioteca foi reprojetada para maior consistência com outras bibliotecas de cliente do Azure, assumindo uma dependência no [Azure. Core](https://docs.microsoft.com/dotnet/api/azure.core) e [System.Text.Jsem](https://docs.microsoft.com/dotnet/api/system.text.json)e implementando abordagens familiares para tarefas comuns.
+A versão 11 é uma biblioteca de cliente totalmente reprojetada, liberada pela equipe de desenvolvimento do SDK do Azure (as versões anteriores foram produzidas pela equipe de desenvolvimento do Azure Pesquisa Cognitiva). A biblioteca foi reprojetada para maior consistência com outras bibliotecas de cliente do Azure, assumindo uma dependência no [Azure. Core](/dotnet/api/azure.core) e [System.Text.Jsem](/dotnet/api/system.text.json)e implementando abordagens familiares para tarefas comuns.
 
 Algumas das principais diferenças que você observará na nova versão incluem:
 
@@ -38,7 +38,7 @@ A versão 11 consolida vários pacotes e bibliotecas em um. Após a migração, 
 
 + [Azure.Search.Docpacote uments](https://www.nuget.org/packages/Azure.Search.Documents/)
 
-+ [Referência de API para a biblioteca de cliente](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet)
++ [Referência de API para a biblioteca de cliente](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet)
 
 ## <a name="client-differences"></a>Diferenças de cliente
 
@@ -46,9 +46,9 @@ Quando aplicável, a tabela a seguir mapeia as bibliotecas de cliente entre as d
 
 | Escopo de operações | Microsoft. Azure. Search &nbsp; (V10) | Azure.Search.Documents &nbsp; (v11) |
 |---------------------|------------------------------|------------------------------|
-| Cliente usado para consultas e para popular um índice. | [SearchIndexClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient) | [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient) |
-| Cliente usado para índices, analisadores, mapas de sinônimos | [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient) |
-| Cliente usado para indexadores, fontes de dados, habilidades | [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**novo**)](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
+| Cliente usado para consultas e para popular um índice. | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) | [SearchClient](/dotnet/api/azure.search.documents.searchclient) |
+| Cliente usado para índices, analisadores, mapas de sinônimos | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) |
+| Cliente usado para indexadores, fontes de dados, habilidades | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**novo**)](/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
 
 > [!Important]
 > `SearchIndexClient` existe em ambas as versões, mas dá suporte a coisas diferentes. Na versão 10, `SearchIndexClient` crie índices e outros objetos. Na versão 11, `SearchIndexClient` funciona com índices existentes. Para evitar confusão ao atualizar o código, lembre-se da ordem na qual as referências do cliente são atualizadas. Seguir a sequência em [etapas para atualizar](#UpgradeSteps) o deve ajudar a mitigar quaisquer problemas de substituição de cadeia de caracteres.
@@ -63,57 +63,57 @@ Além das diferenças do cliente (observado anteriormente e, portanto, omitido a
 
 | Versão 10 | Equivalente à versão 11 |
 |------------|-----------------------|
-| [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials) | [AzureKeyCredential](https://docs.microsoft.com/dotnet/api/azure.azurekeycredential) |
-| `EncryptionKey` (existia no [SDK de visualização](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) como um recurso geralmente disponível) | [SearchResourceEncryptionKey](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchresourceencryptionkey) |
+| [SearchCredentials](/dotnet/api/microsoft.azure.search.searchcredentials) | [AzureKeyCredential](/dotnet/api/azure.azurekeycredential) |
+| `EncryptionKey` (existia no [SDK de visualização](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) como um recurso geralmente disponível) | [SearchResourceEncryptionKey](/dotnet/api/azure.search.documents.indexes.models.searchresourceencryptionkey) |
 
 ### <a name="indexes-analyzers-synonym-maps"></a>Índices, analisadores, mapas de sinônimos
 
 | Versão 10 | Equivalente à versão 11 |
 |------------|-----------------------|
-| [Index](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.index) | [SearchIndex](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindex) |
-| [Campo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field) | [Searchfield](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfield) |
-| [DataType](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datatype) | [SearchFieldDataType](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfielddatatype) |
-| [Erro de](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.itemerror) | [SearchIndexerError](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindexererror) |
-| [Analisador](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer) | [LexicalAnalyzer](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer) (também, `AnalyzerName` para `LexicalAnalyzerName` ) |
-| [AnalyzeRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzerequest) | [AnalyzeTextOptions](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.analyzetextoptions) |
-| [StandardAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.standardanalyzer) | [LuceneStandardAnalyzer](https://docs.microsoft.com//dotnet/api/azure.search.documents.indexes.models.lucenestandardanalyzer) |
-| [StandardTokenizer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.standardtokenizer) | [LuceneStandardTokenizer](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.lucenestandardtokenizer) (também, `StandardTokenizerV2` para `LuceneStandardTokenizerV2` ) |
-| [TokenInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.tokeninfo) | [AnalyzedTokenInfo](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.analyzedtokeninfo) |
-| [Criador](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.tokenizer) | [LexicalTokenizer](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.lexicaltokenizer) (também, `TokenizerName` para `LexicalTokenizerName` ) |
-| [SynonymMap. Format](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap.format) | nenhuma. Remova as referências a `Format` . |
+| [Index](/dotnet/api/microsoft.azure.documents.index) | [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) |
+| [Campo](/dotnet/api/microsoft.azure.search.models.field) | [Searchfield](/dotnet/api/azure.search.documents.indexes.models.searchfield) |
+| [DataType](/dotnet/api/microsoft.azure.search.models.datatype) | [SearchFieldDataType](/dotnet/api/azure.search.documents.indexes.models.searchfielddatatype) |
+| [Erro de](/dotnet/api/microsoft.azure.search.models.itemerror) | [SearchIndexerError](/dotnet/api/azure.search.documents.indexes.models.searchindexererror) |
+| [Analisador](/dotnet/api/microsoft.azure.search.models.analyzer) | [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer) (também, `AnalyzerName` para `LexicalAnalyzerName` ) |
+| [AnalyzeRequest](/dotnet/api/microsoft.azure.search.models.analyzerequest) | [AnalyzeTextOptions](/dotnet/api/azure.search.documents.indexes.models.analyzetextoptions) |
+| [StandardAnalyzer](/dotnet/api/microsoft.azure.search.models.standardanalyzer) | [LuceneStandardAnalyzer](//dotnet/api/azure.search.documents.indexes.models.lucenestandardanalyzer) |
+| [StandardTokenizer](/dotnet/api/microsoft.azure.search.models.standardtokenizer) | [LuceneStandardTokenizer](/dotnet/api/azure.search.documents.indexes.models.lucenestandardtokenizer) (também, `StandardTokenizerV2` para `LuceneStandardTokenizerV2` ) |
+| [TokenInfo](/dotnet/api/microsoft.azure.search.models.tokeninfo) | [AnalyzedTokenInfo](/dotnet/api/azure.search.documents.indexes.models.analyzedtokeninfo) |
+| [Criador](/dotnet/api/microsoft.azure.search.models.tokenizer) | [LexicalTokenizer](/dotnet/api/azure.search.documents.indexes.models.lexicaltokenizer) (também, `TokenizerName` para `LexicalTokenizerName` ) |
+| [SynonymMap. Format](/dotnet/api/microsoft.azure.search.models.synonymmap.format) | Nenhum. Remova as referências a `Format` . |
 
-As definições de campo são simplificadas: [SearchableField](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchablefield), [simplestyle](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.simplefield), [complexfield](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.complexfield) são novas APIs para a criação de definições de campo.
+As definições de campo são simplificadas: [SearchableField](/dotnet/api/azure.search.documents.indexes.models.searchablefield), [simplestyle](/dotnet/api/azure.search.documents.indexes.models.simplefield), [complexfield](/dotnet/api/azure.search.documents.indexes.models.complexfield) são novas APIs para a criação de definições de campo.
 
 ### <a name="indexers-datasources-skillsets"></a>Indexadores, fontes de habilidades
 
 | Versão 10 | Equivalente à versão 11 |
 |------------|-----------------------|
-| [Indexador](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) | [SearchIndexer](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindexer) |
-| [Fonte](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource) | [SearchIndexerDataSourceConnection](https://docs.microsoft.com//dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) |
-| [Técnico](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.skill) | [SearchIndexerSkill](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindexerskill) |
-| [Conjunto de habilidades](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.skillset) | [SearchIndexerSkillset](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindexerskill) |
-| [DataSourceType](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype) | [SearchIndexerDataSourceType](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) |
+| [Indexador](/dotnet/api/microsoft.azure.search.models.indexer) | [SearchIndexer](/dotnet/api/azure.search.documents.indexes.models.searchindexer) |
+| [Fonte](/dotnet/api/microsoft.azure.search.models.datasource) | [SearchIndexerDataSourceConnection](//dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) |
+| [Técnico](/dotnet/api/microsoft.azure.search.models.skill) | [SearchIndexerSkill](/dotnet/api/azure.search.documents.indexes.models.searchindexerskill) |
+| [Conjunto de habilidades](/dotnet/api/microsoft.azure.search.models.skillset) | [SearchIndexerSkillset](/dotnet/api/azure.search.documents.indexes.models.searchindexerskill) |
+| [DataSourceType](/dotnet/api/microsoft.azure.search.models.datasourcetype) | [SearchIndexerDataSourceType](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) |
 
 ### <a name="data-import"></a>Importação de Dados
 
 | Versão 10 | Equivalente à versão 11 |
 |------------|-----------------------|
-| [IndexAction](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction) | [IndexDocumentsAction](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsaction) |
-| [IndexBatch](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch) | [IndexDocumentsBatch](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch) |
+| [IndexAction](/dotnet/api/microsoft.azure.search.models.indexaction) | [IndexDocumentsAction](/dotnet/api/azure.search.documents.models.indexdocumentsaction) |
+| [IndexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch) | [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch) |
 
 ### <a name="query-definitions-and-results"></a>Definições de consulta e resultados
 
 | Versão 10 | Equivalente à versão 11 |
 |------------|-----------------------|
-| [DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) | [SearchResult](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.searchresult-1) ou [SearchResults](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.searchresults-1), dependendo se o resultado é um único documento ou vários. |
-| [DocumentSuggestResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsuggestresult-1) | [SuggestResults](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.suggestresults-1) |
-| [SearchParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters) |  [Searchoptions especificaram](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchoptions)  |
+| [DocumentSearchResult](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) | [SearchResult](/dotnet/api/azure.search.documents.models.searchresult-1) ou [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1), dependendo se o resultado é um único documento ou vários. |
+| [DocumentSuggestResult](/dotnet/api/microsoft.azure.search.models.documentsuggestresult-1) | [SuggestResults](/dotnet/api/azure.search.documents.models.suggestresults-1) |
+| [SearchParameters](/dotnet/api/microsoft.azure.search.models.searchparameters) |  [Searchoptions especificaram](/dotnet/api/azure.search.documents.searchoptions)  |
 
 <a name="WhatsNew"></a>
 
 ## <a name="whats-in-version-11"></a>O que há na versão 11
 
-Cada versão de uma biblioteca de cliente do Azure Pesquisa Cognitiva destina-se a uma versão correspondente da API REST. A API REST é considerada fundamental para o serviço, com SDKs individuais encapsulando uma versão da API REST. Como desenvolvedor do .NET, pode ser útil examinar a [documentação da API REST](https://docs.microsoft.com/rest/api/searchservice/) se você quiser mais informações sobre objetos ou operações específicas.
+Cada versão de uma biblioteca de cliente do Azure Pesquisa Cognitiva destina-se a uma versão correspondente da API REST. A API REST é considerada fundamental para o serviço, com SDKs individuais encapsulando uma versão da API REST. Como desenvolvedor do .NET, pode ser útil examinar a [documentação da API REST](/rest/api/searchservice/) se você quiser mais informações sobre objetos ou operações específicas.
 
 A versão 11 tem como alvo o [serviço de pesquisa 2020-06-30](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/search/data-plane/Azure.Search/preview/2020-06-30/searchservice.json). Como a versão 11 também é uma nova biblioteca de clientes criada desde o início, a maior parte do esforço de desenvolvimento se concentrou na equivalência da versão 10, com algum suporte a recursos da API REST ainda pendente.
 
@@ -126,8 +126,8 @@ A versão 11,0 dá suporte total aos seguintes objetos e operações:
 
 A versão 11,1 adiciona o seguinte:
 
-+ [FieldBuilder](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.fieldbuilder) (adicionado em 11,1)
-+ [Propriedade de serializador](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclientoptions.serializer) (adicionada em 11,1) para dar suporte à serialização personalizada
++ [FieldBuilder](/dotnet/api/azure.search.documents.indexes.fieldbuilder) (adicionado em 11,1)
++ [Propriedade de serializador](/dotnet/api/azure.search.documents.searchclientoptions.serializer) (adicionada em 11,1) para dar suporte à serialização personalizada
 
 ### <a name="pending-features"></a>Recursos pendentes
 
@@ -156,9 +156,9 @@ As etapas a seguir o ajudarão a começar a usar uma migração de código ao pe
 
 1. Para classes que exigem serialização JSON, substitua `using Newtonsoft.Json` por `using System.Text.Json.Serialization` .
 
-1. Revisar o código de autenticação do cliente. Nas versões anteriores, você usaria Propriedades no objeto de cliente para definir a chave de API (por exemplo, a propriedade [SearchServiceClient. Credentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) ). Na versão atual, use a classe [AzureKeyCredential](https://docs.microsoft.com/dotnet/api/azure.azurekeycredential) para passar a chave como uma credencial, para que, se necessário, você possa atualizar a chave de API sem criar novos objetos de cliente.
+1. Revisar o código de autenticação do cliente. Nas versões anteriores, você usaria Propriedades no objeto de cliente para definir a chave de API (por exemplo, a propriedade [SearchServiceClient. Credentials](/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) ). Na versão atual, use a classe [AzureKeyCredential](/dotnet/api/azure.azurekeycredential) para passar a chave como uma credencial, para que, se necessário, você possa atualizar a chave de API sem criar novos objetos de cliente.
 
-   As propriedades do cliente foram simplificadas para apenas `Endpoint` , `ServiceName` e `IndexName` (quando apropriado). O exemplo a seguir usa a classe [URI](https://docs.microsoft.com/dotnet/api/system.uri) do sistema para fornecer o ponto de extremidade e a classe de [ambiente](https://docs.microsoft.com//dotnet/api/system.environment) para ler o valor da chave:
+   As propriedades do cliente foram simplificadas para apenas `Endpoint` , `ServiceName` e `IndexName` (quando apropriado). O exemplo a seguir usa a classe [URI](/dotnet/api/system.uri) do sistema para fornecer o ponto de extremidade e a classe de [ambiente](/dotnet/api/system.environment) para ler o valor da chave:
 
    ```csharp
    Uri endpoint = new Uri(Environment.GetEnvironmentVariable("SEARCH_ENDPOINT"));
@@ -167,11 +167,11 @@ As etapas a seguir o ajudarão a começar a usar uma migração de código ao pe
    SearchIndexClient indexClient = new SearchIndexClient(endpoint, credential);
    ```
 
-1. Adicione novas referências de cliente para objetos relacionados ao indexador. Se você estiver usando indexadores, fontes de fonte ou habilidades, altere as referências de cliente para [SearchIndexerClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient). Este cliente é novo na versão 11 e não tem o antecessor.
+1. Adicione novas referências de cliente para objetos relacionados ao indexador. Se você estiver usando indexadores, fontes de fonte ou habilidades, altere as referências de cliente para [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). Este cliente é novo na versão 11 e não tem o antecessor.
 
-1. Atualizar referências de cliente para consultas e importação de dados. As instâncias de [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) devem ser alteradas para [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient). Para evitar a confusão de nomes, verifique se você capturou todas as instâncias antes de prosseguir para a próxima etapa.
+1. Atualizar referências de cliente para consultas e importação de dados. As instâncias de [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient) devem ser alteradas para [SearchClient](/dotnet/api/azure.search.documents.searchclient). Para evitar a confusão de nomes, verifique se você capturou todas as instâncias antes de prosseguir para a próxima etapa.
 
-1. Atualizar referências de cliente para objetos de índice, indexador, mapa de sinônimos e analisador. As instâncias de [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) devem ser alteradas para [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient). 
+1. Atualizar referências de cliente para objetos de índice, indexador, mapa de sinônimos e analisador. As instâncias de [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) devem ser alteradas para [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient). 
 
 1. Tanto quanto possível, atualize classes, métodos e propriedades para usar as APIs da nova biblioteca. A seção [diferenças de nomenclatura](#naming-differences) é um lugar para começar, mas você também pode examinar o log de [alterações](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md).
 
@@ -195,4 +195,4 @@ Em termos de atualizações de versão de serviço, nas quais as alterações de
 
 + [Azure.Search.Docpacote uments](https://www.nuget.org/packages/Azure.Search.Documents/)
 + [Exemplos no GitHub](https://github.com/azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.0.0/sdk/search/Azure.Search.Documents/samples)
-+ [Azure.Search.Docreferência da API ument](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet)
++ [Azure.Search.Docreferência da API ument](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet)
