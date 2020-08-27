@@ -3,16 +3,16 @@ title: Sobre o backup do compartilhamento de arquivos do Azure
 description: Saiba como fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 1c44d406519c8c0d9fb71b5e94bcb6bcaa1a7253
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7960040df4208ad021bca3406f6472d8c3206d81
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88823873"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892245"
 ---
 # <a name="about-azure-file-share-backup"></a>Sobre o backup do compartilhamento de arquivos do Azure
 
-O backup de compartilhamento de arquivos do Azure é uma solução de backup nativa baseada em nuvem que protege seus dados na nuvem e elimina sobrecargas de manutenção adicionais envolvidas em soluções de backup locais. O serviço de backup do Azure integra-se perfeitamente ao Sincronização de Arquivos do Azure e permite centralizar seus dados de compartilhamento de arquivos, bem como seus backups. Essa solução simples, confiável e segura permite que você configure a proteção para seus compartilhamentos de arquivos empresariais em algumas etapas simples com uma garantia de que você pode recuperar seus dados em caso de qualquer cenário de desastre.
+O backup de compartilhamento de arquivos do Azure é uma solução de backup nativa baseada em nuvem que protege seus dados na nuvem e elimina sobrecargas de manutenção adicionais envolvidas em soluções de backup locais. O serviço de backup do Azure integra-se perfeitamente ao Sincronização de Arquivos do Azure e permite centralizar seus dados de compartilhamento de arquivos, bem como seus backups. Essa solução simples, confiável e segura permite que você configure a proteção para seus compartilhamentos de arquivos empresariais em algumas etapas simples com uma garantia de que você pode recuperar seus dados em qualquer cenário de desastre.
 
 ## <a name="key-benefits-of-azure-file-share-backup"></a>Principais benefícios do backup de compartilhamento de arquivos do Azure
 

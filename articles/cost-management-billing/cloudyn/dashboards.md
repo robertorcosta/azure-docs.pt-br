@@ -6,15 +6,16 @@ ms.author: banders
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.reviewer: vitavor
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 892df9a6e0eb4d791f818eed0a78c96a829e25a0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 03d5e3959b85a2b0bd9ae30744051895ff026b77
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79464216"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691217"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Exibir chave métricas com painéis de custo
 
@@ -37,13 +38,13 @@ Disponibilidade do painel depende do tipo de conta de provedor de serviço de nu
 
 Você pode usar qualquer um dos painéis pré-criados ou você pode criar seu próprio painel com relatórios personalizados. Se você não estiver familiarizado com os relatórios do Cloudyn, confira [Usar relatórios do Cloudyn](use-reports.md).
 
-## <a name="create-a-custom-dashboard"></a>Crie um painel personalizado
+## <a name="create-a-custom-dashboard"></a>Criar um painel personalizado
 
 Para iniciar rapidamente com um painel personalizado, você pode duplicar uma existente para usar suas propriedades. Então você pode modificá-lo para atender às suas necessidades. No painel que você deseja copiar, clique em **Salvar como**. Você só pode duplicar os painéis personalizados — não é possível duplicar os painéis que estão incluídos com Cloudyn.
 
 Para criar um painel personalizado:
 
-1. Na home page, clique em **adicionar novo +** . A página de meu painel é exibida.  
+1. Na home page, clique em **adicionar novo +**. A página de meu painel é exibida.  
     ![Minha página de painel na qual você adiciona novos relatórios](./media/dashboards/my-dashboard.png)
 2. Clique em **Adicionar nova regra**. A caixa Adicionar relatório é exibida.
 3. Selecione o relatório que você deseja adicionar ao widget de painel. O widget é adicionado ao painel.
@@ -87,9 +88,9 @@ Para compartilhar um painel com todos os usuários, incluindo subentidades:
 
 Para compartilhar um painel com todos os usuários de uma entidade atual:
 
-1. Na página inicial do Dashboard, clique em **Editar**.
-2. Clique em **Compartilhar** e selecione **Minha Entidade**.
-3. Clique em **Sim** para definir o painel como um painel público.
+1. Na página inicial do Dashboard, clique em ** Editar **.
+2. Clique em ** Compartilhar ** e selecione ** Minha Entidade **.
+3. Clique em ** Sim ** para definir o painel como um painel público.
 
 ## <a name="duplicate-a-custom-dashboard"></a>Duplicar um painel personalizado
 

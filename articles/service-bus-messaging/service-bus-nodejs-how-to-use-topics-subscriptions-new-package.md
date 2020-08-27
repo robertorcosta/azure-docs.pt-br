@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: fafdf18a3593f7ec444e9970d99807cbfe0cb13d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: bbb0f530d95c78b8b5da178ee1544830ac3f7132
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080619"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660589"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Início Rápido: Como usar tópicos e assinaturas do Barramento de Serviço do Azure com o Node.js e o pacote azure/service-bus
 Neste tutorial, você aprenderá a escrever um programa Node.js para enviar mensagens para um tópico do Barramento de Serviço e receber mensagens de uma assinatura do Barramento de Serviço usando o novo pacote [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). Esse pacote usa o [protocolo AMQP 1.0](service-bus-amqp-overview.md) mais rápido, enquanto o pacote [azure-sb](https://www.npmjs.com/package/azure-sb) mais antigo usava [APIs de tempo de execução REST do Barramento de Serviço](/rest/api/servicebus/service-bus-runtime-rest). As amostras são escritas em JavaScript.
@@ -86,7 +86,7 @@ Os tópicos do Barramento de Serviço dão suporte ao tamanho máximo de mensage
 A interação com uma assinatura do Barramento de Serviço começa com a instanciação da classe [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) e sua utilização para instanciar a classe [SubscriptionClient](/javascript/api/@azure/service-bus/subscriptionclient). Depois que você tiver o cliente de assinatura, você pode criar um receptor e usar o método [receiveMessages](/javascript/api/@azure/service-bus/receiver#receivemessages-number--undefined---number-) ou [registerMessageHandler](/javascript/api/@azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) para receber mensagens.
 
 1. Abra seu editor favorito, como o [Visual Studio Code](https://code.visualstudio.com/)
-2. Crie um arquivo chamado `recieve.js` e cole nele o código abaixo. Esse código tentará receber 10 mensagens da sua assinatura. A contagem real que você recebe depende do número de mensagens na assinatura e da latência de rede.
+2. Crie um arquivo chamado `receive.js` e cole nele o código abaixo. Esse código tentará receber 10 mensagens da sua assinatura. A contagem real que você recebe depende do número de mensagens na assinatura e da latência de rede.
 
     ```javascript
     const { ServiceBusClient, ReceiveMode } = require("@azure/service-bus"); 
@@ -117,7 +117,7 @@ A interação com uma assinatura do Barramento de Serviço começa com a instanc
     });
     ```
 3. Insira a cadeia de conexão e os nomes de seu tópico e sua assinatura no código acima.
-4. Em seguida, execute o comando `node receiveMessages.js` em um prompt de comando para executar esse arquivo.
+4. Em seguida, execute o comando `node receive.js` em um prompt de comando para executar esse arquivo.
 
 Parabéns! Você acabou de receber mensagens de uma assinatura do Barramento de Serviço.
 

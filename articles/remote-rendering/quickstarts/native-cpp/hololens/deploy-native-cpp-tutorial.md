@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: 6b3909281cf475a003ffaaef6f6f48441337728e
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 71760e9b54ff3a520f0784ecda4484bb3ea047e3
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84810219"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892653"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Início Rápido: Implantar exemplo nativo do C++ no HoloLens
 
@@ -62,7 +62,6 @@ Alterne a configuração de Build para *Depuração* (ou *Versão*) e *ARM64*. V
 ![Configuração do Visual Studio](media/vs-config-native-cpp-tutorial.png)
 
 Como as credenciais da conta são codificadas no código-fonte do tutorial, altere-as para credenciais válidas. Para isso, abra o arquivo `HolographicAppMain.cpp` dentro do Visual Studio e altere a parte em que o front-end é criado dentro do construtor da classe `HolographicAppMain`:
-
 
 ```cpp
 // 2. Create front end

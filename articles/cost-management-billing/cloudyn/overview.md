@@ -6,15 +6,16 @@ ms.author: banders
 ms.date: 03/12/2020
 ms.topic: overview
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.reviewer: benshy
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9e1acee631316ec961af364769daa1f2a3001e72
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3acc13ca535808f14cb01d50e38f6bd4d12902fc
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065866"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684432"
 ---
 # <a name="what-is-the-cloudyn-service"></a>O que é o serviço Cloudyn?
 
@@ -57,4 +58,4 @@ Se você provisionou instâncias Reservadas do AWS, melhore a utilização das i
 
 Agora que você está familiarizado com o Cloudyn, a próxima etapa é registrar seu ambiente de nuvem e começar a explorar seus dados.
 
-- [Registrar-se no programa de Parceiro CSP e exibir dados de custo](quick-register-csp.md)
+- [Registrar-se mo programa de Parceiro CSP e exibir dados de custo](quick-register-csp.md)
