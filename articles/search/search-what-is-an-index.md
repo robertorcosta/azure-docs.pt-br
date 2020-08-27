@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 9e8d1c012ae07fc458a324315e2635f04c3dbd78
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496465"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932875"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Criar um índice de pesquisa básica no Azure Pesquisa Cognitiva
 
@@ -26,10 +26,10 @@ A estrutura física de um índice é determinada pelo esquema, com campos marcad
 Você pode criar um índice com as seguintes ferramentas e APIs:
 
 * No portal do Azure, use o assistente para **Adicionar índice** ou **importar dados**
-* Usando o [criar índice (API REST)](https://docs.microsoft.com/rest/api/searchservice/create-index)
-* Usando o [SDK do .net](search-create-index-dotnet.md)
+* Usando o [criar índice (API REST)](/rest/api/searchservice/create-index)
+* Usando o [SDK do .net](./search-get-started-dotnet.md)
 
-É mais fácil aprender com uma ferramenta de Portal. O portal impõe requisitos e regras de esquema para tipos de dados específicos, como a despermissão de recursos de pesquisa de texto completo em campos numéricos. Depois de ter um índice viável, você pode fazer a transição para o código recuperando a definição de JSON do serviço usando [Get index (API REST)](https://docs.microsoft.com/rest/api/searchservice/get-index) e adicionando-a à sua solução.
+É mais fácil aprender com uma ferramenta de Portal. O portal impõe requisitos e regras de esquema para tipos de dados específicos, como a despermissão de recursos de pesquisa de texto completo em campos numéricos. Depois de ter um índice viável, você pode fazer a transição para o código recuperando a definição de JSON do serviço usando [Get index (API REST)](/rest/api/searchservice/get-index) e adicionando-a à sua solução.
 
 ## <a name="recommended-workflow"></a>Fluxo de trabalho recomendado
 
@@ -59,7 +59,7 @@ Chegar a um design de índice final é um processo iterativo. É comum começar 
 
    ![Adicionar página de índice mostrando atributos por tipo de dados](media/search-what-is-an-index//field-definitions.png "Adicionar página de índice mostrando atributos por tipo de dados")
 
-1. Baixe o esquema de índice usando [obter índice (API REST)](https://docs.microsoft.com/rest/api/searchservice/get-index) e uma ferramenta de teste na Web como o [postmaster](search-get-started-postman.md). Agora você tem uma representação JSON do índice que você pode adaptar para o código.
+1. Baixe o esquema de índice usando [obter índice (API REST)](/rest/api/searchservice/get-index) e uma ferramenta de teste na Web como o [postmaster](search-get-started-postman.md). Agora você tem uma representação JSON do índice que você pode adaptar para o código.
 
 1. [Carregue seu índice com os dados](search-what-is-data-import.md). O Azure Pesquisa Cognitiva aceita documentos JSON. Para carregar seus dados de maneira programática, é possível usar o Postman com documentos JSON no conteúdo da solicitação. Se os dados não estiverem expressados facilmente como JSON, essa etapa será a mais trabalhosa. 
 
@@ -169,7 +169,7 @@ Os campos têm um nome, um tipo que classifica os dados armazenados e atributos 
 
 ### <a name="data-types"></a>Tipos de dados
 
-| Tipo | Descrição |
+| Type | Descrição |
 |------|-------------|
 | Edm.String |O texto que opcionalmente pode ser indexado para a pesquisa de texto completo (separação de palavras, derivação e assim por diante). |
 | Collection(Edm.String) |Uma lista de cadeias de caracteres que opcionalmente podem ser indexadas para a pesquisa de texto completo. Não há nenhum limite teórico superior no número de itens em uma coleção, mas o limite superior de 16 MB no tamanho da carga se aplica às coleções. |
@@ -180,7 +180,7 @@ Os campos têm um nome, um tipo que classifica os dados armazenados e atributos 
 | Edm.DateTimeOffset |Valores de data e hora representados no formato OData V4 (por exemplo, `yyyy-MM-ddTHH:mm:ss.fffZ` ou `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | Edm.GeographyPoint |Um ponto que representa uma localização geográfica em todo o mundo. |
 
-Para obter mais informações, consulte [tipos de dados com suporte](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
+Para obter mais informações, consulte [tipos de dados com suporte](/rest/api/searchservice/Supported-data-types).
 
 <a name="index-attributes"></a>
 
@@ -195,14 +195,14 @@ Campos de cadeia de caracteres geralmente são marcados como "pesquisáveis" e "
 |pesquisável |Pesquisável com texto completo, sujeito à análise lexical como separação de palavras durante a indexação. Se você definir um campo pesquisável com um valor como “dia ensolarado”, internamente, ele será dividido nos tokens individuais “dia” e “ensolarado”. Para obter detalhes, consulte [Como funciona a pesquisa de texto completo](search-lucene-query-architecture.md).|  
 |filtrável |Referenciado nas consultas $filter. Campos filtráveis dos tipos `Edm.String` ou `Collection(Edm.String)` não são submetidos à separação de palavras. Portanto, as comparações são apenas para correspondências exatas. Por exemplo, se você definir um campo f como “dia ensolarado”, `$filter=f eq 'sunny'` não encontrará correspondências, mas `$filter=f eq 'sunny day'` as encontrará. |  
 |classificável |Por padrão, o sistema classifica os resultados pela pontuação, mas você pode configurar a classificação com base nos campos dos documentos. Os campos do tipo `Collection(Edm.String)` não podem ser "classificável". |  
-|com faceta |Normalmente, usado em uma apresentação dos resultados da pesquisa que inclui uma contagem de ocorrências por categoria (por exemplo, hotéis em uma cidade específica). Essa opção não pode ser usada com campos do tipo `Edm.GeographyPoint`. Campos de tipo `Edm.String` que são filtráveis, "classificável" ou "facetable" podem ter, no máximo, 32 quilobytes de comprimento. Para obter detalhes, consulte [Criar índice (API REST)](https://docs.microsoft.com/rest/api/searchservice/create-index).|  
+|com faceta |Normalmente, usado em uma apresentação dos resultados da pesquisa que inclui uma contagem de ocorrências por categoria (por exemplo, hotéis em uma cidade específica). Essa opção não pode ser usada com campos do tipo `Edm.GeographyPoint`. Campos de tipo `Edm.String` que são filtráveis, "classificável" ou "facetable" podem ter, no máximo, 32 quilobytes de comprimento. Para obter detalhes, consulte [Criar índice (API REST)](/rest/api/searchservice/create-index).|  
 |chaves |Identificador exclusivo para documentos no índice. Exatamente um campo deve ser escolhido como o campo chave e deve ser do tipo `Edm.String`.|  
 |recuperáveis |Determina se o campo pode ser retornado em um resultado da pesquisa. Isso é útil quando você deseja usar um campo (por exemplo, *margem de lucro*) como mecanismo de filtro, classificação ou pontuação, mas não deseja que o campo seja visível para o usuário final. Esse atributo deve ser `true` for `key` .|  
 
 Embora seja possível adicionar novos campos a qualquer momento, as definições de campo existentes são bloqueadas durante o tempo de vida do índice. Por esse motivo, os desenvolvedores geralmente usam o portal para criar índices simples, testar ideias ou usar as páginas do portal para pesquisar uma configuração. A iteração frequente em um design de índice será mais eficiente se você seguir uma abordagem baseada em código, de modo que você possa recriar o índice com facilidade.
 
 > [!NOTE]
-> As APIs usadas para criar um índice têm comportamentos padrão variados. Para as [APIs REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index), a maioria dos atributos é habilitada por padrão (por exemplo, "pesquisável" e "recuperável" são verdadeiros para campos de cadeia de caracteres) e, muitas vezes, você só precisa defini-los se desejar desativá-los. Para o SDK do .NET, o oposto é true. Em qualquer propriedade que você não definir explicitamente, o padrão é desabilitar o comportamento de pesquisa correspondente, a menos que você o habilite especificamente.
+> As APIs usadas para criar um índice têm comportamentos padrão variados. Para as [APIs REST](/rest/api/searchservice/Create-Index), a maioria dos atributos é habilitada por padrão (por exemplo, "pesquisável" e "recuperável" são verdadeiros para campos de cadeia de caracteres) e, muitas vezes, você só precisa defini-los se desejar desativá-los. Para o SDK do .NET, o oposto é true. Em qualquer propriedade que você não definir explicitamente, o padrão é desabilitar o comportamento de pesquisa correspondente, a menos que você o habilite especificamente.
 
 ## `analyzers`
 
@@ -210,7 +210,7 @@ O elemento analisadores define o nome do analisador de linguagem a ser usado par
 
 ## `suggesters`
 
-Um sugestor é uma seção do esquema que define quais campos em um índice são usados para dar suporte a consultas de preenchimento automático ou digitação antecipada em pesquisas. Normalmente, as cadeias de caracteres de pesquisa parciais são enviadas para as [sugestões (API REST)](https://docs.microsoft.com/rest/api/searchservice/suggestions) enquanto o usuário está digitando uma consulta de pesquisa e a API retorna um conjunto de documentos ou frases sugeridos. 
+Um sugestor é uma seção do esquema que define quais campos em um índice são usados para dar suporte a consultas de preenchimento automático ou digitação antecipada em pesquisas. Normalmente, as cadeias de caracteres de pesquisa parciais são enviadas para as [sugestões (API REST)](/rest/api/searchservice/suggestions) enquanto o usuário está digitando uma consulta de pesquisa e a API retorna um conjunto de documentos ou frases sugeridos. 
 
 Os campos adicionados a um sugestor são usados para criar termos de pesquisa de digitação antecipada. Todos os termos de pesquisa são criados durante a indexação e armazenados separadamente. Para saber mais sobre como criar uma estrutura de sugestor, confira [Add suggesters](index-add-suggesters.md) (Adicionar sugestores).
 

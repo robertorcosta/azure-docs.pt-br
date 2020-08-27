@@ -175,6 +175,7 @@
               href: functions-develop-vs.md
             - name: Desenvolvimento das Principais Ferramentas
               href: functions-run-local.md
+              displayName: 'local, runtime'
         - name: Criar funções
           items:
             - name: Gatilho HTTP

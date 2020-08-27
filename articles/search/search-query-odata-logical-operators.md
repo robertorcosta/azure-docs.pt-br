@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 741bf9e2aba6f893f670e86fb8bf5cd6c8b9d803
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 27d5427d34de591f9cfeab2310d79a2fde217624
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201996"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917866"
 ---
-# <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operadores lógicos OData no Azure Pesquisa Cognitiva- `and` , `or` ,`not`
+# <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Operadores lógicos OData no Azure Pesquisa Cognitiva- `and` , `or` , `not`
 
 As [expressões de filtro OData](query-odata-filter-orderby-syntax.md) no Azure pesquisa cognitiva são expressões booleanas que são avaliadas como `true` ou `false` . Você pode escrever um filtro complexo escrevendo uma série de [filtros mais simples](search-query-odata-comparison-operators.md) e compondo-os usando os operadores lógicos do [booliano de algebra](https://en.wikipedia.org/wiki/Boolean_algebra):
 
@@ -36,7 +36,7 @@ As [expressões de filtro OData](query-odata-filter-orderby-syntax.md) no Azure 
 
 Eles, juntamente com os [operadores de `any` coleção `all` e ](search-query-odata-collection-operators.md), permitem que você construa filtros que podem expressar critérios de pesquisa muito complexos.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática de uma expressão OData que usa os operadores lógicos.
 
@@ -58,21 +58,21 @@ Um diagrama de sintaxe interativa também está disponível:
 
 Há duas formas de expressões lógicas: Binary ( `and` / `or` ), em que há duas subexpressãos e unário ( `not` ), em que há apenas uma. As subexpressãos podem ser expressões booleanas de qualquer tipo:
 
-- Campos ou variáveis de intervalo do tipo`Edm.Boolean`
-- Funções que retornam valores do tipo `Edm.Boolean` , como `geo.intersects` ou`search.ismatch`
-- [Expressões de comparação](search-query-odata-comparison-operators.md), como`rating gt 4`
-- [Expressões de coleção](search-query-odata-collection-operators.md), como`Rooms/any(room: room/Type eq 'Deluxe Room')`
+- Campos ou variáveis de intervalo do tipo `Edm.Boolean`
+- Funções que retornam valores do tipo `Edm.Boolean` , como `geo.intersects` ou `search.ismatch`
+- [Expressões de comparação](search-query-odata-comparison-operators.md), como `rating gt 4`
+- [Expressões de coleção](search-query-odata-collection-operators.md), como `Rooms/any(room: room/Type eq 'Deluxe Room')`
 - Os literais boolianos `true` ou `false` .
 - Outras expressões lógicas construídas usando `and` , `or` e `not` .
 
 > [!IMPORTANT]
 > Há algumas situações em que nem todos os tipos de subexpressão podem ser usados com `and` / `or` , especialmente dentro de expressões lambda. Consulte [operadores de coleção OData no Azure pesquisa cognitiva](search-query-odata-collection-operators.md#limitations) para obter detalhes.
 
-### <a name="logical-operators-and-null"></a>Operadores lógicos e`null`
+### <a name="logical-operators-and-null"></a>Operadores lógicos e `null`
 
 A maioria das expressões booleanas, como funções e comparações, não pode produzir `null` valores, e os operadores lógicos não podem ser aplicados `null` diretamente ao literal (por exemplo, `x and null` não é permitido). No entanto, os campos Boolianos podem ser `null` , portanto, você precisa estar ciente de como os `and` `or` operadores, e `not` se comportam na presença de NULL. Isso é resumido na tabela a seguir, em que `b` é um campo do tipo `Edm.Boolean` :
 
-| Expressão | Resultado quando `b` é`null` |
+| Expression | Resultado quando `b` é `null` |
 | --- | --- |
 | `b` | `false` |
 | `not b` | `true` |
@@ -120,4 +120,4 @@ Corresponder documentos para hotéis em Vancouver, Canadá em que há uma sala d
 - [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
 - [Visão geral da linguagem de expressão OData para Azure Pesquisa Cognitiva](query-odata-filter-orderby-syntax.md)
 - [Referência de sintaxe de expressão OData para Pesquisa Cognitiva do Azure](search-query-odata-syntax-reference.md)
-- [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](/rest/api/searchservice/Search-Documents)
