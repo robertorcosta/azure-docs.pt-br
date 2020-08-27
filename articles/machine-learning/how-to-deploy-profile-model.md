@@ -10,12 +10,12 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: 6bbee606c59482e4a06f344d3221e8611f6dcc9d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: a3aed23441df225316f52eb3acb1387cbba6d807
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544523"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935578"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Criar o perfil de seu modelo para determinar a utilização de recursos
 
@@ -36,6 +36,9 @@ Para criar o perfil de seu modelo, será necessário:
 
 > [!IMPORTANT]
 > Neste ponto, damos suporte apenas à criação de perfil de serviços que esperam que seus dados de solicitação sejam uma cadeia de caracteres, por exemplo: JSON serializado, texto, imagem serializada de cadeia de caracteres, etc. O conteúdo de cada linha do conjunto de linhas (cadeia de caracteres) será colocado no corpo da solicitação HTTP e enviado ao serviço que encapsula o modelo para pontuação.
+
+> [!IMPORTANT]
+> Damos suporte apenas à criação de perfil de até duas CPUs na região ChinaEast2 e USGovArizona.
 
 Abaixo está um exemplo de como você pode construir um conjunto de dados de entrada para criar o perfil de um serviço que espera que os seus serviços de solicitação de entrada contenham o JSON serializado. Nesse caso, criamos um conjunto de dados com base em instâncias 100 do mesmo conteúdo de dado de solicitação. Em cenários do mundo real, sugerimos que você use conjuntos de dados maiores contendo várias entradas, especialmente se o uso/comportamento do recurso de modelo for dependente de entrada.
 

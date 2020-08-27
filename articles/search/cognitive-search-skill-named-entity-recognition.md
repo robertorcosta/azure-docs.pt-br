@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7d7227a0eeaa496dd774eb962946a4ee85e22009
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dc18af933a4570112beb025c1fb9163abafffff
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080021"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935935"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Habilidade cognitiva de Reconhecimento de Entidade Nomeada
 
@@ -32,7 +32,7 @@ A habilidade do **Reconhecimento de Entidade Nomeada** extrai entidades nomeadas
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 ## <a name="data-limits"></a>Limites de dados
-O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar interromper o backup de seus dados antes de enviá-la para o extrator de frases-chave, considere o uso de [habilidade de Texto Dividido](cognitive-search-skill-textsplit.md).
+O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](/dotnet/api/system.string.length). Se você precisar interromper o backup de seus dados antes de enviá-la para o extrator de frases-chave, considere o uso de [habilidade de Texto Dividido](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidades
 
@@ -46,14 +46,14 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | Descrição                   |
+| Nome de entrada      | DESCRIÇÃO                   |
 |---------------|-------------------------------|
 | languageCode  | Opcional. O padrão é `"en"`.  |
 | text          | O texto para analisar.          |
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
-| Nome de saída     | Descrição                   |
+| Nome de saída     | DESCRIÇÃO                   |
 |---------------|-------------------------------|
 | pessoas      | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa o nome de uma pessoa. |
 | Locais  | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa um local. |

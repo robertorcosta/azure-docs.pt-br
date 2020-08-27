@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 716951616a82dfd13d6bdcf127c4c4382576e792
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd35f297e88c37aec39938b0bfd60288e591a62c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080857"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936071"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Habilidades cognitivas de reconhecimento de entidade
 
-A habilidade **Entity Recognition** extrai entidades de diferentes tipos do texto. Essa habilidade usa os modelos de machine learning fornecidos pela [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) nos Serviços Cognitivos.
+A habilidade **Entity Recognition** extrai entidades de diferentes tipos do texto. Essa habilidade usa os modelos de machine learning fornecidos pela [Análise de Texto](../cognitive-services/text-analytics/overview.md) nos Serviços Cognitivos.
 
 > [!NOTE]
 > À medida que expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará [anexar um recurso de Serviços Cognitivos faturável](cognitive-search-attach-cognitive-services.md). As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem, como parte do estágio de quebra de documento na Pesquisa Cognitiva do Azure. Não há encargos para extração de texto em documentos.
@@ -29,7 +29,7 @@ A habilidade **Entity Recognition** extrai entidades de diferentes tipos do text
 Microsoft.Skills.Text.EntityRecognitionSkill
 
 ## <a name="data-limits"></a>Limites de dados
-O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar interromper o backup de seus dados antes de enviá-la para o extrator de frases-chave, considere o uso de [habilidade de Texto Dividido](cognitive-search-skill-textsplit.md).
+O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](/dotnet/api/system.string.length). Se você precisar interromper o backup de seus dados antes de enviá-la para o extrator de frases-chave, considere o uso de [habilidade de Texto Dividido](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidades
 
@@ -53,9 +53,9 @@ Os parâmetros diferenciam maiúsculas de minúsculas e são todos opcionais.
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
 > [!NOTE]
-> Não há suporte para todas as categorias de entidade em todos os idiomas. Os `"Person"` `"Location"` tipos de categoria de entidade,, e `"Organization"` têm suporte para a lista completa de idiomas acima. Somente _de_, _en_, _es_, _fr_e _zh-Hans_ dão suporte à extração de `"Quantity"` `"Datetime"` tipos,, `"URL"` e `"Email"` . Para obter mais informações, consulte [suporte a idiomas e regiões para o API de análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support).  
+> Não há suporte para todas as categorias de entidade em todos os idiomas. Os `"Person"` `"Location"` tipos de categoria de entidade,, e `"Organization"` têm suporte para a lista completa de idiomas acima. Somente _de_, _en_, _es_, _fr_e _zh-Hans_ dão suporte à extração de `"Quantity"` `"Datetime"` tipos,, `"URL"` e `"Email"` . Para obter mais informações, consulte [suporte a idiomas e regiões para o API de análise de texto](../cognitive-services/text-analytics/language-support.md).  
 
-| Nome de saída      | Descrição                   |
+| Nome de saída      | DESCRIÇÃO                   |
 |---------------|-------------------------------|
 | `persons`       | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa o nome de uma pessoa. |
 | `locations`  | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa um local. |
@@ -187,7 +187,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas e são todos opcionais.
 }
 ```
 
-Observe que os deslocamentos retornados para entidades na saída dessa habilidade são retornados diretamente da [API de análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), o que significa que, se você estiver usando-os para indexar na cadeia de caracteres original, deverá usar a classe [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) no .net para extrair o conteúdo correto.  [Mais detalhes podem ser encontrados aqui.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets)
+Observe que os deslocamentos retornados para entidades na saída dessa habilidade são retornados diretamente da [API de análise de texto](../cognitive-services/text-analytics/overview.md), o que significa que, se você estiver usando-os para indexar na cadeia de caracteres original, deverá usar a classe [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) no .net para extrair o conteúdo correto.  [Mais detalhes podem ser encontrados aqui.](../cognitive-services/text-analytics/concepts/text-offsets.md)
 
 ## <a name="error-cases"></a>Casos de erro
 Se o código do idioma do documento não for suportado, um erro será retornado e nenhuma entidade será extraída.

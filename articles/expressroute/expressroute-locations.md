@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/13/2020
+ms.date: 08/26/2020
 ms.author: cherylmc
-ms.openlocfilehash: 55bf91a0f01c66d43d87b734ce66b68f3995c1c3
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: e47f555e33b9b6d3548f82485767184c89236731
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225590"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927622"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Parceiros de conectividade do ExpressRoute e locais de emparelhamento
 
@@ -44,7 +44,7 @@ A tabela a seguir fornece um mapa das regiões do Azure para locais de ExpressRo
 | --- | --- | --- |
 | **Governo da Austrália** |Austrália Central, Austrália Central 2 |Canberra, Canberra2 |
 | **Europa** | França Central, Sul da França, Norte da Alemanha, Centro-Oeste da Alemanha, Norte da Europa, Leste da Noruega, Oeste da Noruega, Norte da Suíça, Oeste da Suíça, Oeste do Reino Unido, Sul do Reino Unido, Oeste da Europa |Amsterdã, Amsterdam2, Berlim, Copenhague, Dublin, Frankfurt, Genebra, Londres, London2, Marselha, Milão, Munique, Newport (Gales), Oslo, Paris, Stavanger, Estocolmo, Zurique |
-| **América do Norte** |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, los Angeles2, Miami, Minneapolis, Nova York, Queretaro (México), San Antonio, Seattle, vale do silício, silício Valley2, Washington DC, Washington DC2, Montreal, cidade de Quebec, Toronto, Vancouver |
+| **América do Norte** |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, los Angeles2, Miami, Minneapolis, Montreal, Nova York, Phoenix, Quebec cidade, Queretaro (México), Quincy, San Antonio, Seattle, vale do silício, silício Valley2, Toronto, Vancouver, Washington, d.c., Washington DC2 |
 | **Ásia** | Leste da Ásia, Sudeste Asiático | Bancoc, Hong Kong, Hong Kong2, Jacarta, Kuala Lumpur, Singapura, Singapore2, Taipé |
 | **Índia** | Oeste da Índia, Índia Central, Sul da Índia |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japão** | Oeste do Japão, Leste do Japão |Osaka, Tóquio, Tokyo2 |

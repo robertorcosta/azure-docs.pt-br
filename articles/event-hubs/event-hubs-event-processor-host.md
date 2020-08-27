@@ -3,12 +3,12 @@ title: Receber eventos usando o Host do Processador de Eventos - Hubs de Eventos
 description: Este artigo descreve o Host do Processador de Eventos nos Hubs de Eventos do Azure, que simplifica o gerenciamento de ponto de verificação, aluguel e ler eventos paralelo iônico.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: dd11e3ef77ff665a0207a2cf7e63b1b9f2df0e08
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41778425a0ec6ba1732c8e604dead2deb7c97f12
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002515"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936173"
 ---
 # <a name="event-processor-host"></a>Host do processador de eventos
 > [!NOTE]
@@ -192,10 +192,10 @@ Não recomendamos o uso do aplicativo no qual você cria um receptor com época 
 Agora que você está familiarizado com o Host do processador de eventos, consulte os seguintes artigos para saber mais sobre os Hubs de eventos:
 
 - Introdução aos Hubs de Eventos
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-node-send-v2.md)
+    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 * [Guia de programação dos Hubs de Eventos](event-hubs-programming-guide.md)
 * [Disponibilidade e consistência nos Hubs de Eventos](event-hubs-availability-and-consistency.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)

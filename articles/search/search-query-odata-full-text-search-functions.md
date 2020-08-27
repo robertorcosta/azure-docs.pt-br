@@ -19,21 +19,21 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 837237be636e67f37f5c744cd4863f1eb159652a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 78f9e4d8fa80fdf74bdb5cd79f4489d12696fcc2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201398"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935782"
 ---
-# <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>Funções de pesquisa de texto completo OData no Azure Pesquisa Cognitiva- `search.ismatch` e`search.ismatchscoring`
+# <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>Funções de pesquisa de texto completo OData no Azure Pesquisa Cognitiva- `search.ismatch` e `search.ismatchscoring`
 
-O Azure Pesquisa Cognitiva dá suporte à pesquisa de texto completo no contexto de [expressões de filtro OData](query-odata-filter-orderby-syntax.md) por meio das `search.ismatch` `search.ismatchscoring` funções e. Essas funções permitem combinar a pesquisa de texto completo com filtragem booliana estrita de maneiras que não são possíveis apenas usando o parâmetro de nível superior `search` da API de [pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+O Azure Pesquisa Cognitiva dá suporte à pesquisa de texto completo no contexto de [expressões de filtro OData](query-odata-filter-orderby-syntax.md) por meio das `search.ismatch` `search.ismatchscoring` funções e. Essas funções permitem combinar a pesquisa de texto completo com filtragem booliana estrita de maneiras que não são possíveis apenas usando o parâmetro de nível superior `search` da API de [pesquisa](/rest/api/searchservice/search-documents).
 
 > [!NOTE]
-> As `search.ismatch` `search.ismatchscoring` funções e têm suporte apenas em filtros na [API de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents). Eles não têm suporte nas APIs [sugerir](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou [preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete) .
+> As `search.ismatch` `search.ismatchscoring` funções e têm suporte apenas em filtros na [API de pesquisa](/rest/api/searchservice/search-documents). Eles não têm suporte nas APIs [sugerir](/rest/api/searchservice/suggestions) ou [preenchimento automático](/rest/api/searchservice/autocomplete) .
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática `search.ismatch` das `search.ismatchscoring` funções e:
 
@@ -69,14 +69,14 @@ A `search.ismatch` função avalia uma consulta de pesquisa de texto completo co
 
 Os parâmetros são definidos na tabela a seguir:
 
-| Nome do parâmetro | Tipo | Descrição |
+| Nome do parâmetro | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | `search` | `Edm.String` | A consulta de pesquisa (em sintaxe de consulta de Lucene [simples](query-simple-syntax.md) ou [completa](query-lucene-syntax.md) ). |
 | `searchFields` | `Edm.String` | Lista separada por vírgulas de campos pesquisáveis para pesquisa; o padrão é todos os campos pesquisáveis no índice. Ao usar a [pesquisa de campo](query-lucene-syntax.md#bkmk_fields) no `search` parâmetro, os especificadores de campo na consulta Lucene substituem todos os campos especificados nesse parâmetro. |
-| `queryType` | `Edm.String` | `'simple'`ou `'full'` ; o padrão é `'simple'` . Especifica qual idioma de consulta foi usado no parâmetro `search`. |
-| `searchMode` | `Edm.String` | `'any'`ou `'all'` , usa como padrão `'any'` . Indica se um ou todos os termos de pesquisa no `search` parâmetro devem ser correspondidos a fim de contar o documento como uma correspondência. Ao usar os [operadores boolianos do Lucene](query-lucene-syntax.md#bkmk_boolean) no `search` parâmetro, eles terão precedência sobre esse parâmetro. |
+| `queryType` | `Edm.String` | `'simple'` ou `'full'` ; o padrão é `'simple'` . Especifica qual idioma de consulta foi usado no parâmetro `search`. |
+| `searchMode` | `Edm.String` | `'any'` ou `'all'` , usa como padrão `'any'` . Indica se um ou todos os termos de pesquisa no `search` parâmetro devem ser correspondidos a fim de contar o documento como uma correspondência. Ao usar os [operadores boolianos do Lucene](query-lucene-syntax.md#bkmk_boolean) no `search` parâmetro, eles terão precedência sobre esse parâmetro. |
 
-Todos os parâmetros acima são equivalentes aos [parâmetros de solicitação de pesquisa correspondentes na API de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Todos os parâmetros acima são equivalentes aos [parâmetros de solicitação de pesquisa correspondentes na API de pesquisa](/rest/api/searchservice/search-documents).
 
 A `search.ismatch` função retorna um valor do tipo `Edm.Boolean` , que permite que você o redija com outras subexpressãos de filtro usando os [operadores lógicos](search-query-odata-logical-operators.md)boolianos.
 
@@ -96,7 +96,7 @@ As `search.ismatch` funções e `search.ismatchscoring` podem ser usadas na mesm
 
 ## <a name="examples"></a>Exemplos
 
-Localizar documentos com as palavras "orla marítima". Essa consulta de filtro é idêntica a uma [solicitação de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) com `search=waterfront`.
+Localizar documentos com as palavras "orla marítima". Essa consulta de filtro é idêntica a uma [solicitação de pesquisa](/rest/api/searchservice/search-documents) com `search=waterfront`.
 
 ```odata-filter-expr
     search.ismatchscoring('waterfront')
@@ -133,4 +133,4 @@ Localize documentos em que os termos "Hotel" e "aeroporto" estejam dentro de 5 p
 - [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
 - [Visão geral da linguagem de expressão OData para Azure Pesquisa Cognitiva](query-odata-filter-orderby-syntax.md)
 - [Referência de sintaxe de expressão OData para Pesquisa Cognitiva do Azure](search-query-odata-syntax-reference.md)
-- [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](/rest/api/searchservice/Search-Documents)

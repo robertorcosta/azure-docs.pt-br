@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 83c3797cc3d9232f8589527285cc56c5cbff9a8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fdae02ca9d3c434a77eb972bfd4b955161bd72c4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84221309"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935544"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solucionando problemas de erros e avisos comuns do indexador no Azure Pesquisa Cognitiva
 
@@ -21,10 +21,10 @@ Este artigo fornece informações e soluções para erros comuns e avisos que vo
 
 A indexação é interrompida quando a contagem de erros excede [' maxFailedItems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
 
-Se você quiser que os indexadores ignorem esses erros (e pulem de "documentos com falha"), considere atualizar o `maxFailedItems` e `maxFailedItemsPerBatch` conforme descrito [aqui](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
+Se você quiser que os indexadores ignorem esses erros (e pulem de "documentos com falha"), considere atualizar o `maxFailedItems` e `maxFailedItemsPerBatch` conforme descrito [aqui](/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
 
 > [!NOTE]
-> Cada documento com falha junto com sua chave de documento (quando disponível) será exibido como um erro no status de execução do indexador. Você pode utilizar a [API de índice](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para carregar manualmente os documentos posteriormente se tiver definido o indexador para tolerar falhas.
+> Cada documento com falha junto com sua chave de documento (quando disponível) será exibido como um erro no status de execução do indexador. Você pode utilizar a [API de índice](/rest/api/searchservice/addupdate-or-delete-documents) para carregar manualmente os documentos posteriormente se tiver definido o indexador para tolerar falhas.
 
 As informações de erro neste artigo podem ajudá-lo a resolver erros, permitindo que a indexação continue.
 
@@ -32,11 +32,11 @@ Os avisos não param de indexação, mas indicam condições que podem resultar 
 
 A partir da versão da API `2019-05-06` , os erros e avisos do indexador em nível de item são estruturados para fornecer maior clareza em relação às causas e às próximas etapas. Elas contêm as seguintes propriedades:
 
-| Property | Descrição | Exemplo |
+| Propriedade | Descrição | Exemplo |
 | --- | --- | --- |
 | chave | A ID do documento do documento impactado pelo erro ou aviso. | docid-32112954.pdf https: \/ /coromsearch.blob.Core.Windows.net/JFK-1K/ |
 | name | O nome da operação que descreve onde ocorreu o erro ou o aviso. Isso é gerado pela seguinte estrutura: [Category]. [subcategoria]. [resourceType]. Source | DocumentExtraction. azureblob. myBlobContainerName enriquecetion. WebApiSkill. myskillname Projetion. SearchIndex. OutputFieldMapping. myOutputFieldName Projetion. SearchIndex. MergeOrUpload. myindexname Projetion. KnowledgeStore. Table. mytablename |
-| message | Uma descrição de alto nível do erro ou aviso. | Não foi possível executar a habilidade porque a solicitação da API Web falhou. |
+| mensagem | Uma descrição de alto nível do erro ou aviso. | Não foi possível executar a habilidade porque a solicitação da API Web falhou. |
 | detalhes | Todos os detalhes adicionais que podem ser úteis para diagnosticar o problema, como a resposta WebApi, se a execução de uma habilidade personalizada falharem. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 origem, Func `2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... restante do rastreamento de pilha... |
 | documentationLink | Um link para a documentação relevante com informações detalhadas para depurar e resolver o problema. Esse link geralmente apontará para uma das seções abaixo nesta página. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
@@ -49,7 +49,7 @@ O indexador não pôde ler o documento a partir da fonte de dados. Isso pode aco
 | Motivo | Detalhes/exemplo | Resolução |
 | --- | --- | --- |
 | Tipos de campo inconsistentes em diferentes documentos | "O tipo de valor tem uma incompatibilidade com o tipo de coluna. Não foi possível armazenar `'{47.6,-122.1}'` na coluna autores.  O tipo esperado é JArray. "  "Erro ao converter o tipo de dados nvarchar em float."  "Falha na conversão ao converter o valor nvarchar ' 12 meses ' no tipo de dados int."  "Erro de estouro aritmético ao converter a expressão em dados tipo int". | Verifique se o tipo de cada campo é o mesmo em documentos diferentes. Por exemplo, se o primeiro campo de documento `'startTime'` for um DateTime e, no segundo documento, for uma cadeia de caracteres, esse erro será atingido. |
-| erros do serviço subjacente da fonte de dados | (de Cosmos DB)`{"Errors":["Request rate is large"]}` | Verifique sua instância de armazenamento para garantir que ela esteja íntegra. Talvez seja necessário ajustar o dimensionamento/particionamento. |
+| erros do serviço subjacente da fonte de dados | (de Cosmos DB) `{"Errors":["Request rate is large"]}` | Verifique sua instância de armazenamento para garantir que ela esteja íntegra. Talvez seja necessário ajustar o dimensionamento/particionamento. |
 | problemas transitórios | ocorreu um erro de nível de transporte ao receber os resultados do servidor. (provedor: provedor TCP, erro: 0-uma conexão existente foi fechada forçosamente pelo host remoto | Ocasionalmente, há problemas de conectividade inesperados. Tente executar o documento por meio do indexador novamente mais tarde. |
 
 <a name="could-not-extract-document-content"></a>
@@ -60,7 +60,7 @@ O indexador com uma fonte de dados de BLOB não pôde extrair o conteúdo ou os 
 | Motivo | Detalhes/exemplo | Resolução |
 | --- | --- | --- |
 | o blob está acima do limite de tamanho | O documento é de `'150441598'` bytes, o que excede o tamanho máximo `'134217728'` de bytes para extração de documentos para sua camada de serviço atual. | [erros de indexação de BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| o blob tem um tipo de conteúdo sem suporte | O documento tem um tipo de conteúdo sem suporte`'image/png'` | [erros de indexação de BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
+| o blob tem um tipo de conteúdo sem suporte | O documento tem um tipo de conteúdo sem suporte `'image/png'` | [erros de indexação de BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | o blob está criptografado | Não foi possível processar o documento-ele pode estar criptografado ou protegido por senha. | Você pode ignorar o blob com [as configurações de blob](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
 | problemas transitórios | "Erro ao processar o blob: a solicitação foi anulada: a solicitação foi cancelada". "O documento atingiu o tempo limite durante o processamento." | Ocasionalmente, há problemas de conectividade inesperados. Tente executar o documento por meio do indexador novamente mais tarde. |
 
@@ -71,7 +71,7 @@ O indexador lê o documento da fonte de dados, mas houve um problema ao converte
 
 | Motivo | Detalhes/exemplo | Resolução |
 | --- | --- | --- |
-| A chave do documento está ausente | A chave do documento não pode estar ausente ou vazia | Verifique se todos os documentos têm chaves de documento válidas. A chave do documento é determinada pela definição da propriedade ' Key ' como parte da [definição do índice](https://docs.microsoft.com/rest/api/searchservice/create-index#request-body). Os indexadores emitirão esse erro quando a propriedade sinalizada como ' chave ' não puder ser encontrada em um documento específico. |
+| A chave do documento está ausente | A chave do documento não pode estar ausente ou vazia | Verifique se todos os documentos têm chaves de documento válidas. A chave do documento é determinada pela definição da propriedade ' Key ' como parte da [definição do índice](/rest/api/searchservice/create-index#request-body). Os indexadores emitirão esse erro quando a propriedade sinalizada como ' chave ' não puder ser encontrada em um documento específico. |
 | A chave do documento é inválida | A chave do documento não pode ter mais de 1024 caracteres | Modifique a chave do documento para atender aos requisitos de validação. |
 | Não foi possível aplicar o mapeamento de campo a um campo | Não foi possível aplicar `'functionName'` a função de mapeamento ao campo `'fieldName'` . A matriz não pode ser nula. Nome do parâmetro: bytes | Verifique os [mapeamentos de campo](search-indexer-field-mappings.md) definidos no indexador e compare com os dados do campo especificado do documento com falha. Pode ser necessário modificar os mapeamentos de campo ou os dados do documento. |
 | Não foi possível ler o valor do campo | Não foi possível ler o valor da coluna `'fieldName'` no índice `'fieldIndex'` . ocorreu um erro de nível de transporte ao receber os resultados do servidor. (provedor: Provedor TCP, erro: 0 – Uma conexão existente foi fechada forçadamente pelo host remoto.) | Esses erros normalmente são devido a problemas de conectividade inesperados com o serviço subjacente da fonte de dados. Tente executar o documento por meio do indexador novamente mais tarde. |
@@ -155,7 +155,7 @@ O documento foi lido e processado, mas o indexador não pôde adicioná-lo ao í
 | Problemas de conexão com o índice de destino (que persiste após novas tentativas) porque o serviço está em outra carga, como consulta ou indexação. | Falha ao estabelecer conexão para atualizar índice. O serviço de pesquisa está sob carga pesada. | [Escalar verticalmente seu serviço de pesquisa](search-capacity-planning.md)
 | O serviço de pesquisa está sendo corrigido para atualização de serviço ou está no meio de uma reconfiguração de topologia. | Falha ao estabelecer conexão para atualizar índice. O serviço de pesquisa está inoperante no momento/o serviço de pesquisa está passando por uma transição. | Configure o serviço com pelo menos 3 réplicas para a documentação de 99,9% de disponibilidade por [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
 | Falha no recurso de computação/rede subjacente (raro) | Falha ao estabelecer conexão para atualizar índice. Ocorreu uma falha desconhecida. | Configure os indexadores para serem [executados em uma agenda](search-howto-schedule-indexers.md) para captar de um estado de falha.
-| Uma solicitação de indexação feita ao índice de destino não foi confirmada dentro de um período de tempo limite devido a problemas de rede. | Não foi possível estabelecer a conexão com o índice de pesquisa em tempo hábil. | Configure os indexadores para serem [executados em uma agenda](search-howto-schedule-indexers.md) para captar de um estado de falha. Além disso, tente diminuir o tamanho do [lote](https://docs.microsoft.com/rest/api/searchservice/create-indexer#parameters) do indexador se essa condição de erro persistir.
+| Uma solicitação de indexação feita ao índice de destino não foi confirmada dentro de um período de tempo limite devido a problemas de rede. | Não foi possível estabelecer a conexão com o índice de pesquisa em tempo hábil. | Configure os indexadores para serem [executados em uma agenda](search-howto-schedule-indexers.md) para captar de um estado de falha. Além disso, tente diminuir o tamanho do [lote](/rest/api/searchservice/create-indexer#parameters) do indexador se essa condição de erro persistir.
 
 <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>
 
@@ -171,11 +171,11 @@ O documento foi lido e processado pelo indexador, mas devido a uma incompatibili
 | Um tipo desconhecido foi descoberto no documento de origem. | Tipo desconhecido '_desconhecido_' não pode ser indexado |
 | Uma notação incompatível para pontos de Geografia foi usada no documento de origem. | Não há suporte para literais de cadeia de caracteres de ponto WKT. Em vez disso, use literais de ponto geojson |
 
-Em todos esses casos, consulte [tipos de dados com suporte](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) e [mapa de tipo de dados para indexadores](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) para se certificar de que você criou o esquema de índice corretamente e configurou os [mapeamentos de campo de indexador](search-indexer-field-mappings.md)apropriados. A mensagem de erro incluirá detalhes que podem ajudar a rastrear a origem da incompatibilidade.
+Em todos esses casos, consulte [tipos de dados com suporte](/rest/api/searchservice/supported-data-types) e [mapa de tipo de dados para indexadores](/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) para se certificar de que você criou o esquema de índice corretamente e configurou os [mapeamentos de campo de indexador](search-indexer-field-mappings.md)apropriados. A mensagem de erro incluirá detalhes que podem ajudar a rastrear a origem da incompatibilidade.
 
 ## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>Erro: a política de controle de alterações integrada não pode ser usada porque a tabela tem uma chave primária composta
 
-Isso se aplica a tabelas SQL e geralmente acontece quando a chave é definida como uma chave composta ou, quando a tabela define um índice clusterizado exclusivo (como em um índice SQL, não um índice Azure Search). O principal motivo é que o atributo de chave é modificado para ser uma chave primária composta no caso de um [índice clusterizado exclusivo](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). Nesse caso, certifique-se de que a tabela SQL não tenha um índice clusterizado exclusivo ou que você mapeie o campo de chave para um campo que tenha a garantia de não ter valores duplicados.
+Isso se aplica a tabelas SQL e geralmente acontece quando a chave é definida como uma chave composta ou, quando a tabela define um índice clusterizado exclusivo (como em um índice SQL, não um índice Azure Search). O principal motivo é que o atributo de chave é modificado para ser uma chave primária composta no caso de um [índice clusterizado exclusivo](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). Nesse caso, certifique-se de que a tabela SQL não tenha um índice clusterizado exclusivo ou que você mapeie o campo de chave para um campo que tenha a garantia de não ter valores duplicados.
 
 <a name="could-not-process-document-within-indexer-max-run-time"></a>
 
@@ -191,9 +191,9 @@ Esse erro ocorre quando o indexador está tentando [projetar dados em um reposit
 
 | Motivo | Detalhes/exemplo | Resolução |
 | --- | --- | --- |
-| Não foi possível atualizar o blob de projeção `'blobUri'` no contêiner`'containerName'` |O contêiner especificado não existe. | O indexador verificará se o contêiner especificado foi criado anteriormente e o criará, se necessário, mas ele só executará essa verificação uma vez por execução de indexer. Esse erro significa que algo excluiu o contêiner após esta etapa.  Para resolver esse erro, tente: Deixe as informações da conta de armazenamento sozinhas, aguarde até que o indexador seja concluído e execute novamente o indexador. |
-| Não foi possível atualizar o blob de projeção `'blobUri'` no contêiner`'containerName'` |Não é possível gravar dados na conexão de transporte: uma conexão existente foi fechada forçosamente pelo host remoto. | Espera-se que essa seja uma falha transitória com o armazenamento do Azure e, portanto, deve ser resolvida executando novamente o indexador. Se você encontrar esse erro consistentemente, registre um [tíquete de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) para que ele possa ser investigado mais detalhadamente.  |
-| Não foi possível atualizar a linha `'projectionRow'` na tabela`'tableName'` | O servidor está ocupado. | Espera-se que essa seja uma falha transitória com o armazenamento do Azure e, portanto, deve ser resolvida executando novamente o indexador. Se você encontrar esse erro consistentemente, registre um [tíquete de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) para que ele possa ser investigado mais detalhadamente.  |
+| Não foi possível atualizar o blob de projeção `'blobUri'` no contêiner `'containerName'` |O contêiner especificado não existe. | O indexador verificará se o contêiner especificado foi criado anteriormente e o criará, se necessário, mas ele só executará essa verificação uma vez por execução de indexer. Esse erro significa que algo excluiu o contêiner após esta etapa.  Para resolver esse erro, tente: Deixe as informações da conta de armazenamento sozinhas, aguarde até que o indexador seja concluído e execute novamente o indexador. |
+| Não foi possível atualizar o blob de projeção `'blobUri'` no contêiner `'containerName'` |Não é possível gravar dados na conexão de transporte: uma conexão existente foi fechada forçosamente pelo host remoto. | Espera-se que essa seja uma falha transitória com o armazenamento do Azure e, portanto, deve ser resolvida executando novamente o indexador. Se você encontrar esse erro consistentemente, registre um [tíquete de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) para que ele possa ser investigado mais detalhadamente.  |
+| Não foi possível atualizar a linha `'projectionRow'` na tabela `'tableName'` | O servidor está ocupado. | Espera-se que essa seja uma falha transitória com o armazenamento do Azure e, portanto, deve ser resolvida executando novamente o indexador. Se você encontrar esse erro consistentemente, registre um [tíquete de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) para que ele possa ser investigado mais detalhadamente.  |
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"></a>
 
@@ -255,9 +255,9 @@ Se você souber que o conjunto de dados contém vários idiomas e, portanto, pre
 ```
 
 Aqui estão algumas referências para os idiomas com suporte no momento para cada uma das habilidades que podem produzir essa mensagem de erro:
-* [Análise de texto idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (para [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md)e [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
-* [Idiomas com suporte do tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) (para o [texto TranslationSkill](cognitive-search-skill-text-translation.md))
-* [SplitSkill de texto](cognitive-search-skill-textsplit.md) Idiomas com suporte:`da, de, en, es, fi, fr, it, ko, pt`
+* [Análise de texto idiomas com suporte](../cognitive-services/text-analytics/language-support.md) (para [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md)e [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
+* [Idiomas com suporte do tradutor](../cognitive-services/translator/language-support.md) (para o [texto TranslationSkill](cognitive-search-skill-text-translation.md))
+* [SplitSkill de texto](cognitive-search-skill-textsplit.md) Idiomas com suporte: `da, de, en, es, fi, fr, it, ko, pt`
 
 <a name="skill-input-was-truncated"></a>
 
@@ -304,7 +304,7 @@ Para obter mais informações, consulte [progresso incremental e consultas perso
 
 ## <a name="warning-some-data-was-lost-during-projection-row-x-in-table-y-has-string-property-z-which-was-too-long"></a>Aviso: alguns dados foram perdidos durante a projeção. A linha ' X ' na tabela ' Y ' tem a propriedade de cadeia de caracteres ' Z ', que era muito longa.
 
-O [serviço de armazenamento de tabela](https://azure.microsoft.com/services/storage/tables) tem limites de como [as propriedades de entidade](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model#property-types) grande podem ser. As cadeias de caracteres podem ter de 32.000 a ou menos. Se uma linha com uma propriedade de cadeia de caracteres com mais de 32.000 caracteres estiver sendo projetada, somente os primeiros 32.000 caracteres serão preservados. Para contornar esse problema, evite projetar linhas com propriedades de cadeia de caracteres com mais de 32.000 caracteres.
+O [serviço de armazenamento de tabela](https://azure.microsoft.com/services/storage/tables) tem limites de como [as propriedades de entidade](/rest/api/storageservices/understanding-the-table-service-data-model#property-types) grande podem ser. As cadeias de caracteres podem ter de 32.000 a ou menos. Se uma linha com uma propriedade de cadeia de caracteres com mais de 32.000 caracteres estiver sendo projetada, somente os primeiros 32.000 caracteres serão preservados. Para contornar esse problema, evite projetar linhas com propriedades de cadeia de caracteres com mais de 32.000 caracteres.
 
 <a name="truncated-extracted-text-to-x-characters"></a>
 
@@ -326,13 +326,13 @@ Os mapeamentos de campo de saída que referenciam dados não existentes/nulos pr
 <a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>
 
 ## <a name="warning-the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>Aviso: a política de detecção de alteração de dados está configurada para usar a coluna de chave ' X '
-[As políticas de detecção de alteração de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies) têm requisitos específicos para as colunas que usam para detectar alterações. Um desses requisitos é que essa coluna é atualizada toda vez que o item de origem é alterado. Outro requisito é que o novo valor dessa coluna seja maior que o valor anterior. As colunas de chave não atendem a esse requisito porque não mudam em cada atualização. Para contornar esse problema, selecione uma coluna diferente para a política de detecção de alteração.
+[As políticas de detecção de alteração de dados](/rest/api/searchservice/create-data-source#data-change-detection-policies) têm requisitos específicos para as colunas que usam para detectar alterações. Um desses requisitos é que essa coluna é atualizada toda vez que o item de origem é alterado. Outro requisito é que o novo valor dessa coluna seja maior que o valor anterior. As colunas de chave não atendem a esse requisito porque não mudam em cada atualização. Para contornar esse problema, selecione uma coluna diferente para a política de detecção de alteração.
 
 <a name="document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>
 
 ## <a name="warning-document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>Aviso: o texto do documento parece ser codificado em UTF-16, mas não tem uma marca de ordem de byte
 
-Os [modos de análise do indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer#blob-configuration-parameters) precisam saber como o texto é codificado antes de analisá-lo. As duas maneiras mais comuns de codificar texto são UTF-16 e UTF-8. UTF-8 é uma codificação de comprimento variável em que cada caractere está entre 1 byte e 4 bytes de comprimento. UTF-16 é uma codificação de tamanho fixo em que cada caractere tem 2 bytes de comprimento. O UTF-16 tem duas variantes diferentes, "big endian" e "little endian". A codificação de texto é determinada por uma "marca de ordem de byte", uma série de bytes antes do texto.
+Os [modos de análise do indexador](/rest/api/searchservice/create-indexer#blob-configuration-parameters) precisam saber como o texto é codificado antes de analisá-lo. As duas maneiras mais comuns de codificar texto são UTF-16 e UTF-8. UTF-8 é uma codificação de comprimento variável em que cada caractere está entre 1 byte e 4 bytes de comprimento. UTF-16 é uma codificação de tamanho fixo em que cada caractere tem 2 bytes de comprimento. O UTF-16 tem duas variantes diferentes, "big endian" e "little endian". A codificação de texto é determinada por uma "marca de ordem de byte", uma série de bytes antes do texto.
 
 | Codificação | Marca de ordem de byte |
 | --- | --- |
@@ -348,4 +348,4 @@ Para contornar esse aviso, determine qual é a codificação de texto para esse 
 
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Aviso: a coleção de Cosmos DB ' X ' tem uma política de indexação lenta. Alguns dados podem ser perdidos
 
-As coleções com políticas de indexação [lentas](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) não podem ser consultadas de forma consistente, resultando na falta de dados no indexador. Para contornar esse aviso, altere sua política de indexação para consistente.
+As coleções com políticas de indexação [lentas](/azure/cosmos-db/index-policy#indexing-mode) não podem ser consultadas de forma consistente, resultando na falta de dados no indexador. Para contornar esse aviso, altere sua política de indexação para consistente.

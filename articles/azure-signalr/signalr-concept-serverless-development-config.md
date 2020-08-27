@@ -6,13 +6,13 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e25a874af66b73f5f75a07a5df65c155a16c9f01
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 0b5056f221fdd6036e5f6dff3d69a21c3a2dc27e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387142"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928557"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Desenvolvimento de funções do Azure e a configuração com o serviço do Azure SignalR
 
@@ -109,20 +109,20 @@ Todas as funções que desejam aproveitar o modelo baseado em classe precisam se
 
 ### <a name="define-hub-method"></a>Definir método de Hub
 
-Todos os métodos de Hub **devem** ter um `[SignalRTrigger]` atributo e **devem** usar o construtor sem parâmetros. Em seguida, o **nome do método** é tratado como um **evento**de parâmetro.
+Todos os métodos de Hub **devem**  ter um `[SignalRTrigger]` atributo e **devem** usar o construtor sem parâmetros. Em seguida, o **nome do método** é tratado como um **evento**de parâmetro.
 
 Por padrão, `category=messages` exceto que o nome do método é um dos seguintes nomes:
 
-* **Onconnected**: tratado como`category=connections, event=connected`
-* **OnDisconnect**: tratado como`category=connections, event=disconnected`
+* **Onconnected**: tratado como `category=connections, event=connected`
+* **OnDisconnect**: tratado como `category=connections, event=disconnected`
 
 ### <a name="parameter-binding-experience"></a>Experiência de associação de parâmetro
 
 No modelo baseado em classe, `[SignalRParameter]` é desnecessário porque todos os argumentos são marcados como `[SignalRParameter]` por padrão, exceto que é uma das seguintes situações:
 
 * O argumento é decorado por um atributo de associação.
-* O tipo do argumento é `ILogger` ou`CancellationToken`
-* O argumento é decorado por atributo`[SignalRIgnore]`
+* O tipo do argumento é `ILogger` ou `CancellationToken`
+* O argumento é decorado por atributo `[SignalRIgnore]`
 
 ### <a name="negotiate-experience-in-class-based-model"></a>Negociar experiência em modelo baseado em classe
 
@@ -218,8 +218,8 @@ O cliente JavaScript/TypeScript faz solicitações HTTP para a função Negotiat
 
 Ao executar o aplicativo de funções no computador local, você pode adicionar uma `Host` seção a *local.settings.jsem* para habilitar o CORS. Na `Host` seção, adicione duas propriedades:
 
-* `CORS`-Insira a URL base que é a origem do aplicativo cliente
-* `CORSCredentials`-Defina para `true` para permitir solicitações "withCredentials"
+* `CORS` -Insira a URL base que é a origem do aplicativo cliente
+* `CORSCredentials` -Defina para `true` para permitir solicitações "withCredentials"
 
 Exemplo:
 

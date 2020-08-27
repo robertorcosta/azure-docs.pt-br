@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46170a0eede92584b8ac4cc77ad61ca673cae65c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113807"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935476"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exemplo: criar uma habilidade personalizada usando o API de Pesquisa de Entidade do Bing
 
@@ -481,5 +481,5 @@ Parabéns! Você criou sua primeira habilidade personalizada. Agora você pode s
 + [Habilidades de energia: um repositório de habilidades personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Adicionar uma habilidade personalizada a um pipeline de enriquecimento de ia](cognitive-search-custom-skill-interface.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
-+ [Criar conjunto de qualificações (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Criar conjunto de qualificações (REST)](/rest/api/searchservice/create-skillset)
 + [Como mapear campos enriquecidos](cognitive-search-output-field-mapping.md)

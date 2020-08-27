@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 99b64ca8e807fcf6a142f10878d90e77e3639698
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 62a0b0ec5312b4d00724fe7c13a5e20b5d35e34f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749473"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926857"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço no Azure Cognitive Search
 
@@ -44,8 +44,8 @@ Os limites máximos de armazenamento, cargas de trabalho e quantidades de índic
 | Máximo de campos de coleção complexos por índice |40 |40 |40 |40 |40 |40 |40 |40 |
 | Máximo de elementos em todas as coletas complexas por documento&nbsp;<sup>2</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Profundidade máxima de campos complexos |10 |10 |10 |10 |10 |10 |10 |10 |
-| Número máximo de [encarregados da sugestão](https://docs.microsoft.com/rest/api/searchservice/suggesters) por índice |1 |1 |1 |1 |1 |1 |1 |1 |
-| Número máximo de [perfis de pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) por índice |100 |100 |100 |100 |100 |100 |100 |100 |
+| Número máximo de [encarregados da sugestão](/rest/api/searchservice/suggesters) por índice |1 |1 |1 |1 |1 |1 |1 |1 |
+| Número máximo de [perfis de pontuação](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) por índice |100 |100 |100 |100 |100 |100 |100 |100 |
 | Máximo de funções por perfil |8 |8 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> Serviços básicos criados antes de dezembro de 2017 têm menos limites (5 em vez de 15) em índices. A camada tipo Básico é a única SKU com um limite inferior de 100 campos por índice.
@@ -58,7 +58,7 @@ Os limites máximos de armazenamento, cargas de trabalho e quantidades de índic
 
 A partir de outubro de 2018, não haverá mais limites de contagem de documentos para novos serviços criados em qualquer camada faturável (Básica, S1, S2, S3, S3 HD), em qualquer região. Os serviços mais antigos criados antes de outubro de 2018 ainda podem estar sujeitos a limites de contagem de documentos.
 
-Para determinar se o serviço tem limites de documentos, use [OBTER API REST de Estatísticas de Serviço](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). Os limites de documento são refletidos na resposta com `null` indicando que não há limites.
+Para determinar se o serviço tem limites de documentos, use [OBTER API REST de Estatísticas de Serviço](/rest/api/searchservice/get-service-statistics). Os limites de documento são refletidos na resposta com `null` indicando que não há limites.
 
 > [!NOTE]
 > Embora não haja limites de documentos impostos pelo serviço, há um limite de fragmentos de aproximadamente 24 bilhões de documentos por índice nos serviços de pesquisa Básico, S1, S2 e S3. Para o S3 HD, o limite de fragmentos é de 2 bilhões de documentos por índice. Cada elemento de uma coleção complexa conta como um documento separado em termos de limites de fragmentos.
@@ -120,7 +120,7 @@ Para as camadas de Otimizado para armazenamento (L1 e L2), você deve esperar um
 
 ## <a name="data-limits-ai-enrichment"></a>Limites de dados (enriquecimento de IA)
 
-Um [pipeline de enriquecimento de IA](cognitive-search-concept-intro.md) que faz chamadas a um recurso de Análise de Texto para [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md), [extração de frases-chave](cognitive-search-skill-keyphrases.md), [análise de sentimento](cognitive-search-skill-sentiment.md), [detecção de idioma](cognitive-search-skill-language-detection.md) e [detecção de informações pessoais](cognitive-search-skill-pii-detection.md) está sujeito a limites de dados. O tamanho máximo de um registro deve ser 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar interromper o backup de seus dados antes de enviá-lo ao analisador de sentimentos, use a [habilidade Text Split](cognitive-search-skill-textsplit.md).
+Um [pipeline de enriquecimento de IA](cognitive-search-concept-intro.md) que faz chamadas a um recurso de Análise de Texto para [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md), [extração de frases-chave](cognitive-search-skill-keyphrases.md), [análise de sentimento](cognitive-search-skill-sentiment.md), [detecção de idioma](cognitive-search-skill-language-detection.md) e [detecção de informações pessoais](cognitive-search-skill-pii-detection.md) está sujeito a limites de dados. O tamanho máximo de um registro deve ser 50.000 caracteres conforme medido por [`String.Length`](/dotnet/api/system.string.length). Se você precisar interromper o backup de seus dados antes de enviá-lo ao analisador de sentimentos, use a [habilidade Text Split](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Limitações
 
@@ -141,7 +141,7 @@ Limites de solicitação de taxa estática para operações relacionadas a um í
 * Máximo de 32 campos na cláusula $orderby
 * O tamanho máximo do termo de pesquisa é de 32.766 bytes (32 KB menos 2 bytes) de texto codificado em UTF-8
 
-<sup>1</sup> No Azure Cognitive Search, o corpo de uma solicitação está sujeito a um limite superior de 16 MB, impondo um limite prático no conteúdo de campos individuais ou Coleções que, caso contrário, não são limitadas por limites teóricos (consulte [Tipos de dados com suporte](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) para obter mais informações sobre restrições e composição de campos).
+<sup>1</sup> No Azure Cognitive Search, o corpo de uma solicitação está sujeito a um limite superior de 16 MB, impondo um limite prático no conteúdo de campos individuais ou Coleções que, caso contrário, não são limitadas por limites teóricos (consulte [Tipos de dados com suporte](/rest/api/searchservice/supported-data-types) para obter mais informações sobre restrições e composição de campos).
 
 ## <a name="api-response-limits"></a>Limites de resposta da API
 * Máximo de 1000 documentos retornados por página de resultados da pesquisa

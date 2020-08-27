@@ -2,13 +2,14 @@
 title: Visão geral da API de Retransmissão do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral das APIs de Retransmissão do Azure disponíveis (.NET Standard, .NET Framework, Node.js e outros)
 ms.topic: article
+ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: 15e13ccac9b05e6e1b0730b38b372dec20c69dda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98bbb1ecc7e870ff9b7687284e7087d44375d275
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316964"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935714"
 ---
 # <a name="available-relay-apis"></a>APIs de Retransmissão disponíveis
 

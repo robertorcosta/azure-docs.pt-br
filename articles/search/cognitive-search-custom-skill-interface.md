@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 7a1a2aa92549bcab35532120c4af5bd0b6904f58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e78f0d1e8d6d637dfebe1ff475ab8416ba49a263
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82891241"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935408"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Como adicionar uma habilidade personalizada a um pipeline de enriquecimento de Pesquisa Cognitiva do Azure
 
@@ -168,5 +168,5 @@ Este artigo abordou os requisitos de interface necessários para integrar uma ha
 + [Habilidades de energia: um repositório de habilidades personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Exemplo: criando uma habilidade personalizada para o enriquecimento de ia](cognitive-search-create-custom-skill-example.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
-+ [Criar conjunto de qualificações (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Criar conjunto de qualificações (REST)](/rest/api/searchservice/create-skillset)
 + [Como mapear campos enriquecidos](cognitive-search-output-field-mapping.md)

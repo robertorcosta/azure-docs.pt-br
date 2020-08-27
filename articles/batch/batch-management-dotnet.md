@@ -3,13 +3,13 @@ title: Usar a biblioteca .NET de Gerenciamento do Lotes para gerenciar os recurs
 description: Criar, excluir e modificar recursos de conta do Lote do Azure em seus aplicativos com a biblioteca .NET de Gerenciamento do Lote.
 ms.topic: how-to
 ms.date: 04/24/2017
-ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 1684a177f139a3acff8a4957c0c1e89f46d8848d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: seodec18, has-adal-ref, devx-track-csharp
+ms.openlocfilehash: 0672a7dc1a5c26eff88806ca37b28d70b49f2288
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145022"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926517"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gerenciar contas e cotas do Lote com a biblioteca de clientes do Gerenciamento de Lotes para .NET
 

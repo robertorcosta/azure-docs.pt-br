@@ -2,13 +2,14 @@
 title: Diagnosticar falhas e exceções com o Aplicativo Azure insights
 description: Capture exceções de aplicativos do ASP.NET junto com a telemetria de solicitação.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 07/11/2019
-ms.openlocfilehash: c91ab4bcf8a0d2172c89fa04bd7a3b4999b2217e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 36e916eabfca8e997fc3d46ff10f6201203457cd
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321353"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936496"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções em seus aplicativos Web com o Application Insights
 Exceções em seu aplicativo Web ao vivo são relatadas pelo [Application Insights](./app-insights-overview.md). Você pode correlacionar solicitações com falha com exceções e outros eventos no cliente e no servidor, para poder diagnosticar as causas rapidamente.
@@ -77,7 +78,7 @@ Você tem várias opções:
 
 Para ver esses eventos, abra [Pesquisar](./diagnostic-search.md) no menu à esquerda, selecione os **tipos de evento**de menu suspenso e, em seguida, escolha evento personalizado, rastreamento ou exceção.
 
-![Drill-through](./media/asp-net-exceptions/customevents.png)
+![Detalhamento](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
 > Se o seu aplicativo gerar muita telemetria, o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. Os eventos que fazem parte da mesma operação serão selecionados ou desmarcados como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem.](./sampling.md)

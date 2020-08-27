@@ -8,20 +8,20 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: bac2f86f4134cc8d22e9f388b46bc76ab2d0e5ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 087989638193bb59001ed33c4ee253d61682d8bf
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080807"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935986"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Habilidade cognitiva de detecção de idioma
 
-A **detecção de idioma** habilidade detecta o idioma do texto de entrada e relata um único código de idioma para cada documento enviado na solicitação. O código de idioma é emparelhado com uma pontuação que indica a intensidade da análise. Essa habilidade usa os modelos de machine learning fornecidos pela [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) nos Serviços Cognitivos.
+A **detecção de idioma** habilidade detecta o idioma do texto de entrada e relata um único código de idioma para cada documento enviado na solicitação. O código de idioma é emparelhado com uma pontuação que indica a intensidade da análise. Essa habilidade usa os modelos de machine learning fornecidos pela [Análise de Texto](../cognitive-services/text-analytics/overview.md) nos Serviços Cognitivos.
 
 Esse recurso é especialmente útil quando você precisa fornecer o idioma do texto como entrada para outras habilidades (por exemplo, a habilidade de [Análise de Sentimento](cognitive-search-skill-sentiment.md) ou [Habilidade de Divisão de Texto](cognitive-search-skill-textsplit.md)).
 
-A detecção de idioma aproveita as bibliotecas de processamento de idioma natural do Bing, que excedem o número de [idiomas e regiões com suporte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) listados para análise de texto. A lista exata de idiomas não é publicada, mas inclui todas as linguagens amplamente faladas, além de variantes, dialetos e algumas linguagens regionais e culturais. Se você tiver conteúdo expresso em uma linguagem usada com menos frequência, poderá [tentar a API detecção de idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) para ver se ela retorna um código. A resposta para idiomas que não pode ser detectada é `unknown`.
+A detecção de idioma aproveita as bibliotecas de processamento de idioma natural do Bing, que excedem o número de [idiomas e regiões com suporte](../cognitive-services/text-analytics/language-support.md) listados para análise de texto. A lista exata de idiomas não é publicada, mas inclui todas as linguagens amplamente faladas, além de variantes, dialetos e algumas linguagens regionais e culturais. Se você tiver conteúdo expresso em uma linguagem usada com menos frequência, poderá [tentar a API detecção de idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) para ver se ela retorna um código. A resposta para idiomas que não pode ser detectada é `unknown`.
 
 > [!NOTE]
 > À medida que expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará [anexar um recurso de Serviços Cognitivos faturável](cognitive-search-attach-cognitive-services.md). As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem, como parte do estágio de quebra de documento na Pesquisa Cognitiva do Azure. Não há encargos para extração de texto em documentos.
@@ -33,7 +33,7 @@ A detecção de idioma aproveita as bibliotecas de processamento de idioma natur
 Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## <a name="data-limits"></a>Limites de dados
-O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar dividir seus dados antes de enviá-los para a habilidade de detecção de idioma, poderá usar a [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
+O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](/dotnet/api/system.string.length). Se você precisar dividir seus dados antes de enviá-los para a habilidade de detecção de idioma, poderá usar a [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
@@ -45,7 +45,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
-| Nome de saída    | Descrição |
+| Nome de saída    | DESCRIÇÃO |
 |--------------------|-------------|
 | `languageCode` | O código de idioma ISO 6391 para o idioma identificado. Por exemplo, “in” |
 | `languageName` | O nome do idioma. Por exemplo “inglês”. |

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 3399ace71d3a28ea903991e0439f1c9ddcc939d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eaafb9536a8667417c0abf4ab570609f2db290bc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565385"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935340"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Recursos de documentação para enriquecimento de IA na Pesquisa Cognitiva do Azure
 
@@ -92,12 +92,12 @@ A seguir está uma lista consolidada da documentação para o enriquecimento do 
 
 ## <a name="apis"></a>APIs
 
-+ [REST API](https://docs.microsoft.com/rest/api/searchservice/)
-  + [Criar Qualificable (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-  + [Criar indexador (versão da API = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [REST API](/rest/api/searchservice/)
+  + [Criar Qualificable (API-Version = 2020-06-30)](/rest/api/searchservice/create-skillset)
+  + [Criar indexador (versão da API = 2020-06-30)](/rest/api/searchservice/create-indexer)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
-+ [API REST da Pesquisa Cognitiva do Azure](https://docs.microsoft.com/rest/api/searchservice/)
++ [API REST do Azure Cognitive Search](/rest/api/searchservice/)
 + [Indexadores na Pesquisa Cognitiva do Azure](search-indexer-overview.md)
 + [O que é a Pesquisa Cognitiva do Azure?](search-what-is-azure-search.md)

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 3957884a8c559194c436487050f0dbc09acf0441
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 5596a2db32a0fe5b6b5eddf3ae20501e6edb0b99
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232501"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935374"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Enriquecimento e Caching incrementais no Azure Pesquisa Cognitiva
 
@@ -28,9 +28,9 @@ Um fluxo de trabalho que usa cache incremental inclui as seguintes etapas:
 
 1. [Crie ou identifique uma conta de armazenamento do Azure](../storage/common/storage-account-create.md) para armazenar o cache.
 1. [Habilite o enriquecimento incremental](search-howto-incremental-index.md) no indexador.
-1. [Crie um indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) -mais um [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) -para invocar o pipeline. Durante o processamento, os estágios de enriquecimento são salvos para cada documento no armazenamento de BLOBs para uso futuro.
-1. Teste seu código e, depois de fazer alterações, use [Update Skill](https://docs.microsoft.com/rest/api/searchservice/update-skillset) para modificar uma definição.
-1. [Execute o indexador](https://docs.microsoft.com/rest/api/searchservice/run-indexer) para invocar o pipeline, recuperando a saída armazenada em cache para um processamento mais rápido e econômico.
+1. [Crie um indexador](/rest/api/searchservice/create-indexer) -mais um [skillset](/rest/api/searchservice/create-skillset) -para invocar o pipeline. Durante o processamento, os estágios de enriquecimento são salvos para cada documento no armazenamento de BLOBs para uso futuro.
+1. Teste seu código e, depois de fazer alterações, use [Update Skill](/rest/api/searchservice/update-skillset) para modificar uma definição.
+1. [Execute o indexador](/rest/api/searchservice/run-indexer) para invocar o pipeline, recuperando a saída armazenada em cache para um processamento mais rápido e econômico.
 
 Para obter mais informações sobre as etapas e considerações ao trabalhar com um indexador existente, consulte [Configurar o enriquecimento incremental](search-howto-incremental-index.md).
 
@@ -109,7 +109,7 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 A finalidade do cache é evitar o processamento desnecessário, mas suponha que você faça uma alteração em uma habilidade que o indexador não detecta (por exemplo, alterando algo no código externo, como uma habilidade personalizada).
 
-Nesse caso, você pode usar as [habilidades de redefinição](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) para forçar o reprocessamento de uma determinada habilidade, incluindo quaisquer habilidades de downstream que tenham uma dependência na saída dessa habilidade. Essa API aceita uma solicitação POST com uma lista de habilidades que devem ser invalidadas e marcadas para reprocessamento. Após a redefinição das habilidades, execute o indexador para invocar o pipeline.
+Nesse caso, você pode usar as [habilidades de redefinição](/rest/api/searchservice/preview-api/reset-skills) para forçar o reprocessamento de uma determinada habilidade, incluindo quaisquer habilidades de downstream que tenham uma dependência na saída dessa habilidade. Essa API aceita uma solicitação POST com uma lista de habilidades que devem ser invalidadas e marcadas para reprocessamento. Após a redefinição das habilidades, execute o indexador para invocar o pipeline.
 
 ## <a name="change-detection"></a>Detecção de alteração
 
@@ -150,17 +150,17 @@ O processamento incremental avalia sua definição de qualificações e determin
 
 ## <a name="api-reference"></a>Referência de API
 
-A versão da API REST `2020-06-30-Preview` fornece aprimoramentos incrementais por meio de propriedades adicionais em indexadores. Habilidades e fontes de dados podem usar a versão disponível para o público geral. Além da documentação de referência, consulte [Configurar o Caching para aprimoramento incremental](search-howto-incremental-index.md) para obter detalhes sobre como chamar as APIs.
+A versão da API REST `2020-06-30-Preview` fornece aprimoramentos incrementais por meio de propriedades adicionais em indexadores. Habilidades e fontes de dados podem usar a versão disponível para o público geral. Além da documentação de referência, consulte  [Configurar o Caching para aprimoramento incremental](search-howto-incremental-index.md) para obter detalhes sobre como chamar as APIs.
 
-+ [Criar indexador (versão da API = 2020-06 -30-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) 
++ [Criar indexador (versão da API = 2020-06 -30-Preview)](/rest/api/searchservice/create-indexer) 
 
-+ [Atualizar indexador (versão da API = 2020-06 -30-Preview)](https://docs.microsoft.com/rest/api/searchservice/update-indexer) 
++ [Atualizar indexador (versão da API = 2020-06 -30-Preview)](/rest/api/searchservice/update-indexer) 
 
-+ [Atualizar o qualificable (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset) (novo parâmetro Uri na solicitação)
++ [Atualizar o qualificable (API-Version = 2020-06-30)](/rest/api/searchservice/update-skillset) (novo parâmetro Uri na solicitação)
 
-+ [Redefinir habilidades (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills)
++ [Redefinir habilidades (API-Version = 2020-06-30)](/rest/api/searchservice/preview-api/reset-skills)
 
-+ Indexadores de banco de dados (SQL do Azure, Cosmos DB). Alguns indexadores recuperam dados por meio de consultas. Para consultas que recuperam dados, a [fonte de dados de atualização](https://docs.microsoft.com/rest/api/searchservice/update-data-source) dá suporte a um novo parâmetro em uma solicitação **ignoreResetRequirement**, que deve ser definida como `true` quando a ação de atualização não deve invalidar o cache. 
++ Indexadores de banco de dados (SQL do Azure, Cosmos DB). Alguns indexadores recuperam dados por meio de consultas. Para consultas que recuperam dados, a [fonte de dados de atualização](/rest/api/searchservice/update-data-source) dá suporte a um novo parâmetro em uma solicitação **ignoreResetRequirement**, que deve ser definida como `true` quando a ação de atualização não deve invalidar o cache. 
 
   Use o **ignoreResetRequirement** com moderação, pois isso pode levar à inconsistência indesejada em seus dados que não serão detectados com facilidade.
 

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 779aa96fcf58d45bb53757f7fe974a0fe4c61ffa
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 39a7c92ca6c83684658cf767722698806ed994ec
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214063"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935442"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Como criar um conconhecimento em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva 
 
@@ -42,21 +42,21 @@ Suponha que você esteja interessado em processar um conjunto de comentários de
 
 | texto de registro | empresas | sentimento | descrições das empresas |
 |--------|-----|-----|-----|
-|registro de amostra| ["Microsoft", "LinkedIn"] | 0.99 | ["A Microsoft Corporation é uma empresa de tecnologia multinacional americana...", "O LinkedIn é uma rede social concentrada em negócios e empregos..."]
+|registro de amostra| ["Microsoft", "LinkedIn"] | 0,99 | ["A Microsoft Corporation é uma empresa de tecnologia multinacional americana...", "O LinkedIn é uma rede social concentrada em negócios e empregos..."]
 
 O diagrama a seguir ilustra um pipeline de enriquecimento hipotético:
 
 ![Um pipeline de enriquecimento hipotético](media/cognitive-search-defining-skillset/sample-skillset.png "Um pipeline de enriquecimento hipotético")
 
 
-Depois de ter uma boa ideia do que deseja conquistar com o pipeline, você poderá expressar o conjunto de habilidades que fornece estas etapas. Funcionalmente, o contratador de habilidades é expresso quando você carrega a definição do indexador no Azure Pesquisa Cognitiva. Para saber mais sobre como carregar o indexador, consulte a [documentação do indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Depois de ter uma boa ideia do que deseja conquistar com o pipeline, você poderá expressar o conjunto de habilidades que fornece estas etapas. Funcionalmente, o contratador de habilidades é expresso quando você carrega a definição do indexador no Azure Pesquisa Cognitiva. Para saber mais sobre como carregar o indexador, consulte a [documentação do indexador](/rest/api/searchservice/create-indexer).
 
 
 No diagrama, a etapa *quebra de documento* acontece automaticamente. Essencialmente, o Azure Pesquisa Cognitiva sabe como abrir arquivos conhecidos e cria um campo de *conteúdo* que contém o texto extraído de cada documento. As caixas brancas são enriquecedores internos e a caixa pontilhada "Pesquisa de Entidade do Bing" representa um enriquecedor personalizado que você está criando. Conforme ilustrado, o conjunto de habilidades contém três habilidades.
 
 ## <a name="skillset-definition-in-rest"></a>Definição de conjunto de habilidades em RET
 
-Um conjunto de habilidades é definido como uma matriz de habilidades. Cada uma delas define a origem de suas entradas e o nome das saídas produzidas. Usando a [API REST de Criação de Conjunto de Habilidades](https://docs.microsoft.com/rest/api/searchservice/create-skillset), é possível definir um conjunto de habilidades correspondente ao diagrama anterior: 
+Um conjunto de habilidades é definido como uma matriz de habilidades. Cada uma delas define a origem de suas entradas e o nome das saídas produzidas. Usando a [API REST de Criação de Conjunto de Habilidades](/rest/api/searchservice/create-skillset), é possível definir um conjunto de habilidades correspondente ao diagrama anterior: 
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
@@ -239,7 +239,7 @@ A saída, nesse caso a descrição de uma empresa, é gerada para cada organiza�
 
 ## <a name="add-structure"></a>Adicionar estrutura
 
-O conjunto de habilidades gera informações estruturadas usando dados não estruturados. Considere o exemplo a seguir:
+O conjunto de habilidades gera informações estruturadas usando dados não estruturados. Considere o seguinte exemplo:
 
 *"Em seu quarto trimestre, a Microsoft registrou $1100000000 em receita do LinkedIn, a empresa de rede social comprada no ano passado. A aquisição permite que a Microsoft Combine recursos do LinkedIn com seus recursos do CRM e do Office. Os acionistas estão empolgados com o progresso até agora. "*
 
@@ -281,4 +281,4 @@ Você pode optar por salvar os documentos aprimorados como tabelas com relaçõe
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você está familiarizado com o pipeline de enriquecimento e com os conjuntos de habilidades, continue com [Como referenciar anotações em um conjunto de habilidades](cognitive-search-concept-annotations-syntax.md) ou [Como mapear saídas para campos em um índice](cognitive-search-output-field-mapping.md). 
+Agora que você está familiarizado com o pipeline de enriquecimento e com os conjuntos de habilidades, continue com [Como referenciar anotações em um conjunto de habilidades](cognitive-search-concept-annotations-syntax.md) ou [Como mapear saídas para campos em um índice](cognitive-search-output-field-mapping.md).

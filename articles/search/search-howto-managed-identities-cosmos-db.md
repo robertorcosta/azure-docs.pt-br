@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: f65aa4b307108682fa6e190a229e9d82b6efdec0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: df37b7f1c5b1ed35b6c3779eea470b2fb0936ecf
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553194"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936649"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity-preview"></a>Configurar uma conexão do indexador a um banco de dados do Cosmos DB usando uma identidade gerenciada (versão prévia)
 
@@ -57,7 +57,7 @@ Nesta etapa, você dará permissão ao seu serviço do Azure Cognitive Search pa
 
 ### <a name="3---create-the-data-source"></a>3 – Criar a fonte de dados
 
-A [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), portal do Azure e o [SDK do .net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) oferecem suporte à cadeia de conexão de identidade gerenciada. Abaixo está um exemplo de como criar uma fonte de dados para indexar dados de Cosmos DB usando a [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerenciada. O formato da cadeia de conexão de identidade gerenciada é o mesmo para a API REST, o SDK do .NET e o portal do Azure.
+A [API REST](/rest/api/searchservice/create-data-source), portal do Azure e o [SDK do .net](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) oferecem suporte à cadeia de conexão de identidade gerenciada. Abaixo está um exemplo de como criar uma fonte de dados para indexar dados de Cosmos DB usando a [API REST](/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerenciada. O formato da cadeia de conexão de identidade gerenciada é o mesmo para a API REST, o SDK do .NET e o portal do Azure.
 
 Ao usar identidades gerenciadas para autenticar, as **credenciais** não incluirão uma chave de conta.
 
@@ -111,7 +111,7 @@ api-key: [admin key]
 }
 ```
 
-Para obter mais informações sobre a criação de índices, consulte [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
+Para obter mais informações sobre a criação de índices, consulte [Criar Índice](/rest/api/searchservice/create-index)
 
 ### <a name="5---create-the-indexer"></a>5 – Criar o indexador
 
@@ -136,7 +136,7 @@ Exemplo de definição de indexador:
 
 Esse indexador será executado a cada duas horas (o intervalo de agendamento é definido como "PT2H"). Para executar um indexador a cada 30 minutos, defina o intervalo para "PT30M". O intervalo mais curto com suporte é de 5 minutos. O agendamento é opcional – se ele for omitido, um indexador será executado apenas uma vez quando for criado. No entanto, você pode executar um indexador sob demanda a qualquer momento.   
 
-Para saber mais sobre a API Criar Indexador, veja [Criar indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Para saber mais sobre a API Criar Indexador, veja [Criar indexador](/rest/api/searchservice/create-indexer).
 
 Para obter mais informações sobre como definir as agendas do indexador, confira [Como agendar indexadores para o Azure Cognitive Search](search-howto-schedule-indexers.md).
 
