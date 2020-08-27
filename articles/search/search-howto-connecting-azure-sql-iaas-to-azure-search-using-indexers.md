@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: eacfc75b31efaf9a53ed116ed9e75983146d8575
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec1e74c6a029ab0f8defc3ae783c9e974f387289
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084119"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922966"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurar uma conexão de um indexador Pesquisa Cognitiva do Azure para SQL Server em uma VM do Azure
 
@@ -53,7 +53,7 @@ O Pesquisa Cognitiva do Azure requer um canal criptografado para todas as solici
 Depois de configurar a conexão criptografada exigida pelo Azure Pesquisa Cognitiva, há etapas de configuração adicionais intrínsecas a SQL Server em VMs do Azure. Se você ainda não fez isso, a próxima etapa é concluir a configuração usando qualquer um destes artigos:
 
 * Para uma VM do **Resource Manager** , veja [Conectar-se a uma Máquina Virtual do SQL Server no Azure usando o Resource Manager](../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md). 
-* Para uma VM **Clássica** , consulte [Conectar-se a uma Máquina Virtual do SQL Server no Azure clássico](../virtual-machines/windows/classic/sql-connect.md).
+* Para uma VM **Clássica** , consulte [Conectar-se a uma Máquina Virtual do SQL Server no Azure clássico](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect).
 
 Em particular, consulte a seção em cada artigo para "conectando pela internet".
 
@@ -68,16 +68,16 @@ Os links a seguir fornecem instruções sobre a configuração de NSG para impla
 > 
 
 * Para uma VM do **Gerenciador de Recursos** , consulte [Como criar NSGs para implantações de ARM](../virtual-network/tutorial-filter-network-traffic.md). 
-* Para uma VM **Clássica** , consulte [Como criar NSGs para implantações Clássicas](../virtual-network/virtual-networks-create-nsg-classic-ps.md).
+* Para uma VM **Clássica** , consulte [Como criar NSGs para implantações Clássicas](/previous-versions/azure/virtual-network/virtual-networks-create-nsg-classic-ps).
 
 O endereçamento IP pode apresentar alguns desafios que são facilmente superados se você estiver ciente do problema e possíveis soluções alternativas. As seções restantes fornecem recomendações para lidar com problemas relacionados a endereços IP na ACL.
 
 #### <a name="restrict-access-to-the-azure-cognitive-search"></a>Restringir o acesso ao Pesquisa Cognitiva do Azure
-É altamente recomendável que você restrinja o acesso ao endereço IP do serviço de pesquisa e o intervalo de endereços IP da `AzureCognitiveSearch` [marca de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) na ACL em vez de tornar suas SQL Azure VMs abertas para todas as solicitações de conexão.
+É altamente recomendável que você restrinja o acesso ao endereço IP do serviço de pesquisa e o intervalo de endereços IP da `AzureCognitiveSearch` [marca de serviço](../virtual-network/service-tags-overview.md#available-service-tags) na ACL em vez de tornar suas SQL Azure VMs abertas para todas as solicitações de conexão.
 
 Você pode descobrir o endereço IP executando ping no FQDN (por exemplo, `<your-search-service-name>.search.windows.net` ) do seu serviço de pesquisa.
 
-Você pode descobrir o intervalo de endereços IP da `AzureCognitiveSearch` [marca de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) usando [arquivos JSON baixáveis](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) ou por meio da [API de descoberta de marca de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). O intervalo de endereços IP é atualizado semanalmente.
+Você pode descobrir o intervalo de endereços IP da `AzureCognitiveSearch` [marca de serviço](../virtual-network/service-tags-overview.md#available-service-tags) usando [arquivos JSON baixáveis](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) ou por meio da [API de descoberta de marca de serviço](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). O intervalo de endereços IP é atualizado semanalmente.
 
 #### <a name="managing-ip-address-fluctuations"></a>Gerenciando flutuações de endereço IP
 Se o seu serviço de pesquisa tiver apenas uma unidade de pesquisa (isto é, uma réplica e uma partição), o endereço IP poderá mudar durante a reinicialização do serviço de rotina, invalidando uma ACL existente com o endereço IP do seu serviço de pesquisa.
@@ -93,4 +93,3 @@ Se você estiver usando o portal do Azure para criar um indexador, a lógica do 
 
 ## <a name="next-steps"></a>Próximas etapas
 Com a configuração fora do caminho, agora você pode especificar um SQL Server na VM do Azure como a fonte de dados para um indexador de Pesquisa Cognitiva do Azure. Consulte [conectando o banco de dados SQL do Azure ao azure pesquisa cognitiva usando indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) para obter mais informações.
-

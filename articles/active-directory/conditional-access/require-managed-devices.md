@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf3fd50b907e69311c475af844c7969f081a3094
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 7d3fbb06355772794fbe3fab5cdf3c8622c2baf4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849931"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948820"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: exigir dispositivos gerenciados para acesso ao aplicativo de nuvem com acesso condicional
 
@@ -28,7 +28,7 @@ Este artigo explica como você pode configurar políticas de acesso condicional 
 
 Exigir dispositivos gerenciados para acesso ao aplicativo de nuvem vincula o **acesso condicional do Azure ad** e o **Gerenciamento de dispositivos do Azure ad** juntos. Caso ainda não esteja familiarizado com uma dessas áreas, você deverá ler os seguintes tópicos primeiro:
 
-- **[Acesso condicional no Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** -este artigo fornece uma visão geral conceitual do acesso condicional e da terminologia relacionada.
+- **[Acesso condicional no Azure Active Directory](./overview.md)** -este artigo fornece uma visão geral conceitual do acesso condicional e da terminologia relacionada.
 - **[Introduction to device management in Azure Active Directory](../devices/overview.md)** - esse artigo fornece uma visão geral das várias opções para conseguir dispositivos sob controle organizacional. 
 - Para obter suporte ao Chrome na **atualização do Windows 10 para criadores (versão 1703)** ou posterior, instale a [extensão de contas do Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Essa extensão é necessária quando uma política de acesso condicional requer detalhes específicos do dispositivo.
 

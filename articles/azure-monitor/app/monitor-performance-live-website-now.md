@@ -3,12 +3,13 @@ title: Monitorar um aplicativo Web ASP.NET dinâmico com o Azure Application Ins
 description: Monitore o desempenho do site sem implantá-lo novamente. Funciona com aplicativos Web ASP.NET hospedado localmente ou em máquinas virtuais.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 70a405d2c32641be2ed4038fbffebce0e1340f83
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 603cbde20ae6e8d19e4ad3ae290bbfc925483595
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87310439"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923816"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentar aplicativos Web em tempo de execução com Application Insights anexação sem código
 
@@ -84,7 +85,7 @@ Se você deseja publicar novamente sem adicionar Application Insights no código
 4. Reaplique as edições realizadas no arquivo .config.
 
 
-## <a name="troubleshooting"></a><a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshooting"></a><a name="troubleshoot"></a>Solução
 
 ### <a name="confirm-a-valid-installation"></a>Confirmar uma instalação válida 
 
@@ -173,7 +174,7 @@ Exclua qualquer um destes arquivos encontrados no diretório do aplicativo:
 
 * Confira [Solução de problemas][qna] adicional.
 
-## <a name="system-requirements"></a>Requisitos do Sistema
+## <a name="system-requirements"></a>Requisitos de sistema
 Suporte de sistema operacional para Application Insights Status Monitor no servidor:
 
 * Windows Server 2008
@@ -243,7 +244,7 @@ Saiba quais aplicativos estão sendo monitorados:
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
 * `-Name`: o nome de um aplicativo Web no IIS.
-* `-InstrumentationKey`(Opcional.) Use isso para alterar o recurso para o qual a telemetria do aplicativo é enviada.
+* `-InstrumentationKey` (Opcional.) Use isso para alterar o recurso para o qual a telemetria do aplicativo é enviada.
 * Este cmdlet:
   * Atualiza o aplicativo nomeado para a versão do SDK baixado mais recentemente para esta máquina. (Só funciona se `SdkState==EnabledAfterDeployment`)
   * Se você fornecer uma chave de instrumentação, o aplicativo nomeado será reconfigurado para enviar telemetria para o recurso com essa chave. (Funciona se `SdkState != Disabled`)

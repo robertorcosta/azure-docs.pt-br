@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7986ca441f7d274670d8fa0238e7dcfa01497b6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b2f9a6e13fdc39ab18a2056fab15982aa9fb0e4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253164"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948157"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Como: exigir MFA para acesso de redes não confiáveis com acesso condicional   
 
@@ -57,11 +57,11 @@ Em vez de tentar definir quais são todos os locais confiáveis ou não confiáv
 
 - Incluir qualquer localização 
 
-   ![Acesso Condicional](./media/untrusted-networks/02.png)
+   ![Acesso condicional](./media/untrusted-networks/02.png)
 
 - Excluir todos os locais confiáveis 
 
-   ![Acesso Condicional](./media/untrusted-networks/01.png)
+   ![Acesso condicional](./media/untrusted-networks/01.png)
 
 ## <a name="policy-deployment"></a>Implantação de política
 
@@ -69,4 +69,4 @@ Com a abordagem descrita neste artigo, agora você pode configurar uma política
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser saber mais sobre o acesso condicional, consulte [o que é o acesso condicional no Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+Se você quiser saber mais sobre o acesso condicional, consulte [o que é o acesso condicional no Azure Active Directory?](./overview.md)

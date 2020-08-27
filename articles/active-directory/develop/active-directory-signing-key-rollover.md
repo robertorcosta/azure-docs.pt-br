@@ -8,26 +8,28 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/20/2018
+ms.date: 8/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 42f100618ac6ce8769c4a7da67a5bd586794c63b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: b65ad1f22d20686a1ee47631f9209e1b15b0ab58
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115587"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948123"
 ---
 # <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Substituição de chave de assinatura na plataforma Microsoft Identity
-Este artigo discute o que você precisa saber sobre as chaves públicas que são usadas pela plataforma de identidade da Microsoft para assinar tokens de segurança. É importante observar que essas chaves passam periodicamente e, em uma emergência, podem ser transferidas imediatamente. Todos os aplicativos que usam a plataforma de identidade da Microsoft devem ser capazes de manipular programaticamente o processo de substituição de chave ou estabelecer um processo de substituição manual periódico. Continue lendo para entender como funcionam as chaves, como avaliar o impacto de substituição no seu aplicativo e como atualizar seu aplicativo ou estabelecer um processo de substituição manual periódica para tratar a substituição de chave, se necessário.
+Este artigo discute o que você precisa saber sobre as chaves públicas que são usadas pela plataforma de identidade da Microsoft para assinar tokens de segurança. É importante observar que essas chaves passam periodicamente e, em uma emergência, podem ser transferidas imediatamente. Todos os aplicativos que usam a plataforma de identidade da Microsoft devem ser capazes de manipular programaticamente o processo de substituição de chave. Continue lendo para entender como funcionam as chaves, como avaliar o impacto de substituição no seu aplicativo e como atualizar seu aplicativo ou estabelecer um processo de substituição manual periódica para tratar a substituição de chave, se necessário.
 
 ## <a name="overview-of-signing-keys-in-microsoft-identity-platform"></a>Visão geral das chaves de assinatura na plataforma de identidade da Microsoft
-A plataforma de identidade da Microsoft usa a criptografia de chave pública criada nos padrões do setor para estabelecer a confiança entre si mesmo e os aplicativos que o utilizam. Em termos práticos, isso funciona da seguinte maneira: a plataforma de identidade da Microsoft usa uma chave de assinatura que consiste em um par de chaves pública e privada. Quando um usuário entra em um aplicativo que usa a plataforma de identidade da Microsoft para autenticação, a plataforma de identidade da Microsoft cria um token de segurança que contém informações sobre o usuário. Esse token é assinado pela plataforma de identidade da Microsoft usando sua chave privada antes de ser enviado de volta para o aplicativo. Para verificar se o token é válido e originado da plataforma de identidade da Microsoft, o aplicativo deve validar a assinatura do token usando a chave pública exposta pela plataforma de identidade da Microsoft que está contida no [documento de descoberta do OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) do locatário ou no [documento de metadados de Federação](../azuread-dev/azure-ad-federation-metadata.md)SAML/WS-alimentado.
+A plataforma de identidade da Microsoft usa a criptografia de chave pública criada nos padrões do setor para estabelecer a confiança entre si mesmo e os aplicativos que o utilizam. Em termos práticos, isso funciona da seguinte maneira: a plataforma de identidade da Microsoft usa uma chave de assinatura que consiste em um par de chaves pública e privada. Quando um usuário entra em um aplicativo que usa a plataforma de identidade da Microsoft para autenticação, a plataforma de identidade da Microsoft cria um token de segurança que contém informações sobre o usuário. Esse token é assinado pela plataforma de identidade da Microsoft usando sua chave privada antes de ser enviado de volta para o aplicativo. Para verificar se o token é válido e originado da plataforma de identidade da Microsoft, o aplicativo deve validar a assinatura do token usando as chaves públicas expostas pela plataforma de identidade da Microsoft contidas no [documento de descoberta do OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) do locatário ou no [documento de metadados de Federação](../azuread-dev/azure-ad-federation-metadata.md)SAML/WS-alimentado.
 
-Para fins de segurança, a chave de assinatura da plataforma de identidade da Microsoft é revertida periodicamente e, no caso de uma emergência, pode ser transferida imediatamente. Qualquer aplicativo que se integre com a plataforma de identidade da Microsoft deve estar preparado para lidar com um evento de substituição de chave, independentemente da frequência que possa ocorrer. Se não tiver, e o aplicativo tentar usar uma chave expirada para verificar a assinatura em um token, a solicitação falhará.
+Para fins de segurança, a chave de assinatura da plataforma de identidade da Microsoft é revertida periodicamente e, no caso de uma emergência, pode ser transferida imediatamente. Não há nenhum tempo definido ou garantido entre esses principais roll-qualquer aplicativo que se integre com a plataforma de identidade da Microsoft deve estar preparado para lidar com um evento de substituição de chave, independentemente da frequência que possa ocorrer. Se não tiver, e o aplicativo tentar usar uma chave expirada para verificar a assinatura em um token, a solicitação falhará.  A verificação de todas as 24 horas para atualizações é uma prática recomendada, com restrições (uma vez a cada cinco minutos no máximo), a atualização imediata do documento de chave se um token for encontrado com um identificador de chave desconhecido. 
 
-Sempre há mais de uma chave pública válida disponível no documento de descoberta do OpenID Connect e no documento de metadados de federação. O aplicativo deve estar preparado para usar qualquer uma das chaves especificadas no documento, já que uma das chaves pode ser substituída em breve, a outra pode ser a sua substituta e assim por diante.
+Sempre há mais de uma chave pública válida disponível no documento de descoberta do OpenID Connect e no documento de metadados de federação. Seu aplicativo deve estar preparado para usar qualquer e todas as chaves especificadas no documento, já que uma chave pode ser revertida em breve, outra pode ser sua substituição e assim por diante.  O número de chaves presentes pode mudar ao longo do tempo com base na arquitetura interna da plataforma de identidade da Microsoft, à medida que damos suporte a novas plataformas, novas nuvens ou novos protocolos de autenticação. Nem a ordem das chaves na resposta JSON nem a ordem na qual elas foram expostas deve ser considerada meaninful para seu aplicativo. 
+
+Os aplicativos que dão suporte a apenas uma única chave de assinatura, ou aqueles que exigem atualizações manuais para as chaves de assinatura, são inerentemente menos seguros e confiáveis.  Eles devem ser atualizados para usar [bibliotecas padrão](reference-v2-libraries.md) para garantir que estejam sempre usando chaves de assinatura atualizadas, entre outras práticas recomendadas. 
 
 ## <a name="how-to-assess-if-your-application-will-be-affected-and-what-to-do-about-it"></a>Como avaliar se o aplicativo será afetado e o que fazer com ele
 Como o seu aplicativo lida com a substituição de chave depende de variáveis como o tipo de aplicativo ou que protocolo de identidade e biblioteca foi usado. As seções a seguir avaliam se os tipos mais comuns de aplicativos são afetados pela substituição de chave e fornecem diretrizes sobre como atualizar o aplicativo para dar suporte à substituição automática ou à atualização manual da chave.
@@ -58,7 +60,7 @@ Os aplicativos cliente nativos, tanto da área de trabalho como móveis, entram 
 ### <a name="web-applications--apis-accessing-resources"></a><a name="webclient"></a>Aplicativos/APIs Web que acessam recursos
 Aplicativos que só acessam recursos (ou seja, Microsoft Graph, keyvault, API do Outlook e outras APIs da Microsoft) geralmente obtêm apenas um token e os passam para o proprietário do recurso. Já que eles não estão protegendo recursos, não inspecionam o token e, portanto, não é necessário garantir que ele esteja adequadamente assinado.
 
-Os aplicativos Web e as APIs Web que estão usando o fluxo somente para aplicativo (credenciais de cliente/certificado de cliente), entram nessa categoria e, portanto, não são afetados pela substituição.
+Os aplicativos Web e as APIs Web que estão usando o fluxo somente de aplicativo (credenciais de cliente/certificado de cliente) para solicitar tokens se enquadram nessa categoria e, portanto, não são afetados pela substituição.
 
 ### <a name="web-applications--apis-protecting-resources-and-built-using-azure-app-services"></a><a name="appservices"></a>Aplicativos/APIs Web que protegem recursos e criam usando os Serviços de Aplicativo do Azure
 A funcionalidade de Autenticação/Autorização (EasyAuth) dos Serviços de Aplicativo do Azure já tem a lógica necessária para tratar a substituição de chave automaticamente.
@@ -148,7 +150,7 @@ Se você tiver criado um aplicativo API no Visual Studio 2013 usando o modelo AP
 
 Se você configurou manualmente a autenticação, siga as instruções abaixo para saber como configurar sua API Web para atualizar automaticamente suas informações de chave.
 
-O snippet de código a seguir demonstra como obter as últimas chaves de documento de metadados federados e usar o [Manipulador de Token JWT](/previous-versions/dotnet/framework/security/json-web-token-handler) para validar o token. O trecho de código pressupõe que você usará seu próprio mecanismo de cache para manter a chave para validar os tokens futuros da plataforma de identidade da Microsoft, seja em um banco de dados, arquivo de configuração ou em outro lugar.
+O snippet de código a seguir demonstra como obter as últimas chaves de documento de metadados federados e usar o [Manipulador de Token JWT](https://msdn.microsoft.com/library/dn205065.aspx) para validar o token. O trecho de código pressupõe que você usará seu próprio mecanismo de cache para manter a chave para validar os tokens futuros da plataforma de identidade da Microsoft, seja em um banco de dados, arquivo de configuração ou em outro lugar.
 
 ```
 using System;
@@ -239,7 +241,7 @@ namespace JWTValidation
 ```
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>Aplicativos Web que protegem recursos e que foram criados com o Visual Studio 2012
-Se seu aplicativo foi criado no Visual Studio 2012, você provavelmente usou a Ferramenta de Identidade e Acesso para configurar seu aplicativo. Também é provável que você esteja usando o [VINR (registro de nome de emissor validador)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry). O VINR é responsável por manter informações sobre provedores de identidade confiáveis (plataforma de identidade da Microsoft) e as chaves usadas para validar tokens emitidos por eles. O VINR também facilita a atualização automática das informações fundamentais armazenadas em um arquivo Web.config baixando o documento de metadados federados mais recente associado ao seu diretório, verificando se a configuração está desatualizada em relação ao documento mais recente e atualizando o aplicativo para usar a nova chave conforme necessário.
+Se seu aplicativo foi criado no Visual Studio 2012, você provavelmente usou a Ferramenta de Identidade e Acesso para configurar seu aplicativo. Também é provável que você esteja usando o [VINR (registro de nome de emissor validador)](https://msdn.microsoft.com/library/dn205067.aspx). O VINR é responsável por manter informações sobre provedores de identidade confiáveis (plataforma de identidade da Microsoft) e as chaves usadas para validar tokens emitidos por eles. O VINR também facilita a atualização automática das informações fundamentais armazenadas em um arquivo Web.config baixando o documento de metadados federados mais recente associado ao seu diretório, verificando se a configuração está desatualizada em relação ao documento mais recente e atualizando o aplicativo para usar a nova chave conforme necessário.
 
 Se você criou seu aplicativo usando um dos exemplos de código ou documentação passo a passo fornecidos pela Microsoft, a lógica de substituição de chave já estará incluída no seu projeto. Você notará que o código a seguir já existe em seu projeto. Se seu aplicativo não tiver essa lógica, siga as etapas abaixo para adicioná-la e verificar se ela está funcionando corretamente.
 
@@ -288,14 +290,14 @@ Siga as etapas abaixo para verificar se a lógica de substituição de chave est
 Se você criou um aplicativo no WIF v 1.0, nenhum mecanismo foi fornecido para atualizar automaticamente a configuração do seu aplicativo e usar uma nova chave.
 
 * *Maneira mais fácil* Use a ferramenta FedUtil incluída no SDK do WIF, que pode recuperar o documento de metadados mais recente e atualizar sua configuração.
-* Atualize seu aplicativo para .NET 4.5, que inclui a versão mais recente do WIF localizado no namespace System. Você pode usar o [VINR (registro de nome de emissor validador)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry) para executar as atualizações automáticas da configuração do aplicativo.
+* Atualize seu aplicativo para .NET 4.5, que inclui a versão mais recente do WIF localizado no namespace System. Você pode usar o [VINR (registro de nome de emissor validador)](https://msdn.microsoft.com/library/dn205067.aspx) para executar as atualizações automáticas da configuração do aplicativo.
 * Execute uma substituição manual de acordo com as instruções ao final deste documento de diretrizes.
 
 Instruções para usar o FedUtil para atualizar sua configuração:
 
 1. Verifique se você tem o SDK do WIF v 1.0 instalado na máquina de desenvolvimento para o Visual Studio 2008 ou 2010. Você pode [baixá-lo daqui](https://www.microsoft.com/en-us/download/details.aspx?id=4451) se ainda não estiver instalado.
 2. No Visual Studio, abra a solução e clique com o botão direito do mouse no projeto aplicável e selecione **Atualizar os metadados de federação**. Se essa opção não estiver disponível, o FedUtil e/ou o WIF v 1.0 SDK não foram instalados.
-3. Do prompt, selecione **Atualizar** para começar atualizar seus metadados de federação. Se você tiver acesso ao ambiente de servidor onde o aplicativo está hospedado, você pode opcionalmente usar o [agendador de atualização automática de metadados](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10))do FedUtil.
+3. Do prompt, selecione **Atualizar** para começar atualizar seus metadados de federação. Se você tiver acesso ao ambiente de servidor onde o aplicativo está hospedado, você pode opcionalmente usar o [agendador de atualização automática de metadados](https://msdn.microsoft.com/library/ee517272.aspx)do FedUtil.
 4. Clique em **Concluir** para concluir o processo de atualização.
 
 ### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>Aplicativos/APIs Web que protegem recursos usando quaisquer outras bibliotecas ou implementando manualmente qualquer um dos protocolos com suporte

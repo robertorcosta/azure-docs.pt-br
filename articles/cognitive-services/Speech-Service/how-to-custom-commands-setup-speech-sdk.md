@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1d84646fcb6769b7489cc0e03085e95fc47ef56c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f3a8cafa907cb66832faf033f7b62e68bf859097
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027623"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918818"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integrar com um aplicativo cliente usando o SDK de fala
 
@@ -64,7 +65,7 @@ Nesta etapa, adicionamos o código XAML que define a interface do usuário do ap
 
 Crie a interface do usuário do aplicativo adicionando o código XAML.
 
-1. Em **Gerenciador de soluções**, abra`MainPage.xaml`
+1. Em **Gerenciador de soluções**, abra `MainPage.xaml`
 
 1. Na exibição XAML do designer, substitua todo o conteúdo pelo seguinte snippet de código:
 
@@ -302,7 +303,7 @@ Adicione a fonte code-behind da seguinte maneira:
     > 1. Escolha **gerenciar pacotes NuGet para a solução**, selecione **atualizações** 
     > 1. Se você vir **Microsoft. NetCore. UniversalWindowsPlatform** na lista de atualizações, atualize **Microsoft. NetCore. UniversalWindowsPlatform** para a versão mais recente
 
-1. Adicione o código a seguir ao corpo do método de`InitializeDialogServiceConnector`
+1. Adicione o código a seguir ao corpo do método de `InitializeDialogServiceConnector`
 
    ```csharp
    // This code creates the `DialogServiceConnector` with your subscription information.
@@ -319,7 +320,7 @@ Adicione a fonte code-behind da seguinte maneira:
 
 1. Substitua as cadeias de caracteres `YourApplicationId` , `YourSpeechSubscriptionKey` e `YourServiceRegion` pelos seus próprios valores para seu aplicativo, a assinatura de fala e a [região](regions.md)
 
-1. Acrescente o seguinte trecho de código ao final do corpo do método de`InitializeDialogServiceConnector`
+1. Acrescente o seguinte trecho de código ao final do corpo do método de `InitializeDialogServiceConnector`
 
    ```csharp
    //
@@ -403,7 +404,7 @@ Adicione a fonte code-behind da seguinte maneira:
 
 1. Na barra de menus, escolha **arquivo**  >  **salvar tudo** para salvar suas alterações
 
-## <a name="try-it-out"></a>Experimentar
+## <a name="try-it-out"></a>Experimente
 
 1. Na barra de menus, escolha **Compilar** > **Compilar Solução** para compilar o aplicativo. O código deve compilar sem erros.
 

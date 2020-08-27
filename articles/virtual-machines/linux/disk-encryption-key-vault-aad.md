@@ -1,6 +1,6 @@
 ---
 title: Criando e configurando um cofre de chaves para Azure Disk Encryption com o Azure AD (versão anterior)
-description: Este artigo fornece os pré-requisitos para usar o Microsoft Azure Disk Encryption para VMs IaaS.
+description: Este artigo fornece os pré-requisitos para usar o Microsoft Azure a criptografia de disco para VMs do Linux.
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: d01ea0ba73e0b87c8bb8b8018efa65b58fa9919c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4b533fa23d3c128b5f9f75737fb88d39aec94905
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372698"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950061"
 ---
-# <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Criando e configurando um cofre de chaves para Azure Disk Encryption com o Azure AD (versão anterior)
+# <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release-for-linux-vms"></a>Criando e configurando um cofre de chaves para Azure Disk Encryption com o Azure AD (versão anterior) para VMs do Linux
 
 **A nova versão do Azure Disk Encryption elimina a necessidade de fornecer um parâmetro de aplicativo do Azure AD para habilitar a criptografia de disco de VM. Com a nova versão, você não precisa mais fornecer as credenciais do Azure AD durante a etapa habilitar criptografia. Todas as novas VMs devem ser criptografadas sem os parâmetros de aplicativo do Azure AD usando a nova versão. Para exibir instruções para habilitar a criptografia de disco de VM usando a nova versão, consulte [Azure Disk Encryption](disk-encryption-overview.md). As VMs que já foram criptografadas com parâmetros de aplicativo do Azure AD ainda têm suporte e devem continuar a ser mantidas com a sintaxe do AAD.**
 
@@ -171,7 +171,7 @@ az keyvault set-policy --name "MySecureVault" --spn "<spn created with CLI/the A
 
 ![Permissões secretas do Cofre de Chaves do Azure - Definir](./media/disk-encryption/keyvault-portal-fig3b.png)
 
-## <a name="set-key-vault-advanced-access-policies"></a><a name="bkmk_KVper"></a>Definir políticas de acesso avançado do cofre de chaves
+## <a name="set-key-vault-advanced-access-policies"></a><a name="bkmk_KVper"></a> Definir políticas de acesso avançado do cofre de chaves
 A plataforma Azure precisa acessar as chaves de criptografia ou os segredos no cofre de chaves para disponibilizá-los para a máquina virtual para inicialização e descriptografar os volumes. Habilite a criptografia de disco no cofre da chave ou as implantações falharão.  
 
 ### <a name="set-key-vault-advanced-access-policies-with-azure-powershell"></a><a name="bkmk_KVperPSH"></a> Definir políticas de acesso avançado ao cofre de chaves com o Azure PowerShell
@@ -220,25 +220,25 @@ Use [atualização de keyvault az](/cli/azure/keyvault#az-keyvault-update) para 
 1. Selecione sua keyvault, vá para **Access Policies** e **Clique para mostrar as políticas de acesso avançadas**.
 2. Selecione a caixa rotulada **habilitar o acesso ao Azure Disk Encryption para criptografia de volume**.
 3. Selecione **habilitar o acesso às máquinas virtuais do Azure para implantação** e/ou **habilitar acesso ao Azure Resource Manager para implantação de modelo**, se necessário. 
-4. Clique em **Salvar**.
+4. Clique em **Save** (Salvar).
 
 ![Cofre de chaves do Azure, políticas de acesso avançadas](./media/disk-encryption/keyvault-portal-fig4.png)
 
 
-## <a name="set-up-a-key-encryption-key-optional"></a><a name="bkmk_KEK"></a>Configurar uma chave de criptografia de chave (opcional)
+## <a name="set-up-a-key-encryption-key-optional"></a><a name="bkmk_KEK"></a> Configurar uma chave de criptografia de chave (opcional)
 Se você quiser usar uma chave de criptografia (KEK) para uma camada adicional de segurança para chaves de criptografia, adicione uma KEK ao seu cofre de chaves. Use o cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) para criar uma chave de criptografia de chave no cofre de chaves. Você também pode importar a KEK do HSM do gerenciamento de chaves local. Para obter mais informações, consulte [documentação do cofre de chaves](../../key-vault/keys/hsm-protected-keys.md). Quando uma chave de criptografia de chave é especificada, o Azure Disk Encryption usa essa chave para agrupar os segredos de criptografia antes de gravar no Key Vault. 
 
 * Ao gerar chaves, use um tipo de chave RSA. Azure Disk Encryption ainda não dá suporte ao uso de chaves de curva elíptica.
 
 * O segredo do cofre de chaves e as URLs KEK devem ter controle de versão. O Azure impõe essa restrição de controle de versão. Para um segredo válido e URLs KEK, confira os seguintes exemplos:
 
-  * Exemplo de uma URL secreta válida:*https://contosovault.vault.azure.net/secrets/EncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * Exemplo de uma URL KEK válida:*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Exemplo de uma URL secreta válida:   *https://contosovault.vault.azure.net/secrets/EncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Exemplo de uma URL KEK válida:   *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * o Azure Disk Encryption não dá suporte à especificação de números de portas como parte de segredos do cofre de chaves e URLs KEK. Para exemplos de URLs do cofre de chaves não suportados e suportados, consulte os seguintes exemplos:
 
-  * URL do cofre de chaves inaceitável*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * URL do cofre de chaves aceitável:*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * URL do cofre de chaves inaceitável  *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * URL do cofre de chaves aceitável:   *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 ### <a name="set-up-a-key-encryption-key-with-azure-powershell"></a><a name="bkmk_KEKPSH"></a> Configurar uma chave de criptografia chave com o Azure PowerShell 
 Antes de usar o script do PowerShell, você deve estar familiarizado com os pré-requisitos do Azure Disk Encryption para entender as etapas no script. O script de amostra pode precisar de mudanças para seu ambiente. Esse script cria todos os pré-requisitos da criptografia de disco do Azure e criptografa uma VM IaaS existente, envolvendo a chave de criptografia de disco usando uma chave de criptografia de chave. 
