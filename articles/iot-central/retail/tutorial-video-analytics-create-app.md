@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 07/31/2020
-ms.openlocfilehash: 897262dcdb8cbacd512f19823da375e2c603b97e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b98406984f2c9f2adfca030369a6ea3d47a786f3
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037808"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762770"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central"></a>Tutorial: Criar um aplicativo de detecção de objetos e movimentos e análise de vídeo no Azure IoT Central
 
@@ -40,7 +40,7 @@ Para concluir este tutorial, você precisa:
 
 ## <a name="initial-setup"></a>Instalação inicial
 
-Nestes tutoriais, você atualizará e usará vários arquivos de configuração. As versões iniciais desses arquivos estão disponíveis no repositório GitHub do [LVA-gateway](https://github.com/Azure/live-video-analytics). O repositório também inclui um arquivo de texto de bloco de anotações para você baixar e usar e registrar os valores de configuração dos serviços implantados.
+Nestes tutoriais, você atualizará e usará vários arquivos de configuração. As versões iniciais desses arquivos estão disponíveis no repositório GitHub do [LVA-gateway](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway). O repositório também inclui um arquivo de texto de bloco de anotações para você baixar e usar e registrar os valores de configuração dos serviços implantados.
 
 Crie uma pasta chamada *lva-configuration* no computador local para salvar cópias desses arquivos. Em seguida, clique com o botão direito do mouse em cada um dos seguintes links e escolha **Salvar como** para salvar o arquivo na pasta *lva-configuration*:
 
@@ -98,7 +98,7 @@ Para criar um novo aplicativo Azure IoT Central:
 
 Para criar um aplicativo de análise de vídeo:
 
-1. Selecione o modelo de aplicativo de **detecção de objetos e movimentos e análise de vídeo**. Esse modelo inclui os modelos de todos os dispositivos usados no tutorial. O modelo também fornece um painel do operador para monitorar o vídeo.
+1. Selecione o modelo de aplicativo de **detecção de objetos e movimentos e análise de vídeo**. Esse modelo inclui os modelos de todos os dispositivos usados no tutorial. O modelo inclui painéis de exemplo que os operadores podem usar para executar tarefas como monitoramento e gerenciamento de câmeras.
 
 1. Opcionalmente, escolha um **Nome de aplicativo** amigável. Esse aplicativo se baseia em um loja de varejo fictícia chamada Northwind Traders. O tutorial usa o **Nome do aplicativo** *Análise de vídeo da Northwind Traders*.
 

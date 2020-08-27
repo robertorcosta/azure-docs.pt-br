@@ -1,6 +1,6 @@
 - name: Documentação de servidores habilitados para Azure Arc
   href: index.yml
-- name: Visão Geral
+- name: Visão geral
   items:
     - name: Sobre servidores habilitados para o Azure Arc
       href: overview.md
@@ -49,3 +49,9 @@
       items:
         - name: Problemas de conexão do agente
           href: troubleshoot-agent-onboard.md
+    - name: Referência
+      items:
+        - name: Disponibilidade de região e residência de dados
+          href: data-residency.md
+        - name: REST
+          href: /rest/api/hybridcompute

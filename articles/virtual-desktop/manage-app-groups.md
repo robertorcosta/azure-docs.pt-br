@@ -3,15 +3,15 @@ title: Gerenciar grupos de aplicativos para o portal da Área de Trabalho Virtua
 description: Como gerenciar grupos de aplicativos da Área de Trabalho Virtual do Windows com o portal do Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 08/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6baada4c3b376b936f693d45e39e5887e77ef54b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e495288bcd2c966dab49925a55507ab1f2379f64
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010082"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659476"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Tutorial: Gerenciar grupos de aplicativos com o portal do Azure
 
@@ -34,11 +34,15 @@ Se você já tiver criado um pool de host e VMs de host de sessão usando o port
 
 2.  Pesquise e selecione **Área de Trabalho Virtual do Windows**.
 
-3.  Selecione **Grupos de aplicativos** no menu no lado esquerdo da página e, em seguida, selecione **+ Adicionar**.
+3. Você pode adicionar um grupo de aplicativos diretamente ou adicioná-lo por meio de um pool de host existente. Escolha uma opção abaixo:
 
-4. Na guia **Noções básicas**, selecione o grupo de assinaturas e o grupo de recursos para o qual você deseja criar o grupo de aplicativos. Você também pode optar por criar um grupo de recursos em vez de selecionar um existente.
+    - Selecione **Grupos de aplicativos** no menu do lado esquerdo da página e escolha **+ Adicionar**.
 
-5. Selecione o pool de host que será associado ao grupo de aplicativos no menu suspenso ao lado de **Pool de host**.
+    - Selecione **Pools de host** no menu no lado esquerdo da tela, escolha o nome do pool de host, **Grupos de aplicativos** no menu à esquerda e **+ Adicionar**. Nesse caso, o pool de host já estará selecionado na guia Informações Básicas.
+
+4. Na guia **Informações Básicas**, selecione a **Assinatura** e o **Grupo de recursos** para os quais deseja criar o grupo de aplicativos. Você também pode optar por criar um grupo de recursos em vez de selecionar um existente.
+
+5. Selecione o **Pool de host** que será associado ao grupo de aplicativos no menu suspenso.
 
     >[!NOTE]
     >Você deve selecionar o pool de host associado ao grupo de aplicativos. Os grupos de aplicativos têm aplicativos ou áreas de trabalho que são atendidos de um host de sessão e os hosts de sessão fazem parte dos pools de hosts. O grupo de aplicativos precisa ser associado a um pool de host durante a criação.
@@ -46,41 +50,27 @@ Se você já tiver criado um pool de host e VMs de host de sessão usando o port
     > [!div class="mx-imgBorder"]
     > ![Uma captura de tela da guia Noções Básicas no portal do Azure.](media/basics-tab.png)
 
-6. Se você quiser adicionar grupos de aplicativos ao seu pool de host, selecione **Pools de host** no menu no lado esquerdo da tela.
-
-    Em seguida, selecione o nome do pool de host ao qual você deseja adicionar grupos de aplicativos.
-
-    Depois disso, selecione **Grupos de aplicativos** no menu no lado esquerdo da tela e, em seguida, selecione **+ Adicionar**.
-
-    Por fim, selecione o grupo de assinaturas e o grupo de recursos para o qual você deseja criar o grupo de aplicativos. Você pode selecionar o nome de um grupo de recursos existente no menu suspenso ou selecionar **Criar** para criar um.
-
-      >[!NOTE]
-      >Quando você adiciona grupos de aplicativos ao seu pool de host, o pool de host que está relacionado ao grupo de aplicativos já está selecionado porque você navegou dele.
-      >
-      > [!div class="mx-imgBorder"]
-      >![Uma captura de tela da guia Noções Básicas com o pool de host pré-selecionado.](media/host-pool-selected.png)
-
-7. Selecione **RemoteApp** em tipo de grupo de aplicativos e insira um nome para o seu RemoteApp.
+6. Escolha **RemoteApp** em **Tipo de grupo de aplicativos** e insira um nome para o RemoteApp.
 
       > [!div class="mx-imgBorder"]
       > ![Uma captura de tela dos campos de tipo de grupo de aplicativos. "RemoteApp" está realçado.](media/remoteapp-button.png)
 
-8.  Selecione a guia **Atribuições**.
+7.  Selecione **Avançar: Atribuições >** .
 
-9.  Para publicar usuários individuais ou grupos de usuários no grupo de aplicativos, selecione **+Adicionar usuários ou grupos de usuários do Azure AD**.
+8.  Para atribuir usuários individuais ou grupos de usuários ao grupo de aplicativos, escolha **+Adicionar usuários ou grupos de usuários do Azure AD**.
 
-10.  Selecione o número de usuários aos quais você deseja adicionar os aplicativos. Você pode selecionar um ou vários usuários e grupos de usuários.
+9.  Selecione os usuários aos quais deseja permitir acesso aos aplicativos. Você pode selecionar um ou vários usuários e grupos de usuários.
 
      > [!div class="mx-imgBorder"]
      > ![Uma captura de tela do menu de seleção de usuário.](media/select-users.png)
 
-11.  Selecione **Selecionar**.
+10.  Selecione **Selecionar**.
 
-12.  Selecione a guia **Aplicativos** e, em seguida, selecione **+Adicionar aplicativos**.
+11.  Selecione **Avançar: Aplicativos >** e **+Adicionar aplicativos**.
 
-13.  Para adicionar um aplicativo do menu iniciar:
+12.  Para adicionar um aplicativo do menu iniciar:
 
-      - Acesse **Origem do aplicativo** e selecione **menu Iniciar** no menu suspenso. Em seguida, vá para **Aplicativo** e escolha o aplicativo no menu suspenso.
+      - Em **Origem do aplicativo**, escolha **menu Iniciar** no menu suspenso. Em seguida, em **Aplicativo**, escolha o aplicativo no menu suspenso.
 
      > [!div class="mx-imgBorder"]
      > ![Uma captura de tela da tela Adicionar Aplicativo com o menu Iniciar selecionado.](media/add-app-start.png)
@@ -89,11 +79,11 @@ Se você já tiver criado um pool de host e VMs de host de sessão usando o port
 
       - Deixe as outras opções no estado em que se encontram e selecione **Salvar**.
 
-14. Para adicionar um aplicativo de um caminho de arquivo específico:
+13.  Para adicionar um aplicativo de um caminho de arquivo específico:
 
-      - Acesse **Origem do aplicativo** e selecione **Caminho do arquivo** no menu suspenso.
+      - Em **Origem do aplicativo**, selecione **Caminho do arquivo** no menu suspenso.
 
-      - Insira o caminho para o aplicativo no host da sessão, registrado com o pool de host associado.
+      - Em **Caminho do aplicativo**, insira o caminho para o aplicativo no host da sessão registrado no pool de host associado.
 
       - Insira os detalhes do aplicativo nos campos **Nome do aplicativo**, **Nome de exibição**, **Caminho do ícone** e **Índice do ícone**.
 
@@ -102,11 +92,11 @@ Se você já tiver criado um pool de host e VMs de host de sessão usando o port
      > [!div class="mx-imgBorder"]
      > ![Uma captura de tela da página Adicionar Aplicativo com o caminho de arquivo selecionado.](media/add-app-file.png)
 
-     Repita esse processo para cada aplicativo que você deseja adicionar ao grupo de aplicativos.
+14.  Repita esse processo para cada aplicativo que você deseja adicionar ao grupo de aplicativos.
 
-15.  Em seguida, selecione a guia **Workspace**.
+15.  Em seguida, selecione **Avançar: Workspace >** .
 
-16.  Se você quiser registrar o grupo de aplicativos em um workspace, vá para **Registrar grupo de aplicativos** e selecione **Sim**. Se você preferir registrar o grupo de aplicativos depois, selecione **Não**.
+16.  Caso deseje registrar o grupo de aplicativos em um workspace, selecione **Sim** em **Registrar grupo de aplicativos**. Se você preferir registrar o grupo de aplicativos depois, selecione **Não**.
 
 17.  Se você selecionar **Sim**, poderá selecionar um workspace existente para registrar seu grupo de aplicativos.
 
@@ -116,11 +106,11 @@ Se você já tiver criado um pool de host e VMs de host de sessão usando o port
      > [!div class="mx-imgBorder"]
      > ![Uma captura de tela da página Registrar grupo de aplicativos para um workspace existente. O pool de host é pré-selecionado.](media/register-existing.png)
 
-18. Opcionalmente, se você quiser criar marcas para facilitar a organização do seu workspace, selecione a guia **Marcas** e insira os nomes das marcas.
+18.  Opcionalmente, se quiser criar marcas para facilitar a organização do seu workspace, escolha **Avançar: Marcas >** e insira os nomes das marcas.
 
-19. Ao terminar, selecione a guia **Examinar + criar**.
+19.  Quando terminar, selecione **Review + create**.
 
-20. Aguarde um pouco para que o processo de validação seja concluído. Ao terminar, selecione **Criar** para implantar seu grupo de aplicativos.
+20.  Aguarde um pouco para que o processo de validação seja concluído. Ao terminar, selecione **Criar** para implantar seu grupo de aplicativos.
 
 O processo de implantação fará o seguinte para você:
 

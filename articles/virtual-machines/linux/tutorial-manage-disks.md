@@ -1,26 +1,20 @@
 ---
 title: Tutorial – Gerenciar discos do Azure com o Azure CLI
 description: Neste tutorial, você aprenderá a usar a CLI do Azure para criar e gerenciar discos do Azure para máquinas virtuais
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/14/2018
+ms.date: 08/20/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.subservice: disks
-ms.openlocfilehash: 48d9c51c5d008bf652e782573c891cb0e0580f8c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4806fa51be859bd1bdc2a2abd5410f8aa8f4a32b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831304"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757666"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial – Gerenciar discos do Azure com o Azure CLI
 
@@ -49,20 +43,20 @@ Para instalar aplicativos e dados de armazenamento, outros discos de dados podem
 
 ## <a name="vm-disk-types"></a>Tipos de disco da máquina virtual
 
-O Azure fornece dois tipos de discos, standard e Premium.
+O Azure fornece dois tipos de discos.
 
-### <a name="standard-disk"></a>Disco Standard
+**Discos Standard** - apoiados por HDDs e oferecem armazenamento econômico e eficaz. Os discos Standard são ideais para uma carga de trabalho econômica de desenvolvimento e teste.
 
-Armazenamento padrão é apoiado por HDDs e oferece armazenamento econômico e eficaz. Os discos Standard são ideais para uma carga de trabalho econômica de desenvolvimento e teste.
+**Discos Premium** – apoiados por disco de baixa latência e alto desempenho baseado em SSD. Perfeitos para VMs que executam carga de trabalho de produção. Os tamanhos de VM com um **S** no [nome do tamanho](../vm-naming-conventions.md) normalmente são compatíveis com o Armazenamento Premium. Por exemplo, as VMs das séries DS, DSv2, GS e FS são compatíveis com o Armazenamento Premium. Ao escolher o tamanho de um disco, o valor é arredondado para o tipo seguinte. Por exemplo, se o tamanho do disco for maior que 64 GB, mas menor que 128 GB, o tipo de disco será P10. 
 
-### <a name="premium-disk"></a>Disco Premium
+<br>
 
-Os discos Premium são apoiados por disco de baixa latência e alto desempenho baseado em SSD. Perfeitos para VMs que executam carga de trabalho de produção. O Armazenamento Premium dá suporte às VMs das séries DS, DSv2, GS e FS. Ao escolher o tamanho de um disco, o valor é arredondado para o tipo seguinte. Por exemplo, se o tamanho do disco for menor que 128 GB, o tipo de disco é P10. Se o tamanho do disco está entre 129 e 512 GB, o tamanho é P20. Acima de 512 GB, o tamanho é um P30.
 
-### <a name="premium-disk-performance"></a>Desempenho do disco Premium
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
-Embora a tabela acima identifique a IOPS máxima por disco, um nível mais alto de desempenho pode ser obtido com a distribuição de vários discos de dados. Por exemplo, uma VM Standard_GS5 pode atingir o máximo de 80.000 IOPS. Para obter informações detalhadas sobre o máximo de IOPS por VM, veja [Tamanhos da VM Linux](../sizes.md).
+Quando você provisiona um disco de armazenamento premium, ao contrário do armazenamento padrão, a capacidade, IOPS e taxa de transferência de disco são garantidos. Por exemplo, se você criar um disco P50, o Azure provisionará uma capacidade de armazenamento de 4.095 GB, 7.500 IOPS e uma taxa de transferência de 250 MB/s para o disco. O aplicativo pode usar a capacidade e o desempenho no todo ou em parte. Os discos SSD Premium são projetados para fornecer as latências baixas de milissegundos de dígito único e a IOPS de destino e a taxa de transferência descritas na tabela anterior 99,9% do tempo.
+
+Embora a tabela acima identifique a IOPS máxima por disco, um nível mais alto de desempenho pode ser obtido com a distribuição de vários discos de dados. Por exemplo, 64 discos de dados podem ser anexados à VM Standard_GS5. Se cada um desses discos for dimensionado como um P30, será possível chegar a um máximo de 80.000 IOPS. Para obter informações detalhadas sobre o máximo de IOPS por VM, veja [Tipos e tamanhos de VM](../sizes.md).
 
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
@@ -119,16 +113,17 @@ Crie uma conexão SSH com a máquina virtual. Substitua o endereço IP de exempl
 ssh 10.101.10.10
 ```
 
-Particione o disco com `fdisk`.
+Particione o disco com `parted`.
 
 ```bash
-(echo n; echo p; echo 1; echo ; echo ; echo w) | sudo fdisk /dev/sdc
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
 ```
 
-Grave um sistema de arquivos na partição utilizando o comando `mkfs`.
+Grave um sistema de arquivos na partição utilizando o comando `mkfs`. Use `partprobe` para tornar o sistema operacional ciente da alteração.
 
 ```bash
-sudo mkfs -t ext4 /dev/sdc1
+sudo mkfs.xfs /dev/sdc1
+sudo partprobe /dev/sdc1
 ```
 
 Monte o novo disco para que ele seja acessível no sistema operacional.
@@ -137,18 +132,19 @@ Monte o novo disco para que ele seja acessível no sistema operacional.
 sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
 ```
 
-O disco agora pode ser acessado por meio do ponto de montagem *datadrive*, que pode ser verificado ao executar o comando `df -h`.
+O disco agora pode ser acessado por meio do ponto de montagem `/datadrive`, que pode ser verificado ao executar o comando `df -h`.
 
 ```bash
-df -h
+df -h | grep -i "sd"
 ```
 
-A saída mostra a nova unidade montada em */datadrive*.
+A saída mostra a nova unidade montada em `/datadrive`.
 
 ```bash
 Filesystem      Size  Used Avail Use% Mounted on
-/dev/sda1        30G  1.4G   28G   5% /
-/dev/sdb1       6.8G   16M  6.4G   1% /mnt
+/dev/sda1        29G  2.0G   27G   7% /
+/dev/sda15      105M  3.6M  101M   4% /boot/efi
+/dev/sdb1        14G   41M   13G   1% /mnt
 /dev/sdc1        50G   52M   47G   1% /datadrive
 ```
 
@@ -164,11 +160,22 @@ A saída exibe o UUID da unidade, `/dev/sdc1` nesse caso.
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
-Adicione uma linha semelhante à seguinte para o arquivo */etc/fstab*.
+> [!NOTE]
+> A edição inadequada do arquivo **/etc/fstab** pode resultar em um sistema não inicializável. Se não tiver certeza, consulte a documentação de distribuição para obter informações sobre como editá-lo corretamente. Também é recomendável que um backup do arquivo /etc/fstab seja criado antes da edição.
+
+Abra o arquivo `/etc/fstab` em um editor de texto conforme a seguir:
+
+```bash
+sudo nano /etc/fstab
+```
+
+Adicione uma linha semelhante a esta ao arquivo */etc/fstab*, substituindo o valor UUID pelo seu.
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail   1  2
 ```
+
+Quando terminar de editar o arquivo, use `Ctrl+O` para gravar o arquivo e `Ctrl+X` para sair do editor.
 
 Agora que o disco foi configurado, feche a sessão SSH.
 
@@ -180,9 +187,9 @@ exit
 
 Ao criar um instantâneo do disco, o Azure cria uma cópia do disco de apenas leitura, de um ponto no tempo. Instantâneos de máquina virtual do Azure são úteis para salvar rapidamente o estado de uma máquina virtual antes de fazer alterações de configuração. No caso de um problema ou erro, a VM pode ser restaurada usando um instantâneo. Quando uma máquina virtual tem mais de um disco, um instantâneo é tirado de cada disco independentemente dos outros. Para fazer backups consistentes de aplicativos, considere parar a máquina virtual antes de tirar instantâneos de disco. Como alternativa, utilize o [serviço de Backup do Azure](../../backup/index.yml), que permite realizar backups automáticos, enquanto a máquina virtual está em execução.
 
-### <a name="create-snapshot"></a>Criar instantâneo
+### <a name="create-snapshot"></a>Create snapshot
 
-Antes de criar um instantâneo de disco da máquina virtual, você deve ter a ID ou o nome do disco. Utilize o comando [az vm show](/cli/azure/vm#az-vm-show) para obter a ID do disco. Neste exemplo, a ID do disco é armazenada em uma variável e utilizada em uma etapa posterior.
+Antes de criar um instantâneo, você precisará da ID ou do nome do disco. Use [az vm show](/cli/azure/vm#az-vm-show) para capturar a ID do disco. Neste exemplo, a ID do disco é armazenada em uma variável e utilizada em uma etapa posterior.
 
 ```azurecli-interactive
 osdiskid=$(az vm show \
@@ -192,7 +199,7 @@ osdiskid=$(az vm show \
    -o tsv)
 ```
 
-Agora que você tem a ID do disco da máquina virtual, o comando a seguir criará o instantâneo do disco.
+Agora que você tem a ID, use [az snapshot create](/cli/azure/snapshot#az-snapshot-create) para criar um instantâneo do disco.
 
 ```azurecli-interactive
 az snapshot create \
@@ -203,7 +210,7 @@ az snapshot create \
 
 ### <a name="create-disk-from-snapshot"></a>Como criar o disco a partir de um instantâneo
 
-Esse instantâneo pode ser convertido em um disco, que pode ser usado para recriar a máquina virtual.
+Esse instantâneo pode ser convertido em um disco usando [az disk create](/cli/azure/disk#az-disk-create), que pode ser usado para recriar a máquina virtual.
 
 ```azurecli-interactive
 az disk create \
@@ -214,7 +221,7 @@ az disk create \
 
 ### <a name="restore-virtual-machine-from-snapshot"></a>Como restaurar a máquina virtual a partir de um instantâneo
 
-Para demonstrar a recuperação da máquina virtual, exclua a máquina virtual existente.
+Para demonstrar a recuperação da máquina virtual, exclua a máquina virtual existente usando [az vm delete](/cli/azure/vm#az-vm-delete).
 
 ```azurecli-interactive
 az vm delete \
@@ -236,7 +243,7 @@ az vm create \
 
 Todos os discos de dados precisam ser anexados novamente à máquina virtual.
 
-Primeiro, utilize o comando [az disk list](/cli/azure/disk#az-disk-list) para encontrar o nome do disco de dados. Este exemplo coloca o nome do disco em uma variável chamada *datadisk*, que será usada na próxima etapa.
+Use o comando [az disk list](/cli/azure/disk#az-disk-list) para localizar o nome do disco de dados. Este exemplo coloca o nome do disco em uma variável chamada `datadisk`, que será usada na próxima etapa.
 
 ```azurecli-interactive
 datadisk=$(az disk list \

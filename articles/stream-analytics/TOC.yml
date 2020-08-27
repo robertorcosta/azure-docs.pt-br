@@ -73,12 +73,34 @@
         - name: Visão geral das saídas
           href: stream-analytics-define-outputs.md
           displayName: 'adls, sql, blob, event hubs, power bi, table, service bus, cosmos, functions'
-        - name: Saída para o Cosmos DB
-          href: stream-analytics-documentdb-output.md
-        - name: Saída para BD SQL do Azure
+        - name: Azure Data Lake Storage Gen 1
+          href: azure-data-lake-storage-gen1-output.md
+        - name: Banco de Dados SQL do Azure
+          href: sql-database-output.md
+        - name: Desempenho do banco de dados SQL
           href: stream-analytics-sql-output-perf.md
+        - name: Azure Synapse Analytics
+          href: azure-synapse-analytics-output.md
+        - name: Armazenamento de Blobs e Azure Data Lake Gen 2
+          href: blob-storage-azure-data-lake-gen2-output.md
         - name: Padrões de caminho personalizado do blob
           href: stream-analytics-custom-path-patterns-blob-storage-output.md
+        - name: Hubs de Eventos
+          href: event-hubs-output.md
+        - name: Power BI
+          href: power-bi-output.md
+        - name: Armazenamento de tabela
+          href: table-storage-output.md
+        - name: Filas do Barramento de Serviço
+          href: service-bus-queues-output.md
+        - name: Tópicos do Barramento de Serviço
+          href: service-bus-topics-output.md
+        - name: Azure Cosmos DB
+          href: azure-cosmos-db-output.md
+        - name: Otimização do Cosmos DB
+          href: stream-analytics-documentdb-output.md
+        - name: Azure Functions
+          href: azure-functions-output.md
     - name: Estender consultas com funções
       items:
         - name: Visão geral das funções

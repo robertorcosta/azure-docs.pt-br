@@ -4,12 +4,12 @@ description: Neste tutorial, saiba como fazer backup de bancos de dados SAP HANA
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4113ba75f007bfa03fed5cfeaed7737797e37ed9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a0b6683183d6bf73b5376c6320106373ffd4ba78
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489496"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762395"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: backup de bancos de dados SAP HANA em uma VM do Azure usando a CLI do Azure
 
@@ -71,7 +71,7 @@ westus2    saphanaVault     saphanaResourceGroup
 
 Para que a instância do SAP HANA (a VM com SAP HANA instalado) seja descoberta pelos serviços do Azure, um [script de pré-registro](https://aka.ms/scriptforpermsonhana) deve ser executado no computador SAP HANA. Atenda a todos os [pré-requisitos](./tutorial-backup-sap-hana-db.md#prerequisites) antes de executar o script. Para saber mais sobre o que o script faz, confira a seção [O que o script de pré-registro faz](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
 
-Depois que o script é executado, a instância do SAP HANA pode ser registrada com o cofre dos serviços de recuperação que criamos anteriormente. Para registrar a instância, use o cmdlet [az backup container register](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-register). *VMResourceId* é a ID de recurso da VM que você criou para instalar o SAP HANA.
+Depois que o script é executado, a instância do SAP HANA pode ser registrada com o cofre dos Serviços de Recuperação que criamos anteriormente. Para registrar a instância, use o cmdlet [az backup container register](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-register). *VMResourceId* é a ID de recurso da VM que você criou para instalar o SAP HANA.
 
 ```azurecli-interactive
 az backup container register --resource-group saphanaResourceGroup \

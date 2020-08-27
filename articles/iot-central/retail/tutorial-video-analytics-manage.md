@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 30e123b24a5d2c9e45df6ee6dc6debfb88b920f3
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 76e72e8fd134c65cc9334e635375cc25e9b09a75
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037829"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719063"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Tutorial: Monitorar e gerenciar um aplicativo de detecção de objetos e movimentos e análise de vídeo
 
@@ -155,22 +155,22 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 |amsResourceGroup| ResourceGroup |
 |amsAccountName| AccountName|
 
-Procure o painel **Monitorar** no seu aplicativo. Em seguida, clique em um dos hiperlinks de detecção de objetos capturados no bloco **Vídeo de Evento de Inferência**. O vídeo é exibido em uma página mostrada pelo player de vídeo local:
+Procure o dispositivo **camera-003** e selecione a guia **Painel**. Em seguida, clique em um dos hiperlinks de detecção de objetos capturados no bloco **Vídeo de Evento de Inferência**. O vídeo é exibido em uma página mostrada pelo player de vídeo local:
 
 :::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Trecho do vídeo":::
 
-## <a name="change-the-simulated-devices-in-application-dashboard"></a>Alterar os dispositivos simulados no Painel do Aplicativo
+## <a name="change-the-simulated-devices-in-application-dashboards"></a>Alterar os dispositivos simulados nos painéis do aplicativo
 
 Os painéis de aplicativos são originalmente preenchidos com a telemetria e as propriedades geradas por meio dos dispositivos simulados do IoT Central. Para configurar os blocos para telemetria em câmeras reais ou no simulador Live555, siga estas etapas:
 
-1. Procure o painel **Monitor de Câmera Real**.
+1. Navegue até o painel do aplicativo **(Amostra) Monitor de câmera real**.
 1. Selecione **Editar**.
+1. Selecione o bloco **Observação** e exclua-o.
+1. Altere o título do painel para *Monitor de câmera real*.
 1. No bloco **Contagem de Inferências**, selecione o ícone Configurar.
 1. Na seção **Configurar Gráfico**, selecione uma ou mais câmeras reais no grupo de dispositivos do **Detector de Objetos de Borda de LVA**.
 1. Selecione o campo de telemetria `AI Inference Interface/Inference Count`.
 1. Selecione **Atualizar**.
-
-   
 
 1. Repita as etapas para os seguintes blocos:
     1. O gráfico de pizza **Detecção** usa o tipo de telemetria `AI Inference Interface/Inference/entity/tag/value`.

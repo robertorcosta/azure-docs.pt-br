@@ -34,8 +34,10 @@
       href: release-notes.md
 - name: Inícios rápidos
   items:
-    - name: Criar um workspace do Synapse
+    - name: Criar um workspace do Synapse usando o portal do Azure
       href: quickstart-create-workspace.md
+    - name: Criar um workspace do Synapse usando a CLI do Azure
+      href: quickstart-create-workspace-cli.md
     - name: Usar o Synapse Studio
       href: quickstart-synapse-studio.md
     - name: Vincular um workspace do Power BI

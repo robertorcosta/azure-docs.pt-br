@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.openlocfilehash: ca75aea393e4850eb302cb03914296d7c1eaa951
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bdd0530aa580f8f1a1cfdffb81d070827a714115
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88517639"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88686041"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutorial: Integração do Atlassian Cloud com o Azure Active Directory
 
@@ -45,7 +45,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 * O Atlassian Cloud é compatível com SSO iniciado por **SP e IDP**
 * O Atlassian Cloud é compatível com [provisionamento e desprovisionamento de usuário automatizados](atlassian-cloud-provisioning-tutorial.md)
-* Após configurar o Atlassian Cloud, você poderá impor controles de sessão, que protegem contra exfiltração e infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Depois de configurar o Atlassian Cloud, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-atlassian-cloud-from-the-gallery"></a>Adição do Atlassian Cloud da galeria
 
@@ -179,7 +179,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
       
    1. Mapeamento de atributo para um locatário do Azure AD sem uma licença do Office 365 
 
-      a. Clique na declaração de **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
+      a. Clique na declaração de `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` .
 
       ![image](./media/atlassian-cloud-tutorial/email-address.png)
          

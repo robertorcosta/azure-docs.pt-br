@@ -8,12 +8,12 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 57630b789233dd23e61398f445b434e4ba08b48e
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: cfb778a1a632dc17a9f50c7ea05debed0edb4fb6
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80236005"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660240"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: Treinar e implantar um modelo do Azure Machine Learning
 
@@ -37,7 +37,7 @@ Usamos o Azure Notebooks para hospedar os dois Jupyter Notebooks e os arquivos d
 * **Início Rápido:** [Criar e compartilhar um notebook](../notebooks/quickstart-create-share-jupyter-notebook.md)
 * **Tutorial:** [criar e executar um Jupyter Notebook com Python](../notebooks/tutorial-create-run-jupyter-notebook.md)
 
-Usar o Azure Notebooks garante um ambiente uniforme para o exercício.
+O uso do Azure Notebooks garante um ambiente uniforme para o exercício.
 
 > [!NOTE]
 > Após configurado, o serviço do Azure Notebooks pode ser acessado de qualquer computador. Durante a configuração, você deve usar a VM de desenvolvimento, que tem todos os arquivos que serão necessários.
@@ -46,7 +46,7 @@ Usar o Azure Notebooks garante um ambiente uniforme para o exercício.
 
 Para usar o Azure Notebooks, você precisará criar uma conta. Contas do Azure Notebooks são independentes das assinaturas do Azure.
 
-1. Navegue até o [Azure Notebooks](https://notebooks.azure.com).
+1. Acesse o [Azure Notebooks](https://notebooks.azure.com).
 
 1. Clique em **Entrar** no canto superior direito da página.
 

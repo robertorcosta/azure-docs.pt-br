@@ -3,15 +3,15 @@ title: Portal do Azure do pool de host da Área de Trabalho Virtual do Windows �
 description: Como criar um pool de host da Área de Trabalho Virtual do Windows usando o portal do Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 08/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c9a421e15f3561bb4de7f528ab1c707a0251dfe5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 30101d4e9125b0ac283710ebb26205c2bb120766
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002662"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755476"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar um pool de host com o portal do Azure
 
@@ -36,7 +36,7 @@ Você também precisará saber o seguinte:
 - O local em que a origem da imagem que você deseja usar está. É da galeria do Azure ou é uma imagem personalizada?
 - Suas credenciais de ingresso no domínio.
 
-Além disso, verifique se você registrou o provedor de recursos Microsoft.DesktopVirtualization. Se você ainda não fez isso, acesse **Assinaturas**, selecione o nome da assinatura e, em seguida, selecione **Provedores de recursos do Azure**.
+Além disso, verifique se você registrou o provedor de recursos Microsoft.DesktopVirtualization. Se você ainda não fez isso, acesse **Assinaturas**, selecione o nome da assinatura e escolha **Provedores de recursos**. Pesquise DesktopVirtualization, selecione Microsoft.DesktopVirtualization e escolha Registrar.
 
 Ao criar um pool de host da Área de Trabalho Virtual do Windows com o modelo do Azure Resource Manager, você pode criar uma máquina virtual na galeria do Azure, uma imagem gerenciada ou uma imagem não gerenciada. Para saber mais sobre como criar imagens da VM, confira [Preparar um VHD ou VHDX do Windows para carregar no Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) e [Criar uma imagem gerenciada de uma VM generalizada no Azure](../virtual-machines/windows/capture-image-resource.md).
 
@@ -80,9 +80,9 @@ Para começar a criar seu pool de host:
        > [!div class="mx-imgBorder"]
        > ![Uma captura de tela do campo de tipo de atribuição com "Em pool" selecionado. O usuário está passando o cursor sobre Balanceamento em largura no menu suspenso de balanceamento de carga.](media/pooled-assignment-type.png)
 
-10. Selecione **Avançar: Detalhes da VM**.
+10. Selecione **Avançar: Máquinas Virtuais >** .
 
-11. Se você já tiver criado máquinas virtuais e quiser usá-las com o novo pool de host, selecione **Não**. Se você quiser criar máquinas virtuais e registrá-las no novo pool de host, selecione **Sim**.
+11. Se você já tiver criado máquinas virtuais e quiser usá-las com o novo pool de host, selecione **Não**, **Avançar: Workspace >** e vá para a seção [Informações do workspace](#workspace-information). Se você quiser criar máquinas virtuais e registrá-las no novo pool de host, selecione **Sim**.
 
 Agora que você concluiu a primeira parte, vamos passar para a próxima parte do processo de instalação em que criamos a VM.
 
@@ -92,13 +92,13 @@ Agora que estamos na primeira parte, você precisará configurar sua VM.
 
 Para configurar sua máquina virtual dentro do processo de configuração do pool de host:
 
-1. Em Grupo de Recursos, escolha o grupo de recursos no qual você deseja criar as máquinas virtuais. Esse pode ser um grupo de recursos diferente daquele usado para o pool de host.
+1. Em **Grupo de recursos**, escolha o grupo de recursos no qual você deseja criar as máquinas virtuais. Esse pode ser um grupo de recursos diferente daquele usado para o pool de host.
 
-2. Escolha a **Região da máquina virtual** em que você deseja criar as máquinas virtuais. Podem ser iguais ou diferentes da região selecionada para o pool de host.
+2. Escolha a **Localização da máquina virtual** em que você deseja criar as máquinas virtuais. Podem ser iguais ou diferentes da região selecionada para o pool de host.
 
-3. Em seguida, escolha o tamanho da máquina virtual que você deseja criar. Você pode manter o tamanho padrão no estado em que se encontra ou selecionar **Alterar tamanho** para alterar o tamanho. Se você selecionar **Alterar tamanho**, na janela exibida, escolha o tamanho da máquina virtual adequado para sua carga de trabalho.
+3. Em seguida, escolha o **Tamanho da máquina virtual** que você deseja usar. Você pode manter o tamanho padrão no estado em que se encontra ou selecionar **Alterar tamanho** para alterar o tamanho. Se você selecionar **Alterar tamanho**, na janela exibida, escolha o tamanho da máquina virtual adequado para sua carga de trabalho.
 
-4. Em Número de VMs, forneça o número de VMs que você deseja criar para o pool de host.
+4. Em **Número de VMs**, forneça o número de VMs que você deseja criar para o pool de host.
 
     >[!NOTE]
     >O processo de instalação pode criar até 400 VMs durante a configuração do pool de host. Cada processo de instalação da VM cria quatro objetos em seu grupo de recursos. Como os processos de criação não verificam sua cota de assinatura, verifique se o número de VMs inseridas está dentro dos limites de API e de VM do Azure para seu grupo de recursos e assinatura. Você pode adicionar mais VMs depois de concluir a criação do pool de host.
@@ -109,9 +109,11 @@ Para configurar sua máquina virtual dentro do processo de configuração do poo
 
     - Se você escolher **Galeria**, selecione uma das imagens recomendadas no menu suspenso:
 
-      - Windows 10 Enterprise de várias sessões, versão 1909 + Aplicativos Microsoft 365 para Enterprise – Gen 1
-      - Windows 10 Enterprise de várias sessões, versão 1909 – Gen 1
-      - Windows Server 2019 Datacenter – Gen 1
+      - Windows 10 Enterprise multissessão, versão 1909
+      - Windows 10 Enterprise multissessão, versão 1909 + Aplicativos Microsoft 365
+      - Windows Server 2019 Datacenter
+      - Windows 10 Enterprise multissessão, versão 2004
+      - Windows 10 Enterprise multissessão, versão 2004 + Aplicativos Microsoft 365
 
      Se você não vir a imagem desejada, selecione **Procurar todas as imagens e discos**, o que permite que você selecione outra imagem na galeria ou uma imagem fornecida pela Microsoft e outros editores.
 
@@ -127,7 +129,7 @@ Para configurar sua máquina virtual dentro do processo de configuração do poo
 
 7. Escolha o tipo de discos do SO que você deseja que suas VMs usem: SSD Standard, SSD Premium ou HDD Standard.
 
-8. Em Rede e Segurança, selecione a rede virtual e a sub-rede em que você deseja colocar as máquinas virtuais criadas. Verifique se a rede virtual consegue se conectar ao controlador de domínio, pois você precisará ingressar as máquinas virtuais dentro da rede virtual ao domínio. Em seguida, selecione se deseja ou não um IP público para as máquinas virtuais. Recomendamos que você selecione **Não**, pois um IP privado é mais seguro.
+8. Em Rede e Segurança, selecione a **Rede virtual** e a **Sub-rede** em que você deseja colocar as máquinas virtuais criadas. Verifique se a rede virtual consegue se conectar ao controlador de domínio, pois você precisará ingressar as máquinas virtuais dentro da rede virtual ao domínio. Em seguida, selecione se deseja ou não um IP público para as máquinas virtuais. Recomendamos que você selecione **Não**, pois um IP privado é mais seguro.
 
 9. Selecione o tipo de grupo de segurança desejado: **Básico**, **Avançado** ou **Nenhum**.
 
@@ -141,11 +143,11 @@ Para configurar sua máquina virtual dentro do processo de configuração do poo
 
     Se você escolher **Avançado**, selecione um grupo de segurança de rede existente que você já configurou.
 
-10. Depois disso, selecione se deseja que as máquinas virtuais sejam ingressadas em um domínio específico e em uma unidade organizacional. Se você escolher **Sim**, especifique o domínio para ingressar. Você também pode adicionar uma unidade organizacional específica na qual deseja que as máquinas virtuais estejam.
+10. Depois disso, selecione se deseja que as máquinas virtuais sejam ingressadas em um domínio específico e em uma unidade organizacional. Se você escolher **Sim**, especifique o domínio para ingressar. Opcionalmente, você pode adicionar uma unidade organizacional específica na qual deseja que as máquinas virtuais estejam. Se você escolher **Não**, as VMs serão unidas ao domínio que corresponde ao sufixo da **UPN de ingresso no domínio do AD**.
 
 11. Em Conta do administrador, insira as credenciais para o administrador da rede virtual do Domínio do Active Directory que você selecionou.
 
-12. Selecione **Workspace**.
+12. Selecione **Avançar: Workspace >** .
 
 Com isso, estamos prontos para iniciar a próxima fase de configuração do pool de host: registrar seu grupo de aplicativos em um workspace.
 
@@ -161,7 +163,7 @@ Para registrar o grupo de aplicativos da área de trabalho em um workspace:
 
 2. Em seguida, escolha se deseja criar um workspace ou selecionar um dos workspaces existentes. Somente workspaces criados na mesma localização que o pool de host terão permissão para registrar o grupo de aplicativos.
 
-3. Opcionalmente, você pode selecionar **Marcas**.
+3. Opcionalmente, você pode selecionar **Avançar: Marcas >** .
 
     Aqui, você pode adicionar marcas para que possa agrupar os objetos a metadados para facilitar o trabalho dos administradores.
 
@@ -175,7 +177,7 @@ Para registrar o grupo de aplicativos da área de trabalho em um workspace:
      - Seu novo pool de host.
      - Um grupo de aplicativos da área de trabalho.
      - Um workspace, se você optar por criá-lo.
-     - Se você optar por registrar o grupo de aplicativos da área de trabalho, o registro será concluído
+     - Se você optar por registrar o grupo de aplicativos da área de trabalho, o registro será concluído.
      - Máquinas virtuais, se você optar por criá-las, que são ingressadas no domínio e registradas com o novo pool de host.
      - Um link de download para um modelo de gerenciamento de recursos do Azure com base em sua configuração.
 

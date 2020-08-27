@@ -11,12 +11,12 @@ ms.author: tracych
 author: tracychms
 ms.date: 08/14/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: dddb332498f41437eba77d75c38218c58b8c8379
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 04d1e531f3041ef0a6231607cc795c67168ebf2e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507107"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651192"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Executar inferência de lote em grandes quantidades de dados usando o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -202,7 +202,7 @@ model = Model.register(model_path="models/",
 ## <a name="write-your-inference-script"></a>Escrever seu script de inferência
 
 >[!Warning]
->O código a seguir é apenas uma amostra usada pelo [notebook de exemplo](https://aka.ms/batch-inference-notebooks). Será preciso criar seu próprio script para o seu cenário.
+>O código a seguir é apenas uma amostra usada pelo [notebook de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/parallel-run). Será preciso criar seu próprio script para o seu cenário.
 
 O script *deve conter* duas funções:
 - `init()`: Use essa função para qualquer preparação dispendiosa ou comum para inferência posterior. Por exemplo, use-a para carregar o modelo em um objeto global. Essa função será chamada apenas uma vez no início do processo.
@@ -214,7 +214,7 @@ O script *deve conter* duas funções:
 %%writefile digit_identification.py
 # Snippets from a sample script.
 # Refer to the accompanying digit_identification.py
-# (https://aka.ms/batch-inference-notebooks)
+# (https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/parallel-run)
 # for the implementation script.
 
 import os
@@ -351,7 +351,7 @@ parallelrun_step = ParallelRunStep(
     allow_reuse=True
 )
 ```
-### <a name="create-and-run-the-pipeline"></a>criar e executar o pipeline
+### <a name="create-and-run-the-pipeline"></a>Criar e executar o pipeline
 
 Agora execute o pipeline. Primeiro, crie um objeto [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) usando a referência do workspace e a etapa de pipeline que você criou. O parâmetro `steps` é uma matriz de etapas. Nesse caso, há apenas uma etapa para a inferência de lote. Para criar pipelines que têm várias etapas, coloque as etapas em ordem nesta matriz.
 
@@ -421,7 +421,7 @@ df.head(10)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para ver esse processo funcionando de ponta a ponta, experimente o [notebook de inferência de lote](https://aka.ms/batch-inference-notebooks). 
+Para ver esse processo funcionando de ponta a ponta, experimente o [notebook de inferência de lote](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/parallel-run). 
 
 Para obter diretrizes de depuração e solução de problemas para ParallelRunStep, confira o [guia de instruções](how-to-debug-parallel-run-step.md).
 

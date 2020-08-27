@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Criar uma biblioteca de conteúdo para implantar VMs na AVS (Solução VMware no Azure)'
-description: Neste tutorial da AVS (Solução VMware no Azure), você criará uma biblioteca de conteúdo para implantar uma VM em uma nuvem privada da AVS.
+title: 'Tutorial: Criar uma biblioteca de conteúdo para implantar VMs na Solução VMware no Azure'
+description: Neste tutorial da Solução VMware no Azure, você criará uma biblioteca de conteúdo para implantar uma VM em uma nuvem privada da Solução VMware no Azure.
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.openlocfilehash: d86f9cb92dcb8a852b9b178a5e160da0d1a3a692
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 3abaafac0dbd6f3537d2ca30a093627230780eb5
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612785"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750544"
 ---
-# <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution-avs"></a>Tutorial: Criar uma biblioteca de conteúdo para implantar VMs na AVS (Solução VMware no Azure)
+# <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Tutorial: Criar uma biblioteca de conteúdo para implantar VMs na Solução VMware no Azure
 
 Uma biblioteca de conteúdo armazena e gerencia o conteúdo na forma de itens de biblioteca. Um item de biblioteca consiste em um ou mais arquivos que você usa para implantar VMs (máquinas virtuais). 
  
@@ -22,7 +22,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Um segmento de comutador lógico do NSX-T e um serviço DHCP gerenciado são necessários para concluir este tutorial.  Confira [Como gerenciar o DHCP na versão prévia da AVS (Solução VMware no Azure)](manage-dhcp.md) para obter mais detalhes.
+Um segmento de comutador lógico do NSX-T e um serviço DHCP gerenciado são necessários para concluir este tutorial.  Confira [Como gerenciar o DHCP na versão prévia da Solução VMware no Azure](manage-dhcp.md) para obter mais detalhes.
 
 ## <a name="create-a-content-library"></a>Criar uma biblioteca de conteúdo
 

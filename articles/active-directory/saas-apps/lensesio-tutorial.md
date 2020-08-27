@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory com o Lenses.io | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Lenses.io.
+description: Neste tutorial, você aprenderá a configurar o logon único entre o Azure Active Directory e o Lenses.io.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,120 +11,123 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 0b8d736ab169ad07bd23a21d3a420bb6a044bf01
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 48a1e50d451abb429e9bc33308909b368283644f
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528594"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661428"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-the-lensesio-dataops-portal"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao portal de DataOps do Lenses.io.
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-the-lensesio-dataops-portal"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao portal de DataOps do Lenses.io
 
-Neste tutorial, você aprenderá a integrar o portal de DataOps do [Lenses.io](https://lenses.io/) ao Azure AD (Azure Active Directory). Ao integrar o Lenses.io ao Azure AD, você pode:
+Neste tutorial, você aprenderá a integrar o portal de DataOps do [Lenses.io](https://lenses.io/) ao Azure AD (Azure Active Directory). Depois de integrar o Lenses.io ao Azure AD, você poderá:
 
 * Controlar, no Azure AD, quem tem acesso ao portal do Lenses.io.
 * Permitir que os usuários sejam conectados automaticamente ao Lenses com as contas do Azure AD deles.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para saber mais sobre a integração de aplicativos SaaS (software como serviço) ao Azure AD, confira [O que é o acesso a aplicativos e o logon único com o Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
-* Uma instância de um portal do Lenses. É possível implantar um portal do Lenses de [várias maneiras](https://lenses.io/product/deployment/).
-* Uma [licença](https://lenses.io/product/pricing/) do Lenses.io compatível com SSO (logon único).
+* Uma instância de um portal do Lenses. Você pode escolher entre várias [opções de implantação](https://lenses.io/product/deployment/).
+* Uma [licença](https://lenses.io/product/pricing/) do Lenses.io que dê suporte ao SSO (logon único).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O Lenses.io é compatível com SSO iniciado por **SP**
+* O Lenses.io dá suporte ao SSO iniciado pelo SP (provedor de serviços).
 
-* Depois de configurar o Lenses.io, você poderá impor o controle de sessão, que fornece proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Você poderá impor o controle de sessão depois de configurar o Lenses.io. O controle de sessão fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-lensesio-from-the-gallery"></a>Como adicionar o Lenses.io da galeria
+## <a name="add-lensesio-from-the-gallery"></a>Adicionar o Lenses.io por meio da galeria
 
-Para configurar a integração do Lenses.io ao Azure AD, você precisará adicionar o Lenses.io da galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração do Lenses.io ao Azure AD, adicione o Lenses.io à lista de aplicativos SaaS gerenciados:
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria**, digite **Lenses.io** na caixa de pesquisa.
-1. Selecione **Lenses.io** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
-
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal Microsoft.
+1. No painel esquerdo, selecione o serviço **Microsoft Azure Active Directory**.
+1. Vá para **Aplicativos da empresa**, em seguida, selecione **Todos os Aplicativos**.
+1. Selecione **Novo aplicativo**.
+1. Na seção **Adicionar por meio da galeria**, insira **Lenses.io** na caixa de pesquisa.
+1. No painel de resultados, selecione **Lenses.io** e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-sso-for-lensesio"></a>Configurar e testar o SSO do Azure AD para o Lenses.io
 
-Configure e teste o SSO do Azure AD com o portal do Lenses.io com um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Lenses.io.
+Você criará um usuário de teste chamado *B.Fernandes* para configurar e testar o SSO do Azure AD com o portal do Lenses.io. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Lenses.io.
 
-Para configurar e testar o SSO do Azure AD com o Lenses.io, conclua os seguintes blocos de construção:
+Concluir as seguintes etapas:
 
-1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-    1. **[Criar um grupo e usuário de teste do Azure AD](#create-an-azure-ad-test-user-and-group)** – para testar o logon único do Azure AD com B.Fernandes.
-    1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
-1. **[Configurar o SSO do Lenses.io](#configure-lensesio-sso)** – para definir as configurações de logon único no lado do aplicativo.
-    1. **[Criar permissões de grupo de teste do Lenses.io](#create-lensesio-test-group-permissions)** – para controlar o que B.Fernandes deve acessar no Lenses.io (autorização).
-1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
+1. [Configurar o SSO do Azure AD](#configure-azure-ad-sso) – para permitir que os usuários usem esse recurso.
+    1. [Crie um usuário e um grupo de teste do Azure AD](#create-an-azure-ad-test-user-and-group) para testar o SSO do Azure AD com B.Fernandes.
+    1. [Atribua o usuário de teste do Azure AD](#assign-the-azure-ad-test-user) para permitir que B.Fernandes use o SSO do Azure AD.
+1. [Configure o SSO do Lenses.io](#configure-lensesio-sso) para definir as configurações de SSO no lado do aplicativo.
+    1. [Crie permissões do grupo de teste do Lenses.io](#create-lensesio-test-group-permissions) para controlar o que B.Fernandes pode acessar no Lenses.io (autorização).
+1. [Teste o SSO](#test-sso) para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure:
 
 1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Lenses.io**, localize a seção **Gerenciar** e selecione **Logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. Na página **Configurar o logon único com o SAML**, selecione o ícone editar/caneta da **Configuração Básica do SAML** para editar as configurações.
 
-   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
+   ![Captura de tela que mostra o ícone para edição da configuração básica do SAML.](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
+1. Na seção **Configuração Básica do SAML**, insira valores nas seguintes caixas de entrada de texto:
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<CUSTOMER_LENSES_BASE_URL>`, por exemplo, `https://lenses.my.company.com`
+    a. **URL de Logon**: insira uma URL que tenha o seguinte padrão: `https://<CUSTOMER_LENSES_BASE_URL>`. Um exemplo é `https://lenses.my.company.com`.
 
-    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<CUSTOMER_LENSES_BASE_URL>`, por exemplo, `https://lenses.my.company.com`
+    b. **Identificador (ID da Entidade)** : insira uma URL que tenha o seguinte padrão: `https://<CUSTOMER_LENSES_BASE_URL>`. Um exemplo é `https://lenses.my.company.com`.
 
-    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<CUSTOMER_LENSES_BASE_URL>/api/v2/auth/saml/callback?client_name=SAML2Client`
-    Por exemplo: `https://lenses.my.company.com/api/v2/auth/saml/callback?client_name=SAML2Client`
+    c. **URL de Resposta**: insira uma URL que tenha o seguinte padrão: `https://<CUSTOMER_LENSES_BASE_URL>/api/v2/auth/saml/callback?client_name=SAML2Client`. Um exemplo é `https://lenses.my.company.com/api/v2/auth/saml/callback?client_name=SAML2Client`.
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Logon, a URL de Resposta e o Identificador reais, com base na URL base da instância do portal do Lenses. É possível encontrar mais informações na [documentação de SSO do Lenses.io](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0).
+    > Esses valores não são reais. Atualize-os com a URL de logon, a URL de resposta e o identificador reais da URL base da instância do portal do Lenses. Confira a [documentação do SSO do Lenses.io](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0) para obter mais informações.
 
-1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar o logon único com o SAML**, acesse a seção **Certificado de Autenticação SAML**. Localize **XML de Metadados de Federação** e selecione **Baixar** para baixar e salvar o certificado no computador.
 
-    ![O link de download do Certificado](common/metadataxml.png)
+    ![Captura de tela que mostra o link de download do Certificado.](common/metadataxml.png)
 
-1. Na seção **Configurar o Lenses.io**, use o arquivo XML acima para configurar o Lenses em relação ao SSO do Azure.
+1. Na seção **Configurar o Lenses.io**, use o arquivo XML baixado para configurar o Lenses no SSO do Azure.
 
 ### <a name="create-an-azure-ad-test-user-and-group"></a>Criar um grupo e usuário de teste do Azure AD
 
-Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes. Você também criará um grupo de teste para B.Fernandes, que será usado para controlar que tipo de acesso B.Fernandes tem no Lenses.
-Você pode descobrir como o Lenses usa o mapeamento de associação de grupo para autorização na [documentação do SSO do Lenses](https://docs.lenses.io/install_setup/configuration/security.html#id3)
+No portal do Azure, você criará um usuário de teste chamado B.Fernandes. Em seguida, você criará um grupo de teste que controla o acesso de B.Fernandes no Lenses.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
-1. Selecione **Novo usuário** na parte superior da tela.
+Descubra como o Lenses usa o mapeamento de associação a um grupo para autorização na [documentação do SSO do Lenses](https://docs.lenses.io/install_setup/configuration/security.html#id3).
+
+**Para criar o usuário de teste:**
+
+1. no painel esquerdo no portal do Azure, selecione **Azure Active Directory**, **Usuários** e **Todos os usuários**.
+1. Na parte superior da tela, selecione **Novo usuário**.
 1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira `B.Simon`.  
-   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
-   1. Clique em **Criar**.
+   1. Na caixa **Nome**, insira **B.Fernandes**.  
+   1. Na caixa **Nome de usuário**, insira o username@companydomain.extension. Por exemplo, B.Simon@contoso.com.
+   1. Selecione a caixa de seleção **Mostrar Senha**. Anote a senha exibida na caixa **Senha**.
+   1. Selecione **Criar**.
 
-Para criar o grupo:
-1. Volte para o **Azure Active Directory** e selecione **Grupos**
-1. Selecione **Novo grupo** na parte superior da tela.
+**Para criar o grupo:**
+
+1. Selecione **Azure Active Directory** e **Grupos**.
+1. Na parte superior da tela, selecione **Novo grupo**.
 1. Nas **Propriedades do grupo**, siga estas etapas:
-   1. No campo **Tipo de grupo**, selecione `Security`.
-   1. No campo **Nome do Grupo**, insira `LensesUsers`
-   1. Clique em **Criar**.
-1. Selecione o grupo `LensesUsers` e anote a **ID do Objeto** (por exemplo, `f8b5c1ec-45de-4abd-af5c-e874091fb5f7`). Essa ID será usada no Lenses para mapear usuários desse grupo para as [permissões corretas](https://docs.lenses.io/install_setup/configuration/security.html#id3).  
-   
-Para atribuir o grupo ao usuário de teste: 
-1. Volte para o **Azure Active Directory** e selecione **Usuários**.
-1. Selecione o usuário de teste `B.Simon`.
+   1. Na caixa **Tipo de grupo**, selecione **Segurança**.
+   1. Na caixa **Nome do grupo**, insira **LensesUsers**.
+   1. Selecione **Criar**.
+1. Selecione o grupo **LensesUsers** e copie a **ID do Objeto** (por exemplo, f8b5c1ec-45de-4abd-af5c-e874091fb5f7). Você usará essa ID no Lenses para mapear os usuários do grupo para as [permissões corretas](https://docs.lenses.io/install_setup/configuration/security.html#id3).  
+
+**Para atribuir o grupo ao usuário de teste:**
+
+1. acesse **Azure Active Directory** e selecione **Usuários**.
+1. Selecione o usuário de teste **B.Fernandes**.
 1. Selecione **Grupos**.
-1. Selecione **Adicionar associações** na parte superior da tela.
-1. Pesquise `LensesUsers` e selecione-o.
+1. Na parte superior da tela, escolha **Adicionar associações**.
+1. Pesquise e escolha **LensesUsers**.
 1. Clique em **Selecionar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
@@ -133,43 +136,45 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **Lenses.io**.
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
+1. Na página de visão geral do aplicativo, na seção **Gerenciar**, selecione **Usuários e grupos**.
 
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
+   ![Captura de tela que mostra o link "Usuários e grupos".](common/users-groups-blade.png)
 
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Selecione **Adicionar usuário**.
 
-    ![O link Adicionar Usuário](common/add-assign-user.png)
+   ![Captura de tela que mostra o link Adicionar Usuário.](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+1. Na caixa de diálogo **Adicionar Atribuição**, selecione **Usuários e grupos**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários. Em seguida, clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário na lista. Em seguida, clique no botão **Selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar Atribuição**, selecione o botão **Atribuir**.
 
 ## <a name="configure-lensesio-sso"></a>Configurar o SSO do Lenses.io
 
-Para configurar o logon único no portal do **Lenses.io**, instale o **XML de Metadados de Federação** baixado em sua instância do Lenses e [configure o Lenses para habilitar o SSO](https://docs.lenses.io/install_setup/configuration/security.html#configure-lenses). 
+Para configurar o SSO no portal do **Lenses.io**, instale o **XML de Metadados de Federação** baixado na instância do Lenses e [configure o Lenses para habilitar o SSO](https://docs.lenses.io/install_setup/configuration/security.html#configure-lenses).
 
 ### <a name="create-lensesio-test-group-permissions"></a>Criar permissões de grupo de teste do Lenses.io
 
-Nesta seção, você criará um grupo no Lenses usando a **ID de Objeto** do grupo `LensesUsers` que anotamos na [seção de criação](#create-an-azure-ad-test-user-and-group) do usuário.
-Atribua as permissões desejadas que `B.Simon` deve ter no Lenses.
-Você pode encontrar mais informações sobre o [Azure – Mapeamento de grupo do Lenses](https://docs.lenses.io/install_setup/configuration/security.html#azure-groups).
+1. Para criar um grupo no Lenses, use a **ID do Objeto** do grupo **LensesUsers**. Essa é a ID que você copiou na [seção de criação](#create-an-azure-ad-test-user-and-group) do usuário.
+1. Atribua as permissões desejadas a B.Fernandes.
 
-## <a name="test-sso"></a>Testar o SSO 
+Para obter mais informações, confira [Azure – Mapeamento de grupo do Lenses](https://docs.lenses.io/install_setup/configuration/security.html#azure-groups).
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+## <a name="test-sso"></a>Testar o SSO
 
-Ao clicar no bloco do Lenses.io no Painel de Acesso, você deverá ser conectado automaticamente ao portal do Lenses.io para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Nesta seção, você testará a configuração de SSO do Azure AD usando o Painel de Acesso.
+
+Ao selecionar o bloco do Lenses.io no Painel de Acesso, você deverá ser conectado automaticamente ao portal do Lenses.io. Para saber mais, confira [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Configurar o SSO em sua instância do Lenses.io ](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0)
+- [Configurar o SSO na instância do Lenses.io](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0)
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS ao Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso ao aplicativo e o SSO com o Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o acesso condicional no Azure AD?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimente o Lenses.io com o Azure AD](https://aad.portal.azure.com/)
 

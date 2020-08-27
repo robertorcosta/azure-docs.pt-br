@@ -520,17 +520,11 @@
           href: speech-container-faq.md
 - name: SDK de fala
   items:
-    - name: Visão geral
-      items:
-        - name: Sobre o SDK de Fala
-          href: speech-sdk.md
-        - name: Disponibilidade do cenário
-          href: scenario-availability.md
-    - name: Guia de Início Rápido
-      items:
-        - name: Configurar o SDK de Fala
-          displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
-          href: quickstarts/setup-platform.md
+    - name: Visão geral do SDK de Fala
+      href: speech-sdk.md
+    - name: Configurar o SDK de Fala
+      displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
+      href: quickstarts/setup-platform.md
     - name: Guias de instruções
       items:
         - name: Habilitar o registro em log

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 843094a58868e7751f1fa2dbee70535f2192ae62
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 506429f51ac442b73adea98058a833f52a728c72
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850161"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639742"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Rotear veículos elétricos usando o Azure Notebooks (Python)
 
@@ -27,7 +27,7 @@ Neste tutorial, você ajudará um motorista cuja bateria do veículo elétrico e
 Neste tutorial, você irá:
 
 > [!div class="checklist"]
-> * Criar e executar um Jupyter Notebook no [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) na nuvem.
+> * Criar e executar um arquivo do Jupyter Notebook no [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) na nuvem.
 > * Chamar as APIs REST dos Azure Mapas no Python.
 > * Pesquisar por um intervalo alcançável com base no modelo de consumo do veículo elétrico.
 > * Pesquisar postos de recarga de veículos elétricos dentro do intervalo acessível ou isócrono.
@@ -45,9 +45,9 @@ Para obter a chave de assinatura primária da sua conta, siga as instruções em
 
 Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](./how-to-manage-authentication.md).
 
-## <a name="create-an-azure-notebook"></a>Criar um Azure Notebook
+## <a name="create-an-azure-notebooks-project"></a>Criar um projeto do Azure Notebooks
 
-Para acompanhar este tutorial, você precisará criar um projeto do Azure Notebook e baixar e executar o arquivo do Jupyter Notebook. O arquivo do notebook contém o código Python, que implementa o cenário neste tutorial. Para criar um projeto de notebook do Azure e fazer upload do documento do Jupyter Notebook nele, siga estas etapas:
+Para acompanhar este tutorial, você precisará criar um projeto do Azure Notebooks e baixar e executar o arquivo do Jupyter Notebook. O arquivo do Jupyter Notebook contém o código Python, que implementa o cenário neste tutorial. Para criar um projeto do Azure Notebooks e carregar o documento do Jupyter Notebook nele, siga estas etapas:
 
 1. Vá até [Azure Notebooks](https://notebooks.azure.com) e entre. Para saber mais, confira [Início Rápido: Entrar e definir uma ID de usuário](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
 1. Na parte superior da página de seu perfil público, selecione **Meus Projetos**.
@@ -66,23 +66,23 @@ Para acompanhar este tutorial, você precisará criar um projeto do Azure Notebo
 
 1. Após a criação do projeto, baixe este [arquivo de documento do Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) do [repositório do Jupyter Notebook dos Azure Mapas](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
 
-1. Na lista de projetos da página **Meus Projetos**, selecione o projeto e, em seguida, selecione **Upload** para fazer upload do arquivo de documento do Jupyter Notebook. 
+1. Na lista de projetos da página **Meus Projetos**, escolha seu projeto e selecione **Carregar** para carregar o arquivo de documento do Jupyter Notebook. 
 
-    ![fazer upload do notebook](./media/tutorial-ev-routing/upload-notebook.png)
+    ![carregar o Jupyter Notebook](./media/tutorial-ev-routing/upload-notebook.png)
 
 1. Faça upload do arquivo do computador e, em seguida, selecione **Concluído**.
 
 1. Depois que o upload for concluído com êxito, o arquivo será exibido na página do projeto. Clique duas vezes no arquivo para abri-lo como um Jupyter Notebook.
 
-Tente entender a funcionalidade implementada no arquivo de notebook. Execute o código, no arquivo de notebook, uma célula por vez. Execute o código em cada célula selecionando o botão **Executar** na parte superior do aplicativo do notebook.
+Tente entender a funcionalidade implementada no arquivo do Jupyter Notebook. Execute o código, no arquivo do Jupyter Notebook, uma célula por vez. Execute o código em cada célula selecionando o botão **Executar** na parte superior do aplicativo do Jupyter Notebook.
 
   ![O botão Executar](./media/tutorial-ev-routing/run.png)
 
 ## <a name="install-project-level-packages"></a>Instalar pacotes do nível do projeto
 
-Para executar o código no notebook, instale os pacotes no nível do projeto seguindo estas etapas:
+Para executar o código no Jupyter Notebook, instale os pacotes no nível do projeto seguindo estas etapas:
 
-1. Baixe o arquivo [*requirements.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) do [repositório do Jupyter Notebook nos Azure Mapas](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) e, em seguida, faça upload dele no projeto.
+1. Baixe o arquivo [*requirements.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) do [repositório do Jupyter Notebook dos Azure Mapas](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) e carregue-o no projeto.
 1. No painel do projeto, selecione **Configurações do Projeto**. 
 1. No painel **Configurações do Projeto**, selecione a guia **Ambiente** e, em seguida, selecione **Adicionar**.
 1. Em **Etapas de Instalação do Ambiente**, faça o seguinte:   

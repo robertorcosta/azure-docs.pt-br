@@ -4,12 +4,12 @@ description: Neste tutorial, saiba como criar um cofre dos Serviços de Recupera
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: ed91105488b812131d3a908c509998c955cec299
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 76c09cc02a3545d975de5d6d49b396b12f8abb44
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263411"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757499"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Use o portal do Azure para fazer backup de várias máquinas virtuais
 
@@ -136,7 +136,7 @@ Para executar um trabalho de backup sob demanda:
 
 1. No Menu de contexto, selecione **Fazer Backup Agora**.
 
-    ![Menu de contexto](./media/tutorial-backup-vm-at-scale/context-menu.png)
+    ![Menu de contexto – selecionar Fazer backup agora](./media/tutorial-backup-vm-at-scale/context-menu.png)
 
     O menu Fazer Backup Agora será aberto.
 
@@ -166,7 +166,7 @@ Se planejar continuar trabalhando com os tutoriais subsequentes, não limpe os r
 
 1. Na lista **Itens de Backup**, selecione as reticências para abrir o Menu de contexto.
 
-    ![Menu de contexto](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
+    ![No menu Itens de Backup, abra o Menu de contexto](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
 1. No menu de contexto, selecione **Interromper backup** para abrir o menu Interromper Backup.
 

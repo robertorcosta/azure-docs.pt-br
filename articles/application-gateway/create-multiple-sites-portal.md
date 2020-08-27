@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/14/2020
+ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: c73e09e241baff7c4719acfd4257f537e27b010a
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 6fb613578e520f50701c9a09169f2d78c0c08c4f
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236180"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723989"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutorial: Criar e configurar um gateway de aplicativo para hospedar vários sites web usando o portal do Azure.
 
@@ -78,7 +78,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 2. Escolha **Criar novo** para o **Endereço IP público** e insira *myAGPublicIPAddress* para o nome do endereço IP público e, em seguida, selecione **OK**. 
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Criar VNet":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Criar outra VNet":::
 
 3. Selecione **Avançar: Back-ends**.
 
@@ -156,14 +156,14 @@ Para adicionar destinos de back-end, você vai:
 
     - **Grupo de recursos**: Selecione **myResourceGroupAG** para o nome do grupo de recursos.
     - **Nome da máquina virtual**: Insira *contosoVM* para o nome da máquina virtual.
-    - **Nome de usuário**: Insira *azureuser* para o nome de usuário do administrador.
-    - **Senha**: Insira *Azure123456!* para a senha de administrador.
-4. Aceite os outros padrões e selecione **Próximo: Discos**.  
-5. Aceite os padrões na guia **Discos** e selecione **Próximo: Rede**.
-6. Na guia **Rede**, verifique se **myVNet** está selecionado para a **Rede virtual** e se a **Sub-rede** está definida como **myBackendSubnet**. Aceite os outros padrões e selecione **Próximo: Gerenciamento**.<br>O Gateway de Aplicativo pode comunicar-se com instâncias fora da rede virtual em que está, mas é necessário garantir que há conectividade IP.
-7. Na guia **Gerenciamento**, defina **Diagnóstico de inicialização** como **Desligado**. Aceite os outros padrões e selecione **Revisar + criar**.
-8. Na guia **Revisar + criar**, examine as configurações, corrija os erros de validação e selecione **Criar**.
-9. Aguarde a criação da máquina virtual concluir antes de continuar.
+    - **Nome de usuário**: Insira um nome para o nome de usuário do administrador.
+    - **Senha**: insira uma senha para o administrador.
+1. Aceite os outros padrões e selecione **Próximo: Discos**.  
+2. Aceite os padrões na guia **Discos** e selecione **Próximo: Rede**.
+3. Na guia **Rede**, verifique se **myVNet** está selecionado para a **Rede virtual** e se a **Sub-rede** está definida como **myBackendSubnet**. Aceite os outros padrões e selecione **Próximo: Gerenciamento**.<br>O Gateway de Aplicativo pode comunicar-se com instâncias fora da rede virtual em que está, mas é necessário garantir que há conectividade IP.
+4. Na guia **Gerenciamento**, defina **Diagnóstico de inicialização** como **Desligado**. Aceite os outros padrões e selecione **Revisar + criar**.
+5. Na guia **Revisar + criar**, examine as configurações, corrija os erros de validação e selecione **Criar**.
+6. Aguarde a criação da máquina virtual concluir antes de continuar.
 
 ### <a name="install-iis-for-testing"></a>Instalar IIS para teste
 
@@ -173,7 +173,7 @@ Neste exemplo, você instala IIS nas máquinas virtuais apenas para verificar se
 
     ![Instalar a extensão personalizada](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
-2. Execute o comando a seguir para instalar o IIS na máquina virtual: 
+2. Execute o seguinte comando para instalar o IIS na máquina virtual, substituindo sua região do grupo de recursos por <localização\>: 
 
     ```azurepowershell-interactive
     Set-AzVMExtension `
@@ -184,7 +184,7 @@ Neste exemplo, você instala IIS nas máquinas virtuais apenas para verificar se
       -ExtensionType CustomScriptExtension `
       -TypeHandlerVersion 1.4 `
       -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-      -Location EastUS
+      -Location <location>
     ```
 
 3. Crie uma segunda máquina virtual e instale o IIS usando as etapas que você concluiu anteriormente. Use *fabrikamVM* para o nome da máquina virtual e a configuração **VMName** do cmdlet **Set-AzVMExtension**.

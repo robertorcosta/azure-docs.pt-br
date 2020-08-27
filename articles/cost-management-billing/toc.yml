@@ -172,6 +172,10 @@
               href: manage/pay-by-invoice.md
             - name: Criar assinaturas adicionais
               href: manage/create-subscription.md
+            - name: Criar assinaturas programaticamente
+              href: manage/programmatically-create-subscription.md
+            - name: Conceder acesso para criar assinaturas de EA
+              href: manage/grant-access-to-create-subscription.md
             - name: Exportar informações da assinatura
               href: manage/export-subscriptions.md
             - name: Mudar cartão de crédito
